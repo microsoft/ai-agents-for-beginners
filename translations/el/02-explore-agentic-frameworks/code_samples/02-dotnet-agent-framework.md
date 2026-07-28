@@ -1,80 +1,83 @@
-# 🔍 Εξερεύνηση του Microsoft Agent Framework - Βασικός Πράκτορας (.NET)
+# 🔍 Εξερεύνηση του Microsoft Agent Framework - Βασικός Agent (.NET)
 
-## 📋 Στόχοι Μάθησης
+## 📋 Μαθησιακοί Στόχοι
 
-Αυτό το παράδειγμα εξερευνά τις θεμελιώδεις έννοιες του Microsoft Agent Framework μέσω μιας βασικής υλοποίησης πράκτορα στο .NET. Θα μάθετε βασικά μοτίβα πρακτόρων και θα κατανοήσετε πώς λειτουργούν οι έξυπνοι πράκτορες στο παρασκήνιο χρησιμοποιώντας C# και το οικοσύστημα .NET.
+Αυτό το παράδειγμα εξερευνά τις βασικές έννοιες του Microsoft Agent Framework μέσω μιας βασικής υλοποίησης agent σε .NET. Θα μάθετε τα βασικά μοτίβα πρακτόρων και θα κατανοήσετε πώς λειτουργούν οι έξυπνοι πράκτορες στο παρασκήνιο χρησιμοποιώντας C# και το οικοσύστημα .NET.
 
 ### Τι θα Ανακαλύψετε
 
-- 🏗️ **Αρχιτεκτονική Πράκτορα**: Κατανόηση της βασικής δομής των AI πρακτόρων στο .NET
+- 🏗️ **Αρχιτεκτονική Agent**: Κατανόηση της βασικής δομής των AI agents σε .NET
 - 🛠️ **Ενσωμάτωση Εργαλείων**: Πώς οι πράκτορες χρησιμοποιούν εξωτερικές λειτουργίες για να επεκτείνουν τις δυνατότητες  
-- 💬 **Ροή Συνομιλίας**: Διαχείριση συνομιλιών πολλαπλών γύρων και πλαισίου με διαχείριση νημάτων
-- 🔧 **Μοτίβα Ρύθμισης**: Βέλτιστες πρακτικές για τη ρύθμιση και διαχείριση πρακτόρων στο .NET
+- 💬 **Ροή Συνομιλίας**: Διαχείριση πολλαπλών γύρων συνομιλιών και συμφραζόμενα με διαχείριση νημάτων
+- 🔧 **Πρότυπα Ρυθμίσεων**: Βέλτιστες πρακτικές για τη ρύθμιση και διαχείριση πρακτόρων στο .NET
 
-## 🎯 Βασικές Έννοιες
+## 🎯 Κύριες Έννοιες
 
 ### Αρχές του Agentic Framework
 
-- **Αυτονομία**: Πώς οι πράκτορες λαμβάνουν ανεξάρτητες αποφάσεις χρησιμοποιώντας τις αφαιρέσεις AI του .NET
-- **Αντιδραστικότητα**: Ανταπόκριση σε αλλαγές περιβάλλοντος και εισόδους χρηστών
-- **Προδραστικότητα**: Ανάληψη πρωτοβουλιών βάσει στόχων και πλαισίου
-- **Κοινωνική Ικανότητα**: Αλληλεπίδραση μέσω φυσικής γλώσσας με νήματα συνομιλίας
+- **Αυτονομία**: Πώς οι πράκτορες λαμβάνουν ανεξάρτητες αποφάσεις χρησιμοποιώντας αφαιρέσεις AI του .NET
+- **Αντιδραστικότητα**: Ανταπόκριση σε αλλαγές περιβάλλοντος και εισόδους χρήστη
+- **Προδραστικότητα**: Λήψη πρωτοβουλίας βάσει στόχων και συμφραζομένων
+- **Κοινωνική Ικανότητα**: Αλληλεπίδραση με φυσική γλώσσα μέσω νημάτων συνομιλίας
 
 ### Τεχνικά Στοιχεία
 
-- **AIAgent**: Κεντρική ορχήστρα πράκτορα και διαχείριση συνομιλιών (.NET)
-- **Λειτουργίες Εργαλείων**: Επέκταση δυνατοτήτων πράκτορα με μεθόδους και χαρακτηριστικά C#
-- **Ενσωμάτωση OpenAI**: Αξιοποίηση μοντέλων γλώσσας μέσω τυποποιημένων APIs του .NET
-- **Ασφαλής Ρύθμιση**: Διαχείριση κλειδιών API βάσει περιβάλλοντος
+- **AIAgent**: Βασικός συντονισμός πράκτορα και διαχείριση συνομιλιών (.NET)
+- **Λειτουργίες Εργαλείων**: Επέκταση δυνατοτήτων πράκτορα με μεθόδους και attributes C#
+- **Ενσωμάτωση Azure OpenAI**: Αξιοποίηση μοντέλων γλώσσας μέσω του Azure OpenAI Responses API
+- **Ασφαλής Ρύθμιση**: Διαχείριση endpoint βάσει περιβάλλοντος
 
-## 🔧 Τεχνική Υποδομή
+## 🔧 Τεχνικό Στοίβαγμα
 
 ### Βασικές Τεχνολογίες
 
 - Microsoft Agent Framework (.NET)
-- Ενσωμάτωση API μοντέλων GitHub
-- Πρότυπα πελάτη συμβατά με OpenAI
+- Ενσωμάτωση Azure OpenAI (Responses API)
+- Πρότυπα client Azure.AI.OpenAI
 - Ρύθμιση βάσει περιβάλλοντος με DotNetEnv
 
 ### Δυνατότητες Πράκτορα
 
 - Κατανόηση και παραγωγή φυσικής γλώσσας
-- Κλήση λειτουργιών και χρήση εργαλείων με χαρακτηριστικά C#
-- Απαντήσεις με επίγνωση πλαισίου μέσω νημάτων συνομιλίας
-- Επεκτάσιμη αρχιτεκτονική με μοτίβα έγχυσης εξαρτήσεων
+- Κλήση λειτουργιών και χρήση εργαλείων με attributes C#
+- Απαντήσεις με επίγνωση συμφραζομένων μέσω συνεδριών συνομιλίας
+- Επεκτάσιμη αρχιτεκτονική με μοτίβα dependency injection
 
-## 📚 Σύγκριση Πλαισίων
+## 📚 Σύγκριση Framework
 
-Αυτό το παράδειγμα δείχνει την προσέγγιση του Microsoft Agent Framework σε σύγκριση με άλλα πλαίσια πρακτόρων:
+Αυτό το παράδειγμα παρουσιάζει την προσέγγιση του Microsoft Agent Framework σε σύγκριση με άλλα agentic frameworks:
 
-| Χαρακτηριστικό | Microsoft Agent Framework | Άλλα Πλαίσια |
-|----------------|---------------------------|--------------|
-| **Ενσωμάτωση** | Εγγενές οικοσύστημα Microsoft | Ποικίλη συμβατότητα |
-| **Απλότητα** | Καθαρό, διαισθητικό API | Συχνά περίπλοκη ρύθμιση |
-| **Επεκτασιμότητα** | Εύκολη ενσωμάτωση εργαλείων | Εξαρτάται από το πλαίσιο |
-| **Έτοιμο για Επιχειρήσεις** | Σχεδιασμένο για παραγωγή | Διαφέρει ανά πλαίσιο |
+| Χαρακτηριστικό | Microsoft Agent Framework | Άλλα Frameworks |
+|---------|-------------------------|------------------|
+| **Ενσωμάτωση** | Φυσικό οικοσύστημα Microsoft | Διαφορετική συμβατότητα |
+| **Απλότητα** | Καθαρό, διαισθητικό API | Συχνά πολύπλοκη ρύθμιση |
+| **Επεκτασιμότητα** | Εύκολη ενσωμάτωση εργαλείων | Εξαρτάται από το framework |
+| **Έτοιμο για Επιχειρήσεις** | Κατασκευασμένο για παραγωγή | Διαφέρει ανά framework |
 
 ## 🚀 Ξεκινώντας
 
-### Προαπαιτούμενα
+### Απαιτήσεις
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ή νεότερο
-- [Κλειδί πρόσβασης API μοντέλων GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Μια [συνδρομή Azure](https://azure.microsoft.com/free/) με πόρο Azure OpenAI και ανάπτυξη μοντέλου
+- Το [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — σύνδεση με `az login`
 
-### Απαιτούμενες Μεταβλητές Περιβάλλοντος
+### Απαραίτητες Μεταβλητές Περιβάλλοντος
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Στη συνέχεια, συνδεθείτε ώστε το AzureCliCredential να μπορεί να λάβει ένα διακριτικό
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Στη συνέχεια συνδεθείτε ώστε το AzureCliCredential να μπορεί να λάβει ένα διακριτικό
+az login
 ```
 
 ### Παράδειγμα Κώδικα
@@ -100,14 +103,16 @@ dotnet run ./02-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -139,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -184,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -216,8 +207,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -226,22 +217,22 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 Βασικά Συμπεράσματα
 
-1. **Αρχιτεκτονική Πράκτορα**: Το Microsoft Agent Framework παρέχει μια καθαρή, τύπου ασφαλή προσέγγιση για τη δημιουργία AI πρακτόρων στο .NET
-2. **Ενσωμάτωση Εργαλείων**: Λειτουργίες που διακοσμούνται με χαρακτηριστικά `[Description]` γίνονται διαθέσιμα εργαλεία για τον πράκτορα
-3. **Πλαίσιο Συνομιλίας**: Η διαχείριση νημάτων επιτρέπει συνομιλίες πολλαπλών γύρων με πλήρη επίγνωση πλαισίου
-4. **Διαχείριση Ρύθμισης**: Οι μεταβλητές περιβάλλοντος και η ασφαλής διαχείριση διαπιστευτηρίων ακολουθούν τις βέλτιστες πρακτικές του .NET
-5. **Συμβατότητα OpenAI**: Η ενσωμάτωση μοντέλων GitHub λειτουργεί απρόσκοπτα μέσω συμβατών APIs του OpenAI
+1. **Αρχιτεκτονική Agent**: Το Microsoft Agent Framework παρέχει καθαρή και τύπου ασφαλή προσέγγιση για τη δημιουργία AI agents σε .NET
+2. **Ενσωμάτωση Εργαλείων**: Οι λειτουργίες που διακοσμούνται με attributes `[Description]` γίνονται διαθέσιμα εργαλεία για τον πράκτορα
+3. **Συμφραζόμενα Συνομιλίας**: Η διαχείριση συνεδριών επιτρέπει πολλαπλούς γύρους συνομιλιών με πλήρη επίγνωση συμφραζομένων
+4. **Διαχείριση Ρυθμίσεων**: Οι μεταβλητές περιβάλλοντος και η ασφαλής διαχείριση διαπιστευτηρίων ακολουθούν τις βέλτιστες πρακτικές .NET
+5. **Azure OpenAI Responses API**: Ο πράκτορας χρησιμοποιεί το Azure OpenAI Responses API μέσω του Azure.AI.OpenAI SDK
 
 ## 🔗 Πρόσθετοι Πόροι
 
 - [Τεκμηρίωση Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [Αγορά Μοντέλων GitHub](https://github.com/marketplace?type=models)
+- [Azure OpenAI στο Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Αποποίηση ευθυνών**:  
-Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία αυτόματης μετάφρασης [Co-op Translator](https://github.com/Azure/co-op-translator). Παρόλο που καταβάλλουμε προσπάθειες για ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτόματες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα θα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή εσφαλμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
+**Αποποίηση ευθυνών**:
+Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία μετάφρασης με τεχνητή νοημοσύνη [Co-op Translator](https://github.com/Azure/co-op-translator). Ενώ επιδιώκουμε την ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτοματοποιημένες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

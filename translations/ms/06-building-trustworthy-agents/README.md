@@ -1,42 +1,42 @@
-[![Ejen AI Boleh Dipercayai](../../../translated_images/ms/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Ejen AI Yang Boleh Dipercayai](../../../translated_images/ms/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Klik gambar di atas untuk menonton video pelajaran ini)_
+> _(Klik imej di atas untuk menonton video pelajaran ini)_
 
-# Membangun Ejen AI Boleh Dipercayai
+# Membina Ejen AI Yang Boleh Dipercayai
 
 ## Pengenalan
 
 Pelajaran ini akan merangkumi:
 
 - Cara membina dan melancarkan Ejen AI yang selamat dan berkesan
-- Pertimbangan keselamatan penting ketika membangunkan Ejen AI.
+- Pertimbangan keselamatan penting semasa membangunkan Ejen AI.
 - Cara mengekalkan privasi data dan pengguna semasa membangunkan Ejen AI.
 
 ## Matlamat Pembelajaran
 
-Selepas menamatkan pelajaran ini, anda akan mengetahui cara untuk:
+Selepas menyelesaikan pelajaran ini, anda akan tahu cara untuk:
 
 - Mengenal pasti dan mengurangkan risiko semasa mencipta Ejen AI.
 - Melaksanakan langkah keselamatan untuk memastikan data dan akses diurus dengan betul.
-- Mencipta Ejen AI yang mengekalkan privasi data dan menyediakan pengalaman pengguna yang berkualiti.
+- Mewujudkan Ejen AI yang mengekalkan privasi data dan menyediakan pengalaman pengguna yang berkualiti.
 
 ## Keselamatan
 
-Mari kita lihat terlebih dahulu cara membina aplikasi ejen yang selamat. Keselamatan bermakna ejen AI berfungsi seperti yang direka. Sebagai pembina aplikasi ejen, kita mempunyai kaedah dan alat untuk memaksimumkan keselamatan:
+Mari kita lihat dahulu membina aplikasi agen yang selamat. Keselamatan bermaksud ejen AI berfungsi seperti yang direka. Sebagai pembina aplikasi agen, kita mempunyai kaedah dan alat untuk memaksimumkan keselamatan:
 
 ### Membina Rangka Kerja Mesej Sistem
 
-Jika anda pernah membina aplikasi AI menggunakan Model Bahasa Besar (LLM), anda tahu kepentingan mereka bentuk prompt sistem atau mesej sistem yang kukuh. Prompt ini menetapkan peraturan meta, arahan, dan garis panduan bagaimana LLM akan berinteraksi dengan pengguna dan data.
+Jika anda pernah membina aplikasi AI menggunakan Model Bahasa Besar (LLM), anda tahu betapa pentingnya mereka bentuk arahan sistem atau mesej sistem yang kukuh. Arahan ini menetapkan peraturan meta, arahan, dan panduan tentang bagaimana LLM akan berinteraksi dengan pengguna dan data.
 
-Untuk Ejen AI, prompt sistem adalah lebih penting kerana Ejen AI memerlukan arahan yang sangat khusus untuk melengkapkan tugas yang kita reka.
+Untuk Ejen AI, arahan sistem adalah lebih penting kerana Ejen AI memerlukan arahan yang sangat spesifik untuk melengkapkan tugasan yang kita reka untuk mereka.
 
-Untuk mencipta prompt sistem yang boleh diskala, kita boleh menggunakan rangka kerja mesej sistem untuk membina satu atau lebih ejen dalam aplikasi kita:
+Untuk mencipta arahan sistem yang boleh diskalakan, kita boleh menggunakan rangka kerja mesej sistem untuk membina satu atau lebih ejen dalam aplikasi kita:
 
 ![Membina Rangka Kerja Mesej Sistem](../../../translated_images/ms/system-message-framework.3a97368c92d11d68.webp)
 
 #### Langkah 1: Cipta Mesej Sistem Meta
 
-Meta prompt akan digunakan oleh LLM untuk menghasilkan prompt sistem bagi ejen yang kita cipta. Kita mereka bentuknya sebagai templat supaya kita boleh mencipta pelbagai ejen dengan lebih cekap jika perlu.
+Arahan meta akan digunakan oleh LLM untuk menghasilkan arahan sistem bagi ejen yang kita cipta. Ia direka sebagai templat supaya kita boleh mencipta pelbagai ejen dengan lebih cekap jika perlu.
 
 Berikut adalah contoh mesej sistem meta yang akan kita berikan kepada LLM:
 
@@ -47,9 +47,9 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Langkah 2: Cipta prompt asas
+#### Langkah 2: Cipta arahan asas
 
-Langkah seterusnya adalah mencipta prompt asas untuk menerangkan Ejen AI. Anda perlu memasukkan peranan ejen, tugas-tugas yang akan diselesaikan oleh ejen, dan sebarang tanggungjawab lain ejen.
+Langkah seterusnya ialah mencipta arahan asas untuk menerangkan Ejen AI. Anda harus memasukkan peranan ejen, tugasan yang akan diselesaikan, dan sebarang tanggungjawab lain ejen.
 
 Berikut adalah contohnya:
 
@@ -59,9 +59,9 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 #### Langkah 3: Berikan Mesej Sistem Asas kepada LLM
 
-Sekarang kita boleh mengoptimumkan mesej sistem ini dengan memberikan mesej sistem meta sebagai mesej sistem dan mesej sistem asas kita.
+Kini kita boleh mengoptimumkan mesej sistem ini dengan memberikan mesej sistem meta sebagai mesej sistem dan mesej sistem asas kita.
 
-Ini akan menghasilkan mesej sistem yang direka dengan lebih baik untuk membimbing ejen AI kita:
+Ini akan menghasilkan mesej sistem yang lebih direka untuk membimbing ejen AI kita:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,65 +113,67 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Langkah 4: Ulang dan Baik Pulih
+#### Langkah 4: Ulang dan Baiki
 
-Kelebihan rangka kerja mesej sistem ini adalah kemudahan dalam membina banyak mesej sistem dari pelbagai ejen serta memperbaiki mesej sistem anda dari masa ke masa. Jarang sekali anda mendapat mesej sistem yang berfungsi sempurna pada kali pertama untuk kes penggunaan lengkap anda. Kebolehan untuk membuat tunjuk cara kecil dan penambahbaikan dengan menukar mesej sistem asas dan menjalankannya melalui sistem akan membolehkan anda membandingkan dan menilai keputusan.
+Nilai rangka kerja mesej sistem ini adalah agar dapat memudahkan penghasilan mesej sistem bagi pelbagai ejen serta meningkatkan mesej sistem anda dari masa ke masa. Jarang sekali anda mempunyai mesej sistem yang berfungsi pada percubaan pertama untuk kes penggunaan lengkap anda. Keupayaan untuk membuat pembetulan kecil dan penambahbaikan dengan mengubah mesej sistem asas dan menjalankannya melalui sistem akan membolehkan anda membanding dan menilai keputusan.
 
 ## Memahami Ancaman
 
-Untuk membina ejen AI yang boleh dipercayai, penting untuk memahami dan mengurangkan risiko dan ancaman terhadap ejen AI anda. Mari kita lihat sebahagian daripada ancaman berbeza terhadap ejen AI dan bagaimana anda boleh merancang serta bersedia dengan lebih baik.
+Untuk membina ejen AI yang boleh dipercayai, adalah penting untuk memahami dan mengurangkan risiko dan ancaman terhadap ejen AI anda. Mari kita lihat beberapa ancaman berbeza terhadap ejen AI dan cara anda boleh merancang serta bersedia dengan lebih baik.
 
 ![Memahami Ancaman](../../../translated_images/ms/understanding-threats.89edeada8a97fc0f.webp)
 
-### Tugas dan Arahan
+### Tugasan dan Arahan
 
-**Penerangan:** Penyerang cuba menukar arahan atau matlamat ejen AI melalui prompt atau manipulasi input.
+**Penerangan:** Penyerang cuba mengubah arahan atau matlamat ejen AI melalui arahan atau manipulasi input.
 
-**Pengurangan Risiko**: Laksanakan pemeriksaan pengesahan dan penapis input untuk mengesan prompt yang berpotensi berbahaya sebelum diproses oleh Ejen AI. Oleh kerana serangan ini biasanya memerlukan interaksi kerap dengan Ejen, menghadkan bilangan pusingan dalam perbualan adalah satu lagi cara untuk mencegah jenis serangan ini.
+**Pengurangan Risiko:** Laksanakan pemeriksaan pengesahan dan penapis input untuk mengesan arahan yang berpotensi berbahaya sebelum diproses oleh Ejen AI. Oleh kerana serangan ini biasanya memerlukan interaksi kerap dengan Ejen, mengehadkan bilangan giliran dalam perbualan adalah satu lagi cara untuk mengelakkan jenis serangan ini.
 
 ### Akses kepada Sistem Kritikal
 
-**Penerangan**: Jika ejen AI mempunyai akses kepada sistem dan perkhidmatan yang menyimpan data sensitif, penyerang boleh mengompromi komunikasi antara ejen dan perkhidmatan ini. Ini boleh menjadi serangan langsung atau cubaan tidak langsung untuk mendapatkan maklumat mengenai sistem ini melalui ejen.
+**Penerangan:** Jika ejen AI mempunyai akses ke sistem dan perkhidmatan yang menyimpan data sensitif, penyerang boleh mengganggu komunikasi antara ejen dan perkhidmatan ini. Ini boleh menjadi serangan langsung atau cubaan tidak langsung untuk mendapatkan maklumat tentang sistem ini melalui ejen.
 
-**Pengurangan Risiko**: Ejen AI harus mempunyai akses kepada sistem berdasarkan keperluan sahaja untuk mengelakkan jenis serangan ini. Komunikasi antara ejen dan sistem juga perlu selamat. Melaksanakan pengesahan identiti dan kawalan akses adalah satu lagi cara untuk melindungi maklumat ini.
+**Pengurangan Risiko:** Ejen AI harus mempunyai akses ke sistem hanya apabila perlu untuk mengelakkan jenis serangan ini. Komunikasi antara ejen dan sistem juga harus selamat. Melaksanakan pengesahan dan kawalan akses adalah satu lagi cara untuk melindungi maklumat ini.
 
-### Beban Berlebihan Sumber dan Perkhidmatan
+### Beban Berlebihan pada Sumber dan Perkhidmatan
 
-**Penerangan:** Ejen AI boleh mengakses alat dan perkhidmatan yang berbeza untuk menyelesaikan tugas. Penyerang boleh menggunakan keupayaan ini untuk menyerang perkhidmatan tersebut dengan menghantar jumlah permintaan yang tinggi melalui Ejen AI, yang mungkin mengakibatkan kegagalan sistem atau kos yang tinggi.
+**Penerangan:** Ejen AI boleh mengakses pelbagai alat dan perkhidmatan untuk melaksanakan tugasan. Penyerang boleh menggunakan kebolehan ini untuk menyerang perkhidmatan ini dengan menghantar volum permintaan yang tinggi melalui Ejen AI, yang mungkin mengakibatkan kegagalan sistem atau kos yang tinggi.
 
-**Pengurangan Risiko:** Melaksanakan dasar untuk mengehadkan bilangan permintaan yang boleh dibuat oleh ejen AI kepada perkhidmatan. Hadkan bilangan pusingan perbualan dan permintaan kepada ejen AI anda adalah satu lagi cara untuk mencegah jenis serangan ini.
+**Pengurangan Risiko:** Laksanakan polisi untuk mengehadkan jumlah permintaan yang boleh dibuat oleh ejen AI ke sesuatu perkhidmatan. Mengehadkan bilangan giliran perbualan dan permintaan ke ejen AI anda adalah satu lagi cara untuk mengelakkan jenis serangan ini.
 
 ### Pencemaran Pangkalan Pengetahuan
 
-**Penerangan:** Jenis serangan ini tidak menyasarkan ejen AI secara langsung tetapi menyasarkan pangkalan pengetahuan dan perkhidmatan lain yang digunakan oleh ejen AI. Ini boleh melibatkan pemusnahan data atau maklumat yang digunakan oleh ejen AI untuk menyelesaikan tugas, membawa kepada respons yang bias atau tidak dijangka kepada pengguna.
+**Penerangan:** Jenis serangan ini tidak mensasarkan ejen AI secara langsung tetapi mensasarkan pangkalan pengetahuan dan perkhidmatan lain yang akan digunakan oleh ejen AI. Ini boleh melibatkan pemusnahan data atau maklumat yang digunakan ejen AI untuk melaksanakan tugasan, mengakibatkan respons yang berat sebelah atau tidak disengajakan kepada pengguna.
 
 **Pengurangan Risiko:** Lakukan pengesahan berkala terhadap data yang akan digunakan oleh ejen AI dalam aliran kerjanya. Pastikan akses kepada data ini selamat dan hanya diubah oleh individu yang dipercayai untuk mengelakkan jenis serangan ini.
 
-### Ralat Bersiri
+### Ralat Berantai
 
-**Penerangan:** Ejen AI mengakses pelbagai alat dan perkhidmatan untuk menyelesaikan tugas. Ralat yang disebabkan oleh penyerang boleh menyebabkan kegagalan sistem lain yang disambungkan kepada ejen AI, menyebabkan serangan menjadi lebih meluas dan sukar untuk dibaiki.
+**Penerangan:** Ejen AI mengakses pelbagai alat dan perkhidmatan untuk melaksanakan tugasan. Kesilapan yang disebabkan oleh penyerang boleh mengakibatkan kegagalan sistem lain yang dihubungkan kepada ejen AI, menyebabkan serangan menjadi lebih meluas dan lebih sukar untuk diselesaikan.
 
-**Pengurangan Risiko**: Salah satu kaedah untuk mengelakkan ini adalah dengan membenarkan ejen AI beroperasi dalam persekitaran terhad, seperti menjalankan tugas dalam kontena Docker, untuk mengelakkan serangan sistem langsung. Membuat mekanisme fallback dan logik cuba semula apabila sistem tertentu memberi respons ralat adalah satu lagi cara untuk mengelakkan kegagalan sistem yang lebih besar.
+**Pengurangan Risiko:** Salah satu kaedah untuk mengelakkan ini adalah dengan menjadikan Ejen AI beroperasi dalam persekitaran terhad, seperti melaksanakan tugasan dalam kontena Docker, untuk mengelakkan serangan sistem langsung. Mewujudkan mekanisme sandaran dan logik percubaan semula apabila sistem tertentu memberikan ralat adalah satu lagi cara untuk mengelakkan kegagalan sistem yang lebih besar.
 
 ## Manusia dalam Gelung
 
-Satu lagi kaedah berkesan untuk membina sistem Ejen AI yang boleh dipercayai adalah dengan menggunakan Manusia dalam gelung. Ini mencipta aliran di mana pengguna boleh memberikan maklum balas kepada Ejen semasa proses berjalan. Pengguna berperanan sebagai ejen dalam sistem berbilang ejen dengan memberikan kelulusan atau penamatan proses yang sedang berjalan.
+Satu lagi cara yang berkesan untuk membina sistem Ejen AI yang boleh dipercayai ialah menggunakan Manusia dalam gelung. Ini mencipta aliran di mana pengguna boleh memberikan maklum balas kepada Ejen semasa proses berjalan. Pengguna bertindak sebagai ejen dalam sistem berbilang ejen dengan memberikan kelulusan atau penamatan proses yang sedang berjalan.
 
 ![Manusia dalam Gelung](../../../translated_images/ms/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Berikut adalah petikan kod menggunakan Rangka Kerja Ejen Microsoft untuk menunjukkan bagaimana konsep ini dilaksanakan:
+Berikut adalah petikan kod menggunakan Rangka Kerja Ejen Microsoft untuk menunjukkan cara konsep ini dilaksanakan:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Buat penyedia dengan kelulusan manusia-dalam-gelung
-provider = AzureAIProjectAgentProvider(
+# Cipta penyedia dengan kelulusan manusia-dalam-pusingan
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Buat ejen dengan langkah kelulusan manusia
+# Cipta ejen dengan langkah kelulusan manusia
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
@@ -188,16 +190,16 @@ else:
 
 ## Kesimpulan
 
-Membangun ejen AI yang boleh dipercayai memerlukan reka bentuk yang teliti, langkah keselamatan yang kukuh, dan iterasi berterusan. Dengan melaksanakan sistem meta-prompt yang tersusun, memahami ancaman potensi, dan menggunakan strategi pengurangan risiko, pembangun boleh mencipta ejen AI yang selamat dan berkesan. Selain itu, menggabungkan pendekatan manusia dalam gelung memastikan ejen AI sentiasa selaras dengan keperluan pengguna sambil mengurangkan risiko. Semakin berkembangnya AI, mengekalkan pendekatan proaktif terhadap keselamatan, privasi, dan pertimbangan etika akan menjadi kunci untuk memupuk kepercayaan dan kebolehpercayaan dalam sistem berasaskan AI.
+Membina ejen AI yang boleh dipercayai memerlukan reka bentuk yang teliti, langkah keselamatan yang kukuh, dan pengulangan berterusan. Dengan melaksanakan sistem meta prompt yang terstruktur, memahami ancaman potensi, dan mengaplikasikan strategi pengurangan risiko, pembangun boleh mencipta ejen AI yang selamat dan berkesan. Selain itu, menggabungkan pendekatan manusia dalam gelung memastikan ejen AI kekal selaras dengan keperluan pengguna sambil meminimumkan risiko. Apabila AI berkembang, mengekalkan sikap proaktif terhadap keselamatan, privasi, dan pertimbangan etika akan menjadi kunci membina kepercayaan dan kebolehpercayaan dalam sistem berasaskan AI.
 
 ## Contoh Kod
 
 - [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Demonstrasi langkah demi langkah rangka kerja mesej sistem meta-prompt.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Pintu kelulusan sebelum tindakan, pengkelasan risiko, dan pencatatan audit untuk ejen boleh dipercayai.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Pintu kelulusan sebelum tindakan, pengkelasan risiko, dan log audit untuk ejen yang boleh dipercayai.
 
-### Ada Soalan Lagi tentang Membangun Ejen AI Boleh Dipercayai?
+### Ada Soalan Lagi tentang Membina Ejen AI Yang Boleh Dipercayai?
 
-Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan dapatkan jawapan kepada soalan Ejen AI anda.
+Sertai [Discord Microsoft Foundry](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat, dan mendapatkan jawapan kepada soalan Ejen AI anda.
 
 ## Sumber Tambahan
 
@@ -212,7 +214,7 @@ Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berte
 
 ## Pelajaran Seterusnya
 
-[Corak Reka Bentuk Perancangan](../07-planning-design/README.md)
+[Reka Bentuk Perancangan](../07-planning-design/README.md)
 
 ---
 

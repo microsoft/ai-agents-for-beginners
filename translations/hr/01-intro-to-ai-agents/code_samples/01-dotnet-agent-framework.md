@@ -1,57 +1,57 @@
-# 🌍 AI Agent za Putovanja s Microsoft Agent Framework (.NET)
+# 🌍 AI Putni Agent s Microsoft Agent Framework (.NET)
 
-## 📋 Pregled Scenarija
+## 📋 Pregled scenarija
 
-Ovaj primjer prikazuje kako izgraditi inteligentnog agenta za planiranje putovanja koristeći Microsoft Agent Framework za .NET. Agent može automatski generirati personalizirane itinerere jednodnevnih izleta za nasumične destinacije širom svijeta.
+Ovaj primjer pokazuje kako izgraditi inteligentnog agenta za planiranje putovanja koristeći Microsoft Agent Framework za .NET. Agent može automatski generirati personalizirane jednodnevne itinerare za slučajne destinacije širom svijeta.
 
-### Ključne Mogućnosti:
+### Ključne sposobnosti:
 
-- 🎲 **Nasumični Odabir Destinacije**: Koristi prilagođeni alat za odabir mjesta za odmor
-- 🗺️ **Inteligentno Planiranje Putovanja**: Kreira detaljne itinerere po danima
-- 🔄 **Real-time Streaming**: Podržava i trenutne i streaming odgovore
-- 🛠️ **Integracija Prilagođenog Alata**: Prikazuje kako proširiti mogućnosti agenta
+- 🎲 **Nasumični odabir destinacije**: Koristi prilagođeni alat za odabir mjesta za odmor
+- 🗺️ **Inteligentno planiranje putovanja**: Kreira detaljne itinerare po danima
+- 🔄 **Streaming u stvarnom vremenu**: Podržava brze i streaming odgovore
+- 🛠️ **Integracija prilagođenih alata**: Pokazuje kako proširiti mogućnosti agenta
 
-## 🔧 Tehnička Arhitektura
+## 🔧 Tehnička arhitektura
 
-### Osnovne Tehnologije
+### Osnovne tehnologije
 
 - **Microsoft Agent Framework**: Najnovija .NET implementacija za razvoj AI agenata
-- **Azure OpenAI (Responses API)**: Koristi Azure OpenAI Responses API za izvođenje modela
-- **Azure Identity**: Sigurno prijavljivanje putem `AzureCliCredential` (`az login`)
-- **Sigurna Konfiguracija**: Upravljanje krajnjom točkom na temelju okoline
+- **Azure OpenAI (Responses API)**: Koristi Azure OpenAI Responses API za inferenciju modela
+- **Azure Identity**: Sigurna prijava putem `AzureCliCredential` (`az login`)
+- **Sigurna konfiguracija**: Upravljanje krajnjom točkom temeljeno na okruženju
 
-### Ključne Komponente
+### Ključne komponente
 
-1. **AIAgent**: Glavni agent koji upravlja tokovima konverzacije
-2. **Prilagođeni Alati**: funkcija `GetRandomDestination()` dostupna agentu
-3. **Responses Klijent**: sučelje za razgovor temeljeno na Azure OpenAI Responses
-4. **Podrška za Streaming**: Mogućnosti generiranja odgovora u stvarnom vremenu
+1. **AIAgent**: Glavni organizator agenta koji upravlja tijekom razgovora
+2. **Prilagođeni alati**: Funkcija `GetRandomDestination()` dostupna agentu
+3. **Responses klijent**: Sučelje za razgovor temeljeno na Azure OpenAI Responses
+4. **Podrška za streaming**: Mogućnosti generiranja odgovora u stvarnom vremenu
 
-### Obrasci Integracije
+### Uzorak integracije
 
 ```mermaid
 graph LR
-    A[Korisnički Zahtjev] --> B[AI agent]
-    B --> C[Azure OpenAI (API za odgovore)]
-    B --> D[Alat za Dobivanje Nasumične Destinacije]
-    C --> E[Putni Plan]
+    A[Zahtjev korisnika] --> B[AI agent]
+    B --> C[Azure OpenAI (Responses API)]
+    B --> D[Alat GetRandomDestination]
+    C --> E[Putni plan]
     D --> E
 ```
 
-## 🚀 Kako Početi
+## 🚀 Početak rada
 
 ### Preduvjeti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji
-- [Pretplata na Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i postavljenim modelom
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se s `az login`
+- Pretplata na [Azure](https://azure.microsoft.com/free/) s resursom Azure OpenAI i implementacijom modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se putem `az login`
 
-### Potrebne Varijable Okoline
+### Potrebne varijable okruženja
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
@@ -59,12 +59,12 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
 
-### Primjer Koda
+### Primjer koda
 
 Za pokretanje primjera koda,
 
@@ -80,7 +80,7 @@ Ili koristeći dotnet CLI:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Pogledajte [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) za cjelokupan kod.
+Pogledajte [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) za kompletan kod.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,19 +157,19 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Ključne Lekcije
+## 🎓 Ključni zaključci
 
-1. **Arhitektura Agenta**: Microsoft Agent Framework pruža čist, tipično siguran pristup izgradnji AI agenata u .NET-u
-2. **Integracija Alata**: Funkcije ukrašene atributima `[Description]` postaju dostupni alati agentu
-3. **Upravljanje Konfiguracijom**: Varijable okoline i sigurno upravljanje vjerodajnicama prate najbolje prakse .NET-a
-4. **Azure OpenAI Responses API**: Agent koristi Azure OpenAI Responses API preko Azure.AI.OpenAI SDK-a
+1. **Arhitektura agenta**: Microsoft Agent Framework pruža čist, tipno siguran pristup izgradnji AI agenata u .NET-u
+2. **Integracija alata**: Funkcije označene atributima `[Description]` postaju dostupni alati za agenta
+3. **Upravljanje konfiguracijom**: Varijable okruženja i sigurno upravljanje vjerodajnicama prate najbolje prakse .NET-a
+4. **Azure OpenAI Responses API**: Agent koristi Azure OpenAI Responses API putem Azure.AI.OpenAI SDK-a
 
-## 🔗 Dodatni Resursi
+## 🔗 Dodatni resursi
 
 - [Dokumentacija Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI u Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Aplikacije](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

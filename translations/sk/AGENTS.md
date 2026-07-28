@@ -1,8 +1,8 @@
 # AGENTS.md
 
-## Prehľad Projektu
+## Prehľad projektu
 
-Táto repozitár obsahuje "AI Agenti pre začiatočníkov" - komplexný vzdelávací kurz, ktorý učí všetko potrebné na vytvorenie AI agentov. Kurz pozostáva z 18 lekcií (číslovaných 00-18), ktoré pokrývajú základy, návrhové vzory, frameworky, produkčné nasadenie, lokálnych/ zariadených agentov a bezpečnosť AI agentov.
+Tento repozitár obsahuje "AI Agenti pre Začiatočníkov" - komplexný vzdelávací kurz, ktorý učí všetko potrebné na tvorbu AI agentov. Kurz pozostáva z 18 lekcií (číslovaných 00-18), ktoré pokrývajú základy, návrhové vzory, frameworky, produkčné nasadenie, lokálnych/na zariadení agentov a bezpečnosť AI agentov.
 
 **Kľúčové technológie:**
 - Python 3.12+
@@ -11,21 +11,21 @@ Táto repozitár obsahuje "AI Agenti pre začiatočníkov" - komplexný vzdeláv
 - Azure AI služby: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Architektúra:**
-- Štruktúra založená na lekciách (adresáre 00-15+)
-- Každá lekcia obsahuje: README dokumentáciu, ukážky kódu (Jupyter notebooky) a obrázky
+- Štruktúra podľa lekcií (adresáre 00-15+)
+- Každá lekcia obsahuje: dokumentáciu README, príklady kódu (Jupyter notebooky) a obrázky
 - Podpora viacerých jazykov cez automatizovaný prekladový systém
 - Jeden Python notebook na lekciu používajúci Microsoft Agent Framework
 
-## Inštrukcie Nastavenia
+## Príkazy na nastavenie
 
 ### Požiadavky
-- Python 3.12 alebo vyšší
+- Python 3.12 alebo novší
 - Azure predplatné (pre Microsoft Foundry)
-- Nainštalovaný a autentifikovaný Azure CLI (`az login`)
+- Azure CLI nainštalované a autentifikované (`az login`)
 
-### Počiatočné Nastavenie
+### Počiatočné nastavenie
 
-1. **Klonujte alebo vytvorte fork repozitára:**
+1. **Naklonujte alebo forknite repozitár:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # ALEBO
@@ -36,7 +36,7 @@ Táto repozitár obsahuje "AI Agenti pre začiatočníkov" - komplexný vzdeláv
 2. **Vytvorte a aktivujte Python virtuálne prostredie:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Vo Windows: venv\Scripts\activate
+   source venv/bin/activate  # Na Windows: venv\Scripts\activate
    ```
 
 3. **Nainštalujte závislosti:**
@@ -50,23 +50,23 @@ Táto repozitár obsahuje "AI Agenti pre začiatočníkov" - komplexný vzdeláv
    # Upravte .env so svojimi API kľúčmi a koncovými bodmi
    ```
 
-### Povinné Premenné Prostredia
+### Povinné premenné prostredia
 
-Pre **Microsoft Foundry** (Povinné):
-- `AZURE_AI_PROJECT_ENDPOINT` - Koncový bod projektu Microsoft Foundry
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Názov nasadenia modelu (napr. gpt-4.1-mini)
+Pre **Microsoft Foundry** (povinné):
+- `AZURE_AI_PROJECT_ENDPOINT` - koncový bod projektu Microsoft Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - názov nasadenia modelu (napr. gpt-5-mini)
 
 Pre **Azure AI Search** (Lekcia 05 - RAG):
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Koncový bod Azure AI Search
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - koncový bod Azure AI Search
 - `AZURE_SEARCH_API_KEY` - API kľúč Azure AI Search
 
 Autentifikácia: Spustite `az login` pred spustením notebookov (používa `AzureCliCredential`).
 
-## Vývojový Priebeh
+## Vývojový pracovný tok
 
 ### Spustenie Jupyter Notebookov
 
-Každá lekcia obsahuje viacero Jupyter notebookov pre rôzne frameworky:
+Každá lekcia obsahuje viaceré Jupyter notebooky pre rôzne frameworky:
 
 1. **Spustite Jupyter:**
    ```bash
@@ -84,24 +84,24 @@ Každá lekcia obsahuje viacero Jupyter notebookov pre rôzne frameworky:
 **Microsoft Agent Framework + Microsoft Foundry:**
 - Vyžaduje Azure predplatné
 - Používa `FoundryChatClient` pre Agent Service V2 (agenti viditeľní v portáli Foundry)
-- Produkčne pripravené s vnútorným monitorovaním
-- Vzor súboru: `*-python-agent-framework.ipynb`
+- Produkčná pripravenosť so zabudovanou pozorovateľnosťou
+- Vzor súborov: `*-python-agent-framework.ipynb`
 
-## Inštrukcie na Testovanie
+## Inštrukcie na testovanie
 
-Toto je vzdelávací repozitár s ukážkovým kódom namiesto produkčného kódu s automatizovanými testami. Na overenie vášho nastavenia a zmien:
+Toto je vzdelávací repozitár s ukážkovým kódom, nie produkčný kód s automatizovanými testami. Na overenie nastavenia a zmien:
 
-### Manuálne Testovanie
+### Manuálne testovanie
 
 1. **Otestujte Python prostredie:**
    ```bash
-   python --version  # Mala by byť 3.12+
+   python --version  # Mala by byť 3.12 a vyššia
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
 2. **Otestujte spustenie notebooku:**
    ```bash
-   # Konvertovať poznámkový blok na skript a spustiť (testuje importy)
+   # Preveďte notebook na skript a spustite (testuje importy)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -112,33 +112,33 @@ Toto je vzdelávací repozitár s ukážkovým kódom namiesto produkčného kó
 
 ### Spustenie jednotlivých notebookov
 
-Otvorte notebooky v Jupyter a spúšťajte bunky postupne. Každý notebook je samostatný a obsahuje:
+Otvorte notebooky v Jupyter a postupne vykonajte bunky. Každý notebook je samostatný a obsahuje:
 - Importy
 - Načítanie konfigurácie
 - Príklady implementácií agentov
 - Očakávané výstupy v markdown bunkách
 
-### Rýchlotestovanie nasadených agentov
+### Rýchle testovanie nasadených agentov
 
-Pre lekcie, kde je agent nasadený ako Microsoft Foundry hostovaný agent (01, 04, 05, 16), repozitár obsahuje rýchlotest katalógy v adresári `tests/`, ktoré sú spúšťané workflow `.github/workflows/smoke-test.yml` cez akciu [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). Ide o ľahkú kontrolu po nasadení (je agent dostupný a reaguje podľa základných očakávaní?), ktorá dopĺňa evaluačný pipeline v lekciách 10 a 16. Pozrite [tests/README.md](./tests/README.md) pre mapovanie katalógu na lekciu a agenta. Lekcia 17 beží lokálne s Foundry Local a nemá hostený koncový bod, preto sa overuje priamym spustením jej notebooku.
+Pre lekcie, kde je agent nasadený ako Microsoft Foundry hosťovaný agent (01, 04, 05, 16), repozitár obsahuje smoke-test katalógy v `tests/`, ktoré spúšťa workflow `.github/workflows/smoke-test.yml` cez akciu [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). Ide o ľahké post-deploy brány (je agent dostupný a plní základné očakávania promptov?), ktoré dopĺňajú evaluačný pipeline v lekciách 10 a 16. Pozri [tests/README.md](./tests/README.md) pre mapovanie katalóg-lezkcia-agent. Lekcia 17 beží lokálne s Foundry Local a nemá hosťovaný endpoint, preto je validovaná priamym spustením jej notebooku.
 
-## Štýl Kódu
+## Štýl kódu
 
-### Python Konvencie
+### Python konvencie
 
 - **Verzia Pythonu**: 3.12+
 - **Štýl kódu**: Dodržiavať štandardné Python PEP 8 konvencie
-- **Notebooky**: Použiť jasné markdown bunky na vysvetlenie konceptov
+- **Notebooky**: Používať jasné markdown bunky na vysvetlenie konceptov
 - **Importy**: Triediť podľa štandardnej knižnice, tretích strán, lokálne importy
 
-### Jupyter Notebook Konvencie
+### Jupyter Notebook konvencie
 
-- Zahŕňať popisné markdown bunky pred kódovými bunkami
-- Pridávať príklady výstupov v notebookoch ako referenciu
-- Používať jasné názvy premenných zodpovedajúce lekčným konceptom
+- Zahrnúť popisné markdown bunky pred kódovými bunkami
+- Pridávať príklady výstupov v notebookoch na referenciu
+- Používať jasné názvy premenných zodpovedajúce konceptom lekcie
 - Zachovať lineárne poradie spustenia notebooku (bunka 1 → 2 → 3...)
 
-### Organizácia Súborov
+### Organizácia súborov
 
 ```
 <lesson-number>-<lesson-name>/
@@ -150,164 +150,164 @@ Pre lekcie, kde je agent nasadený ako Microsoft Foundry hostovaný agent (01, 0
     └── *.png
 ```
 
-## Skladanie a Nasadenie
+## Skladanie a nasadzovanie
 
-### Skladanie Dokumentácie
+### Skladanie dokumentácie
 
-Tento repozitár používa Markdown pre dokumentáciu:
-- README.md súbory v každom adresári lekcie
+Tento repozitár používa Markdown na dokumentáciu:
+- Súbory README.md v každom adresári lekcie
 - Hlavný README.md v koreňovom adresári repozitára
 - Automatizovaný prekladový systém cez GitHub Actions
 
-### CI/CD Pipeline
+### CI/CD Pipelines
 
-Nachádza sa v `.github/workflows/`:
+Nachádzajú sa v `.github/workflows/`:
 
-1. **co-op-translator.yml** - Automatický preklad do 50+ jazykov
-2. **welcome-issue.yml** - Privítanie nových tvorcov issue
-3. **welcome-pr.yml** - Privítanie nových prispievateľov pull requestov
+1. **co-op-translator.yml** - Automatický preklad do viac ako 50 jazykov
+2. **welcome-issue.yml** - Privítanie tvorcov nových issues
+3. **welcome-pr.yml** - Privítanie autorov nových pull requestov
 
-### Nasadenie
+### Nasadzovanie
 
-Toto je vzdelávací repozitár - žiadny proces nasadenia. Používatelia:
-1. Vytvoria fork alebo sklonujú repozitár
+Toto je vzdelávací repozitár - žiadny proces nasadzovania. Používatelia:
+1. Forknú alebo naklonujú repozitár
 2. Spúšťajú notebooky lokálne alebo v GitHub Codespaces
-3. Učia sa modifikáciou a experimentovaním s príkladmi
+3. Učia sa úpravou a experimentovaním s príkladmi
 
-## Pokyny pre Pull Requesty
+## Pokyny pre pull requesty
 
-### Pred Odoslaním
+### Pred odoslaním
 
-1. **Otestujte vaše zmeny:**
-   - Úplne spustite ovplyvnené notebooky
+1. **Otestujte svoje zmeny:**
+   - Spustite úplne ovplyvnené notebooky
    - Overte, že všetky bunky sa vykonajú bez chýb
-   - Skontrolujte, že výstupy sú vhodné
+   - Skontrolujte, či sú výstupy vhodné
 
 2. **Aktualizácie dokumentácie:**
    - Aktualizujte README.md, ak pridávate nové koncepty
-   - Pridajte komentáre v notebookoch pre zložitejší kód
-   - Zabezpečte, aby markdown bunky vysvetľovali účel
+   - Pridajte komentáre v notebookoch pre komplexný kód
+   - Zabezpečte, že markdown bunky vysvetľujú účel
 
 3. **Zmeny súborov:**
-   - Neposielajte `.env` súbory (použite `.env.example`)
-   - Nezahrňujte adresáre `venv/` alebo `__pycache__/`
-   - Zachovajte výstupy notebookov, keď demonštrujú koncepty
+   - Vyhýbajte sa commitovaniu `.env` súborov (použite `.env.example`)
+   - Necommitujte adresáre `venv/` alebo `__pycache__/`
+   - Zachovajte výstupy notebookov, ak demonštrujú koncepty
    - Odstráňte dočasné súbory a zálohovacie notebooky (`*-backup.ipynb`)
 
-### Formát Názvu PR
+### Formát názvov PR
 
 Používajte popisné názvy:
-- `[Lesson-XX] Pridanie nového príkladu pre <koncept>`
-- `[Fix] Oprava preklepu v README lekcie-XX`
-- `[Update] Vylepšenie ukážky kódu v lekcii-XX`
-- `[Docs] Aktualizácia inštrukcií na nastavenie`
+- `[Lesson-XX] Pridaj nový príklad pre <koncept>`
+- `[Fix] Oprav preklep v README lekcie-XX`
+- `[Update] Vylepši ukážku kódu v lekcii-XX`
+- `[Docs] Aktualizuj inštrukcie na nastavenie`
 
-### Povinné Kontroly
+### Povinné kontroly
 
-- Notebooky by sa mali vykonať bez chýb
+- Notebooky by sa mali spúšťať bez chýb
 - README súbory by mali byť jasné a presné
 - Dodržiavať existujúce vzory kódu v repozitári
-- Zachovať konzistenciu s ostatnými lekciami
+- Zachovať konzistentnosť s ostatnými lekciami
 
-## Ďalšie Poznámky
+## Dodatočné poznámky
 
-### Časté Problémy
+### Bežné úskalia
 
-1. **Nesúlad verzie Pythonu:**
-   - Používajte Python 3.12+
-   - Niektoré balíky nemusia fungovať so staršími verziami
-   - Použite `python3 -m venv` na explicitné určenie verzie Pythonu
+1. **Nekompatibilita verzie Pythonu:**
+   - Uistite sa, že používate Python 3.12+
+   - Niektoré balíčky nemusia fungovať so staršími verziami
+   - Použite `python3 -m venv`, aby ste explicitne špecifikovali verziu Pythonu
 
 2. **Premenné prostredia:**
    - Vždy vytvorte `.env` zo súboru `.env.example`
-   - Neposielajte `.env` súbor (je v `.gitignore`)
-   - Prihláste sa s `az login` pre autentifikáciu Entra ID bez kľúčov
+   - Neukladajte `.env` súbor do repozitára (je v `.gitignore`)
+   - Prihláste sa pomocou `az login` pre kľúčovú autentifikáciu Entra ID
 
-3. **Konflikty balíkov:**
-   - Používajte čerstvé virtuálne prostredie
-   - Inštalujte zo súboru `requirements.txt` namiesto samostatných balíkov
-   - Niektoré notebooky môžu vyžadovať ďalšie balíky uvedené v ich markdown bunkách
+3. **Konflikty balíčkov:**
+   - Používajte čisté virtuálne prostredie
+   - Inštalujte z `requirements.txt` namiesto po jednom balíčku
+   - Niektoré notebooky môžu požadovať ďalšie balíčky uvedené v markdown bunkách
 
 4. **Azure služby:**
    - Azure AI služby vyžadujú aktívne predplatné
    - Niektoré funkcie sú špecifické pre región
-   - Zabezpečte, že vaše nasadenie Azure OpenAI modelu podporuje Responses API
+   - Zabezpečte, aby vaše Azure OpenAI nasadenie modelu podporovalo Responses API
 
-### Učebná Cesta
+### Učebná cesta
 
-Odporúčané poradie lekcií:
-1. **00-course-setup** - Začnite tu so nastavením prostredia
-2. **01-intro-to-ai-agents** - Pochopenie základov AI agentov
-3. **02-explore-agentic-frameworks** - Zoznámte sa s rôznymi frameworkami
+Odporúčané postupné prechádzanie lekciami:
+1. **00-course-setup** - Začnite tu pre nastavenie prostredia
+2. **01-intro-to-ai-agents** - Pochopte základy AI agentov
+3. **02-explore-agentic-frameworks** - Naučte sa o rôznych frameworkoch
 4. **03-agentic-design-patterns** - Základné návrhové vzory
 5. Pokračujte postupne cez číslované lekcie
 
-### Výber Frameworku
+### Výber frameworku
 
-Vyberte framework podľa svojich cieľov:
+Vyberte framework podľa vašich cieľov:
 - **Všetky lekcie**: Microsoft Agent Framework (MAF) s `FoundryChatClient`
-- **Agenti sa registrujú na serverovej strane** v Microsoft Foundry Agent Service V2 a sú viditeľní v Foundry portáli
+- **Agenti sa registrujú serverovo** v Microsoft Foundry Agent Service V2 a sú viditeľní v portáli Foundry
 
-### Ako Získať Pomoc
+### Získanie pomoci
 
-- Pripojte sa na [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Pripojte sa k [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
 - Prezrite si README súbory lekcií pre špecifické usmernenia
-- Pozrite hlavný [README.md](./README.md) pre prehľad kurzu
-- Pozrite [Course Setup](./00-course-setup/README.md) pre detailné inštrukcie nastavenia
+- Skontrolujte hlavný [README.md](./README.md) pre prehľad kurzu
+- Odkaz na [Course Setup](./00-course-setup/README.md) pre detailné inštrukcie nastavenia
 
-### Prispievanie
+### Príspevky
 
 Toto je otvorený vzdelávací projekt. Príspevky sú vítané:
-- Zlepšiť príklady kódu
-- Opraviť preklepy alebo chyby
-- Pridať objasňujúce komentáre
-- Navrhnúť témy nových lekcií
-- Preložiť do ďalších jazykov
+- Vylepšenie príkladov kódu
+- Oprava preklepov alebo chýb
+- Pridanie objasňujúcich komentárov
+- Navrhovanie nových tém lekcií
+- Preklady do ďalších jazykov
 
-Pozrite [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) pre aktuálne potreby.
+Pozrite si [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) pre aktuálne potreby.
 
 ## Kontext špecifický pre projekt
 
-### Podpora Viacerých Jazykov
+### Podpora viacerých jazykov
 
 Tento repozitár používa automatizovaný prekladový systém:
-- Podpora 50+ jazykov
+- Podpora viac ako 50 jazykov
 - Preklady v adresároch `/translations/<lang-code>/`
-- Prekladový workflow riadený GitHub Actions
+- GitHub Actions workflow spravuje aktualizácie prekladu
 - Zdrojové súbory sú v angličtine v koreňovom adresári repozitára
 
-### Štruktúra Lekcie
+### Štruktúra lekcií
 
-Každá lekcia nasleduje konzistentný vzor:
+Každá lekcia dodržiava konzistentný vzor:
 1. Náhľad videa s odkazom
 2. Písaný obsah lekcie (README.md)
-3. Ukážky kódu v rôznych frameworkoch
-4. Ciele učenia a predpoklady
-5. Dodatočné učebné zdroje s odkazmi
+3. Príklady kódu v rôznych frameworkoch
+4. Ciele učenia a požiadavky
+5. Odkazy na extra zdroje učenia
 
-### Názvy ukážok kódu
+### Názvy príkladov kódu
 
 Formát: `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - Lekcia 1, MAF Python
 - `14-sequential.ipynb` - Lekcia 14, pokročilé vzory MAF
-- `16-python-agent-framework.ipynb` - Lekcia 16, produkčný agent pre zákaznícku podporu
+- `16-python-agent-framework.ipynb` - Lekcia 16, produkčný agent zákazníckej podpory
 - `17-local-agent-foundry-local.ipynb` - Lekcia 17, lokálny agent s Foundry Local + Qwen
 
-### Špeciálne Adresáre
+### Špeciálne adresáre
 
 - `translated_images/` - Lokalizované obrázky pre preklady
 - `images/` - Pôvodné obrázky pre anglický obsah
-- `.devcontainer/` - Konfigurácia kontajnera pre VS Code vývoj
+- `.devcontainer/` - Konfigurácia vývojového kontajnera VS Code
 - `.github/` - GitHub Actions workflowy a šablóny
 
 ### Závislosti
 
-Kľúčové balíky z `requirements.txt`:
+Kľúčové balíčky zo súboru `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
 - `a2a-sdk` - Podpora protokolu Agent-to-Agent
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI služby
 - `azure-identity` - Azure autentifikácia (AzureCliCredential)
-- `azure-search-documents` - Integrácia s Azure AI Search
+- `azure-search-documents` - Integrácia Azure AI Search
 - `mcp[cli]` - Podpora Model Context Protocol
 
 ---

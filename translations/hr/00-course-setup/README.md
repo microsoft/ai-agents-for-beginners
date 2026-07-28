@@ -2,63 +2,63 @@
 
 ## Uvod
 
-Ova lekcija će objasniti kako pokrenuti primjere koda ovog tečaja.
+Ova lekcija će obuhvatiti kako pokrenuti primjere koda ovog tečaja.
 
 ## Pridruži se drugim polaznicima i zatraži pomoć
 
-Prije nego počneš s kloniranjem svog repozitorija, pridruži se [AI Agents For Beginners Discord kanalu](https://aka.ms/ai-agents/discord) za pomoć pri postavljanju, pitanja o tečaju ili povezivanje s drugim polaznicima.
+Prije nego što počneš klonirati svoj repozitorij, pridruži se [AI Agents For Beginners Discord kanalu](https://aka.ms/ai-agents/discord) da dobiješ pomoć oko postavljanja, postaviš pitanja o tečaju ili se povežeš s drugim polaznicima.
 
-## Kloniraj ili Forkaj ovaj repozitorij
+## Kloniraj ili forkuj ovaj repozitorij
 
-Za početak, molimo te da kloniraš ili forkaš GitHub repozitorij. Tako ćeš imati vlastitu verziju materijala tečaja za pokretanje, testiranje i prilagodbu koda!
+Za početak, molimo te da kloniraš ili forkaš GitHub repozitorij. To će ti omogućiti vlastitu verziju materijala tečaja kako bi mogao pokretati, testirati i prilagođavati kod!
 
-To možeš napraviti klikom na link <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">forkaj repozitorij</a>
+To možeš učiniti klikom na poveznicu za <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork repozitorija</a>
 
-Sada bi trebao imati vlastitu forkanu verziju ovog tečaja na sljedećem linku:
+Sada bi trebao imati svoju forkanu verziju ovog tečaja na sljedećoj poveznici:
 
-![Forkani Repo](../../../translated_images/hr/forked-repo.33f27ca1901baa6a.webp)
+![Forked Repo](../../../translated_images/hr/forked-repo.33f27ca1901baa6a.webp)
 
-### Plitko kloniranje (preporučeno za radionice / Codespaces)
+### Shallow Clone (preporučeno za radionicu / Codespaces)
 
-> Cijeli repozitorij može biti velik (~3 GB) ako preuzmeš kompletnu povijest i sve datoteke. Ako sudjeluješ samo na radionici ili su ti potrebni samo određeni folderi lekcija, plitko kloniranje (ili skupo kloniranje) izbjegava većinu tog preuzimanja time što skraćuje povijest i/ili preskače blobove.
+  >Cijeli repozitorij može biti velik (~3 GB) kada se preuzima puna povijest i sve datoteke. Ako pohađaš samo radionicu ili trebaš samo nekoliko fascikli sa lekcijama, plitki clone (ili sparse clone) izbjegava većinu tog preuzimanja skraćivanjem povijesti i/ili preskakanjem blob-ova.
 
-#### Brzo plitko kloniranje — minimalna povijest, sve datoteke
+#### Brzi plitki clone — minimalna povijest, sve datoteke
 
-Zamijeni `<your-username>` u naredbama ispod s URL-om svog forka (ili upstream URL ako želiš).
+Zamijeni `<your-username>` u donjim naredbama s URL-om tvog forka (ili upstream URL-om ako više voliš).
 
-Da kloniraš samo najnoviju povijest commitova (malo preuzimanje):
+Za kloniranje samo najnovije povijesti commit-a (malo preuzimanje):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Da kloniraš određenu granu:
+Za kloniranje određene grane:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Djelomično (sparse) kloniranje — minimalni blobovi + samo odabrani folderi
+#### Djelomični (sparse) clone — minimalni blobovi + samo odabrane fascikle
 
-Ovo koristi djelomično kloniranje i sparse-checkout (zahtijeva Git 2.25+ i preporučuje se moderni Git s podrškom za djelomično kloniranje):
+Ovo koristi partial clone i sparse-checkout (zahtijeva Git 2.25+ i preporučuje se moderna verzija Gita s podrškom za partial clone):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Uđi u folder repozitorija:
+Uđi u mapu repozitorija:
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Zatim odredi koje foldere želiš (primjer ispod prikazuje dva foldera):
+Zatim specificiraj koje fascikle želiš (primjer ispod pokazuje dvije fascikle):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Nakon kloniranja i provjere datoteka, ako trebaš samo datoteke i želiš osloboditi prostor (bez git povijesti), molimo obriši metapodatke repozitorija (💀nepovratno — izgubit ćeš svu Git funkcionalnost: nijedan commit, pull, push ili pristup povijesti).
+Nakon kloniranja i provjere datoteka, ako ti trebaju samo datoteke i želiš osloboditi prostor (bez povijesti git-a), izbriši metadata repozitorija (💀nepovratno — izgubit ćeš svu Git funkcionalnost: nema commit-ova, pull-ova, push-ova niti pristupa povijesti).
 
 ```bash
 # zsh/bash
@@ -70,31 +70,31 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### Korištenje GitHub Codespaces (preporučeno za izbjegavanje lokalnih velikih preuzimanja)
+#### Korištenje GitHub Codespaces (preporučeno da se izbjegnu lokalna velika preuzimanja)
 
 - Kreiraj novi Codespace za ovaj repozitorij preko [GitHub UI](https://github.com/codespaces).  
 
-- U terminalu novokreiranog codespace-a pokreni jednu od gore navedenih shallow/sparse naredbi da u Codespace workspace učitaš samo potrebne foldere lekcija.
-- Opcionalno: nakon kloniranja u Codespaces, ukloni .git kako bi oslobodio dodatni prostor (vidi naredbe za uklanjanje gore).
-- Napomena: Ako preferiraš otvoriti repozitorij izravno u Codespaces (bez dodatnog kloniranja), budi svjestan da Codespaces konstruira devcontainer okruženje i možda će i dalje preuzeti više nego što trebaš. Kloniranje plitke kopije unutar svježeg Codespace-a daje ti veću kontrolu nad korištenjem diska.
+- U terminalu novokreiranog codespace-a pokreni jednu od gore navedenih shallow/sparse clone naredbi da u Codespace workspace dovedete samo fascikle lekcija koje trebate.
+- Opcionalno: nakon kloniranja unutar Codespaces, ukloni .git za vraćanje dodatnog prostora (pogledaj naredbe za uklanjanje gore).
+- Napomena: Ako radije otvoriš repozitorij direktno u Codespaces (bez dodatnog kloniranja), budi svjestan da Codespaces konstruira devcontainer okruženje i može i dalje pripremiti više nego što ti treba. Kloniranje plitke kopije unutar novog Codespace-a daje ti veću kontrolu nad korištenjem diska.
 
 #### Savjeti
 
-- Uvijek zamijeni URL kloniranja s URL-om svog forka ako želiš uređivati/potpisivati promjene.
-- Ako ti kasnije zatreba više povijesti ili datoteka, možeš ih dohvatiti ili promijeniti sparse-checkout da uključi dodatne foldere.
+- Uvijek zamijeni URL za kloniranje URL-om svog forka ako želiš uređivati/commit-ati.
+- Ako kasnije trebaš više povijesti ili datoteka, možeš ih dohvatiti ili prilagoditi sparse-checkout da uključi dodatne fascikle.
 
 ## Pokretanje koda
 
-Ovaj tečaj nudi seriju Jupyter bilježnica koje možeš pokrenuti kako bi stekao praktično iskustvo u izgradnji AI agenata.
+Ovaj tečaj nudi niz Jupyter bilježnica koje možeš pokretati za praktično iskustvo u izradi AI agenata.
 
-Primjeri koda koriste **Microsoft Agent Framework (MAF)** sa `FoundryChatClient`, koji se povezuje na **Microsoft Foundry Agent Service V2** (Responses API) preko **Microsoft Foundry**.
+Primjeri koda koriste **Microsoft Agent Framework (MAF)** s `FoundryChatClient` koji se povezuje na **Microsoft Foundry Agent Service V2** (Responses API) kroz **Microsoft Foundry**.
 
 Sve Python bilježnice su označene kao `*-python-agent-framework.ipynb`.
 
 ## Zahtjevi
 
 - Python 3.12+
-  - **NAPOMENA**: Ako nemaš instaliran Python3.12, osiguraj da ga instaliraš. Zatim kreiraj svoj venv koristeći python3.12 da osiguraš ispravne verzije instalirane iz requirements.txt datoteke.
+  - **NAPOMENA**: Ako nemaš instaliran Python3.12, osiguraj da ga instaliraš. Zatim kreiraj svoj virtualni environment koristeći python3.12 kako bi osigurao/la da su točne verzije instalirane iz requirements.txt datoteke.
   
     >Primjer
 
@@ -116,25 +116,25 @@ Sve Python bilježnice su označene kao `*-python-agent-framework.ipynb`.
     venv\Scripts\activate
     ```
 
-- .NET 10+: Za primjere koda koji koriste .NET, osiguraj instalaciju [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili novijeg. Zatim provjeri instaliranu .NET SDK verziju:
+- .NET 10+: Za primjere koda koji koriste .NET, osiguraj da instaliraš [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji. Zatim provjeri verziju instaliranog .NET SDK-a:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — Potrebno za autentifikaciju. Instaliraj s [aka.ms/installazurecli](https://aka.ms/installazurecli).
-- **Azure Pretplata** — Za pristup Microsoft Foundry i Microsoft Foundry Agent Service.
-- **Microsoft Foundry Projekt** — Projekt s implementiranim modelom (npr. `gpt-4.1-mini`). Vidi [Korak 1](#korak-1-kreiraj-microsoft-foundry-projekt) dolje.
+- **Azure CLI** — Potreban za autentifikaciju. Instaliraj sa [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure pretplata** — Za pristup Microsoft Foundry i Microsoft Foundry Agent Service.
+- **Microsoft Foundry projekt** — Projekt s implementiranim modelom (npr. `gpt-5-mini`). Pogledaj [Korak 1](#korak-1-kreiraj-microsoft-foundry-projekt) dolje.
 
-Uključili smo `requirements.txt` datoteku u korijenu ovog repozitorija koja sadrži sve potrebne Python pakete za pokretanje primjera koda.
+Uključili smo datoteku `requirements.txt` u korijen ovog repozitorija koja sadrži sve potrebne Python pakete za pokretanje primjera koda.
 
-Možeš ih instalirati pokretanjem naredbe u terminalu u korijenu repozitorija:
+Možeš ih instalirati pokretanjem sljedeće naredbe u terminalu u korijenu repozitorija:
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-Preporučujemo kreiranje Python virtualnog okoliša kako bi izbjegao sukobe i probleme.
+Preporučujemo kreiranje Python virtualnog okruženja kako bi izbjegao/la konflikte i probleme.
 
 ## Postavljanje VSCode
 
@@ -142,30 +142,30 @@ Provjeri da koristiš ispravnu verziju Pythona u VSCode-u.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Postavi Microsoft Foundry i Microsoft Foundry Agent Service
+## Postavljanje Microsoft Foundry i Microsoft Foundry Agent Service
 
-### Korak 1: Kreiraj Microsoft Foundry Projekt
+### Korak 1: Kreiraj Microsoft Foundry projekt
 
-Trebaš Microsoft Foundry **hub** i **projekt** s implementiranim modelom da bi mogao pokretati bilježnice.
+Trebaš Microsoft Foundry **hub** i **projekt** s implementiranim modelom da bi pokrenuo/la bilježnice.
 
 1. Idi na [ai.azure.com](https://ai.azure.com) i prijavi se sa svojim Azure računom.
-2. Kreiraj **hub** (ili koristi postojeći). Vidi: [Pregled Hub resursa](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
-3. Unutar huba, kreiraj **projekt**.
-4. Implementiraj model (npr. `gpt-4.1-mini`) iz **Models + Endpoints** → **Deploy model**.
+2. Kreiraj **hub** (ili koristi postojeći). Pogledaj: [Pregled resursa hub-a](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. Unutar huba kreiraj **projekt**.
+4. Implementiraj model (npr. `gpt-5-mini`) iz **Models + Endpoints** → **Deploy model**.
 
-### Korak 2: Dohvati Project Endpoint i Naziv implementacije modela
+### Korak 2: Dohvati Endpoint projekta i naziv implementacije modela
 
 Iz svog projekta u Microsoft Foundry portalu:
 
-- **Project Endpoint** — Idi na stranicu **Overview** i kopiraj URL endpointa.
+- **Endpoint projekta** — Idi na stranicu **Overview** i kopiraj URL endpointa.
 
 ![Project Connection String](../../../translated_images/hr/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Naziv implementacije modela** — Idi na **Models + Endpoints**, odaberi svoj implementirani model, i zabilježi **Deployment name** (npr. `gpt-4.1-mini`).
+- **Naziv implementacije modela** — Idi na **Models + Endpoints**, odaberi svoj implementirani model i zabilježi **Deployment name** (npr. `gpt-5-mini`).
 
-### Korak 3: Prijavi se u Azure s `az login`
+### Korak 3: Prijavi se na Azure s `az login`
 
-Sve bilježnice koriste **`AzureCliCredential`** za autentifikaciju — nema API ključeva za upravljanje. To zahtijeva da si prijavljen putem Azure CLI.
+Sve bilježnice koriste **`AzureCliCredential`** za autentifikaciju — ne trebaš upravljati API ključevima. Ovo zahtijeva da si prijavljen putem Azure CLI.
 
 1. **Instaliraj Azure CLI** ako već nisi: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
@@ -175,13 +175,13 @@ Sve bilježnice koriste **`AzureCliCredential`** za autentifikaciju — nema API
     az login
     ```
 
-    Ili ako si u udaljenom / Codespace okruženju bez preglednika:
+    Ili ako si u udaljenom/Codespace okruženju bez preglednika:
 
     ```bash|powershell
     az login --use-device-code
     ```
 
-3. **Odaberi svoju pretplatu** ako treba — izaberi onu koja sadrži tvoj Foundry projekt.
+3. **Odaberi svoju pretplatu** ako te to pita — izaberi onu koja sadrži tvoj Foundry projekt.
 
 4. **Provjeri** da si prijavljen:
 
@@ -189,7 +189,7 @@ Sve bilježnice koriste **`AzureCliCredential`** za autentifikaciju — nema API
     az account show
     ```
 
-> **Zašto `az login`?** Bilježnice se autentificiraju koristeći `AzureCliCredential` iz `azure-identity` paketa. To znači da tvoja Azure CLI sesija pruža vjerodajnice — nema API ključeva ili tajni u tvojoj `.env` datoteci. Ovo je [sigurnosna najbolja praksa](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+> **Zašto `az login`?** Bilježnice se autentificiraju koristeći `AzureCliCredential` iz paketa `azure-identity`. To znači da tvoja Azure CLI sesija osigurava vjerodajnice — nema API ključeva ili tajni u tvojoj `.env` datoteci. Ovo je [sigurnosna preporuka](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
 ### Korak 4: Kreiraj svoju `.env` datoteku
 
@@ -209,7 +209,7 @@ Otvori `.env` i ispuni ove dvije vrijednosti:
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
-AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4.1-mini
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
 | Varijabla | Gdje je pronaći |
@@ -217,7 +217,7 @@ AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4.1-mini
 | `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → tvoj projekt → stranica **Overview** |
 | `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → naziv tvog implementiranog modela |
 
-To je sve za većinu lekcija! Bilježnice će se automatski autentificirati preko tvoje `az login` sesije.
+To je to za većinu lekcija! Bilježnice će se automatski autentificirati kroz tvoju `az login` sesiju.
 
 ### Korak 5: Instaliraj Python ovisnosti
 
@@ -225,32 +225,32 @@ To je sve za većinu lekcija! Bilježnice će se automatski autentificirati prek
 pip install -r requirements.txt
 ```
 
-Preporučujemo da ovo pokreneš unutar virtualnog okruženja koje si prethodno napravio.
+Preporučujemo da ovo pokreneš unutar virtualnog okruženja koje si ranije kreirao/la.
 
-## Dodatno postavljanje za lekciju 5 (Agentic RAG)
+## Dodatno postavljanje za Lekciju 5 (Agentic RAG)
 
-Lekcija 5 koristi **Azure AI Search** za retrieval 강화한 generaciju. Ako planiraš pokretati tu lekciju, dodaj ove varijable u svoju `.env` datoteku:
+Lekcija 5 koristi **Azure AI Search** za retrieval-augmented generation. Ako planiraš pokrenuti tu lekciju, dodaj ove varijable u svoju `.env` datoteku:
 
 | Varijabla | Gdje je pronaći |
 |----------|-----------------|
 | `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → tvoj **Azure AI Search** resurs → **Overview** → URL |
 | `AZURE_SEARCH_API_KEY` | Azure portal → tvoj **Azure AI Search** resurs → **Settings** → **Keys** → primarni administratorski ključ |
 
-## Dodatno postavljanje za lekcije koje izravno pozivaju Azure OpenAI (lekcije 6 i 8)
+## Dodatno postavljanje za lekcije koje direktno zovu Azure OpenAI (Lekcije 6 i 8)
 
-Neke bilježnice u lekcijama 6 i 8 izravno koriste **Azure OpenAI** (kroz **Responses API**) umjesto kroz Microsoft Foundry projekt. Ovi primjeri su ranije koristili GitHub modele, koji su zastarjeli (ukidaju se u srpnju 2026) i ne podržavaju Responses API. Ako planiraš koristiti te primjere, dodaj ove varijable u svoju `.env` datoteku:
+Neke bilježnice u lekcijama 6 i 8 direktno koriste **Azure OpenAI** (koristeći **Responses API**) umjesto da idu preko Microsoft Foundry projekta. Ovi primjerci su prije koristili GitHub modele koji su zastarjeli (ukidaju se u srpnju 2026) i ne podržavaju Responses API. Ako planiraš pokrenuti te primjere, dodaj ove varijable u svoju `.env` datoteku:
 
 | Varijabla | Gdje je pronaći |
 |----------|-----------------|
 | `AZURE_OPENAI_ENDPOINT` | Azure portal → tvoj **Azure OpenAI** resurs → **Keys and Endpoint** → Endpoint (npr. `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | Naziv tvog implementiranog modela (npr. `gpt-4.1-mini`) koji podržava Responses API |
-| `AZURE_OPENAI_API_KEY` | Opcionalno — samo ako koristiš autentifikaciju putem ključa umjesto `az login` / Entra ID |
+| `AZURE_OPENAI_DEPLOYMENT` | Naziv tvog implementiranog modela (npr. `gpt-5-mini`) koji podržava Responses API |
+| `AZURE_OPENAI_API_KEY` | Opcionalno — samo ako koristiš autentifikaciju na bazi ključa umjesto `az login` / Entra ID |
 
-> Responses API koristi stabilni `/openai/v1/` endpoint, tako da `api-version` nije potreban. Prijavi se s `az login` za korištenje keyless Entra ID autentifikacije.
+> Responses API koristi stabilni `/openai/v1/` endpoint, tako da nije potreban `api-version`. Prijavi se s `az login` za korištenje autentifikacije bez ključeva putem Entra ID-a.
 
 ## Alternativni pružatelj: MiniMax (kompatibilan s OpenAI)
 
-[MiniMax](https://platform.minimaxi.com/) pruža modele s velikim kontekstom (do 204K tokena) preko OpenAI-kompatibilnog API-ja. Budući da Microsoft Agent Framework `OpenAIChatClient` radi s bilo kojim OpenAI-kompatibilnim endpointom, možeš koristiti MiniMax kao izravan zamjenski pružatelj za Azure OpenAI ili OpenAI.
+[MiniMax](https://platform.minimaxi.com/) pruža modele s velikim kontekstom (do 204K tokena) putem OpenAI-kompatibilnog API-ja. Budući da Microsoft Agent Framework-ov `OpenAIChatClient` radi s bilo kojim OpenAI-kompatibilnim endpointom, možeš koristiti MiniMax kao zamjenu za Azure OpenAI ili OpenAI.
 
 Dodaj ove varijable u svoju `.env` datoteku:
 
@@ -260,15 +260,15 @@ Dodaj ove varijable u svoju `.env` datoteku:
 | `MINIMAX_BASE_URL` | Koristi `https://api.minimax.io/v1` (zadana vrijednost) |
 | `MINIMAX_MODEL_ID` | Naziv modela za korištenje (npr. `MiniMax-M3`) |
 
-**Primjeri modela**: `MiniMax-M3` (preporučeno), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (brže odgovore). Nazivi modela i dostupnost se mogu mijenjati s vremenom, a pristup određenom modelu može ovisiti o tvom računu ili regiji — provjeri [MiniMax Platformu](https://platform.minimaxi.com/) za trenutačni popis. Ako ti `MiniMax-M3` nije dostupan, postavi `MINIMAX_MODEL_ID` na model kojem imaš pristup (npr. `MiniMax-M2.7`).
+**Primjeri modela**: `MiniMax-M3` (preporučeno), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (brže reakcije). Nazivi modela i dostupnost mogu se mijenjati tijekom vremena, a pristup određenom modelu može ovisiti o tvom računu ili regiji — provjeri [MiniMax Platformu](https://platform.minimaxi.com/) za ažurni popis. Ako `MiniMax-M3` nije dostupan na tvom računu, postavi `MINIMAX_MODEL_ID` na model kojem imaš pristup (npr. `MiniMax-M2.7`).
 
-Primjeri koda koji koriste `OpenAIChatClient` (npr. radni tok rezervacije hotela u Lekciji 14) automatski će prepoznati i koristiti tvoju MiniMax konfiguraciju kada je postavljen `MINIMAX_API_KEY`.
+Primjeri koda koji koriste `OpenAIChatClient` (npr. Lekcija 14 workflow rezervacije hotela) automatski će prepoznati i koristiti tvoju MiniMax konfiguraciju kada je `MINIMAX_API_KEY` postavljen.
 
-## Alternativni pružatelj: Foundry Local (pokretanje modela lokalno)
+## Alternativni pružatelj: Foundry Local (pokreni modele lokalno)
 
-[Foundry Local](https://foundrylocal.ai) je lagano runtime okruženje koje preuzima, upravlja i poslužuje jezične modele **potpuno na tvom računalu** putem OpenAI-kompatibilnog API-ja — bez oblaka, bez Azure pretplate i bez API ključeva. Odlična je opcija za offline razvoj, eksperimentiranje bez troškova u oblaku ili čuvanje podataka lokalno.
+[Foundry Local](https://foundrylocal.ai) je lagano runtime okruženje koje preuzima, upravlja i poslužuje jezične modele **potpuno na tvom računalu** putem OpenAI-kompatibilnog API-ja — bez oblaka, bez Azure pretplate i bez API ključeva. To je odlična opcija za offline razvoj, eksperimentiranje bez troškova u oblaku ili držanje podataka lokalno na uređaju.
 
-Budući da Microsoft Agent Framework `OpenAIChatClient` radi s bilo kojim OpenAI-kompatibilnim endpointom, Foundry Local je izravan lokalni zamjenski pružatelj za Azure OpenAI.
+Budući da Microsoft Agent Framework-ov `OpenAIChatClient` radi s bilo kojim OpenAI-kompatibilnim endpointom, Foundry Local je lokalna alternativa Azure OpenAI-u.
 
 **1. Instaliraj Foundry Local**
 
@@ -280,14 +280,14 @@ winget install Microsoft.FoundryLocal
 brew install foundrylocal
 ```
 
-**2. Preuzmi i pokreni model** (time se također pokreće lokalna usluga):
+**2. Preuzmi i pokreni model** (ovo također pokreće lokalnu uslugu):
 
 ```bash
-foundry model list          # vidi dostupne modele
+foundry model list          # pogledajte dostupne modele
 foundry model run phi-4-mini
 ```
 
-**3. Instaliraj Python SDK** koji se koristi za pronalaženje lokalnog endpointa:
+**3. Instaliraj Python SDK** koji se koristi za otkrivanje lokalnog endpointa:
 
 ```bash
 pip install foundry-local-sdk
@@ -299,12 +299,12 @@ pip install foundry-local-sdk
 from foundry_local import FoundryLocalManager
 from agent_framework.openai import OpenAIChatClient
 
-# Preuzima (ako je potrebno) i pokreće model lokalno, zatim pronalazi krajnju točku/port.
+# Preuzima (ako je potrebno) i pokreće model lokalno, zatim pronalazi endpoint/port.
 manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
     base_url=manager.endpoint,      # npr. http://localhost:<port>/v1
-    api_key=manager.api_key,        # uvijek "nije potrebna" za Foundry Local
+    api_key=manager.api_key,        # uvijek "nije potrebno" za Foundry Local
     model_id=manager.get_model_info("phi-4-mini").id,
 )
 
@@ -314,20 +314,20 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **Napomena:** Foundry Local izlaže OpenAI-kompatibilan **Chat Completions** endpoint. Koristi ga za lokalni razvoj i offline scenarije. Za puni skup značajki **Responses API** (stanja razgovora, duboka orkestracija alata, i razvoj stilom agenata), ciljanjem **Azure OpenAI** ili **Microsoft Foundry** projekta, kao što je prikazano u lekcijama. Pogledaj [Foundry Local dokumentaciju](https://foundrylocal.ai) za trenutačni katalog modela i podršku platformi.
+> **Napomena:** Foundry Local izlaže OpenAI-kompatibilni endpoint za **Chat Completions**. Koristi ga za lokalni razvoj i offline scenarije. Za punu funkcionalnost **Responses API** (držanje stanja razgovora, duboka orkestracija alata i razvoj u stilu agenata), ciljaj na **Azure OpenAI** ili **Microsoft Foundry** projekt kao što je prikazano u lekcijama. Pogledaj [Foundry Local dokumentaciju](https://foundrylocal.ai) za trenutačni katalog modela i podršku platforme.
+
+## Dodatno postavljanje za Lekciju 8 (Bing Grounding Workflow)
 
 
-## Dodatna postava za Lekciju 8 (Bing Grounding Workflow)
-
-Uvjetni tijek rada u lekciji 8 koristi **Bing grounding** putem Microsoft Foundry. Ako planirate pokrenuti taj primjer, dodajte ovu varijablu u vašu `.env` datoteku:
+Bilježnica s uvjetnim tijekovima rada u lekciji 8 koristi **Bing povezivanje** putem Microsoft Foundry. Ako planirate pokrenuti taj primjer, dodajte ovu varijablu u svoju `.env` datoteku:
 
 | Varijabla | Gdje je pronaći |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | Microsoft Foundry portal → vaš projekt → **Management** → **Connected resources** → vaša Bing konekcija → kopirajte ID konekcije |
+| `BING_CONNECTION_ID` | Microsoft Foundry portal → vaš projekt → **Upravljanje** → **Povezani resursi** → vaša Bing veza → kopirajte ID veze |
 
 ## Rješavanje problema
 
-### Pogreške prilikom provjere SSL certifikata na macOS-u
+### Pogreške pri provjeri SSL certifikata na macOS-u
 
 Ako ste na macOS-u i naiđete na pogrešku poput:
 
@@ -335,7 +335,7 @@ Ako ste na macOS-u i naiđete na pogrešku poput:
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-Ovo je poznati problem s Pythonom na macOS-u gdje sustavni SSL certifikati nisu automatski pouzdani. Isprobajte sljedeća rješenja redom:
+Ovo je poznati problem s Pythonom na macOS-u gdje sustavni SSL certifikati nisu automatski povjereni. Isprobajte sljedeća rješenja redom:
 
 **Opcija 1: Pokrenite Pythonov Install Certificates skript (preporučeno)**
 
@@ -344,19 +344,19 @@ Ovo je poznati problem s Pythonom na macOS-u gdje sustavni SSL certifikati nisu 
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**Opcija 2: Koristite `connection_verify=False` u vašem noteboku (samo za GitHub Models notebooke)**
+**Opcija 2: Koristite `connection_verify=False` u svojoj bilježnici (samo za GitHub Models bilježnice)**
 
-U notebooku Lekcije 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) već je uključen zakomentirani zaobilazni način. Odkomentirajte `connection_verify=False` pri kreiranju klijenta:
+U bilježnici Lekcije 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) već je uključen zakomentirani zaobilazni način. Odkomentirajte `connection_verify=False` pri kreiranju klijenta:
 
 ```python
 client = ChatCompletionsClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(token),
-    connection_verify=False,  # Onemogući SSL provjeru ako naiđeš na greške s certifikatom
+    connection_verify=False,  # Onemogući SSL provjeru ako naiđeš na pogreške certifikata
 )
 ```
 
-> **⚠️ Upozorenje:** Onemogućavanje SSL provjere (`connection_verify=False`) smanjuje sigurnost preskačući validaciju certifikata. Koristite ovo samo kao privremenu zaobilaznicu u razvojnom okruženju, nikada u produkciji.
+> **⚠️ Upozorenje:** Onemogućavanje SSL provjere (`connection_verify=False`) smanjuje sigurnost preskačući validaciju certifikata. Koristite ovo samo kao privremeni zaobilazni način u razvojnim okruženjima, nikad u produkciji.
 
 **Opcija 3: Instalirajte i koristite `truststore`**
 
@@ -364,7 +364,7 @@ client = ChatCompletionsClient(
 pip install truststore
 ```
 
-Zatim dodajte sljedeće na vrh vašeg notebuka ili skripte prije bilo kakvih mrežnih poziva:
+Zatim dodajte sljedeće na vrh svoje bilježnice ili skripte prije izvođenja mrežnih poziva:
 
 ```python
 import truststore
@@ -373,13 +373,13 @@ truststore.inject_into_ssl()
 
 ## Zapeli ste negdje?
 
-Ako imate problema s pokretanjem ove postave, pridružite se našem <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discordu</a> ili <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">kreirajte problem</a>.
+Ako imate bilo kakvih problema s pokretanjem ovog postava, pridružite se našem <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discordu</a> ili <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">otvorite issue</a>.
 
 ## Sljedeća lekcija
 
-Sad ste spremni pokrenuti kod za ovaj tečaj. Sretno u daljnjem učenju o svijetu AI Agenata!
+Sada ste spremni za pokretanje koda za ovaj tečaj. Sretno u daljnjem učenju o svijetu AI agenata!
 
-[Uvod u AI Agente i primjere korištenja agenata](../01-intro-to-ai-agents/README.md)
+[Uvod u AI agente i uporabu agenata](../01-intro-to-ai-agents/README.md)
 
 ---
 

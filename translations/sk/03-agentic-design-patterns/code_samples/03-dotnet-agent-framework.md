@@ -1,138 +1,138 @@
-# 🎨 Agentné dizajnové vzory s Azure OpenAI (Responses API) (.NET)
+# 🎨 Agentové návrhové vzory s Azure OpenAI (Responses API) (.NET)
 
-## 📋 Výučbové ciele
+## 📋 Ciele učenia
 
-Tento príklad demonštruje dizajnové vzory úrovne enterprise na tvorbu inteligentných agentov pomocou Microsoft Agent Framework v .NET s integráciou Azure OpenAI (Responses API). Naučíte sa profesionálne vzory a architektonické prístupy, ktoré robia agentov pripravenými na produkciu, udržiavateľnými a škálovateľnými.
+Tento príklad demonštruje podnikové návrhové vzory na budovanie inteligentných agentov pomocou Microsoft Agent Framework v .NET s integráciou Azure OpenAI (Responses API). Naučíte sa profesionálne vzory a architektonické prístupy, ktoré robia agentov pripravenými na produkciu, udržiavateľnými a škálovateľnými.
 
-### Dizajnové vzory pre podniky
+### Podnikové návrhové vzory
 
-- 🏭 **Factory Pattern**: Štandardizované vytváranie agentov s dependency injection
+- 🏭 **Factory Pattern**: Štandardizované vytváranie agentov s injektovaním závislostí
 - 🔧 **Builder Pattern**: Plynulá konfigurácia a nastavenie agentov
-- 🧵 **Thread-Safe Patterns**: Súbežné riadenie konverzácií
-- 📋 **Repository Pattern**: Organizované spravovanie nástrojov a schopností
+- 🧵 **Thread-Safe Patterns**: Správa súbežných konverzácií
+- 📋 **Repository Pattern**: Organizovaná správa nástrojov a schopností
 
 ## 🎯 Architektonické výhody špecifické pre .NET
 
-### Funkcie pre podniky
+### Podnikové funkcie
 
-- **Silné typovanie**: Overenie pri kompilácii a podpora IntelliSense
-- **Dependency Injection**: Integrácia vstavaného DI kontajnera
+- **Silné typovanie**: Overovanie počas kompilácie a podpora IntelliSense
+- **Injektovanie závislostí**: Integrovaný DI kontajner
 - **Správa konfigurácie**: Vzory IConfiguration a Options
-- **Async/Await**: Prvá trieda podpory asynchrónneho programovania
+- **Async/Await**: Prvoradá podpora asynchrónneho programovania
 
 ### Vzory pripravené na produkciu
 
 - **Integrácia logovania**: Podpora ILogger a štruktúrovaného logovania
 - **Kontroly zdravia**: Vstavané monitorovanie a diagnostika
 - **Validácia konfigurácie**: Silné typovanie s dátovými anotáciami
-- **Spracovanie chýb**: Štruktúrované riadenie výnimiek
+- **Správa chýb**: Štruktúrované riadenie výnimiek
 
 ## 🔧 Technická architektúra
 
-### Hlavné .NET komponenty
+### Základné komponenty .NET
 
-- **Microsoft.Extensions.AI**: Zjednotené abstrakcie služieb AI
-- **Microsoft.Agents.AI**: Podnikový rámec na orchestráciu agentov
-- **Azure OpenAI (Responses API)**: Vysokovýkonné vzory API klientov
+- **Microsoft.Extensions.AI**: Zjednotené abstrakcie AI služieb
+- **Microsoft.Agents.AI**: Podnikový rámec pre orchestráciu agentov
+- **Azure OpenAI (Responses API)**: Vzory vysoko výkonných API klientov
 - **Konfiguračný systém**: appsettings.json a integrácia prostredia
 
-### Implementácia dizajnových vzorov
+### Implementácia návrhových vzorov
 
 ```mermaid
 graph LR
     A[IServiceCollection] --> B[Tvorca agenta]
     B --> C[Konfigurácia]
     C --> D[Register nástrojov]
-    D --> E[AI agent]
+    D --> E[AI Agent]
 ```
 
 ## 🏗️ Predvedené podnikové vzory
 
 ### 1. **Tvorivé vzory**
 
-- **Agent Factory**: Centralizované vytváranie agentov so konzistentnou konfiguráciou
+- **Agent Factory**: Centralizované vytváranie agentov s konzistentnou konfiguráciou
 - **Builder Pattern**: Fluent API pre komplexnú konfiguráciu agentov
 - **Singleton Pattern**: Zdieľané zdroje a správa konfigurácie
-- **Dependency Injection**: Voľné prepojenie a testovateľnosť
+- **Injektovanie závislostí**: Voľné väzby a testovateľnosť
 
 ### 2. **Behaviorálne vzory**
 
 - **Strategy Pattern**: Vymeniteľné stratégie vykonávania nástrojov
-- **Command Pattern**: Zabalené operácie agenta s undo/redo
-- **Observer Pattern**: Riadenie životného cyklu agenta na základe udalostí
-- **Template Method**: Štandardizované pracovné postupy vykonávania agentov
+- **Command Pattern**: Zabalené operácie agentov s vrátením/zopakovaním
+- **Observer Pattern**: Riadenie životného cyklu agentov založené na udalostiach
+- **Template Method**: Štandardizované pracovné toky vykonávania agentov
 
 ### 3. **Štrukturálne vzory**
 
-- **Adapter Pattern**: Vrstva integrácie Azure OpenAI (Responses API)
-- **Decorator Pattern**: Zlepšenie schopností agenta
-- **Facade Pattern**: Zjednodušené rozhrania pre interakciu s agentom
-- **Proxy Pattern**: Lenivé načítanie a cache pre výkon
+- **Adapter Pattern**: Integračná vrstva Azure OpenAI (Responses API)
+- **Decorator Pattern**: Rozšírenie schopností agentov
+- **Facade Pattern**: Zjednodušené rozhrania interakcie s agentmi
+- **Proxy Pattern**: Lazy loading a kešovanie pre výkon
 
-## 📚 Zásady návrhu v .NET
+## 📚 Návrhové princípy .NET
 
-### SOLID zásady
+### Princípy SOLID
 
 - **Single Responsibility**: Každá komponenta má jeden jasný účel
 - **Open/Closed**: Rozšíriteľné bez modifikácie
-- **Liskov Substitution**: Implementácie nástrojov založené na rozhraní
-- **Interface Segregation**: Zamerané, kohézne rozhrania
-- **Dependency Inversion**: Závislosť od abstrakcií, nie od konkrétnych tried
+- **Liskov Substitution**: Implementácie nástrojov založené na rozhraniach
+- **Interface Segregation**: Zamerané, koherentné rozhrania
+- **Dependency Inversion**: Závislosť na abstrakciách, nie na konkrétnych členoch
 
-### Čistá architektúra
+### Clean Architecture
 
-- **Doménová vrstva**: Hlavné abstrakcie agentov a nástrojov
-- **Aplikačná vrstva**: Orchestrácia agentov a pracovné toky
-- **Infrastrukturná vrstva**: Integrácia Azure OpenAI (Responses API) a externých služieb
-- **Prezentačná vrstva**: Interakcia používateľa a formátovanie odpovedí
+- **Doménová vrstva**: Základné abstrakcie agentov a nástrojov
+- **Aplikačná vrstva**: Orchestrace agentov a pracovné toky
+- **Infrastruktúrna vrstva**: Integrácia Azure OpenAI (Responses API) a externých služieb
+- **Prezentačná vrstva**: Interakcia s používateľom a formátovanie odpovedí
 
 ## 🔒 Podnikové úvahy
 
 ### Bezpečnosť
 
-- **Správa poverení**: Bezpečné spracovanie API kľúčov s IConfiguration
-- **Validácia vstupu**: Silné typovanie a validácia dátovými anotáciami
-- **Sanitácia výstupu**: Bezpečné spracovanie a filtrovanie odpovedí
+- **Správa poverení**: Bezpečná správa API kľúčov s IConfiguration
+- **Validácia vstupov**: Silné typovanie a validácia dátových anotácií
+- **Sanitácia výstupov**: Bezpečné spracovanie a filtrovanie odpovedí
 - **Auditné logovanie**: Komplexné sledovanie operácií
 
 ### Výkon
 
-- **Async vzory**: Neblokujúce I/O operácie
+- **Asynchrónne vzory**: Nezablokujúce I/O operácie
 - **Pooling pripojení**: Efektívna správa HTTP klienta
-- **Caching**: Cache odpovedí pre lepší výkon
-- **Správa zdrojov**: Správna likvidácia a čistiace vzory
+- **Kešovanie**: Kešovanie odpovedí pre lepší výkon
+- **Správa zdrojov**: Správne vzory uvoľňovania a čistenia
 
 ### Škálovateľnosť
 
-- **Vlákno bezpečné**: Podpora súbežného vykonávania agentov
+- **Thread Safety**: Podpora súbežného vykonávania agentov
 - **Pooling zdrojov**: Efektívne využívanie zdrojov
-- **Riadenie zaťaženia**: Limitácia rýchlosti a zvládanie spätného tlaku
-- **Monitorovanie**: Metriky výkonu a kontroly zdravia
+- **Riadenie záťaže**: Obmedzovanie rýchlosti a správa spätného tlaku
+- **Monitorovanie**: Výkonové metriky a kontroly zdravia
 
 ## 🚀 Nasadenie do produkcie
 
-- **Správa konfigurácie**: Prostrediu špecifické nastavenia
+- **Správa konfigurácie**: Nastavenia špecifické pre prostredie
 - **Stratégia logovania**: Štruktúrované logovanie s korelačnými ID
-- **Spracovanie chýb**: Globálne spracovanie výnimiek s riadnym zotavením
-- **Monitorovanie**: Sledovanie aplikácií a výkonnostné ukazovatele
-- **Testovanie**: Jednotkové testy, integračné testy a vzory testovania zaťaženia
+- **Riešenie chýb**: Globálne spracovanie výnimiek s riadnym zotavením
+- **Monitorovanie**: Application insights a výkonové čítače
+- **Testovanie**: Jednotkové testy, integračné testy a vzory záťažového testovania
 
-Pripravení vytvárať inteligentných agentov úrovne enterprise s .NET? Poďme navrhnúť niečo robustné! 🏢✨
+Pripravení budovať podnikovej úrovne inteligentných agentov s .NET? Navrhnime niečo robustné! 🏢✨
 
 ## 🚀 Začíname
 
 ### Predpoklady
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo vyšší
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo vyššie
 - Predplatné [Azure](https://azure.microsoft.com/free/) s Azure OpenAI zdrojom a nasadením modelu
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prihláste sa cez `az login`
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prihláste sa pomocou `az login`
 
 ### Požadované premenné prostredia
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Potom sa prihláste, aby AzureCliCredential mohol získať token
 az login
 ```
@@ -140,12 +140,12 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Potom sa prihláste, aby AzureCliCredential mohol získať token
 az login
 ```
 
-### Ukážkový kód
+### Príklad kódu
 
 Na spustenie príkladu kódu,
 
@@ -155,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Alebo pomocou dotnet CLI:
+Alebo použitím dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

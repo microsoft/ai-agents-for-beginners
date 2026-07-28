@@ -1,25 +1,25 @@
-# ਮੁਲਾਂਕਣਕਾਰਾਂ ਲਈ ਏਆਈ ਏਜੰਟ - ਇੱਕ ਕੋਰਸ
+# ਬਿਗਿਨਰਜ਼ ਲਈ AI ਏਜੰਟ - ਇੱਕ ਕੋਰਸ
 
-![ਮੁਲਾਂਕਣਕਾਰਾਂ ਲਈ ਏਆਈ ਏਜੰਟ](../../translated_images/pa/repo-thumbnailv2.06f4a48036fde647.webp)
+![ਬਿਗਿਨਰਜ਼ ਲਈ AI ਏਜੰਟ](../../translated_images/pa/repo-thumbnailv3.917487e234b90100.webp)
 
-## ਇੱਕ ਕੋਰਸ ਜੋ ਤੁਹਾਨੂੰ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਦੇ ਲਈ ਹਰ ਚੀਜ਼ ਸਿੱਖਾਉਂਦਾ ਹੈ
+## ਇੱਕ ਕੋਰਸ ਜੋ ਤੁਹਾਨੂੰ AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਜ਼ਰੂਰੀ ਸਾਰੀਆਂ ਜਾਣਕਾਰੀਆਂ ਸਿਖਾਉਂਦਾ ਹੈ
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਲਾਇਸੈਂਸ](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਯੋਗਦਾਨਕਰਤਾ](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਮੁੱਦੇ](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਪੁੱਲ-ਰੀਕਵੇਸਟ](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PRs ਸਵਾਗਤ](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 ਬਹੁ-ਭਾਸ਼ਾ ਸਹਾਇਤਾ
+### 🌐 ਬਹੁ-ਭਾਸ਼ਾਈ ਸਮਰਥਨ
 
-#### GitHub ਐਕਸ਼ਨ ਦੁਆਰਾ ਸਮਰਥਿਤ (ਸਵੈਚਾਲਿਤ ਅਤੇ ਹਮੇਸ਼ਾਂ ਅੱਪ-ਟੂ-ਡੇਟ)
+#### GitHub ਐਕਸ਼ਨ ਦੁਆਰਾ ਸਮਰਥਿਤ (ਆਟੋਮੈਟਿਕ ਅਤੈ ਸਦਾ ਅੱਪ-ਟੂ-ਡੇਟ)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[ਅਰਬੀ](../ar/README.md) | [ਬੰਗਾਲੀ](../bn/README.md) | [ਬੁਲਗਾਰੀਆਈ](../bg/README.md) | [ਬਰਮੀ (ਮਿਆਂਮਾਰ)](../my/README.md) | [ਚਾਈਨੀਜ਼ (ਸੰਪਲਿਫਾਈਡ)](../zh-CN/README.md) | [ਚਾਈਨੀਜ਼ (ਪਰੰਪਰਾਗਤ, ਹਾਂਗ ਕਾਂਗ)](../zh-HK/README.md) | [ਚਾਈਨੀਜ਼ (ਪਰੰਪਰਾਗਤ, ਮਕਾਓ)](../zh-MO/README.md) | [ਚਾਈਨੀਜ਼ (ਪਰੰਪਰਾਗਤ, ਤਾਈਵਾਨ)](../zh-TW/README.md) | [ਕ੍ਰੋਐਸ਼ੀਆਈ](../hr/README.md) | [ਚੈਕ](../cs/README.md) | [ਡੈਨਿਸ਼](../da/README.md) | [ਡਚ](../nl/README.md) | [ਏਸਟੋਨੀਆਈ](../et/README.md) | [ਫਿਨਿਸ਼](../fi/README.md) | [ਫਰਾਂਸੀਸੀ](../fr/README.md) | [ਜਰਮਨ](../de/README.md) | [ਯੂਨਾਨੀ](../el/README.md) | [ਹਿਬਰੂ](../he/README.md) | [ਹਿੰਦੀ](../hi/README.md) | [ਹੰਗੇਰੀਆਈ](../hu/README.md) | [ਇੰਡੋਨੇਸ਼ੀਆਈ](../id/README.md) | [ਇਟਾਲਵੀ](../it/README.md) | [ਜਾਪਾਨੀ](../ja/README.md) | [ਕੰਨੜ](../kn/README.md) | [ਖਮੇਰ](../km/README.md) | [ਕੋਰਿਆਈ](../ko/README.md) | [ਲਿੱਥੂਆਨੀਅਨ](../lt/README.md) | [ਮਲੇ](../ms/README.md) | [ਮਲਿਆਲਮ](../ml/README.md) | [ਮਰਾਠੀ](../mr/README.md) | [ਨੇਪਾਲੀ](../ne/README.md) | [ਨਾਈਜੀਰੀਅਨ ਪਿਡਜਿਨ](../pcm/README.md) | [ਨਾਰਵੇਜియన్](../no/README.md) | [ਫਾਰਸੀ (ਪਹਿਰੇਦਾਰ)](../fa/README.md) | [ਪੋਲਿਸ਼](../pl/README.md) | [ਪੁਰਤਗالی (ਬ੍ਰਾਜ਼ੀਲ)](../pt-BR/README.md) | [ਪੁਰਤਗਾਲੀ (ਪੁਰਤਗਾਲ)](../pt-PT/README.md) | [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)](./README.md) | [ਰੋਮਾਨੀਆਈ](../ro/README.md) | [ਰੂਸੀ](../ru/README.md) | [ਸਰਬੀਅਨ (ਸਿਰਿਲਿਕ)](../sr/README.md) | [ਸਲੋਵਾਕ](../sk/README.md) | [ਸਲੋਵੀਨੀਅਨ](../sl/README.md) | [ਸਪੇਨਿਸ਼](../es/README.md) | [ਸਵਾਹਿਲੀ](../sw/README.md) | [ਸਵੀਂਡੀਸ਼](../sv/README.md) | [ਟਗਾਲੋਗ (ਫਿਲਿਪੀਨੋ)](../tl/README.md) | [ਤਮਿਲ](../ta/README.md) | [ਤੇਲਿਗੂ](../te/README.md) | [ਥਾਈ](../th/README.md) | [ਟਰਕੀ](../tr/README.md) | [ਯੂਕਰੇਨੀਅਨ](../uk/README.md) | [ਉਰਦੂ](../ur/README.md) | [ਵਿਯਤਨਾਮੀਜ਼](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](./README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-> **ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਕਲੋਨ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?**
+> **ਕੀ ਤੁਹਾਨੂੰ ਲੋਕਲ ਕਲੋਨ ਕਰਨਾ ਪਹਿਲਾਂ ਪਸੰਦ ਹੈ?**
 >
-> ਇਸ ਰਿਪੋਜ਼ਟਰੀ ਵਿੱਚ 50+ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਅਨੁਵਾਦ ਸ਼ਾਮਲ ਹਨ ਜੋ ਡਾਊਨਲੋਡ ਸਾਈਜ਼ ਨੂੰ ਕਾਫੀ ਵਧਾ ਦਿੰਦੇ ਹਨ। ਬਿਨਾਂ ਅਨੁਵਾਦਾਂ ਦੇ ਕਲੋਨ ਕਰਨ ਲਈ sparse checkout ਦੀ ਵਰਤੋਂ ਕਰੋ:
+> ਇਸ ਰਿਪੋਜ਼ਿਟਰੀ ਵਿੱਚ 50+ ਭਾਸ਼ਾ ਦੇ ਅਨੁਵਾਦ ਸ਼ਾਮਲ ਹਨ ਜੋ ਡਾਊਨਲੋਡ ਸਾਈਜ਼ ਨੂੰ ਮਹੱਤਵਪੂਰਨ ਤੌਰ ਤੇ ਵਧਾਉਂਦੇ ਹਨ। ਅਨੁਵਾਦਾਂ ਦੇ ਬਗੈਰ ਕਲੋਨ ਕਰਨ ਲਈ, ਸਪੈਰਸ ਚੈਕਆਉਟ ਦੀ ਵਰਤੋਂ ਕਰੋ:
 >
 > **ਬੈਸ਼ / macOS / Linux:**
 > ```bash
@@ -35,97 +35,98 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> ਇਸ ਨਾਲ ਤੁਹਾਨੂੰ ਕੋਰਸ ਪੂਰਾ ਕਰਨ ਲਈ ਸਾਰੀ ਜ਼ਰੂਰੀ ਚੀਜ਼ ਤੇਜ਼ੀ ਨਾਲ ਮਿਲੇਗੀ।
+> ਇਹ ਤੁਹਾਨੂੰ ਕੋਰਸ ਪੂਰਾ ਕਰਨ ਲਈ ਜ਼ਰੂਰੀ ਸਾਰਾ ਕੁਝ ਤੇਜ਼ ਡਾਊਨਲੋਡ ਨਾਲ ਦਿੰਦਾ ਹੈ।
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**ਜੇ ਤੁਸੀਂ ਵਧੇਰੇ ਅਨੁਵਾਦ ਭਾਸ਼ਾਵਾਂ ਦੀ ਸਮਰਥਾ ਚਾਹੁੰਦੇ ਹੋ, ਉਹ [ਇੱਥੇ](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) ਦਿੱਤੀ ਗਈਆਂ ਹਨ।**
+**ਜੇ ਤੁਸੀਂ ਹੋਰ ਅਨੁਵਾਦ ਭਾਸ਼ਾਵਾਂ ਲਈ ਸਮਰਥਨ ਚਾਹੁੰਦੇ ਹੋ, ਉਹ [ਇੱਥੇ](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) ਸੂਚੀਬੱਧ ਹਨ।**
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਦੇਖਣ ਵਾਲੇ](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਫੋਰਕ](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ਸਿਤਾਰੇ](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+[![Microsoft Foundry ਡਿਸਕਾਰਡ](https://dcbadge.limes.pink/api/server/ATgtXmAS5D)](https://discord.com/invite/ATgtXmAS5D)
 
 
-## 🌱 ਸ਼ੁਰੂਆਤ
+## 🌱 ਸ਼ੁਰੂਆਤ ਕਰਨਾ
 
-ਇਸ ਕੋਰਸ ਵਿੱਚ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਦੀਆਂ ਬੁਨਿਆਦੀ ਗੱਲਾਂ ਸਿਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਹਰ ਪਾਠ ਵਿੱਚ ਆਪਣਾ ਵਿਸ਼ਾ ਕਵਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਇਸ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਮਨਪਸੰਦ ਸਥਾਨ ਤੋਂ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ!
+ਇਸ ਕੋਰਸ ਵਿੱਚ AI ਏਜੰਟ ਬਣਾਉਣ ਦੇ ਮੂਲ ਅਸੂਲ ਸਿੱਖਾਏ ਜਾਂਦੇ ਹਨ। ਹਰ ਪਾਠ ਆਪਣਾ ਵਿਸ਼ਾ ਕਵਰ ਕਰਦਾ ਹੈ ਇਸ ਲਈ ਤੁਸੀਂ ਇੱਛਾ ਅਨੁਸਾਰ ਕਿਤੇ ਵੀ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ!
 
-ਇਸ ਕੋਰਸ ਲਈ ਬਹੁ-ਭਾਸ਼ਾ ਸਹਾਇਤਾ ਉਪਲੱਬਧ ਹੈ। ਸਾਡੇ [ਉਪਲੱਬਧ ਭਾਸ਼ਾਵਾਂ ਇੱਥੇ](#-multi-language-support) ਵੇਖੋ।
+ਇਸ ਕੋਰਸ ਲਈ ਬਹੁ-ਭਾਸ਼ਾਈ ਸਮਰਥਨ ਉਪਲਬਧ ਹੈ। ਸਾਡੇ [ਉਪਲਬਧ ਭਾਸ਼ਾਵਾਂ ਇੱਥੇ](#-multi-language-support) ਵੇਖੋ।
 
-ਜੇ ਤੁਸੀਂ ਪਹਿਲੀ ਵਾਰ ਜਨਰੇਟਿਵ ਏਆਈ ਮਾਡਲਾਂ ਨਾਲ ਕੰਮ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਸਾਡਾ [Generative AI For Beginners](https://aka.ms/genai-beginners) ਕੋਰਸ ਦੇਖੋ, ਜਿਸ ਵਿੱਚ GenAI ਨਾਲ ਬਣਾਉਣ ਦੇ 21 ਪਾਠ ਸ਼ਾਮਲ ਹਨ।
+ਜੇ ਇਹ ਤੁਹਾਡਾ ਪਹਿਲਾ ਵਾਰ ਜਨਰੇਟਿਵ AI ਮਾਡਲਾਂ ਨਾਲ ਬਣਾਉਣਾ ਹੈ ਤਾਂ ਸਾਡਾ [Beginners ਲਈ Generative AI](https://aka.ms/genai-beginners) ਕੋਰਸ ਵੇਖੋ, ਜਿਸ ਵਿੱਚ ਜਨਰਲ AI ਨਾਲ ਬਣਾਉਣ ਲਈ 21 ਪਾਠ ਹਨ।
 
-ਇਸ ਰਿਪੋ ਨੂੰ [ਤਾਰਾ (🌟) ਦੇਣਾ](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ਅਤੇ [ਫੋਰਕ ਕਰਨਾ](https://github.com/microsoft/ai-agents-for-beginners/fork) ਨਾ ਭੁੱਲੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਕੋਡ ਚਲਾ ਸਕੋ।
+ਇਸ ਰਿਪੋ ਨੂੰ [ਸਟਾਰ (🌟) ਕਰਨਾ ਨਾ ਭੁੱਲੋ](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ਅਤੇ ਕੋਡ ਚਲਾਉਣ ਲਈ [ਇਸ ਰਿਪੋ ਨੂੰ ਫੋਰਕ ਕਰੋ](https://github.com/microsoft/ai-agents-for-beginners/fork)।
 
-### ਹੋਰ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਮਿਲੋ, ਆਪਣੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਲਓ
+### ਦੂਜੇ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਮਿਲੋ, ਆਪਣੇ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਜਵਾਬ ਲਵੋ
 
-ਜੇ ਤੁਸੀਂ ਅਟਕ ਜਾਂਦੇ ਹੋ ਜਾਂ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਬਾਰੇ ਕੋਈ ਪ੍ਰਸ਼ਨ ਹੈ, ਤਾਂ ਸਾਡੇ ਸਮਰਪਿਤ ਡਿਸਕੋਰਡ ਚੈਨਲ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ਵਿੱਚ।
+ਜੇ ਤੁਸੀਂ ਫਸ ਜਾਂਦੇ ਹੋ ਜਾਂ AI ਏਜੰਟ ਬਣਾਉਣ ਬਾਰੇ ਕੋਈ ਪ੍ਰਸ਼ਨ ਹੈ, ਤਾਂ ਸਾਡੇ Microsoft Foundry ਡਿਸਕਾਰਡ ਚੈਨਲ ਵਿਚ ਸ਼ਾਮਲ ਹੋਵੋ: [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)।
 
 ### ਤੁਹਾਨੂੰ ਕੀ ਚਾਹੀਦਾ ਹੈ
 
-ਇਸ ਕੋਰਸ ਵਿੱਚ ਹਰ ਪਾਠ ਨਾਲ ਕੋਡ ਉਦਾਹਰਨਾਂ ਸ਼ਾਮਲ ਹਨ, ਜੋ code_samples ਫੋਲਡਰ ਵਿੱਚ ਮਿਲ ਸਕਦੀਆਂ ਹਨ। ਤੁਸੀਂ [ਇਸ ਰਿਪੋ ਨੂੰ ਫੋਰਕ ਕਰਕੇ](https://github.com/microsoft/ai-agents-for-beginners/fork) ਆਪਣੀ ਕਾਪੀ ਤਿਆਰ ਕਰ ਸਕਦੇ ਹੋ।  
+ਇਸ ਕੋਰਸ ਦਾ ਹਰ ਪਾਠ ਕੋਡ ਉਦਾਹਰਣਾਂ ਨਾਲ ਹੈ ਜੋ code_samples ਫੋਲਡਰ ਵਿੱਚ ਮਿਲ ਸਕਦੇ ਹਨ। ਤੁਸੀਂ ਆਪਣੀ ਨਕਲ ਬਣਾਉਣ ਲਈ [ਇਸ ਰਿਪੋ ਨੂੰ ਫੋਰਕ ਕਰ ਸਕਦੇ ਹੋ](https://github.com/microsoft/ai-agents-for-beginners/fork)।
 
-ਇਹਨਾਂ ਕੋਡ ਉਦਾਹਰਨਾਂ ਵਿਚ Microsoft Agent Framework ਨਾਲ Azure AI Foundry Agent Service V2 ਵਰਤੀ ਗਈ ਹੈ:
+ਇਹ ਕੋਡ ਉਦਾਹਰਣ Microsoft Agent Framework ਨੂੰ Microsoft Foundry Agent Service V2 ਨਾਲ ਵਰਤਦੇ ਹਨ:
 
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure ਖਾਤਾ ਲੋੜੀਂਦਾ ਹੈ
 
-ਇਹ ਕੋਰਸ Microsoft ਤੋਂ ਹੇਠਾਂ ਦਿੱਤੇ ਗਏ AI Agent ਫਰੇਮਵਰਕ ਅਤੇ ਸੇਵਾਵਾਂ ਵਰਤਦਾ ਹੈ:
+ਇਸ ਕੋਰਸ ਵਿੱਚ निमਨ ਲਿਖੇ Microsoft ਦੇ AI Agent ਫਰੇਮਵਰਕ ਅਤੇ ਸੇਵਾਵਾਂ ਵਰਤੀਆਂ ਗਈਆਂ ਹਨ:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
-- [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-ਕੁਝ ਕੋਡ ਉਦਾਹਰਨਾਂ ਵਿੱਚ ਵਿਵਿਕਲਪਿਕ OpenAI-ਅਨੁਕੂਲ ਪ੍ਰਦਾਤਾ ਵੀ ਸਮਰਥਿਤ ਹਨ ਜਿਵੇਂ ਕਿ [MiniMax](https://platform.minimaxi.com/), ਜੋ ਵੱਡੇ-ਸੰਦਰਭ ਮਾਡਲ (ਕੀਮਤ 204K ਟੋਕਨ ਤੱਕ) ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। ਸੰਰਚਨਾ ਵੇਰਵੇ ਲਈ [ਕੋਰਸ ਸੈੱਟਅਪ](./00-course-setup/README.md) ਨੂੰ ਵੇਖੋ।
+ਕੁਝ ਕੋਡ ਉਦਾਹਰਣ OpenAI-ਕੰਪੈਟੀਬਲ ਪ੍ਰੋਵਾਈਡਰਾਂ ਜਿਵੇਂ [MiniMax](https://platform.minimaxi.com/) ਨੂੰ ਵੀ ਸਮਰਥਨ ਦਿੰਦੇ ਹਨ, ਜੋ ਵੱਡੇ ਸੰਦਰਭ ਮਾਡਲ (ਅੱਪ ਟੂ 204K ਟੋਕਨ) ਮੁਹੱਈਆ ਕਰਾਉਂਦੇ ਹਨ। ਵੇਰਵੇ ਲਈ [ਕੋਰਸ ਸੈਟਅੱਪ](./00-course-setup/README.md) ਵੇਖੋ।
 
-ਇਸ ਕੋਰਸ ਲਈ ਕੋਡ ਚਲਾਉਣ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ [ਕੋਰਸ ਸੈੱਟਅਪ](./00-course-setup/README.md) 'ਤੇ ਜਾਓ।
+ਇਸ ਕੋਰਸ ਲਈ ਕੋਡ ਚਲਾਉਣ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ [ਕੋਰਸ ਸੈਟਅੱਪ](./00-course-setup/README.md) ਤੇ ਜਾਓ।
 
-## 🙏 ਮਦਦ ਕਰਨੀ ਹੈ?
+## 🙏 ਮਦਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?
 
-ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਸੁਝਾਵ ਹਨ ਜਾਂ ਕੰਨਸਪੇਲਿੰਗ ਜਾਂ ਕੋਡ ਵਿਚ ਗਲਤੀਆਂ ਮਿਲੀਆਂ ਹਨ? [ਇਸ਼ੂ ਉਠਾਓ](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ਜਾਂ [ਪੁੱਲ ਰਿਕਵੇਸਟ ਬਣਾਓ](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਸੁਝਾਅ ਹਨ ਜਾਂ ਤੁਸੀਂ ਕੋਈ ਵਿਆਕਰਨ ਜਾਂ ਕੋਡ ਦੀਆਂ ਗਲਤੀਆਂ ਲੱਭੀਆਂ ਹਨ? [ਮੁੱਦਾ ਖੋਲ੍ਹੋ](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ਜਾਂ [ਪੁੱਲ ਰੀਕਵੇਸਟ ਬਣਾਓ](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
-## 📂 ਹਰ ਪਾਠ ਵਿੱਚ ਸ਼ਾਮਲ ਹੈ
+## 📂 ਹਰ ਪਾਠ ਵਿੱਚ ਸ਼ਾਮਿਲ ਹਨ
 
-- README ਵਿੱਚ ਲਿਖਿਆ ਗਿਆ ਪਾਠ ਅਤੇ ਇੱਕ ਛੋਟੀ ਵੀਡੀਓ
-- Microsoft Agent Framework ਨਾਲ Python ਕੋਡ ਉਦਾਹਰਨਾਂ Azure AI Foundry ਨਾਲ
-- ਵਧੇਰੇ ਸਿੱਖਣ ਲਈ ਲਿੰਕ
+- README ਵਿੱਚ ਲਿਖਤ ਪਾਠ ਅਤੇ ਛੋਟਾ ਵੀਡੀਓ
+- Microsoft Agent Framework ਨਾਲ Python ਕੋਡ ਉਦਾਹਰਣਾਂ Microsoft Foundry ਨਾਲ
+- ਸਿਖਾਈ ਦੇ ਲਈ ਵਾਧੂ ਸਾਧਨਾਂ ਦੇ ਲਿੰਕ
 
 
 ## 🗃️ ਪਾਠ
 
-| **ਪਾਠ**                                    | **ਲਿਖਤ ਅਤੇ ਕੋਡ**                                 | **ਵੀਡੀਓ**                                                  | **ਵਾਧੂ ਸਿੱਖਿਆ**                                                                    |
-|-------------------------------------------|-------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------------------------------|
-| ਏਆਈ ਏਜੰਟ ਅਤੇ ਏਜੰਟ ਦੇ ਉਪਯੋਗ ਕੇਸਾਂ ਨਾਲ ਜਾਣੂ | [ਲਿੰਕ](./01-intro-to-ai-agents/README.md)          | [ਵੀਡੀਓ](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਏਆਈ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਦਾ ਅਧਿਐਨ              | [ਲਿੰਕ](./02-explore-agentic-frameworks/README.md)  | [ਵੀਡੀਓ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਏਆਈ ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਸਮਝਣਾ         | [ਲਿੰਕ](./03-agentic-design-patterns/README.md)     | [ਵੀਡੀਓ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਟੂਲ ਉਪਯੋਗ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                  | [ਲਿੰਕ](./04-tool-use/README.md)                    | [ਵੀਡੀਓ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਏਜੰਟਿਕ RAG                                  | [ਲਿੰਕ](./05-agentic-rag/README.md)                 | [ਵੀਡੀਓ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਭਰੋਸੇਯੋਗ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣਾ                 | [ਲਿੰਕ](./06-building-trustworthy-agents/README.md) | [ਵੀਡੀਓ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਯੋਜਨਾ ਬਣਾਉਣ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                 | [ਲਿੰਕ](./07-planning-design/README.md)             | [ਵੀਡੀਓ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਬਹੁ-ਏਜੰਟ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                    | [ਲਿੰਕ](./08-multi-agent/README.md)                 | [ਵੀਡੀਓ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)|
-| ਮੈਟਾਕੋਗਨਿਸ਼ਨ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI ਏਜੰਟ ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ                        | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| ਏਜੈਂਟਿਕ ਪ੍ਰੋਟੋਕਾਲਾਂ ਦੀ ਵਰਤੋਂ (MCP, A2A ਅਤੇ NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI ਏਜੰਟਾਂ ਲਈ ਸੰਦੇਸ਼ ਇੰਜੀਨੀਅਰਿੰਗ            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| ਏਜੈਂਟਿਕ ਮੈਮੋਰੀ ਦਾ ਪ੍ਰਬੰਧਨ                    | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| ਮਾਇਕਰੋਸੌਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਦੀ ਖੋਜ             | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| ਕੰਪਿਊਟਰ ਇਸਤੇਮਾਲ ਏਜੰਟ (CUA) ਬਣਾਉਣਾ          | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| ਸਕੇਲਬਲ ਏਜੰਟਾਂ ਨੂੰ ਤੈਅar ਕਰਨਾ                 | ਜਲਦ ਆ ਰਿਹਾ ਹੈ                            |                                                            |                                                                                        |
-| ਲੋਕਲ AI ਏਜੰਟ ਬਣਾਉਣਾ                         | ਜਲਦ ਆ ਰਿਹਾ ਹੈ                               |                                                            |                                                                                        |
-| AI ਏਜੰਟਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨਾ                   | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| **ਪਾਠ**                                   | **ਲਿਖਤ & ਕੋਡ**                                    | **ਵੀਡੀਓ**                                                  | **ਵਾਧੂ ਸਿੱਖਣ ਵਾਲਾ ਸਮੱਗਰੀ**                                                                     |
+|----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| AI ਏਜੰਟ ਅਤੇ ਏਜੰਟ ਉਪਯੋਗ ਮਾਮਲੇ ਦਾ ਪਰਿਚਯ       | [ਲਿੰਕ](./01-intro-to-ai-agents/README.md)          | [ਵੀਡੀਓ](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਦੀ ਖੋਜ                    | [ਲਿੰਕ](./02-explore-agentic-frameworks/README.md)  | [ਵੀਡੀਓ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੀ ਸਮਝ            | [ਲਿੰਕ](./03-agentic-design-patterns/README.md)     | [ਵੀਡੀਓ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਟੂਲ ਉਪਯੋਗ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                   | [ਲਿੰਕ](./04-tool-use/README.md)                     | [ਵੀਡੀਓ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਏਜੰਟਿਕ RAG                                  | [ਲਿੰਕ](./05-agentic-rag/README.md)                  | [ਵੀਡੀਓ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਭਰੋਸੇਯੋਗ AI ਏਜੰਟ ਬਣਾਉਣਾ                    | [ਲਿੰਕ](./06-building-trustworthy-agents/README.md) | [ਵੀਡੀਓ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਯੋਜਨਾ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                        | [ਲਿੰਕ](./07-planning-design/README.md)              | [ਵੀਡੀਓ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਬਹੁ-ਏਜੰਟ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                    | [ਲਿੰਕ](./08-multi-agent/README.md)                  | [ਵੀਡੀਓ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [ਲਿੰਕ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
-## 🎒 ਹੋਰ ਕੋਰਸ
+| ਮੈਟਾਕੋਗਨੀਸ਼ਨ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਉਤਪਾਦਨ ਵਿੱਚ ਏਆਈ ਏਜੰਟ                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਏਜੈਂਟਿਕ ਪ੍ਰੋਟੋਕੋਲਾਂ ਦੀ ਵਰਤੋਂ (MCP, A2A ਅਤੇ NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਏਆਈ ਏਜੰਟ ਲਈ ਸੰਦਰਭ ਇੰਜੀਨੀਅਰਿੰਗ            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ਏਜੈਂਟਿਕ ਮੇਮੋਰੀ ਦਾ ਪ੍ਰਬੰਧਨ                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| ਮਾਈਕਰੋਸੌਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਦੀ ਖੋਜ                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| ਕੰਪਿਊਟਰ ਵਰਤੋਂ ਏਜੰਟ ਬਣਾਉਣਾ (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| ਸਕੇਲਯੋਗ ਏਜੰਟਾਂ ਦੀ ਤੈਨਾਤੀ                    | [Link](./16-deploying-scalable-agents/README.md) |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
+| ਸਥਾਨਕ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣਾ                     | [Link](./17-creating-local-ai-agents/README.md)  |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
+| ਏਆਈ ਏਜੰਟਾਂ ਦੀ ਸੁਰੱਖਿਆ                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
-ਸਾਡੀ ਟੀਮ ਹੋਰ ਕੋਰਸ ਵੀ ਤਿਆਰ ਕਰਦੀ ਹੈ! ਵੇਖੋ:
+## 🎒 ਹੋਰ ਕੋਰਸز
+
+ਸਾਡੀ ਟੀਮ ਹੋਰ ਕੋਰਸ ਬਣਾਉਂਦੀ ਹੈ! ਇਨ੍ਹਾਂ ਨੂੰ ਚੈੱਕ ਕਰੋ:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
-### ਲੈਂਗਚੇਨ
+### ਲੰਗਚੇਂਨ
 [![LangChain4j for Beginners](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
 [![LangChain.js for Beginners](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
 [![LangChain for Beginners](https://img.shields.io/badge/LangChain%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin)
 ---
 
-### ਏਜ਼ਿਊਰ / ਐਜ / MCP / ਏਜੰਟ
+### ਐਜੂਰ / ਐਡਜ / MCP / ਏਜੰਟ
 [![AZD for Beginners](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI for Beginners](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP for Beginners](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -133,9 +134,10 @@
 
 ---
  
-### ਜਨਰੇਟਿਵ AI ਸੀਰੀਜ਼
+### ਜਨਰੇਟਿਵ ਏਆਈ ਸੀਰੀਜ਼
 [![Generative AI for Beginners](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+
 [![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
@@ -158,29 +160,41 @@
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 ਕਮਿਊਨਟੀ ਧੰਨਵਾਦ
+## 🌟 ਕਮਿਊਨਿਟੀ ਧੰਨਵਾਦ
 
-[ਸ਼ਿਵਮ ਗੋਯਲ](https://www.linkedin.com/in/shivam2003/) ਨੂੰ ਏਜੈਂਟਿਕ RAG ਪ੍ਰਦਰਸ਼ਿਤ ਕਰਨ ਵਾਲੇ ਮਹੱਤਵਪੂਰਣ ਕੋਡ ਸੈਂਪਲਾਂ ਲਈ ਧੰਨਵਾਦ।
+Agentic RAG ਨੂੰ ਦਰਸਾਉਂਦੇ ਮਹੱਤਵਪੂਰਨ ਕੋਡ ਸੈਂਪਲ ਭੇਟ ਕਰਨ ਲਈ [ਸ਼ਿਵਮ ਗੋਯਲ](https://www.linkedin.com/in/shivam2003/) ਦਾ ਧੰਨਵਾਦ। 
 
-## ਯੋਗਦਾਨ ਪਾਉਣਾ
+## ਯੋਗਦਾਨ ਦੇਣਾ
 
-ਇਸ ਪ੍ਰਾਜੈਕਟ ਵਿੱਚ ਯੋਗਦਾਨ ਅਤੇ ਸੁਝਾਅ ਸਵਾਗਤ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਯੋਗਦਾਨ ਕਰਨ ਵਾਲਿਆਂ ਨੂੰ Contributor License Agreement (CLA) 'ਤੇ ਸਹਿਮਤ ਹੋਣਾ ਪੈਂਦਾ ਹੈ ਜੋ ਇਹ ਦੱਸਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਆਪਣੇ ਯੋਗਦਾਨ ਦੀ ਵਰਤੋਂ ਦੇ ਹੱਕ ਸਾਡੇ ਨੂੰ ਦਿੰਦੇ ਹੋ। ਵਿਸਥਾਰ ਲਈ ਵੇਖੋ <https://cla.opensource.microsoft.com>।
+ਇਹ ਪ੍ਰੋਜੈਕਟ ਯੋਗਦਾਨ ਅਤੇ ਸੁਝਾਅ ਨੂੰ ਸਵਾਗਤ ਕਰਦਾ ਹੈ। ਬਹੁਤ ਸਾਰੇ ਯੋਗਦਾਨਾਂ ਲਈ ਤੁਹਾਨੂੰ ਇੱਕ
+ਯੋਗਦਾਨਕਾਰ ਲਾਇਸੈਂਸ ਐਗਰੀਮੈਂਟ (CLA) ਨਾਲ ਸਹਿਮਤ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਤਸਦੀਕ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਹਨ ਅਤੇ ਤੁਹਾਨੂੰ
+ਅਸਲ ਵਿੱਚ ਸਾਡੇ ਯੋਗਦਾਨ ਨੂੰ ਵਰਤਣ ਦੇ ਅਧਿਕਾਰ ਪਾਉਣੀ ਹਨ। ਵਿਸਥਾਰ ਲਈ, <https://cla.opensource.microsoft.com> ਤੇ ਜਾਓ।
 
-ਜਦੋਂ ਤੁਸੀਂ ਪੂਲ ਰਿਕੁਐਸਟ ਦੇਂਦੇ ਹੋ, ਤਾਂ CLA ਬੋਟ ਆਪਣੇ ਆਪ ਨਿਰਧਾਰਿਤ ਕਰੇਗਾ ਕਿ ਤੁਸੀਂ CLA ਦੀ ਜ਼ਰੂਰਤ ਹੈ ਜਾਂ ਨਹੀਂ ਅਤੇ PR ਨੂੰ ਢੰਗ ਨਾਲ ਸਜਾਵੇਗਾ (ਜਿਵੇਂ ਕਿ ਸਥਿਤੀ ਚੈੱਕ, ਟਿੱਪਣੀ)। ਬੋਟ ਦੇ ਦਿਓ ਗਏ ਨਿਰਦੇਸ਼ਾਂ ਨੂੰ ਇਸ ਵਾਰ ਹੀ ਅਨੁਸਰਣ ਕਰੋ। ਤੁਸੀਂ ਸਾਡੇ CLA ਦਾ ਉਪਯੋਗ ਕਰਨ ਵਾਲੇ ਸਾਰੇ ਰੈਪੋਆਂ ਵਿੱਚ ਸਿਰਫ ਇਕ ਵਾਰੀ ਇਹ ਕਰਨਾ ਪਵੇਗਾ।
+ਜਦੋਂ ਤੁਸੀਂ ਪੂਲ ਰਿਕਵੈਸਟ ਸਬਮਿਟ ਕਰਦੇ ਹੋ, ਤਾਂ ਇੱਕ CLA ਬੋਟ ਸਵੈਚਾਲਿਤ ਤੌਰ 'ਤੇ ਇਹ ਫੈਸਲਾ ਕਰੇਗਾ ਕਿ ਕੀ ਤੁਹਾਨੂੰ CLA ਦੇਣ ਦੀ ਲੋੜ ਹੈ
+ਅਤੇ PR ਨੂੰ ਉਚਿਤ ਤਰੀਕੇ ਨਾਲ ਅਲੰਕ੍ਰਿਤ ਕਰੇਗਾ (ਜਿਵੇਂ ਕਿ ਸਥਿਤੀ ਜਾਂਚ, ਟਿੱਪਣੀ)। ਸਿਰਫ਼ ਬੋਟ ਵੱਲੋਂ ਦਿੱਤੇ ਨਿਰਦੇਸ਼ਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ।
+ਤੁਸੀਂ ਸਾਡੀ CLA ਦੀ ਵਰਤੋਂ ਕਰਨ ਵਾਲੇ ਸਾਰੇ ਰਿਪੋਜ਼ ਵਿੱਚ ਇਹ ਸਿਰਫ ਇੱਕ ਵਾਰੀ ਕਰਨਾ ਪਵੇਗਾ।
 
-ਇਸ ਪ੍ਰਾਜੈਕਟ ਨੇ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ਨੂੰ ਅਪਣਾਇਆ ਹੈ। ਵੇਰਵੇ ਲਈ ਦੇਖੋ [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ਜਾਂ ਕਿਸੇ ਹੋਰ ਸਵਾਲਾਂ ਲਈ ਸੰਪਰਕ ਕਰੋ [opencode@microsoft.com](mailto:opencode@microsoft.com)।
+ਇਸ ਪ੍ਰੋਜੈਕਟ ਨੇ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ਨੂਂ ਅਪਣਾ ਲਿਆ ਹੈ।
+ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ਵੇਖੋ ਜਾਂ
+ਵਾਧੂ ਸਵਾਲਾਂ ਜਾਂ ਟਿੱਪਣੀਆਂ ਲਈ [opencode@microsoft.com](mailto:opencode@microsoft.com) ਨਾਲ ਸੰਪਰਕ ਕਰੋ।
 
-## ਟ੍ਰੇਡਮਾਰਕ
+## ਟਰੇਡਮਾਰਕ
 
-ਇਸ ਪ੍ਰਾਜੈਕਟ ਵਿੱਚ ਪ੍ਰਾਜੈਕਟਾਂ, ਉਤਪਾਦਾਂ ਜਾਂ ਸੇਵਾਵਾਂ ਦੇ ਟ੍ਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਹੋ ਸਕਦੇ ਹਨ। Microsoft ਦੇ ਟ੍ਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਵਰਤੋਂ Microsoft ਦੀਆਂ [Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) ਅਨੁਸਾਰ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ। ਇਸ ਪ੍ਰਾਜੈਕਟ ਦੇ ਸੋਧੇ ਹੋਏ ਸੰਸਕਰਨਾਂ ਵਿੱਚ Microsoft ਦੇ ਟ੍ਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਵਰਤੋਂ ਕਦੇ ਵੀ ਭੁੱਲਭੁਲੇਂ ਜਾਂ ਸਾਂਝਾ ਕਰਨ ਦਾ ਇঙ্গਿਤ ਨਹੀਂ ਦੇਣੀ ਚਾਹੀਦੀ। ਤੀਜੀ ਪਾਰਟੀ ਦੇ ਟ੍ਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਵਰਤੋਂ ਉਸ ਤੀਜੀ ਪਾਰਟੀ ਦੀਆਂ ਨੀਤੀਆਂ ਅਨੁਸਾਰ ਹੋਵੇਗੀ।
+ਇਸ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਪ੍ਰੋਜੈਕਟਾਂ, ਉਤਪਾਦਾਂ ਜਾਂ ਸੇਵਾਵਾਂ ਦੇ ਟਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਹੋ ਸਕਦੇ ਹਨ। Microsoft ਦੇ ਟਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਆਧਿਕਾਰਿਤ ਵਰਤੋਂ ਲਈ
+ਸਬੰਧਤ ਪਾਬੰਧੀਆਂ ਅਤੇ
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) ਦੀ ਪਾਲਣਾ ਕਰਨੀ ਜ਼ਰੂਰੀ ਹੈ।
+Microsoft ਦੇ ਟਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਸੋਧੀ ਹੋਈ ਸੰස්ਕਰਣਾਂ ਵਿੱਚ ਵਰਤੋਂ ਕਿਸੇ ਕਿਸਮ ਦਾ ਭ੍ਰਮ ਨਾ ਪੈਦਾ ਕਰੇ ਜਾਂ Microsoft ਦੀ ਅਨੁਮਤੀ ਦਾ ਭਾਸ਼ਾ ਨਾ ਕਰੇ।
+ਤੀਜੀ ਪੱਖੀ ਟਰੇਡਮਾਰਕ ਜਾਂ ਲੋਗੋ ਦੀ ਵਰਤੋਂ ਉਨ੍ਹਾਂ ਤੀਜੀਆਂ ਪੱਖੀਆਂ ਦੀਆਂ ਨੀਤੀਆਂ ਅਧੀਨ ਰਹੇਗੀ।
 
-## ਮਦਦ ਪ੍ਰਾਪਤ ਕਰਨਾ
+## ਸਹਾਇਤਾ ਪ੍ਰਾਪਤ ਕਰਨਾ
 
-ਜੇ ਤੁਸੀਂ ਰੁਕ ਜਾਂਦੇ ਹੋ ਜਾਂ AI ਐਪ ਬਣਾਉਣ ਬਾਰੇ ਕੋਈ ਪ੍ਰਸ਼ਨ ਹੋਵੇ, ਤਾਂ ਜੁੜੋ:
+
+ਜੇ ਤੁਸੀਂ ਫਸ ਜਾਓ ਜਾਂ AI ਐਪ ਬਣਾਉਣ ਬਾਰੇ ਕੋਈ ਸਵਾਲ ਹੋਵੇ, ਤਾਂ ਜੁੜੋ:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਉਤਪਾਦ ਫੀਡਬੈਕ ਜਾਂ ਕਿਰਿਆ ਵਿੱਚ ਗਲਤੀਆਂ ਹਨ ਤਾਂ ਜਾਓ:
+ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਉਤਪਾਦ ਫੀਡਬੈਕ ਜਾਂ ਬਣਾਉਣ ਦੌਰਾਨ ਕੋਈ ਗਲਤੀਆਂ ਹਨ ਤਾਂ ਇੱਥੇ ਜਾਓ:
+
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

@@ -1,6 +1,6 @@
-[Watch the lesson video: Zabezpečení AI agentů pomocí kryptografických potvrzení](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Sledujte video lekce: Zabezpečení AI agentů pomocí kryptografických potvrzení](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Video lekce a náhled obrázku budou přidány týmem Microsoft pro obsah po sloučení, odpovídající vzoru lekce 14 / 15.)_
+> _(Video lekce a náhledový obrázek budou přidány týmem Microsoftu po sloučení, odpovídající vzoru lekcí 14 / 15.)_
 
 # Zabezpečení AI agentů pomocí kryptografických potvrzení
 
@@ -8,60 +8,60 @@
 
 Tato lekce pokryje:
 
-- Proč jsou auditní stopy AI agentů důležité pro shodu, ladění a důvěru.
-- Co je kryptografický doklad a jak se liší od nepodepsaného záznamu.
-- Jak vygenerovat podepsaný doklad pro volání nástroje agenta v čistém Pythonu.
-- Jak offline ověřit doklad a odhalit manipulaci.
-- Jak řetězit doklady tak, aby odstranění nebo přeskupení jednoho dokladu porušilo řetězec.
-- Co doklady dokazují a co explicitně nedokazují.
+- Proč jsou auditní stopy AI agentů důležité pro soulad, ladění a důvěru.
+- Co je to kryptografické potvrzení a jak se liší od nepodepsaného záznamu v logu.
+- Jak vytvořit podepsané potvrzení o volání nástroje agenta v čistém Pythonu.
+- Jak ověřit potvrzení offline a detekovat manipulaci.
+- Jak propojit potvrzení do řetězce tak, že odstranění nebo přeuspořádání jednoho potvrdí přeruší řetězec.
+- Co potvrzení prokazují a co výslovně neprokazují.
 
 ## Cíle učení
 
-Po dokončení této lekce budete vědět, jak:
+Po dokončení této lekce budete umět:
 
-- Identifikovat selhání, která motivují kryptografický původ činů agenta.
-- Vytvořit Ed25519-podepsaný doklad nad kanonickým JSON payloadem.
-- Nezávisle ověřit doklad pouze pomocí veřejného klíče osoby podepisující.
-- Odhalit manipulaci znovu spuštěním ověření upraveného dokladu.
-- Postavit hash-řetězenou posloupnost dokladů a vysvětlit důležitost tohoto řetězce.
-- Rozpoznat hranici mezi tím, co doklady dokazují (přiřazení, integrita, pořadí) a co nedokazují (správnost akce, správnost pravidel).
+- Identifikovat chyby, které motivují kryptografický původ akcí agenta.
+- Vytvořit Ed25519-podepsané potvrzení nad kanonickým JSON objektem.
+- Ověřit potvrzení nezávisle pouze s použitím veřejného klíče podepisovatele.
+- Detekovat manipulaci opětovným ověřením upraveného potvrzení.
+- Sestavit sekvenci potvrzení propojených hašem a vysvětlit, proč je řetězec důležitý.
+- Rozlišovat, co potvrzení prokazují (přiřazení, integrita, pořadí) a co neprokazují (správnost akce, smysluplnost politiky).
 
 ## Problém: Auditní stopa vašeho agenta
 
-Představte si, že jste nasadili AI agenta pro Contoso Travel. Agent čte zákaznické požadavky, volá API letů pro vyhledání možností a rezervuje sedadla za zákazníka. Za poslední čtvrtletí agent zpracoval 50 000 rezervací.
+Představte si, že jste nasadili AI agenta pro Contoso Travel. Agent čte požadavky zákazníků, volá API letenek pro hledání možností a rezervuje místa jménem zákazníka. Minulý čtvrtletí agent zpracoval 50 000 rezervací.
 
-Dnes přijde auditor. Položí jednoduchou otázku: „Ukažte mi, co váš agent dělal.“
+Dnes přichází auditor. Položí jednoduchou otázku: „Ukažte mi, co váš agent udělal.“
 
-Předáte logy. Auditor se na ně podívá a položí těžší otázku: „Jak vím, že tyto logy nebyly upraveny?“
+Předáte mu své logy. Auditor je prohlíží a položí obtížnější otázku: „Jak vím, že tyto logy nebyly upravovány?“
 
-To je problém auditní stopy. Většina dnešních nasazení agentů spoléhá na:
+To je problém auditní stopy. Dnešní většina nasazení agentů spoléhá na:
 
-- **Aplikační logy**: psané samotným agentem, editovatelné kýmkoli s přístupem do souborového systému.
-- **Cloudové služby logování**: jsou odolné proti manipulaci na úrovni platformy, ale pouze pokud auditor důvěřuje provozovateli platformy.
-- **Protokoly transakcí databáze**: vhodné pro změny v databázi, ale ne pro libovolná volání nástrojů.
+- **Aplikační logy**: zapisované samotným agentem, upravitelné kýmkoliv s přístupem k souborovému systému.
+- **Cloudové logovací služby**: znatelné manipulaci na úrovni platformy, ale jen pokud auditor důvěřuje provozovateli platformy.
+- **Databázové transakční logy**: vhodné pro změny v databázi, nikoliv však pro libovolné volání nástrojů.
 
-Žádné z těchto řešení nedokáže odpovědět auditorově otázce bez požadavku, aby auditor někomu důvěřoval (vám, vašemu poskytovateli cloudu, dodavateli databáze). Pro interní použití je tato důvěra často přijateľná. Pro regulované úlohy (finance, zdravotnictví, cokoliv podléhající evropskému zákonu o AI) není.
+Žádný z těchto způsobů nemůže odpovědět auditorovi bez toho, aby auditor někomu důvěřoval (vám, vašemu poskytovateli cloudu, dodavateli databáze). Pro interní použití je tato důvěra často přijatelná. Pro regulované úlohy (finance, zdravotnictví, cokoliv podléhající EU AI zákonu) nikoliv.
 
-Kryptografické doklady řeší tento problém tím, že každou akci agenta činí nezávisle ověřitelnou. Auditor vám nemusí důvěřovat. Potřebuje pouze váš veřejný klíč a samotný doklad.
+Kryptografická potvrzení řeší tento problém tím, že každou akci agenta dělají nezávisle ověřitelnou. Auditor vám nemusí důvěřovat. Potřebuje pouze váš veřejný klíč a samotné potvrzení.
 
-## Co je kryptografický doklad?
+## Co je kryptografické potvrzení?
 
-Doklad je JSON objekt, který zaznamenává, co agent udělal, podepsaný digitálním podpisem.
+Potvrzení je JSON objekt, který zaznamenává, co agent udělal, podepsaný digitálním podpisem.
 
 ```mermaid
 flowchart LR
-    A[Agent vyvolá nástroj] --> B[Vytvořit obsah účtenky]
-    B --> C[Normalizovat JSON RFC 8785]
-    C --> D[SHA-256 haš]
-    D --> E[Ed25519 podepsat]
-    E --> F[Účet s podpisem]
-    F --> G[Auditor ověřuje offline]
-    G --> H{Je podpis platný?}
-    H -- ano --> I[Důkaz odolný proti manipulaci]
-    H -- ne --> J[Účet zamítnut]
+    A[Agent vyvolá nástroj] --> B[Sestavte užitečná data účtenky]
+    B --> C[Kanonizace JSON RFC 8785]
+    C --> D[SHA-256 hash]
+    D --> E[Podepište Ed25519]
+    E --> F[Účtenka s podpisem]
+    F --> G[Auditorka ověří offline]
+    G --> H{Platný podpis?}
+    H -- yes --> I[Důkaz odolný proti manipulaci]
+    H -- no --> J[Účtenka zamítnuta]
 ```
 
-Minimální doklad vypadá takto:
+Minimalistické potvrzení vypadá takto:
 
 ```json
 {
@@ -82,25 +82,25 @@ Minimální doklad vypadá takto:
 }
 ```
 
-Tři vlastnosti, které zajišťují funkčnost:
+Tři vlastnosti vykonávají práci:
 
-1. **Podpis**. Doklad je podepsán bránou agenta pomocí soukromého klíče Ed25519. Kdokoli s odpovídajícím veřejným klíčem může offline ověřit podpis. Jakákoli manipulace s kterýmkoli polem podpis zneplatní.
+1. **Podpis**. Potvrzení je podepsané branou agenta pomocí Ed25519 privátního klíče. Kdokoli s odpovídajícím veřejným klíčem může offline ověřit podpis. Jakákoliv manipulace s polem zneplatní podpis.
 
-2. **Kanonické kódování**. Před podpisem se doklad serializuje pomocí JSON Canonicalization Scheme (JCS, RFC 8785). To zajistí, že dvě implementace vytvářející stejný logický doklad vydají bajtově identický výstup. Bez kanonizace by různé JSON serializéry vytvářely různé podpisy pro stejné obsahy.
+2. **Kanonické kódování**. Než je potvrzení podepsáno, je serializováno pomocí JSON Canonicalization Scheme (JCS, RFC 8785). To zajišťuje, že dvě implementace vytvářející stejný logický záznam produkovat stejný přesně identický byteřad.
 
-3. **Řetězení hashů**. Pole `previous_receipt_hash` odkazuje na předchozí doklad. Odstranění nebo přeuspořádání dokladu poruší každý následující doklad. Manipulace se stává viditelnou na úrovni řetězce i pokud jsou jednotlivé podpisy obejity.
+3. **Hašovací řetězec**. Pole `previous_receipt_hash` propojuje každé potvrzení s tím předchozím. Odebrání nebo přeuspořádání potvrzení zlomí každé potvrzení, které na něj navazuje. Manipulace je tak viditelná na úrovni řetězce i při obejití jednotlivých podpisů.
 
-Tyto vlastnosti společně poskytují tři záruky:
+Tyto vlastnosti dohromady poskytují tři záruky:
 
 - **Přiřazení**: tento klíč podepsal tento obsah.
 - **Integrita**: obsah se od podpisu nezměnil.
-- **Pořadí**: tento doklad přišel po tom předchozím v řetězci.
+- **Pořadí**: toto potvrzení přišlo po onom potvrzení v řetězci.
 
-## Vytvoření dokladu v Pythonu
+## Vytvoření potvrzení v Pythonu
 
-Nemusíte používat speciální knihovnu na vytvoření dokladu. Kryptografické primitivy jsou běžně dostupné a logika představuje pár desítek řádků Pythonu.
+K vytvoření potvrzení nepotřebujete speciální knihovnu. Kryptografické primitiva jsou široce dostupná a logika je pár desítek řádků Pythonu.
 
-Cvičení v `code_samples/18-signed-receipts.ipynb` provádí celým postupem. Shrnutí:
+Praktické cvičení v `code_samples/18-signed-receipts.ipynb` vede úplným procesem. Shrnutí:
 
 ```python
 import json
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Generujte nebo načtěte podpisový klíč (v produkci ukládejte do trezoru klíčů)
+# Vygenerujte nebo načtěte podepisovací klíč (v produkci uložit do klíčového skladu)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Vytvořte obsah účtenky (zatím bez podpisu)
+# Sestavte obsah účtenky (ještě bez podpisu)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-To je celý proces podepisování. Cvičení v notebooku popisují každý krok.
+To je celý proces podepisování. Cvičení v poznámkovém bloku procházejí každý krok.
 
-## Ověření dokladu a detekce manipulace
+## Ověření potvrzení a detekce manipulace
 
-Ověření je opačné krok:
+Ověření je opačná operace:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Zrekonstruujte užitečné zatížení, které bylo skutečně podepsáno (vše kromě podpisu).
+    # Obnovte užitečné zatížení, které bylo skutečně podepsáno (vše kromě podpisu).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,196 +189,208 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Tato funkce vezme doklad a vrátí `True`, pokud je podpis platný, jinak `False`. Žádný síťový dotaz, žádná závislost na službě, žádná důvěra v třetí strany není potřeba.
+Tato funkce vezme potvrzení a vrátí `True`, pokud je podpis platný, jinak `False`. Žádný síťový hovor, žádná závislost na službě, žádná důvěra v třetí stranu není potřeba.
 
-Pro demonstraci detekce manipulací notebook ukazuje:
+Pro zobrazení detekce manipulace poznámkový blok společně ukazuje:
 
-1. Vytvoření platného dokladu a potvrzení jeho platnosti.
-2. Úpravu jednoho bajtu v poli `tool_args_hash`.
-3. Znovu spuštění ověření, které selže.
+1. Vytvoření platného potvrzení a potvrzení, že se ověřuje.
+2. Úprava jednoho bytu ve `tool_args_hash`.
+3. Opětovné ověření a zjištění neúspěchu.
 
-To je praktický důkaz, že doklady jsou odolné proti manipulacím: jakákoli změna, i malá, zničí podpis.
+Toto je praktická ukázka toho, že potvrzení jsou odolná proti manipulaci: jakákoliv změna, byť sebemenší, zlomí podpis.
 
-## Řetězení dokladů pro agenty s více kroky
+## Řetězení potvrzení pro vícestupňové agenty
 
-Jeden podepsaný doklad chrání jednu akci. Řetězec dokladů chrání posloupnost.
+Jedno podepsané potvrzení chrání jednu akci. Řetězec potvrzení chrání sekvenci.
 
 ```mermaid
 flowchart LR
-    R0[Účet 0<br/>genesis] --> R1[Účet 1]
-    R1 --> R2[Účet 2]
-    R2 --> R3[Účet 3]
+    R0[Doklad 0<br/>genesis] --> R1[Doklad 1]
+    R1 --> R2[Doklad 2]
+    R2 --> R3[Doklad 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Každý doklad zaznamenává hash předchozího dokladu. Chcete-li tiše odstranit doklad 2, útočník by musel:
+Každé potvrzení zaznamenává hash potvrzení předchozího. K tichému odstranění potvrzení 2 by útočník musel:
 
-- Upravit pole `previous_receipt_hash` v dokladu 3 (znemožní podpis dokladu 3), NEBO
-- Zfalšovat nový podpis upraveného dokladu 3 (což vyžaduje soukromý klíč agenta).
+- Upravit pole `previous_receipt_hash` potvrzení 3 (zničí podpis potvrzení 3), NEBO
+- Vytvořit nový podpis na upraveném potvrzení 3 (vyžaduje privátní klíč agenta).
 
-Pokud je soukromý klíč uložen v hardwarové klíčové schránce a vy zveřejníte veřejný klíč s každým dokladem, žádný z těchto útoků není bez odhalení realizovatelný.
+Je-li privátní klíč v hardwarovém klíčovém trezoru a veřejný klíč publikujete s každým potvrzením, žádný útok není proveditelný bez odhalení.
 
-Notebook ukazuje:
+Poznámkový blok ukazuje:
 
-1. Vytváření řetězce ze tří dokladů.
-2. Ověření, že `previous_receipt_hash` každého dokladu odpovídá skutečnému hashi předchozího dokladu.
-3. Zmanipulování prostředního dokladu a pozorování přerušení řetězce právě na tomto místě.
+1. Vytvoření řetězce tří potvrzení.
+2. Ověření, že `previous_receipt_hash` každého potvrzení odpovídá skutečnému hashi předchozího potvrzení.
+3. Manipulaci se středním potvrzením a vidění, že se řetězec u tohoto bodu přeruší.
 
-Takto vytvoříte auditní stopu, kterou může externí auditor ověřit, aniž by vám musel důvěřovat.
+Takto vytvoříte auditní stopu, kterou může externí auditor ověřit bez nutnosti vám důvěřovat.
 
-## Co doklady dokazují (a co ne)
+## Co potvrzení dokazují (a co ne)
 
-Jedná se o nejdůležitější část této lekce. Doklady jsou mocné, ale jejich účinek má hranice.
+Toto je nejdůležitější část lekce. Potvrzení jsou silná, ale jejich síla je omezená.
 
-**Doklady dokazují tři věci:**
+**Potvrzení prokazují tři věci:**
 
-1. **Přiřazení**: konkrétní klíč podepsal konkrétní obsah.
-2. **Integrita**: obsah se od podpisu nezměnil.
-3. **Pořadí**: tento doklad následoval po tom předchozím v hash řetězci.
+1. **Přiřazení**: konkrétní klíč podepsal konkrétní objektní data.
+2. **Integrita**: data se od podpisu nezměnila.
+3. **Pořadí**: toto potvrzení následovalo po onom potvrzení v řetězci hashů.
 
-**Doklady NEdokazují:**
+**Potvrzení neprokazují:**
 
-1. **Správnost**: že akce agenta byla správná. Doklad může být podepsán pro špatnou odpověď stejně jako pro správnou.
-2. **Shodu s politikou**: že politika uvedená v `policy_id` byla skutečně vyhodnocena nebo by tuto akci povolila. Doklad zaznamenává, co bylo tvrzeno, ne co bylo vynuceno.
-3. **Identitu nad rámec klíče**: doklad říká „tento klíč podepsal tento obsah.“ Neříká „tento člověk to autorizoval.“ Pro spojení klíče s osobou nebo organizací je potřeba samostatná identitní infrastruktura (adresář, rejstřík veřejných klíčů atd.).
-4. **Pravdivost vstupů**: pokud agent obdrží zmanipulovaný prompt a jedná podle něj, doklad věrně zaznamená akci. Doklady jsou downstream od validace vstupů, nejsou jejím náhradníkem.
+1. **Správnost**: že akce agenta byla správná akce. Potvrzení může být podepsáno pro špatnou odpověď stejně jako pro správnou.
+2. **Soulad s politikou**: že politika uvedená v `policy_id` byla skutečně vyhodnocena nebo že by akci povolila, kdyby to bylo kontrolováno. Potvrzení zaznamenává to, co bylo tvrzeno, ne to, co bylo vynuceno.
+3. **Identita nad rámec klíče**: potvrzení říká „tento klíč podepsal tento obsah“. Neříká „tento člověk to autorizoval.“ Propojení klíče s osobou nebo organizací vyžaduje samostatnou identitní infrastrukturu (adresář, veřejný registr klíčů apod.).
+4. **Pravdivost vstupů**: pokud agent obdrží zmanipulovaný podnět a jedná podle něj, potvrzení akci věrně zaznamená. Potvrzení jsou následující po validaci vstupů, ne její náhradou.
 
 Tato hranice je důležitá ze dvou důvodů:
 
-- Říká, k čemu jsou doklady užitečné: auditovatelné a odolné proti manipulacím chování agenta i přes organizační hranice.
-- Říká, jaké další vrstvy stále potřebujete: validaci vstupů (Lekce 6), vynucování politik (krátce uvedeno níže) a identitní infrastrukturu (mimo rozsah této lekce).
+- Ukazuje, na co jsou potvrzení užitečná: pro auditovatelné a odolné vůči manipulaci chování agentů i přes hranice organizací.
+- Ukazuje, jaké další vrstvy stále potřebujete: validaci vstupů (lekce 6), vynucení politiky (krátce zmíněno níže) a identitní infrastrukturu (mimo rozsah této lekce).
 
-Častou chybou je předpokládat, že „když máme doklady,“ znamená to „jsme regulovaní.“ Neznamená. Doklady jsou základ. Regulace je systém, který na nich stavíte.
+Častou chybou je předpokládat, že „máme potvrzení“ znamená „jsme řízeni.“ Neznamená to tak. Potvrzení jsou základ. Řízení je systém, který na tomto základě stavíte.
 
-## Referenční produkční zdroje
+## Dokázání, že lidská osoba schválila přesnou akci
 
-Python kód v této lekci je záměrně minimalistický, abyste mohli chápat každý řádek a přesně vědět, co se děje. V produkci máte dvě možnosti:
+Bod 3 výše stojí za vlastní sekci: potvrzení o akci říká „tento klíč podepsal tento obsah,“ nikdy „člověk to autorizoval.“ Pro akce s vysokým rizikem (vrácení peněz, mazání, převody peněz) rámce řízení stále častěji vyžadují právě toto chybějící prohlášení, a je vytvořitelné se stejnými primitivy, které jste již v této lekci vybudovali.
 
-1. **Postavit se přímo na kryptografických primitivech.** 50 řádků, které jste viděli, stačí pro mnoho použití. PyNaCl (Ed25519) a balíček `jcs` (kanonický JSON) jsou dobře udržované a auditované knihovny.
+Doprovodný poznámkový blok `code_samples/human-authorization-receipts.ipynb` přidává druhý typ potvrzení, `human.approval.v1`, ve stejné obálce jako potvrzení v lekci (typový payload podepsaný Ed25519 přes jeho kanonický SHA-256, s objektem `signature` mimo podepsaná data). Pojmenovaný schvalovatel podepisuje **celou kanonickou akci a její digest** před provedením; potvrzení akce agenta nese **stejný digest akce** a `parent_approval_ref`, což je `receipt_hash` schválení, ve stejném konvenci jako `previous_receipt_hash` v řetězci, který jste výše sestavili. Jedno `verify_chain` vyhodnocuje oba artefakty pod **oddělenými registrovanými klíči** (klíče schvalovatele vs klíče agenta), takže kódová cesta je sdílená, ale pravomoci nikdy.
 
-2. **Použít produkční knihovnu na doklady.** Několik open-source projektů implementuje stejný vzor s dalšími funkcemi (rotace klíčů, hromadné ověřování, distribuce JWK setu, integrace s motory politik):
-   - Formát dokladů použitý v této lekci následuje IETF Internet-Draft (`draft-farley-acta-signed-receipts`), který je právě ve schvalovacím procesu.
-   - Microsoft Agent Governance Toolkit spojuje doklady s rozhodnutími politik na bázi Cedar; tutorial 33 v tomto repozitáři ukazuje příklad end-to-end.
-   - Balíčky `protect-mcp` (npm) a `@veritasacta/verify` (npm) poskytují Node implementaci podepisování a offline ověřování dokladů, určenou k zabalení jakéhokoli MCP serveru do auditní stopy odolné proti manipulaci.
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) poskytuje stejný Ed25519 + JCS podpisový vzor v Pythonu s integracemi LangChain a CrewAI, včetně publikovaných testovacích vektorů a mapování shody přispěného prostřednictvím [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+Vlastnost, kterou toto zajišťuje, formulováno opatrně: *člověk schválil tuto přesnou akci a agent provedl přesně tu schválenou akci.* Odepření v poznámkovém bloku jsou to, co dělá vlastnost skutečnou, nikoli jen tvrzenou:
 
-Volba mezi psaním vlastního kódu a použitím knihovny je podobná rozhodování mezi vlastní JWT knihovnou a testovanou knihovnou: obojí je rozumné; knihovna šetří čas a snižuje auditní povrch; přístup od nuly vás nutí rozumět každé primitivě. Tato lekce učí přístup od nuly, abyste měli základy pro obě volby.
+- klasická sada: manipulace, zmatený zástupce, přehrání, padělané klíče na obou stranách, neplatný vstup;
+- **zastaralá pravomoc**: podpis stále ověřitelný, ale přesto odmítnutý, protože verze politiky se posunula, klíč schvalovatele byl odstraněn z registrovaných klíčů, nebo schválení vypršelo před provedením;
+- **záměna digestu**: platně podepsané potvrzení akce ukazující na *skutečné* schválení, které se týká *jiné* kanonické akce.
+
+Každá chyba odmítá s jiným důvodem, takže auditor čtoucí odmítnutí pozná, zda pravomoc vypršela, nebo se akce změnila. Pravidlo, které poznámkový blok učí: podepsané schválení samo o sobě není pravomocí. Pravomoc existuje jen pokud oba potvrzení stále v době vykonání odkazují na stejnou kanonickou akci. Cesta spolupodpisu v témže Internet-Draftu jako tato lekce sleduje (`draft-farley-acta-signed-receipts`) je standardizovaná verze tohoto vzoru.
+
+## Produkční reference
+
+Python kód v této lekci je záměrně minimalistický, aby si každý řádek mohl přečíst a přesně pochopit, co se děje. V produkci máte dvě možnosti:
+
+1. **Budovat přímo na kryptografických primitivech.** Padesát řádků, které jste viděli výše, stačí pro mnoho případů použití. PyNaCl (Ed25519) a balíček `jcs` (kanonický JSON) jsou dobře udržované a auditované knihovny.
+
+2. **Použít produkční knihovnu pro potvrzení.** Několik open-source projektů implementuje stejný vzor s dalšími vlastnostmi (rotace klíčů, dávkové ověření, distribuce JWK Set, integrace s politikami):
+   - Formát potvrzení použitý v této lekci vychází z IETF Internet-Draftu ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revize 02), který je aktuálně ve standardizačním procesu, se sadou sdílených testů souladu ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)), jež nezávislé implementace používají k porovnávání identických kanonických výstupů.
+   - Microsoft Agent Governance Toolkit kombinuje potvrzení s rozhodnutími politik založenými na Cedaru; viz Tutoriál 33 v repozitáři pro příklad end-to-end.
+   - Balíčky `protect-mcp` (npm) a `@veritasacta/verify` (npm) poskytují Node-based implementaci podepisování potvrzení a offline ověření, určené pro obalení jakéhokoli MCP serveru s auditní stopou odolnou vůči manipulaci, včetně režimu čekání na spolupodpis, kdy pozastavená akce vydá schvalovací potvrzení spojené s digestem akce (WebAuthn-backend v desktopovém režimu), totéž schéma jako v poznámkovém bloku o lidské autorizaci výše.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) poskytuje stejný vzor podepisování Ed25519 + JCS s LangChain a integrací CrewAI v Pythonu, včetně publikovaných testovacích vektorů a mapování souladu přispěného přes [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+
+Rozhodnutí mezi vlastním řešením a knihovnou je podobné rozhodnutí mezi napsáním vlastní JWT knihovny a použitím otestované knihovny: obě varianty jsou rozumné; knihovna šetří čas a snižuje auditní plochu; vlastní cesta vás nutí rozumět každému primitivu. Tato lekce učí vlastní cestu, abyste měli základy pro obě volby.
 
 ## Kontrola znalostí
 
-Otestujte si pochopení před přechodem na praktické cvičení.
+Otestujte své pochopení před přechodem k praktickému cvičení.
 
-**1. Doklad je podepsán soukromým klíčem Ed25519 agenta. Auditor má pouze veřejný klíč. Může auditor ověřit doklad offline?**
-
-<details>
-<summary>Odpověď</summary>
-
-Ano. Ed25519 ověření vyžaduje pouze veřejný klíč a podepsané bajty. Žádný síťový dotaz, žádná závislost na službě. Tato vlastnost dělá doklady užitečné ve vzduchotěsných, víceorganizacích nebo nízkodůvěryhodných auditech.
-</details>
-
-**2. Útočník upraví pole `policy_id` dokladu, aby tvrdil, že byl řízen volnější politikou. Podpis byl ale nad původním payloadem. Co se stane při ověřování?**
+**1. Potvrzení je podepsáno soukromým Ed25519 klíčem agenta. Auditor má pouze veřejný klíč. Může auditor potvrzení ověřit offline?**
 
 <details>
 <summary>Odpověď</summary>
 
-Ověření selže. Podpis byl spočítán na kanonických bajtech původního payloadu; jakákoli změna pole změní kanonické bajty, což změní SHA-256 hash, a podpis se stane neplatným. Útočník by potřeboval soukromý klíč pro vytvoření nového platného podpisu, což nemá.
+Ano. Ověření Ed25519 vyžaduje pouze veřejný klíč a podepsaná data. Žádný síťový hovor, žádná závislost na službě. To je vlastnost, která činí potvrzení užitečná v nastaveních bez přístupu k síti, vícero organizačních prostředích nebo nízké důvěře auditu.
 </details>
 
-**3. Proč doklad obsahuje `tool_args_hash` a `result_hash` místo surových argumetů a výsledku?**
+**2. Útočník změní pole `policy_id` v potvrzení tak, že tvrdí, že bylo řízeno benevolentnější politikou. Podpis byl vytvořen nad původním obsahem. Co se stane při ověření?**
 
 <details>
 <summary>Odpověď</summary>
 
-Dva důvody. První je, že doklad může být archivován nebo přenášen v prostředích, kde by uniknutí surového obsahu (osobní údaje, obchodní data) bylo problémem. Hashování udržuje doklad malý a obsah soukromý; auditor ověřuje, že hash odpovídá odděleně uložené skutečné kopii. Druhý důvod je, že hashe mají pevnou délku; doklad s hashi má omezenou velikost bez ohledu na velikost vstupů a výstupů.
+
+Ověření selhalo. Podpis byl vypočítán nad kanonickými bajty původního obsahu; jakákoli změna v poli mění kanonické bajty, což mění hash SHA-256, a tím činí podpis neplatným. Útočník by potřeboval soukromý klíč k vytvoření nového platného podpisu, který však nemá.
 </details>
 
-**4. Pole `previous_receipt_hash` propojuje každý doklad s jeho předchůdcem. Pokud útočník tiše smaže jeden doklad uprostřed řetězce, co se stane neplatným?**
+**3. Proč potvrzení obsahuje `tool_args_hash` a `result_hash` namísto surových argumentů a výsledku?**
 
 <details>
 <summary>Odpověď</summary>
 
-Každý doklad, který přišel po smazaném. Jejich pole `previous_receipt_hash` už neodpovídají skutečnému řetězci (protože odkazovaný doklad už neexistuje nebo řetězec nyní ukazuje na jiného předchůdce). Pro skrytí smazání by útočník musel pře-podepsat každý pozdější doklad, což vyžaduje soukromý klíč.
+Důvody jsou dva. Za prvé, potvrzení může být potřeba archivovat nebo přenášet v prostředích, kde by únik surového obsahu (osobní údaje, obchodní data) byl problém. Hashování udržuje potvrzení malé a obsah soukromý; auditor ověřuje, že hash odpovídá samostatně uložené kopii skutečného obsahu. Za druhé, hashe mají pevnou velikost; potvrzení s hashi je omezené velikostí bez ohledu na to, jak velké byly vstupy a výstupy.
 </details>
 
-**5. Doklad ověřen čistě platný. Znamená to, že akce agenta byla správná, rozumná nebo v souladu s politikou?**
+**4. Pole `previous_receipt_hash` propojuje každé potvrzení s jeho předchůdcem. Pokud útočník potichu vymaže jedno potvrzení uprostřed řetězce, co se stane neplatným?**
 
 <details>
 <summary>Odpověď</summary>
 
-Ne. Platný doklad dokazuje tři věci: přiřazení (tento klíč podepsal tento obsah), integritu (obsah se nezměnil) a pořadí (tento doklad přišel po tom předchozím). Nedokazuje, že akce byla správná, že politika v `policy_id` byla skutečně vyhodnocena, ani že agent dodržel všechna pravidla. Doklady umožňují auditovatelné chování agenta, ne nutně jeho správnost. Toto je nejdůležitější hranice této lekce.
+Každé potvrzení, které přišlo po vymazaném. Jejich pole `previous_receipt_hash` už neodpovídají skutečnému řetězci (protože potvrzení, na které odkazovaly, už neexistuje, nebo řetězec nyní ukazuje na jiného předchůdce). Aby útočník skryl vymazání, musel by znovu podepsat každé následující potvrzení, což vyžaduje soukromý klíč.
 </details>
 
-## Praktické cvičení
+**5. Potvrzení projde ověřením. Dokazuje to, že akce agenta byla správná, platná nebo v souladu s politikou?**
 
-Otevřete `code_samples/18-signed-receipts.ipynb` a dokončete všechna čtyři oddělení:
+<details>
+<summary>Odpověď</summary>
 
-1. **Oddíl 1**: Podepište svůj první doklad a ověřte jej.
-2. **Oddíl 2**: Zmanipulujte doklad a sledujte selhání ověření.
-3. **Oddíl 3**: Vytvořte řetězec tří dokladů a ověřte integritu řetězce.
-4. **Oddíl 4**: Použijte vzor na agenta postaveného na Microsoft Agent Frameworku: zabalte volání nástroje do podepisování dokladů a poté ověřte doklad nezávisle.
-**Rozšiřující výzva 1:** rozšiřte schéma příjmu o další pole dle vlastního výběru (například identifikátor požadavku pro sledování), aktualizujte logiku kanonického podepisování tak, aby ho zahrnovala, a potvrďte, že se příjem stále úspěšně ověřuje při zpětné kontrole. Poté pole po podepsání změňte a potvrďte, že ověření selže. To vás donutí pochopit, jak každý bajt kanonického kódování přispívá k podpisu.
+Ne. Platné potvrzení dokazuje tři věci: přiřazení (tento klíč podepsal tento obsah), integritu (obsah se nezměnil) a pořadí (toto potvrzení přišlo po onom potvrzení). NEDOKAZUJE, že akce byla správná, že politika uvedená v `policy_id` byla opravdu vyhodnocena, nebo že agent dodržel všechna pravidla. Potvrzení umožňují auditovatelnost chování agenta, ne nutně jeho správnost. Toto je nejdůležitější hranice v lekci.
+</details>
 
-**Rozšiřující výzva 2:** Spojte SHA-256 hash dvou svých příjmů (spojte jejich kanonické bajty v deterministickém pořadí) a vložte vzniklý digest jako nové pole do třetího příjmu před jeho podepsáním. Ověřte, že všechny tři příjmy se stále úspěšně ověřují při zpětné kontrole. Právě jste vytvořili důkaz jedním krokem: kdokoli držící třetí příjem může dokázat, že první dva existovaly v době jeho podepsání, aniž by musel odhalit jejich obsah. Toto je vzor, který používají příjmy s výběrovým zveřejněním v rozsáhlém měřítku (Merkleho závazky, RFC 6962).
+## Cvičení
+
+Otevřete `code_samples/18-signed-receipts.ipynb` a dokončete všechny čtyři části:
+
+1. **Část 1**: Podepište své první potvrzení a ověřte jej.
+2. **Část 2**: Manipulujte s potvrzením a sledujte, jak ověření selže.
+3. **Část 3**: Sestavte řetězec ze tří potvrzení a ověřte integritu řetězce.
+4. **Část 4**: Použijte vzor na agenta postaveného s Microsoft Agent Framework: zabalte volání nástroje do podepisování potvrzení a poté potvrzení nezávisle ověřte.
+
+**Náročný úkol 1:** rozšiřte schéma potvrzení o vlastní pole (například ID požadavku pro trasování), aktualizujte kanonickou logiku podepisování tak, aby pole zahrnovala, a potvrďte, že potvrzení stále projde ověřením. Poté pole po podepsání změňte a potvrďte, že ověření selže. Tím pochopíte, jak každý bajt kanonického kódování přispívá k podpisu.
+
+**Náročný úkol 2:** Zkombinujte dva své potvrzení SHA-256 hashem (spojte jejich kanonické bajty v deterministickém pořadí) a vložte výsledný digest jako nové pole na třetí potvrzení před jeho podepsáním. Ověřte, že všechna tři potvrzení stále projdou ověřením. Právě jste vytvořili jednu úroveň důkazu začlenění: kdokoli držící třetí potvrzení může dokázat, že první dvě existovala v době jeho podepsání, aniž by bylo potřeba odhalit jejich obsah. Tento vzor používají potvrzení s výběrovým zveřejněním ve velkém měřítku (Merkleho závazky, RFC 6962).
 
 ## Závěr
 
-Kryptografické příjmy poskytují AI agentům auditní stopu, která je:
+Kryptografická potvrzení dávají AI agentům auditní stopu, která je:
 
-- **Nezávisle ověřitelná**: jakákoli strana s veřejným klíčem může ověřit, bez závislosti na službě.
-- **Narušení je zjevné**: jakákoli modifikace zneplatní podpis.
-- **Přenosná**: příjem je malý JSON soubor; lze ho archivovat, přenášet a ověřovat kdekoli.
-- **V souladu se standardy**: postavené na Ed25519 (RFC 8032), JCS (RFC 8785) a SHA-256, všechny široce zavedené primitiva.
+- **Nezávisle ověřitelná**: kdokoli s veřejným klíčem může ověřit, bez závislosti na službě.
+- **Zjevná manipulace**: jakákoli změna činí podpis neplatným.
+- **Přenosná**: potvrzení je malý JSON soubor; může být archivován, přenášen a ověřován kdekoli.
+- **Soulad se standardy**: postaveno na Ed25519 (RFC 8032), JCS (RFC 8785) a SHA-256, všechny široce nasazené primitivy.
 
-Nejsou náhradou za ověřování vstupů, prosazování politik nebo infrastrukturu identity. Jsou základem pro tyto vrstvy. Když nasazujete agenty do regulovaných prostředí, pracovních toků přes více organizací nebo do jakéhokoli prostředí, kde nelze předpokládat, že vám budoucí auditor bude důvěřovat, příjmy jsou způsob, jak zajistit poctivost auditní stopy.
+Není náhradou za validaci vstupu, vynucování politik nebo identifikační infrastrukturu. Jsou základem pro tyto vrstvy. Při nasazování agentů do regulovaných systémů, meziorganizovaných workflow nebo jakéhokoli prostředí, kde budoucí auditor nemůže být předpokládán jako důvěryhodný, jsou potvrzení cestou, jak zajistit poctivou auditní stopu.
 
-Nejdůležitější poznatek: příjmy dokazují, kdo co řekl a kdy. Nedokazují, že to, co bylo řečeno, je pravda nebo správné. Držte toto rozlišení pevně. Je to rozdíl mezi poctivým systémem původu a zavádějícím.
+Nejdůležitější poznatek: potvrzení dokazují, kdo co kdy řekl. Nedokazují, že to, co bylo řečeno, bylo pravdivé nebo správné. Držte tento rozdíl pevně. Je to rozdíl mezi poctivým systémem původu a zavádějícím.
 
-## Produkční kontrolní seznam
+## Kontrolní seznam pro produkci
 
-Když jste připraveni přejít od této lekce k nasazení agentů podepsaných příjmy v reálném prostředí:
+Až budete připraveni přejít od této lekce k nasazení agentů podepisujících potvrzení v reálném prostředí:
 
-- [ ] **Přesuňte podepisovací klíč z vývojářského notebooku.** Použijte Azure Key Vault, AWS KMS nebo hardwarový bezpečnostní modul. Soukromý klíč podepisující vaše příjmy nesmí nikdy být uložen v zdrojovém kódu nebo v plném znění na aplikačních strojích.
-- [ ] **Publikujte ověřovací veřejný klíč.** Auditoři ho potřebují k offline ověření. Standardní vzor je sada JWK na dobře známé URL (RFC 7517), například `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Externě ukotvěte řetězec.** Pravidelně zapisujte hash hlavy řetězce do transparentnostního logu (Sigstore Rekor, RFC 3161 autorita časových razítek nebo druhý interní systém), aby externí strana mohla potvrdit „tento řetězec existoval v tomto čase“.
-- [ ] **Ukládejte příjmy neměnně.** Append-only blob storage (Azure Storage s politikami neměnnosti, AWS S3 Object Lock) brání interním osobám přepisovat historii na úrovni úložiště.
-- [ ] **Rozhodněte o uchovávání.** Mnoho režimů souladu vyžaduje několik let uchování. Plánujte růst množství příjmů (každý příjem má ~500 bajtů; agent provádějící 10 000 volání denně produkuje ~1,8 GB za rok).
-- [ ] **Dokumentujte, co příjmy nepokrývají.** Příjmy dokazují přiřazení, integritu a pořadí. Vaše provozní příručka by měla explicitně vyjmenovat, jaká další opatření (ověřování vstupů, prosazování politik, omezení rychlosti, infrastruktura identity) doplňují příjmy ve vaší správní struktuře.
+- [ ] **Přeneste podepisovací klíč z vývojářova notebooku.** Použijte Azure Key Vault, AWS KMS nebo hardwarový bezpečnostní modul. Soukromý klíč podepisující vaše potvrzení nikdy nesmí být ve zdrojovém kódu ani v prostém textu na aplikačních strojích.
+- [ ] **Zveřejněte veřejný ověřovací klíč.** Auditoři jej potřebují k offline ověření. Standardní vzor je JWK Set na známé URL (RFC 7517), např. `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Externě ukotvěte řetězec.** Pravidelně zapisujte hash hlavy řetězce do transparentního záznamu (Sigstore Rekor, RFC 3161 časová autorita nebo druhý interní systém), aby externí osoba mohla potvrdit „tento řetězec existoval k tomuto času.“
+- [ ] **Uložte potvrzení neměnně.** Append-only blob storage (Azure Storage s politikou neměnnosti, AWS S3 Object Lock) zabraňuje insiderovi přepisovat historii na úrovni úložiště.
+- [ ] **Rozhodněte o uchovávání dat.** Mnoho režimů dodržování vyžaduje víceletou archivaci. Plánujte růst potvrzení (každé potvrzení má cca 500 bajtů; agent vykonávající 10 000 volání denně vygeneruje cca 1,8 GB za rok).
+- [ ] **Zdokumentujte, co potvrzení nepokrývají.** Potvrzení dokazují přiřazení, integritu a pořadí. Váš provozní manuál by měl explicitně vyjmenovat, jaká další opatření (validace vstupu, vynucování politik, omezení rychlosti, identifikační infrastruktura) fungují vedle potvrzení ve vaší správě.
 
-### Máte další otázky ohledně zabezpečení AI agentů?
+### Máte další otázky o zabezpečení AI agentů?
 
-Připojte se na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde se můžete setkat s dalšími studenty, účastnit se konzultačních hodin a nechat si zodpovědět své otázky ohledně AI agentů.
+Připojte se k [Microsoft Foundry Discordu](https://aka.ms/ai-agents/discord), kde se setkáte s ostatními studenty, můžete navštívit konzultační hodiny a dostanete odpovědi na své otázky týkající se AI agentů.
 
 ## Za touto lekcí
 
-Tato lekce pokrývá podepisování jednoho příjmu a hashově navázané sekvence. Stejná primitiva tvoří základy několika pokročilejších vzorů, které můžete potkat, jak vaše správní pozice dozrává:
+Tato lekce pokrývá podepisování jednoho potvrzení a sekvence řetězených hashů. Stejné primitiva se skládají do několika pokročilejších vzorů, které můžete potkat, jak vaše správa dozrává:
 
-- **Selektivní zveřejnění.** Pokud jsou pole příjmu nezávisle závazná (Merkle strom ve stylu RFC 6962), můžete odhalit konkrétní pole konkrétním auditorům a dokázat, že ostatní zůstávají nezměněná bez jejich odhalení. Užívá se, když jeden příjem musí splnit jak komplexní audit (který požaduje kompletnost), tak regulace o minimalizaci dat jako GDPR (které chtějí, aby auditor viděl co nejméně).
-- **Revokace příjmů.** Pokud je podepisovací klíč kompromitován, potřebujete způsob, jak označit všechny příjmy podepsané daným klíčem jako nedůvěryhodné od určitého okamžiku. Standardní vzory: krátkodobé podepisovací klíče plus publikovaný seznam revokací, nebo transparentnostní log s položkami revokace.
-- **Dvoustranné / rozdělené podpisové příjmy.** Některé implementace rozdělují podepsané údaje na poloviny před vykonáním (`authorization_*`) a po vykonání (`result_*`) s nezávislými podpisy, užitečné když rozhodnutí o autorizaci a zaznamenaný výsledek jsou od různých aktérů nebo v různých časech. Toto se přidává k formátu příjmu vyučovaného v této lekci.
-- **Složení užitečného zatížení.** Příjem zapečetí jakékoli bajty, které vložíte do `result_hash`. Reálné užitečné zatížení často obsahuje více než jediný výsledek nástroje: předrozhodovací zdůvodnění (predikce modelu, uvažované možnosti, důkazy a jejich úplnost, stav rizika, řetězec odpovědnosti, rozhodnutí brány) vše může být uvnitř užitečného zatížení, zapečetěné jedním příjmem. To udržuje formát příjmu minimální a zároveň umožňuje vývoj schémat užitečného zatížení podle domény.
-- **Shoda mezi implementacemi.** Více nezávislých implementací stejného formátu příjmu (Python, TypeScript, Rust, Go) se vzájemně ověřuje pomocí sdílených testovacích vektorů. Pokud vytvoříte vlastní implementaci, ověření podle publikovaných vektorů potvrzuje kompatibilitu na úrovni přenosu dat.
-- **Migrace pro post-kvantové prostředí.** Ed25519 je dnes široce nasazeno, ale není odolné vůči kvantovým útokům. Formát příjmu je algoritmicky agilní: pole `signature.alg` může nést hodnotu `ML-DSA-65` (standard NIST pro post-kvantové podpisy), když potřebujete migrovat. Plánujte přechodné období, kdy budou příjmy podepsané oběma způsoby.
+- **Výběrové zveřejnění.** Když jsou pole potvrzení nezávisle závazná (Merkleho strom podle RFC 6962), můžete odhalit specifická pole konkrétním auditorům a dokázat, že ostatní zůstala nezměněna, aniž byste je vystavili. Užitečné, pokud totéž potvrzení má vyhovět jak komplexnímu auditu (který požaduje úplnost), tak regulacím na minimalizaci dat jako GDPR (které chtějí, aby auditor viděl co nejméně).
+- **Odvolání potvrzení.** Když je podepisovací klíč kompromitován, potřebujete způsob, jak označit všechna potvrzení podepsaná tímto klíčem jako nedůvěryhodná od určitého času dále. Standardní postupy: krátkodobé podepisovací klíče plus zveřejněný seznam odvolání, nebo transparentní záznam s položkami odvolání.
+- **Obousměrná / rozdělená podpisová potvrzení.** Některé implementace rozdělí podepsaný obsah na poloviny před vykonáním (`authorization_*`) a po vykonání (`result_*`) s nezávislými podpisy, užitečné, když rozhodnutí o autorizaci a pozorovaný výsledek vydávají různí aktéři nebo v různých časech. To se skládá navíc na formát potvrzení vyučovaný v této lekci.
+- **Skládání obsahu.** Potvrzení zapečeťuje jakékoliv bajty v `result_hash`. Reálné obsahy jsou často bohatší než jediný výsledek volání nástroje: předběžné uvažování (predikce modelu, uvažované možnosti, důkazy a jejich úplnost, riziková situace, řetězec odpovědnosti, výsledek brány) může být celý obsažen v payloadu a zabezpečen jediným potvrzením. To udržuje formát potvrzení minimalistický, zatímco schémata obsahu se mohou vyvíjet podle domény.
+- **Souběžné ověřování implementací.** Více nezávislých implementací stejného formátu potvrzení (Python, TypeScript, Rust, Go) se navzájem ověřuje dle sdílených testovacích vektorů. Pokud vytvoříte vlastní implementaci, ověření vůči zveřejněným vektorům potvrzuje kompatibilitu formátu.
+- **Migrace do postkvantové kryptografie.** Ed25519 je dnes široce nasazený, ale není odolný vůči kvantovým útokům. Formát potvrzení je algoritmicky flexibilní: pole `signature.alg` může nést hodnotu `ML-DSA-65` (postkvantový standard NIST) pokud potřebujete migrovat. Plánujte přechodné období, kdy budou potvrzení podepisována dvojitě.
 
 ## Další zdroje
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Podepsané rozhodovací příjmy pro strojové řízení přístupu</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Přehled odpovědného využití AI (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Digitální podpisový algoritmus Edwardsovy křivky (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Potvrzení podepsaných rozhodnutí pro strojově-strojový přístup</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Přehled odpovědného využívání AI (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwardsova křivka a digitální podpisový algoritmus (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Schéma kanonizace JSON (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Transparentnost certifikátů</a> (Merkle strom použitý u příjmů s výběrovým zveřejněním)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline ověřitelné rozhodovací příjmy</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Testovací vektory pro ověřování mezi implementacemi</a> formátu příjmu použitého v této lekci (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Transparentnost certifikátů</a> (Merkleho strom použitý selektivními potvrzeními)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Výukový program 33: Offline ověřitelné potvrzení rozhodnutí</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Testovací vektory pro soulad napříč implementacemi</a> formátu potvrzení použitých v této lekci (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">Dokumentace PyNaCl</a> (Ed25519 v Pythonu)
 
 ## Předchozí lekce
 
-[Budování agentů pro využití počítače (CUA)](../15-browser-use/README.md)
-
-## Další lekce
-
-_(Bude určeno správci kurikula)_
+[Vytváření lokálních AI agentů](../17-creating-local-ai-agents/README.md)
 
 ---
 

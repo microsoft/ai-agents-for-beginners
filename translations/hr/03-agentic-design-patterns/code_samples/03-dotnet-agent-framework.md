@@ -1,138 +1,138 @@
-# 🎨 Agentic obrasci dizajna s Azure OpenAI (Responses API) (.NET)
+# 🎨 Agentni obrasci dizajna s Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj primjer pokazuje poslovne obrasce dizajna za izgradnju inteligentnih agenata koristeći Microsoft Agent Framework u .NET-u s integracijom Azure OpenAI (Responses API). Naučit ćete profesionalne obrasce i arhitektonske pristupe koji čine agente spremnima za proizvodnju, održivima i skalabilnima.
+Ovaj primjer demonstrira obrasce dizajna razine poduzeća za izgradnju inteligentnih agenata koristeći Microsoft Agent Framework u .NET-u s integracijom Azure OpenAI (Responses API). Naučit ćete profesionalne obrasce i arhitektonske pristupe koji čine agente spremnima za produkciju, održivima i skalabilnima.
 
-### Poslovni obrasci dizajna
+### Obrasci dizajna za poduzeća
 
-- 🏭 **Factory Pattern (obrazac tvornice)**: Standardizirano kreiranje agenata uz uvoz ovisnosti
-- 🔧 **Builder Pattern (obrazac graditelja)**: Fluent konfiguracija i postavljanje agenata
-- 🧵 **Thread-Safe Patterns (sigurni obrasci za više niti)**: Upravljanje istovremenim razgovorima
-- 📋 **Repository Pattern (obrazac spremišta)**: Organizirano upravljanje alatima i mogućnostima
+- 🏭 **Factory Pattern**: Standardizirano kreiranje agenata s injekcijom ovisnosti
+- 🔧 **Builder Pattern**: Fluent konfiguracija i postavljanje agenata
+- 🧵 **Thread-Safe Patterns**: Upravljanje paralelnim razgovorima
+- 📋 **Repository Pattern**: Organizirano upravljanje alatima i mogućnostima
 
 ## 🎯 Arhitektonske prednosti specifične za .NET
 
-### Poslovne značajke
+### Značajke za poduzeća
 
-- **Strong Typing (jaka tipizacija)**: Validacija u vremenu kompajliranja i podrška IntelliSenseu
-- **Dependency Injection (uvoz ovisnosti)**: Integracija ugrađenog DI kontejnera
-- **Configuration Management (upravljenje konfiguracijom)**: IConfiguration i obrasci Options
-- **Async/Await**: Podrška prvoklasnog asinkronog programiranja
+- **Strong Typing**: Validacija pri kompilaciji i podrška IntelliSense-u
+- **Dependency Injection**: Integracija ugrađenog DI kontejnera
+- **Configuration Management**: IConfiguration i obrasci Options
+- **Async/Await**: Prvorazredna podrška za asinkrono programiranje
 
-### Obrasci spremni za proizvodnju
+### Obrasci spremni za produkciju
 
-- **Logging Integration (integracija zapisivanja)**: ILogger i podrška strukturiranom zapisivanju
-- **Health Checks (provjere zdravlja)**: Ugrađeni nadzor i dijagnostika
-- **Configuration Validation (validacija konfiguracije)**: Jaka tipizacija s podacima za anotaciju
-- **Error Handling (rukovanje pogreškama)**: Strukturirano upravljanje iznimkama
+- **Logging Integration**: ILogger i podrška za strukturirano logiranje
+- **Health Checks**: Ugrađeni nadzor i dijagnostika
+- **Configuration Validation**: Strong typing s podacima za označavanje
+- **Error Handling**: Strukturirano upravljanje iznimkama
 
 ## 🔧 Tehnička arhitektura
 
-### Temeljne .NET komponente
+### Osnovne .NET komponente
 
 - **Microsoft.Extensions.AI**: Jedinstvene apstrakcije AI usluga
-- **Microsoft.Agents.AI**: Okvir za orkestraciju poslovnih agenata
-- **Azure OpenAI (Responses API)**: Visokoučinkoviti obrasci API klijenta
-- **Configuration System (sustav konfiguracije)**: appsettings.json i integracija s okruženjem
+- **Microsoft.Agents.AI**: Okvir za orkestraciju agenata razine poduzeća
+- **Azure OpenAI (Responses API)**: Obrasci klijenta API-ja visoke učinkovitosti
+- **Configuration System**: appsettings.json i integracija okoline
 
 ### Implementacija obrasca dizajna
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Graditelj Agenta]
+    A[IServiceCollection] --> B[Izgraditelj Agenta]
     B --> C[Konfiguracija]
     C --> D[Registar Alata]
     D --> E[AI Agent]
 ```
 
-## 🏗️ Demonstrirani poslovni obrasci
+## 🏗️ Prikazani obrasci poduzeća
 
 ### 1. **Kreacijski obrasci**
 
-- **Agent Factory (tvornica agenata)**: Centralizirano kreiranje agenata s ujednačenom konfiguracijom
-- **Builder Pattern (obrazac graditelja)**: Fluent API za složenu konfiguraciju agenata
-- **Singleton Pattern (obrazac singltona)**: Dijeljeni resursi i upravljanje konfiguracijom
-- **Dependency Injection (uvoz ovisnosti)**: Slaba povezanost i testabilnost
+- **Agent Factory**: Centralizirano kreiranje agenata s dosljednom konfiguracijom
+- **Builder Pattern**: Fluent API za složenu konfiguraciju agenata
+- **Singleton Pattern**: Dijeljeni resursi i upravljanje konfiguracijom
+- **Dependency Injection**: Slaba povezanost i testabilnost
 
 ### 2. **Ponašajni obrasci**
 
-- **Strategy Pattern (obrazac strategije)**: Mjenjive strategije izvršavanja alata
-- **Command Pattern (obrazac naredbe)**: Inkapsulirane operacije agenata s poništavanjem/ponavljanjem
-- **Observer Pattern (obrazac promatrača)**: Upravljanje životnim ciklusom agenata vođeno događajima
-- **Template Method (obrazac predloška metode)**: Standardizirani tijekovi rada izvršenja agenata
+- **Strategy Pattern**: Zamjenjive strategije izvršavanja alata
+- **Command Pattern**: Inkapsulirane agentne operacije s poništavanjem/ponovnim izvršavanjem
+- **Observer Pattern**: Upravljanje životnim ciklusom agenata vođenim događajima
+- **Template Method**: Standardizirani tijekovi izvršavanja agenata
 
 ### 3. **Strukturni obrasci**
 
-- **Adapter Pattern (obrazac adaptera)**: Sloj integracije Azure OpenAI (Responses API)
-- **Decorator Pattern (obrazac dekoratora)**: Proširenje mogućnosti agenata
-- **Facade Pattern (obrazac fasade)**: Pojednostavljeni sučelja za interakciju agenata
-- **Proxy Pattern (obrazac proksija)**: Lijeno učitavanje i keširanje za performanse
+- **Adapter Pattern**: Sloj integracije Azure OpenAI (Responses API)
+- **Decorator Pattern**: Unapređenje sposobnosti agenata
+- **Facade Pattern**: Pojednostavljeni sučelja za interakciju s agentima
+- **Proxy Pattern**: Lenjo učitavanje i keširanje za performanse
 
-## 📚 Principi dizajna .NET-a
+## 📚 .NET dizajnerska načela
 
-### SOLID principi
+### SOLID načela
 
-- **Single Responsibility (princip jedne odgovornosti)**: Svaka komponenta ima jednu jasnu svrhu
-- **Open/Closed (princip otvorenosti/zatvorenosti)**: Proširiv bez izmjena
-- **Liskov Substitution (Liskovljeva supstitucija)**: Implementacije alata temeljene na sučeljima
-- **Interface Segregation (segregacija sučelja)**: Fokusirana, kohezivna sučelja
-- **Dependency Inversion (inverzija ovisnosti)**: Ovisnost o apstrakcijama, ne o konkretnim tipovima
+- **Single Responsibility**: Svaki komponenta ima jednu jasnu svrhu
+- **Open/Closed**: Proširivo bez izmjena
+- **Liskov Substitution**: Implementacije alata temeljene na sučeljima
+- **Interface Segregation**: Fokusirani, kohezivni sučelja
+- **Dependency Inversion**: Ovisiti o apstrakcijama, ne o konkretnim implementacijama
 
 ### Čista arhitektura
 
-- **Domain Layer (domen sloj)**: Jezgra apstrakcija agenata i alata
-- **Application Layer (aplikacijski sloj)**: Orkestracija agenata i tijekovi rada
-- **Infrastructure Layer (infrastrukturni sloj)**: Integracija Azure OpenAI (Responses API) i vanjskih usluga
-- **Presentation Layer (prezentacijski sloj)**: Interakcija s korisnikom i formatiranje odgovora
+- **Domain Layer**: Osnovne apstrakcije agenata i alata
+- **Application Layer**: Orkestracija agenata i tijekovi rada
+- **Infrastructure Layer**: Integracija Azure OpenAI (Responses API) i vanjskih servisa
+- **Presentation Layer**: Interakcija s korisnikom i formatiranje odgovora
 
-## 🔒 Poslovni aspekti
+## 🔒 Razmatranja za poduzeća
 
 ### Sigurnost
 
-- **Credential Management (upravljanje vjerodajnicama)**: Sigurno rukovanje API ključevima uz IConfiguration
-- **Input Validation (validacija ulaza)**: Jaka tipizacija i validacija putem anotacija podataka
-- **Output Sanitization (sanitacija izlaza)**: Sigurno procesiranje i filtriranje odgovora
-- **Audit Logging (zapisivanje revizije)**: Sveobuhvatno praćenje operacija
+- **Credential Management**: Sigurno upravljanje API ključevima s IConfiguration
+- **Input Validation**: Strong typing i validacija podataka oznakama
+- **Output Sanitization**: Sigurna obrada i filtriranje odgovora
+- **Audit Logging**: Sveobuhvatno praćenje operacija
 
 ### Performanse
 
-- **Async Patterns (asinkroni obrasci)**: Neblokirajuće I/O operacije
-- **Connection Pooling (povezivanje veza)**: Efikasno upravljanje HTTP klijentom
-- **Caching (keširanje)**: Keširanje odgovora za poboljšane performanse
-- **Resource Management (upravljanje resursima)**: Ispravno odlaganje i obrasci čišćenja
+- **Async Patterns**: Ne-blokirajuće I/O operacije
+- **Connection Pooling**: Efikasno upravljanje HTTP klijentom
+- **Caching**: Keširanje odgovora za poboljšanu izvedbu
+- **Resource Management**: Ispravno odlaganje i obrasci čišćenja
 
 ### Skalabilnost
 
-- **Thread Safety (sigurnost niti)**: Podrška istovremenom izvođenju agenata
-- **Resource Pooling (povezivanje resursa)**: Efikasno korištenje resursa
-- **Load Management (upravljanje opterećenjem)**: Ograničavanje brzine i upravljanje pritiskom
-- **Monitoring (nadgledanje)**: Mjerne vrijednosti performansi i provjere zdravlja
+- **Thread Safety**: Podrška za paralelno izvršavanje agenata
+- **Resource Pooling**: Efikasno korištenje resursa
+- **Load Management**: Ograničavanje brzine i upravljanje pritiskom
+- **Monitoring**: Metrike performansi i health checkovi
 
-## 🚀 Proizvodno postavljanje
+## 🚀 Produkcijsko postavljanje
 
-- **Configuration Management (upravljanje konfiguracijom)**: Postavke specifične za okruženje
-- **Logging Strategy (strategija zapisivanja)**: Strukturirano zapisivanje s ID-ovima korelacije
-- **Error Handling (rukovanje pogreškama)**: Globalno rukovanje iznimkama s ispravnim oporavkom
-- **Monitoring (nadgledanje)**: Application Insights i mjerači performansi
-- **Testing (testiranje)**: Jedinični testovi, integracijski testovi i obrasci testiranja opterećenja
+- **Configuration Management**: Postavke specifične za okruženje
+- **Logging Strategy**: Strukturirano logiranje uz korelacijske ID-e
+- **Error Handling**: Globalno upravljanje iznimkama s ispravnim oporavkom
+- **Monitoring**: Insights aplikacije i brojila performansi
+- **Testing**: Jedinični testovi, integracijski testovi i obrasci opterećenog testiranja
 
-Spremni za izgradnju inteligentnih agenata razine poduzeća s .NET-om? Dizajnirajmo nešto čvrsto! 🏢✨
+Spremni za izgradnju inteligentnih agenata razine poduzeća s .NET-om? Hajmo arhitektirati nešto robusno! 🏢✨
 
 ## 🚀 Početak rada
 
 ### Preduvjeti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji
-- Pretplata na [Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i distribucijom modela
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se s `az login`
+- Pretplata na [Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i implementacijom modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se pomoću `az login`
 
-### Potrebne varijable okruženja
+### Potrebne varijable okoline
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
@@ -140,7 +140,7 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

@@ -1,38 +1,38 @@
-# 🌍 Potovalni agent AI z Microsoft Agent Framework (.NET)
+# 🌍 AI potovalni agent z Microsoft Agent Framework (.NET)
 
 ## 📋 Pregled scenarija
 
-Ta primer prikazuje, kako zgraditi inteligentnega agenta za načrtovanje potovanj z uporabo Microsoft Agent Framework za .NET. Agent lahko samodejno ustvari personalizirane izlete za enodnevne izlete do naključnih destinacij po svetu.
+Ta primer prikazuje, kako zgraditi inteligentnega agenta za načrtovanje potovanj z uporabo Microsoft Agent Framework za .NET. Agent lahko samodejno ustvari prilagojene dnevne načrte za naključne destinacije po svetu.
 
-### Ključne zmogljivosti:
+### Ključne zmožnosti:
 
-- 🎲 **Naključno izbira destinacije**: Uporablja prilagojen pripomoček za izbiro počitniških krajev
-- 🗺️ **Inteligentno načrtovanje potovanja**: Ustvari podrobne dnevne itinerarje
-- 🔄 **Pretakanje v realnem času**: Podpira tako takojšnje kot tudi pretokovne odzive
-- 🛠️ **Integracija prilagojenih orodij**: Prikazuje, kako razširiti zmogljivosti agenta
+- 🎲 **Naključno izbiranje destinacij**: Uporablja lastno orodje za izbiro počitniških krajev
+- 🗺️ **Inteligentno načrtovanje potovanja**: Ustvarja podrobne dnevne itinerarje
+- 🔄 **Pretakanje v realnem času**: Podpira tako takojšnje kot pretočne odzive
+- 🛠️ **Integracija lastnih orodij**: Prikazuje, kako razširiti zmožnosti agenta
 
 ## 🔧 Tehnična arhitektura
 
-### Jedrne tehnologije
+### Osnovne tehnologije
 
 - **Microsoft Agent Framework**: Najnovejša .NET implementacija za razvoj AI agentov
 - **Azure OpenAI (Responses API)**: Uporablja Azure OpenAI Responses API za inferenco modela
-- **Azure Identity**: Varen prijavni postopek z `AzureCliCredential` (`az login`)
-- **Varnostna konfiguracija**: Upravljanje končnih točk na podlagi okolja
+- **Azure Identity**: Varnostno prijavljanje preko `AzureCliCredential` (`az login`)
+- **Varnostna konfiguracija**: Upravljanje končnih točk na osnovi okolja
 
 ### Ključne komponente
 
 1. **AIAgent**: Glavni orkestrator agenta, ki upravlja tok pogovora
-2. **Prilagojena orodja**: funkcija `GetRandomDestination()` na voljo agentu
-3. **Odjemalec Responses**: vmesnik pogovora, ki temelji na Azure OpenAI Responses
-4. **Podpora pretakanju**: zmogljivosti generiranja odzivov v realnem času
+2. **Lastna orodja**: Funkcija `GetRandomDestination()` na voljo agentu
+3. **Odjemalec za odzive**: Pogovorni vmesnik, temelječ na Azure OpenAI Responses
+4. **Podpora za pretakanje**: Zmožnost generiranja odzivov v realnem času
 
 ### Vzorec integracije
 
 ```mermaid
 graph LR
     A[Zahteva uporabnika] --> B[AI agent]
-    B --> C[Azure OpenAI (API odgovorov)]
+    B --> C[Azure OpenAI (Responses API)]
     B --> D[Orodje GetRandomDestination]
     C --> E[Potovalni načrt]
     D --> E
@@ -42,8 +42,8 @@ graph LR
 
 ### Predpogoji
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali višji
-- [Azure naročnina](https://azure.microsoft.com/free/) z virom Azure OpenAI in nameščenim modelom
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali višja različica
+- [Azure naročnina](https://azure.microsoft.com/free/) z Azure OpenAI virom in nameščeno modelno rešitev
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijava z `az login`
 
 ### Zahtevane spremenljivke okolja
@@ -51,22 +51,22 @@ graph LR
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Nato se prijavite, da lahko AzureCliCredential pridobi žeton
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Nato se prijavite, da bo AzureCliCredential lahko pridobil žeton
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Nato se prijavite, da lahko AzureCliCredential pridobi žeton
 az login
 ```
 
 ### Primer kode
 
-Za zagon primer kode,
+Za izvedbo primer kode,
 
 ```bash
 # zsh/bash
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,19 +157,19 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Ključne ugotovitve
+## 🎓 Glavne ugotovitve
 
-1. **Arhitektura agenta**: Microsoft Agent Framework nudi čist, tipno varen pristop k ustvarjanju AI agentov v .NET
-2. **Integracija orodij**: funkcije okrašene z atributi `[Description]` postanejo na voljo kot orodja agentu
-3. **Upravljanje konfiguracije**: spremenljivke okolja in varno ravnanje z poverilnicami sledijo najboljšim praksam v .NET
-4. **Azure OpenAI Responses API**: Agent uporablja Azure OpenAI Responses API preko Azure.AI.OpenAI SDK
+1. **Arhitektura agenta**: Microsoft Agent Framework ponuja čist, varno tipiziran pristop k gradnji AI agentov v .NET-ju
+2. **Integracija orodij**: Funkcije z atributi `[Description]` postanejo na voljo kot orodja za agenta
+3. **Upravljanje konfiguracije**: Spremenljivke okolja in varno upravljanje poverilnic sledijo najboljšim praksam .NET
+4. **Azure OpenAI Responses API**: Agent uporablja Azure OpenAI Responses API prek SDK Azure.AI.OpenAI
 
 ## 🔗 Dodatni viri
 
 - [Dokumentacija Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI v Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET enopodatkovne aplikacije](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

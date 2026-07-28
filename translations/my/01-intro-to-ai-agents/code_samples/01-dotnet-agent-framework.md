@@ -1,72 +1,72 @@
-# 🌍 Microsoft Agent Framework (.NET) ဖြင့် AI ခရီးသွားအေဂျင့်
+# 🌍 Microsoft Agent Framework (.NET) ဖြင့် AI ခရီးသွား ကိုယ်စားလှယ်
 
-## 📋 ဇာတ်ကောင်အကြောင်းအကျဉ်း
+## 📋 ကိစ္စအချက်အလက် အနှစ်ချုပ်
 
-ဤဥရောပမှာ Microsoft Agent Framework ကို အသုံးပြု၍ သိပ္ပံပညာရှင် ခရီးစဉ်အစီအစဉ်ရေးဆွဲရေး အေဂျင့်တစ်ခုကို ဘယ်လိုတည်ဆောက်ရမည်ကို ချပြသည်။ အဲဒီ အေဂျင့်က ကမ္ဘာတစ်ဝှမ်းရှိ အကြောင်းမပြောပဲ ခရီးစဉ်တစ်နေ့စာ အစီအစဉ်ကို ကိုယ်ပိုင်အလိုက် လက်ထောက်ဖန်တီးပေးနိုင်ပါသည်။
+ဤဥပမာသည် Microsoft Agent Framework ကို အသုံးပြု၍ အခွင့်အလမ်းရရှိသည့် ခရီးစဉ် စီစဉ်တင်ပြခွင့်ရ ကိုယ်စားလှယ် တစ်ဦးကို ဘယ်လို တည်ဆောက်ရမည်ကို ပြသသည်။ ၎င်းကိုကမ္ဘာတဝန်းရှိ အစီအစဉ်မဲ့ ခရီးသွားရောက်ရာနေရာများအတွက် ကိုယ်ပိုင် နေ့စဉ်ခရီးစဉ်များကို အလိုအလျောက် ဖန်တီးပေးနိုင်သည်။
 
-### အဓိကထူးခြားချက်များ
+### အဓိက စွမ်းရည်များ
 
-- 🎲 **ကျပန်းခရီးစဉ်ရွေးချယ်မှု**: အထူးကိရိယာဖြင့် အပန်းဖြေစရာနေရာရွေးချယ်ခြင်း
-- 🗺️ **သိပ္ပံပညာရှင် ခရီးစဉ်အစီအစဉ်ရေးဆွဲမှု**: နေ့စဉ်အစီအစဉ်အသေးစိတ် ဖန်တီးခြင်း
-- 🔄 **အချိန်နှင့်တပြေးညီ စတီးမင်ထုတ်လွှင့်မှု**: ချက်ချင်း ဖြေကြားမှုနှင့် စတီးမင်ဖြေကြားမှု ပံ့ပိုးမှု
-- 🛠️ **စိတ်ကြိုက်ကိရိယာ ပေါင်းစည်းမှု**: အေဂျင့်စွမ်းရည်များချဲ့ထွင်ပုံ ပြသခြင်း
+- 🎲 **အစီအစဉ်မဲ့ သွားရောက်မည့်နေရာ ရွေးချယ်မှု**: အထူးသီးသန့် ကိရိယာမှ တစ်ဆင့် နေရာကောင်းများကို ရွေးချယ်ခြင်း
+- 🗺️ **တောက်ပသော ခရီးစဉ် စီမံခန့်ခွဲမှု**: နေ့စဉ် အကြောင်းအရာများ အသေးစိတ်ဖန်တီးခြင်း
+- 🔄 **Real-time Streaming**: ချက်ချင်း နှင့် စီးဆင်းမှုဖြင့် တုံ့ပြန်မှုများပံ့ပိုးခြင်း
+- 🛠️ **စိတ်ကြိုက် ကိရိယာ ပေါင်းစည်းမှု**: ကိုယ်စားလှယ်စွမ်းရည်များ တိုးချဲ့ရခြင်းကို ပြသခြင်း
 
-## 🔧 နည်းပညာဆိုင်ရာ ဖွဲ့စည်းမှု
+## 🔧 နည်းပညာဖွဲ့စည်းမှု
 
-### အခြေခံနည်းပညာများ
+### အဓိက နည်းပညာများ
 
-- **Microsoft Agent Framework**: AI အေဂျင့် ဖွံ့ဖြိုးရေးအတွက် နောက်ဆုံး .NET လက်တွေ့ကျဆုံးမှု
-- **Azure OpenAI (Responses API)**: မော်ဒယ်ဖော်ထုတ်မှုအတွက် Azure OpenAI Responses API ကို အသုံးပြုသည်
-- **Azure Identity**: `AzureCliCredential` (`az login`) ဖြင့် လုံခြုံစိတ်ချရသော စာရင်းဝင်ခြင်း
-- **လုံခြုံစိတ်ချရသော ဖန်တီးမှု**: ပတ်ဝန်းကျင်အလိုက် endpoint ကို စီမံခန့်ခွဲမှု
+- **Microsoft Agent Framework**: AI ကိုယ်စားလှယ် ဖွံ့ဖြိုးတိုးတက်ရေးအတွက် နောက်ဆုံးထွက် .NET အကောင်အထည်ဖော်မှု
+- **Azure OpenAI (Responses API)**: မော်ဒယ် ဇာတ်ဆောင်မှုအတွက် Azure OpenAI Responses API ကို အသုံးပြုသည်
+- **Azure Identity**: `AzureCliCredential` (`az login`) ဖြင့် လုံခြုံစွာ ဝင်ရောက်ခြင်း
+- **လုံခြုံမှု ပြုပြင်ခြင်း**: ပတ်ဝန်းကျင်အခြေပြု အဆုံးအဖြတ် ထိန်းချုပ်မှု
 
-### အဓိကအစိတ်အပိုင်းများ
+### အဓိက အစိတ်အပိုင်းများ
 
-1. **AIAgent**: စကားသွား-လာမှုစီမံခန့်ခွဲသော မူလအေဂျင့်
-2. **စိတ်ကြိုက်ကိရိယာများ**: အေဂျင့်အတွက် `GetRandomDestination()` ဖန်တီးထားသောလုပ်ဆောင်ချက်
-3. **Responses Client**: Azure OpenAI Responses အခြေခံ စကားလုံးချင်း အင်တာဖေ့စ
-4. **စတီးမင်ထောက်ပံ့မှု**: အချိန်နှင့်တပြေးညီ ဖြေကြားမှုလုပ်ဆောင်မှုများ
+1. **AIAgent**: စကားပြော ပွားလည်မှု ကိုင်တွယ်သည့် အဓိက ကိုယ်စားလှယ်
+2. **စိတ်ကြိုက် ကိရိယာများ**: ကိုယ်စားလှယ် အသုံးပြုနိုင်သော `GetRandomDestination()` အလုပ်လုပ်ပုံ
+3. **Responses Client**: Azure OpenAI Responses အခြေခံ စကားပြောစနစ်
+4. **စီးဆင်းမှု ပံ့ပိုးမှု**:အချိန်နဲ့တပြိုင်နက် တုံ့ပြန်မှု ထုတ်ပေးမှု စွမ်းဆောင်ရည်
 
-### ပေါင်းစည်းမှုပုံစံ
+### ပေါင်းစည်းမှု ပုံစံ
 
 ```mermaid
 graph LR
     A[အသုံးပြုသူ တောင်းဆိုချက်] --> B[AI ကိုယ်စားလှယ်]
     B --> C[Azure OpenAI (တုံ့ပြန်ချက် API)]
-    B --> D[ရွေးချယ်ရန် ဦးတည်ချက်ကိရိယာ]
+    B --> D[GetRandomDestination ကိရိယာ]
     C --> E[ခရီးသွားအစီအစဉ်]
     D --> E
 ```
 
 ## 🚀 စတင်အသုံးပြုခြင်း
 
-### မလိုအပ်မီက
+### လိုအပ်ချက်များ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် ထိုထက်မြင့်နည်းပညာ
-- Azure OpenAI အရင်းအမြစ်နှင့် မော်ဒယ်တပ်ဆင်မှုပါသော [Azure subscription](https://azure.microsoft.com/free/)
-- `az login` ဖြင့် အကောင့်ဝင်ရန် [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် ထို့အထက်
+- Azure OpenAI အရင်းအမြစ် နှင့် မော်ဒယ်တပ်ဆင်ထားသည့် [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် ဝင်ရောက်ခြင်း
 
-### လိုအပ်သော ပတ်ဝန်းကျင် မပြောင်းလဲ
+### လိုအပ်သော ပတ်ဝန်းကျင် မထည့်သွင်းချက်များ
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# ဒါနဲ့ AzureCliCredential က token ရယူနိုင်အောင် အကောင့်ဝင်ပါ
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ပြီးမှ AzureCliCredential သည် token ရနိုင်ရန်အတွက် စာရင်းသွင်းပါ
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# ထို့နောက် AzureCliCredential သည် တိုကင်တစ်ခုရရှိနိုင်ရန် အကောင့်ဝင်ပါ
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ထို့နောက် AzureCliCredential သည် token ရနိုင်ရန် စာရင်းဝင်ပါ။
 az login
 ```
 
-### နမူနာကုဒ်
+### နမူနာ ကုဒ်
 
-ဥပမာကုဒ်ကို အသုံးပြုရန်
+ဥပမာ ကုဒ်ကို run ဖို့,
 
 ```bash
 # zsh/bash
@@ -74,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-ဒါမှမဟုတ် dotnet CLI ကို အသုံးပြုပါ:
+ဒါမှမဟုတ် dotnet CLI ကို အသုံးပြု၍
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,16 +157,16 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 အဓိကယူဆချက်များ
+## 🎓 အဓိက သင်ခန်းစာများ
 
-1. **အေဂျင့် ဖွဲ့စည်းပုံ**: Microsoft Agent Framework သည် .NET တွင် AI အေဂျင့်များ တည်ဆောက်ရန် သန့်ရှင်း၍ type-safe နည်းလမ်းဖြစ်သည်
-2. **ကိရိယာ ပေါင်းစည်းမှု**: `[Description]` အင်္ဂါရပ်ဖြင့် ဖော်ပြထားသောလုပ်ဆောင်ချက်များ၊ အေဂျင့်အတွက် အသုံးပြုနိုင်သော ကိရိယာများဖြစ်သည်
-3. **ဖန်တီးမှု စီမံခန့်ခွဲမှု**: ပတ်ဝန်းကျင်မပြောင်းလဲများနှင့် လုံခြုံသော အတည်ပြုချက်စီမံခန့်ခွဲမှုသည် .NET ၏ အကောင်းဆုံးလေ့လာမှုများနဲ့ ကိုက်ညီသည်
-4. **Azure OpenAI Responses API**: အေဂျင့်သည် Azure AI OpenAI SDK မှတဆင့် Azure OpenAI Responses API ကို အသုံးပြုသည်
+1. **ကိုယ်စားလှယ် ဖွဲ့စည်းမှု**: Microsoft Agent Framework သည် .NET တွင် AI ကိုယ်စားလှယ်တွေ ဖန်တီးရာတွင် သန့်ရှင်းပြီး type-safe ဖြစ်အောင် နည်းလမ်းပေးသည်။
+2. **ကိရိယာ ပေါင်းစည်းမှု**: `[Description]` attribute ဖြင့် ဖောင်ရှင်များသည် ကိုယ်စားလှယ်အတွက် အသုံးပြုနိုင်သော ကိရိယာများဟု ဖြစ်လာသည်။
+3. **ပြုပြင်ထိန်းသိမ်းမှု**: ပတ်ဝန်းကျင် မထည့်သွင်းချက်များနှင့် လုံခြုံစိတ်ချစွာ အတည်ပြုမှုပြုခြင်းသည် .NET၏ အကောင်းဆုံး လေ့လာမှုများနှင့် ကိုက်ညီသည်။
+4. **Azure OpenAI Responses API**: ကိုယ်စားလှယ်သည် Azure.AI.OpenAI SDK ကနေ Azure OpenAI Responses API ကို အသုံးပြုသည်။
 
-## 🔗 ထပ်ဆင့် အရင်းအမြစ်များ
+## 🔗 ထပ်မံ ရရှိနိုင်သော ရင်းမြစ်များ
 
-- [Microsoft Agent Framework အသုံးပြုမှု လမ်းညွှန်](https://learn.microsoft.com/agent-framework)
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
 - [Microsoft Foundry တွင် Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)

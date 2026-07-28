@@ -1,67 +1,67 @@
-[Watch the lesson video: Menjamin Ejen AI dengan Resit Kriptografi](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Tonton video pelajaran: Memastikan Ejen AI dengan Resit Kriptografi](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Video pelajaran dan thumbnail akan ditambah oleh pasukan kandungan Microsoft selepas penggabungan, mengikut pola pelajaran 14 / 15.)_
+> _(Video pelajaran dan gambar kecil akan ditambah oleh pasukan kandungan Microsoft selepas gabungan, mengikut pola pelajaran 14 / 15.)_
 
-# Menjamin Ejen AI dengan Resit Kriptografi
+# Memastikan Ejen AI dengan Resit Kriptografi
 
 ## Pengenalan
 
 Pelajaran ini akan merangkumi:
 
 - Mengapa jejak audit untuk ejen AI penting untuk pematuhan, penyahpepijatan, dan kepercayaan.
-- Apa itu resit kriptografi dan bagaimana ia berbeza dari baris log tanpa tandatangan.
+- Apa itu resit kriptografi dan bagaimana ia berbeza daripada baris log tanpa tandatangan.
 - Cara menghasilkan resit bertandatangan untuk panggilan alat ejen dalam Python biasa.
 - Cara mengesahkan resit secara luar talian dan mengesan pengubahan.
-- Cara menghubungkan resit supaya penghapusan atau penyusunan semula satu resit memecahkan rantai.
-- Apa yang resit buktikan dan apa yang secara jelas ia tidak buktikan.
+- Cara mengikat resit supaya mengalih keluar atau menyusun semula satu akan memutuskan rantai.
+- Apa yang dibuktikan oleh resit dan apa yang secara eksplisit tidak dibuktikannya.
 
 ## Matlamat Pembelajaran
 
-Selepas melengkapkan pelajaran ini, anda akan tahu cara untuk:
+Setelah selesai pelajaran ini, anda akan tahu cara untuk:
 
-- Mengenal pasti mod kegagalan yang mendorong kepapatan kriptografi untuk tindakan ejen.
-- Menghasilkan resit bertandatangan Ed25519 ke atas muatan JSON kanonik.
-- Mengesahkan resit secara bebas hanya menggunakan kunci awam penandatangan.
-- Mengesan pengubahan dengan menjalankan semula pengesahan pada resit yang diubah.
-- Membina urutan resit berantai hash dan menerangkan mengapa rantai itu penting.
-- Mengenal pasti sempadan antara apa yang resit buktikan (atribusi, integriti, susunan) dan apa yang tidak (ketepatan tindakan, kewajaran polisi).
+- Mengenal pasti mod kegagalan yang memotivasikan asal usul kriptografi untuk tindakan ejen.
+- Menghasilkan resit yang ditandatangani Ed25519 ke atas muatan JSON kanonik.
+- Mengesahkan resit secara berdikari dengan hanya menggunakan kunci awam penandatangan.
+- Mengesan pengubahan dengan menjalankan semula pengesahan ke atas resit yang diubah suai.
+- Membina rangkaian resit berantai hash dan menerangkan mengapa rantai itu penting.
+- Mengenali sempadan antara apa yang dibuktikan resit (atribusi, integriti, susunan) dan apa yang tidak (ketepatan tindakan, kesahihan dasar).
 
 ## Masalah: Jejak Audit Ejen Anda
 
-Bayangkan anda telah melancarkan ejen AI untuk Contoso Travel. Ejen membaca permintaan pelanggan, memanggil API penerbangan untuk melihat pilihan, dan menempah tempat duduk bagi pihak pelanggan. Suku terakhir, ejen memproses 50,000 tempahan.
+Bayangkan anda telah mengendalikan ejen AI untuk Contoso Travel. Ejen tersebut membaca permintaan pelanggan, memanggil API penerbangan untuk mencari pilihan, dan menempah tempat duduk bagi pihak pelanggan. Suku tahun lepas, ejen memproses 50,000 tempahan.
 
-Hari ini seorang juruaudit tiba. Mereka bertanya soalan mudah: "Tunjukkan apa yang ejen anda lakukan."
+Hari ini seorang juruaudit datang. Mereka mengajukan soalan mudah: "Tunjukkan kepada saya apa yang ejen anda lakukan."
 
-Anda menyerahkan fail log anda. Juruaudit melihatnya dan bertanya soalan lebih sukar: "Bagaimana saya tahu log ini tidak disunting?"
+Anda menyerahkan fail log anda. Juruaudit melihatnya dan mengajukan soalan yang lebih sukar: "Bagaimana saya tahu log ini tidak diedit?"
 
-Ini adalah masalah jejak audit. Kebanyakan pelancaran ejen hari ini bergantung pada:
+Ini adalah masalah jejak audit. Kebanyakan pengendalian ejen hari ini bergantung pada:
 
-- **Log aplikasi**: ditulis oleh ejen itu sendiri, boleh disunting oleh sesiapa yang mempunyai akses sistem fail.
-- **Perkhidmatan log awan**: jelas menunjukkan pengubahan di peringkat platform tetapi hanya jika juruaudit mempercayai pengendali platform.
-- **Log transaksi pangkalan data**: sesuai untuk perubahan pangkalan data tetapi tidak untuk panggilan alat sewenang-wenangnya.
+- **Log aplikasi**: ditulis oleh ejen itu sendiri, boleh diedit oleh sesiapa yang mempunyai akses sistem fail.
+- **Perkhidmatan log awan**: bukti pengubahan di peringkat platform tetapi hanya jika juruaudit mempercayai pengendali platform.
+- **Log transaksi pangkalan data**: sesuai untuk perubahan pangkalan data tetapi bukan untuk panggilan alat sewenang-wenangnya.
 
-Tiada satu pun yang boleh menjawab soalan juruaudit tanpa memerlukan juruaudit mempercayai seseorang (anda, penyedia awan anda, vendor pangkalan data anda). Untuk kegunaan dalaman, kepercayaan itu biasanya boleh diterima. Untuk beban kerja yang dikawal selia (kewangan, penjagaan kesihatan, apa sahaja yang tertakluk kepada Akta AI EU), ia tidak.
+Tiada satu pun ini boleh menjawab soalan juruaudit tanpa memerlukan juruaudit mempercayai seseorang (anda, penyedia awan anda, vendor pangkalan data anda). Untuk kegunaan dalaman, kepercayaan itu biasanya boleh diterima. Untuk beban kerja yang dikawal selia (kewangan, penjagaan kesihatan, apa sahaja yang tertakluk kepada Akta AI EU), ia tidak boleh diterima.
 
-Resit kriptografi menyelesaikan masalah ini dengan menjadikan setiap tindakan ejen boleh disahkan secara bebas. Juruaudit tidak perlu mempercayai anda. Mereka hanya perlukan kunci awam anda dan resit itu sendiri.
+Resit kriptografi menyelesaikan ini dengan menjadikan setiap tindakan ejen boleh disahkan secara berdikari. Juruaudit tidak perlu mempercayai anda. Mereka hanya memerlukan kunci awam anda dan resit itu sendiri.
 
-## Apa Itu Resit Kriptografi?
+## Apakah Resit Kriptografi?
 
-Resit adalah objek JSON yang merekodkan apa yang ejen lakukan, ditandatangani dengan tandatangan digital.
+Resit adalah objek JSON yang merekodkan apa yang dilakukan oleh ejen, ditandatangani dengan tandatangan digital.
 
 ```mermaid
 flowchart LR
-    A[Ejen memanggil alat] --> B[Bina muatan resit]
-    B --> C[Kanunkan JSON RFC 8785]
+    A[Ejen memanggil alat] --> B[Membangun muatan resit]
+    B --> C[Kanonkan JSON RFC 8785]
     C --> D[Hash SHA-256]
     D --> E[Tandatangan Ed25519]
     E --> F[Resit dengan tandatangan]
-    F --> G[Auditor mengesah secara luar talian]
+    F --> G[Juruaudit mengesahkan luar talian]
     G --> H{Tandatangan sah?}
-    H -- ya --> I[Bukti bukti gangguan]
-    H -- tidak --> J[Resit ditolak]
+    H -- yes --> I[Bukti tahan sengaja]
+    H -- no --> J[Resit ditolak]
 ```
 
-Resit minimal kelihatan seperti ini:
+Resit minimum kelihatan seperti ini:
 
 ```json
 {
@@ -82,32 +82,32 @@ Resit minimal kelihatan seperti ini:
 }
 ```
 
-Tiga sifat menjalankan tugasnya:
+Tiga sifat melaksanakan kerja ini:
 
-1. **Tandatangan**. Resit ditandatangani oleh pintu masuk ejen menggunakan kunci peribadi Ed25519. Sesiapa dengan kunci awam yang sepadan boleh mengesahkan tandatangan secara luar talian. Pengubahan mana-mana medan membatalkan tandatangan.
+1. **Tandatangan**. Resit ditandatangani oleh pintu masuk ejen menggunakan kunci peribadi Ed25519. Sesiapa dengan kunci awam yang sepadan boleh mengesahkan tandatangan itu secara luar talian. Pengubahan pada mana-mana medan meninvalidkan tandatangan.
 
-2. **Pengkodan kanonik**. Sebelum menandatangani, resit diserialisasikan menggunakan Skema Kanonikal JSON (JCS, RFC 8785). Ini memastikan dua pelaksanaan yang menghasilkan resit logik sama menghasilkan output identik pada aras bait. Tanpa kanonisasi, penyerial JSON yang berbeza akan menghasilkan tandatangan berbeza untuk kandungan yang sama.
+2. **Pengekodan kanonik**. Sebelum menandatangani, resit diserikan menggunakan Skema Kanonifikasi JSON (JCS, RFC 8785). Ini memastikan bahawa dua pelaksanaan yang menghasilkan resit logik yang sama menghasilkan output identik dalam bait. Tanpa kanonifikasi, peleraian JSON yang berbeza menghasilkan tandatangan yang berbeza untuk kandungan yang sama.
 
-3. **Rantai hash**. Medan `previous_receipt_hash` menghubungkan setiap resit dengan yang sebelumnya. Menghapuskan atau menyusun semula resit memecahkan setiap resit selepasnya. Pengubahan menjadi jelas pada aras rantai meskipun tandatangan individu dibypass.
+3. **Pengikatan hash**. Medan `previous_receipt_hash` menghubungkan setiap resit dengan resit sebelumnya. Mengalih keluar atau menyusun semula resit memutuskan setiap resit selepasnya. Pengubahan menjadi kelihatan di peringkat rantai walaupun tandatangan individu dikelakkan.
 
-Sifat-sifat ini bersama memberikan tiga jaminan:
+Bersama-sama sifat ini menyediakan tiga jaminan:
 
 - **Atribusi**: kunci ini menandatangani kandungan ini.
-- **Integriti**: kandungan tidak berubah sejak tandatangan.
+- **Integriti**: kandungan tidak berubah sejak penandatanganan.
 - **Susunan**: resit ini datang selepas resit itu dalam rantai.
 
 ## Menghasilkan Resit dalam Python
 
-Anda tidak perlu perpustakaan khas untuk menghasilkan resit. Primitif kriptografi banyak tersedia dan logiknya adalah beberapa puluh baris Python.
+Anda tidak memerlukan perpustakaan khusus untuk menghasilkan resit. Primitif kriptografi tersedia secara meluas dan logiknya hanya beberapa puluh baris Python.
 
-Latihan praktikal dalam `code_samples/18-signed-receipts.ipynb` membimbing langkah penuh. Versi ringkas:
+Latihan praktikal dalam `code_samples/18-signed-receipts.ipynb` memandu melalui keseluruhan aliran. Versi ringkas:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 JSON kanonik
+from jcs import canonicalize  # JSON kanonik RFC 8785
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Jana atau muatkan kunci tandatangan (dalam pengeluaran, simpan dalam peti kunci)
+# Hasilkan atau muat naik kunci tandatangan (dalam pengeluaran, simpan dalam peti besi kunci)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Bina muatan resit (belum tandatangan)
+# Bina muatan resit (belum ada tandatangan)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,7 +136,7 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanonikkan, hash, tandatangan.
+# Kanonikan, campur, tandatangan.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
@@ -152,9 +152,9 @@ receipt = {
 }
 ```
 
-Itulah keseluruhan saluran penandatanganan. Latihan dalam buku nota membimbing setiap langkah.
+Itu keseluruhan saluran penandatanganan. Latihan dalam buku nota berjalan melalui setiap langkah.
 
-## Pengesahan Resit dan Pengesanan Pengubahan
+## Mengesahkan Resit dan Mengesan Pengubahan
 
 Pengesahan adalah operasi songsang:
 
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Sediakan semula muatan yang sebenarnya ditandatangani (semua kecuali tandatangan).
+    # Bina semula muatan yang sebenarnya ditandatangani (semua kecuali tandatangan).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,23 +189,23 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Fungsi ini mengambil resit dan mengembalikan `True` jika tandatangan sah, `False` jika tidak. Tiada panggilan rangkaian, tiada kebergantungan perkhidmatan, tiada kepercayaan kepada pihak ketiga diperlukan.
+Fungsi ini mengambil resit dan mengembalikan `True` jika tandatangan sah, `False` jika tidak. Tiada panggilan rangkaian, tiada pergantungan perkhidmatan, tiada kepercayaan diperlukan pada pihak ketiga.
 
-Untuk melihat pengesanan pengubahan berfungsi, buku nota membimbing:
+Untuk melihat pengesanan pengubahan berfungsi, buku nota menunjukkan:
 
-1. Menghasilkan resit sah dan mengesahkannya.
-2. Mengubah satu bait medan `tool_args_hash`.
+1. Menghasilkan resit sah dan mengesahkan ia sah.
+2. Mengubah satu bait dalam medan `tool_args_hash`.
 3. Menjalankan semula pengesahan dan melihat ia gagal.
 
-Ini demonstrasi praktikal bahawa resit jelas menunjukkan pengubahan: sebarang pengubahan, walaupun kecil, memecahkan tandatangan.
+Ini adalah demonstrasi praktikal bahawa resit adalah bukti pengubahan: sebarang pengubahan, walau kecil, memutuskan tandatangan.
 
-## Merantai Resit untuk Ejen Multi-Langkah
+## Mengikat Resit untuk Ejen Berbilang Langkah
 
-Satu resit bertandatangan melindungi satu tindakan. Rantai resit melindungi satu urutan.
+Satu resit bertandatangan melindungi satu tindakan. Rantaian resit melindungi satu urutan.
 
 ```mermaid
 flowchart LR
-    R0[Resit 0<br/>asal] --> R1[Resit 1]
+    R0[Resit 0<br/>genesis] --> R1[Resit 1]
     R1 --> R2[Resit 2]
     R2 --> R3[Resit 3]
     R1 -. previous_receipt_hash .-> R0
@@ -213,172 +213,184 @@ flowchart LR
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Setiap resit merekod hash resit sebelum itu. Untuk menghapuskan resit 2 secara senyap, penyerang perlu sama ada:
+Setiap resit merekod hash resit sebelumnya. Untuk membuang resit 2 secara senyap, penyerang perlu:
 
-- Mengubah medan `previous_receipt_hash` resit 3 (memecahkan tandatangan resit 3), ATAU
+- Mengubah medan `previous_receipt_hash` resit 3 (memutuskan tandatangan resit 3), ATAU
 - Memalsukan tandatangan baru pada resit 3 yang diubah (memerlukan kunci peribadi ejen).
 
-Jika kunci peribadi disimpan dalam peti kunci perkakasan dan anda menerbitkan kunci awam dengan setiap resit, kedua-dua serangan ini tidak boleh dilakukan tanpa dikesan.
+Jika kunci peribadi berada dalam peti besi kunci perkakasan dan anda menerbitkan kunci awam dengan setiap resit, tiada serangan boleh dilakukan tanpa dikesan.
 
-Buku nota membimbing:
+Buku nota memandu melalui:
 
 1. Membina rantai tiga resit.
-2. Mengesahkan setiap `previous_receipt_hash` sepadan dengan hash sebenar resit sebelumnya.
-3. Mengubah satu resit di tengah dan melihat rantai pecah tepat pada titik itu.
+2. Mengesahkan bahawa `previous_receipt_hash` setiap resit sepadan dengan hash sebenar resit sebelumnya.
+3. Mengubah satu resit di tengah dan melihat rantai putus di titik itu.
 
-Ini cara anda menghasilkan jejak audit yang boleh disahkan oleh juruaudit luar tanpa perlu mempercayai anda.
+Begitulah anda menghasilkan jejak audit yang boleh disahkan oleh juruaudit luar tanpa mempercayai anda.
 
-## Apa yang Resit Buktikan (dan Apa yang Tidak)
+## Apa yang Dibuktikan Oleh Resit (dan Apa yang Tidak)
 
-Ini adalah bahagian paling penting pelajaran ini. Resit kuat tetapi kekuatannya terbatas.
+Ini adalah bahagian paling penting dalam pelajaran ini. Resit berkuasa tetapi kuasanya terhad.
 
 **Resit membuktikan tiga perkara:**
 
 1. **Atribusi**: kunci tertentu menandatangani muatan tertentu.
-2. **Integriti**: muatan tidak berubah sejak tandatangan.
+2. **Integriti**: muatan tidak berubah sejak penandatanganan.
 3. **Susunan**: resit ini datang selepas resit itu dalam rantai hash.
 
 **Resit TIDAK membuktikan:**
 
-1. **Ketepatan**: bahawa tindakan ejen adalah tindakan yang betul. Resit boleh ditandatangani untuk jawapan yang salah sama bersih seperti untuk jawapan yang betul.
-2. **Pematuhan polisi**: bahawa polisi yang dirujuk dalam `policy_id` benar-benar dinilai, atau ia akan membenarkan tindakan ini jika diperiksa. Resit merekod apa yang dinyatakan, bukan apa yang dikuatkuasakan.
-3. **Identiti selain kunci**: resit berkata "kunci ini menandatangani kandungan ini." Ia tidak berkata "manusia ini meluluskan ini." Menghubungkan kunci kepada orang atau organisasi memerlukan infrastruktur identiti berasingan (direktori, daftar kunci awam, dll.).
-4. **Kebenaran input**: jika ejen menerima prompt yang dimanipulasi dan bertindak berdasarkan itu, resit merekod tindakan dengan jujur. Resit berada selepas pengesahan input, bukan pengganti untuknya.
+1. **Ketepatan**: bahawa tindakan ejen adalah tindakan yang betul. Resit boleh ditandatangani untuk jawapan yang salah sama bersihnya seperti untuk jawapan yang betul.
+2. **Pematuhan dasar**: bahawa dasar yang dirujuk dalam `policy_id` benar-benar dinilai, atau bahawa ia akan membenarkan tindakan ini jika diperiksa. Resit merekod apa yang didakwa, bukan apa yang dikuatkuasakan.
+3. **Identiti selain kunci**: resit mengatakan "kunci ini menandatangani kandungan ini." Ia tidak mengatakan "manusia ini membenarkan ini." Menghubungkan kunci kepada individu atau organisasi memerlukan infrastruktur identiti berasingan (direktori, daftar kunci awam, dll).
+4. **Kebenaran input**: jika ejen menerima arahan yang dimanipulasi dan bertindak ke atasnya, resit merekod tindakan itu secara setia. Resit adalah selepas pengesahan input, bukan pengganti untuknya.
 
-Sempadan ini penting kerana dua sebab:
+Sempadan ini penting untuk dua sebab:
 
-- Ia memberitahu apa kegunaan resit: menjadikan tingkah laku ejen boleh diaudit dan jelas menunjukkan pengubahan, walaupun merentas sempadan organisasi.
-- Ia memberitahu lapisan tambahan yang anda masih perlukan: pengesahan input (Pelajaran 6), penguatkuasaan polisi (diringkaskan di bawah), dan infrastruktur identiti (di luar skop pelajaran ini).
+- Ia memberitahu anda apa kegunaan resit: menjadikan tingkah laku ejen boleh diaudit dan bukti pengubahan, walaupun merentasi sempadan organisasi.
+- Ia memberitahu anda lapisan tambahan apa yang masih anda perlukan: pengesahan input (Pelajaran 6), penguatkuasaan dasar (dibincangkan secara ringkas di bawah), dan infrastruktur identiti (di luar skop pelajaran ini).
 
-Kesilapan biasa ialah menganggap "kami ada resit" bermaksud "kami dikawal selia." Tidak. Resit adalah asas. Tadbir urus adalah sistem yang anda bina di atasnya.
+Kesilapan biasa ialah menganggap bahawa "kami ada resit" bermakna "kami diatur." Ia tidak begitu. Resit adalah asas. Tadbir urus ialah sistem yang anda bina di atasnya.
+
+## Membuktikan Manusia Meluluskan Tindakan Tepat
+
+Perkara 3 di atas berhak mendapat seksyen sendiri: resit tindakan mengatakan "kunci ini menandatangani kandungan ini," tidak pernah "manusia ini membenarkan ini." Untuk tindakan berisiko tinggi (bayaran balik, penghapusan, pemindahan wayar), rangka kerja tadbir urus semakin memerlukan penyataan hilang itu, dan ia boleh dihasilkan dengan primitif yang sama yang sudah anda bina dalam pelajaran ini.
+
+Buku nota lanjutan `code_samples/human-authorization-receipts.ipynb` menambah jenis resit kedua, `human.approval.v1`, dalam bentuk sampul yang sama seperti resit pelajaran (muatan berjenis ditandatangani oleh Ed25519 ke atas SHA-256 kanoniknya, dengan objek `signature` di luar bait yang ditandatangani). Pelulus bernama menandatangani **tindakan penuh kanonik dan ringkasannya** sebelum pelaksanaan; resit tindakan ejen membawa **ringkasan tindakan yang sama** dan `parent_approval_ref`, `receipt_hash` kelulusan, konvensi yang sama seperti `previous_receipt_hash` dalam rantai yang anda bina sebelum ini. Satu `verify_chain` memeriksa kedua-dua artifak di bawah **daftar kunci tersemat berasingan** (kunci pelulus vs kunci ejen), jadi laluan kod dikongsi tetapi pihak berkuasa tidak pernah berkongsi.
+
+Sifat yang ini bawa, dinyatakan dengan teliti: *manusia meluluskan tindakan tepat ini, dan ejen melaksanakan tindakan yang diluluskan itu dengan tepat.* Kerangka penolakan dalam buku nota menjadikan sifat ini nyata dan bukan sekadar dakwaan:
+
+- set klasik: pengubahan, aduan pihak ketiga, pengulangan, kunci palsu di kedua-dua belah, input salah bentuk;
+- **kuasa lapuk**: tandatangan yang masih sah, tetapi tetap ditolak kerana versi dasar berubah, kunci pelulus diputar keluar dari daftar tersuai, atau kelulusan tamat tempoh sebelum pelaksanaan;
+- **penggantian ringkasan**: resit tindakan yang ditandatangani dengan sah menuding pada kelulusan *sah* yang mengikat tindakan kanonik *berbeza*.
+
+Setiap kegagalan ditolak dengan sebab yang berbeza, jadi juruaudit membaca penolakan boleh membezakan sama ada kuasa telah lapuk atau tindakan yang dilaksanakan berubah. Peraturan yang diajar oleh buku nota: kelulusan bertandatangan bukan kuasa sendiri. Kuasa wujud hanya jika kedua-dua resit masih mengikat tindakan kanonik yang sama pada masa pelaksanaan. Laluan kopengesahan dalam Draf Internet yang sama dengan pelajaran ini (`draft-farley-acta-signed-receipts`) adalah bentuk trajektori piawaian corak ini.
 
 ## Rujukan Pengeluaran
 
-Kod Python dalam pelajaran ini sengaja minimal supaya anda boleh membaca setiap baris dan faham apa yang berlaku. Dalam pengeluaran, anda ada dua pilihan:
+Kod Python dalam pelajaran ini sengaja minimal supaya anda boleh membaca setiap baris dan faham apa yang sedang berlaku. Dalam pengeluaran, anda ada dua pilihan:
 
-1. **Bina terus pada primitif kriptografi.** 50 baris yang anda lihat di atas sudah mencukupi untuk banyak penggunaan. PyNaCl (Ed25519) dan pakej `jcs` (JSON kanonik) adalah perpustakaan yang dikekalkan dan diaudit dengan baik.
+1. **Bina terus di atas primitif kriptografi.** 50 baris yang anda lihat di atas sudah mencukupi untuk banyak kes penggunaan. PyNaCl (Ed25519) dan pakej `jcs` (JSON kanonik) adalah perpustakaan yang diselenggara dengan baik dan diaudit.
 
-2. **Gunakan perpustakaan resit pengeluaran.** Beberapa projek sumber terbuka melaksanakan corak yang sama dengan ciri tambahan (putaran kunci, pengesahan berkelompok, pengedaran Set JWK, integrasi dengan enjin polisi):
-   - Format resit yang digunakan dalam pelajaran ini mengikuti Draf Internet IETF (`draft-farley-acta-signed-receipts`) yang sedang dalam proses standard.
-   - Microsoft Agent Governance Toolkit menggabungkan resit dengan keputusan polisi Cedar; lihat Tutorial 33 dalam repositori itu untuk contoh menyeluruh.
-   - Pakej `protect-mcp` (npm) dan `@veritasacta/verify` (npm) menyediakan pelaksanaan Node untuk penandatanganan dan pengesahan luar talian resit, bertujuan membalut mana-mana pelayan MCP dengan jejak audit yang jelas menunjukkan pengubahan.
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** SDK Python (`pip install nobulex`) menyediakan corak tandatangan Ed25519 + JCS yang sama dalam Python dengan integrasi LangChain dan CrewAI, termasuk vektor ujian silang dan peta pematuhan disumbang menerusi [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+2. **Gunakan perpustakaan resit pengeluaran.** Beberapa projek sumber terbuka melaksanakan corak yang sama dengan ciri tambahan (putaran kunci, pengesahan berkumpulan, pengedaran Kumpulan Kunci JWK, integrasi dengan enjin dasar):
+   - Format resit yang digunakan dalam pelajaran ini mengikuti Draf Internet IETF ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), semakan 02) yang kini dalam proses piawaian, dengan suite pematuhan bersama ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) yang pelaksanaan bebas saling mengesahkan untuk output kanonik identik bait.
+   - Kit Alat Tadbir Urus Ejen Microsoft menggabungkan resit dengan keputusan dasar berasaskan Cedar; lihat Tutorial 33 dalam repositori itu untuk contoh menyeluruh.
+   - Pakej `protect-mcp` (npm) dan `@veritasacta/verify` (npm) menyediakan pelaksanaan tandatangan resit dan pengesahan luar talian berasaskan Node, bertujuan untuk membungkus mana-mana pelayan MCP dengan jejak audit bukti pengubahan, termasuk aliran tahan-kopengesahan di mana tindakan dihentikan mengeluarkan resit kelulusan terikat kepada ringkasan tindakan (disokong WebAuthn dalam aliran desktop), corak resit kelulusan yang sama seperti buku nota pengesahan manusia di atas.
+   - SDK Python **[nobulex](https://github.com/arian-gogani/nobulex)** (`pip install nobulex`) menyediakan corak tandatangan Ed25519 + JCS yang sama dalam Python dengan integrasi LangChain dan CrewAI, termasuk vektor ujian silang yang diterbitkan dan pemetaan kepatuhan yang disumbangkan melalui [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Keputusan antara membina sendiri dan menggunakan perpustakaan adalah sama seperti memilih antara menulis perpustakaan JWT sendiri dan menggunakan yang sudah diuji: kedua-duanya munasabah; perpustakaan menjimatkan masa dan mengurangkan permukaan audit; pendekatan dari awal memaksa anda faham setiap primitif. Pelajaran ini mengajar jalan dari awal supaya anda ada asas untuk mana-mana pilihan.
+Keputusan antara membina sendiri atau menggunakan perpustakaan mencerminkan keputusan antara menulis perpustakaan JWT anda sendiri dan menggunakan yang telah diuji: kedua-duanya munasabah; perpustakaan menjimatkan masa dan mengurangkan permukaan audit; pendekatan dari awal memaksa anda faham setiap primitif. Pelajaran ini mengajar laluan dari awal supaya anda mempunyai asas untuk mana-mana pilihan.
 
-## Ujian Pengetahuan
+## Pemeriksaan Pengetahuan
 
-Uji pemahaman anda sebelum meneruskan latihan praktikal.
+Uji pemahaman anda sebelum bergerak ke latihan praktikal.
 
-**1. Resit ditandatangani dengan kunci ed25519 peribadi ejen. Juruaudit hanya ada kunci awam. Boleh juruaudit sahkan resit secara luar talian?**
-
-<details>
-<summary>Jawapan</summary>
-
-Boleh. Pengesahan Ed25519 hanya memerlukan kunci awam dan bait yang ditandatangani. Tiada panggilan rangkaian, tiada kebergantungan perkhidmatan. Ini sifat yang menjadikan resit berguna dalam situasi audit berudara terasing, berbilang organisasi, atau kurang kepercayaan.
-</details>
-
-**2. Penyerang mengubah medan `policy_id` dalam resit untuk mendakwa ia dikawal selia oleh polisi yang lebih membenarkan. Tandatangan adalah atas muatan asal. Apa berlaku semasa pengesahan?**
+**1. Resit ditandatangani dengan kunci peribadi Ed25519 ejen. Juruaudit hanya mempunyai kunci awam. Bolehkah juruaudit mengesahkan resit secara luar talian?**
 
 <details>
 <summary>Jawapan</summary>
 
-Pengesahan gagal. Tandatangan dikira atas bait kanonik muatan asal; mengubah mana-mana medan mengubah bait kanonik, yang menukar hash SHA-256, menyebabkan tandatangan tidak sah. Penyerang perlu kunci peribadi untuk menghasilkan tandatangan baru, yang mereka tiada.
+Ya. Pengesahan Ed25519 hanya memerlukan kunci awam dan bait yang ditandatangani. Tiada panggilan rangkaian, tiada pergantungan perkhidmatan. Ini adalah sifat yang menjadikan resit berguna dalam tetapan audit berasingan tanpa sambungan rangkaian, pelbagai organisasi, atau rendah kepercayaan.
 </details>
 
-**3. Kenapa resit termasuk `tool_args_hash` dan `result_hash` dan bukannya argumen dan hasil mentah?**
+**2. Penyerang mengubah medan `policy_id` resit untuk mendakwa ia dikawal oleh dasar yang lebih membenarkan. Tandatangan dibuat ke atas muatan asal. Apa yang berlaku semasa pengesahan?**
 
 <details>
 <summary>Jawapan</summary>
 
-Dua sebab. Pertama, resit mungkin perlu diarkib atau dihantar di persekitaran di mana pendedahan kandungan mentah (PII, data perniagaan) adalah masalah. Hash menjadikan resit kecil dan kandungan peribadi; juruaudit mengesahkan hash sepadan dengan salinan berasingan kandungan sebenar. Kedua, hash mempunyai saiz tetap; resit dengan hash terhad saiz tanpa mengira saiz input dan output.
+
+Pengesahan gagal. Tandatangan dikira ke atas bait kanonik bagi muatan asal; mengubah sebarang medan menukar bait kanonik, yang menukar hash SHA-256, lalu menyebabkan tandatangan tidak sah. Penyerang perlu kunci peribadi untuk menghasilkan tandatangan sah baharu, yang mereka tidak miliki.
 </details>
 
-**4. Medan `previous_receipt_hash` menghubungkan setiap resit dengan penerusnya. Jika penyerang menghapus satu resit dari tengah rantai secara senyap, apa yang menjadi tidak sah?**
+**3. Mengapakah resit termasuk `tool_args_hash` dan `result_hash` dan bukannya argumen mentah dan hasil?**
 
 <details>
 <summary>Jawapan</summary>
 
-Setiap resit selepas yang dipadam. Medan `previous_receipt_hash` mereka tidak lagi sepadan dengan rantai sebenar (kerana resit yang dirujuk tidak wujud, atau rantai kini menunjuk kepada penerus berbeza). Untuk menyembunyikan pemadaman, penyerang perlu menandatangani semula setiap resit kemudian, yang memerlukan kunci peribadi.
+Dua sebab. Pertama, resit mungkin perlu diarkib atau dihantar dalam persekitaran di mana kebocoran kandungan mentah (PII, data perniagaan) menjadi masalah. Penggunaan hash memastikan resit kecil dan kandungan sulit; juruaudit mengesahkan hash sepadan dengan salinan kandungan sebenar yang disimpan berasingan. Kedua, hash mempunyai saiz tetap; resit dengan hash terhad saiznya tidak kira betapa besarnya input dan output.
 </details>
 
-**5. Resit disahkan dengan bersih. Adakah itu membuktikan tindakan ejen betul, wajar, atau patuh polisi?**
+**4. Medan `previous_receipt_hash` menghubungkan setiap resit kepada pendahulunya. Jika penyerang membuang satu resit dari tengah rantaian secara senyap, apa yang menjadi tidak sah?**
 
 <details>
 <summary>Jawapan</summary>
 
-Tidak. Resit sah membuktikan tiga perkara: atribusi (kunci ini menandatangani kandungan ini), integriti (kandungan tidak berubah), dan susunan (resit ini datang selepas yang itu). Ia TIDAK membuktikan tindakan itu betul, polisi dalam `policy_id` benar-benar dinilai, atau ejen mengikuti setiap peraturan. Resit menjadikan tingkah laku ejen boleh diaudit, bukan semestinya betul. Ini sempadan paling penting dalam pelajaran.
+Setiap resit selepas yang dihapuskan. Medan `previous_receipt_hash` mereka tidak lagi sepadan dengan rantaian sebenar (kerana resit yang dirujuk tidak lagi wujud, atau rantaian kini merujuk kepada pendahulu yang berbeza). Untuk menyembunyikan penghapusan, penyerang perlu menandatangani semula setiap resit kemudian, yang memerlukan kunci peribadi.
 </details>
 
-## Latihan Praktikal
+**5. Resit mengesahkan dengan bersih. Adakah itu membuktikan tindakan agen betul, tepat, atau mematuhi polisi?**
 
-Buka `code_samples/18-signed-receipts.ipynb` dan lengkapkan semua empat bahagian:
+<details>
+<summary>Jawapan</summary>
 
-1. **Bahagian 1**: Tandatangani resit pertama anda dan sahkan.
-2. **Bahagian 2**: Ubah resit dan perhatikan pengesahan gagal.
-3. **Bahagian 3**: Bina rantai tiga resit dan sahkan integriti rantai.
-4. **Bahagian 4**: Gunakan corak pada ejen yang dibina dengan Microsoft Agent Framework: bungkus panggilan alat dalam penandatanganan resit, kemudian sahkan resit secara bebas.
-**Cabaran lanjutan 1:** sambungkan skema resit dengan medan tambahan pilihan anda sendiri (contohnya, ID permintaan untuk penjejakan), kemaskini logik penandatanganan kanonik untuk memasukkannya, dan sahkan bahawa resit masih boleh melalui pengesahan. Kemudian ubah medan tersebut selepas menandatangani dan sahkan pengesahan gagal. Ini memaksa anda memahami bagaimana setiap bait pengekodan kanonik menyumbang kepada tandatangan.
+Tidak. Resit sah membuktikan tiga perkara: atribusi (kunci ini menandatangani kandungan ini), integriti (kandungan tidak berubah), dan urutan (resit ini datang selepas resit itu). Ia TIDAK membuktikan tindakan itu betul, polisi dalam `policy_id` benar-benar dinilai, atau agen mengikuti setiap peraturan. Resit menjadikan kelakuan agen boleh diaudit, bukan semestinya betul. Ini adalah sempadan paling penting dalam pelajaran.
+</details>
 
-**Cabaran lanjutan 2:** SHA-256 hash dua resit anda bersama-sama (satukan bait kanonik mereka dalam urutan deterministik) dan tanamkan hasil digest sebagai medan baru pada resit ketiga sebelum menandatanganinya. Sahkan bahawa ketiga-tiga resit masih boleh melalui pengesahan bulat. Anda baru sahaja membina bukti inklusi satu langkah: sesiapa yang memegang resit ketiga boleh membuktikan dua resit pertama wujud pada masa ia ditandatangani, tanpa perlu mendedahkan kandungannya. Ini adalah corak yang digunakan oleh resit pendedahan selektif pada skala besar (komitmen Merkle, RFC 6962).
+## Latihan Amali
+
+Buka `code_samples/18-signed-receipts.ipynb` dan lengkapkan keempat-empat bahagian:
+
+1. **Bahagian 1**: Tandatangani resit pertama anda dan sahkan ia.
+2. **Bahagian 2**: Cubalah mengubah suai resit dan perhatikan pengesahan gagal.
+3. **Bahagian 3**: Bina rantaian tiga resit dan sahkan integriti rantai.
+4. **Bahagian 4**: Gunakan corak ini ke agen binaan dengan Microsoft Agent Framework: balut panggilan alat dalam penandatanganan resit, kemudian sahkan resit secara bebas.
+
+**Cabaran lanjutan 1:** luaskan skema resit dengan medan tambahan pilihan anda sendiri (contoh, ID permintaan untuk penjejakan), kemas kini logik penandatanganan kanonik untuk memasukkannya, dan pastikan resit masih melalui pengesahan pusing-balik. Kemudian ubah medan selepas tandatangan dan pastikan pengesahan gagal. Ini memaksa anda memahami bagaimana setiap bait pengekodan kanonik menyumbang kepada tandatangan.
+
+**Cabaran lanjutan 2:** SHA-256 hash dua resit anda bersama (sambungkan bait kanonik mereka dalam susunan deterministik) dan tanamkan hasil digest sebagai medan baru pada resit ketiga sebelum menandatangan. Sahkan ketiga-tiga resit masih pusing-balik. Anda baru sahaja membina bukti inklusi satu langkah: sesiapa yang memegang resit ketiga boleh membuktikan dua yang pertama wujud ketika ia ditandatangani, tanpa perlu dedah kandungan mereka. Ini corak yang digunakan resit pendedahan terpilih secara besar-besaran (komitmen Merkle, RFC 6962).
 
 ## Kesimpulan
 
-Resit kriptografi memberi ejen AI jejak audit yang:
+Resit kriptografi memberi agen AI jejak audit yang:
 
-- **Boleh disahkan secara bebas**: mana-mana pihak dengan kunci awam boleh mengesahkannya, tanpa pergantungan perkhidmatan.
-- **Bukti manipulasi jelas**: apa-apa pengubahsuaian membatalkan tandatangan.
-- **Boleh dibawa**: resit adalah fail JSON kecil; ia boleh diarkib, dihantar, dan disahkan di mana-mana.
-- **Mengikut piawaian**: dibina atas Ed25519 (RFC 8032), JCS (RFC 8785), dan SHA-256, semua primitif yang meluas digunakan.
+- **Boleh disahkan sendiri**: mana-mana pihak dengan kunci awam boleh sahkan, tiada pergantungan servis.
+- **Bukti pengubahsuaian**: sebarang pengubahsuaian membatalkan tandatangan.
+- **Mudah alih**: resit adalah fail JSON kecil; boleh diarkib, dihantar, dan disahkan di mana-mana.
+- **Sejajar piawaian**: dibina atas Ed25519 (RFC 8032), JCS (RFC 8785), dan SHA-256, semua primitif yang digunakan meluas.
 
-Mereka bukan pengganti untuk pengesahan input, penguatkuasaan dasar, atau infrastruktur identiti. Mereka adalah asas untuk lapisan-lapisan tersebut. Apabila anda menggunakan ejen dalam beban kerja yang dikawal selia, aliran kerja pelbagai organisasi, atau sebarang keadaan di mana auditor masa depan tidak boleh dianggap mempercayai anda, resit adalah cara anda menjadikan jejak audit jujur.
+Ia bukan pengganti pengesahan input, penguatkuasaan polisi, atau infrastruktur identiti. Ia asas bagi lapisan-lapisan tersebut. Apabila melaksanakan agen dalam beban kerja terkawal, aliran kerja berbilang organisasi, atau mana-mana situasi di mana juruaudit masa depan tidak boleh dipercayai, resit memastikan jejak audit jujur.
 
-Pengajaran paling penting: resit membuktikan siapa berkata apa, bila. Mereka tidak membuktikan bahawa apa yang dikatakan itu benar atau betul. Pegang perbezaan itu dengan ketat. Ia adalah bezanya antara sistem asal-usul yang jujur dan yang mengelirukan.
+Intipati paling penting: resit membuktikan siapa kata apa, bila. Ia tidak membuktikan apa yang dikatakan itu betul atau tepat. Pegang perbezaan itu erat-erat. Ia bezakan sistem asal usul jujur dan yang mengelirukan.
 
 ## Senarai Semak Pengeluaran
 
-Apabila anda bersedia untuk melangkah dari pelajaran ini ke penerapan ejen yang ditandatangani resit dalam persekitaran sebenar:
+Apabila anda sudah bersedia untuk lulus dari pelajaran ini ke pengeluaran agen tandatangan resit dalam persekitaran sebenar:
 
-- [ ] **Pindahkan kunci tandatangan dari komputer riba pembangun.** Gunakan Azure Key Vault, AWS KMS, atau modul keselamatan perkakasan. Kunci peribadi yang menandatangani resit anda tidak boleh disimpan dalam kawalan sumber atau dalam teks biasa pada mesin aplikasi.
-- [ ] **Terbitkan kunci awam pengesahan.** Auditor memerlukannya untuk pengesahan luar talian. Corak standard adalah Set JWK di URL yang dikenali (RFC 7517), contohnya `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Pukat rantaian secara luaran.** Secara berkala tulis hash kepala rantaian terkini ke log ketelusan (Sigstore Rekor, pihak berkuasa masa RFC 3161, atau sistem dalaman kedua) supaya pihak luar dapat mengesahkan "rantaian ini wujud pada masa ini."
-- [ ] **Simpan resit secara tidak boleh diubah.** Penyimpanan blob hanya tambah (Azure Storage dengan polisi ketidakubahan, AWS S3 Object Lock) mencegah orang dalam menulis semula sejarah di lapisan penyimpanan.
-- [ ] **Tentukan tempoh penyimpanan.** Banyak rejim pematuhan memerlukan penyimpanan berbilang tahun. Rancang pertumbuhan resit (setiap resit ~500 bait; ejen yang membuat 10K panggilan setiap hari menghasilkan ~1.8 GB setahun).
-- [ ] **Dokumentasikan apa yang resit tidak liputi.** Resit membuktikan atribusi, integriti, dan urutan. Buku panduan anda harus secara jelas menyenaraikan kawalan tambahan apa (pengesahan input, penguatkuasaan dasar, had kadar, infrastruktur identiti) yang berada bersama resit dalam posisi tadbir urus anda.
+- [ ] **Alihkan kunci tandatangan dari komputer pembangun.** Gunakan Azure Key Vault, AWS KMS, atau modul keselamatan perkakasan. Kunci peribadi yang menandatangani resit anda tidak boleh disimpan dalam kawalan sumber atau fail teks biasa di mesin aplikasi.
+- [ ] **Terbitkan kunci awam pengesahan.** Juruaudit memerlukannya untuk pengesahan luar talian. Corak standard ialah JWK Set pada URL yang diketahui (RFC 7517), contoh `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Anchor rantaian secara luaran.** Tulis secara berkala hash kepala rantaian terkini ke log ketelusan (Sigstore Rekor, RFC 3161 timestamp authority, atau sistem dalaman kedua) supaya pihak luar boleh mengesahkan "rantai ini wujud pada masa ini."
+- [ ] **Simpan resit secara tidak boleh diubah.** Penyimpanan blob append-only (Azure Storage dengan polisi tidak boleh ubah, AWS S3 Object Lock) menghalang dalaman mengubah sejarah di lapisan penyimpanan.
+- [ ] **Tentukan tempoh penyimpanan.** Banyak peraturan pematuhan memerlukan penyimpanan bertahun-tahun. Rancang pertumbuhan resit (setiap resit ~500 bait; agen membuat 10K panggilan sehari menghasilkan ~1.8 GB setahun).
+- [ ] **Dokumen apa yang tidak diliputi resit.** Resit membuktikan atribusi, integriti dan urutan. Buku panduan anda perlu senaraikan kawalan tambahan (validasi input, penguatkuasaan polisi, sekatan kadar, infrastruktur identiti) yang disertakan dengan resit dalam postur tadbir urus.
 
-### Ada Soalan Lagi tentang Menjamin Ejen AI?
+### Ada Soalan Lagi tentang Memastikan Keselamatan Agen AI?
 
-Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berjumpa pelajar lain, hadir waktu pejabat, dan dapatkan jawapan untuk soalan Ejen AI anda.
+Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berjumpa pelajar lain, hadir jam pejabat, dan dapatkan jawapan untuk soal agen AI anda.
 
-## Melangkaui Pelajaran Ini
+## Selepas Pelajaran Ini
 
-Pelajaran ini merangkumi tandatangan resit tunggal dan urutan rantai hash. Primitif yang sama membentuk beberapa corak lebih maju yang mungkin anda temui apabila posisi tadbir urus anda matang:
+Pelajaran ini merangkumi tandatangan resit tunggal dan urutan rantaian hash. Primitif sama membina beberapa corak maju yang mungkin anda temui seiring kematangan postur tadbir urus:
 
-- **Pendedahan selektif.** Apabila medan resit terikat secara berdikari (pokok Merkle gaya RFC 6962), anda boleh mendedahkan medan tertentu kepada auditor tertentu dan membuktikan yang lain tidak berubah tanpa mendedahkannya. Berguna apabila resit yang sama perlu memenuhi audit menyeluruh (yang mahukan kelengkapan) dan peraturan pengurangan data seperti GDPR (yang mahukan auditor melihat sekurang-kurangnya mungkin).
-- **Pembatalan resit.** Jika kunci tandatangan dikompromi, anda perlukan cara menandakan semua resit yang ditandatangani oleh kunci itu sebagai tidak boleh dipercayai dari suatu masa ke hadapan. Corak standard: kunci tandatangan jangka pendek plus senarai pembatalan diterbitkan, atau log ketelusan dengan catatan pembatalan.
-- **Resit tandatangan dua arah / berpisah.** Sesetengah pelaksanaan memisahkan muatan yang ditandatangani kepada separuh pra-pelaksanaan (`authorization_*`) dan pasca-pelaksanaan (`result_*`) dengan tandatangan bebas, berguna apabila keputusan kebenaran dan hasil yang diperhatikan dihasilkan oleh pelakon berlainan atau pada masa berlainan. Ini boleh ditambah di atas format resit yang diajar dalam pelajaran ini.
-- **Komposisi muatan.** Resit menandatangani apa sahaja bait yang anda letakkan dalam `result_hash`. Muatan dunia sebenar sering lebih kaya daripada hanya hasil panggilan alat tunggal: pertimbangan pra-keputusan (ramalan model, pilihan yang dipertimbangkan, bukti dan kesempurnaannya, sikap risiko, rantai akauntabiliti, hasil pintu kawalan) semuanya boleh wujud dalam muatan, ditandatangani oleh satu resit. Ini mengekalkan format resit minimal sambil membenarkan skema muatan berkembang mengikut domain.
-- **Pematuhan lintas pelaksanaan.** Pelbagai pelaksanaan bebas format resit yang sama (Python, TypeScript, Rust, Go) mengesahkan silang terhadap vektor ujian bersama. Jika anda membina pelaksanaan anda sendiri, pengesahan terhadap vektor diterbitkan mengesahkan keserasian wayar.
-- **Migrasi pasca-kuantum.** Ed25519 banyak digunakan hari ini tetapi tidak tahan kuantum. Format resit bersifat algoritma-lentur: medan `signature.alg` boleh membawa `ML-DSA-65` (standard tandatangan pasca-kuantum NIST) apabila anda perlu migrasi. Rancang tempoh peralihan di mana resit ditanda dua kali.
+- **Pendedahan terpilih.** Apabila medan resit diikat secara bebas (pokok Merkle gaya RFC 6962), anda boleh dedahkan medan tertentu kepada juruaudit tertentu dan buktikan yang lain tidak berubah tanpa dedah mereka. Berguna apabila resit sama perlu memenuhi audit menyeluruh (mahu lengkap) dan peraturan minimisasi data seperti GDPR (mahu juruaudit lihat serendah mungkin).
+- **Pembatalan resit.** Jika kunci tandatangan dikompromi, anda perlu cara menandakan semua resit yang ditandatangani dengan kunci itu sebagai tidak dipercayai dari masa tertentu dan seterusnya. Corak standard: kunci tandatangan bertahan pendek plus senarai pembatalan diterbitkan, atau log ketelusan dengan entri pembatalan.
+- **Resit tandatangan berkembar / berpecah.** Sesetengah pelaksanaan pecah muatan yang ditandatangani kepada separuh pra-pelaksanaan (`authorization_*`) dan pasca-pelaksanaan (`result_*`) dengan tandatangan bebas, berguna bila keputusan kebenaran dan hasil yang diperhatikan dihasilkan pelaku berbeza atau masa berbeza. Ini menambah di atas format resit dalam pelajaran ini.
+- **Komposisi muatan.** Resit menutup bait apa pun yang anda masukkan dalam `result_hash`. Muatan dunia sebenar selalunya lebih kaya daripada hasil panggilan alat tunggal: pemikiran pra-keputusan (ramalan model, pilihan dipertimbangkan, bukti dan kelengkapannya, postur risiko, rantaian akauntabiliti, keputusan pintu) boleh dimuat dalam muatan, ditutup oleh satu resit. Ini memastikan format resit minimal sambil membenarkan skema muatan berkembang domain demi domain.
+- **Penyesuaian silang pelaksanaan.** Pelbagai pelaksanaan bebas format resit sama (Python, TypeScript, Rust, Go) buat verifikasi silang menggunakan vektor ujian bersama. Jika anda bina pelaksanaan sendiri, pengesahan dengan vektor diterbitkan mengesahkan keserasian talian.
+- **Migrasi kuantum pasca.** Ed25519 digunakan luas hari ini tapi tidak tahan kuantum. Format resit algoritma-ceria: medan `signature.alg` boleh bawa `ML-DSA-65` (standard tandatangan kuantum pasca NIST) apabila anda perlu beralih. Rancang tempoh peralihan di mana resit ditandatangani berganda.
 
 ## Sumber Tambahan
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Resit Keputusan Ditandatangani untuk Kawalan Akses Mesin-ke-Mesin</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">Draf IETF Internet: Resit Keputusan Bertandatangan untuk Kawalan Akses Mesin-ke-Mesin</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Gambaran Keseluruhan AI Bertanggungjawab (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoritma Tandatangan Digital Edwards-Curve (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoritma Tandatangan Digital Kurva Edwards (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Skema Kanonik JSON (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Ketelusan Sijil</a> (pembinaan pokok Merkle yang digunakan oleh resit pendedahan selektif)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Resit Keputusan Verifikasi Luar Talian</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Vektor ujian pematuhan lintas pelaksanaan</a> untuk format resit yang digunakan dalam pelajaran ini (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Ketelusan Sijil</a> (Pembinaan pokok Merkle digunakan oleh resit pendedahan terpilih)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Toolkit Tadbir Urus Agen Microsoft, Tutorial 33: Resit Keputusan Verifikasi Luar Talian</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Vektor ujian penyesuaian pelaksanaan silang</a> untuk format resit digunakan dalam pelajaran ini (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">Dokumentasi PyNaCl</a> (Ed25519 dalam Python)
 
 ## Pelajaran Sebelumnya
 
-[Membina Ejen Penggunaan Komputer (CUA)](../15-browser-use/README.md)
-
-## Pelajaran Seterusnya
-
-_(Akan ditentukan oleh penyelia kurikulum)_
+[Mencipta Agen AI Tempatan](../17-creating-local-ai-agents/README.md)
 
 ---
 

@@ -1,16 +1,16 @@
-# 🎯 Planificación y Patrones de Diseño con Azure OpenAI (Responses API) (.NET)
+# 🎯 Planificación y Patrones de Diseño con Azure OpenAI (API de Respuestas) (.NET)
 
 ## 📋 Objetivos de Aprendizaje
 
-Este cuaderno demuestra patrones de planificación y diseño de grado empresarial para construir agentes inteligentes usando el Microsoft Agent Framework en .NET con Azure OpenAI (Responses API). Aprenderás a crear agentes que pueden descomponer problemas complejos, planificar soluciones en múltiples pasos y ejecutar flujos de trabajo sofisticados con las características empresariales de .NET.
+Este cuaderno demuestra patrones de planificación y diseño de nivel empresarial para construir agentes inteligentes utilizando el Microsoft Agent Framework en .NET con Azure OpenAI (API de Respuestas). Aprenderás a crear agentes que pueden descomponer problemas complejos, planificar soluciones de múltiples pasos y ejecutar flujos de trabajo sofisticados con las características empresariales de .NET.
 
-## ⚙️ Requisitos Previos y Configuración
+## ⚙️ Prerrequisitos y Configuración
 
 **Entorno de Desarrollo:**
 - SDK .NET 9.0 o superior
 - Visual Studio 2022 o VS Code con la extensión de C#
-- Una suscripción de Azure con un recurso de Azure OpenAI y un despliegue de modelo
-- La CLI de Azure — inicia sesión con `az login`
+- Una suscripción a Azure con un recurso Azure OpenAI y un despliegue de modelo
+- La CLI de Azure — iniciar sesión con `az login`
 
 **Dependencias Requeridas:**
 ```xml
@@ -25,18 +25,18 @@ Este cuaderno demuestra patrones de planificación y diseño de grado empresaria
 **Configuración del Entorno (archivo .env):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Ejecutando el Código
+## Ejecución del Código
 
-Esta lección incluye una implementación de una aplicación de archivo único de .NET. Para ejecutarla:
+Esta lección incluye una implementación de aplicación de archivo único en .NET. Para ejecutarla:
 
 ```bash
-# Hacer el archivo ejecutable (Linux/macOS)
+# Haz el archivo ejecutable (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Ejecutar la aplicación
+# Ejecuta la aplicación
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -48,17 +48,17 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Implementación del Código
 
-La implementación completa está disponible en `07-dotnet-agent-framework.cs`, que demuestra:
+La implementación completa está disponible en `07-dotnet-agent-framework.cs`, la cual demuestra:
 
-- Cargar la configuración del entorno con DotNetEnv
-- Configurar el cliente Azure OpenAI y crear un agente de IA usando `GetChatClient().AsAIAgent()`
-- Definir modelos de datos estructurados (Plan y TravelPlan) con serialización JSON
-- Crear un agente de IA con salida estructurada usando esquema JSON
-- Ejecutar solicitudes de planificación con respuestas tipo seguro
+- Carga de la configuración del entorno con DotNetEnv
+- Configuración del cliente Azure OpenAI y creación de un agente AI usando `GetChatClient().AsAIAgent()`
+- Definición de modelos de datos estructurados (Plan y TravelPlan) con serialización JSON
+- Creación de un agente AI con salida estructurada usando esquema JSON
+- Ejecución de solicitudes de planificación con respuestas tipadas de forma segura
 
 ## Conceptos Clave
 
-### Planificación Estructurada con Modelos Tipo Seguro
+### Planificación Estructurada con Modelos Tipados
 
 El agente usa clases de C# para definir la estructura de las salidas de planificación:
 
@@ -101,20 +101,20 @@ ChatClientAgentOptions agentOptions = new()
 };
 ```
 
-### Instrucciones para el Agente de Planificación
+### Instrucciones del Agente de Planificación
 
 El agente actúa como coordinador, delegando tareas a subagentes especializados:
 
 - FlightBooking: Para reservar vuelos y proporcionar información de vuelos
 - HotelBooking: Para reservar hoteles y proporcionar información de hoteles
-- CarRental: Para alquilar coches y proporcionar información de alquiler de coches
+- CarRental: Para reservar coches y proporcionar información de alquiler de coches
 - ActivitiesBooking: Para reservar actividades y proporcionar información de actividades
 - DestinationInfo: Para proporcionar información sobre destinos
 - DefaultAgent: Para manejar solicitudes generales
 
-## Salida Esperada
+## Resultado Esperado
 
-Cuando ejecutes el agente con una solicitud de planificación de viaje, analizará la petición y generará un plan estructurado con asignaciones de tareas apropiadas a los agentes especializados, formateado como JSON conforme al esquema TravelPlan.
+Cuando ejecutes el agente con una solicitud de planificación de viaje, analizará la solicitud y generará un plan estructurado con asignaciones de tareas apropiadas a agentes especializados, formateado en JSON conforme al esquema TravelPlan.
 
 ---
 

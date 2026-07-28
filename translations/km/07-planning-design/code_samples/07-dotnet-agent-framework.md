@@ -1,39 +1,42 @@
-# 🎯 ការធ្វើផែនការ និង លំនាំរចនា ជាមួយ GitHub Models (.NET)
+# 🎯 ការធ្វើផែនការ និងរចនាបទជាមួយ Azure OpenAI (Responses API) (.NET)
 
-## 📋 គោលដៅការសិក្សា
+## 📋 គោលបំណងការសិក្សា
 
-កំណត់ហេតុនេះបង្ហាញលំនាំប្រតិបត្តិ និងការរចនាដល់កម្រិតសហគ្រាសសម្រាប់ការអភិវឌ្ឍភ្នាក់ងារ​ធ្វើការយល់ដឹងដោយប្រើ Microsoft Agent Framework ក្នុង .NET ជាមួយ GitHub Models។ អ្នកនឹងរៀនបង្កើតភ្នាក់ងារដែលអាចបំបែកបញ្ហាស្មុគស្មាញ រៀបចំដំណោះស្រាយច្រើនជំហាន និងអនុវត្តចរន្តការងារដ៏ស្មុគស្មាញដោយអំពើសមត្ថភាពសម្រាប់សហគ្រាសរបស់ .NET។
+សៀវភៅចំណាំនេះបង្ហាញពីការធ្វើផែនការ និងរចនាបទកម្រិតសហគ្រាសសម្រាប់ការបង្កើតភ្នាក់ងារ ឆ្លាតវៃដោយប្រើ Microsoft Agent Framework នៅក្នុង .NET ជាមួយ Azure OpenAI (Responses API)។ អ្នកនឹងរៀនបង្កើតភ្នាក់ងារដែលអាចបំបែកបញ្ហាស្មុគស្មាញ, រៀបចំដំណោះស្រាយ មានជំហានច្រើន, និងអនុវត្តន៍ឯកសារលម្អិតជាមួយលក្ខណៈរបស់ .NET សម្រាប់សហគ្រាស។
 
-## ⚙️ លក្ខខណ្ឌ​ចាំបាច់ និងការតម្លើង
+## ⚙️ លក្ខខណ្ឌចាំបាច់ និងការដំឡើង
 
-**បរិយាកាសអភិវឌ្ឍន៍:**
-- .NET 9.0 SDK ឬខ្ពស់ជាង
-- Visual Studio 2022 ឬ VS Code ជាមួយផ្នែកបន្ថែម C#
-- GitHub Models API access
+**បរិស្ថានអភិវឌ្ឍន៍៖**
+- .NET 9.0 SDK ឬខ្ពស់ជាងនេះ
+- Visual Studio 2022 ឬ VS Code ជាមួយកម្មវិធីបន្ថែម C#
+- មានសុពលភាព Azure subscription ជាមួយធនធាន Azure OpenAI និងការបញ្ចូនលំនាំ
+- Azure CLI — ចូលប្រើដោយ `az login`
 
-**បណ្ណាល័យដែលត្រូវការ:**
+**ការពឹងផ្អែកចាំបាច់៖**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**ការកំណត់បរិយាកាស (.env file):**
+**ការកំណត់បរិស្ថាន (.env file):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## ការរត់កូដ
+## របៀបដំណើរកូដ
 
-មេរៀននេះរួមបញ្ចូលការអនុវត្តកម្មវិធី .NET Single File App។ ដើម្បីរត់វា:
+មេរៀននេះរួមបញ្ចូលការអនុវត្តកម្មវិធី .NET Single File App។ ដើម្បីដំណើរការ៖
 
 ```bash
-# ធ្វើឲ្យឯកសារអាចអនុវត្តបាន (Linux/macOS)
+# បង្កើតឱ្យឯកសារដំណើរការ (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# រត់កម្មវិធី
+# ប្រតិបត្តិកម្មភាសា
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,21 +46,21 @@ chmod +x 07-dotnet-agent-framework.cs
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## ការ​អនុវត្តកូដ
+## ការអនុវត្តកូដ
 
-ការអនុវត្តពេញលេញមាននៅក្នុង `07-dotnet-agent-framework.cs`, ដែលបង្ហាញពី៖
+ការអនុវត្តពេញលេញស្ថិតក្នុង `07-dotnet-agent-framework.cs` ដែលបង្ហាញពី៖
 
-- ផ្ទុកកំណត់បរិយាកាសជាមួយ DotNetEnv
-- កំណត់រចនាសម្ព័ន្ធអតិថិជន OpenAI សម្រាប់ GitHub Models
-- កំណត់ម៉ូដែលទិន្នន័យដែលមានរចនាសម្ព័ន្ធ (Plan និង TravelPlan) ជាមួយការបម្លែង JSON
-- បង្កើតភ្នាក់ងារ AI ដែលមានទិន្នន័យចេញមានរចនាសម្ព័ន្ធដោយប្រើស្គីមា JSON
-- អនុវត្តសំណើការធ្វើផែនការជាមួយការឆ្លើយតបដែលមានប្រភេទ-សុវត្ថិភាព
+- ការផ្ទុកការកំណត់បរិស្ថានជាមួយ DotNetEnv
+- ការកំណត់ Azure OpenAI client និងបង្កើតភ្នាក់ងារ AI ដោយប្រើ `GetChatClient().AsAIAgent()`
+- ការកំណត់គំរូទិន្នន័យរចនាសម្ព័ន្ធ (Plan និង TravelPlan) ជាមួយការបំលែង JSON
+- បង្កើតភ្នាក់ងារ AI ជាមួយចេញលទ្ធផលរចនាសម្ព័ន្ធដោយប្រើ JSON schema
+- អនុវត្តសំណើការធ្វើផែនការជាមួយចម្លើយប្រភេទដែលមានសុវត្ថិភាព
 
-## គំនិតសំខាន់
+## យល់ដឹងសំខាន់ៗ
 
-### Structured Planning with Type-Safe Models
+### ការធ្វើផែនការរចនាសម្ព័ន្ធជាមួយគំរូមានប្រភេទបញ្ជាក់
 
-ភ្នាក់ងា្រប្រើថ្នាក់ C# ដើម្បីកំណត់រចនាសម្ព័ន្ធនៃលទ្ធផលផែនការ៖
+ភ្នាក់ងារប្រើថ្នាក់ C# ដើម្បីកំណត់រចនាសម្ព័ន្ធចេញលទ្ធផលផែនការ៖
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema for Structured Outputs
+### JSON Schema សម្រាប់ចេញលទ្ធផលរចនាសម្ព័ន្ធ
 
-ភ្នាក់ងារត្រូវបានកំណត់រចនាសម្ព័ន្ធឲ្យត្រឡប់ការឆ្លើយតបដែលត្រូវនឹងស្គីមា TravelPlan:
+ភ្នាក់ងារត្រូវបានកំណត់ឲ្យត្រឡប់ចម្លើយដែលផ្គូផ្គងទៅនឹង schema TravelPlan៖
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,24 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planning Agent Instructions
+### សេចក្ដីណែនាំសម្រាប់ភ្នាក់ងារធ្វើផែនការ
 
-ភ្នាក់ងារធ្វើដូចជាអ្នកសម្របសម្រួល ដាក់ចោលភារកិច្ចទៅកាន់ភ្នាក់ងាររងដែលមានជំនាញជាក់លាក់៖
+ភ្នាក់ងារប្រព្រឹត្តទៅជា​រដ្ឋសភា ប្រគល់ចំនួនភារកិច្ចទៅភ្នាក់ងារសាធារណៈពិសេស៖
 
-- FlightBooking: សម្រាប់កក់សំបុត្រ និងផ្តល់ព័ត៌មានអំពីការហោះហើរ
+- FlightBooking: សម្រាប់កក់សំបុត្រយន្តហោះ និងផ្តល់ព័ត៌មានអំពីការហោះហើរ
 - HotelBooking: សម្រាប់កក់សណ្ឋាគារ និងផ្តល់ព័ត៌មានអំពីសណ្ឋាគារ
-- CarRental: សម្រាប់ជួលឡាន និងផ្តល់ព័ត៌មានអំពីការជួលឡាន
-- ActivitiesBooking: សម្រាប់កក់សកម្មភាព និងផ្តល់ព័ត៌មានអំពីសកម្មភាព
-- DestinationInfo: សម្រាប់ផ្តល់ព័ត៌មានអំពីទីកន្លែង
+- CarRental: សម្រាប់កក់រថយន្ត និងផ្តល់ព័ត៌មានអំពីការជួលរថយន្ត
+- ActivitiesBooking: សម្រាប់កក់សកម្មភាព និងផ្តល់ព័ត៌មានអំពីសកម្មភាពផ្សេងៗ
+- DestinationInfo: សម្រាប់ផ្តល់ព័ត៌មានអំពីគោលដៅ
 - DefaultAgent: សម្រាប់ដោះស្រាយសំណើទូទៅ
 
-## លទ្ធផលដែលគេរំពឹង
+## លទ្ធផលដែលរំពឹងទុក
 
-ពេលអ្នករត់ភ្នាក់ងារជាមួយសំណើផែនការធ្វើដំណើរ វានឹងវិភាគសំណើនោះ ហើយបង្កើតផែនការដែលមានរចនាសម្ព័ន្ធ ជាមួយការបែងចែកភារកិច្ចយ៉ាងសមរម្យទៅភ្នាក់ងាររងជំនាញពិសេសៗ ដែលបានទ្រង់ទ្រាយជា JSON សមរម្យតាមស្គីមា TravelPlan។
+នៅពេលអ្នកដំណើរការ​ភ្នាក់ងារជាមួយសំណើការធ្វើផែនការធ្វើដំណើរ ភ្នាក់ងារនឹងវិភាគសំណើ និងបង្កើតផែនការដែលមានរចនាសម្ព័ន្ធ ជាមួយការបែងចែកភារកិច្ចទៅភ្នាក់ងារជាពិសេស តាមទ្រង់ទ្រាយ JSON ដែលស្របតាម schema TravelPlan។
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាកម្មបកប្រែដោយបញ្ញាសិប្បនិម្មិត (AI) [Co-op Translator](https://github.com/Azure/co-op-translator). ខណៈពេលដែលយើងខិតខំរកភាពត្រឹមត្រូវ សូមយល់ថាការបកប្រែដោយស្វ័យប្រវត្តិអាចមានកំហុស ឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមក្នុងភាសាដើមគួរត្រូវបានគេចាត់ទុកថាជាប្រភពដែលមានសុពលភាព។ សម្រាប់ព័ត៌មានសំខាន់ៗ យើងផ្តល់អនុសាសន៍ឱ្យប្រើការបកប្រែដោយអ្នកជំនាញមនុស្ស។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសណាដែលកើតឡើងពីការប្រើប្រាស់ការបកប្រែនេះទេ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,178 +1,183 @@
-# 🎨 الگوهای طراحی عامل با مدل‌های GitHub (.NET)
+# 🎨 الگوهای طراحی فعال با Azure OpenAI (API پاسخ‌ها) (.NET)
 
 ## 📋 اهداف یادگیری
 
-این مثال الگوهای طراحی در سطح سازمانی برای ساخت عوامل هوشمند با استفاده از Microsoft Agent Framework در .NET و ادغام مدل‌های GitHub را نشان می‌دهد. شما الگوهای حرفه‌ای و رویکردهای معماری را یاد خواهید گرفت که عوامل را آماده تولید، قابل نگهداری و مقیاس‌پذیر می‌کنند.
+این مثال الگوهای طراحی سطح سازمانی را برای ساخت عوامل هوشمند با استفاده از چارچوب عامل مایکروسافت در .NET با ادغام Azure OpenAI (API پاسخ‌ها) نشان می‌دهد. شما الگوها و رویکردهای معماری حرفه‌ای را می‌آموزید که عوامل را آماده تولید، قابل نگهداری و مقیاس‌پذیر می‌کند.
 
 ### الگوهای طراحی سازمانی
 
-- 🏭 **الگوی کارخانه**: ایجاد استاندارد عوامل با تزریق وابستگی
-- 🔧 **الگوی سازنده**: پیکربندی و تنظیم عوامل به صورت روان
-- 🧵 **الگوهای ایمن در برابر رشته‌ها**: مدیریت مکالمات همزمان
-- 📋 **الگوی مخزن**: مدیریت ابزارها و قابلیت‌ها به صورت سازمان‌یافته
+- 🏭 **الگوی کارخانه**: ایجاد عامل استاندارد شده با تزریق وابستگی
+- 🔧 **الگوی سازنده**: پیکربندی و راه‌اندازی عامل به صورت Fluent
+- 🧵 **الگوهای ایمن در برابر نخ**: مدیریت محاوره همزمان
+- 📋 **الگوی مخزن**: مدیریت سازمان‌یافته ابزار و قابلیت
 
-## 🎯 مزایای معماری خاص .NET
+## 🎯 مزایای معماری مخصوص .NET
 
 ### ویژگی‌های سازمانی
 
-- **تایپ قوی**: اعتبارسنجی در زمان کامپایل و پشتیبانی IntelliSense
-- **تزریق وابستگی**: ادغام کانتینر DI داخلی
+- **نوع‌دهی قوی**: اعتبارسنجی زمان کامپایل و پشتیبانی IntelliSense
+- **تزریق وابستگی**: ادغام ظرف DI داخلی
 - **مدیریت پیکربندی**: الگوهای IConfiguration و Options
-- **Async/Await**: پشتیبانی درجه یک از برنامه‌نویسی غیرهمزمان
+- **Async/Await**: پشتیبانی برتر از برنامه‌نویسی ناهمزمان
 
 ### الگوهای آماده تولید
 
-- **ادغام لاگ‌گیری**: پشتیبانی از ILogger و لاگ‌گیری ساختاریافته
-- **بررسی سلامت**: نظارت و تشخیص داخلی
-- **اعتبارسنجی پیکربندی**: تایپ قوی با حاشیه‌نویسی داده‌ها
-- **مدیریت خطا**: مدیریت استثناهای ساختاریافته
+- **ادغام ثبت لاگ**: پشتیبانی ILogger و ثبت لاگ ساخت‌یافته
+- **بررسی‌های سلامت**: نظارت و تشخیص داخلی
+- **اعتبارسنجی پیکربندی**: نوع‌دهی قوی با توضیحات داده
+- **مدیریت خطا**: مدیریت استثنا سازمان‌یافته
 
 ## 🔧 معماری فنی
 
 ### اجزای اصلی .NET
 
-- **Microsoft.Extensions.AI**: انتزاعات خدمات AI یکپارچه
-- **Microsoft.Agents.AI**: چارچوب هماهنگی عوامل سازمانی
-- **ادغام مدل‌های GitHub**: الگوهای مشتری API با عملکرد بالا
-- **سیستم پیکربندی**: ادغام appsettings.json و محیط
+- **Microsoft.Extensions.AI**: انتزاعات خدمات هوش مصنوعی یکپارچه
+- **Microsoft.Agents.AI**: چارچوب ارکستراسیون عامل سازمانی
+- **Azure OpenAI (API پاسخ‌ها)**: الگوهای کلاینت API با عملکرد بالا
+- **سیستم پیکربندی**: appsettings.json و ادغام محیطی
 
-### پیاده‌سازی الگوهای طراحی
+### پیاده‌سازی الگوی طراحی
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[مجموعه خدمات (IServiceCollection)] --> B[سازنده عامل]
+    B --> C[پیکربندی]
+    C --> D[رجیستری ابزارها]
+    D --> E[عامل هوش مصنوعی]
 ```
 
 ## 🏗️ الگوهای سازمانی نشان داده شده
 
-### 1. **الگوهای ساختاری**
+### ۱. **الگوهای خلقتی**
 
-- **کارخانه عامل**: ایجاد متمرکز عوامل با پیکربندی ثابت
-- **الگوی سازنده**: API روان برای پیکربندی پیچیده عوامل
+- **کارخانه عامل**: ایجاد متمرکز عامل با پیکربندی یکسان
+- **الگوی سازنده**: API Fluent برای پیکربندی پیچیده عامل
 - **الگوی Singleton**: مدیریت منابع و پیکربندی مشترک
-- **تزریق وابستگی**: اتصال آزاد و قابلیت تست
+- **تزریق وابستگی**: اتصال سست و قابلیت تست
 
-### 2. **الگوهای رفتاری**
+### ۲. **الگوهای رفتاری**
 
 - **الگوی استراتژی**: استراتژی‌های اجرای ابزار قابل تعویض
-- **الگوی فرمان**: عملیات عامل کپسوله شده با قابلیت بازگشت
+- **الگوی فرمان**: عملیات عامل پیچیده با امکان بازگشت/انجام مجدد
 - **الگوی ناظر**: مدیریت چرخه عمر عامل مبتنی بر رویداد
-- **الگوی روش قالب**: جریان‌های کاری اجرای عامل استاندارد
+- **روش قالب**: جریان‌های کاری اجرای عامل استاندارد شده
 
-### 3. **الگوهای ساختاری**
+### ۳. **الگوهای ساختاری**
 
-- **الگوی آداپتور**: لایه ادغام API مدل‌های GitHub
-- **الگوی تزئین‌کننده**: افزایش قابلیت‌های عامل
-- **الگوی Facade**: رابط‌های تعامل ساده‌شده عامل
-- **الگوی Proxy**: بارگذاری تنبل و کش برای عملکرد بهتر
+- **الگوی تطبیق‌دهنده**: لایه ادغام Azure OpenAI (API پاسخ‌ها)
+- **الگوی دکوراتور**: ارتقای قابلیت عامل
+- **الگوی نما**: رابط‌های ساده تعامل عامل
+- **الگوی پروکسی**: بارگذاری تنبل و کش برای بهبود عملکرد
 
 ## 📚 اصول طراحی .NET
 
 ### اصول SOLID
 
-- **مسئولیت واحد**: هر جزء یک هدف واضح دارد
-- **باز/بسته**: قابل توسعه بدون تغییر
-- **جایگزینی لیسکوف**: پیاده‌سازی ابزار مبتنی بر رابط
-- **جداسازی رابط**: رابط‌های متمرکز و منسجم
-- **وارونگی وابستگی**: وابستگی به انتزاعات، نه موارد خاص
+- **مسئولیت واحد**: هر مؤلفه یک هدف واضح دارد
+- **باز/بسته**: توسعه‌پذیر بدون تغییر
+- **جانشینی لیسکوف**: پیاده‌سازی ابزار مبتنی بر رابط
+- **جدا سازی رابط**: رابط‌های متمرکز و هم‌بسته
+- **معکوس‌سازی وابستگی**: وابستگی به انتزاعات، نه به جزئیات
 
-### معماری پاک
+### معماری تمیز
 
-- **لایه دامنه**: انتزاعات اصلی عامل و ابزار
-- **لایه برنامه**: هماهنگی عوامل و جریان‌های کاری
-- **لایه زیرساخت**: ادغام مدل‌های GitHub و خدمات خارجی
+- **لایه دامنه**: انتزاعات اصلی عوامل و ابزارها
+- **لایه برنامه**: ارکستراسیون عامل و جریان‌های کاری
+- **لایه زیرساخت**: ادغام Azure OpenAI (API پاسخ‌ها) و خدمات خارجی
 - **لایه ارائه**: تعامل کاربر و قالب‌بندی پاسخ
 
 ## 🔒 ملاحظات سازمانی
 
 ### امنیت
 
-- **مدیریت اعتبارنامه**: مدیریت امن کلیدهای API با IConfiguration
-- **اعتبارسنجی ورودی**: تایپ قوی و اعتبارسنجی حاشیه‌نویسی داده‌ها
-- **پاکسازی خروجی**: پردازش و فیلتر کردن پاسخ‌های امن
-- **لاگ‌گیری حسابرسی**: ردیابی جامع عملیات
+- **مدیریت گواهی‌ها**: مدیریت امن کلید API با IConfiguration
+- **اعتبارسنجی ورودی**: نوع‌دهی قوی و اعتبارسنجی توضیحات داده
+- **پاک‌سازی خروجی**: پردازش و فیلتر امن پاسخ‌ها
+- **ثبت لاگ حسابرسی**: ردیابی جامع عملیات
 
 ### عملکرد
 
-- **الگوهای غیرهمزمان**: عملیات I/O غیرمسدودکننده
-- **مدیریت اتصال**: مدیریت کارآمد مشتری HTTP
-- **کش**: کش پاسخ برای بهبود عملکرد
-- **مدیریت منابع**: الگوهای پاکسازی و تخلیه مناسب
+- **الگوهای ناهمزمان**: عملیات I/O بدون مسدودسازی
+- **جمع‌آوری اتصال**: مدیریت بهینه کلاینت HTTP
+- **کشینگ**: کش پاسخ برای بهبود عملکرد
+- **مدیریت منابع**: الگوهای دورریزی و پاکسازی مناسب
 
 ### مقیاس‌پذیری
 
-- **ایمنی رشته‌ها**: پشتیبانی از اجرای همزمان عوامل
-- **تجمع منابع**: استفاده کارآمد از منابع
-- **مدیریت بار**: محدودیت نرخ و مدیریت فشار برگشتی
+- **ایمنی نخ**: پشتیبانی از اجرای همزمان عامل
+- **جمع‌آوری منابع**: استفاده بهینه از منابع
+- **مدیریت بار**: محدودیت نرخ و مدیریت فشار معکوس
 - **نظارت**: معیارهای عملکرد و بررسی سلامت
 
-## 🚀 استقرار تولید
+## 🚀 استقرار در تولید
 
-- **مدیریت پیکربندی**: تنظیمات خاص محیط
-- **استراتژی لاگ‌گیری**: لاگ‌گیری ساختاریافته با شناسه‌های همبستگی
-- **مدیریت خطا**: مدیریت استثناهای جهانی با بازیابی مناسب
-- **نظارت**: بینش‌های برنامه و شمارنده‌های عملکرد
-- **تست**: الگوهای تست واحد، تست یکپارچه و تست بار
+- **مدیریت پیکربندی**: تنظیمات مخصوص محیط
+- **استراتژی ثبت لاگ**: ثبت لاگ ساخت‌یافته با شناسه همبستگی
+- **مدیریت خطا**: مدیریت استثنا جهانی با بازیابی مناسب
+- **نظارت**: Application Insights و شمارنده‌های عملکرد
+- **آزمایش**: تست واحد، تست یکپارچگی و الگوهای تست بار
 
-آماده ساخت عوامل هوشمند در سطح سازمانی با .NET هستید؟ بیایید چیزی قدرتمند طراحی کنیم! 🏢✨
+آماده‌اید عوامل هوشمند سطح سازمانی با .NET بسازید؟ بیایید چیزی قدرتمند طراحی کنیم! 🏢✨
 
 ## 🚀 شروع به کار
 
 ### پیش‌نیازها
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) یا بالاتر
-- [توکن دسترسی API مدل‌های GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK دات‌نت ۱۰](https://dotnet.microsoft.com/download/dotnet/10.0) یا بالاتر
+- یک [اشتراک Azure](https://azure.microsoft.com/free/) با منبع Azure OpenAI و استقرار مدل
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — با `az login` وارد شوید
 
-### متغیرهای محیطی مورد نیاز
+### متغیرهای محیطی لازم
 
 ```bash
-# zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# زد‌اِش/باش
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# سپس وارد شوید تا AzureCliCredential بتواند توکن دریافت کند
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# پاورشل
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# سپس وارد شوید تا AzureCliCredential بتواند توکن دریافت کند
+az login
 ```
 
-### کد نمونه
+### نمونه کد
 
-برای اجرای مثال کد،
+برای اجرای نمونه کد،
 
 ```bash
-# zsh/bash
+# زش/باش
 chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-یا با استفاده از CLI دات‌نت:
+یا با استفاده از dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-کد کامل را در [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) مشاهده کنید.
+کد کامل را در [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) ببینید.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**سلب مسئولیت**:  
-این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما برای دقت تلاش می‌کنیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است حاوی خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان اصلی آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئولیتی در قبال هرگونه سوءتفاهم یا تفسیر نادرست ناشی از استفاده از این ترجمه نداریم.
+**سلب مسئولیت**:
+این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است شامل خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان مادری خود باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما در قبال هرگونه سوء تفاهم یا برداشت نادرست ناشی از استفاده از این ترجمه مسئولیتی نداریم.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

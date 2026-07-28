@@ -1,70 +1,70 @@
 # 🌍 Agent de Călătorie AI cu Microsoft Agent Framework (.NET)
 
-## 📋 Prezentarea Scenariului
+## 📋 Prezentare Generală a Scenariului
 
 Acest exemplu demonstrează cum să construiești un agent inteligent de planificare a călătoriilor folosind Microsoft Agent Framework pentru .NET. Agentul poate genera automat itinerarii personalizate pentru excursii de o zi către destinații aleatorii din întreaga lume.
 
 ### Capacități Cheie:
 
-- 🎲 **Selectare Destinație Aleatorie**: Folosește un instrument personalizat pentru a alege locuri de vacanță
-- 🗺️ **Planificare Inteligentă a Călătoriei**: Creează itinerarii detaliate zi cu zi
-- 🔄 **Streaming în Timp Real**: Suportă răspunsuri imediate și streaming
-- 🛠️ **Integrare Instrumente Personalizate**: Demonstrează cum să extinzi capacitățile agentului
+- 🎲 **Selecție Aleatorie a Destinațiilor**: Folosește un instrument personalizat pentru a alege locuri de vacanță
+- 🗺️ **Planificare Inteligentă a Călătoriilor**: Creează itinerarii detaliate zi de zi
+- 🔄 **Streaming în Timp Real**: Suportă răspunsuri imediate și în flux continuu
+- 🛠️ **Integrare Instrument Personalizat**: Demonstrează cum să extinzi capabilitățile agentului
 
-## 🔧 Arhitectura Tehnică
+## 🔧 Arhitectură Tehnică
 
 ### Tehnologii de Bază
 
-- **Microsoft Agent Framework**: Implementarea de ultimă oră pentru dezvoltarea agenților AI în .NET
-- **Azure OpenAI (Responses API)**: Folosește Azure OpenAI Responses API pentru inferență model
+- **Microsoft Agent Framework**: Implementare .NET de ultimă generație pentru dezvoltarea agenților AI
+- **Azure OpenAI (API Răspunsuri)**: Folosește API-ul Azure OpenAI Responses pentru inferența modelului
 - **Azure Identity**: Autentificare securizată prin `AzureCliCredential` (`az login`)
-- **Configurare Securizată**: Gestionarea endpoint-urilor bazată pe mediu
+- **Configurare Securizată**: Gestionare a endpoint-urilor bazată pe mediul de rulare
 
 ### Componente Cheie
 
-1. **AIAgent**: Agentul principal de orchestrare care gestionează fluxul conversației
-2. **Instrumente Personalizate**: Funcția `GetRandomDestination()` disponibilă agentului
-3. **Client Responses**: Interfața conversațională bazată pe Azure OpenAI Responses
-4. **Suport Streaming**: Capacități de generare a răspunsurilor în timp real
+1. **AIAgent**: Agentul principal care orchestrează fluxul conversației
+2. **Instrumente Personalizate**: Funcția `GetRandomDestination()` disponibilă pentru agent
+3. **Client Răspunsuri**: Interfață de conversație bazată pe Azure OpenAI Responses
+4. **Suport Streaming**: Capacități de generare în timp real a răspunsurilor
 
-### Tipar de Integrare
+### Model de Integrare
 
 ```mermaid
 graph LR
     A[Cerere utilizator] --> B[Agent AI]
-    B --> C[Azure OpenAI (API pentru răspunsuri)]
+    B --> C[Azure OpenAI (API răspunsuri)]
     B --> D[Unealtă GetRandomDestination]
     C --> E[Itinerar de călătorie]
     D --> E
 ```
 
-## 🚀 Început Rapid
+## 🚀 Început
 
-### Cerințe Prealabile
+### Cerințe Preliminare
 
-- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune superioară
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune superioară
 - Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și un model implementat
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentifică-te cu `az login`
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
 
 ### Variabile de Mediu Necesare
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Apoi conectați-vă pentru ca AzureCliCredential să poată obține un token
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
-### Exemplu de Cod
+### Cod Exemplu
 
 Pentru a rula exemplul de cod,
 
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,17 +159,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Concluzii Cheie
 
-1. **Arhitectura Agentului**: Microsoft Agent Framework oferă o abordare clară și sigură din punct de vedere al tipurilor pentru construirea agenților AI în .NET
+1. **Arhitectura Agentului**: Microsoft Agent Framework oferă o abordare curată și tip-safe pentru construirea agenților AI în .NET
 2. **Integrarea Instrumentelor**: Funcțiile decorate cu atribute `[Description]` devin instrumente disponibile pentru agent
-3. **Gestionarea Configurării**: Variabilele de mediu și manipularea securizată a acreditărilor urmează cele mai bune practici .NET
-4. **Azure OpenAI Responses API**: Agentul folosește Azure OpenAI Responses API prin SDK-ul Azure.AI.OpenAI
+3. **Gestionarea Configurației**: Variabilele de mediu și gestionarea securizată a credentialelor respectă cele mai bune practici .NET
+4. **API-ul Azure OpenAI Responses**: Agentul folosește API-ul Azure OpenAI Responses prin SDK-ul Azure.AI.OpenAI
 
 ## 🔗 Resurse Suplimentare
 
 - [Documentația Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI în Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [Aplicații .NET Single File](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

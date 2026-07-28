@@ -2,46 +2,46 @@
 
 ## 📋 Ciljevi učenja
 
-Ovaj bilježnik prikazuje obrasce integracije alata na razini poduzeća koristeći Microsoft Agent Framework u .NET-u s Azure OpenAI (Responses API). Naučit ćete graditi sofisticirane agente s više specijaliziranih alata, koristeći snažno tipiziranje C# i značajke poduzeća .NET-a.
+Ovaj bilježnik prikazuje obrasce integracije alata za razinu poduzeća koristeći Microsoft Agent Framework u .NET-u s Azure OpenAI (Responses API). Naučit ćete kako izgraditi sofisticirane agente s više specijaliziranih alata, iskorištavajući jaku tipizaciju C# i značajke .NET-a za poduzeća.
 
-### Napredne sposobnosti alata koje ćete svladati
+### Napredne mogućnosti alata koje ćete savladati
 
-- 🔧 **Arhitektura s više alata**: Izrada agenata s više specijaliziranih sposobnosti
-- 🎯 **Izvršavanje alata s provjerom tipa**: Korištenje potvrde pri kompajliranju u C#
-- 📊 **Obrasci alata za poduzeća**: Dizajn alata spremnih za proizvodnju i rukovanje pogreškama
-- 🔗 **Sastavljanje alata**: Kombiniranje alata za složene poslovne tijekove rada
+- 🔧 **Arhitektura s više alata**: Izgradnja agenata s više specijaliziranih sposobnosti
+- 🎯 **Sigurno izvršavanje alata s tipovima**: Iskorištavanje provjere u fazi kompilacije u C#
+- 📊 **Obrasci alata za poduzeća**: Dizajn alata spremnih za proizvodnju i upravljanje pogreškama
+- 🔗 **Sastavljanje alata**: Kombiniranje alata za složene poslovne tokove rada
 
 ## 🎯 Prednosti arhitekture alata u .NET-u
 
 ### Značajke alata za poduzeća
 
-- **Provjera pri kompajliranju**: Snažno tipiziranje osigurava ispravnost parametara alata
-- **Upravljanje ovisnostima**: Integracija IoC spremnika za upravljanje alatima
+- **Provjera u fazi kompilacije**: Jaka tipizacija osigurava ispravnost parametara alata
+- **Umetanje ovisnosti**: Integracija IoC spremnika za upravljanje alatima
 - **Async/Await obrasci**: Neblokirajuće izvršavanje alata s pravilnim upravljanjem resursima
-- **Strukturirano prijavljivanje**: Ugrađena integracija zapisivanja za praćenje izvršavanja alata
+- **Strukturirano bilježenje**: Ugrađena integracija zapisivanja za praćenje izvršavanja alata
 
 ### Obrasci spremni za proizvodnju
 
-- **Rukovanje iznimkama**: Sveobuhvatno upravljanje pogreškama s tipiziranim iznimkama
-- **Upravljanje resursima**: Ispravni obrasci otpada i upravljanje memorijom
-- **Praćenje performansi**: Ugrađene metrike i brojači performansi
-- **Upravljanje konfiguracijom**: Sigurna konfiguracija s potvrdom
+- **Upravljanje iznimkama**: Sveobuhvatno upravljanje pogreškama s tipiziranim iznimkama
+- **Upravljanje resursima**: Pravilan uzorak odlaganja i upravljanja memorijom
+- **Praćenje izvedbe**: Ugrađene metrike i brojila izvedbe
+- **Upravljanje konfiguracijom**: Sigurna konfiguracija s provjerama
 
 ## 🔧 Tehnička arhitektura
 
-### Osnovne .NET komponente alata
+### Osnovne komponente .NET alata
 
-- **Microsoft.Extensions.AI**: Jedinstvena sloj apstrakcije alata
-- **Microsoft.Agents.AI**: Orkestracija alata za poduzeća
-- **Azure OpenAI (Responses API)**: Klijent visoke izvedbe s punjenjem veza
+- **Microsoft.Extensions.AI**: Jedinstvena apstrakcija sloja alata
+- **Microsoft.Agents.AI**: Orkestracija alata na nivou poduzeća
+- **Azure OpenAI (Responses API)**: Visokoučinkoviti API klijent s upravljanjem konekcijama (connection pooling)
 
 ### Cjevovod izvršavanja alata
 
 ```mermaid
 graph LR
-    A[Korisnički zahtjev] --> B[Analiza agenta]
-    B --> C[Izbor alata]
-    C --> D[Provjera tipa]
+    A[Zahtjev korisnika] --> B[Analiza agenta]
+    B --> C[Odabir alata]
+    C --> D[Validacija tipa]
     B --> E[Vezanje parametara]
     E --> F[Izvršenje alata]
     C --> F
@@ -54,41 +54,41 @@ graph LR
 
 ### 1. **Alati za obradu podataka**
 
-- **Provjera ulaza**: Snažno tipiziranje s oznakama podataka
-- **Operacije transformacije**: Sigurna konverzija i oblikovanje podataka prema tipu
+- **Provjera unosa**: Jaka tipizacija s atributima podataka
+- **Transformacijske operacije**: Sigurna konverzija i oblikovanje podataka
 - **Poslovna logika**: Alati za izračune i analize specifične za domenu
-- **Oblikovanje izlaza**: Strukturirano generiranje odgovora
+- **Oblikovanje izlaza**: Generiranje strukturiranih odgovora
 
-### 2. **Integracijski alati**
+### 2. **Alati za integraciju**
 
-- **API konektori**: Integracija RESTful servisa s HttpClientom
-- **Alati za baze podataka**: Integracija Entity Frameworka za pristup podacima
-- **Operacije nad datotekama**: Sigurne operacije nad datotečnim sustavom s provjerom
+- **API konektori**: Integracija RESTful servisa s HttpClient
+- **Alati za bazu podataka**: Integracija Entity Frameworka za pristup podacima
+- **Operacije datoteka**: Sigurne operacije datotečnog sustava s validacijom
 - **Vanjske usluge**: Obrasci integracije servisa trećih strana
 
-### 3. **Pomoćni alati**
+### 3. **Korisni alati**
 
-- **Obrada teksta**: Alati za manipulaciju i oblikovanje nizova znakova
-- **Operacije datuma/vremena**: Kalkulacije datuma/vremena prilagođene kulturi
-- **Matematički alati**: Precizni proračuni i statističke operacije
-- **Alati za provjeru valjanosti**: Validacija poslovnih pravila i provjera podataka
+- **Obrada teksta**: Pomoćni alati za manipulaciju i oblikovanje niza znakova
+- **Operacije datuma/vremena**: Izračuni datuma/vremena s poznavanjem kulture
+- **Matematički alati**: Precizni izračuni i statističke operacije
+- **Alati za validaciju**: Provjera poslovnih pravila i verifikacija podataka
 
-Spremni za izgradnju agenata razine poduzeća s moćnim alatima sigurnim u tipove u .NET-u? Hajdemo dizajnirati profesionalna rješenja! 🏢⚡
+Spremni za izgradnju agenata razine poduzeća s moćnim, sigurnim alatima u .NET-u? Krenimo s izgradnjom profesionalnih rješenja! 🏢⚡
 
 ## 🚀 Početak rada
 
 ### Preduvjeti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji
-- Pretplata na [Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i postavkom modela
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se pomoću `az login`
+- [Pretplata na Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i implementacijom modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se s `az login`
 
 ### Potrebne varijable okoline
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
@@ -96,7 +96,7 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
 az login
 ```
@@ -111,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Ili koristeći dotnet CLI:
+Ili korištenjem dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

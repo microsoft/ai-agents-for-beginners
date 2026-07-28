@@ -1,109 +1,109 @@
-# 🛠️ Utilisation avancée des outils avec Azure OpenAI (API Réponses) (.NET)
+# 🛠️ Utilisation avancée des outils avec Azure OpenAI (API de réponses) (.NET)
 
 ## 📋 Objectifs d'apprentissage
 
-Ce carnet montre des modèles d'intégration d'outils de qualité entreprise en utilisant le Microsoft Agent Framework en .NET avec Azure OpenAI (API Réponses). Vous apprendrez à construire des agents sophistiqués avec plusieurs outils spécialisés, en tirant parti du typage fort de C# et des fonctionnalités entreprise de .NET.
+Ce cahier illustre des modèles d’intégration d’outils de qualité entreprise en utilisant le Microsoft Agent Framework en .NET avec Azure OpenAI (API de réponses). Vous apprendrez à créer des agents sophistiqués avec plusieurs outils spécialisés, en tirant parti du typage fort de C# et des fonctionnalités d'entreprise de .NET.
 
 ### Capacités avancées des outils que vous maîtriserez
 
-- 🔧 **Architecture Multi-Outils** : Construction d'agents avec plusieurs capacités spécialisées
-- 🎯 **Exécution d'Outils Type-Safe** : Exploitation de la validation au moment de la compilation en C#
-- 📊 **Modèles d'Outils d'Entreprise** : Conception d'outils prêts pour la production et gestion des erreurs
-- 🔗 **Composition d'Outils** : Combinaison d'outils pour des flux de travail métier complexes
+- 🔧 **Architecture Multi-Outils** : Construction d’agents avec plusieurs capacités spécialisées
+- 🎯 **Exécution d’Outils Typée** : Exploiter la validation à la compilation de C#
+- 📊 **Modèles d'Outils Entreprise** : Conception d’outils prêts pour la production et gestion des erreurs
+- 🔗 **Composition d’Outils** : Combinaison d’outils pour des flux métier complexes
 
-## 🎯 Avantages de l'architecture des outils .NET
+## 🎯 Avantages de l’Architecture d’Outils .NET
 
-### Fonctionnalités d'outils d'entreprise
+### Fonctionnalités d’Outils Entreprise
 
-- **Validation au moment de la compilation** : Le typage fort garantit la justesse des paramètres d'outils
-- **Injection de dépendances** : Intégration du conteneur IoC pour la gestion des outils
+- **Validation à la Compilation** : Le typage fort garantit la justesse des paramètres d’outils
+- **Injection de Dépendances** : Intégration du conteneur IoC pour la gestion des outils
 - **Modèles Async/Await** : Exécution non bloquante des outils avec gestion appropriée des ressources
-- **Journalisation structurée** : Intégration de la journalisation intégrée pour la surveillance de l'exécution des outils
+- **Journalisation Structurée** : Intégration native de la journalisation pour le suivi d’exécution des outils
 
-### Modèles prêts pour la production
+### Modèles Prêts pour la Production
 
-- **Gestion des exceptions** : Gestion complète des erreurs avec exceptions typées
-- **Gestion des ressources** : Modèles appropriés d'élimination et gestion de la mémoire
-- **Surveillance des performances** : Métriques intégrées et compteurs de performance
-- **Gestion de configuration** : Configuration type-safe avec validation
+- **Gestion des Exceptions** : Gestion complète des erreurs avec exceptions typées
+- **Gestion des Ressources** : Modèles de disposition correcte et gestion de la mémoire
+- **Suivi des Performances** : Métriques intégrées et compteurs de performance
+- **Gestion de Configuration** : Configuration typée avec validation
 
-## 🔧 Architecture technique
+## 🔧 Architecture Technique
 
 ### Composants principaux des outils .NET
 
-- **Microsoft.Extensions.AI** : Couche d'abstraction unifiée des outils
-- **Microsoft.Agents.AI** : Orchestration d'outils de qualité entreprise
-- **Azure OpenAI (API Réponses)** : Client API haute performance avec gestion du pool de connexions
+- **Microsoft.Extensions.AI** : Couche d’abstraction unifiée des outils
+- **Microsoft.Agents.AI** : Orchestration d’outils de qualité entreprise
+- **Azure OpenAI (API de réponses)** : Client API haute performance avec pool de connexions
 
-### Pipeline d'exécution des outils
+### Pipeline d’Exécution des Outils
 
 ```mermaid
 graph LR
-    A[Demande de l'utilisateur] --> B[Analyse de l'agent]
-    B --> C[Sélection de l'outil]
-    C --> D[Validation du type]
-    B --> E[Liaison des paramètres]
-    E --> F[Exécution de l'outil]
+    A[Requête Utilisateur] --> B[Analyse de l'Agent]
+    B --> C[Sélection de l'Outil]
+    C --> D[Validation du Type]
+    B --> E[Liaison des Paramètres]
+    E --> F[Exécution de l'Outil]
     C --> F
-    F --> G[Traitement du résultat]
+    F --> G[Traitement du Résultat]
     D --> G
     G --> H[Réponse]
 ```
 
-## 🛠️ Catégories d'outils & modèles
+## 🛠️ Catégories et Modèles d’Outils
 
-### 1. **Outils de traitement des données**
+### 1. **Outils de Traitement des Données**
 
-- **Validation des entrées** : Typage fort avec annotations de données
-- **Opérations de transformation** : Conversion et formatage des données type-safe
-- **Logique métier** : Outils de calcul et d'analyse spécifiques au domaine
-- **Formatage des sorties** : Génération de réponses structurées
+- **Validation d’Entrée** : Typage fort avec annotations de données
+- **Opérations de Transformation** : Conversion et formatage de données typé
+- **Logique Métier** : Outils de calcul et d’analyse spécifiques au domaine
+- **Formatage de Sortie** : Génération de réponses structurées
 
-### 2. **Outils d'intégration**
+### 2. **Outils d’Intégration**
 
 - **Connecteurs API** : Intégration de services RESTful avec HttpClient
-- **Outils de base de données** : Intégration Entity Framework pour l'accès aux données
-- **Opérations sur fichiers** : Opérations sécurisées sur le système de fichiers avec validation
-- **Services externes** : Modèles d'intégration de services tiers
+- **Outils de Base de Données** : Intégration Entity Framework pour accès aux données
+- **Opérations sur Fichiers** : Opérations sécurisées sur le système de fichiers avec validation
+- **Services Externes** : Modèles d’intégration de services tiers
 
-### 3. **Outils utilitaires**
+### 3. **Outils Utilitaires**
 
-- **Traitement de texte** : Utilitaires de manipulation et de formatage de chaînes
-- **Opérations date/heure** : Calculs date/heure prenant en compte la culture
-- **Outils mathématiques** : Calculs de précision et opérations statistiques
-- **Outils de validation** : Validation des règles métier et vérification des données
+- **Traitement de Texte** : Utilitaires de manipulation et formatage de chaînes
+- **Opérations Date/Heure** : Calculs date/heure sensibles à la culture
+- **Outils Mathématiques** : Calculs de précision et opérations statistiques
+- **Outils de Validation** : Validation des règles métier et vérification de données
 
-Prêt à créer des agents de qualité entreprise avec des capacités d'outils puissantes et type-safe en .NET ? Construisons des solutions professionnelles ! 🏢⚡
+Prêt à créer des agents de qualité entreprise avec des capacités d’outils puissantes et typées en .NET ? Architecturons des solutions professionnelles ! 🏢⚡
 
-## 🚀 Pour débuter
+## 🚀 Démarrage
 
 ### Prérequis
 
-- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) ou supérieur
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) ou version supérieure
 - Un [abonnement Azure](https://azure.microsoft.com/free/) avec une ressource Azure OpenAI et un déploiement de modèle
-- Le [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — connectez-vous avec `az login`
+- L’[Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — connectez-vous avec `az login`
 
-### Variables d'environnement requises
+### Variables d’Environnement Requises
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Ensuite, connectez-vous afin qu'AzureCliCredential puisse obtenir un jeton
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Ensuite, connectez-vous pour que AzureCliCredential puisse obtenir un jeton
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Connectez-vous ensuite afin qu'AzureCliCredential puisse obtenir un jeton
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Connectez-vous ensuite pour que AzureCliCredential puisse obtenir un jeton
 az login
 ```
 
-### Exemple de code
+### Exemple de Code
 
-Pour exécuter l'exemple de code,
+Pour exécuter l’exemple de code,
 
 ```bash
 # zsh/bash
@@ -111,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Ou en utilisant le CLI dotnet :
+Ou en utilisant la CLI dotnet :
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

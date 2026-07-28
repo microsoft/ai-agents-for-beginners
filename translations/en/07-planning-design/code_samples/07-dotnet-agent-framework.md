@@ -25,7 +25,7 @@ This notebook demonstrates enterprise-grade planning and design patterns for bui
 **Environment Configuration (.env file):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## Running the Code

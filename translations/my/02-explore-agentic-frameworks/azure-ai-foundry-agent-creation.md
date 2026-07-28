@@ -1,42 +1,42 @@
-# Microsoft Foundry Agent Service ဖန်တီးခြင်းနှင့် တိုးတက်မှု
+# Microsoft Foundry Agent Service Development
 
-ဒီလေ့ကျင့်မှုမှာ၊ သင်သည် [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) တွင် Microsoft Foundry Agent Service ကိရိယာများကို အသုံးပြု၍ Flight Booking အတွက် agent တစ်ခု ဖန်တီးမှာဖြစ်သည်။ ဤ agent သည် အသုံးပြုသူများနှင့် ဆက်သွယ်နိုင်ပြီး ပျံသန်းခရီးစဉ်အကြောင်းအရာများကို ပေးအပ်နိုင်ပါမည်။
+ဒီလေ့ကျင့်မှုမှာ သင်က [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) ရဲ့ Microsoft Foundry Agent Service tools ကို အသုံးပြုပြီး Flight Booking အတွက် အေးဂျင့်တစ်ခု ဖန်တီးမှာဖြစ်ပါတယ်။ အဆိုပါ အေးဂျင့်က အသုံးပြုသူတွေနဲ့ ဆက်သွယ်ပြီး ဦးလာသောဂလုပ်နစ်အကြောင်း အချက်အလက်များ ပေးနိုင်ပါလိမ့်မယ်။
 
-## လိုအပ်ချက်များ
+## မလိုအပ်သောအရာများ
 
-ဒီလေ့ကျင့်မှုကို ပြီးစီးရန် အောက်ပါအရာများလိုအပ်ပါသည်။
-1. စွမ်းဆောင်မှုရှိသော subscription ပါရှိသည့် Azure အကောင့်တစ်ခု။ [အကောင့်ကို အခမဲ့ဖန်တီးရန်](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)။
-2. Microsoft Foundry hub ဖန်တီးခွင့်ရှိရမည် သို့မဟုတ် သင့်အတွက် ဖန်တီးထားရမည်။
-    - သင့်အခန်းကဏ္ဍမှာ Contributor သို့မဟုတ် Owner ဖြစ်ပါက ဒီလုပ်ဆောင်ရန်လမ်းညွှန်ကိုလိုက်နာနိုင်ပါသည်။
+ဒီလေ့ကျင့်မှုကိုအပြီးသတ်ရန် သင်လိုအပ်သည်။
+၁။ စစ်ဆင်နေသည့် subscription ပါရှိသော Azure အကောင့်တစ်ခု။ [အခမဲ့အကောင့်ဖန်တီးရန်](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)။
+၂။ Microsoft Foundry hub ဖန်တီးရန် ခွင့်ပြုချက်ရှိရမည်၊ သို့မဟုတ် သင်အတွက် ဖန်တီးပေးထားရမည်။
+    - သင်၏ အခန်းကဏ္ဍသည် Contributor သို့မဟုတ် Owner ဖြစ်ပါက ဒီသင်ခန်းစာအတွင်း ဦးတည်ချက်များကို လိုက်နာနိုင်ပါသည်။
 
-## Microsoft Foundry hub တစ်ခု ဖန်တီးပါ
+## Microsoft Foundry hub ဖန်တီးခြင်း
 
-> **မှတ်ချက်**: Microsoft Foundry သည် ယခင်က Azure AI Studio ဟူ၍ အမည်ပေးခဲ့သည်။
+> **အရေးကြီး**: Microsoft Foundry ကို ယခင်က Azure AI Studio ဟု သိရှိခဲ့သည်။
 
-1. Microsoft Foundry hub ဖန်တီးရန်အတွက် [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ဘလော့ဂ်ဆောင်းပါးမှ လမ်းညွှန်ချက်များကို လိုက်နာပါ။
-2. သင့်ပရောဂျက် ပြီးမြောက်သည့်အခါ၊ ပြသထားသည့် အကြံပေးချက်များကို ပိတ်ပြီး Microsoft Foundry portal တွင် ပရောဂျက်စာမျက်နှာကို ပြန်လည်သုံးသပ်ပါ၊ အောက်ပါပုံနှင့် ဆင်တူသည်။
+၁။ Microsoft Foundry hub ဖန်တီးရန် [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ဘလော့ဂ်ပိုစ့်ထဲက ဥပမာလမ်းညွှန်ချက်များကိုလိုက်နာပါ။
+၂။ သင်၏စီမံကိန်း ဖန်တီးပြီးပါက ပြသနေသော အကြံပေးချက်များကို ပိတ်ပြီး Microsoft Foundry portal ရဲ့ စီမံကိန်းစာမျက်နှာကို ပြန်လည်ဆန်းစစ်ပါ၊ အောက်ပါပုံ၏သဘောတူညီမှုအတိုင်းဖြစ်သင့်သည်။
 
     ![Microsoft Foundry Project](../../../translated_images/my/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## မော်ဒယ်တင်ဆက်ခြင်း
+## မော်ဒယ် တပ်ဆင်ခြင်း
 
-1. သရဲပရောဂျက်အတွက် ဘယ်ဘက်က ပလိတ်ဖောင်းတွင်၊ **My assets** အပိုင်းက **Models + endpoints** စာမျက်နှာကို ရွေးချယ်ပါ။
-2. **Models + endpoints** စာမျက်နှာတွင် **Model deployments** တက်ဘ်အောက်၊ **+ Deploy model** မီယူတွင် **Deploy base model** ကို ရွေးချယ်ပါ။
-3. စာရင်းအတွင်း `gpt-4.1-mini` မော်ဒယ်ကို ရှာဖွေပြီး၊ ရွေးချယ်ကာ အတည်ပြုပါ။
+၁။ သင်၏စီမံကိန်း အတွက် ဘယ်ဘက် panel တွင် **My assets** အပိုင်းရှိ **Models + endpoints** စာမျက်နှာကို ရွေးချယ်ပါ။
+၂။ **Models + endpoints** စာမျက်နှာတွင် **Model deployments** တစ်ချပ်တွင် **+ Deploy model** မီနူးအောက်က **Deploy base model** ကို ရွေးပါ။
+၃။ စာရင်းတွင် `gpt-5-mini` မော်ဒယ်ကို ရှာဖွေပြီး ရွေးချယ် အတည်ပြုပါ။
 
-    > **မှတ်ချက်**: TPM ကို လျော့ချခြင်းသည် သင့်အသုံးပြုနေသော subscription ၏ ကန့်သတ်မှုကို ကျော်လွန်မှုမှ ရှောင်ရှားစေရန် ကူညီပေးသည်။
+    > **အရေးကြီး**: TPM လျော့ချခြင်းသည် သင့် subscription တွင် ရရှိနိုင်သည့် quota ကို မကျော်လွန်စေရန်ကူညီသည်။
 
     ![Model Deployed](../../../translated_images/my/model-deployment.3749c53fb81e18fd.webp)
 
-## Agent တစ်ခု ဖန်တီးပါ
+## အေးဂျင့်ဖန်တီးခြင်း
 
-မော်ဒယ်တင်ဆက်ပြီးနောက်၊ သင်သည် agent တစ်ခု ဖန်တီးနိုင်ပါပြီ။ Agent သည် အသုံးပြုသူများနှင့် ဆက်သွယ်နိုင်သည့် စကားပြော AI မော်ဒယ်ဖြစ်သည်။
+မော်ဒယ်တစ်ခု တပ်ဆင်ပြီးပါပြီ။ သင်အခု အေးဂျင့်တစ်ခုကို ဖန်တီးနိုင်ပြီ ဖြစ်သည်။ အေးဂျင့်ဆိုသည်မှာ အသုံးပြုသူများနှင့် ဆက်သွယ်ပေးနို်င်သည့် စကားပြော AI မော်ဒယ် ဖြစ်သည်။
 
-1. သရဲပရောဂျက်အတွက် ဘယ်ဘက်ပလိတ်ဖောင်းတွင် **Build & Customize** အပိုင်းအောက်မှာ **Agents** စာမျက်နှာကို ရွေးချယ်ပါ။
-2. အသစ် agent ဖန်တီးရန် **+ Create agent** ကို နှိပ်ပါ။ **Agent Setup** ဒိုင်ယလုပ်ဘောက်စ်အောက်တွင်-
-    - `FlightAgent` ကဲ့သို့ အေးဂျင့်အမည် တစ်ခု ထည့်ပါ။
-    - မိမိ ပြင်ဆင်ထားသော `gpt-4.1-mini` မော်ဒယ်တင်ဆက်မှု ရွေးချယ်ထားပါစေ။
-    - အေးဂျင့်ကို လိုက်နာစေမည့် **ညွှန်ကြားချက်များ** ကို သင်ယူဆောင်ရွက်လိုသည့် အတိုင်း သတ်မှတ်ပါ။ ဥပမာအဖြစ် -
+၁။ သင်၏စီမံကိန်း အတွက် ဘယ်ဘက် panel တွင် **Build & Customize** အပိုင်းအောက်ရှိ **Agents** စာမျက်နှာကို ရွေးပါ။
+၂။ **+ Create agent** ကို နှိပ်၍ အေးဂျင့်အသစ်တစ်ခု ဖန်တီးပါ။ **Agent Setup** dialog box အောက်ပါအတိုင်း။
+    - အေးဂျင့်အတွက် အမည်တစ်ခု ထည့်ပါ၊ ဥပမာ `FlightAgent` ။
+    - ရှေ့က ဖန်တီးထားသော `gpt-5-mini` မော်ဒယ်တပ်ဆင်မှု ရွေးချယ်ထားရမည်။
+    - အေးဂျင့်လိုက်နာရမည့် **Instructions** ကို သင်လိုချင်သည့် prompt အတိုင်း သတ်မှတ်ပါ။ ဥပမာက如下။
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,41 +64,41 @@
     
     ```
 > [!NOTE]
-> အပြည့်အစုံပုံစံငြိမ်းထားရာအတွက် [ဒီ repository](https://github.com/ShivamGoyal03/RoamMind) တွင် ပိုမိုသိရှိနိုင်ပါသည်။
+> အသေးစိတ် prompt လုပ်စရာရှိပါက [ဒီ repository](https://github.com/ShivamGoyal03/RoamMind) မှာ ထပ်မံကြည့်ရှုနိုင်ပါသည်။
     
-> ထို့အတူ၊ အေးဂျင့်၏ စွမ်းဆောင်ရည်များ ထပ်မံတိုးတက်အောင် **Knowledge Base** နှင့် **Actions** များကို ထည့်သွင်းနိုင်ပြီး၊ အသုံးပြုသူ လိုအပ်ချက်များအရ အချက်အလက် ပိုမိုပေးနိုင်သော နှင့် အလိုအလျောက်လုပ်ဆောင်ချက်များ ပြုလုပ်နိုင်ပါသည်။ ဒီလေ့ကျင့်မှုအတွက် ထိုအဆင့်များကို ကျော်ဖြတ်နိုင်ပါသည်။
+> ထို့အပြင် အေးဂျင့်၏ စွမ်းဆောင်ရည်များကို မြှင့်တင်ရန် **Knowledge Base** နှင့် **Actions** ထည့်သွင်းနိုင်ပြီး အသုံးပြုသူလိုအပ်ချက်များအပေါ် အလိုအလျောက်အလုပ်လုပ်နိုင်ပါသည်။ ဒီလေ့ကျင့်မှုအတွက် အဆိုပါအဆင့်များကို ကျော်လွှားနိုင်သည်။
     
 ![Agent Setup](../../../translated_images/my/agent-setup.9bbb8755bf5df672.webp)
 
-3. multi-AI agent အသစ် တစ်ခု ဖန်တီးရန် **New Agent** ကိုသာ နိပ်ပါ။ အသစ်ဖန်တီးလိုက်သည့် agent ကို Agents စာမျက်နှာတွင် ပြသပါလိမ့်မည်။
+၃။ multi-AI အေးဂျင့်အသစ်တစ်ခု ဖန်တီးရန် **New Agent** ကို ရိုက်နှိပ်ပါ။ ဖန်တီးပြီးသော အေးဂျင့်အသစ်သည် Agents စာမျက်နှာပေါ်တွင် ပြသမည်။
 
 
-## Agent ကို စမ်းသပ်ကြည့်ပါ
+## အေးဂျင့်ကို စမ်းသပ်ခြင်း
 
-Agent ဖန်တီးပြီးနောက်၊ Microsoft Foundry portal playground တွင် အသုံးပြုသူ မေးခွန်းများကို agent က ဘယ်လိုတုံ့ပြန်သနည်း စမ်းသပ်နိုင်ပါသည်။
+အေးဂျင့်ကို ဖန်တီးပြီးနောက် Microsoft Foundry portal playground တွင် အသုံးပြုသူ မေးခွန်းများကို ဘယ်လိုပြန်လည်တုံ့ပြန်မှုရှိသည်ကို စမ်းသပ်နိုင်သည်။
 
-1. Agent အတွက် **Setup** pane အပေါ်ထပ်တွင် **Try in playground** ကို ရွေးချယ်ပါ။
-2. **Playground** pane တွင် စကားပြောပြန်လည်မှုကွင်းတွင် မေးခွန်းများရိုက်ထည့်၍ agent နှင့် မေးမြန်းဆက်သွယ်နိုင်ပါသည်။ ဥပမာ၊ သင်သည် ၂၈ ရက်နေ့တွင် Seattle မှ New York သို့ ပျံသန်းခရီးစဉ်များကို agent ကို ဖော်ပြရန် တောင်းနိုင်ပါသည်။
+၁။ သင့်အေးဂျင့်အတွက် **Setup** pane ထိပ်တွင် **Try in playground** ကို စိုက်ရွေးပါ။
+၂။ **Playground** pane တွင် စကားပြောပြန်လည်ဆက်သွယ်မှုကို စမ်းသပ်နိုင်သည်။ ဥပမာအားဖြင့်၊ ၂၈ ရက်နေ့ Seattle ကနေ New York သို့ ဘယ်လေးပျံရံ့ချက်တွေရှိလဲဆိုတာ အေးဂျင့်ထံ မေးမြန်းနိုင်သည်။
 
-    > **မှတ်ချက်**: ဒီလေ့ကျင့်မှုတွင် အချိန်နှင့်တပြေးညီဒေတာ မသုံးရာကြောင့် agent ၏ တုံ့ပြန်ချက်များသည် စနစ်တကျဖြစ်နိုင်ခြေ မရှိပါ၊ လူကြိုက်များသော မေးခွန်းများကို နားလည်ပြီးတုံ့ပြန်နိုင်မှုကို စမ်းသပ်ခြင်းဖြစ်သည်။
+    > **အရေးကြီး**: ဒီလေ့ကျင့်မှုတွင် အချိန်နှင့်တပြေးညီ ဒေတာ မသုံးတာကြောင့် အေးဂျင့်သည် တိကျသောအဖြေများ မပေးနိုင်ဘဲဖြစ်နိုင်သည်။ ရည်ရွယ်ချက်မှာ အသုံးပြုသူ မေးခွန်းများကို အေးဂျင့်၏ နားလည်မှုနှင့် ပြန်လည်တုံ့ပြန်မှု စွမ်းရည်ကို စမ်းသပ်ခြင်းဖြစ်သည်။
 
     ![Agent Playground](../../../translated_images/my/agent-playground.dc146586de715010.webp)
 
-3. Agent ကို စမ်းသပ်ပြီးနောက်၊ ၎င်း၏ စွမ်းဆောင်ရည်များ တိုးတက်အောင် များစွာသော အယူစေချင်ချက်များ၊ သင်ကြားမှုဒေတာများနှင့် လုပ်ဆောင်ချက်များ ထည့်သွင်း၍ ပိုမိုကောင်းမွန်အောင် ပြုပြင်နိုင်ပါသည်။
+၃။ အေးဂျင့်စမ်းသပ်ပြီးနောက်၌ intents, training data နှင့် actions အသစ်များထပ်မံထည့်သွင်းကာ စွမ်းရည်များကို တိုးတက်အောင် ပြင်ဆင်နိုင်သည်။
 
-## အရင်းအမြစ်များ ရှင်းလင်းခွင့်ပြုခြင်း
+## အရင်းမြစ်များကို ရှင်းလင်းခြင်း
 
-စမ်းသပ်ပြီးနောက် agent ကိုဖျက်လိုက်ခြင်းဖြင့် ထပ်ဆောင်းကုန်ကျစရိတ်များမှ ကာကွယ်နိုင်ပါသည်။
-1. [Azure portal](https://portal.azure.com) ကိုဖွင့်ပြီး ဒီလေ့ကျင့်မှုတွင် အသုံးပြုထားသည့် hub resource များတည်ရှိရာ resource group များကို ကြည့်ရှုပါ။
-2. အကူအညီပြားဖက်မှာ **Delete resource group** ကို ရွေးချယ်ပါ။
-3. resource group အမည် ထည့်ပြီး ဖျက်ပစ်လိုသည်ဆိုမှုကို အတည်ပြုပါ။
+အေးဂျင့် စမ်းသပ်ပြီးပါက ထပ်မံကုန်ကျစရိတ်မဖြစ်စေရန် ဖျက်ပစ်နိုင်သည်။
+၁။ [Azure portal](https://portal.azure.com) ကို ဖွင့်ပြီး ဒီလေ့ကျင့်မှုတွင် အသုံးပြုထားသော hub အရင်းမြစ်များ ရှိ resource group အကြောင်းကြည့်ပါ။
+၂။ toolbar တွင် **Delete resource group** ကို ရွေးချယ်ပါ။
+၃။ resource group အမည်ကို ထည့်သွင်းပြီး ဖျက်လိုကြောင်း အတည်ပြုပါ။
 
 ## အရင်းအမြစ်များ
 
-- [Microsoft Foundry စာတမ်းအကြောင်းအရာ](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Microsoft Foundry နဲ့ စတင်ကျင့်ပြုခြင်း](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Azure ပေါ်ရှိ AI agent များ၏ အခြေခံသဘောတရားများ](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Getting Started with Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Fundamentals of AI agents on Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---

@@ -1,49 +1,49 @@
-# 🌍 Tehisintellekti reisiagent Microsoft Agent Frameworkiga (.NET)
+# 🌍 AI reisibüroo Microsoft Agent Frameworkiga (.NET)
 
 ## 📋 Stsenaariumi ülevaade
 
-See näide demonstreerib, kuidas ehitada intelligentset reisi planeerimise agenti, kasutades Microsoft Agent Frameworki .NET jaoks. Agent suudab automaatselt genereerida isikupärastatud päevareise juhuslike sihtkohtade jaoks üle maailma.
+See näide demonstreerib, kuidas ehitada nutikas reisiplaanimise agent Microsoft Agent Frameworki abil .NET-is. Agent suudab automaatselt genereerida isikupärastatud päevareise juhuslike sihtkohtade jaoks üle kogu maailma.
 
-### Peamised võimekused:
+### Põhifunktsioonid:
 
-- 🎲 **Juhusliku sihtkoha valimine**: Kasutab kohandatud tööriista puhkusekohtade valimiseks
-- 🗺️ **Intelligentne reisi planeerimine**: Koostab üksikasjalikke päev-päeva järel marsruute
-- 🔄 **Reaalaegne voogedastus**: Toetab nii koheseid kui ka voogedastusega vastuseid
-- 🛠️ **Kohandatud tööriistade integreerimine**: Näitab, kuidas laiendada agendi võimekust
+- 🎲 **Juhusliku sihtkoha valik**: Kasutab kohandatud tööriista puhkusekohtade valimiseks
+- 🗺️ **Intelligentne reisi planeerimine**: Loob üksikasjalikke päevakavasid
+- 🔄 **Reaalajas voogesitus**: Toetab nii koheseid kui ka voogedastusvastuseid
+- 🛠️ **Kohandatud tööriista integratsioon**: Näitab, kuidas laiendada agendi võimekust
 
 ## 🔧 Tehniline arhitektuur
 
-### Põhitehnoloogiad
+### Põhilised tehnoloogiad
 
-- **Microsoft Agent Framework**: Viimane .NET rakendus AI agendi arendamiseks
-- **Azure OpenAI (Responses API)**: Kasutab Azure OpenAI vastuste API-t mudeli järeldusteks
+- **Microsoft Agent Framework**: Viimane .NET-i rakendus AI agentide arendamiseks
+- **Azure OpenAI (Responses API)**: Kasutab Azure OpenAI Responses API mudeli arvutamiseks
 - **Azure Identity**: Turvaline sisselogimine `AzureCliCredential` abil (`az login`)
 - **Turvaline konfiguratsioon**: Keskkonnapõhine lõpp-punktide haldus
 
 ### Põhikomponendid
 
-1. **AIAgent**: Peamine agendi orkestreerija, mis haldab vestluse kulgu
-2. **Kohandatud tööriistad**: `GetRandomDestination()` funktsioon agenti jaoks saadaval
-3. **Responses Client**: Azure OpenAI Responses-põhine vestlusliides
-4. **Voogedastuse tugi**: Reaalaegse vastuste genereerimise võimalused
+1. **AIAgent**: Peamine agendi orkestreerija vestlusvoo haldamiseks
+2. **Kohandatud tööriistad**: `GetRandomDestination()` funktsioon on agendile kättesaadav
+3. **Responses klient**: Azure OpenAI Responses-põhine vestlusliides
+4. **Voogedastuse tugi**: Reaalajas vastuste genereerimise võimekus
 
-### Integratsioonimuster
+### Integratsioonimudel
 
 ```mermaid
 graph LR
-    A[Kasutaja päring] --> B[AI agent]
-    B --> C[Azure OpenAI (vastuste API)]
-    B --> D[GetRandomDestination tööriist]
-    C --> E[Reisiplaan]
+    A[Kasutaja Päring] --> B[Tehisintellekti Agent]
+    B --> C[Azure OpenAI (Vastuste API)]
+    B --> D[GetRandomDestination Tööriist]
+    C --> E[Reisi Kavad]
     D --> E
 ```
 
-## 🚀 Algus
+## 🚀 Alustamine
 
-### Eeldused
+### Eeltingimused
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem versioon
-- [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudeli deploymentiga
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
+- [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudeli kasutuselevõtuga
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logi sisse käsuga `az login`
 
 ### Nõutavad keskkonnamuutujad
@@ -51,15 +51,15 @@ graph LR
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni kätte
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
 az login
 ```
@@ -74,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Või dotnet CLI abil:
+Või kasutades dotnet CLI-t:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,15 +159,15 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Peamised õppetunnid
 
-1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhtaid, tüübiturvalisi lahendusi AI agentide loomisel .NET-is
-2. **Tööriistade integreerimine**: Funktsioonid, millel on `[Description]` atribuudid, muutuvad agenti jaoks saadaval olevateks tööriistadeks
-3. **Konfiguratsiooni haldus**: Keskkonnamuutujate ja turvalise volikirjade käsitlemise parimad tavad .NET-is
-4. **Azure OpenAI Responses API**: Agent kasutab Azure OpenAI Responses API-t läbi Azure.AI.OpenAI SDK
+1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhast, tüübiturvalist lähenemist AI agentide ehitamiseks .NET-is
+2. **Tööriistade integratsioon**: Funktsioonid, mis on märgistatud `[Description]` atribuutidega, muutuvad agendi jaoks kättesaadavaks tööriistadeks
+3. **Konfiguratsiooni haldus**: Keskkonnamuutujad ja turvaline mandaadi haldus järgivad .NET parimaid tavasid
+4. **Azure OpenAI Responses API**: Agent kasutab Azure OpenAI Responses API-d Azure.AI.OpenAI SDK kaudu
 
-## 🔗 Täiendavad ressursid
+## 🔗 Lisamaterjalid
 
 - [Microsoft Agent Frameworki dokumentatsioon](https://learn.microsoft.com/agent-framework)
-- [Azure OpenAI Microsoft Foundry’s](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Azure OpenAI Microsoft Foundry's](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET ühe faili rakendused](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 

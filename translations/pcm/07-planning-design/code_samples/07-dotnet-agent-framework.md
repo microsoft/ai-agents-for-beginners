@@ -2,17 +2,17 @@
 
 ## 📋 Wetin You Go Learn
 
-Dis notebook dey show how to plan and design tin dem wey big company fit use to build smart agents with Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go learn how to create agents wey fit break complex wahala down, plan how to solve am for many steps, and run better fine workflows wit ÐOTNET enterprise features.
+Dis notebook show how to do big-big planning and design patterns to build smart agents + Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go sabi how to make agents wey fit break palava dem down, plan many-step solutions, and run sophisticated workflow dem wit .NET enterprise features dem.
 
-## ⚙️ Wetin You Need & How To Setup
+## ⚙️ Things You Need & How To Setup
 
 **Development Environment:**
-- .NET 9.0 SDK or more
-- Visual Studio 2022 or VS Code with C# extension
-- Azure subscription wit Azure OpenAI resource and model deployment
-- Azure CLI — login wit `az login`
+- .NET 9.0 SDK or pass am
+- Visual Studio 2022 or VS Code wit C# extension
+- Azure subscription wey get Azure OpenAI resource and model deployment
+- Azure CLI — sign in wit `az login`
 
-**Dependencies We Need:**
+**Dependencies Wey You Need:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
@@ -22,45 +22,45 @@ Dis notebook dey show how to plan and design tin dem wey big company fit use to 
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Environment Config (.env file):**
+**Environment Configuration (.env file):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## How To Run The Code
 
-Dis lesson get .NET Single File App implementation. To run am:
+Dis lesson get .NET Single File App wey you fit run. To run am:
 
 ```bash
 # Make di file fit run (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run di app
+# Run di application
 ./07-dotnet-agent-framework.cs
 ```
 
-Or use dotnet run command:
+Or you fit use dotnet run command:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## How Di Code Dem Work
+## How The Code Take Work
 
-Full implement dey for `07-dotnet-agent-framework.cs`, wey show:
+Full implementation dey `07-dotnet-agent-framework.cs`, wey show:
 
-- How to load environment config wit DotNetEnv
-- How to set Azure OpenAI client and create AI agent using `GetChatClient().AsAIAgent()`
+- How to load environment config with DotNetEnv
+- How to setup Azure OpenAI client and make AI agent wit `GetChatClient().AsAIAgent()`
 - How to define structured data models (Plan and TravelPlan) wit JSON serialization
-- How to create AI agent wit structured output using JSON schema
-- How to run planning requests with type-safe responses
+- How to create AI agent wey get structured output using JSON schema
+- How to run planning requests wit type-safe responses
 
-## Important Ideas
+## Main Tori Dem
 
 ### Structured Planning Wit Type-Safe Models
 
-Di agent dey use C# classes to define how planning outputs go look like:
+The agent dey use C# classes to define how planning outputs supposed be structured:
 
 ```csharp
 public class Plan
@@ -84,7 +84,7 @@ public class TravelPlan
 
 ### JSON Schema For Structured Outputs
 
-Di agent dey configured to return answers wey match di TravelPlan schema:
+The agent dem set am to return responses wey match the TravelPlan schema:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new()
@@ -101,20 +101,20 @@ ChatClientAgentOptions agentOptions = new()
 };
 ```
 
-### Instructions for Planning Agent
+### Planning Agent Instructions
 
-Di agent dey work as coordinator, e dey send work go to special sub-agents:
+The agent dey act as coordinator, e go pass tasks to different special agents:
 
-- FlightBooking: For book flight and give flight info
-- HotelBooking: For book hotel and give hotel info
-- CarRental: For book car and give car rental info
-- ActivitiesBooking: For book activities and give activity info
-- DestinationInfo: For give info about destinations
-- DefaultAgent: For handle general requests
+- FlightBooking: To book flights and give flight info
+- HotelBooking: To book hotels and give hotel info
+- CarRental: To book cars and give car rental info
+- ActivitiesBooking: To book activities and give activity info
+- DestinationInfo: To give info about destinations
+- DefaultAgent: To handle general requests
 
-## Wetin You Go See As Output
+## Wetin You Go See As Result
 
-When you run agent wit travel planning request, e go check di request and create one structured plan wit beta task assignations to di special agents, e go format am as JSON wey follow di TravelPlan schema.
+When you run the agent with travel planning request, e go check the request, then create structured plan wit correct tasks wey go reach special agents, dem go arrange am as JSON wey follow the TravelPlan schema.
 
 ---
 

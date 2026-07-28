@@ -1,63 +1,66 @@
-# 🎯 Lập kế hoạch & Mẫu thiết kế với GitHub Models (.NET)
+# 🎯 Lập Kế Hoạch & Mẫu Thiết Kế với Azure OpenAI (Responses API) (.NET)
 
-## 📋 Mục tiêu học tập
+## 📋 Mục Tiêu Học Tập
 
-Notebook này trình bày các mẫu lập kế hoạch và thiết kế cấp doanh nghiệp để xây dựng các tác nhân thông minh sử dụng Microsoft Agent Framework trong .NET với GitHub Models. Bạn sẽ học cách tạo các tác nhân có khả năng phân tích các vấn đề phức tạp, lập kế hoạch giải pháp nhiều bước và thực hiện các quy trình làm việc tinh vi với các tính năng doanh nghiệp của .NET.
+Sổ tay này trình bày các mẫu thiết kế và lập kế hoạch cấp doanh nghiệp để xây dựng các đại lý thông minh sử dụng Microsoft Agent Framework trong .NET với Azure OpenAI (Responses API). Bạn sẽ học cách tạo đại lý có thể phân rã các vấn đề phức tạp, lập kế hoạch các giải pháp nhiều bước, và thực thi các quy trình phức tạp với các tính năng doanh nghiệp của .NET.
 
-## ⚙️ Yêu cầu & Cài đặt
+## ⚙️ Yêu Cầu & Cài Đặt
 
-**Môi trường phát triển:**
-- .NET 9.0 SDK hoặc cao hơn
-- Visual Studio 2022 hoặc VS Code với phần mở rộng C#
-- Quyền truy cập API GitHub Models
+**Môi Trường Phát Triển:**
+- SDK .NET 9.0 trở lên
+- Visual Studio 2022 hoặc VS Code với tiện ích mở rộng C#
+- Một thuê bao Azure với tài nguyên Azure OpenAI và một triển khai mô hình
+- Azure CLI — đăng nhập với `az login`
 
-**Các phụ thuộc cần thiết:**
+**Phụ Thuộc Cần Thiết:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Cấu hình môi trường (tệp .env):**
+**Cấu Hình Môi Trường (tệp .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Chạy mã
+## Chạy Mã Nguồn
 
-Bài học này bao gồm một triển khai ứng dụng tệp đơn .NET. Để chạy:
+Bài học này bao gồm một ứng dụng đơn tệp .NET. Để chạy nó:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Đặt file thành có thể thực thi (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Chạy ứng dụng
 ./07-dotnet-agent-framework.cs
 ```
 
-Hoặc sử dụng lệnh dotnet run:
+Hoặc dùng lệnh dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Triển khai mã
+## Triển Khai Mã Nguồn
 
-Triển khai đầy đủ có sẵn trong `07-dotnet-agent-framework.cs`, minh họa:
+Triển khai đầy đủ có trong `07-dotnet-agent-framework.cs`, trình bày:
 
 - Tải cấu hình môi trường với DotNetEnv
-- Cấu hình client OpenAI cho GitHub Models
-- Định nghĩa các mô hình dữ liệu có cấu trúc (Plan và TravelPlan) với JSON serialization
-- Tạo một tác nhân AI với đầu ra có cấu trúc sử dụng JSON schema
-- Thực hiện các yêu cầu lập kế hoạch với phản hồi an toàn kiểu dữ liệu
+- Cấu hình khách hàng Azure OpenAI và tạo đại lý AI sử dụng `GetChatClient().AsAIAgent()`
+- Định nghĩa mô hình dữ liệu có cấu trúc (Plan và TravelPlan) với tuần tự JSON
+- Tạo đại lý AI có đầu ra có cấu trúc sử dụng JSON schema
+- Thực thi các yêu cầu lập kế hoạch với phản hồi kiểu an toàn
 
-## Các khái niệm chính
+## Khái Niệm Chính
 
-### Lập kế hoạch có cấu trúc với mô hình an toàn kiểu dữ liệu
+### Lập Kế Hoạch Có Cấu Trúc với Mô Hình Kiểu An Toàn
 
-Tác nhân sử dụng các lớp C# để định nghĩa cấu trúc của các đầu ra lập kế hoạch:
+Đại lý sử dụng các lớp C# để định nghĩa cấu trúc đầu ra kế hoạch:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema cho đầu ra có cấu trúc
+### JSON Schema cho Đầu Ra Có Cấu Trúc
 
-Tác nhân được cấu hình để trả về các phản hồi phù hợp với schema TravelPlan:
+Đại lý được cấu hình để trả về phản hồi khớp với schema TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,9 +101,9 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Hướng dẫn cho tác nhân lập kế hoạch
+### Hướng Dẫn Đại Lý Lập Kế Hoạch
 
-Tác nhân hoạt động như một điều phối viên, phân công nhiệm vụ cho các tác nhân phụ chuyên biệt:
+Đại lý đóng vai trò điều phối viên, phân công nhiệm vụ cho các đại lý phụ chuyên biệt:
 
 - FlightBooking: Đặt vé máy bay và cung cấp thông tin chuyến bay
 - HotelBooking: Đặt phòng khách sạn và cung cấp thông tin khách sạn
@@ -107,11 +112,13 @@ Tác nhân hoạt động như một điều phối viên, phân công nhiệm v
 - DestinationInfo: Cung cấp thông tin về điểm đến
 - DefaultAgent: Xử lý các yêu cầu chung
 
-## Kết quả mong đợi
+## Kết Quả Mong Đợi
 
-Khi bạn chạy tác nhân với yêu cầu lập kế hoạch du lịch, nó sẽ phân tích yêu cầu và tạo một kế hoạch có cấu trúc với các nhiệm vụ được phân công phù hợp cho các tác nhân chuyên biệt, được định dạng dưới dạng JSON tuân theo schema TravelPlan.
+Khi bạn chạy đại lý với một yêu cầu lập kế hoạch du lịch, nó sẽ phân tích yêu cầu và tạo ra kế hoạch có cấu trúc với việc phân công nhiệm vụ thích hợp cho các đại lý chuyên biệt, được định dạng dưới dạng JSON phù hợp với schema TravelPlan.
 
 ---
 
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

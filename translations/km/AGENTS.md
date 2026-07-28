@@ -1,31 +1,31 @@
 # AGENTS.md
 
-## Project Overview
+## គម្របគម្រោង
 
-ឃ្លាំងកូដនេះមាន "ភ្នាក់ងារជំនួយឆ្លាតវៃសម្រាប់អ្នកចាប់ផ្តើម" - មេរៀនសិក្សាដ៏ទូលំទូលាយដែលបង្រៀនអ្វីៗទាំងអស់ដែលត្រូវការដើម្បីបង្កើតភ្នាក់ងារជំនួយឆ្លាតវៃ។ មេរៀននេះមានចំនួន១៥+ មេរៀនគ្របដណ្តប់ពីមូលដ្ឋាន ទម្រង់ការរចនា រចនាសម្ព័ន្ធ និងការដាក់បញ្ចូលផលិតកម្មនៃភ្នាក់ងារជំនួយឆ្លាតវៃ។
+បាង្គនេះ មាន "ភ្នាក់ងារចម្បងសម្រាប់អ្នកដំបូង" - មេរៀនសិក្សាសម្រាប់បង្រៀនជា​ពេញលេញ​អំពី​អ្វីៗគ្រប់យ៉ាង​ដែល​ត្រូវការដើម្បីបង្កើតភ្នាក់ងារ AI។ មេរៀន​មានចំនួន 18 មេរៀន (លេខ 00-18) ដែលគ្របដណ្តប់​ទៅលើមូលដ្ឋាន​គ្រឹះ និទស្សនាប្រព័ន្ធរចនារ ស៊េរីវដ្ឋានការ ប្រតិបត្តិការ​ផលិតកម្ម ភ្នាក់ងារត្រូវបានដំណើរការក្នុងមុខងារផ្ទាល់ខ្លួន ឬលើឧបករណ៍ និងសន្តិសុខនៃភ្នាក់ងារ AI។
 
-**បច្ចេកវិទ្យាចម្បង៖**
+**បច្ចេកវិទ្យាសំខាន់ៗ៖**
 - Python 3.12+
-- Jupyter Notebooks សម្រាប់ការសិក្សាផ្ទាល់
-- ស៊ុបភេរកម្ម AI៖ Microsoft Agent Framework (MAF)
-- សេវាកម្ម Azure AI៖ Microsoft Foundry, Azure AI Foundry Agent Service V2
+- សៀវភៅកំណត់ត្រារ Jupyter សម្រាប់ការសិក្សាដោយអន្តរកម្ម
+- ស៊េរីវដ្ឋាន AI: Microsoft Agent Framework (MAF)
+- សេវាកម្ម Azure AI: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
-**រចនាសម្ព័ន្ធ៖**
-- រចនាសម្ព័ន្ធបែបមេរៀន (ថត 00-15+)
-- មេរៀនមួយៗមាន៖ ឯកសារ README, គំរូកូដ (Jupyter notebooks), និងរូបភាព
+**សំណុំស្ថាបត្យកម្ម៖**
+- រចនាសម្ព័ន្ធផ្អែកលើមេរៀន (ថត 00-15+)
+- មេរៀននីមួយៗ​មាន៖ ឯកសារ README, ឧទាហរណ៍កូដ (សៀវភៅ Jupyter), និងរូបភាព
 - គាំទ្រភាសាច្រើនតាមប្រព័ន្ធបកប្រែស្វ័យប្រវត្តិ
-- កំណត់ត្រា Python មួយសម្រាប់មេរៀនមួយៗដោយប្រើ Microsoft Agent Framework
+- បណ្ណាល័យ Python មួយសៀវភៅក្នុងមេរៀននីមួយៗប្រើ Microsoft Agent Framework
 
-## Setup Commands
+## ពាក្យបញ្ជាសំរាប់តំឡើង
 
-### Prerequisites
+### លក្ខខណ្ឌមុនតំឡើង
 - Python 3.12 ឬខ្ពស់ជាងនេះ
-- ការជាវ Azure (សម្រាប់ Azure AI Foundry)
-- Azure CLI ត្រូវបានដំឡើង និងបានសម្របសម្រួល (`az login`)
+- មានជាវ Azure (សម្រាប់ Microsoft Foundry)
+- មាន Azure CLI តំឡើង និងបាន Authenticate (`az login`)
 
-### Initial Setup
+### តំឡើងដំបូង
 
-1. **ចម្លងឬស្វ័យប្រវត្តិឃ្លាំងកូដ៖**
+1. **Clone ឬ fork ឃ្លាំងកូដ៖**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # ឬ
@@ -33,108 +33,112 @@
    cd ai-agents-for-beginners
    ```
 
-2. **បង្កើត និងបើកបរិញ្ញាបថ Python វិចិត្រស្ថាន៖**
+2. **បង្កើត និងបញ្ចូលបរិស្ថាន Python virtual environment:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # លើ Windows: venv\Scripts\activate
    ```
 
-3. **ដំឡើងអាស្រ័យភាព៖**
+3. **ដំឡើង dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **កំណត់អថេរសម្រាប់បរិស្ថាន៖**
+4. **កំណត់ environment variables:**
    ```bash
    cp .env.example .env
-   # កែសម្រួល .env ជាមួយកូនសោ API និងចំណុចចេញរបស់អ្នក
+   # កែសម្រួល .env ជាមួយកូនសោ API និងចំណុចចូលរបស់អ្នក
    ```
 
-### Required Environment Variables
+### Environment Variables ចាំបាច់
 
-សម្រាប់ **Azure AI Foundry** (ត្រូវការ):
-- `AZURE_AI_PROJECT_ENDPOINT` - ចំណុចចេញគម្រោង Azure AI Foundry
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - ឈ្មោះការដាក់បញ្ចូលម៉ូដែល (ឧបរណ៍ gpt-4o)
+សម្រាប់ **Microsoft Foundry** (ចាំបាច់):
+- `AZURE_AI_PROJECT_ENDPOINT` - ចំណុចបញ្ចប់គំរោង Microsoft Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - ឈ្មោះការដាក់ម៉ូដែល (ឧ. gpt-5-mini)
 
 សម្រាប់ **Azure AI Search** (មេរៀន 05 - RAG):
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - ចំណុចចេញ Azure AI Search
-- `AZURE_SEARCH_API_KEY` - កូនសោ API សម្រាប់ Azure AI Search
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - ចំណុចបញ្ចប់ Azure AI Search
+- `AZURE_SEARCH_API_KEY` - ក្តារទិន្នន័យ API Azure AI Search
 
-ការផ្ទៀងផ្ទាត់៖ រត់ `az login` មុនការបើក notebook (ប្រើ `AzureCliCredential`)។
+ការផ្ទៀងផ្ទាត់គោលអ្នកប្រើៈ បច្ចុប្បន្នរត់ `az login` មុនរត់សៀវភៅកំណត់ត្រា (ប្រើ `AzureCliCredential`)។
 
-## Development Workflow
+## ចលនាការអភិវឌ្ឍន៍
 
-### Running Jupyter Notebooks
+### រត់សៀវភៅកំណត់ត្រារ Jupyter
 
-មេរៀនមួយៗមានកំណត់ Jupyter notebooks ច្រើនសម្រាប់ស៊ុបភេរកម្មខុសៗគ្នា៖
+មេរៀននីមួយៗមានសៀវភៅកំណត់ត្រា Jupyter ច្រើនសម្រាប់ស៊េរីវដ្ឋានផ្សេងៗគ្នា:
 
-1. **ចាប់ផ្តើម Jupyter៖**
+1. **ចាប់ផ្តើម Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **ទៅកាន់ថតមេរៀន** (ឧទាហរណ៍ `01-intro-to-ai-agents/code_samples/`)
+2. **ចូលទៅកាន់ថតមេរៀន** (ឧ. `01-intro-to-ai-agents/code_samples/`)
 
-3. **បើក និងរត់កំណត់ត្រា៖**
+3. **បើក និងរត់សៀវភៅកំណត់ត្រា:**
    - `*-python-agent-framework.ipynb` - ប្រើ Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - ប្រើ Microsoft Agent Framework (.NET)
 
-### Working with Microsoft Agent Framework
+### ធ្វើការជាមួយ Microsoft Agent Framework
 
-**Microsoft Agent Framework + Azure AI Foundry:**
-- ត្រូវការជាវ Azure
-- ប្រើ `AzureAIProjectAgentProvider` សម្រាប់ Agent Service V2 (ភ្នាក់ងារមាននៅក្នុងទំព័រ Foundry)
-- រៀបចំ​សម្រាប់ផលិតកម្មជាមួយការត្រួតពិនិត្យក្នុងខ្លួន
-- គំរូឯកសារ៖ `*-python-agent-framework.ipynb`
+**Microsoft Agent Framework + Microsoft Foundry:**
+- តំរូវជាវ Azure
+- ប្រើ `FoundryChatClient` សម្រាប់ Agent Service V2 (ភ្នាក់ងារច្បាស់ក្នុងរបារ Foundry)
+- មានស្រាប់ក្នុងនិន្ទានុភាពផលិតកម្ម
+- លំនាំឯកសារ៖ `*-python-agent-framework.ipynb`
 
-## Testing Instructions
+## សេចក្តីណែនាំសម្រាប់សាកល្បង
 
-នេះជាឃ្លាំងកូដសិក្សាដែលមានគំរូកូដ មិនមែនកូដផលិតកម្មដែលមានតេស្តស្វ័យប្រវត្តិ។ ដើម្បីបញ្ចាក់ការតំឡើង និងការផ្លាស់ប្តូរ៖
+នេះជាឃ្លាំងសិក្សាមួយមានកូដឧទាហរណ៍ ជាងជាកូដផលិតកម្មជាមួយតេស្តស្វ័យប្រវត្តិ។ ដើម្បីផ្ទៀងផ្ទាត់ការតំឡើង និងការផ្លាស់ប្តូរ:
 
-### Manual Testing
+### សាកល្បងដោយដៃ
 
-1. **ធ្វើតេស្តបរិយាកាស Python៖**
+1. **សាកល្បងបរិស្ថាន Python:**
    ```bash
-   python --version  # គួរតែ 3.12+
+   python --version  # គួរតែជា 3.12 ទៅលើ
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **ធ្វើតេស្តការជ្រើសរើស notebook៖**
+2. **សាកល្បងការរត់សៀវភៅកំណត់ត្រា:**
    ```bash
-   # បម្លែងសៀវភៅកំណត់ត្រាទៅជាស្គ្រីប និងដំណើរការ (សាកល្បងនាំចូល)
+   # បំលែងសៀវភៅកំណត់ត្រាទៅជារង្វាស់ហើយរត់វា (សាកល្បងការនាំចូល)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **ផ្ទៀងផ្ទាត់អថេរបរិយាកាស៖**
+3. **ផ្ទៀងផ្ទាត់ environment variables:**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Running Individual Notebooks
+### រត់សៀវភៅកំណត់ត្រាឯកត្ត
 
-បើក notebooks ក្នុង Jupyter ហើយប្រតិបត្តិសែលៗជាប់គ្នា។ notebook មួយៗមានឯករាជ្យ ហើយមាន៖
-- ពាក្យនាំចូល
-- ការបារម្ភការកំណត់
-- ការអនុវត្តភ្នាក់ងារគំរូ
-- លទ្ធផលដែលរំពឹងទុកក្នុងសែល markdown
+បើកសៀវភៅកំណត់ត្រា Jupyter ហើយអនុវត្តមេរៀនជាលំដាប់។ សៀវភៅនីមួយៗមាន៖
+- ការនាំចូល
+- ការតំឡើងការកំណត់រចនាសម្ព័ន្ធ
+- ឧទាហរណ៍ភ្នាក់ងារ
+- លទ្ធផលដែលរំពឹងទុកក្នុង markdown cells
 
-## Code Style
+### សាកល្បងភ្នាក់ងារ បានដាក់លើវេទិកា
 
-### Python Conventions
+សម្រាប់មេរៀនដែលមានភ្នាក់ងារត្រូវបានដាក់ស្ថិតនៅជា Microsoft Foundry hosted agent (01, 04, 05, 16) គម្រោងផ្តល់ជូនបញ្ជីសាកល្បង smoke-test នៅក្នុងថត `tests/` ដែលបញ្ជា​ដំណើរការ​តាមលំនាំ `.github/workflows/smoke-test.yml` តាមរយៈសកម្មភាព [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test)។ វាជាស្ទង់មុខស្រាលបន្ទាប់ពីដាក់បញ្ចូល (ថាផ្នាក់ងារចូលដំណើរការ និងអនុវត្តបន្ទាត់បញ្ជាបែបមូលដ្ឋានដែរឬទេ) ដែលបន្ថែមទៅកាន់បណ្តាស្ទង់ក្នុងមេរៀន ទី 10 និង 16។ មើល [tests/README.md](./tests/README.md) សម្រាប់ផែនទីបញ្ជីទៅមេរៀន/ភ្នាក់ងារ។ មេរៀនទី 17 រត់នៅក្នុងបរិស្ថាន Foundry Local ដោយផ្ទាល់ ហើយមិនមានចំណុចបញ្ចប់ជាបណ្តោះអាសន្នទេ ដូច្នេះវាត្រូវបានផ្ទៀងផ្ទាត់ដោយការរត់សៀវភៅកំណត់ត្រាដោយផ្ទាល់។
 
-- **កំណែក Python**៖ 3.12+
-- **របៀបគូរគង្ហ**៖ ធ្វើតាមកញ្ចប់ Python PEP 8
-- **Notebooks**៖ ប្រើសែល markdown ច្បាស់សម្រាប់ពន្យល់គំនិត
-- **Imports**៖ ដាក់ទិចតួចតាមបណ្ដុំបណ្ណាល័យស្ដង់ដារ ភាគីទីបី និងក្នុងតំបន់
+## រចនាបថកូដ
 
-### Jupyter Notebook Conventions
+### របៀបប្រើប្រាស់ Python
 
-- រួមបញ្ចូលសែល markdown ពណ៌នាជាមុនកូដសែល
-- បន្ថែមឧទាហរណ៍លទ្ធផលក្នុង notebooks សម្រាប់យោង
-- ច្រើនប្រើឈ្មោះអថេរច្បាស់ដែលត្រូវនឹងគំនិតមេរៀន
-- រក្សាការរត់ notebook ជាសំណុំ​បែបលីនុច (សែល 1 → 2 → 3…)
+- **កំណែ Python**៖ 3.12+
+- **រចនាបថកូដ**៖ អនុលោមតាមវិធានស្តង់ដារ Python PEP 8
+- **សៀវភៅកំណត់ត្រា**៖ ប្រើ markdown cells ច្បាស់លាស់ ដើម្បីពន្យល់យ៉ាងជាក់លាក់
+- **ការនាំចូល**៖ ដាក់ជាក្រុម គ្នាតាមបណ្ណាល័យស្តង់ដារ ក្រុមទី៣ និងនាំចូលក្នុងស្រុក
 
-### File Organization
+### របៀបប្រើ Jupyter Notebook
+
+- បញ្ចូល markdown cells ពិពណ៌នាមុនពេលកូដ
+- បន្ថែមឧទាហរណ៍លទ្ធផលក្នុងសៀវភៅកំណត់ត្រា
+- ប្រើឈ្មោះអថេរច្បាស់លាស់ផ្ទៀងផ្ទាត់ជាមួយមេរៀន
+- រក្សាលំដាប់រត់សៀវភៅកំណត់ត្រាជាលំដាប់ (cell 1 → 2 → 3...)
+
+### ការៀបចំឯកសារ
 
 ```
 <lesson-number>-<lesson-name>/
@@ -146,167 +150,169 @@
     └── *.png
 ```
 
-## Build and Deployment
+## ការកសាង និង ការដំណើរការ
 
-### Building Documentation
+### ការបង្កើតឯកសារពិពណ៌នា
 
-ឃ្លាំងនេះប្រើ Markdown សម្រាប់ឯកសារ៖
-- ឯកសារ README.md នៅក្នុងថតមេរៀននីមួយៗ
-- README.md ប្រធាននៅគោលឃ្លាំង
+បាង្គនេះប្រើ Markdown សម្រាប់ឯកសារ៖
+- ឯកសារ README.md ក្នុងថតមេរៀននីមួយៗ
+- README.md សំខាន់នៅចំកណ្តាលឃ្លាំងកូដ
 - ប្រព័ន្ធបកប្រែស្វ័យប្រវត្តិតាម GitHub Actions
 
-### CI/CD Pipeline
+### ខ្សែការពារការបញ្ចេញ (CI/CD)
 
-ស្ថិតនៅ `.github/workflows/`៖
+ស្ថិតនៅក្នុង `.github/workflows/`:
 
-1. **co-op-translator.yml** - បកប្រែស្វ័យប្រវត្តិទៅភាសា 50+
+1. **co-op-translator.yml** - បកប្រែដោយស្វ័យប្រវត្តិតទៅ 50+ ភាសា
 2. **welcome-issue.yml** - ស្វាគមន៍អ្នកបង្កើតបញ្ហាថ្មី
-3. **welcome-pr.yml** - ស្វាគមន៍អ្នកចូលរួម pull request ថ្មី
+3. **welcome-pr.yml** - ស្វាគមន៍អ្នករួមចំណែកប្រែសំណើ Pull Request ថ្មី
 
-### Deployment
+### ដំណើរការ
 
-នេះជាឃ្លាំងសិក្សា - មិនមានដំណើរការដាក់បញ្ចូលផលិតកម្មទេ។ អ្នកប្រើ៖
-1. Fork ឬ clone ឃ្លាំង
-2. រត់ notebooks នៅក្នុងមូលដ្ឋានឬ GitHub Codespaces
-3. រៀនតាមការផ្លាស់ប្តូរ និងសាកល្បងគំរូ
+នេះជាឃ្លាំងសិក្សា - មិនមានដំណើរការចេញផ្សាយទេ។ អ្នកប្រើ:
+1. Fork ឬ clone គម្រោង
+2. រត់សៀវភៅកំណត់ត្រាផ្ទាល់ខ្លួន ឬក្នុង GitHub Codespaces
+3. រៀនដោយកែប្រែ និងសាកល្បងឧទាហរណ៍
 
-## Pull Request Guidelines
+## ការណែនាំសម្រាប់ Pull Request
 
-### Before Submitting
+### មុនបញ្ចូន
 
-1. **ធ្វើតេស្តកូដរបស់អ្នក៖**
-   - រត់ notebooks ដែលបានប៉ះពាល់ពេញលេញ
-   - ផ្ទៀងផ្ទាត់សែលទាំងអស់រត់ដោយគ្មានកំហុស
-   - ពិនិត្យលទ្ធផលឲ្យសមរម្យ
+1. **សាកល្បងការផ្លាស់ប្តូររបស់អ្នក:**
+   - រត់សៀវភៅកំណត់ត្រាដែលបានប៉ះពាល់ពេញលេញ
+   - ពិនិត្យថាគ្រប់សែល execute ឥតកំហុស
+   - ពិនិត្យថាលទ្ធផលសមស្រប
 
-2. **ធ្វើបច្ចុប្បន្នភាពឯកសារ៖**
-   - បន្ទាន់សម័យ README.md ប្រសិនបើបន្ថែមគំនិតថ្មី
-   - បន្ថែមមតិយោបល់នៅក្នុង notebooks សម្រាប់កូដស្មុគស្មាញ
-   - មានសែល markdown ពន្យល់គោលបំណង
+2. **បន្ទាន់សម្រួលឯកសារ:**
+   - បន្ទាន់សម្រួល README.md ប្រសិនបើបន្ថែមមេរៀនថ្មី
+   - បន្ថែមការវាយតម្លៃក្នុងសៀវភៅកំណត់ត្រាដើម្បីបញ្ជាក់កូដស្មុគស្មាញ
+   - បញ្ជាក់ markdown cells ពន្យល់បំណង
 
-3. **ផ្លាស់ប្តូរឯកសារ៖**
-   - មិនគួរបញ្ចូលឯកសារ `.env` (ប្រើ `.env.example`)
-   - មិនបញ្ចូលថត `venv/` ឬ `__pycache__/`
-   - រក្សាលទ្ធផលក្នុង notebook ពេលបង្ហាញគំនិត
-   - លុបឯកសារបណ្តោះអាសន្ន និង backup notebooks (`*-backup.ipynb`)
+3. **ការផ្លាស់ប្រើឯកសារ:**
+   - កុំបន្ទុក `.env` (ប្រើ `.env.example`)
+   - កុំបន្ទុកថត `venv/` ឬ `__pycache__/`
+   - រក្សាលទ្ធផលក្នុងសៀវភៅកំណត់ត្រា ប្រសិនបើបង្ហាញមេរៀន
+   - កំណត់បញ្ចប់ឯកសារបណ្តោះអាសន្ន និងសៀវភៅកំណត់ត្រាផ្ទុក (`*-backup.ipynb`)
 
-### PR Title Format
+### ទម្រង់ចំណងជើង PR
 
-ប្រើចំណងជើងពណ៌នាខ្លី៖
-- `[Lesson-XX] បន្ថែមគំរូថ្មីសម្រាប់ <concept>`
-- `[Fix] កែតម្រូវសំណត់ភាសា README មេរៀន XX`
-- `[Update] ផ្លាស់ប្តូរកូដគំរូមេរៀន XX`
-- `[Docs] បន្ទាន់សម័យសេចក្ដីណែនាំតំឡើង`
+ប្រើចំណងជើងពន្យល់ដោយច្បាស់៖
+- `[Lesson-XX] បន្ថែមឧទាហរណ៍ថ្មីសម្រាប់ <មេរៀន>`
+- `[Fix] ពិនិត្យកំហុសវាយបញ្ជីក្នុង lesson-XX README`
+- `[Update] បង្កើនគំរូកូដក្នុង lesson-XX`
+- `[Docs] បន្ទាន់សម្រួលណែនាំការតំឡើង`
 
-### Required Checks
+### តេស្តចាំបាច់
 
-- notebooks រត់ដោយគ្មានកំហុស
-- README មួយៗច្បាស់និងត្រឹមត្រូវ
-- អនុវត្តលំនាំកូដមានរួចមក
-- រក្សាគុណភាពឲ្យស្របគ្នានឹងមេរៀនផ្សេងទៀត
+- សៀវភៅកំណត់ត្រាត្រូវរត់គ្មានកំហុស
+- ឯកសារ README ត្រូវច្បាស់លាស់និងត្រឹមត្រូវ
+- អនុលោមលំនាំកូដដែលមាននៅក្នុងគម្រោង
+- គោរពភាពតំរូវទូទៅជាមួយមេរៀនផ្សេងទៀត
 
-## Additional Notes
+## សម្គាល់បន្ថែម
 
-### Common Gotchas
+### បញ្ហាទូទៅដែលប្រជុំជួប
 
-1. **កំណែ Python មិនត្រូវគ្នា៖**
-   - ប្រើ Python 3.12+ តែងតែ
-   - កញ្ចប់ខ្លះប្រហែលជាមិនដំណើរការជាមួយកំណែចាស់
-   - ប្រើ `python3 -m venv` ដើម្បីកំណត់កំណែ Python ជាក់លាក់
+1. **កំណែ Python មិនត្រូវគ្នា:**
+   - ត្រូវប្រាកដពីការប្រើ Python 3.12+
+   - កញ្ចប់ខ្លះប្រហែលមិនដំណើរការជាមួយកំណែចាស់
+   - ប្រើ `python3 -m venv` ដើម្បីបញ្ជាក់កំណែ Python យ៉ាងច្បាស់
 
-2. **អថេរបរិយាកាស៖**
-   - តែងតែបង្កើត `.env` ពី `.env.example`
-   - មិនបញ្ចូលឯកសារ `.env` (ស្ថិតក្នុង `.gitignore`)
-   - Token GitHub ត្រូវការតំណត់សិទ្ធិសមស្រប
+2. **Environment variables:**
+   - ត្រូវបង្កើត `.env` ពី `.env.example` តែងតែ
+   - កុំបន្ទុក `.env` (វាក្នុង `.gitignore`)
+   - ចូលប្រព័ន្ធដោយ `az login` ដើម្បី Authenticate Entra ID គ្មានសោ
 
-3. **ផ្ទុះកញ្ចប់៖**
-   - ប្រើបរិញ្ញាបថថ្មី
-   - ដំឡើងពី `requirements.txt` មិនមែនពីកញ្ចប់បុគ្គល
-   - ពីរ notebooks ខ្លះត្រូវការកញ្ចប់បន្ថែមដែលបានរាយនៅក្នុងសែល markdown
+3. **បញ្ហាគ្នះលក្ខណៈកញ្ចប់:**
+   - ប្រើបរិស្ថាន virtual ថ្មី
+   - ដំឡើងតាម `requirements.txt` មិនមែនតាមកញ្ចប់ចំណុច
+   - សៀវភៅកំណត់ត្រាខ្លះត្រូវការកញ្ចប់បន្ថែមដែលបានបញ្ជាក់នៅក្នុង markdown cells
 
-4. **សេវាកម្ម Azure៖**
+4. **សេវាកម្ម Azure:**
    - សេវាកម្ម Azure AI ត្រូវការជាវសកម្ម
-   - មានមុខងារប្រភេទតំបន់ជាក់លាក់
-   - មានកំណត់កម្រិតជំពូកឥតគិតថ្លៃសម្រាប់មូដែល GitHub
+   - មុខងារខ្លះមានតែនៅតំបន់ជាក់លាក់
+   - ប្រាកដថាការដាក់ម៉ូដែល Azure OpenAI របស់អ្នកគាំទ្រ Responses API
 
-### Learning Path
+### ផ្លូវសិក្សា
 
-ណែនាំដំណើរការលេខមេរៀន៖
-1. **00-course-setup** - ចាប់ផ្តើមសម្រាប់តំឡើងបរិយាកាស
-2. **01-intro-to-ai-agents** - យល់ដឹងពីមូលដ្ឋានភ្នាក់ងារជំនួយឆ្លាតវៃ
-3. **02-explore-agentic-frameworks** - រៀនអំពីស៊ុបភេរកម្មនានា
-4. **03-agentic-design-patterns** - គំរូរចនាចម្បង
-5. តាមដានមេរៀនលំដាប់លេខបន្តពេញលេញ
+កំណត់ត្រាសម្រាប់មេរៀន៖
+1. **00-course-setup** - ចាប់ផ្តើមនៅទីនេះសម្រាប់កំណត់បរិស្ថាន
+2. **01-intro-to-ai-agents** - យល់ដឹងពីមូលដ្ឋានភ្នាក់ងារ AI
+3. **02-explore-agentic-frameworks** - រៀនអំពីស៊េរីវដ្ឋានផ្សេងៗ
+4. **03-agentic-design-patterns** - លំនាំរចនាសម្ព័ន្ធសំខាន់
+5. កំណត់ត្រាតាមលេខមេរៀនជាថ្នាក់
 
-### Framework Selection
+### ជម្រើសស៊េរីវដ្ឋាន
 
-ជ្រើសFramework ដោយយោងទៅលើគោលបំណងរបស់អ្នក៖
-- **មេរៀនទាំងអស់**៖ Microsoft Agent Framework (MAF) ជាមួយ `AzureAIProjectAgentProvider`
-- **ភ្នាក់ងារចុះបញ្ជីនៅប៉ុស្តិ៍ម៉ាស៊ីនបម្រើ** ក្នុង Azure AI Foundry Agent Service V2 ហើយបង្ហាញនៅទំព័រ Foundry
+ជ្រើសស៊េរីវដ្ឋានផ្អែកលើគោលដៅរបស់អ្នក:
+- **មេរៀនទាំងអស់**: Microsoft Agent Framework (MAF) ជាមួយ `FoundryChatClient`
+- **ភ្នាក់ងារចុះបញ្ជីនៅSERVER** ក្នុង Microsoft Foundry Agent Service V2 និងអាចមើលឃើញក្នុងទំព័រផ្ទៃ Foundry
 
-### Getting Help
+### ការជួយគាំទ្រ
 
-- ចូលរួម [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- ពិនិត្យឯកសារ README មេរៀនសម្រាប់ណែនាំជាក់លាក់
-- មើល README.md បញ្ជាក់ពីជំហានមេរៀន
-- យោងទៅ [Course Setup](./00-course-setup/README.md) សម្រាប់ការណែនាំលម្អិត
+- ចូលរួមក្នុង [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- សូមពិនិត្យឯកសារ README មេរៀនសម្រាប់ណែនាំពិសេស
+- មើល [README.md](./README.md) សម្រាប់ទិដ្ឋភាព​ទូទៅនៃកូដ
+- ពិនិត្យ [ការតំឡើងមេរៀន](./00-course-setup/README.md) សម្រាប់មុខងារតំឡើងលម្អិត
 
-### Contributing
+### ការរួមចំណែក
 
-នេះគឺជាប្រព័ន្ធសិក្សាសាធារណៈដោយទូលទូ ដើម្បីមានការចូលរួម៖
-- កែលម្អគំរូកូដ
-- កែសំរួលកំហុស ពាក្យមិនត្រឹមត្រូវ
+នេះជាគម្រោងអប់រំបើកចំហជាសាធារណៈ។ សូមស្វាគមន៍ការរួមចំណែក៖
+- កែលម្អឧទាហរណ៍កូដ
+- បញ្ចេញកំហុសឬវាយបញ្ជីមិនត្រឹមត្រូវ
 - បន្ថែមមតិពន្យល់
-- ផ្តល់យោបល់ជាមេរៀនថ្មី
-- បកប្រែទៅភាសាបន្ថែម
+- ស្នើសុំនូវប្រធានបទមេរៀនថ្មី
+- បកប្រែទៅភាសាបន្ថែមផ្សេងទៀត
 
-មើល [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) សម្រាប់តម្រូវការបច្ចុប្បន្ន ។
+មើល [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) សម្រាប់តម្រូវការបច្ចុប្បន្ន។
 
-## Project-Specific Context
+## បរិបទជាក់លាក់នៃគម្រោង
 
-### Multi-Language Support
+### គាំទ្រភាសាច្រើន
 
-ឃ្លាំងកូដនេះប្រើប្រព័ន្ធបកប្រែស្វ័យប្រវត្តិ៖
-- គាំទ្រភាសា 50+
-- បកប្រេទុកនៅក្នុងថត `/translations/<lang-code>/`
-- Workflow GitHub Actions គ្រប់គ្រងការអាប់ដេតបកប្រែ
-- ឯកសារដើមសរសេរជាភាសាអង់គ្លេសនៅគោលឃ្លាំង
+បាង្គនេះប្រើប្រព័ន្ធបកប្រែស្វ័យប្រវត្តិ៖
+- គាំទ្រភាសាច្រើនជាង 50 ភាសា
+- បកប្រែស្ថិតក្នុងថត `/translations/<lang-code>/`
+- GitHub Actions workflow គ្រប់គ្រងការអាប់ដេតបកប្រែ
+- ឯកសារផ្លូវការជាភាសាអង់គ្លេសនៅឯធម្មតា repository
 
-### Lesson Structure
+### រចនាសម្ព័ន្ធមេរៀន
 
-មេរៀនមួយៗពាក់ព័ន្ធបែបបទដូចខាងក្រោម៖
-1. រូបភាពវីដេអូច្នៃជាមួយតំណភ្ជាប់
-2. មាតិកាមេរៀនសរសេរ (README.md)
-3. គំរូកូដក្នុងស៊ុបភេរកម្មច្រើន
-4. គោលបំណងការសិក្សានិងលក្ខខណ្ឌជាមុន
-5. រត់រយះពេលសិក្សាបន្ថែមត្រូវបានភ្ជាប់
+មេរៀននីមួយៗអនុវត្តតាមលំនាំដូចជា៖
+1. រូបតំណាងវីដេអូជាមួយតំណភ្ជាប់
+2. មាតិកាមេរៀនសរសេរជាឯកសារ README.md
+3. ឧទាហរណ៍កូដក្នុងស៊េរីវដ្ឋានច្រើន
+4. គោលបំណងសិក្សា និងលក្ខខណ្ឌមុន
+5. ឧបករណ៍បន្ថែមសិក្សាតាមតំណភ្ជាប់
 
-### Code Sample Naming
+### ឈ្មោះឯកសារឧទាហរណ៍កូដ
 
-រចនាម្ដង៖ `<lesson-number>-python-agent-framework.ipynb`
+ទម្រង់៖ `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - មេរៀន 1, MAF Python
-- `14-sequential.ipynb` - មេរៀន 14, MAF លំនាំខ្ពស់
+- `14-sequential.ipynb` - មេរៀន 14, លំនាំ MAF អច្ឆរិយៈ
+- `16-python-agent-framework.ipynb` - មេរៀន 16, ភ្នាក់ងារគាំទ្រអតិថិជនក្នុងផលិតកម្ម
+- `17-local-agent-foundry-local.ipynb` - មេរៀន 17, ភ្នាក់ងារផ្ទាល់ខ្លួនជាមួយ Foundry Local + Qwen
 
-### Special Directories
+### ថតពិសេស
 
-- `translated_images/` - រូបភាពបកប្រែ
-- `images/` - រូបភាពដើមសម្រាប់មាតិកាអង់គ្លេស
-- `.devcontainer/` - ការកំណត់ VS Code Container អភិវឌ្ឍ
-- `.github/` - ការងារលំហូរ Workflow និងគំរូ GitHub Actions
+- `translated_images/` - រូបភាពបកប្រែសម្រាប់ការបកប្រែ
+- `images/` - រូបភាពដើមសម្រាប់មាតិកាភាសាអង់គ្លេស
+- `.devcontainer/` - ការកំណត់ VS Code បរិយាកាសអភិវឌ្ឍនា
+- `.github/` - GitHub Actions workflows និងគំរូ
 
-### Dependencies
+### កញ្ចប់នាំចូល
 
-កញ្ចប់សំខាន់ៗពី `requirements.txt`៖
+កញ្ចប់សំខាន់ៗក្នុង `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `a2a-sdk` - គាំទ្រពិធីការភ្នាក់ងារទៅភ្នាក់ងារ
+- `a2a-sdk` - គាំទ្រប្រាក់ប្រតិបត្តិកម្ម Agent-to-Agent
 - `azure-ai-inference`, `azure-ai-projects` - សេវាកម្ម Azure AI
 - `azure-identity` - ការផ្ទៀងផ្ទាត់ Azure (AzureCliCredential)
-- `azure-search-documents` - សមាហរណកម្ម Azure AI Search
-- `mcp[cli]` - គាំទ្រពិធីការស្របម៉ូដែល Context Protocol
+- `azure-search-documents` - រួមបញ្ចូល Azure AI Search
+- `mcp[cli]` - គាំទ្រប្រាក់ប្រតិបត្តិការកម្មវិធី Model Context Protocol
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ការព្រមាន**៖
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាបកប្រែ AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ខណៈពេលដែលយើងខិតខំធ្វើឱ្យមានភាពត្រឹមត្រូវ សូមយកចិត្តទុកដាក់ថាការបកប្រែដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនទៀងទាត់។ ឯកសារដើមនៅក្នុងភាសាតំណើរការដើមគួរត្រូវបានស្គាល់ថាជា ប្រភពផ្លូវការជាចម្បង។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមផ្តល់អនុសាសន៍ឱ្យប្រើការបកប្រែដោយមនុស្សវិជ្ជាជីវៈ។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកប្រែខុសចេញពីការប្រើប្រាស់ការបកប្រែនេះឡើយ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

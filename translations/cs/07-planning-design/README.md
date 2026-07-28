@@ -1,4 +1,4 @@
-[![Planning Design Pattern](../../../translated_images/cs/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Návrhový vzor plánování](../../../translated_images/cs/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klikněte na obrázek výše pro zobrazení videa této lekce)_
 
@@ -8,48 +8,48 @@
 
 Tato lekce pokryje
 
-* Definování jasného celkového cíle a rozdělení složitého úkolu na zvládnutelné dílčí úkoly.
+* Definování jasného celkového cíle a rozdělení složitého úkolu na zvládnutelné podúkoly.
 * Využití strukturovaného výstupu pro spolehlivější a strojově čitelnou odpověď.
-* Aplikaci přístupu řízeného událostmi pro zvládání dynamických úkolů a neočekávaných vstupů.
+* Aplikaci událostmi řízeného přístupu k řešení dynamických úkolů a neočekávaných vstupů.
 
 ## Cíle učení
 
-Po absolvování této lekce budete mít přehled o:
+Po dokončení této lekce budete rozumět:
 
-* Identifikaci a stanovení celkového cíle pro AI agenta, tak aby jasně věděl, čeho má být dosaženo.
-* Rozložení složitého úkolu na zvládnutelné dílčí úkoly a jejich uspořádání do logické sekvence.
-* Vybavení agentů správnými nástroji (např. nástroji pro vyhledávání nebo nástroji pro analýzu dat), rozhodování kdy a jak je použít a zvládání neočekávaných situací, které vzniknou.
-* Vyhodnocování výsledků dílčích úkolů, měření výkonu a iterování činností pro zlepšení konečného výstupu.
+* Jak identifikovat a nastavit celkový cíl pro AI agenta, aby jasně věděl, čeho má dosáhnout.
+* Jak rozdělit složitý úkol na zvládnutelné podúkoly a uspořádat je do logické posloupnosti.
+* Jak vybavit agenty správnými nástroji (např. nástroji pro vyhledávání nebo analytiku dat), rozhodnout, kdy a jak je použít, a zvládat neočekávané situace, které vzniknou.
+* Jak vyhodnotit výsledky podúkolů, měřit výkon a iterativně zlepšovat konečný výstup.
 
 ## Definování celkového cíle a rozdělení úkolu
 
 ![Definování cílů a úkolů](../../../translated_images/cs/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Většina reálných úkolů je příliš složitá na to, aby byla řešena jedním krokem. AI agent potřebuje stručný cíl, který bude řídit jeho plánování a akce. Například zvažte cíl:
+Většina reálných úkolů je příliš složitá na řešení v jednom kroku. AI agent potřebuje stručný cíl, který ho bude vést při plánování a činnostech. Například zvažte cíl:
 
-    "Vytvořit 3denní cestovní itinerář."
+    "Vytvořit cestovní plán na 3 dny."
 
-I když je to jednoduše formulován, stále potřebuje upřesnění. Čím jasnější je cíl, tím lépe se agent (a i případní lidskí spolupracovníci) může soustředit na dosažení správného výsledku, jako je vytvoření komplexního itineráře s možnostmi letenek, doporučeními hotelů a návrhy aktivit.
+Přestože je jednoduché ho vyjádřit, stále vyžaduje upřesnění. Čím jasnější je cíl, tím lépe se agent (a případní lidskí spolupracovníci) mohou zaměřit na dosažení správného výsledku, jako je vytvoření komplexního itineráře s možnosti letenek, doporučení hotelů a návrhů aktivit.
 
 ### Rozklad úkolu
 
-Velké nebo složité úkoly se stávají lépe zvládnutelnými, když jsou rozděleny na menší dílčí úkoly orientované na cíl.
-Pro příklad cestovního itineráře lze cíl rozdělit na:
+Velké nebo složité úkoly se stávají zvládnutelnými, když je rozdělíme na menší, cílené podúkoly.
+Pro příklad cestovního plánu můžete rozdělit cíl na:
 
-* Rezervaci letu
-* Rezervaci hotelu
+* Rezervace letu
+* Rezervace hotelu
 * Půjčení auta
-* Personalizaci
+* Personalizace
 
-Každý dílčí úkol pak může být zpracován speciálními agenty nebo procesy. Jeden agent se může specializovat na hledání nejlepších nabídek na letenky, další na rezervace hotelu a tak dále. Koordinující nebo „následný“ agent pak může tyto výsledky sestavit do jednoho uceleného itineráře pro koncového uživatele.
+Každý podúkol může pak řešit specializovaný agent nebo proces. Jeden agent se může zaměřit na hledání nejlepších letenek, jiný na rezervace hotelů, a tak dále. Koordinující nebo „downstream“ agent pak může tyto výsledky zkombinovat do jednoho soudržného itineráře pro koncového uživatele.
 
-Tento modulární přístup také umožňuje postupné vylepšení. Například můžete přidat specializované agenty pro doporučení jídla nebo místních aktivit a itinerář postupně zdokonalovat.
+Tento modulární přístup také umožňuje postupná vylepšení. Například můžete přidat specializované agenty na doporučení jídla nebo místních aktivit a itinerář v průběhu času zdokonalovat.
 
 ### Strukturovaný výstup
 
-Velké jazykové modely (LLMs) mohou generovat strukturovaný výstup (např. JSON), který je jednodušší pro následné agenty nebo služby k parsování a zpracování. To je zvlášť užitečné v multi-agentním kontextu, kde můžeme provádět úkoly po obdržení výstupu z plánování.
+Velké jazykové modely (LLMs) mohou generovat strukturovaný výstup (např. JSON), který je snazší pro downstream agenty nebo služby zpracovat a analyzovat. Je to zvláště užitečné v kontextu více agentů, kde můžeme tyto úkoly realizovat po obdržení plánovacího výstupu.
 
-Následující ukázka v Pythonu demonstruje jednoduchého plánovacího agenta, který rozkládá cíl na dílčí úkoly a generuje strukturovaný plán:
+Následující Python ukázka demonstruje jednoduchého plánovacího agenta, který rozkládá cíl na podúkoly a vytváří strukturovaný plán:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -71,7 +71,7 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Model cestovního podúkolu
+# Model podúkolu cestování
 class TravelSubTask(BaseModel):
     task_details: str
     assigned_agent: AgentEnum  # chceme přiřadit úkol agentovi
@@ -81,7 +81,11 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Definujte uživatelskou zprávu
 system_prompt = """You are a planner agent.
@@ -109,15 +113,15 @@ pprint(json.loads(response_content))
 
 ### Plánovací agent s multi-agentní orchestrací
 
-V tomto příkladu agent Semantic Router přijímá uživatelský požadavek (např. "Potřebuji plán hotelu pro mou cestu.").
+V tomto příkladu Semantic Router Agent přijímá uživatelský požadavek (např. "Potřebuji plán hotelu pro svou cestu.").
 
 Plánovač pak:
 
-* Přijímá plán hotelu: Plánovač vezme uživatelovu zprávu a na základě systémové výzvy (včetně dostupných agentů) vygeneruje strukturovaný cestovní plán.
-* Vypíše agenty a jejich nástroje: Registr agentů obsahuje seznam agentů (např. pro lety, hotely, půjčení auta a aktivity) spolu s funkcemi nebo nástroji, které poskytují.
-* Směruje plán ke konkrétním agentům: V závislosti na počtu dílčích úkolů plánovač buď zprávu pošle přímo vyhrazenému agentovi (pro scénáře s jedním úkolem), nebo koordinuje přes manažera skupinového chatu pro multi-agentní spolupráci.
-* Shrnuje výsledek: Nakonec plánovač shrne vygenerovaný plán pro přehlednost.
-Následující ukázkový kód v Pythonu ilustruje tyto kroky:
+* Přijme Plán hotelu: Plánovač vezme uživatelovu zprávu a na základě systémového promptu (včetně dostupných agentů) vytvoří strukturovaný cestovní plán.
+* Vyjmenuje agenty a jejich nástroje: Registr agentů obsahuje seznam agentů (např. pro lety, hotely, půjčení auta a aktivity) a nástroje nebo funkce, které nabízejí.
+* Přesměruje plán příslušným agentům: V závislosti na počtu podúkolů plánovač buď pošle zprávu přímo specializovanému agentu (pro scénáře s jedním úkolem), nebo koordinuje přes správce skupinového chatu pro spolupráci více agentů.
+* Shrne výsledek: Nakonec plánovač shrne vytvořený plán pro přehlednost.
+Následující ukázka v Pythonu ilustruje tyto kroky:
 
 ```python
 
@@ -135,11 +139,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Model podúkolu cestování
+# Model podúkolu cesty
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # chceme přiřadit úkol agentovi
+    assigned_agent: AgentEnum # chceme úkol přiřadit agentovi
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -149,16 +153,20 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Vytvořte klienta
+# Vytvořit klienta
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
-# Definujte uživatelskou zprávu
+# Definovat uživatelskou zprávu
 
 system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
@@ -176,12 +184,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# Vytiskněte obsah odpovědi po načtení jako JSON
+# Vytisknout obsah odpovědi po jeho načtení jako JSON
 
 pprint(json.loads(response_content))
 ```
 
-Následuje výstup z předchozího kódu, který pak můžete použít ke směrování na `assigned_agent` a shrnutí cestovního plánu pro koncového uživatele.
+Následuje výstup z předchozího kódu, který můžete pak použít k přesměrování na `assigned_agent` a shrnutí cestovního plánu koncovému uživateli.
 
 ```json
 {
@@ -212,18 +220,19 @@ Následuje výstup z předchozího kódu, který pak můžete použít ke směro
 }
 ```
 
-Příklad notebooku s předchozím kódem je k dispozici [zde](07-python-agent-framework.ipynb).
+Příklad notebooku s předchozím kódem je k dispozici [zde](./code_samples/07-python-agent-framework.ipynb).
 
 ### Iterativní plánování
 
-Některé úkoly vyžadují zpětnou vazbu nebo přeplánování, kdy výsledek jednoho dílčího úkolu ovlivňuje následující. Například pokud agent objeví neočekávaný formát dat při rezervaci letů, může být potřeba upravit strategii před pokračováním na rezervaci hotelu.
+Některé úkoly vyžadují zpětnou vazbu nebo přeplánování, kdy výsledek jednoho podúkolu ovlivňuje další. Například pokud agent narazí na neočekávaný formát dat při rezervaci letů, může potřebovat upravit svoji strategii před přechodem k rezervacím hotelů.
 
-Navíc uživatelská zpětná vazba (např. když člověk rozhodne, že preferuje dřívější let) může spustit částečné přeplánování. Tento dynamický, iterativní přístup zajišťuje, že konečné řešení odpovídá reálným omezením a měnícím se preferencím uživatele.
+Navíc uživatelská zpětná vazba (např. člověk rozhodující, že preferuje dřívější let) může spustit částečné přeplánování. Tento dynamický, iterativní přístup zajišťuje, že konečné řešení odpovídá reálným omezením a vyvíjejícím se preferencím uživatele.
 
 např. ukázkový kód
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 #.. stejné jako předchozí kód a předat historii uživatele, aktuální plán
 
@@ -244,34 +253,34 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. přeplánovat a odeslat úkoly příslušným agentům
+# .. přeplánovat a poslat úkoly příslušným agentům
 ```
 
-Pro komplexnější plánování doporučujeme navštívit Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> pro řešení složitých úkolů.
+Pro komplexnější plánování si prohlédněte Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> pro řešení složitých úkolů.
 
 ## Shrnutí
 
-V tomto článku jsme se podívali na příklad, jak můžeme vytvořit plánovač, který dokáže dynamicky vybírat definované dostupné agenty. Výstup plánovače rozkládá úkoly a přiřazuje agenty tak, aby mohly být vykonány. Předpokládá se, že agenti mají přístup k funkcím/nástrojům potřebným k provedení úkolu. Navíc ke agentům můžete přidat další vzory jako reflexi, shrnování a round robin chat pro další přizpůsobení.
+V tomto článku jsme se podívali na příklad, jak můžeme vytvořit plánovač, který dokáže dynamicky vybrat dostupné definované agenty. Výstup plánovače rozkládá úkoly a přiděluje agenty tak, aby mohly být provedeny. Předpokládá se, že agenti mají přístup k funkcím/nástrojům potřebným k vykonání úkolu. Kromě agentů můžete zahrnout i další vzory jako reflexe, shrnovač a round robin chat pro další přizpůsobení.
 
 ## Další zdroje
 
-Magentic One - Generalistický multi-agentní systém pro řešení složitých úkolů, který dosáhl impozantních výsledků v několika náročných agentních benchmarkech. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. V této implementaci orchestrátor vytváří úkolově specifické plány a deleguje tyto úkoly dostupným agentům. Kromě plánování orchestrátor používá i mechanismus sledování postupu úkolu a přeplánovává podle potřeby.
+Magnetic One - Generalistický multi-agentní systém pro řešení složitých úkolů, který dosáhl působivých výsledků na několika náročných agentních benchmarkech. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. V této implementaci orchestrátor vytváří úkolově specifické plány a deleguje tyto úkoly dostupným agentům. Kromě plánování orchestrátor také využívá mechanismus sledování průběhu úkolu a podle potřeby přeplánovává.
 
-### Máte další otázky ohledně návrhového vzoru plánování?
+### Máte další otázky ohledně vzoru plánování?
 
-Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde se setkáte s dalšími studenty, zúčastníte se konzultačních hodin a získáte odpovědi na své otázky ohledně AI agentů.
+Připojte se na [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), setkejte se s dalšími studenty, zúčastněte se konzultačních hodin a nechte si zodpovědět své otázky týkající se AI agentů.
 
 ## Předchozí lekce
 
-[Budování důvěryhodných AI agentů](../06-building-trustworthy-agents/README.md)
+[Vytváření důvěryhodných AI agentů](../06-building-trustworthy-agents/README.md)
 
-## Další lekce
+## Následující lekce
 
-[Multi-agentní návrhový vzor](../08-multi-agent/README.md)
+[Víceagentní návrhový vzor](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Prohlášení o vyloučení odpovědnosti**:  
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho původním jazyce by měl být považován za závazný zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo chybné výklady vyplývající z použití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

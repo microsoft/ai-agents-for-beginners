@@ -1,182 +1,190 @@
-# Utilizzare i protocolli agentici (MCP, A2A e NLWeb)
+# Uso dei Protocolli Agenti (MCP, A2A e NLWeb)
 
-[![Protocolli agentici](../../../translated_images/it/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/it/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Fai clic sull'immagine sopra per visualizzare il video di questa lezione)_
+> _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
-Man mano che l'uso degli agenti AI cresce, aumenta anche la necessità di protocolli che garantiscano standardizzazione, sicurezza e supportino l'innovazione aperta. In questa lezione, copriremo 3 protocolli che cercano di soddisfare questa esigenza - Model Context Protocol (MCP), Agent to Agent (A2A) e Natural Language Web (NLWeb).
+Con l'aumento dell'uso degli agenti AI, cresce anche la necessità di protocolli che garantiscano standardizzazione, sicurezza e supportino l’innovazione aperta. In questa lezione, copriremo 3 protocolli che mirano a soddisfare questa esigenza - Model Context Protocol (MCP), Agent to Agent (A2A) e Natural Language Web (NLWeb).
 
 ## Introduzione
 
-In questa lezione tratteremo:
+In questa lezione, tratteremo:
 
-• Come **MCP** permette agli Agenti AI di accedere a strumenti e dati esterni per completare i compiti dell'utente.
+• Come **MCP** consente agli Agenti AI di accedere a strumenti e dati esterni per completare i compiti degli utenti.
 
 • Come **A2A** abilita la comunicazione e la collaborazione tra diversi agenti AI.
 
 • Come **NLWeb** porta interfacce in linguaggio naturale a qualsiasi sito web permettendo agli Agenti AI di scoprire e interagire con i contenuti.
 
-## Obiettivi di apprendimento
+## Obiettivi di Apprendimento
 
-• **Individuare** lo scopo principale e i vantaggi di MCP, A2A e NLWeb nel contesto degli agenti AI.
+• **Identificare** lo scopo principale e i benefici di MCP, A2A e NLWeb nel contesto degli agenti AI.
 
-• **Spiegare** come ciascun protocollo facilita la comunicazione e l'interazione tra LLM, strumenti e altri agenti.
+• **Spiegare** come ciascun protocollo facilita la comunicazione e l’interazione tra LLM, strumenti e altri agenti.
 
-• **Riconoscere** i ruoli distinti che ciascun protocollo svolge nella costruzione di sistemi agentici complessi.
+• **Riconoscere** i distinti ruoli che ogni protocollo svolge nella costruzione di sistemi agentici complessi.
 
 ## Model Context Protocol
 
-The **Model Context Protocol (MCP)** è uno standard aperto che fornisce un modo standardizzato per le applicazioni di fornire contesto e strumenti agli LLM. Questo abilita un "adattatore universale" a diverse fonti di dati e strumenti a cui gli Agenti AI possono connettersi in modo coerente.
+Il **Model Context Protocol (MCP)** è uno standard aperto che fornisce un modo standardizzato per le applicazioni di fornire contesto e strumenti agli LLM. Questo consente un "adattatore universale" per diverse fonti di dati e strumenti a cui gli Agenti AI possono connettersi in modo coerente.
 
-Esaminiamo i componenti di MCP, i vantaggi rispetto all'uso diretto delle API e un esempio di come gli agenti AI potrebbero utilizzare un server MCP.
+Esaminiamo i componenti di MCP, i benefici rispetto all'uso diretto delle API, e un esempio di come gli agenti AI potrebbero usare un server MCP.
 
-### MCP Core Components
+### Componenti Core di MCP
 
-MCP opera su un'**architettura client-server** e i componenti principali sono:
+MCP opera su un’**architettura client-server** e i componenti principali sono:
 
-• **Hosts** sono applicazioni LLM (per esempio un editor di codice come VSCode) che avviano le connessioni a un server MCP.
+• **Host** sono applicazioni LLM (per esempio un editor di codice come VSCode) che avviano le connessioni a un server MCP.
 
-• **Clients** sono componenti all'interno dell'applicazione host che mantengono connessioni uno-a-uno con i server.
+• **Client** sono componenti all’interno dell’applicazione host che mantengono connessioni uno a uno con i server.
 
-• **Servers** sono programmi leggeri che espongono capacità specifiche.
+• **Server** sono programmi leggeri che espongono capacità specifiche.
 
-Nel protocollo sono incluse tre primitive principali che costituiscono le capacità di un server MCP:
+Inclusi nel protocollo ci sono tre primitive core che rappresentano le capacità di un server MCP:
 
-• **Tools**: Queste sono azioni discrete o funzioni che un agente AI può chiamare per eseguire un'operazione. Per esempio, un servizio meteo potrebbe esporre uno strumento "get weather", oppure un server di e-commerce potrebbe esporre uno strumento "purchase product". I server MCP pubblicizzano il nome di ogni strumento, la descrizione e lo schema di input/output nella loro lista di capacità.
+• **Strumenti**: Azioni o funzioni discrete che un agente AI può chiamare per eseguire un’azione. Ad esempio, un servizio meteorologico potrebbe esporre lo strumento "get weather", o un server e-commerce lo strumento "purchase product". I server MCP pubblicizzano il nome, la descrizione e lo schema input/output di ogni strumento nella loro lista di capacità.
 
-• **Resources**: Questi sono elementi di dati o documenti in sola lettura che un server MCP può fornire e che i client possono recuperare su richiesta. Esempi includono contenuti di file, record di database o file di log. Le risorse possono essere testo (come codice o JSON) o binarie (come immagini o PDF).
+• **Risorse**: Sono elementi dati o documenti in sola lettura che un server MCP può fornire e che i client possono recuperare su richiesta. Esempi includono contenuti di file, record di database o file di log. Le risorse possono essere testuali (come codice o JSON) o binarie (come immagini o PDF).
 
-• **Prompts**: Questi sono modelli predefiniti che forniscono prompt suggeriti, permettendo flussi di lavoro più complessi.
+• **Prompt**: Sono modelli predefiniti che offrono suggerimenti di prompt, permettendo flussi di lavoro più complessi.
 
-### Benefits of MCP
+### Benefici di MCP
 
-MCP offre importanti vantaggi per gli Agenti AI:
+MCP offre vantaggi significativi per gli Agenti AI:
 
-• **Scoperta dinamica degli strumenti**: Gli agenti possono ricevere dinamicamente una lista degli strumenti disponibili da un server insieme a descrizioni di ciò che fanno. Questo contrasta con le API tradizionali, che spesso richiedono integrazioni codificate staticamente, il che significa che ogni modifica all'API richiede aggiornamenti del codice. MCP offre un approccio di "integrare una sola volta", portando a una maggiore adattabilità.
+• **Scoperta Dinamica degli Strumenti**: Gli agenti possono ricevere dinamicamente una lista degli strumenti disponibili da un server insieme alle descrizioni delle loro funzioni. Questo contrasta con le API tradizionali, che spesso richiedono codifica statica per integrazioni, quindi ogni cambiamento dell’API necessita aggiornamenti di codice. MCP offre un approccio "integra una volta", portando a maggiore adattabilità.
 
-• **Interoperabilità tra LLM**: MCP funziona con diversi LLM, fornendo la flessibilità di cambiare i modelli principali per valutare migliori performance.
+• **Interoperabilità tra LLM**: MCP funziona attraverso diversi LLM, offrendo flessibilità nello switch tra modelli core per valutare le migliori prestazioni.
 
-• **Sicurezza standardizzata**: MCP include un metodo di autenticazione standard, migliorando la scalabilità quando si aggiunge l'accesso a ulteriori server MCP. Questo è più semplice rispetto alla gestione di chiavi e tipi di autenticazione diversi per varie API tradizionali.
+• **Sicurezza Standardizzata**: MCP include un metodo standard di autenticazione, migliorando la scalabilità nell’aggiunta di accesso a server MCP aggiuntivi. È più semplice rispetto alla gestione di chiavi e tipi di autenticazione differenti per varie API tradizionali.
 
-### MCP Example
+### Esempio MCP
 
-![Diagramma MCP](../../../translated_images/it/mcp-diagram.e4ca1cbd551444a1.webp)
+![MCP Diagram](../../../translated_images/it/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Immagina che un utente voglia prenotare un volo usando un assistente AI alimentato da MCP.
 
-1. **Connection**: L'assistente AI (il client MCP) si connette a un server MCP fornito da una compagnia aerea.
+1. **Connessione**: L’assistente AI (client MCP) si connette a un server MCP fornito da una compagnia aerea.
 
-2. **Tool Discovery**: Il client chiede al server MCP della compagnia aerea: "Quali strumenti avete disponibili?" Il server risponde con strumenti come "search flights" e "book flights".
+2. **Scoperta Strumenti**: Il client chiede al server MCP della compagnia aerea, "Quali strumenti hai disponibili?" Il server risponde con strumenti come "search flights" e "book flights".
 
-3. **Tool Invocation**: Poi chiedi all'assistente AI: "Per favore cerca un volo da Portland a Honolulu." L'assistente AI, usando il suo LLM, identifica che deve chiamare lo strumento "search flights" e passa i parametri rilevanti (origine, destinazione) al server MCP.
+3. **Invocazione Strumenti**: Poi si chiede all’assistente AI, "Per favore cerca un volo da Portland a Honolulu." L’assistente AI, usando il suo LLM, identifica che deve chiamare lo strumento "search flights" e passa i parametri rilevanti (origine, destinazione) al server MCP.
 
-4. **Execution and Response**: Il server MCP, agendo come wrapper, effettua la chiamata effettiva all'API interna di prenotazione della compagnia aerea. Riceve quindi le informazioni sui voli (es. dati JSON) e le invia indietro all'assistente AI.
+4. **Esecuzione e Risposta**: Il server MCP, agendo come wrapper, fa la chiamata reale all’API interna di prenotazione della compagnia aerea. Poi riceve l’informazione sul volo (es. dati JSON) e la invia all’assistente AI.
 
-5. **Further Interaction**: L'assistente AI presenta le opzioni di volo. Una volta selezionato un volo, l'assistente potrebbe invocare lo strumento "book flight" sullo stesso server MCP, completando la prenotazione.
+5. **Ulteriore Interazione**: L’assistente AI presenta le opzioni di volo. Una volta che l’utente seleziona un volo, l’assistente potrebbe invocare lo strumento "book flight" sullo stesso server MCP, completando la prenotazione.
 
-## Agent-to-Agent Protocol (A2A)
+## Protocollo Agente-a-Agente (A2A)
 
-Mentre MCP si concentra sul collegamento degli LLM agli strumenti, il **protocollo Agent-to-Agent (A2A)** va oltre abilitando la comunicazione e la collaborazione tra diversi agenti AI. A2A collega agenti AI attraverso diverse organizzazioni, ambienti e stack tecnologici per completare un compito condiviso.
+Mentre MCP si concentra sulla connessione tra LLM e strumenti, il **protocollo Agent-to-Agent (A2A)** va oltre abilitando la comunicazione e la collaborazione tra diversi agenti AI. A2A collega agenti AI attraverso diverse organizzazioni, ambienti e stack tecnologici per completare un compito condiviso.
 
-Esamineremo i componenti e i vantaggi di A2A, insieme a un esempio di come potrebbe essere applicato nella nostra applicazione di viaggio.
+Esamineremo i componenti e i benefici di A2A, insieme a un esempio di come potrebbe essere applicato nella nostra applicazione di viaggio.
 
-### A2A Core Components
+### Componenti Core di A2A
 
-A2A si concentra sul permettere la comunicazione tra agenti e farli lavorare insieme per completare un sotto-compito dell'utente. Ogni componente del protocollo contribuisce a questo:
+A2A si concentra sull’abilitare la comunicazione tra agenti e farli lavorare insieme per completare un sotto-compito dell’utente. Ciascun componente del protocollo contribuisce a questo:
 
-#### Scheda dell'agente
+#### Agent Card
 
 Simile a come un server MCP condivide una lista di strumenti, una Agent Card ha:
-- Il nome dell'agente .
-- Una **descrizione dei compiti generali** che svolge.
-- Una **lista di abilità specifiche** con descrizioni per aiutare altri agenti (o anche utenti umani) a capire quando e perché vorrebbero chiamare quell'agente.
-- L'**Endpoint URL corrente** dell'agente
-- La **versione** e le **capacità** dell'agente come risposte in streaming e notifiche push.
+- Il Nome dell’Agente.
+- Una **descrizione dei compiti generali** che completa.
+- Una **lista di abilità specifiche** con descrizioni per aiutare altri agenti (o anche utenti umani) a capire quando e perché vorrebbero chiamare quell’agente.
+- L’**URL Endpoint attuale** dell’agente.
+- La **versione** e le **capacità** dell’agente, come risposte in streaming e notifiche push.
 
-#### Esecutore dell'agente
+#### Agent Executor
 
-L'Esecutore dell'Agente è responsabile di **passare il contesto della chat dell'utente all'agente remoto**, l'agente remoto ha bisogno di questo per comprendere il compito che deve essere completato. In un server A2A, un agente usa il proprio Large Language Model (LLM) per analizzare le richieste in arrivo ed eseguire compiti utilizzando i propri strumenti interni.
+L’Agent Executor è responsabile di **passare il contesto della chat utente all’agente remoto**, l’agente remoto ne ha bisogno per capire il compito da completare. In un server A2A, un agente usa il proprio Large Language Model (LLM) per interpretare le richieste in arrivo ed eseguire compiti usando i propri strumenti interni.
 
 #### Artefatto
 
-Una volta che un agente remoto ha completato il compito richiesto, il suo prodotto di lavoro viene creato come artefatto. Un artefatto **contiene il risultato del lavoro dell'agente**, una **descrizione di ciò che è stato completato**, e il **contesto testuale** che viene inviato attraverso il protocollo. Dopo che l'artefatto è stato inviato, la connessione con l'agente remoto viene chiusa fino a quando non è nuovamente necessaria.
+Una volta che un agente remoto ha completato il compito richiesto, il suo prodotto di lavoro viene creato come un artefatto. Un artefatto **contiene il risultato del lavoro dell’agente**, una **descrizione di ciò che è stato completato** e il **contesto testuale** trasmesso tramite il protocollo. Dopo l’invio dell’artefatto, la connessione con l’agente remoto viene chiusa fino a quando non è nuovamente necessaria.
 
-#### Coda di eventi
+#### Event Queue
 
-Questo componente viene utilizzato per **gestire aggiornamenti e passare messaggi**. È particolarmente importante in produzione per i sistemi agentici per evitare che la connessione tra agenti venga chiusa prima che un compito sia completato, specialmente quando i tempi di completamento possono essere lunghi.
+Questo componente è usato per **gestire aggiornamenti e passare messaggi**. È particolarmente importante in produzione per sistemi agentici per evitare che la connessione tra agenti venga chiusa prima del completamento di un compito, soprattutto quando i tempi di completamento possono essere lunghi.
 
-### Benefits of A2A
+### Benefici di A2A
 
-• **Collaborazione migliorata**: Consente ad agenti di diversi fornitori e piattaforme di interagire, condividere contesto e collaborare, facilitando l'automazione senza soluzione di continuità attraverso sistemi tradizionalmente disconnessi.
+• **Collaborazione Migliorata**: Permette a agenti di diversi fornitori e piattaforme di interagire, condividere contesto e lavorare insieme, facilitando un’automazione fluida tra sistemi tradizionalmente disconnessi.
 
-• **Flessibilità nella selezione del modello**: Ogni agente A2A può decidere quale LLM utilizzare per soddisfare le proprie richieste, permettendo modelli ottimizzati o fine-tuned per agente, a differenza di una singola connessione LLM in alcuni scenari MCP.
+• **Flessibilità di Selezione del Modello**: Ogni agente A2A può decidere quale LLM utilizzare per gestire le sue richieste, consentendo modelli ottimizzati o affinati per agente, a differenza di una singola connessione LLM in alcuni scenari MCP.
 
-• **Autenticazione integrata**: L'autenticazione è integrata direttamente nel protocollo A2A, fornendo un robusto framework di sicurezza per le interazioni tra agenti.
+• **Autenticazione Integrata**: L’autenticazione è integrata direttamente nel protocollo A2A, fornendo un robusto quadro di sicurezza per le interazioni tra agenti.
 
-### A2A Example
+### Esempio A2A
 
-![Diagramma A2A](../../../translated_images/it/A2A-Diagram.8666928d648acc26.webp)
+![A2A Diagram](../../../translated_images/it/A2A-Diagram.8666928d648acc26.webp)
 
-Espandiamo il nostro scenario di prenotazione di viaggio, ma questa volta usando A2A.
+Espandiamo lo scenario di prenotazione viaggio, ma questa volta usando A2A.
 
-1. **User Request to Multi-Agent**: Un utente interagisce con un "Agente di viaggio" A2A client/agent, magari dicendo: "Per favore prenota un viaggio completo per Honolulu per la prossima settimana, includendo voli, hotel e un'auto a noleggio".
+1. **Richiesta Utente a Multi-Agente**: Un utente interagisce con un "Agente di Viaggio", client/agente A2A, magari dicendo, "Per favore prenota un viaggio completo a Honolulu per la prossima settimana, includendo voli, hotel e noleggio auto".
 
-2. **Orchestration by Travel Agent**: L'Agente di viaggio riceve questa richiesta complessa. Usa il suo LLM per ragionare sul compito e determinare che deve interagire con altri agenti specializzati.
+2. **Orchestrazione dall’Agente di Viaggio**: L’Agente di Viaggio riceve questa richiesta complessa. Usa il suo LLM per ragionare sul compito e determina che deve interagire con altri agenti specializzati.
 
-3. **Inter-Agent Communication**: L'Agente di viaggio utilizza quindi il protocollo A2A per connettersi ad agenti a valle, come un "Agente della compagnia aerea", un "Agente hotel" e un "Agente autonoleggio" creati da diverse aziende.
+3. **Comunicazione tra Agenti**: L’Agente di Viaggio usa quindi il protocollo A2A per connettersi con agenti a valle, come un "Agente Compagnia Aerea", un "Agente Hotel" e un "Agente Noleggio Auto" creati da diverse compagnie.
 
-4. **Delegated Task Execution**: L'Agente di viaggio invia compiti specifici a questi agenti specializzati (es. "Trova voli per Honolulu", "Prenota un hotel", "Noleggia un'auto"). Ciascuno di questi agenti specializzati, eseguendo i propri LLM e utilizzando i propri strumenti (che potrebbero essere essi stessi server MCP), svolge la sua parte specifica della prenotazione.
+4. **Esecuzione Delegata del Compito**: L’Agente di Viaggio invia compiti specifici a questi agenti specializzati (es., "Trova voli per Honolulu", "Prenota un hotel", "Noleggia un’auto"). Ognuno di questi agenti specializzati, usando propri LLM e strumenti (che potrebbero essere a loro volta server MCP), esegue la propria parte specifica della prenotazione.
 
-5. **Consolidated Response**: Una volta che tutti gli agenti a valle completano i loro compiti, l'Agente di viaggio compila i risultati (dettagli del volo, conferma dell'hotel, prenotazione del noleggio auto) e invia una risposta completa in stile chat all'utente.
+5. **Risposta Consolidata**: Una volta che tutti gli agenti a valle completano i loro compiti, l’Agente di Viaggio compila i risultati (dettagli volo, conferma hotel, prenotazione noleggio auto) e invia una risposta completa in stile chat all’utente.
 
 ## Natural Language Web (NLWeb)
 
-I siti web sono da tempo il modo principale per gli utenti di accedere a informazioni e dati su Internet.
+I siti web sono da tempo il modo principale con cui gli utenti accedono a informazioni e dati attraverso internet.
 
-Vediamo i diversi componenti di NLWeb, i vantaggi di NLWeb e un esempio di come il nostro NLWeb funziona guardando la nostra applicazione di viaggio.
+Vediamo i diversi componenti di NLWeb, i benefici di NLWeb e un esempio di come funziona il nostro NLWeb esaminando la nostra applicazione di viaggio.
 
-### Components of NLWeb
+### Componenti di NLWeb
 
-- **NLWeb Application (Core Service Code)**: Il sistema che elabora le domande in linguaggio naturale. Collega le diverse parti della piattaforma per creare risposte. Puoi pensarlo come il **motore che alimenta le funzionalità in linguaggio naturale** di un sito web.
+- **Applicazione NLWeb (Codice Servizio Core)**: Il sistema che elabora domande in linguaggio naturale. Connette le diverse parti della piattaforma per creare risposte. Puoi pensarlo come il **motore che alimenta le funzionalità in linguaggio naturale** di un sito web.
 
-- **NLWeb Protocol**: Questo è un **insieme base di regole per l'interazione in linguaggio naturale** con un sito web. Restituisce risposte in formato JSON (spesso usando Schema.org). Il suo scopo è creare una base semplice per il “AI Web”, nello stesso modo in cui HTML ha reso possibile condividere documenti online.
+- **Protocollo NLWeb**: Questo è un **set base di regole per l’interazione in linguaggio naturale** con un sito web. Invia risposte in formato JSON (spesso usando Schema.org). Il suo scopo è creare una base semplice per il “Web AI,” nello stesso modo in cui HTML ha reso possibile condividere documenti online.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Ogni configurazione NLWeb funziona anche come **server MCP**. Ciò significa che può **condividere strumenti (come un metodo “ask”) e dati** con altri sistemi AI. In pratica, questo rende i contenuti e le capacità del sito web utilizzabili dagli agenti AI, permettendo al sito di diventare parte del più ampio “ecosistema di agenti”.
+- **Server MCP (Endpoint Model Context Protocol)**: Ogni configurazione NLWeb funziona anche come **server MCP**. Ciò significa che può **condividere strumenti (come un metodo “ask”) e dati** con altri sistemi AI. In pratica, questo rende i contenuti e le capacità del sito web utilizzabili da agenti AI, permettendo al sito di diventare parte dell’"ecosistema agenti" più ampio.
 
-- **Embedding Models**: Questi modelli vengono utilizzati per **convertire i contenuti del sito web in rappresentazioni numeriche chiamate vettori** (embeddings). Questi vettori catturano il significato in un modo che i computer possono confrontare e cercare. Vengono memorizzati in un database speciale e gli utenti possono scegliere quale modello di embedding vogliono utilizzare.
+- **Modelli di Embedding**: Questi modelli sono usati per **convertire i contenuti del sito web in rappresentazioni numeriche chiamate vettori** (embedding). Questi vettori catturano il significato in modo che i computer possano confrontare e cercare. Sono memorizzati in un database speciale, e gli utenti possono scegliere quale modello embedding usare.
 
-- **Vector Database (Retrieval Mechanism)**: Questo database **archivia gli embeddings dei contenuti del sito web**. Quando qualcuno pone una domanda, NLWeb controlla il database di vettori per trovare rapidamente le informazioni più rilevanti. Fornisce una lista rapida di possibili risposte, classificate per similarità. NLWeb funziona con diversi sistemi di storage vettoriale come Qdrant, Snowflake, Milvus, Azure AI Search e Elasticsearch.
+- **Database Vettoriale (Meccanismo di Recupero)**: Questo database **memorizza gli embedding del contenuto del sito web**. Quando qualcuno fa una domanda, NLWeb controlla il database vettoriale per trovare rapidamente le informazioni più rilevanti. Offre una lista veloce di possibili risposte ordinate per similarità. NLWeb funziona con diversi sistemi di archiviazione vettoriale come Qdrant, Snowflake, Milvus, Azure AI Search e Elasticsearch.
 
-### NLWeb by Example
+### NLWeb con un Esempio
 
 ![NLWeb](../../../translated_images/it/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Considera di nuovo il nostro sito di prenotazione viaggi, ma questa volta alimentato da NLWeb.
+Considera di nuovo il nostro sito di prenotazioni di viaggio, ma questa volta alimentato da NLWeb.
 
-1. **Data Ingestion**: I cataloghi di prodotti esistenti del sito di viaggio (es. liste di voli, descrizioni degli hotel, pacchetti turistici) vengono formattati usando Schema.org o caricati tramite feed RSS. Gli strumenti di NLWeb acquisiscono questi dati strutturati, creano embeddings e li archiviano in un database vettoriale locale o remoto.
+1. **Ingestione Dati**: I cataloghi di prodotti esistenti del sito di viaggio (es., elenchi voli, descrizioni hotel, pacchetti tour) sono formattati usando Schema.org o caricati tramite feed RSS. Gli strumenti di NLWeb ingeriscono questi dati strutturati, creano embedding e li archiviano in un database vettoriale locale o remoto.
 
-2. **Natural Language Query (Human)**: Un utente visita il sito e, invece di navigare nei menu, digita in un'interfaccia chat: "Trova un hotel adatto alle famiglie a Honolulu con piscina per la prossima settimana".
+2. **Query in Linguaggio Naturale (Umano)**: Un utente visita il sito web e, invece di navigare i menu, digita in un’interfaccia chat: "Trova un hotel per famiglie a Honolulu con piscina per la prossima settimana".
 
-3. **NLWeb Processing**: L'applicazione NLWeb riceve questa query. Invia la query a un LLM per l'interpretazione e contemporaneamente interroga il suo database vettoriale per le inserzioni di hotel rilevanti.
+3. **Elaborazione NLWeb**: L’applicazione NLWeb riceve questa query. La invia a un LLM per la comprensione e contemporaneamente cerca nel suo database vettoriale le liste di hotel rilevanti.
 
-4. **Accurate Results**: Il LLM aiuta a interpretare i risultati della ricerca dal database, identifica le corrispondenze migliori in base ai criteri "adatto alle famiglie", "piscina" e "Honolulu", e poi formatta una risposta in linguaggio naturale. Fondamentalmente, la risposta fa riferimento ad hotel reali dal catalogo del sito, evitando informazioni inventate.
+4. **Risultati Precisi**: L’LLM aiuta a interpretare i risultati di ricerca dal database, identificare le migliori corrispondenze basate sui criteri "family-friendly," "piscina," e "Honolulu," e quindi formatta una risposta in linguaggio naturale. Fondamentale, la risposta si riferisce a hotel reali dal catalogo del sito, evitando informazioni inventate.
 
-5. **AI Agent Interaction**: Poiché NLWeb funge da server MCP, anche un agente di viaggio AI esterno potrebbe connettersi all'istanza NLWeb di questo sito. L'agente AI potrebbe quindi usare il metodo MCP `ask` per interrogare direttamente il sito: `ask("Ci sono ristoranti vegani consigliati dall'hotel nella zona di Honolulu?")`. L'istanza NLWeb elaborerebbe questa richiesta, sfruttando il suo database di informazioni sui ristoranti (se caricato), e restituirebbe una risposta strutturata in JSON.
+5. **Interazione con Agente AI**: Poiché NLWeb funziona come server MCP, un agente di viaggio AI esterno potrebbe anche connettersi all’istanza NLWeb di questo sito. L’agente AI potrebbe quindi usare il metodo `ask` MCP per interrogare direttamente il sito: `ask("Ci sono ristoranti vegani consigliati dall’hotel nell’area di Honolulu?")`. L’istanza NLWeb elaborerebbe questo, sfruttando il suo database di informazioni sui ristoranti (se caricato), e restituirebbe una risposta JSON strutturata.
 
 ### Hai altre domande su MCP/A2A/NLWeb?
 
-Unisciti al [Discord di Microsoft Foundry](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare alle ore di supporto e far rispondere le tue domande sugli Agenti AI.
+Unisciti al [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) per incontrare altri studenti, partecipare a ore di ufficio e far rispondere le tue domande sugli Agenti AI.
 
 ## Risorse
 
-- [MCP per principianti](https://aka.ms/mcp-for-beginners)  
+- [MCP per Principianti](https://aka.ms/mcp-for-beginners)  
 - [Documentazione MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
-- [Repository NLWeb](https://github.com/nlweb-ai/NLWeb)
-- [Framework per agent Microsoft](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Repo NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)
+
+## Lezione Precedente
+
+[Agenti AI in Produzione](../10-ai-agents-production/README.md)
+
+## Lezione Successiva
+
+[Ingegneria del Contesto per Agenti AI](../12-context-engineering/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Dichiarazione di non responsabilità:
-Questo documento è stato tradotto utilizzando il servizio di traduzione automatica Co-op Translator (https://github.com/Azure/co-op-translator). Pur impegnandoci a garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche si consiglia una traduzione professionale eseguita da un traduttore umano. Non ci riteniamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire la precisione, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un essere umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

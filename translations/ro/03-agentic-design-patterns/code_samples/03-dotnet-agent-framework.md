@@ -1,42 +1,42 @@
-# 🎨 Patternuri de Design Agentice cu Azure OpenAI (Responses API) (.NET)
+# 🎨 Tipare de Proiectare Agentice cu Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Obiective de Învățare
 
-Acest exemplu demonstrează patternuri de design de nivel enterprise pentru construirea agenților inteligenți folosind Microsoft Agent Framework în .NET cu integrarea Azure OpenAI (Responses API). Veți învăța patternuri profesionale și abordări arhitecturale care fac agenții pregătiți pentru producție, ușor de întreținut și scalabili.
+Acest exemplu demonstrează tipare de proiectare la nivel enterprise pentru construirea de agenți inteligenți folosind Microsoft Agent Framework în .NET cu integrarea Azure OpenAI (Responses API). Veți învăța tipare profesionale și abordări arhitecturale care fac agenții pregătiți pentru producție, ușor de întreținut și scalabili.
 
-### Patternuri de Design Enterprise
+### Tipare de Proiectare Enterprise
 
-- 🏭 **Factory Pattern**: Crearea standardizată a agenților cu injecție de dependențe
-- 🔧 **Builder Pattern**: Configurare și setare fluentă a agenților
-- 🧵 **Patternuri Thread-Safe**: Management concurent al conversațiilor
+- 🏭 **Factory Pattern**: Crearea standardizată a agenților cu injecție de dependență
+- 🔧 **Builder Pattern**: Configurare și setup fluent al agentului
+- 🧵 **Tipare Thread-Safe**: Management concurent al conversațiilor
 - 📋 **Repository Pattern**: Management organizat al uneltelor și capabilităților
 
 ## 🎯 Beneficii Arhitecturale Specifice .NET
 
-### Caracteristici Enterprise
+### Funcționalități Enterprise
 
-- **Tipizare Puternică**: Validare la compilare și suport IntelliSense
-- **Injecție de Dependențe**: Integrare container DI încorporat
-- **Managementul Configurației**: Modelele IConfiguration și Options
-- **Async/Await**: Suport de primă clasă pentru programare asincronă
+- **Tipare puternice**: Validare la compilare și asistență IntelliSense
+- **Dependență prin Injecție**: Integrare nativă a containerului DI
+- **Managementul Configurației**: Pattern-uri IConfiguration și Options
+- **Async/Await**: Suport nativ pentru programare asincronă
 
-### Patternuri Pregătite pentru Producție
+### Tipare pregătite pentru Producție
 
-- **Integrare Logging**: Suport ILogger și logging structurat
-- **Health Checks**: Monitorizare și diagnosticare încorporată
-- **Validarea Configurației**: Tipizare puternică cu adnotări de date
+- **Integrare Logging**: Suport pentru ILogger și logging structurat
+- **Health Checks**: Monitorizare și diagnosticare integrate
+- **Validarea Configurației**: Tipare puternice cu adnotări de date
 - **Gestionarea Erorilor**: Management structurat al excepțiilor
 
 ## 🔧 Arhitectură Tehnică
 
-### Componente de Bază .NET
+### Componente Cheie .NET
 
 - **Microsoft.Extensions.AI**: Abstracții unificate pentru servicii AI
-- **Microsoft.Agents.AI**: Framework de orchestrare enterprise pentru agenți
-- **Azure OpenAI (Responses API)**: Patternuri client API de înaltă performanță
-- **Sistem de Configurație**: appsettings.json și integrare mediului
+- **Microsoft.Agents.AI**: Framework de orchestrare a agenților enterprise
+- **Azure OpenAI (Responses API)**: Tipare de client API de înaltă performanță
+- **Sistemul de Configurație**: appsettings.json și integrare de mediu
 
-### Implementarea Patternurilor de Design
+### Implementarea Tiparelor de Proiectare
 
 ```mermaid
 graph LR
@@ -46,102 +46,102 @@ graph LR
     D --> E[Agent AI]
 ```
 
-## 🏗️ Patternuri Enterprise Demonstrate
+## 🏗️ Tipare Enterprise Demonstrate
 
-### 1. **Patternuri Creationale**
+### 1. **Tipare Creationale**
 
 - **Agent Factory**: Crearea centralizată a agenților cu configurare consistentă
-- **Builder Pattern**: API fluent pentru configurare complexă a agenților
+- **Builder Pattern**: API fluent pentru configurări complexe ale agentului
 - **Singleton Pattern**: Resurse partajate și managementul configurației
-- **Injecție de Dependențe**: Decuplare slabă și testabilitate
+- **Dependență prin Injecție**: Decuplare slabă și testabilitate
 
-### 2. **Patternuri Comportamentale**
+### 2. **Tipare Comportamentale**
 
-- **Strategy Pattern**: Strategii interschimbabile pentru execuția uneltelor
-- **Command Pattern**: Operații încapsulate ale agenților cu undo/redo
-- **Observer Pattern**: Management event-driven al ciclului de viață al agentului
-- **Template Method**: Fluxuri de lucru standardizate pentru execuția agenților
+- **Strategy Pattern**: Strategii de execuție a uneltelor schimbabile
+- **Command Pattern**: Operațiuni agent encapsulate cu undo/redo
+- **Observer Pattern**: Management eveniment-driven al ciclului de viață al agentului
+- **Template Method**: Fluxuri de lucru standardizate pentru execuția agentului
 
-### 3. **Patternuri Structurale**
+### 3. **Tipare Structurale**
 
 - **Adapter Pattern**: Strat de integrare Azure OpenAI (Responses API)
 - **Decorator Pattern**: Îmbunătățirea capabilităților agentului
-- **Facade Pattern**: Interfețe simplificate pentru interacțiunea cu agenții
+- **Facade Pattern**: Interfețe simplificate pentru interacțiunea cu agentul
 - **Proxy Pattern**: Încărcare leneșă și caching pentru performanță
 
-## 📚 Principii de Design .NET
+## 📚 Principii de Proiectare .NET
 
 ### Principiile SOLID
 
-- **Responsabilitate Unică**: Fiecare componentă are un scop clar
-- **Deschis/Închis**: Extensibil fără modificare
-- **Substituția Liskov**: Implementări bazate pe interfețe ale uneltelor
-- **Segregarea Interfeței**: Interfețe concentrate și coezive
-- **Inversiunea Dependenței**: Dependă de abstracții, nu de concrete
+- **Single Responsibility**: Fiecare componentă are un singur scop clar
+- **Open/Closed**: Extensibil fără modificări
+- **Liskov Substitution**: Implementări ale uneltelor bazate pe interfețe
+- **Interface Segregation**: Interfețe concentrate și coerente
+- **Dependency Inversion**: Dependență de abstractizări, nu de concreții
 
 ### Arhitectură Curată
 
-- **Stratul Domeniu**: Abstracții de bază ale agentului și uneltelor
-- **Stratul Aplicație**: Orchestrarea agenților și fluxuri de lucru
-- **Stratul Infrastructură**: Integrare Azure OpenAI (Responses API) și servicii externe
-- **Stratul Prezentare**: Interacțiunea cu utilizatorul și formatarea răspunsului
+- **Layer-ul Domain**: Abstracții de bază ale agenților și uneltelor
+- **Layer-ul Aplicație**: Orchestrarea agenților și fluxurile de lucru
+- **Layer-ul Infrastructură**: Integrarea Azure OpenAI (Responses API) și servicii externe
+- **Layer-ul Prezentare**: Interacțiunea cu utilizatorul și formatarea răspunsurilor
 
 ## 🔒 Considerații Enterprise
 
 ### Securitate
 
-- **Management acreditări**: Gestionare sigură a cheilor API cu IConfiguration
-- **Validare Input**: Tipizare puternică și validare adnotări de date
-- **Sanitizarea Output**: Procesare și filtrare securizată a răspunsurilor
-- **Audit Logging**: Urmărire completă a operațiunilor
+- **Managementul Credentialelor**: Gestionarea securizată a cheilor API cu IConfiguration
+- **Validarea Inputului**: Tipare puternice și validarea adnotărilor de date
+- **Sanitizarea Outputului**: Procesare și filtrare securizată a răspunsurilor
+- **Audit Logging**: Urmărirea completă a operațiunilor
 
 ### Performanță
 
-- **Patternuri Async**: Operații I/O neblocate
-- **Pooling Conexiuni**: Management eficient al clientului HTTP
+- **Tipare Async**: Operațiuni I/O neblocante
+- **Connection Pooling**: Management eficient al clientului HTTP
 - **Caching**: Cache pentru răspunsuri pentru performanță îmbunătățită
-- **Managementul Resurselor**: Patternuri corecte de eliminare și curățare
+- **Managementul Resurselor**: Tipare corecte de eliberare și curățare
 
 ### Scalabilitate
 
-- **Siguranță Thread**: Suport concurent pentru execuția agenților
-- **Pooling Resurse**: Utilizare eficientă a resurselor
-- **Managementul Sarcinii**: Limitare rată și gestionare presiune inversă
+- **Siguranța pe Thread-uri**: Suport pentru execuție concurentă a agenților
+- **Pooling de Resurse**: Utilizare eficientă a resurselor
+- **Managementul Încărcării**: Limitarea ratei și gestionarea presiunii inverse
 - **Monitorizare**: Metrici de performanță și verificări de sănătate
 
 ## 🚀 Implementare în Producție
 
-- **Management Configurație**: Setări specifice mediului
-- **Strategie Logging**: Logging structurat cu ID-uri de corelare
+- **Managementul Configurației**: Setări specifice mediului
+- **Strategie de Logging**: Logging structurat cu ID-uri de corelare
 - **Gestionarea Erorilor**: Gestionare globală a excepțiilor cu recuperare adecvată
-- **Monitorizare**: Application Insights și contoare de performanță
-- **Testare**: Teste unitare, teste de integrare și patternuri de testare la încărcare
+- **Monitorizare**: Application insights și contoare de performanță
+- **Testare**: Teste unitare, teste de integrare și tipare pentru testare de încărcare
 
-Gata să construiți agenți inteligenți de nivel enterprise cu .NET? Hai să arhitecturăm ceva robust! 🏢✨
+Pregătit să construiți agenți inteligenți la nivel enterprise cu .NET? Hai să arhitecturăm ceva robust! 🏢✨
 
 ## 🚀 Începutul
 
-### Cerințe Prealabile
+### Precondiții
 
 - [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune superioară
-- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și o implementare model
-- Azure CLI-ul [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
+- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și o implementare de model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
 
 ### Variabile de Mediu Necesare
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
@@ -155,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Sau folosind CLI-ul dotnet:
+Sau folosind CLI dotnet:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

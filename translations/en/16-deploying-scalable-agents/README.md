@@ -107,14 +107,14 @@ Deploying an agent is not a one-time `push`. It is a loop, and it looks a lot li
 
 ```mermaid
 flowchart LR
-    Create[Crear / Autor] --> Version[Versión]
-    Version --> Evaluate[Evaluar offline]
-    Evaluate -->|pasa puerta| Deploy[Desplegar alojado]
-    Evaluate -->|falla puerta| Create
-    Deploy --> Observe[Observar online]
-    Observe --> Improve[Recopilar fallos]
+    Create[Erstellen / Autor] --> Version[Version]
+    Version --> Evaluate[Offline bewerten]
+    Evaluate -->|Tor besteht| Deploy[Gehostet bereitstellen]
+    Evaluate -->|Tor nicht bestanden| Create
+    Deploy --> Observe[Online beobachten]
+    Observe --> Improve[Fehler sammeln]
     Improve --> Create
-    Deploy --> Retire[Retirar versión antigua]
+    Deploy --> Retire[Alte Version ausmuster]
 ```
 
 The key idea, carried over from [Lesson 10](../10-ai-agents-production/README.md): **offline evaluation is a gate, not an afterthought.** A new agent version does not ship unless it clears your evaluation thresholds. Online observability then feeds real-world failures back into your offline test set. That is the whole loop.
@@ -158,7 +158,7 @@ tracer = get_tracer()
 
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
-    span.set_attribute("routed.model", "gpt-4.1-mini")
+    span.set_attribute("routed.model", "gpt-5-nano")
     # agent execution is traced automatically inside this span
 ```
 
@@ -232,7 +232,7 @@ async def handle_support_request(query: str, customer_id: str) -> str:
         return cached
 
     # 2. Route by complexity to control cost.
-    model = "gpt-4.1-mini" if is_simple(query) else "gpt-4.1"
+    model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
     # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:

@@ -1,88 +1,88 @@
-# 🔍 Microsoft Agent Framework ကို ရှာဖွေတွေ့ရှိခြင်း – အခြေခံ Agent (.NET)
+# 🔍 Microsoft Agent Framework ကို မိတ်ဆက်ခြင်း - အခြေခံ Agent (.NET)
 
-## 📋 သင်ယူရန် ရည်ရွယ်ချက်များ
+## 📋 သင်ယူရမည့် အချက်များ
 
-ဤဥပမာသည် Microsoft Agent Framework ၏ အခြေခံ แนวคิดများကို .NET တွင် အခြေခံ agent တည်ဆောက်ခြင်းမှတဆင့် ရှာဖွေသုံးသပ်ပေးပါသည်။ သင်သည် အဓိက agent နည်းဗျူဟာများကို လေ့လာပြီး C# နှင့် .NET ပတ်ဝန်းကျင်ကို အသုံးပြု၍ အတွင်းနက်ပြတ်ပြာသော agent များ အဖြေရှာပုံကို နားလည်မိပါလိမ့်မည်။
+ဤဥပမာတွင် Microsoft Agent Framework ၏ အခြေခံဆိုင်ရာ အယူအဆများကို .NET တွင် အခြေခံ agent တစ်ခုဖြင့် ဆောင်ရွက်ပုံကို လေ့လာပါမည်။ C# နှင့် .NET ပတ်စပ်ပတ်ဝန်းကျင်ကို အသုံးပြုကာ အခြေခံ agent များ၏ ပုံစံများနှင့် သိပ္ပံနည်း ကျွမ်းကျင် agent များ ဖွံ့ဖြိုးမှုကို နားလည်လိမ့်မည်။
 
-### သင်ရှာဖွေတွေ့ရှိမည့်အရာများ
+### သင်တွေ့ရှိရမည့် အရာများ
 
-- 🏗️ **Agent ပုံသဏ္ဍာန်**: .NET တွင် AI agent များ၏ အခြေခံဖွဲ့စည်းပုံနားလည်ခြင်း
-- 🛠️ **ကိရိယာ ပေါင်းစပ်ခြင်း**: ချဲ့ထွင်နိုင်စွမ်းများအတွက် agent များသည် ပြင်ပ function များကို မည်သို့အသုံးပြုသည်
-- 💬 **စကားပြောစီးဆင်းမှု**: Multi-turn စကားပြောများနှင့် context ကို thread စီမံခန့်ခွဲမှုဖြင့် စီမံခြင်း
-- 🔧 **ဖွဲ့စည်းပုံ စနစ်များ**: .NET တွင် agent တပ်ဆင်ခြင်းနှင့် စီမံခန့်ခွဲမှုအတွက် အကောင်းဆုံး လေ့လာမှုများ
+- 🏗️ **Agent ဖွဲ့စည်းပုံ**: .NET တွင် AI agent များ၏ အခြေခံ ဖွဲ့စည်းပုံ ကို နားလည်ခြင်း
+- 🛠️ **ကိရိယာ ပေါင်းစည်းခြင်း**: agent များသည် ၎င်းတို့၏ လုပ်ဆောင်နိုင်မှုများကို တိုးချဲ့ရန် ပြင်ပ function များကို မည်သို့အသုံးပြုသည်ကို သင်ယူခြင်း  
+- 💬 **စကားဝိုင်း စီးဆင်းမှု**: မျိုးစုံသော စကားပြော ဆက်သွယ်မှုများ နှင့် thread စီမံခန့်ခွဲမှုဖြင့် အကြောင်းအရာ ထိန်းချုပ်မှု
+- 🔧 **ဆက်တင် ဖွဲ့စည်းပုံများ**: .NET သုံး agent တည်ဆောက်မှုနှင့် စီမံခန့်ခွဲမှုအတွက် ထိရောက်ဆုံးနည်းလမ်းများ
 
-## 🎯 ပါဝင်သော အဓိကအမြင်များ
+## 🎯 လေ့လာမည့် အဓိက ကျောင်းသားအချက်များ
 
-### Agentic Framework ၏ သဘောတရားများ
+### Agent Framework ၏ စည်းမျဉ်းများ
 
-- **အလိုအလျောက် မူးမြတ်မှု**: .NET AI abstraction များအသုံးပြု၍ agent များသည် လွတ်လပ်စွာ ဆုံးဖြတ်ချက်ချခြင်း
-- **တုံ့ပြန်မှု**: ပတ်ဝန်းကျင်ပြောင်းလဲမှုများနှင့် အသုံးပြုသူ input များကို တုံ့ပြန်ခြင်း
-- **ကြိုတင်လုပ်ဆောင်မှု**: ရည်ရွယ်ချက်များနှင့် context အပေါ် အခြေခံပြီး initiative ယူခြင်း
-- **လူမှုဆက်ဆံရေးစွမ်းအား**: သဘာဝဘာသာစကားဖြင့် စကားပြောလမ်းကြောင်းများသုံးပြီး ဆက်ဆံခြင်း
+- **လွတ်လပ်ခွင့်**: .NET AI abstraction များကို အသုံးပြုကာ agent များသည် ကိုယ့်တိုင် ဆုံးဖြတ်ချက်များ ကောက်ယူပုံ
+- **တုံ့ပြန်မှု**: ပတ်ဝန်းကျင် အခြေအနေများနှင့် အသုံးပြုသူ input များကို တုံ့ပြန်ပုံ
+- **ကြိုတင် လုပ်ဆောင်မှု**: ရည်ရွယ်ချက်နှင့် ဇာတ်ကြောင်းအရ လှမ်းခတ်စီမံခြင်း
+- **လူမှုဆက်ဆံမှု စွမ်းရည်**: သဘာဝဘာသာစကား ဖြင့် စကားဝိုင်း thread များအား ထိန်းချုပ် ဆက်သွယ်ခြင်း
 
-### နည်းပညာဆိုင်ရာ အစိတ်အပိုင်းများ
+### နည်းပညာ အစိတ်အပိုင်းများ
 
-- **AIAgent**: အဓိက agent စီမံခန့်ခွဲမှုနှင့် စကားပြောစီမံခြင်း (.NET)
-- **ကိရိယာ function များ**: C# method များနှင့် attribute များဖြင့် agent ၏ စွမ်းဆောင်ရည် ချဲ့ထွင်ခြင်း
-- **Azure OpenAI ပေါင်းစပ်မှု**: Azure OpenAI Responses API မှတဆင့် ဘာသာစကား မော်ဒယ်များကို လက်ခံအသုံးပြုခြင်း
-- **လုံခြုံစိတ်ချရသော ဖွဲ့စည်းခြင်း**: ပတ်ဝန်းကျင်အခြေခံ endpoint စီမံခန့်ခွဲမှု
+- **AIAgent**: Core agent စီမံခန့်ခွဲမှုနှင့် စကားဝိုင်း စီမံခြင်း (.NET)
+- **Tool Functions**: Agent ၏ စွမ်းဆောင်ရည်များကို C# method နှင့် attribute များဖြင့် ထပ်ဆောင်း တိုးချဲ့ခြင်း
+- **Azure OpenAI ပေါင်းစည်းမှု**: Azure OpenAI Responses API ဖြင့် ဘာသာစကားပုံစံများကို အကျိုးပြုသုံးစွဲခြင်း
+- **လုံခြုံသော ဆက်တင်**: ပတ်ဝန်းကျင် အခြေပြု endpoint စီမံခြင်း
 
-## 🔧 နည်းပညာ Stack
+## 🔧 နည်းပညာ စံတော်ချိန်များ
 
 ### အဓိက နည်းပညာများ
 
 - Microsoft Agent Framework (.NET)
-- Azure OpenAI (Responses API) ပေါင်းစပ်မှု
-- Azure.AI.OpenAI client နည်းဗျူဟာများ
-- DotNetEnv ဖြင့် ပတ်ဝန်းကျင်အခြေခံ ဖွဲ့စည်းမှု
+- Azure OpenAI (Responses API) ပေါင်းစည်းမှု
+- Azure.AI.OpenAI client ပုံစံများ
+- DotNetEnv ဖြင့် ပတ်ဝန်းကျင် အခြေပြု ဆက်တင်များ
 
 ### Agent ၏ စွမ်းရည်များ
 
-- သဘာဝဘာသာစကား နားလည်မှုနှင့် ထုတ်လုပ်မှု
-- C# attribute များနှင့် function call နှင့် ကိရိယာအသုံးပြုခြင်း
-- စကားပြောအစည်းအဝေးများနှင့် context အသိပညာရှိတုံ့ပြန်မှု
-- Dependency injection နည်းဗျူဟာများဖြင့် ချဲ့ထွင်နိုင်သော ဖွဲ့စည်းပုံ
+- သဘာဝဘာသာစကား နားလည်မှုနှင့် ဖန်တီးမှု
+- C# attributes ဖြင့် function ခေါ်ယူခြင်းနှင့် ကိရိယာ အသုံးပြုခြင်း
+- စကားဝိုင်း အဆက်အသွယ်များနှင့် အကြောင်းအရာ ကို နားလည် စူးစမ်း တုံ့ပြန်မှုများ
+- dependency injection ပုံစံဖြင့် ထပ်ဆောင်း ဖွဲ့စည်းပုံ
 
 ## 📚 Framework နှိုင်းယှဉ်ခြင်း
 
-ဤဥပမာသည် Microsoft Agent Framework နှင့် အခြား agentic frameworks များကို နှိုင်းယှဉ်ဖော်ပြပေးပါသည်။
+ဤဥပမာတွင် Microsoft Agent Framework ၏နည်းလမ်းကို အခြား agent framework များနှင့် နှိုင်းယှဉ် ပြသသည်။
 
-| Feature | Microsoft Agent Framework | အခြား Framework များ |
+| အင်္ဂါရပ် | Microsoft Agent Framework | အခြား Framework များ |
 |---------|-------------------------|------------------|
-| **ပေါင်းစပ်မှု** | Microsoft ပတ်ဝန်းကျင်လိုက်ဖက်မှု native | မတူညီသည့်လိုက်ဖက်မှုများ |
-| **ရိုးရှင်းမှု** | သန့်ရှင်းပြီး လွယ်ကူသည့် API | မကြာခဏ ပြင်ဆင်ရန်ရှုပ်ထွေးမှုများ |
-| **ချဲ့ထွင်နိုင်မှု** | ကိရိယာများလွယ်ကူစွာ ပေါင်းစပ်နိုင်ခြင်း | Framework အပေါ်တွင် အခြေခံသည် |
-| **လုပ်ငန်းအသုံးပြုမှု** | ထုတ်လုပ်မှုအတွက် တည်ဆောက်ထားသည် | Framework အလိုက် မတူကွဲပြားမှုရှိသည် |
+| **ပေါင်းစည်းမှု** | Microsoft သက်ဆိုင်ရာ ပတ်ဝန်းကျင် | မတူညီသော ကိုက်တွယ်နိုင်မှု |
+| **ရိုးရွင်းမှု** | ရိုးရှင်း သလောက် API | အများအားဖြင့် ပြင်းထန်သော တပ်ဆင်မှု |
+| **တိုးချဲ့နိုင်မှု** | ကိရိယာ အသုံးပြုခြင်းလွယ်ကူမှု | Framework ကို မူတည်ပြီး |
+| **စက်မှုလုပ်ငန်း အသင့်ဖြစ်မှု** | ထုတ်လုပ်မှုအတွက် တည်ဆောက်ထား | Framework အလိုက် ကွဲပြားမှုများရှိသည် |
 
-## 🚀 စတင် အသုံးပြုခြင်း
+## 🚀 စတင် ပြုလုပ်ရန်
 
-### လိုအပ်ချက်များ
+### ကြိုတင် လိုအပ်ချက်များ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်ပိုင်း
-- [Azure subscription](https://azure.microsoft.com/free/) တစ်ခု ဂရုပြုထားပြီး Azure OpenAI resource နှင့် မော်ဒယ် တပ်ဆင်မှုပါရှိရန်
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် စာရင်းဝင်ရန်
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်တန်း
+- Azure OpenAI resource နှင့် model deployment ပါရှိသော [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် အကောင့်ဖြင့် ဝင်ရောက်သည်
 
-### လိုအပ်သော ပတ်ဝန်းကျင် မူဝါဒများ
+### လိုအပ်သော ပတ်ဝန်းကျင်အပြောင်းအလဲများ
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# ပြီးတော့ AzureCliCredential သည် token တစ်ခုပြုလို့ရအောင် လက်မှတ်လက်မှတ်ဝင်ပါ
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ထို့နောက် AzureCliCredential သည် token ရယူနိုင်ရန် လက်မှတ်ထိုးဝင်ပါ။
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# ထို့နောက် AzureCliCredential သည် token ကို ရနိုင်ရန် အကောင့်ဝင်ပါ။
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# အဲ့လိုရင် AzureCliCredential က token ရအောင် စာရင်းဝင်ပါ
 az login
 ```
 
 ### နမူနာ ကုဒ်
 
-ကုဒ် ဥပမာကို လည်ပတ်ရန်
+ဒီကုဒ် သို့မဟုတ် နမူနာကို ပြေးရန်
 
 ```bash
 # zsh/bash
@@ -90,13 +90,13 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-ဒါမှမဟုတ် dotnet CLI အသုံးပြု၍
+ဒါမှမဟုတ် dotnet CLI ကို အသုံးပြု၍
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-ပြည့်စုံသောကုဒ်ကို [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) တွင် ကြည့်ရှုနိုင်သည်။
+ပြည့်စုံသော ကုဒ်များအတွက် [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) ကို ကြည့်ပါ။
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -217,15 +217,15 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 အဓိက သင်ခန်းစာများ
 
-1. **Agent ပုံသဏ္ဍာန်**: Microsoft Agent Framework သည် .NET တွင် AI agent များ တည်ဆောက်ရန် ရိုးရှင်းပြီး type-safe နည်းလမ်းပေးသည်
-2. **ကိရိယာ ပေါင်းစပ်ခြင်း**: `[Description]` attribute ဖြင့်ကပ်ထားသော function များကို agent ၏ အသုံးပြုနိုင်သော ကိရိယာများအဖြစ် သတ်မှတ်ပေးသည်
-3. **စကားပြော Context**: session စီမံခန့်ခွဲမှုသည် multi-turn စကားပြောများအတွက် context အသိပညာနှင့်အတူ ခွင့်ပြုသည်
-4. **ဖွဲ့စည်းမှု စီမံခန့်ခွဲမှု**: ပတ်ဝန်းကျင် variable များနှင့် လုံခြုံသော credential ကို .NET ၏ အကောင်းဆုံး လေ့ကျင့်မှုများနှင့်လိုက်နာသည်
-5. **Azure OpenAI Responses API**: agent သည် Azure.AI.OpenAI SDK မှတဆင့် Azure OpenAI Responses API ကို အသုံးပြုသည်
+1. **Agent ဖွဲ့စည်းပုံ**: Microsoft Agent Framework က .NET တွင် AI agent များ တည်ဆောက်ရာတွင် ရိုးရှင်းမြတ်သော၊ type-safe နည်းလမ်းဖြစ်သည်
+2. **ကိရိယာ ပေါင်းစည်းခြင်း**: `[Description]` attribute သတ်မှတ်ထားသော function များသည် agent ၏ အသုံးချနိုင်သော ကိရိယာများ ဖြစ်လာသည်
+3. **စကားဝိုင်း အကြောင်းအရာ**: Session များ စီမံခြင်းအားဖြင့် မျိုးစုံသော စကားဝိုင်းများကို အပြည့်အစုံ အကြောင်းအရာ နှင့် ထိန်းချုပ်နိုင်သည်
+4. **ဆက်တင် စီမံခြင်း**: ပတ်ဝန်းကျင်အပြောင်းအလဲများနှင့် လုံခြုံသော credential ကို မသိမ်းဆည်းဘဲ .NET အကောင်းဆုံး လမ်းညွှန်ချက်များနှင့် လိုက်နာသည်
+5. **Azure OpenAI Responses API**: Agent သည် Azure.AI.OpenAI SDK မှတစ်ဆင့် Azure OpenAI Responses API ကို အသုံးပြုသည်
 
-## 🔗 ထပ်မံ အသုံးဝင် မူရင်းများ
+## 🔗 အပို အရင်းအမြစ်များ
 
-- [Microsoft Agent Framework စာရွက်စာတမ်းများ](https://learn.microsoft.com/agent-framework)
+- [Microsoft Agent Framework စာရွက်စာတမ်း](https://learn.microsoft.com/agent-framework)
 - [Microsoft Foundry တွင် Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)

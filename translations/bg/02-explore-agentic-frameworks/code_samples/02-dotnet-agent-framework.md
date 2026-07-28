@@ -1,73 +1,73 @@
-# 🔍 Изследване на Microsoft Agent Framework - Основен агент (.NET)
+# 🔍 Изследване на Microsoft Agent Framework - Базов агент (.NET)
 
 ## 📋 Учебни цели
 
-Този пример изследва основните концепции на Microsoft Agent Framework чрез изпълнение на базов агент в .NET. Ще научите основни модели за агентско поведение и ще разберете как интелигентните агенти работят „под капака“ с помощта на C# и .NET екосистемата.
+Този пример изследва основните концепции на Microsoft Agent Framework чрез базова реализация на агент в .NET. Ще научите основни агентни модели и ще разберете как интелигентните агенти работят зад кулисите, използвайки C# и .NET екосистемата.
 
 ### Какво ще откриете
 
-- 🏗️ **Архитектура на агента**: Разбиране на основната структура на AI агенти в .NET
-- 🛠️ **Интеграция на инструменти**: Как агентите използват външни функции за разширяване на възможностите
-- 💬 **Поток на разговор**: Управление на многократни разговорни цикли и контекст с управление на нишки
-- 🔧 **Модели за конфигурация**: Най-добри практики за настройка и управление на агенти в .NET
+- 🏗️ **Архитектура на агента**: Разбиране на основната структура на AI агентите в .NET
+- 🛠️ **Интеграция на инструменти**: Как агентите използват външни функции за разширяване на възможностите  
+- 💬 **Поток на разговора**: Управление на многоходови разговори и контекст с управление на нишки  
+- 🔧 **Патерни за конфигуриране**: Най-добри практики за настройка и управление на агенти в .NET  
 
-## 🎯 Основни разгледани концепции
+## 🎯 Обхванати ключови концепции
 
 ### Принципи на агентската рамка
 
-- **Автономност**: Как агентите правят независими решения с помощта на .NET AI абстракции
-- **Реактивност**: Реакция на промени в средата и потребителски входове
-- **Проактивност**: Инициативи въз основа на цели и контекст
-- **Социални умения**: Взаимодействие чрез естествен език в разговорни нишки
+- **Автономност**: Как агентите взимат независими решения чрез AI абстракции в .NET  
+- **Реактивност**: Реагиране на промени в околната среда и входове от потребителя  
+- **Проактивност**: Поемане на инициатива въз основа на цели и контекст  
+- **Социална способност**: Взаимодействие чрез естествен език с нишки на разговори  
 
 ### Технически компоненти
 
-- **AIAgent**: Основна организация на агента и управление на разговори (.NET)
-- **Функции на инструменти**: Разширяване на възможностите на агента с C# методи и атрибути
-- **Интеграция с Azure OpenAI**: Използване на езикови модели чрез Azure OpenAI Responses API
-- **Сигурна конфигурация**: Управление на крайни точки на базата на среда
+- **AIAgent**: Основна оркестрация на агента и управление на разговори (.NET)  
+- **Функции на инструментите**: Разширяване на възможностите на агента с методи и атрибути на C#  
+- **Интеграция с Azure OpenAI**: Използване на езиковите модели чрез Azure OpenAI Responses API  
+- **Сигурна конфигурация**: Управление на крайни точки базирано на средата  
 
 ## 🔧 Технически стек
 
 ### Основни технологии
 
-- Microsoft Agent Framework (.NET)
-- Интеграция с Azure OpenAI (Responses API)
-- Патерни на клиента Azure.AI.OpenAI
-- Конфигурация на базата на среда с DotNetEnv
+- Microsoft Agent Framework (.NET)  
+- Интеграция с Azure OpenAI (Responses API)  
+- Патерни за клиент Azure.AI.OpenAI  
+- Конфигурация базирана на средата с DotNetEnv  
 
 ### Възможности на агента
 
-- Разбиране и генериране на естествен език
-- Извикване на функции и използване на инструменти с C# атрибути
-- Отговори с контекст чрез разговорни сесии
-- Разширяема архитектура с модели за внедряване на зависимости
+- Разбиране и генериране на естествен език  
+- Извикване на функции и използване на инструменти с атрибути на C#  
+- Отговори с осъзнаване на контекст със сесии на разговор  
+- Разширяема архитектура с патерни за внедряване на зависимости  
 
-## 📚 Сравнение на рамките
+## 📚 Сравнение на рамки
 
 Този пример демонстрира подхода на Microsoft Agent Framework в сравнение с други агентски рамки:
 
-| Характеристика | Microsoft Agent Framework | Други рамки |
+| Функция | Microsoft Agent Framework | Други рамки |
 |---------|-------------------------|------------------|
-| **Интеграция** | Собствена екосистема на Microsoft | Разнообразна съвместимост |
-| **Простота** | Чист и интуитивен API | Често сложна настройка |
-| **Разширяемост** | Лесна интеграция на инструменти | Зависимо от рамката |
-| **Подходящ за предприятия** | Изграден за продукция | Зависи от рамката |
+| **Интеграция** | Нативна екосистема на Microsoft | Разнообразна съвместимост |
+| **Леснота на използване** | Чист, интуитивен API | Често сложна настройка |
+| **Разширяемост** | Лесна интеграция на инструменти | Зависещо от рамката |
+| **Подходящо за предприятия** | Създаден за продукция | Варира според рамката |
 
 ## 🚀 Започване
 
-### Изисквания
+### Предварителни изисквания
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или по-нова версия
-- Абонамент в [Azure](https://azure.microsoft.com/free/) с ресурс Azure OpenAI и разгръщане на модел
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — влизане с `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или по-нова версия  
+- [Абонамент в Azure](https://azure.microsoft.com/free/) с ресурс Azure OpenAI и разгръщане на модел  
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — влезте с `az login`  
 
-### Задължителни променливи на средата
+### Изисквани променливи на средата
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # След това влезте, за да може AzureCliCredential да получи токен
 az login
 ```
@@ -75,8 +75,8 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# След това влезте, за да може AzureCliCredential да получи токен
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Влезте, за да може AzureCliCredential да получи токен
 az login
 ```
 
@@ -90,7 +90,7 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-Или използвайки dotnet CLI:
+Или чрез dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -217,18 +217,18 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 Основни изводи
 
-1. **Архитектура на агента**: Microsoft Agent Framework предоставя чист, типово-сигурен подход за създаване на AI агенти в .NET
-2. **Интеграция на инструменти**: Функциите, маркирани с атрибути `[Description]`, стават достъпни инструменти за агента
-3. **Контекст на разговора**: Управлението на сесии позволява многократни разговори с пълна осъзнатост на контекста
-4. **Управление на конфигурацията**: Променливите на средата и сигурната обработка на идентификационни данни следват най-добрите практики на .NET
-5. **Azure OpenAI Responses API**: Агентът използва Azure OpenAI Responses API чрез Azure.AI.OpenAI SDK
+1. **Архитектура на агента**: Microsoft Agent Framework осигурява чист, типобезопасен подход за изграждане на AI агенти в .NET  
+2. **Интеграция на инструменти**: Функции, декорирани с атрибути `[Description]`, стават достъпни инструменти за агента  
+3. **Контекст на разговора**: Управлението на сесии позволява многоходови разговори с пълно осъзнаване на контекста  
+4. **Управление на конфигурация**: Променливи на средата и сигурно боравене с удостоверения следват най-добрите практики на .NET  
+5. **Azure OpenAI Responses API**: Агентът използва Azure OpenAI Responses API чрез Azure.AI.OpenAI SDK  
 
 ## 🔗 Допълнителни ресурси
 
-- [Документация на Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [Azure OpenAI в Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [Документация на Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)  
+- [Azure OpenAI в Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 

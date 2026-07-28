@@ -2,27 +2,27 @@
 
 ## 📋 Lernziele
 
-Dieses Beispiel demonstriert Unternehmens-Designmuster zum Aufbau intelligenter Agenten mit dem Microsoft Agent Framework in .NET und Integration von Azure OpenAI (Responses API). Sie lernen professionelle Muster und architektonische Ansätze kennen, die Agenten produktionsreif, wartbar und skalierbar machen.
+Dieses Beispiel zeigt unternehmensgerechte Designmuster zum Aufbau intelligenter Agenten unter Verwendung des Microsoft Agent Frameworks in .NET mit Azure OpenAI (Responses API) Integration. Sie lernen professionelle Muster und architektonische Ansätze kennen, die Agenten produktionsreif, wartbar und skalierbar machen.
 
 ### Unternehmens-Designmuster
 
 - 🏭 **Factory Pattern**: Standardisierte Agentenerstellung mit Dependency Injection
 - 🔧 **Builder Pattern**: Fluent Agentenkonfiguration und Einrichtung
-- 🧵 **Thread-Sichere Muster**: Gleichzeitige Gesprächsverwaltung
-- 📋 **Repository Pattern**: Organisierte Verwaltung von Tools und Fähigkeiten
+- 🧵 **Thread-Safe Patterns**: Gleichzeitige Gesprächsverwaltung
+- 📋 **Repository Pattern**: Organisiertes Werkzeug- und Fähigkeitsmanagement
 
-## 🎯 .NET-spezifische Architekturbedürfnisse
+## 🎯 .NET-spezifische Architekturvorteile
 
 ### Unternehmensfunktionen
 
-- **Starke Typisierung**: Kompilierzeitvalidierung und IntelliSense-Unterstützung
-- **Dependency Injection**: Eingebaute DI-Container-Integration
-- **Konfigurationsverwaltung**: IConfiguration- und Optionsmuster
+- **Starke Typisierung**: Kompilierzeit-Validierung und IntelliSense-Unterstützung
+- **Dependency Injection**: Eingebaute DI-Containerintegration
+- **Konfigurationsmanagement**: IConfiguration und Optionsmuster
 - **Async/Await**: Erstklassige asynchrone Programmierunterstützung
 
 ### Produktionsreife Muster
 
-- **Logging-Integration**: ILogger- und strukturierte Protokollierungsunterstützung
+- **Logging-Integration**: ILogger und strukturierte Protokollierung
 - **Health Checks**: Eingebaute Überwachung und Diagnostik
 - **Konfigurationsvalidierung**: Starke Typisierung mit Datenanmerkungen
 - **Fehlerbehandlung**: Strukturierte Ausnahmeverwaltung
@@ -31,24 +31,24 @@ Dieses Beispiel demonstriert Unternehmens-Designmuster zum Aufbau intelligenter 
 
 ### Kern-.NET-Komponenten
 
-- **Microsoft.Extensions.AI**: Vereinheitlichte KI-Dienstabstraktionen
-- **Microsoft.Agents.AI**: Unternehmensweites Agenten-Orchestrierungs-Framework
-- **Azure OpenAI (Responses API)**: Hochleistungs-API-Client-Muster
+- **Microsoft.Extensions.AI**: Einheitliche AI-Service-Abstraktionen
+- **Microsoft.Agents.AI**: Unternehmens-Framework zur Agenten-Orchestrierung
+- **Azure OpenAI (Responses API)**: Hochleistungsfähige API-Clientmuster
 - **Konfigurationssystem**: appsettings.json und Umgebungsintegration
 
-### Implementierung von Designmustern
+### Designmuster-Implementierung
 
 ```mermaid
 graph LR
     A[IServiceCollection] --> B[Agenten-Builder]
     B --> C[Konfiguration]
-    C --> D[Werkzeug-Register]
+    C --> D[Werkzeug-Registrierung]
     D --> E[KI-Agent]
 ```
 
-## 🏗️ Demonstrierte Unternehmensmuster
+## 🏗️ Gezeigte Unternehmensmuster
 
-### 1. **Erzeugungsmuster**
+### 1. **Erzeugende Muster**
 
 - **Agent Factory**: Zentralisierte Agentenerstellung mit konsistenter Konfiguration
 - **Builder Pattern**: Fluent API für komplexe Agentenkonfiguration
@@ -57,74 +57,74 @@ graph LR
 
 ### 2. **Verhaltensmuster**
 
-- **Strategy Pattern**: Austauschbare Werkzeugausführungs-Strategien
-- **Command Pattern**: Kapselte Agentenoperationen mit Rückgängig/Wiederholen
+- **Strategy Pattern**: Austauschbare Werkzeugaussführungsstrategien
+- **Command Pattern**: Kapselte Agentenoperationen mit Undo/Redo
 - **Observer Pattern**: Ereignisgesteuerte Agenten-Lebenszyklusverwaltung
 - **Template Method**: Standardisierte Agentenausführungs-Workflows
 
-### 3. **Strukturmuster**
+### 3. **Strukturelle Muster**
 
 - **Adapter Pattern**: Azure OpenAI (Responses API) Integrationsschicht
-- **Decorator Pattern**: Erweiterung von Agentenfähigkeiten
-- **Facade Pattern**: Vereinfachte Schnittstellen zur Agenteninteraktion
-- **Proxy Pattern**: Lazy Loading und Caching für Leistung
+- **Decorator Pattern**: Erweiterung der Agentenfähigkeiten
+- **Facade Pattern**: Vereinfachte Agenteninteraktionsschnittstellen
+- **Proxy Pattern**: Lazy Loading und Caching für Performance
 
-## 📚 .NET Designprinzipien
+## 📚 .NET-Designprinzipien
 
-### SOLID Prinzipien
+### SOLID-Prinzipien
 
 - **Single Responsibility**: Jede Komponente hat einen klaren Zweck
-- **Open/Closed**: Erweitert ohne Modifikation
-- **Liskov Substitution**: Schnittstellenbasierte Werkzeugimplementierungen
-- **Interface Segregation**: Fokusierte, kohäsive Schnittstellen
+- **Open/Closed**: Erweiterbar ohne Modifikation
+- **Liskov Substitution**: Interface-basierte Werkzeugimplementierungen
+- **Interface Segregation**: Fokussierte, kohäsive Schnittstellen
 - **Dependency Inversion**: Abhängigkeit von Abstraktionen, nicht von Konkretisierungen
 
 ### Clean Architecture
 
-- **Domain Layer**: Kernabstraktionen von Agenten und Werkzeugen
-- **Application Layer**: Agentenorchestrierung und Workflows
-- **Infrastructure Layer**: Azure OpenAI (Responses API) Integration und externe Dienste
-- **Presentation Layer**: Benutzerinteraktion und Antwortformatierung
+- **Domain-Schicht**: Kernagenten- und Werkzeugabstraktionen
+- **Application-Schicht**: Agentenorchestrierung und Workflows
+- **Infrastructure-Schicht**: Azure OpenAI (Responses API) Integration und externe Dienste
+- **Presentation-Schicht**: Benutzerinteraktion und Antwortformatierung
 
 ## 🔒 Unternehmensüberlegungen
 
 ### Sicherheit
 
-- **Credential Management**: Sichere API-Schlüsselverwaltung mit IConfiguration
-- **Eingabeverifikation**: Starke Typisierung und Validierung mit Datenanmerkungen
-- **Ausgabereinigung**: Sichere Verarbeitung und Filterung von Antworten
-- **Audit Logging**: Umfassende Protokollierung von Vorgängen
+- **Anmeldeinformationenverwaltung**: Sichere Handhabung von API-Schlüsseln mit IConfiguration
+- **Eingabevalidierung**: Starke Typisierung und Validierung mit Datenanmerkungen
+- **Ausgabe-Sanitärmaßnahmen**: Sichere Antwortverarbeitung und Filterung
+- **Audit-Logging**: Umfassende Betriebserfassung
 
 ### Leistung
 
-- **Async-Muster**: Nicht blockierende I/O-Operationen
-- **Connection Pooling**: Effizientes HTTP-Client-Management
-- **Caching**: Antwort-Caching zur Leistungsverbesserung
-- **Ressourcenverwaltung**: Korrekte Freigabe- und Aufräummuster
+- **Async Muster**: Nicht-blockierende I/O-Operationen
+- **Verbindungs-Pooling**: Effizientes HTTP-Client-Management
+- **Caching**: Antwort-Caching für verbesserte Leistung
+- **Ressourcenverwaltung**: Ordnungsgemäße Freigabe- und Bereinigungsmuster
 
 ### Skalierbarkeit
 
-- **Thread-Sicherheit**: Gleichzeitige Agentenausführung
-- **Resource Pooling**: Effiziente Ressourcennutzung
-- **Lastmanagement**: Ratenbegrenzung und Backpressure-Handling
-- **Überwachung**: Leistungsmetriken und Gesundheitschecks
+- **Thread-Sicherheit**: Unterstützung für gleichzeitige Agentenausführung
+- **Ressourcen-Pooling**: Effiziente Ressourcennutzung
+- **Lastmanagement**: Rate-Limiting und Backpressure-Handhabung
+- **Überwachung**: Leistungskennzahlen und Health Checks
 
 ## 🚀 Produktionsbereitstellung
 
-- **Konfigurationsverwaltung**: Umgebungsabhängige Einstellungen
+- **Konfigurationsmanagement**: Umgebungsabhängige Einstellungen
 - **Logging-Strategie**: Strukturierte Protokollierung mit Korrelations-IDs
-- **Fehlerbehandlung**: Globale Ausnahmebehandlung mit angemessener Wiederherstellung
+- **Fehlerbehandlung**: Globale Ausnahmebehandlung mit geeigneter Wiederherstellung
 - **Überwachung**: Application Insights und Leistungszähler
 - **Tests**: Unit-Tests, Integrationstests und Lasttestmuster
 
-Bereit, unternehmensgerechte intelligente Agenten mit .NET zu erstellen? Lassen Sie uns etwas Robust bauen! 🏢✨
+Bereit, unternehmensgerechte intelligente Agenten mit .NET zu bauen? Lassen Sie uns etwas Robustem entwerfen! 🏢✨
 
 ## 🚀 Erste Schritte
 
 ### Voraussetzungen
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
-- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellausführung
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modell-Bereitstellung
 - Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
@@ -132,15 +132,15 @@ Bereit, unternehmensgerechte intelligente Agenten mit .NET zu erstellen? Lassen 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Melden Sie sich dann an, damit AzureCliCredential ein Token abrufen kann
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

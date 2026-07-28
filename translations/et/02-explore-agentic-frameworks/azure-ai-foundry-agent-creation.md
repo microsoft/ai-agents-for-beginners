@@ -1,30 +1,30 @@
-# Microsoft Foundry Agent Teenuse Arendamine
+# Microsoft Foundry agendi teenuse arendus
 
-Selles harjutuses kasutate Microsoft Foundry Agent Teenuse tööriistu [Microsoft Foundry portaali](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) kaudu, et luua agent lennupiletite broneerimiseks. Agent saab kasutajatega suhelda ja pakkuda teavet lendude kohta.
+Selles harjutuses kasutate Microsoft Foundry agendi teenuse tööriistu Microsoft Foundry portaalis ([Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)) lennupiletite broneerimiseks agendi loomiseks. Agent saab suhelda kasutajatega ja anda teavet lendude kohta.
 
-## Nõuded
+## Eeltingimused
 
-Selle harjutuse läbimiseks vajate järgmist:
-1. Azure'i konto aktiivse tellimusega. [Loo konto tasuta](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Teil peavad olema õigused Microsoft Foundry keskuse loomiseks või keegi peab selle teie jaoks loonud olema.
-    - Kui teie roll on Kaastööline või Omanik, saate järgida selle õppematerjali samme.
+Selle harjutuse läbimiseks vajate järgmisi asju:
+1. Azure konto aktiivse tellimusega. [Loo konto tasuta](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Õigusi Microsoft Foundry keskusete loomiseks või kelleltki, kes selle teie jaoks loob.
+    - Kui teie roll on Kaastöötaja või Omanik, võite järgida selles juhendis olevaid samme.
 
-## Microsoft Foundry keskuse loomine
+## Loo Microsoft Foundry keskus
 
-> **Märkus:** Microsoft Foundry oli varem tuntud kui Azure AI Studio.
+> **Märkus:** Microsoft Foundryt nimetati varem Azure AI Studioks.
 
 1. Järgige neid juhiseid [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogipostitusest Microsoft Foundry keskuse loomiseks.
-2. Kui teie projekt on loodud, sulgege kuvatud näpunäited ja vaadake Microsoft Foundry portaali projektilehte, mis peaks välja nägema sarnaselt järgmisele pildile:
+2. Kui teie projekt on loodud, sulgege kõik kuvatavad näpunäited ja vaadake üle projekti leht Microsoft Foundry portaalis, mis peaks välja nägema sarnaselt järgmise pildiga:
 
     ![Microsoft Foundry Project](../../../translated_images/et/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Mudeli juurutamine
 
-1. Vasakpoolses paneelis oma projekti juures valige jaotises **Minu varad** leht **Mudelite + lõpp-punktid**.
-2. Lehel **Mudelite + lõpp-punktid**, vahekaardil **Mudeli juurutamine**, valige menüüst **+ Uueta mudel** suvand **Uuenda alammudelit**.
-3. Otsige nimekirjast mudel `gpt-4.1-mini`, valige see ja kinnitage.
+1. Projekti vasakul paneelil jaotises **Minu varad** valige leht **Mudelite + lõpp-punktid**.
+2. Lehel **Mudelite + lõpp-punktid**, vahekaardil **Mudeli juurutused**, menüüs **+ Juhtmurdi juurutamine**, valige **Juuruta baasmudel**.
+3. Otsige nimekirjast mudel `gpt-5-mini`, valige see ja kinnitage.
 
-    > **Märkus**: TPM-i vähendamine aitab vältida teie kasutatava tellimuse kvota ülekoormamist.
+    > **Märkus**: TPM-i vähendamine aitab vältida teie kasutatavas tellimuses saadaoleva limiidi liigselt kasutamist.
 
     ![Model Deployed](../../../translated_images/et/model-deployment.3749c53fb81e18fd.webp)
 
@@ -32,11 +32,11 @@ Selle harjutuse läbimiseks vajate järgmist:
 
 Nüüd, kui olete mudeli juurutanud, saate luua agendi. Agent on vestluslik AI mudel, mida saab kasutada kasutajatega suhtlemiseks.
 
-1. Vasakpoolses paneelis oma projekti juures valige jaotises **Ehita ja kohanda** leht **Agendid**.
+1. Projekti vasakul paneelil, jaotises **Ehita ja kohanda**, valige leht **Agendid**.
 2. Klõpsake **+ Loo agent** uue agendi loomiseks. Dialoogiboksis **Agendi häälestus**:
     - Sisestage agendi nimi, näiteks `FlightAgent`.
-    - Veenduge, et valitud on eelnevalt loodud mudeli juurutus `gpt-4.1-mini`.
-    - Määrake **Juhendid** vastavalt käsule, mida soovite, et agent järgiks. Näide:
+    - Veenduge, et on valitud eelnevalt loodud `gpt-5-mini` mudeli juurutus
+    - Määrake **Juhised** vastavalt juhistele, mida soovite agendi järgida. Näiteks:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,41 +64,41 @@ Nüüd, kui olete mudeli juurutanud, saate luua agendi. Agent on vestluslik AI m
     
     ```
 > [!NOTE]
-> Täpsema käsu jaoks vaadake [seda repositooriumi](https://github.com/ShivamGoyal03/RoamMind) lisateabe saamiseks.
+> Täpsema juhise jaoks võite tutvuda [selle hoidla](https://github.com/ShivamGoyal03/RoamMind) lisainfoga.
     
-> Ühtlasi saate lisada **Teadmistebaasi** ja **Tegevusi**, et laiendada agendi võimekust pakkuda rohkem teavet ja sooritada automaatseid toiminguid kasutajapäringute põhjal. Selle harjutuse jaoks võite need sammud vahele jätta.
+> Lisaks saate lisada **Teadmistebaasi** ja **Tegevusi**, et täiendada agendi võimekust pakkuda rohkem teavet ja täita automatiseeritud ülesandeid kasutajate päringute põhjal. Selle harjutuse jaoks võite need sammud vahele jätta.
     
 ![Agent Setup](../../../translated_images/et/agent-setup.9bbb8755bf5df672.webp)
 
-3. Uue mitme AI agenti loomiseks klõpsake lihtsalt **Uus agent**. Värskelt loodud agent kuvatakse seejärel Agendi lehel.
+3. Uue mitme AI-agendi loomiseks klõpsake lihtsalt **Uus agent**. Värskelt loodud agent kuvatakse seejärel Agendid lehel.
 
 
 ## Agendi testimine
 
-Pärast agendi loomist saate seda testida, et näha, kuidas ta kasutajate päringutele Microsoft Foundry portaali mänguväljakul vastab.
+Pärast agendi loomist saate seda testida, et vaadata, kuidas see kasutajate päringutele Microsoft Foundry portaalis mänguväljakul reageerib.
 
 1. Agendi **Häälestus** paneeli ülaosas valige **Proovi mänguväljakul**.
-2. Mänguväljaku paneelis saate agendiga suhelda, sisestades päringuid vestlusaknasse. Näiteks võite paluda agendil otsida lende Seattle'ist New Yorki 28. kuupäevaks.
+2. Paneelis **Mänguväljak** saate agendiga suhelda, tippides vestlusaknas päringuid. Näiteks võite paluda agendil otsida lende Seattle'ist New Yorki 28. kuupäevaks.
 
-    > **Märkus**: Agen til ei pruugi anda täpseid vastuseid, kuna selles harjutuses ei kasutata reaalajas andmeid. Eesmärk on testida agendi võimet mõista ja vastata kasutajate päringutele antud juhiste põhjal.
+    > **Märkus**: Agent ei pruugi anda täpseid vastuseid, kuna selles harjutuses ei kasutata reaalajas andmeid. Eesmärk on testida agendi võimet mõista ja vastata kasutajate päringutele antud juhiste põhjal.
 
     ![Agent Playground](../../../translated_images/et/agent-playground.dc146586de715010.webp)
 
-3. Pärast agendi testimist võite seda veelgi kohandada, lisades rohkem kavatsusi, koolitusandmeid ja tegevusi selle võimekuse suurendamiseks.
+3. Pärast agendi testimist saate seda edasi kohandada, lisades rohkem kavatsusi, koolitusandmeid ja tegevusi selle võimekuse suurendamiseks.
 
-## Ressursside puhastamine
+## Ressursside koristamine
 
-Kui olete agendi testimise lõpetanud, saate selle kustutada, et vältida täiendavaid kulutusi.
-1. Avage [Azure portaali](https://portal.azure.com) ja vaadake haru rühma sisu, kuhu te juurutasite selle harjutuse jaoks kasutatud keskuse ressursid.
+Kui olete agendi testimise lõpetanud, saate selle kustutada, et vältida lisakulutusi.
+1. Avage [Azure portal](https://portal.azure.com) ja vaadake ressursigrupi sisu, kuhu juurutasite selles harjutuses kasutatud keskuse ressursid.
 2. Tööriistaribal valige **Kustuta ressursirühm**.
-3. Sisestage ressursirühma nimi ja kinnitage selle kustutamine.
+3. Sisestage ressursigrupi nimi ja kinnitage kustutamine.
 
 ## Ressursid
 
 - [Microsoft Foundry dokumentatsioon](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portaal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundryga alustamine](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [AI agentide alused Azure'is](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Azure AI agentide põhialused](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---

@@ -1,72 +1,72 @@
-# 🌍 Microsoft Agent Framework (.NET) உடன் எய்ஐ பயண முகவர்
+# 🌍 Microsoft Agent Framework (.NET) உடன் AI பயண முகவர்
 
-## 📋 கண்ணோட்டம்
+## 📋 காட்சி வழிகாட்டி
 
-இந்த உதாரணம் Microsoft Agent Framework ஐ .NET க்காக பயன்படுத்தி ஒரு புத்திசாலி பயண திட்டமிடும் முகவரை எப்படி உருவாக்குவது என்பது பற்றி காட்டுகிறது. இந்த முகவர் உலகின் விதவிதமான இலக்குகளுக்கான தனிப்பயன் நாள் பயணம் திட்டிகளை தானாகவே உருவாக்க முடியும்.
+இந்த உதாரணம் Microsoft Agent Framework ஐ பயன்படுத்தி புத்திசாலி பயணத் திட்ட முகவரை .NET இல் எப்படி உருவாக்குவது என்பதை காட்டுகிறது. முகவன் உலகமெங்கும் புறப்படக்கூடிய இடங்களுக்கு தனிப்பட்ட நாள்-பயணம் திட்டங்களை தானாக உருவாக்க முடியும்.
 
 ### முக்கிய திறன்கள்:
 
-- 🎲 **சீர்மான இல்லாத இலக்கு தேர்வு**: விடுமுறை இடங்களை தேர்வு செய்ய தனிப்பயன் கருவி பயன்படுத்துகிறது
-- 🗺️ **புத்திசாலி பயணம் திட்டமிடல்**: நாள் தோறும் விரிவான பயண திட்டங்களை உருவாக்குகிறது
-- 🔄 **நேரடி ஒளிபரப்பு**: உடனடி மற்றும் ஒளிபரப்பும் பதில்களையும் ஆதரிக்கிறது
-- 🛠️ **தனிப்பயன் கருவி இணைப்பு**: முகவர் திறன்களை விரிவாக்க எவ்வாறு செய்யுவது என்பதைக் காட்டுகிறது
+- 🎲 **சீரற்ற இடத் தேர்வு**: விடுமுறை இடங்களை தேர்ந்தெடுக்க தனிப்பயன் கருவியை பயன்படுத்துகிறது
+- 🗺️ **புத்திசாலி பயண திட்டமிடல்**: நாள் நேரடி திட்டங்களைக் கண்காணிக்கிறது
+- 🔄 **நேரடி ஸ்ட்ரீமிங்**: உடனடி மற்றும் ஸ்ட்ரீமிங் பதில்களை இரண்டும் ஆதரிக்கிறது
+- 🛠️ **தனிப்பயன் கருவி இணைப்பு**: முகவரின் திறன்களை விரிவாக்க எப்படி செய்வது என்பதை காண்பிக்கிறது
 
 ## 🔧 தொழில்நுட்ப கட்டமைப்பு
 
 ### மைய தொழில்நுட்பங்கள்
 
-- **Microsoft Agent Framework**: AI முகவர் உருவாக்கம் க்கான புதிய .NET அமலாக்கம்
-- **Azure OpenAI (பதில் API)**: மாதிரி கணிப்பு க்காக Azure OpenAI பதில்கள் API பயன்படுத்துகிறது
-- **Azure அடையாளம்**: `AzureCliCredential` (`az login`) மூலம் பாதுகாப்பான உள்நுழைவு
-- **பாதுகாப்பான கட்டமைப்பு**: சுற்றுச்சூழல் அடிப்படையிலான தள முகவரிகள் நிர்வகிப்பு
+- **Microsoft Agent Framework**: .NET இல் AI முகவர் உருவாக்கத்திற்கான சமீபத்திய அமலாக்கம்
+- **Azure OpenAI (Responses API)**: மாதிரி முன்மொழிவிற்கு Azure OpenAI Responses API ஐ பயன்படுத்துகிறது
+- **Azure Identity**: `AzureCliCredential` (`az login`) மூலம் பாதுகாப்பான உள்நுழைவு
+- **பாதுகாப்பான கட்டமைப்பு**: சூழல் அடிப்படையிலான முனைய முகவரி மேலாண்மை
 
 ### முக்கிய கூறுகள்
 
-1. **AIAgent**: உரையாடல் ஓட்டத்தை கையாளும் முக்கிய முகவர் ஒருங்கிணைப்பாளர்
-2. **தனிப்பயன் கருவிகள்**: முகவருக்கு கிடைக்கும் `GetRandomDestination()` செயல்பாடு
-3. **பதில் கிளையண்ட்**: Azure OpenAI பதில்களால் இயக்கப்படும் உரையாடல் இடைமுகம்
-4. **ஒளிபரப்பு ஆதரவு**: நேரடியான பதில் உருவாக்க திறன்கள்
+1. **AIAgent**: உரையாடல் ஓட்டத்தை கையாளும் பிரதான முகவர் ஒருங்கிணைப்பாளர்
+2. **தனிப்பயன் கருவிகள்**: முகவருக்கு கிடைக்கக்கூடிய `GetRandomDestination()` செயல்பாடு
+3. **பதிலளிப்பு கிளையண்ட்**: Azure OpenAI Responses அடிப்படையிலான உரையாடல் இடைமுகம்
+4. **ஸ்ட்ரீமிங் ஆதரவு**: நேரடி பதிலளிப்பு உருவாக்கக் குறைந்த
 
-### ஒருங்கிணைப்பு மாதிரி
+### இணைப்பு மாதிரி
 
 ```mermaid
 graph LR
-    A[பயனர் கோரிக்கை] --> B[செயற்கை நுண்ணறிவு முகவர்]
-    B --> C[Azure OpenAI (பதில் API)]
+    A[பயனர் கோரிக்கை] --> B[AI முகவர்]
+    B --> C[ஆஜூர் OpenAI (பதில் API)]
     B --> D[GetRandomDestination கருவி]
-    C --> E[பயணம் திட்டம்]
+    C --> E[பயண திட்டம்]
     D --> E
 ```
 
-## 🚀 துவக்கம்
+## 🚀 தொடக்க வழிகாட்டி
 
-### முன்னோட்டங்கள்
+### தேவையான முன் நிபந்தனைகள்
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) அல்லது அதற்கும் மேல்
-- Azure OpenAI வளத்துடன் கூடிய [Azure சந்தா](https://azure.microsoft.com/free/) மற்றும் மாதிரி 배포ம்
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` மூலம் உள்நுழையவும்
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) அல்லது அதற்கு மேலான பதிப்பு
+- ஒரு [Azure வாடிக்கைப் பதிவு](https://azure.microsoft.com/free/) Azure OpenAI வளம் மற்றும் மாதிரி கைமாற்றம் உடன்
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` கொண்டு உள்நுழையவும்
 
-### தேவைப்படுகிற சுற்றுச்சூழல் மாறி
+### தேவையான சூழல் மாறிகள்
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# பிறகு உள்நுழைக, அப்போது AzureCliCredential ஒரு அடையாளப்பத்திரம் பெறும்
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# பிறகு உள்நுழையவும் ताकि AzureCliCredential ஒரு டோக்கனைப் பெற முடியும்
 az login
 ```
 
 ```powershell
-# PowerShell
+# பவர் ஷெல்
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# பின்னர் AzureCliCredential டோக்கன் பெற உள்நுழைக
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# பின்னர் AzureCliCredential டோக்கன் பெற சைன் இன் செய்யவும்
 az login
 ```
 
-### மாதிரி குறியீடு
+### மாதிரி கோடு
 
-குறியீட்டை இயக்க:
+கோடு உதாரணத்தை இயக்க,
 
 ```bash
 # zsh/bash
@@ -74,13 +74,13 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-அல்லது dotnet CLI பயன்படுத்தவும்:
+அல்லது dotnet CLI ஐப் பயன்படுத்தி:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-முழு குறியீட்டிற்காக [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) ஒட்டி பார்த்து கொள்ளுங்கள்.
+முழு கோப்புக்கான குறியீடு [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) ஐ பாருங்கள்.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,19 +157,19 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 முக்கியக் கற்றுக்கொள்ளல்
+## 🎓 முக்கிய எடுத்துக்காட்டுக்கள்
 
-1. **முகவர் கட்டமைப்பு**: Microsoft Agent Framework .NET இல் AI முகவர்களை உருவாக்க ஒரு சுத்தமான, வகை-பாதுகாப்பான அணுகுமுறையை வழங்குகிறது
-2. **கருவி ஒருங்கிணைவு**: `[Description]` பண்புகளால் சிறப்பிக்கபட்ட செயல்பாடுகள் முகவருக்கு கிடைக்கும் கருவிகளாக மாறுகின்றன
-3. **கட்டமைப்பு நிர்வாகம்**: சுற்றுச்சூழல் மாறிகள் மற்றும் பாதுகாப்பான அங்கீகாரகை .NET சிறந்த நடைமுறைகளுக்கு இணங்க செயல்படுகிறது
-4. **Azure OpenAI பதில்கள் API**: முகவர் Azure.AI.OpenAI SDK மூலம் Azure OpenAI பதில்கள் API ஐ பயன்படுத்துகிறது
+1. **முகவர் கட்டமைப்பு**: Microsoft Agent Framework .NET இல் AI முகவர்களை உருவாக்க சுத்தமான, வகை-பாதுகாப்பான அணுகுமுறையை வழங்குகிறது
+2. **கருவி இணைவு**: `[Description]` பண்பு கொண்ட செயல்பாடுகள் முகவருக்கு கிடைக்கும் கருவிகளாக மாறுகின்றன
+3. **கட்டமைப்பு மேலாண்மை**: சூழல் மாறிகள் மற்றும் பாதுகாப்பான கடவுச்சொல் கையாளுதல் .NET சிறந்த நடைமுறைகளை பின்பற்றுகிறது
+4. **Azure OpenAI Responses API**: முகவர் Azure.AI.OpenAI SDK மூலமாக Azure OpenAI Responses API ஐ பயன்படுத்துகிறது
 
 ## 🔗 கூடுதல் வளங்கள்
 
 - [Microsoft Agent Framework ஆவணம்](https://learn.microsoft.com/agent-framework)
 - [Microsoft Foundry இல் Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET ஒற்றை கோப்பு பயன்பாடுகள்](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET ஒரு கோப்பு செயலிகள்](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

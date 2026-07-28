@@ -1,30 +1,30 @@
-# 🔍 Enterprise RAG med Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG med Microsoft Foundry (.NET)
 
 ## 📋 Læringsmål
 
-Denne notebook demonstrerer, hvordan man bygger virksomhedsklare Retrieval-Augmented Generation (RAG) systemer ved hjælp af Microsoft Agent Framework i .NET med Azure AI Foundry. Du vil lære at skabe produktionsklare agenter, der kan søge i dokumenter og levere præcise, kontekstbevidste svar med virksomhedssikkerhed og skalerbarhed.
+Denne notesbog demonstrerer, hvordan man bygger enterprise-grade Retrieval-Augmented Generation (RAG) systemer ved hjælp af Microsoft Agent Framework i .NET med Microsoft Foundry. Du vil lære at skabe produktionsklare agenter, der kan søge gennem dokumenter og give præcise, kontekstbevidste svar med enterprise-sikkerhed og skalerbarhed.
 
 **Enterprise RAG-funktioner, du vil bygge:**
 - 📚 **Dokumentintelligens**: Avanceret dokumentbehandling med Azure AI-tjenester
-- 🔍 **Semantisk søgning**: Højtydende vektorsøgning med virksomhedsfunktioner
+- 🔍 **Semantisk søgning**: Højtydende vektorsøgning med enterprise-funktioner
 - 🛡️ **Sikkerhedsintegration**: Rollebaseret adgang og databeskyttelsesmønstre
 - 🏢 **Skalerbar arkitektur**: Produktionsklare RAG-systemer med overvågning
 
 ## 🎯 Enterprise RAG Arkitektur
 
-### Centrale virksomhedskomponenter
-- **Azure AI Foundry**: Administreret virksomhedens AI-platform med sikkerhed og overholdelse
-- **Vedvarende agenter**: Agenter med tilstandshistorik og kontekststyring
-- **Vector Store Management**: Virksomhedsklar dokumentindeksering og -hentning
-- **Identitetsintegration**: Azure AD-autentificering og rollebaseret adgangskontrol
+### Kernekomponenter for Enterprise
+- **Microsoft Foundry**: Administreret enterprise AI-platform med sikkerhed og overholdelse
+- **Vedvarende agenter**: Stateful agenter med samtalehistorik og kontekststyring
+- **Vector Store Management**: Enterprise-grade dokumentindeksering og hentning
+- **Identitetsintegration**: Azure AD-autentifikation og rollebaseret adgangskontrol
 
-### Fordele ved .NET i virksomheder
-- **Type Safety**: Validering af RAG-operationer og datastrukturer ved kompilering
-- **Async Performance**: Ikke-blokerende dokumentbehandling og søgeoperationer
-- **Memory Management**: Effektiv ressourceudnyttelse for store dokumentkollektioner
-- **Integrationsmønstre**: Naturlig integration med Azure-tjenester via dependency injection
+### .NET Enterprise-fordele
+- **Typesikkerhed**: Kompileringstid validering for RAG-operationer og datastrukturer
+- **Async ydeevne**: Ikke-blokerende dokumentbehandling og søgeoperationer
+- **Memory Management**: Effektiv ressourceudnyttelse til store dokumentsamlinger
+- **Integrationsmønstre**: Indbygget Azure tjenesteintegration med dependency injection
 
-## 🏗️ Teknisk Arkitektur
+## 🏗️ Teknisk arkitektur
 
 ### Enterprise RAG Pipeline
 ```
@@ -33,38 +33,38 @@ Document Upload → Security Validation → Vector Processing → Index Creation
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Centrale .NET-komponenter
-- **Azure.AI.Agents.Persistent**: Virksomhedens agentstyring med tilstandspersistens
-- **Azure.Identity**: Integreret autentificering for sikker adgang til Azure-tjenester
-- **Microsoft.Agents.AI.AzureAI**: Azure-optimeret agentframework-implementering
+### Kerne .NET komponenter
+- **Azure.AI.Agents.Persistent**: Enterprise agentstyring med tilstandsparring
+- **Azure.Identity**: Integreret autentifikation til sikker Azure tjenesteadgang
+- **Microsoft.Agents.AI.AzureAI**: Azure-optimeret agent framework-implementering
 - **System.Linq.Async**: Højtydende asynkrone LINQ-operationer
 
-## 🔧 Enterprise Funktioner & Fordele
+## 🔧 Enterprise-funktioner & fordele
 
 ### Sikkerhed & Overholdelse
-- **Azure AD Integration**: Virksomhedens identitetsstyring og autentificering
-- **Rollebaseret adgang**: Finkornede tilladelser til dokumentadgang og operationer
-- **Databeskyttelse**: Kryptering i hvile og under transport for følsomme dokumenter
-- **Audit Logging**: Omfattende aktivitetsregistrering for overholdelseskrav
+- **Azure AD-integration**: Enterprise identitetsstyring og autentifikation
+- **Rollebaseret adgang**: Finmasket tilladelse til dokumentadgang og operationer
+- **Databeskyttelse**: Kryptering i hvile og under transmission for følsomme dokumenter
+- **Audit-logning**: Omfattende aktivitetsregistrering for compliance krav
 
 ### Ydeevne & Skalerbarhed
-- **Connection Pooling**: Effektiv styring af Azure-tjenesteforbindelser
-- **Async Processing**: Ikke-blokerende operationer for scenarier med høj gennemstrømning
-- **Caching Strategies**: Intelligent caching for ofte tilgåede dokumenter
-- **Load Balancing**: Distribueret behandling for store implementeringer
+- **Forbindelsespuljer**: Effektiv Azure tjenesteforbindelsesstyring
+- **Async behandling**: Ikke-blokerende operationer for høj gennemløbsscenarier
+- **Caching-strategier**: Intelligent caching for ofte tilgåede dokumenter
+- **Load balancing**: Distribueret behandling til storskala implementeringer
 
-### Styring & Overvågning
-- **Health Checks**: Indbygget overvågning af RAG-systemkomponenter
-- **Performance Metrics**: Detaljeret analyse af søgekvalitet og svartider
-- **Error Handling**: Omfattende undtagelseshåndtering med genforsøgspolitikker
-- **Configuration Management**: Miljøspecifikke indstillinger med validering
+### Administration & Overvågning
+- **Helbredstjek**: Indbygget overvågning for RAG-systemets komponenter
+- **Ydeevnemålinger**: Detaljeret analyse af søgekvalitet og svartider
+- **Fejlhåndtering**: Omfattende undtagelseshåndtering med retry-politikker
+- **Konfigurationsstyring**: Miljøspecifikke indstillinger med validering
 
 ## ⚙️ Forudsætninger & Opsætning
 
 **Udviklingsmiljø:**
-- .NET 9.0 SDK eller nyere
-- Visual Studio 2022 eller VS Code med C#-udvidelse
-- Azure-abonnement med AI Foundry-adgang
+- .NET 9.0 SDK eller højere
+- Visual Studio 2022 eller VS Code med C# udvidelse
+- Azure abonnement med Microsoft Foundry adgang
 
 **Påkrævede NuGet-pakker:**
 ```xml
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Azure Autentificeringsopsætning:**
+**Azure autentifikationsopsætning:**
 ```bash
-# Install Azure CLI and authenticate
+# Installer Azure CLI og godkend
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Miljøkonfiguration:**
-* Azure AI Foundry-konfiguration (automatisk håndteret via Azure CLI)
-* Sørg for, at du er autentificeret til det korrekte Azure-abonnement
+* Microsoft Foundry konfiguration (håndteres automatisk via Azure CLI)
+* Sørg for, at du er autentificeret til det korrekte Azure abonnement
 
-## 📊 Enterprise RAG Mønstre
+## 📊 Enterprise RAG-mønstre
 
 ### Dokumentstyringsmønstre
-- **Bulk Upload**: Effektiv behandling af store dokumentkollektioner
-- **Incremental Updates**: Realtids tilføjelse og ændring af dokumenter
-- **Version Control**: Dokumentversionering og ændringssporing
+- **Bulk Upload**: Effektiv behandling af store dokumentsamlinger
+- **Inkrementelle opdateringer**: Real-time tilføjelse og ændring af dokumenter
+- **Versionskontrol**: Dokumentversionering og ændringssporing
 - **Metadata Management**: Rige dokumentattributter og taksonomi
 
-### Søge- & Hentemønstre
-- **Hybrid Search**: Kombination af semantisk og nøgleordssøgning for optimale resultater
-- **Faceted Search**: Multidimensionel filtrering og kategorisering
-- **Relevance Tuning**: Tilpassede scoringsalgoritmer til domænespecifikke behov
-- **Result Ranking**: Avanceret rangering med forretningslogik-integration
+### Søge- & Hentningsmønstre
+- **Hybrid søgning**: Kombination af semantisk og søgeordssøgning for optimale resultater
+- **Facetteret søgning**: Multi-dimensionel filtrering og kategorisering
+- **Relevanstilpasning**: Tilpassede scoringsalgoritmer til domænespecifikke behov
+- **Resultat-rangering**: Avanceret rangering med forretningslogik-integration
 
 ### Sikkerhedsmønstre
-- **Document-Level Security**: Finkornet adgangskontrol pr. dokument
-- **Data Classification**: Automatisk følsomhedsmærkning og beskyttelse
+- **Dokumentniveau-sikkerhed**: Finmasket adgangskontrol pr. dokument
+- **Dataklassifikation**: Automatisk følsomhedsmærkning og beskyttelse
 - **Audit Trails**: Omfattende logning af alle RAG-operationer
-- **Privacy Protection**: PII-detektion og redigeringsfunktioner
+- **Privatlivsbeskyttelse**: PII-detektion og redigeringsmuligheder
 
-## 🔒 Enterprise Sikkerhedsfunktioner
+## 🔒 Enterprise-sikkerhedsfunktioner
 
-### Autentificering & Autorisation
+### Autentifikation & Autorisation
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -123,13 +123,13 @@ if (!await ValidateUserPermissions(user, documentId))
 
 ### Databeskyttelse
 - **Kryptering**: End-to-end kryptering for dokumenter og søgeindekser
-- **Adgangskontrol**: Integration med Azure AD for bruger- og gruppeadgang
-- **Data Residency**: Geografisk dataplacering for overholdelse
-- **Backup & Recovery**: Automatiserede backup- og katastrofehåndteringsfunktioner
+- **Adgangskontroller**: Integration med Azure AD til bruger- og gruppetilladelser
+- **Dataresidens**: Geografisk datalokationskontrol for overholdelse
+- **Backup & Recovery**: Automatiserede backup- og katastrofegenopretningsfunktioner
 
 ## 📈 Ydeevneoptimering
 
-### Async Processing Mønstre
+### Async-behandlingsmønstre
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -138,65 +138,65 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 }
 ```
 
-### Memory Management
-- **Streaming Processing**: Håndtering af store dokumenter uden hukommelsesproblemer
-- **Resource Pooling**: Effektiv genbrug af dyre ressourcer
+### Hukommelsesstyring
+- **Streamingbehandling**: Håndter store dokumenter uden hukommelsesproblemer
+- **Ressourcepooling**: Effektiv genbrug af dyre ressourcer
 - **Garbage Collection**: Optimerede hukommelsesallokeringsmønstre
-- **Connection Management**: Korrekt livscyklus for Azure-tjenesteforbindelser
+- **Forbindelsesstyring**: Korrekt Azure tjenesterforbindelses livscyklus
 
-### Caching Strategies
-- **Query Caching**: Cache ofte udførte søgninger
-- **Document Caching**: In-memory caching for populære dokumenter
-- **Index Caching**: Optimeret vektorindekscaching
-- **Result Caching**: Intelligent caching af genererede svar
+### Caching-strategier
+- **Forespørgselscaching**: Cache ofte udførte søgninger
+- **Dokumentcaching**: In-memory caching for varme dokumenter
+- **Indexcaching**: Optimeret vektorindekscaching
+- **Resultatcaching**: Intelligent caching af genererede svar
 
-## 📊 Enterprise Anvendelsesområder
+## 📊 Enterprise Use Cases
 
 ### Vidensstyring
-- **Corporate Wiki**: Intelligent søgning på tværs af virksomhedens vidensbaser
-- **Policy & Procedures**: Automatiseret overholdelse og procedurevejledning
-- **Training Materials**: Intelligent lærings- og udviklingsassistance
-- **Research Databases**: Analyse af akademiske og forskningsartikler
+- **Virksomheds-wiki**: Intelligent søgning på tværs af virksomhedsvidensbaser
+- **Politikker & Procedurer**: Automatiseret compliance og procedurevejledning
+- **Træningsmaterialer**: Intelligente lærings- og udviklingsassistenter
+- **Forskningsdatabaser**: Akademisk og forskningspapiranalyse systemer
 
 ### Kundesupport
-- **Support Knowledge Base**: Automatiserede kundeservice-svar
-- **Produktdokumentation**: Intelligent produktinformationshentning
-- **Fejlfindingsguider**: Kontekstuel problemløsningsassistance
-- **FAQ Systems**: Dynamisk FAQ-generering fra dokumentkollektioner
+- **Supportvidensbase**: Automatiserede kundeserviceresponser
+- **Produktdokumentation**: Intelligent informationshentning for produkter
+- **Fejlfindingvejledninger**: Kontekstuel problemløsningsassistance
+- **FAQ-systemer**: Dynamisk FAQ-generering fra dokumentsamlinger
 
-### Overholdelse af regler
-- **Juridisk dokumentanalyse**: Intelligens for kontrakter og juridiske dokumenter
-- **Compliance Monitoring**: Automatiseret kontrol af regeloverholdelse
-- **Risk Assessment**: Dokumentbaseret risikovurdering og rapportering
-- **Audit Support**: Intelligent dokumentopdagelse til revisioner
+### Regulatorisk overholdelse
+- **Juridisk dokumentanalyse**: Kontrakt- og juridisk dokumentintelligens
+- **Overvågning af compliance**: Automatiseret kontrol af regulatorisk overholdelse
+- **Risikovurdering**: Dokumentbaseret risikoanalyse og rapportering
+- **Revisionsstøtte**: Intelligent dokumentsøgning til revisioner
 
 ## 🚀 Produktionsimplementering
 
-### Overvågning & Synlighed
+### Overvågning & Observabilitet
 - **Application Insights**: Detaljeret telemetri og ydeevneovervågning
-- **Custom Metrics**: Virksomhedsspecifik KPI-sporing og alarmering
-- **Distributed Tracing**: End-to-end anmodningssporing på tværs af tjenester
-- **Health Dashboards**: Realtids visualisering af systemets sundhed og ydeevne
+- **Tilpassede metrics**: Forretningsspecifik KPI-overvågning og alarmer
+- **Distribueret tracing**: End-to-end forespørgsels-sporing på tværs af services
+- **Helbredsoversigter**: Realtids visualisering af systemsundhed og ydeevne
 
 ### Skalerbarhed & Pålidelighed
-- **Auto-Scaling**: Automatisk skalering baseret på belastning og ydeevnemålinger
-- **High Availability**: Multi-region implementering med failover-funktioner
-- **Load Testing**: Ydeevnevalidering under virksomhedens belastningsforhold
-- **Disaster Recovery**: Automatiserede backup- og genoprettelsesprocedurer
+- **Auto-skalering**: Automatisk skalering baseret på belastning og ydeevnemetri
+- **Høj tilgængelighed**: Multiregion-implementering med failover-funktionalitet
+- **Loadtestning**: Ydeevnevalidering under enterprise belastningsforhold
+- **Katastrofegenopretning**: Automatiserede backup- og gendannelsesprocedurer
 
-Klar til at bygge virksomhedsklare RAG-systemer, der kan håndtere følsomme dokumenter i stor skala? Lad os designe intelligente videnssystemer til virksomheder! 🏢📖✨
+Klar til at bygge enterprise-grade RAG-systemer, der kan håndtere følsomme dokumenter i stor skala? Lad os arkitektere intelligente videnssystemer til enterprise! 🏢📖✨
 
 ## Kodeimplementering
 
-Den komplette arbejdskode for denne lektion er tilgængelig i `05-dotnet-agent-framework.cs`. 
+Det komplette fungerende kodeeksempel til denne lektion findes i `05-dotnet-agent-framework.cs`. 
 
 For at køre eksemplet:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Gør scriptet eksekverbart (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Kør .NET Single File App
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Koden demonstrerer:
 
-1. **Pakkeinstallation**: Installation af nødvendige NuGet-pakker til Azure AI Agents
-2. **Miljøkonfiguration**: Indlæsning af Azure AI Foundry-endpoint og modelindstillinger
+1. **Pakkeinstallation**: Installation af nødvendige NuGet-pakker til Azure AI Agenter
+2. **Miljøkonfiguration**: Indlæsning af Microsoft Foundry endpoint- og modelindstillinger
 3. **Dokumentupload**: Upload af et dokument til RAG-behandling
-4. **Vector Store Creation**: Oprettelse af en vektorbutik til semantisk søgning
-5. **Agentkonfiguration**: Opsætning af en AI-agent med filsøgningsfunktioner
-6. **Query Execution**: Udførelse af forespørgsler mod det uploadede dokument
+4. **Vector Store oprettelse**: Oprettelse af en vektorbutik til semantisk søgning
+5. **Agentkonfiguration**: Opsætning af en AI-agent med fil-søgefunktioner
+6. **Forespørgselsudførelse**: Kørsel af forespørgsler mod det uploadede dokument
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal det bemærkes, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,69 +1,69 @@
-# ਮਲਟੀ-ਏਜੰਟ ਐਪਲੀਕੇਸ਼ਨ ਬਣਾਉਣ ਲਈ Microsoft Agent Framework Workflow
+# ਮைகਰੋਸੌਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਵਰਕਫਲੋ ਨਾਲ ਮਲਟੀ-ਏਜੰਟ ਐਪਲੀਕੇਸ਼ਨ ਬਣਾਉਣਾ
 
-ਇਹ ਟਿਊਟੋਰਿਅਲ ਤੁਹਾਨੂੰ Microsoft Agent Framework ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮਲਟੀ-ਏਜੰਟ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਸਮਝਣ ਅਤੇ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੇਗਾ। ਅਸੀਂ ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਦੇ ਮੁੱਖ ਧਾਰਨਾਵਾਂ ਦੀ ਪੜਚੋਲ ਕਰਾਂਗੇ, ਫਰੇਮਵਰਕ ਦੇ Workflow ਕੰਪੋਨੈਂਟ ਦੀ ਆਰਕੀਟੈਕਚਰ ਵਿੱਚ ਡੁੱਬਾਂਗੇ, ਅਤੇ Python ਅਤੇ .NET ਵਿੱਚ ਵੱਖ-ਵੱਖ ਵਰਕਫਲੋ ਪੈਟਰਨ ਦੇ ਪ੍ਰੈਕਟਿਕਲ ਉਦਾਹਰਣਾਂ ਦੇਖਾਂਗੇ।
+ਇਹ ਟਿਊਟੋਰਿਅਲ ਤੁਹਾਨੂੰ ਮਲਟੀ-ਏਜੰਟ ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੂੰ ਸਮਝਣ ਅਤੇ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੇਗਾ Microsoft Agent Framework ਦੀ ਵਰਤੋਂ ਕਰਕੇ। ਅਸੀਂ ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮਾਂ ਦੇ ਮੁੱਖ ਸੰਕਲਪਾਂ ਨੂੰ ਖੰਗਾਲਾਂਗੇ, ਫਰੇਮਵਰਕ ਦੇ ਵਰਕਫਲੋ ਕੰਪੋਨੈਂਟ ਦੀ ਆਰਕੀਟੈਕਚਰ ਵਿੱਚ ਡੁੱਬਾਂਗੇ, ਅਤੇ ਵੱਖ-ਵੱਖ ਵਰਕਫਲੋ ਪੈਟਰਨਾਂ ਲਈ Python ਅਤੇ .NET ਦੋਹਾਂ ਵਿੱਚ ਵਿਹਾਰਕ ਉਦਾਹਰਨਾਂ ਨਾਲ ਚਲਾਂਗੇ।
 
-## 1\. ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਨੂੰ ਸਮਝਣਾ
+## 1\. ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਸਮਝਣਾ
 
-AI Agent ਇੱਕ ਸਿਸਟਮ ਹੈ ਜੋ ਇੱਕ ਸਧਾਰਨ Large Language Model (LLM) ਦੀ ਸਮਰੱਥਾ ਤੋਂ ਅੱਗੇ ਜਾਂਦਾ ਹੈ। ਇਹ ਆਪਣੇ ਵਾਤਾਵਰਣ ਨੂੰ ਸਮਝ ਸਕਦਾ ਹੈ, ਫੈਸਲੇ ਲੈ ਸਕਦਾ ਹੈ, ਅਤੇ ਨਿਰਧਾਰਤ ਲਕਸ਼ਾਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਕਾਰਵਾਈ ਕਰ ਸਕਦਾ ਹੈ। ਇੱਕ ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਵਿੱਚ ਕਈ ਏਜੰਟ ਸ਼ਾਮਲ ਹੁੰਦੇ ਹਨ ਜੋ ਇੱਕ ਅਜਿਹੀ ਸਮੱਸਿਆ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਸਹਿਯੋਗ ਕਰਦੇ ਹਨ ਜੋ ਇੱਕੋ ਏਜੰਟ ਲਈ ਮੁਸ਼ਕਲ ਜਾਂ ਅਸੰਭਵ ਹੋ ਸਕਦੀ ਹੈ।
+ਇੱਕ AI ਏਜੰਟ ਇੱਕ ਸਿਸਟਮ ਹੈ ਜੋ ਇੱਕ ਸਧਾਰਣ ਲਾਰਜ ਲੈਂਗਵੇਜ ਮੌਡਲ (LLM) ਦੀ ਸਮਰੱਥਾ ਤੋਂ ਅੱਗੇ ਵੱਧਦਾ ਹੈ। ਇਹ ਆਪਣੇ ਵਾਤਾਵਰਣ ਨੂੰ ਮਹਿਸੂਸ ਕਰ ਸਕਦਾ ਹੈ, ਫੈਸਲੇ ਲੈ ਸਕਦਾ ਹੈ, ਅਤੇ ਵਿਸ਼ੇਸ਼ ਲਕੜੀਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਕਾਰਵਾਈ ਕਰਦਾ ਹੈ। ਇੱਕ ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਕਈ ਇਨ੍ਹਾਂ ਏਜੰਟਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ ਜੋ ਇੱਕ ਐਸਾ ਸਮੱਸਿਆ ਹੱਲ ਕਰਨ ਲਈ ਮਿਲ ਕੇ ਕੰਮ ਕਰਦੇ ਹਨ ਜੋ ਇੱਕ ਹੀ ਏਜੰਟ ਲਈ ਅਕੇਲਾ ਸੰਭਵ ਜਾਂ ਮੁਸ਼ਕਲ ਹੁੰਦਾ।
 
-### ਆਮ ਐਪਲੀਕੇਸ਼ਨ ਸਥਿਤੀਆਂ
+### ਆਮ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਦ੍ਰਿਸ਼
 
-  * **ਜਟਿਲ ਸਮੱਸਿਆ ਹੱਲ**: ਇੱਕ ਵੱਡੇ ਕੰਮ (ਜਿਵੇਂ ਕਿ ਕੰਪਨੀ-ਵਿਆਪਕ ਇਵੈਂਟ ਦੀ ਯੋਜਨਾ) ਨੂੰ ਛੋਟੇ ਉਪ-ਕੰਮਾਂ ਵਿੱਚ ਵੰਡਣਾ ਜੋ ਵਿਸ਼ੇਸ਼ ਏਜੰਟਾਂ ਦੁਆਰਾ ਸੰਭਾਲੇ ਜਾਂਦੇ ਹਨ (ਜਿਵੇਂ ਕਿ ਬਜਟ ਏਜੰਟ, ਲਾਜਿਸਟਿਕਸ ਏਜੰਟ, ਮਾਰਕੀਟਿੰਗ ਏਜੰਟ)।
-  * **ਵਰਚੁਅਲ ਅਸਿਸਟੈਂਟ**: ਇੱਕ ਪ੍ਰਾਇਮਰੀ ਅਸਿਸਟੈਂਟ ਏਜੰਟ ਜੋ ਸ਼ਡਿਊਲਿੰਗ, ਰਿਸਰਚ, ਅਤੇ ਬੁਕਿੰਗ ਵਰਗੇ ਕੰਮਾਂ ਨੂੰ ਹੋਰ ਵਿਸ਼ੇਸ਼ ਏਜੰਟਾਂ ਨੂੰ ਸੌਂਪਦਾ ਹੈ।
-  * **ਆਟੋਮੈਟਿਕ ਸਮੱਗਰੀ ਬਣਾਉਣਾ**: ਇੱਕ ਵਰਕਫਲੋ ਜਿੱਥੇ ਇੱਕ ਏਜੰਟ ਸਮੱਗਰੀ ਦਾ ਮਸੌਦਾ ਤਿਆਰ ਕਰਦਾ ਹੈ, ਦੂਜਾ ਇਸਨੂੰ ਸਹੀਤਾ ਅਤੇ ਟੋਨ ਲਈ ਸਮੀਖਾ ਕਰਦਾ ਹੈ, ਅਤੇ ਤੀਜਾ ਇਸਨੂੰ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਦਾ ਹੈ।
+  * **ਜਟਿਲ ਸਮੱਸਿਆ ਹੱਲ**: ਵੱਡੇ ਕੰਮ ਨੂੰ (ਜਿਵੇਂ ਕਿ ਕੰਪਨੀ-ਵਿਆਪਕ ਸਮਾਗਮ ਦੀ ਯੋਜਨਾ) ਛੋਟੇ ਉਪ-ਕੰਮਾਂ ਵਿੱਚ ਵੰਡਨਾ ਜੋ ਵਿਸ਼ੇਸ਼ ਐਜੰਟਾਂ ਦੁਆਰਾ ਸੰਭਾਲੇ ਜਾਂਦੇ ਹਨ (ਜਿਵੇਂ ਕਿ ਬਜਟ ਏਜੰਟ, ਲੋਜਿਸਟਿਕਸ ਏਜੰਟ, ਮਾਰਕੀਟਿੰਗ ਏਜੰਟ)।
+  * **ਵਰਚੁਅਲ ਅਸਿਸਟੈਂਟ**: ਇੱਕ ਪ੍ਰਮੁੱਖ ਅਸਿਸਟੈਂਟ ਏਜੰਟ ਜੋ ਨਿਯਮਤ ਤੌਰ ‘ਤੇ ਟਾਸਕਾਂ ਨੂੰ ਮੇਲ-ਜੋਲ ਕਰਦਾ ਹੈ ਜਿਵੇਂ ਕਿ ਸ਼ਡਿਊਲਿੰਗ, ਖੋਜ, ਅਤੇ ਬੁਕਿੰਗ ਹੋਰ ਵਿਸ਼ੇਸ਼ ਐਜੰਟਾਂ ਨੂੰ ਸौंਂਪਦੇ ਹਨ।
+  * **ਆਟੋਮੇਟਿਕ ਸਮੱਗਰੀ ਬਣਾਉਣ**: ਇੱਕ ਵਰਕਫਲੋ ਜਿਸ ਵਿੱਚ ਇੱਕ ਏਜੰਟ ਸਮੱਗਰੀ ਦਾ ਡਰਾਫਟ ਤਿਆਰ ਕਰਦਾ ਹੈ, ਦੂਜਾ ਇਸਦੀ ਸਹੀਤਾ ਅਤੇ ਟੋਨ ਲਈ ਸਮੀਖਿਆ ਕਰਦਾ ਹੈ, ਅਤੇ ਤੀਜਾ ਇਸਨੂੰ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਦਾ ਹੈ।
 
 ### ਮਲਟੀ-ਏਜੰਟ ਪੈਟਰਨ
 
-ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਕਈ ਪੈਟਰਨਾਂ ਵਿੱਚ ਆਯੋਜਿਤ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ, ਜੋ ਇਹ ਨਿਰਧਾਰਤ ਕਰਦੇ ਹਨ ਕਿ ਉਹ ਕਿਵੇਂ ਪਰਸਪਰ ਕਿਰਿਆਸ਼ੀਲ ਹਨ:
+ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮ ਕੁਝ ਪੈਟਰਨਾਂ ਵਿੱਚ ਆਯੋਜਿਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ, ਜੋ ਇਹ ਦਰਸਾਉਂਦਾ ਹੈ ਕਿ ਉਹ ਕਿਵੇਂ ਇੰਟਰਐਕਟ ਕਰਦੇ ਹਨ:
 
-  * **ਲਗਾਤਾਰ**: ਏਜੰਟ ਇੱਕ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕ੍ਰਮ ਵਿੱਚ ਕੰਮ ਕਰਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਇੱਕ ਅਸੈਂਬਲੀ ਲਾਈਨ। ਇੱਕ ਏਜੰਟ ਦਾ ਆਉਟਪੁੱਟ ਅਗਲੇ ਏਜੰਟ ਲਈ ਇਨਪੁੱਟ ਬਣ ਜਾਂਦਾ ਹੈ।
-  * **ਸਮਕਾਲੀ**: ਏਜੰਟ ਇੱਕ ਕੰਮ ਦੇ ਵੱਖ-ਵੱਖ ਹਿੱਸਿਆਂ 'ਤੇ ਇਕੱਠੇ ਕੰਮ ਕਰਦੇ ਹਨ, ਅਤੇ ਅੰਤ ਵਿੱਚ ਉਨ੍ਹਾਂ ਦੇ ਨਤੀਜੇ ਇਕੱਠੇ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
-  * **ਸ਼ਰਤੀ**: ਵਰਕਫਲੋ ਵੱਖ-ਵੱਖ ਰਾਹਾਂ ਦਾ ਪਾਲਣ ਕਰਦਾ ਹੈ ਜੋ ਇੱਕ ਏਜੰਟ ਦੇ ਆਉਟਪੁੱਟ ਦੇ ਅਧਾਰ 'ਤੇ ਹੁੰਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਇੱਕ if-then-else ਬਿਆਨ।
+  * **ਕ੍ਰਮਿਕ (Sequential)**: ਏਜੰਟ ਇਕ ਨਿਰਧਾਰਿਤ ਕ੍ਰਮ ਵਿੱਚ ਕੰਮ ਕਰਦੇ ਹਨ, ਜਿਵੇਂ ਇਕ ਅਸੈਂਬਲੀ ਲਾਈਨ। ਇੱਕ ਏਜੰਟ ਦਾ ਨਤੀਜਾ ਦੂਜੇ ਲਈ ਇਨਪੁੱਟ ਬਣਦਾ ਹੈ।
+  * **ਸਮਕਾਲੀ (Concurrent)**: ਏਜੰਟ ਇਕੋ ਸਮੇਂ ਵੱਖ-ਵੱਖ ਹਿੱਸਿਆਂ ‘ਤੇ ਕੰਮ ਕਰਦੇ ਹਨ, ਅਤੇ ਉਹਨਾਂ ਦੇ ਨਤੀਜੇ ਆਖਿਰ ਵਿੱਚ ਜੋੜੇ ਜਾਂਦੇ ਹਨ।
+  * **ਸ਼ਰਤੀ (Conditional)**: ਵਰਕਫਲੋ ਇੱਕ ਏਜੰਟ ਦੇ ਨਤੀਜੇ ਦੇ ਆਧਾਰ ‘ਤੇ ਵੱਖ-ਵੱਖ ਰਸਤੇ ਫੋਲੋ ਕਰਦਾ ਹੈ, ਇਕ if-then-else ਬਿਆਨ ਵਾਂਗ।
 
-## 2\. Microsoft Agent Framework Workflow ਆਰਕੀਟੈਕਚਰ
+## 2\. ਮਾਇਕਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਵਰਕਫਲੋ ਆਰਕੀਟੈਕਚਰ
 
-Agent Framework ਦਾ ਵਰਕਫਲੋ ਸਿਸਟਮ ਇੱਕ ਅਗਰਗਤੀ ਆਰਕੈਸਟ੍ਰੇਸ਼ਨ ਇੰਜਨ ਹੈ ਜੋ ਕਈ ਏਜੰਟਾਂ ਦੇ ਵਿਚਕਾਰ ਜਟਿਲ ਪਰਸਪਰ ਕਿਰਿਆਸ਼ੀਲਤਾ ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਡਿਜ਼ਾਈਨ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਇੱਕ ਗ੍ਰਾਫ-ਅਧਾਰਿਤ ਆਰਕੀਟੈਕਚਰ 'ਤੇ ਬਣਾਇਆ ਗਿਆ ਹੈ ਜੋ [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ, ਜਿੱਥੇ ਪ੍ਰੋਸੈਸਿੰਗ "supersteps" ਕਹੇ ਜਾਣ ਵਾਲੇ ਸਮਰੂਪਿਤ ਕਦਮਾਂ ਵਿੱਚ ਹੁੰਦੀ ਹੈ।
+ਏਜੰਟ ਫਰੇਮਵਰਕ ਦਾ ਵਰਕਫਲੋ ਸਿਸਟਮ ਇਕ ਉਤਕ੍ਰਿਸ਼ਟ ਓਰਕੈਸਟਰੈਸ਼ਨ ਇੰਜਣ ਹੈ ਜੋ ਕਈ ਏਜੰਟਾਂ ਦਰਮਿਆਨ ਜਟਿਲ ਇੰਟਰੇਕਸ਼ਨਾਂ ਨੂੰ ਸੰਭਾਲਦਾ ਹੈ। ਇਹ ਇੱਕ ਗ੍ਰਾਫ-ਆਧਾਰਤ ਆਰਕੀਟੈਕਚਰ ‘ਤੇ ਅਧਾਰਤ ਹੈ ਜੋ ਇੱਕ [Pregel-ਸ਼ੈਲੀ ਕਾਰਜਨ ਢਾਂਚਾ](https://kowshik.github.io/JPregel/pregel_paper.pdf) ਵਰਤਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਪ੍ਰੋਸੈਸਿੰਗ "ਸੁਪਰਸਟੇਪ" ਕਿਹਾ ਜਾਂਦਾ ਸਮਾਂਨੁਕੂਲ ਕਦਮਾਂ ਵਿੱਚ ਹੁੰਦੀ ਹੈ।
 
-### ਮੁੱਖ ਕੰਪੋਨੈਂਟ
+### ਮੁੱਖ ਭਾਗ
 
-ਆਰਕੀਟੈਕਚਰ ਤਿੰਨ ਮੁੱਖ ਹਿੱਸਿਆਂ 'ਤੇ ਆਧਾਰਿਤ ਹੈ:
+ਆਰਕੀਟੈਕਚਰ ਤਿੰਨ ਮੁੱਖ ਹਿੱਸਿਆਂ ਦਾ ਬਣਿਆ ਹੈ:
 
-1.  **Executors**: ਇਹ ਮੂਲ ਪ੍ਰੋਸੈਸਿੰਗ ਯੂਨਿਟ ਹਨ। ਸਾਡੇ ਉਦਾਹਰਣਾਂ ਵਿੱਚ, `Agent` ਇੱਕ ਕਿਸਮ ਦਾ executor ਹੈ। ਹਰ executor ਵਿੱਚ ਕਈ ਮੈਸੇਜ ਹੈਂਡਲਰ ਹੋ ਸਕਦੇ ਹਨ ਜੋ ਪ੍ਰਾਪਤ ਮੈਸੇਜ ਦੀ ਕਿਸਮ ਦੇ ਅਧਾਰ 'ਤੇ ਸਵੈਚਾਲਿਤ ਤੌਰ 'ਤੇ ਚਲਾਏ ਜਾਂਦੇ ਹਨ।
-2.  **Edges**: ਇਹ ਉਹ ਰਾਹ ਨਿਰਧਾਰਤ ਕਰਦੇ ਹਨ ਜੋ ਮੈਸੇਜ executors ਦੇ ਵਿਚਕਾਰ ਲੈਂਦੇ ਹਨ। Edges ਵਿੱਚ ਸ਼ਰਤਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜੋ ਵਰਕਫਲੋ ਗ੍ਰਾਫ ਦੇ ਰਾਹੀਂ ਜਾਣਕਾਰੀ ਦੇ ਗਤੀਮਾਨ ਰੂਟਿੰਗ ਦੀ ਆਗਿਆ ਦਿੰਦੇ ਹਨ।
-3.  **Workflow**: ਇਹ ਕੰਪੋਨੈਂਟ ਪੂਰੇ ਪ੍ਰਕਿਰਿਆ ਦਾ ਆਰਕੈਸਟ੍ਰੇਸ਼ਨ ਕਰਦਾ ਹੈ, executors, edges, ਅਤੇ ਕੁੱਲ execution ਦੇ ਪ੍ਰਵਾਹ ਨੂੰ ਸੰਭਾਲਦਾ ਹੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਮੈਸੇਜ ਸਹੀ ਕ੍ਰਮ ਵਿੱਚ ਪ੍ਰੋਸੈਸ ਕੀਤੇ ਜਾਂਦੇ ਹਨ ਅਤੇ observability ਲਈ ਇਵੈਂਟਾਂ ਨੂੰ ਸਟ੍ਰੀਮ ਕਰਦਾ ਹੈ।
+1.  **ਐਕਜ਼ਿਕਿਊਟਰ**: ਇਹ ਮੂਲ ਪ੍ਰੋਸੈਸਿੰਗ ਯੂਨਿਟ ਹੁੰਦੇ ਹਨ। ਸਾਡੇ ਉਦਾਹਰਣ ਵਿੱਚ, ਇੱਕ `Agent` ਇੱਕ ਰੂਪ ਦਾ ਐਕਜ਼ਿਕਿਊਟਰ ਹੁੰਦਾ ਹੈ। ਹਰ ਐਕਜ਼ਿਕਿਊਟਰ ਕੋਲ ਕਈ ਮੈਸੇਜ ਹੈਂਡਲਰ ਹੋ ਸਕਦੇ ਹਨ ਜੋ ਪ੍ਰਾਪਤ ਮੈਸੇਜ ਦੀ ਕਿਸਮ ਅਨੁਸਾਰ ਆਪਮੈਤ ਤੌਰ ‘ਤੇ ਕੰਮ ਕਰਦੇ ਹਨ।
+2.  **ਏਜ**: ਇਹ ਪਰਿਵਹਨ ਰਸਤੇ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦੇ ਹਨ ਜੋ ਐਕਜ਼ਿਕਿਊਟਰਾਂ ਦੇ ਵਿਚਕਾਰ ਸੰਦੇਸ਼ ਲੈਂਦੇ ਹਨ। ਏਜਾਂ ਕੋਲ ਸ਼ਰਤਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜੋ ਵਰਕਫਲੋ ਗ੍ਰਾਫ ਵਿੱਚ ਜਾਣਕਾਰੀ ਦੇ ਗਤੀਵਿਧੀ ਲੋੜਾਂ ਮੁਤਾਬਕ ਆਵਾਜਾਈ ਕਰਦੀਆਂ ਹਨ।
+3.  **ਵਰਕਫਲੋ**: ਇਹ ਪੂਰੇ ਪ੍ਰਕਿਰਿਆ ਦੀ ਓਰਕੈਸਟਰਿੰਗ ਕਰਦਾ ਹੈ, ਐਕਜ਼ਿਕਿਊਟਰਾਂ, ਏਜਾਂ, ਅਤੇ ਸਮੂਹ ਵਰਤੋਂ ਨੂੰ ਸੰਭਾਲਦਾ ਹੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਮੈਸੇਜ ਸਹੀ ਕ੍ਰਮ ਵਿੱਚ ਪ੍ਰਕਿਰਿਆ ਕੀਤੇ ਜਾਂਦੇ ਹਨ ਅਤੇ ਮੌਨੀਟਰਿੰਗ ਲਈ ਇਹ ਵਾਰਦਾਤਾਂ ਨੂੰ ਸਟ੍ਰੀਮ ਕਰਦਾ ਹੈ।
 
-*ਵਰਕਫਲੋ ਸਿਸਟਮ ਦੇ ਮੁੱਖ ਕੰਪੋਨੈਂਟਾਂ ਨੂੰ ਦਰਸਾਉਣ ਵਾਲਾ ਇੱਕ ਡਾਇਗ੍ਰਾਮ।*
+*ਵਰਕਫਲੋ ਸਿਸਟਮ ਦੇ ਮੁੱਖ ਭਾਗਾਂ ਨੂੰ ਦਰਸਾਉਂਦਾ ਇੱਕ ਡਾਇਗ੍ਰਾਮ।*
 
-ਇਹ ਸੰਰਚਨਾ ਲਗਾਤਾਰ ਚੇਨ, ਸਮਕਾਲੀ ਪ੍ਰੋਸੈਸਿੰਗ ਲਈ fan-out/fan-in, ਅਤੇ ਸ਼ਰਤੀ ਪ੍ਰਵਾਹਾਂ ਲਈ switch-case ਲਾਜਿਕ ਵਰਗੇ ਮੁੱਢਲੇ ਪੈਟਰਨਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮਜ਼ਬੂਤ ਅਤੇ ਸਕੇਲਬਲ ਐਪਲੀਕੇਸ਼ਨ ਬਣਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ।
+ਇਹ ਢਾਂਚਾ ਮੂਲ ਪੈਟਰਨਾਂ ਵਰਗੇ ਕਿ੍ਰਮਿਕ ਚੇਨ, ਫੈਨ-ਆਉਟ/ਫੈਨ-ਇਨ ਪੈਰੈਲਲ ਪ੍ਰੋਸੈਸਿੰਗ ਲਈ, ਅਤੇ ਸ਼ਰਤੀ ਫਲੋਜ਼ ਲਈ ਸੁਵਿੱਚ-ਕੇਸ ਲਾਜਿਕ ਵਰਗੇ ਮਜ਼ਬੂਤ ਅਤੇ ਸਕੇਲਬਲ ਐਪਲੀਕੇਸ਼ਨ ਬਣਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।
 
-## 3\. ਪ੍ਰੈਕਟਿਕਲ ਉਦਾਹਰਣ ਅਤੇ ਕੋਡ ਵਿਸ਼ਲੇਸ਼ਣ
+## 3\. ਵਿਹਾਰਕ ਉਦਾਹਰਨ ਅਤੇ ਕੋਡ ਵਿਸ਼ਲੇਸ਼ਣ
 
-ਹੁਣ, ਆਓ ਫਰੇਮਵਰਕ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਵੱਖ-ਵੱਖ ਵਰਕਫਲੋ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਦੇ ਤਰੀਕੇ ਦੀ ਪੜਚੋਲ ਕਰੀਏ। ਅਸੀਂ ਹਰ ਉਦਾਹਰਣ ਲਈ Python ਅਤੇ .NET ਕੋਡ ਦੇਖਾਂਗੇ।
+ਹੁਣ ਅਸੀਂ ਵੇਖਾਂਗੇ ਕਿਵੇਂ ਵੱਖ-ਵੱਖ ਵਰਕਫਲੋ ਪੈਟਰਨਾਂ ਨੂੰ ਫਰੇਮਵਰਕ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਲਾਗੂ ਕੀਤਾ ਜਾਵੇ। ਅਸੀਂ ਹਰ ਉਦਾਹਰਨ ਲਈ Python ਅਤੇ .NET ਕੋਡ ਨੂੰ ਵੇਖਾਂਗੇ।
 
-### ਕੇਸ 1: ਬੇਸਿਕ ਲਗਾਤਾਰ ਵਰਕਫਲੋ
+### ਮਾਮਲਾ 1: ਬੁਨਿਆਦੀ ਕ੍ਰਮਿਕ ਵਰਕਫਲੋ
 
-ਇਹ ਸਭ ਤੋਂ ਸਧਾਰਨ ਪੈਟਰਨ ਹੈ, ਜਿੱਥੇ ਇੱਕ ਏਜੰਟ ਦਾ ਆਉਟਪੁੱਟ ਸਿੱਧੇ ਦੂਜੇ ਨੂੰ ਪਾਸ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਸਾਡਾ ਸਥਿਤੀਕਰਣ ਇੱਕ ਹੋਟਲ `FrontDesk` ਏਜੰਟ ਨੂੰ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ ਜੋ ਯਾਤਰਾ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ, ਜਿਸਨੂੰ ਫਿਰ ਇੱਕ `Concierge` ਏਜੰਟ ਦੁਆਰਾ ਸਮੀਖਿਆ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।
+ਇਹ ਸਭ ਤੋਂ ਸਧਾਰਣ ਪੈਟਰਨ ਹੈ, ਜਿੱਥੇ ਇੱਕ ਏਜੰਟ ਦਾ ਨਤੀਜਾ ਸਿੱਧਾ ਦੂਜੇ ਵਲ ਪਾਸ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਸਾਡਾ ਪਰਿਦ੍ਰਿਸ਼ਟ ਇੱਕ ਹੋਟਲ `FrontDesk` ਏਜੰਟ ਹੈ ਜੋ ਯਾਤਰਾ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ, ਜਿਸ ਨੂੰ ਬਾਅਦ ਵਿੱਚ `Concierge` ਏਜੰਟ ਦੁਆਰਾ ਸਮੀਖਿਆ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।
 
-*ਬੇਸਿਕ FrontDesk -> Concierge ਵਰਕਫਲੋ ਦਾ ਡਾਇਗ੍ਰਾਮ।*
+*ਮੂਲ FrontDesk -> Concierge ਵਰਕਫਲੋ ਦਾ ਡਾਇਗ੍ਰਾਮ।*
 
-#### ਸਥਿਤੀ ਪਿਛੋਕੜ
+#### ਪਿਛੋਕੜ
 
-ਇੱਕ ਯਾਤਰੀ ਪੈਰਿਸ ਵਿੱਚ ਸਿਫਾਰਸ਼ ਲਈ ਪੁੱਛਦਾ ਹੈ।
+ਇੱਕ ਯਾਤਰੀ ਪੈਰਿਸ ਵਿੱਚ ਸਿਫਾਰਸ਼ ਮੰਗਦਾ ਹੈ।
 
-1.  `FrontDesk` ਏਜੰਟ, ਜੋ ਸੰਖੇਪਤਾ ਲਈ ਡਿਜ਼ਾਈਨ ਕੀਤਾ ਗਿਆ ਹੈ, ਲੂਵਰ ਮਿਊਜ਼ੀਅਮ ਦਾ ਦੌਰਾ ਕਰਨ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ।
-2.  `Concierge` ਏਜੰਟ, ਜੋ ਪ੍ਰਮਾਣਿਕ ਅਨੁਭਵਾਂ ਨੂੰ ਤਰਜੀਹ ਦਿੰਦਾ ਹੈ, ਇਸ ਸਿਫਾਰਸ਼ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ। ਇਹ ਸਿਫਾਰਸ਼ ਦੀ ਸਮੀਖਿਆ ਕਰਦਾ ਹੈ ਅਤੇ ਇੱਕ ਹੋਰ ਸਥਾਨਕ, ਘੱਟ ਸੈਲਾਨੀ-ਪਸੰਦੀਦਾ ਵਿਕਲਪ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ।
+1.  `FrontDesk` ਏਜੰਟ, ਜੋ ਸੰਖੇਪ ਲਈ ਡਿਜ਼ਾਈਨ ਕੀਤਾ ਗਿਆ ਹੈ, ਲੂਵਰ ਮਿਊਜੀਅਮ ਵਿਚ ਜਾਉਣ ਦੀ ਸਿਫਾਰਸ਼ ਦਿੰਦਾ ਹੈ।
+2.  `Concierge` ਏਜੰਟ, ਜੋ ਅਸਲੀ ਅਨੁਭਵਾਂ ਨੂੰ ਤਰਜੀਹ ਦਿੰਦਾ ਹੈ, ਇਸ ਸਿਫਾਰਸ਼ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ। ਇਹ ਸਿਫਾਰਸ਼ ਦੀ ਸਮੀਖਿਆ ਕਰਦਾ ਹੈ ਅਤੇ ਫੀਡਬੈਕ ਦਿੰਦਾ ਹੈ, ਜੋ ਇੱਕ ਹੋਰ ਸਥਾਨਕ, ਕਮ ਘੂਮਣ-ਫਿਰਣ ਵਾਲਾ ਵਿਕਲਪ ਸੁਝਾਉਂਦਾ ਹੈ।
 
-#### Python Implementation Analysis
+#### Python ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-Python ਉਦਾਹਰਣ ਵਿੱਚ, ਅਸੀਂ ਪਹਿਲਾਂ ਦੋ ਏਜੰਟਾਂ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਅਤੇ ਬਣਾਉਂਦੇ ਹਾਂ, ਹਰ ਇੱਕ ਨੂੰ ਵਿਸ਼ੇਸ਼ ਹਦਾਇਤਾਂ ਦੇ ਨਾਲ।
+Python ਉਦਾਹਰਨ ਵਿੱਚ ਅਸੀਂ ਪਹਿਲਾਂ ਦੋ ਏਜੰਟ ਪਰਿਭਾਸ਼ਿਤ ਅਤੇ ਬਣਾਉਂਦੇ ਹਾਂ, ਹਰ ਇੱਕ ਖ਼ਾਸ ਹੁਕਮਾਂ ਨਾਲ।
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# ਏਜੰਟ ਦੇ ਭੂਮਿਕਾਵਾਂ ਅਤੇ ਹਦਾਇਤਾਂ ਪਰਿਭਾਸ਼ਿਤ ਕਰੋ
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# ਏਜੰਟ ਉਦਾਹਰਨਾਂ ਬਣਾਓ
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-ਅਗਲੇ, `WorkflowBuilder` ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਗ੍ਰਾਫ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ। `front_desk_agent` ਨੂੰ ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ ਵਜੋਂ ਸੈਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਅਤੇ ਇਸਦੇ ਆਉਟਪੁੱਟ ਨੂੰ `reviewer_agent` ਨਾਲ ਜੋੜਨ ਲਈ edge ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ।
+ਅਗਲਾ, `WorkflowBuilder` ਨਾਲ ਗ੍ਰਾਫ ਬਣਾਈਏ। `front_desk_agent` ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ ਵਜੋਂ ਸੈੱਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਅਤੇ ਇੱਕ ਏਜ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ ਜੋ ਇਸ ਦਾ ਨਤੀਜਾ `reviewer_agent` ਨੂੰ ਜੋੜਦਾ ਹੈ।
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-ਅੰਤ ਵਿੱਚ, ਵਰਕਫਲੋ ਨੂੰ ਸ਼ੁਰੂਆਤੀ ਯੂਜ਼ਰ ਪ੍ਰੰਪਟ ਨਾਲ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ।
+ਅੰਤ 'ਚ ਵਰਕਫਲੋ ਮੂਲ ਯੂਜ਼ਰ ਪ੍ਰੰਪਟ ਨਾਲ ਚਲਾਈ ਜਾਂਦੀ ਹੈ।
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run ਵਰਕਫਲੋ ਚਲਾਉਂਦਾ ਹੈ; get_outputs() ਆਉਟਪੁੱਟ ਐਕਸਿਕਿਊਟਰ ਦਾ ਨਤੀਜਾ ਵਾਪਸ ਕਰਦਾ ਹੈ।
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C#) Implementation Analysis
+#### .NET (C#) ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-.NET ਲਾਗੂਕਰਨ ਬਹੁਤ ਹੀ ਸਮਾਨ ਤਰਕ ਦੀ ਪਾਲਣਾ ਕਰਦਾ ਹੈ। ਪਹਿਲਾਂ, ਏਜੰਟਾਂ ਦੇ ਨਾਮ ਅਤੇ ਹਦਾਇਤਾਂ ਲਈ constants ਪਰਿਭਾਸ਼ਿਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
+.NET ਲਾਗੂ ਕਰਨ ਵੱਡੇ ਪੱਧਰ ‘ਤੇ ਸਮਾਨ ਤਰਤੀਬ ਨਾਲ ਹੁੰਦਾ ਹੈ। ਪਹਿਲਾਂ ਏਜੰਟਾਂ ਦੇ ਨਾਮ ਅਤੇ ਹੁਕਮਾਂ ਲਈ ਕਾਂਸਟੈਂਟ ਡਿਫਾਈਨ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-`OpenAIClient` ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਏਜੰਟ ਬਣਾਏ ਜਾਂਦੇ ਹਨ, ਅਤੇ ਫਿਰ `WorkflowBuilder` ਲਗਾਤਾਰ ਪ੍ਰਵਾਹ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦਾ ਹੈ, `frontDeskAgent` ਤੋਂ `reviewerAgent` ਤੱਕ edge ਜੋੜਦਾ ਹੈ।
+ਏਜੰਟ `AzureOpenAIClient` (Responses API) ਦੀ ਵਰਤੋਂ ਨਾਲ ਬਣਾਏ ਜਾਂਦੇ ਹਨ, ਅਤੇ ਫਿਰ `WorkflowBuilder` ਕ੍ਰਮਿਕ ਅਨੁਕ੍ਰਮ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦਾ ਹੈ ਜਿਸ ਵਿੱਚ `frontDeskAgent` ਤੋਂ `reviewerAgent` ਲਈ ਏਜ ਜੋੜੀ ਜਾਂਦੀ ਹੈ।
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-ਵਰਕਫਲੋ ਫਿਰ ਯੂਜ਼ਰ ਦੇ ਸੁਨੇਹੇ ਨਾਲ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ, ਅਤੇ ਨਤੀਜੇ ਸਟ੍ਰੀਮ ਵਾਪਸ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
+ਵਰਕਫਲੋ ਨੂੰ ਯੂਜ਼ਰ ਦੀ ਸੁਨੇਹਾ ਨਾਲ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ, ਅਤੇ ਨਤੀਜੇ ਵਾਪਸ ਸਟ੍ਰੀਮ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
 
-### ਕੇਸ 2: ਮਲਟੀ-ਸਟੈਪ ਲਗਾਤਾਰ ਵਰਕਫਲੋ
+### ਮਾਮਲਾ 2: ਬਹੁ-ਕਦਮੀ ਕ੍ਰਮਿਕ ਵਰਕਫਲੋ
 
-ਇਹ ਪੈਟਰਨ ਬੇਸਿਕ ਲਗਾਤਾਰ ਕ੍ਰਮ ਨੂੰ ਹੋਰ ਏਜੰਟਾਂ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਵਧਾਉਂਦਾ ਹੈ। ਇਹ ਪ੍ਰਕਿਰਿਆਵਾਂ ਲਈ ਆਦਰਸ਼ ਹੈ ਜੋ ਕਈ ਪੜਾਅ ਦੇ ਸੁਧਾਰ ਜਾਂ ਰੂਪਾਂਤਰਨ ਦੀ ਲੋੜ ਰੱਖਦੇ ਹਨ।
+ਇਹ ਪੈਟਰਨ ਬੁਨਿਆਦੀ ਕ੍ਰਮ ਨੂੰ ਵੱਧ ਏਜੰਟਾਂ ਨਾਲ ਵਧਾਉਂਦਾ ਹੈ। ਇਹ ਉਹਨਾਂ ਪ੍ਰਕਿਰਿਆਵਾਂ ਲਈ ਸੁਧਾਰਤ ਹੈ ਜਿੱਥੇ ਕਈ ਪੜਾਵਾਂ ਦੀ ਬਦਲਾਵ ਜਾਂ ਰੂਪਾਂਤਰਣ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।
 
-#### ਸਥਿਤੀ ਪਿਛੋਕੜ
+#### ਪਿਛੋਕੜ
 
-ਇੱਕ ਯੂਜ਼ਰ ਲਿਵਿੰਗ ਰੂਮ ਦੀ ਇੱਕ ਤਸਵੀਰ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ ਅਤੇ ਫਰਨੀਚਰ ਕੋਟ ਦੀ ਮੰਗ ਕਰਦਾ ਹੈ।
+ਇੱਕ ਯੂਜ਼ਰ ਇੱਕ ਲਿਵਿੰਗ ਰੂਮ ਦੀ ਤਸਵੀਰ ਦਿੰਦਾ ਹੈ ਅਤੇ ਫਰਨੀਚਰ ਦਾ ਕੋਟ ਮੰਗਦਾ ਹੈ।
 
-1.  **Sales-Agent**: ਤਸਵੀਰ ਵਿੱਚ ਫਰਨੀਚਰ ਆਈਟਮਾਂ ਦੀ ਪਛਾਣ ਕਰਦਾ ਹੈ ਅਤੇ ਇੱਕ ਸੂਚੀ ਬਣਾਉਂਦਾ ਹੈ।
-2.  **Price-Agent**: ਆਈਟਮਾਂ ਦੀ ਸੂਚੀ ਲੈਂਦਾ ਹੈ ਅਤੇ ਬਜਟ, ਮਿਡ-ਰੇਂਜ, ਅਤੇ ਪ੍ਰੀਮੀਅਮ ਵਿਕਲਪਾਂ ਸਮੇਤ ਵਿਸਤ੍ਰਿਤ ਕੀਮਤ ਵਿਸ਼ਲੇਸ਼ਣ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।
-3.  **Quote-Agent**: ਕੀਮਤ ਵਾਲੀ ਸੂਚੀ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ Markdown ਵਿੱਚ ਇੱਕ ਅਧਿਕਾਰਕ ਕੋਟ ਦਸਤਾਵੇਜ਼ ਵਿੱਚ ਫਾਰਮੈਟ ਕਰਦਾ ਹੈ।
+1.  **Sales-Agent**: ਤਸਵੀਰ ਵਿੱਚ ਫਰਨੀਚਰ ਦੀਆਂ ਚੀਜ਼ਾਂ ਪਛਾਣਦਾ ਹੈ ਅਤੇ ਇੱਕ ਸੂਚੀ ਬਣਾਉਂਦਾ ਹੈ।
+2.  **Price-Agent**: ਚੀਜ਼ਾਂ ਦੀ ਸੂਚੀ ਲੈਂਦਾ ਹੈ ਅਤੇ ਬਜਟ, ਮਿੱਡ-ਰੇਂਜ, ਅਤੇ ਪ੍ਰੀਮੀਅਮ ਵਿਕਲਪਾਂ ਸਮੇਤ ਵਿਸਥਾਰਿਤ ਕੀਮਤ ਵੰਡ ਦਿੰਦਾ ਹੈ।
+3.  **Quote-Agent**: ਕੀਮਤ ਵਾਲੀ ਸੂਚੀ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਮਾਰਕਡਾਊਨ ਵਿੱਚ ਆਧਿਕਾਰਿਕ ਕੋਟ ਦਸਤਾਵੇਜ਼ ਵਿੱਚ ਫਾਰਮੈਟ ਕਰਦਾ ਹੈ।
 
 *Sales -> Price -> Quote ਵਰਕਫਲੋ ਦਾ ਡਾਇਗ੍ਰਾਮ।*
 
-#### Python Implementation Analysis
+#### Python ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-ਤਿੰਨ ਏਜੰਟ ਪਰਿਭਾਸ਼ਿਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ, ਹਰ ਇੱਕ ਵਿਸ਼ੇਸ਼ ਭੂਮਿਕਾ ਦੇ ਨਾਲ। ਵਰਕਫਲੋ `add_edge` ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕ ਚੇਨ ਬਣਾਉਂਦਾ ਹੈ: `sales_agent` -> `price_agent` -> `quote_agent`।
+ਤਿੰਨ ਏਜੰਟ ਪਰਿਭਾਸ਼ਿਤ ਹਨ, ਹਰ ਇੱਕ ਖ਼ਾਸ ਭੂਮਿਕਾ ਨਾਲ। ਵਰਕਫਲੋ ਨੂੰ `add_edge` ਵਰਤ ਕੇ ਚੇਨ ਬਣਾਈ ਗਈ ਹੈ: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# ਤਿੰਨ ਵਿਸ਼ੇਸ਼ ਏਜੰਟ ਬਣਾਓ
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# ਕ੍ਰਮਵਾਰ ਵਰਕਫ਼ਲੋ ਬਣਾਓ
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-ਇਨਪੁੱਟ ਇੱਕ `ChatMessage` ਹੈ ਜੋ ਟੈਕਸਟ ਅਤੇ ਤਸਵੀਰ URI ਦੋਨੋ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ। ਫਰੇਮਵਰਕ ਹਰ ਏਜੰਟ ਦੇ ਆਉਟਪੁੱਟ ਨੂੰ ਲਗਾਤਾਰ ਅਗਲੇ ਵਿੱਚ ਪਾਸ ਕਰਦਾ ਹੈ ਜਦੋਂ ਤੱਕ ਅੰਤਮ ਕੋਟ ਤਿਆਰ ਨਹੀਂ ਹੁੰਦਾ।
+ਇਨਪੁੱਟ ਇੱਕ `ChatMessage` ਹੈ ਜੋ ਟੈਕਸਟ ਅਤੇ ਤਸਵੀਰ URI ਦੋਹਾਂ ਸ਼ਾਮਲ ਹੈ। ਫਰੇਮਵਰਕ ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਹਰ ਏਜੰਟ ਦੇ ਨਤੀਜੇ ਅਗਲੇ ਨੂੰ ਕ੍ਰਮ ਵਿੱਚ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ ਜਦ ਤੱਕ ਆਖਰੀ ਕੋਟ ਤਿਆਰ ਨਹੀਂ ਹੁੰਦੀ।
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# ਉਪਭੋਗਤਾ ਸੁਨੇਹਾ ਵਿਚ ਦੋਹਾਂ ਲਿਖਤ ਅਤੇ ਇੱਕ ਚਿੱਤਰ ਸ਼ਾਮਲ ਹੈ
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# ਵਰਕਫਲੋ ਚਲਾਓ
+events = await workflow.run(message)
 ```
 
-#### .NET (C#) Implementation Analysis
+#### .NET (C#) ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-.NET ਉਦਾਹਰਣ Python ਵਰਜਨ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ। ਤਿੰਨ ਏਜੰਟ (`salesagent`, `priceagent`, `quoteagent`) ਬਣਾਏ ਜਾਂਦੇ ਹਨ। `WorkflowBuilder` ਉਨ੍ਹਾਂ ਨੂੰ ਲਗਾਤਾਰ ਜੋੜਦਾ ਹੈ।
+.NET ਉਦਾਹਰਨ Python ਵਰਜਨ ਦੇ ਸਮਾਨ ਹੈ। ਤਿੰਨ ਏਜੰਟ (`salesagent`, `priceagent`, `quoteagent`) ਬਣਾਏ ਜਾਂਦੇ ਹਨ। `WorkflowBuilder` ਉਨ੍ਹਾਂ ਨੂੰ ਕ੍ਰਮਿਕ ਤੌਰ ‘ਤੇ ਜੋੜਦਾ ਹੈ।
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-ਯੂਜ਼ਰ ਦਾ ਸੁਨੇਹਾ ਤਸਵੀਰ ਡਾਟਾ (bytes ਵਜੋਂ) ਅਤੇ ਟੈਕਸਟ ਪ੍ਰੰਪਟ ਦੋਨੋ ਦੇ ਨਾਲ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ। `InProcessExecution.StreamAsync` ਵਿਧੀ ਵਰਕਫਲੋ ਸ਼ੁਰੂ ਕਰਦੀ ਹੈ, ਅਤੇ ਅੰਤਮ ਆਉਟਪੁੱਟ ਸਟ੍ਰੀਮ ਤੋਂ ਕੈਪਚਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।
+ਯੂਜ਼ਰ ਦਾ ਸੁਨੇਹਾ ਤਸਵੀਰ ਦੇ ਡੇਟਾ (ਬਾਈਟਸ ਵਜੋਂ) ਅਤੇ ਟੈਕਸਟ ਪ੍ਰੰਪਟ ਦੋਹਾਂ ਦੇ ਨਾਲ ਤਿਆਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। `InProcessExecution.RunStreamingAsync` ਵਰਕਫਲੋ ਨੂੰ ਸ਼ੁਰੂ ਕਰਦਾ ਹੈ, ਅਤੇ ਆਖਰੀ ਨਤੀਜਾ ਸਟ੍ਰੀਮ ਤੋਂ ਕੈਪਚਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।
 
-### ਕੇਸ 3: ਸਮਕਾਲੀ ਵਰਕਫਲੋ
+### ਮਾਮਲਾ 3: ਸਮਕਾਲੀ ਵਰਕਫਲੋ
 
-ਇਹ ਪੈਟਰਨ ਉਸ ਸਮੇਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਜਦੋਂ ਕੰਮ ਇਕੱਠੇ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ ਤਾਂ ਕਿ ਸਮਾਂ ਬਚਾਇਆ ਜਾ ਸਕੇ। ਇਹ "fan-out" ਨੂੰ ਕਈ ਏਜੰਟਾਂ ਵੱਲ ਅਤੇ "fan-in" ਨੂੰ ਨਤੀਜਿਆਂ ਨੂੰ ਇਕੱਠਾ ਕਰਨ ਲਈ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ।
+ਇਹ ਪੈਟਰਨ ਉਸ ਵੇਲੇ ਵਰਤੀ ਜਾਂਦੀ ਹੈ ਜਦ ਟਾਸਕ ਇਕੱਠੇ ਕੀਤੇ ਜਾਂ ਸਕਦੇ ਹਨ ਤਾਂ ਜੋ ਸਮਾਂ ਬਚਾਇਆ ਜਾ ਸਕੇ। ਇਹ "ਫੈਨ-ਆਉਟ" ਪਹੁੰਚ ਨੂੰ ਕਈ ਏਜੰਟਾਂ ਵੱਲ ਜਾਂਦਾ ਹੈ ਅਤੇ "ਫੈਨ-ਇਨ" ਨਾਲ ਨਤੀਜੇ ਇਕੱਠੇ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
 
-#### ਸਥਿਤੀ ਪਿਛੋਕੜ
+#### ਪਿਛੋਕੜ
 
-ਇੱਕ ਯੂਜ਼ਰ ਸਿਆਟਲ ਦੀ ਯਾਤਰਾ ਦੀ ਯੋਜਨਾ ਬਣਾਉਣ ਲਈ ਪੁੱਛਦਾ ਹੈ।
+ਇੱਕ ਯੂਜ਼ਰ ਸਿਏਟਲ ਯਾਤਰਾ ਦੀ ਯੋਜਨਾ ਬਨਾਉਣ ਲਈ ਕਹਿੰਦਾ ਹੈ।
 
-1.  **Dispatcher (Fan-Out)**: ਯੂਜ਼ਰ ਦੀ ਬੇਨਤੀ ਇੱਕ ਸਮੇਂ ਵਿੱਚ ਦੋ ਏਜੰਟਾਂ ਨੂੰ ਭੇਜੀ ਜਾਂਦੀ ਹੈ।
-2.  **Researcher-Agent**: ਸਿਆਟਲ ਵਿੱਚ ਦਸੰਬਰ ਵਿੱਚ ਯਾਤਰਾ ਲਈ ਆਕਰਸ਼ਣ, ਮੌਸਮ, ਅਤੇ ਮੁੱਖ ਵਿਚਾਰਾਂ ਦੀ ਖੋਜ ਕਰਦਾ ਹੈ।
-3.  **Plan-Agent**: ਸਵਤੰਤਰ ਤੌਰ 'ਤੇ ਇੱਕ ਵਿਸਤ੍ਰਿਤ ਦਿਨ-ਦਰ-ਦਿਨ ਯਾਤਰਾ ਯੋਜਨਾ ਬਣਾਉਂਦਾ ਹੈ।
-4.  **Aggregator (Fan-In)**: researcher ਅਤੇ planner ਤੋਂ ਆਉਟਪੁੱਟ ਇਕੱਠਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਅੰਤਮ ਨਤੀਜੇ ਵਜੋਂ ਪੇਸ਼ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।
+1.  **Dispatcher (Fan-Out)**: ਯੂਜ਼ਰ ਦੀ ਅਰਜ਼ੀ ਇੱਕੋ ਸਮੇਂ ਦੋ ਏਜੰਟਾਂ ਨੂੰ ਭੇਜੀ ਜਾਂਦੀ ਹੈ।
+2.  **Researcher-Agent**: ਸਿਏਟਲ ਵਿੱਚ ਦਸੰਬਰ ਦੀ ਯਾਤਰਾ ਲਈ ਆਕਰਸ਼ਣ, ਮੌਸਮ, ਅਤੇ ਮੁੱਖ ਗੱਲਾਂ ਦੀ ਖੋਜ ਕਰਦਾ ਹੈ।
+3.  **Plan-Agent**: ਸੁਤੰਤਰ ਤੌਰ ‘ਤੇ ਦਿਨ ਦਰ ਦਿਨ ਯਾਤਰਾ ਯੋਜਨਾ ਤਿਆਰ ਕਰਦਾ ਹੈ।
+4.  **Aggregator (Fan-In)**: ਦੋਹਾਂ ਰਿਸਰਚਰ ਅਤੇ ਯੋਜਨਾਕਾਰ ਦੇ ਨਤੀਜੇ ਇਕੱਠੇ ਕਰਕੇ ਅੰਤਿਮ ਨਤੀਜਾ ਤਿਆਰ ਕਰਦਾ ਹੈ।
 
 *Concurrent Researcher ਅਤੇ Planner ਵਰਕਫਲੋ ਦਾ ਡਾਇਗ੍ਰਾਮ।*
 
-#### Python Implementation Analysis
+#### Python ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-`ConcurrentBuilder` ਇਸ ਪੈਟਰਨ ਦੀ ਰਚਨਾ ਨੂੰ ਸਧਾਰਨ ਬਣਾਉਂਦਾ ਹੈ। ਤੁਸੀਂ ਸਿਰਫ਼ ਭਾਗੀਦਾਰ ਏਜੰਟਾਂ ਦੀ ਸੂਚੀ ਦਿੰਦੇ ਹੋ, ਅਤੇ builder ਸਵੈਚਾਲਿਤ ਤੌਰ 'ਤੇ ਜ਼ਰੂਰੀ fan-out ਅਤੇ fan-in ਲਾਜਿਕ ਬਣਾਉਂਦਾ ਹੈ।
+`ConcurrentBuilder` ਇਸ ਪੈਟਰਨ ਨੂੰ ਬਣਾਉਣ ਨੂੰ ਆਸਾਨ ਕਰਦਾ ਹੈ। ਤੁਸੀਂ ਸਿਰਫ਼ ਸਹਿਭਾਗੀ ਏਜੰਟਾਂ ਨੂੰ ਸੂਚੀਬੱਧ ਕਰਦੇ ਹੋ, ਅਤੇ ਬਿਲਡਰ ਆਪਣੇ ਆਪ ਫੈਨ-ਆਉਟ ਅਤੇ ਫੈਨ-ਇਨ ਲਾਜਿਕ ਬਣਾਉਂਦਾ ਹੈ।
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder ਫੈਨ-ਆਉਟ/ਫੈਨ-ਇਨ ਲੋਜਿਕ ਨੂੰ ਸੰਭਾਲਦਾ ਹੈ
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# workflow ਚਲਾਓ
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-ਫਰੇਮਵਰਕ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ `research_agent` ਅਤੇ `plan_agent` ਸਮਕਾਲੀ ਤੌਰ 'ਤੇ ਚਲਦੇ ਹਨ, ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਅੰਤਮ ਆਉਟਪੁੱਟ ਇੱਕ ਸੂਚੀ ਵਿੱਚ ਇਕੱਠੇ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
+ਫਰੇਮਵਰਕ ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ `research_agent` ਅਤੇ `plan_agent` ਇਕੱਠੇ ਚੱਲਦੇ ਹਨ, ਅਤੇ ਉਹਨਾਂ ਦੇ ਅੰਤਿਮ ਨਤੀਜੇ ਇੱਕ ਲਿਸਟ ਵਿੱਚ ਇਕੱਠੇ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।
 
-#### .NET (C#) Implementation Analysis
+#### .NET (C#) ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-.NET ਵਿੱਚ, ਇਸ ਪੈਟਰਨ ਲਈ ਹੋਰ explicit ਪਰਿਭਾਸ਼ਾ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। Custom executors (`ConcurrentStartExecutor` ਅਤੇ `ConcurrentAggregationExecutor`) fan-out ਅਤੇ fan-in ਲਾਜਿਕ ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਬਣਾਏ ਜਾਂਦੇ ਹਨ।
+.NET ਵਿੱਚ ਇਹ ਪੈਟਰਨ ਥੋੜ੍ਹੀ ਵੱਧ ਸਪਸ਼ਟ ਪਰਿਭਾਸ਼ਾ ਮੰਗਦਾ ਹੈ। ਫੈਨ-ਆਉਟ ਅਤੇ ਫੈਨ-ਇਨ ਲਾਜਿਕ ਸੰਭਾਲਣ ਲਈ ਕਸਟਮ ਐਕਜ਼ਿਕਿਊਟਰ ਬਣਾਏ ਜਾਂਦੇ ਹਨ (`ConcurrentStartExecutor` ਅਤੇ `ConcurrentAggregationExecutor`)।
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` ਫਿਰ `AddFanOutEdge` ਅਤੇ `AddFanInEdge` ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਤਾਂ ਕਿ ਇਹ custom executors ਅਤੇ agents ਨਾਲ ਗ੍ਰਾਫ ਬਣਾਇਆ ਜਾ ਸਕੇ।
+ਫਿਰ `WorkflowBuilder` `AddFanOutEdge` ਅਤੇ `AddFanInEdge` ਵਰਤ ਕੇ ਇਸ ਗ੍ਰਾਫ ਨੂੰ ਕਸਟਮ ਐਕਜ਼ਿਕਿਊਟਰਾਂ ਅਤੇ ਏਜੰਟਾਂ ਨਾਲ ਬਣਾਉਂਦਾ ਹੈ।
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### ਕੇਸ 4: ਸ਼ਰਤੀ ਵਰਕਫਲੋ
+### ਮਾਮਲਾ 4: ਸ਼ਰਤੀ ਵਰਕਫਲੋ
 
-ਸ਼ਰਤੀ ਵਰਕਫਲੋ ਸ਼ਾਖਾ ਲਾਜਿਕ ਨੂੰ ਪੇਸ਼ ਕਰਦੇ ਹਨ, ਜੋ ਸਿਸਟਮ ਨੂੰ ਮੱਧਵਰਤੀ ਨਤੀਜਿਆਂ ਦੇ ਅਧਾਰ 'ਤੇ ਵੱਖ-ਵੱਖ ਰਾਹਾਂ ਨੂੰ ਲੈਣ ਦੀ ਆਗਿਆ ਦਿੰਦੇ ਹਨ।
+ਸ਼ਰਤੀ ਵਰਕਫਲੋ ਵਿੱਚ ਬ੍ਰਾਂਚਿੰਗ ਲਾਜਿਕ ਸ਼ਾਮਲ ਹੁੰਦੀ ਹੈ, ਜੋ ਸਿਸਟਮ ਨੂੰ ਅੰਤਰਿਮ ਨਤੀਜਿਆਂ ਦੇ ਆਧਾਰ ‘ਤੇ ਵੱਖ-ਵੱਖ ਰਾਹ ਲੈਣ ਦੇ ਯੋਗ ਬਣਾਉਂਦੀ ਹੈ।
 
-#### ਸਥਿਤੀ ਪਿਛੋਕੜ
+#### ਪਿਛੋਕੜ
 
-ਇਹ ਵਰਕਫਲੋ ਇੱਕ ਤਕਨੀਕੀ ਟਿਊਟੋਰਿਅਲ ਬਣਾਉਣ ਅਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਨ ਨੂੰ ਆਟੋਮੈਟ ਕਰਦਾ ਹੈ।
+ਇਹ ਵਰਕਫਲੋ ਇਕ ਟੈਕਨੀਕਲ ਟਿਊਟੋਰਿਅਲ ਦੇ ਬਣਾਉਣ ਅਤੇ ਪ੍ਰਕਾਸ਼ਨ ਨੂੰ ਆਟੋਮੇਟ ਕਰਦਾ ਹੈ।
 
-1.  **Evangelist-Agent**: ਦਿੱਤੇ outline ਅਤੇ URLs ਦੇ ਅਧਾਰ 'ਤੇ ਟਿਊਟੋਰਿਅਲ ਦਾ ਮਸੌਦਾ ਲਿਖਦਾ ਹੈ।
-2.  **ContentReviewer-Agent**: ਮਸੌਦੇ ਦੀ ਸਮੀਖਿਆ ਕਰਦਾ ਹੈ। ਇਹ ਜਾਂਚਦਾ ਹੈ ਕਿ ਸ਼ਬਦ ਗਿਣਤੀ 200 ਸ਼ਬਦਾਂ ਤੋਂ ਵੱਧ ਹੈ।
-3.  **ਸ਼ਰਤੀ ਸ਼ਾਖਾ**:
-      * **ਜੇ ਮਨਜ਼ੂਰ ਕੀਤਾ ਗਿਆ (`Yes`)**: ਵਰਕਫਲੋ `Publisher-Agent` ਵੱਲ ਅੱਗੇ ਵਧਦਾ ਹੈ।
-      * **ਜੇ ਰੱਦ ਕੀਤਾ ਗਿਆ (`No`)**: ਵਰਕਫਲੋ ਰੁਕ ਜਾਂਦਾ ਹੈ ਅਤੇ ਰੱਦ ਕਰਨ ਦਾ ਕਾਰਨ ਆਉਟਪੁੱਟ ਕਰਦਾ ਹੈ।
-4.  **Publisher-Agent**: ਜੇ ਮਸੌਦਾ ਮਨਜ਼ੂਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਇਹ ਏਜੰਟ ਸਮੱਗਰੀ ਨੂੰ Markdown ਫਾਈਲ ਵਿੱਚ ਸੇਵ ਕਰਦਾ ਹੈ।
+1.  **Evangelist-Agent**: ਇੱਕ ਦਿੱਤੇ ਗਏ ਆਊਟਲਾਈਨ ਅਤੇ URLs ਦੇ ਆਧਾਰ ‘ਤੇ ਟਿਊਟੋਰਿਅਲ ਦਾ ਡਰਾਫਟ ਲਿਖਦਾ ਹੈ।
+2.  **ContentReviewer-Agent**: ਡਰਾਫਟ ਦੀ ਸਮੀਖਿਆ ਕਰਦਾ ਹੈ। ਜाँचਦਾ ਹੈ ਕਿ ਸ਼ਬਦਾਂ ਦੀ ਗਿਣਤੀ 200 ਤੋਂ ਵੱਧ ਹੈ ਜਾਂ ਨਹੀਂ।
+3.  **ਸ਼ਰਤੀਕ ਬ੍ਰਾਂਚ**:
+      * **ਜੇ ਮਨਜ਼ੂਰ (`Yes`)**: ਵਰਕਫ਼ਲੋ `Publisher-Agent` ਵੱਲ ਵਧਦਾ ਹੈ।
+      * **ਜੇ ਨਾ-ਮਨਜ਼ੂਰ (`No`)**: ਵਰਕਫਲੋ ਰੁਕ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਨਕਾਰ ਦੇ ਕਾਰਨ ਨੂੰ ਆਉਟਪੁੱਟ ਕਰਦਾ ਹੈ।
+4.  **Publisher-Agent**: ਜੇ ਡਰਾਫਟ ਮਨਜ਼ੂਰ ਹੈ, ਇਹ ਏਜੰਟ ਸਮੱਗਰੀ ਨੂੰ ਮਾਰਕਡਾਊਨ ਫਾਇਲ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰਦਾ ਹੈ।
 
-#### Python Implementation Analysis
+#### Python ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
 
-ਇਸ ਉਦਾਹਰਣ ਵਿੱਚ ਇੱਕ custom function, `select_targets`, ਸ਼ਰਤੀ ਲਾਜਿਕ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਹ function `add_multi_selection_edge_group` ਨੂੰ ਪਾਸ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ `review_result` ਫੀਲਡ ਦੇ ਅਧਾਰ 'ਤੇ ਵਰਕਫਲੋ ਨੂੰ ਨਿਰਦੇਸ਼ਿਤ ਕਰਦਾ ਹੈ।
+ਇਸ ਉਦਾਹਰਣ ਵਿੱਚ ਇੱਕ ਕਸਟਮ ਫੰਕਸ਼ਨ `select_targets` ਵਰਤਿਆ ਗਿਆ ਹੈ ਜੋ ਸ਼ਰਤੀ ਲਾਜਿਕ ਨੂੰ ਲਾਗੂ ਕਰਦਾ ਹੈ। ਇਹ ਫੰਕਸ਼ਨ `add_multi_selection_edge_group` ਨੂੰ ਦਿੱਤਾ ਗਿਆ ਹੈ ਅਤੇ ਸਮੀਖਿਆਕਾਰ ਦੇ ਆਊਟਪੁੱਟ ਦੇ `review_result` ਖੇਤਰ `ਦੇ ਆਧਾਰ ‘ਤੇ ਵਰਕਫਲੋ ਨੂੰ ਦਿਸ਼ਾ ਦਿੰਦਾ ਹੈ।
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# ਇਹ ਫੰਕਸ਼ਨ ਸਮੀਖਿਆ ਨਤੀਜੇ ਦੇ ਆਧਾਰ 'ਤੇ ਅਗਲਾ ਕਦਮ ਨਿਰਧਾਰਤ ਕਰਦਾ ਹੈ
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # ਜੇ ਮਨਜ਼ੂਰ ਹੋਵੇ, ਤਾਂ 'save_draft' ਐਗਜ਼ੀਕਿੂਟਰ ਵੱਲ ਵਧੋ
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # ਜੇ ਰੱਦ ਕੀਤਾ ਗਿਆ, ਤਾਂ ਫੇਲ੍ਹ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਲਈ 'handle_review' ਐਗਜ਼ੀਕਿੂਟਰ ਵੱਲ ਵਧੋ
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# ਵਰਕਫਲੋ ਬਿਲਡਰ ਰੂਟਿੰਗ ਲਈ ਚੋਣ ਫੰਕਸ਼ਨ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # ਮਲਟੀ-ਚੋਣ ਐਜ ਸਾਵਿਕਲ ਤਰਕ ਦੀ ਕਾਰਜਾਨਵੇਂਸ਼ ਕਰਦਾ ਹੈ
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,9 +338,38 @@ workflow = (
 )
 ```
 
-Custom executors ਜ
+ਜਿਵੇਂ ਕਿ `to_reviewer_result` ਵਰਗੇ ਕਸਟਮ ਐਕਜ਼ਿਕਿਊਟਰ JSON ਆਊਟਪੁੱਟ ਨੂੰ ਮਜ਼ਬੂਤ ਟਾਈਪ ਵਾਲੇ ਵਸਤੂਆਂ ਵਿਚ ਪਰਿਵਰਤਿਤ ਕਰਦੇ ਹਨ ਜਿਨ੍ਹਾਂ ਨੂੰ ਚੋਣ ਫੰਕਸ਼ਨ ਜਾਂਚ ਸਕਦਾ ਹੈ।
+
+#### .NET (C#) ਲਾਗੂ ਕਰਨ ਦੀ ਸਮੀਖਿਆ
+
+.NET ਵਰਜ਼ਨ ਸਮਾਨ ਤਰੀਕੇ ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ। ਇੱਕ `Func<object?, bool>` ਪਰਿਭਾਸ਼ਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਜੋ `ReviewResult` ਵਸਤੂ ਦੇ `Result` ਗੁਣ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ।
+
+```csharp
+// 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
+
+// This function creates a lambda for the condition check
+public Func<object?, bool> GetCondition(string expectedResult) =>
+        reviewResult => reviewResult is ReviewResult review && review.Result == expectedResult;
+
+// The workflow is built with conditional edges
+var workflow = new WorkflowBuilder(draftExecutor)
+            .AddEdge(draftExecutor, contentReviewerExecutor)
+            // Add an edge to the publisher only if the review result is "Yes"
+            .AddEdge(contentReviewerExecutor, publishExecutor, condition: GetCondition(expectedResult: "Yes"))
+            // Add an edge to the reviewer feedback executor if the result is "No"
+            .AddEdge(contentReviewerExecutor, sendReviewerExecutor, condition: GetCondition(expectedResult: "No"))
+            .Build();
+```
+
+`AddEdge` ਤਰੀਕੇ ਦਾ `condition` ਪੈਰਾਮੀਟਰ `WorkflowBuilder` ਨੂੰ ਇੱਕ ਸ਼ਖਸੀ ਰਾਹ ਬਣਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ। ਵਰਕਫਲੋ ਕੇਵਲ ਉਸ ਵੇਲੇ `publishExecutor` ਨੂੰ ਜਾਵੇਗਾ ਜਦਿਓਂ `GetCondition(expectedResult: "Yes")` ਸੱਚਾ ਫਿਰਦਾ ਹੈ। ਨਹੀਂ ਤਾਂ, ਇਹ ਰਾਹ `sendReviewerExecutor` ਵੱਲ ਜਾਂਦਾ ਹੈ।
+
+## ਨਤੀਜਾ
+
+ਮਾਇਕਰੋਸੌਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਵਰਕਫਲੋ ਜਟਿਲ, ਮਲਟੀ-ਏਜੰਟ ਸਿਸਟਮਾਂ ਦੇ ਓਰਕੈਸਟਰ ਕਰਨ ਲਈ ਮਜ਼ਬੂਤ ਅਤੇ ਲਚਕੀਲਾ ਬੁਨਿਆਦ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। ਇਸ ਦੇ ਗ੍ਰਾਫ ਪਰ ਆਧਾਰਿਤ ਆਰਕੀਟੈਕਚਰ ਅਤੇ ਮੁੱਖ ਭਾਗਾਂ ਨੂੰ ਵਰਤ ਕੇ ਵਿਕਾਸਕਾਰ ਸੋਫਟਵੇਅਰ ਦੀ ਡਿਜ਼ਾਈਨ ਅਤੇ ਲਾਗੂ ਕਰਨ ਲਈ ਉਚਿਤ ਵਰਕਫਲੋਜ਼ Python ਅਤੇ .NET ਦੋਹਾਂ ਵਿੱਚ ਤਿਆਰ ਕਰ ਸਕਦੇ ਹਨ। ਚਾਹੇ ਤੁਹਾਡੀ ਐਪਲੀਕੇਸ਼ਨ ਸਧਾਰਣ ਕ੍ਰਮਿਕ ਪ੍ਰਕਿਰਿਆ, ਸਮਕਾਲੀ ਕਾਰਜਨਿ, ਜਾਂ ਗਤੀਸ਼ੀਲ ਸ਼ਰਤੀ ਲਾਜ਼ਿਕ ਦੀ ਲੋੜ ਰੱਖਦੀ ਹੋਵੇ, ਫਰੇਮਵਰਕ ਤਾਕਤਵਰ, ਸਕੇਲਬਲ, ਅਤੇ ਪ੍ਰਕਾਰ-ਸੁਰੱਖਿਅਤ AI-ਸ਼ਕਤਿਸ਼ালী ਹੱਲ ਪੈਦਾ ਕਰਨ ਦੇ ਸੰਦ ਮੁਹੱਈਆ ਕਰਦਾ ਹੈ।
 
 ---
 
-**ਅਸਵੀਕਰਤੀ**:  
-ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀ ਹੋਣ ਦਾ ਯਤਨ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸੁਚਤਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਇਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਮੌਜੂਦ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਅਧਿਕਾਰਤ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆ ਲਈ ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ਅਸਵੀਕਾਰੋਪਣ**:
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ ਏਆਈ ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਤਾਵਾਂ ਲਈ ਯਤਨਸ਼ੀਲ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਮੱਤਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਅਧਿਕਾਰਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜਰੂਰੀ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੇ ਉਪਯੋਗ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਵਾਂ ਲਈ ਜਵਾਬਦੇਹ ਨਹੀਂ ਹਾਂ।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

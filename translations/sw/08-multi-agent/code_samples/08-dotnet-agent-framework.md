@@ -1,84 +1,89 @@
-# 🤝 Mfumo wa Kazi wa Wakala wa Wingi wa Biashara (.NET)
+# 🤝 Mifumo ya Wafanyakazi Wengi wa Biashara (.NET)
 
 ## 📋 Malengo ya Kujifunza
 
-Notebook hii inaonyesha jinsi ya kujenga mifumo ya wakala wa wingi ya kiwango cha biashara kwa kutumia Microsoft Agent Framework katika .NET na GitHub Models. Utajifunza jinsi ya kuratibu mawakala maalum wanaofanya kazi pamoja kupitia mifumo ya kazi iliyopangwa, ukitumia vipengele vya biashara vya .NET kwa suluhisho tayari kwa uzalishaji.
+Daftari hili linaonyesha jinsi ya kujenga mifumo tata ya wafanyakazi wengi wa daraja la biashara kutumia Mfumo wa Wakala wa Microsoft katika .NET na Azure OpenAI (API za Majibu). Utajifunza kuandaa wakala wengi maalum wanaofanya kazi pamoja kupitia michakato iliyopangwa, ukitumia sifa za biashara za .NET kwa suluhisho zinazostahili uzalishaji.
 
-**Uwezo wa Wakala wa Wingi wa Biashara Utakaoujenga:**
-- 👥 **Ushirikiano wa Mawakala**: Uratibu wa wakala salama kwa aina na uthibitisho wa wakati wa kuandaa
-- 🔄 **Uratibu wa Mfumo wa Kazi**: Ufafanuzi wa mfumo wa kazi kwa njia ya tamko ukitumia mifumo ya async ya .NET
-- 🎭 **Utaalamu wa Majukumu**: Utu wa wakala ulio na aina kali na maeneo ya utaalamu
-- 🏢 **Ujumuishaji wa Biashara**: Mifumo tayari kwa uzalishaji yenye ufuatiliaji na utunzaji wa makosa
+**Uwezo wa Wafanyakazi Wengi wa Biashara Utakaojenga:**
+- 👥 **Ushirikiano wa Wakala**: Usawazishaji wa wakala wenye aina salama na uthibitisho wakati wa kuandika programu
+- 🔄 **Usimamizi wa Michakato**: Ufafanuzi wa michakato ya kazi kwa utaratibu na mifumo ya async ya .NET
+- 🎭 **Utaalam wa Majukumu**: Wakala wenye tabia zenye aina imara na maeneo ya utaalam
+- 🏢 **Muungano wa Biashara**: Mifumo inayostahili uzalishaji ikiwa na ufuatiliaji na usimamizi wa makosa
 
-## ⚙️ Mahitaji ya Awali na Usanidi
+## ⚙️ Mahitaji na Mipangilio
 
 **Mazingira ya Maendeleo:**
 - .NET 9.0 SDK au zaidi
 - Visual Studio 2022 au VS Code na kiendelezi cha C#
-- Usajili wa Azure (kwa mawakala wa kudumu)
+- Usajili wa Azure (kwa wakala wa kudumu)
 
-**Paket Zinazohitajika za NuGet:**
+**Pakiti za NuGet Zinazohitajika:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
 ## Mfano wa Msimbo
 
-Msimbo kamili wa kazi kwa somo hili unapatikana katika faili ya C# inayotolewa: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+Msimbo mzima unaofanya kazi kwa somo hili upo katika faili la C# linaloambatana: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
-Ili kuendesha mfano:
+Ili kuendesha mfano huu:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Fanya faili iwe ya utekelezaji (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Endesha sampuli
 ./08-dotnet-agent-framework.cs
 ```
 
-Au kwa kutumia .NET CLI:
+Au ukitumia .NET CLI:
 
 ```bash
 dotnet run 08-dotnet-agent-framework.cs
 ```
 
-## Kile Mfano Huu Unaonyesha
+## Hiki Mfano Kinaonyesha Nini
 
-Mfumo huu wa kazi wa wakala wa wingi unaunda huduma ya mapendekezo ya kusafiri kwa hoteli na mawakala wawili maalum:
+Mfumo huu wa mchakato wa wafanyakazi wengi hutengeneza huduma ya mapendekezo ya usafiri wa hoteli na wakala maalum wawili:
 
-1. **Wakala wa FrontDesk**: Wakala wa kusafiri anayetoa mapendekezo ya shughuli na maeneo
-2. **Wakala wa Concierge**: Anapitia mapendekezo ili kuhakikisha uzoefu halisi, usio wa kitalii
+1. **Wakala wa FrontDesk**: Mwakala wa usafiri anayetoa mapendekezo ya shughuli na maeneo
+2. **Wakala wa Concierge**: Hukagua mapendekezo ili kuhakikisha uzoefu halisi, usio wa watalii
 
-Mawakala hufanya kazi pamoja katika mfumo wa kazi ambapo:
-- Wakala wa FrontDesk hupokea ombi la awali la kusafiri
-- Wakala wa Concierge hupitia na kuboresha pendekezo
-- Mfumo wa kazi hutiririsha majibu kwa wakati halisi
+Wakala hao hufanya kazi pamoja katika mchakato ambapo:
+- Wakala wa FrontDesk anapokea ombi la usafiri la awali
+- Wakala wa Concierge hukagua na kuboresha pendekezo
+- Mchakato hupelekwa majibu papo hapo kwa mtiririko wa moja kwa moja
 
 ## Dhana Muhimu
 
-### Uratibu wa Mawakala
-Mfano unaonyesha uratibu wa wakala salama kwa aina ukitumia Microsoft Agent Framework na uthibitisho wa wakati wa kuandaa.
+### Usawazishaji wa Wakala
+Mfano unaonyesha usawazishaji wa wakala wenye aina salama ukitumia Mfumo wa Wakala wa Microsoft na uthibitisho wakati wa kuandika programu.
 
-### Uratibu wa Mfumo wa Kazi
-Unatumia ufafanuzi wa mfumo wa kazi kwa njia ya tamko ukitumia mifumo ya async ya .NET kuunganisha mawakala wengi katika bomba.
+### Usimamizi wa Michakato
+Hutumia uainishaji wa michakato kwa utaratibu na mifumo ya async ya .NET kuunganisha wakala wengi katika mfululizo.
 
-### Majibu ya Kutiririka
-Unatekeleza utiririshaji wa majibu ya wakala kwa wakati halisi ukitumia async enumerables na usanifu unaoendeshwa na matukio.
+### Kupelekwa kwa Majibu Moja kwa Moja
+Hutatua mtiririko wa papo hapo wa majibu ya wakala kwa kutumia orodha za async na usanifu wa tukio unaoendeshwa.
 
-### Ujumuishaji wa Biashara
-Unaonyesha mifumo tayari kwa uzalishaji ikijumuisha:
-- Usanidi wa vigezo vya mazingira
-- Usimamizi salama wa hati za siri
-- Utunzaji wa makosa
-- Usindikaji wa matukio kwa njia ya async
+### Muungano wa Biashara
+Inaonyesha mifumo inayostahili uzalishaji ikiwemo:
+- Mipangilio ya variable ya mazingira
+- Usimamizi salama wa nywila
+- Usimamizi wa makosa
+- Usindikaji wa tukio usio na ufuatiliaji
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

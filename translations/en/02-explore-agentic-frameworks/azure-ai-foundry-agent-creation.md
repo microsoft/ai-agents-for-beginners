@@ -22,7 +22,7 @@ To complete this exercise, you need the following:
 
 1. In the pane on the left for your project, in the **My assets** section, select the **Models + endpoints** page.
 2. In the **Models + endpoints** page, in the **Model deployments** tab, in the **+ Deploy model** menu, select **Deploy base model**.
-3. Search for the `gpt-4.1-mini` model in the list, and then select and confirm it.
+3. Search for the `gpt-5-mini` model in the list, and then select and confirm it.
 
     > **Note**: Reducing the TPM helps avoid over-using the quota available in the subscription you are using.
 
@@ -35,7 +35,7 @@ Now that you have deployed a model, you can create an agent. An agent is a conve
 1. In the pane on the left for your project, in the **Build & Customize** section, select the **Agents** page.
 2. Click **+ Create agent** to create a new agent. Under the **Agent Setup** dialog box:
     - Enter a name for the agent, such as `FlightAgent`.
-    - Ensure that the `gpt-4.1-mini` model deployment you created previously is selected
+    - Ensure that the `gpt-5-mini` model deployment you created previously is selected
     - Set the **Instructions** as per the prompt you want the agent to follow. Here is an example:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:

@@ -1,39 +1,42 @@
-# 🎯 GitHub मॉडल्स (.NET) के साथ योजना और डिज़ाइन पैटर्न
+# 🎯 Azure OpenAI (Responses API) के साथ योजना & डिज़ाइन पैटर्न (.NET)
 
 ## 📋 सीखने के उद्देश्य
 
-यह नोटबुक Microsoft Agent Framework का उपयोग करके .NET में GitHub मॉडल्स के साथ बुद्धिमान एजेंट बनाने के लिए एंटरप्राइज़-ग्रेड योजना और डिज़ाइन पैटर्न प्रदर्शित करता है। आप सीखेंगे कि कैसे एजेंट्स को जटिल समस्याओं को तोड़ने, बहु-चरणीय समाधान की योजना बनाने, और .NET की एंटरप्राइज़ विशेषताओं के साथ परिष्कृत वर्कफ़्लो को निष्पादित करने के लिए बनाया जाए।
+यह नोटबुक Microsoft Agent Framework का उपयोग करके .NET में Azure OpenAI (Responses API) के साथ बुद्धिमान एजेंट बनाने के लिए एंटरप्राइज़-ग्रेड योजना और डिज़ाइन पैटर्न प्रदर्शित करता है। आप ऐसे एजेंट बनाने सीखेंगे जो जटिल समस्याओं को विभाजित कर सकें, बहु-चरण समाधान की योजना बना सकें, और .NET के एंटरप्राइज़ फीचर्स के साथ परिष्कृत वर्कफ़्लो निष्पादित कर सकें।
 
-## ⚙️ आवश्यकताएँ और सेटअप
+## ⚙️ पूर्वापेक्षाएँ & सेटअप
 
-**डेवलपमेंट एनवायरनमेंट:**
-- .NET 9.0 SDK या उच्चतर
-- Visual Studio 2022 या VS Code C# एक्सटेंशन के साथ
-- GitHub Models API एक्सेस
+**विकास पर्यावरण:**
+- .NET 9.0 SDK या उससे उच्चतर
+- Visual Studio 2022 या VS Code जिसमें C# एक्सटेंशन हो
+- Azure OpenAI संसाधन और मॉडल डिप्लॉयमेंट के साथ एक Azure सदस्यता
+- Azure CLI — `az login` के साथ लॉगिन करें
 
-**आवश्यक डिपेंडेंसीज़:**
+**आवश्यक निर्भरताएँ:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**एनवायरनमेंट कॉन्फ़िगरेशन (.env फ़ाइल):**
+**पर्यावरण विन्यास (.env फाइल):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## कोड चलाना
 
-यह पाठ .NET सिंगल फ़ाइल ऐप इम्प्लीमेंटेशन शामिल करता है। इसे चलाने के लिए:
+इस पाठ में .NET सिंगल फाइल ऐप कार्यान्वयन शामिल है। इसे चलाने के लिए:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# फ़ाइल को निष्पादन योग्य बनाएं (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# आवेदन चलाएं
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,21 +46,21 @@ chmod +x 07-dotnet-agent-framework.cs
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## कोड इम्प्लीमेंटेशन
+## कोड कार्यान्वयन
 
-पूरा इम्प्लीमेंटेशन `07-dotnet-agent-framework.cs` में उपलब्ध है, जो निम्नलिखित को प्रदर्शित करता है:
+पूर्ण कार्यान्वयन `07-dotnet-agent-framework.cs` में उपलब्ध है, जो निम्नलिखित प्रदर्शित करता है:
 
-- DotNetEnv के साथ एनवायरनमेंट कॉन्फ़िगरेशन लोड करना
-- GitHub मॉडल्स के लिए OpenAI क्लाइंट को कॉन्फ़िगर करना
-- JSON सीरियलाइज़ेशन के साथ संरचित डेटा मॉडल (Plan और TravelPlan) को परिभाषित करना
-- JSON स्कीमा का उपयोग करके संरचित आउटपुट के साथ AI एजेंट बनाना
-- टाइप-सेफ प्रतिक्रियाओं के साथ योजना अनुरोधों को निष्पादित करना
+- DotNetEnv के साथ पर्यावरण विन्यास लोड करना
+- Azure OpenAI क्लाइंट कॉन्फ़िगर करना और `GetChatClient().AsAIAgent()` का उपयोग कर AI एजेंट बनाना
+- JSON सीरियलाइज़ेशन के साथ संरचित डेटा मॉडल (Plan और TravelPlan) परिभाषित करना
+- JSON स्कीमा का उपयोग कर संरचित आउटपुट के साथ AI एजेंट बनाना
+- टाइप-सेफ प्रतिक्रिया के साथ योजना अनुरोध निष्पादित करना
 
 ## मुख्य अवधारणाएँ
 
-### टाइप-सेफ मॉडल्स के साथ संरचित योजना
+### टाइप-सेफ मॉडलों के साथ संरचित योजना
 
-एजेंट योजना आउटपुट की संरचना को परिभाषित करने के लिए C# क्लासेस का उपयोग करता है:
+एजेंट योजना आउटपुट की संरचना परिभाषित करने के लिए C# क्लासेस का उपयोग करता है:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### संरचित आउटपुट के लिए JSON स्कीमा
 
-एजेंट को TravelPlan स्कीमा से मेल खाने वाले प्रतिक्रियाओं को लौटाने के लिए कॉन्फ़िगर किया गया है:
+एजेंट को TravelPlan स्कीमा से मेल खाने वाले उत्तर वापस करने के लिए कॉन्फ़िगर किया गया है:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -98,20 +103,22 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### योजना एजेंट निर्देश
 
-एजेंट एक समन्वयक के रूप में कार्य करता है, विशेष उप-एजेंट्स को कार्य सौंपता है:
+एजेंट एक समन्वयक के रूप में कार्य करता है, जो विशिष्ट उप-एजेंट्स को कार्य सौंपता है:
 
-- FlightBooking: उड़ानों की बुकिंग और उड़ान जानकारी प्रदान करने के लिए
-- HotelBooking: होटलों की बुकिंग और होटल जानकारी प्रदान करने के लिए
-- CarRental: कारों की बुकिंग और कार रेंटल जानकारी प्रदान करने के लिए
-- ActivitiesBooking: गतिविधियों की बुकिंग और गतिविधि जानकारी प्रदान करने के लिए
+- FlightBooking: उड़ान बुकिंग और उड़ान जानकारी प्रदान करने के लिए
+- HotelBooking: होटल बुकिंग और होटल जानकारी प्रदान करने के लिए
+- CarRental: कार बुकिंग और कार किराए की जानकारी प्रदान करने के लिए
+- ActivitiesBooking: गतिविधियों को बुक करने और गतिविधि जानकारी प्रदान करने के लिए
 - DestinationInfo: गंतव्य के बारे में जानकारी प्रदान करने के लिए
 - DefaultAgent: सामान्य अनुरोधों को संभालने के लिए
 
 ## अपेक्षित आउटपुट
 
-जब आप यात्रा योजना अनुरोध के साथ एजेंट को चलाते हैं, तो यह अनुरोध का विश्लेषण करेगा और TravelPlan स्कीमा के अनुरूप JSON के रूप में संरचित योजना उत्पन्न करेगा, जिसमें उपयुक्त कार्यों को विशेष एजेंट्स को सौंपा जाएगा।
+जब आप एजेंट को यात्रा योजना अनुरोध के साथ चलाएंगे, तो यह अनुरोध का विश्लेषण करेगा और उपयुक्त कार्य असाइनमेंट के साथ एक संरचित योजना तैयार करेगा, जो TravelPlan स्कीमा के अनुसार JSON में स्वरूपित होगी।
 
 ---
 
-**अस्वीकरण**:  
-यह दस्तावेज़ AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) का उपयोग करके अनुवादित किया गया है। जबकि हम सटीकता के लिए प्रयास करते हैं, कृपया ध्यान दें कि स्वचालित अनुवाद में त्रुटियां या अशुद्धियां हो सकती हैं। मूल भाषा में दस्तावेज़ को आधिकारिक स्रोत माना जाना चाहिए। महत्वपूर्ण जानकारी के लिए, पेशेवर मानव अनुवाद की सिफारिश की जाती है। इस अनुवाद के उपयोग से उत्पन्न किसी भी गलतफहमी या गलत व्याख्या के लिए हम उत्तरदायी नहीं हैं।
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**अस्वीकरण**:
+इस दस्तावेज़ का अनुवाद AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) का उपयोग करके किया गया है। जबकि हम सटीकता के लिए प्रयास करते हैं, कृपया ध्यान दें कि स्वचालित अनुवादों में त्रुटियाँ या अशुद्धियाँ हो सकती हैं। मूल दस्तावेज़ अपनी मूल भाषा में ही प्रामाणिक स्रोत माना जाना चाहिए। महत्वपूर्ण जानकारी के लिए, पेशेवर मानव अनुवाद की सिफारिश की जाती है। इस अनुवाद के उपयोग से उत्पन्न किसी भी गलतफहमी या गलत व्याख्या के लिए हम उत्तरदायी नहीं हैं।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

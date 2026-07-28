@@ -1,106 +1,109 @@
-# 🛠️ Avansert verktøybruk med GitHub-modeller (.NET)
+# 🛠️ Avansert verktøybruk med Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Læringsmål
 
-Denne notatboken demonstrerer integrasjonsmønstre for verktøy på bedriftsnivå ved bruk av Microsoft Agent Framework i .NET med GitHub-modeller. Du vil lære å bygge sofistikerte agenter med flere spesialiserte verktøy, og dra nytte av C#'s sterke typisering og .NET's funksjoner for bedrifter.
+Denne notatboken demonstrerer bedriftsnivå integrasjonsmønstre for verktøy ved bruk av Microsoft Agent Framework i .NET med Azure OpenAI (Responses API). Du vil lære å bygge sofistikerte agenter med flere spesialiserte verktøy, og dra nytte av C# sin sterke typing og .NET sine bedriftsfunksjoner.
 
-### Avanserte verktøyferdigheter du vil mestre
+### Avanserte verktøyfunksjoner du vil mestre
 
-- 🔧 **Multi-verktøyarkitektur**: Bygge agenter med flere spesialiserte kapabiliteter
-- 🎯 **Type-sikker verktøyutførelse**: Utnytte C#'s validering ved kompilering
-- 📊 **Bedriftsverktøymønstre**: Produksjonsklare verktøydesign og feilhåndtering
-- 🔗 **Verktøysammensetning**: Kombinere verktøy for komplekse forretningsprosesser
+- 🔧 **Flere verktøy-arkitektur**: Bygge agenter med flere spesialiserte evner
+- 🎯 **Type-sikker verktøyutførelse**: Utnytte C# sin kompileringstid-validering
+- 📊 **Bedriftsverktøymønstre**: Produksjonsklare verktøydesign og feilbehandling
+- 🔗 **Verktøysammensetning**: Kombinere verktøy for komplekse forretningsflyter
 
-## 🎯 Fordeler med .NET-verktøyarkitektur
+## 🎯 Fordeler med .NET verktøyarkitektur
 
-### Funksjoner for bedrifter
+### Bedriftsverktøyfunksjoner
 
-- **Validering ved kompilering**: Sterk typisering sikrer korrekthet i verktøyparametere
-- **Dependency Injection**: IoC-containerintegrasjon for verktøyhåndtering
-- **Async/Await-mønstre**: Ikke-blokkerende verktøyutførelse med riktig ressursstyring
+- **Kompileringstid-validering**: Sterk typing sikrer riktige verktøyparametere
+- **Dependency Injection**: IoC-kontainerintegrasjon for verktøystyring
+- **Async/Await-mønstre**: Ikke-blokkerende verktøyutførelse med korrekt ressursstyring
 - **Strukturert logging**: Innebygd logging for overvåking av verktøyutførelse
 
 ### Produksjonsklare mønstre
 
-- **Feilhåndtering**: Omfattende feiladministrasjon med typede unntak
-- **Ressursstyring**: Riktig avhendingsmønstre og minnehåndtering
-- **Ytelsesovervåking**: Innebygde metrikker og ytelsestellere
+- **Unntakshåndtering**: Omfattende feilbehandling med typede unntak
+- **Ressursstyring**: Riktige mønstre for opprydding og minnehåndtering
+- **Ytelsesovervåkning**: Innebygde målinger og ytelsestellere
 - **Konfigurasjonsstyring**: Type-sikker konfigurasjon med validering
 
 ## 🔧 Teknisk arkitektur
 
-### Kjernekomponenter i .NET-verktøy
+### Kjerne .NET verktøykomponenter
 
-- **Microsoft.Extensions.AI**: Enhetlig abstraksjonslag for verktøy
-- **Microsoft.Agents.AI**: Verktøyorkestrering på bedriftsnivå
-- **GitHub-modeller integrasjon**: Høyytelses API-klient med tilkoblingspooling
+- **Microsoft.Extensions.AI**: Enhetlig verktøyabstraksjonslag
+- **Microsoft.Agents.AI**: Bedriftsnivå verktøyorchestrering
+- **Azure OpenAI (Responses API)**: Høyytelses API-klient med tilkoblingspooling
 
-### Verktøyutførelsesrørledning
+### Verktøyutførelsespipeline
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Brukerforespørsel] --> B[Agentanalyse]
+    B --> C[Verktøyvalg]
+    C --> D[Typevalidering]
+    B --> E[Parameterbinding]
+    E --> F[Verktøyutførelse]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Resultatbehandling]
     D --> G
-    G --> H[Response]
+    G --> H[Svar]
 ```
 
-## 🛠️ Verktøykategorier og mønstre
+## 🛠️ Verktøykategorier & mønstre
 
 ### 1. **Databehandlingsverktøy**
 
-- **Inputvalidering**: Sterk typisering med dataannotasjoner
+- **Inndata-validering**: Sterk typing med dataannotasjoner
 - **Transformasjonsoperasjoner**: Type-sikker datakonvertering og formatering
-- **Forretningslogikk**: Domene-spesifikke beregnings- og analyserverktøy
-- **Outputformatering**: Strukturert responsgenerering
+- **Forretningslogikk**: Domene-spesifikke kalkulasjons- og analyseverktøy
+- **Utdataformatering**: Strukturert responsgenerering
 
 ### 2. **Integrasjonsverktøy**
 
 - **API-koblinger**: RESTful tjenesteintegrasjon med HttpClient
-- **Databaseverktøy**: Entity Framework-integrasjon for dataadgang
-- **Filoperasjoner**: Sikker filsystemoperasjon med validering
-- **Eksterne tjenester**: Mønstre for integrasjon av tredjepartstjenester
+- **Databaseverktøy**: Entity Framework-integrasjon for dataaksess
+- **Filoperasjoner**: Sikker filsystemoperasjoner med validering
+- **Eksterne tjenester**: Mønstre for tredjeparts tjenesteintegrasjon
 
-### 3. **Nyttige verktøy**
+### 3. **Hjelpeverktøy**
 
-- **Tekstbehandling**: Strengmanipulasjon og formateringsverktøy
-- **Dato/tid-operasjoner**: Kulturbevisste beregninger av dato/tid
+- **Tekstbehandling**: Strengmanipulering og formateringsverktøy
+- **Dato/Tid-operasjoner**: Kultursensitive dato- og tidsberegninger
 - **Matematiske verktøy**: Presisjonsberegninger og statistiske operasjoner
-- **Valideringsverktøy**: Validering av forretningsregler og dataverifikasjon
+- **Valideringsverktøy**: Forretningsregelvalidering og dataverifikasjon
 
-Klar til å bygge agenter på bedriftsnivå med kraftige, type-sikre verktøy i .NET? La oss arkitektere profesjonelle løsninger! 🏢⚡
+Klar til å bygge bedriftsnivå agenter med kraftige, type-sikre verktøyfunksjoner i .NET? La oss arkitektere noen profesjonelle løsninger! 🏢⚡
 
 ## 🚀 Komme i gang
 
 ### Forutsetninger
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller nyere
-- [GitHub Models API tilgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Et [Azure-abonnement](https://azure.microsoft.com/free/) med en Azure OpenAI-ressurs og en modellutrulling
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logg inn med `az login`
 
-### Nødvendige miljøvariabler
+### Obligatoriske miljøvariabler
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Logg inn slik at AzureCliCredential kan hente et token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Logg deretter inn slik at AzureCliCredential kan få en token
+az login
 ```
 
 ### Eksempelkode
 
-For å kjøre kodeeksempelet,
+For å kjøre kodeeksemplet,
 
 ```bash
 # zsh/bash
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Eller ved bruk av dotnet CLI:
+Eller bruk dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Se [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) for fullstendig kode.
+Se [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) for komplett kode.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vennligst vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på dets opprinnelige språk bør betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

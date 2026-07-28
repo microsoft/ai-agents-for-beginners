@@ -1,40 +1,40 @@
-# 🌍 وكيل السفر الذكي باستخدام إطار عمل Microsoft Agent (.NET)
+# 🌍 عميل سفر ذكي باستخدام Microsoft Agent Framework (.NET)
 
 ## 📋 نظرة عامة على السيناريو
 
-يوضح هذا المثال كيفية بناء وكيل ذكي لتخطيط السفر باستخدام إطار عمل Microsoft Agent لنظام .NET. يمكن للوكيل إنشاء جداول زمنية مخصصة لرحلات يومية إلى وجهات عشوائية حول العالم تلقائيًا.
+يوضح هذا المثال كيفية بناء وكيل تخطيط سفر ذكي باستخدام Microsoft Agent Framework لـ .NET. يمكن للوكيل إنشاء جداول رحلات يومية مخصصة تلقائيًا لوجهات عشوائية حول العالم.
 
 ### القدرات الرئيسية:
 
-- 🎲 **اختيار وجهة عشوائية**: يستخدم أداة مخصصة لاختيار أماكن الإجازات
-- 🗺️ **تخطيط الرحلة الذكي**: ينشئ مسارات يومية مفصلة
-- 🔄 **البث في الوقت الفعلي**: يدعم الردود الفورية والبثية
-- 🛠️ **تكامل الأدوات المخصصة**: يوضح كيفية توسيع قدرات الوكيل
+- 🎲 **اختيار الوجهة العشوائية**: يستخدم أداة مخصصة لاختيار مواقع العطلات
+- 🗺️ **تخطيط الرحلات الذكي**: ينشئ جداول تفصيلية يومية للرحلات
+- 🔄 **البث المباشر في الوقت الحقيقي**: يدعم الاستجابات الفورية والبث المباشر
+- 🛠️ **دمج أدوات مخصصة**: يوضح كيفية توسيع قدرات الوكيل
 
 ## 🔧 البنية التقنية
 
 ### التقنيات الأساسية
 
-- **إطار عمل Microsoft Agent**: أحدث تطبيق .NET لتطوير وكلاء الذكاء الاصطناعي
-- **Azure OpenAI (API الردود)**: يستخدم Azure OpenAI API للردود لاستخلاص النماذج
+- **Microsoft Agent Framework**: أحدث تنفيذ لـ .NET لتطوير وكلاء الذكاء الاصطناعي
+- **Azure OpenAI (استجابات API)**: يستخدم Azure OpenAI Responses API للاستدلال بالنموذج
 - **Azure Identity**: تسجيل دخول آمن عبر `AzureCliCredential` (`az login`)
-- **التكوين الآمن**: إدارة نقاط النهاية بناءً على البيئة
+- **تكوين آمن**: إدارة نقاط النهاية بناءً على البيئة
 
 ### المكونات الرئيسية
 
-1. **AIAgent**: منسق الوكيل الرئيسي الذي يدير تدفق المحادثة
-2. **الأدوات المخصصة**: دالة `GetRandomDestination()` متاحة للوكيل
-3. **عميل الردود**: واجهة المحادثة المعتمدة على Azure OpenAI Responses
-4. **دعم البث**: قدرات إنشاء ردود في الوقت الفعلي
+1. **AIAgent**: المنسق الرئيسي للوكيل الذي يتعامل مع سير المحادثة
+2. **أدوات مخصصة**: دالة `GetRandomDestination()` متاحة للوكيل
+3. **عميل الاستجابات**: واجهة محادثة تعتمد على Azure OpenAI Responses
+4. **دعم البث**: قدرات توليد الاستجابات في الوقت الحقيقي
 
-### نمط التكامل
+### نمط الدمج
 
 ```mermaid
 graph LR
     A[طلب المستخدم] --> B[وكيل الذكاء الاصطناعي]
-    B --> C[أزور OpenAI (واجهة برمجة التطبيقات للردود)]
+    B --> C[أزور أوبن إيه آي (واجهة برمجة التطبيقات للاستجابات)]
     B --> D[أداة الحصول على وجهة عشوائية]
-    C --> E[مسار السفر]
+    C --> E[جدول الرحلة]
     D --> E
 ```
 
@@ -42,25 +42,25 @@ graph LR
 
 ### المتطلبات الأساسية
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث
-- [اشتراك Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر نموذج
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — سجل الدخول باستخدام `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو إصدار أعلى
+- اشتراك في [Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر نموذج
+- أداة [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — تسجيل الدخول باستخدام `az login`
 
-### متغيرات البيئة المطلوبة
+### المتغيرات البيئية المطلوبة
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# ثم سجّل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
 az login
 ```
 
 ```powershell
 # باورشيل
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# ثم سجل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ثم سجّل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
 az login
 ```
 
@@ -69,18 +69,18 @@ az login
 لتشغيل مثال الكود،
 
 ```bash
-# zsh/bash
+# زد شل/باش
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-أو باستخدام dotnet CLI:
+أو باستخدام أداة dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-راجع [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) للكود الكامل.
+انظر [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) للكود الكامل.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,17 +159,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 النقاط الرئيسية المستفادة
 
-1. **بنية الوكيل**: يوفر إطار عمل Microsoft Agent طريقة نظيفة وآمنة نوعياً لبناء وكلاء الذكاء الاصطناعي في .NET
-2. **تكامل الأدوات**: تصبح الدوال المزينة بسمات `[Description]` أدوات متاحة للوكيل
-3. **إدارة التكوين**: تتبع متغيرات البيئة والتعامل الآمن مع بيانات الاعتماد أفضل ممارسات .NET
-4. **Azure OpenAI Responses API**: يستخدم الوكيل Azure OpenAI Responses API عبر SDK الخاص بـ Azure.AI.OpenAI
+1. **بنية الوكيل**: يوفر Microsoft Agent Framework نهجًا نظيفًا وآمن النوع لبناء وكلاء الذكاء الاصطناعي في .NET
+2. **دمج الأدوات**: الوظائف المزينة بـ `[Description]` تصبح أدوات متاحة للوكيل
+3. **إدارة التكوين**: تتبع المتغيرات البيئية والتعامل الآمن مع بيانات الاعتماد أفضل الممارسات في .NET
+4. **Azure OpenAI Responses API**: يستخدم الوكيل Azure OpenAI Responses API عبر Azure.AI.OpenAI SDK
 
-## 🔗 مصادر إضافية
+## 🔗 موارد إضافية
 
-- [توثيق إطار عمل Microsoft Agent](https://learn.microsoft.com/agent-framework)
+- [توثيق Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI في Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET تطبيقات الملف الواحد](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

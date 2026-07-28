@@ -2,28 +2,28 @@
 
 ## 📋 Scenario Overview
 
-Dis example dey show how to build intelligent travel planning agent using Microsoft Agent Framework for .NET. Di agent fit automatically generate personalized day-trip itinerary dem for random destinations around di world.
+Dis example dey show how to build intelligent travel planning agent using Microsoft Agent Framework for .NET. Di agent fit automatically create personalized day-trip itineraries for random destinations all over di world.
 
 ### Key Capabilities:
 
-- 🎲 **Random Destination Selection**: Use custom tool to choose vacation spots
-- 🗺️ **Intelligent Trip Planning**: Dem dey create detailed day-by-day itineraries
-- 🔄 **Real-time Streaming**: Dey support both immediate and streaming responses
-- 🛠️ **Custom Tool Integration**: Show how to add more power to agent capabilities
+- 🎲 **Random Destination Selection**: Dey use custom tool to pick vacation spots
+- 🗺️ **Intelligent Trip Planning**: Dey create detailed day-by-day itineraries
+- 🔄 **Real-time Streaming**: E dey support both immediate and streaming responses
+- 🛠️ **Custom Tool Integration**: E dey show how to extend agent capabilities
 
 ## 🔧 Technical Architecture
 
 ### Core Technologies
 
 - **Microsoft Agent Framework**: Latest .NET implementation for AI agent development
-- **Azure OpenAI (Responses API)**: Use Azure OpenAI Responses API for model inference
-- **Azure Identity**: Secure sign-in via `AzureCliCredential` (`az login`)
+- **Azure OpenAI (Responses API)**: Dey use Azure OpenAI Responses API for model inference
+- **Azure Identity**: Secure sign-in with `AzureCliCredential` (`az login`)
 - **Secure Configuration**: Environment-based endpoint management
 
 ### Key Components
 
-1. **AIAgent**: Di main agent wey control conversation flow
-2. **Custom Tools**: `GetRandomDestination()` function wey di agent fit use
+1. **AIAgent**: Na main agent wey dey handle conversation flow
+2. **Custom Tools**: `GetRandomDestination()` function wey agent fit use
 3. **Responses Client**: Azure OpenAI Responses-based conversation interface
 4. **Streaming Support**: Real-time response generation capabilities
 
@@ -43,15 +43,15 @@ graph LR
 ### Prerequisites
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
-- One [Azure subscription](https://azure.microsoft.com/free/) wit Azure OpenAI resource and model deployment
-- Di [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sign in wit `az login`
+- An [Azure subscription](https://azure.microsoft.com/free/) with Azure OpenAI resource and a model deployment
+- The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sign in wit `az login`
 
 ### Required Environment Variables
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Den sign in so AzureCliCredential fit get token
 az login
 ```
@@ -59,7 +59,7 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Den sign in make AzureCliCredential fit get token
 az login
 ```
@@ -74,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Or use di dotnet CLI:
+Or using di dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,10 +159,10 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Key Takeaways
 
-1. **Agent Architecture**: Microsoft Agent Framework dey provide clean, type-safe way to build AI agents for .NET
-2. **Tool Integration**: Functions wey dem decorate wit `[Description]` attributes go become available tools for di agent
+1. **Agent Architecture**: Microsoft Agent Framework dey provide clean, type-safe approach to build AI agents for .NET
+2. **Tool Integration**: Functions wey get `[Description]` attributes go be available tools for di agent
 3. **Configuration Management**: Environment variables and secure credential handling follow .NET best practices
-4. **Azure OpenAI Responses API**: Di agent use Azure OpenAI Responses API through Azure.AI.OpenAI SDK
+4. **Azure OpenAI Responses API**: Di agent dey use Azure OpenAI Responses API through Azure.AI.OpenAI SDK
 
 ## 🔗 Additional Resources
 

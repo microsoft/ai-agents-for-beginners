@@ -2,38 +2,38 @@
 
 ## Projekti ülevaade
 
-Selles hoidlus on "Tehisintellekti agendid algajatele" – põhjalik hariduslik kursus, mis õpetab kõike, mida on vaja tehisintellekti agentide loomisel. Kursus koosneb 18 õppetunnist (numbritega 00–18), mis käsitlevad põhialuseid, disainimustreid, raamistikke, tootmisesse viimist, lokaalseid/seadmes olevaid agente ja tehisintellekti agentide turvalisust.
+See hoidla sisaldab "Tehisintellekti agendid algajatele" - põhjalikku õppeprogrammi, mis õpetab kõike, mida on vaja tehisintellekti agentide loomiseks. Kursus koosneb 18 õppetükist (nummerdatud 00–18), mis hõlmavad põhialuseid, disainimustreid, raamistikke, tootmispaigaldust, kohalikku/seadmesiseset agenti ja tehisintellekti agentide turvalisust.
 
-**Põhitehnoloogiad:**
+**Peamised tehnoloogiad:**
 - Python 3.12+
-- Jupyter Notebooks interaktiivseks õppimiseks
-- Tehisintellekti raamistikke: Microsoft Agent Framework (MAF)
-- Azure AI teenused: Microsoft Foundry, Microsoft Foundry Agent Service V2
+- Interaktiivseks õppimiseks Jupyter märkmed
+- Tehisintellekti raamistikud: Microsoft Agent Framework (MAF)
+- Azure'i tehisintellekti teenused: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Arhitektuur:**
-- Õppusepõhine struktuur (00-15+ kaustad)
-- Igas õppetunnis on: README dokumentatsioon, koodinäited (Jupyter märkmikud) ja pildid
-- Mitmekeelne tugi automaatse tõlketehnoloogiaga
-- Igas õppetunnis üks Python märkmik, kasutades Microsoft Agent Frameworki
+- Õppetükkide põhine struktuur (00-15+ kataloogid)
+- Igas õppetükis on: README dokumentatsioon, koodi näited (Jupyter märkmed) ja pildid
+- Mitmekeelne tugi automatiseeritud tõlketehnoloogia kaudu
+- Üks Python märkme iga õppetüki kohta, kasutades Microsoft Agent Frameworki
 
-## Seadistuskäsud
+## Paigaldus käsud
 
 ### Eeltingimused
-- Python 3.12 või uuem
-- Azure tellimus (Microsoft Foundry jaoks)
-- Azure CLI paigaldatud ja sisse logitud (`az login`)
+- Python 3.12 või uuem versioon
+- Azure'i tellimus (Microsoft Foundry jaoks)
+- Azure CLI installitud ja autentitud (`az login`)
 
-### Algne seadistus
+### Esmane seadistus
 
-1. **Klooni või forgi hoidla:**
+1. **Klooni või loo hoidla fork:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # Või
+   # VÕI
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Loo ja aktiveeri Pythoni virtuaalne keskkond:**
+2. **Loo ja aktiveeri Python virtuaalkeskkond:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Windowsis: venv\Scripts\activate
@@ -44,64 +44,64 @@ Selles hoidlus on "Tehisintellekti agendid algajatele" – põhjalik hariduslik 
    pip install -r requirements.txt
    ```
 
-4. **Seadista keskkonnamuutujad:**
+4. **Määra keskkonnamuutujad:**
    ```bash
    cp .env.example .env
-   # Muuda .env fail oma API võtmeste ja otspunktidega
+   # Muuda .env oma API võtmete ja lõpp-punktidega
    ```
 
 ### Nõutavad keskkonnamuutujad
 
-Microsoft Foundry jaoks (nõutav):
+**Microsoft Foundry** jaoks (nõutud):
 - `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry projekti lõpp-punkt
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Mudeli juurutamise nimi (nt gpt-4.1-mini)
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Mudeli paigalduse nimi (nt gpt-5-mini)
 
-Azure AI Search jaoks (õppetund 05 - RAG):
+**Azure AI Search** jaoks (õppetükk 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search lõpp-punkt
 - `AZURE_SEARCH_API_KEY` - Azure AI Search API võti
 
-Autentimine: Käivita `az login` enne märkmike töötamist (kasutab `AzureCliCredential`).
+Autentimine: Käivita enne märkmike käivitamist `az login` (kasutab `AzureCliCredential`).
 
-## Arenduse töövoog
+## Arendustöövoog
 
-### Jupyter Notebooks käivitamine
+### Jupyter märkmike käivitamine
 
-Igas õppetunnis on mitu Jupyteri märkmikku erinevate raamistike jaoks:
+Igas õppetükis on mitmeid Jupyter märkmeid erinevate raamistike jaoks:
 
 1. **Käivita Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Mine õppetunni kausta** (nt `01-intro-to-ai-agents/code_samples/`)
+2. **Liigu õppetüki kataloogi** (nt `01-intro-to-ai-agents/code_samples/`)
 
-3. **Ava ja käivita märkmikud:**
+3. **Ava ja käivita märkmed:**
    - `*-python-agent-framework.ipynb` - Kasutades Microsoft Agent Frameworki (Python)
    - `*-dotnet-agent-framework.ipynb` - Kasutades Microsoft Agent Frameworki (.NET)
 
 ### Töötamine Microsoft Agent Frameworkiga
 
 **Microsoft Agent Framework + Microsoft Foundry:**
-- Nõuab Azure tellimust
+- Nõuab Azure'i tellimust
 - Kasutab `FoundryChatClient` Agent Service V2 jaoks (agentid nähtavad Foundry portaalis)
-- Tootmiseks valmis koos sisse ehitatud jälgitavusega
-- Failinime muster: `*-python-agent-framework.ipynb`
+- Tootmisvalmis koos sisseehitatud jälgitavusega
+- Failimall: `*-python-agent-framework.ipynb`
 
 ## Testimise juhised
 
-See on hariduslik hoidla koos näidiskoodiga, mitte tootmiskood automatiseeritud testidega. Oma seadistuse ja muudatuste kontrollimiseks:
+See on õppehoidla koos näidiskoodiga, mitte tootmiskood automatiseeritud testidega. Oma seadistuse ja muudatuste kinnitamiseks:
 
 ### Käsitsi testimine
 
-1. **Testi Python keskkonda:**
+1. **Testi Python keskkond:**
    ```bash
-   python --version  # Peaks olema 3.12+
+   python --version  # Peaks olema 3.12 või uuem
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Testi märkmiku töötamist:**
+2. **Testi märkmiku täitmist:**
    ```bash
-   # Konverteeri märkmik skriptiks ja käivita (testib imporde)
+   # Muuda märkmik skriptiks ja käivita (testib importimisi)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -110,33 +110,33 @@ See on hariduslik hoidla koos näidiskoodiga, mitte tootmiskood automatiseeritud
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Individuaalsete märkmike kasutamine
+### Üksikute märkmete käivitamine
 
-Ava märkmikud Jupyters ja käivita lahtrid järjestikku. Iga märkmik on iseseisev ja sisaldab:
+Ava märkmed Jupyteris ja täida lahtrid järjestikku. Iga märkmik on iseseisev ja sisaldab:
 - Impordilaused
 - Konfiguratsiooni laadimine
-- Näidisagentide rakendused
-- Oodatud väljundid markdown lahtrites
+- Näidis agentide rakendused
+- Oodatavad väljundid markdown-lahtrites
 
-### Juurutatud agentide kiiretestimine
+### Paigaldatud agentide suitsutestimine
 
-Õppetundides, kus agent on juurutatud Microsoft Foundry hostitud agendina (01, 04, 05, 16), sisaldab hoidla testi-katalooge `tests/` all, mida jooksutatakse `.github/workflows/smoke-test.yml` töövoo kaudu, kasutades [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) toimingut. Need on kergekaalulised juurutamisejärgsed kontrollid (kas agent on kättesaadav ja täidab põhilisi prompti ootusi?), täiustades hindamisprotsessi õppetundides 10 ja 16. Vaata [tests/README.md](./tests/README.md) faili kataloogi-õppetunni-agendi kaardistuse kohta. Õppetund 17 jookseb lokaalselt Foundry Localiga ja tal puudub hostitud lõpp-punkt, seega valideeritakse see oma märkmiku otsekäivitamisega.
+Õppetükkides, kus agent on paigaldatud Microsoft Foundry majutatud agendina (01, 04, 05, 16), kaasatakse hoidlas suitsutesti kataloogid kataloogis `tests/`, mida käitab `.github/workflows/smoke-test.yml` töövoog kaudu [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) tegevust. Need on kerged järelturbeväravad (kas agent on kättesaadav ja järgib põhilisi päringut ootusi), mis täiendavad hindamistoru õppetükkides 10 ja 16. Vaata [tests/README.md](./tests/README.md) kataloogi-õppetüki-agendi kaardistust. Õppetükk 17 töötab lokaalselt Foundry Localiga ja ei oma majutatud lõpp-punkti, seega valideeritakse seda tema märkmike otse jooksutamisega.
 
 ## Koodi stiil
 
-### Pythoni konventsioonid
+### Pythoni soovitused
 
 - **Python versioon**: 3.12+
-- **Koodi stiil**: Järgi tavapärast Python PEP 8 konventsiooni
-- **Märkmikud**: Kasuta selgeid markdown lahtrid mõistete selgitamiseks
-- **Impordid**: Rühmitage standardteegi, kolmanda osapoole ja kohalike importide kaupa
+- **Koodi stiil**: Järgi standardseid Python PEP 8 soovitusi
+- **Märkmikud**: Kasuta selgeid markdown lahtrid kontseptsioonide selgitamiseks
+- **Impordid**: Grupeeri tava-raamatukogu, kolmandate osapoolte ja kohalikud impordid eraldi
 
-### Jupyteri märkmiku konventsioonid
+### Jupyteri märkmike soovitused
 
-- Lisa kirjeldavad markdown lahtrid enne koodilahtrit
-- Lisa märkmikesse väljundi näited viitamiseks
-- Kasuta selgeid muutujate nimesid, mis vastavad õppetunni mõistetele
-- Hoia märkmiku täitmise järjekord lineaarsena (lahter 1 → 2 → 3...)
+- Sisalda kirjeldavad markdown lahtrid enne koodilahtrite järel
+- Lisa märkmikesse väljundite näited viitamiseks
+- Kasuta selgeid muutujate nimesid, mis vastavad õppetüki kontseptsioonidele
+- Hoia märkmike täitmiskord lineaarne (lahter 1 → 2 → 3...)
 
 ### Failide organiseerimine
 
@@ -150,159 +150,159 @@ Ava märkmikud Jupyters ja käivita lahtrid järjestikku. Iga märkmik on isesei
     └── *.png
 ```
 
-## Ehitamine ja juurutamine
+## Koostamine ja kasutuselevõtt
 
-### Dokumentatsiooni ehitamine
+### Dokumentatsiooni koostamine
 
-Selles hoidlus kasutatakse dokumentatsiooniks Markdownit:
-- README.md failid igas õppetunni kaustas
-- Peamine README.md hoidla juures
-- Automaatne tõlketehnoloogia GitHub Actions kaudu
+See hoidla kasutab dokumentatsiooniks Markdowni:
+- Iga õppetüki kaustas README.md failid
+- Peamine README.md hoiuala juures
+- Automaatne tõlketehnoloogia GitHub Actions'i kaudu
 
 ### CI/CD torujuhe
 
-Asub `.github/workflows/` kaustas:
+Asub kataloogis `.github/workflows/`:
 
-1. **co-op-translator.yml** - Automaatne tõlge 50+ keelde
+1. **co-op-translator.yml** - Automaatne tõlge üle 50 keelde
 2. **welcome-issue.yml** - Uute probleemide looja tervitamine
-3. **welcome-pr.yml** - Uue pull requesti autorite tervitamine
+3. **welcome-pr.yml** - Uute pull requesti panustajate tervitamine
 
-### Juurutamine
+### Kasutuselevõtt
 
-See on hariduslik hoidla – puudub juurutamisprotsess. Kasutajad:
-1. Tegema forki või kloonima hoidla
-2. Jookseb märkmikke lokaalselt või GitHub Codespaces keskkonnas
-3. Õppida, muutes ja katsetades näiteid
+See on õppehoidla – ei ole kasutuselevõtu protsessi. Kasutajad:
+1. Loovad hoidla fork’i või kloonivad selle
+2. Käivitavad märkmed kohapeal või GitHub Codespaces’is
+3. Õpivad, muutes ja proovides näiteid
 
 ## Pull Requesti juhised
 
 ### Enne esitamist
 
 1. **Testi oma muudatusi:**
-   - Käivita mõjutatud märkmikud täielikult
-   - Kontrolli, et kõik lahtrid töötavad ilma vigadeta
-   - Veendu, et väljundid oleksid sobivad
+   - Käivita täielikult mõjutatud märkmed
+   - Kontrolli, et kõik lahtrid täidetakse ilma vigadeta
+   - Veendu, et väljundid on sobivad
 
 2. **Dokumentatsiooni uuendused:**
-   - Uuenda README.md, kui lisad uusi mõisteid
-   - Lisa märkmikesse kommentaare keeruka koodi jaoks
+   - Uuenda README.md, kui lisad uusi kontseptsioone
+   - Lisa märkmetesse kommentaarid keeruka koodi jaoks
    - Veendu, et markdown lahtrid selgitavad eesmärki
 
 3. **Failimuudatused:**
-   - Väldi `.env` failide kommitimist (kasuta `.env.example`)
-   - Ära kommiti `venv/` ega `__pycache__/` kaustu
-   - Hoia märkmiku väljundid, kui need demonstreerivad mõisteid
-   - Eemalda ajutised failid ja varukoopiad (`*-backup.ipynb`)
+   - Väldi `.env` failide commitimist (kasuta `.env.example`)
+   - Ära commiti `venv/` või `__pycache__/` katalooge
+   - Hoia märkmike väljundid, kui need demonstreerivad kontseptsioone
+   - Eemalda ajutised failid ja varukoopiad märkmetest (`*-backup.ipynb`)
 
-### PR pealkirja vorming
+### PR pealkirja formaat
 
 Kasuta kirjeldavaid pealkirju:
-- `[Lesson-XX] Lisa uus näide mõiste kohta <concept>`
-- `[Fix] Paranda trükiviga õppetund-XX README-s`
-- `[Update] Paranda koodinäidet õppetund-XX`
-- `[Docs] Uuenda seadistusjuhiseid`
+- `[Lesson-XX] Lisa uus näide teemal <kontseptsioon>`
+- `[Fix] Paranda kirjaviga lesson-XX README-s`
+- `[Update] Paranda koodi näidet lesson-XX`
+- `[Docs] Uuenda paigaldusjuhiseid`
 
 ### Nõutavad kontrollid
 
-- Märkmikud peaksid jooksma ilma vigadeta
-- README failid peaksid olema selged ja õigemad
-- Järgi olemasolevaid koodimustreid hoidlasse
-- Hoia järjepidevust teiste õppetundidega
+- Märkmikud peavad käivituma ilma vigadeta
+- README failid peavad olema selged ja täpsed
+- Järgi olemasolevaid koodimustreid hoidlas
+- Säilita ühtsus teiste õppetükkidega
 
 ## Täiendavad märkused
 
-### Levinumad lõksud
+### Tavalised lõksud
 
 1. **Python versiooni mittevastavus:**
-   - Veendu, et kasutad Python 3.12 või uuemat
-   - Mõned paketid ei pruugi töötada vanemate versioonidega
-   - Kasuta `python3 -m venv` Python versiooni selgeks määramiseks
+   - Veendu, et kasutatakse Python 3.12 või uuemat
+   - Mõned paketid ei pruugi töötada vanemates versioonides
+   - Kasuta `python3 -m venv`, et täpsustada Python versioon eksplitsiitselt
 
 2. **Keskkonnamuutujad:**
    - Loo alati `.env` fail `.env.example` põhjal
-   - Ära kommiti `.env` faili (see on `.gitignore` failis)
-   - Logi sisse `az login` võtmeteta Entra ID autentimiseks
+   - Ära commiti `.env` faili (see on `.gitignore`-s)
+   - Logi sisse `az login` abil võtmepõhise Entra ID asemel
 
 3. **Pakettide konfliktid:**
-   - Kasuta uut virtuaalset keskkonda
-   - Paigalda `requirements.txt` abil, mitte üksikute pakettidena
-   - Mõned märkmikud võivad vajada lisapakette, mis on toodud nende markdown lahtrites
+   - Kasuta värsket virtuaalkeskkonda
+   - Paigalda sõltuvused `requirements.txt`-st, mitte üksikpakkidena
+   - Mõned märkmed võivad vajada lisa pakette, mis on mainitud nende markdown lahtrites
 
 4. **Azure teenused:**
-   - Azure AI teenused vajavad aktiivset tellimust
+   - Azure AI teenused nõuavad aktiivset tellimust
    - Mõned funktsioonid on regioonipõhised
-   - Veendu, et sinu Azure OpenAI mudeli juurutus toetab Responses API-t
+   - Veendu, et sinu Azure OpenAI mudeli paigaldus toetab Responses API-d
 
-### Õppimise rada
+### Õppimisrada
 
-Soovitav õppetundide järjestus:
-1. **00-course-setup** – alustuseks keskkonna seadistamiseks
-2. **01-intro-to-ai-agents** – tehisintellekti agentide põhimõtete mõistmiseks
-3. **02-explore-agentic-frameworks** – erinevate raamistike õppimiseks
-4. **03-agentic-design-patterns** – põhidisainimustrid
-5. Jätka nummerdatud õppetundidega järjestikku
+Soovitatav õppetükkide järjekord:
+1. **00-course-setup** - Alusta siit keskkonna seadistamiseks
+2. **01-intro-to-ai-agents** - Mõista AI agendi põhialuseid
+3. **02-explore-agentic-frameworks** - Õpi erinevate raamistike kohta
+4. **03-agentic-design-patterns** - Põhjalikud disainimustrid
+5. Jätka järgnevate nummerdatud õppetükkidega järjest
 
 ### Raamistiku valik
 
-Vali raamistik oma eesmärkide põhjal:
-- **Kõik õppetunnid**: Microsoft Agent Framework (MAF) koos `FoundryChatClient`-iga
-- **Agendid registreeritakse serveripoolselt** Microsoft Foundry Agent Service V2-s ja on nähtavad Foundry portalil
+Vali raamistik vastavalt oma eesmärkidele:
+- **Kõik õppetükid**: Microsoft Agent Framework (MAF) koos `FoundryChatClient`-iga
+- **Agentid registreeritakse serveripoolsel Microsoft Foundry Agent Service V2-s ning on nähtavad Foundry portaalis**
 
 ### Abi saamine
 
-- Liitu [Microsoft Foundry Kogukonna Discordiga](https://aka.ms/ai-agents/discord)
-- Tutvu õppetundide README failidega konkreetse juhendi saamiseks
-- Vaata peamist [README.md](./README.md) kursuse ülevaateks
-- Viita [Course Setup](./00-course-setup/README.md) üksikasjalike seadistusjuhiste jaoks
+- Liitu [Microsoft Foundry kogukonna Discordiga](https://aka.ms/ai-agents/discord)
+- Tutvu õppetükkide README failidega spetsiifilise juhendamise jaoks
+- Vaata peamist [README.md](./README.md) kursuse ülevaate saamiseks
+- Tutvu [Course Setup](./00-course-setup/README.md) üksikasjalike seadistusjuhistega
 
 ### Panustamine
 
-See on avatud haridusprojekt. Panused on teretulnud:
-- Koodinäidete täiustamine
-- Trükivigade või vigade parandamine
-- Täpsustavate kommentaaride lisamine
-- Uute õppetundide teemade ettepanek
-- Tõlkimine lisakeeltesse
+See on avatud haridusprojekt. Panustused on teretulnud:
+- Paranda koodi näiteid
+- Paranda kirjavead või vead
+- Lisa täpsustavaid kommentaare
+- Paku uusi õppetükkide teemasid
+- Tõlgi täiendavatesse keeltesse
 
-Vaata [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) hetke vajadusi.
+Vaata [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) praeguste vajaduste kohta.
 
 ## Projekti spetsiifiline kontekst
 
 ### Mitmekeelne tugi
 
-See hoidla kasutab automaatset tõlketeenust:
-- Toetatud 50+ keelt
-- Tõlked kaustades `/translations/<lang-code>/`
-- GitHub Actions töövoog haldab tõlkeuuendusi
-- Allikfailid on inglise keeles hoidla juures
+See hoidla kasutab automatiseeritud tõlketehnoloogiat:
+- Toetab üle 50 keele
+- Tõlked asuvad kaustades `/translations/<lang-code>/`
+- GitHub Actions töövoog haldab tõlketeisendusi
+- Allika failid on inglise keeles hoidla juures
 
-### Õppetunni struktuur
+### Õppetükkide struktuur
 
-Iga õppetund järgib järjepidevat mustrit:
-1. Videopildi pisipilt lingiga
-2. Kirjalik õppetunni sisu (README.md)
-3. Koodinäited mitmes raamistikus
-4. Õppeeesmärgid ja eeldused
-5. Lisamaterjalid õppimiseks lingituna
+Iga õppetükk järgib järjekindlat mustrit:
+1. Video pisipilt koos lingiga
+2. Kirjalik õppetüki sisu (README.md)
+3. Koodi näited mitmes raamistikus
+4. Õpieesmärgid ja eeltingimused
+5. Lisamaterjalide lingid
 
-### Koodinäidete nimetamine
+### Koodi näidiste nimed
 
-Vorming: `<lesson-number>-python-agent-framework.ipynb`
-- `01-python-agent-framework.ipynb` - Õppetund 1, MAF Python
-- `14-sequential.ipynb` - Õppetund 14, MAF keerukamad mustrid
-- `16-python-agent-framework.ipynb` - Õppetund 16, tootmiskasutuses klienditoe agent
-- `17-local-agent-foundry-local.ipynb` - Õppetund 17, lokaalne agent koos Foundry Local ja Qwen'iga
+Formaat: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Õppetükk 1, MAF Python
+- `14-sequential.ipynb` - Õppetükk 14, MAF keerulisemad mustrid
+- `16-python-agent-framework.ipynb` - Õppetükk 16, tootmisvalmis klienditoe agent
+- `17-local-agent-foundry-local.ipynb` - Õppetükk 17, kohalik agent kasutades Foundry Local + Qwen
 
-### Erikaustad
+### Erikataloogid
 
 - `translated_images/` - Lokaliseeritud pildid tõlgete jaoks
-- `images/` - Originaalpildid ingliskeelsele sisule
+- `images/` - Originaalpildid ingliskeelse sisu jaoks
 - `.devcontainer/` - VS Code arenduskonteineri konfiguratsioon
 - `.github/` - GitHub Actions töövood ja mallid
 
 ### Sõltuvused
 
-Peamised paketid `requirements.txt` failist:
+Peamised paketid `requirements.txt`-s:
 - `agent-framework` - Microsoft Agent Framework
 - `a2a-sdk` - Agent-agent protokolli tugi
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI teenused

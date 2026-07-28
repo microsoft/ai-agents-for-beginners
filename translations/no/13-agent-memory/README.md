@@ -1,9 +1,9 @@
-# Minne for AI-agenter  
+# Minne for AI-agenter 
 [![Agent Memory](../../../translated_images/no/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Når man diskuterer de unike fordelene ved å lage AI-agenter, er det hovedsakelig to ting som diskuteres: evnen til å bruke verktøy for å fullføre oppgaver og evnen til å forbedre seg over tid. Minne er grunnlaget for å skape en selvforbedrende agent som kan skape bedre opplevelser for brukerne våre.
+Når man diskuterer de unike fordelene ved å lage AI-agenter, er det to ting som hovedsakelig diskuteres: evnen til å bruke verktøy for å fullføre oppgaver og evnen til å forbedre seg over tid. Minne er grunnlaget for å lage selvforbedrende agenter som kan skape bedre opplevelser for brukerne våre.
 
-I denne leksjonen skal vi se på hva minne er for AI-agenter og hvordan vi kan administrere det og bruke det til fordel for applikasjonene våre.
+I denne leksjonen vil vi se på hva minne er for AI-agenter og hvordan vi kan håndtere det og bruke det til fordel for applikasjonene våre.
 
 ## Introduksjon
 
@@ -11,9 +11,9 @@ Denne leksjonen vil dekke:
 
 • **Forstå AI-agentminne**: Hva minne er og hvorfor det er viktig for agenter.
 
-• **Implementere og lagre minne**: Praktiske metoder for å legge til minnekapasiteter til AI-agenter, med fokus på korttids- og langtidsminne.
+• **Implementering og lagring av minne**: Praktiske metoder for å legge til minnekapasiteter til AI-agentene dine, med fokus på korttids- og langtidsminne.
 
-• **Gjøre AI-agenter selvforbedrende**: Hvordan minne gjør det mulig for agenter å lære fra tidligere interaksjoner og forbedre seg over tid.
+• **Gjøre AI-agenter selvforbedrende**: Hvordan minne gjør det mulig for agenter å lære fra tidligere interaksjoner og bli bedre over tid.
 
 ## Tilgjengelige implementeringer
 
@@ -21,149 +21,155 @@ Denne leksjonen inkluderer to omfattende notatbøker:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implementerer minne ved bruk av Mem0 og Azure AI Search med Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementerer strukturert minne med Cognee, som automatisk bygger kunnskapsgraf støttet av embeddings, visualiserer grafen, og intelligent gjenfinning
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementerer strukturert minne ved bruk av Cognee, som automatisk bygger kunnskapsgraf støttet av embeddings, visualiserer graf og intelligent uthenting
 
 ## Læringsmål
 
-Etter å ha fullført denne leksjonen vil du kunne:
+Etter å ha gjennomført denne leksjonen vil du vite hvordan du:
 
-• **Skille mellom ulike typer AI-agentminne**, inkludert arbeidsminne, korttidsminne og langtidsminne, samt spesialiserte former som persona- og episodisk minne.
+• **Skiller mellom ulike typer AI-agentminne**, inkludert arbeidsminne, korttidsminne og langtidsminne, samt spesialiserte former som persona- og episodisk minne.
 
-• **Implementere og administrere korttids- og langtidsminne for AI-agenter** ved bruk av Microsoft Agent Framework, og utnytte verktøy som Mem0, Cognee, Whiteboard memory, og integrere med Azure AI Search.
+• **Implementerer og administrerer korttids- og langtidsminne for AI-agenter** ved hjelp av Microsoft Agent Framework, med verktøy som Mem0, Cognee, Whiteboard-minne og integrasjon med Azure AI Search.
 
-• **Forstå prinsippene bak selvforbedrende AI-agenter** og hvordan robuste minnehåndteringssystemer bidrar til kontinuerlig læring og tilpasning.
+• **Forstår prinsippene bak selvforbedrende AI-agenter** og hvordan robuste minnehåndteringssystemer bidrar til kontinuerlig læring og tilpasning.
 
 ## Forstå AI-agentminne
 
-I kjernen refererer **minne for AI-agenter til mekanismene som tillater dem å beholde og hente informasjon**. Denne informasjonen kan være spesifikke detaljer om en samtale, brukerpreferanser, tidligere handlinger eller til og med lærte mønstre.
+I sin kjerne refererer **minne for AI-agenter til mekanismene som lar dem beholde og hente informasjon**. Denne informasjonen kan være spesifikke detaljer om en samtale, brukerpreferanser, tidligere handlinger eller til og med lærte mønstre.
 
-Uten minne er AI-applikasjoner ofte statsløse, noe som betyr at hver interaksjon starter fra bunnen av. Dette fører til en repetitiv og frustrerende brukeropplevelse hvor agenten "glemmer" tidligere kontekst eller preferanser.
+Uten minne er AI-applikasjoner ofte statsløse, noe som betyr at hver interaksjon starter fra bunnen av. Dette fører til en repeterende og frustrerende brukeropplevelse hvor agenten "glemmer" tidligere kontekst eller preferanser.
 
 ### Hvorfor er minne viktig?
 
-En agents intelligens er dypt knyttet til dens evne til å hente og bruke tidligere informasjon. Minne gjør det mulig for agenter å være:
+En agents intelligens er dypt knyttet til dens evne til å hente frem og bruke tidligere informasjon. Minne gjør at agenter kan være:
 
-• **Reflekterende**: Lære av tidligere handlinger og utfall.
+• **Reflekterende**: Lære av tidligere handlinger og resultater.
 
-• **Interaktive**: Opprettholde kontekst gjennom en pågående samtale.
+• **Interaktive**: Holde kontekst gjennom en pågående samtale.
 
-• **Proaktive og reaktive**: Forutse behov eller svare passende basert på historiske data.
+• **Proaktive og reaktive**: Forutse behov eller respondere passende basert på historiske data.
 
 • **Autonome**: Operere mer uavhengig ved å trekke på lagret kunnskap.
 
-Målet med å implementere minne er å gjøre agenter mer **pålitelige og kapable**.
+Målet med å implementere minne er å gjøre agentene mer **pålitelige og kapable**.
 
 ### Typer minne
 
 #### Arbeidsminne
 
-Tenk på dette som et notatark en agent bruker under en enkelt, pågående oppgave eller tankeprosess. Det holder umiddelbar informasjon som trengs for å beregne neste steg.
+Tenk på dette som et stykke skissepapir en agent bruker under en enkelt, pågående oppgave eller tankeprosess. Det holder umiddelbar informasjon som trengs for å beregne neste steg.
 
-For AI-agenter fanger arbeidsminnet ofte den mest relevante informasjonen fra en samtale, selv om hele chatthistorikken er lang eller avkortet. Det fokuserer på å trekke ut nøkkel-elementer som krav, forslag, beslutninger og handlinger.
+For AI-agenter fanger arbeidsminnet ofte den mest relevante informasjonen fra en samtale, selv om hele chattehistorikken er lang eller avkortet. Det fokuserer på å hente ut nøkkel elementer som krav, forslag, beslutninger og handlinger.
 
 **Eksempel på arbeidsminne**
 
-I en reisebestillingsagent kan arbeidsminnet fange brukerens nåværende forespørsel, som for eksempel "Jeg vil bestille en tur til Paris". Dette spesifikke kravet holdes i agentens umiddelbare kontekst for å veilede den pågående interaksjonen.
+I en reisebestillingsagent kan arbeidsminnet fange brukerens nåværende forespørsel, som "Jeg vil bestille en tur til Paris". Dette spesifikke kravet holdes i agentens umiddelbare kontekst for å veilede den nåværende interaksjonen.
 
 #### Korttidsminne
 
-Denne typen minne beholder informasjon i løpet av én enkelt samtale eller økt. Det er konteksten for den nåværende chatten, som lar agenten referere tilbake til tidligere deler av dialogen.
+Denne typen minne beholder informasjon for varigheten av en enkelt samtale eller økt. Det er konteksten i den nåværende chatten, som gjør at agenten kan referere tilbake til tidligere turer i dialogen.
 
-I [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK-eksempler tilsvarer dette `AgentSession`, opprettet med `agent.create_session()`. Økten er rammeverkets innebygde korttidsminne: det holder samtalekontekst tilgjengelig mens samme økt gjenbrukes, men denne konteksten lagres ikke når økten avsluttes eller applikasjonen startes på nytt. Bruk langtidsminne for fakta og preferanser som må overleve på tvers av økter, vanligvis via en database, vektorindeks eller annen vedvarende lagring.
+I [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK-eksemplene tilsvarer dette `AgentSession`, opprettet med `agent.create_session()`. Økten er rammeverkets innebygde korttidsminne: den holder samtalekonteksten tilgjengelig mens samme økt gjenbrukes, men den konteksten beholdes ikke når økten avsluttes eller applikasjonen startes på nytt. Bruk langtidsminne for fakta og preferanser som må overleve på tvers av økter, vanligvis gjennom en database, vektorindeks eller annen vedvarende lagring.
 
 **Eksempel på korttidsminne**
 
-Hvis en bruker spør, "Hvor mye koster en flybillett til Paris?" og følger opp med "Hva med overnatting der?", sørger korttidsminnet for at agenten vet at "der" refererer til "Paris" innenfor samme samtale.
+Hvis en bruker spør, "Hvor mye ville en flybillett til Paris koste?" og deretter følger opp med "Hva med overnatting der?", sikrer korttidsminnet at agenten vet at "der" refererer til "Paris" i samme samtale.
 
 #### Langtidsminne
 
-Dette er informasjon som vedvarer over flere samtaler eller økter. Det tillater agenter å huske brukerpreferanser, historiske interaksjoner eller generell kunnskap over lengre tid. Dette er viktig for personalisering.
+Dette er informasjon som vedvarer over flere samtaler eller økter. Det gjør at agenter kan huske brukerpreferanser, historiske interaksjoner eller generell kunnskap over lang tid. Dette er viktig for personalisering.
 
 **Eksempel på langtidsminne**
 
-Langtidsminnet kan lagre at "Ben liker ski og utendørsaktiviteter, foretrekker kaffe med fjordutsikt, og ønsker å unngå avanserte skibakker på grunn av en tidligere skade". Denne informasjonen, lært fra tidligere interaksjoner, påvirker anbefalinger i fremtidige reiseplanleggingsøkter, noe som gjør dem høyst personlig tilpasset.
+Et langtidsminne kan lagre at "Ben liker ski og utendørsaktiviteter, liker kaffe med fjellutsikt og ønsker å unngå avanserte skispor på grunn av en tidligere skade". Denne informasjonen, lært fra tidligere interaksjoner, påvirker anbefalinger i fremtidige reiseplanleggingsøkter, og gjør dem svært personlige.
 
-#### Persona-minne
+#### Personaminne
 
-Denne spesialiserte minnetypen hjelper en agent å utvikle en konsistent "personlighet" eller "persona". Det lar agenten huske detaljer om seg selv eller sin tiltenkte rolle, noe som gjør interaksjoner mer flytende og målrettet.
+Denne spesialiserte minnetypen hjelper en agent å utvikle en konsistent "personlighet" eller "persona". Det gjør det mulig for agenten å huske detaljer om seg selv eller sin tiltenkte rolle, noe som gjør interaksjonene mer flytende og fokuserte.
 
-**Eksempel på persona-minne**
-
-Hvis reiseagenten er designet som en "ekspert på ski-planlegging," kan persona-minnet forsterke denne rollen, og påvirke svarene slik at de samsvarer med en eksperts tone og kunnskap.
+**Eksempel på personaminne**
+Hvis reiseagenten er designet for å være en "ekspert på skiplanlegging," kan personaminne forsterke denne rollen, og påvirke svarene for å være i tråd med en eksperts tone og kunnskap.
 
 #### Arbeidsflyt-/episodisk minne
 
-Dette minnet lagrer sekvensen av steg en agent tar under en kompleks oppgave, inkludert suksesser og feil. Det er som å huske spesifikke "episoder" eller tidligere erfaringer for å lære av dem.
+Dette minnet lagrer sekvensen av trinn en agent tar under en kompleks oppgave, inkludert suksesser og fiaskoer. Det er som å huske spesifikke "episoder" eller tidligere erfaringer for å lære av dem.
 
 **Eksempel på episodisk minne**
 
-Hvis agenten forsøkte å bestille en spesifikk flybillett, men det mislyktes på grunn av utilgjengelighet, kan episodisk minne registrere denne feilen. Det tillater agenten å prøve alternative flyvninger eller informere brukeren om problemet på en bedre opplyst måte ved neste forsøk.
+Hvis agenten prøvde å bestille en spesifikk flyvning, men dette mislyktes på grunn av utilgjengelighet, kan episodisk minne registrere denne feilen, slik at agenten kan prøve alternative flyvninger eller informere brukeren om problemet på en mer informert måte under et senere forsøk.
 
 #### Entitetsminne
 
-Dette innebærer å trekke ut og huske spesifikke enheter (som personer, steder eller ting) og hendelser fra samtaler. Det lar agenten bygge en strukturert forståelse av sentrale elementer som diskuteres.
+Dette innebærer å hente ut og huske spesifikke enheter (som personer, steder eller ting) og hendelser fra samtaler. Det lar agenten bygge en strukturert forståelse av viktige elementer som drøftes.
 
 **Eksempel på entitetsminne**
 
-Fra en samtale om en tidligere tur kan agenten trekke ut "Paris," "Eiffeltårnet," og "middag på Le Chat Noir-restaurant" som enheter. I en fremtidig interaksjon kan agenten huske "Le Chat Noir" og tilby å gjøre en ny reservasjon der.
+Fra en samtale om en tidligere tur kan agenten hente ut "Paris," "Eiffeltårnet," og "middag på restauranten Le Chat Noir" som enheter. I en fremtidig interaksjon kan agenten huske "Le Chat Noir" og tilby å gjøre en ny reservasjon der.
 
 #### Strukturert RAG (Retrieval Augmented Generation)
 
-Mens RAG er en bredere teknikk, fremheves "Strukturert RAG" som en kraftig minneteknologi. Den trekker ut tett, strukturert informasjon fra ulike kilder (samtaler, e-poster, bilder) og bruker dette for å forbedre presisjon, tilbakekalling og hastighet i svarene. I motsetning til klassisk RAG som baserer seg kun på semantisk likhet, jobber Strukturert RAG med den iboende strukturen i informasjonen.
+Mens RAG er en bredere teknikk, fremheves "Strukturert RAG" som en kraftfull minneteknologi. Den henter ut tett, strukturert informasjon fra ulike kilder (samtaler, e-poster, bilder) og bruker det til å forbedre presisjon, gjenfinning og hastighet i svar. I motsetning til klassisk RAG som kun baserer seg på semantisk likhet, arbeider Strukturert RAG med den iboende strukturen i informasjonen.
 
 **Eksempel på strukturert RAG**
 
-I stedet for bare å matche nøkkelord kan Strukturert RAG analysere flydetaljer (destinasjon, dato, tid, flyselskap) fra en e-post og lagre dem på en strukturert måte. Dette muliggjør presise spørringer som "Hvilket fly booket jeg til Paris på tirsdag?"
+I stedet for bare å matche nøkkelord, kan Strukturert RAG tolke flydetaljer (destinasjon, dato, tid, flyselskap) fra en e-post og lagre dem på en strukturert måte. Dette gjør det mulig å stille presise spørsmål som "Hvilken flyvning bestilte jeg til Paris på tirsdag?"
 
-## Implementere og lagre minne
+## Implementering og lagring av minne
 
-Implementering av minne for AI-agenter innebærer en systematisk prosess for **minnehåndtering**, som inkluderer generering, lagring, gjenfinning, integrering, oppdatering og til og med "glemming" (eller sletting) av informasjon. Gjenfinning er et spesielt viktig aspekt.
+Å implementere minne for AI-agenter innebærer en systematisk prosess med **minnehåndtering**, som inkluderer generering, lagring, uthenting, integrering, oppdatering og til og med "glemming" (eller sletting) av informasjon. Uthenting er et spesielt viktig aspekt.
 
 ### Spesialiserte minneverktøy
 
 #### Mem0
 
-En måte å lagre og administrere agentminne på, er ved bruk av spesialiserte verktøy som Mem0. Mem0 fungerer som et vedvarende minnelag, som gjør det mulig for agenter å hente relevante interaksjoner, lagre brukerpreferanser og faktakontekst, og lære av suksesser og feil over tid. Ideen er at statsløse agenter blir til tilstandsbevarende.
+En måte å lagre og administrere agentminne på er ved bruk av spesialiserte verktøy som Mem0. Mem0 fungerer som et vedvarende minnelag, som lar agenter hente frem relevante interaksjoner, lagre brukerpreferanser og faktabasert kontekst, og lære av suksesser og feil over tid. Ideen her er at statsløse agenter blir til tilstandsbaserte.
 
-Det fungerer gjennom en **to-fase minneprosess: utvinning og oppdatering**. Først sendes meldinger lagt til en agents tråd til Mem0-tjenesten, som bruker en stor språkmodell (LLM) til å oppsummere samtalehistorikk og trekke ut nye minner. Deretter avgjør en LLM-basert oppdateringsfase om minnene skal legges til, endres eller slettes, og lagrer dem i en hybrid databutikk som kan inkludere vektor-, graf- og nøkkel-verdi-databaser. Systemet støtter også ulike minnetyper og kan inkludere grafminne for å administrere relasjoner mellom enheter.
+Det fungerer gjennom en **tofase minneprosess: uthenting og oppdatering**. Først sendes meldinger lagt til en agents tråd til Mem0-tjenesten, som bruker en stor språkmodell (LLM) til å oppsummere samtalehistorikk og hente ut nye minner. Deretter avgjør en LLM-drevet oppdateringsfase om disse minnene skal legges til, endres eller slettes, og lagrer dem i en hybrid datalagring som kan inkludere vektor-, graf- og nøkkel-verdi-databaser. Dette systemet støtter også ulike minnetyper og kan inkludere grafminne for å håndtere relasjoner mellom enheter.
 
 #### Cognee
 
-En annen kraftfull tilnærming er bruk av **Cognee**, et åpen kildekode-semantisk minne for AI-agenter som forvandler strukturert og ustrukturert data til søkbare kunnskapsgrafer støttet av embeddings. Cognee tilbyr en **to-lagers arkitektur** som kombinerer vektorsøk etter likhet med grafrelasjoner, og gjør det mulig for agenter å forstå ikke bare hva informasjon er lik, men hvordan konsepter relaterer til hverandre.
+En annen kraftfull tilnærming er å bruke **Cognee**, et åpen kildekode semantisk minnesystem for AI-agenter som omdanner strukturert og ustrukturert data til spørrbare kunnskapsgrafer støttet av embeddings. Cognee tilbyr en **dual-store-arkitektur** som kombinerer vektorlignende søk med grafrelasjoner, noe som gjør det mulig for agenter å forstå ikke bare hvilken informasjon som er lik, men hvordan begreper henger sammen.
 
-Den utmerker seg i **hybrid gjenfinning** som blander vektorsimilartet, grafstruktur og LLM-resonnering — fra rå oppslag av tekstbiter til grafbevisst spørsmål-og-svar. Systemet opprettholder et **levende minne** som utvikler seg og vokser mens det forblir søkbart som én sammenkoblet graf, støttende både korttids øktkontekst og langtids vedvarende minne.
+Det utmerker seg i **hybrid uthenting** som blander vektorlignende, grafstruktur og LLM-rasjonalisering – fra rå oppslag av biter til graf-bevisst spørsmålsteknikk. Systemet opprettholder et **levende minne** som utvikler og vokser samtidig som det forblir spørrbart som én sammenkoblet graf, som støtter både korttids kontekst i økten og langtidspersisterende minne.
 
-Cognee-notatboken ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrerer bygging av dette enhetlige minnelaget, med praktiske eksempler på å hente inn ulike datakilder, visualisere kunnskapsgrafen og søke med forskjellige søkstrategier tilpasset spesifikke agentbehov.
+Cognee-notatboken ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrerer hvordan man bygger dette forente minnelaget, med praktiske eksempler på å hente inn ulike datakilder, visualisere kunnskapsgrafen, og spørre med ulike søkstrategier skreddersydd til spesifikke agentbehov.
 
 ### Lagring av minne med RAG
 
-Utover spesialiserte minneverktøy som Mem0, kan du utnytte robuste søketjenester som **Azure AI Search som backend for lagring og gjenfinning av minner**, spesielt for strukturert RAG.
+Utover spesialiserte minneverktøy som Mem0, kan du bruke robuste søketjenester som **Azure AI Search som backend for lagring og uthenting av minner**, særlig for strukturert RAG.
 
-Dette gjør det mulig å forankre agentens svar med dine egne data, og sikrer mer relevante og nøyaktige svar. Azure AI Search kan brukes for å lagre bruker-spesifikke reiseminner, produktkataloger, eller annen domene-spesifikk kunnskap.
+Dette gjør at du kan forankre agentens svar i egne data, og sikrer mer relevante og nøyaktige svar. Azure AI Search kan brukes til å lagre brukerspesifikke reiseminner, produktkataloger eller annen domenespesifikk kunnskap.
 
-Azure AI Search støtter funksjoner som **Strukturert RAG**, som utmerker seg i å trekke ut og hente tett, strukturert informasjon fra store datasett som samtalehistorikker, e-poster, eller til og med bilder. Dette gir "supermenneskelig presisjon og tilbakekalling" sammenlignet med tradisjonelle tekstbiter og embedding-tilnærminger.
+Azure AI Search støtter funksjoner som **Strukturert RAG**, som utmerker seg i å hente og hente tett, strukturert informasjon fra store datasett som samtalehistorikk, e-poster eller til og med bilder. Dette gir "supermenneskelig presisjon og gjenkalling" sammenlignet med tradisjonelle tekstbiter og innleggingsmetoder.
 
 ## Gjøre AI-agenter selvforbedrende
 
-Et vanlig mønster for selvforbedrende agenter innebærer å introdusere en **"kunnskapsagent"**. Denne separate agenten observerer hovedsamtalen mellom brukeren og den primære agenten. Dens rolle er å:
+Et vanlig mønster for selvforbedrende agenter innebærer å introdusere en **"kunnskapsagent"**. Denne separate agenten observerer hovedsamtalen mellom brukeren og hovedagenten. Dens rolle er å:
 
-1. **Identifisere verdifull informasjon**: Bestemme om noen deler av samtalen er verdt å lagre som generell kunnskap eller en spesifikk brukerpreferanse.
+1. **Identifisere verdifull informasjon**: Bestemme om en del av samtalen er verdt å lagre som generell kunnskap eller en spesifikk brukerpreferanse.
 
-2. **Utvinn og oppsummer**: Destillere det essensielle læringspunktet eller preferansen fra samtalen.
+2. **Uthente og oppsummere**: Destillere det essensielle lærepunktene eller preferansen fra samtalen.
 
-3. **Lagre i en kunnskapsbase**: Persistere denne utvunnede informasjonen, ofte i en vektordatabse, slik at den kan hentes senere.
+3. **Lagre i en kunnskapsbase**: Lagre denne innhentede informasjonen, ofte i en vektordatabasen, slik at den kan hentes frem senere.
 
-4. **Berike fremtidige spørringer**: Når brukeren starter en ny forespørsel, henter kunnskapsagenten relevant lagret informasjon og legger den til i brukerens prompt, og gir viktig kontekst til den primære agenten (lignende RAG).
+4. **Forbedre fremtidige forespørsler**: Når brukeren setter i gang en ny forespørsel, henter kunnskapsagenten relevant lagret informasjon og legger den til brukerens prompt, og gir avgjørende kontekst til hovedagenten (lik RAG).
 
 ### Optimaliseringer for minne
 
-• **Latensstyring**: For å unngå å bremse brukerinteraksjoner, kan en billigere, raskere modell brukes innledningsvis for å raskt sjekke om informasjon er verdt å lagre eller hente, og bare kalle den mer komplekse utvinnings-/gjenfinningsprosessen når nødvendig.
+• **Latency-håndtering**: For å unngå å sinke brukerinteraksjoner, kan en billigere og raskere modell brukes først for raskt å sjekke om informasjon er verdt å lagre eller hente, og kun kalle den mer komplekse uthentings-/ekstraksjonsprosessen når det er nødvendig.
 
-• **Vedlikehold av kunnskapsbase**: For en voksende kunnskapsbase kan sjeldnere brukt informasjon flyttes til "kaldlagring" for å håndtere kostnader.
+• **Vedlikehold av kunnskapsbase**: For en voksende kunnskapsbase kan mindre brukt informasjon flyttes til "kaldlagring" for å kontrollere kostnader.
 
 ## Har du flere spørsmål om agentminne?
 
-Bli med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for å møte andre lærende, delta på kontortid og få svar på dine spørsmål om AI-agenter.
+Bli med på [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for å møte andre elever, delta på kontortimer og få svar på dine AI-agentspørsmål.
+## Forrige leksjon
+
+[Context Engineering for AI Agents](../12-context-engineering/README.md)
+
+## Neste leksjon
+
+[Utforske Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)
 
 ---
 

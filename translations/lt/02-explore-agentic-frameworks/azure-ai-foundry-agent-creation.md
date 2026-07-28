@@ -1,41 +1,41 @@
 # Microsoft Foundry agento paslaugos kūrimas
 
-Šiame pratime naudojate Microsoft Foundry agento paslaugos įrankius [Microsoft Foundry portale](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), kad sukurtumėte agentą skrydžių rezervavimui. Agentas galės bendrauti su vartotojais ir pateikti informaciją apie skrydžius.
+Šioje užduotyje naudojate Microsoft Foundry Agent Service įrankius [Microsoft Foundry portale](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), kad sukurtumėte agentą skrydžių rezervacijai. Agentas galės bendrauti su vartotojais ir teikti informaciją apie skrydžius.
 
-## Reikalavimai
+## Prieš pradedant
 
-Norėdami užbaigti šį pratimą, jums reikia:
-1. Azure paskyros su aktyvia prenumerata. [Sukurti paskyrą nemokamai](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Leidimų sukurti Microsoft Foundry hub arba kad jums būtų sukurtas hub.
-    - Jei jūsų vaidmuo yra Bendradarbis (Contributor) arba Savininkas (Owner), galite vadovautis šio vadovo veiksmais.
+Norėdami atlikti šią užduotį, jums reikės:
+1. Azure paskyros su aktyvia prenumerata. [Sukurkite paskyrą nemokamai](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Leidimų sukurti Microsoft Foundry centrą arba kad jis būtų sukurtas jums.
+    - Jei jūsų vaidmuo yra Bendradarbis (Contributor) arba Savininkas (Owner), galite sekti šio vadovo žingsnius.
 
-## Sukurkite Microsoft Foundry hub
+## Sukurkite Microsoft Foundry centrą
 
 > **Pastaba:** Microsoft Foundry anksčiau buvo žinomas kaip Azure AI Studio.
 
-1. Sekite šias gaires iš [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) tinklaraščio įrašo, kaip sukurti Microsoft Foundry hub.
-2. Kai jūsų projektas bus sukurtas, uždarykite rodomas patarimų skiltis ir peržiūrėkite projekto puslapį Microsoft Foundry portale, kuris turėtų atrodyti panašiai kaip žemiau pateiktoje nuotraukoje:
+1. Vadovaukitės šiais nurodymais iš [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) tinklaraščio įrašo, kaip susikurti Microsoft Foundry centrą.
+2. Kai jūsų projektas bus sukurtas, uždarykite rodomas patarimų korteles ir peržiūrėkite projekto puslapį Microsoft Foundry portale, kuris turėtų atrodyti panašiai kaip parodyta žemiau:
 
-    ![Microsoft Foundry Project](../../../translated_images/lt/azure-ai-foundry.88d0c35298348c2f.webp)
+    ![Microsoft Foundry Projektas](../../../translated_images/lt/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Diegti modelį
+## Įdiekite modelį
 
-1. Kairiajame skydelyje savo projekte, skiltyje **My assets**, pasirinkite puslapį **Models + endpoints**.
+1. Kairėje projekto srityje, skyriuje **My assets**, pasirinkite puslapį **Models + endpoints**.
 2. Puslapyje **Models + endpoints**, skirtuke **Model deployments**, meniu **+ Deploy model** pasirinkite **Deploy base model**.
-3. Suraskite sąraše modelį `gpt-4.1-mini`, pasirinkite jį ir patvirtinkite.
+3. Suraskite `gpt-5-mini` modelį sąraše, pasirinkite jį ir patvirtinkite.
 
-    > **Pastaba**: TPM sumažinimas padeda išvengti per daug sunaudojamos jūsų prenumeratai skirtos kvotos.
+    > **Pastaba**: Sumažinus TPM, padedama išvengti per didelio prenumeratos kvotos sunaudojimo.
 
-    ![Model Deployed](../../../translated_images/lt/model-deployment.3749c53fb81e18fd.webp)
+    ![Modelio diegimas](../../../translated_images/lt/model-deployment.3749c53fb81e18fd.webp)
 
 ## Sukurkite agentą
 
-Dabar, kai modelis įdiegtas, galite sukurti agentą. Agentas yra pokalbių AI modelis, kuris gali bendrauti su vartotojais.
+Dabar, kai įdiegėte modelį, galite sukurti agentą. Agentas yra pokalbių AI modelis, kurį galima naudoti bendraujant su vartotojais.
 
-1. Kairiajame skydelyje savo projekte, skiltyje **Build & Customize**, pasirinkite puslapį **Agents**.
-2. Spauskite **+ Create agent**, kad sukurtumėte naują agentą. Dialogo lange **Agent Setup**:
+1. Kairėje projekto srityje, skyriuje **Build & Customize**, pasirinkite puslapį **Agents**.
+2. Spustelėkite **+ Create agent**, kad sukurtumėte naują agentą. Atidariame laukelyje **Agent Setup**:
     - Įveskite agento pavadinimą, pvz., `FlightAgent`.
-    - Įsitikinkite, kad pasirinktas anksčiau sukurtas `gpt-4.1-mini` modelio diegimas.
+    - Užtikrinkite, kad būtų pasirinktas anksčiau sukurtas `gpt-5-mini` modelio diegimas.
     - Nustatykite **Instructions** pagal užduotį, kurios norite, kad agentas laikytųsi. Štai pavyzdys:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
@@ -64,32 +64,32 @@ Dabar, kai modelis įdiegtas, galite sukurti agentą. Agentas yra pokalbių AI m
     
     ```
 > [!NOTE]
-> Daugiau informacijos apie išsamų prašymą galite rasti [šiame repozitoriume](https://github.com/ShivamGoyal03/RoamMind).
+> Išsamesnei užduočiai galite pasitikrinti [šiame repozitoriume](https://github.com/ShivamGoyal03/RoamMind) daugiau informacijos.
     
-> Be to, galite pridėti **Knowledge Base** ir **Actions**, kad pagerintumėte agento galimybes teikti daugiau informacijos ir atlikti automatizuotas užduotis pagal vartotojo užklausas. Šiam pratimui šių žingsnių galite praleisti.
+> Be to, galite pridėti **Knowledge Base** ir **Actions**, kad pagerintumėte agente funkcionalumą teikti daugiau informacijos ir atlikti automatinius veiksmus pagal vartotojo užklausas. Šioje užduotyje tai galima praleisti.
     
 ![Agent Setup](../../../translated_images/lt/agent-setup.9bbb8755bf5df672.webp)
 
-3. Norėdami sukurti naują multi-AI agentą, paprasčiausiai spauskite **New Agent**. Naujai sukurtas agentas bus rodomas Agents puslapyje.
+3. Norėdami sukurti naują daugialypį AI agentą, tiesiog spustelėkite **New Agent**. Naujas agentas bus rodomas Agents puslapyje.
 
 
-## Išbandykite agentą
+## Testuokite agentą
 
-Sukūrę agentą, galite jį išbandyti, kaip jis reaguoja į vartotojų užklausas Microsoft Foundry portalo žaidimų aikštelėje.
+Sukūrę agentą, galite jį išbandyti, kaip jis atsako į vartotojo užklausas Microsoft Foundry portalo žaidimų aikštelėje.
 
-1. Viršuje skiltyje **Setup** savo agentui pasirinkite **Try in playground**.
-2. **Playground** skydelyje galite bendrauti su agentu rašydami užklausas pokalbių lange. Pavyzdžiui, galite paprašyti agento ieškoti skrydžių iš Sietlo į Niujorką 28 dienai.
+1. Viršuje jūsų agento **Setup** srityje pasirinkite **Try in playground**.
+2. Žaidimų aikštelės srityje galite bendrauti su agentu, rašydami užklausas pokalbių lange. Pavyzdžiui, galite paklausti agento, kad jis surastų skrydžius iš Sietlo į Niujorką 28 dienai.
 
-    > **Pastaba**: Agentas gali nepateikti tikslių atsakymų, nes šiame pratime nenaudojami realaus laiko duomenys. Pagrindinis tikslas – išbandyti agento gebėjimą suprasti ir atsakyti į vartotojo užklausas pagal pateiktas instrukcijas.
+    > **Pastaba**: Agentas gali nesuteikti tikslių atsakymų, nes šioje užduotyje nenaudojami realaus laiko duomenys. Tikslas yra ištestuoti agento gebėjimą suprasti ir atsakyti į vartotojo užklausas pagal pateiktas instrukcijas.
 
-    ![Agent Playground](../../../translated_images/lt/agent-playground.dc146586de715010.webp)
+    ![Agent Play ground](../../../translated_images/lt/agent-playground.dc146586de715010.webp)
 
-3. Išbandę agentą, galite toliau jį pritaikyti pridėdami daugiau ketinimų, mokymo duomenų ir veiksmų, kad pagerintumėte jo galimybes.
+3. Išbandžius agentą, galite toliau jį pritaikyti pridėdami daugiau ketinimų (intents), mokomųjų duomenų ir veiksmų, kad pagerintumėte jo galimybes.
 
 ## Išvalykite išteklius
 
-Baigę testuoti agentą, galite jį ištrinti, kad išvengtumėte papildomų išlaidų.
-1. Atidarykite [Azure portalą](https://portal.azure.com) ir peržiūrėkite išteklių grupės turinį, kur įdiegėte šiame pratime naudotus hub išteklius.
+Baigę testuoti agentą, galite jį pašalinti, kad išvengtumėte papildomų išlaidų.
+1. Atidarykite [Azure portalą](https://portal.azure.com) ir peržiūrėkite išteklių grupę, kurioje diegėte centro išteklius, naudotus šioje užduotyje.
 2. Įrankių juostoje pasirinkite **Delete resource group**.
 3. Įveskite išteklių grupės pavadinimą ir patvirtinkite, kad norite ją ištrinti.
 

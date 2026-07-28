@@ -1,150 +1,153 @@
-# 🎨 使用 GitHub 模型的 Agentic 設計模式 (.NET)
+# 🎨 使用 Azure OpenAI (Responses API) 的 Agentic 設計模式 (.NET)
 
 ## 📋 學習目標
 
-此範例展示了如何使用 Microsoft Agent Framework 與 GitHub 模型整合，在 .NET 中構建企業級智能代理的設計模式。您將學習專業的設計模式和架構方法，使代理具備生產就緒性、可維護性和可擴展性。
+本示例展示了使用 Microsoft Agent Framework 與 Azure OpenAI (Responses API) 整合，在 .NET 中構建智能代理的企業級設計模式。您將學習專業的模式和架構方法，使代理具有生產就緒、可維護和可擴展性。
 
 ### 企業設計模式
 
-- 🏭 **工廠模式**：透過依賴注入實現標準化的代理創建
-- 🔧 **建造者模式**：流暢的代理配置與設置
-- 🧵 **線程安全模式**：並發對話管理
-- 📋 **儲存庫模式**：有組織的工具與能力管理
+- 🏭 <strong>工廠模式</strong>：標準化代理建立與依賴注入
+- 🔧 <strong>建造者模式</strong>：流暢的代理配置與設置
+- 🧵 <strong>執行緒安全模式</strong>：並發對話管理
+- 📋 <strong>資料存取模式</strong>：有組織的工具與能力管理
 
-## 🎯 .NET 特定架構優勢
+## 🎯 .NET專屬架構優勢
 
 ### 企業功能
 
-- **強類型**：編譯時驗證與 IntelliSense 支援
-- **依賴注入**：內建 DI 容器整合
-- **配置管理**：IConfiguration 和 Options 模式
-- **Async/Await**：一流的非同步程式設計支援
+- <strong>強類型</strong>：編譯時驗證與 IntelliSense 支援
+- <strong>依賴注入</strong>：內建 DI 容器整合
+- <strong>配置管理</strong>：IConfiguration 與 Options 模式
+- **非同步/等待**：一級非同步程式設計支援
 
 ### 生產就緒模式
 
-- **日誌整合**：ILogger 和結構化日誌支援
-- **健康檢查**：內建監控與診斷
-- **配置驗證**：透過資料註解實現強類型
-- **錯誤處理**：結構化的異常管理
+- <strong>日誌整合</strong>：ILogger 及結構化日誌支持
+- <strong>健康檢查</strong>：內建監控與診斷
+- <strong>配置驗證</strong>：具有資料註解的強類型
+- <strong>錯誤處理</strong>：結構化例外管理
 
 ## 🔧 技術架構
 
 ### 核心 .NET 元件
 
 - **Microsoft.Extensions.AI**：統一的 AI 服務抽象
-- **Microsoft.Agents.AI**：企業代理協作框架
-- **GitHub 模型整合**：高效能 API 客戶端模式
-- **配置系統**：appsettings.json 與環境整合
+- **Microsoft.Agents.AI**：企業級代理編排框架
+- **Azure OpenAI (Responses API)**：高效能 API 用戶端模式
+- <strong>配置系統</strong>：appsettings.json 與環境整合
 
-### 設計模式實現
+### 設計模式實作
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[代理建構器]
+    B --> C[設定]
+    C --> D[工具註冊表]
+    D --> E[AI 代理]
 ```
 
-## 🏗️ 展示的企業模式
+## 🏗️ 展示的企業級模式
 
-### 1. **創建模式**
+### 1. <strong>創建型模式</strong>
 
-- **代理工廠**：集中化代理創建與一致性配置
-- **建造者模式**：用於複雜代理配置的流暢 API
-- **單例模式**：共享資源與配置管理
-- **依賴注入**：鬆耦合與可測試性
+- <strong>代理工廠</strong>：集中式代理建立與一致配置
+- <strong>建造者模式</strong>：複雜代理配置的流暢 API
+- <strong>單例模式</strong>：共享資源與配置管理
+- <strong>依賴注入</strong>：鬆耦合與可測試性
 
-### 2. **行為模式**
+### 2. <strong>行為型模式</strong>
 
-- **策略模式**：可互換的工具執行策略
-- **命令模式**：封裝的代理操作，支援撤銷/重做
-- **觀察者模式**：事件驅動的代理生命週期管理
-- **模板方法**：標準化的代理執行工作流程
+- <strong>策略模式</strong>：可互換的工具執行策略
+- <strong>命令模式</strong>：封裝的代理操作，支援撤銷/重做
+- <strong>觀察者模式</strong>：事件驅動的代理生命週期管理
+- <strong>模板方法</strong>：標準化代理執行工作流程
 
-### 3. **結構模式**
+### 3. <strong>結構型模式</strong>
 
-- **適配器模式**：GitHub 模型 API 整合層
-- **裝飾者模式**：代理能力增強
-- **外觀模式**：簡化的代理交互介面
-- **代理模式**：延遲加載與快取以提升效能
+- <strong>適配器模式</strong>：Azure OpenAI (Responses API) 整合層
+- <strong>裝飾模式</strong>：增強代理能力
+- <strong>外觀模式</strong>：簡化代理互動介面
+- <strong>代理模式</strong>：延遲加載與快取以提升效能
 
 ## 📚 .NET 設計原則
 
 ### SOLID 原則
 
-- **單一職責**：每個元件有明確的用途
-- **開放/封閉**：可擴展而無需修改
-- **里氏替換**：基於介面的工具實現
-- **介面隔離**：專注且內聚的介面
-- **依賴反轉**：依賴抽象而非具體實現
+- <strong>單一職責原則</strong>：每個元件有明確單一目的
+- <strong>開放封閉原則</strong>：可擴充而無需修改
+- <strong>里氏置換原則</strong>：基於介面的工具實作
+- <strong>介面隔離原則</strong>：專注且內聚的介面
+- <strong>依賴反轉原則</strong>：依賴抽象不依賴具體
 
 ### 清晰架構
 
-- **領域層**：核心代理與工具抽象
-- **應用層**：代理協作與工作流程
-- **基礎設施層**：GitHub 模型整合與外部服務
-- **展示層**：用戶交互與回應格式化
+- <strong>領域層</strong>：核心代理與工具抽象
+- <strong>應用層</strong>：代理編排與工作流程
+- <strong>基礎建設層</strong>：Azure OpenAI (Responses API) 整合與外部服務
+- <strong>展現層</strong>：使用者互動與回應格式化
 
 ## 🔒 企業考量
 
 ### 安全性
 
-- **憑證管理**：透過 IConfiguration 安全處理 API 金鑰
-- **輸入驗證**：強類型與資料註解驗證
-- **輸出清理**：安全的回應處理與過濾
-- **審計日誌**：全面的操作追蹤
+- <strong>認證管理</strong>：透過 IConfiguration 安全處理 API 金鑰
+- <strong>輸入驗證</strong>：強類型與資料註解驗證
+- <strong>輸出淨化</strong>：安全的回應處理與篩選
+- <strong>稽核日誌</strong>：完整操作追蹤
 
 ### 效能
 
-- **非同步模式**：非阻塞 I/O 操作
-- **連線池化**：高效的 HTTP 客戶端管理
-- **快取**：回應快取以提升效能
-- **資源管理**：正確的資源釋放與清理模式
+- <strong>非同步模式</strong>：非阻塞 I/O 操作
+- <strong>連線池</strong>：高效的 HTTP 用戶端管理
+- <strong>快取</strong>：回應快取以提升效能
+- <strong>資源管理</strong>：正確的釋放與清理模式
 
 ### 可擴展性
 
-- **線程安全**：支援並發代理執行
-- **資源池化**：高效的資源利用
-- **負載管理**：速率限制與回壓處理
-- **監控**：效能指標與健康檢查
+- <strong>執行緒安全</strong>：支援並發代理執行
+- <strong>資源池</strong>：高效資源使用
+- <strong>負載管理</strong>：速率限制與背壓處理
+- <strong>監控</strong>：效能指標與健康檢查
 
 ## 🚀 生產部署
 
-- **配置管理**：針對環境的特定設置
-- **日誌策略**：結構化日誌與關聯 ID
-- **錯誤處理**：全域異常處理與適當恢復
-- **監控**：應用洞察與效能計數器
-- **測試**：單元測試、整合測試與負載測試模式
+- <strong>配置管理</strong>：特定環境設定
+- <strong>日誌策略</strong>：結構化日誌與關聯 ID
+- <strong>錯誤處理</strong>：全域例外管理與適當復原
+- <strong>監控</strong>：應用洞察與效能計數器
+- <strong>測試</strong>：單元測試、整合測試與負載測試模式
 
-準備好使用 .NET 構建企業級智能代理了嗎？讓我們設計一些穩健的架構吧！ 🏢✨
+準備好用 .NET 構建企業級智慧代理了嗎？讓我們一起架構堅固的系統！🏢✨
 
-## 🚀 開始使用
+## 🚀 快速開始
 
-### 先決條件
+### 前置需求
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本
-- [GitHub 模型 API 存取金鑰](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- 一個擁有 Azure OpenAI 資源與模型部署的 [Azure 訂閱](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — 使用 `az login` 登入
 
-### 必需的環境變數
+### 必要的環境變數
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# 然後登入，使 AzureCliCredential 能取得權杖
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# 然後登入，使 AzureCliCredential 能取得權杖
+az login
 ```
 
 ### 範例程式碼
 
-要執行範例程式碼，
+執行範例程式碼，
 
 ```bash
 # zsh/bash
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-或者使用 dotnet CLI：
+或使用 dotnet CLI：
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-請參閱 [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) 以獲取完整程式碼。
+完整程式請參考 [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs)。
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**免責聲明**：  
-本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們努力確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原始語言的文件作為權威來源。對於關鍵資訊，建議尋求專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+**免責聲明**：
+此文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們努力追求準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應視為權威來源。對於關鍵資訊，建議採用專業人工翻譯。我們不對因使用此翻譯所產生的任何誤解或誤譯承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

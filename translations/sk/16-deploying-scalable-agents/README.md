@@ -1,139 +1,139 @@
-# Nasadzovanie škálovateľných agentov s Microsoft Foundry
+# Nasadenie škálovateľných agentov s Microsoft Foundry
 
-![Nasadzovanie škálovateľných agentov](../../../translated_images/sk/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Nasadenie škálovateľných agentov](../../../translated_images/sk/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Doteraz v kurze ste vytvárali agentov, ktorí bežia na vašom notebooku, vnútri poznámkového bloku, poháňaní `az login` a niekoľkými premennými prostredia. To je presne tá správna cesta na učenie. Nie je to však správny spôsob, ako prevádzkovať agenta, na ktorom závisia tisíce zákazníkov o 3 ráno.
+Doposiaľ v kurze ste vytvorili agentov, ktorí bežia na vašom notebooku, v poznámkovom bloku, riadení príkazom `az login` a niekoľkými premennými prostredia. To je presne správny spôsob, ako sa učiť. Nie je to však správny spôsob, ako prevádzkovať agenta, na ktorého spoľahlivosť spolieha tisíce zákazníkov o tretej ráno.
 
-Táto lekcia sa týka medzery medzi „funguje to na mojej mašine“ a „funguje to spoľahlivo a dostupne v produkcii“. Túto medzeru uzatvárame pomocou **Microsoft Foundry** a **Microsoft Foundry Agent Service**, pričom vytvárame reálneho agenta zákazníckej podpory, ktorý má nástroje, vyhľadávanie, pamäť, hodnotenie a monitorovanie.
+Táto lekcia je o priekope medzi "funguje to na mojom stroji" a "funguje to spoľahlivo a cenovo efektívne v produkcii." Túto priepasť uzatvárame pomocou **Microsoft Foundry** a **Microsoft Foundry Agent Service**, a robíme to vytvorením skutočného zákazníckeho podpory agenta, ktorý má nástroje, vyhľadávanie, pamäť, hodnotenie a monitorovanie.
 
 ## Úvod
 
 Táto lekcia pokryje:
 
-- Rozdiel medzi **prototypovým agentom** a **nasadeným agentom**, a prečo prechod spočíva hlavne vo všetkom *okolo* modelu.
-- **Vzory nasadenia** pre agentov: klientom hostované, službou hostované (Hosted Agents) a orkestrované pracovné postupy.
-- **Životný cyklus agenta** v Microsoft Foundry — vytvoriť, verzovať, nasadiť, vyhodnotiť, sledovať, vyradiť.
-- **Stratégie škálovania**: smerovanie modelu, kešovanie, súbežnosť a bezstavový dizajn.
-- **Sledovateľnosť** s OpenTelemetry a Foundry trasovaním.
-- **Optimalizácia nákladov** cez výber modelu, smerovanie a hodnotiace brány.
-- **Podnikové úvahy**: správa, schvaľovanie človekom a bezpečný chod MCP serverov v produkcii.
+- Rozdiel medzi **prototypovým agentom** a **nasadeným agentom** a prečo je prechod väčšinou o všetkom, čo je *okolo* modelu.
+- **Vzory nasadenia** agentov: hosťované u klienta, hosťované službou (Hosted Agents) a orchestrácia pracovného toku.
+- **Životný cyklus agenta** na Microsoft Foundry — vytvorenie, verzovanie, nasadenie, hodnotenie, sledovanie, vyradenie z prevádzky.
+- **Strategie škálovania**: smerovanie modelu, cacheovanie, súbežnosť a bezstavový dizajn.
+- **Viditeľnosť** s OpenTelemetry a Foundry trasovaním.
+- **Optimalizácia nákladov** prostredníctvom výberu modelu, smerovania a hodnotiacich brán.
+- **Podnikové aspekty**: správa, schválenie človekom a bezpečný beh MCP serverov v produkcii.
 
 ## Ciele učenia
 
 Po dokončení tejto lekcie budete vedieť:
 
-- Vybrať správny vzor nasadenia pre danú záťaž agenta.
-- Nasadiť agenta do Microsoft Foundry Agent Service tak, aby bol verzovaný, spravovaný a sledovateľný.
-- Instrumentovať agenta na trasovanie a prepojiť hodnotiaci pipeline, ktorý beží pred každým vydaním.
-- Použiť smerovanie modelu a kešovanie na udržanie latencie a nákladov pod kontrolou v škálovateľnej prevádzke.
-- Pridať bránu na schválenie človekom pre rizikové akcie a integrovať MCP server bezpečne v produkcii.
+- Vybrať správny vzor nasadenia pre dané pracovné zaťaženie agenta.
+- Nasadiť agenta do Microsoft Foundry Agent Service, aby bol verzovaný, spravovaný a sledovateľný.
+- Instrumentovať agenta pre trasovanie a prepojiť hodnotiacu sekvenciu, ktorá beží pred každým vydaním.
+- Použiť smerovanie modelu a cacheovanie na udržanie latencie a nákladov pod kontrolou v škálovaní.
+- Pridať schvaľovaciu bránu s ľudským zásahom pre rizikové akcie a integrovať MCP server bezpečne v produkcii.
 
 ## Predpoklady
 
-Táto lekcia predpokladá, že ste absolvovali predchádzajúce lekcie a ste oboznámení s:
+Táto lekcia predpokladá, že ste dokončili predchádzajúce lekcie a ste oboznámení s:
 
 - Vytváraním agentov pomocou [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcia 14).
-- [Používanie nástrojov](../04-tool-use/README.md) (Lekcia 4) a [Agentic RAG](../05-agentic-rag/README.md) (Lekcia 5).
-- [Pamäť agenta](../13-agent-memory/README.md) (Lekcia 13) a [Agentic protokoly / MCP](../11-agentic-protocols/README.md) (Lekcia 11).
-- [Sledovateľnosť a hodnotenie](../10-ai-agents-production/README.md) (Lekcia 10) — táto lekcia na to priamo nadväzuje.
+- [Používaním nástrojov](../04-tool-use/README.md) (Lekcia 4) a [Agentic RAG](../05-agentic-rag/README.md) (Lekcia 5).
+- [Pamäťou agenta](../13-agent-memory/README.md) (Lekcia 13) a [Agentic protokolmi / MCP](../11-agentic-protocols/README.md) (Lekcia 11).
+- [Viditeľnosťou a hodnotením](../10-ai-agents-production/README.md) (Lekcia 10) — táto lekcia na tom priamo stavia.
 
-Tiež budete potrebovať:
+Budete tiež potrebovať:
 
-- **Azure predplatné** a **Microsoft Foundry projekt** s aspoň jedným nasadeným modelom chatu.
-- Overený **Azure CLI** (`az login`).
-- Python 3.12+ a balíky v repozitári [`requirements.txt`](../../../requirements.txt).
+- **Predplatné Azure** a **projekt Microsoft Foundry** s aspoň jedným nasadeným chat modelom.
+- **Autentifikovanú Azure CLI** (`az login`).
+- Python 3.12+ a balíčky uložené v repozitári [`requirements.txt`](../../../requirements.txt).
 
-## Od prototypu k produkcii: Čo sa vlastne mení
+## Od prototypu k produkcii: čo sa vlastne mení
 
-Prototypový agent a produkčný agent zdieľajú rovnaký základný cyklus — rozmýšľať, volať nástroje, odpovedať. Mení sa všetko okolo tohto cyklu. Model tvorí zrejme 20 % produkčného agenta; zvyšných 80 % je operačný základ.
+Prototypový agent a produkčný agent zdieľajú rovnakú základnú slučku — uvažovanie, volanie nástrojov, odpoveď. Mení sa všetko, čo je zabalené okolo tejto slučky. Model je možno 20 % produkčného agenta; zvyšných 80 % tvorí operačný skelet.
 
 | Oblasť | Prototyp | Produkcia |
 | --- | --- | --- |
-| **Hostovanie** | Beží vo vašom poznámkovom bloku | Beží ako hostovaná služba, verzovaná a nasadzovaná |
-| **Identita** | Váš token z `az login` | Spravovaná identita s obmedzeným RBAC |
-| **Stav** | V pamäti, stratí sa pri reštarte | Externý (thread store, memory service) |
-| **Zlyhanie** | Vidíte spätnú trasu chýb | Pokusy o opakovanie, záložné plány, dead-letter, upozornenia |
-| **Náklady** | „Niečo málo centov“ | Sledované na požiadavku, smerované, kešované, rozpočtované |
-| **Kvalita** | Pozriete si výstup | Automaticky hodnotené pred každým vydaním |
-| **Dôvera** | Schvaľujete každú akciu | Politiky + schvaľovanie človekom pre rizikové akcie |
+| **Hosťovanie** | Beží vo vašom poznámkovom bloku | Beží ako hosťovaná služba, verzovaná a rozširovaná |
+| **Identita** | Váš token `az login` | Spravovaná identita s cieľovým RBAC |
+| **Stav** | V pamäti, stratí sa pri reštarte | Externý (uložisko vlákien, služba pamäte) |
+| **Zlyhanie** | Vidíte sledovanie chýb | Opakovania, záložné plány, dead-letter, upozornenia |
+| **Náklady** | „Je to pár centov“ | Evidované na požiadavku, smerované, cacheované, vnorené do rozpočtu |
+| **Kvalita** | Posudzuje sa vizuálne | Automaticky hodnotené pred každým vydaním |
+| **Dôvera** | Schvaľujete každú akciu | Politika + človek v slučke pre rizikové akcie |
 
-Majte túto tabuľku na pamäti. Každá sekcia nižšie zodpovedá jednému riadku.
+Majte túto tabuľku na pamäti. Každá sekcia nižšie zodpovedá jednému riadku tejto tabuľky.
 
 ## Vzory nasadenia agentov
 
-Existujú tri vzory, ktoré budete často používať v kombinácii.
+Existujú tri vzory, ktoré budete používať, často v kombinácii.
 
-### 1. Klientom hostovaní agenti
+### 1. Agentov hosťovaných u klienta
 
-Agent objekt žije v *vášom* aplikačnom procese. Váš kód volá priamo poskytovateľa modelu; cyklus uvažovania beží vo vašej službe. To je to, čo ste robili v každej predošlej lekcii.
+Agent objekt žije vo vnútri *vášho* aplikačného procesu. Váš kód volá modelového poskytovateľa priamo; uvažovacia slučka beží vo vašej službe. To je to, čo robila každá predchádzajúca lekcia.
 
-- **Použite, keď** potrebujete plnú kontrolu nad cyklom, vlastný middleware, alebo vkladáte agenta do existujúceho backendu.
-- **Kompenzácia**: sami zodpovedáte za škálovanie, stav a odolnosť.
+- **Používajte ho, keď** potrebujete plnú kontrolu nad slučkou, vlastný middleware alebo keď vkladáte agenta do existujúceho backendu.
+- **Nevýhoda**: sami spravujete škálovanie, stav a odolnosť.
 
-### 2. Hostovaní agenti (Foundry Agent Service)
+### 2. Hosťovaní agenti (Foundry Agent Service)
 
-Agent je *registrovaný ako zdroj* v Microsoft Foundry. Foundry hostuje cyklus uvažovania, uchováva vlákna, zabezpečuje bezpečnosť obsahu a RBAC, a sprístupňuje agenta v portáli Foundry. Vaša aplikácia sa stáva tenkým klientom, ktorý vytvára vlákna a číta odpovede.
+Agent je *zaregistrovaný ako zdroj* v Microsoft Foundry. Foundry hosťuje uvažovaciu slučku, ukladá vlákna, presadzuje bezpečnosť obsahu a RBAC a robí agenta viditeľným v Foundry portáli. Vaša aplikácia sa stáva ľahkým klientom, ktorý vytvára vlákna a číta odpovede.
 
-- **Použite, keď** chcete trvácnosť, zabudovanú sledovateľnosť, správu a menšiu operačnú záťaž.
-- **Kompenzácia**: menej nízkoúrovňovej kontroly výmenou za riadené runtime.
+- **Používajte ho, keď** chcete trvácnosť, vstavanú viditeľnosť, správu a menšiu operačnú záťaž.
+- **Nevýhoda**: menej nízkoúrovňovej kontroly výmenou za spravované runtime prostredie.
 
-### 3. Pracovné postupy agentov
+### 3. Pracovné toky agentov
 
-Viacerí agenti (a nástroje) sa skladajú do grafu s explicitným riadením toku — sekvenčné kroky, rozvetvenie, uzly na schválenie človekom a trvácne kontrolné body, ktoré môžu pozastaviť a pokračovať. Toto je schopnosť **Workflows** Microsoft Agent Frameworku použitá na škálovanie produkcie.
+Viacero agentov (a nástrojov) je zložených do grafu s explicitným riadeným tokom — sekvenčné kroky, vetvenie, uzly schvaľovania človekom a trvácne kontrolné body, ktoré môžu pozastaviť a obnoviť proces. Toto je schopnosť Microsoft Agent Framework **Workflows** aplikovaná na škálovanie nasadenia.
 
-- **Použite, keď** jedna úloha pokrýva viacerých špecializovaných agentov alebo vyžaduje krok schválenia v strede.
-- **Kompenzácia**: viac pohyblivých častí; potrebuje sledovateľnosť na úrovni orkestrácie.
+- **Používajte ho, keď** jedna úloha zahŕňa niekoľko špecializovaných agentov alebo vyžaduje schvaľovací krok uprostred.
+- **Nevýhoda**: viac pohyblivých častí; vyžaduje viditeľnosť na úrovni orchestrácie.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Hostované u klienta]
+    subgraph P1[Klient hosťovaný]
         A1[Proces vašej aplikácie] --> M1[Poskytovateľ modelu]
     end
-    subgraph P2[Hostovaný agent]
-        A2[Tenký klient] --> F2[Služba agenta Foundry]
+    subgraph P2[Hosťovaný agent]
+        A2[Tenký klient] --> F2[Služba Foundry agenta]
         F2 --> M2[Model + Nástroje + Úložisko vlákien]
     end
     subgraph P3[Pracovný tok agenta]
-        A3[Orchestrátor] --> S1[Agenta triedenia]
-        S1 --> S2[Agenta riešiteľa]
-        S2 --> H[Uzel ľudského schválenia]
-        H --> S3[Agent akcií]
+        A3[Orchestrátor] --> S1[Triage agent]
+        S1 --> S2[Resolver agent]
+        S2 --> H[Uzol ľudského schválenia]
+        H --> S3[Akčný agent]
     end
 ```
 
-## Životný cyklus agenta v Microsoft Foundry
+## Životný cyklus agenta na Microsoft Foundry
 
-Nasadzovanie agenta nie je jednorazový `push`. Je to cyklus a veľmi pripomína životný cyklus vydávania softvéru, pretože presne to aj je.
+Nasadenie agenta nie je jednorazový `push`. Je to slučka, ktorá veľmi pripomína cyklus vydávania softvéru, pretože presne o to ide.
 
 ```mermaid
 flowchart LR
     Create[Vytvoriť / Autor] --> Version[Verzia]
     Version --> Evaluate[Vyhodnotiť offline]
-    Evaluate -->|prejde bránou| Deploy[Nasadiť hostované]
-    Evaluate -->|neprejde bránou| Create
+    Evaluate -->|prejde bránou| Deploy[Nasadiť hosťované]
+    Evaluate -->|zlyhá na bráne| Create
     Deploy --> Observe[Sledovať online]
-    Observe --> Improve[Zhromaždiť zlyhania]
+    Observe --> Improve[Zbierať zlyhania]
     Improve --> Create
-    Deploy --> Retire[Stiahnuť starú verziu]
+    Deploy --> Retire[Vyraadiť starú verziu]
 ```
 
-Kľúčová myšlienka, prevzatá z [Lekcie 10](../10-ai-agents-production/README.md): **offline hodnotenie je bránou, nie druhoradý krok.** Nová verzia agenta nie je vydaná, pokiaľ neprejde hodnotiacimi prahmi. Online sledovateľnosť potom spätne privádza reálne chyby do offline testovacej sady. Toto je celý cyklus.
+Kľúčová myšlienka, prevzatá z [Lekcie 10](../10-ai-agents-production/README.md): **offline hodnotenie je brána, nie dodatočný krok.** Nová verzia agenta sa nevydá, pokiaľ neprejde vašimi hodnotiacimi prahmi. Online viditeľnosť potom spätné vstupy z reálnych zlyhaní vracia do offline testovacej súpravy. To je celá slučka.
 
-## Stratégie škálovania
+## Strategie škálovania
 
-Škálovanie agenta sa líši od škálovania bezstavového web API, pretože každá požiadavka môže vyvolať viacero nákladných volaní modelov a nástrojov. Štyri techniky nesú väčšinu zaťaženia.
+Škálovanie agenta sa líši od škálovania bezstavového webového API, pretože každá požiadavka môže spustiť viacero nákladných volaní modelu a nástrojov. Štyri techniky prenesú väčšinu záťaže.
 
-**Bezstavové spracovanie požiadaviek.** V procese si neuchovávajte stav pre používateľa v pamäti. Ukladajte vlákna konverzácií do Foundry thread store alebo pamäťovej služby tak, aby ktorákoľvek inštancia zvládla ktorúkoľvek požiadavku. To vám umožňuje horizontálne škálovanie — pridávajte inštancie, bez pripútaných relácií.
+**Bezstavná správa požiadaviek.** Neuchovávajte stav pre používateľa v pamäti vášho procesu. Ukladajte konverzačné vlákna v Foundry úložisku vlákien alebo službe pamäte, aby ktorákolvek inštancia mohla spracovať ktorúkoľvek požiadavku. To vám umožňuje horizontálne škálovanie — pridajte inštancie, bez viazaných relácií.
 
-**Smerovanie modelu.** Nie každá požiadavka potrebuje váš najvýkonnejší (a najdrahší) model. Pre jednoduche požiadavky — klasifikáciu zámeru, krátke faktické odpovede — použite malý, rýchly model, a veľký model si rezervujte na skutočné uvažovanie. Foundry **Model Router** to môže robiť za vás alebo si môžete implementovať vlastný ľahký klasifikátor. V laboratóriu postavíte vlastnú verziu.
+**Smerovanie modelu.** Nie každá požiadavka potrebuje váš najvýkonnejší (a najdrahší) model. Smerujte jednoduché požiadavky – klasifikáciu zámeru, krátke faktické odpovede – na malý, rýchly model a vyhradzujte veľký model pre skutočné uvažovanie. Foundry **Model Router** to môže urobiť za vás, alebo si môžete implementovať ľahký klasifikátor sami. DIY verziu vybudujete v labáku.
 
-**Kešovanie odpovedí.** Mnohé podporné dotazy sú takmer duplikáty („Ako si nastavím heslo?“). Kešujte odpovede na bežné otázky a odpovedajte bez volania modelu vôbec. Aj mierna miera zásahu do kešky výrazne znižuje náklady a latenciu.
+**Cacheovanie odpovedí.** Mnohé podporné otázky sú takmer duplikáty ("ako si resetujem heslo?"). Ukladajte odpovede na časté otázky do cache a podávajte ich bez potreby volania modelu. Aj skromný podiel zásahov do cache významne znižuje náklady a latenciu.
 
-**Súbežnosť a spätný tlak.** Poskytovatelia modelov majú limity na počet požiadaviek. Obmedzte svoju súbežnosť, používajte opakovanie s exponenciálnym odstupom a chybujte milosrdne (odpoveď „pracujeme na tom“ v poradí je lepšia než 500).
+**Súbežnosť a spätný tlak.** Poskytovatelia modelov majú obmedzenia rýchlosti. Obmedzte svoju súbežnosť, používajte opakovania s exponenciálnym časovým odstupom a zlyhajte elegantne (zaradená odpoveď „pracujeme na tom“ prevažuje nad chybou 500).
 
 ```mermaid
 flowchart LR
-    Q[Dotaz používateľa] --> C{Trafenie do cache?}
+    Q[Používateľský dopyt] --> C{Zásah do cache?}
     C -->|áno| R[Vrátiť uloženú odpoveď]
     C -->|nie| Router{Zložitosť?}
     Router -->|jednoduché| SLM[Malý model]
@@ -143,13 +143,13 @@ flowchart LR
     Out --> Store[Cache + stopa]
 ```
 
-## Sledovateľnosť v produkcii
+## Viditeľnosť v produkcii
 
-Nemôžete prevádzkovať to, čo nevidíte. Ako bolo pokryté v Lekcii 10, Microsoft Agent Framework natívne vydáva **OpenTelemetry** trasovanie — každé volanie modelu, nástroja a krok orkestrácie sa stane spanom. V produkcii tieto span exportujete do Microsoft Foundry (alebo akéhokoľvek backendu kompatibilného s OTel), aby ste mohli:
+Nemôžete prevádzkovať to, čo nevidíte. Ako bolo pokryté v Lekcii 10, Microsoft Agent Framework nativne emituje **OpenTelemetry** stopy — každé volanie modelu, nástroja a orchestrácie sa stáva spanom. V produkcii exportujete tie span-y do Microsoft Foundry (alebo akéhokoľvek OTel-kompatibilného backendu), aby ste mohli:
 
-- Sledovať jedinú zákaznícku sťažnosť od začiatku až do konca cez všetky volania modelu a nástrojov.
-- Sledovať p50/p95 latenciu a náklady na požiadavku v čase.
-- Upozorniť na náhle nárasty chýb a anomálie nákladov skôr, než si to všimnú vaši používatelia (alebo váš finančný tím).
+- Trace-ovať jednu zákaznícku sťažnosť end-to-end cez každé volanie modelu a nástroja.
+- Sledovať latenciu p50/p95 a náklady na požiadavku v čase.
+- Upozorňovať na nárasty chybovosti a anomálie v nákladoch skôr, než si ich všimnú vaši používatelia (alebo váš finančný tím).
 
 ```python
 from agent_framework.observability import get_tracer
@@ -158,83 +158,83 @@ tracer = get_tracer()
 
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
-    span.set_attribute("routed.model", "gpt-4.1-mini")
+    span.set_attribute("routed.model", "gpt-5-nano")
     # vykonávanie agenta je automaticky sledované v rámci tohto rozsahu
 ```
 
-Atribúty ako `customer.tier` a `routed.model` premieňajú koncentrovanú masu tras na zodpovedateľné otázky („sú podnikový zákazníci príliš často smerovaní na malý model?“).
+Atribúty ako `customer.tier` a `routed.model` sú tým, čo mení množinu stôp na zodpovedateľné otázky („smerujú sa podnikový zákazníci príliš často na malý model?“).
 
 ## Optimalizácia nákladov
 
-Náklady v produkčných agentoch dominujú tokeny. Tri páky, zoradené podľa vplyvu:
+Náklady v produkčných agentoch dominujú tokeny. Tri páky, podľa vplyvu:
 
-1. **Správne veľkosť modelu.** Malý model, ktorý prejde hodnotiacou bránou, je takmer vždy lacnejší než veľký, ktorý tiež prejde. Použite hodnotenie, aby ste *preukázali*, že malý model je dostatočný, namiesto toho, aby ste z opatrnosti volili najväčší model.
-2. **Smerujte podľa zložitosti.** Ako vyššie — platíte cenu veľkého modelu iba za požiadavky, ktoré potrebujú jeho uvažovanie.
-3. **Kešujte agresívne.** Najlacnejšie volanie modelu je také, ktoré vôbec neurobíte.
+1. **Správna veľkosť modelu.** Malý model, ktorý prejde vašou hodnotiacou bránou, je takmer vždy lacnejší než veľký, ktorý tiež prejde. Použite hodnotenie na *dokázanie*, že malý model je dostatočný namiesto prednastavenia najväčšieho modelu z obavy.
+2. **Smerujte podľa komplexnosti.** Ako bolo uvedené — platíte cenu veľkého modelu iba za požiadavky, ktoré vyžadujú uvažovanie veľkým modelom.
+3. **Agresívne cacheovanie.** Najlacnejšie volanie modelu je to, ktoré nikdy neurobíte.
 
-Hodnotiace brány a kontrola nákladov sú rovnaká disciplína pozretá z dvoch uhlov: hodnotenie vám hovorí o *kvalitnej spodnej hranici*, smerovanie a kešovanie vás udrží čo najbližšie k jej *nákladom*.
+Hodnotiace brány a kontrola nákladov sú tá istá disciplína pozeraná z dvoch uhlov: hodnotenie vám určuje *kvalitatívne minimum*, smerovanie a cacheovanie vás udržujú čo najbližšie k *nákladovému* minimu.
 
-## Podnikové úvahy pri nasadení
+## Podnikové nasadzovacie úvahy
 
-**Správa.** Hosted Agents dedí RBAC, bezpečnosť obsahu a auditné logovanie Foundry. Každému agentovi dajte spravovanú identitu s minimálnym oprávnením, ktoré potrebuje — prístup iba na čítanie do znalostnej bázy, obmedzený prístup k API ticketovaniu, nič viac.
+**Správa.** Hosťovaní agenti zdedia Foundry RBAC, bezpečnosť obsahu a auditovanie. Každému agentovi dajte spravovanú identitu s najmenším možným oprávnením — iba na čítanie znalostnej databázy, cieľový prístup k API na ticketovanie, nič viac.
 
-**Človek v slučke.** Niektoré akcie sú príliš závažné na úplnú automatizáciu — vrátenie peňazí, odstránenie účtu, eskalácia na právne oddelenie. Microsoft Agent Framework podporuje nástroje vyžadujúce **schválenie**: agent navrhne akciu, vykonanie sa pozastaví, človek ju schváli alebo odmietne a pracovný postup pokračuje. Tento primitív ste videli v [Lekcii 6](../06-building-trustworthy-agents/README.md); tu ho nasadíte.
+**Človek v slučke.** Niektoré akcie sú príliš závažné na úplnú automatizáciu — vystavenie refundácie, vymazanie účtu, eskalácia právnemu tímu. Microsoft Agent Framework podporuje **nástroje vyžadujúce schválenie**: agent navrhne akciu, vykonávanie sa pozastaví, človek schváli alebo zamietne a pracovný tok pokračuje. Túto primitívnu funkcionalitu ste videli v [Lekcii 6](../06-building-trustworthy-agents/README.md); tu ju nasadíte.
 
-**MCP v produkcii.** [MCP](../11-agentic-protocols/README.md) umožňuje agentovi využívať externé nástroje cez štandardné rozhranie. V produkcii zaobchádzajte s každým MCP serverom ako s nedôveryhodnou hranicou: pridržte verziu servera, spúšťajte ho so spravovanou identitou, overujte jeho výstupy a nikdy mu nezverujte tajomstvá. MCP server je závislosť a závislosti sa patchujú, auditujú a nastavujú limity.
+**MCP v produkcii.** [MCP](../11-agentic-protocols/README.md) umožňuje vášmu agentovi využívať externé nástroje cez štandardné rozhranie. V produkcii pristupujte ku každému MCP serveru ako k nedôveryhodnej hranici: pripevnite verziu servera, spúšťajte ho so scoped identitou, overujte jeho výstupy a nikdy mu nesprístupňujte tajomstvá. MCP server je závislosť, a závislosti sa záplatujú, auditujú a majú limit rýchlosti.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Vývojová architektúra]
-        D1[Notebook] --> D2[Agentný framework]
+    subgraph Dev[Architektúra vývoja]
+        D1[Notebook] --> D2[Agentný rámec]
         D2 --> D3[Poskytovateľ modelu]
         D2 --> D4[Lokálne nástroje]
     end
     subgraph Deploy[Architektúra nasadenia]
         E1[CI pipeline] --> E2[Evaluačná brána]
-        E2 -->|prejdite| E3[Služba Foundry Agenta]
-        E3 --> E4[Verzionovaný hostený agent]
+        E2 -->|prejsť| E3[Služba Foundry agenta]
+        E3 --> E4[Verziovaný hostený agent]
     end
-    subgraph Run[Runtime architektúra]
+    subgraph Run[Architektúra runtime]
         F1[Klientská aplikácia] --> F2[Hostený agent]
-        F2 --> F3[Router modelov]
+        F2 --> F3[Router modelu]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Pamäťová služba]
+        F2 --> F5[Služba pamäte]
         F2 --> F6[MCP nástroje]
         F2 --> F7[OTel -> Foundry trasovanie]
         F2 --> F8[Ľudské schválenie]
     end
 ```
 
-Tieto tri diagramy — vývoj, nasadenie, runtime — sú ten istý agent v troch štádiách života. Laboratórium, ktoré nasleduje, vás prevedie jeho stavbou.
+Tieto tri diagramy — vývoj, nasadenie, runtime — sú ten istý agent v troch štádiách svojho života. Lab, ktorý nasleduje, vás prevedie jeho zostavením.
 
-## Praktické laboratórium: Agent zákazníckej podpory pripravený na produkciu
+## Praktický lab: Produkčne pripravený zákaznícky podporný agent
 
-Otvorte [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) a prejdite si ho celý. Zostavíte **agenta zákazníckej podpory Contoso** so všetkými produkčnými aspektmi:
+Otvorte [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) a prejdite si ho celý. Zostavíte **Contoso zákazníckeho podporného agenta** so všetkými produkčnými záležitosťami zapracovanými:
 
-1. **Volanie nástrojov** — vyhľadávanie stavu objednávky a otváranie tiketov podpory.
-2. **RAG** — odpovede na otázky politiky zo znalostnej bázy (Azure AI Search, s pamäťovou zálohou, aby poznámkový blok bežal bez Search zdroja).
-3. **Pamäť** — zapamätanie si zákazníka v priebehu konverzácie.
-4. **Smerovanie modelu** — klasifikátor zložitosti smeruje každú požiadavku na malý alebo veľký model.
-5. **Kešovanie odpovedí** — opakované otázky sa servírujú z keše.
-6. **Schválenie človekom** — vrátenia nad prahom čakajú na ľudské potvrdenie.
+1. **Volanie nástrojov** — vyhľadajte stav objednávky a otvorte podporné tikety.
+2. **RAG** — odpovedajte na otázky o politike zo znalostnej databázy (Azure AI Search, s in-memory fallback pre beh poznámkového bloku bez Search zdroja).
+3. **Pamäť** — pamätajte si zákazníka počas celej konverzácie.
+4. **Smerovanie modelu** — klasifikátor komplexnosti nasmeruje každú požiadavku na malý alebo veľký model.
+5. **Cacheovanie odpovedí** — opakované otázky sa podávajú z cache.
+6. **Schvaľovanie človekom** — refundácie nad určitú hranicu sa pozastavia na ľudské schválenie.
 7. **Hodnotiaci pipeline** — malá offline testovacia sada hodnotí agenta a slúži ako brána pre vydanie.
-8. **Sledovateľnosť** — OpenTelemetry trasovanie okolo každej požiadavky.
+8. **Viditeľnosť** — OpenTelemetry tracing okolo každej požiadavky.
 
-### Prehľad
+### Prechádzka
 
-Poznámkový blok je usporiadaný tak, aby každý produkčný aspekt bol samostatná, spustiteľná časť. Jadro tvorí spracovateľ požiadaviek spájajúci smerovanie a kešovanie:
+Poznámkový blok je organizovaný tak, že každá produkčná záležitosť je samostatná, spustiteľná časť. Srdcom je request handler, ktorý spája smerovanie s cacheovaním:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Podávajte z pamäte cache, keď je to možné.
+    # 1. Podávajte z cache, keď to je možné.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
     # 2. Smerujte podľa zložitosti na kontrolu nákladov.
-    model = "gpt-4.1-mini" if is_simple(query) else "gpt-4.1"
+    model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Spustite agenta v rámci trace span pre pozorovateľnosť.
+    # 3. Spúšťajte agenta vo vnútri sledovacieho rozsahu pre pozorovateľnosť.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
@@ -245,7 +245,7 @@ async def handle_support_request(query: str, customer_id: str) -> str:
     return response.text
 ```
 
-Brána hodnotenia, ktorá stráži vydanie, vyzerá takto:
+Hodnotiaca brána, ktorá stráži vydanie, vyzerá takto:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -259,18 +259,18 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
     return pass_rate >= threshold  # nasadiť iba ak brána prejde
 ```
 
-Prečítajte všetky riadky — poznámkový blok drží primitívy úmyselne malé, aby nič nebolo schované za volaním rámca.
+Prečítajte si každý riadok — poznámkový blok ponecháva primitíva úmyselne malé, aby nič nebolo skryté za volaním frameworku.
 
-## Overovanie nasadeného agenta pomocou testov dymu
+## Validácia nasadeného agenta pomocou Smoke Testov
 
-Vyššie uvedená brána hodnotenia beží *offline* voči vášmu agentovi. Akonáhle je agent nasadený ako Hosted Agent, potrebujete ešte jednu, ešte lacnejšiu kontrolu: **odpovedá nasadené rozhranie naozaj?**
+Vyššie uvedená hodnotiaca brána beží *offline* voči vášmu agentovi objektu. Keď je agent nasadený ako Hosted Agent, potrebujete ešte jednu, ešte lacnejšiu kontrolu: **odpovedá nasadený endpoint vôbec?**
 
-„Úspešné“ nasadenie iba preukazuje, že riadiaca rovina akceptovala definíciu — nepreukazuje, že agent odpovedá. Chýbajúca závislosť, zlé smerovanie modelu alebo vypršané pripojenie môžu spôsobiť zelené nasadenie, ktoré nič nevracia. **Smoke test** to zachytí za sekundy, pri každom nasadení, bez nákladov na plné hodnotenie.
+Nasadenie „úspešne“ len dokazuje, že riadiaca rovina akceptovala definíciu — nedokazuje, že agent odpovedá. Chýbajúca závislosť, nesprávne smerovanie modelu alebo vypršané pripojenie môžu spôsobiť zelené nasadenie, ktoré nič nevracia. **Smoke test** to zachytí za pár sekúnd, pri každom nasadení, bez nákladov na plné hodnotenie.
 
-Tento repozitár obsahuje pripravený smoke-test pipeline postavený na GitHub Action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
+Tento repozitár obsahuje pripravený smoke-test pipeline založený na [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
 
-- **Katalóg** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) obsahuje výzvy a tvrdenia pre agenta podpory Contoso (overené odpovede z politiky, vyhľadávanie objednávky, držanie sa témy a kontinuálnosť vlákna viacerých kôl). Katalógy pre agentov z iných lekcií sú vedľa neho — pozrite [`tests/README.md`](../tests/README.md).
-- **Pracovný tok** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) sa prihlasuje cez Azure OIDC a POSTuje každú výzvu na agentov endpoint Responses, pričom zlyhaním akejkoľvek nezhody zlyháva celá úloha.
+- **Katalóg** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) obsahuje podnety a overenia pre Contoso podporného agenta (odpovede založené na politike, vyhľadávanie objednávok, zostávanie v téme a kontinuita viacoturnovej konverzácie). Katalógy pre agentov iných lekcií sú vedľa neho — pozri [`tests/README.md`](../tests/README.md).
+- **Workflow** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) sa prihlási pomocou Azure OIDC a pošle každú výzvu na endpoint Responses agenta, neúspech úlohy pri akomkoľvek nezhodnom overení.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,50 +282,50 @@ Tento repozitár obsahuje pripravený smoke-test pipeline postavený na GitHub A
 ```
 
 
-Spustite to z karty **Actions** po nasadení vášho agenta, pričom zadáte koncový bod projektu Foundry a meno agenta. Fedrovaná identita potrebuje vo Foundry projekte rolu **Azure AI User**. Predstavte si vrstvy ako pyramídu: základné testy dymu (dostupný a reaguje?) sa spúšťajú pri každom nasadení, offline hodnotenie (dostatočne dobrý na odoslanie?) pred postupom a online hodnotenie (ako sa darí v reálnom svete?) beží nepretržite.
+Spustite to z karty **Actions** po nasadení svojho agenta a zadajte koncový bod projektu Foundry a meno agenta. Federovaná identita potrebuje na úrovni projektu Foundry rolu **Azure AI User**. Predstavte si vrstvy ako pyramídu: testy dymu (dostupné a reagujúce?) sa spúšťajú pri každom nasadení, offline hodnotenie (dostatočne dobré na vydanie?) sa spúšťa pred propagáciou a online hodnotenie (ako si vedie v reálnom prostredí?) beží neustále.
 
-## Kontrola znalostí
+## Overenie vedomostí
 
-Otestujte svoje znalosti pred prechodom na zadanie.
+Otestujte svoje porozumenie pred pokračovaním k zadaniu.
 
-**1. Ako približne veľká časť produkčného agenta je "model" a čo tvorí zvyšok?**
+**1. Približne koľko z produkčného agenta tvorí „model“ a čo je zvyšok?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Model je menšina systému — často sa uvádza okolo 20 %. Zvyšok tvorí operačný skelet: hostovanie a verzovanie, identita a RBAC, externalizovaný stav, riešenie zlyhaní, sledovanie nákladov, hodnotenie a kontroly s ľudským zapojením. Prechod do produkcie je väčšinou o budovaní všetkého *okolo* slučky uvažovania.
+Model tvorí menšinu systému — často sa uvádza okolo 20 %. Zvyšok je operačný skelet: hostovanie a verzovanie, identita a RBAC, externý stav, spracovanie chýb, sledovanie nákladov, hodnotenie a kontroly s ľudským zapojením. Presun do produkcie je väčšinou o vybudovaní všetkého *okolo* cyklu uvažovania.
 </details>
 
-**2. Kedy by ste si vybrali Hosted Agenta namiesto agenta hostovaného na klientskej strane?**
+**2. Kedy by ste zvolili Hosted Agent namiesto klientom hosťovaného agenta?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Keď chcete spravovaný runtime s vnútornou odolnosťou (vlákna, ktoré pretrvávajú a môžu pokračovať), pozorovateľnosť, bezpečnosť obsahu a RBAC, a ste ochotní obetovať trochu nízkoúrovňovej kontroly slučky uvažovania za menej prevádzkovej zložitosti. Agent hostovaný na klientskej strane je vhodnejší, keď potrebujete plnú kontrolu nad slučkou alebo vkladáte agenta do existujúceho backendu.
+Keď chcete spravované prostredie s zabudovanou odolnosťou (vlákna, ktoré pretrvávajú a môžu pokračovať), pozorovateľnosť, bezpečnosť obsahu a RBAC a ste ochotní obetovať čiastočnú nízkoúrovňovú kontrolu cyklu uvažovania za menšiu prevádzkovú plochu. Klientom hosťované je vhodné, keď potrebujete plnú kontrolu nad cyklom alebo osádzate agenta do existujúceho backendu.
 </details>
 
-**3. Prečo musí byť škálovateľný agent bezstavový vo svojej vlastnej procesnej pamäti?**
+**3. Prečo musí byť škálovateľný agent bezstavový vo vlastnej pamäti procesu?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Aby ktorýkoľvek inštancie mohla spracovať akýkoľvek požiadavok, čo umožňuje horizontálne škálovanie bez viazaných relácií. Stav konverzácie pre používateľa je externalizovaný do úložiska vlákien alebo pamäťovej služby. Ak by stav žil v procesnej pamäti, stratili by ste ho pri reštarte a nemohli by ste voľne distribuovať zaťaženie.
+Aby ktorákoľvek inštancia mohla spracovať akýkoľvek požiadavok, čo umožňuje horizontálne škálovanie bez viazaných relácií. Stav konverzácie na používateľa je externý v úložisku vláken alebo pamäťovej službe. Ak by bol stav v procesnej pamäti, pri reštarte by sa stratil a záťaž by sa nedala voľne distribuovať.
 </details>
 
-**4. Aký problém rieši smerovanie modelu a ako súvisí s hodnotením?**
+**4. Aký problém rieši smerovanie modelov a ako súvisí s hodnotením?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Smerovanie posiela jednoduché požiadavky malému, lacnému, rýchlemu modelu a ponecháva veľký model pre skutočné uvažovanie, čím riadi latenciu a náklady. Súvisí to s hodnotením, pretože hodnotenie *dokazuje*, že malý model je dostatočný pre určitú triedu požiadaviek — smerovanie bez hodnotenia je tipovanie.
+Smerovanie posiela jednoduché požiadavky malému, lacnému a rýchlemu modelu a vyhradzuje veľký model pre skutočné uvažovanie, čím kontroluje latenciu aj náklady. Súvisí to s hodnotením, lebo hodnotenie *dokazuje*, že malý model je dostatočný pre danú triedu požiadaviek — smerovanie bez hodnotenia je len odhadovanie.
 </details>
 
-**5. Čo je to „evaluačná brána“ a kde v životnom cykle sa nachádza?**
+**5. Čo je „evaluačná brána“ a kde sa nachádza v životnom cykle?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Evaluačná brána spúšťa offline testovací súbor proti novej verzii agenta a blokuje nasadenie, pokiaľ miera úspešnosti neprekročí prah. Nachádza sa medzi „verziou“ a „nasadením“ v životnom cykle, čím robí kvalitu predpokladom pre vydanie namiesto niečoho, čo kontrolujete po nasadení.
+Evaluačná brána spúšťa offline testy na novej verzii agenta a blokuje nasadenie, pokiaľ miera úspešnosti neprekročí prah. Nachádza sa medzi "verziou" a "nasadením" v životnom cykle, čím robí kvalitu podmienkou vydania namiesto kontroly po uvoľnení.
 </details>
 
 **6. Prečo by mal byť MCP server považovaný za nedôveryhodnú hranicu v produkcii?**
@@ -333,55 +333,55 @@ Evaluačná brána spúšťa offline testovací súbor proti novej verzii agenta
 <details>
 <summary>Odpoveď</summary>
 
-Pretože je to externá závislosť, na ktorú váš agent volá. Mali by ste pripnúť jeho verziu, spúšťať ho s obmedzenou identitou, validať jeho výstupy, obmedzovať rýchlosť volaní a nikdy mu nezverovať tajomstvá — rovnaká disciplína ako pri každej externej závislosti. Jeho výstupy vstupujú do uvažovania agenta, takže neoverená dôvera predstavuje bezpečnostné riziko.
+Pretože je to externá závislosť, do ktorej váš agent volá. Mali by ste pripnúť jeho verziu, spúšťať ho s obmedzenou identitou, overovať jeho výstupy, obmedzovať počet volaní a nikdy mu nesmiete odhaliť tajomstvá — rovnaká disciplína ako pri akejkoľvek závislosti tretích strán. Jeho výstupy vstupujú do uvažovania agenta, takže neoverená dôvera predstavuje bezpečnostné riziko.
 </details>
 
-**7. Ktorá jediná zmena má zvyčajne najväčší dopad na náklady produkčného agenta a prečo?**
+**7. Ktorá jedna zmena obvykle najviac ovplyvňuje náklady produkčného agenta a prečo?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Správna veľkosť modelu — používanie najmenšieho modelu, ktorý stále prejde vašou evaluačnou bránou. Náklady sú dominované tokenmi a menší model, ktorý spĺňa kvalitatívnu hranicu, je takmer vždy lacnejší než väčší. Keďže potom kešovanie a smerovanie ešte viac znižujú náklady, výber správneho základného modelu má najväčší prvotný efekt.
+Správna veľkosť modelu — použiť najmenší model, ktorý stále prejde evaluačnou bránou. Náklady dominujú tokeny a menší model, ktorý spĺňa kvalitatívny štandard, je takmer vždy lacnejší než väčší. Keďže cachovanie a smerovanie ďalej znižujú náklady, výber správneho základného modelu má najväčší prvotný dopad.
 </details>
 
-**8. Akú úlohu zohrávajú atribúty spanov ako `customer.tier` a `routed.model` v pozorovateľnosti?**
+**8. Akú úlohu majú atribúty spanov ako `customer.tier` a `routed.model` v pozorovateľnosti?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Premieňajú surové stopy na zodpovedateľné obchodné otázky. Bez atribútov máte hromadu spanov; s nimi môžete položiť otázku „sú zákazníci enterprise príliš často smerovaní na malý model?“ alebo „ktorý model spracováva naše najpomalšie požiadavky?“ Atribúty sú spôsob, ako triediť telemetriu podľa rozmerov dôležitých pre vašu prevádzku.
+Premieňajú surové trace na zodpovedateľné obchodné otázky. Bez atribútov máte len kopu spanov; s atribútmi môžete položiť otázky ako „sú podnikový zákazníci príliš často nasmerovaní na malý model?“ alebo „ktorý model spracováva naše najpomalšie požiadavky?“ Atribúty slúžia na delenie telemetrie podľa dimenzií dôležitých pre vašu prevádzku.
 </details>
 
 ## Zadanie
 
-Vezmite zákazníckeho podporného agenta z laboratória a prispôsobte ho pre konkrétny scenár: **agent pre podporu fakturácie predplatného pre SaaS spoločnosť.**
+Vezmite zákazníckeho support agenta z laboratória a zabezpečte ho pre konkrétny scenár: **agent podpory predplatného pre SaaS spoločnosť.**
 
 Vaša odovzdaná práca by mala:
 
-1. **Nahradiť nástroje** nástrojmi relevantnými pre fakturáciu: `get_subscription_status`, `get_invoice` a `issue_credit` (kredity nad 50 dolárov vyžadujú schválenie človekom).
-2. **Pridať tri RAG dokumenty** pokrývajúce politiku vrátenia peňazí firmy, fakturačný cyklus a politiku zrušenia.
-3. **Rozšíriť evaluačný set** na aspoň osem prípadov, vrátane minimálne dvoch, ktoré *by mali* spustiť cestu so schválením človekom, a potvrdiť, že vaša evaluačná brána správne prejde alebo zlyhá.
-4. **Pridať jednu správu o nákladoch**: po spracovaní desiatich zmiešaných dopytov agentom vytlačte, koľko išlo na malý model, koľko na veľký a koľko bolo obslúžených z keša.
+1. **Nahradiť nástroje** nástrojmi relevantnými pre fakturáciu: `get_subscription_status`, `get_invoice` a `issue_credit` (kredity nad $50 vyžadujú schválenie človekom).
+2. **Pridať tri RAG dokumenty** pokrývajúce firemnú politiku vrátenia peňazí, fakturačný cyklus a politiku zrušenia.
+3. **Rozšíriť evaluačný súbor** aspoň na osem prípadov, vrátane aspoň dvoch, ktoré *by mali* viesť k schváleniu človekom, a potvrdiť, že evaluačná brána správne prechádza alebo zlyháva.
+4. **Pridať jednu správu o nákladoch**: po spracovaní desiatich zmiešaných požiadaviek agentom vypísať, koľko ich šlo na malý model, koľko na veľký model a koľko sa podarilo obslúžiť z cache.
 
-Napíšte krátky odsek (v markdown bunke) vysvetľujúci, ktoré pravidlo smerovania modelu ste zvolili a ako by ste ho overili s reálnou prevádzkou. Neexistuje jediná správna odpoveď — hodnotí sa, či máte koherentne previazané produkčné podmienky.
+Napíšte krátky odsek (v markdown bunke) vysvetľujúci, ktoré pravidlo smerovania modelu ste zvolili a ako by ste ho overili na reálnej prevádzke. Neexistuje jedna správna odpoveď — hodnotí sa, či ste produkčné záležitosti zosúladili koherentne.
 
 ## Zhrnutie
 
 V tejto lekcii ste presunuli agenta z prototypu do produkcie s Microsoft Foundry:
 
-- Prechod do produkcie je väčšinou o **operačnom skelete** okolo modelu — hostovaní, identite, stave, riešení zlyhaní, nákladoch, kvalite a dôvere.
-- Naučili ste sa tri **vzory nasadzovania** — hostovaný klientom, Hosted Agenti a Agent Workflowy — a kedy ktoré použiť.
-- Prešli ste **životným cyklom agenta**, kde offline **hodnotenie funguje ako prepúšťacia brána** a online pozorovateľnosť vracia zlyhania späť do testovacieho setu.
-- Použili ste **škálovacie stratégie** — bezstavový dizajn, smerovanie modelu, kešovanie a obmedzenú paralelnosť — a spojili ich s **optimalizáciou nákladov**.
-- Zapojili ste **firemné kontroly**: RBAC, schvaľovanie s ľudským zapojením a bezpečnú produkčnú integráciu MCP.
-- Postavili ste **produkčne pripraveného zákazníckeho podporného agenta**, ktorý spája všetky tieto aspekty v spustiteľnom kóde.
+- Skok do produkcie je väčšinou o **operačnom skelete** okolo modelu — hostovanie, identita, stav, spracovanie chýb, náklady, kvalita a dôvera.
+- Naučili ste sa tri **vzory nasadenia** — klientom hosťované, Hosted Agents a Agent Workflows — a kedy ktorý používať.
+- Prešli ste **životným cyklom agenta**, kde offline **hodnotenie funguje ako brána uvoľnenia** a online pozorovateľnosť vkladá zlyhania späť do testovacieho súboru.
+- Aplikovali ste **škálovacie stratégie** — bezstavový dizajn, smerovanie modelu, cachovanie a obmedzenú súbežnosť — a spojili ich so **zoptimalizovaním nákladov**.
+- Zaviedli ste **podnikové kontroly**: RBAC, schválenie ľudským operátorom a produkčne bezpečnú integráciu MCP.
+- Vytvorili ste **produkčne pripraveného zákazníckeho support agenta**, ktorý spája všetky tieto záležitosti do spustiteľného kódu.
 
-Nasledujúca lekcia vás zavedie opačným smerom: namiesto škálovania agentov do cloudu ich presuniete *dole* na jeden vývojársky počítač a budete ich spúšťať kompletne lokálne.
+Nasledujúca lekcia ide opačným smerom: namiesto škálovania agentov do cloudu ich prenesiete *dole* na jeden vývojársky počítač a budete ich spúšťať úplne lokálne.
 
-## Ďalšie zdroje
+## Dodatočné zdroje
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentácia Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Prehľad služby agentov Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Prehľad služby Microsoft Foundry Agent</a>
 - <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router v Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
@@ -389,9 +389,9 @@ Nasledujúca lekcia vás zavedie opačným smerom: namiesto škálovania agentov
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
-## Predchádzajúca lekcia
+## Predošlá lekcia
 
-[Stavba agentov na použitie s počítačom (CUA)](../15-browser-use/README.md)
+[Vytváranie agentov na používanie počítača (CUA)](../15-browser-use/README.md)
 
 ## Nasledujúca lekcia
 

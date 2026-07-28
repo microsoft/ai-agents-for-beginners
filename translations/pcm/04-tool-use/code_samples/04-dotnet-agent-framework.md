@@ -2,40 +2,40 @@
 
 ## 📋 Wetin You Go Learn
 
-Dis notebook dey show how enterprise-grade tool integration patterns dey work wit Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go learn how to build correct agents wey get multiple specialized tools, use C# strong typing and .NET enterprise features well well.
+Dis notebook dey show how pipo fit integrate big-big tool dem wey use Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go sabi how to build better agent wey get many correct tools, plus how C# strong typing and .NET big-big features fit help you.
 
-### Advanced Tool Skills Weh You Go Master
+### Advanced Tool Palava Wey You Go Master
 
-- 🔧 **Multi-Tool Architecture**: How to build agents wey get plenty specialized skills
-- 🎯 **Type-Safe Tool Execution**: How to use C# compile-time validation sharp sharp
-- 📊 **Enterprise Tool Patterns**: How to design production-proof tools and handle errors
-- 🔗 **Tool Composition**: How to join tools for complex business waka
+- 🔧 **Multi-Tool Setup**: How to build agent wey get many special tools
+- 🎯 **Type-Safe Tool Running**: How C# dey check correct type before e run
+- 📊 **Enterprise Tool Patterns**: How to design tool wey ready for production plus how to handle error well-well
+- 🔗 **Tool Combination**: How to join tool dem for complicated business waka
 
-## 🎯 .NET Tool Architecture Benefits
+## 🎯 Benefits of .NET Tool Setup
 
 ### Enterprise Tool Features
 
-- **Compile-Time Validation**: Strong typing make sure tool parameters correct
-- **Dependency Injection**: IoC container join to manage tools
-- **Async/Await Patterns**: Tools dey run without block and resource management proper
-- **Structured Logging**: Built-in logging help monitor tool running
+- **Compile-Time Check**: Strong typing make sure tool parameters correct
+- **Dependency Injection**: IoC container dey help manage tool dem
+- **Async/Await Patterns**: Tool run no go block system, plus e dey manage resources well
+- **Structured Logging**: Logging dey inside to monitor tool run
 
 ### Production-Ready Patterns
 
-- **Exception Handling**: Complete error management with typed exceptions
-- **Resource Management**: Proper disposal and memory management style
-- **Performance Monitoring**: Built-in metrics and performance counters
-- **Configuration Management**: Type-safe configuration wit validation
+- **Exception Handling**: Error management wey get typed exceptions
+- **Resource Management**: Correct way to dispose and manage memory
+- **Performance Monitoring**: Metrics and performance counters inside
+- **Configuration Management**: Configuration wey get type-check plus validation
 
 ## 🔧 Technical Architecture
 
-### Core .NET Tool Parts
+### Main .NET Tool Parts
 
-- **Microsoft.Extensions.AI**: One tool abstraction level wey unify everything
-- **Microsoft.Agents.AI**: Enterprise-grade tool orchestration
-- **Azure OpenAI (Responses API)**: High-performance API client wit connection pooling
+- **Microsoft.Extensions.AI**: One-layer tool abstraction
+- **Microsoft.Agents.AI**: Enterprise level tool control
+- **Azure OpenAI (Responses API)**: High-performance API client with connection pooling
 
-### Tool Execution Pipeline
+### How Tool Run Pipeline Be
 
 ```mermaid
 graph LR
@@ -55,40 +55,40 @@ graph LR
 ### 1. **Data Processing Tools**
 
 - **Input Validation**: Strong typing wit data annotations
-- **Transform Operations**: Type-safe data conversion and formatting
-- **Business Logic**: Domain-special calculation and analysis tools
-- **Output Formatting**: Structured response generation
+- **Transform Operations**: Type-safe data change and formatting
+- **Business Logic**: Tools for domain-specific calculation and analysis
+- **Output Formatting**: Structured way wey e go generate response
 
 ### 2. **Integration Tools** 
 
-- **API Connectors**: RESTful service integration wit HttpClient
-- **Database Tools**: Entity Framework integration to access data
-- **File Operations**: Secure file system operations wit validation
-- **External Services**: Third-party service integration patterns
+- **API Connectors**: RESTful service join wit HttpClient
+- **Database Tools**: Entity Framework run join for data access
+- **File Operations**: Safe file system work with validation
+- **External Services**: Third-party service join pattern dem
 
 ### 3. **Utility Tools**
 
-- **Text Processing**: String manipulation and formatting utilities
-- **Date/Time Operations**: Culture-aware date/time calculations
-- **Mathematical Tools**: Precision calculations and statistical operations
-- **Validation Tools**: Business rule validation and data verification
+- **Text Processing**: String wahala and formatting utilities
+- **Date/Time Operations**: Culture-aware date/time calculation
+- **Mathematical Tools**: Precision calculation and statistical work
+- **Validation Tools**: Business rule and data validation
 
-Ready to build strong enterprise-grade agents with powerful, type-safe tool skills inside .NET? Make we architect some professional-grade solution! 🏢⚡
+Ready to build big-big enterprise-grade agents wit strong, type-safe tools for .NET? Make we architect pro-grade solution dem! 🏢⚡
 
-## 🚀 How to Start
+## 🚀 How To Start
 
-### Wetin You Need First
+### Wetin You Go Need First
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
-- Azure Subscription [https://azure.microsoft.com/free/] wit Azure OpenAI resource plus model deployment
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sign in wit `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or pass am
+- Azure subscription wey get Azure OpenAI resource and model deployment
+- The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — login wit `az login`
 
-### Environment Variables Weh You Need
+### Environment Variables We Need
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Den sign in make AzureCliCredential fit get token
 az login
 ```
@@ -96,14 +96,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Den sign in so AzureCliCredential fit get token
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Den sign in make AzureCliCredential fit get token
 az login
 ```
 
 ### Sample Code
 
-To run the example code,
+To run the code example,
 
 ```bash
 # zsh/bash
@@ -111,13 +111,13 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Or use the dotnet CLI:
+Or use dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Check [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) for the full code.
+See [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) for the full code.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

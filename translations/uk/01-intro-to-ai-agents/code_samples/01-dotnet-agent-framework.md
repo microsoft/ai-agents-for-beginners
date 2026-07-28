@@ -1,39 +1,39 @@
-# 🌍 Штучний інтелект як туристичний агент з Microsoft Agent Framework (.NET)
+# 🌍 Агенти Подорожей на базі Microsoft Agent Framework (.NET)
 
 ## 📋 Огляд сценарію
 
-Цей приклад демонструє, як створити інтелектуального агента для планування подорожей за допомогою Microsoft Agent Framework для .NET. Агент може автоматично генерувати персоналізовані маршрути одноденних поїздок до випадкових напрямків по всьому світу.
+Цей приклад демонструє, як створити інтелектуального агента для планування подорожей за допомогою Microsoft Agent Framework для .NET. Агенти можуть автоматично генерувати персоналізовані маршрути одноденних поїздок випадковими напрямками по всьому світу.
 
-### Ключові можливості:
+### Основні можливості:
 
-- 🎲 **Вибір випадкового напрямку**: Використовує власний інструмент для вибору місць відпочинку
-- 🗺️ **Інтелектуальне планування подорожі**: Створює докладні маршрути по днях
-- 🔄 **Потокова передача в реальному часі**: Підтримка миттєвих і потокових відповідей
-- 🛠️ **Інтеграція власних інструментів**: Демонструє розширення можливостей агента
+- 🎲 **Випадковий вибір напрямку**: Використовує спеціальний інструмент для вибору місць відпочинку
+- 🗺️ **Інтелектуальне планування поїздок**: Створює детальні по днях маршрути
+- 🔄 **Потокова обробка в реальному часі**: Підтримує як миттєві, так і потокові відповіді
+- 🛠️ **Інтеграція користувацьких інструментів**: Демонструє, як розширювати можливості агента
 
 ## 🔧 Технічна архітектура
 
 ### Основні технології
 
-- **Microsoft Agent Framework**: Остання реалізація для .NET для розробки AI агентів
-- **Azure OpenAI (Responses API)**: Використання Azure OpenAI Responses API для моделювання
-- **Azure Identity**: Безпечний вхід через `AzureCliCredential` (`az login`)
-- **Безпечна конфігурація**: Керування кінцевими точками через середовище
+- **Microsoft Agent Framework**: Остання реалізація на .NET для розробки AI агентів
+- **Azure OpenAI (Responses API)**: Використовує Azure OpenAI Responses API для інференсу моделі
+- **Azure Identity**: Безпечний вхід за допомогою `AzureCliCredential` (`az login`)
+- **Безпечна конфігурація**: Управління точками доступу на основі оточення
 
 ### Ключові компоненти
 
-1. **AIAgent**: Основний агент-організатор, що керує потоком розмови
-2. **Власні інструменти**: функція `GetRandomDestination()` доступна агенту
-3. **Responses Client**: Інтерфейс розмови на основі Azure OpenAI Responses
-4. **Підтримка потокової передачі**: Можливості генерації відповідей у реальному часі
+1. **AIAgent**: Головний координатор агента, що керує потоком розмови
+2. **Користувацькі інструменти**: функція `GetRandomDestination()` доступна агенту
+3. **Responses Client**: Інтерфейс розмов на основі Azure OpenAI Responses
+4. **Підтримка потокової обробки**: Можливості генерації відповідей в реальному часі
 
-### Шаблон інтеграції
+### Патерн інтеграції
 
 ```mermaid
 graph LR
-    A[Запит користувача] --> B[AI Агент]
-    B --> C[Azure OpenAI (API відповіді)]
-    B --> D[Інструмент GetRandomDestination]
+    A[Запит користувача] --> B[ІІ Агент]
+    B --> C[Azure OpenAI (API відповідей)]
+    B --> D[Інструмент Випадковий напрямок]
     C --> E[План подорожі]
     D --> E
 ```
@@ -42,16 +42,16 @@ graph LR
 
 ### Вимоги
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або новіша версія
-- Обліковий запис [Azure](https://azure.microsoft.com/free/) з ресурсом Azure OpenAI і розгортанням моделі
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — увійдіть за допомогою `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або вища версія
+- [Передплата Azure](https://azure.microsoft.com/free/) з ресурсом Azure OpenAI та розгортанням моделі
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — вхід через `az login`
 
-### Необхідні системні змінні середовища
+### Необхідні змінні оточення
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Потім увійдіть, щоб AzureCliCredential міг отримати токен
 az login
 ```
@@ -59,8 +59,8 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Потім увійдіть, щоб AzureCliCredential міг отримати токен
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Потім увійдіть у систему, щоб AzureCliCredential міг отримати токен
 az login
 ```
 
@@ -74,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Або використовуючи CLI dotnet:
+Або за допомогою dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,17 +159,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Ключові висновки
 
-1. **Архітектура агента**: Microsoft Agent Framework надає чистий, типобезпечний підхід для створення AI агентів у .NET
+1. **Архітектура агента**: Microsoft Agent Framework забезпечує чистий, типобезпечний підхід до створення AI агентів на .NET
 2. **Інтеграція інструментів**: Функції, прикрашені атрибутами `[Description]`, стають доступними інструментами для агента
-3. **Управління конфігурацією**: Змінні середовища та безпечне керування обліковими даними відповідають найкращим практикам .NET
-4. **Azure OpenAI Responses API**: Агент використовує Azure OpenAI Responses API через SDK Azure.AI.OpenAI
+3. **Управління конфігурацією**: Змінні оточення та безпечне керування обліковими даними відповідають найкращим практикам .NET
+4. **Azure OpenAI Responses API**: Агент використовує Azure OpenAI Responses API через Azure.AI.OpenAI SDK
 
 ## 🔗 Додаткові ресурси
 
 - [Документація Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI у Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [Однофайлові додатки .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

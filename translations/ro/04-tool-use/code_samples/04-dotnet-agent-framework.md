@@ -1,107 +1,107 @@
-# 🛠️ Utilizare Avansată a Instrumentelor cu Azure OpenAI (Responses API) (.NET)
+# 🛠️ Utilizarea avansată a uneltelor cu Azure OpenAI (Responses API) (.NET)
 
-## 📋 Obiective de Învățare
+## 📋 Obiective de învățare
 
-Acest notebook demonstrează modele de integrare a instrumentelor de nivel enterprise folosind Microsoft Agent Framework în .NET cu Azure OpenAI (Responses API). Veți învăța să construiți agenți sofisticați cu multiple instrumente specializate, valorificând tipizarea puternică a C# și caracteristicile enterprise ale .NET.
+Acest notebook demonstrează modele de integrare a uneltelor la nivel enterprise folosind Microsoft Agent Framework în .NET cu Azure OpenAI (Responses API). Veți învăța să construiți agenți sofisticați cu multiple unelte specializate, valorificând tiparea puternică a limbajului C# și funcționalitățile enterprise ale .NET.
 
-### Capacități Avansate ale Instrumentelor pe care le Veți Stăpâni
+### Capacități avansate ale uneltelor pe care le veți stăpâni
 
-- 🔧 **Arhitectură Multi-Instrument**: Construirea de agenți cu multiple capabilități specializate
-- 🎯 **Executare Tip-Sigură a Instrumentelor**: Valorificarea validării la compilare în C#
-- 📊 **Modele de Instrumente Enterprise**: Proiectarea instrumentelor pregătite pentru producție și gestionarea erorilor
-- 🔗 **Compoziția Instrumentelor**: Combinarea instrumentelor pentru fluxuri complexe de lucru de business
+- 🔧 **Arhitectură multi-unealtă**: Construirea agenților cu multiple capacități specializate
+- 🎯 **Executare tip-safe a uneltelor**: Folosirea validării la compilare în C#
+- 📊 **Modele enterprise de unealtă**: Design și gestionare a erorilor gata de producție
+- 🔗 **Compoziția uneltelor**: Combinarea uneltelor pentru fluxuri de lucru complexe de business
 
-## 🎯 Beneficiile Arhitecturii Instrumentelor .NET
+## 🎯 Beneficiile arhitecturii .NET pentru unelte
 
-### Caracteristici Enterprise ale Instrumentelor
+### Funcționalități enterprise ale uneltelor
 
-- **Validare la Timp de Compilare**: Tipizare puternică asigurând corectitudinea parametrilor instrumentelor
-- **Injecție de Dependență**: Integrarea containerului IoC pentru managementul instrumentelor
-- **Modele Async/Await**: Executare non-blocantă a instrumentelor cu management corespunzător al resurselor
-- **Logging Structurat**: Integrare încorporată pentru monitorizarea execuției instrumentelor
+- **Validare la compilare**: Tipare puternice asigură corectitudinea parametrilor uneltelor
+- **Injecție de dependențe**: Integrare cu container IoC pentru gestionarea uneltelor
+- **Pattern-uri Async/Await**: Executare neblocantă a uneltelor cu gestionarea corespunzătoare a resurselor
+- **Jurnalizare structurată**: Integrare încorporată pentru monitorizarea execuției uneltelor
 
-### Modele Pregătite pentru Producție
+### Modele gata de producție
 
-- **Gestionarea Excepțiilor**: Management complet al erorilor cu excepții tipizate
-- **Managementul Resurselor**: Modele corecte de eliberare și management al memoriei
-- **Monitorizarea Performanței**: Metrici încorporate și contorizatoare de performanță
-- **Managementul Configurației**: Configurare tip-sigură cu validare
+- **Gestionarea excepțiilor**: Management complet al erorilor cu excepții tipate
+- **Gestionarea resurselor**: Modele corecte de eliminare și managementul memoriei
+- **Monitorizarea performanței**: Metrici și contoare de performanță încorporate
+- **Managementul configurației**: Configurație tip-safe cu validare
 
-## 🔧 Arhitectura Tehnică
+## 🔧 Arhitectura tehnică
 
-### Componente de Bază ale Instrumentelor .NET
+### Componentele principale ale uneltelor .NET
 
-- **Microsoft.Extensions.AI**: Strat unificat de abstractizare a instrumentelor
-- **Microsoft.Agents.AI**: Orchestrare de instrumente la nivel enterprise
-- **Azure OpenAI (Responses API)**: Client API de înaltă performanță cu connection pooling
+- **Microsoft.Extensions.AI**: Strat unificat de abstractizare a uneltelor
+- **Microsoft.Agents.AI**: Orchestrare la nivel enterprise a uneltelor
+- **Azure OpenAI (Responses API)**: Client API de înaltă performanță cu pooling de conexiuni
 
-### Pipeline-ul de Execuție al Instrumentelor
+### Pipeline-ul de execuție al uneltelor
 
 ```mermaid
 graph LR
-    A[Cerere utilizator] --> B[Analiză agent]
-    B --> C[Selecția uneltei]
-    C --> D[Validare tip]
-    B --> E[Legare parametri]
-    E --> F[Executarea uneltei]
+    A[Cerere utilizator] --> B[Analiza agentului]
+    B --> C[Selecția instrumentului]
+    C --> D[Validarea tipului]
+    B --> E[Legarea parametrilor]
+    E --> F[Executarea instrumentului]
     C --> F
-    F --> G[Procesarea rezultatului]
+    F --> G[Prelucrarea rezultatului]
     D --> G
     G --> H[Răspuns]
 ```
 
-## 🛠️ Categorii & Modele de Instrumente
+## 🛠️ Categorii și modele de unelte
 
-### 1. **Instrumente pentru Procesarea Datelor**
+### 1. **Unelte pentru procesarea datelor**
 
-- **Validarea Intrărilor**: Tipizare puternică cu adnotări de date
-- **Operațiuni de Transformare**: Conversie și formatare a datelor tip-sigură
-- **Logică de Business**: Instrumente de calcul și analiză specifice domeniului
-- **Formatarea Ieșirilor**: Generare structurată a răspunsurilor
+- **Validarea intrărilor**: Tipare puternice cu adnotări de date
+- **Operații de transformare**: Conversie și formatare de date tip-safe
+- **Logică de business**: Unelte de calcul și analiză specifice domeniului
+- **Formatarea ieșirilor**: Generarea structurată a răspunsurilor
 
-### 2. **Instrumente de Integrare** 
+### 2. **Unelte de integrare**
 
 - **Conectori API**: Integrare servicii RESTful cu HttpClient
-- **Instrumente de Bază de Date**: Integrare Entity Framework pentru accesul datelor
-- **Operațiuni pe Fișiere**: Operații sigure pe sistemul de fișiere cu validare
-- **Servicii Externe**: Modele de integrare a serviciilor terțe
+- **Unelte pentru baze de date**: Integrare Entity Framework pentru accesul la date
+- **Operații pe fișiere**: Operații securizate pe sistemul de fișiere cu validare
+- **Servicii externe**: Modele de integrare a serviciilor terțe
 
-### 3. **Instrumente Utilitare**
+### 3. **Unelte utilitare**
 
-- **Procesarea Textului**: Utilitare pentru manipularea și formatarea șirurilor de caractere
-- **Operațiuni Data/Timp**: Calculuri date/timp conștiente de cultură
-- **Instrumente Matematice**: Calcul precis și operații statistice
-- **Instrumente de Validare**: Validarea regulilor de business și verificarea datelor
+- **Prelucrarea textului**: Utilitare pentru manipulare și formatare stringuri
+- **Operații Data/Ora**: Calculuri ce țin cont de cultură pentru date/ore
+- **Unelte matematice**: Calcule de precizie și operații statistice
+- **Unelte de validare**: Validarea regulilor de business și verificarea datelor
 
-Pregătit să construiți agenți enterprise cu capabilități puternice, tip-sigure în .NET? Haideți să arhitectăm soluții profesionale! 🏢⚡
+Gata să construiți agenți la nivel enterprise cu capabilități puternice, tip-safe în .NET? Hai să arhitectăm soluții profesionale! 🏢⚡
 
-## 🚀 Pornirea în Curs
+## 🚀 Începeți
 
-### Cerințe Prealabile
+### Cerințe preliminare
 
-- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune superioară
-- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și un deployment de model
-- Azure CLI-ul [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau mai nou
+- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și o implementare de model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificați-vă cu `az login`
 
-### Variabile de Mediu Necesare
+### Variabile de mediu necesare
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Apoi autentifică-te ca AzureCliCredential să poată obține un token
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
 az login
 ```
 
-### Cod Exemplu
+### Cod exemplu
 
 Pentru a rula exemplul de cod,
 
@@ -111,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Sau folosind CLI-ul dotnet:
+Sau folosind dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

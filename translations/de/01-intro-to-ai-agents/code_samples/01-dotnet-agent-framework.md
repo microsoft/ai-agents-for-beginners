@@ -2,38 +2,38 @@
 
 ## 📋 Szenarioübersicht
 
-Dieses Beispiel zeigt, wie man einen intelligenten Reiseplanungsagenten mithilfe des Microsoft Agent Frameworks für .NET erstellt. Der Agent kann automatisch personalisierte Tagesausflug-Routen für zufällige Reiseziele weltweit generieren.
+Dieses Beispiel zeigt, wie man einen intelligenten Reiseplanungsagenten mit dem Microsoft Agent Framework für .NET entwickelt. Der Agent kann automatisch personalisierte Tagesausflugsrouten für zufällige Reiseziele weltweit generieren.
 
 ### Hauptfunktionen:
 
 - 🎲 **Zufällige Zielauswahl**: Verwendet ein benutzerdefiniertes Tool, um Urlaubsorte auszuwählen
-- 🗺️ **Intelligente Reiseplanung**: Erstellt detaillierte Tagesabläufe
-- 🔄 **Echtzeit-Streaming**: Unterstützt sowohl sofortige als auch Streaming-Antworten
-- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie Agent-Fähigkeiten erweitert werden können
+- 🗺️ **Intelligente Reiseplanung**: Erstellt detaillierte Tagespläne
+- 🔄 **Echtzeit-Streaming**: Unterstützt sowohl unmittelbare als auch Streaming-Antworten
+- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie Agentenfunktionen erweitert werden können
 
 ## 🔧 Technische Architektur
 
 ### Kerntechnologien
 
-- **Microsoft Agent Framework**: Neueste .NET-Implementierung für KI-Agentenentwicklung
-- **Azure OpenAI (Responses API)**: Verwendet die Azure OpenAI Responses API für Modellausführung
+- **Microsoft Agent Framework**: Neueste .NET-Implementierung für die Entwicklung von KI-Agenten
+- **Azure OpenAI (Responses API)**: Verwendet die Azure OpenAI Responses API für Modellauswertung
 - **Azure Identity**: Sicheres Anmelden über `AzureCliCredential` (`az login`)
-- **Sichere Konfiguration**: Endpunktverwaltung auf Basis von Umgebungsvariablen
+- **Sichere Konfiguration**: Endpoint-Verwaltung basierend auf der Umgebung
 
 ### Hauptkomponenten
 
-1. **AIAgent**: Der Hauptagent-Orchestrator, der den Gesprächsablauf steuert
-2. **Benutzerdefinierte Tools**: `GetRandomDestination()`-Funktion, die dem Agenten zur Verfügung steht
-3. **Responses-Client**: Gesprächsschnittstelle basierend auf Azure OpenAI Responses
-4. **Streaming-Unterstützung**: Echtzeit-Antwortgenerierung
+1. **AIAgent**: Hauptagenten-Orchestrator, der den Gesprächsfluss steuert
+2. **Benutzerdefinierte Tools**: `GetRandomDestination()` Funktion für den Agenten verfügbar
+3. **Responses Client**: Gesprächsschnittstelle basierend auf Azure OpenAI Responses
+4. **Streaming-Unterstützung**: Fähigkeit zur Echtzeit-Antwortgenerierung
 
 ### Integrationsmuster
 
 ```mermaid
 graph LR
     A[Benutzeranfrage] --> B[KI-Agent]
-    B --> C[Azure OpenAI (Antworten API)]
-    B --> D[GetRandomDestination Werkzeug]
+    B --> C[Azure OpenAI (Antworten-API)]
+    B --> D[GetRandomDestination-Werkzeug]
     C --> E[Reiseplan]
     D --> E
 ```
@@ -43,7 +43,7 @@ graph LR
 ### Voraussetzungen
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
-- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellausführung
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellbereitstellung
 - Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
@@ -51,7 +51,7 @@ graph LR
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
@@ -59,14 +59,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
 
 ### Beispielcode
 
-Um das Beispiel auszuführen,
+Um das Code-Beispiel auszuführen,
 
 ```bash
 # zsh/bash
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,17 +159,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Wichtige Erkenntnisse
 
-1. **Agent-Architektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zur Entwicklung von KI-Agenten in .NET
-2. **Tool-Integration**: Funktionen mit `[Description]`-Attributen werden als verfügbare Tools für den Agenten aktiviert
-3. **Konfigurationsverwaltung**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den besten .NET-Praktiken
-4. **Azure OpenAI Responses API**: Der Agent verwendet die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
+1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zur Erstellung von KI-Agenten in .NET
+2. **Toolintegration**: Funktionen mit `[Description]` Attributen werden für den Agenten als Tools verfügbar
+3. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den .NET-Best-Practices
+4. **Azure OpenAI Responses API**: Der Agent nutzt die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
 
-## 🔗 Zusätzliche Ressourcen
+## 🔗 Weitere Ressourcen
 
 - [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Einzeldokument-Anwendungen](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

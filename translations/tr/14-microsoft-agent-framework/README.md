@@ -4,51 +4,51 @@
 
 ### Giriş
 
-Bu derste şunlar ele alınacaktır:
+Bu ders şunları kapsayacak:
 
 - Microsoft Agent Framework'ü Anlamak: Temel Özellikler ve Değer  
 - Microsoft Agent Framework'ün Temel Kavramlarını Keşfetmek
-- İleri Düzey MAF Kalıpları: İş Akışları, Ara Katman ve Bellek
+- Gelişmiş MAF Desenleri: İş Akışları, Ara Katman ve Bellek
 
 ## Öğrenme Hedefleri
 
-Bu dersi tamamladıktan sonra şunları öğreneceksiniz:
+Bu dersi tamamladıktan sonra şunları bileceksiniz:
 
-- Microsoft Agent Framework kullanarak Üretime Hazır Yapay Zeka Ajanları oluşturmak
-- Microsoft Agent Framework'ün temel özelliklerini ajan kullanım senaryolarınıza uygulamak
-- İş akışları, ara katman ve gözlemlenebilirlik gibi ileri düzey kalıpları kullanmak
+- Microsoft Agent Framework kullanarak Üretime Hazır AI Ajanları oluşturmak
+- Microsoft Agent Framework'ün temel özelliklerini Agentik Kullanım Durumlarınıza uygulamak
+- İş akışları, ara katman ve gözlemlenebilirlik dahil gelişmiş desenleri kullanmak
 
-## Kod Örnekleri 
+## Kod Örnekleri
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) için kod örneklerine bu depoda `xx-python-agent-framework` ve `xx-dotnet-agent-framework` dosyaları altında ulaşabilirsiniz.
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) için kod örnekleri bu depoda `xx-python-agent-framework` ve `xx-dotnet-agent-framework` dosyalarında bulunabilir.
 
 ## Microsoft Agent Framework'ü Anlamak
 
 ![Framework Intro](../../../translated_images/tr/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok), yapay zeka ajanları oluşturmak için Microsoft'un birleşik çerçevesidir. Hem üretim hem araştırma ortamlarında gözlemlenen geniş yelpazedeki ajan senaryolarını ele almak için esneklik sunar:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework), AI ajanları oluşturmak için Microsoft'un birleşik çerçevesidir. Üretim ve araştırma ortamlarında görülen çeşitli agentik kullanım durumlarına esnek çözümler sunar:
 
-- Adım adım iş akışlarının gerektiği durumlarda **Ardışık Ajan orkestrasyonu**.
-- Ajanların aynı anda görevleri tamamlaması gereken durumlarda **Eşzamanlı orkestrasyon**.
-- Ajanların bir görev üzerinde birlikte işbirliği yapabildiği durumlarda **Grup sohbeti orkestrasyonu**.
-- Alt görevler tamamlandıkça ajanların birbirine görev devrettiği durumlarda **Devir teslim orkestrasyonu**.
-- Bir yönetici ajanın görev listesi oluşturup değiştirdiği ve alt ajanların koordinasyonunu sağladığı durumlarda **Manyetik orkestrasyon**.
+- Adım adım iş akışlarının gerekli olduğu senaryolarda **Sekansiyel Ajan orkestrasyonu**.
+- Ajanların aynı anda görevleri tamamlaması gereken senaryolarda **Eşzamanlı orkestrasyon**.
+- Ajanların tek bir görev üzerinde birlikte çalışabildiği senaryolarda **Grup sohbeti orkestrasyonu**.
+- Alt görevler tamamlandıkça ajanların görevi birbirine devrettiği senaryolarda **Devir teslim orkestrasyonu**.
+- Yönetici ajanın görev listesi oluşturduğu ve alt ajanların koordinasyonunu sağladığı senaryolarda **Manyetik orkestrasyon**.
 
-Üretimde Yapay Zeka Ajanları sunmak için MAF ayrıca şunları içerir:
+Üretimde AI Ajanları sağlamak için MAF ayrıca şunları içerir:
 
-- Yapay Zeka Ajanının her eylemi dahil olmak üzere araç çağrısı, orkestrasyon adımları, akıl yürütme akışları ve Microsoft Foundry panelleri aracılığıyla performans izleme sağlayan OpenTelemetry kullanımıyla **Gözlemlenebilirlik**.
-- Rol tabanlı erişim, özel veri işleme ve yerleşik içerik güvenliği gibi güvenlik kontrollerini içeren Microsoft Foundry'de ajanların yerel olarak barındırılmasıyla **Güvenlik**.
-- Ajan iş parçacıklarının ve iş akışlarının duraklatılıp devam ettirilebilmesi, hata sonrası kurtarılması sayesinde **Dayanıklılık**, bu da uzun süreli süreçlere olanak tanır.
-- Görevlerin insan onayı gerektirdiği iş akışlarını destekleyen **Kontrol**, insan-döngüsü iş akışları.
+- AI Ajanın her eylemi dahil olmak üzere araç çağrısı, orkestrasyon adımları, akıl yürütme akışları ve Microsoft Foundry panelleriyle performans izleme için OpenTelemetry ile **Gözlemlenebilirlik**.
+- Rol bazlı erişim, özel veri işleme ve yerleşik içerik güvenliği gibi güvenlik kontrolleri içeren Microsoft Foundry'de ajanların yerel olarak barındırılmasıyla **Güvenlik**.
+- Ajan iş parçacıkları ve iş akışlarının duraklatılıp, devam ettirilebilmesi ve hatalardan kurtarılabilmesiyle **Dayanıklılık**.
+- İnsan onayının gereken görevler için destek sağlayan insan destekli iş akışları ile **Kontrol**.
 
-Microsoft Agent Framework ayrıca birlikte çalışabilirliğe odaklanır:
+Microsoft Agent Framework ayrıca aşağıdaki şekillerde birlikte çalışabilirliği hedefler:
 
-- **Bulut bağımsızlığı** - Ajanlar konteynerlerde, kurum içi ve çeşitli bulutlarda çalışabilir.
-- **Sağlayıcı bağımsızlığı** - Ajanlar tercih ettiğiniz SDK ile oluşturulabilir, Azure OpenAI ve OpenAI dahil.
-- **Açık Standartların Entegrasyonu** - Ajanlar, diğer ajanları ve araçları keşfetmek ve kullanmak için Agent-to-Agent (A2A) ve Model Context Protocol (MCP) gibi protokolleri kullanabilir.
+- **Bulut bağımsız** - Ajanlar konteynerlerde, şirket içi ve birden çok farklı bulutta çalıştırılabilir.
+- **Sağlayıcı bağımsız** - Ajanlar tercih ettiğiniz SDK ile oluşturulabilir; Azure OpenAI ve OpenAI dahil.
+- **Açık Standartlarla Entegrasyon** - Ajanlar, diğer ajanları ve araçları keşfetmek ve kullanmak için Agent-to-Agent (A2A) ve Model Context Protocol (MCP) gibi protokolleri kullanabilir.
 - **Eklentiler ve Bağlayıcılar** - Microsoft Fabric, SharePoint, Pinecone ve Qdrant gibi veri ve bellek hizmetlerine bağlantılar kurulabilir.
 
-Şimdi bu özelliklerin Microsoft Agent Framework'ün bazı temel kavramlarına nasıl uygulandığına bakalım.
+Bu özelliklerin Microsoft Agent Framework'ün bazı temel kavramlarına nasıl uygulandığına bakalım.
 
 ## Microsoft Agent Framework'ün Temel Kavramları
 
@@ -56,15 +56,16 @@ Microsoft Agent Framework ayrıca birlikte çalışabilirliğe odaklanır:
 
 ![Agent Framework](../../../translated_images/tr/agent-components.410a06daf87b4fef.webp)
 
-**Ajan Oluşturma**
+**Ajanları Oluşturma**
 
-Ajan oluşturma, çıkarım servisini (LLM Sağlayıcısı), Yapay Zeka Ajanının takip edeceği bir dizi talimatı ve atanmış bir `isim` tanımlayarak yapılır:
+Ajan oluşturma, çıkarım servisini (LLM Sağlayıcısı), AI Ajanının takip etmesi gereken talimatlar setini ve atanmış bir `name` belirleyerek yapılır:
+
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Yukarıda `Azure OpenAI` kullanılıyor ancak ajanlar `Microsoft Foundry Agent Service` dahil çeşitli hizmetler kullanılarak oluşturulabilir:
+Yukarıdaki `Azure OpenAI` kullanıyor, ancak ajanlar `Microsoft Foundry Agent Service` dahil çeşitli servislerle oluşturulabilir:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -80,21 +81,21 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-veya büyük bağlam pencereleri (204K token'a kadar) destekleyen OpenAI uyumlu API sunan [MiniMax](https://platform.minimaxi.com/):
+veya büyük bağlam pencereleri (204K token'a kadar) ile OpenAI uyumlu API sağlayan [MiniMax](https://platform.minimaxi.com/):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-veya A2A protokolü ile uzak ajanlar:
+veya A2A protokolü kullanan uzak ajanlar:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
 ```
 
-**Ajan Çalıştırma**
+**Ajanları Çalıştırma**
 
-Ajanlar, akışsız veya akışlı yanıtlar için `.run` veya `.run_stream` yöntemleri kullanılarak çalıştırılır.
+Ajanlar, akışsız veya akışlı yanıtlar için `.run` veya `.run_stream` yöntemleriyle çalıştırılır.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -108,13 +109,13 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Her ajan çalıştırmasının, ajan tarafından kullanılan `max_tokens`, ajan tarafından çağrılabilen `tools` ve hatta ajan için kullanılan `model` gibi parametreleri özelleştirme seçenekleri olabilir.
+Her ajan çalıştırma, `max_tokens` gibi parametreleri, ajan tarafından çağrılabilen `tools` ve ajan için kullanılan `model` gibi özelleştirme seçeneklerine sahip olabilir.
 
-Bu, kullanıcı görevini tamamlarken belirli modellerin veya araçların gerektiği durumlarda faydalıdır.
+Bu, belirli modellerin veya araçların kullanıcının görevini tamamlamak için gerekli olduğu durumlarda faydalıdır.
 
 **Araçlar**
 
-Araçlar, ajan tanımlanırken:
+Araçlar hem ajan tanımlanırken hem de ajan çalıştırılırken tanımlanabilir:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -130,19 +131,17 @@ ve ayrıca ajan çalıştırılırken:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Bu çalıştırma için sağlanan araç )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Bu çalışma için sağlanan araç sadece )
 ```
-
-tanımlanabilir.
 
 **Ajan İş Parçacıkları**
 
-Ajan İş Parçacıkları çok turlu konuşmaları yönetmek için kullanılır. İş parçacıkları şunlarla oluşturulabilir:
+Ajan İş Parçacıkları çok turlu konuşmaları yönetmek için kullanılır. İş parçacıkları ya:
 
-- Zaman içinde kaydedilmesine imkan veren `get_new_thread()` kullanılarak
-- Bir ajan çalıştırıldığında otomatik olarak iş parçacığı yaratarak, ve iş parçacığının sadece o anki çalışma süresince devam etmesi
+- `get_new_thread()` kullanılarak zaman içinde kaydedilebilir şekilde oluşturulur
+- Ajan çalıştırılırken otomatik olarak oluşturulur ve iş parçacığı sadece mevcut çalışma boyunca devam eder.
 
-İş parçacığı oluşturmak için kod şöyle görünür:
+İş parçacığı oluşturmak için kod şöyle olur:
 
 ```python
 # Yeni bir iş parçacığı oluşturun.
@@ -151,34 +150,34 @@ response = await agent.run("Hello, I am here to help you book travel. Where woul
 
 ```
 
-İş parçacığı daha sonra sonraki kullanımlar için saklanacak şekilde serileştirilebilir:
+Daha sonra iş parçacığını saklamak için serileştirebilirsiniz:
 
 ```python
 # Yeni bir iş parçacığı oluşturun.
 thread = agent.get_new_thread() 
 
-# İş parçacığı ile ajanı çalıştırın.
+# Ajansı iş parçacığı ile çalıştırın.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Depolama için iş parçacığını serileştirin.
+# İş parçacığını depolama için serileştirin.
 
 serialized_thread = await thread.serialize() 
 
-# Depolamadan yüklendikten sonra iş parçacığı durumunu seriden çıkarın.
+# Depolamadan yükledikten sonra iş parçacığı durumunu serileştirmeden çıkarın.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
 **Ajan Ara Katmanı**
 
-Ajanlar, kullanıcının görevlerini tamamlamak için araçlar ve LLM'lerle etkileşir. Bazı durumlarda bu etkileşimlerin arasında işlem yapmak veya izlemek isteriz. Ajan ara katmanı bunu şu şekilde sağlar:
+Ajanlar, kullanıcıların görevlerini tamamlamak için araçlar ve LLM'lerle etkileşir. Belirli senaryolarda bu etkileşimlerin arasında işlem yapmak veya izlemek isteriz. Ajan ara katmanı bunu şu şekilde sağlar:
 
 *Fonksiyon Ara Katmanı*
 
-Bu ara katman, ajan ile çağrılacak fonksiyon/araç arasındaki işlemi yönetir. Örneğin, fonksiyon çağrısı üzerinde günlük kaydı yapmak istediğinizde kullanılır.
+Bu ara katman, ajan ile çağıracağı fonksiyon/araç arasında bir işlem yapmamıza izin verir. Örneğin fonksiyon çağrısı üzerinde loglama yapmak istenebilir.
 
-Aşağıdaki kodda `next` sonraki ara katmanın mı yoksa gerçek fonksiyonun mu çağrılacağını belirler.
+Aşağıdaki kodda `next`, sonraki ara katman mı yoksa gerçek fonksiyonun mu çağrılacağını belirler.
 
 ```python
 async def logging_function_middleware(
@@ -186,19 +185,19 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Ön işleme: Fonksiyon çalıştırılmadan önce kayıt
+    # Ön işleme: Fonksiyon çalıştırılmadan önce log kaydı
     print(f"[Function] Calling {context.function.name}")
 
     # Sonraki ara yazılıma veya fonksiyon çalıştırmaya devam et
     await next(context)
 
-    # Son işlem: Fonksiyon çalıştırıldıktan sonra kayıt
+    # Son işlem: Fonksiyon çalıştırıldıktan sonra log kaydı
     print(f"[Function] {context.function.name} completed")
 ```
 
-*Chat Ara Katmanı*
+*Sohbet Ara Katmanı*
 
-Bu ara katman, ajan ile LLM arasındaki istekler arasında işlem yapmak veya kayıt tutmak için kullanılır.
+Bu ara katman, ajan ile LLM arasındaki istekler arasında işlem yapmamıza veya log tutmamıza olanak sağlar.
 
 Bu, AI servisine gönderilen `messages` gibi önemli bilgileri içerir.
 
@@ -208,34 +207,34 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Ön işleme: AI çağrısından önce kayıt
+    # Ön işleme: AI çağrısından önce kayıt tut
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Bir sonraki ara yazılıma veya AI servisine devam et
+    # Bir sonraki ara katman veya AI hizmetine devam et
     await next(context)
 
-    # Son işlem: AI yanıtından sonra kayıt
+    # Son işlem: AI yanıtından sonra kayıt tut
     print("[Chat] AI response received")
 
 ```
 
 **Ajan Belleği**
 
-`Agentic Memory` dersinde ele alındığı gibi, bellek ajan için farklı bağlamlarda çalışmayı mümkün kılan önemli bir unsurdur. MAF çeşitli bellek türleri sunar:
+`Agentic Memory` dersinde anlatıldığı gibi, bellek ajanın farklı bağlamlar üzerinde çalışmasını sağlayan önemli bir öğedir. MAF çeşitli bellek türleri sunar:
 
 *Bellek İçi Depolama*
 
-Uygulama çalışırken iş parçacıklarında saklanan bellektir.
+Bu, uygulama çalışma zamanı sırasında iş parçacıklarında tutulan bellektir.
 
 ```python
 # Yeni bir iş parçacığı oluşturun.
-thread = agent.get_new_thread() # İş parçacığı ile ajanı çalıştır.
+thread = agent.get_new_thread() # İş parçacığıyla ajanı çalıştırın.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
 *Kalıcı Mesajlar*
 
-Farklı oturumlar arasında konuşma geçmişini saklamak için kullanılan bellek türüdür. `chat_message_store_factory` kullanılarak tanımlanır:
+Bu bellek farklı oturumlar boyunca konuşma geçmişini saklamak için kullanılır. `chat_message_store_factory` ile tanımlanır:
 
 ```python
 from agent_framework import ChatMessageStore
@@ -254,12 +253,12 @@ agent = ChatAgent(
 
 *Dinamik Bellek*
 
-Ajanlar çalıştırılmadan önce bağlama eklenen bellektir. Bu bellekler mem0 gibi harici servislerde saklanabilir:
+Bu bellek, ajanlar çalıştırılmadan önce bağlama eklenir. Mem0 gibi harici servislerde saklanabilir:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Gelişmiş bellek yetenekleri için Mem0 kullanımı
+# Gelişmiş bellek yetenekleri için Mem0 kullanılıyor
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -276,7 +275,7 @@ agent = ChatAgent(
 
 **Ajan Gözlemlenebilirliği**
 
-Gözlemlenebilirlik, güvenilir ve sürdürülebilir ajanik sistemler kurmak için önemlidir. MAF, daha iyi gözlemlenebilirlik için izleme ve metrik sağlayan OpenTelemetry ile entegre olur.
+Gözlemlenebilirlik, güvenilir ve sürdürülebilir agentik sistemler oluşturmak için önemlidir. MAF, daha iyi gözlemlenebilirlik için OpenTelemetry ile izleme ve sayaçlar sağlar.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -292,19 +291,19 @@ counter.add(1, {"key": "value"})
 
 ### İş Akışları
 
-MAF, bir görevi tamamlamak için önceden tanımlanmış adımlardan oluşan iş akışları sunar ve bu adımlarda AI ajanlarını bileşen olarak içerir.
+MAF, bir görevi tamamlamak için önceden tanımlanmış adımlardan oluşan iş akışları sunar ve bu adımlar içinde AI ajanları bileşen olarak bulunur.
 
-İş akışları, daha iyi kontrol akışı sağlayan farklı bileşenlerden oluşur. İş akışları ayrıca **çoklu ajan orkestrasyonu** ve iş akışı durumlarını kaydetmek için **kontrol noktaları** sağlar.
+İş akışları, daha iyi kontrol akışı sağlayan farklı bileşenlerden oluşur. İş akışları ayrıca **çoklu ajan orkestrasyonu** ve iş akışı durumlarını kaydetmek için **checkpointing** sağlar.
 
-Bir iş akışının temel bileşenleri şunlardır:
+Bir iş akışının temel bileşenleri:
 
 **Yürütücüler**
 
-Yürütücüler giriş mesajlarını alır, atanan görevlerini gerçekleştirir ve ardından bir çıktı mesajı üretir. Bu, iş akışını daha büyük görev tamamlanmasına doğru ilerletir. Yürütücüler AI ajanı veya özel mantık olabilir.
+Yürütücüler, giriş mesajları alır, atanan görevleri gerçekleştirir ve çıktı mesajı üretir. Bu, iş akışını daha büyük görevin tamamlanmasına doğru ilerletir. Yürütücüler AI ajan veya özel mantık olabilir.
 
 **Kenarlar**
 
-Kenarlar, iş akışı içindeki mesaj akışını tanımlamak için kullanılır. Bunlar şunlar olabilir:
+Kenarlar, bir iş akışında mesajların akışını tanımlamak için kullanılır. Bunlar:
 
 *Doğrudan Kenarlar* - Yürütücüler arasında basit birebir bağlantılar:
 
@@ -317,45 +316,134 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Koşullu Kenarlar* - Belirli bir koşul sağlandığında etkinleşir. Örneğin, otel odaları doluysa bir yürütücü diğer seçenekleri önerebilir.
+*Şarta Bağlı Kenarlar* - Belirli koşullar gerçekleştiğinde aktif olur. Örneğin otel odaları yoksa başka seçenekler önerilir.
 
-*Anahtar-değer Kenarları* - Mesajları tanımlı koşullara göre farklı yürütücülere yönlendirir. Örneğin, seyahat müşterisinin öncelikli erişimi varsa görevleri başka bir iş akışı üzerinden yönetilir.
+*Anahtar-Kutusu Kenarları* - Tanımlı koşullara göre mesajları farklı yürütücülere yönlendirir. Örneğin, seyahat müşterisinin öncelikli erişimi varsa görevleri başka bir iş akışı ile yönetilir.
 
-*Yayılma Kenarları* - Tek bir mesajı birden fazla hedefe gönderir.
+*Çoklu Gönderen Kenarlar* - Bir mesajı birden çok hedefe gönderir.
 
-*Toplama Kenarları* - Farklı yürütücülerden gelen çoklu mesajları toplar ve tek bir hedefe gönderir.
+*Çoklu Alan Kenarlar* - Farklı yürütücülerden gelen birden fazla mesajı toplar ve tek hedefe gönderir.
 
 **Olaylar**
 
-İş akışlarına daha iyi gözlemlenebilirlik sağlamak için MAF, yürütme sırasında kullanabileceğiniz yerleşik olaylar sunar:
+İş akışlarına daha iyi gözlemlenebilirlik sağlamak için MAF, yürütme sırasında yerleşik olaylar sunar:
 
-- `WorkflowStartedEvent`  - İş akışı yürütmesi başlar
-- `WorkflowOutputEvent` - İş akışı çıktı üretir
-- `WorkflowErrorEvent` - İş akışı bir hata ile karşılaşır
-- `ExecutorInvokeEvent`  - Yürütücü işlemeye başlar
-- `ExecutorCompleteEvent`  -  Yürütücü işlemi tamamlar
-- `RequestInfoEvent` - Bir istek yapılır
+- `WorkflowStartedEvent`  - İş akışı yürütmesi başlıyor
+- `WorkflowOutputEvent` - İş akışı çıktı üretiyor
+- `WorkflowErrorEvent` - İş akışı hata ile karşılaşıyor
+-  `ExecutorInvokeEvent`  - Yürütücü işlemeye başlıyor
+- `ExecutorCompleteEvent`  -  Yürütücü işini tamamlıyor
+- `RequestInfoEvent` - Bir istek yapılıyor
 
-## İleri Düzey MAF Kalıpları
+## Gelişmiş MAF Desenleri
 
-Yukarıdaki bölümler Microsoft Agent Framework'ün temel kavramlarını kapsar. Daha karmaşık ajanlar oluştururken dikkate alınması gereken bazı ileri düzey kalıplar:
+Yukarıdaki bölümler Microsoft Agent Framework'ün temel kavramlarını kapsar. Daha karmaşık ajanlar oluşturdukça göz önünde bulundurmanız gereken bazı gelişmiş desenler:
 
-- **Ara Katman Bileşimi**: Fonksiyon ve sohbet ara katmanları kullanarak çoklu ara katman işleyicileri (günlükleme, kimlik doğrulama, hız sınırlama) zincirleyerek ajan davranışı üzerinde ince ayar kontrolü.
-- **İş Akışı Kontrol Noktaları**: İş akışı olayları ve serileştirme kullanarak uzun süren ajan süreçlerini kaydetme ve devam ettirme.
-- **Dinamik Araç Seçimi**: Araç tanımları üzerinde RAG'i MAF'nin araç kaydı ile birleştirerek sorguya özgü sadece ilgili araçları sunma.
-- **Çoklu Ajan Devir Teslimi**: İş akışı kenarlarını ve koşullu yönlendirmeyi kullanarak uzmanlaşmış ajanlar arasında devir teslimi orkestre etme.
+- **Ara Katman Birleştirme**: Fonksiyon ve sohbet ara katmanları kullanarak çoklu ara katman işleyicilerini (loglama, kimlik doğrulama, oran sınırlaması) zincirleyin ve ajan davranışı üzerinde ince ayar kontrolü sağlayın.
+- **İş Akışı Checkpointing**: Uzun süreli ajan süreçlerini kaydetmek ve devam ettirmek için iş akışı olayları ve serileştirme kullanın.
+- **Dinamik Araç Seçimi**: Sorgu başına yalnızca ilgili araçları sunmak için MAF'nin araç kaydı ile RAG'yi araç açıklamaları üzerinde birleştirin.
+- **Çoklu Ajan Devir Teslimi**: Uzmanlaşmış ajanlar arasında devir teslimi orkestre etmek için iş akışı kenarları ve koşullu yönlendirmeyi kullanın.
 
-## Kod Örnekleri 
+## Microsoft Foundry'de LangChain / LangGraph Ajanlarını Barındırma
 
-Microsoft Agent Framework için kod örneklerine bu depoda `xx-python-agent-framework` ve `xx-dotnet-agent-framework` dosyaları altında ulaşabilirsiniz.
+Microsoft Agent Framework **çerçeve-uyumlu**dur — MAF ile yazılmış ajanlarla sınırlı değilsiniz. Eğer zaten **LangChain** veya **LangGraph** ile oluşturulmuş bir ajanınız varsa, bunu **Microsoft Foundry tarafından barındırılan ajan** olarak çalıştırabilirsiniz; böylece Foundry çalışma zamanı, oturumlar, ölçeklendirme, kimlik ve protokol uç noktalarını yönetirken, ajan mantığınız LangGraph içinde kalır.
 
-## Microsoft Agent Framework Hakkında Daha Fazla Sorunuz mu Var?
+Bu, aynı protokoller üzerinden derlenmiş bir LangGraph grafiği sunan `langchain_azure_ai.agents.hosting` paketi ile yapılır.
 
-Diğer öğrenenlerle tanışmak, ofis saatlerine katılmak ve Yapay Zeka Ajanları sorularınızı yanıtlamak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)'a katılın.
+**1. Hosting ekstra paketini yükleyin:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
+```
+
+`hosting` ekstra paketi Foundry protokol kütüphanelerini yükler: `azure-ai-agentserver-responses` (OpenAI uyumlu `/responses` uç noktası) ve `azure-ai-agentserver-invocations` (genel `/invocations` uç noktası).
+
+**2. Bir hosting protokolü seçin:**
+
+| Protokol | Sunucu Sınıfı | Uç Nokta | Kullanım Durumu |
+|----------|-----------|----------|----------|
+| **Responses** | `ResponsesHostServer` | `/responses` | OpenAI uyumlu sohbet, akış, yanıt geçmişi ve konuşma iş parçacığı için — konuşma ajanları için önerilen varsayılan. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Özel JSON şekli, webhook tarzı uç nokta veya konuşma dışı işlemler için. |
+
+Çünkü **Responses API Foundry'deki ajan tarzı geliştirme için birincil API'dir**, çoğu ajan için `ResponsesHostServer` ile başlayın.
+
+**3. Ortam değişkenlerini yapılandırın** (`az login` yapın ki `DefaultAzureCredential` kimlik doğrulaması yapabilsin):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-5-mini"
+```
+
+Daha sonra ajan Foundry'de barındırılan ajan olarak çalıştığında, platform otomatik olarak `FOUNDRY_PROJECT_ENDPOINT` değişkenini enjekte eder.
+
+**4. Responses protokolü üzerinden bir LangGraph ajanı açığa çıkarın:**
+
+```python
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-5-mini")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI burada Foundry projesinin OpenAI uyumlu (Yanıtlar) uç noktasını hedeflemektedir.
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Bunu yerel olarak `python main.py` ile çalıştırın, sonra `http://localhost:8088/responses` adresine Responses isteği gönderin.
+
+**Ana davranışlar:**
+
+- **Konuşmalar**: İstemciler `previous_response_id` veya `conversation` ID'si geçerek bir konuşmayı devam ettirir. Grafiğiniz LangGraph checkpointer ile derlenmişse, Foundry konuşma durumunu checkpoint'e anahtarlar (üretimde dayanıklı checkpointer kullanın; `MemorySaver` yerel test için yeterlidir).
+- **İnsan döngüsü içinde**: Grafiğiniz LangGraph `interrupt()` kullanıyorsa, `ResponsesHostServer` bekleyen kesintiyi Responses `function_call` / `mcp_approval_request` öğesi olarak sunar ve istemciler eşleşen `function_call_output` / `mcp_approval_response` ile devam eder.
+- **Foundry'e Dağıtım**: Azure Developer CLI kullanın — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (yerel, Docker gerektirir), ardından `azd provision` ve `azd deploy`. Barındırılan ajan dağıtımı **Foundry Proje Yöneticisi** rolü gerektirir.
+
+Bu örneğin çalışır bir versiyonu [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) içinde yer alır. Tam yürüyüş (Invocations protokolü, özel istek şemaları ve sorun giderme) için, [Foundry barındırılan ajanlar olarak LangGraph ajanlarını barındır](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) sayfasına bakın.
+
+## Kod Örnekleri
+
+Microsoft Agent Framework için kod örnekleri bu depoda `xx-python-agent-framework` ve `xx-dotnet-agent-framework` dosyalarında bulunabilir.
+
+## Microsoft Agent Framework hakkında daha fazla sorunuz mu var?
+
+Diğer öğrenenlerle tanışmak, danışmanlık saatlerine katılmak ve AI Ajanları ile ilgili sorularınızı sormak için [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)'a katılın.
+## Önceki Ders
+
+[AI Ajanları için Bellek](../13-agent-memory/README.md)
+
+## Sonraki Ders
+
+[Bilgisayar Kullanım Ajanları (CUA) Oluşturma](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu doğabilecek yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul edilmemektedir.
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

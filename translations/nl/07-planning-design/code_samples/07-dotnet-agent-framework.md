@@ -1,63 +1,66 @@
-# 🎯 Planning & Ontwerppatronen met GitHub-modellen (.NET)
+# 🎯 Planning & Ontwerppatronen met Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Leerdoelen
 
-Dit notebook demonstreert planning en ontwerppatronen van ondernemingsniveau voor het bouwen van intelligente agenten met behulp van het Microsoft Agent Framework in .NET met GitHub-modellen. Je leert agenten te maken die complexe problemen kunnen ontleden, oplossingen in meerdere stappen kunnen plannen en geavanceerde workflows kunnen uitvoeren met de enterprise-functies van .NET.
+Deze notebook toont ondernemingsniveau planning en ontwerppatronen voor het bouwen van intelligente agenten met het Microsoft Agent Framework in .NET met Azure OpenAI (Responses API). Je leert agenten maken die complexe problemen kunnen ontleden, meerstapsoplossingen plannen en geavanceerde workflows uitvoeren met de enterprise-functies van .NET.
 
 ## ⚙️ Vereisten & Setup
 
 **Ontwikkelomgeving:**
 - .NET 9.0 SDK of hoger
-- Visual Studio 2022 of VS Code met C#-extensie
-- Toegang tot GitHub Models API
+- Visual Studio 2022 of VS Code met C# extensie
+- Een Azure-abonnement met een Azure OpenAI-resource en een model-implementatie
+- De Azure CLI — inloggen met `az login`
 
 **Benodigde afhankelijkheden:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Omgevingsconfiguratie (.env-bestand):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Code uitvoeren
+## Code Uitvoeren
 
-Deze les bevat een implementatie van een .NET Single File App. Om deze uit te voeren:
+Deze les bevat een .NET Single File App-implementatie. Om deze uit te voeren:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Maak het bestand uitvoerbaar (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Voer de applicatie uit
 ./07-dotnet-agent-framework.cs
 ```
 
-Of gebruik de dotnet run-opdracht:
+Of gebruik het dotnet run-commando:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Code-implementatie
+## Code Implementatie
 
-De volledige implementatie is beschikbaar in `07-dotnet-agent-framework.cs`, waarin wordt gedemonstreerd:
+De volledige implementatie is beschikbaar in `07-dotnet-agent-framework.cs`, welke demonstreert:
 
-- Het laden van omgevingsconfiguratie met DotNetEnv
-- Het configureren van de OpenAI-client voor GitHub-modellen
-- Het definiëren van gestructureerde datamodellen (Plan en TravelPlan) met JSON-serialisatie
-- Het creëren van een AI-agent met gestructureerde output via JSON-schema
-- Het uitvoeren van planningsverzoeken met type-veilige reacties
+- Laden van omgevingsconfiguratie met DotNetEnv
+- Configureren van de Azure OpenAI-client en het creëren van een AI-agent met `GetChatClient().AsAIAgent()`
+- Definiëren van gestructureerde datamodellen (Plan en TravelPlan) met JSON-serialisatie
+- Creëren van een AI-agent met gestructureerde output met JSON-schema
+- Uitvoeren van planningsaanvragen met type-veilige reacties
 
-## Belangrijke concepten
+## Kernconcepten
 
-### Gestructureerd plannen met type-veilige modellen
+### Gestructureerde Planning met Type-veilige Modellen
 
-De agent gebruikt C#-klassen om de structuur van planningsoutputs te definiëren:
+De agent gebruikt C#-klassen om de structuur van planningsuitvoer te definiëren:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON-schema voor gestructureerde outputs
+### JSON-schema voor Gestructureerde Uitvoer
 
-De agent is geconfigureerd om reacties te retourneren die overeenkomen met het TravelPlan-schema:
+De agent is geconfigureerd om reacties terug te geven die overeenkomen met het TravelPlan-schema:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Instructies voor de planningsagent
+### Instructies voor de Planning Agent
 
-De agent fungeert als coördinator en delegeert taken aan gespecialiseerde sub-agenten:
+De agent fungeert als coördinator en delegeert taken aan gespecialiseerde subagenten:
 
 - FlightBooking: Voor het boeken van vluchten en het verstrekken van vluchtinformatie
 - HotelBooking: Voor het boeken van hotels en het verstrekken van hotelinformatie
-- CarRental: Voor het boeken van auto's en het verstrekken van autoverhuurinformatie
-- ActivitiesBooking: Voor het boeken van activiteiten en het verstrekken van informatie over activiteiten
+- CarRental: Voor het boeken van auto’s en het verstrekken van autoverhuur informatie
+- ActivitiesBooking: Voor het boeken van activiteiten en het verstrekken van activiteiteninformatie
 - DestinationInfo: Voor het verstrekken van informatie over bestemmingen
 - DefaultAgent: Voor het afhandelen van algemene verzoeken
 
-## Verwachte output
+## Verwachte Uitvoer
 
-Wanneer je de agent uitvoert met een reisplanningsverzoek, zal deze het verzoek analyseren en een gestructureerd plan genereren met passende taaktoewijzingen aan gespecialiseerde agenten, geformatteerd als JSON dat voldoet aan het TravelPlan-schema.
+Wanneer je de agent uitvoert met een reisschema-planningsverzoek, zal deze het verzoek analyseren en een gestructureerd plan genereren met passende taaktoewijzingen aan gespecialiseerde agenten, geformatteerd als JSON conform het TravelPlan-schema.
 
 ---
 
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

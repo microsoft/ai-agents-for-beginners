@@ -2,87 +2,87 @@
 
 ## 📋 Cilji učenja
 
-Ta primer raziskuje temeljne pojme Microsoft Agent Framework prek osnovne implementacije agenta v .NET. Naučili se boste osnovnih vzorcev agentov in razumeli, kako delujejo inteligentni agenti pod pokrovom z uporabo C# in .NET ekosistema.
+Ta primer raziskuje osnovne koncepte Microsoft Agent Frameworka preko osnovne implementacije agenta v .NET. Naučili se boste osnovnih agentnih vzorcev in razumeli, kako inteligentni agenti delujejo pod pokrovom z uporabo C# in .NET ekosistema.
 
 ### Kaj boste odkrili
 
 - 🏗️ **Arhitektura agenta**: Razumevanje osnovne strukture AI agentov v .NET
 - 🛠️ **Integracija orodij**: Kako agenti uporabljajo zunanje funkcije za razširitev zmogljivosti  
-- 💬 **Potek pogovora**: Upravljanje večkratnih pogovorov in konteksta z upravljanjem niti
-- 🔧 **Vzorci konfiguracije**: Najboljše prakse za nastavitev in upravljanje agenta v .NET
+- 💬 **Potek pogovora**: Upravljanje večkrožnih pogovorov in konteksta z upravljanjem niti
+- 🔧 **Vzorci konfiguracije**: Najboljše prakse za nastavitve in upravljanje agentov v .NET
 
-## 🎯 Ključni pojmi, zajeti
+## 🎯 Ključni pokriti koncepti
 
 ### Principi agentnega okvira
 
-- **Avtonomija**: Kako agenti sprejemajo neodvisne odločitve z uporabo abstrakcij AI v .NET
-- **Reaktivnost**: Odzivanje na spremembe v okolju in uporabniške vnose
-- **Proaktivnost**: Prevzemanje pobude glede na cilje in kontekst
-- **Družabne sposobnosti**: Interakcija prek naravnega jezika z nitmi pogovora
+- **Avtonomija**: Kako agenti samostojno sprejemajo odločitve z abstrakcijami .NET AI
+- **Reaktivnost**: Odzivanje na spremembe v okolju in vstope uporabnika
+- **Proaktivnost**: Prevzem pobude na podlagi ciljev in konteksta
+- **Družabne sposobnosti**: Interakcija z naravnim jezikom v pogovornih nitih
 
-### Tehnične komponente
+### Tehnične sestavine
 
-- **AIAgent**: Osnovna orkestracija agenta in upravljanje pogovorov (.NET)
-- **Funkcije orodij**: Razširitev zmožnosti agenta s C# metodami in atributi
-- **Integracija Azure OpenAI**: Izraba jezikovnih modelov prek Azure OpenAI Responses API
-- **Varnostna konfiguracija**: Upravljanje točk dostopa na podlagi okolja
+- **AIAgent**: Osnovno upravljanje agenta in pogovora (.NET)
+- **Funkcije orodij**: Razširitev zmogljivosti agenta s C# metodami in atributi
+- **Integracija Azure OpenAI**: Izraba jezikovnih modelov preko Azure OpenAI Responses API
+- **Varna konfiguracija**: Upravljanje končnih točk na podlagi okolja
 
-## 🔧 Tehnični sklad
+## 🔧 Tehnična skladovnica
 
-### Jedrne tehnologije
+### Osnovne tehnologije
 
 - Microsoft Agent Framework (.NET)
 - Integracija Azure OpenAI (Responses API)
-- Vzorci za odjemalca Azure.AI.OpenAI
-- Konfiguracija na osnovi okolja z DotNetEnv
+- Vzorci odjemalca Azure.AI.OpenAI
+- Konfiguracija na podlagi okolja z DotNetEnv
 
 ### Zmožnosti agenta
 
 - Razumevanje in generiranje naravnega jezika
 - Klicanje funkcij in uporaba orodij z atributi C#
-- Odzivi, ki upoštevajo kontekst z sejami pogovora
-- Razširljiva arhitektura z vzorci injiciranja odvisnosti
+- Odzivi, občutljivi na kontekst, s pogovornimi sejami
+- Razširljiva arhitektura z vzorci za odvisnostno injiciranje
 
-## 📚 Primerjava okvirjev
+## 📚 Primerjava okvirov
 
 Ta primer prikazuje pristop Microsoft Agent Framework v primerjavi z drugimi agentnimi okviri:
 
-| Značilnost | Microsoft Agent Framework | Drugi okviri |
-|---------|-------------------------|------------------|
-| **Integracija** | Nativni Microsoft ekosistem | Raznolika združljivost |
-| **Preprostost** | Čist, intuitiven API | Pogosto zapletena nastavitev |
-| **Razširljivost** | Enostavna integracija orodij | Odvisno od ogrodja |
-| **Primeren za podjetja** | Zgrajen za produkcijo | Različno glede na okvir |
+| Funkcija | Microsoft Agent Framework | Drugi okviri |
+|---------|-------------------------|--------------|
+| **Integracija** | Native Microsoft ekosistem | Različna združljivost |
+| **Enostavnost** | Čist, intuitiven API | Pogosto zapletena nastavitve |
+| **Razširljivost** | Enostavna integracija orodij | Odvisna od okvira |
+| **Pripravljenost za podjetja** | Zgrajen za produkcijo | Različno glede na okvir |
 
-## 🚀 Začetek
+## 🚀 Začetek uporabe
 
-### Predpogoji
+### Zahteve
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali novejši
-- [Azure naročnina](https://azure.microsoft.com/free/) z Azure OpenAI virom in nameščeno modelno implementacijo
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se z `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali višja različica
+- [Azure naročnina](https://azure.microsoft.com/free/) z Azure OpenAI virom in nameščeno modelno rešitvijo
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijava z `az login`
 
-### Potrebne okoljske spremenljivke
+### Zahtevane spremenljivke okolja
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Nato se prijavite, da lahko AzureCliCredential pridobi žeton
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Nato se prijavite, da bo AzureCliCredential lahko pridobil žeton
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Nato se prijavite, da bo AzureCliCredential lahko pridobil žeton
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Nato se prijavite, da lahko AzureCliCredential pridobi žeton
 az login
 ```
 
-### Vzorec kode
+### Primer kode
 
-Za poganjanje primerka kode,
+Za izvedbo primerka kode,
 
 ```bash
 # zsh/bash
@@ -90,13 +90,13 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-Ali z uporabo ukazne vrstice dotnet:
+Ali z uporabo orodja dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-Oglejte si [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) za popolno kodo.
+Oglejte si [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) za celotno kodo.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -215,20 +215,20 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
 
-## 🎓 Ključne ugotovitve
+## 🎓 Ključni poudarki
 
-1. **Arhitektura agenta**: Microsoft Agent Framework nudi čist, tipno varen pristop k gradnji AI agentov v .NET
-2. **Integracija orodij**: Funkcije, opremljene z atributi `[Description]`, postanejo na voljo kot orodja za agenta
+1. **Arhitektura agenta**: Microsoft Agent Framework nudi čist, tipno varen pristop za gradnjo AI agentov v .NET
+2. **Integracija orodij**: Funkcije z atributi `[Description]` postanejo na voljo kot orodja agentu
 3. **Kontekst pogovora**: Upravljanje sej omogoča večkrožne pogovore s popolnim zavedanjem konteksta
-4. **Upravljanje konfiguracije**: Okoljske spremenljivke in varno ravnanje s poverilnicami sledijo najboljšim praksam .NET
+4. **Upravljanje konfiguracije**: Spremenljivke okolja in varno ravnanje z poverilnicami sledijo najboljšim praksam .NET
 5. **Azure OpenAI Responses API**: Agent uporablja Azure OpenAI Responses API preko Azure.AI.OpenAI SDK
 
 ## 🔗 Dodatni viri
 
-- [Dokumentacija Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI v Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET enojne datoteke aplikacije](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Aplikacije z eno datoteko](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

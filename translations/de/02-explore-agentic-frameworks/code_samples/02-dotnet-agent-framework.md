@@ -1,31 +1,31 @@
-# 🔍 Erforschung des Microsoft Agent Framework - Grundlegender Agent (.NET)
+# 🔍 Erkundung des Microsoft Agent Framework - Basisagent (.NET)
 
 ## 📋 Lernziele
 
-Dieses Beispiel erkundet die grundlegenden Konzepte des Microsoft Agent Frameworks durch eine einfache Agentenimplementierung in .NET. Sie lernen grundlegende agentenbasierte Muster und verstehen, wie intelligente Agenten unter der Haube mit C# und dem .NET-Ökosystem arbeiten.
+Dieses Beispiel untersucht die grundlegenden Konzepte des Microsoft Agent Frameworks durch eine einfache Agent-Implementierung in .NET. Du lernst wesentliche agentische Muster und verstehst, wie intelligente Agenten unter der Haube mit C# und dem .NET-Ökosystem funktionieren.
 
-### Was Sie entdecken werden
+### Was Du Entdecken Wirst
 
-- 🏗️ **Agentenarchitektur**: Verständnis der grundlegenden Struktur von KI-Agenten in .NET
+- 🏗️ **Agent Architektur**: Verständnis der Grundstruktur von KI-Agenten in .NET
 - 🛠️ **Werkzeugintegration**: Wie Agenten externe Funktionen zur Erweiterung der Fähigkeiten nutzen  
-- 💬 **Gesprächsablauf**: Verwaltung mehrerer Gesprächsrunden und Kontext mit Thread-Management
-- 🔧 **Konfigurationsmuster**: Best Practices für Agenten-Setup und Verwaltung in .NET
+- 💬 **Gesprächsfluss**: Verwaltung von Mehrfach-Dialogen und Kontext mit Thread-Management
+- 🔧 **Konfigurationsmuster**: Best Practices für Agenten-Setup und Management in .NET
 
-## 🎯 Wichtige behandelte Konzepte
+## 🎯 Wichtige Abgedeckte Konzepte
 
-### Agentenframework-Prinzipien
+### Agentische Framework-Prinzipien
 
-- **Autonomie**: Wie Agenten eigenständige Entscheidungen mit .NET KI-Abstraktionen treffen
+- **Autonomie**: Wie Agenten unabhängige Entscheidungen mit .NET KI-Abstraktionen treffen
 - **Reaktivität**: Reaktion auf Umweltänderungen und Benutzereingaben
-- **Proaktivität**: Initiative ergreifen basierend auf Zielen und Kontext
-- **Soziale Fähigkeiten**: Interaktion durch natürliche Sprache mit Gesprächsfäden
+- **Proaktivität**: Eigeninitiative basierend auf Zielen und Kontext
+- **Soziale Fähigkeit**: Interaktion durch natürliche Sprache mit Gesprächsthreads
 
 ### Technische Komponenten
 
-- **AIAgent**: Kerndienst zur Agentenorchestrierung und Gesprächsverwaltung (.NET)
+- **AIAgent**: Kern-Agent-Orchestrierung und Gesprächsverwaltung (.NET)
 - **Werkzeugfunktionen**: Erweiterung der Agentenfähigkeiten mit C#-Methoden und Attributen
 - **Azure OpenAI Integration**: Nutzung von Sprachmodellen über die Azure OpenAI Responses API
-- **Sichere Konfiguration**: Endpoint-Management basierend auf Umgebungsvariablen
+- **Sichere Konfiguration**: Umgebungsbasierte Endpunktverwaltung
 
 ## 🔧 Technischer Stack
 
@@ -33,33 +33,33 @@ Dieses Beispiel erkundet die grundlegenden Konzepte des Microsoft Agent Framewor
 
 - Microsoft Agent Framework (.NET)
 - Azure OpenAI (Responses API) Integration
-- Azure.AI.OpenAI Client-Muster
+- Azure.AI.OpenAI Client Muster
 - Umgebungsbasierte Konfiguration mit DotNetEnv
 
-### Agentenfähigkeiten
+### Agenten-Fähigkeiten
 
 - Verständnis und Erzeugung natürlicher Sprache
 - Funktionsaufrufe und Werkzeugnutzung mit C#-Attributen
 - Kontextbewusste Antworten mit Gesprächssitzungen
-- Erweiterbare Architektur mit Dependency Injection-Mustern
+- Erweiterbare Architektur mit Dependency Injection Mustern
 
 ## 📚 Framework-Vergleich
 
-Dieses Beispiel zeigt den Ansatz des Microsoft Agent Framework im Vergleich zu anderen agentenbasierten Frameworks:
+Dieses Beispiel zeigt den Microsoft Agent Framework-Ansatz im Vergleich zu anderen agentischen Frameworks:
 
-| Funktion | Microsoft Agent Framework | Andere Frameworks |
+| Feature | Microsoft Agent Framework | Andere Frameworks |
 |---------|-------------------------|------------------|
-| **Integration** | Native Microsoft-Umgebung | Unterschiedliche Kompatibilität |
-| **Einfachheit** | Saubere, intuitive API | Oft komplexe Einrichtung |
+| **Integration** | Native Microsoft-Ökosystem | Unterschiedliche Kompatibilität |
+| **Einfachheit** | Klare, intuitive API | Oft komplexe Einrichtung |
 | **Erweiterbarkeit** | Einfache Werkzeugintegration | Framework-abhängig |
-| **Enterprise-Ready** | Für Produktion ausgelegt | Varriert je nach Framework |
+| **Enterprise-Ready** | Für den Produktionseinsatz gebaut | Variiert je nach Framework |
 
 ## 🚀 Erste Schritte
 
 ### Voraussetzungen
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
-- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellbereitstellung
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einem Modell-Deployment
 - Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
@@ -67,22 +67,22 @@ Dieses Beispiel zeigt den Ansatz des Microsoft Agent Framework im Vergleich zu a
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Melden Sie sich dann an, damit AzureCliCredential ein Token abrufen kann
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Dann melden Sie sich an, damit AzureCliCredential ein Token erhalten kann
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
 
 ### Beispielcode
 
-Um das Codebeispiel auszuführen,
+Um den Code auszuführen,
 
 ```bash
 # zsh/bash
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -217,13 +217,13 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 Wichtige Erkenntnisse
 
-1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typensicheren Ansatz zum Erstellen von KI-Agenten in .NET
-2. **Werkzeugintegration**: Funktionen mit `[Description]`-Attributen werden für den Agenten verfügbare Werkzeuge
-3. **Gesprächskontext**: Sitzungsverwaltung ermöglicht mehrstufige Gespräche mit vollem Kontextbewusstsein
-4. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den .NET-Best-Practices
-5. **Azure OpenAI Responses API**: Der Agent nutzt die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
+1. **Agent Architektur**: Das Microsoft Agent Framework bietet einen klaren, typsicheren Ansatz zur Erstellung von KI-Agenten in .NET
+2. **Werkzeugintegration**: Funktionen, die mit `[Description]` Attributen dekoriert sind, werden für den Agenten als Werkzeuge verfügbar
+3. **Gesprächskontext**: Sitzungsmanagement ermöglicht Mehrfach-Dialoge mit vollem Kontextbewusstsein
+4. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen .NET Best Practices
+5. **Azure OpenAI Responses API**: Der Agent verwendet die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
 
-## 🔗 Weitere Ressourcen
+## 🔗 Zusätzliche Ressourcen
 
 - [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)

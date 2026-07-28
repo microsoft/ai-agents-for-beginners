@@ -1,28 +1,28 @@
-# 🔍 RAG Empresarial com Azure AI Foundry (.NET)
+# 🔍 RAG Empresarial com Microsoft Foundry (.NET)
 
 ## 📋 Objetivos de Aprendizagem
 
-Este notebook demonstra como construir sistemas de Recuperação e Geração Aumentada (RAG) de nível empresarial usando o Microsoft Agent Framework em .NET com Azure AI Foundry. Aprenderá a criar agentes prontos para produção que podem pesquisar documentos e fornecer respostas precisas e contextualizadas com segurança e escalabilidade empresarial.
+Este notebook demonstra como construir sistemas de Geração Aumentada por Recuperação (RAG) a nível empresarial, utilizando o Microsoft Agent Framework em .NET com Microsoft Foundry. Aprenderá a criar agentes prontos para produção que podem pesquisar documentos e fornecer respostas precisas, contextualmente relevantes, com segurança e escalabilidade empresariais.
 
-**Funcionalidades RAG Empresariais que Irá Desenvolver:**
+**Capacidades Empresariais de RAG que irá Construir:**
 - 📚 **Inteligência de Documentos**: Processamento avançado de documentos com serviços Azure AI
-- 🔍 **Pesquisa Semântica**: Pesquisa vetorial de alto desempenho com recursos empresariais
-- 🛡️ **Integração de Segurança**: Controle de acesso baseado em funções e padrões de proteção de dados
+- 🔍 **Pesquisa Semântica**: Pesquisa vetorial de alto desempenho com funcionalidades empresariais
+- 🛡️ **Integração de Segurança**: Acesso baseado em papéis e padrões de proteção de dados
 - 🏢 **Arquitetura Escalável**: Sistemas RAG prontos para produção com monitorização
 
-## 🎯 Arquitetura RAG Empresarial
+## 🎯 Arquitetura Empresarial RAG
 
 ### Componentes Empresariais Principais
-- **Azure AI Foundry**: Plataforma de IA empresarial gerida com segurança e conformidade
-- **Agentes Persistentes**: Agentes com estado persistente, histórico de conversação e gestão de contexto
+- **Microsoft Foundry**: Plataforma empresarial de IA gerida com segurança e conformidade
+- **Agentes Persistentes**: Agentes com estado, histórico de conversação e gestão de contexto
 - **Gestão de Armazenamento Vetorial**: Indexação e recuperação de documentos de nível empresarial
-- **Integração de Identidade**: Autenticação Azure AD e controle de acesso baseado em funções
+- **Integração de Identidade**: Autenticação Azure AD e controlo de acesso baseado em papéis
 
-### Benefícios Empresariais do .NET
-- **Segurança de Tipos**: Validação em tempo de compilação para operações RAG e estruturas de dados
-- **Desempenho Assíncrono**: Processamento de documentos e operações de pesquisa não bloqueantes
-- **Gestão de Memória**: Utilização eficiente de recursos para coleções de documentos grandes
-- **Padrões de Integração**: Integração nativa com serviços Azure usando injeção de dependência
+### Benefícios do .NET Empresarial
+- **Segurança de Tipos**: Validação em tempo de compilação para operações e estruturas de dados RAG
+- **Desempenho Async**: Processamento e pesquisa de documentos não bloqueantes
+- **Gestão de Memória**: Utilização eficiente de recursos para grandes coleções de documentos
+- **Padrões de Integração**: Integração nativa de serviços Azure com injeção de dependências
 
 ## 🏗️ Arquitetura Técnica
 
@@ -33,7 +33,7 @@ Document Upload → Security Validation → Vector Processing → Index Creation
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Componentes Principais do .NET
+### Componentes Core .NET
 - **Azure.AI.Agents.Persistent**: Gestão de agentes empresariais com persistência de estado
 - **Azure.Identity**: Autenticação integrada para acesso seguro a serviços Azure
 - **Microsoft.Agents.AI.AzureAI**: Implementação do framework de agentes otimizado para Azure
@@ -43,30 +43,30 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 ### Segurança e Conformidade
 - **Integração Azure AD**: Gestão de identidade empresarial e autenticação
-- **Acesso Baseado em Funções**: Permissões detalhadas para acesso e operações em documentos
-- **Proteção de Dados**: Criptografia em repouso e em trânsito para documentos sensíveis
-- **Registo de Auditoria**: Monitorização abrangente de atividades para requisitos de conformidade
+- **Acesso Baseado em Papéis**: Permissões granulares para acesso e operações em documentos
+- **Proteção de Dados**: Encriptação em repouso e em trânsito para documentos sensíveis
+- **Registo de Auditoria**: Monitorização abrangente para requisitos de conformidade
 
 ### Desempenho e Escalabilidade
-- **Pooling de Conexões**: Gestão eficiente de conexões com serviços Azure
-- **Processamento Assíncrono**: Operações não bloqueantes para cenários de alta capacidade
-- **Estratégias de Cache**: Cache inteligente para documentos frequentemente acessados
-- **Balanceamento de Carga**: Processamento distribuído para implementações em larga escala
+- **Pooling de Conexões**: Gestão eficiente de conexões a serviços Azure
+- **Processamento Assíncrono**: Operações não bloqueantes para cenários de alto débito
+- **Estratégias de Cache**: Cache inteligente para documentos acedidos frequentemente
+- **Balanceamento de Carga**: Processamento distribuído para implantações em grande escala
 
 ### Gestão e Monitorização
-- **Verificações de Saúde**: Monitorização integrada para componentes do sistema RAG
+- **Verificações de Saúde**: Monitorização integrada dos componentes do sistema RAG
 - **Métricas de Desempenho**: Análises detalhadas sobre qualidade de pesquisa e tempos de resposta
 - **Gestão de Erros**: Gestão abrangente de exceções com políticas de repetição
-- **Gestão de Configuração**: Configurações específicas do ambiente com validação
+- **Gestão de Configuração**: Definições específicas por ambiente com validação
 
 ## ⚙️ Pré-requisitos e Configuração
 
 **Ambiente de Desenvolvimento:**
 - SDK .NET 9.0 ou superior
 - Visual Studio 2022 ou VS Code com extensão C#
-- Subscrição Azure com acesso ao AI Foundry
+- Subscrição Azure com acesso ao Microsoft Foundry
 
-**Pacotes NuGet Necessários:**
+**Pacotes NuGet Requeridos:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -77,34 +77,34 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Configuração de Autenticação Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Instale o Azure CLI e autentique-se
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Configuração do Ambiente:**
-* Configuração do Azure AI Foundry (gerida automaticamente via Azure CLI)
-* Certifique-se de que está autenticado na subscrição Azure correta
+* Configuração Microsoft Foundry (gerida automaticamente via Azure CLI)
+* Certifique-se de que está autenticado na subscrição correta do Azure
 
 ## 📊 Padrões RAG Empresariais
 
 ### Padrões de Gestão de Documentos
-- **Carregamento em Massa**: Processamento eficiente de grandes coleções de documentos
+- **Upload em Massa**: Processamento eficiente de grandes coleções de documentos
 - **Atualizações Incrementais**: Adição e modificação de documentos em tempo real
-- **Controlo de Versões**: Versionamento de documentos e rastreamento de alterações
+- **Gestão de Versões**: Versionamento de documentos e rastreio de alterações
 - **Gestão de Metadados**: Atributos ricos de documentos e taxonomia
 
 ### Padrões de Pesquisa e Recuperação
 - **Pesquisa Híbrida**: Combinação de pesquisa semântica e por palavras-chave para resultados ótimos
-- **Pesquisa Facetada**: Filtragem e categorização multidimensional
-- **Ajuste de Relevância**: Algoritmos de pontuação personalizados para necessidades específicas do domínio
-- **Classificação de Resultados**: Classificação avançada com integração de lógica empresarial
+- **Pesquisa Facetada**: Filtragem multidimensional e categorização
+- **Ajuste de Relevância**: Algoritmos de pontuação customizados para necessidades específicas de domínio
+- **Ranking de Resultados**: Ordenação avançada com integração de lógica de negócio
 
 ### Padrões de Segurança
-- **Segurança ao Nível do Documento**: Controle de acesso detalhado por documento
+- **Segurança ao Nível de Documento**: Controlo de acesso granulado por documento
 - **Classificação de Dados**: Rotulagem automática de sensibilidade e proteção
-- **Registos de Auditoria**: Registo abrangente de todas as operações RAG
-- **Proteção de Privacidade**: Detecção e redação de PII
+- **Traços de Auditoria**: Registo completo de todas as operações RAG
+- **Proteção de Privacidade**: Capacidades de deteção e anonimização de dados pessoais
 
 ## 🔒 Funcionalidades de Segurança Empresarial
 
@@ -122,9 +122,9 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Proteção de Dados
-- **Criptografia**: Criptografia ponta a ponta para documentos e índices de pesquisa
-- **Controles de Acesso**: Integração com Azure AD para permissões de utilizadores e grupos
-- **Residência de Dados**: Controles de localização geográfica de dados para conformidade
+- **Encriptação**: Encriptação fim-a-fim para documentos e índices de pesquisa
+- **Controlo de Acessos**: Integração com Azure AD para permissões de utilizadores e grupos
+- **Residência de Dados**: Controlo geográfico da localização dos dados para conformidade
 - **Backup e Recuperação**: Capacidades automáticas de backup e recuperação de desastres
 
 ## 📈 Otimização de Desempenho
@@ -139,64 +139,64 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Gestão de Memória
-- **Processamento em Fluxo**: Manipulação de documentos grandes sem problemas de memória
+- **Processamento em Streaming**: Gerir documentos grandes sem problemas de memória
 - **Pooling de Recursos**: Reutilização eficiente de recursos dispendiosos
-- **Coleta de Lixo**: Padrões otimizados de alocação de memória
-- **Gestão de Conexões**: Ciclo de vida adequado de conexões com serviços Azure
+- **Gestão de Lixo**: Padrões otimizados de alocação de memória
+- **Gestão de Conexões**: Ciclo de vida adequado das conexões aos serviços Azure
 
 ### Estratégias de Cache
-- **Cache de Consultas**: Cache de pesquisas frequentemente executadas
-- **Cache de Documentos**: Cache em memória para documentos mais acessados
-- **Cache de Índices**: Cache otimizado de índices vetoriais
-- **Cache de Resultados**: Cache inteligente de respostas geradas
+- **Cache de Consultas**: Cache de pesquisas realizadas frequentemente
+- **Cache de Documentos**: Cache na memória para documentos "quentes"
+- **Cache de Índice**: Cache otimizado de índices vetoriais
+- **Cache de Resultados**: Cache inteligente das respostas geradas
 
 ## 📊 Casos de Uso Empresariais
 
-### Gestão de Conhecimento
-- **Wiki Corporativa**: Pesquisa inteligente em bases de conhecimento da empresa
-- **Políticas e Procedimentos**: Orientação automatizada de conformidade e procedimentos
-- **Materiais de Treinamento**: Assistência inteligente para aprendizagem e desenvolvimento
-- **Bases de Dados de Pesquisa**: Sistemas de análise de artigos académicos e de pesquisa
+### Gestão do Conhecimento
+- **Wiki Corporativa**: Pesquisa inteligente através das bases de conhecimento da empresa
+- **Políticas e Procedimentos**: Cumprimento automático e orientação de procedimentos
+- **Materiais de Formação**: Assistência inteligente ao aprendizado e desenvolvimento
+- **Bases de Dados de Investigação**: Sistemas de análise de artigos académicos e de investigação
 
 ### Suporte ao Cliente
-- **Base de Conhecimento de Suporte**: Respostas automatizadas para atendimento ao cliente
-- **Documentação de Produtos**: Recuperação inteligente de informações sobre produtos
+- **Base de Conhecimento de Suporte**: Respostas automatizadas ao cliente
+- **Documentação de Produto**: Recuperação inteligente de informações de produto
 - **Guias de Resolução de Problemas**: Assistência contextual para resolução de problemas
-- **Sistemas de FAQ**: Geração dinâmica de FAQs a partir de coleções de documentos
+- **Sistemas FAQ**: Geração dinâmica de FAQ a partir de coleções de documentos
 
 ### Conformidade Regulamentar
-- **Análise de Documentos Legais**: Inteligência em contratos e documentos legais
-- **Monitorização de Conformidade**: Verificação automatizada de conformidade regulatória
-- **Avaliação de Riscos**: Análise e relatórios de riscos baseados em documentos
+- **Análise de Documentos Legais**: Inteligência para contratos e documentos legais
+- **Monitorização de Conformidade**: Verificação automática da conformidade regulatória
+- **Avaliação de Risco**: Análise e reporte de risco baseado em documentos
 - **Suporte a Auditorias**: Descoberta inteligente de documentos para auditorias
 
-## 🚀 Implementação em Produção
+## 🚀 Implantação em Produção
 
 ### Monitorização e Observabilidade
 - **Application Insights**: Telemetria detalhada e monitorização de desempenho
-- **Métricas Personalizadas**: Monitorização e alertas de KPIs específicos do negócio
-- **Rastreamento Distribuído**: Rastreamento de pedidos de ponta a ponta entre serviços
+- **Métricas Customizadas**: Monitorização e alertas para KPIs de negócio específicos
+- **Rastreamento Distribuído**: Monitorização fim-a-fim de pedidos entre serviços
 - **Dashboards de Saúde**: Visualização em tempo real da saúde e desempenho do sistema
 
-### Escalabilidade e Confiabilidade
-- **Auto-Escala**: Escalabilidade automática baseada em carga e métricas de desempenho
-- **Alta Disponibilidade**: Implementação multi-região com capacidades de failover
+### Escalabilidade e Fiabilidade
+- **Auto-Escala**: Escalão automático baseado na carga e métricas de desempenho
+- **Alta Disponibilidade**: Implantação multi-região com capacidades de failover
 - **Teste de Carga**: Validação de desempenho sob condições de carga empresarial
 - **Recuperação de Desastres**: Procedimentos automáticos de backup e recuperação
 
-Pronto para construir sistemas RAG empresariais que podem lidar com documentos sensíveis em escala? Vamos arquitetar sistemas inteligentes de conhecimento para empresas! 🏢📖✨
+Pronto para construir sistemas RAG a nível empresarial capazes de lidar com documentos sensíveis em escala? Vamos arquitetar sistemas inteligentes de conhecimento para a empresa! 🏢📖✨
 
 ## Implementação de Código
 
-O exemplo completo de código funcional para esta lição está disponível em `05-dotnet-agent-framework.cs`. 
+O exemplo completo e funcional de código para esta lição está disponível em `05-dotnet-agent-framework.cs`. 
 
 Para executar o exemplo:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Torne o script executável (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Execute a aplicação .NET de ficheiro único
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 O código demonstra:
 
-1. **Instalação de Pacotes**: Instalação de pacotes NuGet necessários para Azure AI Agents
-2. **Configuração do Ambiente**: Carregamento de endpoint e configurações de modelo do Azure AI Foundry
-3. **Carregamento de Documentos**: Carregamento de um documento para processamento RAG
-4. **Criação de Armazenamento Vetorial**: Criação de armazenamento vetorial para pesquisa semântica
-5. **Configuração de Agente**: Configuração de um agente de IA com capacidades de pesquisa de arquivos
-6. **Execução de Consultas**: Execução de consultas contra o documento carregado
+1. **Instalação de Pacotes**: Instalar os pacotes NuGet necessários para Azure AI Agents
+2. **Configuração do Ambiente**: Carregar o endpoint Microsoft Foundry e definições do modelo
+3. **Upload de Documento**: Enviar um documento para processamento RAG
+4. **Criação do Armazenamento Vetorial**: Criar um armazenamento vetorial para pesquisa semântica
+5. **Configuração do Agente**: Configurar um agente AI com capacidades de pesquisa de ficheiros
+6. **Execução de Consultas**: Executar consultas contra o documento carregado
 
 ---
 
-**Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se uma tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Aviso Legal**:
+Este documento foi traduzido utilizando o serviço de tradução automática [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas resultantes da utilização desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

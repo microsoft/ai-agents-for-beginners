@@ -1,28 +1,28 @@
-# 🔍 Enterprise RAG z Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG z Microsoft Foundry (.NET)
 
 ## 📋 Cele nauki
 
-Ten notebook pokazuje, jak budować systemy Retrieval-Augmented Generation (RAG) klasy korporacyjnej, korzystając z Microsoft Agent Framework w .NET z Azure AI Foundry. Nauczysz się tworzyć gotowe do produkcji agenty, które potrafią przeszukiwać dokumenty i dostarczać precyzyjne, kontekstowe odpowiedzi z zachowaniem bezpieczeństwa i skalowalności na poziomie korporacyjnym.
+Ten notatnik pokazuje, jak budować systemy Retrieval-Augmented Generation (RAG) na poziomie przedsiębiorstwa za pomocą Microsoft Agent Framework w .NET z Microsoft Foundry. Nauczysz się tworzyć gotowe do produkcji agentów, którzy potrafią przeszukiwać dokumenty i dostarczać precyzyjne, uwzględniające kontekst odpowiedzi z bezpieczeństwem i skalowalnością na poziomie przedsiębiorstwa.
 
-**Funkcje Enterprise RAG, które zbudujesz:**
-- 📚 **Inteligencja dokumentów**: Zaawansowane przetwarzanie dokumentów z usługami Azure AI
-- 🔍 **Wyszukiwanie semantyczne**: Wysokowydajne wyszukiwanie wektorowe z funkcjami korporacyjnymi
-- 🛡️ **Integracja bezpieczeństwa**: Dostęp oparty na rolach i wzorce ochrony danych
-- 🏢 **Skalowalna architektura**: Systemy RAG gotowe do produkcji z monitoringiem
+**Zdolności Enterprise RAG, które zbudujesz:**
+- 📚 **Inteligencja Dokumentów**: Zaawansowane przetwarzanie dokumentów z usługami Azure AI
+- 🔍 **Wyszukiwanie Semantyczne**: Wydajne wyszukiwanie wektorowe z funkcjami na poziomie przedsiębiorstwa
+- 🛡️ **Integracja Bezpieczeństwa**: Kontrola dostępu oparta na rolach i wzorce ochrony danych
+- 🏢 **Skalowalna Architektura**: Gotowe do produkcji systemy RAG z monitorowaniem
 
 ## 🎯 Architektura Enterprise RAG
 
-### Kluczowe komponenty korporacyjne
-- **Azure AI Foundry**: Zarządzana platforma AI dla przedsiębiorstw z bezpieczeństwem i zgodnością
-- **Persistent Agents**: Agenty z zachowaniem stanu, historią rozmów i zarządzaniem kontekstem
-- **Zarządzanie magazynem wektorowym**: Indeksowanie i wyszukiwanie dokumentów na poziomie korporacyjnym
+### Podstawowe komponenty przedsiębiorstwa
+- **Microsoft Foundry**: Zarządzana platforma AI dla przedsiębiorstw z bezpieczeństwem i zgodnością
+- **Agenci trwałościowi**: Agenci z zarządzaniem historią rozmów i kontekstem
+- **Zarządzanie magazynem wektorów**: Indeksowanie i wyszukiwanie dokumentów na poziomie przedsiębiorstwa
 - **Integracja tożsamości**: Uwierzytelnianie Azure AD i kontrola dostępu oparta na rolach
 
-### Korzyści z .NET dla przedsiębiorstw
-- **Bezpieczeństwo typów**: Walidacja operacji RAG i struktur danych na etapie kompilacji
+### Korzyści z .NET w przedsiębiorstwie  
+- **Bezpieczeństwo typów**: Walidacja w czasie kompilacji dla operacji RAG i struktur danych
 - **Wydajność asynchroniczna**: Nieblokujące przetwarzanie dokumentów i operacje wyszukiwania
 - **Zarządzanie pamięcią**: Efektywne wykorzystanie zasobów dla dużych kolekcji dokumentów
-- **Wzorce integracji**: Natywna integracja usług Azure z wstrzykiwaniem zależności
+- **Wzorce integracji**: Natychmiastowa integracja usług Azure z wstrzykiwaniem zależności
 
 ## 🏗️ Architektura techniczna
 
@@ -34,37 +34,37 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Kluczowe komponenty .NET
-- **Azure.AI.Agents.Persistent**: Zarządzanie agentami korporacyjnymi z zachowaniem stanu
+- **Azure.AI.Agents.Persistent**: Zarządzanie agentami przedsiębiorstwa z utrwaleniem stanu
 - **Azure.Identity**: Zintegrowane uwierzytelnianie dla bezpiecznego dostępu do usług Azure
-- **Microsoft.Agents.AI.AzureAI**: Implementacja frameworku agentów zoptymalizowana dla Azure
-- **System.Linq.Async**: Wysokowydajne asynchroniczne operacje LINQ
+- **Microsoft.Agents.AI.AzureAI**: Implementacja frameworku agentów zoptymalizowana pod Azure
+- **System.Linq.Async**: Wydajne operacje LINQ asynchroniczne
 
-## 🔧 Funkcje i korzyści dla przedsiębiorstw
+## 🔧 Funkcje i korzyści Enterprise
 
 ### Bezpieczeństwo i zgodność
-- **Integracja Azure AD**: Zarządzanie tożsamością i uwierzytelnianie na poziomie korporacyjnym
-- **Dostęp oparty na rolach**: Precyzyjne uprawnienia do dostępu do dokumentów i operacji
-- **Ochrona danych**: Szyfrowanie danych w spoczynku i w tranzycie dla dokumentów wrażliwych
-- **Rejestrowanie audytów**: Kompleksowe śledzenie aktywności dla wymogów zgodności
+- **Integracja Azure AD**: Zarządzanie tożsamością przedsiębiorstwa i uwierzytelnianie
+- **Kontrola dostępu oparta na rolach**: Precyzyjne uprawnienia do dostępu do dokumentów i operacji
+- **Ochrona danych**: Szyfrowanie spoczynkowe i transferowe dla wrażliwych dokumentów
+- **Rejestrowanie audytowe**: Kompleksowe śledzenie działań dla wymogów zgodności
 
 ### Wydajność i skalowalność
-- **Pooling połączeń**: Efektywne zarządzanie połączeniami z usługami Azure
-- **Przetwarzanie asynchroniczne**: Operacje nieblokujące dla scenariuszy o wysokiej przepustowości
-- **Strategie buforowania**: Inteligentne buforowanie często używanych dokumentów
-- **Równoważenie obciążenia**: Rozproszone przetwarzanie dla wdrożeń na dużą skalę
+- **Pule połączeń**: Efektywne zarządzanie połączeniami usług Azure
+- **Przetwarzanie asynchroniczne**: Nieblokujące operacje dla scenariuszy o wysokiej przepustowości
+- **Strategie cachowania**: Inteligentne cachowanie często używanych dokumentów
+- **Równoważenie obciążenia**: Rozproszone przetwarzanie dla dużych wdrożeń
 
-### Zarządzanie i monitoring
-- **Kontrole zdrowia**: Wbudowany monitoring komponentów systemu RAG
-- **Metryki wydajności**: Szczegółowa analiza jakości wyszukiwania i czasów odpowiedzi
+### Zarządzanie i monitorowanie
+- **Kontrole stanu zdrowia**: Wbudowane monitorowanie komponentów systemu RAG
+- **Metryki wydajności**: Szczegółowa analityka jakości wyszukiwania i czasów odpowiedzi
 - **Obsługa błędów**: Kompleksowe zarządzanie wyjątkami z politykami ponawiania
 - **Zarządzanie konfiguracją**: Ustawienia specyficzne dla środowiska z walidacją
 
 ## ⚙️ Wymagania wstępne i konfiguracja
 
-**Środowisko deweloperskie:**
+**Środowisko programistyczne:**
 - .NET 9.0 SDK lub wyższy
 - Visual Studio 2022 lub VS Code z rozszerzeniem C#
-- Subskrypcja Azure z dostępem do AI Foundry
+- Subskrypcja Azure z dostępem do Microsoft Foundry
 
 **Wymagane pakiety NuGet:**
 ```xml
@@ -77,36 +77,36 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Konfiguracja uwierzytelniania Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Zainstaluj Azure CLI i uwierzytelnij się
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Konfiguracja środowiska:**
-* Konfiguracja Azure AI Foundry (automatycznie obsługiwana przez Azure CLI)
-* Upewnij się, że jesteś uwierzytelniony w odpowiedniej subskrypcji Azure
+* Konfiguracja Microsoft Foundry (automatycznie obsługiwana przez Azure CLI)
+* Upewnij się, że jesteś uwierzytelniony na właściwą subskrypcję Azure
 
 ## 📊 Wzorce Enterprise RAG
 
 ### Wzorce zarządzania dokumentami
-- **Masowe przesyłanie**: Efektywne przetwarzanie dużych kolekcji dokumentów
-- **Aktualizacje przyrostowe**: Dodawanie i modyfikacja dokumentów w czasie rzeczywistym
+- **Masowy upload**: Efektywne przetwarzanie dużych kolekcji dokumentów
+- **Aktualizacje inkrementalne**: Dodawanie i modyfikacja dokumentów w czasie rzeczywistym
 - **Kontrola wersji**: Wersjonowanie dokumentów i śledzenie zmian
-- **Zarządzanie metadanymi**: Bogate atrybuty dokumentów i taksonomia
+- **Zarządzanie metadanymi**: Rozbudowane atrybuty dokumentów i klasyfikacja
 
-### Wzorce wyszukiwania i pobierania
-- **Wyszukiwanie hybrydowe**: Łączenie wyszukiwania semantycznego i słownego dla optymalnych wyników
-- **Wyszukiwanie fasetowe**: Wielowymiarowe filtrowanie i kategoryzacja
-- **Dopasowanie trafności**: Niestandardowe algorytmy punktacji dla specyficznych potrzeb domeny
-- **Ranking wyników**: Zaawansowane rankingi z integracją logiki biznesowej
+### Wzorce wyszukiwania i odzyskiwania
+- **Wyszukiwanie hybrydowe**: Łączenie wyszukiwania semantycznego i słów kluczowych dla optymalnych rezultatów
+- **Wyszukiwanie faceted**: Wielowymiarowe filtrowanie i kategoryzacja
+- **Dopasowanie trafności**: Niestandardowe algorytmy punktacji dla potrzeb domenowych
+- **Ranking wyników**: Zaawansowany ranking z integracją logiki biznesowej
 
 ### Wzorce bezpieczeństwa
-- **Bezpieczeństwo na poziomie dokumentu**: Precyzyjna kontrola dostępu dla każdego dokumentu
-- **Klasyfikacja danych**: Automatyczne etykietowanie wrażliwości i ochrona
+- **Bezpieczeństwo na poziomie dokumentu**: Precyzyjna kontrola dostępu do pojedynczych dokumentów
+- **Klasyfikacja danych**: Automatyczne etykietowanie czułości i ochrona
 - **Ścieżki audytu**: Kompleksowe rejestrowanie wszystkich operacji RAG
-- **Ochrona prywatności**: Wykrywanie i redakcja danych osobowych (PII)
+- **Ochrona prywatności**: Wykrywanie i zaciemnianie danych osobowych (PII)
 
-## 🔒 Funkcje bezpieczeństwa dla przedsiębiorstw
+## 🔒 Funkcje bezpieczeństwa przedsiębiorstwa
 
 ### Uwierzytelnianie i autoryzacja
 ```csharp
@@ -123,9 +123,9 @@ if (!await ValidateUserPermissions(user, documentId))
 
 ### Ochrona danych
 - **Szyfrowanie**: Szyfrowanie end-to-end dla dokumentów i indeksów wyszukiwania
-- **Kontrole dostępu**: Integracja z Azure AD dla uprawnień użytkowników i grup
-- **Rezydencja danych**: Kontrola lokalizacji danych geograficznych dla zgodności
-- **Kopia zapasowa i odzyskiwanie**: Automatyczne kopie zapasowe i procedury odzyskiwania
+- **Kontrola dostępu**: Integracja z Azure AD dla uprawnień użytkowników i grup
+- **Lokalizacja danych**: Kontrola geograficznego położenia danych dla zgodności
+- **Kopie zapasowe i odzyskiwanie**: Automatyczne tworzenie kopii i procedury odzyskiwania po awarii
 
 ## 📈 Optymalizacja wydajności
 
@@ -140,67 +140,67 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 
 ### Zarządzanie pamięcią
 - **Przetwarzanie strumieniowe**: Obsługa dużych dokumentów bez problemów z pamięcią
-- **Pooling zasobów**: Efektywne ponowne wykorzystanie kosztownych zasobów
-- **Zbieranie śmieci**: Optymalizacja wzorców alokacji pamięci
-- **Zarządzanie połączeniami**: Prawidłowy cykl życia połączeń z usługami Azure
+- **Pule zasobów**: Efektywne ponowne wykorzystanie drogich zasobów
+- **Zbieranie śmieci**: Optymalizowane wzorce alokacji pamięci
+- **Zarządzanie połączeniami**: Właściwy cykl życia połączeń do usług Azure
 
-### Strategie buforowania
-- **Buforowanie zapytań**: Buforowanie często wykonywanych wyszukiwań
-- **Buforowanie dokumentów**: Buforowanie w pamięci dla popularnych dokumentów
-- **Buforowanie indeksów**: Optymalizacja buforowania indeksów wektorowych
-- **Buforowanie wyników**: Inteligentne buforowanie wygenerowanych odpowiedzi
+### Strategie cachowania
+- **Cachowanie zapytań**: Buforowanie często wykonywanych wyszukiwań
+- **Cachowanie dokumentów**: Cachowanie w pamięci dla "gorących" dokumentów
+- **Cachowanie indeksów**: Optymalizacja cachowania indeksów wektorowych
+- **Cachowanie wyników**: Inteligentne cachowanie generowanych odpowiedzi
 
-## 📊 Przypadki użycia dla przedsiębiorstw
+## 📊 Przypadki użycia w przedsiębiorstwie
 
 ### Zarządzanie wiedzą
-- **Wiki korporacyjne**: Inteligentne wyszukiwanie w bazach wiedzy firmy
-- **Polityki i procedury**: Automatyczne wskazówki dotyczące zgodności i procedur
+- **Korporacyjna wiki**: Inteligentne wyszukiwanie w bazach wiedzy firmy
+- **Polityki i procedury**: Automatyczne wsparcie zgodności i wytyczne proceduralne
 - **Materiały szkoleniowe**: Inteligentna pomoc w nauce i rozwoju
-- **Bazy danych badawczych**: Systemy analizy prac akademickich i badawczych
+- **Bazy badań**: Systemy analizy publikacji naukowych i badawczych
 
 ### Obsługa klienta
 - **Baza wiedzy wsparcia**: Automatyczne odpowiedzi w obsłudze klienta
 - **Dokumentacja produktów**: Inteligentne wyszukiwanie informacji o produktach
-- **Przewodniki rozwiązywania problemów**: Kontekstowa pomoc w rozwiązywaniu problemów
+- **Poradniki rozwiązywania problemów**: Kontekstowa pomoc w rozwiązywaniu problemów
 - **Systemy FAQ**: Dynamiczne generowanie FAQ z kolekcji dokumentów
 
 ### Zgodność regulacyjna
-- **Analiza dokumentów prawnych**: Inteligencja kontraktów i dokumentów prawnych
-- **Monitoring zgodności**: Automatyczne sprawdzanie zgodności regulacyjnej
-- **Ocena ryzyka**: Analiza ryzyka oparta na dokumentach i raportowanie
-- **Wsparcie audytowe**: Inteligentne wyszukiwanie dokumentów dla audytów
+- **Analiza dokumentów prawnych**: Inteligencja umów i dokumentów prawnych
+- **Monitorowanie zgodności**: Automatyczne sprawdzanie zgodności regulacyjnej
+- **Ocena ryzyka**: Analiza ryzyka i raportowanie oparte na dokumentach
+- **Wsparcie audytu**: Inteligentne wyszukiwanie dokumentów do audytów
 
 ## 🚀 Wdrożenie produkcyjne
 
-### Monitoring i obserwowalność
-- **Application Insights**: Szczegółowa telemetria i monitoring wydajności
-- **Metryki niestandardowe**: Śledzenie i alerty specyficzne dla KPI biznesowych
-- **Śledzenie rozproszone**: Śledzenie żądań end-to-end w usługach
-- **Pulpity zdrowia**: Wizualizacja zdrowia systemu i wydajności w czasie rzeczywistym
+### Monitorowanie i obserwowalność
+- **Application Insights**: Szczegółowa telemetria i monitorowanie wydajności
+- **Metryki niestandardowe**: Śledzenie KPI biznesowych i alerty
+- **Śledzenie rozproszone**: End-to-end śledzenie zapytań w usługach
+- **Dashboardy zdrowia systemu**: Wizualizacja stanu zdrowia i wydajności w czasie rzeczywistym
 
 ### Skalowalność i niezawodność
 - **Auto-skalowanie**: Automatyczne skalowanie na podstawie obciążenia i metryk wydajności
-- **Wysoka dostępność**: Wdrożenie wieloregionowe z funkcjami przełączania awaryjnego
-- **Testy obciążeniowe**: Walidacja wydajności pod obciążeniem korporacyjnym
-- **Odzyskiwanie po awarii**: Automatyczne kopie zapasowe i procedury odzyskiwania
+- **Wysoka dostępność**: Wdrożenie wieloregionalne z funkcjami awaryjnego przełączania
+- **Testy obciążeniowe**: Walidacja wydajności przy obciążeniu na poziomie przedsiębiorstwa
+- **Odzyskiwanie po awarii**: Zautomatyzowane procedury kopii zapasowej i odzyskiwania
 
-Gotowy, aby budować systemy RAG klasy korporacyjnej, które mogą obsługiwać wrażliwe dokumenty na dużą skalę? Zaprojektujmy inteligentne systemy wiedzy dla przedsiębiorstw! 🏢📖✨
+Gotowy, by budować systemy RAG na poziomie przedsiębiorstwa, które poradzą sobie z wrażliwymi dokumentami na dużą skalę? Zaprojektujmy inteligentne systemy wiedzy dla przedsiębiorstw! 🏢📖✨
 
 ## Implementacja kodu
 
-Kompletny działający przykład kodu dla tej lekcji znajduje się w `05-dotnet-agent-framework.cs`. 
+Kompletny działający przykład kodu do tej lekcji jest dostępny w `05-dotnet-agent-framework.cs`. 
 
 Aby uruchomić przykład:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Uczyń skrypt wykonywalnym (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Uruchom aplikację .NET Single File
 ./05-dotnet-agent-framework.cs
 ```
 
-Lub użyj `dotnet run` bezpośrednio:
+Lub użyj bezpośrednio `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Kod demonstruje:
 
-1. **Instalacja pakietów**: Instalacja wymaganych pakietów NuGet dla Azure AI Agents
-2. **Konfiguracja środowiska**: Ładowanie punktu końcowego Azure AI Foundry i ustawień modelu
-3. **Przesyłanie dokumentów**: Przesyłanie dokumentu do przetwarzania RAG
-4. **Tworzenie magazynu wektorowego**: Tworzenie magazynu wektorowego dla wyszukiwania semantycznego
-5. **Konfiguracja agenta**: Konfiguracja agenta AI z funkcjami wyszukiwania plików
-6. **Wykonywanie zapytań**: Uruchamianie zapytań na przesłanym dokumencie
+1. **Instalację pakietów**: Instalowanie wymaganych pakietów NuGet dla Azure AI Agents
+2. **Konfigurację środowiska**: Ładowanie punktu końcowego Microsoft Foundry i ustawień modelu
+3. **Wgrywanie dokumentu**: Wgrywanie dokumentu do przetwarzania RAG
+4. **Tworzenie magazynu wektorów**: Tworzenie magazynu wektorowego do wyszukiwania semantycznego
+5. **Konfigurację agenta**: Ustawianie agenta AI z możliwością wyszukiwania plików
+6. **Wykonanie zapytania**: Uruchamianie zapytań na przesłanym dokumencie
 
 ---
 
-**Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, należy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego języku ojczystym powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Zastrzeżenie**:
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w jego języku źródłowym należy uznawać za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

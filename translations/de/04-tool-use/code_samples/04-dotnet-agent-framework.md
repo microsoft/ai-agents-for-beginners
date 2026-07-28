@@ -2,28 +2,28 @@
 
 ## 📋 Lernziele
 
-Dieses Notebook zeigt unternehmensgerechte Integration von Werkzeugen unter Verwendung des Microsoft Agent Frameworks in .NET mit Azure OpenAI (Responses API). Du lernst, komplexe Agenten mit mehreren spezialisierten Werkzeugen zu bauen, die die starke Typisierung von C# und die Enterprise-Funktionen von .NET nutzen.
+Dieses Notebook demonstriert unternehmensgerechte Werkzeug-Integrationsmuster unter Verwendung des Microsoft Agent Frameworks in .NET mit Azure OpenAI (Responses API). Sie lernen, komplexe Agenten mit mehreren spezialisierten Werkzeugen zu erstellen und dabei die starke Typisierung von C# sowie die Unternehmensfunktionen von .NET zu nutzen.
 
-### Erweiterte Werkzeugfähigkeiten, die du meistern wirst
+### Erweiterte Werkzeugfähigkeiten, die Sie meistern werden
 
-- 🔧 **Multi-Tool-Architektur**: Aufbau von Agenten mit mehreren spezialisierten Fähigkeiten
-- 🎯 **Typsichere Werkzeugausführung**: Nutzung der Kompilierzeit-Validierung von C#
-- 📊 **Enterprise-Werkzeugmuster**: Produktionsreifes Design und Fehlerbehandlung von Werkzeugen
+- 🔧 **Mehrfach-Werkzeug-Architektur**: Aufbau von Agenten mit mehreren spezialisierten Fähigkeiten
+- 🎯 **Typsichere Werkzeugausführung**: Nutzung der Compile-Zeit-Validierung von C#
+- 📊 **Enterprise-Werkzeugmuster**: Produktionsreifes Werkzeugdesign und Fehlerbehandlung
 - 🔗 **Werkzeugkomposition**: Kombination von Werkzeugen für komplexe Geschäftsabläufe
 
 ## 🎯 Vorteile der .NET-Werkzeugarchitektur
 
 ### Enterprise-Werkzeugfunktionen
 
-- **Kompilierzeit-Validierung**: Starke Typisierung sorgt für korrekte Werkzeugparameter
+- **Compile-Zeit-Validierung**: Starke Typisierung sichert die Korrektheit der Werkzeugparameter
 - **Dependency Injection**: IoC-Container-Integration für Werkzeugverwaltung
-- **Async/Await-Muster**: Nicht blockierende Werkzeugausführung mit ordnungsgemäßem Ressourcenmanagement
-- **Strukturierte Protokollierung**: Eingebaute Logging-Integration zur Überwachung der Werkzeugausführung
+- **Async/Await-Muster**: Nicht blockierende Werkzeugausführung mit ordnungsgemäßer Ressourcenverwaltung
+- **Strukturierte Protokollierung**: Eingebaute Protokollierungsintegration zur Überwachung der Werkzeugausführung
 
 ### Produktionsreife Muster
 
-- **Ausnahmebehandlung**: Umfassendes Fehlerhandling mit getypten Ausnahmen
-- **Ressourcenverwaltung**: Korrekte Dispose-Muster und Speicherverwaltung
+- **Ausnahmebehandlung**: Umfassendes Fehlermanagement mit typisierten Ausnahmen
+- **Ressourcenverwaltung**: Korrekte Disposal-Muster und Speicherverwaltung
 - **Leistungsüberwachung**: Eingebaute Metriken und Performance-Counter
 - **Konfigurationsmanagement**: Typsichere Konfiguration mit Validierung
 
@@ -31,19 +31,19 @@ Dieses Notebook zeigt unternehmensgerechte Integration von Werkzeugen unter Verw
 
 ### Kernkomponenten der .NET-Werkzeuge
 
-- **Microsoft.Extensions.AI**: Einheitliche Abstraktionsschicht für Werkzeuge
+- **Microsoft.Extensions.AI**: Vereinheitlichte Abstraktionsschicht für Werkzeuge
 - **Microsoft.Agents.AI**: Unternehmensgerechte Orchestrierung von Werkzeugen
-- **Azure OpenAI (Responses API)**: Hochleistungs-API-Client mit Connection-Pooling
+- **Azure OpenAI (Responses API)**: Hochleistungs-API-Client mit Verbindungspool
 
 ### Werkzeug-Ausführungspipeline
 
 ```mermaid
 graph LR
-    A[Benutzeranfrage] --> B[Agentenanalyse]
+    A[Benutzeranfrage] --> B[Analyse des Agenten]
     B --> C[Werkzeugauswahl]
     C --> D[Typvalidierung]
     B --> E[Parameterbindung]
-    E --> F[Werkzeugaussführung]
+    E --> F[Werkzeugaustführung]
     C --> F
     F --> G[Ergebnisverarbeitung]
     D --> G
@@ -52,35 +52,35 @@ graph LR
 
 ## 🛠️ Werkzeugkategorien & Muster
 
-### 1. **Datenverarbeitungs-Werkzeuge**
+### 1. **Datenverarbeitungswerkzeuge**
 
-- **Eingabevalidierung**: Starke Typisierung mit Datenanmerkungen
-- **Transformationsoperationen**: Typsichere Datenkonvertierung und -formatierung
+- **Eingabevalidierung**: Starke Typisierung mit Datenannotation
+- **Transformationsoperationen**: Typsichere Datenkonvertierung und Formatierung
 - **Geschäftslogik**: Domänenspezifische Berechnungs- und Analysewerkzeuge
 - **Ausgabeformatierung**: Strukturierte Antwortgenerierung
 
 ### 2. **Integrationswerkzeuge**
 
 - **API-Connectoren**: RESTful-Service-Integration mit HttpClient
-- **Datenbankwerkzeuge**: Entity Framework-Integration für Datenzugriff
+- **Datenbankwerkzeuge**: Entity Framework Integration für Datenzugriff
 - **Dateioperationen**: Sichere Dateisystemoperationen mit Validierung
-- **Externe Dienste**: Integrationsmuster für Drittanbieterdienste
+- **Externe Dienste**: Integrationsmuster für Dienste von Drittanbietern
 
-### 3. **Dienstprogramme**
+### 3. **Hilfswerkzeuge**
 
-- **Textverarbeitung**: String-Manipulation und Formatierhilfen
-- **Datum-/Zeitoperationen**: Kulturabhängige Datumzeitberechnungen
+- **Textverarbeitung**: String-Manipulation und Formatierungswerkzeuge
+- **Datum/Uhrzeit-Operationen**: Kulturbewusste Datum/Uhrzeit-Berechnungen
 - **Mathematische Werkzeuge**: Präzisionsberechnungen und statistische Operationen
-- **Validierungswerkzeuge**: Geschäftsregelprüfung und Datenverifikation
+- **Validierungswerkzeuge**: Geschäftliche Regelvalidierung und Datenprüfung
 
-Bereit, unternehmensgerechte Agenten mit leistungsstarken, typsicheren Werkzeugfähigkeiten in .NET zu bauen? Lasst uns professionelle Lösungen entwerfen! 🏢⚡
+Bereit, unternehmensgerechte Agenten mit leistungsfähigen, typsicheren Werkzeugfunktionen in .NET zu bauen? Lassen Sie uns professionelle Lösungen entwerfen! 🏢⚡
 
 ## 🚀 Erste Schritte
 
 ### Voraussetzungen
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
-- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und Modellbereitstellung
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einem Modellausstoß
 - Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
@@ -88,7 +88,7 @@ Bereit, unternehmensgerechte Agenten mit leistungsstarken, typsicheren Werkzeugf
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
@@ -96,7 +96,7 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
 az login
 ```
@@ -111,13 +111,13 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Oder mit der dotnet CLI:
+Oder mit der dotnet-CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Siehe [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) für den kompletten Code.
+Siehe [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) für den vollständigen Code.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

@@ -1,14 +1,14 @@
-# 🎨 Modèles de conception agentique avec Azure OpenAI (Responses API) (.NET)
+# 🎨 Modèles de conception agentiques avec Azure OpenAI (API Responses) (.NET)
 
 ## 📋 Objectifs d'apprentissage
 
-Cet exemple démontre des modèles de conception de qualité entreprise pour construire des agents intelligents en utilisant le Microsoft Agent Framework en .NET avec l'intégration Azure OpenAI (Responses API). Vous apprendrez des modèles professionnels et des approches architecturales qui rendent les agents prêts pour la production, maintenables et évolutifs.
+Cet exemple montre des modèles de conception de niveau entreprise pour construire des agents intelligents utilisant le Microsoft Agent Framework en .NET avec l'intégration d'Azure OpenAI (API Responses). Vous apprendrez des modèles professionnels et des approches architecturales qui rendent les agents prêts pour la production, maintenables et évolutifs.
 
 ### Modèles de conception d'entreprise
 
 - 🏭 **Modèle Factory** : Création standardisée d'agents avec injection de dépendances
-- 🔧 **Modèle Builder** : Configuration et mise en place fluide des agents
-- 🧵 **Modèles Thread-Safe** : Gestion concurrente des conversations
+- 🔧 **Modèle Builder** : Configuration et préparation fluide des agents
+- 🧵 **Modèles threadsafe** : Gestion concurrente des conversations
 - 📋 **Modèle Repository** : Gestion organisée des outils et capacités
 
 ## 🎯 Avantages architecturaux spécifiques à .NET
@@ -16,13 +16,13 @@ Cet exemple démontre des modèles de conception de qualité entreprise pour con
 ### Fonctionnalités d'entreprise
 
 - **Typage fort** : Validation à la compilation et support IntelliSense
-- **Injection de dépendances** : Intégration du conteneur DI intégré
-- **Gestion de configuration** : Modèles IConfiguration et Options
+- **Injection de dépendances** : Intégration native du conteneur DI
+- **Gestion de configuration** : IConfiguration et modèles Options
 - **Async/Await** : Support natif de la programmation asynchrone
 
 ### Modèles prêts pour la production
 
-- **Intégration du logging** : ILogger et support du logging structuré
+- **Intégration de journalisation** : ILogger et journalisation structurée
 - **Contrôles de santé** : Surveillance et diagnostics intégrés
 - **Validation de configuration** : Typage fort avec annotations de données
 - **Gestion des erreurs** : Gestion structurée des exceptions
@@ -31,18 +31,18 @@ Cet exemple démontre des modèles de conception de qualité entreprise pour con
 
 ### Composants .NET principaux
 
-- **Microsoft.Extensions.AI** : Abstractions unifiées de services IA
-- **Microsoft.Agents.AI** : Cadre d'orchestration d'agents d'entreprise
-- **Azure OpenAI (Responses API)** : Modèles clients API haute performance
-- **Système de configuration** : appsettings.json et intégration environnementale
+- **Microsoft.Extensions.AI** : Abstractions unifiées des services d’IA
+- **Microsoft.Agents.AI** : Framework d’orchestration agent d’entreprise
+- **Azure OpenAI (API Responses)** : Modèles client API haute performance
+- **Système de configuration** : appsettings.json et intégration environnement
 
 ### Implémentation des modèles de conception
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Générateur d'Agent]
+    A[IServiceCollection] --> B[Constructeur d'agent]
     B --> C[Configuration]
-    C --> D[Registre des Outils]
+    C --> D[Registre d'outils]
     D --> E[Agent IA]
 ```
 
@@ -50,98 +50,98 @@ graph LR
 
 ### 1. **Modèles de création**
 
-- **Agent Factory** : Création centralisée d'agents avec configuration cohérente
-- **Modèle Builder** : API fluide pour la configuration complexe des agents
+- **Factory d’agents** : Création centralisée d’agents avec configuration cohérente
+- **Modèle Builder** : API fluide pour la configuration complexe d’agents
 - **Modèle Singleton** : Gestion partagée des ressources et configurations
-- **Injection de dépendances** : Faible couplage et testabilité
+- **Injection de dépendances** : Couplage faible et facilité de test
 
 ### 2. **Modèles comportementaux**
 
-- **Modèle Strategy** : Stratégies d'exécution d'outils interchangeables
-- **Modèle Command** : Opérations agent encapsulées avec annulation/rétablissement
-- **Modèle Observer** : Gestion du cycle de vie des agents pilotée par événements
-- **Modèle Template Method** : Flux d'exécution standardisés des agents
+- **Modèle Strategy** : Stratégies interchangeables d’exécution des outils
+- **Modèle Command** : Opérations d’agents encapsulées avec annulation/répétition
+- **Modèle Observer** : Gestion du cycle de vie agent basée sur les événements
+- **Méthode Template** : Flux d’exécution standardisés pour agents
 
 ### 3. **Modèles structurels**
 
-- **Modèle Adapter** : Couche d'intégration Azure OpenAI (Responses API)
-- **Modèle Decorator** : Amélioration des capacités agent
-- **Modèle Facade** : Interfaces simplifiées d'interaction agent
-- **Modèle Proxy** : Chargement paresseux et mise en cache pour la performance
+- **Modèle Adapter** : Couche d’intégration Azure OpenAI (API Responses)
+- **Modèle Decorator** : Amélioration des capacités d’agents
+- **Modèle Facade** : Interfaces simplifiées d’interaction agents
+- **Modèle Proxy** : Chargement paresseux et mise en cache pour performance
 
 ## 📚 Principes de conception .NET
 
 ### Principes SOLID
 
-- **Responsabilité unique** : Chaque composant a une seule responsabilité claire
+- **Responsabilité unique** : Chaque composant a un but clair
 - **Ouvert/Fermé** : Extensible sans modification
-- **Substitution de Liskov** : Implémentations d'outils basées sur interfaces
-- **Segregation d'interfaces** : Interfaces ciblées et cohésives
-- **Inversion des dépendances** : Dépendre des abstractions, pas des concrétions
+- **Substitution de Liskov** : Implémentations d’outils basées sur interfaces
+- **Ségrégation d’interface** : Interfaces ciblées et cohésives
+- **Inversion de dépendance** : Dépendre des abstractions, pas des concrétions
 
 ### Architecture propre
 
-- **Couche Domaine** : Abstractions principales des agents et outils
-- **Couche Application** : Orchestration des agents et workflows
-- **Couche Infrastructure** : Intégration Azure OpenAI (Responses API) et services externes
-- **Couche Présentation** : Interaction utilisateur et formatage des réponses
+- **Couche domaine** : Abstractions centrales agents et outils
+- **Couche application** : Orchestration agents et flux de travail
+- **Couche infrastructure** : Intégration Azure OpenAI (API Responses) et services externes
+- **Couche présentation** : Interaction utilisateur et formatage réponses
 
-## 🔒 Considérations d'entreprise
+## 🔒 Considérations d’entreprise
 
 ### Sécurité
 
 - **Gestion des identifiants** : Gestion sécurisée des clés API avec IConfiguration
-- **Validation des entrées** : Typage fort et validation par annotations de données
-- **Assainissement des sorties** : Traitement et filtrage sécurisés des réponses
-- **Journalisation d'audit** : Traçabilité complète des opérations
+- **Validation des entrées** : Typage fort et validation par annotation de données
+- **Assainissement des sorties** : Traitement sécurisé et filtrage des réponses
+- **Journalisation d’audit** : Suivi complet des opérations
 
 ### Performance
 
-- **Modèles asynchrones** : Opérations d'entrée-sortie non bloquantes
-- **Pool de connexions** : Gestion efficace du client HTTP
-- **Mise en cache** : Mise en cache des réponses pour améliorer la performance
-- **Gestion des ressources** : Bonnes pratiques de suppression et nettoyage
+- **Modèles asynchrones** : Opérations d’I/O non bloquantes
+- **Pooling de connexion** : Gestion efficace du client HTTP
+- **Mise en cache** : Mise en cache des réponses pour performance améliorée
+- **Gestion des ressources** : Schémas corrects de nettoyage et disposition
 
 ### Scalabilité
 
-- **Sécurité des threads** : Support de l'exécution concurrente des agents
-- **Pool de ressources** : Utilisation efficace des ressources
-- **Gestion de la charge** : Limitation du débit et gestion de la pression en retour
+- **Sécurité des threads** : Support de l’exécution concurrente d’agents
+- **Pooling de ressources** : Utilisation efficace des ressources
+- **Gestion de charge** : Limitation de débit et gestion de pression inversée
 - **Surveillance** : Métriques de performance et contrôles de santé
 
 ## 🚀 Déploiement en production
 
-- **Gestion de la configuration** : Paramètres spécifiques à l'environnement
+- **Gestion de configuration** : Paramètres spécifiques à l’environnement
 - **Stratégie de journalisation** : Journalisation structurée avec IDs de corrélation
 - **Gestion des erreurs** : Gestion globale des exceptions avec récupération appropriée
 - **Surveillance** : Application Insights et compteurs de performance
-- **Tests** : Tests unitaires, tests d'intégration et modèles de tests de charge
+- **Tests** : Tests unitaires, d’intégration et de charge
 
-Prêt à construire des agents intelligents de qualité entreprise avec .NET ? Architecturons quelque chose de robuste ! 🏢✨
+Prêt à construire des agents intelligents de niveau entreprise avec .NET ? Architecturons quelque chose de robuste ! 🏢✨
 
-## 🚀 Prise en main
+## 🚀 Commencer
 
 ### Prérequis
 
 - [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) ou supérieur
 - Un [abonnement Azure](https://azure.microsoft.com/free/) avec une ressource Azure OpenAI et un déploiement de modèle
-- Le [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — connectez-vous avec `az login`
+- L’[Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — connectez-vous avec `az login`
 
-### Variables d'environnement requises
+### Variables d’environnement requises
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Ensuite, connectez-vous afin que AzureCliCredential puisse obtenir un jeton
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Ensuite, connectez-vous pour que AzureCliCredential puisse obtenir un jeton
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Puis connectez-vous pour que AzureCliCredential puisse obtenir un jeton
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Ensuite, connectez-vous afin que AzureCliCredential puisse obtenir un jeton
 az login
 ```
 
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

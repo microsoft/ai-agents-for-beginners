@@ -1,123 +1,123 @@
-# 🎨 Agentiniai Dizaino Šablonai su Azure OpenAI (Responses API) (.NET)
+# 🎨 Agentinių dizaino modelių taikymas su Azure OpenAI (Atsakymų API) (.NET)
 
-## 📋 Mokymosi Tikslai
+## 📋 Mokymosi tikslai
 
-Šis pavyzdys demonstruoja įmonės lygio dizaino šablonus kuriant išmanius agentus naudojant Microsoft Agent Framework .NET su Azure OpenAI (Responses API) integracija. Išmoksite profesionalius šablonus ir architektūros metodus, kurie daro agentus pasiruošusius gamybai, prižiūrimus ir plečiamus.
+Šis pavyzdys iliustruoja įmonių lygio dizaino modelius, skirtus protingų agentų kūrimui naudojant Microsoft Agent Framework .NET su Azure OpenAI (Atsakymų API) integracija. Išmoksite profesionalius modelius ir architektūrinius požiūrius, kurie padaro agentus paruoštais gamybai, lengvai prižiūrimą ir skalėjamą.
 
-### Įmonės Dizaino Šablonai
+### Įmonių dizaino modeliai
 
-- 🏭 **Fabriko Šablonas**: Standartizuotas agentų kūrimas su priklausomybių injekcija
-- 🔧 **Kūrėjo Šablonas**: Sklandus agentų konfigūravimas ir nustatymas
-- 🧵 **Daugiagijės Saugumo Šablonai**: Kelių pokalbių valdymas lygiagrečiai
-- 📋 **Saugyklos Šablonas**: Įrankių ir galimybių organizuotas valdymas
+- 🏭 **Fabriko modelis**: Standartizuotas agentų kūrimas su priklausomybių injekcija
+- 🔧 **Konstruktoriaus modelis**: Sklandus agento konfigūravimas ir paruošimas
+- 🧵 **Saugūs dėl gijų modeliai**: Kelių pokalbių valdymas vienu metu
+- 📋 **Saugyklos modelis**: Įrankių ir galimybių organizavimas
 
-## 🎯 .NET Specifinės Architektūros Naudos
+## 🎯 .NET specifinės architektūrinės naudos
 
-### Įmonės Funkcijos
+### Įmonių savybės
 
-- **Stiprus Tipavimas**: Kompiliavimo metu vykdoma validacija ir IntelliSense palaikymas
-- **Priklausomybių Injekcija**: Įmontuotas DI konteinerio integravimas
-- **Konfigūracijos Valdymas**: IConfiguration ir Options šablonai
-- **Async/Await**: Pirmojo lygio asinchroninio programavimo palaikymas
+- **Stiprus tipavimas**: Kompiliavimo metu patikrinimas ir IntelliSense palaikymas
+- **Priklausomybių injekcija**: Įmontuotas DI konteinerio integravimas
+- **Konfigūracijos valdymas**: IConfiguration ir Options modeliai
+- **Async/Await**: Pirmos klasės asinchroninio programavimo palaikymas
 
-### Gamybai Paruošti Šablonai
+### Gamybai paruošti modeliai
 
-- **Registravimo Integracija**: ILogger ir struktūruoto registravimo palaikymas
-- **Sveikatos Patikros**: Įmontuota stebėsena ir diagnostika
-- **Konfigūracijos Validacija**: Stiprus tipavimas su duomenų anotacijomis
-- **Klaidų Tvarkymas**: Struktūruotas išimčių valdymas
+- **Registracijos integracija**: ILogger ir struktūruota registracija
+- **Sveikatos patikra**: Įmontuotas stebėjimas ir diagnostika
+- **Konfigūracijos patikra**: Stiprus tipavimas su duomenų anotacijomis
+- **Klaidų tvarkymas**: Struktūruota išimčių valdymas
 
-## 🔧 Techninė Architektūra
+## 🔧 Techninė architektūra
 
-### Pagrindinės .NET Komponentės
+### Pagrindiniai .NET komponentai
 
-- **Microsoft.Extensions.AI**: Vieningos dirbtinio intelekto paslaugų abstrakcijos
-- **Microsoft.Agents.AI**: Įmonės agentų valdymo pagrindas
-- **Azure OpenAI (Responses API)**: Aukšto našumo API kliento šablonai
-- **Konfigūracijos Sistema**: appsettings.json ir aplinkos integracija
+- **Microsoft.Extensions.AI**: Suvienyti DI paslaugų abstrakcijos
+- **Microsoft.Agents.AI**: Įmonių agentų koordinavimo sistema
+- **Azure OpenAI (Atsakymų API)**: Aukšto našumo API kliento modeliai
+- **Konfigūracijos sistema**: appsettings.json ir aplinkos integracija
 
-### Dizaino Šablonų Įgyvendinimas
+### Dizaino modelio įgyvendinimas
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agentų kūrėjas]
+    A[IServiceCollection] --> B[Agentas Kūrėjas]
     B --> C[Konfigūracija]
-    C --> D[Įrankių registras]
+    C --> D[Įrankių Registras]
     D --> E[DI Agentas]
 ```
 
-## 🏗️ Demonstruojami Įmonės Šablonai
+## 🏗️ Demonstravimo įmonių modeliai
 
-### 1. **Kūrimo Šablonai**
+### 1. **Kūrimo modeliai**
 
-- **Agentų Fabrikas**: Centralizuotas agentų kūrimas su nuoseklia konfigūracija
-- **Kūrėjo Šablonas**: Sklandus API sudėtingai agentų konfigūracijai
-- **Vienintelis Šablonas**: Bendrinami ištekliai ir konfigūracijos valdymas
-- **Priklausomybių Injekcija**: Laisvas susiejimas ir testavimo galimybės
+- **Agentų fabriko modelis**: Centralizuotas agentų kūrimas su nuoseklia konfigūracija
+- **Konstruktoriaus modelis**: Sklandus API sudėtingai agento konfigūracijai
+- **Vienetinis modelis**: Bendrų resursų ir konfigūracijos valdymas
+- **Priklausomybių injekcija**: Laisvas sujungimas ir testavimas
 
-### 2. **Elgesio Šablonai**
+### 2. **Elgesio modeliai**
 
-- **Strategijos Šablonas**: Keičiamos įrankių vykdymo strategijos
-- **Komandos Šablonas**: Inkapsuliuoti agentų veiksmai su atšaukimu/atkūrimu
-- **Stebėtojo Šablonas**: Įvykių valdomas agentų gyvavimo ciklas
-- **Šablono Metodas**: Standartizuotos agentų vykdymo darbo eigos
+- **Strategijos modelis**: Keičiamos įrankių vykdymo strategijos
+- **Komandos modelis**: Įkapsuliuotos agentų operacijos su anuliavimu / pakartojimu
+- **Stebėtojo modelis**: Renginių pagrindu agentų gyvavimo ciklo valdymas
+- **Šablono metodas**: Standartizuotos agento vykdymo darbo eigos
 
-### 3. **Struktūriniai Šablonai**
+### 3. **Struktūriniai modeliai**
 
-- **Adapterio Šablonas**: Azure OpenAI (Responses API) integracijos sluoksnis
-- **Dekoratoriaus Šablonas**: Agentų galimybių praplėtimas
-- **Fasadų Šablonas**: Supaprastintos agentų sąveikos sąsajos
-- **Proksio Šablonas**: Tingus įkėlimas ir kešavimas našumo gerinimui
+- **Adapterio modelis**: Azure OpenAI (Atsakymų API) integracijos sluoksnis
+- **Dekoratoriaus modelis**: Agentų galimybių išplėtimas
+- **Fasado modelis**: Supaprastintos agentų sąsajos
+- **Proksio modelis**: Atsipalaidavęs įkėlimas ir kešavimas našumui gerinti
 
-## 📚 .NET Dizaino Principai
+## 📚 .NET dizaino principai
 
-### SOLID Principai
+### SOLID principai
 
-- **Vienintelė Atsakomybė**: Kiekvienas komponentas turi aiškią paskirtį
-- **Atviras/Uždarytas**: Išplėčiamas be modifikavimo
-- **Liskovo Pakeitimo**: Sąsajos pagrindu įrankių įgyvendinimai
-- **Sąsajų Atskyrimas**: Nukreiptos, darnūs sąsajos
-- **Priklausomybių Apvertimas**: Priklausomybė nuo abstrakcijų, ne konkrečių implementacijų
+- **Vienos atsakomybės principas**: Kiekvienas komponentas turi aiškų tikslą
+- **Atviras/Uždarytas**: Plečiama be modifikavimo
+- **Liskovo pakeitimo principas**: Sąsajos pagrindu įrankių įgyvendinimai
+- **Sąsajų segregacija**: Tikslinės, vientisos sąsajos
+- **Priklausomybių inversija**: Priklausomybė nuo abstrakcijų, ne konkrečių klasių
 
-### Švari Architektūra
+### Švari architektūra
 
-- **Domeno Sluoksnis**: Pagrindinės agentų ir įrankių abstrakcijos
-- **Programos Sluoksnis**: Agentų valdymas ir darbo eigos
-- **Infrastruktūros Sluoksnis**: Azure OpenAI (Responses API) integracija ir išorinės paslaugos
-- **Prezentracijos Sluoksnis**: Naudotojo sąveika ir atsakymų formatavimas
+- **Domėnio sluoksnis**: Pagrindinės agentų ir įrankių abstrakcijos
+- **Taikymo sluoksnis**: Agentų koordinavimas ir darbo eigos
+- **Infrastruktūros sluoksnis**: Azure OpenAI (Atsakymų API) integracija ir išorinės paslaugos
+- **Pristatymo sluoksnis**: Vartotojo sąveika ir atsakymų formatavimas
 
-## 🔒 Įmonės Apsvarstymai
+## 🔒 Įmonių svarstymai
 
 ### Saugumas
 
-- **Kredencialų Valdymas**: Saugus API raktų tvarkymas su IConfiguration
-- **Įvesties Validacija**: Stiprus tipavimas ir duomenų anotacijų validacija
-- **Išvesties Sanitarizacija**: Saugus atsakymų apdorojimas ir filtravimas
-- **Auditavimo Registravimas**: Išsamus operacijų sekimas
+- **Autentifikavimo valdymas**: Saugus API raktų tvarkymas su IConfiguration
+- **Įvesties patikra**: Stiprus tipavimas ir duomenų anotacijų patikra
+- **Išvesties valymas**: Saugus atsakymų apdorojimas ir filtravimas
+- **Auditų registracija**: Visapusiškas operacijų sekimas
 
 ### Našumas
 
-- **Asinchroniniai Šablonai**: Neblokavusios I/O operacijos
-- **Ryšių Pool'inimas**: Efektyvus HTTP kliento valdymas
+- **Asinchroniniai modeliai**: Blokavimą išvengiančios įvesties/išvesties operacijos
+- **Ryšių telkimas**: Efektyvus HTTP klientų valdymas
 - **Kešavimas**: Atsakymų kešavimas našumo gerinimui
-- **Išteklių Valdymas**: Tinkamas išmetimas ir valymo šablonai
+- **Išteklių valdymas**: Tinkamas išteklių utilizavimas ir išvalymas
 
-### Plečiamumas
+### Skalėjamumas
 
-- **Daugiagijis Saugių**: Lygiagrečio agentų vykdymo palaikymas
-- **Ištekliai Pool'inimas**: Efektyvus išteklių naudojimas
-- **Krovos Valdymas**: Greičio apribojimas ir atgalinio spaudimo tvarkymas
-- **Stebėsena**: Našumo metrika ir sveikatos patikros
+- **Saugumas gijų atžvilgiu**: Kelių agentų vykdymo vienu metu palaikymas
+- **Išteklių telkimas**: Efektyvus išteklių panaudojimas
+- **Krūvio valdymas**: Greičio ribojimas ir atgalinio spaudimo tvarkymas
+- **Stebėjimas**: Našumo metrikos ir sveikatos patikros
 
-## 🚀 Gamybinis Paleidimas
+## 🚀 Gamybinis diegimas
 
-- **Konfigūracijos Valdymas**: Aplinkai specifiški nustatymai
-- **Registravimo Strategija**: Struktūruota registracija su koreliacijos ID
-- **Klaidų Tvarkymas**: Globalus išimčių tvarkymas su tinkamu atkūrimu
-- **Stebėsena**: Programos įžvalgos ir našumo skaitikliai
-- **Testavimas**: Vienetiniai testai, integraciniai testai ir apkrovos testavimo šablonai
+- **Konfigūracijos valdymas**: Aplinkai būdingi nustatymai
+- **Registracijos strategija**: Struktūruota registracija su koreliacijos ID
+- **Klaidų tvarkymas**: Globalus išimčių valdymas su tinkamu atsigavimu
+- **Stebėjimas**: Programų įžvalgos ir našumo skaitikliai
+- **Testavimas**: Vienetų testai, integraciniai testai ir apkrovos testavimo modeliai
 
-Pasiruošę kurti įmonės lygio išmanius agentus su .NET? Sukurkime ką nors tvirto! 🏢✨
+Pasiruošę sukurti įmonių lygio protingus agentus su .NET? Sukurkime kažką tvirto! 🏢✨
 
 ## 🚀 Pradžia
 
@@ -125,14 +125,14 @@ Pasiruošę kurti įmonės lygio išmanius agentus su .NET? Sukurkime ką nors t
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
 - [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI resursu ir modelio diegimu
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite naudodami `az login`
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite su `az login`
 
-### Reikalingi Aplinkos Kintamieji
+### Būtini aplinkos kintamieji
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
@@ -140,14 +140,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
 
-### Pavyzdinis Kodas
+### Pavyzdinis kodas
 
-Vykdyti kodo pavyzdį,
+Norėdami paleisti kodo pavyzdį,
 
 ```bash
 # zsh/bash
@@ -155,13 +155,13 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Arba naudojant dotnet CLI:
+Arba naudodami dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Žr. [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) pilnam kodui.
+Žr. [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) pilną kodą.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

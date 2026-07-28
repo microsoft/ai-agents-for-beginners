@@ -1,110 +1,108 @@
-[![良いAIエージェントの設計方法](../../../translated_images/ja/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![良いAIエージェントを設計する方法](../../../translated_images/ja/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(上の画像をクリックすると、このレッスンのビデオが表示されます)_
+> _(上の画像をクリックするとこのレッスンの動画が表示されます)_
 
 # ツール使用デザインパターン
 
-ツールは、AIエージェントにより広範な能力を持たせることができるため興味深いです。エージェントが実行できるアクションが限られている代わりに、ツールを追加することで、幅広いアクションを実行できるようになります。この章では、AIエージェントが特定のツールを使用して目標を達成する方法を説明するツール使用デザインパターンについて見ていきます。
+ツールは、AIエージェントにより広い範囲の能力を付与できるため興味深いものです。エージェントが行える動作のセットが限られている代わりに、ツールを追加することで、エージェントはより幅広い動作を実行できるようになります。本章では、AIエージェントが特定のツールを使用して目標を達成する方法を説明するツール使用デザインパターンについて説明します。
 
 ## はじめに
 
-このレッスンでは、以下の質問に答えることを目指します：
+このレッスンでは、次の問いに答えます:
 
 - ツール使用デザインパターンとは何か？
-- どのようなユースケースに適用できるか？
-- デザインパターンを実装するために必要な要素/構成要素は何か？
-- 信頼できるAIエージェントを構築するためにツール使用デザインパターンを使う際の特別な考慮事項は何か？
+- どのようなユースケースに適用できるのか？
+- デザインパターンを実装するために必要な要素／構成要素は何か？
+- 信頼できるAIエージェントを構築するためにツール使用デザインパターンを使う際の特別な考慮点は何か？
 
 ## 学習目標
 
-このレッスンを終えると、以下ができるようになります：
+このレッスンを終えた後、あなたは次のことができるようになります:
 
 - ツール使用デザインパターンとその目的を定義できる。
-- ツール使用デザインパターンを適用できるユースケースを特定できる。
+- ツール使用デザインパターンが適用可能なユースケースを特定できる。
 - デザインパターンを実装するために必要な主要な要素を理解できる。
-- このデザインパターンを使用するAIエージェントの信頼性を確保するための考慮事項を認識できる。
+- このデザインパターンを使うAIエージェントの信頼性を確保するための考慮点を認識できる。
 
-## ツール使用デザインパターンとは何か？
+## ツール使用デザインパターンとは？
 
-<strong>ツール使用デザインパターン</strong>は、大規模言語モデル（LLM）が特定の目標を達成するために外部ツールと連携する能力を与えることに焦点を当てています。ツールとは、エージェントが実行可能なコードであり、アクションを行います。ツールは計算機のような単純な関数であったり、株価照会や天気予報のようなサードパーティサービスへのAPI呼び出しであったりします。AIエージェントの文脈では、ツールは<strong>モデル生成の関数呼び出し</strong>に応答してエージェントが実行するように設計されています。
+<strong>ツール使用デザインパターン</strong>は、大規模言語モデル（LLM）が特定の目標達成のために外部ツールと連携できる能力を与えることに焦点を当てています。ツールはエージェントが動作を実行するために実行できるコードです。ツールは計算機のような単純な関数でも、株価の照会や天気予報などのサードパーティサービスへのAPI呼び出しでもかまいません。AIエージェントの文脈では、ツールは<strong>モデル生成の関数呼び出し</strong>に応答してエージェントが実行するよう設計されています。
 
-## どのようなユースケースに適用できるか？
+## 適用可能なユースケースは？
 
-AIエージェントはツールを活用して複雑なタスクを完了したり、情報を取得したり、意思決定を行ったりできます。ツール使用デザインパターンは、データベース、ウェブサービス、コードインタープリタなどの外部システムと動的に対話するシナリオでよく利用されます。この能力は以下のさまざまなユースケースに役立ちます：
+AIエージェントはツールを活用して複雑なタスクを完了したり、情報を取得したり、意思決定を行うことができます。ツール使用デザインパターンは、データベース、ウェブサービス、コードインタープリターなどの外部システムとの動的なやり取りが必要なシナリオでよく使われます。以下のようなユースケースで役立ちます:
 
-- **動的情報取得:** エージェントが外部APIやデータベースに問い合わせて最新情報を取得する（例：SQLiteデータベースのデータ分析、株価や天気情報の取得）。
-- **コード実行と解釈:** エージェントがコードやスクリプトを実行して数学的問題を解いたり、レポートを生成したり、シミュレーションを行ったりする。
-- **ワークフロー自動化:** タスクスケジューラ、メールサービス、データパイプラインなどのツールを統合して繰り返しや複数ステップのワークフローを自動化する。
-- **カスタマーサポート:** CRMシステム、チケッティングプラットフォーム、ナレッジベースとやり取りしてユーザーの問い合わせを解決する。
-- **コンテンツ生成と編集:** 文法チェッカー、テキスト要約、コンテンツ安全評価ツールなどを利用してコンテンツ作成を支援する。
+- **動的情報取得:** エージェントは外部APIやデータベースに問い合わせを行い最新データを取得できます（例：SQLiteデータベースのクエリでデータ分析、株価や天気情報の取得）。
+- **コード実行と解釈:** エージェントはコードやスクリプトを実行して数学問題を解いたり、レポート作成やシミュレーションを行ったりできます。
+- **ワークフロー自動化:** タスクスケジューラー、メールサービス、データパイプラインなどのツールを統合して繰り返しや複数段階のワークフローを自動化。
+- **カスタマーサポート:** エージェントはCRMシステム、チケッティングプラットフォーム、ナレッジベースと連携してユーザーの問い合わせに対応。
+- **コンテンツ生成と編集:** 文法チェッカー、要約ツール、コンテンツ安全評価などのツールを使ってコンテンツ作成を支援。
 
-## ツール使用デザインパターンの実装に必要な要素/構成要素は何か？
+## ツール使用デザインパターンの実装に必要な構成要素は？
 
-これらの構成要素により、AIエージェントは幅広いタスクを実行可能になります。ツール使用デザインパターンを実装するために必要な主要な要素を見てみましょう：
+これらの構成要素により、AIエージェントは多様なタスクを実行可能になります。ツール使用デザインパターンを実装するための主要な要素を見てみましょう:
 
-- **関数/ツールスキーマ**: 利用可能なツールの詳細定義（関数名、目的、必要なパラメータ、期待される出力など）。これらのスキーマによりLLMは使えるツールと有効なリクエストの構築方法を理解できる。
+- **関数／ツールスキーマ**: 利用可能なツールの詳細定義。関数名、目的、必要なパラメーター、期待される出力など。これらのスキーマにより、LLMはどのツールが使用可能で、有効なリクエストをどのように構築するかを理解できます。
 
-- <strong>関数実行ロジック</strong>: ユーザーの意図や会話文脈に基づいてツールを呼び出すタイミングと方法を管理する。プランナー、ルーティング機構、条件分岐フローなどが含まれ、ツール利用を動的に決定する。
+- <strong>関数実行ロジック</strong>: ユーザーの意図や会話コンテキストに基づいてツールの呼び出しを管理。プランナーモジュール、ルーティング機構、条件分岐などで動的にツール使用を決定。
 
-- <strong>メッセージ処理システム</strong>: ユーザー入力、LLM応答、ツール呼び出し、ツール出力間の対話フローを管理するコンポーネント。
+- <strong>メッセージ処理システム</strong>: ユーザー入力、LLMレスポンス、ツール呼び出しおよびツール出力間の会話フローを管理。
 
-- <strong>ツール統合フレームワーク</strong>: 単純な関数でも複雑な外部サービスでも、エージェントが様々なツールに接続するためのインフラ。
+- <strong>ツール統合フレームワーク</strong>: 単純な関数や複雑な外部サービスなど、様々なツールをエージェントに接続するインフラ。
 
-- **エラー処理 & 検証**: ツール実行の失敗対応、パラメータ検証、予期しない応答管理の仕組み。
+- <strong>エラー処理と検証</strong>: ツール実行時の失敗処理、パラメーターの検証、予期せぬ応答の管理メカニズム。
 
-- <strong>状態管理</strong>: 会話文脈、過去のツールインタラクション、永続データを追跡し多ターンインタラクションでの一貫性を保つ。
+- <strong>状態管理</strong>: 会話コンテキストや過去のツール使用情報、永続データを追跡し、複数ターンのやり取りにおける一貫性を保証。
 
-次に、関数/ツール呼び出しについて詳しく見てみましょう。
+次に、関数／ツール呼び出しについて詳しく見ていきましょう。
+ 
+### 関数／ツール呼び出し
 
-### 関数/ツール呼び出し
+関数呼び出しは、大規模言語モデル（LLM）がツールと連携する主な方法です。『関数』と『ツール』はよく同義で使われますが、『関数』は再利用可能なコードのブロックであり、エージェントがタスクを実行するための『ツール』です。関数のコードを呼び出すには、LLMがユーザーの要求を関数の説明と比較しなければなりません。そのため、利用可能な関数の説明を含むスキーマをLLMに送ります。LLMはその中から最適な関数を選び、その名前と引数を返します。選択された関数が呼び出され、その応答がLLMに返され、LLMはそれを使ってユーザーの要求に応答します。
 
-関数呼び出しは、LLMがツールと連携できるようにする主な方法です。よく「関数」と「ツール」が同義的に使われるのは、「関数」（再利用可能なコードの単位）がエージェントがタスクを行うための「ツール」だからです。関数のコードを実行するには、LLMがユーザーのリクエストと関数説明を比較する必要があります。そのため、利用可能な関数の説明を含むスキーマがLLMに送られます。LLMはタスクに最適な関数を選択し、その名前と引数を返します。選択された関数が呼び出され、その応答がLLMに戻され、LLMはそれを使ってユーザーのリクエストに応答します。
-
-開発者がエージェントの関数呼び出しを実装するには、以下が必要です：
+開発者がエージェント用の関数呼び出しを実装するには、以下が必要です:
 
 1. 関数呼び出しをサポートするLLMモデル
 2. 関数の説明を含むスキーマ
-3. 説明された各関数のコード
+3. 各関数の実装コード
 
-例として都市の現在時刻を取得する場合を見てみましょう：
+例として都市の現在時刻取得を使って説明しましょう:
 
-1. **関数呼び出しをサポートするLLMの初期化：**
+1. **関数呼び出しをサポートするLLMを初期化する:**
 
-    すべてのモデルが関数呼び出しに対応しているわけではないため、使用するLLMが対応していることを確認する必要があります。<a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a>は関数呼び出しをサポートしています。Azure OpenAIクライアントを初期化しましょう。
+    すべてのモデルが関数呼び出しをサポートしているわけではないため、使用中のLLMがサポートしているか確認が必要です。<a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> は関数呼び出しをサポートします。まずAzure OpenAIの<strong>Responses API</strong>（安定版の `/openai/v1/` エンドポイントで `api_version` は不要）に対するOpenAIクライアントを起動します。
 
     ```python
-    # Azure OpenAI クライアントを初期化する
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Azure OpenAI（Responses API、v1エンドポイント）用のOpenAIクライアントを初期化する
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **関数スキーマの作成：**
+1. **関数スキーマを作成する:**
 
-    次に、関数名、関数が行う内容の説明、および関数パラメータの名前と説明を含むJSONスキーマを定義します。
-    これを先に作ったクライアントに渡し、ユーザーがサンフランシスコの時刻を知りたいというリクエストを送信します。重要なのは、<strong>ツール呼び出し</strong>が返され、質問の最終回答ではないことです。先述したように、LLMはタスクのために選んだ関数名と引数を返します。
+    続いて、関数名、関数の動作説明、パラメーター名と説明を含むJSONスキーマを定義します。
+    このスキーマをさきほど作成したクライアントに渡し、ユーザーの「サンフランシスコの時刻を取得する」リクエストとともに送ります。重要なのは、返されるのは<strong>ツール呼び出し</strong>であり、質問の最終答えではありません。前述のように、LLMはタスクに最適な関数名と引数を返します。
 
     ```python
-    # モデルが読み取るための関数説明
+    # モデルが読み取るための関数説明（Responses APIフラットツール形式）
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
@@ -112,35 +110,35 @@ AIエージェントはツールを活用して複雑なタスクを完了した
     ```python
   
     # 初期ユーザーメッセージ
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # 最初のAPI呼び出し：モデルに関数を使用するよう依頼する
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # モデルの応答を処理する
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # 最初のAPI呼び出し: モデルに関数を使うように依頼する
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # Responses APIはfunction_call項目としてのツール呼び出しをresponse.outputに返します。
+    # 次のターンでモデルが完全なコンテキストを持つように、それらを会話に追加します。
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **タスクを実行するための関数コード：**
+1. **タスクを実行するための関数コード:**
 
-    LLMが実行すべき関数を選択したので、その関数のコードを実装し実行する必要があります。
-    Pythonで現在時刻を取得するコードを実装しましょう。また、response_messageから関数名と引数を抽出して最終結果を得るコードも書く必要があります。
+    LLMが実行すべき関数を選択したので、そのタスクを実装し実行するコードが必要です。
+    Pythonで現在時刻を取得するコードを実装し、さらに結果を得るために `response_message` から名前と引数を抽出するコードも書きます。
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ AIエージェントはツールを活用して複雑なタスクを完了した
     ```
 
      ```python
-     # 関数呼び出しを処理する
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # 2回目のAPI呼び出し：モデルからの最終応答を取得する
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # 関数呼び出しを処理する
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # ツールの結果をfunction_call_output項目として返す
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # 2回目のAPI呼び出し：モデルから最終応答を取得する
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,79 +198,84 @@ AIエージェントはツールを活用して複雑なタスクを完了した
       The current time in San Francisco is 09:24 AM.
      ```
 
-関数呼び出しはほとんどすべてのエージェント用ツール使用設計の中心ですが、ゼロから実装するのは時に難しい場合があります。
-[レッスン2](../../../02-explore-agentic-frameworks)で学んだように、エージェントフレームワークはツール使用を実装するためのビルディングブロックを既に提供しています。
+関数呼び出しは多くのエージェントツール使用デザインの中心となりますが、ゼロから実装するのは時に困難です。
+[Lesson 2](../../../02-explore-agentic-frameworks)で学んだように、エージェントフレームワークはツール使用のための構成要素を予め提供してくれます。
+ 
+## エージェントフレームワークを用いたツール使用の例
 
-## エージェントフレームワークを使ったツール使用の例
-
-異なるエージェントフレームワークを使ってツール使用デザインパターンを実装する例をいくつか紹介します：
+ここでは異なるエージェントフレームワークでツール使用デザインパターンを実装する例を示します:
 
 ### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a>はAIエージェント構築のためのオープンソースAIフレームワークです。`@tool`デコレーターを使ってPython関数としてツールを定義することで、関数呼び出しの処理を簡素化します。モデルとコード間の通信をフレームワークが管理します。File SearchやCode Interpreterなどの既製ツールも`AzureAIProjectAgentProvider`経由で利用可能です。
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> はAIエージェント構築のためのオープンソースフレームワークです。`@tool`デコレータでPython関数としてツールを定義可能にし、関数呼び出しの処理を簡素化しています。モデルとコード間の通信を処理し、`FoundryChatClient`を介してファイル検索やコードインタープリターなどの予め組み込まれたツールにもアクセスできます。
 
-以下の図はMicrosoft Agent Frameworkでの関数呼び出しのプロセスを示しています：
+次の図はMicrosoft Agent Frameworkにおける関数呼び出しの流れを示しています:
 
 ![function calling](../../../translated_images/ja/functioncalling-diagram.a84006fc287f6014.webp)
 
-Microsoft Agent Frameworkでは、ツールはデコレートされた関数として定義されます。先ほど見た`get_current_time`関数を`@tool`デコレーターでツールに変換できます。フレームワークが関数とパラメータを自動的にシリアライズし、LLMに送信するスキーマを作成します。
+Microsoft Agent Frameworkでは、デコレータ付き関数としてツールを定義します。先ほどの `get_current_time` 関数を `@tool` デコレータでツールに変換し、関数とパラメーターのシリアライズやスキーマ作成をフレームワークが自動処理します。
 
 ```python
+import os
 from agent_framework import tool
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-@tool
+@tool(approval_mode="never_require")
 def get_current_time(location: str) -> str:
     """Get the current time for a given location"""
     ...
 
 # クライアントを作成する
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # エージェントを作成し、ツールで実行する
-agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>は、開発者が基盤となる計算やストレージを管理せずに、高品質で拡張性のあるAIエージェントを安全に構築、展開、スケールできるよう設計された新しいエージェントフレームワークです。特にエンタープライズアプリケーションに有用で、エンタープライズグレードのセキュリティを備えた完全マネージドサービスです。
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> は、開発者が基盤の計算・ストレージ管理なしに安全に高品質で拡張可能なAIエージェントを構築・配備・スケールできるよう設計された新しいエージェントフレームワークです。特に企業向けに設計された完全マネージドサービスであり、企業レベルのセキュリティを備えています。
 
-LLM APIを直接使用して開発する場合と比較して、Azure AI Agent Serviceには以下の利点があります：
+LLM APIを直接使って開発する場合と比べ、Microsoft Foundry Agent Serviceは以下の利点があります:
 
-- ツール呼び出しの自動化 — ツール呼び出しの解析や実行、レスポンス処理がサーバー側で完結
-- セキュアに管理されたデータ — 独自の会話状態管理不要で、スレッドを利用してすべての情報を保存できる
-- すぐ使えるツール — Bing、Azure AI Search、Azure Functionsなどのデータソースとやり取りするツール
+- ツール呼び出しの自動化—ツール呼び出しの解析、実行、応答処理をサーバー側で一括して行うため開発負荷軽減
+- セキュアなデータ管理—独自に会話状態を管理する代わりにスレッドに全情報を格納
+- 標準搭載のツール—BingやAzure AI Search、Azure Functionsなどデータソースと連携するツールを利用可能
 
-Azure AI Agent Serviceのツールは大きく2つに分類されます：
+Microsoft Foundry Agent Serviceで利用可能なツールは以下の2種類に分けられます:
 
-1. 知識ツール:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing検索による情報基盤</a>
+1. ナレッジツール:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing検索によるグラウンディング</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">ファイル検索</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI検索</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. アクションツール:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">関数呼び出し</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">コードインタープリタ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI定義ツール</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">コードインタープリター</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI定義のツール</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Serviceはこれらのツールを`toolset`として一緒に使えるようにし、特定の会話のメッセージ履歴を管理する`threads`を利用します。
+Agent Serviceではこれらのツールを `toolset` としてまとめて利用でき、特定の会話履歴を管理する `threads` も利用します。
 
-例えば、Contosoという会社の営業担当者で、営業データに関する質問に答えられる会話型エージェントを開発したい場合を考えます。
+例えば、Contosoという会社の営業担当者だと想像してください。営業データに関する質問に答えられる会話型エージェントを開発したいと考えています。
 
-以下の画像はAzure AI Agent Serviceで営業データを分析する方法を示しています：
+次の図はMicrosoft Foundry Agent Serviceを利用して営業データを分析する例です:
 
 ![Agentic Service In Action](../../../translated_images/ja/agent-service-in-action.34fb465c9a84659e.webp)
 
-これらのツールをサービスで利用するには、クライアントを作成しツールまたはツールセットを定義します。実用的に実装するために以下のPythonコードが使えます。LLMはツールセットを見て、ユーザー作成の`fetch_sales_data_using_sqlite_query`関数を使うか、事前構築済みのコードインタープリタを使うかをユーザーのリクエストに応じて決定できます。
+これらのツールをサービスで使うにはクライアントを作成し、ツールやツールセットを定義します。実際の実装例として以下のPythonコードがあります。LLMはツールセットを見て、ユーザーの要求に応じてユーザー定義の関数 `fetch_sales_data_using_sqlite_query` か、組み込みのコードインタープリターのどちらかを選択します。
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_functions.pyファイルにあるfetch_sales_data_using_sqlite_query関数。
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_functions.py ファイルにある fetch_sales_data_using_sqlite_query 関数。
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -277,27 +283,27 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# ツールセットの初期化
+# ツールセットを初期化する
 toolset = ToolSet()
 
-# fetch_sales_data_using_sqlite_query関数を用いて関数呼び出しエージェントを初期化し、ツールセットに追加
+# fetch_sales_data_using_sqlite_query 関数を使用して関数呼び出しエージェントを初期化し、ツールセットに追加する
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Code Interpreterツールを初期化し、ツールセットに追加
+# Code Interpreter ツールを初期化し、ツールセットに追加する。
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## 信頼できるAIエージェントを構築するためにツール使用デザインパターンを使う際の特別な考慮事項は？
+## ツール使用デザインパターンで信頼できるAIエージェントを構築する際の特別な考慮点は？
 
-LLMが動的に生成するSQLに関して一般的な懸念はセキュリティであり、特にSQLインジェクションやデータベースの破壊や改ざんなどの悪意ある行為のリスクです。これらの懸念は妥当ですが、データベースアクセス権限を適切に設定することで効果的に軽減できます。多くのデータベースでは読み取り専用に設定することが関係します。PostgreSQLやAzure SQLのようなデータベースサービスでは、アプリに読み取り専用（SELECT）ロールを割り当てるべきです。
+LLMによって動的に生成されるSQLに関する一般的な懸念事項はセキュリティです。特にSQLインジェクションやデータベースの削除・改ざんといった悪質な行為のリスクが挙げられます。これらの懸念は、データベースアクセス権限を適切に設定することで効果的に軽減可能です。多くのデータベースでは読み取り専用（Read-only）として設定し、PostgreSQLやAzure SQLのようなデータベースサービスではアプリに読み取り専用（SELECT）権限を割り当てます。
 
-アプリを安全な環境で実行することも保護を強化します。企業シナリオでは、データは通常操作システムから抽出され変換され、ユーザーフレンドリーなスキーマを備えた読み取り専用のデータベースやデータウェアハウスに格納されます。この方法により、データは安全かつパフォーマンスやアクセス性の最適化がされ、アプリは制限された読み取り専用アクセスを持ちます。
+アプリをセキュアな環境で実行すればさらに保護が強化されます。企業環境では、運用システムから抽出・変換されたデータをユーザーフレンドリーなスキーマの読み取り専用データベースやデータウェアハウスに保管することが一般的です。このアプローチによりデータは安全に保たれ、性能とアクセシビリティの最適化がなされ、アプリのアクセスは制限された読み取り専用にとどまります。
 
 ## サンプルコード
 
@@ -306,19 +312,25 @@ LLMが動的に生成するSQLに関して一般的な懸念はセキュリテ�
 
 ## ツール使用デザインパターンについてさらに質問がありますか？
 
-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) に参加して、他の学習者と交流し、オフィスアワーに参加してAIエージェントの質問に答えてもらいましょう。
+他の学習者と出会い、オフィスアワーに参加し、AIエージェントに関する質問を解決するために[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)に参加しましょう。
 
 ## 追加リソース
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service ワークショップ</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer マルチエージェントワークショップ</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework 概要</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Serviceワークショップ</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writerマルチエージェントワークショップ</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework概要</a>
+
+
+## このエージェントのスモークテスト（オプション）
+
+[Lesson 16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだ後、このレッスンの`TravelToolAgent`がまだツールを呼び出し回答しているかを[`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json)でスモークテストできます。実行方法は[`tests/README.md`](../tests/README.md)を参照してください。
 
 ## 前のレッスン
 
-[エージェントデザインパターンの理解](../03-agentic-design-patterns/README.md)
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
 ## 次のレッスン
+
 [Agentic RAG](../05-agentic-rag/README.md)
 
 ---

@@ -4,51 +4,51 @@
 
 ### Johdanto
 
-Tämä oppitunti käsittelee:
+Tässä oppitunnissa käsitellään:
 
-- Microsoft Agent Frameworkin ymmärtäminen: Keskeiset ominaisuudet ja arvo  
+- Microsoft Agent Frameworkin ymmärtäminen: keskeiset ominaisuudet ja arvo  
 - Microsoft Agent Frameworkin keskeisten käsitteiden tutkiminen
-- Edistyneet MAF-kuviot: Työnkulut, Middleware ja Muisti
+- Edistyneet MAF-mallit: työnkulut, middleware ja muisti
 
 ## Oppimistavoitteet
 
-Tämän oppitunnin suorittamisen jälkeen osaat:
+Oppitunnin suorittamisen jälkeen osaat:
 
-- Rakentaa tuotantovalmiita tekoälyagentteja Microsoft Agent Frameworkia käyttäen
-- Soveltaa Microsoft Agent Frameworkin ydintoimintoja agenttikäyttötapauksiisi
-- Käyttää edistyneitä kuvioita, kuten työnkulkuja, middlewarea ja havainnointia
+- Rakentaa tuotantovalmiita tekoälyagentteja Microsoft Agent Frameworkin avulla
+- Soveltaa Microsoft Agent Frameworkin ydintoimintoja agenttipohjaisissa käyttötapauksissa
+- Käyttää edistyneitä malleja, mukaan lukien työnkulut, middleware ja havainnoitavuus
 
-## Koodiesimerkit
+## Koodiesimerkit 
 
-Microsoft Agent Frameworkin (MAF) koodiesimerkit löytyvät tästä repositoriosta tiedostoista `xx-python-agent-framework` ja `xx-dotnet-agent-framework`.
+Koodiesimerkit [Microsoft Agent Frameworkille (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) löytyvät tästä arkistosta tiedostojen `xx-python-agent-framework` ja `xx-dotnet-agent-framework` alta.
 
 ## Microsoft Agent Frameworkin ymmärtäminen
 
 ![Framework Intro](../../../translated_images/fi/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) on Microsoftin yhtenäinen kehys tekoälyagenttien rakentamiseen. Se tarjoaa joustavuutta käsitellä vaihtelevia agenttikäyttötapauksia sekä tuotanto- että tutkimusympäristöissä, kuten:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) on Microsoftin yhtenäinen kehys tekoälyagenttien rakentamiseen. Se tarjoaa joustavuuden vastata laajaan valikoimaan agenttipohjaisia käyttötapauksia, joita esiintyy sekä tuotanto- että tutkimusympäristöissä, kuten:
 
-- **Sekventiaalinen agenttien orkestrointi** tilanteissa, joissa tarvitaan vaiheittaisia työnkulkuja.
-- **Samtakainen orkestrointi** tilanteissa, joissa agenttien pitää suorittaa tehtäviä samanaikaisesti.
-- **Ryhmächatti-orkestrointi** tilanteissa, joissa agentit voivat tehdä yhteistyötä yhden tehtävän parissa.
-- **Tehtävän siirto (Handoff) -orkestrointi** tilanteissa, joissa agentit siirtävät tehtävää toisilleen osatehtävien valmistuessa.
-- **Magnetinen orkestrointi** tilanteissa, joissa manager-agentti luo ja muokkaa tehtävälistaa sekä koordinoi aliagenttien toimintaa tehtävän suorittamiseksi.
+- **Peräkkäinen agenttien orkestrointi** tilanteissa, joissa tarvitaan vaiheittaisia työnkulkuja.
+- **Samaan aikaan tapahtuva orkestrointi** tilanteissa, joissa agenttien on suoritettava tehtäviä samanaikaisesti.
+- **Ryhmäkeskustelun orkestrointi** tilanteissa, joissa agentit voivat työskennellä yhdessä yhden tehtävän parissa.
+- **Tehtävien luovutus orkestrointi** tilanteissa, joissa agentit siirtävät tehtävän toisilleen ala­tehtävien valmistuessa.
+- **Magnetismin orkestrointi** tilanteissa, joissa johtava agentti luo ja muokkaa tehtävälistaa ja hoitaa ala-agenttien koordinoinnin tehtävän suorittamiseksi.
 
-Tuotantovalmiiden tekoälyagenttien toimittamiseksi MAF sisältää myös ominaisuuksia:
+Tuotannon tekoälyagenttien toimittamiseksi MAF sisältää myös ominaisuuksia:
 
-- **Havainnointi** OpenTelemetryn avulla, jossa jokainen tekoälyagentin toiminto, mukaan lukien työkalukutsut, orkestrointivaiheet, päättelyvirrat ja suorituskyvyn seuranta Microsoft Foundryn kojelaudoilla, näkyvät.
-- **Turvallisuus** isännöimällä agentteja natiivisti Microsoft Foundryssa, joka sisältää roolipohjaiset käyttöoikeudet, yksityisen datan käsittelyn ja sisäänrakennetun sisällön turvallisuuden.
-- **Kestävyys** sillä agenttien prosessiketjut ja työnkulut voivat tauottaa, jatkaa ja toipua virheistä, mahdollistaen pidemmät suoritukset.
-- **Hallinta**, joka mahdollistaa ihmisen sisällyttämisen työnkulkuihin, joissa tehtävät merkitään ihmisen hyväksyntää vaativiksi.
+- **Havainnoitavuus** OpenTelemetryn avulla, jossa seurataan jokaista tekoälyagentin toimintoa, mukaan lukien työkalun kutsut, orkestroinnin vaiheet, päättelyprosessit sekä suorituskyvyn seuranta Microsoft Foundry -kojelautojen kautta.
+- **Turvallisuus** sijoittamalla agentit natiivisti Microsoft Foundryyn, mikä sisältää roolipohjaisen pääsynvalvonnan, yksityisen tiedon käsittelyn ja sisäänrakennetun sisällön turvallisuuden.
+- **Kestävyys** sillä agenttien säikeet ja työnkulut voivat keskeytyä, jatkua ja palautua virheistä, mikä mahdollistaa pidempään käynnissä olevan prosessin.
+- **Hallinta** sillä ihmisen osallistuminen työnkulkuun on tuettu siten, että tehtävät merkitään ihmisen hyväksyntää vaativiksi.
 
 Microsoft Agent Framework keskittyy myös yhteensopivuuteen:
 
-- **Pilvi-riippumattomuus** – agentit voivat toimia konteissa, paikallisesti ja useilla eri pilvialustoilla.
-- **Toimittajariippumattomuus** – agentit voidaan luoda suosikkikehitysympäristöäsi käyttäen, kuten Azure OpenAI tai OpenAI.
-- **Avoimien standardien integraatio** – agentit voivat hyödyntää protokollia kuten Agent-to-Agent (A2A) ja Model Context Protocol (MCP) löytääkseen ja käyttääkseen muita agentteja ja työkaluja.
-- **Laajennukset ja liittimet** – yhteydet voidaan tehdä datan ja muistitallennuspalvelujen, kuten Microsoft Fabric, SharePoint, Pinecone ja Qdrant, kanssa.
+- **Pilviteknologiasta riippumattomuuteen** - agentit voivat toimia konteissa, paikallisissa ympäristöissä ja useissa eri pilvissä.
+- **Palveluntarjoajasta riippumattomuuteen** - agentit voidaan luoda suosimallasi SDK:lla, mukaan lukien Azure OpenAI ja OpenAI.
+- **Avoimien standardien integrointiin** - agentit voivat käyttää protokollia kuten Agent-to-Agent (A2A) ja Model Context Protocol (MCP) löytääkseen ja käyttäessään muita agentteja ja työkaluja.
+- **Laajennukset ja liittimet** - yhteydet voidaan muodostaa datapalveluihin ja muisteihin, kuten Microsoft Fabric, SharePoint, Pinecone ja Qdrant.
 
-Tutkitaan, miten näitä ominaisuuksia sovelletaan Microsoft Agent Frameworkin keskeisiin käsitteisiin.
+Tarkastellaan, miten näitä ominaisuuksia sovelletaan Microsoft Agent Frameworkin keskeisiin käsitteisiin.
 
 ## Microsoft Agent Frameworkin keskeiset käsitteet
 
@@ -58,19 +58,20 @@ Tutkitaan, miten näitä ominaisuuksia sovelletaan Microsoft Agent Frameworkin k
 
 **Agenttien luominen**
 
-Agentin luominen tapahtuu määrittelemällä päättelypalvelu (LLM-palveluntarjoaja), joukko ohjeita tekoälyagentille noudatettavaksi sekä määritetty `name`:
+Agentin luominen tapahtuu määrittelemällä päättelypalvelu (LLM-palveluntarjoaja), joukko ohjeita, joita tekoälyagentin tulee noudattaa, ja määritelty `nimi`:
+
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Esimerkissä käytetään `Azure OpenAI`-palvelua, mutta agentteja voi luoda monilla eri palveluilla, mukaan lukien `Microsoft Foundry Agent Service`:
+Edellä käytetään `Azure OpenAI`:ta, mutta agentteja voidaan luoda monella eri palvelulla, mukaan lukien `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
 
-OpenAI:n `Responses`-, `ChatCompletion`-API:t
+OpenAI:n `Responses`, `ChatCompletion` -rajapinnat
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
@@ -80,13 +81,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-tai [MiniMax](https://platform.minimaxi.com/), joka tarjoaa OpenAI-yhteensopivan API:n suuren kontekstikoon kanssa (jopa 204 000 tokenia):
+tai [MiniMax](https://platform.minimaxi.com/), joka tarjoaa OpenAI-yhteensopivan API:n laajoilla kontekstin ikkunoilla (jopa 204 000 tokenia):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-tai etäagentit A2A-protokollaa käyttäen:
+tai etäagentteja käyttäen A2A-protokollaa:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -94,7 +95,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Agenttien suorittaminen**
 
-Agentit suoritetaan `.run`- tai `.run_stream`-metodeilla, jotka mahdollistavat joko ei-virtuaalisen tai virtuaalisen vastauksen.
+Agenttien suorittaminen tapahtuu `.run` tai `.run_stream` -metodeilla, riippuen siitä, halutaanko ei-suoratoimista vai suoratoistovastausta.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -108,9 +109,9 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Jokaisella agentin suorituksella voi olla myös vaihtoehtoja parametrien mukauttamiseen, kuten agentin käyttämien `max_tokens`-asetuksen, `tools`-työkalujen, joita agentti voi kutsua, tai jopa käytettävän `model`-mallin määrittelyyn.
+Jokaisella agentin suorituksella voi olla myös asetuksia, jotka mukauttavat parametreja kuten agentin käyttämää `max_tokens`, työkalujen `tools` kutsumismahdollisuudet ja jopa itse `mallia` agentin käytettäväksi.
 
-Tämä on hyödyllistä tilanteissa, joissa tiettyjä malleja tai työkaluja tarvitaan käyttäjän tehtävän suorittamiseen.
+Tämä on hyödyllistä tapauksissa, joissa tiettyjä malleja tai työkaluja vaaditaan käyttäjän tehtävän suorittamiseen.
 
 **Työkalut**
 
@@ -130,26 +131,26 @@ että agenttia suoritettaessa:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Työkalu tarjottu vain tätä ajoa varten )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Työkalu, joka on saatavilla vain tätä ajoa varten )
 ```
 
-**Agenttien säikeet**
+**Agenttisäikeet**
 
-Agenttien säikeitä käytetään monivuorokeskustelujen hallintaan. Säikeitä voidaan luoda joko:
+Agenttisäikeitä käytetään käsittelemään moni-vaiheisia keskusteluja. Säikeitä voidaan luoda joko:
 
-- Käyttämällä `get_new_thread()`, joka mahdollistaa säikeen tallentamisen ajan myötä
-- Luomalla säie automaattisesti agentin suorituksen yhteydessä siten, että säie kestää vain kyseisen suorituksen ajan.
+- Käyttämällä `get_new_thread()`-metodia, jolloin säie tallennetaan ajan myötä
+- Luomalla säie automaattisesti agentin suorittamisen yhteydessä, jolloin säie on voimassa vain kyseisen suorituksen ajan.
 
-Säikeen luontikoodi näyttää tältä:
+Säikeen luominen näyttää koodissa tältä:
 
 ```python
 # Luo uusi säie.
-thread = agent.get_new_thread() # Suorita agentti säikeellä.
+thread = agent.get_new_thread() # Suorita agentti säikeen kanssa.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Voit sitten sarjoittaa säikeen tallennettavaksi myöhempää käyttöä varten:
+Säikeen voi serialisoida tallennettavaksi myöhempää käyttöä varten:
 
 ```python
 # Luo uusi säie.
@@ -159,24 +160,24 @@ thread = agent.get_new_thread()
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Serialisoi säie tallennusta varten.
+# Sarjoita säie tallennusta varten.
 
 serialized_thread = await thread.serialize() 
 
-# Deserialisoi säikeen tila tallennuksen jälkeen.
+# Desarjoita säikeen tila latauksen jälkeen.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
-**Agentin Middleware**
+**Agentin middleware**
 
-Agentit ovat vuorovaikutuksessa työkalujen ja LLM:ien kanssa suorittaakseen käyttäjän tehtävät. Joissain tilanteissa haluamme suorittaa tai seurata toimintaa näiden vuorovaikutusten välissä. Agentin middleware mahdollistaa tämän seuraavasti:
+Agentit vuorovaikuttavat työkalujen ja LLM:ien kanssa suorittaakseen käyttäjän tehtäviä. Tietyissä tilanteissa haluamme suorittaa tai seurata toimintaa näiden vuorovaikutusten välillä. Agentin middleware mahdollistaa tämän:
 
-*Funktio-Middleware*
+*Funktio-middleware*
 
-Tämä middleware antaa mahdollisuuden suorittaa toiminto agentin ja kutsuttavan funktion/ työkalun välillä. Esimerkiksi tässä voisi tehdä lokituksen funktion kutsussa.
+Tämä middleware mahdollistaa toiminnon suorittamisen agentin ja kutsuttavan funktion/työkalun välillä. Esimerkkinä käytöstä voisi olla lokituksen tekeminen funktiokutsuille.
 
-Alla olevassa koodissa `next` määrittää, suoritaanko seuraava middleware vai varsinainen funktio.
+Alla olevassa koodissa `next` määrittelee, kutsutaanko seuraavaa middlewarea vai varsinaista funktiota.
 
 ```python
 async def logging_function_middleware(
@@ -194,11 +195,11 @@ async def logging_function_middleware(
     print(f"[Function] {context.function.name} completed")
 ```
 
-*Chat-Middleware*
+*Chat-middleware*
 
-Tämä middleware mahdollistaa toiminnon suorittamisen tai lokituksen agentin ja LLM:n välisissä pyynnöissä.
+Tämä middleware mahdollistaa toiminnon suorittamisen tai lokituksen agentin ja LLM:n pyyntöjen välillä.
 
-Sisältää keskeisiä tietoja, kuten AI-palveluun lähetettävät `messages`-viestit.
+Tämä sisältää tärkeää tietoa kuten AI-palvelulle lähetettävät `messages`.
 
 ```python
 async def logging_chat_middleware(
@@ -209,7 +210,7 @@ async def logging_chat_middleware(
     # Esikäsittely: Kirjaa lokiin ennen tekoälykutsua
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Jatka seuraavaan keskiohjelmistoon tai tekoälypalveluun
+    # Jatka seuraavaan välikerrokseen tai tekoälypalveluun
     await next(context)
 
     # Jälkikäsittely: Kirjaa lokiin tekoälyn vastauksen jälkeen
@@ -217,23 +218,23 @@ async def logging_chat_middleware(
 
 ```
 
-**Agentin Muisti**
+**Agentin muisti**
 
-Kuten oppitunnissa `Agentic Memory` käsiteltiin, muisti on tärkeä osa-agentin toimintaa eri konteksteissa. MAF tarjoaa useita muistityyppejä:
+Kuten opetuksessa `Agentic Memory` käsiteltiin, muisti on tärkeä osa agentin toimintaa eri konteksteissa. MAF tarjoaa useita erilaisia muisteja:
 
 *Muisti sovelluksen ajon aikana*
 
-Tämä muisti tallennetaan säikeisiin sovelluksen ajon aikana.
+Tämä on säikeiden aikana sovelluksen suoritusaikana tallennettu muisti.
 
 ```python
 # Luo uusi säie.
-thread = agent.get_new_thread() # Suorita agentti säikeellä.
+thread = agent.get_new_thread() # Suorita agentti säikeen kanssa.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
 *Pysyvät viestit*
 
-Tätä muistia käytetään keskusteluhistorian tallentamiseen eri istuntojen välillä. Se määritellään `chat_message_store_factory`:lla:
+Tätä muistia käytetään keskusteluhistorian tallentamiseen eri istuntojen välillä. Se määritellään käyttäen `chat_message_store_factory` -kenttää:
 
 ```python
 from agent_framework import ChatMessageStore
@@ -252,12 +253,12 @@ agent = ChatAgent(
 
 *Dynaaminen muisti*
 
-Tämä muisti lisätään kontekstiin ennen agenttien suoritusta. Näitä muisteja voidaan tallentaa ulkoisiin palveluihin, kuten mem0:
+Tämä muisti lisätään kontekstiin ennen agenttien suorittamista. Näitä muisteja voidaan tallentaa ulkoisissa palveluissa, kuten mem0:ssa:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Käytetään Mem0:aa edistyneisiin muistiominaisuuksiin
+# Käytetään Mem0:a edistyneisiin muistiominaisuuksiin
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -272,9 +273,10 @@ agent = ChatAgent(
 
 ```
 
-**Agentin Havainnointi**
+**Agentin havainnoitavuus**
 
-Havainnointi on tärkeää luotettavien ja ylläpidettävien agenttijärjestelmien rakentamiseen. MAF integroituu OpenTelemetryyn tarjoten jäljityksen ja mittarit paremmaksi havainnoitavuudeksi.
+
+Havainnointikyky on tärkeää luotettavien ja ylläpidettävien agenttipohjaisten järjestelmien rakentamisessa. MAF integroituu OpenTelemetryn kanssa tarjotakseen jäljitystä ja mittareita paremman havainnointikyvyn saavuttamiseksi.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -290,21 +292,21 @@ counter.add(1, {"key": "value"})
 
 ### Työnkulut
 
-MAF tarjoaa työnkulkuja, jotka ovat ennalta määriteltyjä vaiheita tehtävän suorittamiseksi ja sisältävät tekoälyagentteja komponentteinaan näissä vaiheissa.
+MAF tarjoaa työnkulkuja, jotka ovat ennalta määriteltyjä vaiheita tehtävän suorittamiseksi ja sisältävät tekoälyagentteja komponentteina näissä vaiheissa.
 
-Työnkulut koostuvat eri komponenteista, jotka mahdollistavat paremman ohjauksen. Työnkulut tukevat myös **moni-agenttiorkestrointia** ja **tarkistuspisteiden (checkpointing)** käyttöä työnkulun tilojen tallennukseen.
+Työnkulut koostuvat erilaisista komponenteista, jotka mahdollistavat paremman ohjausvirran. Työnkulut mahdollistavat myös **moni-agenttien orkestroinnin** ja **tarkistuspisteiden** käytön työnkulun tilan tallentamiseksi.
 
 Työnkulun ydinkomponentit ovat:
 
-**Suorittajat (Executors)**
+**Suorittajat**
 
-Suorittajat vastaanottavat syöteviestejä, suorittavat tehtävänsä ja tuottavat lähtöviestin. Tämä siirtää työnkulkua eteenpäin kohti suuremman tehtävän valmistumista. Suorittajat voivat olla tekoälyagentteja tai omaa logiikkaa.
+Suorittajat vastaanottavat syötemessagesseja, suorittavat niille määritellyt tehtävät ja tuottavat sitten lähtöviestin. Tämä vie työnkulkua eteenpäin kohti koko suuremman tehtävän suorittamista. Suorittajat voivat olla joko tekoälyagentteja tai räätälöityä logiikkaa.
 
-**Reunat (Edges)**
+**Kaaret**
 
-Reunoilla määritellään viestien kulku työnkulkussa. Näitä voivat olla:
+Kaaria käytetään määrittelemään viestien kulku työnkulkussa. Näitä voivat olla:
 
-*Suorat reunat* – Yksinkertaisia yksi-yhteen yhteyksiä suorittajien välillä:
+*Suorat kaaret* - Yksinkertaiset yksi-yhteen yhteydet suorittajien välillä:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -315,45 +317,134 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Ehtoreunat* – Aktivoituvat tietyn ehdon täyttyessä. Esimerkiksi kun hotellihuoneita ei ole saatavilla, suorittaja voi ehdottaa muita vaihtoehtoja.
+*Ehdolliset kaaret* - Aktivoituvat tietyn ehdon täyttyessä. Esimerkiksi, kun hotellihuoneita ei ole saatavilla, suorittaja voi ehdottaa muita vaihtoehtoja.
 
-*Kytkin-case-reunat* – Ohjaavat viestit eri suorittajille ehtojen mukaan. Esimerkiksi matka-asiakkaalla on prioriteettikäsittely, jolloin tehtävät hoidetaan toisessa työnkulussa.
+*Valintakaaret* - Ohjaa viestit eri suorittajille määriteltyjen ehtojen perusteella. Esimerkiksi, jos matkustajalla on etuoikeutettu pääsy, heidän tehtävänsä hoidetaan toisen työnkulun kautta.
 
-*Fan-out-reunat* – Lähettävät yhden viestin useille kohteille.
+*Monisulkeutumis-kaaret* - Lähetä yksi viesti useaan kohteeseen.
 
-*Fan-in-reunat* – Keräävät useita viestejä eri suorittajilta ja lähettävät ne yhdelle kohteelle.
+*Monikokoontumis-kaaret* - Kerää useita viestejä eri suorittajilta ja lähetä yhdelle kohteelle.
 
 **Tapahtumat**
 
-Parantaakseen työnkulkujen havainnoitavuutta MAF tarjoaa sisäänrakennettuja suoritustapahtumia, kuten:
+Tarjotakseen paremman havainnointikyvyn työnkulkuihin, MAF tarjoaa sisäänrakennettuja tapahtumia suorituksesta, mukaan lukien:
 
-- `WorkflowStartedEvent` – Työnkulun suoritus alkaa
-- `WorkflowOutputEvent` – Työnkulku tuottaa tuloksen
-- `WorkflowErrorEvent` – Työnkulku kohtaa virheen
-- `ExecutorInvokeEvent` – Suorittaja aloittaa suorituksen
-- `ExecutorCompleteEvent` – Suorittaja päättää suorituksen
-- `RequestInfoEvent` – Pyyntö tehdään
+- `WorkflowStartedEvent`  - Työnkulun suoritus alkaa
+- `WorkflowOutputEvent` - Työnkulkutuottaa tuloksen
+- `WorkflowErrorEvent` - Työnkulku kohtaa virheen
+- `ExecutorInvokeEvent`  - Suorittaja aloittaa prosessoinnin
+- `ExecutorCompleteEvent`  -  Suorittaja saa prosessoinnin päätökseen
+- `RequestInfoEvent` - Pyyntö annetaan
 
-## Edistyneet MAF-kuviot
+## Edistyneet MAF-mallit
 
-Yllä olevat osiot käsittelevät Microsoft Agent Frameworkin keskeisiä käsitteitä. Kun rakennat monimutkaisempia agentteja, tässä joitakin edistyneitä kuvioita harkittavaksi:
+Yllä olevat osiot käsittelevät Microsoft Agent Frameworkin keskeisiä käsitteitä. Kun rakennat monimutkaisempia agentteja, tässä on joitain kehittyneitä malleja harkittavaksi:
 
-- **Middleware-kompositio**: Ketjuta useita middleware-käsittelijöitä (lokitus, autentikointi, nopeuden rajoitus) funktio- ja chat-middlewareilla hienojakoiseen hallintaan agentin toiminnassa.
-- **Työnkulun tarkistuspisteet**: Käytä työnkulun tapahtumia ja sarjallistusta tallentaaksesi ja jatkaaksesi pitkiä agenttiprosesseja.
-- **Dynaaminen työkalujen valinta**: Yhdistä RAG-tekniikka työkalukuvauksista MAF:n työkalurekisteröintiin esittääksesi vain relevantteja työkaluja kyselyä kohden.
-- **Moni-agenttien tehtävänvaihto (handoff)**: Käytä työnkulun reunoja ja ehtoreittejä orkestroidaksesi tehtäväsiirtoja erikoistuneiden agenttien välillä.
+- **Middleware-kompositio**: Ketjuta useita middleware-käsittelijöitä (lokitus, autentikointi, nopeussäädin) käyttämällä funktio- ja keskusteluvälikerroksia tarkkaan hallintaan agentin käyttäytymisestä.
+- **Työnkulun tarkistuspisteet**: Käytä työnkulun tapahtumia ja sarjallistamista pitkien agenttiprosessien tallentamiseen ja jatkamiseen.
+- **Dynaaminen työkalujen valinta**: Yhdistä RAG työkalukuvausten päälle ja MAF:n työkalurekisteröinti esittää vain kyselyyn relevantit työkalut.
+- **Moni-agenttien siirrot**: Käytä työnkulun kaaria ja ehdollista reititystä erikoistuneiden agenttien välisiin siirtoihin.
 
-## Koodiesimerkit
+## LangChain / LangGraph Agenttien isännöinti Microsoft Foundryssa
 
-Microsoft Agent Frameworkin koodiesimerkit löytyvät tästä repositoriosta tiedostoista `xx-python-agent-framework` ja `xx-dotnet-agent-framework`.
+Microsoft Agent Framework on **kehys-yhteensopiva** — et ole rajoitettu vain MAF:lla rakennettuihin agentteihin. Jos sinulla on jo agentti rakennettuna **LangChain**illa tai **LangGraph**illa, voit ajaa sen **Microsoft Foundryn isännöimänä agenttina**, jolloin Foundry hallinnoi ajoaikaa, istuntoja, skaalausta, identiteettiä ja protokollapisteitä puolestasi, samalla kun agenttisi logiikka pysyy LangGraphissa.
+
+Tämä tehdään `langchain_azure_ai.agents.hosting`-paketin avulla, joka tarjoaa käännetyn LangGraph-verkon samoilla protokollilla, joita Foundryn isännöidyt agentit käyttävät.
+
+**1. Asenna hosting-lisäosa:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
+```
+
+`hosting`-lisäosa asentaa Foundryn protokollakirjastot: `azure-ai-agentserver-responses` (OpenAI-yhteensopiva `/responses`-päätepiste) ja `azure-ai-agentserver-invocations` (yleinen `/invocations`-päätepiste).
+
+**2. Valitse hosting-protokolla:**
+
+| Protokolla | Isäntäluokka | Päätepiste | Käytössä kun |
+|----------|-----------|----------|----------|
+| **Responses** | `ResponsesHostServer` | `/responses` | Haluat OpenAI-yhteensopivan chatin, suoratoiston, vastaushistorian ja keskusteluketjutuksen — suositeltu oletus keskusteluagentille. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Tarvitset räätälöidyn JSON-muodon, webhook-tyyppisen päätepisteen tai ei-keskustelullisen käsittelyn. |
+
+Koska **Responses API on ensisijainen API agenttityyppiseen kehitykseen Foundryssa**, aloita useimpien agenttien osalta `ResponsesHostServer`-luokalla.
+
+**3. Määritä ympäristömuuttujat** (`az login` ensin, jotta `DefaultAzureCredential` voi autentikoida):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-5-mini"
+```
+
+Kun agentti myöhemmin ajetaan isännöitynä Foundryssa, alusta lisää `FOUNDRY_PROJECT_ENDPOINT` automaattisesti.
+
+**4. Tarjoa LangGraph-agentti Responses-protokollan yli:**
+
+```python
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-5-mini")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI tässä kohdistuu Foundryn projektin OpenAI-yhteensopivaan (Responses) päätepisteeseen.
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Aja se paikallisesti komennolla `python main.py`, ja lähetä sitten Responses-pyyntö osoitteeseen `http://localhost:8088/responses`.
+
+**Keskeiset käytökset:**
+
+- **Keskustelut**: Asiakkaat jatkavat keskustelua välittämällä `previous_response_id` tai `conversation` tunnuksen. Jos verkko on käännetty LangGraphin tarkistuspiste-toiminnolla, Foundry avaimistaa keskustelutilan tarkistuspisteeseen (käytä kestävää tarkistuspistettä tuotannossa; `MemorySaver` sopii paikalliseen testaukseen).
+- **Ihmisen osallistuminen**: Jos verkossa käytetään LangGraphin `interrupt()`-funktiota, `ResponsesHostServer` tuo odottavan keskeytyksen näkyviin Responses `function_call` / `mcp_approval_request` -kohteena, ja asiakkaat jatkavat vastaavalla `function_call_output` / `mcp_approval_response` -viestillä.
+- **Ota käyttöön Foundryssa**: Käytä Azure Developer CLI -työkaluja — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (paikallinen, vaatii Dockerin), sitten `azd provision` ja `azd deploy`. Isännöidyn agentin käyttöönotto vaatii **Foundry Project Manager** -roolin.
+
+Toimiva versio tästä esimerkistä löytyy [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) tiedostosta. Kattava läpikäynti (Invocations-protokolla, räätälöidyt pyyntölomakkeet ja vianmääritys) löytyy sivulta [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+
+## Koodiesimerkit 
+
+Microsoft Agent Frameworkin koodiesimerkkejä löytyy tästä repositoriosta tiedostojen `xx-python-agent-framework` ja `xx-dotnet-agent-framework` alta.
 
 ## Lisäkysymyksiä Microsoft Agent Frameworkista?
 
-Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaat muita oppijoita, osallistu toimistoaikoihin ja saat vastauksia tekoälyagentteihin liittyviin kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia tekoälyagenttien kysymyksiisi.
+## Edellinen Oppitunti
+
+[Muisti tekoälyagenteille](../13-agent-memory/README.md)
+
+## Seuraava Oppitunti
+
+[Tietokoneen käytön agenttien rakentaminen (CUA)](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja omalla kielellään on virallinen lähde. Tärkeissä asioissa suosittelemme ammattilaisen tekemää ihmiskäännöstä. Emme ole vastuussa mahdollisista väärinymmärryksistä tai virhetulkintojen seurauksista, jotka johtuvat tämän käännöksen käytöstä.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

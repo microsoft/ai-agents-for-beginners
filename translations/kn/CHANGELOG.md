@@ -1,91 +1,108 @@
-# ಚೇಂಜ್‌ಲಾಗ್
+# ಚೇಂಜ್‌ಲೋಗ್
 
-**ಆರ್‌ಟಿಫಿಷಿಯಲ್ ಇಂಟೆಲಿಜೆನ್ಸ್ ಏಜೆಂಟ್‌ಗಳು ಆರಂಭಿಕರಿಗಾಗಿ** ಕೋರ್ಸ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲ ಗಮನಾರ್ಹ ಬದಲಾವಣೆಗಳನ್ನು ಈ ಕಡತದಲ್ಲಿ ದಾಖಲಾಗಿವೆ.
+**ಪ್ರಾರಂಭಿಕರಿಗಾಗಿ AI ಏಜೆಂಟ್ಸ್** ಕೋರ್ಸ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ಪರಿಣಾಮಕಾರಿಯಾದ ಬದಲಾವಣೆಗಳನ್ನು ಈ ಫೈಲ್‌ನಲ್ಲಿ ದಾಖಲಿಸಲಾಗಿದೆ.
 
-## [ಬಿಡುಗಡೆ] — 2026-07-13
+## [ಮুক্তಗೊಂಡಿದೆ] — 2026-07-14
 
-ಈ ಬಿಡುಗಡೆ ಎರಡು ಹೊಸ ಪಾಠಗಳನ್ನು ಸೇರಿಸಿದೆ, ಅವು ದೇಶಾಂತರದಲ್ಲಿ ಏಜೆಂಟ್‌ಗಳನ್ನು ಮೈಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿಗೆ ವಿಸ್ತರಿಸುವುದರಲ್ಲಿಂದ ಒಂದು ಏಕ ಕಂಪ್ಯೂಟರ್‌ಗೆ ಇಳಿಸುವವರೆಗೆ ನಿಯೋಜನೆ ಚರವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತವೆ — ಜೊತೆಗೆ ಧೂಮಪಾಯಿ ಪರೀಕ್ಷಾ ಪೈಪ್ಲೈನ್, ನವೀಕೃತ ಕೋರ್ಸ್ ನಾವಿಗೇಶನ್, ಹೊಸ ಕಲಿಕೆಯ ಕೌಶಲ್ಯಗಳು ಮತ್ತು ಅಪ್ಟುಡೇಟ್ ಮಾಡಿದ ಬ್ರಾಂಡಿಂಗ್‌.
+ಈ ಬಿಡುಗಡೆ ಕೋರ್ಸನ್ನು ಎರಡು ಹೊಸದಾಗಿ ಉಪೇಕ್ಷಿಸಿದ ಮಾದರಿಗಳಿಂದ (deprecated) ತೆಗೆದುಹಾಕುತ್ತದೆ, ಉಳಿದ ಪಾಠದ ನೊಟ್ಬುಕ್‌ಗಳನ್ನು ಸ್ಥಿರ Microsoft Agent Framework API ಗೆ ಸ್ಥಳಾಂತರಿಸುತ್ತದೆ ಮತ್ತು ಪೈಥಾನ್ ನೋಟ್ಬುಕ್‌ಗಳನ್ನು ಲೈವ್ Microsoft Foundry ನಿಯೋಗದ ವಿರುದ್ದ ಮಾನ್ಯತೆ ನೀಡುತ್ತದೆ.
 
-### ಸೇರಿಸಲಾಗಿದೆ
+### ಬದಲಾಯಿಸಲಾಗಿದೆ
 
-- **ಪಾಠ 16 — Microsoft Foundry ಬಳಸಿ ವಿಸ್ತರಿಸುವ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿಯೋಜಿಸುವುದು.** ಹೊಸ ಪಾಠ [16-deploying-scalable-agents/README.md](./16-deploying-scalable-agents/README.md) ಮತ್ತು ಚಾಲನೆಯಲ್ಲಿರುವ ನೋಟ್ಬುಕ್ [16-python-agent-framework.ipynb](./16-deploying-scalable-agents/code_samples/16-python-agent-framework.ipynb), ಉತ್ಪಾದನಾ ಗ್ರಾಹಕ-ಹೆಚ್ಚುವರಿ ಏಜೆಂಟ್ ನಿರ್ಮಿಸಲು (ಉಪಕರಣಗಳು, RAG, ಸ್ಮೃತಿ, ಮಾದರಿ ಮಾರ್ಗಮಾಡಿಕೆ, ಪ್ರತಿಕ್ರಿಯಾ ಕ್ಯಾಶಿಂಗ್, ಮಾನವ ಅನುಮೋದನೆ, ಮೌಲ್ಯಮಾಪನ ಗೇಟ್ ಮತ್ತು OpenTelemetry ಟ್ರೇಸಿಂಗ್), ಅಭಿವೃದ್ಧಿ/ನವೀನತೆ/ರನ್ಟೈಮ್ ಮೆರ್ಮೇಡ್ ಡಯಾಗ್ರಾಮ್‌ಗಳು, ಜ್ಞಾನ ಪರಿಶೀಲನೆ, ನಿಯೋಜನೆ, ಮತ್ತು ಸವಾಲು ಸಹಿತ.
-- **ಪಾಠ 17 — Foundry Local ಮತ್ತು Qwen ಬಳಸಿ ಸ್ಥಳೀಯ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ರಚಿಸುವುದು.** ಹೊಸ ಪಾಠ [17-creating-local-ai-agents/README.md](./17-creating-local-ai-agents/README.md) ಮತ್ತು ನೋಟ್ಬುಕ್ [17-local-agent-foundry-local.ipynb](./17-creating-local-ai-agents/code_samples/17-local-agent-foundry-local.ipynb), ಸಂಪೂರ್ಣವಾಗಿ ಸಾಧನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಇಂಜಿನಿಯರಿಂಗ್ ಸಹಾಯಕನ ನಿರ್ಮಾಣ (Foundry Local ಮೂಲಕ Qwen ಕಾರ್ಯ ಕರೆ, ಸಾಂಡ್ಬಾಕ್ಸ್ ಫೈಲ್ ಉಪಕರಣಗಳು, ಸ್ಥಳೀಯ RAG ಜೊತೆಗೆ ಕ್ರೋಮಾ, ಐಚ್ಛಿಕ ಸ್ಥಳೀಯ MCP), ಸ್ಥಳೀಯ-ಮಾತ್ರ / ಸ್ಥಳೀಯ-RAG / ಉಪಕರಣ ಕರೆದ ಡಯಾಗ್ರಾಮ್‌ಗಳು, ಜ್ಞಾನ ಪರಿಶೀಲನೆ, ನಿಯೋಜನೆ ಮತ್ತು ಸವಾಲುಗಳೊಂದಿಗೆ.
-- **ಧೂಮಪಾಯಿ-ಟೆಸ್ಟ್ ಪೈಪ್ಲೈನ್.** ಹೊಸ [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) ಕಾರ್ಯಬಂಧ [.github/workflows/smoke-test.yml](../../.github/workflows/smoke-test.yml) ಜೊತೆಗೆ ಪಾಠ 01, 04, 05 ಮತ್ತು 16ರ ನಿಯೋಜನೀಯ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಪ್ರತಿ ಪಾಠದ ಕ್ಯಾಟಲಾಗ್‌ಗಳು [tests/](./tests/README.md) ನಲ್ಲಿ, ಪ್ರತಿಯೊಂದು ಕ್ಯಾಟಲಾಗ್ ಅದನ ಪಾಠ ಮತ್ತು ಹೋಸ್ಟ್ ಮಾಡಲಾದ ಏಜೆಂಟ್ ಹೆಸರಿನೊಂದಿಗೆ ನಕ್ಷಾಂತರಿಸಲ್ಪಟ್ಟಿದೆ. ಪಾಠ 16 ಗಾಗಿ "ಧೂಮಪಾಯಿ ಪರೀಕ್ಷೆಗಳಿಂದ ನಿಯೋಜಿತ ಏಜೆಂಟ್ ಅನ್ನು ಮಾನ್ಯಗೊಳಿಸುವುದು" ವಿಭಾಗ ಸೇರಿಸಲಾಗಿದೆ; ಪಾಠಗಳು 01/04/05 ಗೆ ಐಚ್ಛಿಕ ಧೂಮಪಾಯಿ-ಟೆಸ್ಟ್ ಸೂಚಕವು ಸೇರಿಸಲಾಗಿದೆ.
-- **ಕಲಿಕೆಯ ಕೌಶಲ್ಯಗಳು.** ಹೊಸ ಏಜೆಂಟ್ ಕೌಶಲ್ಯಗಳು `.agents/skills/` ಅಡಿಯಲ್ಲಿ: [deploying-scalable-agents](./.agents/skills/deploying-scalable-agents/SKILL.md), [local-ai-agents](./.agents/skills/local-ai-agents/SKILL.md) (ಪಾಠ 16 ಮತ್ತು 17 ಮಾರ್ಗದರ್ಶನವನ್ನು ಪ್ಯಾಕೇಜ್ ಮಾಡುತ್ತಿವೆ), ಮತ್ತು [testing-course-samples](./.agents/skills/testing-course-samples/SKILL.md) (ನೋಟ್ಬುಕ್ ಮಾದರಿಗಳನ್ನು ನೈಜ Microsoft Foundry / Azure OpenAI ಸಿಸ್ಟಂ ವಿರುದ್ಧ ಪರಿಶೀಲಿಸುವ ವಿಧಾನ).
-- **ನೋಟ್ಬುಕ್ ಮಾನ್ಯಗೊಳಿಸುವಿಕೆ ರನ್ನರ್.** ಹೊಸ [scripts/validate-notebooks.ps1](../../scripts/validate-notebooks.ps1) ಪ್ರತಿ ಪೈಥಾನ್ ನೋಟ್ಬುಕ್ ಅನ್ನು ನೇತೃತ್ವವಿಲ್ಲದೆ `nbconvert` ಮೂಲಕ ನಿರ್ವಹಿಸಿ PASS/FAIL ಮಾಟ್ರಿಕ್ಸ್ (ಮತ್ತು `results.json`) ಮುದ್ರಿಸುತ್ತದೆ. ಇದು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರೆಪೊ ರೂಟ್ ಮತ್ತು ಪೈಥಾನ್ ಪತ್ತೆಹಚ್ಚುತ್ತದೆ, ಕೋರ್ಸ್ ಹೊರಗಿನ ನೋಟ್ಬುಕ್‌ಗಳನ್ನು ( `.venv`, `site-packages`, `translations`, ಕೌಶಲ್ಯ ಟೆಂಪ್ಲೇಟೆ ಆಸ್ತಿ) ಮತ್ತು `.NET` ನೋಟ್ಬುಕ್‌ಗಳನ್ನು ಹೊರತುಪಡಿಸುತ್ತದೆ, ಮತ್ತು `-Filter`, `-Timeout`, `-List`, `-IncludeDotnet`, ಮತ್ತು `-Python` ಅನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ.
-- **ಕೋರ್ಸ್ ನಾವಿಗೇಶನ್.** ಪಾಠ 11–15 ಗಳಿಗೆ ಹಿಂದು/ಮುಂದಿನ ಪಾಠ ಲಿಂಕ್‌ಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ (ಹಿಂದೆ ಇಲ್ಲದಿದ್ದವು) ಆದ್ದರಿಂದ ಪೂರ್ತಿ ಕೋರ್ಸ್ 00 → 18 ಎರಡೂ ದಿಕ್ಕುಗಳಲ್ಲಿ ಸರಿಪಡಿಸಲಾಗಿದೆ.
-- **ಹೊಸ ಥಂಬ್ನೇಲ್‌ಗಳು.** ಪಾಠ 16 ಮತ್ತು 17 ರ ಥಂಬ್ನೇಲ್‌ಗಳು, ಜೊತೆಗೆ ನವೀಕರಿಸಲಾದ ರೆಪೊ ಸೋಶಿಯಲ್ ಚಿತ್ರ [images/repo-thumbnailv3.png](./images/repo-thumbnailv3.png) (ಈಗ ಎರಡು ಹೊಸ ಪಾಠಗಳನ್ನು ಹಾಗೂ `aka.ms/ai-agents-beginners` URL ಅನ್ನು ಪ್ರಚಾರ ಮಾಡುತ್ತಿದೆ).
-- **ಅವಲಂಬನೆಗಳು** ([requirements.txt](../../requirements.txt)): ಪಾಠ 17 ಗೆ `foundry-local-sdk` ಮತ್ತು `chromadb` ಸೇರಿಸಲಾಗಿದೆ.
-
-### ಬದಲಾಗಿದೆ
-
-- **ಮುಖ್ಯ [README.md](./README.md)** ಪಾಠ ತಾಳिका: ಪಾಠ 16 ಮತ್ತು 17 ಈಗ ಅವರ ವಿಷಯಕ್ಕೆ ಲಿಂಕ್ ಮಾಡಿವೆ (ಹಿಂದೆ "ಮುಂದಿನಲ್ಲಿದೆ"); ರೆಪೊ ಚಿತ್ರವನ್ನು `repo-thumbnailv3.png` ಆಗಿ ಹೆಚ್ಚಿಸಲಾಗಿದೆ.
-- **[STUDY_GUIDE.md](./STUDY_GUIDE.md)**: ಪಾಠ 16 ಮತ್ತು 17ನ್ನು ಪಾಠದೊಡ್ಡಿಗೊತ್ತು ಮಾರ್ಗ ಮತ್ತು ಕಲಿಕೆಯ ಹಾದಿಗಳಲ್ಲಿ ಸೇರಿಸಲಾಗಿದೆ, ಮತ್ತು "ಧೂಮಪಾಯಿ ಪರೀಕ್ಷೆಗಳಿಂದ ನಿಯೋಜಿತ ಏಜೆಂಟ್‌ಗಳನ್ನು ಮಾನ್ಯಗೊಳಿಸುವುದು" ಎಂದು ವಿಭಾಗ ಸೇರಿಸಲಾಗಿದೆ.
-- **[AGENTS.md](./AGENTS.md)**: ಪಾಠಗಳ ಸಂಖ್ಯೆ/ವಿವರಣೆ (00–18) ನವೀಕರಿಸಲಾಗಿದೆ, ಧೂಮಪಾಯಿ ಪರೀಕ್ಷಾ ಮಾನ್ಯಗೊಳಿಸುವಿಕೆ ವಿಭಾಗ ಸೇರಿಸಲಾಗಿದೆ, ಮತ್ತು ಪಾಠ 16/17 ಮಾದರಿ-ಹೆಸರಿಸುವಿಕೆ ಉದಾಹರಣೆಗಳು ಸೇರಿಸಲಾಗಿದೆ.
-- **[18-securing-ai-agents/README.md](./18-securing-ai-agents/README.md)**: "ಹಿಂದಿನ ಪಾಠ" ಈಗ ಪಾಠ 17 ಗೆ ಸೂಚಿಸುತ್ತದೆ (ಹಿಂದೆ ಪಾಠ 15), ಸಾರಣಿಯನ್ನು ಮುಕ್ತಾಯಗೊಳಿಸುತ್ತದೆ.
-- **ಪ್ರತಿಷ್ಠಿತ ಮಾದರಿಗಳ ಮೇಲಿನ ಮಾದರಿ ಉಲ್ಲೇಖಗಳನ್ನು ಮಾನಕೀಕರಿಸಲಾಗಿದೆ.** ಕೋರ್ಸ್‌ನಲ್ಲೆಲ್ಲಾ `gpt-4o` / `gpt-4o-mini` ಉಲ್ಲೇಖಗಳನ್ನು `gpt-4.1-mini` ಮೂಲಕ ಬದಲಾಗಿಸಲಾಗಿದೆ (ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು, `.env.example`, ಪೈಥಾನ್/.NET ನೋಟ್ಬುಕ್‌ಗಳು ಮತ್ತು ಮಾದರಿ), ಏಕೆಂದರೆ `gpt-4o` (ಎಲ್ಲಾ ಆವೃತ್ತಿಗಳು) 2026ರಲ್ಲಿ ನಿವೃತ್ತಗೊಳ್ಳುತ್ತಿದೆ. ಪಾಠ 16 ರ ಮಾದರಿ ಮಾರ್ಗಮಾಡಿಕೆಯ ಉದಾಹರಣೆ `gpt-4.1-mini` (ಸಣ್ಣ) ಮತ್ತು `gpt-4.1` (ದೊಡ್ಡ) ಮೂಲಕ ಸಣ್ಣ/ದೊಡ್ಡ ವ್ಯತ್ಯಾಸವನ್ನು ಕಾಪಾಡುತ್ತದೆ. ಪೈಥಾನ್ ನೋಟ್ಬುಕ್‌ಗಳು ಈಗ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳಿಂದ ಮಾದರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡುತ್ತವೆ (`AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT`), ಹಾರ್ಡ್ ಕೋಡಿಂಗ್ ಇದ್ದುದಿಲ್ಲ.
+- **ಉಪೇಕ್ಷಿಸಲಾದ ಮಾದರಿಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ (`gpt-4.1` / `gpt-4.1-mini` → `gpt-5-mini`).** `gpt-4.1` ಮತ್ತು `gpt-4.1-mini` ಈಗ deprecated ಆಗಿ (ಪ್ರকাশಿತ ನಿವೃತ್ತಿ ದಿನಾಂಕ **14 ಅಕ್ಟೋಬರ್ 2026**). ಪ್ರತಿಯೊಂದು ಕೋರ್ಸ್ ಉಲ್ಲೇಖವನ್ನು (ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು, `.env.example`, ಪೈಥಾನ್/.ನೆಟ್ ನೋಟ್ಬುಕ್‌ಗಳು ಮತ್ತು ಮಾದರಿ) ಉಪೇಕ್ಷಿಸಲಾಗದ `gpt-5-mini` ಮೂಲಕ ಬದಲಾಯಿಸಲಾಗಿದೆ. ಪಾಠ 16 ರ ಮಾದರಿ-ರೌಟಿಂಗ್ ಉದಾಹರಣೆಯಲ್ಲಿ `gpt-5-nano` (ಸಣ್ಣ) ಮತ್ತು `gpt-5-mini` (ದೊಡ್ಡ) ಮೂಲಕ ಸಣ್ಣ/ದೊಡ್ಡ ವಿರುದ್ಧಾಭಿಪ್ರಾಯವನ್ನು ಕಾಯ್ದುಕೊಳ್ಳಲಾಗಿದೆ. ತೃತೀಯ-ಪಕ್ಷದ ಕಡತಗಳು ([15-browser-use/llms.txt](../../15-browser-use/llms.txt)), ಇತಿಹಾಸಾತ್ಮಕ GitHub ಮಾದರಿಗಳ ಪಠ್ಯ ಮತ್ತು `azure-openai-to-responses` ಕೌಶಲ್ಯದ ಸಾಮರ್ಥ್ಯದ ಟಿಪ್ಪಣಿಗಳನ್ನು ಉದ್ದೇಶಿತವಾಗಿ ಬದಲಾಯಿಸಲಾಗಿಲ್ಲ.
+- **ಪಾಠ 14 ಹ್ಯಾಂಡ್‌ಆಫ್ ನೋಟ್ಬುಕ್ ಸ್ಥಿರ API ಗೆ ವಹಿಸಿದ್ದು.** [14-handoff.ipynb](./14-microsoft-agent-framework/code-samples/14-handoff.ipynb) ಈಗ `agent_framework.orchestrations.HandoffBuilder` ನಲ್ಲಿ `.with_start_agent(...)`, `HandoffAgentUserRequest.create_response(...)`, `event.type` ಆಧಾರಿತ ಸ್ಟ್ರೀಮಿಂಗ್ ಮತ್ತು `FoundryChatClient` ಬಳಸಿ (ಹಳೇ pre-1.0 `HandoffBuilder`/`ChatMessage`/`RequestInfoEvent` ಚಿಹ್ನೆಗಳನ್ನು ಬದಲಿಸಿ).
+- **ಪಾಠ 14 ಮಾನವ-ಇನ್-ದಿ-ಲೂಪ್ ನೋಟ್ಬುಕ್ ಸ್ಥಿರ API ಗೆ ವಹಿಸಿದ್ದು.** [14-human-loop.ipynb](./14-microsoft-agent-framework/code-samples/14-human-loop.ipynb) ಈಗ `ctx.request_info(...)` + `@response_handler` ಮೂಲಕ ವಿರಾಮಗೊಳ್ಳುತ್ತದೆ (ಹಳೇ `RequestInfoExecutor` / `RequestInfoMessage` / `RequestResponse` ತೆಗೆದುಹಾಕಲಾಗಿದೆ), `WorkflowBuilder(start_executor=..., output_executors=[...])` ನೊಂದಿಗೆ ನಿರ್ಮಿಸಿದ್ದು, `default_options={"response_format": ...}` ಮೂಲಕ ರಚಿಸಿದ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಚಾಲನೆಮಾಡುತ್ತದೆ ಮತ್ತು ಸ್ಕ್ರಿಪ್ಟಡ್ ಉತ್ತರವನ್ನು ಬಳಸಿ ನೋಟ್ಬುಕ್ ನಿರ್ಬಂಧಿಸದೆ (no blocking `input()`) ಓಡುತ್ತದೆ.
+- **ಪರಿಸರ ಸಂರಚನೆ** ([.env.example](../../.env.example)): ಮಾದರಿ ನಿಯೋಗದ ಹೆಸರನ್ನು `gpt-5-mini` ಗೆ ಬದಲಿಸಿಕೊಂಡಿದೆ; `AZURE_AI_SMALL_MODEL` / `AZURE_AI_LARGE_MODEL` (ಪಾಠ 16 ರೌಟಿಂಗ್) ಮತ್ತು ಹಿಂದೆ ಇಲ್ಲದಿದ್ದ `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` (ಪಾಠ 15 ಬ್ರೌಸರ್ ಬಳಕೆ) ಸೇರಿಸಲಾಗಿದೆ.
+- **ಆಶ್ರಿತತೆಗಳು** ([requirements.txt](../../requirements.txt)): `agent-framework`, `agent-framework-foundry`, ಮತ್ತು `agent-framework-openai` ಅನ್ನು `~=1.10.0` ಗೆ ಪಿನ್ ಮಾಡಲಾಗಿದೆ, ಸ್ವಯಂ-ಸಮನ್ವಯ ಮತ್ತು ಮಾನ್ಯತೆಗೊಳ್ಳುವ ಸೆಟ್ (1.11.0 ಈಗ ಪ್ರವೃತ್ತಿಯ ವಲಯಗಳಾಗಿ ಬಳಕೆಮಾಡುವ ಪಾಠಗಳಿಗೆ ಪ್ರದೇಶ ಬೇರೆಯಾದ ಬದಲಾವಣೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ).
 
 ### ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ಗೊತ್ತಿರುವ ಮಿತಿಗಳು
 
-- **ನೈಜ Azure ವಿರುದ್ಧ ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗಿಲ್ಲ.** ಹೊಸ ಪಾಠಗಳ ನೋಟ್ಬುಕ್‌ಗಳು ಶಿಕ್ಷಣದ ಮಾದರಿಗಳು; ನಿಮ್ಮ ಸ್ವಂತ Microsoft Foundry / Foundry Local ವ್ಯವಸ್ಥೆಯೊಂದಿಗೆ ಅವುಗಳನ್ನ ಚಲಿಸಿ ಮತ್ತು ಮಾನ್ಯಗೊಳಿಸಿ. ಧೂಮಪಾಯಿ-ಟೆಸ್ಟ್ ಕಾರ್ಯಬಂಧಕ್ಕೆ ನೀವು ಪಾಠದ ಏಜೆಂಟ್ ಅನ್ನು ನಿಯೋಜಿಸಿ Azure OIDC ರಹಸ್ಯಗಳನ್ನು (`AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`) **Azure AI ಬಳಕೆದಾರ** ಪಾತ್ರದೊಂದಿಗೆ Foundry ಪ್ರಾಜೆಕ್ಟ್ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಹೊಂದಿಸಬೇಕು.
-- **ಪಾಠ 17 ಸ್ಥಳೀಯ-ಮಾತ್ರ.** ಇದಕ್ಕೆ ಯಾವುದೇ Foundry ಪ್ರತಿಕ್ರಿಯೆಗಳ ಅಂತಿಮ ಬಿಂದುವಿಲ್ಲ, ಆದ್ದರಿಂದ ಧೂಮಪಾಯಿ-ಟೆಸ್ಟ್ ಕ್ರಿಯೆ ಇಲ್ಲ; ಅದನ್ನು ನಿಮ್ಮ ಕೆಲಸಸ್ಥಳದಲ್ಲಿ ನೋಟ್ಬುಕ್ ಚಾಲನೆಯಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.
+- **ಲೈವ್ Microsoft Foundry ವಿರುದ್ಧ ಮಾನ್ಯತೆಯಾಯಿತು.** ಪೈಥಾನ್ ನೋಟ್ಬುಕ್‌ಗಳನ್ನು `nbconvert` ಮೂಲಕ ಹೆಡ್‌ಲೆಸ್ ಆಗಿ ಚಾಲನೆ ಮಾಡಲಾಗಿದೆ ಮತ್ತು Microsoft Foundry ಯೋಜನೆಯೊಂದಿಗೆ `gpt-5-mini` (ಮತ್ತು ಪಾಠ 16 ರೌಟಿಂಗ್‌ಗೆ `gpt-5-nano`) ಬಳಸಲಾಗಿದೆ. ನಿಮ್ಮ ಮನೆಯ ಯೋಜನೆಯಲ್ಲಿ ಸಮನಾದDeprecated ಅಲ್ಲದ ಮಾದರಿಗಳನ್ನು ನಿಯೋಗಿಸಿ; ನೋಟ್ಬುಕ್‌ಗಳು ನಿಯೋಗ ಹೆಸರನ್ನು `AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT` ರಿಂದ ಓದುತ್ತವೆ.
+- **ಕೆಲವು ಪಾಠಗಳಿಗೆ ಇನ್ನಷ್ಟು ವನರುಷCCION ಬೇಕು.** ಪಾಠ 05 ಕ್ಕೆ Azure AI ಸರ್ಚ್ ಅಗತ್ಯವಿದೆ; ಪಾಠ 08 ರ Bing-based ವರ್ಕ್‌ಫ್ಲೋ (`04.python-agent-framework-workflow-aifoundry-condition.ipynb`) ಗೆ Bing ಸಂಪರ್ಕ ಮತ್ತು Microsoft Foundry ಏಜೆಂಟ್ ಸರ್ವಿಸ್ ಹೋಸ್ಟ್ ಮಾಡಿದ ಉಪಕರಣಗಳ ಅಗತ್ಯವಿದೆ; ಪಾಠ 13 (Cognee) ಮತ್ತು ಪಾಠ 17 (Foundry Local) ತಮ್ಮದೇ ರನ್‌ಟೈಮ್‌ಗಳನ್ನು ಹೊಂದಿವೆ.
 
-## [ಬಿಡುಗಡೆ] — 2026-07-06
+## [ಮುಕ್ತಗೊಂಡಿದೆ] — 2026-07-13
 
-ಈ ಬಿಡುಗಡೆ ಕೋರ್ಸ್ ಅನ್ನು **Azure OpenAI Responses API** ಗೆ ಸ್ಥಳಾಂತರಿಸುತ್ತದೆ, ಉತ್ಪನ್ನ ಹೆಸರನ್ನು **Microsoft Foundry** ಮತ್ತು **Microsoft Agent Framework (MAF)** ಮೇಲೆ ಮಾನಕೀಕರಿಸುತ್ತದೆ, GitHub Models ನಿವೃತ್ತಗೊಳಿಸುತ್ತದೆ, SDK ಆವೃತ್ತಿಗಳನ್ನು ನವೀಕರಿಸುತ್ತದೆ, ಮತ್ತು ಸ್ಥಳೀಯ ಮಾದರಿಗಳ ಹಾಗೂ Foundry ಮೇಲೆ ಇತರ ಫ್ರೇಮ್ವರ್ಕ್‌ಗಳು ಹೋಸ್ಟ್ ಮಾಡುವ ಬಗ್ಗೆ ಹೊಸ ವಿಷಯ ಸೇರಿಸುತ್ತದೆ.
+ಈ ಬಿಡುಗಡೆ ಎರಡು ಹೊಸ ಪಾಠಗಳನ್ನು ಸೇರಿಸಿದೆ, ಇದು ನಿಯೋಗ ಚರವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತಿದೆ — ಏಜೆಂಟ್‌ಗಳನ್ನು Microsoft Foundry ಗೆ ಹೆಚ್ಚಿಸುವುದು ಮತ್ತು ಒಂದೇ ವರ್ಕ್‌ಸ್ಟೇಷನ್‌ಗೆ ಇಳಿಸುವುದು — ಜೊತೆಗೆ ಸ್ಮೋಕ್ ಟೆಸ್ಟ್ ಪೈಪ್ಲೈನ್, ನವೀಕೃತ ಕೋರ್ಸ್ ನ್ಯಾವಿಗೇಶನ್, ಹೊಸ ಕಲಿಕಾರಣ ಕೌಶಲ್ಯಗಳು ಮತ್ತು ನವೀಕರಿಸಿದ ಬ್ರಾಂಡಿಂಗ್.
 
 ### ಸೇರಿಸಲಾಗಿದೆ
 
-- **ಸ್ಥಳಾಂತರ ಕೌಶಲ್ಯ** — `.agents/skills/` ಅಡಿಯಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾದ [`azure-openai-to-responses`](./.agents/skills/azure-openai-to-responses/SKILL.md) ಏಜೆಂಟ್ ಕೌಶಲ್ಯವು [Azure-Samples/azure-openai-to-responses](https://github.com/Azure-Samples/azure-openai-to-responses) ಇಂದ ಬಂದಿದೆ, ಅದರ ಉಲ್ಲೇಖಗಳು ಮತ್ತು ಸ್ಕ್ಯಾನರ್ ಸ್ಕ್ರಿಪ್ಟ್ ಸಹ.
-- **Foundry Local (ಆನ್-ಡಿವೈಸ್ ಮಾದರಿಗಳನ್ನು ರನ್ ಮಾಡುವುದು)** — [00-course-setup/README.md](./00-course-setup/README.md) ನಲ್ಲಿ ಹೊಸ "ಪರ್ಯಾಯ ಒದಗಿಸುವವರು: Foundry Local" ವಿಭಾಗ, ಸ್ಥಾಪನೆ (`winget` / `brew`), `foundry model run`, `foundry-local-sdk`, ಮತ್ತು `FoundryLocalManager` ನ್ನು Microsoft Agent Framework ಗೆ `OpenAIChatClient` ಮೂಲಕ ವಾಯರಿಂಗ್ ಬಗ್ಗೆ.
-- **Microsoft Foundry ಮೇಲೆ LangChain / LangGraph ಏಜೆಂಟ್‌ಗಳನ್ನು ಹೋಸ್ಟ್ ಮಾಡುವುದು** — [14-microsoft-agent-framework/README.md](./14-microsoft-agent-framework/README.md) ನಲ್ಲಿ ಹೊಸ ವಿಭಾಗ ಮತ್ತು ಚಾಲನೆಯಲ್ಲಿರುವ ಮಾದರಿ [14-langchain-hosted-agent.py](../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py), `langchain-azure-ai[hosting]` ಮತ್ತು `ResponsesHostServer` (/responses ಪ್ರೋಟೋಕಾಲ್) ಬಳಸಿ, [Microsoft Learn](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) ಆಧಾರಿತ.
-- **Microsoft Project Opal** — [15-browser-use/README.md](./15-browser-use/README.md) ನಲ್ಲಿ "ವಾಸ್ತವ ಉದಾಹರಣೆ: Microsoft Project Opal" ಎಂಬ ನವ ವಿಭಾಗ, Opal ಅನ್ನು ಉದ್ಯಮ ಕಂಪ್ಯೂಟರ್ ಬಳಕೆ ಏಜೆಂಟ್ ಆಗಿ ನಿರೂಪಿಸಿ ಕೋರ್ಸ್ ಕಲ್ಪನೆಗಳಿಗೆ ನಕ್ಷೆ ಮಾಡಲಾಗಿದೆ (ಮಾನವ-ಇನ್-ದಿ-ಲೂಪ್, ನಂಬಿಕೆ/ಭದ್ರತೆ, ಯೋಜನೆ, ಕೌಶಲ್ಯಗಳು).
-- **ಎರಡನೇ ಪಾಠ 02 ಪೈಥಾನ್ ಮಾದರಿ** — [02-python-agent-framework-azure-openai.ipynb](./02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb) ಸೇರಿಸಲಾಗಿದೆ (ಇದನ್ನು "ಬದಲಾಯಿಸಲಾಗಿದೆ" ವಿಭಾಗದಲ್ಲಿ ನೋಡಿ — ಹಳೆಯ Semantic Kernel ನೋಟ್ಬುಕ್‍ನಿಂದ ಸ್ಥಳಾಂತರಿಸಲಾಗಿದೆ) ಮತ್ತು ಪಾಠ README ನಲ್ಲಿ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ.
-- **ಮಾದರಿಗಳು ಮತ್ತು ಒದಗಿಸುವವರು** ವಿಭಾಗವನ್ನು [STUDY_GUIDE.md](./STUDY_GUIDE.md) ಗೆ ಸೇರಿಸಲಾಗಿದೆ.
+- **ಪಾಠ 16 — Microsoft Foundry ಸಹಿತ ತಜ್ಞವಾಗಿ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿಯೋಗಿಸುವುದು.** ಹೊಸ ಪಾಠ [16-deploying-scalable-agents/README.md](./16-deploying-scalable-agents/README.md) ಮತ್ತು ಓಡಿಸಬಹುದಾದ ಟಿಪ್ಪಣಿ ಪುಸ್ತಕ [16-python-agent-framework.ipynb](./16-deploying-scalable-agents/code_samples/16-python-agent-framework.ipynb) ಉತ್ಪಾದನಾ ಗ್ರಾಹಕ-ಸಹಾಯ ಏಜೆಂಟ್ ನಿರ್ಮಿಸುತ್ತದೆ (ಉಪಕರಣಗಳು, RAG, ಸ್ಮೃತಿ, ಮಾದರಿ ರೌಟಿಂಗ್, ಪ್ರತಿಕ್ರಿಯೆ ಕ್ಯಾಶಿಂಗ್, ಮಾನವ ಅನುಮೋದನೆ, ಮೌಲ್ಯಮಾಪನ ಗೇಟ್ ಮತ್ತು OpenTelemetry ಟ್ರೇಸಿಂಗ್) ಚಟುವಟಿಕೆಗಳು/ನಿಯೋಗ/ರನ್‌ಟೈಮ್ ಮೆರ್ಮೇಡ್ ಗುರುತು ಪತ್ರಗಳು, ಜ್ಞಾನ ಪರಿಶೀಲನೆ, ಕಾರ್ಮಿಕ ಮತ್ತು ಸವಾಲ್ ಸಹಿತ.
+- **ಪಾಠ 17 — Foundry Local ಮತ್ತು Qwen ಸಹಿತ ಸ್ಥಳೀಯ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ರಚಿಸುವುದು.** ಹೊಸ ಪಾಠ [17-creating-local-ai-agents/README.md](./17-creating-local-ai-agents/README.md) ಮತ್ತು ನೋಟ್ಬುಕ್ [17-local-agent-foundry-local.ipynb](./17-creating-local-ai-agents/code_samples/17-local-agent-foundry-local.ipynb) ಸಂಪೂರ್ಣವಾಗಿ ಸಾಧನದಲ್ಲಿ ಆಧಾರಿತ ಎಂಜಿನಿಯರಿಂಗ್ ಸಹಾಯಕನನ್ನು ನಿರ್ಮಿಸುತ್ತಿದೆ (Qwen ಫಂಕ್ಷನ್ ಕಾಲಿಂಗ್ Foundry Local ಮೂಲಕ, ಸ್ಯಾಂಡ್‌ಬಾಕ್ಸ್ ಫೈಲ್ ಉಪಕರಣಗಳು, ಸ್ಥಳೀಯ RAG Chroma ಮೂಲಕ, ಐಚ್ಛಿಕ ಸ್ಥಳೀಯ MCP), ಸ್ಥಳೀಯ ಮಾತ್ರ / ಸ್ಥಳೀಯ RAG / ಉಪಕರಣ-ಕಾಲಿಂಗ್ ಚಿತ್ರಣಗಳು, ಜ್ಞಾನ ಪರಿಶೀಲನೆ, ಕಾರ್ಯ ಮತ್ತು ಸವಾಲ್ ಸಹಿತ.
+- **ಸ್ಮೋಕ್ ಟೆಸ್ಟ್ ಪೈಪ್ಲೈನ್.** ಹೊಸ [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) ವರ್ಕ್‌ಫ್ಲೋ [.github/workflows/smoke-test.yml](../../.github/workflows/smoke-test.yml) ಜೊತೆಗೆ ಪ್ರತಿ ಪಾಠಗಳೆಡೆಗಿನ ಕ್ಯಾಂಟಲಾಗ್‌ಗಳು [tests/](./tests/README.md) ಫಲಿತಾಂಶಗಳನ್ನು ನಿಯೋಗದ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಪಾಠ 01, 04, 05 ಮತ್ತು 16 ಕ್ಕೆ, ಪ್ರತಿಯೊಂದು ಕ್ಯಾಂಟಲಾಗ್ ಅನ್ನು ಅದರ ಪಾಠ ಮತ್ತು ಹೋಸ್ಟ್ ಆದ ಏಜೆಂಟ್ ಹೆಸರಿನೊಂದಿಗೆ ಸೂಚಿಸಲಾಗಿದೆ. ಪಾಠ 16 ಗೆ "ನಿಯೋಜಿತ ಏಜೆಂಟ್ ಅನ್ನು ಸ್ಮೋಕ್ ಟೆಸ್ಟ್‌ಗಳೊಂದಿಗೆ ಮಾನ್ಯಗೊಳಿಸುವುದು" ವಿಭಾಗ ಸೇರ್ಪಡೆ; ಪಾಠಗಳು 01/04/05 ಗೆ ಐಚ್ಛಿಕ ಸ್ಮೋಕ್ ಟೆಸ್ಟ್ ಸೂಚಕ.
+- **ಕಲಿಕಾರಣ ಕೌಶಲ್ಯಗಳು.** ಹೊಸ ಏಜೆಂಟ್ ಕೌಶಲ್ಯಗಳು `.agents/skills/` ಒಳಗೆ: [deploying-scalable-agents](./.agents/skills/deploying-scalable-agents/SKILL.md), [local-ai-agents](./.agents/skills/local-ai-agents/SKILL.md) (ಪಾಠ 16 ಮತ್ತು 17 ಮಾರ್ಗಸೂಚಿಯನ್ನು ಪ್ಯಾಕೇಜ್ ಮಾಡುವುದು), ಮತ್ತು [testing-course-samples](./.agents/skills/testing-course-samples/SKILL.md) (ಲೈವ್ Microsoft Foundry / Azure OpenAI ಸೆಟ್ಟಪ್ ವಿರುದ್ದ ನೋಟ್ಬುಕ್ ಮಾದರಿಗಳನ್ನು ಮಾನ್ಯಗೊಳಿಸುವ ವಿಧಾನ).
+- **ನೋಟ್ಬುಕ್ ಮಾನ್ಯತೆ ಓಡಿಸುವಿಕೆ.** ಹೊಸ [scripts/validate-notebooks.ps1](../../scripts/validate-notebooks.ps1) ಇದು ಪ್ರತಿಯೊಂದು ಪೈಥಾನ್ ನೋಟ್ಬುಕ್ ಅನ್ನು ಹೆಡ್‌ಲೆಸ್ ಆಗಿ `nbconvert` ಉಪಯೋಗಿಸಿ ಚಲಿಸುತ್ತದೆ ಮತ್ತು PASS/FAIL ಮ್ಯಾಟ್ರಿಕ್ಸ್ (ಮತ್ತು `results.json`) ಮುದ್ರಿಸುತ್ತದೆ. ಇದು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರೈಪೋ ಮೂಲ ಮತ್ತು ಪೈಥಾನ್ ಗುರುತಿಸಿ, ಶ್ರೇಣಿಯಲ್ಲಿ ಇಲ್ಲದ ನೋಟ್ಬುಕ್‌ಗಳು (`.venv`, `site-packages`, `translations`, ಕೌಶಲ್ಯ ಟೆಂಪ್ಲೇಟ್ ಆಸ್ತಿ) ಮತ್ತು `.NET` ನೋಟ್ಬುಕ್‌ಗಳನ್ನು ಬೇರ್ಪಡಿಸುತ್ತದೆ ಮತ್ತು `-Filter`, `-Timeout`, `-List`, `-IncludeDotnet` ಮತ್ತು `-Python` ಆಯ್ಕೆಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ.
+- **ಕೋರ್ಸ್ ನ್ಯಾವಿಗೇಶನ್.** ಮುಂಚಿನ / ಮುಂದಿನ ಪಾಠ ಲಿಂಕ್‌ಗಳನ್ನು ಪಾಠ 11–15 (ಹಿಂದೆ ಇರಲಿಲ್ಲ) ಸೇರಿಸಲಾಗಿದೆ, ಇದರಿಂದ ಸಂಪೂರ್ಣ ಕೋರ್ಸ್ 00 → 18 ಎರಡೂ ಬದಿಗಳಲ್ಲಿ ಜೋಡಣೆ ಹೊಂದಿದೆ.
+- **ಹೊಸ ಥಂಬ್ನೇಲ್‌ಗಳು.** ಪಾಠ 16 ಮತ್ತು 17 ರ ಥಂಬ್ನೇಲ್‌ಗಳು, ಜೊತೆಗೆ ನವೀಕೃತ ಸ್ವಾಮಿ ಚಿತ್ರ [images/repo-thumbnailv3.png](./images/repo-thumbnailv3.png) (ಈಗ ಎರಡು ಹೊಸ ಪಾಠಗಳನ್ನು ಮತ್ತು `aka.ms/ai-agents-beginners` URL ಅನ್ನು ಪ್ರಚಾರ ಮಾಡುತ್ತಿದೆ).
+- **ಆಶ್ರಿತತೆಗಳು** ([requirements.txt](../../requirements.txt)): ಪಾಠ 17 ಗಾಗಿ `foundry-local-sdk` ಮತ್ತು `chromadb` ಸೇರಿಸಲಾಗಿದೆ.
 
-### ಬದಲಾಗಿದೆ
+### ಬದಲಾಯಿಸಲಾಗಿದೆ
 
-- **ಚಾಟ್ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆಗಳು → Responses API (ಪೈಥಾನ್).** ನೇರವಾಗಿ ಮಾದರಿಯನ್ನು ಕರೆ ಮಾಡಿದ ಮಾದರಿಗಳನ್ನು ಚಾಟ್ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆಗಳಿಂದ Responses API ಗೆ ಸ್ಥಳಾಂತರಿಸಲಾಗಿದೆ (`client.responses.create(input=..., store=False)`, `resp.output_text`), ಸ್ಥಿರ Azure OpenAI `/openai/v1/` ಅಂತಿಮ ಬಿಂದುವಿಗೆ `OpenAI` ಕ್ಲೈಂಟ್ ಬಳಸಿ (ಯಾವುದೇ `api_version` ಇಲ್ಲ). ಪರಿಣಾಮ ಬೀರುವ ಮಾದರಿಗಳು:
+- **ಮುಖ್ಯ [README.md](./README.md)** ಪಾಠಗಳ ಪಟ್ಟಿಗೆ ಪಾಠ 16 ಮತ್ತು 17 ಈಗ ಅವರ ವಿಷಯಕ್ಕೆ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ (ಹಿಂದೆ "ಇನ್ನಿಲ್ಲ" ಎಂದು ತೋರಿಸುತ್ತಿತ್ತು); ಸಂಗ್ರಹಣಾ ಚಿತ್ರ `repo-thumbnailv3.png` ಗೆ ಬದಲಿಸಲಾಗಿದೆ.
+- **[STUDY_GUIDE.md](./STUDY_GUIDE.md)**: ಪಾಠ-ಬದಲಿಗೆ ಮಾರ್ಗದರ್ಶಿ ಮತ್ತು ಕಲಿಕೆಯ ಮಾರ್ಗಗಳಿಗೆ ಪಾಠ 16 ಮತ್ತು 17 ಸೇರಿಸಲಾಗಿದೆ ಮತ್ತು "ನಿಯೋಜಿತ ಏಜೆಂಟ್‌ಗಳನ್ನು ಸ್ಮೋಕ್ ಟೆಸ್ಟ್‌ಗಳೊಂದಿಗೆ ಮಾನ್ಯಗೊಳಿಸುವುದು" ವಿಭಾಗ ಸೇರಿಸಲಾಗಿದೆ.
+- **[AGENTS.md](./AGENTS.md)**: ಪಾಠಗಳ ಎಣಿಕೆ/ವಿವರಣೆ (00–18) ನವೀಕರಿಸಲಾಗಿದೆ, ಸ್ಮೋಕ್ ٽೆಸ್ಟ್ ಮಾನ್ಯತೆ ವಿಭಾಗ ಸೇರಿಸಲಾಗಿದೆ ಮತ್ತು ಪಾಠ 16/17 ಮಾದರಿ ಹೆಸರಿನ ಉದಾಹರಣೆಗಳು ಸೇರಿಸಲಾಗಿದೆ.
+- **[18-securing-ai-agents/README.md](./18-securing-ai-agents/README.md)**: "ಹಿಂದಿನ ಪಾಠ" ಈಗ ಪಾಠ 17 ಗೆ ಸೂಚಿಸುತ್ತದೆ (ಹಳೆಯದು ಪಾಠ 15); ಸರಣಿಯನ್ನು ಮುಚ್ಚುತ್ತದೆ.
+- **ಅಪರಿಹಾರ್ಯ ಮಾದರಿಗಳ ಮೇಲೆ ಮಾದರಿ ಉಲ್ಲೇಖಗಳನ್ನು ಪ್ರಮಾಣೀಕರಿಸಲಾಗಿದೆ.** ಕೋರ್ಸ್ ಎರಡನೆಯ ಎಲ್ಲ `gpt-4o` / `gpt-4o-mini` ಉಲ್ಲೇಖಗಳನ್ನು (ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು, `.env.example`, ಪೈಥಾನ್/.ನೆಟ್ ನೋಟ್ಬುಕ್‌ಗಳು ಮತ್ತು ಮಾದರಿ) `gpt-4.1-mini` ಮೂಲಕ ಬದಲಿಸಲಾಗಿದೆ — `gpt-4o` (ಎಲ್ಲಾ ಆವೃತ್ತಿಗಳು) 2026 ರಲ್ಲಿ ನಿವೃತ್ತಿ ಆಗುತ್ತಿದೆ. ಪಾಠ 16 ರ ಮಾದರಿ-ರೌಟಿಂಗ್ ಉದಾಹರಣೆಯಲ್ಲಿ ಸಣ್ಣ/ದೊಡ್ಡ ವಿರುದ್ಧಾಭಿಪ್ರಾಯವನ್ನು `gpt-4.1-mini` (ಸಣ್ಣ) ಮತ್ತು `gpt-4.1` (ದೊಡ್ಡ) ಬಳಸಿ ಕಾಯ್ದುಕೊಳ್ಳಲಾಗಿದೆ. ಪೈಥಾನ್ ನೋಟ್ಬುಕ್‌ಗಳು ಈಗ ಮಾದರಿಗೆಟನ್ ಹೆಸರನ್ನು ನಿಯೋಜನೆಯದರೀಯವಾಗಿ पर्यावरण ಚರಗಳಿನಿಂದ (`AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT`) ಆಯ್ಕೆಮಾಡುತ್ತವೆ, ಮಧ್ಯಸ್ಥ ಮಾದರಿ ಹೆಸರನ್ನು ನೇರವಾಗಿ ಹಾರ್ಡ್ ಕೋಡ್ ಮಾಡುವುದು ಇಲ್ಲ.
+
+### ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ಗೊತ್ತಿರುವ ಮಿತಿಗಳು
+
+- **ಲೈವ್ Azure ವಿರುದ್ಧ ಕಾರ್ಯಗತಗೊಳಿಸಲ್ಪಟ್ಟಿಲ್ಲ.** ಹೊಸ ಪಾಠಗಳ ನೋಟ್ಬುಕ್‌ಗಳು ಶಿಕ್ಷಣ ಮಾದರಿಗಳಾಗಿವೆ; ನಿಮ್ಮ ತಮ್ಮ Microsoft Foundry / Foundry Local ಸೆಟ್ಟಪ್ ಬಳಸಿ ಅವುಗಳನ್ನು ಚಾಲನೆ ಮಾಡಿ ಮತ್ತು ಮಾನ್ಯತೆ ನೀಡಿ. ಸ್ಮೋಕ್ ಟೆಸ್ಟ್ ವರ್ಕ್‌ಫ್ಲೋ ನೀವು ಪಾಠದ ಏಜೆಂಟ್ ಅನ್ನು ನಿಯೋಜಿಸಿ ಮತ್ತು Foundry ಯೋಜನಾ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ **Azure AI ಬಳಕೆದಾರ** ಪಾತ್ರದೊಂದಿಗೆ Azure OIDC ರಹಸ್ಯಗಳನ್ನು (`AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`) ಸಂರಚಿಸುವ ಅಗತ್ಯವಿದೆ.
+- **ಪಾಠ 17 ಸ್ಥಳೀಯವಾಗಿದೆ ಮಾತ್ರ.** ಇದಕ್ಕೆ Foundry ಪ್ರತಿಕ್ರಿಯೆಗಳ ಅಂತಿಮಬಿಂದುವಿನಿಲ್ಲ, ಆದ್ದರಿಂದ ಸ್ಮೋಕ್ ಟೆಸ್ಟ್ ಕ್ರಿಯೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ; ನೋಟ್ಬುಕ್ ನಿಮ್ಮ ವರ್ಕ್‌ಸ್ಟೇಷನ್ ಮೇಲೆ ಚಾಲನೆ ಮಾಡಿಕೊಳ್ಲಿ.
+
+## [ಮುಕ್ತಗೊಂಡಿದೆ] — 2026-07-06
+
+ಈ ಬಿಡುಗಡೆ ಕೋರ್ಸನ್ನು **Azure OpenAI Responses API** ಗೆ ಸ್ಥಳಾಂತರಿಸುತ್ತದೆ, ಉತ್ಪನ್ನ ಹೆಸರನ್ನು **Microsoft Foundry** ಮತ್ತು **Microsoft Agent Framework (MAF)** ಮೇಲೆ ಪ್ರಮಾಣೀಕರಿಸುತ್ತದೆ, GitHub ಮಾದರಿಗಳನ್ನು ನಿವೃತ್ತಿ ಮಾಡುತ್ತದೆ, SDK ಆವೃತ್ತಿಗಳನ್ನು ನವೀಕರಿಸುತ್ತದೆ ಮತ್ತು ಸ್ಥಳೀಯ ಮಾದರಿಗಳು ಮತ್ತು Foundry ಮೇಲೆ ಇತರ ಫ್ರೇಮ್ವರ್ಕ್‌ಗಳು ಹೋಸ್ಟ್ ಮಾಡುವ ಬಗ್ಗೆ ಹೊಸ ವಿಷಯವನ್ನು ಸೇರಿಸುತ್ತದೆ.
+
+### ಸೇರಿಸಲಾಗಿದೆ
+
+- **ಸ್ಥಳಾಂತರ ಕೌಶಲ್ಯ** — `.agents/skills/` ಅಡಿಯಲ್ಲಿ [`azure-openai-to-responses`](./.agents/skills/azure-openai-to-responses/SKILL.md) ಏಜೆಂಟ್ ಕೌಶಲ್ಯವನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿದೆ (Azure-Samples/azure-openai-to-responses ನಿಂದ), ಅದರ ಉಲ್ಲೇಖಗಳು ಮತ್ತು ಸ್ಕ್ಯಾನರ್ ಸ್ಕ್ರಿಪ್ಟ್ ಸಹಿತ.
+- **Foundry Local (ಮಾದರಿಗಳನ್ನು ಸಾಧನದಲ್ಲಿ ಓಡಿಸಿ)** — [00-course-setup/README.md](./00-course-setup/README.md) ನಲ್ಲಿ ಹೊಸ "ವೈકલ್ಪಿಕ ಪ್ರೊವೈಡರ್: Foundry Local" ವಿಭಾಗವು ಇನ್‌ಸ್ಟಾಲ್ (`winget` / `brew`), `foundry model run`, `foundry-local-sdk`, ಮತ್ತು `FoundryLocalManager` ಅನ್ನು Microsoft Agent Framework ಗೆ `OpenAIChatClient` ಮೂಲಕ ಯಶಸ್ವಿಯಾಗಿ ಸಂಪರ್ಕಿಸುವಂತೆ ದಾಖಲಿಸಿದೆ.
+- **Microsoft Foundry ನಲ್ಲಿ LangChain / LangGraph ಏಜೆಂಟ್‌ಗಳು ಹೋಸ್ಟ್ ಮಾಡುವುದು** — [14-microsoft-agent-framework/README.md](./14-microsoft-agent-framework/README.md) ನಲ್ಲಿ ಹೊಸ ವಿಭಾಗ ಮತ್ತು ಚಾಲನೆ ಮಾಡಬಹುದಾದ ಮಾದರಿ [14-langchain-hosted-agent.py](../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) `langchain-azure-ai[hosting]` ಮತ್ತು `ResponsesHostServer` (`/responses` ಪ್ರೋಟೋಕಾಲ್) ಉಪಯೋಗಿಸಿ, ಮತ್ತಷ್ಟು ವಿವರಗಳಿಗೆ [Microsoft Learn](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) ನೋಡಿ.
+- **Microsoft Project Opal** — [15-browser-use/README.md](./15-browser-use/README.md) ನಲ್ಲಿ ಹೊಸ "ವಾಸ್ತವಿಕ ಉದಾಹರಣೆ: Microsoft Project Opal" ವಿಭಾಗ, Opal ನನ್ನು ಉದ್ಯಮ ಕಂಪ್ಯೂಟರ್ ಬಳಕೆ ಏಜೆಂಟ್ ಆಗಿ ಫ್ರೇಮ್ ಮಾಡಿ ಕೋರ್ಸ್ ತತ್ವಗಳಿಗೆ (ಮಾನವ-ಇನ್-ದಿ-ಲೂಪ್, ಭರವಸೆ/ಸುರಕ್ಷತೆ, ಯೋಜನೆ, ಕೌಶಲ್ಯಗಳು) ಮ್ಯಾಪ್ ಮಾಡಿದೆ.
+- **ಮೂರುನೇ ಪಾಠ 02 ಪೈಥಾನ್ ಮಾದರಿ** — [02-python-agent-framework-azure-openai.ipynb](./02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb) ಸೇರಿಸಲಾಗಿದೆ ("ಬದಲಾಯಿಸಲಾಗಿದೆ" ವಿಭಾಗ ನೋಡಿರಿ — ಹಳೆಯ Semantic Kernel ನೋಟ್ಬುಕ್‌ನಿಂದ ಸ್ಥಳಾಂತರಿಸಲಾಗಿದೆ) ಮತ್ತು ಪಾಠ README ಯಲ್ಲಿ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ.
+- **ಮಾದರಿಗಳ ಮತ್ತು ಪ್ರೊವೈಡರ್‌ಗಳ** ವಿಭಾಗ [STUDY_GUIDE.md](./STUDY_GUIDE.md) ಗೆ ಸೇರಿಸಲಾಗಿದೆ.
+
+### ಬದಲಾಯಿಸಲಾಗಿದೆ
+
+- **ಚಾಟ್ ಪೂರ್ಣತೆ → ಪ್ರತಿಕ್ರಿಯೆಗಳ API (ಪೈಥಾನ್).** ಮಾದರಿಯನ್ನು ನೇರವಾಗಿ ಕರೆ ಮಾಡಿದ ಮಾದರಿ `Responses API` (`client.responses.create(input=..., store=False)`, `resp.output_text`) ಗೆ ಸ್ಥಳಾಂತರಿಸಿದ್ದು, `OpenAI` ಕ್ಲಯಿಂಟ್ ಉಪಯೋಗಿಸಿ ಸ್ಥಿರ Azure OpenAI `/openai/v1/` ಅಂತಿಮ ಬಿಂದುವಿಗೆ (ಯಾವುದೇ `api_version` ಇಲ್ಲ). ಇದರಿಂದ ಪ್ರಭಾವಿತ ಮಾದರಿ:
   - [06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb](./06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb)
   - [06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb](./06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb)
-  - [04-tool-use/README.md](./04-tool-use/README.md) — ಪೂರ್ಣ ಕಾರ್ಮಿಕ-ಕರೆ ಪ್ರವೇಶ (ಉಪಕರಣ ವಲಯವನ್ನು Responses ಸ್ವರೂಪಕ್ಕೆ ಫ್ಲಾಟ್ ಮಾಡಲಾಗಿದೆ, ಉಪಕರಣ ಫಲಿತಾಂಶಗಳನ್ನು `function_call_output`, `max_output_tokens` ಇತ್ಯಾದಿಯಾಗಿ ಹಿಂತಿರುಗಿಸಲಾಗಿದೆ).
-- **GitHub Models → Azure OpenAI.** GitHub Models ನಿವೃತ್ತಗೊಂಡಿದೆ (2026 ಜುಲೈನಲ್ಲಿ) ಮತ್ತು Responses API ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಎಲ್ಲಾ GitHub Models ಕೋಡ್ ಮಾರ್ಗವನ್ನು Azure OpenAI / Microsoft Foundry ಗೆ ಪೈಥಾನ್ ಮತ್ತು .NET ಮಾದರಿಗಳು ಮೂಲಕ ಪರಿವರ್ತಿಸಲಾಗಿದೆ:
-  - ಪೈಥಾನ್: ಪಾಠ 08 ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್ಬುಕ್‌ಗಳು (`01`–`03`), ಪಾಠ 14 (`14-handoff`, `14-human-loop`, `hotel_booking_workflow_sample.py`).
-  - .NET: `01`–`04`, `07`, `08` `*-dotnet-agent-framework.cs` + ಸಹಾಯಿಕ `.md` ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು, ಮತ್ತು ಪಾಠ 08 .NET ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್ಬುಕ್‌ಗಳು/`.md` (`01`–`03`), ಈಗ `AzureOpenAIClient(...).GetOpenAIResponseClient(deployment).CreateAIAgent(...)` ಅನ್ನು `AzureCliCredential` ಜೊತೆಗೆ ಬಳಸುತ್ತವೆ.
-- **Semantic Kernel → Microsoft Agent Framework.** ಹಳೆಯ `02-semantic-kernel.ipynb` ಅನ್ನು Microsoft Agent Framework ನೊಂದಿಗೆ Azure OpenAI (Responses API) ಬಳಸುವಂತೆ ಮರುಬರೆಯಲಾಗಿದೆ ಮತ್ತು `02-python-agent-framework-azure-openai.ipynb` ಎಂದು ಹೆಸರು ಬದಲಾಗಿದೆ.
-- **`FoundryChatClient` + `as_agent` ನ ಮೇಲೆ ಮಾನಕೀಕರಣ.** README ಮತ್ತು ನೋಟ್ಬುಕ್ ಕೋಡ್‌ನಲ್ಲಿ `AzureAIProjectAgentProvider` ಅನ್ನು ಉಲ್ಲೇಖಿಸುವುದನ್ನು ಪಾಠ 01 ಮತ್ತು ಫ್ರೇಮ್ವರ್ಕ್‌ನ ಸ್ವಂತ ಮಾದರಿಗಳ ಮಾದರಿ ಮಾದರಿ ಇರುವ ಮಾದರಿಯ `FoundryChatClient(project_endpoint=..., model=..., credential=AzureCliCredential())` ಮತ್ತು `provider.as_agent(...)` ಗೆ ಸ್ಥಿರಜ್ಞಾಪಿತ ಮಾಡಲಾಗಿದೆ. ಪಾಠ 02–14 README ಮತ್ತು ನೋಟ್ಬುಕ್‌ಗಳಲ್ಲಿ ನವೀಕರಣ (ಉದಾ: ಪಾಠ 13 ಸ್ಮೃತಿ, ಎಲ್ಲಾ ಪಾಠ 14 ನೋಟ್ಬುಕ್‌ಗಳು, `11-agentic-protocols/code_samples/github-mcp/app.py`).
-- **ಉತ್ಪನ್ನ ಹೆಸರಿಕೆ.** ಇಂಗ್ಲೀಷ್ ವಿಷಯದಲ್ಲಿ ಸಂಪೂರ್ಣವಾಗಿ ಹೆಸರು ಬದಲಾಯಿಸಲಾಗಿದೆ:
-  - "Azure AI Foundry" / "Azure AI Studio" → **Microsoft Foundry**
-  - "Azure AI Agent Service" → **Microsoft Foundry Agent Service**
-  - (ಬದಲಾಗದು: "Azure OpenAI", "Azure AI Search", "Azure AI Inference", ಮತ್ತು ಪರಿಸರ ವ್ಯತ್ಯಯ ಹೆಸರುಗಳು.)
-- **ಅವಲಂಬನೆಗಳು** ([requirements.txt](../../requirements.txt)):
-  - `agent-framework>=1.10.0`, `agent-framework-foundry>=1.10.0`, `agent-framework-openai>=1.10.0` ಕಡ್ಡಾಯಗೊಳಿಸಲಾಗಿದೆ.
-  - Responses API ಗೆ ಕನಿಷ್ಟ `openai>=1.108.1` ಕಡ್ಡಾಯ.
-  - `azure-ai-inference` ತೆಗೆದುಹಾಕಲಾಗಿದೆ (ಮತ್ತು ಇದು ಕೂಳಿಸಿದ GitHub Models ಮಾದರಿಗಳಲ್ಲಿ ಮಾತ್ರ ಬಳಕೆಯಾಗಿತ್ತು).
-- **ಪರಿಸರ ಸಂರಚನೆ** ([.env.example](../../.env.example)): GitHub Models ವ್ಯತ್ಯಯಗಳನ್ನು (`GITHUB_TOKEN`, `GITHUB_ENDPOINT`, `GITHUB_MODEL_ID`) ತೆಗೆದುಹಾಕಲಾಗಿದೆ; `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, ಐಚ್ಛಿಕ `AZURE_OPENAI_API_KEY` ಸೇರಿಸಲಾಗಿದೆ; Microsoft Foundry ಹೆಸರು ನವೀಕರಿಸಲಾಗಿದೆ.
-- **ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು** — ಮೇಲ್ಕೊಂಡ ಲಕ್ಷ್ಯದಿಗಾಗಿ [00-course-setup/README.md](./00-course-setup/README.md), [AGENTS.md](./AGENTS.md), [README.md](./README.md), ಮತ್ತು [STUDY_GUIDE.md](./STUDY_GUIDE.md) ನವೀಕರಿಸಲಾಗಿದೆ (ಸಜ್ಜುಗೊಳಿಸುವಿಕೆ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು, ಪರಿಶೀಲನೆ ಸ್ಕ್ರಿಪ್ಟ್, ಒದಗಿಸುವವರು ಮಾರ್ಗದರ್ಶನ, ಹೆಸರಿಕೈ).
+  - [04-tool-use/README.md](./04-tool-use/README.md) — ಸಂಪೂರ್ಣ ಫಂಕ್ಷನ್ ಕಾಲಿಂಗ್ ಓಪನಿಂಗ್ (ಉಪಕರಣ ಪರಿಕಲ್ಪನೆಯನ್ನು ಪ್ರತಿಕ್ರಿಯೆಗಳ ಸ್ವರೂಪಕ್ಕೆ ಸರಳಗೊಳಿಸಲಾಗಿದೆ, ಉಪಕರಣ ಫಲಿತಾಂಶವನ್ನು `function_call_output`, `max_output_tokens` ಮುಂತಾದವೆಯಾಗಿರುತ್ತದೆ).
 
-### ತೆಗೆದುಹಾಕಲಾಗಿದೆ
+- **GitHub ಮಾದರಿಗಳು → ಅಜೂರ್ ಓಪನ್‌ಎಐ.** GitHub ಮಾದರಿಗಳು ಅನಧಿಕೃತಗೊಂಡಿವೆ (**)ಜುಲೈ 2026** ರಂದು ನಿವೃತ್ತಿಯಾಗುತ್ತದೆ** ಮತ್ತುResponses API ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. Python ಮತ್ತು .NET semplesಗಳಾದ GitHub ಮಾದರಿಗಳ ಎಲ್ಲಾ ಕೋಡ್ ಮಾರ್ಗಗಳನ್ನು ಅಜೂರ್ ಓಪನ್‌ಎಐ / ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ ಗೆ ಪರಬರ್ತಿಸಲಾಗಿದೆ:
+  - Python: ಪಾಠ 08 ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್‌ಬುಕ್ ಗಳು (`01`–`03`), ಪಾಠ 14 (`14-handoff`, `14-human-loop`, `hotel_booking_workflow_sample.py`).
+  - .NET: `01`–`04`, `07`, `08` `*-dotnet-agent-framework.cs` + ಸಹಾಯಕ `.md` ಡಾಕ್ಯುಮೆಂಟ್ ಗಳು, ಮತ್ತು ಪಾಠ 08 dotNET ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್‌ಬುಕ್ ಗಳು/`.md` (`01`–`03`) ಈಗ `AzureOpenAIClient(...).GetOpenAIResponseClient(deployment).CreateAIAgent(...)` ಯನ್ನು `AzureCliCredential` ಜೊತೆ ಬಳಸುತ್ತವೆ.
+- **ಸಾಮ೦ತ್ಯ ಕಣ್ಣು → ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್.** ಹಳೆಯ `02-semantic-kernel.ipynb` ಅನ್ನು ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ಅಜೂರ್ ಓಪನ್‌ಎಐ (Responses API) ಜೊತೆ ಪುನಃ ಬರೆಯಲಾಗಿದೆ ಮತ್ತು `02-python-agent-framework-azure-openai.ipynb` ಎಂದು ಹೆಸರು ಬದಲಿಸಲಾಗಿದೆ.
+- **`FoundryChatClient` + `as_agent` ನಲ್ಲಿ ಪ್ರಾಮಾಣೀಕರಿಸಲಾಗಿದೆ.** README ಮತ್ತು ನೋಟ್‌ಬುಕ್ ಕೋಡ್ ಗಳು `AzureAIProjectAgentProvider` ಅನ್ನು ಉಲ್ಲೇಖಿಸುವುದು ಪಾಠ 01 ಮತ್ತು ಫ್ರೇಮ್‌ವರ್ಕ್‌ನ ಸ್ವಂತ semples ಗಳು ಬಳಸುವ ಪ್ರಾಮಾಣಿಕ ಮಾದರಿಯಲ್ಲಿ ಪ್ರಾಮಾಣೀಕರಿಸಲಾಗಿದೆ: `FoundryChatClient(project_endpoint=..., model=..., credential=AzureCliCredential())` ಜೊತೆ `provider.as_agent(...)`. ಪಾಠ 02–14 READMEs ಮತ್ತು ನೋಟ್‌ಬುಕ್ ಗಳಲ್ಲಿ ನವೀಕರಿಸಲಾಗಿದೆ (ಉದಾಹರಣೆಗೆ, ಪಾಠ 13 ಮೆಮೊರಿ, ಎಲ್ಲಾ ಪಾಠ 14 ನೋಟ್‌ಬುಕ್ ಗಳು, `11-agentic-protocols/code_samples/github-mcp/app.py`).
+- **ಉತ್ಪನ್ನ ನಾಮಕರಣ.** ಇಂಗ್ಲಿಷ್ ವಿಷಯಗಳಲ್ಲಿ ಅಲ್ಲಿದ್ದಂತೆ ಹೆಸರು ಬದಲಾಯಿಸಲಾಗಿದೆ:
+  - "Azure AI Foundry" / "Azure AI Studio" → **ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ**
+  - "Azure AI Agent Service" → **ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ ಏಜೆಂಟ್ ಸೇವೆ**
+  - (ಬದಲಾವಣೆ ಇಲ್ಲ: "Azure OpenAI", "Azure AI Search", "Azure AI Inference", ಮತ್ತು ಪರಿಸರ-ಚರಕ ಹೆಸರಿಗಳು.)
+- **ಆಶ್ರಿತತೆಗಳು** ([requirements.txt](../../requirements.txt)):
+  - ಪಿನ್ ಮಾಡಲಾಗಿದೆ `agent-framework>=1.10.0`, `agent-framework-foundry>=1.10.0`, `agent-framework-openai>=1.10.0`.
+  - ಪಿನ್ ಮಾಡಲಾಗಿದೆ `openai>=1.108.1` (Responses API ಗಾಗಿ ಕನಿಷ್ಠ).
+  - ತೆಗೆಯಲಾಗಿದೆ `azure-ai-inference` (ಮಾತ್ರ ಮಾರ್ಪಡಿಸಿದ GitHub ಮಾದರಿ semples ಗೆ ಬಳಸಲಾಯಿತು).
+- **ಪರಿಸರ ಸಂರಚನೆ** ([.env.example](../../.env.example)): GitHub ಮಾದರಿಗಳ ಚರಕ variables (`GITHUB_TOKEN`, `GITHUB_ENDPOINT`, `GITHUB_MODEL_ID`) ತೆಗೆಯಲಾಗಿದೆ; ಸೇರಿಸಲಾಗಿದೆ `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, ಮತ್ತು ಐಚ್ಛಿಕ `AZURE_OPENAI_API_KEY`; ನಾಮಕರಣವನ್ನು Microsoft Foundry ಗೆ ನವೀಕರಿಸಲಾಗಿದೆ.
+- **ಡಾಕ್ಯುಮೆಂಟ್ ಗಳು** — ಮೇಲ್ಕಾಣಿಸಿದಕ್ಕಾಗಿ [00-course-setup/README.md](./00-course-setup/README.md), [AGENTS.md](./AGENTS.md), [README.md](./README.md), ಮತ್ತು [STUDY_GUIDE.md](./STUDY_GUIDE.md) ನವೀಕರಿಸಲಾಗಿದೆ (ಸಂರಚನೆ ಚರಕಗಳು, ಪರಿಶೀಲನ ಸ্নಿಪೆಟ್, ಪೂರೈಕೆದಾರ ಮಾರ್ಗದರ್ಶನ, ನಾಮಕರಣ).
 
-- GitHub Models ರೂದಲು ಮತ್ತು ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ಸಜ್ಜುಗೊಳಿಸುವಿಕೆ ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ (ಮಾರ್ಪು Azure OpenAI / Microsoft Foundry).
+### ತೆಗೆಯಲಾಗಿದೆ
 
-### ಭದ್ರತೆ / ಗೌಪ್ಯತೆ (ಸಾರ್ವಜನಿಕ-ಹಂಚಿಕೆಯ ಸುಧಾರಣೆ)
+- GitHub ಮಾದರಿಗಳ onboarding ಹೆಜ್ಜೆಗಳು ಮತ್ತು ಪರಿಸರ ಚರಕ variables ಗಳು setup docs ನಿಂದ (ಅಜೂರ್ ಓಪನ್‌ಎಐ / ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ ಮೂಲಕ ಮೀರಿಸಲಾಗಿದೆ).
 
-- ನೈಜ **Azure ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್ ಐಡಿ**, ಸಂಪನ್ಮೂಲ-ಗುಂಪು / ಸಂಪನ್ಮೂಲ ಹೆಸರುಗಳು, ಮತ್ತು Bing ಕನೆಕ್ಷನ್ ಐಡಿ, ಜೊತೆಗೆ ಡೆವಲಪರ್ **ಸ್ಥಳೀಯ ಫೈಲ್ ಮಾರ್ಗಗಳು ಮತ್ತು ಬಳಕೆದಾರ ಹೆಸರುಗಳು** ಪ್ರಕಟಗೊಂಡ ಜೆಪಿಟರ್ ನೋಟ್ಬುಕ್ ನಿರ್ವಹಣಾ ಫಲಿತಾಂಶಗಳನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಲಾಗಿದೆ:
+### ಭದ್ರತೆ / ಗೌಪ್ಯತೆ (ಸಾರ್ವಜನಿಕ ಹಂಚಿಕೆ ನಾಶ)
+
+- ನಿಜವಾದ **Azure ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್ ಐಡಿ**, resource-group / resource ಹೆಸರಿಗಳು, Bing ಸಂಪರ್ಕ ID, ಜೊತೆಗೆ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ **ಸ್ಥಳೀಯ ಕಡತ ಮಾರ್ಗಗಳು ಮತ್ತು ಬಳಕೆದಾರ ಹೆಸರುಗಳು** ಅನಾವರಣವಾಗಿರುವ Jupyter notebook ನಿರ್ವಹಣಾ ಔಟ್‌ಪುಟ್ ಗಳೆಲ್ಲಾ ಅಳಿಸಲಾಗಿದೆ:
   - `08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb`
-
   - `08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb`
   - `15-browser-use/15-browser-user.ipynb`
-- ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ ಇಂಗ್ಲಿಷ್ ವಿಷಯದಲ್ಲಿ ಯಾವುದೇ API ಕೀಗಳು, ಟೋಕನ್‌ಗಳು, ಸಬ್ಸ್ಕ್ರಿಪ್ಷನ್ IDಗಳು ಅಥವಾ ವೈಯಕ್ತಿಕ ಪಥಗಳು ಉಳಿದಿಲ್ಲ ಎಂದು ಪರಿಶೀಲಿಸಲಾಗಿದೆ (`GITHUB_TOKEN` ಸೂಚನೆಗಳು ವರ್ಕ್‌ಫ್ಲೋಗಳಲ್ಲಿ GitHub Actions ಟೋಕನ್ ಮತ್ತು ಪಾಠ 11 ಸೆಟ್‌ಅಪ್‌ನಲ್ಲಿ GitHub MCP ಸರ್ವರ್ PAT ಆಗಿದ್ದು — ಎರಡೂ ಕಾನೂನಾತ್ಮಕ ಮತ್ತು GitHub ಮಾದರಿಗಳಿಗೆ ಸಂಬಂಧವಿಲ್ಲ).
+- API ಕೀಗಳು, ಟೋಕನ್ಗಳು, ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್ ಐಡಿ ಅಥವಾ ವೈಯಕ್ತಿಕ ಮಾರ್ಗಗಳು ಟ್ರ್ಯಾಕ್ ಆಗಿರುವ ಇಂಗ್ಲಿಷ್ ವಿಷಯದಲ್ಲಿ ಉಳಿದಿಲ್ಲ ಎಂಬುದನ್ನು ಪರಿಶೀಲಿಸಲಾಯಿತು (`GITHUB_TOKEN` ಉಲ್ಲೇಖಗಳು GitHub Actions ಟೋಕನ್(workflows) ಮತ್ತು GitHub MCP ಸರ್ವರ್ PAT (ಪಾಠ 11 setup) ನಲ್ಲಿ ಮಾತ್ರ ಇವೆ — ಎರಡೂ ಕಾನೂನುಬದ್ಧ ಮತ್ತು GitHub ಮಾದರಿಗಳಿಗೆ ಸಂಬಂಧವಿಲ್ಲ).
 
-### ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ತಿಳಿದಿರುವ ನಿಯಮಿತತೆಗಳು
+### ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ತಿಳಿದಿರುವ ಮಿತಿ
 
-- **ನಿರ್ವಹಿಸಲ್ಪಟ್ಟಿಲ್ಲ/ಕಂಪೈಲ್ ಮಾಡಲಿಲ್ಲ.** ఇవి API/ಹೆಸರಿನ ಸರಿಯಾಗಿರುವ ಶೈಲಿಗಾಗಿ ನವೀಕರಿಸಿದ ಶೈಕ್ಷಣಿಕ ಉದಾಹರಣೆಗಳು; ಅವುಗಳನ್ನು ನೇರವಾಗಿ Azure ಸಂಪನ್ಮೂಲಗಳನ್ನು ವಿರುದ್ಧವಾಗಿ ನಡೆಸಲಾಗಿಲ್ಲ, ಮತ್ತು .NET ಉದಾಹರಣೆಗಳನ್ನು ಈ ಪರಿಸರದಲ್ಲಿ ಕಂಪೈಲ್ ಮಾಡಲಿಲ್ಲ. ನಿಮ್ಮ ಸ್ವಂತ Microsoft Foundry / Azure OpenAI ನಿಯೋಜನೆಗೆ ವಿರುದ್ಧವಾಗಿ ಪರಿಶೀಲಿಸಿ.
-- **ಮಾದರಿ ನಿಯೋಜನೆ Responses API ಅನ್ನು ಬೆಂಬಲಿಸಬೇಕು.** `gpt-4.1-mini`, `gpt-4.1`, ಅಥವಾ `gpt-5.x` ಮಾದರಿ ನಿಯೋಜನೆಯನ್ನು ಬಳಸಿ. ಹಳೆಯ ಮಾದರಿಗಳು Responses ಮೂಲ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತವೆ ಆದರೆ ಪ್ರತಿ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಅಲ್ಲ.
-- **Agent-framework ಆವೃತ್ತಿ.** ಉದಾಹರಣೆಗಳು ಇತ್ತೀಚಿನ MAF (`>=1.10.0`) ಗುರಿಯಾಗಿವೆ. ಪ್ರಮಾಣಿತ ಏಜೆಂಟ್ ಸೃಜನ ಕರೆಯುವುದು `client.as_agent(...)`; APIs ಅನ್ನು ಫ್ರೇಮ್ವರ್ಕ್ ಪ್ರಕಟಿಸಿದ ಡಾಕ್ಯೂಮೆಂಟ್‌ಗಳು ಮತ್ತು ಸ್ಥಾಪಿತ ಬಿಲ್ಡ್ ವಿರುದ್ಧ ಪರಿಶೀಲಿಸಲಾಗಿದೆ. ನೀವು ಬೇರೆ ಆವೃತ್ತಿಯನ್ನು ಪಿನ್ ಮಾಡಿದರೆ, ವಿಧಾನ ಲಭ್ಯತೆ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ (`as_agent` ವಿರುದ್ಧ `create_agent`).
-- **ಪಾಠ 08 ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್ಬುಕ್ 04** ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ `AzureAIAgentClient` ( `agent-framework-azure-ai`ನಿಂದ) ಬಳಸುತ್ತದೆ ಏಕೆಂದರೆ ಇದು Microsoft Foundry Agent Service ಕಾಲದ ಉಪಕರಣಗಳನ್ನು (Bing ಗ್ರೌಂಡಿಂಗ್, ಕೋಡ್ ವ್ಯಾಖ್ಯಾನ) ಬಳಸುತ್ತದೆ; ಇದು ಈಗಾಗಲೇ Responses ಆಧಾರಿತವಾಗಿದೆ.
-- **.NET ಡಿಫಾಲ್ಟ್ ನಿಯೋಜನೆ.** ಎರಡು ಪಾಠ 08 dotNET ವರ್ಕ್‌ಫ್ಲೋ ಉದಾಹರಣೆಗಳಲ್ಲಿ ಹಿಂದೆ ವಿಶೇಷ ಮಾದರಿಯನ್ನು ಹാർಡ್-ಕೋಡ್ ಮಾಡಿದ್ದವು; ಈಗ ಅವು `AZURE_OPENAI_DEPLOYMENT` (`gpt-4.1-mini`) ಗೆ ಡಿಫಾಲ್ಟ್ ಆಗಿವೆ. ಒಂದಾದ ಮೇಲೆ ಬಹುಮಾಧ್ಯಮ/ದೃಷ್ಟಿ ಇನ್‌ಪುಟ್ ಅವಲಂಬಿಸಿದ್ದರೆ, `AZURE_OPENAI_DEPLOYMENT` ಅನ್ನು ಸೂಕ್ತ ಮಾದರಿಗೆ ಸ್ಥಾಪಿಸಿ.
-- **Foundry Local** ಒಂದು OpenAI-ಹೊಂದಾಣಿಕೆಯ **ಚಾಟ್ ಪೂರ್ಣತೆಗಳ** ಅಂತಿಮ ಬಿಂದುವನ್ನು ಬಹಿರಂಗಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಸ್ಥಳೀಯ ಅಭಿವೃದ್ಧಿಗೆ ಉದ್ದೇಶಿಸಿದೆ; ಸಂಪೂರ್ಣ Responses API ವೈಶಿಷ್ಟ್ಯಗಳಿಗಾಗಿ Azure OpenAI / Microsoft Foundry ಬಳಸಿ.
+- **ನಡತ/ಕಂಪೈಲ್ ಆಗಿಲ್ಲ.** ಇವು API/ನಾಮಕರಣದ ಸರಿಯಾದತೆಗಾಗಿ ನವೀಕರಿಸಲಾಗಿರುವ ಶೈಕ್ಷಣಿಕ semples; ಅವು ಜೀವಂತ ಅಜೂರ್ ಸಂಪನ್ಮೂಲಗಳ ಮೇಲೆ ಪ್ರಯೋಗಿಸಲ್ಪಟ್ಟಿಲ್ಲ, ಮತ್ತು .NET semples ಈ ಪರಿಸರದಲ್ಲಿ ಉಪಯೋಗಿಸುವಿಕೆ ನಡೆಯಲಿಲ್ಲ. ನಿಮ್ಮ ಸ್ವಂತ ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ / ಅಜೂರ್ ಓಪನ್‌ಎಐ ನಿಯೋಜನೆ ವಿರುದ್ಧ ಪರಿಶೀಲಿಸಿ.
+- **ಮಾದರಿ ನಿಯೋಜನವು Responses API ಅನ್ನು ಬೆಂಬಲಿಸಬೇಕು.** `gpt-4.1-mini`, `gpt-4.1`, ಅಥವಾ `gpt-5.x` ಮಾದರಿಯನ್ನು ನಿಯೋಜಿಸಿ. ಹಳೆಯ ಮಾದರಿಗಳು Responses ಮೂಲ ಕಾರ್ಯೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತವೆ ಆದರೆ ಪ್ರತಿಯೊಂದು ವೈಶಿಷ್ಟ್ಯವನ್ನೂ ಅಲ್ಲ.
+- **Agent-framework ಆವೃತ್ತಿ.** semples ಗಳು ನವೀನ MAF (`>=1.10.0`) ಗಾಗಿ ಆಗಿದ್ದು, canonical ಏಜೆಂಟ್-ಸೃಷ್ಟಿ ಕರೆ `client.as_agent(...)`; API ಗಳು ಫ್ರೇಮ್‌ವರ್ಕ್ ಪ್ರಕಟಿತ ಡಾಕ್ಯುಮೆಂಟೇಷನ್ ಮತ್ತು ಸ್ಥಾಪಿತ ನಿರ್ಮಿತಿಯೊಂದಿಗೆ ಪರಿಶೀಲಿಸಲ್ಪಟ್ಟಿವೆ. ನೀವು ಬೇರೆ ಆವೃತ್ತಿಯನ್ನು ಪಿನ್ ಮಾಡಿದರೆ, ವಿಧಾನ ಲಭ್ಯತೆಯನ್ನು ದೃಢೀಕರಿಸಿ (`as_agent` ವಿರುದ್ಧ `create_agent`).
+- **ಪಾಠ 08 ವರ್ಕ್‌ಫ್ಲೋ ನೋಟ್‌ಬುಕ್ 04** ಉದ್ದೇಶಪೂರಕವಾಗಿ `AzureAIAgentClient` ( `agent-framework-azure-ai` ಯಿಂದ) ಉಪಯೋಗಿಸುತ್ತದೆ ಏಕೆಂದರೆ ಇದು ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿ ಏಜೆಂಟ್ ಸೇವೆ ಅತಿಥಿ ಉಪಕರಣಗಳನ್ನು (ಬಿಂಗ್ ಗ್ರೌಂಡಿಂಗ್, ಕೋಡ್ ಇಂಟರ್ಪ್ರೀಟರ್) ಬಳಸುತ್ತದೆ; ಇದು ಈಗಾಗಲೇ Responses ಆಧಾರಿತವಾಗಿದೆ.
+- **.NET ಡಿಫಾಲ್ಟ್ ನಿಯೋಜನೆ.** ಎರಡು ಪಾಠ 08 dotNET ವರ್ಕ್‌ಫ್ಲೋ semples ಹಿಂದೆ ನಿರ್ದಿಷ್ಟ ಮಾದರಿಯನ್ನು ಹಾರ್ಡ್-ಕೋಡ್ ಮಾಡಿದ್ದವು; ಈಗ ಅವು ಡಿಫಾಲ್ಟ್ ಆಗಿ `AZURE_OPENAI_DEPLOYMENT` (`gpt-4.1-mini`) ಬಳಸುತ್ತವೆ. ಒಂದು semple ಬಹುಮಾಧ್ಯಮ / ದೃಶ್ಯ ಇನ್ಪುಟ್ ಮೇಲೆ ಅವಲಂಬಿತ ಇದಾದರೆ, phùರುವಷ್ಟು ಸೂಕ್ತ ಮಾದರಿಗಾಗಿ `AZURE_OPENAI_DEPLOYMENT` ಅನ್ನು ಸೆಟ್ ಮಾಡಿ.
+- **ಫೌಂಡ್ರಿ ಲೋಕಲ್** ಒಬ್ಬ OpenAI-ಅನುಕೂಲ **ಚಾಟ್ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ**‌ಗಳ ಮುಕ್ತಾಯವನ್ನು ಒದಗಿಸುತ್ತದೆ ಮತ್ತು ಸ್ಥಳೀಯ ಅಭಿವೃದ್ಧಿಗಾಗಿಯೇ ಉದ್ದೇಶಿಸಲಾಗಿದೆ; Responses API ವೈಶಿಷ್ಟ್ಯ ಸಂಪೂರ್ಣಕ್ಕಾಗಿ ಅಜೂರ್ ಓಪನ್‌ಎಐ / ಮೈನಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿಯನ್ನು ಬಳಸಿ.
 
 ---
 

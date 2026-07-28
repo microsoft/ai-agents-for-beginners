@@ -1,148 +1,151 @@
-# 🎨 Pola Desain Agentik dengan Model GitHub (.NET)
+# 🎨 Pola Desain Agentic dengan Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Tujuan Pembelajaran
 
-Contoh ini menunjukkan pola desain tingkat perusahaan untuk membangun agen cerdas menggunakan Microsoft Agent Framework di .NET dengan integrasi Model GitHub. Anda akan mempelajari pola profesional dan pendekatan arsitektur yang membuat agen siap produksi, mudah dikelola, dan dapat diskalakan.
+Contoh ini menunjukkan pola desain kelas perusahaan untuk membangun agen cerdas menggunakan Microsoft Agent Framework di .NET dengan integrasi Azure OpenAI (Responses API). Anda akan mempelajari pola profesional dan pendekatan arsitektur yang membuat agen siap produksi, mudah dipelihara, dan dapat diskalakan.
 
 ### Pola Desain Perusahaan
 
-- 🏭 **Factory Pattern**: Pembuatan agen yang terstandarisasi dengan dependency injection
-- 🔧 **Builder Pattern**: Konfigurasi dan pengaturan agen yang mudah
-- 🧵 **Thread-Safe Patterns**: Pengelolaan percakapan secara bersamaan
+- 🏭 **Factory Pattern**: Pembuatan agen yang distandarisasi dengan dependency injection
+- 🔧 **Builder Pattern**: Konfigurasi dan pengaturan agen secara fluent
+- 🧵 **Pola Aman-Thread**: Manajemen percakapan secara konkuren
 - 📋 **Repository Pattern**: Pengelolaan alat dan kemampuan yang terorganisir
 
 ## 🎯 Manfaat Arsitektur Khusus .NET
 
 ### Fitur Perusahaan
 
-- **Strong Typing**: Validasi saat kompilasi dan dukungan IntelliSense
+- **Strong Typing**: Validasi waktu kompilasi dan dukungan IntelliSense
 - **Dependency Injection**: Integrasi container DI bawaan
-- **Configuration Management**: Pola IConfiguration dan Options
-- **Async/Await**: Dukungan pemrograman asinkron kelas satu
+- **Manajemen Konfigurasi**: Pola IConfiguration dan Options
+- **Async/Await**: Dukungan pemrograman asinkron kelas pertama
 
 ### Pola Siap Produksi
 
 - **Integrasi Logging**: Dukungan ILogger dan logging terstruktur
-- **Health Checks**: Pemantauan dan diagnostik bawaan
-- **Validasi Konfigurasi**: Pengetikan kuat dengan anotasi data
-- **Penanganan Kesalahan**: Pengelolaan pengecualian yang terstruktur
+- **Health Checks**: Monitoring dan diagnosa bawaan
+- **Validasi Konfigurasi**: Strong typing dengan anotasi data
+- **Penanganan Error**: Manajemen pengecualian terstruktur
 
 ## 🔧 Arsitektur Teknis
 
 ### Komponen Inti .NET
 
-- **Microsoft.Extensions.AI**: Abstraksi layanan AI yang terpadu
-- **Microsoft.Agents.AI**: Kerangka orkestrasi agen tingkat perusahaan
-- **Integrasi Model GitHub**: Pola klien API berkinerja tinggi
-- **Sistem Konfigurasi**: Integrasi appsettings.json dan lingkungan
+- **Microsoft.Extensions.AI**: Abstraksi layanan AI terpadu
+- **Microsoft.Agents.AI**: Kerangka kerja orkestrasi agen perusahaan
+- **Azure OpenAI (Responses API)**: Pola klien API berperforma tinggi
+- **Sistem Konfigurasi**: appsettings.json dan integrasi lingkungan
 
 ### Implementasi Pola Desain
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Pembuat Agen]
+    B --> C[Konfigurasi]
+    C --> D[Registri Alat]
+    D --> E[Agen AI]
 ```
 
 ## 🏗️ Pola Perusahaan yang Ditunjukkan
 
 ### 1. **Pola Kreasi**
 
-- **Agent Factory**: Pembuatan agen terpusat dengan konfigurasi yang konsisten
-- **Builder Pattern**: API yang mudah untuk konfigurasi agen yang kompleks
+- **Agent Factory**: Pembuatan agen terpusat dengan konfigurasi konsisten
+- **Builder Pattern**: API fluent untuk konfigurasi agen kompleks
 - **Singleton Pattern**: Pengelolaan sumber daya dan konfigurasi bersama
-- **Dependency Injection**: Keterhubungan yang longgar dan mudah diuji
+- **Dependency Injection**: Loose coupling dan kemudahan pengujian
 
 ### 2. **Pola Perilaku**
 
-- **Strategy Pattern**: Strategi eksekusi alat yang dapat diganti
-- **Command Pattern**: Operasi agen yang terenkapsulasi dengan undo/redo
-- **Observer Pattern**: Pengelolaan siklus hidup agen berbasis peristiwa
-- **Template Method**: Alur kerja eksekusi agen yang terstandarisasi
+- **Strategy Pattern**: Strategi eksekusi alat yang dapat dipertukarkan
+- **Command Pattern**: Operasi agen yang dikapsulkan dengan undo/redo
+- **Observer Pattern**: Manajemen siklus hidup agen berbasis peristiwa
+- **Template Method**: Alur kerja eksekusi agen yang distandarisasi
 
 ### 3. **Pola Struktural**
 
-- **Adapter Pattern**: Lapisan integrasi API Model GitHub
+- **Adapter Pattern**: Lapisan integrasi Azure OpenAI (Responses API)
 - **Decorator Pattern**: Peningkatan kemampuan agen
 - **Facade Pattern**: Antarmuka interaksi agen yang disederhanakan
-- **Proxy Pattern**: Pemuatan lambat dan caching untuk kinerja
+- **Proxy Pattern**: Lazy loading dan caching untuk performa
 
 ## 📚 Prinsip Desain .NET
 
 ### Prinsip SOLID
 
-- **Single Responsibility**: Setiap komponen memiliki satu tujuan yang jelas
-- **Open/Closed**: Dapat diperluas tanpa modifikasi
+- **Single Responsibility**: Masing-masing komponen memiliki satu tujuan jelas
+- **Open/Closed**: Ekstensibel tanpa modifikasi
 - **Liskov Substitution**: Implementasi alat berbasis antarmuka
 - **Interface Segregation**: Antarmuka yang fokus dan kohesif
 - **Dependency Inversion**: Bergantung pada abstraksi, bukan konkret
 
-### Arsitektur Bersih
+### Arsitetur Bersih
 
 - **Domain Layer**: Abstraksi inti agen dan alat
 - **Application Layer**: Orkestrasi agen dan alur kerja
-- **Infrastructure Layer**: Integrasi Model GitHub dan layanan eksternal
-- **Presentation Layer**: Interaksi pengguna dan pemformatan respons
+- **Infrastructure Layer**: Integrasi Azure OpenAI (Responses API) dan layanan eksternal
+- **Presentation Layer**: Interaksi pengguna dan format respons
 
 ## 🔒 Pertimbangan Perusahaan
 
 ### Keamanan
 
-- **Pengelolaan Kredensial**: Penanganan kunci API yang aman dengan IConfiguration
-- **Validasi Input**: Pengetikan kuat dan validasi anotasi data
-- **Sanitasi Output**: Pemrosesan respons yang aman dan penyaringan
+- **Manajemen Kredensial**: Penanganan kunci API yang aman dengan IConfiguration
+- **Validasi Input**: Strong typing dan validasi anotasi data
+- **Sanitasi Output**: Pemrosesan dan penyaringan respons yang aman
 - **Audit Logging**: Pelacakan operasi yang komprehensif
 
-### Kinerja
+### Performa
 
-- **Pola Asinkron**: Operasi I/O yang tidak memblokir
-- **Connection Pooling**: Pengelolaan klien HTTP yang efisien
-- **Caching**: Caching respons untuk meningkatkan kinerja
-- **Pengelolaan Sumber Daya**: Pola pembuangan dan pembersihan yang tepat
+- **Pola Async**: Operasi I/O tanpa blocking
+- **Connection Pooling**: Manajemen klien HTTP yang efisien
+- **Caching**: Caching respons untuk peningkatan performa
+- **Manajemen Sumber Daya**: Pola disposal dan pembersihan yang tepat
 
 ### Skalabilitas
 
-- **Keamanan Thread**: Dukungan eksekusi agen secara bersamaan
-- **Pengelolaan Sumber Daya**: Pemanfaatan sumber daya yang efisien
-- **Pengelolaan Beban**: Pembatasan laju dan penanganan tekanan balik
-- **Pemantauan**: Metrik kinerja dan pemeriksaan kesehatan
+- **Thread Safety**: Dukungan eksekusi agen konkuren
+- **Resource Pooling**: Pemanfaatan sumber daya yang efisien
+- **Manajemen Beban**: Pembatasan laju dan penanganan tekanan balik
+- **Monitoring**: Metrik performa dan pemeriksaan kesehatan
 
-## 🚀 Penerapan Produksi
+## 🚀 Deploy Produksi
 
-- **Pengelolaan Konfigurasi**: Pengaturan khusus lingkungan
-- **Strategi Logging**: Logging terstruktur dengan ID korelasi
-- **Penanganan Kesalahan**: Penanganan pengecualian global dengan pemulihan yang tepat
-- **Pemantauan**: Application insights dan penghitung kinerja
-- **Pengujian**: Pola pengujian unit, integrasi, dan beban
+- **Manajemen Konfigurasi**: Pengaturan spesifik lingkungan
+- **Strategi Logging**: Logging terstruktur dengan correlation ID
+- **Penanganan Error**: Penanganan pengecualian global dengan pemulihan tepat
+- **Monitoring**: Insights aplikasi dan penghitung performa
+- **Pengujian**: Pola unit test, integration test, dan load test
 
-Siap membangun agen cerdas tingkat perusahaan dengan .NET? Mari arsitek sesuatu yang kokoh! 🏢✨
+Siap membangun agen cerdas kelas perusahaan dengan .NET? Mari kita arsitek sesuatu yang kokoh! 🏢✨
 
 ## 🚀 Memulai
 
 ### Prasyarat
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
-- [Token akses API Model GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
+- Sebuah [langganan Azure](https://azure.microsoft.com/free/) dengan sumber daya Azure OpenAI dan penerapan model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — masuk dengan `az login`
 
-### Variabel Lingkungan yang Diperlukan
+### Variabel Lingkungan yang Dibutuhkan
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Kemudian masuk agar AzureCliCredential dapat mendapatkan token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Kemudian masuk sehingga AzureCliCredential dapat memperoleh token
+az login
 ```
 
-### Contoh Kode
+### Kode Contoh
 
 Untuk menjalankan contoh kode,
 
@@ -158,21 +161,23 @@ Atau menggunakan dotnet CLI:
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Lihat [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) untuk kode lengkapnya.
+Lihat [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) untuk kode lengkap.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk memberikan hasil yang akurat, harap diperhatikan bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang berwenang. Untuk informasi yang bersifat kritis, disarankan menggunakan jasa terjemahan manusia profesional. Kami tidak bertanggung jawab atas kesalahpahaman atau interpretasi yang salah yang timbul dari penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

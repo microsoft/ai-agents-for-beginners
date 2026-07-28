@@ -1,41 +1,41 @@
-# 🛠️ Uso Avanzado de Herramientas con Azure OpenAI (API de Respuestas) (.NET)
+# 🛠️ Uso avanzado de herramientas con Azure OpenAI (Responses API) (.NET)
 
-## 📋 Objetivos de Aprendizaje
+## 📋 Objetivos de aprendizaje
 
-Este cuaderno demuestra patrones de integración de herramientas de nivel empresarial usando el Microsoft Agent Framework en .NET con Azure OpenAI (API de Respuestas). Aprenderás a construir agentes sofisticados con múltiples herramientas especializadas, aprovechando el tipado fuerte de C# y las características empresariales de .NET.
+Este cuaderno demuestra patrones de integración de herramientas a nivel empresarial usando el Microsoft Agent Framework en .NET con Azure OpenAI (Responses API). Aprenderás a construir agentes sofisticados con múltiples herramientas especializadas, aprovechando la tipificación fuerte de C# y las características empresariales de .NET.
 
-### Capacidades Avanzadas de Herramientas que Dominarás
+### Capacidades avanzadas de herramientas que dominarás
 
-- 🔧 **Arquitectura Multi-Herramienta**: Construcción de agentes con múltiples capacidades especializadas
-- 🎯 **Ejecución de Herramientas con Tipado Seguro**: Aprovechando la validación en tiempo de compilación de C#
-- 📊 **Patrones Empresariales de Herramientas**: Diseño de herramientas listas para producción y manejo de errores
-- 🔗 **Composición de Herramientas**: Combinando herramientas para flujos de trabajo empresariales complejos
+- 🔧 **Arquitectura multi-herramienta**: Construcción de agentes con múltiples capacidades especializadas
+- 🎯 **Ejecución de herramientas con seguridad de tipo**: Aprovechando la validación en tiempo de compilación de C#
+- 📊 **Patrones empresariales de herramientas**: Diseño de herramientas listas para producción y manejo de errores
+- 🔗 **Composición de herramientas**: Combinando herramientas para flujos de trabajo empresariales complejos
 
-## 🎯 Beneficios de la Arquitectura de Herramientas .NET
+## 🎯 Beneficios de la arquitectura de herramientas en .NET
 
-### Características Empresariales de las Herramientas
+### Características empresariales de herramientas
 
-- **Validación en Tiempo de Compilación**: El tipado fuerte asegura la corrección de parámetros de las herramientas
-- **Inyección de Dependencias**: Integración con contenedor IoC para gestión de herramientas
-- **Patrones Async/Await**: Ejecución de herramientas sin bloqueo con manejo adecuado de recursos
-- **Registro Estructurado**: Integración incorporada para monitoreo de ejecución de herramientas
+- **Validación en tiempo de compilación**: La tipificación fuerte asegura la corrección de los parámetros de las herramientas
+- **Inyección de dependencias**: Integración de contenedores IoC para la gestión de herramientas
+- **Patrones Async/Await**: Ejecución no bloqueante de herramientas con una correcta gestión de recursos
+- **Registro estructurado**: Integración incorporada de logging para monitoreo de la ejecución de herramientas
 
-### Patrones Listos para Producción
+### Patrones listos para producción
 
-- **Manejo de Excepciones**: Gestión completa de errores con excepciones tipadas
-- **Gestión de Recursos**: Patrones correctos de disposición y gestión de memoria
-- **Monitoreo de Rendimiento**: Métricas y contadores de rendimiento integrados
-- **Gestión de Configuración**: Configuración con tipado seguro y validación
+- **Manejo de excepciones**: Gestión exhaustiva de errores con excepciones tipadas
+- **Gestión de recursos**: Patrones adecuados de disposición y manejo de memoria
+- **Monitoreo de rendimiento**: Métricas y contadores de rendimiento integrados
+- **Gestión de configuración**: Configuración segura con validación
 
-## 🔧 Arquitectura Técnica
+## 🔧 Arquitectura técnica
 
-### Componentes Clave de Herramientas .NET
+### Componentes principales de herramientas en .NET
 
 - **Microsoft.Extensions.AI**: Capa unificada de abstracción de herramientas
-- **Microsoft.Agents.AI**: Orquestación de herramientas de nivel empresarial
-- **Azure OpenAI (API de Respuestas)**: Cliente API de alto rendimiento con agrupamiento de conexiones
+- **Microsoft.Agents.AI**: Orquestación de herramientas a nivel empresarial
+- **Azure OpenAI (Responses API)**: Cliente API de alto rendimiento con agrupación de conexiones
 
-### Pipeline de Ejecución de Herramientas
+### Pipeline de ejecución de herramientas
 
 ```mermaid
 graph LR
@@ -43,52 +43,52 @@ graph LR
     B --> C[Selección de Herramienta]
     C --> D[Validación de Tipo]
     B --> E[Vinculación de Parámetros]
-    E --> F[Ejecución de Herramienta]
+    E --> F[Ejecución de la Herramienta]
     C --> F
     F --> G[Procesamiento de Resultados]
     D --> G
     G --> H[Respuesta]
 ```
 
-## 🛠️ Categorías y Patrones de Herramientas
+## 🛠️ Categorías y patrones de herramientas
 
-### 1. **Herramientas de Procesamiento de Datos**
+### 1. **Herramientas de procesamiento de datos**
 
-- **Validación de Entrada**: Tipado fuerte con anotaciones de datos
-- **Operaciones de Transformación**: Conversión y formateo de datos con tipado seguro
-- **Lógica de Negocio**: Herramientas de cálculo y análisis específicos del dominio
-- **Formato de Salida**: Generación estructurada de respuestas
+- **Validación de entrada**: Tipificación fuerte con anotaciones de datos
+- **Operaciones de transformación**: Conversión y formateo de datos con seguridad de tipo
+- **Lógica de negocio**: Herramientas de cálculo y análisis específicos del dominio
+- **Formateo de salida**: Generación estructurada de respuestas
 
-### 2. **Herramientas de Integración** 
+### 2. **Herramientas de integración**
 
 - **Conectores API**: Integración de servicios RESTful con HttpClient
-- **Herramientas de Base de Datos**: Integración con Entity Framework para acceso a datos
-- **Operaciones de Archivos**: Operaciones seguras en el sistema de archivos con validación
-- **Servicios Externos**: Patrones de integración con servicios de terceros
+- **Herramientas de bases de datos**: Integración con Entity Framework para acceso a datos
+- **Operaciones de archivos**: Operaciones seguras en el sistema de archivos con validación
+- **Servicios externos**: Patrones de integración con servicios de terceros
 
-### 3. **Herramientas Utilitarias**
+### 3. **Herramientas utilitarias**
 
-- **Procesamiento de Texto**: Utilidades para manipulación y formateo de cadenas
-- **Operaciones de Fecha/Hora**: Cálculos de fecha/hora con reconocimiento cultural
-- **Herramientas Matemáticas**: Cálculos de precisión y operaciones estadísticas
-- **Herramientas de Validación**: Validación de reglas de negocio y verificación de datos
+- **Procesamiento de texto**: Utilidades para manipulación y formateo de cadenas
+- **Operaciones de fecha/hora**: Cálculos de fecha/hora con consciencia cultural
+- **Herramientas matemáticas**: Cálculos de precisión y operaciones estadísticas
+- **Herramientas de validación**: Validación de reglas de negocio y verificación de datos
 
-¿Listo para construir agentes de nivel empresarial con potentes herramientas de tipado seguro en .NET? ¡Vamos a diseñar soluciones profesionales! 🏢⚡
+¿Listo para construir agentes a nivel empresarial con potentes capacidades de herramientas con seguridad de tipo en .NET? ¡Vamos a diseñar soluciones de nivel profesional! 🏢⚡
 
 ## 🚀 Comenzando
 
-### Requisitos Previos
+### Requisitos previos
 
-- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) o superior
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o superior
 - Una [suscripción de Azure](https://azure.microsoft.com/free/) con un recurso Azure OpenAI y un despliegue de modelo
 - La [CLI de Azure](https://learn.microsoft.com/cli/azure/install-azure-cli) — inicia sesión con `az login`
 
-### Variables de Entorno Requeridas
+### Variables de entorno requeridas
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Luego inicia sesión para que AzureCliCredential pueda obtener un token
 az login
 ```
@@ -96,12 +96,12 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Luego inicia sesión para que AzureCliCredential pueda obtener un token
 az login
 ```
 
-### Código de Ejemplo
+### Código de ejemplo
 
 Para ejecutar el ejemplo de código,
 
@@ -111,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-O usando la CLI dotnet:
+O usando la CLI de dotnet:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

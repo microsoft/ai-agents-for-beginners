@@ -1,104 +1,107 @@
-# 🛠️ Расширенное использование инструментов с моделями GitHub (.NET)
+# 🛠️ Продвинутое Использование Инструментов с Azure OpenAI (Responses API) (.NET)
 
-## 📋 Цели обучения
+## 📋 Цели Обучения
 
-Этот ноутбук демонстрирует интеграцию инструментов корпоративного уровня с использованием Microsoft Agent Framework в .NET и моделями GitHub. Вы научитесь создавать сложных агентов с множеством специализированных инструментов, используя строгую типизацию C# и возможности .NET для корпоративных приложений.
+Этот блокнот демонстрирует паттерны интеграции инструментов корпоративного уровня с использованием Microsoft Agent Framework в .NET с Azure OpenAI (Responses API). Вы научитесь создавать сложных агентов с несколькими специализированными инструментами, используя строгую типизацию C# и возможности .NET для корпоративных решений.
 
-### Расширенные возможности инструментов, которые вы освоите
+### Продвинутые Возможности Инструментов, Которые Вы Освоите
 
-- 🔧 **Архитектура с несколькими инструментами**: Создание агентов с множеством специализированных функций
-- 🎯 **Безопасное выполнение инструментов**: Использование проверки на этапе компиляции в C#
-- 📊 **Корпоративные шаблоны инструментов**: Дизайн инструментов для продакшена и обработка ошибок
-- 🔗 **Композиция инструментов**: Сочетание инструментов для сложных бизнес-процессов
+- 🔧 **Архитектура с Множеством Инструментов**: Создание агентов с несколькими специализированными возможностями
+- 🎯 **Безопасное Выполнение Инструментов с Типизацией**: Использование проверки времени компиляции C#
+- 📊 **Паттерны Инструментов Корпоративного Уровня**: Проектирование инструментов для промышленного использования и обработка ошибок
+- 🔗 **Композиция Инструментов**: Комбинирование инструментов для сложных бизнес-процессов
 
-## 🎯 Преимущества архитектуры инструментов в .NET
+## 🎯 Преимущества Архитектуры Инструментов .NET
 
-### Особенности корпоративных инструментов
+### Корпоративные Особенности Инструментов
 
-- **Проверка на этапе компиляции**: Строгая типизация обеспечивает корректность параметров инструментов
-- **Внедрение зависимостей**: Интеграция IoC-контейнера для управления инструментами
-- **Асинхронные шаблоны**: Неблокирующее выполнение инструментов с правильным управлением ресурсами
-- **Структурированное логирование**: Встроенная интеграция логирования для мониторинга выполнения инструментов
+- **Проверка Времени Компиляции**: Строгая типизация обеспечивает корректность параметров инструмента
+- **Внедрение Зависимостей**: Интеграция с IoC контейнером для управления инструментами
+- **Асинхронные Паттерны Async/Await**: Неблокирующее выполнение с правильным управлением ресурсами
+- **Структурированное Логирование**: Встроенная интеграция логирования для мониторинга выполнения инструментов
 
-### Шаблоны для продакшена
+### Паттерны для Промышленного Использования
 
-- **Обработка исключений**: Полное управление ошибками с типизированными исключениями
-- **Управление ресурсами**: Правильные шаблоны освобождения ресурсов и управления памятью
-- **Мониторинг производительности**: Встроенные метрики и счетчики производительности
-- **Управление конфигурацией**: Типизированная конфигурация с проверкой
+- **Обработка Исключений**: Всеобъемлющее управление ошибками с типизированными исключениями
+- **Управление Ресурсами**: Корректные паттерны освобождения ресурсов и управления памятью
+- **Мониторинг Производительности**: Встроенные метрики и счётчики производительности
+- **Управление Конфигурацией**: Безопасная типизация конфигурации с проверкой корректности
 
-## 🔧 Техническая архитектура
+## 🔧 Техническая Архитектура
 
-### Основные компоненты инструментов .NET
+### Основные Компоненты Инструментов .NET
 
-- **Microsoft.Extensions.AI**: Унифицированный слой абстракции инструментов
-- **Microsoft.Agents.AI**: Оркестрация инструментов корпоративного уровня
-- **Интеграция моделей GitHub**: Высокопроизводительный API-клиент с пулом подключений
+- **Microsoft.Extensions.AI**: Унифицированный уровень абстракции инструментов
+- **Microsoft.Agents.AI**: Операционная система инструментов корпоративного уровня
+- **Azure OpenAI (Responses API)**: Высокопроизводительный клиент API с пулом соединений
 
-### Конвейер выполнения инструментов
+### Пайплайн Выполнения Инструментов
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Запрос пользователя] --> B[Анализ агента]
+    B --> C[Выбор инструмента]
+    C --> D[Проверка типа]
+    B --> E[Привязка параметров]
+    E --> F[Выполнение инструмента]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Обработка результата]
     D --> G
-    G --> H[Response]
+    G --> H[Ответ]
 ```
 
-## 🛠️ Категории инструментов и шаблоны
+## 🛠️ Категории и Паттерны Инструментов
 
-### 1. **Инструменты обработки данных**
+### 1. **Инструменты Обработки Данных**
 
-- **Проверка ввода**: Строгая типизация с аннотациями данных
-- **Операции преобразования**: Типизированное преобразование и форматирование данных
-- **Бизнес-логика**: Инструменты для расчета и анализа, специфичные для домена
-- **Форматирование вывода**: Генерация структурированных ответов
+- **Проверка Входных Данных**: Строгая типизация с использованием аннотаций данных
+- **Операции Трансформации**: Безопасное по типам преобразование и форматирование данных
+- **Бизнес-Логика**: Инструменты доменно-специфичных вычислений и анализа
+- **Форматирование Выходных Данных**: Генерация структурированных ответов
 
-### 2. **Интеграционные инструменты**
+### 2. **Инструменты Интеграции**
 
-- **API-коннекторы**: Интеграция RESTful-сервисов с HttpClient
-- **Инструменты работы с базами данных**: Интеграция Entity Framework для доступа к данным
-- **Операции с файлами**: Безопасные операции с файловой системой с проверкой
-- **Внешние сервисы**: Шаблоны интеграции сторонних сервисов
+- **Коннекторы API**: Интеграция RESTful сервисов с помощью HttpClient
+- **Инструменты для Баз Данных**: Интеграция Entity Framework для доступа к данным
+- **Операции с Файлами**: Безопасные операции с файловой системой с проверкой корректности
+- **Внешние Сервисы**: Паттерны интеграции сторонних сервисов
 
-### 3. **Утилитарные инструменты**
+### 3. **Утилитарные Инструменты**
 
-- **Обработка текста**: Утилиты для манипуляции строками и форматирования
-- **Операции с датой/временем**: Культурно-осведомленные вычисления даты/времени
-- **Математические инструменты**: Точные вычисления и статистические операции
-- **Инструменты проверки**: Проверка бизнес-правил и верификация данных
+- **Обработка Текста**: Утилиты для манипуляции и форматирования строк
+- **Операции с Датой/Временем**: Культурно-зависимые вычисления дат и времени
+- **Математические Инструменты**: Точные вычисления и статистические операции
+- **Инструменты Валидации**: Проверка бизнес-правил и верификация данных
 
-Готовы создавать корпоративных агентов с мощными, безопасными инструментами в .NET? Давайте спроектируем профессиональные решения! 🏢⚡
+Готовы строить корпоративных агентов с мощными, безопасными по типам возможностями инструментов в .NET? Давайте создадим профессиональные решения! 🏢⚡
 
-## 🚀 Начало работы
+## 🚀 Начало Работы
 
-### Предварительные требования
+### Требования
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или выше
-- [Токен доступа к API моделей GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Подписка [Azure](https://azure.microsoft.com/free/) с ресурсом Azure OpenAI и развертыванием модели
+- Установленная [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — выполните вход через `az login`
 
-### Необходимые переменные окружения
+### Необходимые Переменные Окружения
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Затем выполните вход, чтобы AzureCliCredential мог получить токен
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Затем войдите в систему, чтобы AzureCliCredential мог получить токен
+az login
 ```
 
-### Пример кода
+### Пример Кода
 
 Чтобы запустить пример кода,
 
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Или используя CLI dotnet:
+Или используя dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Смотрите [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) для полного кода.
+Полный код смотрите в файле [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Отказ от ответственности**:  
-Этот документ был переведен с использованием сервиса автоматического перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия обеспечить точность, автоматические переводы могут содержать ошибки или неточности. Оригинальный документ на его родном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется профессиональный перевод человеком. Мы не несем ответственности за любые недоразумения или неправильные интерпретации, возникшие в результате использования данного перевода.
+**Отказ от ответственности**:
+Этот документ был переведен с использованием сервиса машинного перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия по обеспечению точности, имейте в виду, что автоматический перевод может содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется обратиться к профессиональному человеческому переводу. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования этого перевода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

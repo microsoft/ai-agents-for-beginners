@@ -203,6 +203,18 @@
     "source_file": "14-microsoft-agent-framework/images/lesson-14-thumbnail.png",
     "language_code": "zh-MO"
   },
+  "lesson-16-thumbnail.d78cace536bc5d50.webp": {
+    "original_hash": "4e97affe07f7da011c6480ea5064e4b8",
+    "translation_date": "2026-07-15T17:53:00+00:00",
+    "source_file": "16-deploying-scalable-agents/images/lesson-16-thumbnail.png",
+    "language_code": "zh-MO"
+  },
+  "lesson-17-thumbnail.f86434c595a408fc.webp": {
+    "original_hash": "77309fb3cdef036c99fc43f3913eb932",
+    "translation_date": "2026-07-15T17:52:51+00:00",
+    "source_file": "17-creating-local-ai-agents/images/lesson-17-thumbnail.png",
+    "language_code": "zh-MO"
+  },
   "lesson-2-thumbnail.c65f44c93b8558df.webp": {
     "original_hash": "ea7eb2dc16df924470c9fd9d4f0794e4",
     "translation_date": "2026-01-16T06:10:21+00:00",
@@ -357,6 +369,12 @@
     "original_hash": "10cb416d29f7bca58e0937625fe3c0db",
     "translation_date": "2026-01-16T06:05:48+00:00",
     "source_file": "images/repo-thumbnailv2.png",
+    "language_code": "zh-MO"
+  },
+  "repo-thumbnailv3.917487e234b90100.webp": {
+    "original_hash": "a2bad300a761f0c059f200c5325a8ea2",
+    "translation_date": "2026-07-15T17:52:42+00:00",
+    "source_file": "images/repo-thumbnailv3.png",
     "language_code": "zh-MO"
   },
   "select-fork-repository.4497f6bb05ccd6b4.webp": {

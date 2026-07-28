@@ -1,32 +1,32 @@
-[![Intro to AI Agents](../../../translated_images/pt-BR/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Introdução aos Agentes de IA](../../../translated_images/pt-BR/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Clique na imagem acima para assistir ao vídeo desta aula)_
+> _(Clique na imagem acima para assistir ao vídeo desta lição)_
 
 # Introdução a Agentes de IA e Casos de Uso de Agentes
 
-Bem-vindo ao curso **Agentes de IA para Iniciantes**! Este curso oferece o conhecimento fundamental — e código funcionando de verdade — para começar a construir Agentes de IA do zero.
+Bem-vindo ao curso **Agentes de IA para Iniciantes**! Este curso oferece o conhecimento fundamental — e código funcional real — para começar a construir Agentes de IA do zero.
 
-Venha dizer oi na <a href="https://discord.gg/kzRShWzttr" target="_blank">Comunidade Azure AI no Discord</a> — está cheia de aprendizes e construtores de IA que têm prazer em responder perguntas.
+Venha dizer oi na <a href="https://discord.gg/kzRShWzttr" target="_blank">Comunidade Azure AI no Discord</a> — cheia de aprendizes e construtores de IA que ficam felizes em responder perguntas.
 
-Antes de começarmos a construir, vamos garantir que realmente entendemos o que é um Agente de IA *e* quando faz sentido usar um.
+Antes de começarmos a construir, vamos garantir que entendemos realmente o que é um Agente de IA *e* quando faz sentido usar um.
 
 ---
 
 ## Introdução
 
-Esta aula aborda:
+Esta lição cobre:
 
 - O que são Agentes de IA, e os diferentes tipos que existem
 - Para quais tipos de tarefas os Agentes de IA são mais indicados
-- Os blocos principais que você usará ao projetar uma solução agentic
+- Os blocos básicos que você usará ao projetar uma solução Agentic
 
 ## Objetivos de Aprendizagem
 
-Ao final desta aula, você deverá ser capaz de:
+Ao final desta lição, você deve ser capaz de:
 
 - Explicar o que é um Agente de IA e como ele difere de uma solução de IA comum
 - Saber quando usar um Agente de IA (e quando não usar)
-- Esboçar um design básico de solução agentic para um problema do mundo real
+- Esboçar um design básico de solução Agentic para um problema do mundo real
 
 ---
 
@@ -34,56 +34,56 @@ Ao final desta aula, você deverá ser capaz de:
 
 ### O que são Agentes de IA?
 
-Aqui está uma forma simples de pensar:
+Aqui está uma forma simples de pensar sobre isso:
 
-> **Agentes de IA são sistemas que permitem que Grandes Modelos de Linguagem (LLMs) realmente *façam coisas* — dando a eles ferramentas e conhecimento para agir no mundo, não apenas responder a comandos.**
+> **Agentes de IA são sistemas que permitem que Grandes Modelos de Linguagem (LLMs) realmente *façam coisas* — dando-lhes ferramentas e conhecimento para agir no mundo, e não apenas responder a comandos.**
 
 Vamos detalhar um pouco:
 
-- **Sistema** — Um Agente de IA não é apenas uma coisa. É uma coleção de partes que trabalham juntas. Na sua essência, todo agente tem três peças:
-  - **Ambiente** — O espaço no qual o agente atua. Para um agente de reservas de viagem, seria a própria plataforma de reservas.
-  - **Sensores** — Como o agente lê o estado atual do ambiente. Nosso agente de viagem pode verificar disponibilidade de hotéis ou preços de voos.
-  - ** Atuadores** — Como o agente executa ações. O agente de viagens pode reservar um quarto, enviar uma confirmação ou cancelar uma reserva.
+- **Sistema** — Um Agente de IA não é só uma coisa. É uma coleção de partes trabalhando juntas. No seu núcleo, cada agente tem três componentes:
+  - **Ambiente** — O espaço onde o agente atua. Para um agente de reserva de viagens, seria a própria plataforma de reservas.
+  - **Sensores** — Como o agente lê o estado atual do seu ambiente. Nosso agente de viagens pode verificar disponibilidade de hotéis ou preços de voos.
+  - **Atuadores** — Como o agente age. O agente pode reservar um quarto, enviar uma confirmação ou cancelar uma reserva.
 
-![What Are AI Agents?](../../../translated_images/pt-BR/what-are-ai-agents.1ec8c4d548af601a.webp)
+![O que são Agentes de IA?](../../../translated_images/pt-BR/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Grandes Modelos de Linguagem** — Agentes existiam antes dos LLMs, mas são os LLMs que tornam os agentes modernos tão poderosos. Eles podem entender linguagem natural, raciocinar sobre o contexto e transformar uma solicitação vaga do usuário em um plano concreto de ação.
+- **Grandes Modelos de Linguagem** — Agentes existiam antes dos LLMs, mas os LLMs são o que tornam os agentes modernos tão poderosos. Eles entendem linguagem natural, raciocinam sobre contexto, e transformam um pedido vago em um plano concreto.
 
-- **Executar Ações** — Sem um sistema de agente, um LLM apenas gera texto. Dentro de um sistema agente, o LLM pode realmente *executar* passos — pesquisar em banco de dados, chamar uma API, enviar uma mensagem.
+- **Executar Ações** — Sem um sistema agente, um LLM apenas gera texto. Num sistema de agente, o LLM pode realmente *executar* etapas — pesquisar um banco de dados, chamar uma API, enviar uma mensagem.
 
-- **Acesso a Ferramentas** — Quais ferramentas o agente pode usar depende de (1) o ambiente onde está rodando e (2) o que o desenvolvedor escolheu fornecer. Um agente de viagem pode ser capaz de pesquisar voos, mas não editar registros de clientes — tudo depende do que você conectar.
+- **Acesso a Ferramentas** — Quais ferramentas o agente pode usar depende (1) do ambiente em que está rodando e (2) do que o desenvolvedor escolheu fornecer. Um agente de viagens pode buscar voos, mas não editar registros de clientes — depende do que você conecta.
 
-- **Memória + Conhecimento** — Agentes podem ter memória de curto prazo (a conversa atual) e memória de longo prazo (um banco de dados de clientes, interações anteriores). O agente de viagem pode "lembrar" que você prefere assentos na janela.
+- **Memória + Conhecimento** — Agentes podem ter memória de curto prazo (a conversa atual) e memória de longo prazo (banco de dados de clientes, interações passadas). O agente de viagens pode "lembrar" que você prefere assentos na janela.
 
 ---
 
-### Os Diferentes Tipos de Agentes de IA
+### Diferentes Tipos de Agentes de IA
 
-Nem todos os agentes são construídos da mesma forma. Aqui está um resumo dos principais tipos, usando um agente de reservas de viagem como exemplo:
+Nem todos os agentes são construídos da mesma forma. Aqui está um resumo dos principais tipos, usando como exemplo um agente de reserva de viagens:
 
-| **Tipo de Agente** | **O Que Faz** | **Exemplo do Agente de Viagem** |
+| **Tipo de Agente** | **O que Faz** | **Exemplo de Agente de Viagens** |
 |---|---|---|
-| **Agentes Reflexos Simples** | Seguem regras codificadas — sem memória, sem planejamento. | Vê um e-mail de reclamação → encaminha para o serviço ao cliente. Só isso. |
-| **Agentes Reflexos Baseados em Modelo** | Mantém um modelo interno do mundo e atualiza conforme as coisas mudam. | Acompanha preços históricos de voos e sinaliza rotas que ficaram caras de repente. |
-| **Agentes Baseados em Objetivos** | Tem um objetivo em mente e descobre como alcançá-lo passo a passo. | Reserva uma viagem completa (voos, carro, hotel) partindo da sua localização para o destino. |
-| **Agentes Baseados em Utilidade** | Não encontra apenas *uma* solução — encontra a *melhor* ao pesar vantagens e desvantagens. | Equilibra custo versus conveniência para achar a viagem que melhor corresponde às suas preferências. |
-| **Agentes de Aprendizado** | Melhora com o tempo aprendendo com feedback. | Ajusta recomendações futuras de reserva com base em resultados de pesquisas pós-viagem. |
-| **Agentes Hierárquicos** | Um agente de alto nível divide o trabalho em subtarefas e delega para agentes de nível inferior. | Um pedido de "cancelar viagem" se divide em: cancelar voo, cancelar hotel, cancelar aluguel de carro — cada um tratado por um subagente. |
-| **Sistemas Multiagentes (MAS)** | Vários agentes independentes trabalham juntos (ou competem). | Cooperativo: agentes separados cuidam de hotéis, voos e entretenimento. Competitivo: agentes competem para preencher quartos de hotel ao melhor preço. |
+| **Agentes Reflexo Simples** | Seguem regras rígidas codificadas — sem memória, sem planejamento. | Veja um email de reclamação → encaminha para o serviço ao cliente. Só isso. |
+| **Agentes Reflexo Baseados em Modelo** | Mantém um modelo interno do mundo e o atualiza conforme as coisas mudam. | Acompanha preços históricos de voos e alerta rotas que ficaram caras de repente. |
+| **Agentes Baseados em Objetivos** | Tem um objetivo em mente e descobre como alcançá-lo passo a passo. | Reserva uma viagem completa (voos, carro, hotel) partindo da sua localização atual para te levar ao destino. |
+| **Agentes Baseados em Utilidade** | Não encontra só *uma* solução — encontra a *melhor* ao pesar compensações. | Equilibra custo vs conveniência para achar a viagem que melhor se encaixa nas suas preferências. |
+| **Agentes de Aprendizado** | Melhora com o tempo aprendendo com feedback. | Ajusta recomendações futuras de reserva baseado em resultados de pesquisas pós-viagem. |
+| **Agentes Hierárquicos** | Um agente de alto nível divide o trabalho em subtarefas e delega a agentes de nível inferior. | Um pedido de "cancelar viagem" é dividido em: cancelar voo, cancelar hotel, cancelar aluguel de carro — cada um tratado por um sub-agente. |
+| **Sistemas Multi-Agentes (MAS)** | Múltiplos agentes independentes trabalhando juntos (ou competindo). | Cooperativo: agentes separados cuidam de hotéis, voos e entretenimento. Competitivo: múltiplos agentes competem para preencher quartos de hotel pelo melhor preço. |
 
 ---
 
 ## Quando Usar Agentes de IA
 
-Só porque você *pode* usar um Agente de IA não significa que sempre *deva*. Aqui estão as situações em que os agentes realmente se destacam:
+Só porque você *pode* usar um Agente de IA não significa que sempre *deve*. Aqui estão as situações onde agentes realmente brilham:
 
-![When to use AI Agents?](../../../translated_images/pt-BR/when-to-use-ai-agents.54becb3bed74a479.webp)
+![Quando usar Agentes de IA?](../../../translated_images/pt-BR/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Problemas Abertos** — Quando os passos para resolver um problema não podem ser pré-programados. Você precisa que o LLM descubra o caminho dinamicamente.
-- **Processos Multi-Etapas** — Tarefas que exigem usar ferramentas ao longo de várias etapas, não apenas uma consulta ou geração única.
+- **Processos de Múltiplas Etapas** — Tarefas que requerem usar ferramentas em vários passos, não apenas uma consulta ou geração única.
 - **Melhoria ao Longo do Tempo** — Quando você quer que o sistema fique mais inteligente com base no feedback do usuário ou sinais do ambiente.
 
-Exploraremos mais profundamente quando (e quando *não*) usar Agentes de IA na aula **Construindo Agentes de IA Confiáveis**, mais adiante no curso.
+Vamos explorar mais profundamente quando (e quando *não*) usar Agentes de IA na lição **Construindo Agentes de IA Confiáveis** mais adiante no curso.
 
 ---
 
@@ -93,25 +93,25 @@ Exploraremos mais profundamente quando (e quando *não*) usar Agentes de IA na a
 
 A primeira coisa que você faz ao construir um agente é definir *o que ele pode fazer* — suas ferramentas, ações e comportamentos.
 
-Neste curso, usamos o **Azure AI Agent Service** como nossa plataforma principal. Ele suporta:
+Neste curso, usamos o **Microsoft Foundry Agent Service** como nossa plataforma principal. Ele suporta:
 
 - Modelos de provedores como OpenAI, Mistral e Meta (Llama)
 - Dados licenciados de provedores como Tripadvisor
-- Definições padronizadas de ferramentas OpenAPI 3.0
+- Definições de ferramentas padronizadas OpenAPI 3.0
 
 ### Padrões Agentic
 
-Você se comunica com LLMs por meio de prompts. Com agentes, nem sempre dá para elaborar cada prompt manualmente — o agente precisa agir em muitos passos. É aí que entram os **Padrões Agentic**. São estratégias reutilizáveis para promptar e orquestrar LLMs de forma mais escalável e confiável.
+Você se comunica com LLMs através de prompts. Com agentes, você não pode sempre criar manualmente cada prompt — o agente precisa agir ao longo de muitos passos. É aí que entram os **Padrões Agentic**. São estratégias reutilizáveis para solicitar e orquestrar LLMs de forma mais escalável e confiável.
 
 Este curso é estruturado em torno dos padrões agentic mais comuns e úteis.
 
 ### Frameworks Agentic
 
-Frameworks Agentic oferecem aos desenvolvedores modelos prontos, ferramentas e infraestrutura para construir agentes. Facilitam:
+Frameworks Agentic dão aos desenvolvedores templates, ferramentas e infraestrutura prontas para construir agentes. Eles facilitam:
 
 - Conectar ferramentas e capacidades
-- Observar o que o agente está fazendo (e depurar quando algo dá errado)
-- Colaborar entre vários agentes
+- Observar o que o agente está fazendo (e depurar quando dá errado)
+- Colaborar entre múltiplos agentes
 
 Neste curso, focamos no **Microsoft Agent Framework (MAF)** para construir agentes prontos para produção.
 
@@ -119,24 +119,31 @@ Neste curso, focamos no **Microsoft Agent Framework (MAF)** para construir agent
 
 ## Exemplos de Código
 
-Pronto para ver na prática? Aqui estão os exemplos de código para esta aula:
+Pronto para ver em ação? Aqui estão os exemplos de código para esta lição:
 
 - 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ---
 
-## Tem Perguntas?
+## Tem Dúvidas?
 
-Junte-se ao [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para se conectar com outros aprendizes, participar de horas de atendimento e esclarecer suas dúvidas sobre Agentes de IA com a comunidade.
+Junte-se ao [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) para se conectar com outros aprendizes, participar de horas de atendimento e tirar suas dúvidas sobre Agentes de IA com a comunidade.
+
 
 ---
 
-## Aula Anterior
+## Teste Rápido Deste Agente (Opcional)
+
+Quando você aprender a implantar agentes na [Lição 16](../16-deploying-scalable-agents/README.md), poderá adicionar uma verificação rápida de saúde pós-implantação para o `TravelAgent` desta lição com o catálogo pronto [`tests/lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json). Veja [`tests/README.md`](../tests/README.md) para instruções de execução.
+
+---
+
+## Lição Anterior
 
 [Configuração do Curso](../00-course-setup/README.md)
 
-## Próxima Aula
+## Próxima Lição
 
 [Explorando Frameworks Agentic](../02-explore-agentic-frameworks/README.md)
 

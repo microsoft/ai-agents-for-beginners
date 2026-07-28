@@ -1,51 +1,51 @@
-# 🛠️ Pažangi įrankių naudojimo su Azure OpenAI (Responses API) (.NET)
+# 🛠️ Išplėstinis įrankių naudojimas su Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šiame užrašų knygelėje parodyti įmonės lygio įrankių integracijos modeliai naudojant Microsoft Agent Framework .NET su Azure OpenAI (Responses API). Išmoksite kurti sudėtingus agentus su keliais specializuotais įrankiais, pasinaudodami C# stipriu tipavimu ir .NET įmonės funkcijomis.
+Ši užrašų knygutė demonstruoja įmonės lygio įrankių integracijos metodus, naudojant Microsoft Agent Framework .NET su Azure OpenAI (Responses API). Išmoksite kurti sudėtingus agentus su keliomis specializuotomis priemonėmis, pasinaudodami C# stipriuoju tipavimu ir .NET įmonės funkcijomis.
 
-### Pažangios įrankių galimybės, kurias įvaldysite
+### Išplėstiniai įrankių gebėjimai, kuriuos įvaldysite
 
-- 🔧 **Daugelio įrankių architektūra**: Agentų kūrimas su keliomis specializuotomis funkcijomis
-- 🎯 **Tipų saugus įrankių vykdymas**: Pasinaudojimas C# kompiliavimo metu vykdoma validacija
-- 📊 **Įmonės įrankių modeliai**: Produkcijai paruoštas įrankių dizainas ir klaidų valdymas
-- 🔗 **Įrankių derinimas**: Įrankių derinimas sudėtingiems verslo procesams
+- 🔧 **Daugiainiai įrankiai**: agentų kūrimas su keliomis specializuotomis galimybėmis
+- 🎯 **Tipu saugus įrankių vykdymas**: C# kompiliavimo metu atliekama validacija
+- 📊 **Įmonės įrankių modeliai**: gamybai paruošto įrankio dizainas ir klaidų valdymas
+- 🔗 **Įrankių sudėtis**: įrankių derinimas sudėtingiems verslo procesams
 
 ## 🎯 .NET įrankių architektūros privalumai
 
-### Įmonės įrankių funkcijos
+### Įmonės įrankių savybės
 
-- **Kompiliavimo laiko validacija**: Stiprus tipavimas užtikrina įrankio parametrų teisingumą
+- **Kompiliavimo laiko validacija**: stiprus tipavimas užtikrina įrankių parametrų teisingumą
 - **Priklausomybių injekcija**: IoC konteinerio integracija įrankių valdymui
-- **Async/Await modeliai**: Neblokavęs įrankių vykdymas su tinkamu išteklių valdymu
-- **Struktūruotas registravimas**: Integruotas registravimas įrankių vykdymo stebėjimui
+- **Async/Await modeliai**: neblokuojamas įrankių vykdymas su tinkamu resursų valdymu
+- **Struktūrizuotas žurnalas**: integruotas įrankių vykdymo stebėjimo žurnalas
 
-### Produkcijai paruošti modeliai
+### Gamybai paruošti modeliai
 
-- **Išimčių valdymas**: Išsamus klaidų valdymas su tipizuotomis išimtimis
-- **Išteklių valdymas**: Tinkami išmetimo modeliai ir atminties valdymas
-- **Veiklos stebėjimas**: Integruoti metrika ir veiklos skaitikliai
-- **Konfigūracijos valdymas**: Tipų saugi konfigūracija su validacija
+- **Išimčių valdymas**: išsamus klaidų valdymas su tipizuotomis išimtimis
+- **Resursų valdymas**: tinkami išmetimo modeliai ir atminties valdymas
+- **Veiklos stebėjimas**: integruoti matavimai ir veiklos skaitikliai
+- **Konfigūravimo valdymas**: tipu saugi konfigūracija su validacija
 
 ## 🔧 Techninė architektūra
 
 ### Pagrindiniai .NET įrankių komponentai
 
-- **Microsoft.Extensions.AI**: Vieninga įrankių abstrakcijos sluoksnis
-- **Microsoft.Agents.AI**: Įmonės lygio įrankių orkestracija
-- **Azure OpenAI (Responses API)**: Aukšto našumo API klientas su ryšio valdymu
+- **Microsoft.Extensions.AI**: vieningas įrankių abstrakcijos sluoksnis
+- **Microsoft.Agents.AI**: įmonės lygio įrankių organizavimas
+- **Azure OpenAI (Responses API)**: aukšto našumo API klientas su ryšių balansavimu
 
-### Įrankių vykdymo kanalas
+### Įrankių vykdymo vamzdelis
 
 ```mermaid
 graph LR
-    A[Vartotojo Užklausa] --> B[Agentų Analizė]
-    B --> C[Įrankio Pasirinkimas]
-    C --> D[Tipo Patikra]
-    B --> E[Parametro Priskyrimas]
-    E --> F[Įrankio Vykdymas]
+    A[Vartotojo užklausa] --> B[Agentų analizė]
+    B --> C[Įrankio pasirinkimas]
+    C --> D[Tipo patvirtinimas]
+    B --> E[Parametrų pririšimas]
+    E --> F[Įrankio vykdymas]
     C --> F
-    F --> G[Rezultatų Apdorojimas]
+    F --> G[Rezultato apdorojimas]
     D --> G
     G --> H[Atsakymas]
 ```
@@ -54,41 +54,41 @@ graph LR
 
 ### 1. **Duomenų apdorojimo įrankiai**
 
-- **Įvesties validacija**: Stiprus tipavimas su duomenų anotacijomis
-- **Transformacijos operacijos**: Tipų saugus duomenų konvertavimas ir formatavimas
-- **Verslo logika**: Domeno specifiniai skaičiavimo ir analizės įrankiai
-- **Išvesties formatavimas**: Struktūruota atsakymo generacija
+- **Įvesties validacija**: stiprus tipavimas su duomenų anotacijomis
+- **Transformavimo operacijos**: tipu saugus duomenų konvertavimas ir formatavimas
+- **Verslo logika**: srities specifiniai skaičiavimų ir analizės įrankiai
+- **Išvesties formatavimas**: struktūrizuotas atsakymų generavimas
 
 ### 2. **Integracijos įrankiai**
 
 - **API jungtys**: REST paslaugų integracija su HttpClient
 - **Duomenų bazės įrankiai**: Entity Framework integracija duomenų prieigai
-- **Failų operacijos**: Saugių failų sistemos operacijos su validacija
-- **Išorinės paslaugos**: Trečiųjų šalių paslaugų integracijos modeliai
+- **Failų operacijos**: saugios failų sistemos operacijos su validacija
+- **Išorinės paslaugos**: trečiųjų šalių paslaugų integracijos modeliai
 
 ### 3. **Naudingi įrankiai**
 
-- **Teksto apdorojimas**: Teksto manipuliavimo ir formatavimo priemonės
-- **Datos/Laiko operacijos**: Kultūriškai jautrūs datos/laiko skaičiavimai
-- **Matematiniai įrankiai**: Tikslūs skaičiavimai ir statistinės operacijos
-- **Validacijos įrankiai**: Verslo taisyklių tikrinimas ir duomenų patikra
+- **Teksto apdorojimas**: teksto manipuliavimo ir formatavimo įrankiai
+- **Datos/laiko operacijos**: kultūros kontekstui pritaikyti datos/laiko skaičiavimai
+- **Matematiniai įrankiai**: tikslūs skaičiavimai ir statistinės operacijos
+- **Validacijos įrankiai**: verslo taisyklių patikra ir duomenų tikrinimas
 
-Pasiruošę kurti įmonės lygio agentus su galingomis, tipų saugiomis .NET įrankių galimybėmis? Sukurkime profesionalaus lygio sprendimus! 🏢⚡
+Pasiruošę kurti įmonės lygio agentus su galingomis, tipu saugiomis įrankių galimybėmis .NET? Sukurkime profesionalaus lygio sprendimus! 🏢⚡
 
 ## 🚀 Pradžia
 
-### Reikalavimai
+### Išankstiniai reikalavimai
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
 - [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI resursu ir modelio diegimu
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite su `az login`
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite komandą `az login`
 
-### Būtini aplinkos kintamieji
+### Reikalingi aplinkos kintamieji
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
@@ -96,12 +96,12 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
 
-### Kodo pavyzdys
+### Pavyzdinis kodas
 
 Norėdami paleisti pavyzdinį kodą,
 
@@ -117,7 +117,7 @@ Arba naudodami dotnet CLI:
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Peržiūrėkite [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) pilnam kodui.
+Žr. [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) su pilnu kodu.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

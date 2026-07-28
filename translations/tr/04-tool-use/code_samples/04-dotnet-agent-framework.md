@@ -1,31 +1,31 @@
-# 🛠️ GitHub Modelleri ile Gelişmiş Araç Kullanımı (.NET)
+# 🛠️ Azure OpenAI ile Gelişmiş Araç Kullanımı (Yanıtlar API) (.NET)
 
 ## 📋 Öğrenme Hedefleri
 
-Bu not defteri, Microsoft Agent Framework'ü kullanarak GitHub Modelleri ile kurumsal düzeyde araç entegrasyon desenlerini göstermektedir. C#'ın güçlü tip yapısını ve .NET'in kurumsal özelliklerini kullanarak birden fazla özel araca sahip gelişmiş ajanlar oluşturmayı öğreneceksiniz.
+Bu not defteri, .NET'te Microsoft Agent Framework kullanarak Azure OpenAI (Yanıtlar API) ile kurumsal düzeyde araç entegrasyon kalıplarını göstermektedir. C#'ın güçlü tip denetimi ve .NET'in kurumsal özelliklerinden yararlanarak birden çok uzmanlaşmış araç içeren gelişmiş ajanlar oluşturmayı öğreneceksiniz.
 
-### Öğreneceğiniz Gelişmiş Araç Yetkinlikleri
+### Ustalaşacağınız Gelişmiş Araç Özellikleri
 
-- 🔧 **Çoklu Araç Mimarisi**: Birden fazla özel yeteneğe sahip ajanlar oluşturma
+- 🔧 **Çoklu Araç Mimarisi**: Birden fazla uzmanlaşmış yetenekle ajanlar oluşturma
 - 🎯 **Tip Güvenli Araç Çalıştırma**: C#'ın derleme zamanı doğrulamasından yararlanma
-- 📊 **Kurumsal Araç Desenleri**: Üretime hazır araç tasarımı ve hata yönetimi
-- 🔗 **Araç Bileşimi**: Karmaşık iş akışları için araçları birleştirme
+- 📊 **Kurumsal Araç Kalıpları**: Üretime hazır araç tasarımı ve hata yönetimi
+- 🔗 **Araç Bileşimi**: Karmaşık iş akışları için araçların birleştirilmesi
 
 ## 🎯 .NET Araç Mimarisi Avantajları
 
 ### Kurumsal Araç Özellikleri
 
-- **Derleme Zamanı Doğrulama**: Güçlü tip yapısı, araç parametrelerinin doğruluğunu sağlar
-- **Bağımlılık Enjeksiyonu**: IoC konteyner entegrasyonu ile araç yönetimi
-- **Async/Await Desenleri**: Kaynak yönetimi ile engellemeyen araç çalıştırma
-- **Yapılandırılmış Günlükleme**: Araç çalıştırma izleme için yerleşik günlükleme entegrasyonu
+- **Derleme Zamanı Doğrulama**: Güçlü tip kullanımı araç parametrelerinin doğruluğunu sağlar
+- **Bağımlılık Enjeksiyonu**: Araç yönetimi için IoC konteyner entegrasyonu
+- **Async/Await Kalıpları**: Uygun kaynak yönetimi ile engellemeyen araç çalıştırma
+- **Yapılandırılmış Günlük Kaydı**: Araç çalıştırma izleme için yerleşik günlük entegrasyonu
 
-### Üretime Hazır Desenler
+### Üretime Hazır Kalıplar
 
-- **Hata Yönetimi**: Tiplenmiş istisnalarla kapsamlı hata yönetimi
-- **Kaynak Yönetimi**: Doğru imha desenleri ve bellek yönetimi
-- **Performans İzleme**: Yerleşik metrikler ve performans sayaçları
-- **Yapılandırma Yönetimi**: Doğrulama ile tip güvenli yapılandırma
+- **İstisna Yönetimi**: Tipli istisnalar ile kapsamlı hata yönetimi
+- **Kaynak Yönetimi**: Uygun atma kalıpları ve bellek yönetimi
+- **Performans İzleme**: Yerleşik metrikler ve performans sayıcıları
+- **Yapılandırma Yönetimi**: Doğrulamalı tip güvenli yapılandırma
 
 ## 🔧 Teknik Mimari
 
@@ -33,69 +33,72 @@ Bu not defteri, Microsoft Agent Framework'ü kullanarak GitHub Modelleri ile kur
 
 - **Microsoft.Extensions.AI**: Birleşik araç soyutlama katmanı
 - **Microsoft.Agents.AI**: Kurumsal düzeyde araç orkestrasyonu
-- **GitHub Modelleri Entegrasyonu**: Bağlantı havuzlaması ile yüksek performanslı API istemcisi
+- **Azure OpenAI (Yanıtlar API)**: Bağlantı havuzlu yüksek performanslı API istemcisi
 
-### Araç Çalıştırma Boru Hattı
+### Araç Çalıştırma Hattı
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Kullanıcı Talebi] --> B[Ajan Analizi]
+    B --> C[Araç Seçimi]
+    C --> D[Tür Doğrulaması]
+    B --> E[Parametre Bağlama]
+    E --> F[Araç Çalıştırma]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Sonuç İşleme]
     D --> G
-    G --> H[Response]
+    G --> H[Yanıt]
 ```
 
-## 🛠️ Araç Kategorileri ve Desenler
+## 🛠️ Araç Kategorileri ve Kalıpları
 
 ### 1. **Veri İşleme Araçları**
 
-- **Girdi Doğrulama**: Veri açıklamaları ile güçlü tip yapısı
+- **Girdi Doğrulama**: Veri açıklamaları ile güçlü tip kullanımı
 - **Dönüşüm İşlemleri**: Tip güvenli veri dönüştürme ve biçimlendirme
-- **İş Mantığı**: Alan spesifik hesaplama ve analiz araçları
+- **İş Mantığı**: Alanlara özgü hesaplama ve analiz araçları
 - **Çıktı Biçimlendirme**: Yapılandırılmış yanıt oluşturma
 
-### 2. **Entegrasyon Araçları**
+### 2. **Entegrasyon Araçları** 
 
 - **API Bağlayıcıları**: HttpClient ile RESTful servis entegrasyonu
 - **Veritabanı Araçları**: Veri erişimi için Entity Framework entegrasyonu
-- **Dosya İşlemleri**: Doğrulama ile güvenli dosya sistemi işlemleri
-- **Harici Servisler**: Üçüncü taraf servis entegrasyon desenleri
+- **Dosya İşlemleri**: Doğrulamaya sahip güvenli dosya sistemi işlemleri
+- **Dış Hizmetler**: Üçüncü taraf servis entegrasyon kalıpları
 
 ### 3. **Yardımcı Araçlar**
 
-- **Metin İşleme**: Dize manipülasyonu ve biçimlendirme araçları
-- **Tarih/Saat İşlemleri**: Kültür duyarlı tarih/saat hesaplamaları
+- **Metin İşleme**: Dize manipülasyonu ve biçimlendirme yardımcıları
+- **Tarih/Saat İşlemleri**: Kültüre duyarlı tarih/saat hesaplamaları
 - **Matematiksel Araçlar**: Hassas hesaplamalar ve istatistiksel işlemler
-- **Doğrulama Araçları**: İş kurallarının doğrulanması ve veri kontrolü
+- **Doğrulama Araçları**: İş kuralı doğrulama ve veri denetimi
 
-Kurumsal düzeyde ajanlar oluşturmak için güçlü, tip güvenli araç yetenekleriyle .NET'te profesyonel çözümler tasarlamaya hazır mısınız? 🏢⚡
+.NET'te güçlü, tip güvenli araç yetenekleriyle kurumsal düzey ajanlar geliştirmeye hazır mısınız? Haydi profesyonel düzey çözümler tasarlayalım! 🏢⚡
 
 ## 🚀 Başlarken
 
-### Ön Koşullar
+### Gereksinimler
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yüksek
-- [GitHub Modelleri API erişim tokeni](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yüksek sürüm
+- Azure OpenAI kaynağı ve model dağıtımı içeren bir [Azure aboneliği](https://azure.microsoft.com/free/)
+- `az login` ile giriş yapacağınız [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 
 ### Gerekli Ortam Değişkenleri
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Sonra AzureCliCredential'in bir token alabilmesi için giriş yapın
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Daha sonra AzureCliCredential token alabilmesi için oturum açın
+az login
 ```
 
 ### Örnek Kod
@@ -114,21 +117,23 @@ Ya da dotnet CLI kullanarak:
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Tam kod için [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) dosyasına bakın.
+Tam kod için [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) dosyasına bakınız.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Feragatname**:  
-Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul edilmez.
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

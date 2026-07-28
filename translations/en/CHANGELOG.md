@@ -2,6 +2,23 @@
 
 All notable changes to the **AI Agents for Beginners** course are documented in this file.
 
+## [Released] — 2026-07-14
+
+This release moves the course off two newly-deprecated models, migrates the remaining Lesson notebooks to the stable Microsoft Agent Framework API, and validates the Python notebooks against a live Microsoft Foundry deployment.
+
+### Changed
+
+- **Moved off deprecated models (`gpt-4.1` / `gpt-4.1-mini` → `gpt-5-mini`).** Both `gpt-4.1` and `gpt-4.1-mini` are now deprecated (published retirement date **14 October 2026**). Replaced every course reference (docs, `.env.example`, Python/.NET notebooks and samples) with the non-deprecated `gpt-5-mini`. Lesson 16's model-routing example keeps a small/large contrast using `gpt-5-nano` (small) and `gpt-5-mini` (large). Vendored third-party files ([15-browser-use/llms.txt](../../15-browser-use/llms.txt)), historical GitHub Models text, and the `azure-openai-to-responses` skill's capability notes were intentionally left unchanged.
+- **Lesson 14 handoff notebook migrated to the stable API.** [14-handoff.ipynb](./14-microsoft-agent-framework/code-samples/14-handoff.ipynb) now uses `agent_framework.orchestrations.HandoffBuilder` with `.with_start_agent(...)`, `HandoffAgentUserRequest.create_response(...)`, `event.type`-based streaming, and `FoundryChatClient` (replacing the removed pre-1.0 `HandoffBuilder`/`ChatMessage`/`RequestInfoEvent` symbols).
+- **Lesson 14 human-in-the-loop notebook migrated to the stable API.** [14-human-loop.ipynb](./14-microsoft-agent-framework/code-samples/14-human-loop.ipynb) now pauses via `ctx.request_info(...)` + `@response_handler` (replacing the removed `RequestInfoExecutor` / `RequestInfoMessage` / `RequestResponse`), builds with `WorkflowBuilder(start_executor=..., output_executors=[...])`, drives structured output through `default_options={"response_format": ...}`, and uses a scripted answer so the notebook runs unattended (no blocking `input()`).
+- **Environment configuration** ([.env.example](../../.env.example)): switched the model deployment names to `gpt-5-mini`; added `AZURE_AI_SMALL_MODEL` / `AZURE_AI_LARGE_MODEL` (Lesson 16 routing) and the previously-missing `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` (Lesson 15 browser-use).
+- **Dependencies** ([requirements.txt](../../requirements.txt)): pinned `agent-framework`, `agent-framework-foundry`, and `agent-framework-openai` to `~=1.10.0` for a self-consistent, validated set (1.11.0 ships experimental breaking changes to the surfaces these lessons use).
+
+### Notes and known limitations
+
+- **Validated against live Microsoft Foundry.** The Python notebooks were executed headlessly with `nbconvert` against a Microsoft Foundry project using `gpt-5-mini` (and `gpt-5-nano` for Lesson 16 routing). Deploy equivalent non-deprecated models in your own project; the notebooks read the deployment name from `AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT`.
+- **Still requires extra resources for some lessons.** Lesson 05 needs Azure AI Search; the Lesson 08 Bing-grounding workflow (`04.python-agent-framework-workflow-aifoundry-condition.ipynb`) needs a Bing connection and Microsoft Foundry Agent Service hosted tools; Lesson 13 (Cognee) and Lesson 17 (Foundry Local) need their own runtimes.
+
 ## [Released] — 2026-07-13
 
 This release adds two new lessons that complete the deployment arc — scaling agents up to Microsoft Foundry and down to a single workstation — plus a smoke-test pipeline, refreshed course navigation, new learner skills, and updated branding.
@@ -49,6 +66,7 @@ This release migrates the course to the **Azure OpenAI Responses API**, standard
   - [06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb](./06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb)
   - [06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb](./06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb)
   - [04-tool-use/README.md](./04-tool-use/README.md) — the full function-calling walkthrough (tool schema flattened to the Responses format, tool results returned as `function_call_output`, `max_output_tokens`, etc.).
+
 - **GitHub Models → Azure OpenAI.** GitHub Models is deprecated (retiring **July 2026**) and does not support the Responses API. All GitHub Models code paths were converted to Azure OpenAI / Microsoft Foundry across Python and .NET samples:
   - Python: Lesson 08 workflow notebooks (`01`–`03`), Lesson 14 (`14-handoff`, `14-human-loop`, `hotel_booking_workflow_sample.py`).
   - .NET: `01`–`04`, `07`, `08` `*-dotnet-agent-framework.cs` + companion `.md` docs, and the Lesson 08 dotNET workflow notebooks/`.md` (`01`–`03`) now use `AzureOpenAIClient(...).GetOpenAIResponseClient(deployment).CreateAIAgent(...)` with `AzureCliCredential`.
@@ -73,7 +91,6 @@ This release migrates the course to the **Azure OpenAI Responses API**, standard
 
 - Cleared Jupyter notebook execution outputs that leaked a real **Azure subscription ID**, resource-group / resource names, and Bing connection ID, plus developer **local file paths and usernames**, in:
   - `08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb`
-
   - `08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb`
   - `15-browser-use/15-browser-user.ipynb`
 - Verified no API keys, tokens, subscription IDs, or personal paths remain in the tracked English content (the `GITHUB_TOKEN` references that remain are the GitHub Actions token in workflows and the GitHub MCP server PAT in Lesson 11 setup — both legitimate and unrelated to GitHub Models).

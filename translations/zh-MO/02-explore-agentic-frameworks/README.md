@@ -1,91 +1,96 @@
 [![探索 AI 代理框架](../../../translated_images/zh-MO/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(按一下上方的圖片以觀看此課程的影片)_
+> _(點擊上方圖片觀看本課程影片)_
 
 # 探索 AI 代理框架
 
-AI 代理框架是為簡化 AI 代理的建立、部署與管理而設計的軟體平台。這些框架提供開發者預先構建的元件、抽象層與工具，以利簡化複雜 AI 系統的開發。
+AI 代理框架是設計用來簡化 AI 代理創建、部署及管理的軟件平台。這些框架為開發者提供了預先建構的組件、抽象層及工具，讓開發複雜 AI 系統更為流暢。
 
-這些框架透過為 AI 代理開發中常見的挑戰提供標準化的方法，幫助開發者專注於應用程式的獨特面向。它們能提升建置 AI 系統時的可擴充性、可及性與效率。
+這些框架幫助開發者專注於應用的獨特面向，透過標準化的方法解決 AI 代理開發中的共通挑戰。它們提升了 AI 系統建置的可擴展性、易用性及效率。
 
-## 介紹 
+## 介紹
 
 本課程將涵蓋：
 
-- 什麼是 AI 代理框架，以及它們讓開發者能達成什麼？
-- 團隊如何利用這些框架快速原型、反覆迭代，並提升代理的能力？
-- Microsoft 所建立的框架與工具之間有何差異（<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent 服務</a> 與 <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft 代理框架</a>）？
-- 我可以直接整合現有的 Azure 生態系工具嗎？還是需要獨立解決方案？
-- 什麼是 Azure AI Agents 服務，以及它如何協助我？
+- 什麼是 AI 代理框架，以及它們讓開發者能實現什麼？
+- 團隊如何利用這些框架快速建立原型、反覆調整與改進代理的能力？
+- 微軟建立的框架與工具（<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> 與 <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>）有何不同？
+- 我能否直接整合既有的 Azure 生態系工具，或必須使用獨立方案？
+- 什麼是 Microsoft Foundry Agent Service，它如何協助我？
 
 ## 學習目標
 
-本課程的目標是幫助你理解：
+本課程目標是協助你了解：
 
 - AI 代理框架在 AI 開發中的角色。
-- 如何運用 AI 代理框架來建構智慧代理。
-- AI 代理框架所啟用的關鍵能力。
-- Microsoft 代理框架與 Azure AI Agent Service 之間的差異。
+- 如何利用 AI 代理框架建構智能代理。
+- AI 代理框架賦予的關鍵能力。
+- 微軟 Agent Framework 與 Microsoft Foundry Agent Service 的差異。
 
 ## 什麼是 AI 代理框架，它們讓開發者能做什麼？
 
-傳統的 AI 框架可以協助你將 AI 整合到應用程式中，並在以下方面提升應用程式的表現：
+傳統的 AI 框架可以幫助你在應用中整合 AI，並在以下方面提升應用：
 
-- **個人化**：AI 能分析使用者行為與偏好，提供個人化的建議、內容與體驗。
-範例：像 Netflix 這類串流服務使用 AI 根據觀看紀錄推薦電影與節目，提升使用者參與度與滿意度。
-- **自動化與效率**：AI 能自動化重複性工作、精簡工作流程，並提升營運效率。
-範例：客服應用程式使用 AI 驅動的聊天機器人處理常見詢問，縮短回應時間並讓人類客服專注於較複雜的問題。
-- **提升使用者體驗**：AI 能透過語音辨識、自然語言處理與預測文字等智慧功能，改善整體使用者體驗。
-範例：像 Siri 與 Google Assistant 這類虛擬助理使用 AI 理解並回應語音指令，讓使用者更容易與裝置互動。
+- <strong>個人化</strong>：AI 能分析用戶行為與偏好，提供個人化推薦、內容與體驗。
+範例：串流服務如 Netflix 利用 AI 根據觀看歷史推薦電影與節目，提升用戶參與度及滿意度。
+- <strong>自動化與效率</strong>：AI 可自動化重覆任務、簡化工作流程、提升營運效率。
+範例：客服應用使用 AI 聊天機器人處理常見詢問，減少回應時間，並讓人工客服專注於較複雜問題。
+- <strong>增強用戶體驗</strong>：AI 透過語音識別、自然語言處理及預測文字等智能特性，改善整體用戶體驗。
+範例：虛擬助理 Siri 和 Google Assistant 利用 AI 理解並回應語音指令，讓用戶更輕鬆與裝置互動。
 
-### 那聽起來都很棒，為什麼我們還需要 AI 代理框架？
+### 聽起來很棒，那為什麼我們還需要 AI 代理框架？
 
-AI 代理框架代表的不只是 AI 框架。它們被設計用以啟用可與使用者、其他代理與環境互動以達成特定目標的智慧代理建立。這些代理能展現自主行為、做出決策並適應變動條件。讓我們看一些由 AI 代理框架所啟用的關鍵能力：
+AI 代理框架代表了超越普通 AI 框架的東西。它們旨在創造能與用戶、其他代理及環境互動，以達成特定目標的智能代理。這些代理能展現自主行為，做決策，並對變化條件作出調整。讓我們看看 AI 代理框架賦予的一些關鍵能力：
 
-- **代理之間的協作與協調**：支援建立多個能一起工作、溝通與協調以解決複雜任務的 AI 代理。
-- **任務自動化與管理**：提供自動化多步工作流程、任務指派與代理之間動態任務管理的機制。
-- **情境理解與適應**：賦予代理理解情境、適應變動環境並根據即時資訊做出決策的能力。
+- <strong>代理協作與協調</strong>：支持建立多個代理共同工作、溝通並協調解決複雜任務。
+- <strong>任務自動化與管理</strong>：提供自動化多步工作流程、任務分派及動態任務管理機制。
+- <strong>上下文理解與適應</strong>：賦予代理理解上下文、適應環境變化及基於即時資訊做決策的能力。
 
-總結來說，代理讓你能做更多事，將自動化提升到另一個層次，建立能從環境中適應與學習的更智慧系統。
+總結來說，代理讓你能做更多，提升自動化層級，創造能因應且從環境學習的更智能系統。
 
-## 如何快速原型、反覆迭代與提升代理能力？
+## 如何快速建立原型、反覆調整並改進代理的能力？
 
-這是一個發展快速的領域，但大多數 AI 代理框架有一些共通之處，可以幫助你快速原型與迭代，特別是模組化元件、協作工具與即時學習。以下深入探討這些面向：
+這個領域發展迅速，但大多數 AI 代理框架有一些共同特點能幫助快速原型及調整，主要是模組化組件、協作工具及即時學習。讓我們深入看看：
 
-- **使用模組化元件**：AI SDK 提供預建元件，例如 AI 與記憶連接器、以自然語言或程式碼外掛進行的函式呼叫、提示範本等。
-- **利用協作工具**：設計具有特定角色與任務的代理，讓它們測試並精進協作工作流程。
-- **即時學習**：實作回饋迴路，讓代理從互動中學習並動態調整行為。
+- <strong>使用模組化組件</strong>：AI SDK 提供預先建構組件，如 AI 與記憶連接器、使用自然語言或程式碼外掛呼叫函數、提示模板等。
+- <strong>利用協作工具</strong>：設計特定角色與任務的代理，讓它們測試並優化協作工作流程。
+- <strong>即時學習</strong>：實作回饋循環，讓代理從互動中學習並動態調整行為。
 
-### 使用模組化元件
+### 使用模組化組件
 
-像 Microsoft 代理框架這類 SDK 提供預建元件，例如 AI 連接器、工具定義與代理管理。
+像是 Microsoft Agent Framework 提供預建組件，如 AI 連接器、工具定義及代理管理。
 
-**團隊如何使用這些元件**：團隊可以快速組裝這些元件以建立功能性原型，而不需從零開始，從而允許快速實驗與反覆迭代。
+<strong>團隊如何利用</strong>：團隊可快速組裝這些組件，建立功能性原型，無需從零開始，利於快速嘗試與調整。
 
-**實務運作方式**：你可以使用預建的解析器從使用者輸入中抽取資訊、使用記憶模組來儲存與檢索資料，以及使用提示產生器與使用者互動，全部都不需自行從頭建立這些元件。
+<strong>實際運作方式</strong>：你可使用預建分析器從用戶輸入擷取資訊，利用記憶模組存取資料，並用提示產生器與用戶互動，無需重建基礎組件。
 
-**範例程式碼**。讓我們看一個範例，說明如何使用 Microsoft 代理框架與 `AzureAIProjectAgentProvider` 讓模型回應使用者輸入並進行工具呼叫：
+<strong>程式碼範例</strong>。以下示範如何使用 Microsoft Agent Framework 與 `FoundryChatClient` 讓模型藉由呼叫工具回應用戶輸入：
 
 ``` python
 # 微軟代理框架 Python 範例
 
 import asyncio
 import os
-from typing import Annotated
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 
-# 定義一個範例工具函數以預訂旅遊
+# 定義一個用來預訂旅遊的示範工具函數
+@tool(approval_mode="never_require")
 def book_flight(date: str, location: str) -> str:
     """Book travel given location and date."""
     return f"Travel was booked to {location} on {date}"
 
 
 async def main():
-    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
-    agent = await provider.create_agent(
+    provider = FoundryChatClient(
+        project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+        model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+        credential=AzureCliCredential(),
+    )
+    agent = provider.as_agent(
         name="travel_agent",
         instructions="Help the user book travel. Use the book_flight tool when ready.",
         tools=[book_flight],
@@ -93,90 +98,98 @@ async def main():
 
     response = await agent.run("I'd like to go to New York on January 1, 2025")
     print(response)
-    # 範例輸出：您2025年1月1日飛往紐約的航班已成功預訂。旅途愉快！✈️🗽
+    # 範例輸出：您於 2025 年 1 月 1 日飛往紐約的航班已成功預訂。祝旅途愉快！✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-從這個範例可以看到，你如何利用預建的解析器從使用者輸入中擷取關鍵資訊，例如航班預訂請求的出發地、目的地與日期。這種模組化方法讓你能專注於高階邏輯。
+從此示例你可看到，如何利用預建分析器從用戶輸入擷取關鍵資訊，如航班訂票的起點、終點與日期。此模組化方式讓你專注於高階邏輯。
 
 ### 利用協作工具
 
-像 Microsoft 代理框架這類框架促進建立能協同工作的多個代理。
+微軟 Agent Framework 之類的框架促進多個代理共同協作。
 
-**團隊如何使用這些**：團隊可以設計具有特定角色與任務的代理，讓它們測試並精進協作工作流程，提升整體系統效率。
+<strong>團隊如何利用</strong>：團隊可設計專門功能與任務的代理，借此測試並完善協作流程，提升系統整體效率。
 
-**實務運作方式**：你可以建立一組代理團隊，每個代理具備專門功能，例如資料擷取、分析或決策。這些代理可以相互溝通與分享資訊以達成共同目標，例如回應使用者查詢或完成任務。
+<strong>實際運作方式</strong>：你可建立一組代理團隊，每個代理負責特定功能，如資料檢索、分析或決策。這些代理可溝通並共享資訊，以達成共同目標，例如回答用戶查詢或完成任務。
 
-**範例程式碼（Microsoft 代理框架）**：
+**程式碼範例（Microsoft Agent Framework）**：
 
 ```python
-# 使用 Microsoft Agent Framework 創建多個協同工作的代理
+# 使用 Microsoft Agent Framework 建立多個協同工作的代理
 
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
-# 數據檢索代理
-agent_retrieve = await provider.create_agent(
+# 資料擷取代理
+agent_retrieve = provider.as_agent(
     name="dataretrieval",
     instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
 )
 
-# 數據分析代理
-agent_analyze = await provider.create_agent(
+# 資料分析代理
+agent_analyze = provider.as_agent(
     name="dataanalysis",
     instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
 )
 
-# 按順序執行代理處理任務
+# 按序執行代理完成任務
 retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
 analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
 print(analysis_result)
 ```
 
-前述程式碼展示了如何建立一個涉及多個代理共同工作的任務來分析資料。每個代理執行特定功能，並透過協調代理來執行該任務以達到期望結果。透過建立具專長角色的專用代理，你可以提升任務效率與效能。
+前述程式碼示範如何建立涉多個代理協作分析資料的任務。每個代理執行特定功能，任務透過協調代理達成預期結果。透過專職代理分工，可提升任務效率與效能。
 
 ### 即時學習
 
-進階框架提供即時情境理解與適應的能力。
+先進框架提供即時上下文理解與調適能力。
 
-**團隊如何使用這些**：團隊可以實作回饋迴路，讓代理從互動中學習並動態調整行為，從而持續改進與精進能力。
+<strong>團隊如何利用</strong>：團隊可實作回饋循環，使代理從互動中學習，動態調整行為，持續提升與精進能力。
 
-**實務運作方式**：代理可以分析使用者回饋、環境資料與任務結果來更新其知識庫、調整決策演算法並隨時間提升效能。這種反覆的學習流程使代理能適應變動條件與使用者偏好，強化整體系統效能。
+<strong>實際運作方式</strong>：代理分析用戶回饋、環境資料與任務結果，更新知識庫、調整決策演算法，隨時間提升效能。此反覆學習流程使代理能適應變動條件與用戶偏好，增強整體系統效能。
 
-## Microsoft 代理框架與 Azure AI Agent Service 有何差異？
+## 微軟 Agent Framework 與 Microsoft Foundry Agent Service 有何差異？
 
-有許多比較方式，但讓我們從設計、能力與目標使用案例來檢視一些主要差異：
+有多種比較方式，但讓我們集中於設計、能力與目標使用場景的主要差異：
 
-## Microsoft 代理框架 (MAF)
+## 微軟 Agent Framework (MAF)
 
-Microsoft 代理框架提供一個精簡的 SDK，用於使用 `AzureAIProjectAgentProvider` 建構 AI 代理。它使開發者能建立利用 Azure OpenAI 模型的代理，具備內建的工具呼叫、對話管理以及透過 Azure 身分的企業級安全性。
+微軟 Agent Framework 提供簡化的 SDK，利用 `FoundryChatClient` 建立 AI 代理。開發者可建置整合 Azure OpenAI 模型、具備內建工具呼叫、對話管理及企業級安全的代理。
 
-**使用案例**：建立具工具使用、多步工作流程與企業整合情境的生產就緒 AI 代理。
+<strong>使用情境</strong>：構建具工具利用、多步工作流程及企業整合場景的生產就緒 AI 代理。
 
-以下是 Microsoft 代理框架的一些重要核心概念：
+微軟 Agent Framework 的重要核心概念包括：
 
-- **代理**。代理透過 `AzureAIProjectAgentProvider` 建立，並以名稱、指示與工具進行配置。該代理可以：
-  - **處理使用者訊息** 並使用 Azure OpenAI 模型產生回應。
-  - **自動呼叫工具**，根據對話情境。
-  - **在多次互動間維護對話狀態**。
+- <strong>代理</strong>。代理透過 `FoundryChatClient` 創建，並設定名稱、指令與工具。代理可：
+  - <strong>處理用戶消息</strong>，並利用 Azure OpenAI 模型產生回應。
+  - <strong>自動呼叫工具</strong>，根據對話上下文進行。
+  - <strong>維持多次互動的對話狀態</strong>。
 
-  這裡有一段示範如何建立代理的程式碼片段：
+  以下是建立代理的程式碼片段：
 
     ```python
     import os
-    from agent_framework.azure import AzureAIProjectAgentProvider
+    from agent_framework.foundry import FoundryChatClient
     from azure.identity import AzureCliCredential
 
-    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
-    agent = await provider.create_agent(
+    provider = FoundryChatClient(
+        project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+        model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+        credential=AzureCliCredential(),
+    )
+    agent = provider.as_agent(
         name="my_agent",
         instructions="You are a helpful assistant.",
     )
@@ -185,29 +198,29 @@ Microsoft 代理框架提供一個精簡的 SDK，用於使用 `AzureAIProjectAg
     print(response)
     ```
 
-- **工具**。框架支援將工具定義為代理可自動呼叫的 Python 函式。工具會在建立代理時註冊：
+- <strong>工具</strong>。框架支持定義 Python 函數作為代理自動調用的工具。工具於建立代理時註冊：
 
     ```python
     def get_weather(location: str) -> str:
         """Get the current weather for a location."""
         return f"The weather in {location} is sunny, 72\u00b0F."
 
-    agent = await provider.create_agent(
+    agent = provider.as_agent(
         name="weather_agent",
         instructions="Help users check the weather.",
         tools=[get_weather],
     )
     ```
 
-- **多代理協調**。你可以建立多個具有不同專長的代理並協調它們的工作：
+- <strong>多代理協作</strong>。你可建立具不同專長的多個代理，並協調其工作：
 
     ```python
-    planner = await provider.create_agent(
+    planner = provider.as_agent(
         name="planner",
         instructions="Break down complex tasks into steps.",
     )
 
-    executor = await provider.create_agent(
+    executor = provider.as_agent(
         name="executor",
         instructions="Execute the planned steps using available tools.",
         tools=[execute_tool],
@@ -217,26 +230,26 @@ Microsoft 代理框架提供一個精簡的 SDK，用於使用 `AzureAIProjectAg
     result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-- **Azure 身分整合**。框架使用 `AzureCliCredential`（或 `DefaultAzureCredential`）進行安全的無金鑰驗證，免除了直接管理 API 金鑰的需求。
+- **Azure 身份整合**。框架使用 `AzureCliCredential`（或 `DefaultAzureCredential`）進行安全的無鍵認證，免除直接管理 API 金鑰。
 
-## Azure AI Agent Service
+## Microsoft Foundry Agent Service
 
-Azure AI Agent Service 是在 Microsoft Ignite 2024 發表的較新服務。它允許開發與部署更靈活模型的 AI 代理，例如直接呼叫像 Llama 3、Mistral 與 Cohere 等開源 LLM。
+Microsoft Foundry Agent Service 是較近期推出的服務，於 Microsoft Ignite 2024 發布。它允許以更靈活的模型開發及部署 AI 代理，例如直接呼叫開源大型語言模型如 Llama 3、Mistral 與 Cohere。
 
-Azure AI Agent Service 提供更強的企業安全機制與資料儲存方法，使其適合企業應用。
+Microsoft Foundry Agent Service 提供更強的企業安全機制及資料儲存方式，適用於企業級應用。
 
-它與 Microsoft 代理框架 搭配即可即時使用，用於建置與部署代理。
+它可與 Microsoft Agent Framework 無縫搭配，用於代理的建置與部署。
 
-該服務目前為公開預覽，並支援使用 Python 與 C# 來建構代理。
+本服務目前為公開預覽，支持 Python 與 C# 建置代理。
 
-使用 Azure AI Agent Service Python SDK，我們可以建立一個帶有使用者自定義工具的代理：
+使用 Microsoft Foundry Agent Service Python SDK，我們可建立帶有自訂工具的代理：
 
 ```python
 import asyncio
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
-# 定義工具功能
+# 定義工具函數
 def get_specials() -> str:
     """Provides a list of specials from the menu."""
     return """
@@ -258,7 +271,7 @@ async def main() -> None:
     )
 
     agent = project_client.agents.create_agent(
-        model="gpt-4o-mini",
+        model="gpt-4.1-mini",
         name="Host",
         instructions="Answer questions about the menu.",
         tools=[get_specials, get_item_price],
@@ -293,13 +306,13 @@ if __name__ == "__main__":
 
 ### 核心概念
 
-Azure AI Agent Service 有以下核心概念：
+Microsoft Foundry Agent Service 包含以下核心概念：
 
-- **代理**。Azure AI Agent Service 與 Microsoft Foundry 整合。在 AI Foundry 中，AI 代理扮演一個「智慧」微服務的角色，可用來回答問題（RAG）、執行動作或完全自動化工作流程。它透過將生成式 AI 模型的能力與能讓代理存取並與真實世界資料來源互動的工具結合來達成這些功能。以下是一個代理的範例：
+- <strong>代理</strong>。Microsoft Foundry Agent Service 整合於 Microsoft Foundry。於 Foundry 裡，AI 代理充當「智慧」微服務，可用於問答（RAG）、執行動作或全自動化工作流程。透過結合生成式 AI 模型與允許存取及互動真實世界資料來源的工具實現此功能。以下為代理範例：
 
     ```python
     agent = project_client.agents.create_agent(
-        model="gpt-4o-mini",
+        model="gpt-4.1-mini",
         name="my-agent",
         instructions="You are helpful agent",
         tools=code_interpreter.definitions,
@@ -307,9 +320,9 @@ Azure AI Agent Service 有以下核心概念：
     )
     ```
 
-    在這個範例中，代理使用模型 `gpt-4o-mini` 建立，名稱為 `my-agent`，指示為 `You are helpful agent`。該代理配備了可執行程式碼解釋任務的工具與資源。
+    在此範例中，代理以模型 `gpt-4.1-mini`、名稱 `my-agent` 與指令 `You are helpful agent` 建立。代理配備工具與資源以執行程式碼解譯任務。
 
-- **執行緒與訊息**。執行緒是另一個重要概念。它代表代理與使用者之間的對話或互動。執行緒可用來追蹤對話進度、儲存情境資訊與管理互動狀態。以下是一個執行緒的範例：
+- <strong>對話串與訊息</strong>。對話串是另一重要概念。它代表代理與用戶間的對話或互動。對話串可用於追蹤對話進度、儲存上下文資訊與管理狀態。以下為對話串範例：
 
     ```python
     thread = project_client.agents.create_thread()
@@ -319,84 +332,87 @@ Azure AI Agent Service 有以下核心概念：
         content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
     )
     
-    # Ask the agent to perform work on the thread
+    # 請代理於該線程上執行工作
     run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
     
-    # Fetch and log all messages to see the agent's response
+    # 擷取並記錄所有訊息以查看代理的回應
     messages = project_client.agents.list_messages(thread_id=thread.id)
     print(f"Messages: {messages}")
     ```
 
-    在前述程式碼中，建立了一個執行緒。之後，向該執行緒傳送一則訊息。透過呼叫 `create_and_process_run`，要求代理在該執行緒上執行工作。最後，取回並記錄訊息以查看代理的回應。這些訊息指出使用者與代理之間對話的進度。也需理解訊息可以是不同類型，例如文字、影像或檔案，表示代理的工作可能產生影像或文字回應。作為開發者，你可以接著使用這些資訊進行進一步處理或呈現給使用者。
+    上述程式碼中，建立了對話串，並送出訊息。呼叫 `create_and_process_run` 後，代理在該對話串上執行工作。最後取得並記錄訊息以查看代理回應。這些訊息顯示用戶與代理間對話的進度。訊息可能有多種類型，如文字、圖片或檔案，代表代理工作所產生的如圖片或文字回應。開發者可利用此資訊進一步處理回應或呈現予用戶。
 
-- **與 Microsoft 代理框架 整合**。Azure AI Agent Service 能與 Microsoft 代理框架 無縫運作，這表示你可以使用 `AzureAIProjectAgentProvider` 建構代理，並透過 Agent Service 部署它們以用於生產情境。
+- **整合 Microsoft Agent Framework**。Microsoft Foundry Agent Service 與 Microsoft Agent Framework 無縫合作，意味著你可用 `FoundryChatClient` 建構代理，並經由 Agent Service 部署至生產環境。
 
-**使用案例**：Azure AI Agent Service 專為需要安全、可擴充且靈活 AI 代理部署的企業應用而設計。
+<strong>使用情境</strong>：Microsoft Foundry Agent Service 專為需安全、可擴展且彈性 AI 代理部署的企業應用而設計。
 
-## 這些方法之間有什麼不同？
+## 這些方法有何差異？
  
-乍看之下確實有重疊，但在設計、能力與目標使用案例上有一些關鍵差異：
+確實存在重疊，但設計、能力與目標使用場景有關鍵不同：
  
-- **Microsoft 代理框架 (MAF)**：是一個用於建置 AI 代理的生產就緒 SDK。它提供一個精簡的 API，用於建立具工具呼叫、對話管理與 Azure 身分整合的代理。
-- **Azure AI Agent Service**：是在 Azure Foundry 中的代理平台與部署服務。它提供內建與 Azure OpenAI、Azure AI Search、Bing Search 與程式碼執行等服務的連接能力。
+- **微軟 Agent Framework (MAF)**：為建構 AI 代理提供生產就緒 SDK。它提供用於建立具工具呼叫、對話管理及 Azure 身份整合的簡化 API。
+- **Microsoft Foundry Agent Service**：為 Microsoft Foundry 內針對代理的平台及部署服務。它內建連接 Azure OpenAI、Azure AI Search、Bing Search 及程式碼執行等服務。
  
-還是不確定該選哪一個？
+仍不確定該選哪一個？
 
 ### 使用情境
  
-讓我們透過一些常見使用案例來幫助你做決定：
+讓我們透過常見使用情境來協助你判斷：
  
-> Q: 我正在建置生產等級的 AI 代理應用，想快速上手
+> 問：我正在建構生產等級 AI 代理應用，想快速開始
 >
 
->A: Microsoft 代理框架 是一個很好的選擇。它透過 `AzureAIProjectAgentProvider` 提供簡單且 Python 化的 API，讓你只需幾行程式碼就能定義帶有工具與指示的代理。
+> 答：微軟 Agent Framework 是很棒的選擇。它透過 `FoundryChatClient` 提供簡單、Pythonic 的 API，讓你能用少量程式碼定義帶有工具與指令的代理。
 
->Q: 我需要具企業等級的部署並整合像 Search 與程式碼執行等 Azure 功能
+> 問：我需要企業級部署，並整合 Azure Search 與程式碼執行等功能
 >
-> A: Azure AI Agent Service 最適合。它是一個平台服務，提供多模型、Azure AI Search、Bing Search 與 Azure Functions 等內建能力。你可以在 Foundry Portal 中建立代理並大規模部署。
+> 答：Microsoft Foundry Agent Service 是最佳選擇。它是平台服務，內建多種模型、Azure AI Search、Bing Search 與 Azure Functions，讓你輕鬆在 Foundry Portal 創建並大規模部署代理。
  
-> Q: 我還是有點混亂，只給我一個選項就好
+> 問：我還是很困惑，就給我一個選項吧
 >
-> A: 先從 Microsoft 代理框架 開始建立你的代理，當你需要在生產環境中部署與擴展時再使用 Azure AI Agent Service。這種做法讓你能快速在代理邏輯上反覆迭代，同時保有一條明確的企業部署路徑。
+> 答：先使用微軟 Agent Framework 建構代理，待需要生產部署與擴展時，再轉用 Microsoft Foundry Agent Service。此路徑能快速迭代代理邏輯，同時有清晰的企業部署途徑。
  
-讓我們用一張表總結主要差異：
+我們來以表格總結主要差異：
 
-| Framework | Focus | Core Concepts | Use Cases |
+| 架構 | 重點 | 核心概念 | 使用情境 |
 | --- | --- | --- | --- |
-| Microsoft Agent Framework | Streamlined agent SDK with tool calling | Agents, Tools, Azure Identity | Building AI agents, tool use, multi-step workflows |
-| Azure AI Agent Service | Flexible models, enterprise security, Code generation, Tool calling | Modularity, Collaboration, Process Orchestration | Secure, scalable, and flexible AI agent deployment |
+| 微軟 Agent Framework | 精簡代理 SDK 與工具呼叫 | 代理、工具、Azure 身份 | 建構 AI 代理、工具使用、多步工作流程 |
+| Microsoft Foundry Agent Service | 彈性模型、企業安全、程式碼生成、工具呼叫 | 模組化、協作、流程編排 | 安全、可擴展且彈性的 AI 代理部署 |
 
-## 我可以直接整合現有的 Azure 生態系工具，還是需要獨立解決方案？
-答案是肯定的，您可以將現有的 Azure 生態系統工具直接整合到 Azure AI Agent 服務，特別是因為它已被設計為能與其他 Azure 服務無縫運作。例如，您可以整合 Bing、Azure AI Search 與 Azure Functions。Microsoft Foundry 也有深度整合。
+## 我可以直接整合既有的 Azure 生態系工具，還是必須使用獨立方案？
 
-Microsoft Agent Framework 也透過 `AzureAIProjectAgentProvider` 和 Azure 身份整合 Azure 服務，讓您能從代理工具中直接呼叫 Azure 服務。
+
+答案是肯定的，你可以將現有的 Azure 生態系統工具直接整合到 Microsoft Foundry Agent Service，特別是因為它是專為與其他 Azure 服務無縫合作而建構的。例如，你可以整合 Bing、Azure AI 搜尋和 Azure Functions。Microsoft Foundry 也有深入的整合。
+
+Microsoft Agent Framework 也透過 `FoundryChatClient` 和 Azure 身份驗證整合 Azure 服務，讓你可以直接從代理工具呼叫 Azure 服務。
 
 ## 範例程式碼
 
-- Python: [代理框架](./code_samples/02-python-agent-framework.ipynb)
-- .NET: [代理框架](./code_samples/02-dotnet-agent-framework.md)
+- Python: [Agent Framework (Microsoft Foundry)](./code_samples/02-python-agent-framework.ipynb)
+- Python: [Agent Framework (Azure OpenAI Responses API)](./code_samples/02-python-agent-framework-azure-openai.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
 
-## 還對 AI 代理框架有更多問題嗎？
+## 有更多關於 AI 代理框架的問題嗎？
 
-加入 [Microsoft Foundry 的 Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流、參加辦公時間並獲得 AI 代理相關問題的解答。
+加入 [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) 與其他學習者交流，參加線上辦公時間並獲得你的 AI 代理問題的解答。
 
 ## 參考資料
 
-- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent 服務</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Azure OpenAI 回應</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent 服務</a>
+- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent Service</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Azure OpenAI Responses</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a>
 
 ## 上一課
 
-[AI 代理與使用案例簡介](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 ## 下一課
 
-[理解 Agentic 設計模式](../03-agentic-design-patterns/README.md)
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-免責聲明：
-本文件已使用 AI 翻譯服務 Co-op Translator（https://github.com/Azure/co-op-translator）進行翻譯。雖然我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。原始語言版本應視為具權威性的來源。對於重要資訊，建議採用專業人工翻譯。因使用本翻譯而引起的任何誤解或曲解，我們概不負責。
+**免責聲明**：
+本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要資訊，建議尋求專業人工翻譯。我們不對因使用本翻譯而引起的任何誤解或曲解承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

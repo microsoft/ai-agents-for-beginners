@@ -1,31 +1,31 @@
-# 🔍 Tyrinėjame Microsoft Agent Framework – Paprastas agentas (.NET)
+# 🔍 Tyrinėjame Microsoft Agent Framework – Pagrindinis agentas (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šiame pavyzdyje nagrinėjamos Microsoft Agent Framework pagrindinės koncepcijos per pagrindinę agente įgyvendinimą .NET. Sužinosite pagrindinius agentinius modelius ir suprasite, kaip protingi agentai veikia „po gaubtu“, naudojant C# ir .NET ekosistemą.
+Šis pavyzdys nagrinėja Microsoft Agent Framework pagrindines sąvokas per paprastą agento įgyvendinimą .NET. Sužinosite pagrindinius agentų modelius ir suprasite, kaip veikia intelektualūs agentai naudojant C# ir .NET ekosistemą.
 
-### Ką atraskite
+### Ką atrastumėte
 
-- 🏗️ **Agentų architektūra**: suprasti AI agentų pagrindinę struktūrą .NET aplinkoje
-- 🛠️ **Įrankių integracija**: kaip agentai naudoja išorines funkcijas galimybėms išplėsti  
-- 💬 **Pokalbiai**: valdant daugiapokopius pokalbius ir kontekstą su gijų valdymu
-- 🔧 **Konfigūracijos modeliai**: geriausios praktikos agento diegimui ir valdymui .NET
+- 🏗️ **Agento architektūra**: suprasti AI agentų pagrindinę struktūrą .NET aplinkoje
+- 🛠️ **Įrankių integracija**: kaip agentai naudoja išorines funkcijas, kad išplėstų savo galimybes  
+- 💬 **Pokyčių valdymas**: daugiataukių pokalbių ir konteksto valdymas naudojant gijų valdymą
+- 🔧 **Konfigūracijos modeliai**: geriausios praktikos agento nustatymui ir valdymui .NET
 
-## 🎯 Pagrindinės nagrinėjamos sąvokos
+## 🎯 Pagrindinės aprėptos sąvokos
 
-### Agentinio rėmo principai
+### Agentų sistemos principai
 
-- **Autonomija**: kaip agentai nepriklausomai priima sprendimus naudodami .NET AI abstrakcijas
-- **Reaktyvumas**: reaguoti į aplinkos pokyčius ir naudotojo įvestis
-- **Proaktyvumas**: imtis iniciatyvos remiantis tikslais ir kontekstu
-- **Socialumas**: sąveikauti natūralia kalba per pokalbių gijas
+- **Autonomija**: kaip agentai priima nepriklausomus sprendimus naudodami .NET AI abstrakcijas
+- **Reaktyvumas**: reagavimas į aplinkos pokyčius ir vartotojo įvestis
+- **Proaktyvumas**: iniciatyvos ėmimasis remiantis tikslais ir kontekstu
+- **Socialiniai gebėjimai**: bendravimas natūralia kalba su pokalbių gijų palaikymu
 
 ### Techninės sudedamosios dalys
 
-- **AIAgent**: pagrindinė agento orkestracija ir pokalbių valdymas (.NET)
-- **Įrankių funkcijos**: C# metodų ir atributų naudojimas agento galimybėms plėsti
-- **Azure OpenAI integracija**: kalbos modelių panaudojimas per Azure OpenAI Responses API
-- **Saugaus konfigūravimo**: naudojant aplinkos konfigūracijos galinius taškus
+- **AIAgent**: pagrindinis agento koordinavimas ir pokalbių valdymas (.NET)
+- **Įrankių funkcijos**: agento galimybių išplėtimas C# metodais ir atributais
+- **Azure OpenAI integracija**: kalbos modelių naudojimas per Azure OpenAI Responses API
+- **Saugios konfigūracijos**: aplinkos pagrindu valdomi prisijungimo taškai
 
 ## 🔧 Technologijų rinkinys
 
@@ -33,33 +33,33 @@
 
 - Microsoft Agent Framework (.NET)
 - Azure OpenAI (Responses API) integracija
-- Azure.AI.OpenAI klientų modeliai
-- Aplinkos pagrindu konfigūravimas su DotNetEnv
+- Azure.AI.OpenAI kliento modeliai
+- Aplinkos konfigūracija su DotNetEnv
 
 ### Agentų galimybės
 
 - Natūralaus kalbos supratimas ir generavimas
-- Funkcijų kvietimas ir įrankių naudojimas per C# atributus
-- Kontekstui jautrūs atsakymai su pokalbių sesijomis
-- Išplečiama architektūra su priklausomybių įpurškimo modeliais
+- Funkcijų kvietimas ir įrankių naudojimas su C# atributais
+- Atsakymai, suprantantys kontekstą ir pokalbių sesijas
+- Išplėčiama architektūra su priklausomybių injekcijos modeliais
 
-## 📚 Rėmų palyginimas
+## 📚 Framework palyginimas
 
-Šis pavyzdys demonstruoja Microsoft Agent Framework požiūrį, palyginti su kitais agentiniais rėmais:
+Šis pavyzdys demonstruoja Microsoft Agent Framework požiūrį, palyginti su kitais agentų framework’ais:
 
-| Funkcija | Microsoft Agent Framework | Kiti rėmai |
+| Ypatybė | Microsoft Agent Framework | Kiti Framework’ai |
 |---------|-------------------------|------------------|
 | **Integracija** | Gimtoji Microsoft ekosistema | Įvairi suderinamumas |
-| **Paprastumas** | Aiškus, intuityvus API | Dažnai sudėtinga konfigūracija |
-| **Išplečiamumas** | Lengva įrankių integracija | Priklauso nuo rėmo |
-| **Verslui paruoštas** | Sukurtas gamybai | Priklauso nuo rėmo |
+| **Paprastumas** | Aiškus, intuityvus API | Dažnai sudėtinga sąranga |
+| **Išplečiamumas** | Lengva įrankių integracija | Priklauso nuo framework’o |
+| **Verslui paruošta** | Sukurta gamybai | Skiriasi priklausomai nuo framework’o |
 
 ## 🚀 Pradžia
 
 ### Reikalavimai
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
-- [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI resursu ir modelio diegimu
+- [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI ištekliais ir modelio diegimu
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite su `az login`
 
 ### Reikalingi aplinkos kintamieji
@@ -67,22 +67,22 @@
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Tada prisijunkite, kad AzureCliCredential galėtų gauti tokeną
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
 az login
 ```
 
 ### Pavyzdinis kodas
 
-Norėdami paleisti pavyzdinį kodą,
+Norėdami paleisti pavyzdžio kodą,
 
 ```bash
 # zsh/bash
@@ -90,13 +90,13 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-Arba naudokite dotnet CLI:
+Arba naudodami dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-Peržiūrėkite [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) pilną kodo versiją.
+Peržiūrėkite [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) visą kodą.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -217,11 +217,11 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 Pagrindinės išvados
 
-1. **Agentų architektūra**: Microsoft Agent Framework suteikia aiškų, tipams saugų požiūrį į AI agentų kūrimą .NET
-2. **Įrankių integracija**: Funkcijos su `[Description]` atributais tampa agento prieinamais įrankiais
-3. **Pokalbio kontekstas**: Sesijų valdymas leidžia daugiapokopius pokalbius su pilnu konteksto suvokimu
-4. **Konfigūracijos valdymas**: Aplinkos kintamieji ir saugus kredencialų valdymas atitinka .NET geriausias praktikas
-5. **Azure OpenAI Responses API**: Agentas naudoja Azure OpenAI Responses API per Azure.AI.OpenAI SDK
+1. **Agento architektūra**: Microsoft Agent Framework suteikia švarų, tipo saugų požiūrį kuriant AI agentus .NET
+2. **Įrankių integracija**: funkcijos su `[Description]` atributais tampa prieinamomis agento įrankių dalimis
+3. **Pokalbio kontekstas**: sesijų valdymas leidžia vykdyti daugiaetapius pokalbius su pilnu konteksto suvokimu
+4. **Konfigūracijos valdymas**: aplinkos kintamieji ir saugaus prisijungimo tvarkymas atitinka .NET geriausias praktikas
+5. **Azure OpenAI Responses API**: agentas naudoja Azure OpenAI Responses API per Azure.AI.OpenAI SDK
 
 ## 🔗 Papildomi ištekliai
 

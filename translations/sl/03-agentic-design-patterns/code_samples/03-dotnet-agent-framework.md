@@ -1,42 +1,42 @@
-# 🎨 Agentni oblikovalski vzorci z Azure OpenAI (Responses API) (.NET)
+# 🎨 Vzorce Agentnega Oblikovanja z Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Cilji učenja
 
-Ta primer prikazuje oblikovalske vzorce na ravni podjetij za izgradnjo inteligentnih agentov z uporabo Microsoft Agent Framework v .NET z integracijo Azure OpenAI (Responses API). Naučili se boste profesionalnih vzorcev in arhitekturnih pristopov, ki agente naredijo primernimi za produkcijo, vzdrževane in razširljive.
+Ta primer prikazuje zasnove na ravni podjetja za gradnjo inteligentnih agentov z uporabo Microsoft Agent Framework v .NET z integracijo Azure OpenAI (Responses API). Naučili se boste strokovne vzorce in arhitekturne pristope, ki agentom omogočajo pripravo za produkcijo, vzdrževanje in skalabilnost.
 
-### Oblikovalski vzorci za podjetja
+### Vzorci podjetja
 
-- 🏭 **Factory Pattern**: Standardizirano ustvarjanje agentov z vbrizgavanjem odvisnosti
-- 🔧 **Builder Pattern**: Fluent konfiguracija in nastavitev agentov
-- 🧵 **Vzorci za varnost niti**: Sočasno upravljanje pogovorov
+- 🏭 **Factory Pattern**: Standardizirano ustvarjanje agentov z injekcijo odvisnosti
+- 🔧 **Builder Pattern**: Fluent nastavitev in konfiguracija agentov
+- 🧵 **Vzorci za varnost niti**: Vzporedno upravljanje pogovorov
 - 📋 **Repository Pattern**: Organizirano upravljanje orodij in zmožnosti
 
 ## 🎯 Arhitekturne prednosti specifične za .NET
 
-### Značilnosti podjetij
+### Podjetniške funkcije
 
-- **Močna tipizacija**: Preverjanje med prevajanjem in podpora IntelliSense
-- **Vbrizgavanje odvisnosti**: Vgrajena integracija DI kontejnerja
-- **Upravljanje konfiguracij**: IConfiguration in Options vzorci
-- **Async/Await**: Prvorazredna podpora asinhronemu programiranju
+- **Močna tipizacija**: Validacija med prevajanjem in podpora IntelliSense
+- **Injekcija odvisnosti**: Vgrajena integracija DI kontejnerja
+- **Upravljanje konfiguracije**: Vzorci IConfiguration in Options
+- **Async/Await**: Podpora asinhronemu programiranju prve vrste
 
 ### Vzorci pripravljeni za produkcijo
 
-- **Integracija beleženja**: ILogger in podpora strukturiranemu beleženju
-- **Preverjanja zdravja**: Vgrajeno spremljanje in diagnostika
-- **Preverjanje konfiguracije**: Močna tipizacija z označevanjem podatkov
-- **Ravnanje z napakami**: Strukturirano upravljanje izjeme
+- **Integracija beleženja**: Podpora ILogger in strukturiranemu beleženju
+- **Preverjanje stanja zdravja**: Vgrajeno spremljanje in diagnostika
+- **Validacija konfiguracije**: Močna tipizacija z oznakami podatkov
+- **Upravljanje napak**: Strukturirano upravljanje izjemo
 
 ## 🔧 Tehnična arhitektura
 
-### Osrednji .NET komponenti
+### Glavne .NET komponente
 
-- **Microsoft.Extensions.AI**: Enotne abstrakcije AI storitev
+- **Microsoft.Extensions.AI**: Združene abstrakcije AI storitev
 - **Microsoft.Agents.AI**: Okvir za orkestracijo agentov na ravni podjetja
-- **Azure OpenAI (Responses API)**: Vzorce visoko zmogljivega API odjemalca
+- **Azure OpenAI (Responses API)**: Vzorci odjemalcev API za visoko zmogljivost
 - **Sistem konfiguracije**: appsettings.json in integracija okolja
 
-### Izvedba oblikovalskih vzorcev
+### Implementacija vzorcev oblikovanja
 
 ```mermaid
 graph LR
@@ -46,93 +46,93 @@ graph LR
     D --> E[AI agent]
 ```
 
-## 🏗️ Prikazani vzorci podjetij
+## 🏗️ Demonstrirani vzorci podjetja
 
-### 1. **Vzorci ustvarjanja**
+### 1. **Vzročni vzorci**
 
-- **Tovarniški agent**: Centralizirano ustvarjanje agentov s konsistentno konfiguracijo
+- **Agentna tovarna**: Centralizirana izdelava agentov z dosledno konfiguracijo
 - **Builder Pattern**: Fluent API za kompleksno konfiguracijo agentov
-- **Singleton vzorec**: Deljeni viri in upravljanje konfiguracije
-- **Vbrizgavanje odvisnosti**: Ohlapno povezovanje in testabilnost
+- **Singleton Pattern**: Skupno upravljanje virov in konfiguracije
+- **Injekcija odvisnosti**: Rahla povezanost in testabilnost
 
-### 2. **Vzorci vedenja**
+### 2. **Vedenjski vzorci**
 
-- **Strategija vzorca**: Izmenljive strategije izvajanja orodij
-- **Ukazni vzorec**: Zapakirani operacije agentov z razveljavitvijo/povratom
-- **Observer vzorec**: Upravljanje življenjskega cikla agenta, sproženo z dogodki
-- **Vzorec predloge metode**: Standardizirani delovni tokovi izvajanja agentov
+- **Strategy Pattern**: Zamenljive strategije izvajanja orodij
+- **Command Pattern**: Zakodirane operacije agenta z možnostjo razveljavitve/ponovitve
+- **Observer Pattern**: Upravljanje življenjskega cikla agenta, sproženega z dogodki
+- **Template Method**: Standardizirani delovni tokovi izvajanja agenta
 
 ### 3. **Strukturni vzorci**
 
-- **Adapter vzorec**: Plast integracije Azure OpenAI (Responses API)
-- **Decorator vzorec**: Izboljšanje zmogljivosti agenta
-- **Facade vzorec**: Poenostavljeni vmesniki za interakcijo z agentom
-- **Proxy vzorec**: Lenobno nalaganje in predpomnjenje za zmogljivost
+- **Adapter Pattern**: Plast integracije Azure OpenAI (Responses API)
+- **Decorator Pattern**: Izboljšanje zmogljivosti agenta
+- **Facade Pattern**: Poenostavljeni vmesniki za interakcijo z agentom
+- **Proxy Pattern**: Lenobno nalaganje in predpomnjenje za zmogljivost
 
-## 📚 Načela oblikovanja za .NET
+## 📚 .NET oblikovne smernice
 
 ### SOLID načela
 
-- **Enotna odgovornost**: Vsaka komponenta ima en jasen namen
-- **Odprto/Zaprto**: Razširljivo brez sprememb
-- **Liskov substitucija**: Izvajanja orodij na osnovi vmesnikov
-- **Ločevanje vmesnikov**: Osredotočeni in skladni vmesniki
+- **Enotna odgovornost**: Vsak sestavni del ima jasno nalogo
+- **Odprt/Zaprt**: Razširljiv brez spreminjanja izvorne kode
+- **Liskovova substitucija**: Izvajanja orodij na osnovi vmesnikov
+- **Ločevanje vmesnikov**: Osredotočeni, kohezivni vmesniki
 - **Inverzija odvisnosti**: Odvisnost od abstrakcij, ne od konkretnih implementacij
 
 ### Čista arhitektura
 
-- **Domena sloj**: Jedrne abstrakcije agentov in orodij
-- **Aplikacijski sloj**: Orkestracija agentov in delovni tokovi
-- **Infrastrukturni sloj**: Integracija Azure OpenAI (Responses API) in zunanje storitve
-- **Predstavitveni sloj**: Uporniška interakcija in oblikovanje odgovorov
+- **Plast domen**: Osnovne abstrakcije agentov in orodij
+- **Plast aplikacije**: Orkestracija agentov in delovni tokovi
+- **Plast infrastrukture**: Integracija Azure OpenAI (Responses API) in zunanje storitve
+- **Plast predstavitve**: Uporabniška interakcija in oblikovanje odgovorov
 
 ## 🔒 Podjetniške premisleke
 
 ### Varnost
 
-- **Upravljanje poverilnic**: Varen postopek upravljanja API ključev z IConfiguration
-- **Preverjanje vnosa**: Močna tipizacija in preverjanje z označevanjem podatkov
-- **Čiščenje izhoda**: Varen postopek obdelave in filtriranja odgovorov
-- **Beleženje revizij**: Celovito sledenje operacijam
+- **Upravljanje poverilnic**: Varno upravljanje API ključev z IConfiguration
+- **Validacija vnosa**: Močna tipizacija in preverjanje z oznakami podatkov
+- **Čiščenje izhoda**: Varna obdelava in filtriranje odgovorov
+- **Beleženje revizije**: Celovito sledenje operacijam
 
 ### Zmogljivost
 
 - **Asinhroni vzorci**: Neblokirajoče I/O operacije
-- **Povezovalni bazen**: Učinkovito upravljanje HTTP odjemalcev
+- **Grozd povezav**: Učinkovito upravljanje HTTP odjemalcev
 - **Predpomnjenje**: Predpomnjenje odgovorov za izboljšano zmogljivost
-- **Upravljanje virov**: Pravilno razporejanje in čiščenje vzorcev
+- **Upravljanje virov**: Pravilno sproščanje in vzorci čiščenja
 
-### Razširljivost
+### Skalabilnost
 
-- **Varnost niti**: Podpora sočasnemu izvajanju agentov
-- **Bazeni virov**: Učinkovita uporaba virov
-- **Upravljanje obremenitve**: Omejevanje hitrosti in obvladovanje povratnega pritiska
-- **Spremljanje**: Meritve zmogljivosti in preverjanja zdravja
+- **Varnost niti**: Podpora vzporednemu izvajanju agentov
+- **Grozd virov**: Učinkovita poraba virov
+- **Upravljanje obremenitve**: Omejevanje hitrosti in upravljanje povratnega tlaka
+- **Spremljanje**: Meritve zmogljivosti in kontrole stanja zdravja
 
-## 🚀 Uvajanje v produkcijo
+## 🚀 Produkcijska namestitev
 
 - **Upravljanje konfiguracije**: Nastavitve specifične za okolje
-- **Strategija beleženja**: Strukturirano beleženje z ID korelacije
-- **Ravnanje z napakami**: Globalno upravljanje izjem z ustreznim okrevanjem
-- **Spremljanje**: Aplikacijski vpogledi in števec zmogljivosti
-- **Testiranje**: Enotnost, integracijsko in obremenitveno testiranje vzorcev
+- **Strategija beleženja**: Strukturirano beleženje s korelacijskimi ID-ji
+- **Upravljanje napak**: Globalno upravljanje izjem z ustreznim okrevanjem
+- **Spremljanje**: Application Insights in merilci zmogljivosti
+- **Testiranje**: Enotski testi, integracijski testi in vzorci za testiranje obremenitve
 
-Pripravljeni na gradnjo inteligentnih agentov na ravni podjetja z .NET? Arhitektirajmo nekaj robustnega! 🏢✨
+Ste pripravljeni zgraditi inteligentne agente na ravni podjetja z .NET? Zasnovimo nekaj robustnega! 🏢✨
 
 ## 🚀 Začetek
 
 ### Predpogoji
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali višji
-- [Azure naročnina](https://azure.microsoft.com/free/) z Azure OpenAI virom in nameščenim modelom
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali novejši
+- [Azure naročnina](https://azure.microsoft.com/free/) z virom Azure OpenAI in nameščeno različico modela
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se z `az login`
 
-### Zahtevane okoljske spremenljivke
+### Zahtevane spremenljivke okolja
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Nato se prijavite, da lahko AzureCliCredential pridobi žeton
 az login
 ```
@@ -140,14 +140,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Nato se prijavite, da lahko AzureCliCredential pridobi žeton
 az login
 ```
 
-### Vzorec kode
+### Primer kode
 
-Za zagon primerka kode,
+Za zagon primera kode,
 
 ```bash
 # zsh/bash
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

@@ -1,4 +1,4 @@
-[![Planning Design Pattern](../../../translated_images/tr/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planlama Tasarım Deseni](../../../translated_images/tr/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki resme tıklayın)_
 
@@ -8,48 +8,48 @@
 
 Bu ders şunları kapsayacaktır
 
-* Net bir genel hedef tanımlamak ve karmaşık bir görevi yönetilebilir görevlere bölmek.
+* Açık bir genel hedef tanımlamak ve karmaşık bir görevi yönetilebilir görevlere bölmek.
 * Daha güvenilir ve makine tarafından okunabilir yanıtlar için yapılandırılmış çıktıyı kullanmak.
-* Dinamik görevleri ve beklenmeyen girdileri yönetmek için olay tabanlı bir yaklaşım uygulamak.
+* Dinamik görevleri ve beklenmedik girdileri yönetmek için olay tabanlı bir yaklaşım uygulamak.
 
 ## Öğrenme Hedefleri
 
-Bu dersi tamamladıktan sonra şunları anlayabileceksiniz:
+Bu dersi tamamladıktan sonra aşağıdakileri anlayacaksınız:
 
-* Bir AI ajanı için genel bir hedef belirlemek ve net bir şekilde neyin başarılması gerektiğini anlamasını sağlamak.
-* Karmaşık bir görevi yönetilebilir alt görevlere ayırmak ve bunları mantıklı bir sıraya göre düzenlemek.
-* Ajanları doğru araçlarla (örneğin, arama araçları veya veri analizi araçları) donatmak, ne zaman ve nasıl kullanılacağına karar vermek ve ortaya çıkan beklenmeyen durumları yönetmek.
-* Alt görev sonuçlarını değerlendirmek, performansı ölçmek ve nihai çıktıyı iyileştirmek için eylemleri yinelemek.
+* Bir AI ajanı için genel bir hedef belirlemek ve ajanın neyi başarması gerektiğini açıkça bilmesini sağlamak.
+* Karmaşık bir görevi yönetilebilir alt görevlere bölmek ve bunları mantıklı bir sıraya koymak.
+* Ajanları doğru araçlarla donatmak (ör. arama araçları veya veri analitiği araçları), ne zaman ve nasıl kullanılacağını kararlaştırmak ve beklenmedik durumlarla başa çıkmak.
+* Alt görev sonuçlarını değerlendirmek, performansı ölçmek ve nihai çıktıyı iyileştirmek için eylemleri tekrarlamak.
 
-## Genel Hedefin Tanımlanması ve Görevin Parçalanması
+## Genel Hedefi Tanımlama ve Görevi Bölme
 
-![Defining Goals and Tasks](../../../translated_images/tr/defining-goals-tasks.d70439e19e37c47a.webp)
+![Hedefleri ve Görevleri Tanımlama](../../../translated_images/tr/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Çoğu gerçek dünya görevi tek adımda ele alınamayacak kadar karmaşıktır. Bir AI ajanının planlamasını ve eylemlerini yönlendirmek için özlü bir hedefe ihtiyacı vardır. Örneğin, şu hedefi ele alalım:
+Çoğu gerçek dünya görevi, tek adımda ele alınamayacak kadar karmaşıktır. Bir AI ajanının planlamasını ve eylemlerini yönlendirmek için özlü bir hedefi olmalıdır. Örneğin, aşağıdaki hedefi düşünün:
 
-    "3 günlük bir seyahat programı oluştur."
+    "3 günlük seyahat programı oluştur."
 
-Basitçe ifade edilse de, hâlâ detaylandırılması gerekir. Hedef ne kadar net olursa, ajan (ve herhangi bir insan işbirlikçisi) doğru sonuca odaklanabilir, örneğin uçuş seçenekleri, otel önerileri ve etkinlik tavsiyeleri içeren kapsamlı bir program hazırlamak.
+Basitçe ifade edilse de yine de ayrıntılandırılması gerekir. Hedef ne kadar net olursa, ajan (ve varsa insan işbirlikçileri) doğru sonucu elde etmeye o kadar iyi odaklanabilir; örneğin kapsamlı bir program oluşturmak, uçuş seçenekleri, otel önerileri ve etkinlik tavsiyeleri içeren.
 
 ### Görev Parçalama
 
-Büyük veya karmaşık görevler, daha küçük, hedefe yönelik alt görevlere bölündüğünde daha yönetilebilir hale gelir.
-Seyahat programı örneğinde, hedefi şu alt görevlere ayırabilirsiniz:
+Büyük veya karmaşık görevler, daha küçük, hedef odaklı alt görevlere bölündüğünde daha yönetilebilir hale gelir.
+Seyahat programı örneğinde, hedefi şu alt görevlere bölmek mümkündür:
 
-* Uçak Rezervasyonu
+* Uçuş Rezervasyonu
 * Otel Rezervasyonu
 * Araç Kiralama
 * Kişiselleştirme
 
-Her alt görev sonrasında ilgili ajanlar veya süreçler tarafından ele alınabilir. Bir ajan en iyi uçuş fırsatlarını aramakta uzmanlaşırken, diğeri otel rezervasyonlarına odaklanabilir. Koordine eden veya “aşağı yönlü” bir ajan ise bu sonuçları kullanıcıya sunulacak tutarlı bir programa dönüştürebilir.
+Her alt görev, özelleşmiş ajanlar veya süreçler tarafından ele alınabilir. Bir ajan en iyi uçuş fırsatlarını aramaya odaklanabilirken, diğeri otel rezervasyonlarına yoğunlaşabilir. Ardından bir koordinatör ya da “aşağı akış” ajan bu sonuçları birleştirerek kullanıcının kullanımına sunar.
 
-Bu modüler yaklaşım, kademeli iyileştirmelere de olanak sağlar. Örneğin, Yemek Önerileri veya Yerel Aktivite Tavsiyeleri gibi özel ajanlar ekleyebilir ve programı zamanla geliştirebilirsiniz.
+Bu modüler yaklaşım, aşamalı geliştirmelere de olanak tanır. Örneğin, Yemek Önerileri veya Yerel Etkinlik Tavsiyeleri için özel ajanlar ekleyip zamanla programı iyileştirebilirsiniz.
 
 ### Yapılandırılmış Çıktı
 
-Büyük Dil Modelleri (LLM'ler), aşağı akış ajanları veya servislerin daha kolay çözümleyip işleyebileceği yapılandırılmış çıktılar (ör. JSON) üretebilir. Bu, özellikle planlama çıktısı alındıktan sonra görevlerin eyleme dönüştürüldüğü çok ajanlı bağlamlarda faydalıdır.
+Büyük Dil Modelleri (LLM'ler), aşağı akış ajanları veya servislerinin kolayca ayrıştırıp işleyebileceği yapılandırılmış çıktı (örneğin JSON) üretebilir. Bu, planlama çıktısı alındıktan sonra bu görevleri harekete geçirebildiğimiz çok ajanlı senaryolarda özellikle faydalıdır.
 
-Aşağıdaki Python örneği, basit bir planlama ajanının bir hedefi alt görevlere bölerek yapılandırılmış bir plan oluşturmasını göstermektedir:
+Aşağıdaki Python örneği, basit bir planlayıcı ajanın bir hedefi alt görevlere bölmesini ve yapılandırılmış bir plan oluşturmasını göstermektedir:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -81,7 +81,11 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Kullanıcı mesajını tanımla
 system_prompt = """You are a planner agent.
@@ -107,16 +111,16 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-### Çok Ajanlı Orkestrasyonlu Planlama Ajanı
+### Çok Ajanlı Orkestrasyon ile Planlama Ajanı
 
-Bu örnekte, bir Semantik Yönlendirici Ajan kullanıcıdan gelen isteği alır (örneğin, "Seyahatim için otel planına ihtiyacım var.").
+Bu örnekte, Semantik Yönlendirici Ajan kullanıcı isteği alır (örneğin, "Seyahatim için otel planına ihtiyacım var.").
 
-Planlayıcı ise:
+Planlayıcı şunları yapar:
 
-* Otel Planını Alır: Planlayıcı, kullanıcı mesajını alır ve (kullanılabilir ajan bilgileri içeren bir sistem istemine dayanarak) yapılandırılmış bir seyahat planı oluşturur.
-* Ajanları ve Araçlarını Listeler: Ajan kaydı, uçuş, otel, araç kiralama ve etkinlikler için ajanlar ve sundukları fonksiyonlar/araçlar listesini tutar.
-* Planı İlgili Ajanlara Yönlendirir: Alt görev sayısına bağlı olarak, planlayıcı mesajı doğrudan ilgili ajana (tek görev durumunda) ya da çok ajanlı işbirliği için bir grup sohbet yöneticisi aracılığıyla koordine eder.
-* Sonucu Özetler: Son olarak, planlayıcı oluşturulan planı açıklık için özetler.
+* Otel Planını Almak: Planlayıcı, kullanıcı mesajını alır ve sistem istemine (mevcut ajan detayları dahil) dayanarak yapılandırılmış bir seyahat planı oluşturur.
+* Ajanları ve Araçlarını Listelemek: Ajan dizini, ajanların (örneğin uçuş, otel, araç kiralama, etkinlikler için) ve sundukları fonksiyonların veya araçların listesini tutar.
+* Planı İlgili Ajanlara Yönlendirmek: Alt görev sayısına bağlı olarak, planlayıcı mesajı doğrudan ilgili ajana (tek görev senaryoları için) ya da çok ajanlı işbirliği için grup sohbet yöneticisi aracılığıyla iletir.
+* Sonucu Özetlemek: Son olarak planlayıcı, oluşturulan planı açıklık için özetler.
 Aşağıdaki Python kod örneği bu adımları göstermektedir:
 
 ```python
@@ -135,11 +139,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Seyahat Alt Görev Modeli
+# Seyahat AltGörev Modeli
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # Görevi ajan'a atamak istiyoruz
+    assigned_agent: AgentEnum # Görevi ajana atamak istiyoruz
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -149,12 +153,16 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 # İstemciyi oluştur
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
@@ -181,7 +189,7 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-Sonraki çıktı önceki koddan gelir ve bu yapılandırılmış çıktıyı `assigned_agent`'a yönlendirip seyahat planını son kullanıcıya özetlemek için kullanabilirsiniz.
+Aşağıda önceki kodun çıktısı vardır ve bu yapılandırılmış çıktıyı `assigned_agent` konusuna yönlendirmek ve seyahat planını kullanıcıya özetlemek için kullanabilirsiniz.
 
 ```json
 {
@@ -212,20 +220,21 @@ Sonraki çıktı önceki koddan gelir ve bu yapılandırılmış çıktıyı `as
 }
 ```
 
-Önceki kod örneğiyle ilgili örnek defter [burada](07-python-agent-framework.ipynb) mevcuttur.
+Önceki kod örneği içeren örnek bir not defteri [burada](./code_samples/07-python-agent-framework.ipynb) bulunmaktadır.
 
 ### Yinelemeli Planlama
 
-Bazı görevler, bir alt görevin sonucu diğerini etkilediğinde ileri geri veya yeniden planlama gerektirir. Örneğin, ajan uçuş rezervasyonu sırasında beklenmeyen bir veri formatı tespit ederse, otel rezervasyonuna geçmeden önce stratejisini uyarlaması gerekebilir.
+Bazı görevler, bir alt görevin sonucu diğerini etkilediğinde ileri geri ya da yeniden planlama gerektirir. Örneğin, ajan uçuş rezervasyonu sırasında beklenmedik bir veri formatı keşfederse, otel rezervasyonuna geçmeden önce stratejisini uyarlaması gerekebilir.
 
-Ek olarak, kullanıcı geri bildirimi (örneğin, bir insanın daha erken bir uçuş tercih etmesi) kısmi bir yeniden planlamayı tetikleyebilir. Bu dinamik ve yinelemeli yaklaşım, nihai çözümün gerçek dünya kısıtlamalarına ve gelişen kullanıcı tercihleriyle uyumlu olmasını sağlar.
+Ayrıca, kullanıcı geri bildirimi (örneğin, bir insanın daha erken bir uçuş tercih etmesi) kısmi bir yeniden planlamayı tetikleyebilir. Bu dinamik, yinelemeli yaklaşım, nihai çözümün gerçek dünya kısıtlamalarına ve değişen kullanıcı tercihlerine uyum sağlamasını garanti eder.
 
 örnek kod
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
-#.. önceki kodla aynı ve kullanıcı geçmişini, mevcut planı iletin
+#.. önceki kodla aynı ve kullanıcı geçmişini, mevcut planı ilet
 
 system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
@@ -244,22 +253,22 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. yeniden plan yap ve görevleri ilgili ajanlara gönder
+# .. yeniden planla ve görevleri ilgili ajanlara gönder
 ```
 
-Daha kapsamlı planlama için karmaşık görevleri çözmek üzere Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blog yazısını</a> inceleyebilirsiniz.
+Daha kapsamlı planlama için, karmaşık görevlerin çözümü için <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a> Blog yazısını inceleyebilirsiniz.
 
 ## Özet
 
-Bu makalede, tanımlanan mevcut ajanları dinamik olarak seçebilen bir planlayıcı oluşturma örneğine baktık. Planlayıcının çıktısı görevleri parçalayarak ajanlara atar ve bunların yürütülmesini sağlar. Ajanların, görevi yerine getirmek için gereken fonksiyon/araçlara erişimi olduğu varsayılır. Ajanlara ek olarak, yansıma, özetleyici ve round robin sohbet gibi diğer desenler de özelleştirme için eklenebilir.
+Bu yazıda, tanımlı ajanlar arasından dinamik olarak seçim yapabilen bir planlayıcı nasıl oluşturulabileceğine dair bir örnek inceledik. Planlayıcının çıktısı görevleri parçalar ve bu görevlerin yerine getirilmesi için ajanları atar. Ajanların görevi yerine getirmek için gerekli fonksiyon/araçlara erişimi olduğu varsayılır. Ajanlara ek olarak, refleksiyon, özetleyici ve round robin sohbet gibi diğer desenler de dahil edilerek daha fazla kişiselleştirme yapılabilir.
 
 ## Ek Kaynaklar
 
-Magentic One - Karmaşık görevleri çözmek için genel amaçlı çok ajanlı sistemdir ve pek çok zorlu ajan benchmark'ında etkileyici sonuçlar elde etmiştir. Referans: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. Bu uygulamada orkestratör görev bazlı planlar oluşturur ve bu görevleri kullanılabilir ajanlara devreder. Planlamanın yanı sıra, orkestratör görev ilerlemesini izlemek ve gerektiğinde yeniden planlamak için bir takip mekanizması kullanır.
+Magentic One - Karmaşık görevleri çözmek için genel amaçlı çok ajanlı sistemdir ve birçok zorlayıcı ajanik kıyaslama testinde etkileyici sonuçlar elde etmiştir. Referans: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. Bu uygulamada orkestratör, göreve özel planlar yapar ve bu görevleri mevcut ajanlara devreder. Planlamanın yanı sıra orkestratör, görev ilerlemesini izlemek için bir takip mekanizması kullanır ve gerekirse yeniden planlama yapar.
 
-### Planlama Tasarım Deseni ile İlgili Daha Fazla Sorunuz mu Var?
+### Planlama Tasarım Deseni hakkında daha fazla sorunuz mu var?
 
-Diğer öğrenenlerle tanışmak, ofis saatlerine katılmak ve AI Ajanları ile ilgili sorularınızı cevaplamak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) topluluğuna katılın.
+Diğer öğrenenlerle tanışmak, ofis saatlerine katılmak ve AI Ajanlarınızla ilgili sorularınızı yanıtlamak için [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)'a katılın.
 
 ## Önceki Ders
 
@@ -267,11 +276,11 @@ Diğer öğrenenlerle tanışmak, ofis saatlerine katılmak ve AI Ajanları ile 
 
 ## Sonraki Ders
 
-[Çok Ajanlı Tasarım Deseni](../08-multi-agent/README.md)
+[Çoklu Ajan Tasarım Deseni](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Feragatname**:  
-Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, ana dilindeki haliyle yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucunda ortaya çıkabilecek yanlış anlamalar veya yorumlar nedeniyle sorumluluk kabul edilmemektedir.
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

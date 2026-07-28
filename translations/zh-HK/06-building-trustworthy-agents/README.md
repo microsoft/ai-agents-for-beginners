@@ -1,44 +1,44 @@
-[![值得信賴的 AI 代理](../../../translated_images/zh-HK/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![可信賴的 AI 代理](../../../translated_images/zh-HK/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(點擊上方圖片觀看本課程影片)_
+> _(點擊上方圖片觀看本課影片)_
 
-# 建立值得信賴的 AI 代理
+# 建立可信賴的 AI 代理
 
-## 介紹
+## 簡介
 
 本課程將涵蓋：
 
-- 如何構建和部署安全且有效的 AI 代理
+- 如何建立及部署安全且有效的 AI 代理
 - 開發 AI 代理時的重要安全考量
-- 在開發 AI 代理時如何維護數據和用戶隱私
+- 開發 AI 代理時如何維護資料與用戶隱私
 
 ## 學習目標
 
-完成本課程後，您將能夠：
+完成本課程後，您將了解如何：
 
-- 識別並減輕創建 AI 代理時的風險
-- 實施安全措施以確保數據和訪問權限得以妥善管理
-- 創建能維護數據隱私並提供優質用戶體驗的 AI 代理
+- 識別並減輕建立 AI 代理時的風險
+- 實施安全措施，確保資料與存取被妥善管理
+- 創造維護資料隱私並提供優質用戶體驗的 AI 代理
 
 ## 安全性
 
-首先來看看如何建立安全的代理應用程式。安全性意味著 AI 代理按設計執行。作為代理應用程式的構建者，我們有方法和工具可最大化安全性：
+讓我們先來看看如何打造安全的代理應用程式。安全性意味著 AI 代理能如設計般運作。作為代理應用程式的建造者，我們有方法與工具可以最大化安全性：
 
 ### 建立系統訊息框架
 
-如果您曾經使用大型語言模型（LLM）開發 AI 應用，您會明白設計強健系統提示或系統訊息的重要性。這些提示建立了元規則、指令和指南，指示 LLM 如何與用戶和數據互動。
+如果你曾使用大型語言模型（LLM）建立 AI 應用，會知道設計穩固的系統提示或系統訊息的重要性。這些提示建立了元規則、指令以及 LLM 和使用者及資料互動的指導方針。
 
-對 AI 代理而言，系統提示更為重要，因為 AI 代理需要高度具體的指令來完成我們設計的任務。
+對於 AI 代理來說，系統提示更為重要，因為 AI 代理需要高度具體的指示來完成我們為其設計的任務。
 
-為了創建可擴展的系統提示，我們可以使用系統訊息框架來在應用中打造一個或多個代理：
+為了創建可擴充的系統提示，我們可以使用系統訊息框架來為我們的應用程式建立一個或多個代理：
 
 ![建立系統訊息框架](../../../translated_images/zh-HK/system-message-framework.3a97368c92d11d68.webp)
 
 #### 第一步：建立元系統訊息
 
-元提示將由 LLM 用於生成我們創建的代理的系統提示。我們將其設計為範本，以便必要時能高效創建多個代理。
+元提示將由 LLM 用於生成我們創建代理的系統提示。我們將其設計為模板以便在需要時有效率地創建多個代理。
 
-以下是我們會給予 LLM 的元系統訊息範例：
+這是一個會給 LLM 的元系統訊息範例：
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -49,19 +49,19 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### 第二步：建立基本提示
 
-接下來建立基本提示來描述 AI 代理。您應該包括代理的角色、代理將完成的任務以及代理的其他責任。
+下一步是建立描述 AI 代理的基本提示。你應該包含代理的角色、代理將完成的任務，以及代理的其他責任。
 
-以下是範例：
+這是一個範例：
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### 第三步：向 LLM 提供基本系統訊息
+#### 第三步：將基本系統訊息提供給 LLM
 
-現在我們可以通過提供元系統訊息作為系統訊息以及我們的基本系統訊息來優化此系統訊息。
+現在我們可以透過提供元系統訊息作為系統訊息，以及我們的基本系統訊息，來優化此系統訊息。
 
-這將產生更適合引導我們 AI 代理的系統訊息：
+這將產生一個更適合指導我們 AI 代理的系統訊息：
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,71 +113,73 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### 第四步：迭代與改進
+#### 第四步：反覆調整和改進
 
-此系統訊息框架的價值在於能更輕鬆地擴展多個代理的系統訊息創建，並隨時間改善您的系統訊息。很少有系統訊息能首次就完全符合您的用例。能透過變更基本系統訊息並重新執行系統來進行小幅調整和改進，讓您可以比較並評估結果。
+此系統訊息框架的價值在於能更輕鬆地擴充多個代理的系統訊息創建，並隨時間改進系統訊息。通常你不會一開始就擁有完美符合完整用例的系統訊息。能夠透過改變基本系統訊息並執行系統來做小幅調整和改進，讓你能比較並評估結果。
 
-## 理解威脅
+## 了解威脅
 
-要建立值得信賴的 AI 代理，理解並減輕對 AI 代理的風險與威脅非常重要。以下只介紹部分對 AI 代理的不同威脅，以及您如何更好地規劃和準備。
+要建立可信賴的 AI 代理，理解並減輕對你的 AI 代理的風險與威脅很重要。我們來看看幾種針對 AI 代理的不同威脅，以及如何更好地規劃與準備。
 
-![理解威脅](../../../translated_images/zh-HK/understanding-threats.89edeada8a97fc0f.webp)
+![了解威脅](../../../translated_images/zh-HK/understanding-threats.89edeada8a97fc0f.webp)
 
 ### 任務與指令
 
-**說明：** 攻擊者試圖通過提示或操控輸入來更改 AI 代理的指令或目標。
+**描述：** 攻擊者試圖透過提示或者操縱輸入來改變 AI 代理的指令或目標。
 
-**緩解做法：** 執行驗證檢查和輸入過濾，以在處理前偵測可能危險的提示。由於此類攻擊常需要頻繁與代理互動，限制對話輪數是防止此類攻擊的另一種方式。
+<strong>緩解</strong>：執行驗證檢查與輸入過濾，偵測可能危險的提示，在被 AI 代理處理前阻擋。由於這些攻擊通常需要頻繁與代理互動，限制對話回合數也是防止此類攻擊的方法之一。
 
 ### 存取關鍵系統
 
-**說明：** 如果 AI 代理能存取儲存敏感數據的系統與服務，攻擊者可能會破壞代理與這些服務間的通訊。這可包含直接攻擊或通過代理間接獲取系統資訊的嘗試。
+**描述：** 如果 AI 代理能存取儲存敏感資料的系統與服務，攻擊者可能會破壞代理與這些服務間的通訊。這些攻擊可以是直接攻擊，或是經由代理嘗試間接取得系統資訊。
 
-**緩解做法：** AI 代理應只在必要時存取系統，以防止此類攻擊。代理與系統的通訊也應安全。實施身份驗證和存取控制是保護此資訊的另一方式。
+<strong>緩解</strong>：AI 代理應依需求限定存取系統，避免此類攻擊。代理與系統間的通訊應安全。實施身份驗證和存取控制也是保護此資訊的方法。
 
 ### 資源與服務過載
 
-**說明：** AI 代理可存取不同工具和服務來完成任務。攻擊者可能利用此能力通過 AI 代理向這些服務發送大量請求，導致系統故障或高額費用。
+**描述：** AI 代理可存取不同工具和服務完成任務。攻擊者可利用此能力，透過 AI 代理發送大量請求攻擊這些服務，可能導致系統故障或高額成本。
 
-**緩解做法：** 實施政策限制 AI 代理對服務的請求數量。限制對 AI 代理的對話輪數和請求次數也是預防此類攻擊的方式。
+**緩解：** 實施政策限制 AI 代理向服務發送請求數量。限制對 AI 代理的對話回合與請求次數也是防範此類攻擊之道。
 
-### 知識庫污染
+### 知識庫中毒
 
-**說明：** 此攻擊不直接針對 AI 代理，而是針對 AI 代理將使用的知識庫及其他服務。可能涉及破壞 AI 代理用於完成任務的資料或資訊，導致對用戶產生偏頗或非預期的回應。
+**描述：** 此類攻擊不是直接針對 AI 代理，而是針對 AI 代理使用的知識庫及其他服務。這可能涉及損害 AI 代理完成任務會用到的資料或資訊，導致偏頗或非預期的回應用戶。
 
-**緩解做法：** 經常驗證 AI 代理在工作流程中使用的資料。確保該資料存取安全，僅由受信任人員變更，以避免此類攻擊。
+**緩解：** 定期驗證 AI 代理在工作流程中使用的資料。確保資料存取安全，僅被信任的人員修改，避免此類攻擊。
 
-### 連鎖錯誤
+### 鏈狀錯誤
 
-**說明：** AI 代理存取各種工具和服務完成任務。攻擊者引起的錯誤可能導致 AI 代理連接的其他系統失效，令攻擊範圍更廣且更難排查。
+**描述：** AI 代理存取各種工具和服務完成任務。攻擊者引發的錯誤可導致 AI 代理連接的其他系統故障，造成攻擊擴大且更難診斷。
 
-**緩解做法：** 一種做法是讓 AI 代理在受限環境中運作，例如在 Docker 容器中執行任務，以防止直接系統攻擊。當某些系統回應錯誤時，設計後備機制和重試邏輯也是防止更大系統故障的方式。
+<strong>緩解</strong>：避免此情況的一種方法是讓 AI 代理在有限環境中運作，如於 Docker 容器中執行任務，阻止直接系統攻擊。建立備援機制及錯誤重試邏輯，當某些系統回傳錯誤時，也能防止更大系統故障。
 
-## 人類介入循環
+## 人類在迴路中
 
-另一種有效建立值得信賴 AI 代理系統的方法是使用人類介入循環（Human-in-the-loop）。此流程允許用戶在執行過程中向代理提供反饋。用戶本質上在多代理系統中充當代理，可以批准或終止運行中的程序。
+建立可信賴的 AI 代理系統另一有效方式是採用人類在迴路中模式。此流程允許用戶在運行中對代理提供回饋。用戶本質上成為多代理系統中的代理，並能對執行過程發出批准或終止指令。
 
-![人類介入循環](../../../translated_images/zh-HK/human-in-the-loop.5f0068a678f62f4f.webp)
+![人類在迴路中](../../../translated_images/zh-HK/human-in-the-loop.5f0068a678f62f4f.webp)
 
-以下是一段使用 Microsoft Agent Framework 展示此概念實作的程式碼片段：
+以下是使用 Microsoft Agent Framework 來示範如何實作這概念的程式碼片段：
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# 建立一個具有人類審核流程的提供者
-provider = AzureAIProjectAgentProvider(
+# 建立含有人類審批環節的供應商
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# 建立一個包含人類審核步驟的代理
+# 建立具有人類審批步驟的代理程式
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# 使用者可以審查並批准回應
+# 使用者可審查及批准回應
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -188,29 +190,29 @@ else:
 
 ## 結論
 
-建立值得信賴的 AI 代理需要謹慎設計、強健的安全措施及持續迭代。透過實施結構化元提示系統、理解潛在威脅並應用緩解策略，開發者能打造既安全又有效的 AI 代理。此外，結合人類介入循環方法能確保 AI 代理持續符合用戶需求，同時降低風險。隨著 AI 持續演進，維持對安全、隱私和倫理考量的前瞻性態度，將是培養 AI 驅動系統信任與可靠性的關鍵。
+建立可信賴的 AI 代理需要謹慎設計、堅固的安全措施與持續迭代。透過實施結構化的元提示系統、了解潛在威脅並運用緩解策略，開發者能創建安全且有效的 AI 代理。此外，納入人類在迴路中的方法確保 AI 代理依用戶需求調整，同時降低風險。隨著 AI 持續發展，保持積極的安全、隱私及倫理考量，將是促進 AI 系統信任和可靠性的關鍵。
 
 ## 程式碼範例
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb)：元提示系統訊息框架逐步示範。
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb)：預先動作批准門檻、風險分級與可信賴代理的審計日誌。
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb)：元提示系統訊息框架的逐步示範。
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb)：可信賴代理的事前批准門檻、風險分層及稽核日誌。
 
-### 對建立值得信賴的 AI 代理有更多問題嗎？
+### 對建立可信賴的 AI 代理有更多疑問嗎？
 
-加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流，參加辦公時間並獲得 AI 代理相關問題的解答。
+加入 [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) 與其他學習者交流，參加開放時間並獲得你的 AI 代理問題解答。
 
 ## 其他資源
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">負責任 AI 概覽</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">責任 AI 總覽</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">生成式 AI 模型及 AI 應用評估</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">安全性系統訊息</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">安全系統訊息</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">風險評估範本</a>
 
-## 前一課程
+## 上一課
 
-[代理式 RAG](../05-agentic-rag/README.md)
+[Agentic RAG](../05-agentic-rag/README.md)
 
-## 下一課程
+## 下一課
 
 [規劃設計模式](../07-planning-design/README.md)
 

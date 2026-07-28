@@ -1,31 +1,31 @@
-# 🔍 Di way wey Microsoft Agent Framework dey work - Basic Agent (.NET)
+# 🔍 Di Microsoft Agent Framework We Dey Explore - Basic Agent (.NET)
 
-## 📋 Wetin you go learn
+## 📋 Wetin Dis Go Teach You
 
-Dis example go show you di basic tori dem of Microsoft Agent Framework through basic agent wey dem implement for .NET. You go sabi core agent way dem dey run and understand how intelligent agents dey work under di hood using C# and di .NET system.
+Dis sample dey show di basic tins dem wey dey inside Microsoft Agent Framework through a simple agent wey e build for .NET. You go learn di main agent patterns and sabi how smart agents dem dey work inside, using C# and di .NET environment.
 
-### Wetin you go discover
+### Wetin You Go Discover
 
-- 🏗️ **Agent Architecture**: How AI agents dem for .NET stand structurally
-- 🛠️ **Tool Integration**: How agents dey use external functions to add beta to wetin dem fit do  
-- 💬 **Conversation Flow**: How to manage conversation wey fit run many turns plus di thread management
-- 🔧 **Configuration Patterns**: Di best way to set up and manage agent for .NET
+- 🏗️ **Agent Architecture**: How di basic AI agents dem dey arrange for .NET
+- 🛠️ **Tool Integration**: How agents dem dey take outside functions to expand wetin dem fit do  
+- 💬 **Conversation Flow**: How to handle talk-waka wey get plenty turns and how to manage di threads
+- 🔧 **Configuration Patterns**: Beta way to set up and manage agents for .NET
 
-## 🎯 Key Concepts Wey Dem Cover
+## 🎯 Important Concepts Wey Dem Cover
 
 ### Agentic Framework Principles
 
-- **Autonomy**: How agents dey make decision on dia own using .NET AI abstractions
-- **Reactivity**: How dem dey respond to environment change and user inputs
-- **Proactivity**: How dem dey take initiative based on goals and context
-- **Social Ability**: How dem dey interact through natural language with conversation threads
+- **Autonomy**: How agents dem fit make their own decisions using .NET AI abstraction
+- **Reactivity**: How dem take respond to change for environment and user inputs
+- **Proactivity**: How dem dey take start action based on target and context
+- **Social Ability**: How dem dey interact using natural language for conversation threads
 
 ### Technical Components
 
-- **AIAgent**: Di core way wey agent dey organize and manage conversation (.NET)
-- **Tool Functions**: How dem take add agent capabilities with C# methods and attributes
-- **Azure OpenAI Integration**: How to use language models with Azure OpenAI Responses API
-- **Secure Configuration**: How to manage endpoints securely based on environment
+- **AIAgent**: Di main agent wey dey manage talks and perform runs (.NET)
+- **Tool Functions**: How dem dey add agent power with C# methods and attributes
+- **Azure OpenAI Integration**: How dem dey take advantage of language models through Azure OpenAI Responses API
+- **Secure Configuration**: How to manage environment-based endpoints
 
 ## 🔧 Technical Stack
 
@@ -45,38 +45,38 @@ Dis example go show you di basic tori dem of Microsoft Agent Framework through b
 
 ## 📚 Framework Comparison
 
-Dis example dey show how Microsoft Agent Framework take work compared to other agent frameworks:
+Dis example dey show how Microsoft Agent Framework dey compare with other agentic frameworks:
 
 | Feature | Microsoft Agent Framework | Other Frameworks |
 |---------|-------------------------|------------------|
-| **Integration** | Di Microsoft ecosystem wey natife | Different different compatibility |
-| **Simplicity** | Clean, easy to understand API | E dey get complex setup sometimes |
-| **Extensibility** | E easy to add tools | E depend on which framework |
-| **Enterprise Ready** | E build for production | E depend on di framework |
+| **Integration** | Native Microsoft ecosystem | Different compatibility levels |
+| **Simplicity** | Clean, straightforward API | Sometimes complex setup |
+| **Extensibility** | Easy tool integration | Depends on framework |
+| **Enterprise Ready** | Made for production use | Depends on framework |
 
-## 🚀 How to Start
+## 🚀 How To Start
 
-### Wetin you need first
+### Things We Need First
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or pass am
-- One [Azure subscription](https://azure.microsoft.com/free/) wey get Azure OpenAI resource and model deployment
-- Di [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — just sign in with `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or anything wey higher
+- One [Azure subscription](https://azure.microsoft.com/free/) wey get Azure OpenAI resource plus model deployment
+- The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — log in with `az login`
 
 ### Environment Variables Wey You Need
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Den sign in make AzureCliCredential fit get token
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Den sign in so AzureCliCredential fit get token
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Den sign in make AzureCliCredential fit get token
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Den sign in make AzureCliCredential fit collect tokun
 az login
 ```
 
@@ -90,13 +90,13 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-Or use di dotnet CLI:
+Or if you dey use dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-Look [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) for di full code.
+Check [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) for di full code.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -215,18 +215,18 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
 
-## 🎓 Main Things Wey Dem Take Learn
+## 🎓 Wetin You Go Collect From Dis
 
-1. **Agent Architecture**: Microsoft Agent Framework dey give clean and type-safe way to build AI agents for .NET
-2. **Tool Integration**: Functions dem wey get `[Description]` attributes dey become available tools for the agent
-3. **Conversation Context**: Session management fit manage plenty-turn conversation with full context
-4. **Configuration Management**: Environment variables and secure credential handlings dey follow .NET best way dem
-5. **Azure OpenAI Responses API**: Agent dey use Azure OpenAI Responses API through Azure.AI.OpenAI SDK
+1. **Agent Architecture**: Microsoft Agent Framework na clean, type-safe way to build AI agents for .NET
+2. **Tool Integration**: Functions wey get `[Description]` attributes go become available tools for di agent
+3. **Conversation Context**: Session management dey allow talk wey get many turns with complete context understanding
+4. **Configuration Management**: Environment variables plus secure credential handling follow di best .NET practices
+5. **Azure OpenAI Responses API**: Di agent dey use Azure OpenAI Responses API through Azure.AI.OpenAI SDK
 
-## 🔗 Extra Resources
+## 🔗 More Resources
 
 - [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
-- [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Azure OpenAI for Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 

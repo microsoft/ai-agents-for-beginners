@@ -2,39 +2,39 @@
 
 ## 📋 Scenariooversikt
 
-Dette eksempelet viser hvordan man kan bygge en intelligent reiseplanleggingsagent ved hjelp av Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsplaner for tilfeldige destinasjoner rundt om i verden.
+Dette eksempelet demonstrerer hvordan bygge en intelligent reiseplanleggingsagent ved bruk av Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsreiseplaner for tilfeldige reisemål rundt om i verden.
 
 ### Nøkkelfunksjoner:
 
-- 🎲 **Tilfeldig destinasjonsvalg**: Bruker et tilpasset verktøy for å velge feriesteder
+- 🎲 **Tilfeldig reisemålsvalg**: Bruker et tilpasset verktøy for å velge feriesteder
 - 🗺️ **Intelligent reiseplanlegging**: Lager detaljerte dagsplaner
-- 🔄 **Sanntidsstrømming**: Støtter både umiddelbare og strømmende svar
-- 🛠️ **Integrasjon av tilpassede verktøy**: Viser hvordan man kan utvide agentens funksjonalitet
+- 🔄 **Sanntidsstrømming**: Støtter både umiddelbare og strømmede svar
+- 🛠️ **Integrering av tilpassede verktøy**: Demonstrerer hvordan utvide agentens funksjoner
 
 ## 🔧 Teknisk arkitektur
 
 ### Kjerne-teknologier
 
-- **Microsoft Agent Framework**: Nyeste .NET-implementering for utvikling av AI-agenter
-- **GitHub Models-integrasjon**: Bruker GitHubs AI-modellinferenstjeneste
-- **OpenAI API-kompatibilitet**: Utnytter OpenAI-klientbiblioteker med tilpassede endepunkter
-- **Sikker konfigurasjon**: Miljøbasert API-nøkkelhåndtering
+- **Microsoft Agent Framework**: Nyeste .NET-implementasjon for utvikling av AI-agenter
+- **Azure OpenAI (Responses API)**: Benytter Azure OpenAI Responses API til modellinferens
+- **Azure Identity**: Sikker pålogging via `AzureCliCredential` (`az login`)
+- **Sikker konfigurasjon**: Endepunktstyring basert på miljøvariabler
 
-### Hovedkomponenter
+### Nøkkelkomponenter
 
-1. **AIAgent**: Hovedagenten som styrer samtaleflyten
-2. **Tilpassede verktøy**: `GetRandomDestination()`-funksjon tilgjengelig for agenten
-3. **Chatklient**: Samtalegrensesnitt støttet av GitHub Models
-4. **Strømmestøtte**: Sanntidsgenerering av svar
+1. **AIAgent**: Hovedagenten som orkestrerer samtaleforløpet
+2. **Tilpassede verktøy**: `GetRandomDestination()` funksjon tilgjengelig for agenten
+3. **Responses Client**: Samtalegrensesnitt basert på Azure OpenAI Responses
+4. **Støtte for strømming**: Muligheter for generering av svar i sanntid
 
 ### Integrasjonsmønster
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[Brukerforespørsel] --> B[AI-agent]
+    B --> C[Azure OpenAI (Respons-API)]
+    B --> D[Verktøy for tilfeldig destinasjon]
+    C --> E[Reiseplan]
     D --> E
 ```
 
@@ -43,27 +43,30 @@ graph LR
 ### Forutsetninger
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller nyere
-- [GitHub Models API-tilgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Et [Azure-abonnement](https://azure.microsoft.com/free/) med en Azure OpenAI-ressurs og en modellutrulling
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logg inn med `az login`
 
 ### Nødvendige miljøvariabler
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Logg deretter inn slik at AzureCliCredential kan få et token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Logg deretter inn slik at AzureCliCredential kan få en token
+az login
 ```
 
 ### Eksempelkode
 
-For å kjøre kodeeksempelet,
+For å kjøre kodeeksemplet,
 
 ```bash
 # zsh/bash
@@ -82,16 +85,18 @@ Se [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_sampl
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -166,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Viktige lærdommer
+## 🎓 Viktige punkter
 
-1. **Agentarkitektur**: Microsoft Agent Framework gir en ren, type-sikker tilnærming til å bygge AI-agenter i .NET
+1. **Agentarkitektur**: Microsoft Agent Framework tilbyr en ryddig, typetrygg tilnærming til bygging av AI-agenter i .NET
 2. **Verktøyintegrasjon**: Funksjoner dekorert med `[Description]`-attributter blir tilgjengelige verktøy for agenten
-3. **Konfigurasjonshåndtering**: Miljøvariabler og sikker håndtering av legitimasjon følger beste praksis for .NET
-4. **OpenAI-kompatibilitet**: GitHub Models-integrasjon fungerer sømløst gjennom OpenAI-kompatible API-er
+3. **Konfigurasjonsstyring**: Miljøvariabler og sikker håndtering av legitimasjon følger .NET beste praksis
+4. **Azure OpenAI Responses API**: Agenten bruker Azure OpenAI Responses API via Azure.AI.OpenAI SDK
 
-## 🔗 Tilleggsressurser
+## 🔗 Ytterligere ressurser
 
-- [Microsoft Agent Framework-dokumentasjon](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft Agent Framework Dokumentasjon](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI i Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

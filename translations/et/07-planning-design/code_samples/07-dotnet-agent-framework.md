@@ -1,15 +1,15 @@
-# 🎯 Plaanimine ja disainimustrid Azure OpenAI-ga (Responses API) (.NET)
+# 🎯 Planeerimine ja disainimustrid Azure OpenAI-ga (Responses API) (.NET)
 
 ## 📋 Õpieesmärgid
 
-See märkmik demonstreerib ettevõtte tasemel planeerimis- ja disainimustreid intelligentsete agentide loomiseks, kasutades Microsoft Agent Frameworki .NET-is Azure OpenAI-ga (Responses API). Õpid looma agente, kes suudavad keerukaid probleeme lagundada, kavandada mitmeastmelisi lahendusi ja täita keerukaid töövooge, kasutades .NET-i ettevõtte funktsionaalsust.
+See märkmik demonstreerib ettevõtte tasemel planeerimis- ja disainimustreid intelligentsete agentide loomisel Microsoft Agent Frameworkiga .NET-is, kasutades Azure OpenAI-d (Responses API). Õpid looma agente, kes suudavad keerulisi probleeme lahutada, planeerida mitmeastmelisi lahendusi ning täita keerukaid töövooge, kasutades .NET ettevõtte funktsioone.
 
 ## ⚙️ Eeltingimused ja seadistamine
 
 **Arenduskeskkond:**
 - .NET 9.0 SDK või uuem
 - Visual Studio 2022 või VS Code koos C# laiendusega
-- Azure tellimus koos Azure OpenAI ressursi ja mudeli juurutusega
+- Azure tellimus Azure OpenAI ressursi ja mudeli juurutusega
 - Azure CLI — logi sisse käsuga `az login`
 
 **Nõutavad sõltuvused:**
@@ -25,15 +25,15 @@ See märkmik demonstreerib ettevõtte tasemel planeerimis- ja disainimustreid in
 **Keskkonna konfiguratsioon (.env fail):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## Koodi käivitamine
 
-See õppetund sisaldab .NET ühe faili rakenduse implementatsiooni. Käivitamiseks:
+Selle õppetüki hulka kuulub .NET Single File App rakendus. Selleks, et seda käivitada:
 
 ```bash
-# Muuda fail täidetavaks (Linux/macOS)
+# Tee fail käivitatavaks (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
 # Käivita rakendus
@@ -46,21 +46,21 @@ Või kasuta käsku dotnet run:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Koodi implementatsioon
+## Koodi rakendamine
 
-Täielik implementatsioon on saadaval failis `07-dotnet-agent-framework.cs`, mis demonstreerib:
+Täielik rakendus on saadaval failis `07-dotnet-agent-framework.cs`, mis demonstreerib:
 
 - Keskkonna konfiguratsiooni laadimist DotNetEnv abil
 - Azure OpenAI kliendi seadistamist ja AI agendi loomist kasutades `GetChatClient().AsAIAgent()`
 - Struktureeritud andmemudelite (Plan ja TravelPlan) defineerimist JSON serialiseerimisega
-- AI agendi loomist struktureeritud väljundiga, kasutades JSON skeemi
-- Planeerimisnõudmiste täitmist tüübikindlate vastustega
+- AI agendi loomist struktureeritud väljundiga JSON skeemi abil
+- Planeerimispäringute täitmist tüübitundlike vastustega
 
-## Põhikontseptsioonid
+## Põhimõisted
 
-### Struktureeritud planeerimine tüübikindlate mudelitega
+### Struktureeritud planeerimine tüübitundlike mudelitega
 
-Agent kasutab C# klasse planeerimisväljundite struktuuri määratlemiseks:
+Agent kasutab C# klasse planeerimise väljundite struktuuri määratlemiseks:
 
 ```csharp
 public class Plan
@@ -103,18 +103,18 @@ ChatClientAgentOptions agentOptions = new()
 
 ### Planeerimisagendi juhised
 
-Agent tegutseb koordinaatorina, delegeerides ülesanded spetsialiseeritud alamagenditele:
+Agent tegutseb koordinaatorina, delegeerides ülesandeid spetsialiseeritud alagentidele:
 
-- FlightBooking: lendude broneerimiseks ja lennuinformatsiooni andmiseks
-- HotelBooking: hotellide broneerimiseks ja hotelli info andmiseks
-- CarRental: autorendi broneerimiseks ja autorendi info andmiseks
-- ActivitiesBooking: tegevuste broneerimiseks ja tegevuste info andmiseks
-- DestinationInfo: sihtkohtade info andmiseks
-- DefaultAgent: üldiste päringute käsitlemiseks
+- FlightBooking: Lennupiletite broneerimiseks ja lennuinfo andmiseks
+- HotelBooking: Hotellide broneerimiseks ja hotelliinfo andmiseks
+- CarRental: Autode rentimiseks ja autorendiinfo andmiseks
+- ActivitiesBooking: Aktiivsuste broneerimiseks ja aktiivsuste info andmiseks
+- DestinationInfo: Sihtkohtade kohta info andmiseks
+- DefaultAgent: Üldiste päringute käsitlemiseks
 
 ## Oodatav väljund
 
-Kui käivitad agendi reisi planeerimise päringuga, analüüsib ta päringu ja genereerib struktureeritud plaani, kus on sobivad ülesannete jaotused spetsialiseeritud agentidele, vormindatuna JSON-ina, mis vastab TravelPlan skeemile.
+Kui käivitad agendi reisiplaani päringuga, analüüsib see päringu ja genereerib struktureeritud plaani, kus on asjakohased ülesannete jaotused spetsialiseerunud agentidele, vormindatuna JSON-ina, mis vastab TravelPlan skeemile.
 
 ---
 

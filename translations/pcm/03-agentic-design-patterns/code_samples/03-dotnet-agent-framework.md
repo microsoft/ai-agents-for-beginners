@@ -2,39 +2,39 @@
 
 ## 📋 Wetin You Go Learn
 
-Dis example de show enterprise-grade design patterns wey dem dey use build intelligent agents wit Microsoft Agent Framework for .NET plus Azure OpenAI (Responses API) dem join. You go learn professional patterns and architectural ways wey go make agents ready for production, easy to maintain, and fit grow well.
+Dis example dey show enterprise-level design patterns wey dem dey use build intelligent agents wit Microsoft Agent Framework for .NET plus Azure OpenAI (Responses API) integration. You go learn professional patterns and architecture ways wey fit make agents ready for production, easy to maintain, and fit grow well.
 
 ### Enterprise Design Patterns
 
 - 🏭 **Factory Pattern**: Standard way to create agent wit dependency injection
 - 🔧 **Builder Pattern**: Fluent way to configure and set up agent
-- 🧵 **Thread-Safe Patterns**: Manage conversation wey dey run at same time well well
-- 📋 **Repository Pattern**: Arrange tools and capabilities well
+- 🧵 **Thread-Safe Patterns**: How to manage concurrent conversation well
+- 📋 **Repository Pattern**: Organized tool and ability management
 
 ## 🎯 .NET-Specific Architectural Benefits
 
 ### Enterprise Features
 
-- **Strong Typing**: Check code during compile-time and get IntelliSense support
-- **Dependency Injection**: Built-in DI container join well
+- **Strong Typing**: Compile-time check and IntelliSense support
+- **Dependency Injection**: Built-in DI container join
 - **Configuration Management**: IConfiguration and Options patterns
-- **Async/Await**: Asynchronous programming wey get first-class support
+- **Async/Await**: Correct support for asynchronous programming
 
 ### Production-Ready Patterns
 
-- **Logging Integration**: ILogger and structured logging join
-- **Health Checks**: Built-in monitoring and diagnostics
-- **Configuration Validation**: Strong typing plus data annotations
-- **Error Handling**: Arrange exceptions management well
+- **Logging Integration**: ILogger and structured logging support
+- **Health Checks**: Built-in monitoring and diagnostic tools
+- **Configuration Validation**: Strong typing wit data annotations
+- **Error Handling**: Structured way to handle exceptions
 
 ## 🔧 Technical Architecture
 
 ### Core .NET Components
 
-- **Microsoft.Extensions.AI**: One AI service abstraction
+- **Microsoft.Extensions.AI**: Unified AI service abstractions
 - **Microsoft.Agents.AI**: Enterprise agent orchestration framework
 - **Azure OpenAI (Responses API)**: High-performance API client patterns
-- **Configuration System**: appsettings.json and environment join together
+- **Configuration System**: appsettings.json and environment join
 
 ### Design Pattern Implementation
 
@@ -50,89 +50,89 @@ graph LR
 
 ### 1. **Creational Patterns**
 
-- **Agent Factory**: Center agent creation wit consistent configuration
+- **Agent Factory**: Centralized agent creation wit consistent configuration
 - **Builder Pattern**: Fluent API for complex agent configuration
-- **Singleton Pattern**: Share resources and manage configuration well
-- **Dependency Injection**: Loose coupling and testability
+- **Singleton Pattern**: Shared resources and configuration management
+- **Dependency Injection**: Loose coupling and easy to test
 
 ### 2. **Behavioral Patterns**
 
-- **Strategy Pattern**: Different tool execution styles fit swap
-- **Command Pattern**: Wrap agent operations wit undo/redo
+- **Strategy Pattern**: Different ways to run tools
+- **Command Pattern**: Encapsulated agent operations wit undo/redo
 - **Observer Pattern**: Event-driven agent lifecycle management
-- **Template Method**: Standard way to run agent workflow
+- **Template Method**: Standard way to run agent workflows
 
 ### 3. **Structural Patterns**
 
 - **Adapter Pattern**: Azure OpenAI (Responses API) integration layer
-- **Decorator Pattern**: Add more power to agent capabilities
-- **Facade Pattern**: Simplify how agent interact
-- **Proxy Pattern**: Lazy loading and caching make performance better
+- **Decorator Pattern**: Agent ability enhancement
+- **Facade Pattern**: Simplified agent interaction interfaces
+- **Proxy Pattern**: Lazy loading and caching for better performance
 
 ## 📚 .NET Design Principles
 
 ### SOLID Principles
 
-- **Single Responsibility**: Every part get only one main work
-- **Open/Closed**: Fit add new things without change old ones
-- **Liskov Substitution**: Use interface-based tools
-- **Interface Segregation**: Focused and proper interfaces
-- **Dependency Inversion**: Depend on abstract, no concrete
+- **Single Responsibility**: Each component get one clear job
+- **Open/Closed**: Fit extend without change the original code
+- **Liskov Substitution**: Interface-based tool implementations
+- **Interface Segregation**: Focused, cohesive interfaces
+- **Dependency Inversion**: Depend on abstractions, no concretes
 
 ### Clean Architecture
 
 - **Domain Layer**: Core agent and tool abstractions
 - **Application Layer**: Agent orchestration and workflows
-- **Infrastructure Layer**: Azure OpenAI (Responses API) join external services
-- **Presentation Layer**: User interaction and how responses dem dey
+- **Infrastructure Layer**: Azure OpenAI (Responses API) integration and external services
+- **Presentation Layer**: User interaction and response formatting
 
-## 🔒 Enterprise Considerations
+## 🔒 Enterprise Things Wey You Go Need Consider
 
 ### Security
 
 - **Credential Management**: Secure API key handling wit IConfiguration
-- **Input Validation**: Strong typing plus data annotation validation
-- **Output Sanitization**: Secure how you process and filter responses
-- **Audit Logging**: Track all operations well well
+- **Input Validation**: Strong typing and data annotation check
+- **Output Sanitization**: Secure response processing and filtering
+- **Audit Logging**: Complete operation tracking
 
 ### Performance
 
 - **Async Patterns**: Non-blocking I/O operations
-- **Connection Pooling**: Manage HTTP clients efficiently
-- **Caching**: Cache responses to boost performance
-- **Resource Management**: Proper disposal and cleanup ways
+- **Connection Pooling**: Efficient HTTP client management
+- **Caching**: Response caching for better performance
+- **Resource Management**: Correct disposal and cleanup patterns
 
 ### Scalability
 
-- **Thread Safety**: Support multiple agent execution at the same time
-- **Resource Pooling**: Use resources well well
-- **Load Management**: Control rate and handle pressure well
+- **Thread Safety**: Support to run agents concurrently
+- **Resource Pooling**: Efficient resource use
+- **Load Management**: Rate limiting and backpressure handling
 - **Monitoring**: Performance metrics and health checks
 
 ## 🚀 Production Deployment
 
 - **Configuration Management**: Environment-specific settings
-- **Logging Strategy**: Structured logging with correlation IDs
+- **Logging Strategy**: Structured logging wit correlation IDs
 - **Error Handling**: Global exception handling wit proper recovery
 - **Monitoring**: Application insights and performance counters
-- **Testing**: Unit tests, integration tests, and load test patterns
+- **Testing**: Unit tests, integration tests, and load testing patterns
 
-You ready build enterprise-grade intelligent agents wit .NET? Make we build something wey strong! 🏢✨
+Ready to build enterprise-level intelligent agents wit .NET? Make we design something wey strong! 🏢✨
 
-## 🚀 How To Start
+## 🚀 How to Start
 
-### Wetin You Need First
+### Wetin You Go Need First
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or pass am
-- One [Azure subscription](https://azure.microsoft.com/free/) wey get Azure OpenAI resource and model deployment
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or newer
+- An [Azure subscription](https://azure.microsoft.com/free/) wit Azure OpenAI resource and model deployment
 - The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sign in wit `az login`
 
-### Environment Variables Wey Dem Need
+### Required Environment Variables
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Den sign in make AzureCliCredential fit get token
 az login
 ```
@@ -140,14 +140,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Den sign in so AzureCliCredential fit get token
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Den sign in make AzureCliCredential fit get token
 az login
 ```
 
 ### Sample Code
 
-To run dis code example,
+To run the example code,
 
 ```bash
 # zsh/bash
@@ -155,13 +155,13 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Or if you dey use dotnet CLI:
+Or use the dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-See [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) for the full code.
+Check [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) for the full code.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -212,7 +212,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

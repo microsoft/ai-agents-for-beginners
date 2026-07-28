@@ -54,7 +54,7 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 
 For **Microsoft Foundry** (Required):
 - `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4.1-mini)
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-5-mini)
 
 For **Azure AI Search** (Lesson 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint

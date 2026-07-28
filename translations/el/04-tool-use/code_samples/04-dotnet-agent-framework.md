@@ -1,101 +1,104 @@
-# 🛠️ Προχωρημένη Χρήση Εργαλείων με Μοντέλα GitHub (.NET)
+# 🛠️ Προχωρημένη Χρήση Εργαλείων με Azure OpenAI (Responses API) (.NET)
 
-## 📋 Στόχοι Μάθησης
+## 📋 Μαθησιακοί Στόχοι
 
-Αυτό το σημειωματάριο παρουσιάζει πρότυπα ενσωμάτωσης εργαλείων επιχειρηματικής κλάσης χρησιμοποιώντας το Microsoft Agent Framework σε .NET με Μοντέλα GitHub. Θα μάθετε να δημιουργείτε εξελιγμένους πράκτορες με πολλαπλά εξειδικευμένα εργαλεία, αξιοποιώντας την ισχυρή τυποποίηση της C# και τις δυνατότητες επιχειρηματικής κλάσης του .NET.
+Αυτό το σημειωματάριο δείχνει πρότυπα ενσωμάτωσης εργαλείων επιπέδου επιχειρήσεων χρησιμοποιώντας το Microsoft Agent Framework στο .NET με Azure OpenAI (Responses API). Θα μάθετε να δημιουργείτε προηγμένους πράκτορες με πολλαπλά εξειδικευμένα εργαλεία, αξιοποιώντας τη δυνατή τυποποίηση της C# και τις δυνατότητες επιχείρησης του .NET.
 
-### Προχωρημένες Δυνατότητες Εργαλείων που θα Κατακτήσετε
+### Προχωρημένες Δυνατότητες Εργαλείων που θα Κυριαρχήσετε
 
 - 🔧 **Αρχιτεκτονική Πολλαπλών Εργαλείων**: Δημιουργία πρακτόρων με πολλαπλές εξειδικευμένες δυνατότητες
-- 🎯 **Εκτέλεση Εργαλείων με Ασφάλεια Τύπου**: Αξιοποίηση της επαλήθευσης χρόνου μεταγλώττισης της C#
-- 📊 **Πρότυπα Εργαλείων Επιχειρηματικής Κλάσης**: Σχεδιασμός εργαλείων έτοιμων για παραγωγή και διαχείριση σφαλμάτων
-- 🔗 **Σύνθεση Εργαλείων**: Συνδυασμός εργαλείων για σύνθετες επιχειρηματικές ροές εργασίας
+- 🎯 **Τυποποιημένη Εκτέλεση Εργαλείων**: Αξιοποίηση της επιβεβαίωσης χρόνου μεταγλώττισης της C#
+- 📊 **Πρότυπα Εργαλείων Επιχειρήσεων**: Σχεδιασμός εργαλείων έτοιμων για παραγωγή και διαχείριση σφαλμάτων
+- 🔗 **Σύνθεση Εργαλείων**: Συνδυασμός εργαλείων για σύνθετες επιχειρησιακές ροές εργασίας
 
 ## 🎯 Οφέλη Αρχιτεκτονικής Εργαλείων .NET
 
-### Χαρακτηριστικά Εργαλείων Επιχειρηματικής Κλάσης
+### Χαρακτηριστικά Εργαλείων Επιχειρήσεων
 
-- **Επαλήθευση Χρόνου Μεταγλώττισης**: Η ισχυρή τυποποίηση εξασφαλίζει την ορθότητα των παραμέτρων εργαλείων
-- **Εισαγωγή Εξαρτήσεων**: Ενσωμάτωση IoC container για διαχείριση εργαλείων
-- **Πρότυπα Async/Await**: Εκτέλεση εργαλείων χωρίς αποκλεισμό με σωστή διαχείριση πόρων
+- **Επιβεβαίωση Χρόνου Μεταγλώττισης**: Δυνατή τυποποίηση που διασφαλίζει τη σωστή παράμετρο εργαλείων
+- **Έγχυση Εξαρτήσεων**: Ενσωμάτωση IoC container για διαχείριση εργαλείων
+- **Πρότυπα Async/Await**: Μη φραγμένη εκτέλεση εργαλείων με σωστή διαχείριση πόρων
 - **Δομημένη Καταγραφή**: Ενσωματωμένη καταγραφή για παρακολούθηση εκτέλεσης εργαλείων
 
 ### Πρότυπα Έτοιμα για Παραγωγή
 
 - **Διαχείριση Εξαιρέσεων**: Ολοκληρωμένη διαχείριση σφαλμάτων με τυποποιημένες εξαιρέσεις
-- **Διαχείριση Πόρων**: Σωστά πρότυπα διάθεσης και διαχείρισης μνήμης
-- **Παρακολούθηση Απόδοσης**: Ενσωματωμένες μετρήσεις και μετρητές απόδοσης
-- **Διαχείριση Ρυθμίσεων**: Τυποποιημένη διαμόρφωση με επαλήθευση
+- **Διαχείριση Πόρων**: Σωστά πρότυπα απελευθέρωσης πόρων και διαχείρισης μνήμης
+- **Παρακολούθηση Επιδόσεων**: Ενσωματωμένα μετρικά και μετρητές απόδοσης
+- **Διαχείριση Ρυθμίσεων**: Τυποποιημένη ρύθμιση με επαλήθευση
 
 ## 🔧 Τεχνική Αρχιτεκτονική
 
-### Βασικά Στοιχεία Εργαλείων .NET
+### Βασικά Συστατικά Εργαλείων .NET
 
 - **Microsoft.Extensions.AI**: Ενιαίο επίπεδο αφαίρεσης εργαλείων
-- **Microsoft.Agents.AI**: Οργάνωση εργαλείων επιχειρηματικής κλάσης
-- **Ενσωμάτωση Μοντέλων GitHub**: Πελάτης API υψηλής απόδοσης με pooling συνδέσεων
+- **Microsoft.Agents.AI**: Ορχήστρωση εργαλείων επιπέδου επιχείρησης
+- **Azure OpenAI (Responses API)**: Πελάτης API υψηλής απόδοσης με σύνδεση pool
 
 ### Αγωγός Εκτέλεσης Εργαλείων
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Αίτημα Χρήστη] --> B[Ανάλυση Πράκτορα]
+    B --> C[Επιλογή Εργαλείου]
+    C --> D[Επαλήθευση Τύπου]
+    B --> E[Δέσμευση Παραμέτρων]
+    E --> F[Εκτέλεση Εργαλείου]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Επεξεργασία Αποτελέσματος]
     D --> G
-    G --> H[Response]
+    G --> H[Απόκριση]
 ```
 
 ## 🛠️ Κατηγορίες & Πρότυπα Εργαλείων
 
 ### 1. **Εργαλεία Επεξεργασίας Δεδομένων**
 
-- **Επαλήθευση Εισόδου**: Ισχυρή τυποποίηση με σχολιασμούς δεδομένων
-- **Λειτουργίες Μετασχηματισμού**: Τυποποιημένη μετατροπή και μορφοποίηση δεδομένων
-- **Επιχειρηματική Λογική**: Εργαλεία υπολογισμού και ανάλυσης ειδικά για τον τομέα
-- **Μορφοποίηση Εξόδου**: Δημιουργία δομημένων απαντήσεων
+- **Επαλήθευση Εισόδου**: Δυνατή τυποποίηση με σημειώσεις δεδομένων
+- **Ενέργειες Μετασχηματισμού**: Τυποποιημένη μετατροπή και μορφοποίηση δεδομένων
+- **Επιχειρησιακή Λογική**: Εργαλεία υπολογισμών και ανάλυσης ειδικά για το πεδίο
+- **Μορφοποίηση Εξόδου**: Δομημένη δημιουργία απαντήσεων
 
 ### 2. **Εργαλεία Ενσωμάτωσης**
 
-- **Συνδέσεις API**: Ενσωμάτωση υπηρεσιών RESTful με HttpClient
+- **Συνδέσμοι API**: Ενσωμάτωση υπηρεσιών RESTful με HttpClient
 - **Εργαλεία Βάσεων Δεδομένων**: Ενσωμάτωση Entity Framework για πρόσβαση σε δεδομένα
-- **Λειτουργίες Αρχείων**: Ασφαλείς λειτουργίες συστήματος αρχείων με επαλήθευση
+- **Ενέργειες Αρχείων**: Ασφαλείς λειτουργίες συστήματος αρχείων με επαλήθευση
 - **Εξωτερικές Υπηρεσίες**: Πρότυπα ενσωμάτωσης τρίτων υπηρεσιών
 
-### 3. **Εργαλεία Βοηθητικά**
+### 3. **Βοηθητικά Εργαλεία**
 
-- **Επεξεργασία Κειμένου**: Χειρισμός και μορφοποίηση συμβολοσειρών
-- **Λειτουργίες Ημερομηνίας/Ώρας**: Υπολογισμοί ημερομηνίας/ώρας με πολιτισμική ευαισθησία
-- **Μαθηματικά Εργαλεία**: Ακριβείς υπολογισμοί και στατιστικές λειτουργίες
-- **Εργαλεία Επαλήθευσης**: Επαλήθευση επιχειρηματικών κανόνων και δεδομένων
+- **Επεξεργασία Κειμένου**: Βοηθήματα χειρισμού και μορφοποίησης συμβολοσειρών
+- **Ενέργειες Ημερομηνίας/Ώρας**: Υπολογισμοί ημερομηνίας/ώρας ευαισθητοποιημένοι στην κουλτούρα
+- **Μαθηματικά Εργαλεία**: Υπολογισμοί ακρίβειας και στατιστικές λειτουργίες
+- **Εργαλεία Επαλήθευσης**: Επαλήθευση κανόνων επιχειρήσεων και επιβεβαίωση δεδομένων
 
-Έτοιμοι να δημιουργήσετε πράκτορες επιχειρηματικής κλάσης με ισχυρές, τυποποιημένες δυνατότητες εργαλείων σε .NET; Ας σχεδιάσουμε επαγγελματικές λύσεις! 🏢⚡
+Έτοιμοι να δημιουργήσετε πρακτορες επιπέδου επιχειρήσεων με ισχυρές, τυποποιημένες δυνατότητες εργαλείων στο .NET; Ας αρχιτεκτονήσουμε μερικές λύσεις επαγγελματικού επιπέδου! 🏢⚡
 
 ## 🚀 Ξεκινώντας
 
 ### Προαπαιτούμενα
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ή νεότερο
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Ένας [λογαριασμός Azure](https://azure.microsoft.com/free/) με πόρο Azure OpenAI και ανάπτυξη μοντέλου
+- Το [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — σύνδεση με `az login`
 
 ### Απαιτούμενες Μεταβλητές Περιβάλλοντος
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Στη συνέχεια, συνδεθείτε ώστε το AzureCliCredential να μπορεί να πάρει ένα διακριτικό
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Στη συνέχεια, συνδεθείτε ώστε η AzureCliCredential να μπορεί να πάρει ένα διακριτικό
+az login
 ```
 
 ### Παράδειγμα Κώδικα
@@ -114,21 +117,23 @@ chmod +x ./04-dotnet-agent-framework.cs
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Δείτε το [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) για τον πλήρη κώδικα.
+Δείτε το [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) για ολόκληρο τον κώδικα.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Αποποίηση ευθυνών**:  
-Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία αυτόματης μετάφρασης [Co-op Translator](https://github.com/Azure/co-op-translator). Παρόλο που καταβάλλουμε προσπάθειες για ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτόματες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα θα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή εσφαλμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
+**Αποποίηση ευθυνών**:
+Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία μετάφρασης με τεχνητή νοημοσύνη [Co-op Translator](https://github.com/Azure/co-op-translator). Ενώ επιδιώκουμε την ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτοματοποιημένες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

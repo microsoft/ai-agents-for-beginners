@@ -1,64 +1,67 @@
-# 🌍 Microsoft Agent Framework (.NET) सह AI प्रवास एजंट
+# 🌍 Microsoft Agent Framework (.NET) सह AI ट्रॅव्हल एजंट
 
-## 📋 परिस्थितीचा आढावा
+## 📋 परिस्थिती अवलोकन
 
-ही उदाहरणे Microsoft Agent Framework for .NET वापरून बुद्धिमान प्रवास नियोजन एजंट कसा तयार करायचा हे दर्शवते. हा एजंट जगभरातील यादृच्छिक स्थळांसाठी वैयक्तिकृत दिवस-यात्रा कार्यक्रम स्वयंचलितपणे तयार करू शकतो.
+हा उदाहरण Microsoft Agent Framework for .NET वापरून बुद्धिमान ट्रॅव्हल नियोजन एजंट कसा बनवायचा याचे प्रदर्शन करतो. हा एजंट जगभरातील यादृच्छिक स्थळांसाठी वैयक्तिकृत दिवसभराच्या सहलींच्या आराखड्यांना स्वयंचलितपणे तयार करू शकतो.
 
 ### मुख्य क्षमता:
 
-- 🎲 **यादृच्छिक स्थळ निवड**: सुट्ट्यांसाठी स्थळ निवडण्यासाठी सानुकूल साधन वापरते
-- 🗺️ **बुद्धिमान प्रवास नियोजन**: तपशीलवार दिवस-वार कार्यक्रम तयार करते
-- 🔄 **रिअल-टाइम स्ट्रीमिंग**: त्वरित आणि स्ट्रीमिंग प्रतिसादांना समर्थन देते
-- 🛠️ **सानुकूल साधन एकत्रीकरण**: एजंटच्या क्षमतांचा विस्तार कसा करायचा हे दर्शवते
+- 🎲 **यादृच्छिक स्थळ निवड**: सुट्टीचे ठिकाणे निवडण्यासाठी सानुकूल साधन वापरतो
+- 🗺️ **बुद्धिमान सहलीचे नियोजन**: तपशीलवार दिवसानुदिनच्या आराखड्यांची निर्मिती करतो
+- 🔄 **रिअल-टाइम स्ट्रीमिंग**: तत्काळ आणि स्ट्रीमिंग प्रतिसाद दोन्हीला समर्थन देतो
+- 🛠️ **सानुकूल साधन एकत्रीकरण**: एजंटच्या क्षमतांचा विस्तार कसा करायचा ते दाखवतो
 
-## 🔧 तांत्रिक आर्किटेक्चर
+## 🔧 तांत्रिक संरचना
 
 ### मुख्य तंत्रज्ञान
 
 - **Microsoft Agent Framework**: AI एजंट विकासासाठी नवीनतम .NET अंमलबजावणी
-- **GitHub Models Integration**: GitHub च्या AI मॉडेल अनुमान सेवांचा वापर करते
-- **OpenAI API Compatibility**: सानुकूल एंडपॉइंटसह OpenAI क्लायंट लायब्ररींचा लाभ घेते
-- **सुरक्षित कॉन्फिगरेशन**: पर्यावरण-आधारित API की व्यवस्थापन
+- **Azure OpenAI (Responses API)**: मॉडेल अनुमानासाठी Azure OpenAI Responses API वापरतो
+- **Azure Identity**: `AzureCliCredential` (`az login`) द्वारे सुरक्षित साइन-इन
+- **सुरक्षित संरचना**: वातावरण-आधारित एंडपॉइंट व्यवस्थापन
 
 ### मुख्य घटक
 
-1. **AIAgent**: मुख्य एजंट ऑर्केस्ट्रेटर जो संभाषण प्रवाह हाताळतो
+1. **AIAgent**: मुख्य एजंट जे संभाषण प्रवाह हाताळते
 2. **सानुकूल साधने**: एजंटसाठी उपलब्ध `GetRandomDestination()` फंक्शन
-3. **चॅट क्लायंट**: GitHub Models-समर्थित संभाषण इंटरफेस
+3. **Responses Client**: Azure OpenAI Responses आधारित संभाषण इंटरफेस
 4. **स्ट्रीमिंग समर्थन**: रिअल-टाइम प्रतिसाद निर्मिती क्षमता
 
-### एकत्रीकरण नमुना
+### एकत्रीकरण पॅटर्न
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[वापरकर्ता विनंती] --> B[AI एजंट]
+    B --> C[Azure OpenAI (प्रतिक्रिया API)]
+    B --> D[GetRandomDestination साधन]
+    C --> E[प्रवासाचा आराखडा]
     D --> E
 ```
 
-## 🚀 सुरुवात कशी करावी
+## 🚀 सुरू करणे
 
-### पूर्वापेक्षित
+### आवश्यक पूर्वतयारी
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) किंवा त्याहून अधिक
-- [GitHub Models API प्रवेश टोकन](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) किंवा त्यापुढे
+- Azure OpenAI संसाधन आणि मॉडेल तैनात सुविधा असलेली [Azure सदस्यता](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` वापरून साइन इन करा
 
-### आवश्यक पर्यावरणीय व्हेरिएबल्स
+### आवश्यक वातावरणातील चल
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# नंतर साइन इन करा जेणेकरून AzureCliCredential टोकन मिळवू शकेल
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# पॉवरशेल
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# मग साइन इन करा जेणेकरून AzureCliCredential टोकन घेऊ शकेल
+az login
 ```
 
 ### नमुना कोड
@@ -66,12 +69,12 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 कोड उदाहरण चालवण्यासाठी,
 
 ```bash
-# zsh/bash
+# झश/बाश
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-किंवा dotnet CLI वापरून:
+किंवा डॉटनेट CLI वापरून:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -82,16 +85,18 @@ dotnet run ./01-dotnet-agent-framework.cs
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -166,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 मुख्य शिकवण्या
+## 🎓 मुख्य मुद्दे
 
-1. **एजंट आर्किटेक्चर**: Microsoft Agent Framework .NET मध्ये AI एजंट तयार करण्यासाठी स्वच्छ, प्रकार-सुरक्षित दृष्टिकोन प्रदान करते
-2. **साधन एकत्रीकरण**: `[Description]` गुणधर्मांसह सजवलेले फंक्शन्स एजंटसाठी उपलब्ध साधने बनतात
-3. **कॉन्फिगरेशन व्यवस्थापन**: पर्यावरणीय व्हेरिएबल्स आणि सुरक्षित क्रेडेन्शियल हाताळणी .NET सर्वोत्तम पद्धतींचे अनुसरण करते
-4. **OpenAI सुसंगतता**: GitHub Models एकत्रीकरण OpenAI-सुसंगत API द्वारे सहजपणे कार्य करते
+1. **एजंट आर्किटेक्चर**: Microsoft Agent Framework .NET मध्ये AI एजंट तयार करण्यासाठी स्वच्छ, टाइप-सेफ पद्धत देते
+2. **साधन एकत्रीकरण**: `[Description]` अॅट्रिब्युटसह सजवलेल्या फंक्शन्स एजंटसाठी उपलब्ध साधने बनतात
+3. **संरचना व्यवस्थापन**: वातावरणातील चल आणि सुरक्षित क्रेडेन्शियल हाताळणी .NET सर्वोत्तम पद्धतींचे अनुसरण करते
+4. **Azure OpenAI Responses API**: एजंट Azure.AI.OpenAI SDK मार्फत Azure OpenAI Responses API वापरतो
 
-## 🔗 अतिरिक्त संसाधने
+## 🔗 अतिरिक्त स्रोत
 
 - [Microsoft Agent Framework दस्तऐवज](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft Foundry मध्ये Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**अस्वीकरण**:  
-हा दस्तऐवज AI भाषांतर सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) वापरून भाषांतरित केला गेला आहे. आम्ही अचूकतेसाठी प्रयत्नशील असलो तरी, कृपया लक्षात घ्या की स्वयंचलित भाषांतरांमध्ये चुका किंवा अचूकतेचा अभाव असू शकतो. मूळ भाषेतील मूळ दस्तऐवज हा अधिकृत स्रोत मानला जावा. महत्त्वाच्या माहितीसाठी, व्यावसायिक मानवी भाषांतराची शिफारस केली जाते. या भाषांतराचा वापर केल्यामुळे उद्भवणाऱ्या कोणत्याही गैरसमज किंवा चुकीच्या अर्थासाठी आम्ही जबाबदार राहणार नाही.
+**अस्वीकरण**:
+हा दस्तऐवज AI भाषांतर सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) चा वापर करून अनुवादित केला आहे. जरी आम्ही अचूकतेसाठी प्रयत्न करतो, तरी कृपया लक्षात घ्या की स्वयंचलित भाषांतरांमध्ये त्रुटी किंवा अचूकतेची कमतरता असू शकते. मूळ दस्तऐवज त्याच्या मूळ भाषेत अधिकृत स्रोत मानला पाहिजे. महत्त्वाची माहिती असल्यास, व्यावसायिक मानवी भाषांतराची शिफारस केली जाते. या भाषांतराच्या वापरामुळे उद्भवणाऱ्या कोणत्याही गैरसमज किंवा चुकीच्या अर्थलावणीसाठी आम्ही जबाबदार नाही.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

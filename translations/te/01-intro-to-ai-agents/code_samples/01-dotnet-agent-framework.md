@@ -1,86 +1,86 @@
-# 🌍 Microsoft Agent Framework (.NET)తో AI ప్రయాణ ఏజెంట్
+# 🌍 Microsoft Agent Framework (.NET) తో AI ప్రయాణ ఏజెంట్
 
-## 📋 దృశ్యం అవలోకనం
+## 📋 సన్నివేశ అవలోకనం
 
-ఈ ఉదాహరణ Microsoft Agent Framework ఉపయోగించి .NET కోసం బుద్ధిమంతమైన ప్రయాణ ప్రణాళిక ఏజెంట్‌ను ఎలా నిర్మించాలో చూపిస్తుంది. ఏజెంట్ ప్రపంథం అంతటా యాదృచ్ఛిక గమ్యస్థానాల కోసం వ్యక్తిగతీకరించిన దిన-యాత్ర మార్గనిర్దేశకాలను ఆటోమేటిక్‌గా తయారుచేయగలదు.
+ఈ ఉదాహరణ Microsoft Agent Framework ను ఉపయోగించి నెప్టివేత్రిక ప్రయాణా పథకం ఏజెంట్‌ను ఎలా నిర్మించాలో చూపిస్తుంది. ఏజెంట్ ప్రపంచవ్యాప్తంగా యాదృచ్ఛిక గమ్యస్థానాల కోసం వ్యక్తిగతీకరించిన రోజు-ప్రయాణ ప్రయాణిక పథకాలను స్వయంచాలకంగా సృష్టించగలదు.
 
-### ప్రధాన సామర్థ్యాలు:
+### ముఖ్య సామర్ధ్యాలు:
 
-- 🎲 **యాదృచ్ఛిక గమ్యస్థానం ఎంపిక**: సెలవు ప్రదేశాలు ఎంచుకునేందుకు అనుకూల సాధనాన్ని ఉపయోగిస్తుంది
-- 🗺️ **బుద్ధిమంతమైన ట్రిప్ ప్లానింగ్**: ప్రతిరోజూ వివరించిన మార్గనిర్దేశకాలను సృష్టిస్తుంది
-- 🔄 **రియల్-టైం స్ట్రీమింగ్**: తక్షణ మరియు స్ట్రీమింగ్ ప్రత్యుత్తరాలను రెండింటి కోసం మద్దతు కలిగి ఉంది
-- 🛠️ **అనుకూల సాధన ఇంటిగ్రేషన్**: ఏజెంట్ సామర్థ్యాలను ఎలా విస్తరించాలో చూపిస్తుంది
+- 🎲 **యాదృచ్ఛిక గమ్యస్థానం ఎంచుకోవడం**: సెలవు ప్రదేశాలను ఎంచుకోవడానికి అనుకూలీకరించిన సాధనం ఉపయోగిస్తుంది
+- 🗺️ **నెప్తివేత్రిక ప్రయాణా ప్లానింగ్**: ప్రతి రోజుకు వివరమైన పథకాలు సృష్టిస్తుంది
+- 🔄 **నేరుగా ప్రసారం**: తక్షణ మరియు స్ట్రీమింగ్ ప్రతిస్పందనలను మద్దతు ఇస్తుంది
+- 🛠️ **అనుకూల సాధన ఏకీకరణ**: ఏజెంట్ సామర్ధ్యాలను విస్తరించడాన్ని చూపిస్తుంది
 
 ## 🔧 సాంకేతిక నిర్మాణం
 
-### ప్రాథమిక సాంకేతికతలు
+### ప్రాధాన్య సాంకేతికతలు
 
-- **Microsoft Agent Framework**: AI ఏజెంట్ అభివృద్ధికి తాజా .NET అమలు
-- **Azure OpenAI (Responses API)**: Azure OpenAI Responses APIను మోడల్ అభిప్రాయ కోసం ఉపయోగిస్తుంది
-- **Azure Identity**: `AzureCliCredential` (`az login`) ద్వారా సురక్షిత పెట్టుబడి
+- **Microsoft Agent Framework**: AI ఏజెంట్ అభివృద్ధి కోసం తాజా .NET అమలు
+- **Azure OpenAI (Response API)**: నమూనా ఊహాజనకానికి Azure OpenAI Responses API ఉపయోగిస్తుంది
+- **Azure Identity**: `AzureCliCredential` (`az login`) ద్వారా సురక్షిత సైన్-ఇన్
 - **సురక్షిత కాన్ఫిగరేషన్**: పరిసర ఆధారిత ఎండ్‌పాయింట్ నిర్వహణ
 
-### కీలక భాగాలు
+### ముఖ్య భాగాలు
 
-1. **AIAgent**: సంభాషణ ప్రవాహాన్ని నిర్వహించే ప్రధాన ఏజెంట్ ఆర్కెస్ట్రేటర్
-2. **అనుకూల సాధనాలు**: ఏజెంట్‌కు అందుబాటులో ఉన్న `GetRandomDestination()` ఫంక్షన్
-3. **ప్రత్యుత్తర క్లయింట్**: Azure OpenAI Responses ఆధారిత సంభాషణ ఇంటర్‌ఫేస్
-4. **స్ట్రీమింగ్ మద్దతు**: రియల్-టైం ప్రత్యుత్తరాల సృష్టి సామర్థ్యాలు
+1. **AIAgent**: సంభాషణ ప్రవాహాన్ని నిర్వహించే ప్రధాన ఏజెంట్ సంకేతకర్త
+2. **అనుకూల సాధనాలు**: ఏజెంట్ కోసం అందుబాటులో ఉన్న `GetRandomDestination()` ఫంక్షన్
+3. **Responses Client**: Azure OpenAI Responses ఆధారిత సంభాషణ ఇంటర్‌ఫేస్
+4. **స్ట్రీమింగ్ మద్దతు**: నేరుగా ప్రతిస్పందనలు సృష్టించే సామర్థ్యాలు
 
-### ఇంటిగ్రేషన్ ప్యాటర్న్
+### ఏకీకరణ నమూనా
 
 ```mermaid
 graph LR
-    A[వాడుకరి అభ్యర్థన] --> B[AI ఏజెంట్]
-    B --> C[Azure OpenAI (ప్రత్యుత్తరాలు API)]
-    B --> D[GetRandomDestination టూల్]
-    C --> E[ప్రయాణ క్రమవివరణ]
+    A[వినియోగదారు అభ్యర్థన] --> B[AI ఏజెంట్]
+    B --> C[ఆజ్యూర్ ఓపెన్AI (స్పందనలు API)]
+    B --> D[GetRandomDestination పరికరం]
+    C --> E[ప్రయాణ మార్గదర్శిని]
     D --> E
 ```
 
-## 🚀 ప్రారంభించండి
+## 🚀 ప్రారంభం
 
 ### ముందస్తు అవసరాలు
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అతిస్థాయి
-- Azure OpenAI వనరు మరియు మోడల్ డిప్లాయ్‌మెంట్ కలిగిన [Azure.subscription](https://azure.microsoft.com/free/)
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login`తో సైన్ ఇన్ అవ్వండి
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకు మించి
+- Azure OpenAI వనరుతో Azure సబ్‌స్క్రిప్షన్ [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/)తో
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` తో సైన్-ఇన్ చేయండి
 
 ### అవసరమైన పరిసర వేరియబుల్స్
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# అప్పుడు సైన్ ఇన్ అవ్వండి כדי AzureCliCredential టోకెన్ పొందడానికి
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# తరువాత AzureCliCredential టోకెన్ పొందడానికి సైన్ ఇన్ చేయండి
 az login
 ```
 
 ```powershell
 # పవర్‌షెల్
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# AzureCliCredential టోకన్ పొందడానికి కాబట్టి తర్వాత సైన్ ఇన్ అవ్వండి
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# తరువాత AzureCliCredential టోకన్ పొందడానికి సైన్ ఇన్ చేయండి
 az login
 ```
 
 ### నమూనా కోడ్
 
-కోడ్ ఉదాహరణను అమలు చేయడానికి,
+కోడ్ ఉదాహరణను నడపడానికి,
 
 ```bash
-# zsh/bash
+# జెడ్‌ఎస్‌హెచ్/బాష్
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-లేకపోతే dotnet CLI ఉపయోగించండి:
+లేదా dotnet CLI ఉపయోగించి:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-పూర్తి కోడుకు [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) చూడండి.
+పూర్తి కోడ్ కోసం [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) చూడండి.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,19 +157,19 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 ముఖ్య పాఠాలు
+## 🎓 ప్రధాన విషయాలు
 
-1. **ఏజెంట్ ఆర్కిటెక్షర్**: Microsoft Agent Framework .NETలో AI ఏజెంట్లను నిర్మించడానికి క్లియర్, టైప్-సేఫ్ దృష్టికోణాన్ని అందిస్తుంది
-2. **సాధన ఇంటిగ్రేషన్**: `[Description]` లక్షణాలతో అలంకరించబడిన ఫంక్షన్లు ఏజెంట్‌కు అందుబాటులో ఉన్న సాధనాలు అవుతాయి
-3. **కాన్ఫిగరేషన్ మేనేజ్మెంట్**: పరిసర వేరియబుల్స్ మరియు సురక్షిత క్రెడెన్షియల్ నిర్వహణ .NET ఉత్తమ అనుసరణలను అనుసరిస్తుంది
-4. **Azure OpenAI Responses API**: ఏజెంట్ Azure.AI.OpenAI SDK ద్వారా Azure OpenAI Responses APIని ఉపయోగిస్తుంది
+1. **ఏజెంట్ నిర్మాణం**: Microsoft Agent Framework .NET లో AI ఏజెంట్లను నిర్మించడానికి సుస్పష్ట, రక-సురక్షిత పద్ధతిని కల్పిస్తుంది
+2. **సాధన ఏకీకరణ**: `[Description]` లక్షణాలతో అలంకరించిన ఫంక్షన్లు ఏజెంట్ కోసం అందుబాటులో ఉండే సాధనాలుగా మారుతాయి
+3. **కాన్ఫిగరేషన్ నిర్వహణ**: పరిసర వేరియబుల్స్ మరియు సురక్షిత ప్రమాణపత్రం నిర్వహణ .NET ఉత్తమ ఆచారాలను అనుసరిస్తాయి
+4. **Azure OpenAI Responses API**: ఏజెంట్ Azure.AI.OpenAI SDK ద్వారా Azure OpenAI Responses API ఉపయోగిస్తుంది
 
 ## 🔗 అదనపు వనరులు
 
 - [Microsoft Agent Framework డాక్యుమెంటేషన్](https://learn.microsoft.com/agent-framework)
-- [Microsoft Foundryలో Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft Foundry లో Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET సింగిల్ ఫైల్ ఆప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET సింగిల్ ఫైల్ యాప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

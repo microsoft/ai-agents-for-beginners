@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Dis repository get "AI Agents for Beginners" - na complete educational course wey dey teach everything wey person need to sabi build AI Agents. Di course get 18 lessons (wey dem number 00-18) wey dey cover fundamentals, design patterns, frameworks, production deployment, local/on-device agents, plus security of AI agents.
+Dis repo contain "AI Agents for Beginners" - na comprehensive educational course wey dey teach everything wey person need to build AI Agents. Di course get 18 lessons (dem number 00-18) wey cover fundamentals, design patterns, frameworks, production deployment, local/on-device agents, plus security for AI agents.
 
 **Key Technologies:**
 - Python 3.12+
@@ -12,8 +12,8 @@ Dis repository get "AI Agents for Beginners" - na complete educational course we
 
 **Architecture:**
 - Lesson-based structure (00-15+ directories)
-- Every lesson get: README documentation, code samples (Jupyter notebooks), plus images
-- Multi-language support through automated translation system
+- Each lesson get: README documentation, code samples (Jupyter notebooks), and images
+- Multi-language support via automated translation system
 - One Python notebook per lesson wey dey use Microsoft Agent Framework
 
 ## Setup Commands
@@ -25,7 +25,7 @@ Dis repository get "AI Agents for Beginners" - na complete educational course we
 
 ### Initial Setup
 
-1. **Clone or fork the repository:**
+1. **Clone or fork di repository:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # OR
@@ -47,33 +47,33 @@ Dis repository get "AI Agents for Beginners" - na complete educational course we
 4. **Set up environment variables:**
    ```bash
    cp .env.example .env
-   # Edit .env wit your API keys and endpoints
+   # Change .env wit your API keys and endpoints
    ```
 
 ### Required Environment Variables
 
-For **Microsoft Foundry** (Wey una need):
+For **Microsoft Foundry** (Required):
 - `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4.1-mini)
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-5-mini)
 
 For **Azure AI Search** (Lesson 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
 - `AZURE_SEARCH_API_KEY` - Azure AI Search API key
 
-Authentication: Run `az login` before running notebooks (e dey use `AzureCliCredential`).
+Authentication: Run `az login` before you run notebooks (e dey use `AzureCliCredential`).
 
 ## Development Workflow
 
 ### Running Jupyter Notebooks
 
-Every lesson get plenty Jupyter notebooks for different frameworks:
+Every lesson get multiple Jupyter notebooks for different frameworks:
 
 1. **Start Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Go enter lesson directory** (like `01-intro-to-ai-agents/code_samples/`)
+2. **Navigate to di lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
 
 3. **Open and run notebooks:**
    - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
@@ -82,14 +82,14 @@ Every lesson get plenty Jupyter notebooks for different frameworks:
 ### Working with Microsoft Agent Framework
 
 **Microsoft Agent Framework + Microsoft Foundry:**
-- Requires Azure subscription
-- Uses `FoundryChatClient` for Agent Service V2 (agents wey you fit see for Foundry portal)
+- Need Azure subscription
+- Dem dey use `FoundryChatClient` for Agent Service V2 (agents dey visible for Foundry portal)
 - Production-ready with built-in observability
 - File pattern: `*-python-agent-framework.ipynb`
 
 ## Testing Instructions
 
-Dis na educational repository wey get example code, no be production code wey get automated tests. To check your setup and changes:
+Dis na educational repository wey get example code instead of production code wey get automated tests. To check your setup and changes:
 
 ### Manual Testing
 
@@ -101,7 +101,7 @@ Dis na educational repository wey get example code, no be production code wey ge
 
 2. **Test notebook execution:**
    ```bash
-   # Change notebook go skript and run (tests imports)
+   # Change notebook go script and run am (test di imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -112,7 +112,7 @@ Dis na educational repository wey get example code, no be production code wey ge
 
 ### Running Individual Notebooks
 
-Open notebooks for Jupyter and run cells one by one. Every notebook dey self-contained and e get:
+Open notebooks for Jupyter and run cells one by one. Every notebook get:
 - Import statements
 - Configuration loading
 - Example agent implementations
@@ -120,7 +120,7 @@ Open notebooks for Jupyter and run cells one by one. Every notebook dey self-con
 
 ### Smoke-Testing Deployed Agents
 
-For lessons wey dem deploy agent as Microsoft Foundry hosted agent (01, 04, 05, 16), di repo get smoke-test catalogs inside `tests/` wey di `.github/workflows/smoke-test.yml` workflow dey run through the [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) action. Dem be lightweight post-deploy gate (to check if agent dey reachable and e dey follow basic prompt expectations), e also dey complement the evaluation pipeline for Lessons 10 and 16. Check [tests/README.md](./tests/README.md) for how catalog relate to lesson and agent. Lesson 17 dey run local with Foundry Local and no get hosted endpoint, so e dey validate by running e notebook directly.
+For lessons wey dem deploy agent as Microsoft Foundry hosted agent (01, 04, 05, 16), di repo get smoke-test catalogs under `tests/` wey `.github/workflows/smoke-test.yml` workflow dey run through [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) action. Dem be lightweight post-deploy gate (agent fit reach and e dey follow basic prompt expectations?), e dey complement evaluation pipeline for Lessons 10 and 16. Check [tests/README.md](./tests/README.md) for catalog-to-lesson-to-agent mapping. Lesson 17 dey run locally with Foundry Local and e no get hosted endpoint, so e dey validated by running e notebook direct.
 
 ## Code Style
 
@@ -134,8 +134,8 @@ For lessons wey dem deploy agent as Microsoft Foundry hosted agent (01, 04, 05, 
 ### Jupyter Notebook Conventions
 
 - Include descriptive markdown cells before code cells
-- Add output examples in notebooks for reference
-- Use clear variable names weh follow lesson concepts
+- Add output examples for notebooks reference
+- Use clear variable names wey match lesson concepts
 - Keep notebook execution order linear (cell 1 → 2 → 3...)
 
 ### File Organization
@@ -155,9 +155,9 @@ For lessons wey dem deploy agent as Microsoft Foundry hosted agent (01, 04, 05, 
 ### Building Documentation
 
 Dis repository dey use Markdown for documentation:
-- README.md files for every lesson folder
-- Main README.md for repository root
-- Automated translation system through GitHub Actions
+- README.md files dey for each lesson folder
+- Main README.md dey for repository root
+- Automated translation system via GitHub Actions
 
 ### CI/CD Pipeline
 
@@ -169,102 +169,102 @@ E dey for `.github/workflows/`:
 
 ### Deployment
 
-Dis na educational repository - no deployment process. Users:
+Dis na educational repository - no deployment process. Users go:
 1. Fork or clone di repository
-2. Run notebooks local or inside GitHub Codespaces
-3. Learn by modifying and testing examples
+2. Run notebooks locally or for GitHub Codespaces
+3. Learn by modifying and experimenting with examples
 
 ## Pull Request Guidelines
 
 ### Before Submitting
 
 1. **Test your changes:**
-   - Run all affected notebooks complete
-   - Make sure all cells run without any error
-   - Check say outputs dey correct
+   - Run all affected notebooks full
+   - Verify all cells run without error
+   - Check say outputs correct
 
 2. **Documentation updates:**
    - Update README.md if you add new concepts
-   - Put comments for complex code inside notebooks
-   - Make sure markdown cells explain wetin e mean
+   - Add comments inside notebooks for complex code
+   - Make sure markdown cells explain wetin dem dey do
 
 3. **File changes:**
-   - No make you commit `.env` files (use `.env.example`)
+   - No commit `.env` files (use `.env.example`)
    - No commit `venv/` or `__pycache__/` directories
-   - Keep notebook outputs if dem dey show concepts
+   - Keep notebook outputs when dem dey show concepts
    - Remove temporary files and backup notebooks (`*-backup.ipynb`)
 
 ### PR Title Format
 
 Use descriptive titles:
 - `[Lesson-XX] Add new example for <concept>`
-- `[Fix] Correct typo in lesson-XX README`
-- `[Update] Improve code sample in lesson-XX`
+- `[Fix] Correct typo for lesson-XX README`
+- `[Update] Improve code sample for lesson-XX`
 - `[Docs] Update setup instructions`
 
 ### Required Checks
 
-- Notebooks suppose run without error
-- README files suppose dey clear and correct
-- Follow the code patterns wey dey already for the repository
-- Make everything consistent with other lessons
+- Notebooks suppose run without errors
+- README files suppose clear and accurate
+- Follow di code patterns wey dey this repository
+- Keep consistency with other lessons
 
 ## Additional Notes
 
 ### Common Gotchas
 
 1. **Python version mismatch:**
-   - Make sure you dey use Python 3.12+ 
-   - Some packages no go work for old Python versions
-   - Use `python3 -m venv` to specify Python version explicitly
+   - Make sure you dey use Python 3.12+
+   - Some packages no go work wit old versions
+   - Use `python3 -m venv` to specify Python version clearly
 
 2. **Environment variables:**
    - Always create `.env` from `.env.example`
-   - No commit `.env` file (e dey for `.gitignore`)
-   - Sign in with `az login` for keyless Entra ID authentication
+   - No commit `.env` file (e dey `.gitignore`)
+   - Use `az login` to sign in for keyless Entra ID authentication
 
 3. **Package conflicts:**
    - Use fresh virtual environment
    - Install from `requirements.txt` instead of individual packages
-   - Some notebooks fit need extra packages wey dem talk about for markdown cells dem
+   - Some notebooks fit need extra packages wey dem talk for markdown cells
 
 4. **Azure services:**
    - Azure AI services need active subscription
-   - Some features dey only for certain regions
-   - Make sure your Azure OpenAI model deployment fit support the Responses API
+   - Some features dey region-specific
+   - Make sure say your Azure OpenAI model deployment support Responses API
 
 ### Learning Path
 
-Recommended progression through lessons:
-1. **00-course-setup** - Start from here for environment setup
-2. **01-intro-to-ai-agents** - Understand AI agent fundamentals
-3. **02-explore-agentic-frameworks** - Learn about different frameworks
+How e go better if you dey follow lessons:
+1. **00-course-setup** - Start here to setup environment
+2. **01-intro-to-ai-agents** - Understand AI agent basics
+3. **02-explore-agentic-frameworks** - Learn different frameworks
 4. **03-agentic-design-patterns** - Core design patterns
-5. Continue with next lessons for the sequence
+5. Continue through di lessons in order
 
 ### Framework Selection
 
-Choose framework based on your goals:
-- **All lessons**: Microsoft Agent Framework (MAF) with `FoundryChatClient`
-- **Agents register for server-side** inside Microsoft Foundry Agent Service V2 and you go fit see am for Foundry portal
+Choose framework based on wetin you want achieve:
+- **All lessons**: Microsoft Agent Framework (MAF) wit `FoundryChatClient`
+- **Agents register server-side** inside Microsoft Foundry Agent Service V2 and dem dey visible for Foundry portal
 
 ### Getting Help
 
 - Join the [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
 - Check lesson README files for specific guidance
-- Check the main [README.md](./README.md) for course overview
+- Check main [README.md](./README.md) for course overview
 - Refer to [Course Setup](./00-course-setup/README.md) for detailed setup instructions
 
 ### Contributing
 
 Dis na open educational project. Contributions dey welcome:
 - Improve code examples
-- Fix typos or mistakes
+- Fix typos or errors
 - Add clarifying comments
 - Suggest new lesson topics
-- Translate to more languages
+- Translate to other languages
 
-Check [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for wetin dem dey currently need.
+See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for wetin dem need now.
 
 ## Project-Specific Context
 
@@ -278,12 +278,12 @@ Dis repository dey use automated translation system:
 
 ### Lesson Structure
 
-Every lesson follow one consistent pattern:
-1. Video thumbnail wey get link
+Every lesson follow consistent pattern:
+1. Video thumbnail wit link
 2. Written lesson content (README.md)
-3. Code samples for several frameworks
+3. Code samples for multiple frameworks
 4. Learning objectives and prerequisites
-5. Extra learning resources link
+5. Extra learning resources wey get link
 
 ### Code Sample Naming
 

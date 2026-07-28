@@ -1,148 +1,151 @@
-# 🎨 GitHub मोडेलहरूसँग .NET मा एजेन्टिक डिजाइन ढाँचाहरू
+# 🎨 Azure OpenAI (Responses API) सँग Agentic डिजाइन ढाँचा (.NET)
 
-## 📋 सिकाइ उद्देश्यहरू
+## 📋 सिकाइका उद्देश्यहरू
 
-यो उदाहरणले Microsoft Agent Framework प्रयोग गरेर .NET मा GitHub मोडेलहरूसँग बुद्धिमान एजेन्टहरू निर्माण गर्नका लागि उद्यम-स्तरीय डिजाइन ढाँचाहरू प्रदर्शन गर्दछ। तपाईंले एजेन्टहरूलाई उत्पादन-तयार, मर्मतयोग्य, र स्केलेबल बनाउने व्यावसायिक ढाँचाहरू र वास्तुकलाको दृष्टिकोणहरू सिक्नुहुनेछ।
+यो उदाहरणले .NET मा Microsoft Agent Framework प्रयोग गरी Azure OpenAI (Responses API) एकीकरण सहित बुद्धिमान एजेन्टहरू निर्माण गर्नका लागि उद्यम-स्तरका डिजाइन ढाँचाहरू देखाउँछ। तपाईंले व्यावसायिक ढाँचा र वास्तुकला दृष्टिकोणहरू सिक्नुहुनेछ जसले एजेन्टहरूलाई उत्पादनयोग्य, मर्मतयोग्य, र स्केलेबल बनाउँछ।
 
 ### उद्यम डिजाइन ढाँचाहरू
 
-- 🏭 **फ्याक्ट्री ढाँचा**: निर्भरता इन्जेक्शनको साथ मानकीकृत एजेन्ट निर्माण
-- 🔧 **बिल्डर ढाँचा**: प्रवाही एजेन्ट कन्फिगरेसन र सेटअप
-- 🧵 **थ्रेड-सुरक्षित ढाँचाहरू**: समवर्ती संवाद व्यवस्थापन
-- 📋 **रिपोजिटरी ढाँचा**: उपकरण र क्षमता व्यवस्थापनको संगठन
+- 🏭 **Factory Pattern**: आश्रितता इंजेक्शनसहित मानकीकृत एजेन्ट सिर्जना
+- 🔧 **Builder Pattern**: फ्लुएन्ट एजेन्ट कन्फिगरेसन र सेटअप
+- 🧵 **Thread-Safe Patterns**: समवर्ती संवाद व्यवस्थापन
+- 📋 **Repository Pattern**: व्यवस्थित उपकरण र क्षमता व्यवस्थापन
 
-## 🎯 .NET-विशिष्ट वास्तुकलाको फाइदाहरू
+## 🎯 .NET-विशेष वास्तुकला लाभहरू
 
 ### उद्यम सुविधाहरू
 
-- **स्ट्रङ टाइपिङ**: कम्पाइल-समय मान्यता र IntelliSense समर्थन
-- **निर्भरता इन्जेक्शन**: बिल्ट-इन DI कन्टेनर एकीकरण
-- **कन्फिगरेसन व्यवस्थापन**: IConfiguration र Options ढाँचाहरू
-- **Async/Await**: पहिलो श्रेणीको असिन्क्रोनस प्रोग्रामिङ समर्थन
+- **Strong Typing**: कम्पाइल-टाइम मान्यकरण र IntelliSense सहयोग
+- **Dependency Injection**: बिल्ट-इन DI कन्टेनर एकीकरण
+- **Configuration Management**: IConfiguration र Options ढाँचाहरू
+- **Async/Await**: प्रथम श्रेणी असिंक्रोनस प्रोग्रामिङ समर्थन
 
 ### उत्पादन-तयार ढाँचाहरू
 
-- **लगिङ एकीकरण**: ILogger र संरचित लगिङ समर्थन
-- **स्वास्थ्य जाँचहरू**: बिल्ट-इन अनुगमन र निदान
-- **कन्फिगरेसन मान्यता**: डेटा एनोटेसनहरूसँग स्ट्रङ टाइपिङ
-- **त्रुटि व्यवस्थापन**: संरचित अपवाद व्यवस्थापन
+- **Logging Integration**: ILogger र संरचित लगिङ समर्थन
+- **Health Checks**: बिल्ट-इन अनुगमन र निदान
+- **Configuration Validation**: डाटा एनोटेसनसहितको मजबूत टाइपिङ
+- **Error Handling**: संरचित अपवाद व्यवस्थापन
 
 ## 🔧 प्राविधिक वास्तुकला
 
-### कोर .NET कम्पोनेन्टहरू
+### मूल .NET कम्पोनेन्टहरू
 
-- **Microsoft.Extensions.AI**: एकीकृत AI सेवा अमूर्तताहरू
-- **Microsoft.Agents.AI**: उद्यम एजेन्ट समन्वय फ्रेमवर्क
-- **GitHub मोडेल एकीकरण**: उच्च-प्रदर्शन API क्लाइन्ट ढाँचाहरू
-- **कन्फिगरेसन प्रणाली**: appsettings.json र वातावरण एकीकरण
+- **Microsoft.Extensions.AI**: एकीकृत AI सेवा अमूर्तता
+- **Microsoft.Agents.AI**: उद्यम एजेन्ट अर्गनाइजेसन फ्रेमवर्क
+- **Azure OpenAI (Responses API)**: उच्च-प्रदर्शन API क्लाइन्ट ढाँचाहरू
+- **Configuration System**: appsettings.json र वातावरण एकीकरण
 
 ### डिजाइन ढाँचा कार्यान्वयन
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[एजेन्ट बिल्डर]
+    B --> C[कन्फिगरेसन]
+    C --> D[टूल रजिष्ट्रि]
+    D --> E[एआई एजेन्ट]
 ```
 
-## 🏗️ प्रदर्शन गरिएका उद्यम ढाँचाहरू
+## 🏗️ प्रदर्शन गरिएको उद्यम ढाँचाहरू
 
 ### 1. **सिर्जनात्मक ढाँचाहरू**
 
-- **एजेन्ट फ्याक्ट्री**: स्थिर कन्फिगरेसनको साथ केन्द्रीय एजेन्ट निर्माण
-- **बिल्डर ढाँचा**: जटिल एजेन्ट कन्फिगरेसनको लागि प्रवाही API
-- **सिङ्गलटन ढाँचा**: साझा स्रोत र कन्फिगरेसन व्यवस्थापन
-- **निर्भरता इन्जेक्शन**: लुज कपलिङ र परीक्षणयोग्यता
+- **Agent Factory**: एउटै कन्फिगरेसनसहित केन्द्रीयकृत एजेन्ट सिर्जना
+- **Builder Pattern**: जटिल एजेन्ट कन्फिगरेसनका लागि फ्लुएन्ट API
+- **Singleton Pattern**: साझा स्रोतहरू र कन्फिगरेसन व्यवस्थापन
+- **Dependency Injection**: खुकुलो जोड र परीक्षणयोग्य बनाउने
 
 ### 2. **व्यवहारिक ढाँचाहरू**
 
-- **स्ट्राटेजी ढाँचा**: विनिमेय उपकरण कार्यान्वयन रणनीतिहरू
-- **कमाण्ड ढाँचा**: एजेन्ट अपरेसनहरूलाई समेटेर undo/redo समर्थन
-- **अवलोकनकर्ता ढाँचा**: घटना-चालित एजेन्ट जीवनचक्र व्यवस्थापन
-- **टेम्प्लेट विधि**: मानकीकृत एजेन्ट कार्यान्वयन कार्यप्रवाहहरू
+- **Strategy Pattern**: विनिमेय उपकरण कार्यान्वयन रणनीतिहरू
+- **Command Pattern**: अनडू/रिडू सहित समाविष्ट एजेन्ट अपरेसनहरू
+- **Observer Pattern**: घटना-आधारित एजेन्ट जीवनचक्र व्यवस्थापन
+- **Template Method**: मानकीकृत एजेन्ट कार्यप्रवाहहरू
 
 ### 3. **संरचनात्मक ढाँचाहरू**
 
-- **एडाप्टर ढाँचा**: GitHub मोडेल API एकीकरण तह
-- **डेकोरेटर ढाँचा**: एजेन्ट क्षमताको वृद्धि
-- **फेसाड ढाँचा**: सरलीकृत एजेन्ट अन्तरक्रिया इन्टरफेसहरू
-- **प्रोक्सी ढाँचा**: प्रदर्शनको लागि लेजी लोडिङ र क्यासिङ
+- **Adapter Pattern**: Azure OpenAI (Responses API) एकीकरण तह
+- **Decorator Pattern**: एजेन्ट क्षमताको वृद्धि
+- **Facade Pattern**: सरल एजेन्ट अन्तरक्रिया इन्टरफेसहरू
+- **Proxy Pattern**: प्रदर्शनका लागि लेजी लोडिंग र क्याचिङ
 
 ## 📚 .NET डिजाइन सिद्धान्तहरू
 
 ### SOLID सिद्धान्तहरू
 
-- **सिङ्गल जिम्मेवारी**: प्रत्येक कम्पोनेन्टको एक स्पष्ट उद्देश्य
-- **ओपन/क्लोज्ड**: परिमार्जन बिना विस्तारयोग्य
-- **लिस्कोभ प्रतिस्थापन**: इन्टरफेस-आधारित उपकरण कार्यान्वयनहरू
-- **इन्टरफेस विभाजन**: केन्द्रित, सुसंगत इन्टरफेसहरू
-- **निर्भरता उल्टो**: अमूर्ततामा निर्भर गर्नुहोस्, ठोसतामा होइन
+- **Single Responsibility**: प्रत्येक कम्पोनेन्टको स्पष्ट उद्देश्य
+- **Open/Closed**: संशोधन बिना विस्तारयोग्य
+- **Liskov Substitution**: इन्टरफेस-आधारित उपकरण कार्यान्वयनहरू
+- **Interface Segregation**: लक्षित, समेकित इन्टरफेसहरू
+- **Dependency Inversion**: अमूर्ततामा निर्भर, कंक्रीटमा होइन
 
 ### सफा वास्तुकला
 
-- **डोमेन तह**: कोर एजेन्ट र उपकरण अमूर्तताहरू
-- **अनुप्रयोग तह**: एजेन्ट समन्वय र कार्यप्रवाहहरू
-- **पूर्वाधार तह**: GitHub मोडेल एकीकरण र बाह्य सेवाहरू
-- **प्रस्तुति तह**: प्रयोगकर्ता अन्तरक्रिया र प्रतिक्रिया ढाँचा
+- **Domain Layer**: मूल एजेन्ट र उपकरण अमूर्तता
+- **Application Layer**: एजेन्ट अर्गनाइजेसन र कार्यप्रवाहहरू
+- **Infrastructure Layer**: Azure OpenAI (Responses API) एकीकरण र बाह्य सेवाहरू
+- **Presentation Layer**: प्रयोगकर्ता अन्तरक्रिया र जवाफ स्वरूपण
 
-## 🔒 उद्यम विचारहरू
+## 🔒 उद्यम विचारणीयताहरू
 
 ### सुरक्षा
 
-- **क्रेडेन्सियल व्यवस्थापन**: IConfiguration सँग सुरक्षित API कुञ्जी ह्यान्डलिङ
-- **इनपुट मान्यता**: स्ट्रङ टाइपिङ र डेटा एनोटेसन मान्यता
-- **आउटपुट सफाई**: सुरक्षित प्रतिक्रिया प्रशोधन र फिल्टरिङ
-- **अडिट लगिङ**: व्यापक अपरेसन ट्र्याकिङ
+- **Credential Management**: IConfiguration प्रयोग गरेर सुरक्षित API कुञ्जी ह्यान्डलिङ
+- **Input Validation**: दृढ टाइपिङ र डाटा एनोटेसन मान्यकरण
+- **Output Sanitization**: सुरक्षित जवाफ प्रक्रिया र छनौट
+- **Audit Logging**: समग्र अपरेशन ट्र्याकिङ
 
 ### प्रदर्शन
 
-- **असिन्क ढाँचाहरू**: गैर-अवरुद्ध I/O अपरेसनहरू
-- **कनेक्शन पूलिङ**: कुशल HTTP क्लाइन्ट व्यवस्थापन
-- **क्यासिङ**: प्रदर्शन सुधारको लागि प्रतिक्रिया क्यासिङ
-- **स्रोत व्यवस्थापन**: उचित डिस्पोजल र सफाई ढाँचाहरू
+- **Async Patterns**: गैर-रोकिने I/O अपरेसनहरू
+- **Connection Pooling**: दक्ष HTTP क्लाइन्ट व्यवस्थापन
+- **Caching**: प्रदर्शन सुधारका लागि जवाफ क्याचिङ
+- **Resource Management**: उचित नष्ट र सफाइ ढाँचाहरू
 
 ### स्केलेबिलिटी
 
-- **थ्रेड सुरक्षा**: समवर्ती एजेन्ट कार्यान्वयन समर्थन
-- **स्रोत पूलिङ**: कुशल स्रोत उपयोग
-- **लोड व्यवस्थापन**: दर सीमित र ब्याकप्रेसर ह्यान्डलिङ
-- **अनुगमन**: प्रदर्शन मेट्रिक्स र स्वास्थ्य जाँचहरू
+- **Thread Safety**: समवर्ती एजेन्ट कार्यान्वयन समर्थन
+- **Resource Pooling**: प्रभावकारी स्रोत उपयोग
+- **Load Management**: दर सीमितीकरण र ब्याकप्रेशर ह्यान्डलिङ
+- **Monitoring**: प्रदर्शन मेट्रिक्स र स्वास्थ्य जाँच
 
 ## 🚀 उत्पादन परिनियोजन
 
-- **कन्फिगरेसन व्यवस्थापन**: वातावरण-विशिष्ट सेटिङहरू
-- **लगिङ रणनीति**: संरचित लगिङ र सम्बन्ध आईडीहरूसँग
-- **त्रुटि व्यवस्थापन**: उचित पुन:प्राप्तिसँग ग्लोबल अपवाद व्यवस्थापन
-- **अनुगमन**: अनुप्रयोग अन्तर्दृष्टि र प्रदर्शन काउन्टरहरू
-- **परीक्षण**: युनिट परीक्षण, एकीकरण परीक्षण, र लोड परीक्षण ढाँचाहरू
+- **Configuration Management**: वातावरण-विशेष सेटिङहरू
+- **Logging Strategy**: सहसंबंधित ID हरूसहित संरचित लगिङ
+- **Error Handling**: सही पुनःप्राप्तिसहित विश्वव्यापी अपवाद व्यवस्थापन
+- **Monitoring**: एप्लिकेसन इनसाइट्स र प्रदर्शन काउन्टरहरू
+- **Testing**: युनिट टेस्ट, इंटीग्रेशन टेस्ट र लोड टेस्ट ढाँचाहरू
 
-उद्यम-स्तरीय बुद्धिमान एजेन्टहरू .NET मा निर्माण गर्न तयार हुनुहुन्छ? केही बलियो वास्तुकला बनाऔं! 🏢✨
+.NET सँग उद्यम-स्तर बुद्धिमान एजेन्टहरू बनाउन तयार हुनुहुन्छ? केही ठोस वास्तुकला तयार गरौं! 🏢✨
 
-## 🚀 सुरु गर्दै
+## 🚀 सुरूवात गर्ने तरिका
 
-### पूर्वआवश्यकताहरू
+### आवश्यकताहरू
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) वा उच्च
-- [GitHub मोडेल API पहुँच टोकन](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) वा माथि
+- Azure OpenAI स्रोत र मोडेल डिप्लोयमेन्ट सहितको [Azure सदस्यता](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` सँग साइन इन गर्नुहोस्
 
-### आवश्यक वातावरण चरहरू
+### आवश्यक वातावरण भेरिएबलहरू
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# त्यसपछि साइन इन गर्नुहोस् ताकि AzureCliCredential ले टोकन प्राप्त गर्न सकोस्
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# पावरशेल
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# त्यसपछि साइन इन गर्नुहोस् ताकि AzureCliCredential ले टोकन प्राप्त गर्न सकून्
+az login
 ```
 
-### नमूना कोड
+### नमुना कोड
 
 कोड उदाहरण चलाउन,
 
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-वा dotnet CLI प्रयोग गरेर:
+वा dotnet CLI मार्फत:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-पूरा कोडको लागि हेर्नुहोस् [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs)।
+पूर्ण कोडका लागि [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) हेर्नुहोस्।
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**अस्वीकरण**:  
-यो दस्तावेज़ AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) प्रयोग गरी अनुवाद गरिएको हो। हामी यथासम्भव शुद्धताको प्रयास गर्छौं, तर कृपया जानकार रहनुहोस् कि स्वचालित अनुवादहरूमा त्रुटिहरू वा अशुद्धताहरू हुन सक्छन्। यसको मूल भाषामा रहेको मूल दस्तावेज़लाई आधिकारिक स्रोत मानिनुपर्छ। महत्त्वपूर्ण जानकारीका लागि, व्यावसायिक मानव अनुवाद सिफारिस गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न हुने कुनै पनि गलतफहमी वा गलत व्याख्याको लागि हामी जिम्मेवार हुने छैनौं।
+**अस्वीकरण**:
+यो दस्तावेज़ AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) प्रयोग गरेर अनुवाद गरिएको हो। हामी सही हुन प्रयास गर्छौं, तर कृपया जानकार हुनुस् कि स्वचालित अनुवादमा त्रुटिहरू वा अशुद्धताहरू हुन सक्छन्। मूल दस्तावेज़ यसको मूल भाषामा आधिकारिक स्रोत मानिनुपर्छ। महत्वपूर्ण जानकारीका लागि व्यावसायिक मानव अनुवाद सिफारिस गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न कुनै पनि गलत बुझाइ वा त्रुटिको लागि हामी जिम्मेवार छैनौं।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

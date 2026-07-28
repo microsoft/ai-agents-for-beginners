@@ -1,32 +1,32 @@
-# 🔍 Enterprise RAG dengan Azure AI Foundry (.NET)
+# 🔍 RAG Perusahaan dengan Microsoft Foundry (.NET)
 
 ## 📋 Objektif Pembelajaran
 
-Notebook ini menunjukkan cara membina sistem Retrieval-Augmented Generation (RAG) bertaraf perusahaan menggunakan Microsoft Agent Framework dalam .NET dengan Azure AI Foundry. Anda akan belajar untuk mencipta agen yang sedia untuk pengeluaran yang boleh mencari dokumen dan memberikan respons yang tepat serta berasaskan konteks dengan keselamatan dan skalabiliti perusahaan.
+Buku nota ini menunjukkan cara membina sistem Retrieval-Augmented Generation (RAG) kelas perusahaan menggunakan Microsoft Agent Framework dalam .NET dengan Microsoft Foundry. Anda akan belajar mencipta ejen yang bersedia untuk pengeluaran yang boleh mencari melalui dokumen dan memberikan jawapan yang tepat, sedar konteks dengan keselamatan dan kemampuan skala perusahaan.
 
-**Keupayaan Enterprise RAG yang Akan Anda Bina:**
-- 📚 **Kecerdasan Dokumen**: Pemprosesan dokumen lanjutan dengan perkhidmatan Azure AI
+**Keupayaan RAG Perusahaan yang Akan Anda Bina:**
+- 📚 **Kepintaran Dokumen**: Pemprosesan dokumen lanjutan dengan perkhidmatan AI Azure
 - 🔍 **Carian Semantik**: Carian vektor berprestasi tinggi dengan ciri perusahaan
 - 🛡️ **Integrasi Keselamatan**: Kawalan akses berasaskan peranan dan corak perlindungan data
-- 🏢 **Arkitektur Skalabiliti**: Sistem RAG sedia pengeluaran dengan pemantauan
+- 🏢 **Senibina Boleh Diskala**: Sistem RAG bersedia pengeluaran dengan pemantauan
 
-## 🎯 Arkitektur Enterprise RAG
+## 🎯 Senibina RAG Perusahaan
 
 ### Komponen Teras Perusahaan
-- **Azure AI Foundry**: Platform AI perusahaan yang diurus dengan keselamatan dan pematuhan
-- **Agen Berterusan**: Agen berkeadaan dengan sejarah perbualan dan pengurusan konteks
-- **Pengurusan Stor Vektor**: Pengindeksan dan pengambilan dokumen bertaraf perusahaan
+- **Microsoft Foundry**: Platform AI perusahaan yang diurus dengan keselamatan dan pematuhan
+- **Ejen Persisten**: Ejen berkeadaan dengan sejarah perbualan dan pengurusan konteks
+- **Pengurusan Stor Vektor**: Pengindeksan dan pengambilan dokumen kelas perusahaan
 - **Integrasi Identiti**: Pengesahan Azure AD dan kawalan akses berasaskan peranan
 
-### Kelebihan .NET untuk Perusahaan
-- **Keselamatan Jenis**: Pengesahan masa kompilasi untuk operasi RAG dan struktur data
-- **Prestasi Asinkron**: Pemprosesan dokumen dan operasi carian tanpa sekatan
+### Manfaat .NET Perusahaan
+- **Keselamatan Jenis**: Pengesahan masa kompilasi untuk operasi dan struktur data RAG
+- **Prestasi Async**: Pemprosesan dokumen dan operasi carian tidak menyekat
 - **Pengurusan Memori**: Penggunaan sumber yang cekap untuk koleksi dokumen besar
-- **Corak Integrasi**: Integrasi perkhidmatan Azure asli dengan suntikan kebergantungan
+- **Corak Integrasi**: Integrasi perkhidmatan Azure asli dengan suntikan bergantung
 
-## 🏗️ Arkitektur Teknikal
+## 🏗️ Senibina Teknikal
 
-### Saluran Enterprise RAG
+### Saluran RAG Perusahaan
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
@@ -34,29 +34,29 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Komponen Teras .NET
-- **Azure.AI.Agents.Persistent**: Pengurusan agen perusahaan dengan ketekalan keadaan
-- **Azure.Identity**: Pengesahan bersepadu untuk akses perkhidmatan Azure yang selamat
-- **Microsoft.Agents.AI.AzureAI**: Pelaksanaan rangka kerja agen yang dioptimumkan untuk Azure
-- **System.Linq.Async**: Operasi LINQ asinkron berprestasi tinggi
+- **Azure.AI.Agents.Persistent**: Pengurusan ejen perusahaan dengan pengekalan keadaan
+- **Azure.Identity**: Pengesahan terintegrasi untuk akses perkhidmatan Azure yang selamat
+- **Microsoft.Agents.AI.AzureAI**: Pelaksanaan rangka kerja ejen yang dioptimumkan untuk Azure
+- **System.Linq.Async**: Operasi LINQ tidak serentak berprestasi tinggi
 
-## 🔧 Ciri & Kelebihan Perusahaan
+## 🔧 Ciri & Manfaat Perusahaan
 
 ### Keselamatan & Pematuhan
 - **Integrasi Azure AD**: Pengurusan identiti dan pengesahan perusahaan
 - **Akses Berasaskan Peranan**: Kebenaran terperinci untuk akses dokumen dan operasi
-- **Perlindungan Data**: Penyulitan semasa rehat dan semasa transit untuk dokumen sensitif
-- **Log Audit**: Penjejakan aktiviti yang komprehensif untuk keperluan pematuhan
+- **Perlindungan Data**: Penyulitan semasa rehat dan dalam transit untuk dokumen sensitif
+- **Log Audit**: Penjejakan aktiviti menyeluruh untuk keperluan pematuhan
 
-### Prestasi & Skalabiliti
+### Prestasi & Kebolehan Skala
 - **Pengumpulan Sambungan**: Pengurusan sambungan perkhidmatan Azure yang cekap
-- **Pemprosesan Asinkron**: Operasi tanpa sekatan untuk senario throughput tinggi
-- **Strategi Caching**: Caching pintar untuk dokumen yang sering diakses
-- **Pengimbangan Beban**: Pemprosesan teragih untuk penyebaran berskala besar
+- **Pemprosesan Async**: Operasi tidak menyekat untuk senario berkeluaran tinggi
+- **Strategi Caching**: Caching pintar untuk dokumen yang kerap diakses
+- **Pengimbangan Beban**: Pemprosesan diedarkan untuk penempatan skala besar
 
 ### Pengurusan & Pemantauan
 - **Pemeriksaan Kesihatan**: Pemantauan terbina dalam untuk komponen sistem RAG
-- **Metrik Prestasi**: Analitik terperinci tentang kualiti carian dan masa respons
-- **Pengendalian Ralat**: Pengurusan pengecualian yang komprehensif dengan polisi ulang
+- **Metik Prestasi**: Analitik terperinci mengenai kualiti carian dan masa tindak balas
+- **Pengendalian Ralat**: Pengurusan pengecualian menyeluruh dengan polisi cuba semula
 - **Pengurusan Konfigurasi**: Tetapan khusus persekitaran dengan pengesahan
 
 ## ⚙️ Prasyarat & Persediaan
@@ -64,7 +64,7 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 **Persekitaran Pembangunan:**
 - .NET 9.0 SDK atau lebih tinggi
 - Visual Studio 2022 atau VS Code dengan sambungan C#
-- Langganan Azure dengan akses AI Foundry
+- Langganan Azure dengan akses Microsoft Foundry
 
 **Pakej NuGet Diperlukan:**
 ```xml
@@ -77,38 +77,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Persediaan Pengesahan Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Pasang Azure CLI dan sahkan diri
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Konfigurasi Persekitaran:**
-* Konfigurasi Azure AI Foundry (ditangani secara automatik melalui Azure CLI)
-* Pastikan anda telah disahkan ke langganan Azure yang betul
+* Konfigurasi Microsoft Foundry (ditangani secara automatik melalui Azure CLI)
+* Pastikan anda diautentikasi ke langganan Azure yang betul
 
-## 📊 Corak Enterprise RAG
+## 📊 Corak RAG Perusahaan
 
 ### Corak Pengurusan Dokumen
 - **Muat Naik Pukal**: Pemprosesan cekap koleksi dokumen besar
-- **Kemas Kini Beransur**: Penambahan dan pengubahsuaian dokumen secara masa nyata
-- **Kawalan Versi**: Penjejakan versi dokumen dan perubahan
+- **Kemas Kini Inkremental**: Penambahan dan pengubahsuaian dokumen masa nyata
+- **Kawalan Versi**: Versi dokumen dan penjejakan perubahan
 - **Pengurusan Metadata**: Atribut dokumen yang kaya dan taksonomi
 
 ### Corak Carian & Pengambilan
 - **Carian Hibrid**: Menggabungkan carian semantik dan kata kunci untuk hasil optimum
-- **Carian Berasaskan Fasa**: Penapisan dan pengkategorian pelbagai dimensi
-- **Penalaan Relevansi**: Algoritma pemarkahan tersuai untuk keperluan khusus domain
-- **Peringkat Hasil**: Pemeringkatan lanjutan dengan integrasi logik perniagaan
+- **Carian Berfasa**: Penapisan dan pengkategorian pelbagai dimensi
+- **Penalaan Kepentingan**: Algoritma penandaan tersuai untuk keperluan khusus domain
+- **Kedudukan Keputusan**: Peringkat lanjutan dengan integrasi logik perniagaan
 
 ### Corak Keselamatan
-- **Keselamatan Tahap Dokumen**: Kawalan akses terperinci bagi setiap dokumen
+- **Keselamatan Tahap Dokumen**: Kawalan akses terperinci per dokumen
 - **Pengelasan Data**: Pelabelan sensitiviti automatik dan perlindungan
-- **Jejak Audit**: Log komprehensif semua operasi RAG
-- **Perlindungan Privasi**: Pengesanan dan penyuntingan PII
+- **Jejak Audit**: Log menyeluruh semua operasi RAG
+- **Perlindungan Privasi**: Kebolehan pengesanan dan penghapusan PII
 
 ## 🔒 Ciri Keselamatan Perusahaan
 
-### Pengesahan & Kebenaran
+### Pengesahan & Pengekalan Kebenaran
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -122,14 +122,14 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Perlindungan Data
-- **Penyulitan**: Penyulitan hujung ke hujung untuk dokumen dan indeks carian
+- **Penyulitan**: Penyulitan menyeluruh untuk dokumen dan indeks carian
 - **Kawalan Akses**: Integrasi dengan Azure AD untuk kebenaran pengguna dan kumpulan
-- **Kediaman Data**: Kawalan lokasi data geografi untuk pematuhan
-- **Sandaran & Pemulihan**: Keupayaan sandaran dan pemulihan bencana automatik
+- **Lokasi Data**: Kawalan lokasi data geografi untuk pematuhan
+- **Sandaran & Pemulihan**: Kebolehan sandaran automatik dan pemulihan bencana
 
 ## 📈 Pengoptimuman Prestasi
 
-### Corak Pemprosesan Asinkron
+### Corak Pemprosesan Async
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -139,52 +139,52 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Pengurusan Memori
-- **Pemprosesan Penstriman**: Mengendalikan dokumen besar tanpa masalah memori
+- **Pemprosesan Penstriman**: Mengendalikan dokumen besar tanpa isu memori
 - **Pengumpulan Sumber**: Penggunaan semula sumber yang mahal dengan cekap
-- **Pengumpulan Sampah**: Corak peruntukan memori yang dioptimumkan
-- **Pengurusan Sambungan**: Kitaran hayat sambungan perkhidmatan Azure yang betul
+- **Pengumpulan Sampah**: Corak pengagihan memori yang dioptimumkan
+- **Pengurusan Sambungan**: Kitar hayat sambungan perkhidmatan Azure yang betul
 
 ### Strategi Caching
-- **Caching Pertanyaan**: Cache carian yang sering dijalankan
-- **Caching Dokumen**: Caching dalam memori untuk dokumen panas
+- **Caching Pertanyaan**: Cache carian yang kerap dilaksanakan
+- **Caching Dokumen**: Caching dalam memori untuk dokumen popular
 - **Caching Indeks**: Caching indeks vektor yang dioptimumkan
-- **Caching Hasil**: Caching pintar respons yang dijana
+- **Caching Keputusan**: Caching pintar bagi jawapan yang dijana
 
 ## 📊 Kes Penggunaan Perusahaan
 
 ### Pengurusan Pengetahuan
-- **Wiki Korporat**: Carian pintar merentasi pangkalan pengetahuan syarikat
-- **Dasar & Prosedur**: Panduan pematuhan dan prosedur automatik
-- **Bahan Latihan**: Bantuan pembelajaran dan pembangunan pintar
+- **Wiki Korporat**: Carian pintar merentas pangkalan pengetahuan syarikat
+- **Polisi & Prosedur**: Pematuhan automatik dan panduan prosedur
+- **Bahan Latihan**: Bantuan pembelajaran dan pembangunan yang pintar
 - **Pangkalan Data Penyelidikan**: Sistem analisis kertas akademik dan penyelidikan
 
 ### Sokongan Pelanggan
-- **Pangkalan Pengetahuan Sokongan**: Respons perkhidmatan pelanggan automatik
-- **Dokumentasi Produk**: Pengambilan maklumat produk pintar
-- **Panduan Penyelesaian Masalah**: Bantuan penyelesaian masalah berasaskan konteks
+- **Pangkalan Pengetahuan Sokongan**: Jawapan perkhidmatan pelanggan automatik
+- **Dokumentasi Produk**: Pengambilan maklumat produk yang pintar
+- **Panduan Penyelesaian Masalah**: Bantuan penyelesaian masalah kontekstual
 - **Sistem FAQ**: Penjanaan FAQ dinamik daripada koleksi dokumen
 
 ### Pematuhan Peraturan
-- **Analisis Dokumen Undang-Undang**: Kecerdasan kontrak dan dokumen undang-undang
+- **Analisis Dokumen Undang-Undang**: Kepintaran kontrak dan dokumen undang-undang
 - **Pemantauan Pematuhan**: Pemeriksaan pematuhan peraturan automatik
 - **Penilaian Risiko**: Analisis dan pelaporan risiko berasaskan dokumen
 - **Sokongan Audit**: Penemuan dokumen pintar untuk audit
 
-## 🚀 Penyebaran Pengeluaran
+## 🚀 Pengeluaran Penempatan
 
 ### Pemantauan & Kebolehlihatan
 - **Application Insights**: Telemetri terperinci dan pemantauan prestasi
-- **Metrik Tersuai**: Penjejakan KPI khusus perniagaan dan amaran
-- **Penjejakan Teragih**: Penjejakan permintaan hujung ke hujung merentasi perkhidmatan
+- **Metik Tersuai**: Penjejakan KPI dan penggera khusus perniagaan
+- **Penjejakan Beredar**: Penjejakan permintaan menyeluruh merentas perkhidmatan
 - **Papan Pemuka Kesihatan**: Visualisasi kesihatan dan prestasi sistem masa nyata
 
-### Skalabiliti & Kebolehpercayaan
+### Kebolehan Skala & Kebolehpercayaan
 - **Auto-Skala**: Penskalaan automatik berdasarkan beban dan metrik prestasi
-- **Ketersediaan Tinggi**: Penyebaran pelbagai wilayah dengan keupayaan failover
+- **Ketersediaan Tinggi**: Penempatan berbilang rantau dengan kebolehan failover
 - **Ujian Beban**: Pengesahan prestasi di bawah keadaan beban perusahaan
 - **Pemulihan Bencana**: Prosedur sandaran dan pemulihan automatik
 
-Sedia untuk membina sistem RAG bertaraf perusahaan yang boleh mengendalikan dokumen sensitif pada skala besar? Mari kita arkitekkan sistem pengetahuan pintar untuk perusahaan! 🏢📖✨
+Bersedia untuk membina sistem RAG kelas perusahaan yang boleh mengendalikan dokumen sensitif pada skala? Mari kita senibina sistem pengetahuan pintar untuk perusahaan! 🏢📖✨
 
 ## Pelaksanaan Kod
 
@@ -193,10 +193,10 @@ Contoh kod lengkap untuk pelajaran ini tersedia dalam `05-dotnet-agent-framework
 Untuk menjalankan contoh:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Jadikan skrip boleh dilaksanakan (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Jalankan Aplikasi Fail Tunggal .NET
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -209,13 +209,15 @@ dotnet run 05-dotnet-agent-framework.cs
 Kod ini menunjukkan:
 
 1. **Pemasangan Pakej**: Memasang pakej NuGet yang diperlukan untuk Azure AI Agents
-2. **Konfigurasi Persekitaran**: Memuatkan tetapan titik akhir dan model Azure AI Foundry
+2. **Konfigurasi Persekitaran**: Memuatkan titik akhir dan tetapan model Microsoft Foundry
 3. **Muat Naik Dokumen**: Memuat naik dokumen untuk pemprosesan RAG
 4. **Penciptaan Stor Vektor**: Mencipta stor vektor untuk carian semantik
-5. **Konfigurasi Agen**: Menyediakan agen AI dengan keupayaan carian fail
-6. **Pelaksanaan Pertanyaan**: Menjalankan pertanyaan terhadap dokumen yang dimuat naik
+5. **Konfigurasi Ejen**: Menyediakan ejen AI dengan keupayaan carian fail
+6. **Pelaksanaan Pertanyaan**: Menjalankan pertanyaan ke atas dokumen yang dimuat naik
 
 ---
 
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat penting, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

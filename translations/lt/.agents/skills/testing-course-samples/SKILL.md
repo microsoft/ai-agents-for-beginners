@@ -3,71 +3,78 @@ name: testing-course-samples
 ---
 # Kurso pavyzdžių testavimas
 
-Patikrinkite, ar pamokų užrašų knygelės ir kodo pavyzdžiai veikia su tiesiogine
-Microsoft Foundry / Azure OpenAI aplinka. Repozitorijoje yra vykdytojas
+Patikrinkite, ar pamokų užrašų knygelės ir kodo pavyzdžiai veikia su veikia
+Microsoft Foundry / Azure OpenAI konfigūracija. Repozitorijoje pateiktas vykdytojas
 [`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1), kuris
-be vartotojo sąsajos vykdo kiekvieną Python užrašų knygelę ir išveda PRABĖGĖ / NEPRABĖGĖ matricą.
+vykdo kiekvieną Python užrašų knygelę be sąveikos ir išspausdina PASIŽIŪRĖTI/NEPASIŽIŪRĖTI matricą.
 
 ## Kada naudoti
-- "Patikrinti visas užrašų knygeles / pavyzdžius su mano Azure prenumerata."
-- "Greitai patikrinti kursą po paketų atnaujinimo ar modelių pakeitimų."
-- "Kurios pamokos vis dar veikia / neveikia tiesiogiai?"
+- "Patikrinti visas užrašų knygeles / pavyzdžius pagal mano Azure prenumeratą."
+- "Greitas kurso testavimas po paketų atnaujinimo ar modelių keitimo."
+- "Kurios pamokos dar veikia / neveikia tiesiogiai?"
 
-**Nenaudokite** šio testavimo metodui AI Smoke Test GitHub Action (kuris tikrina *diegiamus*
-talpinamus agentus — žr. [`tests/README.md`](../../../tests/README.md)). Šis įgūdis
-vykdo užrašų knygeles lokaliai.
+**Nenaudokite** to AI Smoke Test GitHub Action (kuris tikrina *diegtus* 
+talpinamus agentus — žr. [`tests/README.md`](../../../tests/README.md)). Ši priemonė
+paleidžia užrašų knygeles vietoje.
 
-## Išankstiniai reikalavimai (pirmiausia patikrinkite)
+## Išankstiniai reikalavimai (patikrinkite pirmiausia)
 1. **Python 3.12+** su kurso priklausomybėmis: `python -m pip install -r requirements.txt`
-   ir vykdytojas: `python -m pip install nbconvert ipykernel`.
-2. **`.env` failas repozitorijos šaknyje** (nukopijuokite iš [`.env.example`](../../../../../.env.example)) turint bent:
-   - `AZURE_AI_PROJECT_ENDPOINT` — Foundry projekto endpoint'as
+   + vykdytojui: `python -m pip install nbconvert ipykernel`.
+2. **`.env` faile repo šaknyje** (kopijuokite iš [`.env.example`](../../../../../.env.example)) turi būti bent:
+   - `AZURE_AI_PROJECT_ENDPOINT` — Foundry projekto galinis taškas
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — nebenaudojama diegimo versija (pvz., `gpt-4.1-mini`)
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — nepasenęs diegimas (pvz., `gpt-5-mini`)
    - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) ir `AZURE_OPENAI_DEPLOYMENT`
-     pamokoms, kurios tiesiogiai kviečia Azure OpenAI (Pamoka 06, 02-azure-openai, 14 handoff/human-loop).
-3. Įvykdyta **`az login`** — pavyzdžiai autentifikuojasi su `AzureCliCredential` (Entra ID, be rakto).
-4. Patikrinkite, ar modelio diegimas yra:
+     pamokoms, kurios tiesiogiai naudoja Azure OpenAI (06 pamoka, 02-azure-openai, 14 perdavimas/žmogaus ciklas).
+3. Atliktas **`az login`** — pavyzdžiai autentifikuojasi su `AzureCliCredential` (Entra ID, be rakto).
+4. Patikrinkite, ar modelio diegimas egzistuoja:
    `az cognitiveservices account deployment list -g <rg> -n <account> -o table`.
 
-## Vykdyti patikrinimą
+## Tikrinimo vykdymas
 ```powershell
-# Visos Python užrašų knygelės (išskyrus .NET, .venv, site-packages, vertimus, įgūdžių turtą)
+# Visi Python užrašų knygelės (neįtraukia .NET, .venv, site-packages, vertimų, įgūdžių išteklių)
 pwsh scripts/validate-notebooks.ps1
 
-# Viena pamoka, su ilgesniu laiko limitu kiekvienai ląstelei
+# Viena pamoka su ilgesniu laiko limitu kiekvienai ląstelei
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# Tik išvardinti, kas būtų vykdoma (be vykdymo)
+# Tik surašyti, kas būtų vykdoma (vykdymas nevykdomas)
 pwsh scripts/validate-notebooks.ps1 -List
 
 # Aiškus interpretatorius (jei `python` nėra PATH, pvz., Windows Store alias)
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-Skriptas įrašo vykdomas kopijas, per užrašų knygelę žurnalus ir `results.json`
-į `$env:TEMP\aiab-nbval` ir išeina su nepraėjusių skaičiumi.
+Skriptas įrašo vykdomas kopijas, kiekvienos užrašų knygelės žurnalus ir `results.json` į
+`$env:TEMP\aiab-nbval` ir išeina su nepavykusių skaičiumi.
 
-## Rezultatų interpretavimas
-- `PASS` — užrašų knygelė buvo įvykdyta nuosekliai be klaidų langeliuose.
-- `FAIL` — rodoma pirmoji `*Error` / `*Exception` eilutė; pilną klaidos aprašymą žr.
-  atitinkamame `log_*.txt` faile išvesties kataloge.
-- Vienos užrašų knygelės nepavykimas ribojamas `-Timeout` (kiekvienam langeliui), todėl užstrigęs
-  žmogaus įsikišimo langelis matomas kaip `StdinNotImplementedError`, o ne užstringa.
+Laikini nesėkmingi bandymai (bendros prenumeratos HTTP 429 ribos, kartais
+`AzureCliCredential` tokeno klaidos ar timeout) automatiškai bandomi iš naujo
+(`-Retries`, numatyta 2, su `-RetryDelaySeconds` pauze, numatyta 20). Jei
+modelio diegimas nuolat sukelia 429 klaidą, patikrinkite prenumeratos GlobalStandard
+TPM kvotą (`az cognitiveservices usage list -l <region>`) — atskirai didinant vieno
+diegimo pajėgumą nepadeda, kai išeikvota *prenumeratos* kvota.
 
-## Pamokos, kurioms reikalingi papildomi ištekliai (joms be jų testas turi nepavykti)
-| Pamoka | Papildomas reikalavimas |
+## Rezultatų interpretacija
+- `PASS` — užrašų knygelė prabėgo nuo pradžios iki galo be klaidų.
+- `FAIL` — rodoma pirmoji `*Error` / `*Exception` eilutė; atidarykite atitinkamą
+  `log_*.txt` išvesties kataloge, kad matytumėte pilną klaidos seką.
+- Vienos užrašų knygelės nesėkmė ribojama `-Timeout` (vienam langeliui), todėl
+  pakibusį žmogaus ciklo langelį pakeičia `StdinNotImplementedError`, o ne pakimba.
+
+## Pamokos, kurioms reikalingi papildomi ištekliai (tikėtina, kad nepavyks be jų)
+| Pamoka | Papildomi reikalavimai |
 |--------|-------------------|
-| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, raktas) — turi atminties pakaitos kelią |
+| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, raktas) — turi atminties atsarginį kelią |
 | 11 MCP / GitHub | GitHub MCP serveris + PAT |
-| 13 atmintis (cognee) | `cognee` sukonfigūruotas su modelių tiekėju |
+| 13 atmintis (cognee) | `cognee` sukonfigūruotas su modelio tiekėju |
 | 15 naršyklės naudojimas | Įdiegti Playwright naršyklės (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 vietinis agentas | Foundry vietinis vykdymas + atsisiųstas Qwen modelis (vietoje, be debesies) |
-| `*-dotnet-*` užrašų knygelės | .NET Interactive branduolys (pagal nutylėjimą neįtrauktas; naudokite `-IncludeDotnet`) |
+| 17 vietinis agentas | Foundry Local vykdymo aplinka + atsisiųstas Qwen modelis (vietoje, be debesies) |
+| `*-dotnet-*` užrašų knygelės | .NET Interactive branduolys (pagal nutylėjimą išimtas; naudokite `-IncludeDotnet`) |
 
-## Atsiskaitymas
-Apibendrinkite PASS/FAIL lentelę sugrupuotą pagal pamoką. Atskirai pažymėkite tikrus regresus
-(kodo/konfigūracijos klaidas, kurias reikia ištaisyti) nuo aplinkos trūkumų (trūksta Search/Foundry Local/PAT),
-ir nurodykite nepraėjusių atvejų `log_*.txt` failus.
+## Ataskaitos grąžinimas
+Apibendrinkite PASIŽIŪRĖTI/NEPASIŽIŪRĖTI lentelę suskirstytą pagal pamokas. Atskirai nurodykite tikras regresijas
+(kodo / konfigūracijos klaidas) nuo aplinkos trūkumų (neprieinamos Search/Foundry Local/PAT),
+ir paminėkite raspiančius `log_*.txt` failus kiekvienam tikram nesklandumui.
 
 ---
 

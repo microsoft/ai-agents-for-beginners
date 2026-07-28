@@ -1,19 +1,19 @@
-# Bộ nhớ cho các tác nhân AI  
+# Bộ Nhớ cho Các Đại Lý AI 
 [![Agent Memory](../../../translated_images/vi/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Khi thảo luận về những lợi ích độc đáo của việc tạo các tác nhân AI, hai điều chính được đề cập là: khả năng gọi các công cụ để hoàn thành nhiệm vụ và khả năng cải thiện theo thời gian. Bộ nhớ là nền tảng của việc tạo ra tác nhân tự cải tiến có thể tạo ra trải nghiệm tốt hơn cho người dùng của chúng ta.
+Khi thảo luận về lợi ích độc đáo của việc tạo các Đại Lý AI, chủ yếu có hai điều được đề cập: khả năng gọi công cụ để hoàn thành nhiệm vụ và khả năng cải thiện theo thời gian. Bộ nhớ là nền tảng của việc tạo ra đại lý có khả năng tự cải thiện để tạo ra trải nghiệm tốt hơn cho người dùng của chúng ta.
 
-Trong bài học này, chúng ta sẽ xem xét bộ nhớ là gì đối với các tác nhân AI và cách quản lý cũng như sử dụng nó để mang lại lợi ích cho các ứng dụng của chúng ta.
+Trong bài học này, chúng ta sẽ xem xét bộ nhớ là gì đối với các Đại Lý AI và cách chúng ta có thể quản lý và sử dụng nó vì lợi ích của các ứng dụng của mình.
 
 ## Giới thiệu
 
 Bài học này sẽ bao gồm:
 
-• **Hiểu về Bộ nhớ của Tác nhân AI**: Bộ nhớ là gì và tại sao nó quan trọng đối với các tác nhân.
+• **Hiểu về Bộ Nhớ của Đại Lý AI**: Bộ nhớ là gì và tại sao nó quan trọng đối với các đại lý.
 
-• **Triển khai và Lưu trữ Bộ nhớ**: Các phương pháp thực tế để thêm khả năng bộ nhớ cho tác nhân AI của bạn, tập trung vào bộ nhớ ngắn hạn và dài hạn.
+• **Triển khai và Lưu trữ Bộ Nhớ**: Các phương pháp thực tiễn để thêm khả năng bộ nhớ vào các đại lý AI của bạn, tập trung vào bộ nhớ ngắn hạn và dài hạn.
 
-• **Làm thế nào để các Tác nhân AI tự cải tiến**: Bộ nhớ giúp các tác nhân học từ các tương tác trước đó và cải thiện theo thời gian như thế nào.
+• **Làm cho Đại Lý AI Tự Cải Thiện**: Cách bộ nhớ giúp các đại lý học hỏi từ các tương tác trước và cải thiện theo thời gian.
 
 ## Các Triển khai Có sẵn
 
@@ -21,149 +21,155 @@ Bài học này bao gồm hai hướng dẫn notebook toàn diện:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Triển khai bộ nhớ sử dụng Mem0 và Azure AI Search với Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Triển khai bộ nhớ có cấu trúc sử dụng Cognee, tự động xây dựng biểu đồ tri thức hỗ trợ bởi embeddings, trực quan hóa biểu đồ, và truy xuất thông minh
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Triển khai bộ nhớ có cấu trúc sử dụng Cognee, tự động xây dựng đồ thị tri thức dựa trên embedding, trực quan hóa đồ thị và truy xuất thông minh
 
-## Mục tiêu học tập
+## Mục Tiêu Học Tập
 
 Sau khi hoàn thành bài học này, bạn sẽ biết cách:
 
-• **Phân biệt các loại bộ nhớ khác nhau của tác nhân AI**, bao gồm bộ nhớ làm việc, bộ nhớ ngắn hạn và bộ nhớ dài hạn, cũng như các dạng đặc biệt như bộ nhớ cá nhân và bộ nhớ theo tập.
+• **Phân biệt giữa các loại bộ nhớ khác nhau của đại lý AI**, bao gồm bộ nhớ làm việc, ngắn hạn và dài hạn, cũng như các dạng chuyên biệt như bộ nhớ cá tính và bộ nhớ tập sự.
 
-• **Triển khai và quản lý bộ nhớ ngắn hạn và dài hạn cho các tác nhân AI** sử dụng Microsoft Agent Framework, tận dụng các công cụ như Mem0, Cognee, bộ nhớ Whiteboard, và tích hợp với Azure AI Search.
+• **Triển khai và quản lý bộ nhớ ngắn hạn và dài hạn cho các đại lý AI** sử dụng Microsoft Agent Framework, tận dụng các công cụ như Mem0, Cognee, bộ nhớ Whiteboard, và tích hợp với Azure AI Search.
 
-• **Hiểu các nguyên tắc đằng sau các tác nhân AI tự cải tiến** và cách các hệ thống quản lý bộ nhớ thích hợp đóng góp vào việc học liên tục và thích nghi.
+• **Hiểu các nguyên tắc đằng sau các đại lý AI tự cải thiện** và cách các hệ thống quản lý bộ nhớ mạnh mẽ góp phần vào việc học liên tục và thích nghi.
 
-## Hiểu về Bộ nhớ của Tác nhân AI
+## Hiểu về Bộ Nhớ Đại Lý AI
 
-Về cốt lõi, **bộ nhớ cho các tác nhân AI đề cập đến các cơ chế cho phép chúng giữ và nhớ lại thông tin**. Thông tin này có thể là chi tiết cụ thể về một cuộc trò chuyện, sở thích của người dùng, các hành động trước đây, hoặc thậm chí các mẫu đã học.
+Về cơ bản, **bộ nhớ cho các đại lý AI đề cập đến các cơ chế cho phép họ lưu giữ và nhớ lại thông tin**. Thông tin này có thể là các chi tiết cụ thể về một cuộc trò chuyện, sở thích người dùng, hành động trước đây hoặc thậm chí mẫu đã học.
 
-Không có bộ nhớ, các ứng dụng AI thường không trạng thái (stateless), nghĩa là mỗi lần tương tác bắt đầu lại từ đầu. Điều này dẫn đến trải nghiệm người dùng lặp đi lặp lại và gây khó chịu khi tác nhân "quên" bối cảnh hoặc sở thích trước đó.
+Nếu không có bộ nhớ, các ứng dụng AI thường không trạng thái, nghĩa là mỗi tương tác bắt đầu lại từ đầu. Điều này dẫn đến trải nghiệm người dùng lặp đi lặp lại và gây khó chịu, nơi đại lý "quên" bối cảnh hoặc sở thích trước đó.
 
-### Tại sao Bộ nhớ quan trọng?
+### Vì sao Bộ Nhớ lại Quan Trọng?
 
-Trí thông minh của một tác nhân gắn chặt với khả năng nhớ lại và sử dụng thông tin trong quá khứ. Bộ nhớ cho phép các tác nhân:
+trí thông minh của một đại lý gắn liền mật thiết với khả năng nhớ lại và sử dụng thông tin trong quá khứ. Bộ nhớ cho phép các đại lý:
 
-• **Phản ánh**: Học từ các hành động và kết quả trước đó.
+• **Phản chiếu**: Học hỏi từ các hành động và kết quả trước đó.
 
-• **Tương tác**: Duy trì ngữ cảnh trong suốt một cuộc trò chuyện đang diễn ra.
+• **Tương tác**: Duy trì bối cảnh trong một cuộc trò chuyện đang diễn ra.
 
-• **Chủ động và Phản ứng**: Dự đoán nhu cầu hoặc phản hồi phù hợp dựa trên dữ liệu lịch sử.
+• **Chủ động và Phản hồi**: Dự đoán nhu cầu hoặc phản ứng phù hợp dựa trên dữ liệu lịch sử.
 
-• **Tự chủ**: Hoạt động độc lập hơn bằng cách dựa vào kiến thức đã lưu trữ.
+• **Tự chủ**: Hoạt động độc lập hơn bằng cách dựa trên kiến thức đã lưu trữ.
 
-Mục tiêu của việc triển khai bộ nhớ là làm cho các tác nhân trở nên **đáng tin cậy và có khả năng hơn**.
+Mục tiêu của việc triển khai bộ nhớ là làm cho các đại lý trở nên **đáng tin cậy và có khả năng hơn**.
 
-### Các loại Bộ nhớ
+### Các Loại Bộ Nhớ
 
-#### Bộ nhớ làm việc
+#### Bộ Nhớ Làm Việc
 
-Hãy tưởng tượng đây như một mảnh giấy nháp mà tác nhân sử dụng trong một nhiệm vụ hoặc quá trình suy nghĩ đang diễn ra. Nó giữ thông tin ngay lập tức cần thiết để tính toán bước tiếp theo.
+Hãy coi đây là một mảnh giấy nháp mà đại lý sử dụng trong một nhiệm vụ hoặc quá trình suy nghĩ đang diễn ra. Nó giữ thông tin ngay lập tức cần thiết để tính toán bước tiếp theo.
 
-Đối với các tác nhân AI, bộ nhớ làm việc thường ghi lại những thông tin liên quan nhất từ một cuộc trò chuyện, ngay cả khi lịch sử trò chuyện đầy đủ dài hoặc bị cắt bớt. Nó tập trung vào việc trích xuất các yếu tố chính như yêu cầu, đề xuất, quyết định, và hành động.
+Đối với các đại lý AI, bộ nhớ làm việc thường lưu giữ thông tin quan trọng nhất từ một cuộc trò chuyện, ngay cả khi lịch sử trò chuyện đầy đủ dài hoặc bị cắt bớt. Nó tập trung vào việc trích xuất các yếu tố chính như yêu cầu, đề xuất, quyết định và hành động.
 
-**Ví dụ về Bộ nhớ làm việc**
+**Ví dụ về Bộ Nhớ Làm Việc**
 
-Trong một tác nhân đặt chuyến đi, bộ nhớ làm việc có thể ghi lại yêu cầu hiện tại của người dùng, ví dụ "Tôi muốn đặt chuyến đi đến Paris". Yêu cầu cụ thể này được giữ trong ngữ cảnh hiện tại của tác nhân để hướng dẫn tương tác hiện tại.
+Trong một đại lý đặt vé du lịch, bộ nhớ làm việc có thể ghi nhớ yêu cầu hiện tại của người dùng, chẳng hạn "Tôi muốn đặt một chuyến đi đến Paris". Yêu cầu cụ thể này được giữ trong bối cảnh ngay lập tức của đại lý để hướng dẫn tương tác hiện tại.
 
-#### Bộ nhớ ngắn hạn
+#### Bộ Nhớ Ngắn Hạn
 
-Loại bộ nhớ này giữ thông tin trong suốt thời gian của một cuộc trò chuyện hoặc phiên làm việc duy nhất. Đây là ngữ cảnh của cuộc trò chuyện hiện tại, cho phép tác nhân tham khảo lại các lượt trao đổi trước đó.
+Loại bộ nhớ này giữ thông tin trong suốt một cuộc trò chuyện hoặc phiên làm việc duy nhất. Đây là bối cảnh của cuộc trò chuyện hiện tại, cho phép đại lý tham chiếu lại các lượt trước trong hội thoại.
 
-Trong các mẫu SDK Python của [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), điều này tương ứng với `AgentSession`, được tạo bằng `agent.create_session()`. Phiên làm việc là bộ nhớ ngắn hạn tích hợp trong framework: nó giữ bối cảnh cuộc trò chuyện trong khi phiên đó được dùng lại, nhưng bối cảnh này không được lưu giữ sau khi phiên kết thúc hoặc ứng dụng khởi động lại. Hãy sử dụng bộ nhớ dài hạn cho các dữ liệu và sở thích cần tồn tại qua các phiên làm việc, thường thông qua cơ sở dữ liệu, chỉ mục vector, hoặc kho lưu trữ bền vững khác.
+Trong các mẫu SDK Python của [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), điều này tương ứng với `AgentSession`, được tạo bằng `agent.create_session()`. Phiên làm việc là bộ nhớ ngắn hạn tích hợp sẵn của framework: nó giữ bối cảnh trò chuyện có sẵn khi cùng một phiên được sử dụng lại, nhưng bối cảnh đó không được lưu khi phiên kết thúc hoặc ứng dụng khởi động lại. Sử dụng bộ nhớ dài hạn cho các sự thật và sở thích cần tồn tại qua các phiên, thường thông qua cơ sở dữ liệu, chỉ mục vector, hoặc một kho lưu trữ bền vững khác.
 
-**Ví dụ về Bộ nhớ ngắn hạn**
+**Ví dụ về Bộ Nhớ Ngắn Hạn**
 
-Nếu người dùng hỏi, "Một chuyến bay đến Paris giá bao nhiêu?" rồi sau đó hỏi tiếp "Còn chỗ ở thì sao?", bộ nhớ ngắn hạn đảm bảo tác nhân biết rằng "ở đó" là chỉ "Paris" trong cùng cuộc trò chuyện.
+Nếu người dùng hỏi, "Giá vé máy bay đến Paris là bao nhiêu?" và sau đó tiếp tục với "Còn chỗ ở thì sao?", bộ nhớ ngắn hạn đảm bảo đại lý biết "ở đó" đề cập đến "Paris" trong cùng một cuộc trò chuyện.
 
-#### Bộ nhớ dài hạn
+#### Bộ Nhớ Dài Hạn
 
-Đây là thông tin tồn tại qua nhiều cuộc trò chuyện hoặc phiên làm việc khác nhau. Nó cho phép các tác nhân nhớ sở thích người dùng, tương tác lịch sử, hoặc kiến thức chung trong thời gian dài. Việc này rất quan trọng cho cá nhân hóa.
+Đây là thông tin tồn tại qua nhiều cuộc trò chuyện hoặc phiên làm việc. Nó cho phép các đại lý nhớ sở thích người dùng, các tương tác lịch sử hoặc kiến thức chung trong thời gian dài. Điều này quan trọng cho việc cá nhân hóa.
 
-**Ví dụ về Bộ nhớ dài hạn**
+**Ví dụ về Bộ Nhớ Dài Hạn**
 
-Một bộ nhớ dài hạn có thể lưu trữ rằng "Ben thích trượt tuyết và các hoạt động ngoài trời, thích cà phê có view núi, và muốn tránh các đường trượt khó do chấn thương trong quá khứ". Thông tin này, được học từ các tương tác trước đây, ảnh hưởng đến các đề xuất trong các phiên lập kế hoạch du lịch tương lai, làm cho chúng rất cá nhân hoá.
+Bộ nhớ dài hạn có thể lưu rằng "Ben thích trượt tuyết và các hoạt động ngoài trời, thích cà phê với tầm nhìn núi, và muốn tránh các dốc trượt hiểm hóc do một chấn thương trước đây". Thông tin này, được học từ các tương tác trước, ảnh hưởng đến các đề xuất trong các phiên lên kế hoạch du lịch trong tương lai, làm cho chúng rất cá nhân hóa.
 
-#### Bộ nhớ cá nhân (Persona Memory)
+#### Bộ Nhớ Cá Tính
 
-Loại bộ nhớ đặc biệt này giúp tác nhân phát triển một "tính cách" hoặc "nhân vật" nhất quán. Nó cho phép tác nhân nhớ các chi tiết về chính mình hoặc vai trò dự kiến, làm cho các tương tác trở nên mượt mà và tập trung hơn.
+Loại bộ nhớ chuyên biệt này giúp một đại lý phát triển "tính cách" hoặc "cá tính" nhất quán. Nó cho phép đại lý nhớ các chi tiết về bản thân hoặc vai trò dự định, làm cho các tương tác trở nên mạch lạc và tập trung hơn.
 
-**Ví dụ về Bộ nhớ cá nhân**
+**Ví dụ về Bộ Nhớ Cá Tính**
+Nếu đại lý du lịch được thiết kế để là một "chuyên gia lên kế hoạch trượt tuyết," bộ nhớ cá tính có thể củng cố vai trò này, ảnh hưởng đến câu trả lời của nó để phù hợp với giọng điệu và kiến thức của một chuyên gia.
 
-Nếu tác nhân du lịch được thiết kế như một "chuyên gia lập kế hoạch trượt tuyết," bộ nhớ cá nhân có thể củng cố vai trò này, ảnh hưởng đến câu trả lời sao cho phù hợp với giọng điệu và kiến thức của một chuyên gia.
+#### Bộ Nhớ Quy Trình Tác Vụ / Tập Sự
 
-#### Bộ nhớ Quy trình / Theo tập (Workflow/Episodic Memory)
+Bộ nhớ này lưu lại chuỗi các bước đại lý thực hiện trong một nhiệm vụ phức tạp, bao gồm những thành công và thất bại. Nó giống như việc nhớ các "tập sự" hoặc trải nghiệm trong quá khứ để học hỏi từ chúng.
 
-Bộ nhớ này lưu trữ chuỗi các bước tác nhân thực hiện trong một nhiệm vụ phức tạp, bao gồm cả thành công và thất bại. Nó giống như việc ghi nhớ các "tập phim" hoặc kinh nghiệm trong quá khứ để rút ra bài học.
+**Ví dụ về Bộ Nhớ Tập Sự**
 
-**Ví dụ về Bộ nhớ theo tập**
+Nếu đại lý cố gắng đặt một chuyến bay cụ thể nhưng thất bại do hết chỗ, bộ nhớ tập sự có thể ghi lại thất bại này, cho phép đại lý thử các chuyến bay thay thế hoặc thông báo cho người dùng về vấn đề một cách có hiểu biết hơn trong lần thử tiếp theo.
 
-Nếu tác nhân cố gắng đặt một chuyến bay cụ thể nhưng thất bại do vé không có, bộ nhớ theo tập có thể ghi lại thất bại này, cho phép tác nhân thử các chuyến bay thay thế hoặc thông báo cho người dùng về vấn đề một cách hiểu biết hơn trong lần thử sau.
+#### Bộ Nhớ Thực Thể
 
-#### Bộ nhớ Thực thể (Entity Memory)
+Điều này liên quan đến việc trích xuất và nhớ các thực thể cụ thể (như người, địa điểm hoặc vật thể) và các sự kiện từ các cuộc trò chuyện. Nó cho phép đại lý xây dựng sự hiểu biết có cấu trúc về các yếu tố chính đã được thảo luận.
 
-Bộ nhớ này liên quan đến việc trích xuất và ghi nhớ các thực thể cụ thể (như con người, địa điểm, hoặc vật thể) và sự kiện từ các cuộc trò chuyện. Nó cho phép tác nhân xây dựng một hiểu biết có cấu trúc về các yếu tố chính được thảo luận.
+**Ví dụ về Bộ Nhớ Thực Thể**
 
-**Ví dụ về Bộ nhớ Thực thể**
+Từ một cuộc trò chuyện về chuyến đi trước, đại lý có thể trích xuất "Paris," "Tháp Eiffel," và "bữa tối tại nhà hàng Le Chat Noir" như các thực thể. Trong tương tác tương lai, đại lý có thể nhớ lại "Le Chat Noir" và đề nghị đặt chỗ mới ở đó.
 
-Từ một cuộc trò chuyện về chuyến đi trước đây, tác nhân có thể trích xuất "Paris," "Tháp Eiffel," và "bữa tối tại nhà hàng Le Chat Noir" như các thực thể. Trong tương tác tương lai, tác nhân có thể nhớ "Le Chat Noir" và đề nghị đặt chỗ lại tại đó.
+#### Structured RAG (Retrieval Augmented Generation - Tăng cường Truy xuất có Cấu trúc)
 
-#### RAG có cấu trúc (Structured RAG - Retrieval Augmented Generation)
-
-Trong khi RAG là một kỹ thuật rộng hơn, "Structured RAG" được nhấn mạnh như một công nghệ bộ nhớ mạnh mẽ. Nó trích xuất thông tin đặc, có cấu trúc từ nhiều nguồn khác nhau (cuộc trò chuyện, email, hình ảnh) và sử dụng nó để nâng cao độ chính xác, khả năng nhớ lại và tốc độ phản hồi. Khác với RAG cổ điển chỉ dựa trên sự tương đồng ngữ nghĩa, Structured RAG làm việc với cấu trúc vốn có của thông tin.
+Trong khi RAG là một kỹ thuật rộng hơn, "Structured RAG" được nhấn mạnh như một công nghệ bộ nhớ mạnh mẽ. Nó trích xuất thông tin đặc, có cấu trúc từ nhiều nguồn khác nhau (cuộc trò chuyện, email, hình ảnh) và sử dụng chúng để tăng độ chính xác, khả năng truy xuất và tốc độ trả lời. Khác với RAG cổ điển chỉ dựa vào sự tương đồng ngữ nghĩa, Structured RAG làm việc với cấu trúc vốn có của thông tin.
 
 **Ví dụ về Structured RAG**
 
-Thay vì chỉ đối chiếu từ khóa, Structured RAG có thể phân tích chi tiết chuyến bay (đích đến, ngày giờ, hãng bay) từ một email và lưu trữ chúng theo cách có cấu trúc. Điều này cho phép truy vấn chính xác như "Tôi đã đặt chuyến bay đến Paris vào thứ Ba nào?"
+Thay vì chỉ khớp từ khóa, Structured RAG có thể phân tích chi tiết chuyến bay (đích đến, ngày, giờ, hãng hàng không) từ một email và lưu trữ theo cách có cấu trúc. Điều này cho phép truy vấn chính xác như "Tôi đã đặt chuyến bay nào đến Paris vào thứ Ba?"
 
-## Triển khai và Lưu trữ Bộ nhớ
+## Triển khai và Lưu trữ Bộ Nhớ
 
-Triển khai bộ nhớ cho các tác nhân AI liên quan đến một quy trình hệ thống về **quản lý bộ nhớ**, bao gồm tạo, lưu trữ, truy xuất, tích hợp, cập nhật, và thậm chí "quên" (hay xóa) thông tin. Việc truy xuất là một khía cạnh đặc biệt quan trọng.
+Triển khai bộ nhớ cho các đại lý AI bao gồm một quá trình hệ thống của **quản lý bộ nhớ**, bao gồm tạo, lưu trữ, truy xuất, tích hợp, cập nhật và thậm chí "quên" (hoặc xóa) thông tin. Truy xuất là một khía cạnh đặc biệt quan trọng.
 
-### Công cụ Bộ nhớ chuyên biệt
+### Công Cụ Bộ Nhớ Chuyên Biệt
 
 #### Mem0
 
-Một cách để lưu trữ và quản lý bộ nhớ tác nhân là sử dụng các công cụ chuyên biệt như Mem0. Mem0 hoạt động như một lớp bộ nhớ bền vững, cho phép tác nhân nhớ lại các tương tác liên quan, lưu trữ sở thích người dùng và bối cảnh thực tế, và học từ thành công cũng như thất bại theo thời gian. Ý tưởng ở đây là biến các tác nhân không trạng thái thành có trạng thái.
+Một cách để lưu trữ và quản lý bộ nhớ đại lý là sử dụng các công cụ chuyên biệt như Mem0. Mem0 hoạt động như một lớp bộ nhớ bền vững, cho phép các đại lý nhớ lại các tương tác liên quan, lưu sở thích người dùng và bối cảnh thực tế, và học hỏi từ thành công và thất bại theo thời gian. Ý tưởng ở đây là các đại lý không trạng thái trở thành có trạng thái.
 
-Nó hoạt động qua **quy trình bộ nhớ hai giai đoạn: trích xuất và cập nhật**. Đầu tiên, các tin nhắn được thêm vào luồng của tác nhân được gửi đến dịch vụ Mem0, sử dụng Mô hình Ngôn ngữ Lớn (LLM) để tóm tắt lịch sử cuộc trò chuyện và trích xuất các ký ức mới. Sau đó, giai đoạn cập nhật do LLM điều khiển xác định có nên thêm, sửa đổi, hay xóa những ký ức này, lưu chúng vào hệ thống dữ liệu lai có thể bao gồm cơ sở dữ liệu vector, biểu đồ, và key-value. Hệ thống này cũng hỗ trợ nhiều loại bộ nhớ và có thể kết hợp bộ nhớ biểu đồ để quản lý các mối quan hệ giữa các thực thể.
+Nó hoạt động qua **quy trình bộ nhớ hai giai đoạn: trích xuất và cập nhật**. Đầu tiên, các tin nhắn thêm vào luồng của đại lý được gửi đến dịch vụ Mem0, sử dụng Mô Hình Ngôn Ngữ Lớn (LLM) để tóm tắt lịch sử trò chuyện và trích xuất các ký ức mới. Sau đó, một giai đoạn cập nhật do LLM điều khiển xác định xem có nên thêm, sửa đổi, hay xóa các ký ức này, lưu chúng trong một kho dữ liệu lai có thể bao gồm cơ sở dữ liệu vector, đồ thị, và khóa-giá trị. Hệ thống này cũng hỗ trợ nhiều loại bộ nhớ và có thể tích hợp bộ nhớ đồ thị để quản lý mối quan hệ giữa các thực thể.
 
 #### Cognee
 
-Một cách tiếp cận mạnh mẽ khác là sử dụng **Cognee**, một bộ nhớ ngữ nghĩa mã nguồn mở cho các tác nhân AI biến dữ liệu cấu trúc và phi cấu trúc thành biểu đồ tri thức có thể truy vấn hỗ trợ bởi embeddings. Cognee cung cấp **kiến trúc lưu trữ kép** kết hợp tìm kiếm tương đồng vector với các mối quan hệ biểu đồ, cho phép các tác nhân hiểu không chỉ thông tin nào giống nhau mà còn cách các khái niệm liên quan với nhau.
+Một phương pháp mạnh mẽ khác là sử dụng **Cognee**, bộ nhớ ngữ nghĩa mã nguồn mở cho các đại lý AI, chuyển đổi dữ liệu có cấu trúc và không có cấu trúc thành đồ thị tri thức có thể truy vấn dựa trên embedding. Cognee cung cấp kiến trúc **kép kho lưu trữ** kết hợp tìm kiếm tương đồng vector với các mối quan hệ đồ thị, cho phép đại lý hiểu không chỉ thông tin nào là tương tự mà còn cách các khái niệm liên quan với nhau.
 
-Nó nổi trội trong **truy xuất lai** pha trộn tìm kiếm tương đồng vector, cấu trúc biểu đồ, và lý luận LLM - từ truy vấn khối dữ liệu thô đến trả lời câu hỏi có nhận thức biểu đồ. Hệ thống duy trì **bộ nhớ sống** phát triển và mở rộng đồng thời vẫn có thể truy vấn dưới dạng một biểu đồ kết nối, hỗ trợ cả ngữ cảnh phiên ngắn hạn và bộ nhớ bền vững dài hạn.
+Nó xuất sắc trong việc **truy xuất lai** kết hợp tương đồng vector, cấu trúc đồ thị, và lý luận LLM - từ tra cứu mảnh dữ liệu thô đến trả lời câu hỏi nhận biết đồ thị. Hệ thống duy trì **bộ nhớ sống** phát triển và mở rộng trong khi vẫn có thể truy vấn như một đồ thị kết nối, hỗ trợ cả bối cảnh phiên làm việc ngắn hạn và bộ nhớ bền vững dài hạn.
 
-Hướng dẫn notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) minh họa việc xây dựng lớp bộ nhớ thống nhất này, với các ví dụ thực tế về nhập liệu từ nhiều nguồn dữ liệu khác nhau, trực quan hóa biểu đồ tri thức, và truy vấn với các chiến lược tìm kiếm khác nhau phù hợp với nhu cầu cụ thể của tác nhân.
+Notebook hướng dẫn Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) minh họa việc xây dựng lớp bộ nhớ hợp nhất này, với các ví dụ thực tế về nhập nguồn dữ liệu đa dạng, trực quan hóa đồ thị tri thức, và truy vấn với các chiến lược tìm kiếm khác nhau phù hợp với nhu cầu cụ thể của đại lý.
 
-### Lưu trữ Bộ nhớ với RAG
+### Lưu trữ Bộ Nhớ với RAG
 
-Ngoài các công cụ bộ nhớ chuyên biệt như mem0, bạn có thể tận dụng các dịch vụ tìm kiếm mạnh mẽ như **Azure AI Search làm backend để lưu trữ và truy xuất ký ức**, đặc biệt cho Structured RAG.
+Ngoài các công cụ bộ nhớ chuyên biệt như Mem0, bạn có thể tận dụng các dịch vụ tìm kiếm mạnh mẽ như **Azure AI Search làm backend để lưu trữ và truy xuất ký ức**, đặc biệt cho Structured RAG.
 
-Điều này cho phép bạn làm nền tảng câu trả lời của tác nhân dựa trên dữ liệu của riêng bạn, đảm bảo câu trả lời phù hợp và chính xác hơn. Azure AI Search có thể được dùng lưu trữ ký ức du lịch cá nhân, danh mục sản phẩm, hoặc bất kỳ kiến thức chuyên môn nào khác.
+Điều này cho phép bạn căn cứ câu trả lời của đại lý vào dữ liệu của riêng bạn, đảm bảo câu trả lời chính xác và phù hợp hơn. Azure AI Search có thể được sử dụng để lưu trữ ký ức du lịch cụ thể của người dùng, danh mục sản phẩm hoặc bất kỳ kiến thức chuyên ngành nào khác.
 
-Azure AI Search hỗ trợ các tính năng như **Structured RAG**, vượt trội trong việc trích xuất và truy xuất thông tin đặc, có cấu trúc từ các bộ dữ liệu lớn như lịch sử cuộc trò chuyện, email, hoặc thậm chí hình ảnh. Điều này cung cấp "độ chính xác và khả năng nhớ lại siêu phàm" so với cách tiếp cận chia nhỏ văn bản và nhúng truyền thống.
+Azure AI Search hỗ trợ các khả năng như **Structured RAG**, nổi bật trong việc trích xuất và truy xuất thông tin đặc, có cấu trúc từ các tập dữ liệu lớn như lịch sử trò chuyện, email, hoặc thậm chí hình ảnh. Điều này mang lại "độ chính xác và độ thu hồi siêu việt" so với các phương pháp chia nhỏ văn bản và embedding truyền thống.
 
-## Làm cho các Tác nhân AI tự Cải tiến
+## Làm Cho Các Đại Lý AI Tự Cải Thiện
 
-Mẫu phổ biến cho các tác nhân tự cải tiến liên quan đến việc giới thiệu một **"tác nhân tri thức"** riêng biệt. Tác nhân này quan sát cuộc trò chuyện chính giữa người dùng và tác nhân chính. Vai trò của nó là:
+Một mô hình phổ biến cho đại lý tự cải thiện bao gồm việc giới thiệu một **"đại lý kiến thức"**. Đại lý riêng biệt này quan sát cuộc trò chuyện chính giữa người dùng và đại lý chính. Vai trò của nó là:
 
-1. **Xác định thông tin có giá trị**: Xem phần nào của cuộc trò chuyện đáng được lưu lại như tri thức chung hoặc sở thích người dùng cụ thể.
+1. **Xác định thông tin có giá trị**: Xác định xem phần nào của cuộc trò chuyện đáng lưu giữ như kiến thức chung hoặc sở thích người dùng cụ thể.
 
-2. **Trích xuất và tóm tắt**: Đúc kết những bài học hoặc sở thích quan trọng từ cuộc trò chuyện.
+2. **Trích xuất và tóm tắt**: Chiết xuất kiến thức hoặc sở thích thiết yếu từ cuộc trò chuyện.
 
-3. **Lưu trữ trong cơ sở tri thức**: Ghi nhận thông tin đã trích xuất, thường trong cơ sở dữ liệu vector, để có thể truy xuất sau này.
+3. **Lưu trữ vào cơ sở kiến thức**: Lưu giữ thông tin trích xuất, thường trong cơ sở dữ liệu vector, để có thể truy xuất sau này.
 
-4. **Tăng cường truy vấn tương lai**: Khi người dùng bắt đầu truy vấn mới, tác nhân tri thức truy xuất thông tin liên quan đã lưu và thêm vào lời nhắc của người dùng, cung cấp ngữ cảnh quan trọng cho tác nhân chính (tương tự như RAG).
+4. **Tăng cường các truy vấn tương lai**: Khi người dùng bắt đầu truy vấn mới, đại lý kiến thức truy xuất thông tin liên quan đã lưu và đính kèm nó vào lời nhắc của người dùng, cung cấp bối cảnh quan trọng cho đại lý chính (tương tự như RAG).
 
-### Tối ưu hóa cho Bộ nhớ
+### Tối Ưu Hóa cho Bộ Nhớ
 
-• **Quản lý Độ trễ**: Để tránh làm chậm tương tác với người dùng, một mô hình nhanh, rẻ hơn có thể được sử dụng ban đầu để nhanh chóng kiểm tra xem thông tin có đáng lưu hoặc truy xuất không, chỉ kích hoạt quy trình trích xuất/truy xuất phức tạp hơn khi cần thiết.
+• **Quản lý Độ Trễ**: Để tránh làm chậm tương tác người dùng, một mô hình rẻ hơn và nhanh hơn có thể được sử dụng ban đầu để nhanh chóng kiểm tra xem thông tin có giá trị để lưu hoặc truy xuất không, chỉ gọi quy trình trích xuất/truy xuất phức tạp hơn khi cần thiết.
 
-• **Bảo trì Cơ sở tri thức**: Với cơ sở tri thức đang phát triển, thông tin ít được sử dụng có thể được chuyển vào "lưu trữ lạnh" để quản lý chi phí.
+• **Bảo Trì Cơ Sở Kiến Thức**: Đối với cơ sở kiến thức đang phát triển, thông tin ít được sử dụng có thể được chuyển sang "lưu trữ lạnh" để quản lý chi phí.
 
-## Còn câu hỏi nào về Bộ nhớ Tác nhân?
+## Có Thắc Mắc Hơn Về Bộ Nhớ Đại Lý?
 
-Tham gia cộng đồng [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ học và nhận câu trả lời cho các câu hỏi về Tác nhân AI.
+Tham gia [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) để gặp gỡ những người học khác, tham dự giờ làm việc và nhận câu trả lời cho các câu hỏi về Đại Lý AI của bạn.
+## Bài Học Trước
+
+[Kỹ Thuật Bối Cảnh cho Đại Lý AI](../12-context-engineering/README.md)
+
+## Bài Học Tiếp Theo
+
+[Khám Phá Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)
 
 ---
 

@@ -1,42 +1,42 @@
-[![Godne zaufania agenty AI](../../../translated_images/pl/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Godni Zaufania Agenci AI](../../../translated_images/pl/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Kliknij powyższy obraz, aby obejrzeć wideo z tej lekcji)_
+> _(Kliknij powyższy obraz, aby zobaczyć wideo z tej lekcji)_
 
-# Budowanie godnych zaufania agentów AI
+# Tworzenie Godnych Zaufania Agentów AI
 
 ## Wprowadzenie
 
-W tej lekcji omówimy:
+Ta lekcja obejmie:
 
-- Jak budować i wdrażać bezpieczne i skuteczne agenty AI
-- Ważne zagadnienia związane z bezpieczeństwem podczas tworzenia agentów AI
-- Jak zachować prywatność danych i użytkowników podczas tworzenia agentów AI
+- Jak budować i wdrażać bezpieczne i skuteczne Agentów AI
+- Ważne aspekty bezpieczeństwa podczas tworzenia Agentów AI.
+- Jak zachować prywatność danych i użytkowników podczas tworzenia Agentów AI.
 
-## Cele nauki
+## Cele Nauki
 
 Po ukończeniu tej lekcji będziesz wiedzieć, jak:
 
-- Identyfikować i łagodzić ryzyka podczas tworzenia agentów AI
-- Wdrażać środki bezpieczeństwa, aby właściwie zarządzać danymi i dostępem
-- Tworzyć agentów AI, którzy chronią prywatność danych i zapewniają wysoką jakość doświadczenia użytkownika
+- Identyfikować i łagodzić ryzyka podczas tworzenia Agentów AI.
+- Wdrażać środki bezpieczeństwa, aby zapewnić prawidłowe zarządzanie danymi i dostępem.
+- Tworzyć Agentów AI, którzy zachowują prywatność danych i zapewniają wysoką jakość doświadczenia użytkownika.
 
 ## Bezpieczeństwo
 
-Najpierw przyjrzyjmy się budowaniu bezpiecznych aplikacji agentowych. Bezpieczeństwo oznacza, że agent AI działa zgodnie z założeniami. Jako twórcy aplikacji agentowych mamy metody i narzędzia, aby maksymalizować bezpieczeństwo:
+Najpierw przyjrzyjmy się tworzeniu bezpiecznych aplikacji agentowych. Bezpieczeństwo oznacza, że agent AI działa zgodnie z zamierzeniami. Jako twórcy aplikacji agentowych mamy metody i narzędzia maksymalizujące bezpieczeństwo:
 
-### Budowanie frameworku wiadomości systemowych
+### Budowanie Ramy Wiadomości Systemowej
 
-Jeśli kiedykolwiek budowałeś aplikację AI wykorzystującą duże modele językowe (LLM), wiesz, jak ważne jest zaprojektowanie solidnego promptu systemowego lub wiadomości systemowej. Te prompti ustalają metazasady, instrukcje i wytyczne dotyczące interakcji modelu LLM z użytkownikiem oraz danymi.
+Jeśli kiedykolwiek tworzyłeś aplikację AI korzystającą z dużych modeli językowych (LLM), wiesz jak ważne jest zaprojektowanie solidnego systemowego promptu lub wiadomości systemowej. Te prompta ustanawiają meta zasady, instrukcje i wytyczne dotyczące interakcji LLM z użytkownikiem i danymi.
 
-W przypadku agentów AI prompt systemowy jest jeszcze ważniejszy, ponieważ agenci AI potrzebują bardzo precyzyjnych instrukcji, aby wykonać zaprojektowane dla nich zadania.
+Dla Agentów AI prompt systemowy jest jeszcze ważniejszy, ponieważ agenci AI potrzebują bardzo precyzyjnych instrukcji do wykonania zadań, które dla nich zaprojektowaliśmy.
 
-Aby tworzyć skalowalne prompty systemowe, możemy użyć frameworku wiadomości systemowych do budowania jednego lub więcej agentów w naszej aplikacji:
+Aby tworzyć skalowalne prompta systemowe, możemy użyć ramy wiadomości systemowej do budowy jednego lub więcej agentów w naszej aplikacji:
 
-![Budowanie frameworku wiadomości systemowych](../../../translated_images/pl/system-message-framework.3a97368c92d11d68.webp)
+![Budowanie Ramy Wiadomości Systemowej](../../../translated_images/pl/system-message-framework.3a97368c92d11d68.webp)
 
-#### Krok 1: Utwórz wiadomość meta systemu
+#### Krok 1: Utwórz Meta Wiadomość Systemową
 
-Meta prompt będzie używany przez LLM do generowania promptów systemowych dla tworzonych agentów. Projektujemy go jako szablon, aby móc efektywnie tworzyć wielu agentów w razie potrzeby.
+Meta prompt będzie używany przez LLM do generowania prompt systemowych dla tworzonych przez nas agentów. Projektujemy go jako szablon, aby efektywnie tworzyć wielu agentów w razie potrzeby.
 
 Oto przykład meta wiadomości systemowej, którą przekazalibyśmy LLM:
 
@@ -49,7 +49,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Krok 2: Utwórz podstawowy prompt
 
-Następnym krokiem jest stworzenie podstawowego promptu opisującego agenta AI. Powinieneś uwzględnić rolę agenta, zadania, które będzie wykonywał, oraz inne odpowiedzialności agenta.
+Następny krok to utworzenie podstawowego promptu opisującego Agenta AI. Powinieneś uwzględnić rolę agenta, zadania do wykonania oraz inne odpowiedzialności agenta.
 
 Oto przykład:
 
@@ -57,11 +57,11 @@ Oto przykład:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Krok 3: Przekaż podstawową wiadomość systemową do LLM
+#### Krok 3: Przekaż Podstawową Wiadomość Systemową do LLM
 
-Teraz możemy zoptymalizować tę wiadomość systemową, przekazując zarówno meta wiadomość systemową, jak i naszą podstawową wiadomość systemową.
+Teraz możemy zoptymalizować tę wiadomość systemową, przekazując meta wiadomość systemową jako wiadomość systemową wraz z naszą podstawową wiadomością systemową.
 
-To wygeneruje wiadomość systemową lepiej zaprojektowaną do prowadzenia naszych agentów AI:
+To wygeneruje wiadomość systemową lepiej zaprojektowaną do prowadzenia naszych Agentów AI:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,71 +113,73 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Krok 4: Iteruj i udoskonalaj
+#### Krok 4: Iteruj i Udoskonalaj
 
-Wartość tego frameworku wiadomości systemowych polega na łatwiejszym skalowaniu tworzenia wiadomości systemowych dla wielu agentów oraz na możliwości ulepszania swoich wiadomości systemowych w czasie. Rzadko zdarza się, że wiadomość systemowa działa idealnie za pierwszym razem dla całego przypadku użycia. Możliwość wprowadzania drobnych poprawek i usprawnień przez zmianę podstawowej wiadomości systemowej i przetwarzanie jej przez system pozwala porównywać i oceniać wyniki.
+Wartość tej ramy wiadomości systemowej polega na tym, że ułatwia skalowanie tworzenia wiadomości systemowych dla wielu agentów, a także umożliwia ulepszanie wiadomości systemowych z czasem. Rzadko zdarza się, że wiadomość systemowa działa idealnie za pierwszym razem dla całego przypadku użycia. Możliwość wprowadzania drobnych poprawek i ulepszeń poprzez zmianę podstawowej wiadomości systemowej i ponowne jej przetwarzanie pozwala porównywać i oceniać wyniki.
 
-## Zrozumienie zagrożeń
+## Zrozumienie Zagrożeń
 
-Aby budować godnych zaufania agentów AI, ważne jest zrozumienie i łagodzenie ryzyk oraz zagrożeń dla twojego agenta AI. Przyjrzyjmy się niektórym zagrożeniom dla agentów AI i jak można się na nie lepiej przygotować oraz planować działania.
+Aby budować godnych zaufania agentów AI, ważne jest rozumienie i łagodzenie ryzyka oraz zagrożeń dla twojego agenta AI. Przyjrzyjmy się niektórym zagrożeniom dla agentów AI i jak lepiej się do nich przygotować.
 
-![Zrozumienie zagrożeń](../../../translated_images/pl/understanding-threats.89edeada8a97fc0f.webp)
+![Zrozumienie Zagrożeń](../../../translated_images/pl/understanding-threats.89edeada8a97fc0f.webp)
 
-### Zadanie i instrukcje
+### Zadanie i Instrukcje
 
-**Opis:** Atakujący próbują zmienić instrukcje lub cele agenta AI poprzez promptowanie lub manipulowanie danymi wejściowymi.
+**Opis:** Atakujący próbują zmienić instrukcje lub cele agenta AI poprzez promptowanie lub manipulowanie wejściami.
 
-**Łagodzenie:** Wykonuj kontrole walidacyjne i filtry wejściowe, aby wykrywać potencjalnie niebezpieczne prompti zanim zostaną przetworzone przez agenta AI. Ponieważ te ataki zwykle wymagają częstej interakcji z agentem, ograniczenie liczby tur w rozmowie jest kolejnym sposobem zapobiegania takim atakom.
+**Łagodzenie**: Wdrażaj kontrole walidacji i filtry wejściowe, aby wykryć potencjalnie niebezpieczne prompta przed ich przetworzeniem przez Agenta AI. Ponieważ te ataki zwykle wymagają częstej interakcji z Agentem, ograniczenie liczby tur w rozmowie to kolejny sposób zapobiegania tego typu atakom.
 
-### Dostęp do krytycznych systemów
+### Dostęp do Krytycznych Systemów
 
-**Opis:** Jeśli agent AI ma dostęp do systemów i usług przechowujących dane wrażliwe, atakujący mogą przejąć komunikację między agentem a tymi usługami. Mogą to być bezpośrednie ataki lub próby pośrednie zdobycia informacji o tych systemach poprzez agenta.
+**Opis**: Jeśli agent AI ma dostęp do systemów i usług przechowujących wrażliwe dane, atakujący mogą przechwycić komunikację między agentem a tymi usługami. Mogą to być bezpośrednie ataki lub pośrednie próby uzyskania informacji o tych systemach za pośrednictwem agenta.
 
-**Łagodzenie:** Agenci AI powinni mieć dostęp do systemów wyłącznie na zasadzie "need-only" (tylko wtedy, gdy jest to potrzebne), aby zapobiec tego typu atakom. Komunikacja między agentem a systemem również powinna być zabezpieczona. Wdrożenie uwierzytelniania i kontroli dostępu jest kolejnym sposobem ochrony tych informacji.
+**Łagodzenie**: Agenci AI powinni mieć dostęp do systemów na zasadzie "potrzeby tylko wtedy, gdy to konieczne", aby zapobiec tego typu atakom. Komunikacja między agentem a systemem powinna być również bezpieczna. Wdrożenie uwierzytelniania i kontroli dostępu to kolejny sposób ochrony tych informacji.
 
-### Przeciążenie zasobów i usług
+### Przeciążenie Zasobów i Usług
 
-**Opis:** Agenci AI mogą uzyskiwać dostęp do różnych narzędzi i usług, aby wykonywać zadania. Atakujący mogą wykorzystać tę zdolność do atakowania tych usług, wysyłając dużą liczbę żądań przez agenta AI, co może skutkować awariami systemów lub wysokimi kosztami.
+**Opis:** Agenci AI mogą korzystać z różnych narzędzi i usług do wykonywania zadań. Atakujący mogą wykorzystać tę zdolność do atakowania tych usług, wysyłając dużą liczbę żądań za pośrednictwem Agenta AI, co może powodować awarie systemu lub wysokie koszty.
 
-**Łagodzenie:** Wdroż polityki ograniczające liczbę żądań, jakie agent AI może kierować do usługi. Ograniczenie liczby tur konwersacji i żądań do agenta AI jest kolejnym sposobem zapobiegania takim atakom.
+**Łagodzenie:** Wprowadź polityki ograniczające liczbę żądań, jakie agent AI może wysłać do usługi. Ograniczenie liczby tur i żądań do twojego agenta AI to kolejny sposób zapobiegania tego typu atakom.
 
-### Zatrucie bazy wiedzy
+### Zatrucie Bazy Wiedzy
 
-**Opis:** Ten typ ataku nie jest skierowany bezpośrednio na agenta AI, lecz na bazę wiedzy i inne usługi, z których agent AI korzysta. Może to obejmować uszkodzenie danych lub informacji, których używa agent, co prowadzi do stronniczych lub niezamierzonych odpowiedzi dla użytkownika.
+**Opis:** Ten typ ataku nie jest skierowany bezpośrednio na agenta AI, ale na bazę wiedzy i inne usługi używane przez agenta AI. Może to obejmować uszkodzenie danych lub informacji, których agent AI użyje do wykonania zadania, co prowadzi do stronniczych lub niezamierzonych odpowiedzi dla użytkownika.
 
-**Łagodzenie:** Regularnie weryfikuj dane, z których agent AI korzysta w swoich workflowach. Upewnij się, że dostęp do tych danych jest zabezpieczony i mogą je modyfikować tylko zaufane osoby, aby uniknąć tego typu ataków.
+**Łagodzenie:** Regularnie weryfikuj dane, które agent AI będzie wykorzystywał w swoich procesach. Upewnij się, że dostęp do tych danych jest zabezpieczony i mogą je zmieniać tylko zaufane osoby, aby uniknąć tego typu ataków.
 
-### Kaskadowe błędy
+### Błędne Błędy Kaskadowe
 
-**Opis:** Agenci AI uzyskują dostęp do różnych narzędzi i usług, aby wykonywać zadania. Błędy spowodowane atakami mogą prowadzić do awarii innych systemów, z którymi agent jest powiązany, przez co atak staje się bardziej rozległy i trudniejszy do zdiagnozowania.
+**Opis:** Agenci AI uzyskują dostęp do różnych narzędzi i usług, aby wykonać zadania. Błędy spowodowane przez atakujących mogą prowadzić do awarii innych systemów powiązanych z agentem AI, powodując, że atak stanie się bardziej rozległy i trudniejszy do zdiagnozowania.
 
-**Łagodzenie:** Jednym ze sposobów na uniknięcie tego jest uruchamianie agenta AI w ograniczonym środowisku, np. wykonywanie zadań w kontenerze Docker, aby zapobiec bezpośrednim atakom na system. Tworzenie mechanizmów awaryjnych oraz logiki ponawiania prób, gdy pewne systemy zgłaszają błędy, jest kolejnym sposobem zapobiegania większym awariom systemu.
+**Łagodzenie**: Jedną z metod uniknięcia tego jest działanie Agenta AI w ograniczonym środowisku, na przykład wykonując zadania w kontenerze Docker, aby zapobiec bezpośrednim atakom na system. Tworzenie mechanizmów awaryjnych i logiki ponownych prób, gdy niektóre systemy odpowiadają błędem, to kolejny sposób zapobiegania poważniejszym awariom systemu.
 
-## Człowiek w pętli
+## Człowiek w Pętli
 
-Innym skutecznym sposobem na budowanie godnych zaufania systemów agentów AI jest zastosowanie podejścia Human-in-the-loop. Tworzy to przepływ, w którym użytkownicy mogą na bieżąco przekazywać feedback agentom podczas działania. Użytkownicy w zasadzie pełnią rolę agentów w systemie multi-agentowym, dostarczając zatwierdzenia bądź przerywając wykonywany proces.
+Kolejnym skutecznym sposobem tworzenia godnych zaufania systemów Agentów AI jest zastosowanie człowieka w pętli (Human-in-the-loop). Tworzy to przepływ, w którym użytkownicy mogą przekazywać opinie agentom podczas działania. Użytkownicy w zasadzie działają jako agenci w systemie wieloagentowym, zatwierdzając lub przerywając działanie procesu.
 
-![Człowiek w pętli](../../../translated_images/pl/human-in-the-loop.5f0068a678f62f4f.webp)
+![Człowiek w Pętli](../../../translated_images/pl/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Oto fragment kodu wykorzystujący Microsoft Agent Framework, pokazujący, jak ten koncept jest implementowany:
+Oto fragment kodu używający Microsoft Agent Framework pokazujący, jak implementuje się tę koncepcję:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 # Utwórz dostawcę z zatwierdzeniem człowieka w pętli
-provider = AzureAIProjectAgentProvider(
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Utwórz agenta z krokiem zatwierdzenia przez człowieka
+# Utwórz agenta z etapem zatwierdzenia przez człowieka
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Użytkownik może przejrzeć i zatwierdzić odpowiedź
+# Użytkownik może przeglądać i zatwierdzać odpowiedź
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -188,31 +190,31 @@ else:
 
 ## Podsumowanie
 
-Budowanie godnych zaufania agentów AI wymaga starannego projektowania, solidnych środków bezpieczeństwa i ciągłej iteracji. Wdrażając strukturalne systemy meta-promptów, rozumiejąc potencjalne zagrożenia i stosując strategie łagodzenia, programiści mogą tworzyć agentów AI, którzy są zarówno bezpieczni, jak i skuteczni. Dodatkowo, włączenie podejścia human-in-the-loop zapewnia, że agenci AI pozostają zgodni z potrzebami użytkowników, minimalizując jednocześnie ryzyko. W miarę rozwoju AI kluczowe będzie utrzymywanie proaktywnego podejścia do bezpieczeństwa, prywatności i etycznych aspektów, by wzmacniać zaufanie i niezawodność systemów opartych na AI.
+Budowanie godnych zaufania agentów AI wymaga starannego projektowania, solidnych środków bezpieczeństwa oraz ciągłej iteracji. Poprzez wdrożenie ustrukturyzowanych systemów meta prompt, zrozumienie potencjalnych zagrożeń oraz stosowanie strategii łagodzenia, programiści mogą stworzyć agentów AI, którzy są bezpieczni i efektywni. Dodatkowo, włączenie podejścia człowieka w pętli zapewnia, że agenci AI pozostają zgodni z potrzebami użytkowników, minimalizując ryzyko. W miarę rozwoju AI, utrzymywanie proaktywnego podejścia do bezpieczeństwa, prywatności i kwestii etycznych będzie kluczem do budowania zaufania i niezawodności systemów opartych na AI.
 
-## Przykłady kodu
+## Przykłady Kodów
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Pokaz krok po kroku frameworku systemu wiadomości meta-prompt.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Bramki zatwierdzające przed działaniem, segmentacja ryzyka oraz logowanie audytu dla godnych zaufania agentów.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Pokaz krok po kroku systemu meta-prompt ramy wiadomości systemowych.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Bramki zatwierdzania przed działaniem, ocena ryzyka i logowanie audytu dla godnych zaufania agentów.
 
-### Masz więcej pytań dotyczących budowania godnych zaufania agentów AI?
+### Masz więcej pytań dotyczących tworzenia godnych zaufania Agentów AI?
 
-Dołącz do [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać innych uczących się, uczestniczyć w dyżurach i uzyskać odpowiedzi na pytania dotyczące agentów AI.
+Dołącz do [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), aby spotkać się z innymi uczącymi się, uczestniczyć w godzinach konsultacji i uzyskać odpowiedzi na pytania dotyczące Agentów AI.
 
-## Dodatkowe zasoby
+## Dodatkowe Zasoby
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Przegląd odpowiedzialnego AI</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Ocena modeli generatywnego AI i aplikacji AI</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Wiadomości systemowe związane z bezpieczeństwem</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Ocena modeli generatywnej AI i aplikacji AI</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Systemowe wiadomości bezpieczeństwa</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Szablon oceny ryzyka</a>
 
-## Poprzednia lekcja
+## Poprzednia Lekcja
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
-## Następna lekcja
+## Następna Lekcja
 
-[Wzorzec projektowy planowania](../07-planning-design/README.md)
+[Wzorzec projektowy Planowania](../07-planning-design/README.md)
 
 ---
 

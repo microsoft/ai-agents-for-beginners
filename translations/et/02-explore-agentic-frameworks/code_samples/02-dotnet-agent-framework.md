@@ -1,88 +1,88 @@
-# 🔍 Microsoft Agent Frameworki uurimine – Basic Agent (.NET)
+# 🔍 Microsoft Agent'i raamistiku uurimine - Põhiline agent (.NET)
 
 ## 📋 Õpieesmärgid
 
-See näide uurib Microsoft Agent Frameworki põhilisi mõisteid läbi baastasemel agendi rakenduse .NET-is. Õpid agentide põhimustreid ning saad aru, kuidas intelligentsed agendid töötavad C# ja .NET ökosüsteemi kaudu.
+See näide uurib Microsoft Agent Frameworki põhikontseptsioone läbi põhilise agendi rakenduse .NET-is. Õpid tuumagentuursete mustrite põhialuseid ja mõistad, kuidas intelligentsed agendid töötavad C# ja .NET ökosüsteemi abil.
 
-### Mida sa avastad
+### Mida avastad
 
 - 🏗️ **Agendi arhitektuur**: Mõistmine AI agentide põhistruktuurist .NET-is
-- 🛠️ **Tööriistade integreerimine**: Kuidas agendid laiendavad võimeid välist funktsioonide abil
-- 💬 **Vestluse voo haldamine**: Mitme vooru vestluste ja konteksti haldamine lõimate haldamise kaudu
-- 🔧 **Konfiguratsioonimustrid**: Parimad tavad agendi seadistamiseks ja haldamiseks .NET-is
+- 🛠️ **Tööriistade integreerimine**: Kuidas agendid kasutavad väliseid funktsioone võimete laiendamiseks  
+- 💬 **Vestluse voog**: Mitme sammuga vestluste ja konteksti haldamine lõimede juhtimise kaudu
+- 🔧 **Konfiguratsioonimustrid**: Parimad praktikud agendi seadistamiseks ja haldamiseks .NET-is
 
-## 🎯 Kaetud põhikontseptsioonid
+## 🎯 Kaetud põhimõisted
 
-### Agentframi põhimõtted
+### Agendi raamistikupõhimõtted
 
-- **Autonoomia**: Kuidas agendid iseseisvalt otsuseid teevad .NET AI abstraktsioonide abil
-- **Reaktiivsus**: Keskkonnamuutustele ja kasutajasisestustele reageerimine
-- **Proaktiivsus**: Algatuste võtmine eesmärkide ja konteksti põhjal
-- **Sotsiaalne võimekus**: Loomulikus keeles suhtlemine vestluslõimede kaudu
+- **Autonoomia**: Kuidas agendid teevad iseseisvaid otsuseid kasutades .NET AI abstraktsioone
+- **Reaktiivsus**: Keskkonna muutustele ja kasutaja sisenditele reageerimine
+- **Proaktiivsus**: Initsiatiivide võtmine eesmärkide ja konteksti põhjal
+- **Sotsiaalne võimekus**: Loomuliku keele kaudu suhtlemine vestluslõimede kaudu
 
 ### Tehnilised komponendid
 
-- **AIAgent**: Põhiagendi orkestreerimine ja vestluse haldamine (.NET)
-- **Tööriistafunktsioonid**: Agentide võimete laiendamine C# meetodite ja atribuutidega
-- **Azure OpenAI integratsioon**: Keelemudelite kasutamine Azure OpenAI Responses API kaudu
-- **Turvaline konfiguratsioon**: Keskkonnapõhine lõpp-punktide haldamine
+- **AIAgent**: Tuumagendi korraldus ja vestluste haldamine (.NET)
+- **Tööriistafunktsioonid**: Agentide võimete laiendamine C# meetodite ja atribuutide abil
+- **Azure OpenAI integreerimine**: Keelemudelite kasutamine Azure OpenAI vastuste API kaudu
+- **Turvaline konfiguratsioon**: Keskkonnapõhine lõpp-punktide haldus
 
-## 🔧 Tehnoloogiline virn
+## 🔧 Tehniline virn
 
 ### Põhitehnoloogiad
 
 - Microsoft Agent Framework (.NET)
-- Azure OpenAI (Responses API) integratsioon
-- Azure.AI.OpenAI kliendimustrid
+- Azure OpenAI (vastuste API) integratsioon
+- Azure.AI.OpenAI kliendi mustrid
 - Keskkonnapõhine konfiguratsioon DotNetEnv abil
 
 ### Agendi võimekused
 
 - Loomuliku keele mõistmine ja genereerimine
 - Funktsioonide kutsumine ja tööriistade kasutamine C# atribuutidega
-- Kontextiteadlikud vastused vestlussessioonide abil
-- Laiendatav arhitektuur sõltuvussüsti mustritega
+- Kontekstiteadlikud vastused vestlussessioonide abil
+- Laiendatav arhitektuur sõltuvuste süstimise mustritega
 
-## 📚 Raamistike võrdlus
+## 📚 Raamistiku võrdlus
 
-See näide demonstreerib Microsoft Agent Frameworki lähenemist võrreldes teiste agendiraamistikega:
+See näide demonstreerib Microsoft Agent Frameworki lähenemist võrreldes teiste agentuursete raamistikega:
 
-| Omadus | Microsoft Agent Framework | Muud raamistikud |
+| Omadus | Microsoft Agent Framework | Teised raamistikud |
 |---------|-------------------------|------------------|
-| **Integreerimine** | Loomupärane Microsofti ökosüsteem | Erinev ühilduvus |
+| **Integratsioon** | Looduslik Microsofti ökosüsteem | Mitmekesine ühilduvus |
 | **Lihtsus** | Puhas, intuitiivne API | Sageli keeruline seadistus |
-| **Laiendatavus** | Lihtne tööriistade integratsioon | Raamistiku sõltuv |
-| **Ettevõtte valmisolek** | Tootmiskõlbulikud lahendused | Raamistiku lõikes varieeruv |
+| **Laiendatavus** | Lihtne tööriistade integreerimine | Raamistiku-kohane |
+| **Ettevõttesisene valmisolek** | Disainitud tootmiseks | Sõltub raamistiku tüübist |
 
-## 🚀 Alustamine
+## 🚀 Algus
 
-### Eeldused
+### Eelnõuded
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
-- [Azure tellimus](https://azure.microsoft.com/free/) Azure OpenAI ressursi ja mudeli deploy’ga
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) – logi sisse `az login` käsuga
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem versioon
+- [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudeli juurutusega
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logi sisse `az login` käsuga
 
-### Nõutavad keskkonnamuutujad
+### Vajalikud keskkonnamuutujad
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni kätte
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Logi seejärel sisse, et AzureCliCredential saaks tokeni
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni
 az login
 ```
 
 ### Näidiskood
 
-Koodinäite käivitamiseks,
+Selleks, et käivitada koodinäide,
 
 ```bash
 # zsh/bash
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -215,20 +215,20 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
 
-## 🎓 Olulised kokkuvõtted
+## 🎓 Peamised järeldused
 
-1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhtat, tüübiturvalist lähenemist AI agentide loomisel .NET-is
-2. **Tööriistade integratsioon**: Funktsioonid, mis on kaunistatud `[Description]` atribuutidega, muutuvad agendi jaoks saadavateks tööriistadeks
-3. **Vestluse kontekst**: Sessioonihaldus võimaldab mitme vooru vestlusi täieliku kontekstiteadlikkusega
-4. **Konfiguratsiooni haldus**: Keskkonnamuutujad ja turvaline volituste käsitlemine vastavad .NET parimatele tavadele
-5. **Azure OpenAI Responses API**: Agent kasutab Azure OpenAI Responses API-t läbi Azure.AI.OpenAI SDK
+1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhast, tüübikindlat lähenemist AI agentide ehitamiseks .NET-is
+2. **Tööriistade integreerimine**: Funktsioonid, mis on tähistatud `[Description]` atribuutidega, muutuvad agentidele kättesaadavateks tööriistadeks
+3. **Vestluse kontekst**: Sessioonihaldus võimaldab mitme kordusega vestlusi täiskonteksti teadlikkusega
+4. **Konfiguratsiooni haldus**: Keskkonnamuutujad ja turvaline volituste käsitlemine järgivad .NET parimaid praktikaid
+5. **Azure OpenAI vastuste API**: Agent kasutab Azure OpenAI vastuste API-d läbi Azure.AI.OpenAI SDK
 
 ## 🔗 Täiendavad ressursid
 
 - [Microsoft Agent Frameworki dokumentatsioon](https://learn.microsoft.com/agent-framework)
-- [Azure OpenAI Microsoft Foundrys](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Azure OpenAI Microsoft Foundry's](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET ühes failis rakendused](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET üksikfaili äpid](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

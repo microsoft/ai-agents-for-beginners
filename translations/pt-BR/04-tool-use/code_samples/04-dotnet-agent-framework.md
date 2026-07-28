@@ -1,15 +1,15 @@
-# 🛠️ Uso Avançado de Ferramentas com Modelos do GitHub (.NET)
+# 🛠️ Uso Avançado de Ferramentas com Azure OpenAI (Responses API) (.NET)
 
-## 📋 Objetivos de Aprendizado
+## 📋 Objetivos de Aprendizagem
 
-Este notebook demonstra padrões de integração de ferramentas em nível empresarial usando o Microsoft Agent Framework em .NET com Modelos do GitHub. Você aprenderá a construir agentes sofisticados com múltiplas ferramentas especializadas, aproveitando a tipagem forte do C# e os recursos empresariais do .NET.
+Este notebook demonstra padrões de integração de ferramentas em nível empresarial usando o Microsoft Agent Framework em .NET com Azure OpenAI (Responses API). Você aprenderá a construir agentes sofisticados com múltiplas ferramentas especializadas, aproveitando a tipagem forte do C# e os recursos empresariais do .NET.
 
-### Capacidades Avançadas de Ferramentas que Você Dominará
+### Capacidades Avançadas de Ferramentas que Você Irá Dominar
 
-- 🔧 **Arquitetura Multi-Ferramentas**: Construção de agentes com múltiplas capacidades especializadas
-- 🎯 **Execução de Ferramentas com Tipagem Segura**: Aproveitando a validação em tempo de compilação do C#
-- 📊 **Padrões de Ferramentas Empresariais**: Design de ferramentas pronto para produção e tratamento de erros
-- 🔗 **Composição de Ferramentas**: Combinação de ferramentas para fluxos de trabalho empresariais complexos
+- 🔧 **Arquitetura Multi-Ferramenta**: Construção de agentes com múltiplas capacidades especializadas
+- 🎯 **Execução de Ferramentas com Segurança de Tipo**: Aproveitando a validação em tempo de compilação do C#
+- 📊 **Padrões de Ferramentas Empresariais**: Design de ferramentas prontas para produção e tratamento de erros
+- 🔗 **Composição de Ferramentas**: Combinando ferramentas para fluxos de trabalho complexos de negócios
 
 ## 🎯 Benefícios da Arquitetura de Ferramentas em .NET
 
@@ -17,85 +17,88 @@ Este notebook demonstra padrões de integração de ferramentas em nível empres
 
 - **Validação em Tempo de Compilação**: Tipagem forte garante a correção dos parâmetros das ferramentas
 - **Injeção de Dependência**: Integração com contêiner IoC para gerenciamento de ferramentas
-- **Padrões Async/Await**: Execução de ferramentas não bloqueante com gerenciamento adequado de recursos
-- **Log Estruturado**: Integração de logging embutida para monitoramento da execução de ferramentas
+- **Padrões Async/Await**: Execução não bloqueante de ferramentas com gerenciamento adequado de recursos
+- **Registro Estruturado**: Integração nativa de logging para monitoramento da execução das ferramentas
 
 ### Padrões Prontos para Produção
 
 - **Tratamento de Exceções**: Gerenciamento abrangente de erros com exceções tipadas
 - **Gerenciamento de Recursos**: Padrões adequados de descarte e gerenciamento de memória
-- **Monitoramento de Desempenho**: Métricas embutidas e contadores de desempenho
-- **Gerenciamento de Configuração**: Configuração com tipagem segura e validação
+- **Monitoramento de Performance**: Métricas integradas e contadores de desempenho
+- **Gerenciamento de Configuração**: Configuração com segurança de tipo e validação
 
 ## 🔧 Arquitetura Técnica
 
-### Componentes Centrais de Ferramentas em .NET
+### Componentes Centrais das Ferramentas .NET
 
 - **Microsoft.Extensions.AI**: Camada de abstração unificada para ferramentas
 - **Microsoft.Agents.AI**: Orquestração de ferramentas em nível empresarial
-- **Integração com Modelos do GitHub**: Cliente API de alto desempenho com pool de conexões
+- **Azure OpenAI (Responses API)**: Cliente API de alto desempenho com pool de conexões
 
-### Pipeline de Execução de Ferramentas
+### Pipeline de Execução das Ferramentas
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Solicitação do Usuário] --> B[Análise do Agente]
+    B --> C[Seleção de Ferramenta]
+    C --> D[Validação de Tipo]
+    B --> E[Vinculação de Parâmetros]
+    E --> F[Execução da Ferramenta]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Processamento do Resultado]
     D --> G
-    G --> H[Response]
+    G --> H[Resposta]
 ```
 
-## 🛠️ Categorias e Padrões de Ferramentas
+## 🛠️ Categorias & Padrões de Ferramentas
 
 ### 1. **Ferramentas de Processamento de Dados**
 
 - **Validação de Entrada**: Tipagem forte com anotações de dados
-- **Operações de Transformação**: Conversão e formatação de dados com tipagem segura
-- **Lógica de Negócio**: Ferramentas de cálculo e análise específicas de domínio
-- **Formatação de Saída**: Geração de respostas estruturadas
+- **Operações de Transformação**: Conversão e formatação de dados com segurança de tipo
+- **Lógica de Negócios**: Ferramentas de cálculo e análise específicas do domínio
+- **Formatação de Saída**: Geração estruturada de respostas
 
-### 2. **Ferramentas de Integração**
+### 2. **Ferramentas de Integração** 
 
-- **Conectores de API**: Integração com serviços RESTful usando HttpClient
+- **Conectores de API**: Integração de serviços RESTful com HttpClient
 - **Ferramentas de Banco de Dados**: Integração com Entity Framework para acesso a dados
-- **Operações de Arquivo**: Operações seguras no sistema de arquivos com validação
+- **Operações com Arquivos**: Operações seguras no sistema de arquivos com validação
 - **Serviços Externos**: Padrões de integração com serviços de terceiros
 
 ### 3. **Ferramentas Utilitárias**
 
-- **Processamento de Texto**: Manipulação e formatação de strings
+- **Processamento de Texto**: Utilitários de manipulação e formatação de strings
 - **Operações de Data/Hora**: Cálculos de data/hora sensíveis à cultura
-- **Ferramentas Matemáticas**: Cálculos precisos e operações estatísticas
+- **Ferramentas Matemáticas**: Cálculos de precisão e operações estatísticas
 - **Ferramentas de Validação**: Validação de regras de negócio e verificação de dados
 
-Pronto para construir agentes em nível empresarial com capacidades de ferramentas poderosas e tipagem segura em .NET? Vamos arquitetar soluções de nível profissional! 🏢⚡
+Pronto para construir agentes em nível empresarial com ferramentas poderosas e seguras em termos de tipo em .NET? Vamos arquitetar algumas soluções profissionais! 🏢⚡
 
 ## 🚀 Começando
 
 ### Pré-requisitos
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ou superior
-- [Token de acesso à API dos Modelos do GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) ou superior
+- Uma [assinatura Azure](https://azure.microsoft.com/free/) com um recurso Azure OpenAI e uma implantação de modelo
+- A [CLI do Azure](https://learn.microsoft.com/cli/azure/install-azure-cli) — faça login com `az login`
 
 ### Variáveis de Ambiente Necessárias
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Então faça login para que AzureCliCredential possa obter um token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Em seguida, faça login para que o AzureCliCredential possa obter um token
+az login
 ```
 
 ### Código de Exemplo
@@ -108,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Ou usando o CLI do dotnet:
+Ou usando a CLI dotnet:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -121,14 +124,16 @@ Veja [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-do
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Aviso Legal**:  
-Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autoritativa. Para informações críticas, recomenda-se a tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+**Aviso Legal**:
+Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, por favor, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

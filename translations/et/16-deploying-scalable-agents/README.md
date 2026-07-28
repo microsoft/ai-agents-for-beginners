@@ -1,155 +1,155 @@
-# Skalaarsete agentide juurutamine Microsoft Foundryga
+# Skaalautuvate agentide juurutamine Microsoft Foundryga
 
-![Skalaarsete agentide juurutamine](../../../translated_images/et/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Skaalautuvate agentide juurutamine](../../../translated_images/et/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Kuni selle kursuse punktini olete loonud agente, kes töötavad teie sülearvutis, märkmikus, juhituna `az login` ja käputäie keskkonnamuutujatega. See on õige viis õppimiseks. See ei ole õige viis agenti käivitamiseks, kellele tuhanded kliendid 3 hommikul toetuvad.
+Kursuse selleks hetkeks oled ehitanud agente, kes töötavad sinu sülearvutis, märkmetes, juhituna `az login` ja mõne keskkonnamuutujaga. See on täiesti õige viis õppimiseks. See pole aga õige viis agenti käivitada, kellele tuhanded kliendid sõltuvad kell 3 öösel.
 
-See õppetund räägib lõhest "see töötab minu masinal" ja "see töötab usaldusväärselt ja taskukohaselt tootmises" vahel. Selle lõhe sulgeme kasutades **Microsoft Foundry** ja **Microsoft Foundry Agent Service**, ehitades päris klienditoe agendi, millel on tööriistad, andmete hankimine, mälu, hindamine ja jälgimine.
+See õppetund käsitleb lõhet „see töötab minu masinas“ ja „see töötab usaldusväärselt ja taskukohaselt tootmises“ vahel. Sulgeme selle lõhe, kasutades **Microsoft Foundry** ja **Microsoft Foundry Agent Service** teenuseid, ning teeme seda, luues tõelise klienditoe agendi, millel on tööriistad, otsing, mälu, hinnang ja seire.
 
 ## Sissejuhatus
 
-See õppetund hõlmab:
+See õppetund käsitleb:
 
-- Erinevust **prototüüpagent** ja **juurutatud agenti** vahel ning miks on üleminek enamasti kõigest mudeli *ümber* olevast.
-- Agentide **juurutusmustreid**: kliendi majutatud, teenuse majutatud (Hosted Agents) ja töövoo orkestreerimine.
-- **Agentide elutsükkel** Microsoft Foundrys — loomine, versioonimine, juurutamine, hindamine, vaatlus, pensionile minek.
-- **Skaalastrateegiad**: mudeli marsruutimine, vahemällu salvestamine, samaaegsus ja olekuta disain.
+- Erinevus **prototüüp-agendi** ja **juurutatud agendi** vahel ning miks üleminek puudutab enamasti kõike *mudeli ümber*.
+- Agentide **juurutusmustrid**: kliendi majutatud, teenuse majutatud (Hosted Agents) ja töövoo korraldatud.
+- **Agendi elutsükkel** Microsoft Foundrys — loomine, versioonimine, juurutamine, hindamine, jälgimine, pensionile jäämine.
+- **Skaalautusstrateegiad**: mudeli marsruutimine, vahemällu salvestamine, samaaegsus ja olekuta disain.
 - **Jälgitavus** OpenTelemetry ja Foundry jälgimisega.
-- **Kuluoptimeerimine** mudeli valiku, marsruutimise ja hindamislukkude kaudu.
-- **Ettevõtte kaalutlused**: haldus, inimluba ja MCP-serverite ohutu käitamine tootmises.
+- **Kuluoptimeerimine** mudeli valiku, marsruutimise ja hindamisväravate kaudu.
+- **Ettevõttetasandi kaalutlused**: juhtimine, inimtõendamine ja MCP serverite turvaline käitamine tootmises.
 
 ## Õpieesmärgid
 
-Pärast selle õppetunni lõpetamist oskate:
+Pärast selle õppetunniga lõpetamist oskad:
 
-- Valida antud agentide töökoormuse jaoks õige juurutusmustri.
-- Juurutada agent Microsoft Foundry Agent Service'i nii, et ta oleks versioonitud, hallatud ja jälgitav.
-- Instrumenteerida agent jälgimiseks ja ühendada hindamisliin, mis töötab enne iga versiooni väljaandmist.
-- Rakendada mudeli marsruutimist ja vahemälu hoidmaks latentsus ja kulud skaalal kontrolli all.
-- Lisada inimluba kõrge riskiga toimingutele ja integreerida MCP server tootmises ohutult.
+- Valida antud agendikoormuse jaoks õige juurutusmustri.
+- Juurutada agent Microsoft Foundry Agent Service’i, nii et see oleks versioonitud, juhitud ja jälgitav.
+- Instrumenteerida agent jälgimiseks ja ühendada väärtuspõhine hindamise torujuhe, mis töötab iga väljaande eel.
+- Rakendada mudeli marsruutimist ja vahemällu salvestamist, et hoida latentsus ja kulu skaalal kontrolli all.
+- Lisada inimtõenduse värav kõrge riskiga toimingute jaoks ja integreerida MCP server tootmises turvaliselt.
 
 ## Eeltingimused
 
-See õppetund eeldab, et olete lõpetanud varasemad õppetunnid ja tunnete end mugavalt:
+Eeldatakse, et oled lõpetanud varasemad õppetunnid ja oled mugav järgmistes:
 
-- Agentide loomist [Microsoft Agent Frameworkiga](../14-microsoft-agent-framework/README.md) (Õppetund 14).
-- [Tööriistade kasutamine](../04-tool-use/README.md) (Õppetund 4) ja [Agentic RAG](../05-agentic-rag/README.md) (Õppetund 5).
-- [Agendi mälu](../13-agent-memory/README.md) (Õppetund 13) ja [Agentic protokollid / MCP](../11-agentic-protocols/README.md) (Õppetund 11).
-- [Jälgitavus ja hindamine](../10-ai-agents-production/README.md) (Õppetund 10) — see õppetund põhineb otseselt sellel.
+- Agentide ehitamine [Microsoft Agent Frameworkiga](../14-microsoft-agent-framework/README.md) (õppetund 14).
+- [Tööriistade kasutamine](../04-tool-use/README.md) (õppetund 4) ja [Agentic RAG](../05-agentic-rag/README.md) (õppetund 5).
+- [Agendi mälu](../13-agent-memory/README.md) (õppetund 13) ja [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (õppetund 11).
+- [Jälgitavus ja hindamine](../10-ai-agents-production/README.md) (õppetund 10) — see õppetund tugineb otse sellele.
 
-Vajate ka:
+Sul on vaja ka:
 
-- **Azure tellimust** ja **Microsoft Foundry projekti**, kus on vähemalt üks juurutatud vestlusmudel.
+- **Azure’i tellimus** ja **Microsoft Foundry projekt** vähemalt ühe juurutatud vestlusmudeliga.
 - Autentitud **Azure CLI** (`az login`).
-- Python 3.12+ ja pakette hoidlas [`requirements.txt`](../../../requirements.txt).
+- Python 3.12+ koos hoidlas olevate pakettidega [`requirements.txt`](../../../requirements.txt).
 
 ## Prototüübist tootmisesse: mis tegelikult muutub
 
-Prototüüpagendi ja tootmisagendi tuum on sama — järeldamine, tööriistade kutsumine, vastamine. Mis muutub, on kõik selle tsükli ümber. Mudel on tootmisagendist umbes 20%; ülejäänud 80% on operatiivne skelett.
+Prototüüp-agent ja tootmisagent jagavad sama põhitsüklit — mõtlemine, tööriistade kutsumine, vastamine. Muu kõrvutav on aga erinev. Mudel moodustab tootmisagendist ehk 20%, ülejäänud 80% on operatiivne karkass.
 
 | Teema | Prototüüp | Tootmine |
 | --- | --- | --- |
-| **Majutamine** | Jookseb teie märkmikus | Jookseb majutatud teenusena, versioonitud ja juurutatud |
-| **Identiteet** | Teie `az login` tokeniga | Haldusega identiteet piiratud RBAC-iga |
-| **Seisund** | Mälu sees, taaskäivitamisel kaob | Eksternaliseeritud (niidipood, mäluteenistus) |
-| **Rike** | Näete veateateid | Taaskatsed, varuplaanid, surnu-kirjad, häired |
-| **Kulu** | "See on paar senti" | Jälgitakse päringu kaupa, marsruuditakse, vahemällus, eelarvega |
-| **Kvaliteet** | Te vaatate väljundit silmadega | Hinnatakse automaatselt enne igat väljaannet |
-| **Usaldus** | Te heaks kiidate iga toimingu | Poliitika + inimene otsustamas riskantsete toimingute puhul |
+| **Majutamine** | Jookseb sinu märkmetes | Jookseb majutatud teenusena, versioonitud ja välja lastud |
+| **Identiteet** | Sinu `az login` token | Hallatud identiteet koos ulatusliku RBAC-iga |
+| **Olek** | Mälus, kaob taaskäivitusel | Välise teenuse poolt hallatud (niidipood, mäluteenistus) |
+| **Rikked** | Näed virna tagasikutset | Taaskatsed, varuplaanid, surnukirjad, hoiatused |
+| **Kulu** | „See on paar senti“ | Jälgitakse iga päringu kohta, marsruuditakse, vahemällu salvestatakse, eelarvestatakse |
+| **Kvaliteet** | Silmaga kontrollid väljundit | Hinnatakse automaatselt iga väljaande eel |
+| **Usaldus** | Sa kiidad iga toimingu heaks | Poliitika + inimtõendusega riskantsete toimingute jaoks |
 
-Pidage seda tabelit meeles. Iga alljärgnev sektsioon vastab ühe reale selles tabelis.
+Hoia seda tabelit meeles. Alljärgnevad jaotised vastavad ühele selle tabeli reale.
 
 ## Agendi juurutusmustrid
 
-On kolm mustrit, mida te sageli kombineeritult kasutate.
+Sa kasutad kolme mustrit, sageli koos:
 
-### 1. Kliendi majutatud agentid
+### 1. Kliendi majutatud agendid
 
-Agendi objekt elab *teie* rakenduse protsessis. Teie kood kutsub mudeli pakkujat otse; järeldus-tsükkel töötab teie teenuses. Nii on iga varasem õppetund toimunud.
+Agent elab *sinu* rakenduse protsessis. Sinu kood kutsub mudeli pakkujat otse; mõtlemistsükkel jookseb sinu teenuses. Kõik varasemad õppetunnid on töötanud nii.
 
-- **Kasuta seda**, kui vajate täielikku kontrolli tsükli üle, kohandatud vahendusrakendust või eingebetteerite agente olemasolevasse tagatarkvarasse.
-- **Kompromiss**: vastutate skaleerimise, seisundi ja vastupidavuse eest ise.
+- **Kasuta, kui** vajad täielikku kontrolli tsükli üle, kohandatud vahendust või sul on tarvis agenti olemasolevasse tagasüsteemi manustada.
+- **Kaubanduslik kompromiss**: vastutad ise skaleerimise, oleku ja vastupidavuse eest.
 
-### 2. Majutatud agentid (Foundry Agent Service)
+### 2. Majutatud agendid (Foundry Agent Service)
 
-Agent registreeritakse *ressursina* Microsoft Foundrys. Foundry majutab järeldus-tsükli, salvestab niidid, tagab sisuohutuse ja RBAC-i ning muudab agendi nähtavaks Foundry portaalis. Teie rakendus muutub õhukeseks kliendiks, kes loob niidid ja loeb vastuseid.
+Agent registreeritakse Microsoft Foundry ressurssina. Foundry majutab mõtlemistsükli, salvestab niidid, tagab sisuturvalisuse ja RBAC-i ning teeb agendi nähtavaks Foundry portaalis. Sinu rakendus muutub õhukeseks kliendiks, mis loob niite ja loeb vastuseid.
 
-- **Kasuta seda**, kui soovite vastupidavust, sisseehitatud jälgitavust, haldust ja väiksemat operatiivpinna suurust.
-- **Kompromiss**: vähem madala taseme kontrolli vahetus hallatava jooksutamisaja vastu.
+- **Kasuta, kui** tahad vastupidavust, sisseehitatud jälgitavust, juhtimist ja väiksemat operatiivset pinda.
+- **Kaubanduslik kompromiss**: vähem madala taseme kontrolli vastukaaluks hallatavale käituskeskkonnale.
 
 ### 3. Agendi töövood
 
-Mitmed agentid (ja tööriistad) on ühendatud graafiks, millel on selge juhtimisvoog — järjestikused sammud, harud, inimluba sõlmed ja vastupidavad kontrollpunktid, mis võivad peatada ja jätkata. See on Microsoft Agent Frameworki **Workflows** võimekus juurutusmastaabis.
+Mitmed agendid (ja tööriistad) on koondatud graafikusse selge kontrollvooga — järjestikused sammud, haruvalikud, inimtõenduse sõlmed ja vastupidavad kontrollpunktid, mis võivad peatuda ja jätkata. See on Microsoft Agent Frameworki **Workflows** võimekus, rakendatuna juurutusmastaabis.
 
-- **Kasuta seda**, kui üks ülesanne hõlmab mitut spetsialiseeritud agenti või vajab vahepeal luba.
-- **Kompromiss**: rohkem liikuvatele osadele; vajab orkestreerimise taseme jälgimist.
+- **Kasuta, kui** üks ülesanne hõlmab mitut spetsialiseerunud agenti või vajab keskel heakskiitu.
+- **Kaubanduslik kompromiss**: rohkem liikuvat osa; vajab orkestratsiooni tasandi jälgitavust.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Kliendi majutatud]
-        A1[Teie rakendusprotsess] --> M1[Mudeli pakkuja]
+    subgraph P1[Klient-hostitud]
+        A1[Sinu rakenduse protsess] --> M1[Mudeli pakkuja]
     end
-    subgraph P2[Majutatud esindaja]
-        A2[Õhuke klient] --> F2[Foundry esindajateenus]
-        F2 --> M2[Mudel + Tööriistad + Lõimede hoidla]
+    subgraph P2[Hostitud agent]
+        A2[Õhuke klient] --> F2[Foundry agendi teenus]
+        F2 --> M2[Mudel + Tööriistad + Jutulõimede pood]
     end
-    subgraph P3[Esindaja töövoog]
-        A3[Orkestreerija] --> S1[Esmane esindaja]
-        S1 --> S2[Lahendaja esindaja]
+    subgraph P3[Agendi töövoog]
+        A3[Orkestreerija] --> S1[Tripeerimise agent]
+        S1 --> S2[Lahendaja agent]
         S2 --> H[Inimese kinnituse sõlm]
-        H --> S3[Tegutsemisagent]
+        H --> S3[Tegevusagent]
     end
 ```
 
 ## Agendi elutsükkel Microsoft Foundrys
 
-Agendi juurutamine ei ole ühekordne `push`. See on tsükkel, mis näeb välja nagu tarkvaraväljaande tsükkel, sest see ongi.
+Agendi juurutamine ei ole ühekordne `push`. See on tsükkel, mis sarnaneb väga tarkvara väljaandetsükliga, sest see ongi täpselt see.
 
 ```mermaid
 flowchart LR
     Create[Loo / Autor] --> Version[Versioon]
-    Version --> Evaluate[Hinda võrguväliselt]
-    Evaluate -->|läbib värava| Deploy[Juhi juurutamine]
-    Evaluate -->|ebaõnnestub väravas| Create
-    Deploy --> Observe[Jälgi võrgu peal]
+    Version --> Evaluate[Hinda võrguühenduseta]
+    Evaluate -->|läbib värava| Deploy[Paigalda majutatud]
+    Evaluate -->|ei läbi väravat| Create
+    Deploy --> Observe[Jälgi veebis]
     Observe --> Improve[Kogu tõrked]
     Improve --> Create
-    Deploy --> Retire[Võta vana versioon kasutusest]
+    Deploy --> Retire[Võta vanem versioon kasutusest maha]
 ```
 
-Peamine idee, mis võetakse üle [Õppetunnist 10](../10-ai-agents-production/README.md): **võrguvälise hindamise võib olla piir, mitte järelmõte.** Uus agentide versioon ei laeku enne, kui see läbib teie hindamiskünnise. Online-jälgitavus suunab reaalse maailma tõrked tagasi võrguvälisele testikomplektile. See on kogu tsükkel.
+Põhiidee, mis on võetud üle [õppetunnist 10](../10-ai-agents-production/README.md): **offline hindamine on värav, mitte mõttetu samm.** Uut agenti ei tarnita, kui see ei läbi sinu hindamiskünniseid. Veebi jälgitavus toob siis reaalsete vigade tagasiside sinu offline testikomplektile. See ongi kogu tsükkel.
 
-## Skaalastrateegiad
+## Skaalautusstrateegiad
 
-Agendi skaleerimine erineb olekutust veebirakenduse API skaleerimisest, sest iga päring võib esile kutsuda mitu kallist mudeli- ja tööriistaahelat. Neli tehnikat kannavad enamikku laadist.
+Agendi skaleerimine erineb olekuta veebipõhise API skaleerimisest, sest iga päring võib esile kutsuda mitu kulukat mudeli ja tööriista kutsumist. Neli tehnikat kannavad enamikku koormusest.
 
-**Olekuta päringute töötlemine.** Ärge hoidke protsessimälus ühegi kasutaja seisundit. Salvestage vestluste niidid Foundry niidipoodi või mäluteenusesse, nii et ükskõik milline instants suudab iga päringuga toime tulla. See võimaldab horisontaalset skaleerimist — lisage instantsse, pole kleepuvaid sessioone.
+**Olekuta päringute töötlemine.** Ära hoia protsessi mälus ühtki kasutaja spetsiifilist olekut. Säilita vestlusniidid Foundry niidipoes või mäluteenistuses, nii et iga näidis saab igat päringut töödelda. See võimaldab sul horisontaalselt skaleerida — lisa näidiseid, ilma kleepuvate sessioonideta.
 
-**Mudeli marsruutimine.** Iga päring ei vaja teie võimekaimat (ja kõige kallimat) mudelit. Marsruuditakse lihtsad päringud — kavatsuse klassifikatsioon, lühikesed faktivastused — väikesele, kiirele mudelile ja reserveeritakse suur mudel tõeliseks järeldamiseks. Foundry **mudeli marsruutija** saab seda teie eest teha või saate ise kergekaalulise klassifikaatori ehitada. Laboris ehitate selle versiooni ise.
+**Mudeli marsruutimine.** Igas päringus ei ole vaja kasutada kõige võimekamat (ja kõige kallimat) mudelit. Suuna lihtsad päringud — kavatsuse klassifitseerimine, lühikesed faktilised vastused — väikesele ja kiirusele mudelile ning suurem mudel reserveeri tõelisele mõtlemisele. Foundry **Model Router** suudab seda sinu eest teha, või saad ise ehitada kergekaalulise klassifikaatori. Laboris ehitad selle DIY versiooni.
 
-**Vastuste vahemällu salvestamine.** Paljud toetuspaigaldused on peaaegu kordused ("kuidas ma oma parooli lähtestan?"). Vahemällu salvestage vastused korduvatele küsimustele ja pakkige need mudelit kasutamata. Isegi tagasihoidlik vahemälu tabamissagedus vähendab märgatavalt kulusid ja latentsust.
+**Vastuse vahemällu salvestamine.** Paljud tugipäringud on peaaegu topeltpäringud („kuidas ma oma parooli resetin?“). Vahemälu ühistele küsimustele ja serveeri vastuseid ilma mudelit üldse kutsumata. Isegi tagasihoidlik vahemälu tabamuse määr vähendab oluliselt kulusid ja latentsust.
 
-**Samaaegsus ja surve tagasipaisumine.** Mudelipakkujatel on kiirusepiirangud. Piirake samaaegsust, kasutage korduskatseid eksponentsiaalse viivitusega ja ebaõnnestumisel laske graatsiliselt läbi (järjekorda pandud "me töötame selle kallal" vastus on parem kui 500).
+**Samaaegsus ja tagasurve.** Mudelite pakkujatel on kiiruspiirangud. Piira oma samaaegsust, kasuta eksponentsiaalset tagasipöördega katsetamist ja ebaõnnestumisel käitu väärikalt (järjekorda pandud „me töötame selle kallal“ vastus on parem kui 500 veateade).
 
 ```mermaid
 flowchart LR
     Q[Kasutaja päring] --> C{Vahemälu tabamus?}
-    C -->|jah| R[Tagasta vahemällu salvestatud vastus]
+    C -->|jah| R[Tagasta vahemälus olev vastus]
     C -->|ei| Router{Kompleksus?}
     Router -->|lihtne| SLM[Väike mudel]
     Router -->|keeruline| LLM[Suur mudel]
     SLM --> Out[Vastus]
     LLM --> Out
-    Out --> Store[Vahemälu + jälgimine]
+    Out --> Store[Vahemälu + jälg]
 ```
 
 ## Jälgitavus tootmises
 
-Te ei saa hallata seda, mida te ei näe. Nii nagu Õppetunnis 10 kirjeldatud, Microsoft Agent Framework edastab **OpenTelemetry** jälgi natiivselt — iga mudelikõne, tööriista kutsumine ja orkestreerimise samm muutub ulatuseks. Tootmises ekspordite need ulatused Microsoft Foundrysse (või mõnda OTel-i ühilduvasse taustsüsteemi), et saaksite:
+Sa ei saa juhtida, mida sa ei näe. Nagu õppetunni 10 alguses käsitleti, Microsoft Agent Framework eraldab loomupäraselt **OpenTelemetry** jälgi — iga mudeli kutse, tööriista kutsumine ja orkestreerimisaste muutub jälgialaks. Tootmises ekspordid need jäljed Microsoft Foundry (või mõne OTel-ühilduva tagasuunaga), et saaksid:
 
-- Jälgida ühe kliendikaebuse kulgu põhjalikult iga mudeli ja tööriista kõne ulatuses.
-- Vaadata p50/p95 latentsust ja kulu päringu kohta aja jooksul.
-- Teavitada veamäärade ja kulu anomaaliate tõusust enne, kui kasutajad (või finantstiim) seda märkavad.
+- Jälgida ühe kliendi kaebust algusest lõpuni läbi iga mudeli ja tööriista kutsumise.
+- Vaadata p50/p95 latentsust ja kulu iga päringu kohta aja jooksul.
+- Hoiatada veamäära tõusude ja kulude anomaaliate kohta enne kui sinu kasutajad (või finantsosakond) seda märkavad.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -158,94 +158,94 @@ tracer = get_tracer()
 
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
-    span.set_attribute("routed.model", "gpt-4.1-mini")
-    # agendi täitmist jälgitakse selle ulatuse sees automaatselt
+    span.set_attribute("routed.model", "gpt-5-nano")
+    # agendi täitmist jälgitakse selles ulatuses automaatselt
 ```
 
-Atribuudid nagu `customer.tier` ja `routed.model` muudavad suure jälgede seina vastatavatele küsimustele ("kas ettevõtte kliendid suunatakse liiga tihti väikesele mudelile?").
+Atribuudid nagu `customer.tier` ja `routed.model` muudavad jälgede kogumi vastatavateks küsimusteks („kas ettevõttekliendid suunatakse liiga sageli väikesele mudelile?“).
 
 ## Kuluoptimeerimine
 
-Tootmisagentide kulud on domineeritud tokenite poolt. Kolm hoobasid mõju järgi:
+Tootmisagentide kulusid mõjutavad domineerivalt sümbolid (tokens). Kolm hoobasid, mõjususjärjestuses:
 
-1. **Õige mudeli suuruste valik.** Väike mudel, mis läbib teie hindamispiiri, on peaaegu alati odavam kui suur mudel, mis samuti läbib. Kasutage hindamist, et *tõestada*, et väike mudel on piisav, selle asemel, et kartusega automaatselt kõige suuremat mudelit valida.
-2. **Marsruutimine keerukuse järgi.** Nagu eelnevalt — makske suurt mudelit ainult päringute eest, mis vajavad suurt mudelit järeldamiseks.
-3. **Agresiivne vahemälu kasutamine.** Kõige odavam mudelikõne on see, mida te kunagi ei tee.
+1. **Õige suurusega mudel.** Väike mudel, mis läbib sinu hindamisvärava, on peaaegu alati odavam kui suur mudel, mis samuti läbib. Kasuta hindamist, et *tõestada* väikese mudeli sobivust, mitte vaikimisi valida suurimat mudelit ettevaatlikkusest.
+2. **Marsruutimine keerukuse alusel.** Nagu eespool — maksa suur mudeli hinna eest vaid päringute eest, mis vajavad suurmõtlemist.
+3. **Tugev vahemällu salvestamine.** Kõige odavam mudeli kutse on see, mida sa ei tee.
 
-Hindamislukk ja kulude kontroll on sama distsipliin kahe nurga alt vaadates: hindamine määrab *kvaliteedi põranda*, marsruutimine ja vahemälu hoiavad teid võimalikult lähedal selle põranda *kulule*.
+Hindamisväravad ja kulude kontroll on sama distsipliini kaks vaadet: hindamine ütleb *kvaliteedi põranda*, marsruutimine ja vahemälu hoiavad sind võimalikult selle põranda *kulu* lähedal.
 
-## Ettevõtte juurutuskaalutlused
+## Ettevõttetasandi juurutuskaalutlused
 
-**Haldus.** Majutatud agentidel on Foundry RBAC, sisuohutus ja auditilogimine. Andke igale agendile hallatav identiteet vähimate õigustega, mida ta vajab — lugemisõigus teadmistebaasile, piiritletud ligipääs pileti API-le, mitte midagi rohkemat.
+**Juhtimine.** Hosted Agents pärivad Foundry RBAC, sisuturvalisuse ja auditeerimislogimise. Iga agendi jaoks anna hallatud identiteet vähima õigusega, mida vaja — lugemisõigus teadmistebaasile, piiritletud ligipääs piletite API-le, mitte midagi rohkemat.
 
-**Inimene otseloomulikus.** Mõned toimingud on liiga olulised, et neid täielikult automatiseerida — tagasimakse tegemine, konto kustutamine, juriidilisele meeskonnale edastamine. Microsoft Agent Framework toetab **luba nõudvaid** tööriistu: agent pakub toimingu ette, täitmine peatub, inimene heaks kiidab või lükkab tagasi ja töövoog jätkub. Sellist primitivi nägite [Õppetunnis 6](../06-building-trustworthy-agents/README.md); siin juurutate seda.
+**Inimene kaasatud.** Mõned toimingud on liiga tagajärjerikkad automaatseks tegutsemiseks — tagasimakse tegemine, konto kustutamine, õigusmeeskonnale eskaleerimine. Microsoft Agent Framework toetab **heakskiidu nõudvaid** tööriistu: agent teeb ettepaneku, täideviimine peatub, inimene kiidab heaks või lükkab tagasi ning töövoog jätkub. Seda primitiivi nägid sa [õppetunnis 6](../06-building-trustworthy-agents/README.md); siin sa seda juurutad.
 
-**MCP tootmises.** [MCP](../11-agentic-protocols/README.md) lubab teie agendil tarbida väliseid tööriistu standardliidese kaudu. Tootmises käsitlege iga MCP serverit kui usaldust mitte väärivat piiri: lukustage serveri versioon, käitage seda piiratud identiteediga, valideerige väljundid ja ärge kunagi avalikustage sellele saladusi. MCP server on sõltuvus ja sõltuvused vajavad parandamist, auditeerimist ja kiirusepiiranguid.
+**MCP tootmises.** [MCP](../11-agentic-protocols/README.md) lubab agentidel tarbida väliseid tööriistu standardliidese kaudu. Tootmises käsitle iga MCP serverit kui usaldamatut piiri: paiguta serveri versioon, käivita see piiratud identiteediga, valideeri väljundid ja ära kunagi avalikusta talle saladusi. MCP server on sõltuvus, mida parandatakse, auditeeritakse ja millele kehtestatakse kiiruspiirangud.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Arendusarhitektuur]
-        D1[Sülearvuti] --> D2[Agendi raamistik]
-        D2 --> D3[Mudelite pakkuja]
+    subgraph Dev[Arenduse arhitektuur]
+        D1[Märkmik] --> D2[Agendi raamistik]
+        D2 --> D3[Mudelipakkuja]
         D2 --> D4[Kohalikud tööriistad]
     end
     subgraph Deploy[Paigaldusarhitektuur]
-        E1[CI torujuhe] --> E2[Hindamise värav]
-        E2 -->|läbi| E3[Foundry agendi teenus]
+        E1[CI torujuhe] --> E2[Hinnangulukk]
+        E2 -->|läbimise| E3[Foundry agenditeenus]
         E3 --> E4[Versioonitud majutatud agent]
     end
     subgraph Run[Käituse arhitektuur]
         F1[Kliendi rakendus] --> F2[Majutatud agent]
-        F2 --> F3[Mudeli marsruuter]
+        F2 --> F3[Mudeliraouter]
         F2 --> F4[Azure AI otsing RAG]
         F2 --> F5[Mälu teenus]
         F2 --> F6[MCP tööriistad]
         F2 --> F7[OTel -> Foundry jälgimine]
-        F2 --> F8[Inimese kinnitamine]
+        F2 --> F8[Inimese heakskiit]
     end
 ```
 
-Need kolm diagrammi — arendus, juurutus, jooksutamine — on sama agent kolme eluetapi jooksul. Järgmine labor juhatab teid selle ehitamisel.
+Need kolm diagrammi — arendus, juurutus, jooksvaaja — kujutavad sama agenti kolme elufaasi. Järgmine labor juhendab sind selle ehitamise juures.
 
-## Käed-külge labor: tootmisele valmis klienditoe agent
+## Praktikum: tootmisvalmis klienditoe agent
 
-Avage [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ja tehke see lõpuni läbi. Teil on vaja kokku panna **Contoso klienditoe agent** kõigi tootmisküsimustega ühendatult:
+Ava [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ja tee see lõpuni läbi. Koostatakse **Contoso klienditoe agent**, mille iga tootmisküsimus on lahendatud:
 
-1. **Tööriistade kutsumine** — tellimuse staatuse pärimine ja tugipiletite avamine.
-2. **RAG** — vastused poliitikaküsimustele teadmistebaasist (Azure AI Search, mälu põhine tagavara, et märkmik töötaks ilma Search ressursita).
-3. **Mälu** — mäletab klienti vestluse korduste jooksul.
+1. **Tööriistakõned** — vaata tellimuste staatust ja ava tugipileteid.
+2. **RAG** — vasta teadmistebaasil põhinevatele poliitikaküsimustele (Azure AI Search, koos mälupõhise varuplaaniga, nii et märkmik töötab ka ilma Search ressursita).
+3. **Mälu** — mäleta klienti vestluse käigus.
 4. **Mudeli marsruutimine** — keerukuse klassifikaator suunab iga päringu väikesele või suurele mudelile.
-5. **Vastuste vahemälu** — korduvad küsimused teenindatakse vahemälust.
-6. **Inimluba** — tagasimaksed üle künnise ootavad inimluba.
-7. **Hindamisliin** — väike võrguväline testikomplekt hindab agenti ja toimib väljaandmise lukkuna.
+5. **Vastuse vahemällu salvestamine** — korduvad küsimused serveeritakse vahemälust.
+6. **Inimese heakskiit** — tagasimaksed üle läve peatatakse inimheakskiidu ära ootamiseks.
+7. **Hindamisvoog** — väike offline testikomplekt hindab agenti ja toimib väljaande väravana.
 8. **Jälgitavus** — OpenTelemetry jälgimine iga päringu ümber.
 
 ### Läbivaatus
 
-Märkmik on organiseeritud nii, et iga tootmisküsimus on iseseisev, käivitatav sektsioon. Tuum on marsruutimise ja vahemälu päringutöötlus:
+Märkmik on organiseeritud nii, et iga tootmisküsimus on iseseisev jooksutatav plokk. Selle süda on marsruutimise- ja vahemälu päringukäsitleja:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Teeninda vahemälust, kui võimalik.
+    # 1. Teenindage vahemälust, kui saame.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Suuna keerukuse järgi, et kontrollida kulusid.
-    model = "gpt-4.1-mini" if is_simple(query) else "gpt-4.1"
+    # 2. Marsruutige keerukuse järgi kulude kontrollimiseks.
+    model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Käivita agent jälgimisvahemikus jälgitavuse jaoks.
+    # 3. Käivitage agent jälgimisalal jälgitavuse jaoks.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Vahemäleta ja tagasta.
+    # 4. Vahemälu ja tagasta.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Väljaandmise juurdepääsutõkke näide on selline:
+Hindamisvärav, mis kaitseb väljaannet, näeb välja selline:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # teosta paigaldus ainult juhul, kui värav läbib kontrolli
+    return pass_rate >= threshold  # rakenda ainult siis, kui värav läbib
 ```
 
-Lugege iga rida — märkmik hoiab primitiivid sihikindlalt väikestena, et mitte midagi ei oleks raamistikukutse taha peidetud.
+Loe iga rida läbi — märkmik hoiab primitiivid tahtlikult väikestena, nii et miski pole raamistikukutse taha peidetud.
 
 ## Juurutatud agendi valideerimine suitsutestidega
 
-Ülaltoodud hindamislussild töötab *võrguväliselt* teie agendi objekti suhtes. Kui agent on juurutatud kui Majutatud Agent, vajate veel ühe, veel odavama kontrolli: **kas juurutatud lõpp-punkt tõesti vastab?**
+Ülaltoodud hindamisvärav jookseb *offline* sinu agentobjekti vastu. Kui agent on juurutatud Hosted Agentina, vajad veel üht veel odavamat kontrolli: **kas juurutatud lõpp-punkt vastab tegelikult?**
 
-"Edukalt" juurutamine tõestab ainult, et kontrolltase aktsepteeris definitsiooni — see ei tõesta, et agent vastab. Puuduv sõltuvus, halb mudeli marsruutimine või aegunud ühendus võivad jätta rohelise juurutuse, mis ei tagasta midagi. **Suitsetest** tabab selle sekunditega, igal juurutusel, ilma täishindamise kuluta.
+„Õnnestunud“ juurutamine tõestab ainult, et juhtimistasand aktsepteeris definitsiooni — see ei tõesta, et agent vastab. Puuduv sõltuvus, halb mudelimarsruut või aegunud ühendus võivad jätta rohelist valmimist, mis ei tagasta midagi. **Suitsutest** tabab selle sekunditega, iga juurutuse järel, ilma täishindamise kuluta.
 
-See hoidla sisaldab kasutusvalmis suitsutesti liini, mis põhineb [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action'il:
+See hoidla sisaldab kasutusvalmis suitsutesti torujuhtme, mis põhineb [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Actionil:
 
-- **Kataloog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) sisaldab sisendeid ja väiteid Contoso tugiedendi jaoks (toetuspoliitika vastused, tellimuse päring, teemadega piirdumine ja mitme sammu niidijärjepidevus). Teiste õppetundide agentide kataloogid asuvad seal kõrval — vt [`tests/README.md`](../tests/README.md).
-- **Töövoog** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) logib sisse Azure OIDCi kaudu ja postitab iga sisendi agendi Responses lõpp-punktile, ebaõnnestudes igal valeväitel.
+- **Kataloog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) sisaldab küsimusi ja väiteid Contoso tugiteenuse agendi kohta (toetatud poliitikavastused, tellimuste otsing, teemast kinni pidamine ja mitme intervjuu niidi järjepidevus). Teiste õppetundide agentide kataloogid asuvad selle kõrval — vaata [`tests/README.md`](../tests/README.md).
+- **Töövoog** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) logib sisse Azure OIDC-ga ja POSTitab iga küsimuse agendi Responses lõpp-punkti, ebaõnnestudes töö igal tõrkel.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,120 +282,120 @@ See hoidla sisaldab kasutusvalmis suitsutesti liini, mis põhineb [AI Smoke Test
 ```
 
 
-Käivitage see **Actions** vahekaardilt, kui teie agend on juurutatud, esitades oma Foundry projekti lõpp-punkti ja agendi nime. Liit-identiteedil peab olema **Azure AI User** roll Foundry projekti ulatuses. Mõelge kihtidele nagu püramiidile: suitsutestid (kas on ligipääsetav ja vastab?) käivad läbi igal juurutamisel, võrguvälise hindamise (kas piisavalt hea saatmiseks?) käivad läbi enne edendamist ja võrguhindamine (kuidas lood looduses?) töötab pidevalt.
+Käivitage see vahekaardilt **Tegevused** (Actions), kui teie agent on juurutatud, andes sisse oma Foundry projekti lõpp-punkti ja agendi nime. Föderaalne identiteet vajab Foundry projekti ulatuses rolli **Azure AI kasutaja**. Mõelge kihtidele kui püramiidile: suitsutestid (kas on ligipääsetav ja reageerib?) jooksevad iga juurutuse korral, võrguühenduseta hindamine (kas piisav saatmiseks?) jookseb enne edutamist ja võrguhindamine (kuidas see metsikus toimib?) jookseb pidevalt.
 
-## Teadmiste Kontroll
+## Teadmiste kontroll
 
-Kontrollige oma arusaamist enne ülesande juurde liikumist.
+Testige oma arusaamist enne ülesandega edasi liikumist.
 
-**1. Kui suur osa tööstusagendist on ligikaudu "mudel" ja mis moodustab ülejäänu?**
+**1. Umbes kui suur osa tootmisagendist on "mudel" ja mis on ülejäänu?**
 
 <details>
 <summary>Vastus</summary>
 
-Mudel on süsteemi vähemus — tavaliselt hinnatakse seda umbes 20% ulatuses. Ülejäänud on operatiivne karkass: majutamine ja versioonihaldus, identiteet ja RBAC, eksternaliseeritud olek, tõrkehaldus, kulude jälgimine, hindamine ja inimkontrolli mehhanismid. Tootmisse minek tähendab enamasti kõigi komponentide ehitamist *arutluslõnga* ümber.
+Mudel on süsteemi vähemusosa — sageli mainitakse umbes 20%. Ülejäänu on operatiivne skelett: majutamine ja versioonihaldus, identiteet ja RBAC, eksternaliseeritud seisund, rikkehaldus, kulude jälgimine, hindamine ja inimlülis kontrollid. Tootmisse liikumine on enamasti seotud kõigega, mis on *mõtlemistsükli* ümber üles ehitatud.
 </details>
 
-**2. Millal valiksite majutatud Agendi asemel kliendi majutatud agendi?**
+**2. Millal valiksite majutatud agendi kliendiagenti asemel?**
 
 <details>
 <summary>Vastus</summary>
 
-Kui soovite hallatud käitusaja, millel on sisseehitatud vastupidavus (püsivad ja jätkuvad lõimed), jälgitavus, sisuturvalisus ja RBAC ning olete valmis loovutama mõningase madalama taseme kontrolli arutluslõnga üle väiksema operatiivpinna nimel. Kliendi majutatud on soovitav, kui vajate täielikku kontrolli lõnga üle või integreerite agendi olemasolevasse tagasüsteemi.
+Kui soovite hallatud käitusaega koos sisseehitatud vastupidavusega (niidid, mis püsivad ja saavad jätkata), jälgitavust, sisu turvalisust ja RBAC-i ning olete valmis mõne madala taseme kontrolli arvelt saama väiksemat operatiivset pindala. Kliendiagent on eelistatum, kui vajate täielikku kontrolli tsükli üle või kui manustate agenti olemasolevasse tagalasse.
 </details>
 
-**3. Miks peab skaleeritav agent olema oma protsessi mälus seisundita?**
+**3. Miks peab mastaapiv agent olema oma protsessimälus seisundita?**
 
 <details>
 <summary>Vastus</summary>
 
-Nii saab iga instants töödelda ükskõik millist päringut, mis võimaldab horisontaalset skaleerimist ilma püsimisseanssideta. Kasutajapõhine vestluse olek on eksternaliseeritud lõimede andmebaasi või mäluteenusesse. Kui olek oleks protsessimälus, kaotaksite selle taaskäivitamisel ning ei saaks koormust vabalt jaotada.
+Nii saab ükskõik milline eksemplar käsitleda ükskõik millist päringut, mis võimaldab horisontaalset skaleerimist ilma seotud sessioonideta. Kasutajapõhine vestlusseisund on eksternaliseeritud niidiandmebaasi või mäluteenuse külge. Kui seisund elaks protsessimälus, kaotaksite selle taaskäivitamisel ja ei saaks koormust vabalt jaotada.
 </details>
 
-**4. Millist probleemi lahendab mudeli marsruutimine ja kuidas see seostub hindamisega?**
+**4. Millist probleemi lahendab mudelite marsruutimine ja kuidas see seostub hindamisega?**
 
 <details>
 <summary>Vastus</summary>
 
-Marsruutimine suunab lihtsad päringud väikesesse, odavasse, kiire mudelisse ja jätab suure mudeli tõsisemaks arutluseks, kontrollides nii latentsust kui ka kulusid. See seostub hindamisega, sest hindamine tõestab, et väike mudel on piisavalt hea konkreetse päringuklassi jaoks — marsruutimine ilma hindamiseta on vaid arvasimine.
+Marsruutimine saadab lihtsad päringud väikesele, odavale ja kiirele mudelile ning hoiab suure mudeli päris mõtlemiseks, kontrollides nii latentsust kui kulusid. See seostub hindamisega, sest hindamine on see, mis *tõestab*, et väike mudel on piisav teatud päringute klassile — marsruutimine ilma hindamiseta on vaid oletamine.
 </details>
 
-**5. Mis on "hindamise värav" ja kus see elutsüklis asub?**
+**5. Mis on "hindamisvärav" ja kus see elutsüklis asub?**
 
 <details>
 <summary>Vastus</summary>
 
-Hindamise värav käivitab võrguvälise testkomplekti uuele agendi versioonile ja blokeerib juurutamise, kui soorituse tase ei ületa lävendit. See asub elutsükli etappide "versioon" ja "juurutamine" vahel, muutes kvaliteedi vabastamise eelduseks, mitte millekski, mida kontrollitakse pärast saatmist.
+Hindamisvärav käivitab võrguühenduseta testkomplekti uue agendiversiooni vastu ja blokeerib juurutuse, kui edukuse määr ei ületa künnist. See asub elutsükli faaside "versioon" ja "juurutus" vahel, muutes kvaliteedi eeltingimuseks väljalaskmiseks, mitte millekski, mida kontrollitakse pärast saatmist.
 </details>
 
-**6. Miks tuleks tootmises MCP serverit käsitleda usaldamata piirina?**
+**6. Miks peaks MCP serverit tootmiskeskkonnas käsitlema usaldamatuna piirinahana?**
 
 <details>
 <summary>Vastus</summary>
 
-Sest see on väline sõltuvus, mida teie agent kutsub. Te peaksite kinnistama selle versiooni, jooksutama seda piiratud identiteediga, valideerima selle väljundid, piirama päringute arvu ja mitte kunagi jagama saladusi — sama distsipliini, mida kasutate igas kolmanda osapoole sõltuvuses. Selle väljundid sisenevad teie agendi arutlusse, nii et kinnitamata usaldus on turvarisk.
+Sest tegemist on välise sõltuvusega, mida teie agent kutsub. Peaksite lukustama selle versiooni, käivitama selle piiritletud identiteediga, valideerima selle väljundid, rakendama hulga piiranguid ning mitte kunagi avalikustama sellel saladusi — sama distsipliini, mida kasutate iga kolmanda osapoole sõltuvuse puhul. Selle väljundid voolavad agenti mõtlemisse, nii et valideerimata usaldus on turvarisk.
 </details>
 
-**7. Milline üksik muudatus avaldab tavaliselt suurimat mõju tootmisagendi kulule ja miks?**
+**7. Milline üksik muudatus avaldab tavaliselt suurimat mõju tootmisagendi kuludele ja miks?**
 
 <details>
 <summary>Vastus</summary>
 
-Mudeli õigesse suurusesse seadmine — kasutada kõige väiksemat mudelit, mis väldib teie hindamisvärava läbikukkumist. Kulud on peamiselt tokenitest tingitud ja väiksem mudel, mis vastab kvaliteedinõuetele, on peaaegu alati odavam kui suurem. Puhverdamine ja marsruutimine vähendavad kulu veelgi, kuid õige põhimudeli valik avaldab kõige suuremat esmase astme mõju.
+Õige suurusega mudel — kasutades kõige väiksemat mudelit, mis ikkagi läbib teie hindamisvärava. Kulud sõltuvad peamiselt tokenitest ja väiksem mudel, mis vastab kvaliteedinõuetele, on peaaegu alati odavam kui suurem mudel. Vahemällu salvestamine ja marsruutimine vähendavad kulu veelgi, kuid õige baasmudeli valikul on suurim esmatarbeline mõju.
 </details>
 
-**8. Millist rolli mängivad jälgitavuses sellised ulatuse atribuudi nagu `customer.tier` ja `routed.model`?**
+**8. Millist rolli mängivad jälgimisomadused nagu `customer.tier` ja `routed.model` jälgitavuses?**
 
 <details>
 <summary>Vastus</summary>
 
-Need muudavad toor jäljed vastatavaks äriküsimusteks. Ilma atribuutideta on teil ainult kogum ulatusi; atribuutidega saate küsida "kas ettevõtte kliendid suunatakse liiga tihti väikesele mudelile?" või "milline mudel haldab meie kõige aeglasemaid päringuid?" Atribuudid võimaldavad teil telermeetriat lõigata nende mõõtmete põhjal, mis on teie tegevuse jaoks olulised.
+Need muudavad toore jälje äriküsimusteks, millele saab vastata. Ilma omadusteta on teil hulganisti jälgi; omadustega saate küsida näiteks "kas ärikliendid suunatakse liiga tihti väikesele mudelile?" või "milline mudel käsitleb meie aeglaseimaid päringuid?" Omadused võimaldavad telemeetriat tükkideks lõigata teie tegevuse jaoks oluliste mõõtmete järgi.
 </details>
 
 ## Ülesanne
 
-Võtke laborist klienditoe agent ja tugevdage seda konkreetseks stsenaariumiks: **tellijate arvepöördumise tugi SaaS ettevõttele.**
+Võtke laborist klienditoe agent ja tugevdage seda konkreetseks stsenaariumiks: **tellijaarvestuse tugipersonal SaaS ettevõttele.**
 
 Teie esituses peaks olema:
 
-1. **Asendage tööriistad** arvepidamisega seotud tööriistadega: `get_subscription_status`, `get_invoice` ja `issue_credit` (kui krediidisumma ületab 50 dollarit, vajab inimkinnitust).
-2. **Lisage kolm RAG dokumenti** ettevõtte tagasimaksepoliitika, arveldustsükli ja tühistamispoliitika kohta.
-3. **Laiendage hindamiskomplekti** vähemalt kaheksale juhtumile, millest vähemalt kaks peaksid *käivitama* inimkinnitusprotsessi ja kinnitage, et teie hindamisvärav õigesti läbi läheb või läbi kukub.
-4. **Lisage üks kuluaruanne**: pärast kümne erineva päringu läbimist agenti kaudu trükkige välja, mitu päringut läks väikesele mudelile, mitu suurele mudelile ja mitu teenindati puhvrist.
+1. **Asendage tööriistad** tellimisega seotud funktsioonidega: `get_subscription_status`, `get_invoice` ja `issue_credit` (krediidid üle 50 dollari nõuavad inimheakskiitu).
+2. **Lisage kolm RAG dokumenti** ettevõtte tagasimaksetingimuste, arveldustsükli ja tühistamispoliitika kohta.
+3. **Laiendage hindamiskomplekti** vähemalt kaheksa juhtumini, sealhulgas vähemalt kaks, mis *peavad* käivitama inimheakskiidu tee, ning kinnitage, et teie hindamisvärav läbib või ebaõnnestub õigesti.
+4. **Lisage üks kuluraport**: pärast kümne segatud päringu läbimist agenti kaudu trükkige, mitu läks väikesele mudelile, mitu suurele mudelile ja mitu teenindati vahemälu kaudu.
 
-Kirjutage lühike lõik (markdown lahtris), milles selgitate, millise mudeli marsruutimise reegli valisite ja kuidas seda reaalse liiklusega valideeriksite. Ühte õiget vastust ei ole — teid hinnatakse selle järgi, kas tootmisküsimused on kooskõlas kokku ühendatud.
+Kirjutage lühike lõik (markdowni lahtrisse), selgitades, millise mudelite marsruutimise reegli valisite ja kuidas te selle reaalse liiklusega valideeriksite. Õigeid vastuseid pole üks; teid hinnatakse selle järgi, kas tootmisküsimused on sidusalt kokku seotud.
 
 ## Kokkuvõte
 
-Selles õppetükis viisite agendi prototüübist tootmisse Microsoft Foundry kaudu:
+Selles õppetükis viisite agendi prototüübist tootmisse Microsoft Foundry abil:
 
-- Tootmisse minek seisneb peamiselt **operatiivses karkassis** mudeli ümber — majutamine, identiteet, olek, tõrkehaldus, kulud, kvaliteet ja usaldus.
-- Õppisite kolme **juurutusmustrit** — kliendi majutatud, majutatud agendid ja agendivoogud — ja millal neid kasutada.
-- Läbikäisite **agendi elutsükli**, kus võrguväline **hindamine toimib väljalaske väravana** ja võrgus jälgitavus annab tõlked testikomplekti tagasi.
-- Rakendasite **skaleerimisstrateegiaid** — seisunditeta disain, mudeli marsruutimine, puhverdamine ja piiratud samalajaline töö — ning sidusite need **kuluoptimeerimisega**.
-- Sidusite endaga **ettevõtte juhid**: RBAC, inimkinnitus ja tootmisohutu MCP integratsioon.
-- Ehitasite **tootmiskõlbliku klienditoe agendi**, mis seob kõik need kaalutlused ühtseks töökõlblikuks koodiks.
+- Tootmisse hüppamine on enamasti seotud **mudeli ümber oleva operatiivskeletiga** — majutamine, identiteet, seisund, rikkehaldus, kulud, kvaliteet ja usaldus.
+- Õppisite kolme **juurutusmustrit** — kliendiagent, majutatud agendid ja agentide töövood — ning millal kumb sobib.
+- Läksite läbi **agendi elutsükli**, kus võrguühenduseta **hindamine toimib väljalaskeväravana** ja võrguhindlikkus toob vigade kohta tagasisidet testkomplektile.
+- Rakendasite **skaalustrateegiaid** — seisundita disain, mudelite marsruutimine, vahemällu salvestamine ja piiratud samaaegsus — ning sidusite need **kulude optimeerimisega**.
+- Ühendsite **ettevõtte juhtimised**, nagu RBAC, inimlülis heakskiit ja tootmiskindel MCP integreerimine.
+- Ehitasite **tootmisvalmis klienditoe agendi**, mis koondab kõik need küsimused töödeldavasse koodi.
 
-Järgmine õppetükk teeb vastupidise rännaku: selle asemel, et agendid pilvkeskkonda skaleerida, toote need *alla* ühe arendajamasina peale ja käivitate need täielikult lokaalselt.
+Järgmine õppetükk läbib vastupidise tee: selle asemel, et agendi pilve üles skaleerida, toote selle alla ühe arendajamasina peale ja käivitate täielikult lokaalselt.
 
-## Lisamaterjalid
+## Täiendavad ressursid
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentatsioon</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agendi Teenuse ülevaade</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service ülevaade</a>
 - <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Mudelirouter Microsoft Foundrys</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Mudelimarsruuter Microsoft Foundry-s</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
-- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub tegevus</a>
+- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
 ## Eelmine õppetükk
 
-[Arvutikasutusagentide loomine (CUA)](../15-browser-use/README.md)
+[Arvutikasutusagentide ehitamine (CUA)](../15-browser-use/README.md)
 
 ## Järgmine õppetükk
 
-[Lokaalsete AI agentide loomine](../17-creating-local-ai-agents/README.md)
+[Lokaalsete tehisintellekti agentide loomine](../17-creating-local-ai-agents/README.md)
 
 ---
 

@@ -1,69 +1,72 @@
-# 🌍 AI Wakala wa Kusafiri na Microsoft Agent Framework (.NET)
+# 🌍 Wakala wa Safari wa AI na Microsoft Agent Framework (.NET)
 
-## 📋 Muhtasari wa Hali
+## 📋 Muhtasari wa Mtazamo
 
-Mfano huu unaonyesha jinsi ya kujenga wakala wa akili wa kupanga safari kwa kutumia Microsoft Agent Framework kwa .NET. Wakala anaweza kuunda ratiba za safari za siku moja kwa moja kwa maeneo ya nasibu duniani kote.
+Mfano huu unaonyesha jinsi ya kujenga wakala mwenye akili wa kupanga safari kwa kutumia Microsoft Agent Framework kwa .NET. Wakala anaweza kuunda ratiba za ziara za siku moja zilizoandaliwa binafsi kwa maeneo tofauti duniani.
 
 ### Uwezo Muhimu:
 
-- 🎲 **Uchaguzi wa Maeneo ya Nasibu**: Hutumia zana maalum kuchagua maeneo ya likizo
-- 🗺️ **Upangaji wa Safari wa Akili**: Huunda ratiba za kina za kila siku
-- 🔄 **Utiririshaji wa Wakati Halisi**: Inasaidia majibu ya papo hapo na ya utiririshaji
+- 🎲 **Uchaguzi wa Mahali kwa Bahati Nasibu**: Inatumia zana maalum kuchagua maeneo ya likizo
+- 🗺️ **Upangaji Intelligent wa Safari**: Inaunda ratiba za kina siku kwa siku
+- 🔄 **Utiririshaji wa Muda Halisi**: Inasaidia majibu ya haraka na ya mtiririko
 - 🛠️ **Muunganiko wa Zana Maalum**: Inaonyesha jinsi ya kupanua uwezo wa wakala
 
-## 🔧 Muundo wa Kiufundi
+## 🔧 Mimarishaji ya Kiufundi
 
-### Teknolojia za Msingi
+### Teknolojia Msingi
 
-- **Microsoft Agent Framework**: Utekelezaji wa hivi karibuni wa .NET kwa maendeleo ya wakala wa AI
-- **Muunganiko wa Miundo ya GitHub**: Hutumia huduma ya utambuzi wa miundo ya AI ya GitHub
-- **Ulinganifu wa API ya OpenAI**: Hutumia maktaba za mteja wa OpenAI na viunganishi maalum
-- **Usanidi Salama**: Usimamizi wa funguo za API kulingana na mazingira
+- **Microsoft Agent Framework**: Utekelezaji wa hivi karibuni wa .NET kwa maendeleo ya wakala AI
+- **Azure OpenAI (API za Majibu)**: Inatumia API za Majibu za Azure OpenAI kwa utambuzi wa mfano
+- **Azure Identity**: Kuingia salama kwa kutumia `AzureCliCredential` (`az login`)
+- **Usimamizi Salama wa Mipangilio**: Usimamizi wa anwani kulingana na mazingira
 
-### Vipengele Muhimu
+### Vifaa Muhimu
 
-1. **AIAgent**: Msimamizi mkuu wa wakala anayeshughulikia mtiririko wa mazungumzo
-2. **Zana Maalum**: Kazi ya `GetRandomDestination()` inayopatikana kwa wakala
-3. **Mteja wa Mazungumzo**: Kiunganishi cha mazungumzo kinachotegemea Miundo ya GitHub
-4. **Utiririshaji wa Majibu**: Uwezo wa kuunda majibu ya wakati halisi
+1. **AIAgent**: Mkurugenzi mkuu wa wakala anayesimamia mtiririko wa mazungumzo
+2. **Zana Maalum**: Kazi `GetRandomDestination()` inayopatikana kwa wakala
+3. **Mteja wa Majibu**: Kiolesura cha mazungumzo kinachotegemea Azure OpenAI Responses
+4. **Msaada wa Utiririshaji**: Uwezo wa kuzalisha majibu ya muda halisi
 
-### Muundo wa Muunganiko
+### Mfano wa Muunganiko
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[Ombi la Mtumiaji] --> B[Wakala wa AI]
+    B --> C[Azure OpenAI (API ya Majibu)]
+    B --> D[Zana ya GetRandomDestination]
+    C --> E[Ratiba ya Safari]
     D --> E
 ```
 
-## 🚀 Kuanza
+## 🚀 Kuanzisha
 
-### Mahitaji ya Awali
+### Vitu Vinavyohitajika
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) au zaidi
-- [Tokeni ya ufikiaji wa API ya Miundo ya GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK ya .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) au juu zaidi
+- [Usajili wa Azure](https://azure.microsoft.com/free/) na rasilimali ya Azure OpenAI na usambazaji wa mfano
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ingia kwa kutumia `az login`
 
-### Vigezo vya Mazingira Vinavyohitajika
+### Mabadiliko ya Mazingira Yanayohitajika
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Kisha jisajili ili AzureCliCredential ipate tokeni
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Kisha ingia ili AzureCliCredential ipate tokeni
+az login
 ```
 
 ### Mfano wa Msimbo
 
-Kuendesha mfano wa msimbo,
+Ili kuendesha mfano wa msimbo,
 
 ```bash
 # zsh/bash
@@ -71,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Au kwa kutumia dotnet CLI:
+Au kwa kutumia CLI ya dotnet:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -82,16 +85,18 @@ Tazama [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_s
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -166,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Mambo Muhimu ya Kujifunza
+## 🎓 Mambo Muhimu ya Kumbuka
 
-1. **Muundo wa Wakala**: Microsoft Agent Framework hutoa njia safi na salama ya aina ya kujenga mawakala wa AI katika .NET
-2. **Muunganiko wa Zana**: Kazi zilizopambwa na sifa za `[Description]` zinakuwa zana zinazopatikana kwa wakala
-3. **Usimamizi wa Usanidi**: Vigezo vya mazingira na usimamizi salama wa hati vinazingatia mazoea bora ya .NET
-4. **Ulinganifu wa OpenAI**: Muunganiko wa Miundo ya GitHub unafanya kazi bila matatizo kupitia API zinazolingana na OpenAI
+1. **Mimarishaji ya Wakala**: Microsoft Agent Framework hutoa njia nzuri na salama ya aina ya kujenga mawakala wa AI kwa .NET
+2. **Muunganiko wa Zana**: Kazi zilizo na sifa za `[Description]` zinakuwa zana zinazopatikana kwa wakala
+3. **Usimamizi wa Mipangilio**: Mabadiliko ya mazingira na usimamizi salama wa vibali hufuata mbinu bora za .NET
+4. **API za Majibu za Azure OpenAI**: Wakala hutumia API za Majibu za Azure OpenAI kupitia SDK ya Azure.AI.OpenAI
 
-## 🔗 Rasilimali za Ziada
+## 🔗 Rasilimali Zaidi
 
 - [Nyaraka za Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [Soko la Miundo ya GitHub](https://github.com/marketplace?type=models)
+- [Azure OpenAI katika Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [Programu za Faili Moja za .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati asilia katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

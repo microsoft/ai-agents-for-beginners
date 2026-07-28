@@ -1,39 +1,42 @@
-# 🎯 Planlægning & Designmønstre med GitHub-modeller (.NET)
+# 🎯 Planlægning & Designmønstre med Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Læringsmål
 
-Denne notebook demonstrerer planlægnings- og designmønstre på virksomhedsniveau til opbygning af intelligente agenter ved hjælp af Microsoft Agent Framework i .NET med GitHub-modeller. Du vil lære at skabe agenter, der kan nedbryde komplekse problemer, planlægge løsninger i flere trin og udføre avancerede arbejdsgange med .NET's virksomhedsfunktioner.
+Denne notesbog demonstrerer virksomhedsgrade planlægnings- og designmønstre til opbygning af intelligente agenter ved hjælp af Microsoft Agent Framework i .NET med Azure OpenAI (Responses API). Du lærer at skabe agenter, som kan nedbryde komplekse problemer, planlægge flerstegs løsninger og udføre sofistikerede workflows med .NET's virksomhedsfeatures.
 
 ## ⚙️ Forudsætninger & Opsætning
 
 **Udviklingsmiljø:**
 - .NET 9.0 SDK eller nyere
-- Visual Studio 2022 eller VS Code med C#-udvidelse
-- Adgang til GitHub Models API
+- Visual Studio 2022 eller VS Code med C#-udvidelsen
+- Et Azure-abonnement med en Azure OpenAI-ressource og en modeludrulning
+- Azure CLI — log ind med `az login`
 
 **Nødvendige afhængigheder:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Miljøkonfiguration (.env-fil):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Kørsel af koden
+## Kørsel af Koden
 
-Denne lektion inkluderer en .NET Single File App-implementering. For at køre den:
+Denne lektion inkluderer en .NET single file app-implementering. For at køre den:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Gør filen eksekverbar (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Kør applikationen
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,21 +46,21 @@ Eller brug dotnet run-kommandoen:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Implementering af kode
+## Kodeimplementering
 
 Den komplette implementering findes i `07-dotnet-agent-framework.cs`, som demonstrerer:
 
 - Indlæsning af miljøkonfiguration med DotNetEnv
-- Konfiguration af OpenAI-klient til GitHub-modeller
+- Konfiguration af Azure OpenAI-klienten og oprettelse af en AI-agent ved hjælp af `GetChatClient().AsAIAgent()`
 - Definition af strukturerede datamodeller (Plan og TravelPlan) med JSON-serialisering
-- Oprettelse af en AI-agent med struktureret output ved hjælp af JSON-schema
-- Udførelse af planlægningsanmodninger med type-sikre svar
+- Oprettelse af en AI-agent med struktureret output via JSON-skema
+- Udførelse af planlægningsforespørgsler med typesikre svar
 
-## Centrale begreber
+## Centrale Begreber
 
-### Struktureret planlægning med type-sikre modeller
+### Struktureret Planlægning med Typesikre Modeller
 
-Agenten bruger C#-klasser til at definere strukturen af planlægningsoutput:
+Agenten bruger C#-klasser til at definere strukturen af planlægningsresultater:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON-schema til strukturerede outputs
+### JSON-skema for Strukturerede Output
 
-Agenten er konfigureret til at returnere svar, der matcher TravelPlan-schemaet:
+Agenten er konfigureret til at returnere svar, som matcher TravelPlan-skemaet:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Instruktioner til planlægningsagenten
+### Instruktioner til Planlægningsagenten
 
-Agenten fungerer som koordinator og delegerer opgaver til specialiserede underagenter:
+Agenten fungerer som en koordinator, der delegerer opgaver til specialiserede underagenter:
 
-- FlightBooking: Til booking af fly og levering af flyinformation
+- FlightBooking: Til booking af flyrejser og levering af flyinformation
 - HotelBooking: Til booking af hoteller og levering af hotelinformation
-- CarRental: Til booking af biler og levering af biludlejningsinformation
+- CarRental: Til booking af biler og levering af billejeinformation
 - ActivitiesBooking: Til booking af aktiviteter og levering af aktivitetsinformation
 - DestinationInfo: Til levering af information om destinationer
 - DefaultAgent: Til håndtering af generelle forespørgsler
 
-## Forventet output
+## Forventet Output
 
-Når du kører agenten med en rejseplanlægningsanmodning, vil den analysere anmodningen og generere en struktureret plan med passende opgavefordeling til specialiserede agenter, formateret som JSON, der overholder TravelPlan-schemaet.
+Når du kører agenten med en rejseplanlægningsforespørgsel, vil den analysere forespørgslen og generere en struktureret plan med passende opgavefordeling til specialiserede agenter, formateret som JSON i overensstemmelse med TravelPlan-skemaet.
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

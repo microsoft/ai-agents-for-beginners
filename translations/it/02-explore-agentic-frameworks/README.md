@@ -1,91 +1,96 @@
-[![Esplorare i framework per agenti AI](../../../translated_images/it/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Esplorare i Framework degli Agenti AI](../../../translated_images/it/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(Clicca sull'immagine sopra per guardare il video di questa lezione)_
+> _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
-# Explore AI Agent Frameworks
+# Esplora i Framework degli Agenti AI
 
-AI agent frameworks sono piattaforme software progettate per semplificare la creazione, il deployment e la gestione di agenti AI. Questi framework forniscono agli sviluppatori componenti predefiniti, astrazioni e strumenti che snelliscono lo sviluppo di sistemi AI complessi.
+I framework per agenti AI sono piattaforme software progettate per semplificare la creazione, il deployment e la gestione degli agenti AI. Questi framework forniscono agli sviluppatori componenti predefiniti, astrazioni e strumenti che facilitano lo sviluppo di sistemi AI complessi.
 
-Questi framework aiutano gli sviluppatori a concentrarsi sugli aspetti unici delle loro applicazioni fornendo approcci standardizzati alle sfide comuni nello sviluppo di agenti AI. Potenziano la scalabilità, l'accessibilità e l'efficienza nella costruzione di sistemi AI.
+Tali framework aiutano gli sviluppatori a concentrarsi sugli aspetti unici delle loro applicazioni fornendo approcci standardizzati alle sfide comuni nello sviluppo degli agenti AI. Migliorano la scalabilità, l'accessibilità e l'efficienza nella costruzione di sistemi AI.
 
-## Introduction 
+## Introduzione 
 
-This lesson will cover:
+Questa lezione tratterà:
 
-- What are AI Agent Frameworks and what do they enable developers to achieve?
-- How can teams use these to quickly prototype, iterate, and improve their agent’s capabilities?
-- What are the differences between the frameworks and tools created by Microsoft (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> and the <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
-- Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
-- What is Azure AI Agents service and how is this helping me?
+- Cosa sono i Framework per Agenti AI e cosa consentono agli sviluppatori di ottenere?
+- Come le squadre possono usarli per prototipare rapidamente, iterare e migliorare le capacità dei loro agenti?
+- Quali sono le differenze tra i framework e gli strumenti creati da Microsoft (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> e il <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
+- Posso integrare direttamente i miei strumenti dell’ecosistema Azure esistente, o ho bisogno di soluzioni standalone?
+- Cos’è Microsoft Foundry Agent Service e come mi può aiutare?
 
-## Learning goals
+## Obiettivi di apprendimento
 
-The goals of this lesson are to help you understand:
+Gli obiettivi di questa lezione sono aiutarti a comprendere:
 
-- The role of AI Agent Frameworks in AI development.
-- How to leverage AI Agent Frameworks to build intelligent agents.
-- Key capabilities enabled by AI Agent Frameworks.
-- The differences between the Microsoft Agent Framework and Azure AI Agent Service.
+- Il ruolo dei Framework per Agenti AI nello sviluppo AI.
+- Come sfruttare i Framework per Agenti AI per costruire agenti intelligenti.
+- Le capacità chiave abilitate dai Framework per Agenti AI.
+- Le differenze tra Microsoft Agent Framework e Microsoft Foundry Agent Service.
 
-## What are AI Agent Frameworks and what do they enable developers to do?
+## Cosa sono i Framework per Agenti AI e cosa consentono agli sviluppatori di fare?
 
-Traditional AI Frameworks can help you integrate AI into your apps and make these apps better in the following ways:
+I Framework AI tradizionali possono aiutarti a integrare l’AI nelle tue app e migliorare queste app nei seguenti modi:
 
-- **Personalization**: AI can analyze user behavior and preferences to provide personalized recommendations, content, and experiences.
-Example: Streaming services like Netflix use AI to suggest movies and shows based on viewing history, enhancing user engagement and satisfaction.
-- **Automation and Efficiency**: AI can automate repetitive tasks, streamline workflows, and improve operational efficiency.
-Example: Customer service apps use AI-powered chatbots to handle common inquiries, reducing response times and freeing up human agents for more complex issues.
-- **Enhanced User Experience**: AI can improve the overall user experience by providing intelligent features such as voice recognition, natural language processing, and predictive text.
-Example: Virtual assistants like Siri and Google Assistant use AI to understand and respond to voice commands, making it easier for users to interact with their devices.
+- **Personalizzazione**: l’AI può analizzare il comportamento e le preferenze degli utenti per fornire raccomandazioni, contenuti ed esperienze personalizzate.
+Esempio: i servizi di streaming come Netflix usano l’AI per suggerire film e programmi in base alla cronologia di visione, migliorando il coinvolgimento e la soddisfazione dell’utente.
+- **Automazione ed efficienza**: l’AI può automatizzare compiti ripetitivi, snellire i flussi di lavoro e migliorare l’efficienza operativa.
+Esempio: le app per il servizio clienti usano chatbot alimentati da AI per gestire richieste comuni, riducendo i tempi di risposta e liberando agenti umani per questioni più complesse.
+- **Esperienza utente migliorata**: l’AI può migliorare l’esperienza utente complessiva fornendo funzionalità intelligenti come riconoscimento vocale, elaborazione del linguaggio naturale e testo predittivo.
+Esempio: assistenti virtuali come Siri e Google Assistant usano l’AI per capire e rispondere ai comandi vocali, facilitando l’interazione degli utenti con i loro dispositivi.
 
-### That all sounds great right, so why do we need the AI Agent Framework?
+### Tutto ottimo, vero? Allora perché abbiamo bisogno del Framework per Agenti AI?
 
-AI Agent frameworks represent something more than just AI frameworks. They are designed to enable the creation of intelligent agents that can interact with users, other agents, and the environment to achieve specific goals. These agents can exhibit autonomous behavior, make decisions, and adapt to changing conditions. Let's look at some key capabilities enabled by AI Agent Frameworks:
+I Framework per Agenti AI rappresentano qualcosa in più dei semplici framework AI. Sono progettati per consentire la creazione di agenti intelligenti che possono interagire con gli utenti, altri agenti e l’ambiente per raggiungere obiettivi specifici. Questi agenti possono mostrare comportamenti autonomi, prendere decisioni e adattarsi a condizioni mutevoli. Vediamo alcune capacità chiave abilitate dai Framework per Agenti AI:
 
-- **Agent Collaboration and Coordination**: Enable the creation of multiple AI agents that can work together, communicate, and coordinate to solve complex tasks.
-- **Task Automation and Management**: Provide mechanisms for automating multi-step workflows, task delegation, and dynamic task management among agents.
-- **Contextual Understanding and Adaptation**: Equip agents with the ability to understand context, adapt to changing environments, and make decisions based on real-time information.
+- **Collaborazione e coordinamento tra agenti**: permette la creazione di più agenti AI che possono lavorare insieme, comunicare e coordinarsi per risolvere compiti complessi.
+- **Automazione e gestione dei compiti**: fornisce meccanismi per automatizzare flussi di lavoro a più fasi, delega di compiti e gestione dinamica tra agenti.
+- **Comprensione contestuale e adattamento**: dota gli agenti della capacità di comprendere il contesto, adattarsi a ambienti mutevoli e prendere decisioni basate su informazioni in tempo reale.
 
-So in summary, agents allow you to do more, to take automation to the next level, to create more intelligent systems that can adapt and learn from their environment.
+In sintesi, gli agenti ti permettono di fare di più, portare l’automazione a un livello superiore, creare sistemi più intelligenti che si adattano e apprendono dall’ambiente.
 
-## How to quickly prototype, iterate, and improve the agent’s capabilities?
+## Come prototipare rapidamente, iterare e migliorare le capacità dell’agente?
 
-This is a fast-moving landscape, but there are some things that are common across most AI Agent Frameworks that can help you quickly prototype and iterate namely module components, collaborative tools, and real-time learning. Let's dive into these:
+Questo è un campo in rapido movimento, ma ci sono cose comuni alla maggior parte dei Framework per Agenti AI che possono aiutarti a prototipare e iterare rapidamente, cioè componenti modulari, strumenti collaborativi e apprendimento in tempo reale. Esploriamoli:
 
-- **Use Modular Components**: AI SDKs offer pre-built components such as AI and Memory connectors, function calling using natural language or code plugins, prompt templates, and more.
-- **Leverage Collaborative Tools**: Design agents with specific roles and tasks, enabling them to test and refine collaborative workflows.
-- **Learn in Real-Time**: Implement feedback loops where agents learn from interactions and adjust their behavior dynamically.
+- **Usa componenti modulari**: gli SDK AI offrono componenti predefiniti come connettori AI e di memoria, chiamate a funzioni tramite linguaggio naturale o plugin di codice, modelli di prompt e altro.
+- **Sfrutta strumenti collaborativi**: progetta agenti con ruoli e compiti specifici, permettendo loro di testare e affinare flussi di lavoro collaborativi.
+- **Impara in tempo reale**: implementa loop di feedback in cui gli agenti apprendono dalle interazioni e regolano dinamicamente il loro comportamento.
 
-### Use Modular Components
+### Usa componenti modulari
 
-SDKs like the Microsoft Agent Framework offer pre-built components such as AI connectors, tool definitions, and agent management.
+SDK come il Microsoft Agent Framework offrono componenti predefiniti come connettori AI, definizioni di strumenti e gestione agenti.
 
-**How teams can use these**: Teams can quickly assemble these components to create a functional prototype without starting from scratch, allowing for rapid experimentation and iteration.
+**Come le squadre possono usarli**: le squadre possono assemblare rapidamente questi componenti per creare un prototipo funzionante senza partire da zero, permettendo una rapida sperimentazione e iterazione.
 
-**How it works in practice**: You can use a pre-built parser to extract information from user input, a memory module to store and retrieve data, and a prompt generator to interact with users, all without having to build these components from scratch.
+**Come funziona nella pratica**: puoi usare un parser predefinito per estrarre informazioni dall’input utente, un modulo di memoria per archiviare e recuperare dati, e un generatore di prompt per interagire con gli utenti, tutto senza costruire questi componenti da zero.
 
-**Example code**. Let's look at an example of how you can use the Microsoft Agent Framework with `AzureAIProjectAgentProvider` to have the model respond to user input with tool calling:
+**Esempio di codice**. Vediamo un esempio di come usare il Microsoft Agent Framework con `FoundryChatClient` per far rispondere il modello all’input utente con chiamate a strumenti:
 
 ``` python
 # Esempio di Microsoft Agent Framework in Python
 
 import asyncio
 import os
-from typing import Annotated
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 
-# Definisci una funzione di esempio per prenotare viaggi
+# Definisci una funzione di esempio per prenotare un viaggio
+@tool(approval_mode="never_require")
 def book_flight(date: str, location: str) -> str:
     """Book travel given location and date."""
     return f"Travel was booked to {location} on {date}"
 
 
 async def main():
-    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
-    agent = await provider.create_agent(
+    provider = FoundryChatClient(
+        project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+        model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+        credential=AzureCliCredential(),
+    )
+    agent = provider.as_agent(
         name="travel_agent",
         instructions="Help the user book travel. Use the book_flight tool when ready.",
         tools=[book_flight],
@@ -93,43 +98,47 @@ async def main():
 
     response = await agent.run("I'd like to go to New York on January 1, 2025")
     print(response)
-    # Esempio di output: Il tuo volo per New York del 1 gennaio 2025 è stato prenotato con successo. Buon viaggio! ✈️🗽
+    # Esempio di output: Il tuo volo per New York del 1° gennaio 2025 è stato prenotato con successo. Buon viaggio! ✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-What you can see from this example is how you can leverage a pre-built parser to extract key information from user input, such as the origin, destination, and date of a flight booking request. This modular approach allows you to focus on the high-level logic.
+Ciò che puoi vedere da questo esempio è come utilizzare un parser predefinito per estrarre informazioni chiave dall’input utente, come origine, destinazione e data di una richiesta di prenotazione volo. Questo approccio modulare ti permette di concentrarti sulla logica di alto livello.
 
-### Leverage Collaborative Tools
+### Sfrutta strumenti collaborativi
 
-Frameworks like the Microsoft Agent Framework facilitate the creation of multiple agents that can work together.
+Framework come il Microsoft Agent Framework facilitano la creazione di più agenti che possono lavorare insieme.
 
-**How teams can use these**: Teams can design agents with specific roles and tasks, enabling them to test and refine collaborative workflows and improve overall system efficiency.
+**Come le squadre possono usarli**: le squadre possono progettare agenti con ruoli e compiti specifici, permettendo loro di testare e affinare flussi di lavoro collaborativi e migliorare l’efficienza complessiva del sistema.
 
-**How it works in practice**: You can create a team of agents where each agent has a specialized function, such as data retrieval, analysis, or decision-making. These agents can communicate and share information to achieve a common goal, such as answering a user query or completing a task.
+**Come funziona nella pratica**: puoi creare un team di agenti dove ogni agente ha una funzione specializzata, come recupero dati, analisi o presa di decisioni. Questi agenti possono comunicare e condividere informazioni per raggiungere un obiettivo comune, come rispondere a una domanda dell’utente o completare un compito.
 
-**Example code (Microsoft Agent Framework)**:
+**Esempio di codice (Microsoft Agent Framework)**:
 
 ```python
 # Creazione di più agenti che lavorano insieme utilizzando il Microsoft Agent Framework
 
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
-# Agente di recupero dati
-agent_retrieve = await provider.create_agent(
+# Agente di Recupero Dati
+agent_retrieve = provider.as_agent(
     name="dataretrieval",
     instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
 )
 
-# Agente di analisi dei dati
-agent_analyze = await provider.create_agent(
+# Agente di Analisi Dati
+agent_analyze = provider.as_agent(
     name="dataanalysis",
     instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
@@ -141,42 +150,46 @@ analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result
 print(analysis_result)
 ```
 
-What you see in the previous code is how you can create a task that involves multiple agents working together to analyze data. Each agent performs a specific function, and the task is executed by coordinating the agents to achieve the desired outcome. By creating dedicated agents with specialized roles, you can improve task efficiency and performance.
+Nel codice precedente vedi come creare un compito che coinvolge più agenti che collaborano per analizzare dati. Ogni agente svolge una funzione specifica, e il compito è eseguito coordinando gli agenti per raggiungere il risultato desiderato. Creando agenti dedicati con ruoli specializzati puoi migliorare l’efficienza e le prestazioni del compito.
 
-### Learn in Real-Time
+### Impara in tempo reale
 
-Advanced frameworks provide capabilities for real-time context understanding and adaptation.
+Framework avanzati forniscono capacità di comprensione contestuale e adattamento in tempo reale.
 
-**How teams can use these**: Teams can implement feedback loops where agents learn from interactions and adjust their behavior dynamically, leading to continuous improvement and refinement of capabilities.
+**Come le squadre possono usarli**: le squadre possono implementare loop di feedback in cui gli agenti apprendono dalle interazioni e regolano dinamicamente il loro comportamento, portando a un miglioramento e a un affinamento continui delle capacità.
 
-**How it works in practice**: Agents can analyze user feedback, environmental data, and task outcomes to update their knowledge base, adjust decision-making algorithms, and improve performance over time. This iterative learning process enables agents to adapt to changing conditions and user preferences, enhancing overall system effectiveness.
+**Come funziona nella pratica**: gli agenti possono analizzare feedback degli utenti, dati ambientali e risultati dei compiti per aggiornare la base di conoscenza, adattare algoritmi decisionali e migliorare le prestazioni nel tempo. Questo processo di apprendimento iterativo permette agli agenti di adattarsi a condizioni mutevoli e preferenze utente, migliorando l’efficacia complessiva del sistema.
 
-## What are the differences between the Microsoft Agent Framework and Azure AI Agent Service?
+## Quali sono le differenze tra Microsoft Agent Framework e Microsoft Foundry Agent Service?
 
-There are many ways to compare these approaches, but let's look at some key differences in terms of their design, capabilities, and target use cases:
+Ci sono molti modi per confrontare questi approcci, ma vediamo alcune differenze chiave in termini di design, capacità e casi d’uso target:
 
 ## Microsoft Agent Framework (MAF)
 
-The Microsoft Agent Framework provides a streamlined SDK for building AI agents using `AzureAIProjectAgentProvider`. It enables developers to create agents that leverage Azure OpenAI models with built-in tool calling, conversation management, and enterprise-grade security through Azure identity.
+Il Microsoft Agent Framework fornisce un SDK semplificato per costruire agenti AI usando `FoundryChatClient`. Permette agli sviluppatori di creare agenti che sfruttano i modelli Azure OpenAI con chiamate a strumenti integrate, gestione delle conversazioni e sicurezza di livello enterprise tramite l’identità Azure.
 
-**Use Cases**: Building production-ready AI agents with tool use, multi-step workflows, and enterprise integration scenarios.
+**Casi d’uso**: costruire agenti AI pronti per la produzione con uso di strumenti, flussi di lavoro multi-step e scenari di integrazione enterprise.
 
-Here are some important core concepts of the Microsoft Agent Framework:
+Ecco alcuni concetti fondamentali del Microsoft Agent Framework:
 
-- **Agents**. An agent is created via `AzureAIProjectAgentProvider` and configured with a name, instructions, and tools. The agent can:
-  - **Process user messages** and generate responses using Azure OpenAI models.
-  - **Call tools** automatically based on the conversation context.
-  - **Maintain conversation state** across multiple interactions.
+- **Agenti**. Un agente è creato via `FoundryChatClient` e configurato con nome, istruzioni e strumenti. L’agente può:
+  - **Processare messaggi utente** e generare risposte usando i modelli Azure OpenAI.
+  - **Chiamare strumenti** automaticamente basandosi sul contesto della conversazione.
+  - **Mantenere lo stato della conversazione** attraverso molteplici interazioni.
 
-  Here is a code snippet showing how to create an agent:
+  Ecco un frammento di codice che mostra come creare un agente:
 
     ```python
     import os
-    from agent_framework.azure import AzureAIProjectAgentProvider
+    from agent_framework.foundry import FoundryChatClient
     from azure.identity import AzureCliCredential
 
-    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
-    agent = await provider.create_agent(
+    provider = FoundryChatClient(
+        project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+        model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+        credential=AzureCliCredential(),
+    )
+    agent = provider.as_agent(
         name="my_agent",
         instructions="You are a helpful assistant.",
     )
@@ -185,29 +198,29 @@ Here are some important core concepts of the Microsoft Agent Framework:
     print(response)
     ```
 
-- **Tools**. The framework supports defining tools as Python functions that the agent can invoke automatically. Tools are registered when creating the agent:
+- **Strumenti**. Il framework supporta la definizione di strumenti come funzioni Python che l’agente può invocare automaticamente. Gli strumenti sono registrati durante la creazione dell’agente:
 
     ```python
     def get_weather(location: str) -> str:
         """Get the current weather for a location."""
         return f"The weather in {location} is sunny, 72\u00b0F."
 
-    agent = await provider.create_agent(
+    agent = provider.as_agent(
         name="weather_agent",
         instructions="Help users check the weather.",
         tools=[get_weather],
     )
     ```
 
-- **Multi-Agent Coordination**. You can create multiple agents with different specializations and coordinate their work:
+- **Coordinamento multi-agente**. Puoi creare più agenti con specializzazioni diverse e coordinare il loro lavoro:
 
     ```python
-    planner = await provider.create_agent(
+    planner = provider.as_agent(
         name="planner",
         instructions="Break down complex tasks into steps.",
     )
 
-    executor = await provider.create_agent(
+    executor = provider.as_agent(
         name="executor",
         instructions="Execute the planned steps using available tools.",
         tools=[execute_tool],
@@ -217,26 +230,26 @@ Here are some important core concepts of the Microsoft Agent Framework:
     result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-- **Azure Identity Integration**. The framework uses `AzureCliCredential` (or `DefaultAzureCredential`) for secure, keyless authentication, eliminating the need to manage API keys directly.
+- **Integrazione dell’identità Azure**. Il framework usa `AzureCliCredential` (o `DefaultAzureCredential`) per un’autenticazione sicura senza chiavi, eliminando la gestione diretta delle chiavi API.
 
-## Azure AI Agent Service
+## Microsoft Foundry Agent Service
 
-Azure AI Agent Service is a more recent addition, introduced at Microsoft Ignite 2024. It allows for the development and deployment of AI agents with more flexible models, such as directly calling open-source LLMs like Llama 3, Mistral, and Cohere.
+Microsoft Foundry Agent Service è un’aggiunta più recente, presentata a Microsoft Ignite 2024. Permette lo sviluppo e il deployment di agenti AI con modelli più flessibili, come chiamate dirette a LLM open source come Llama 3, Mistral e Cohere.
 
-Azure AI Agent Service provides stronger enterprise security mechanisms and data storage methods, making it suitable for enterprise applications. 
+Microsoft Foundry Agent Service fornisce meccanismi di sicurezza enterprise più robusti e metodi di archiviazione dati, rendendolo adatto ad applicazioni enterprise. 
 
-It works out-of-the-box with the Microsoft Agent Framework for building and deploying agents.
+Funziona “out-of-the-box” con il Microsoft Agent Framework per costruire e distribuire agenti.
 
-This service is currently in Public Preview and supports Python and C# for building agents.
+Questo servizio è attualmente in anteprima pubblica e supporta Python e C# per la costruzione degli agenti.
 
-Using the Azure AI Agent Service Python SDK, we can create an agent with a user-defined tool:
+Usando l’SDK Python di Microsoft Foundry Agent Service, possiamo creare un agente con uno strumento definito dall’utente:
 
 ```python
 import asyncio
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
-# Definire le funzioni dello strumento
+# Definire le funzioni degli strumenti
 def get_specials() -> str:
     """Provides a list of specials from the menu."""
     return """
@@ -258,7 +271,7 @@ async def main() -> None:
     )
 
     agent = project_client.agents.create_agent(
-        model="gpt-4o-mini",
+        model="gpt-5-mini",
         name="Host",
         instructions="Answer questions about the menu.",
         tools=[get_specials, get_item_price],
@@ -291,15 +304,15 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-### Core concepts
+### Concetti fondamentali
 
-Azure AI Agent Service has the following core concepts:
+Microsoft Foundry Agent Service ha i seguenti concetti fondamentali:
 
-- **Agent**. Azure AI Agent Service integrates with Microsoft Foundry. Within AI Foundry, an AI Agent acts as a "smart" microservice that can be used to answer questions (RAG), perform actions, or completely automate workflows. It achieves this by combining the power of generative AI models with tools that allow it to access and interact with real-world data sources. Here's an example of an agent:
+- **Agente**. Microsoft Foundry Agent Service si integra con Microsoft Foundry. All’interno di Microsoft Foundry, un Agente AI agisce come un microservizio “intelligente” che può essere usato per rispondere a domande (RAG), eseguire azioni o automatizzare completamente flussi di lavoro. Ciò avviene combinando la potenza dei modelli generativi AI con strumenti che gli permettono di accedere e interagire con dati del mondo reale. Ecco un esempio di un agente:
 
     ```python
     agent = project_client.agents.create_agent(
-        model="gpt-4o-mini",
+        model="gpt-5-mini",
         name="my-agent",
         instructions="You are helpful agent",
         tools=code_interpreter.definitions,
@@ -307,9 +320,9 @@ Azure AI Agent Service has the following core concepts:
     )
     ```
 
-    In this example, an agent is created with the model `gpt-4o-mini`, a name `my-agent`, and instructions `You are helpful agent`. The agent is equipped with tools and resources to perform code interpretation tasks.
+    In questo esempio, un agente è creato con il modello `gpt-5-mini`, un nome `my-agent`, e istruzioni `You are helpful agent`. L’agente è dotato di strumenti e risorse per svolgere attività di interpretazione del codice.
 
-- **Thread and messages**. The thread is another important concept. It represents a conversation or interaction between an agent and a user. Threads can be used to track the progress of a conversation, store context information, and manage the state of the interaction. Here's an example of a thread:
+- **Thread e messaggi**. Il thread è un altro concetto importante. Rappresenta una conversazione o interazione tra un agente e un utente. I thread possono essere usati per tracciare il progresso della conversazione, memorizzare informazioni contestuali e gestire lo stato dell’interazione. Ecco un esempio di un thread:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -319,76 +332,79 @@ Azure AI Agent Service has the following core concepts:
         content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
     )
     
-    # Ask the agent to perform work on the thread
+    # Chiedi all'agente di eseguire il lavoro sul thread
     run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
     
-    # Fetch and log all messages to see the agent's response
+    # Recupera e registra tutti i messaggi per vedere la risposta dell'agente
     messages = project_client.agents.list_messages(thread_id=thread.id)
     print(f"Messages: {messages}")
     ```
 
-    In the previous code, a thread is created. Thereafter, a message is sent to the thread. By calling `create_and_process_run`, the agent is asked to perform work on the thread. Finally, the messages are fetched and logged to see the agent's response. The messages indicate the progress of the conversation between the user and the agent. It's also important to understand that the messages can be of different types such as text, image, or file, that is the agents work has resulted in for example an image or a text response for example. As a developer, you can then use this information to further process the response or present it to the user.
+    Nel codice precedente, viene creato un thread. Successivamente viene inviato un messaggio al thread. Chiamando `create_and_process_run`, si chiede all’agente di eseguire un lavoro sul thread. Infine, vengono recuperati e registrati i messaggi per vedere la risposta dell’agente. I messaggi indicano il progresso della conversazione tra utente e agente. È anche importante capire che i messaggi possono essere di tipi diversi come testo, immagine o file, cioè il lavoro degli agenti ha prodotto ad esempio un’immagine o una risposta testuale. Come sviluppatore, puoi quindi usare queste informazioni per elaborare ulteriormente la risposta o presentarla all’utente.
 
-- **Integrates with the Microsoft Agent Framework**. Azure AI Agent Service works seamlessly with the Microsoft Agent Framework, which means you can build agents using `AzureAIProjectAgentProvider` and deploy them through the Agent Service for production scenarios.
+- **Si integra con il Microsoft Agent Framework**. Microsoft Foundry Agent Service funziona perfettamente con il Microsoft Agent Framework, il che significa che puoi costruire agenti usando `FoundryChatClient` e distribuirli tramite il servizio Agent per scenari di produzione.
 
-**Use Cases**: Azure AI Agent Service is designed for enterprise applications that require secure, scalable, and flexible AI agent deployment.
+**Casi d’uso**: Microsoft Foundry Agent Service è progettato per applicazioni enterprise che richiedono deployment di agenti AI sicuri, scalabili e flessibili.
 
-## What's the difference between these approaches?
+## Qual è la differenza tra questi approcci?
  
-It does sound like there is overlap, but there are some key differences in terms of their design, capabilities, and target use cases:
+Sembra ci sia sovrapposizione, ma ci sono alcune differenze chiave in termini di design, capacità e casi d’uso target:
  
-- **Microsoft Agent Framework (MAF)**: Is a production-ready SDK for building AI agents. It provides a streamlined API for creating agents with tool calling, conversation management, and Azure identity integration.
-- **Azure AI Agent Service**: Is a platform and deployment service in Azure Foundry for agents. It offers built-in connectivity to services like Azure OpenAI, Azure AI Search, Bing Search and code execution.
+- **Microsoft Agent Framework (MAF)**: è un SDK pronto per la produzione per costruire agenti AI. Fornisce una API semplificata per creare agenti con chiamate a strumenti, gestione delle conversazioni e integrazione con l’identità Azure.
+- **Microsoft Foundry Agent Service**: è una piattaforma e servizio di deployment in Microsoft Foundry per agenti. Offre connettività integrata a servizi come Azure OpenAI, Azure AI Search, Bing Search ed esecuzione di codice.
  
-Still not sure which one to choose?
+Ancora indeciso su quale scegliere?
 
-### Use Cases
+### Casi d’uso
  
-Let's see if we can help you by going through some common use cases:
+Vediamo se possiamo aiutarti passando attraverso alcuni casi d’uso comuni:
  
-> Q: I'm building production AI agent applications and want to get started quickly
+> D: Sto costruendo applicazioni di agenti AI per la produzione e voglio partire velocemente
 >
 
->A: The Microsoft Agent Framework is a great choice. It provides a simple, Pythonic API via `AzureAIProjectAgentProvider` that lets you define agents with tools and instructions in just a few lines of code.
+>R: Il Microsoft Agent Framework è una scelta eccellente. Fornisce una API semplice e pythonica tramite `FoundryChatClient` che ti permette di definire agenti con strumenti e istruzioni in poche righe di codice.
 
->Q: I need enterprise-grade deployment with Azure integrations like Search and code execution
+>D: Ho bisogno di deployment enterprise con integrazioni Azure come Search ed esecuzione di codice
 >
-> A: Azure AI Agent Service is the best fit. It's a platform service that provides built-in capabilities for multiple models, Azure AI Search, Bing Search and Azure Functions. It makes it easy to build your agents in the Foundry Portal and deploy them at scale.
+> R: Microsoft Foundry Agent Service è la soluzione migliore. È un servizio piattaforma che offre funzionalità integrate per più modelli, Azure AI Search, Bing Search e Azure Functions. Permette di costruire agenti nel Foundry Portal e distribuirli su larga scala.
  
-> Q: I'm still confused, just give me one option
+> D: Sono ancora confuso, dammi solo un’opzione
 >
-> A: Start with the Microsoft Agent Framework to build your agents, and then use Azure AI Agent Service when you need to deploy and scale them in production. This approach lets you iterate quickly on your agent logic while having a clear path to enterprise deployment.
+> R: Parti con il Microsoft Agent Framework per costruire i tuoi agenti, e poi usa Microsoft Foundry Agent Service quando devi distribuirli e scalarli in produzione. Questo approccio ti permette di iterare velocemente sulla logica degli agenti e avere una strada chiara per il deployment enterprise.
  
-Let's summarize the key differences in a table:
+Riassumiamo le differenze chiave in una tabella:
 
-| Framework | Focus | Core Concepts | Use Cases |
+| Framework | Focus | Concetti Fondamentali | Casi d’uso |
 | --- | --- | --- | --- |
-| Microsoft Agent Framework | Streamlined agent SDK with tool calling | Agents, Tools, Azure Identity | Building AI agents, tool use, multi-step workflows |
-| Azure AI Agent Service | Flexible models, enterprise security, Code generation, Tool calling | Modularity, Collaboration, Process Orchestration | Secure, scalable, and flexible AI agent deployment |
+| Microsoft Agent Framework | SDK agente semplificato con chiamate a strumenti | Agenti, Strumenti, Identità Azure | Costruzione agenti AI, uso strumenti, flussi multi-step |
+| Microsoft Foundry Agent Service | Modelli flessibili, sicurezza enterprise, generazione codice, chiamate a strumenti | Modularità, Collaborazione, Orchestrazione processi | Deployment di agenti AI sicuro, scalabile e flessibile |
 
-## Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
-La risposta è sì: puoi integrare i tuoi strumenti dell'ecosistema Azure esistenti direttamente con Azure AI Agent Service, soprattutto perché è stato progettato per funzionare perfettamente con gli altri servizi Azure. Puoi ad esempio integrare Bing, Azure AI Search e Azure Functions. C'è anche una profonda integrazione con Microsoft Foundry.
+## Posso integrare direttamente i miei strumenti dell’ecosistema Azure esistente o ho bisogno di soluzioni standalone?
 
-Il Microsoft Agent Framework si integra inoltre con i servizi Azure tramite `AzureAIProjectAgentProvider` e l'identità Azure, permettendoti di chiamare i servizi Azure direttamente dagli strumenti del tuo agente.
 
-## Esempi di codice
+La risposta è sì, puoi integrare i tuoi strumenti esistenti dell'ecosistema Azure direttamente con Microsoft Foundry Agent Service soprattutto, dato che è stato progettato per funzionare senza problemi con altri servizi Azure. Potresti ad esempio integrare Bing, Azure AI Search e Azure Functions. C'è anche una profonda integrazione con Microsoft Foundry.
 
-- Python: [Framework degli agenti](./code_samples/02-python-agent-framework.ipynb)
-- .NET: [Framework degli agenti](./code_samples/02-dotnet-agent-framework.md)
+Il Microsoft Agent Framework si integra anche con i servizi Azure tramite `FoundryChatClient` e l'identità Azure, permettendoti di chiamare i servizi Azure direttamente dai tuoi strumenti agent.
+
+## Codici di esempio
+
+- Python: [Agent Framework (Microsoft Foundry)](./code_samples/02-python-agent-framework.ipynb)
+- Python: [Agent Framework (Azure OpenAI Responses API)](./code_samples/02-python-agent-framework-azure-openai.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
 
 ## Hai altre domande sui framework per agenti AI?
 
-Unisciti al [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare alle office hours e ottenere risposte alle tue domande sugli agenti AI.
+Unisciti al [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) per incontrare altri studenti, partecipare alle office hours e ottenere risposte alle tue domande sugli agenti AI.
 
 ## Riferimenti
 
-- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Servizio Azure Agent</a>
+- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent Service</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Risposte Azure OpenAI</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Servizio Azure AI Agent</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a>
 
 ## Lezione precedente
 
-[Introduzione agli agenti AI e casi d'uso](../01-intro-to-ai-agents/README.md)
+[Introduzione agli agenti AI e casi d'uso degli agenti](../01-intro-to-ai-agents/README.md)
 
 ## Lezione successiva
 
@@ -397,6 +413,6 @@ Unisciti al [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) per in
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Dichiarazione di non responsabilità**:
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per la correttezza, si prega di notare che le traduzioni automatiche possono contenere errori o inesattezze. Il documento originale nella sua lingua originale deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un traduttore umano. Non ci assumiamo alcuna responsabilità per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire la precisione, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un essere umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,73 +1,73 @@
-[![AI Agent Raamistike uurimine](../../../translated_images/et/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Tehisintellekti agentide raamistikud](../../../translated_images/et/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
+> _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 
-# Uurige AI Agent Raamistikke
+# Uuri AI agentide raamistikuid
 
-AI agentide raamistikke on loodud tarkvaraplatvormidena, mis lihtsustavad AI agentide loomist, juurutamist ja haldamist. Need raamistike pakuvad arendajatele eelkokkupandud komponente, abstraktsioone ja tööriistu, mis sujuvamaks muudavad keerukate AI süsteemide arendamise.
+AI agentide raamistikud on tarkvaraplatvormid, mis on loodud lihtsustama AI agentide loomist, juurutamist ja haldamist. Need raamistikud pakuvad arendajatele eelvalmistatud komponente, abstraktsioone ja tööriistu, mis hõlbustavad keerukate AI süsteemide arendamist.
 
-Need raamistikke aitavad arendajatel keskenduda oma rakenduste unikaalsetele aspektidele, pakkudes standardiseeritud lähenemisviise AI agentide arendamise tavapärastele väljakutsetele. Need parandavad AI süsteemide skaleeritavust, kättesaadavust ja tõhusust.
+Need raamistikud aitavad arendajatel keskenduda oma rakenduste unikaalsetele aspektidele, pakkudes standardiseeritud lahendusi AI agentide arendamise levinud väljakutsetele. Need parandavad skaleeritavust, kasutajasõbralikkust ja tõhusust AI süsteemide loomisel.
 
-## Sissejuhatus
+## Sissejuhatus 
 
-Selles õppetunnis käsitleme:
+Selles õppetunnis käsitletakse:
 
-- Mis on AI Agent Raamistikud ja mida need arendajatele võimaldavad saavutada?
-- Kuidas saavad meeskonnad neid kasutada, et kiiresti prototüüpida, iteratiivselt täiustada ja parandada oma agendi võimeid?
-- Millised on erinevused Microsofti loodud raamistike ja tööriistade vahel (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> ja <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
-- Kas saan oma olemasolevaid Azure ökosüsteemi tööriistu otse integreerida või on vaja iseseisvaid lahendusi?
+- Mis on AI agentide raamistikud ja mida need arendajatele võimaldavad?
+- Kuidas meeskonnad saavad neid kasutada, et kiiresti prototüüpida, iteratiivselt arendada ja parandada oma agentide võimekust?
+- Millised on Microsofti loodud raamistikute ja tööriistade erinevused (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> ja <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>) vahel?
+- Kas ma saan oma olemasolevaid Azure ökoloogias tööriistu otse integreerida või on vaja eraldiseisvaid lahendusi?
 - Mis on Microsoft Foundry Agent Service ja kuidas see mind aitab?
 
 ## Õpieesmärgid
 
-Selle õppetunni eesmärk on aidata teil mõista:
+Selle õppetunni eesmärk on aidata sul mõista:
 
-- AI Agent Raamistike rolli AI arenduses.
-- Kuidas kasutada AI Agent Raamistikke intelligentsete agentide loomiseks.
-- AI Agent Raamistike võimaldavaid peamisi võimeid.
-- Microsoft Agent Frameworki ja Microsoft Foundry Agent Service'i erinevusi.
+- AI agentide raamistike rolli AI arenduses.
+- Kuidas kasutada AI agentide raamistikku intelligentsete agentide loomisel.
+- AI agentide raamistike võimaldavaid võtmevõimeid.
+- Erinevusi Microsoft Agent Frameworki ja Microsoft Foundry Agent Service vahel.
 
-## Mis on AI Agent Raamistikud ja mida need arendajatele võimaldavad teha?
+## Mis on AI agentide raamistikud ja mida need arendajatele võimaldavad teha?
 
-Traditsioonilised AI raamistikke aitavad teil AI-d oma rakendustesse integreerida ja parendada järgmiste viiside kaudu:
+Traditsioonilised AI raamistikud aitavad sul integreerida tehisintellekti oma rakendustesse ja teha need rakendused paremaks järgmiselt:
 
-- **Personaliseerimine**: AI suudab analüüsida kasutajakäitumist ja eelistusi, et pakkuda isikupärastatud soovitusi, sisu ja kogemusi.
-Näide: Filmipleieriteenused nagu Netflix kasutavad AI-d filmide ja saadete soovitamiseks vaatamishoo põhjal, suurendades kasutajate kaasatust ja rahulolu.
-- **Automatiseerimine ja tõhusus**: AI saab automatiseerida korduvaid ülesandeid, sujuvamalt korraldada töövooge ja parandada tegevuste efektiivsust.
-Näide: Klienditeenindusäpikaid kasutavad AI-põhised vestlusrobotid, mis käsitlevad tavalisi päringuid, vähendades vastamisaegu ja vabastades inimagente keerukamate probleemide lahendamiseks.
-- **Täiustatud kasutajakogemus**: AI parandab üldist kasutajakogemust, pakkudes nutikaid funktsioone nagu hääletuvastus, loomuliku keele töötlemine ja ennustav tekst.
-Näide: Virtuaalsed assistendid nagu Siri ja Google Assistant kasutavad AI-d, et mõista ja reageerida häälkäsklustele, muutes kasutajate seadmetega suhtlemise lihtsamaks.
+- **Isikupärastamine**: AI suudab analüüsida kasutaja käitumist ja eelistusi, et pakkuda isikupärastatud soovitusi, sisu ja kogemusi.
+Näide: Voogedastusteenused nagu Netflix kasutavad AI-d soovituste tegemiseks filmide ja saadete osas vaadatud ajaloo põhjal, suurendades kasutajate kaasatust ja rahulolu.
+- **Automatiseerimine ja tõhusus**: AI suudab automatiseerida korduvaid ülesandeid, lihtsustada töövooge ja parandada tegevuste efektiivsust.
+Näide: Klienditeeninduse rakendused kasutavad AI-põhiseid vestlusrobotid, et käsitleda sagedasemaid päringuid, vähendades reageerimisaegu ja vabastades inimagente keerukamate probleemide jaoks.
+- **Parandatud kasutajakogemus**: AI parandab üldist kasutajakogemust, pakkudes nutikaid funktsioone, nagu häälituvastus, loomulik keele töötlemine ja ennustav tekst.
+Näide: Virtuaalsed assistendid nagu Siri ja Google Assistant kasutavad AI-d häälkäskluste mõistmiseks ja neile vastamiseks, muutes kasutajate suhtlemise seadmetega lihtsamaks.
 
-### See kõik kõlab suurepäraselt, miks siis on vaja AI Agent Raamistikku?
+### See kõik kõlab suurepäraselt, miks siis meil on vaja AI agentide raamistikku?
 
-AI Agent raamistikud tähistavad midagi enamat kui lihtsalt AI raamistikke. Need on loodud võimaldama intelligentsete agentide loomist, kes saavad suhelda kasutajate, teiste agentide ja keskkonnaga kindlate eesmärkide saavutamiseks. Need agentid suudavad näidata autonoomset käitumist, teha otsuseid ja kohaneda muutuvate tingimustega. Vaatame mõningaid peamisi AI Agent Raamistike võimalusi:
+AI agentide raamistikud on rohkem kui lihtsalt AI raamistikud. Need on loodud võimaldamaks intelligentsete agentide loomist, kes saavad suhelda kasutajate, teiste agentide ja keskkonnaga konkreetsete eesmärkide saavutamiseks. Need agentid suudavad näidata autonoomset käitumist, teha otsuseid ja kohanduda muutuvate tingimustega. Vaatame mõningaid AI agentide raamistike võimalikke võtmevõimeid:
 
-- **Agentide koostöö ja koordineerimine**: Võimaldab luua mitmeid AI agente, kes saavad koos töötada, suhelda ja koordineerida keerukate ülesannete lahendamist.
-- **Ülesannete automatiseerimine ja juhtimine**: Pakub mehhanisme mitmeastmeliste töövoogude automatiseerimiseks, ülesannete delegeerimiseks ja dünaamiliseks ülesannete haldamiseks agentide vahel.
-- **Kontekstiline mõistmine ja kohandumine**: Varustab agente võimega mõista konteksti, kohaneda muutuvate keskkondadega ja teha otsuseid reaalajas info põhjal.
+- **Agentide koostöö ja koordineerimine**: Võimaldavad luua mitmeid AI agente, kes saavad koos töötada, suhelda ja koordineerida keerukate ülesannete lahendamiseks.
+- **Ülesannete automatiseerimine ja haldamine**: Pakuvad mehhanisme mitmeastmeliste töövoogude automatiseerimiseks, ülesannete delegeerimiseks ja dünaamiliseks juhtimiseks agentide vahel.
+- **Kontekstipõhine mõistmine ja kohanemine**: Varustavad agente võimega mõista konteksti, kohanduda muutuvate keskkondadega ja teha otsuseid reaalajas saadaval oleva info põhjal.
 
-Kokkuvõttes lubavad agentid teil teha rohkem, viia automatiseerimine järgmisele tasemele ja luua targemaid süsteeme, mis suudavad kohaneda ja õppida oma keskkonnast.
+Kokkuvõtteks võimaldavad agentide raamistikud sul teha rohkem, viia automatiseerimine uuele tasemele ning luua intelligentsemaid süsteeme, mis suudavad keskkonnast õppida ja kohaneda.
 
-## Kuidas kiiresti prototüüpida, iteratiivselt täiustada ja parandada agendi võimeid?
+## Kuidas kiiresti prototüüpida, iteratiivselt arendada ja parandada agendi võimekust?
 
-See on kiirelt arenev valdkond, kuid enamik AI Agent Raamistikke jagavad mõningaid ühiseid elemente, mis aitavad teil kiiresti prototüüpida ja iteratiivselt täiustada — nimelt moodulkomponendid, koostööriistad ja reaalajas õppimine. Vaatame neid lähemalt:
+See valdkond areneb kiiresti, kuid enamikus AI agentide raamistikutes on mõned ühised osad, mis aitavad sul kiirelt prototüüpida ja iteratiivselt edasi liikuda — nimelt moodulkomponendid, koostöövahendid ja reaalajas õppimine. Vaatame neid lähemalt:
 
-- **Kasutage moodulkomponente**: AI SDK-d pakuvad eelnevalt loodud komponente nagu AI ja mälu ühendused, funktsioonikõned loomulikus keeles või koodipistikute abil, promptide mallid ja muud.
-- **Kasutage koostööriistu**: Kavandage agente kindlate rollide ja ülesannetega, võimaldades neil testida ja täiustada koostöö töövooge.
-- **Õppige reaalajas**: Rakendage tagasisidel silmuseid, kus agentide käitumist kohandatakse dünaamiliselt vastavalt suhtlusele.
+- **Kasuta moodulkomponente**: AI SDK-d pakuvad eelvalmistatud komponente nagu AI ja mälu liidesed, funktsioonide kutsumine loomulikus keeles või koodipistikute kaudu, käsupõhjad ja muud.
+- **Kasuta koostöövahendeid**: Disaini agente kindlate rollide ja ülesannetega, võimaldades neil testida ja täiustada koostöö töövooge.
+- **Õpi reaalajas**: Rakenda tagasisideahelad, kus agent õpib suhtlusest ja kohandab käitumist dünaamiliselt.
 
-### Kasutage moodulkomponente
+### Kasuta moodulkomponente
 
-Sellised SDK-d nagu Microsoft Agent Framework pakuvad eelvalmis komponente nagu AI ühendajad, tööriistade definitsioonid ja agentide haldus.
+SDK-d nagu Microsoft Agent Framework pakuvad eelvalmistatud komponente nagu AI liidesed, tööriistade definitsioonid ja agentide haldus.
 
-**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad saavad kiiresti kokku panna need komponendid funktsionaalseks prototüübiks ilma nullist alustamata, võimaldades kiiret katsetamist ja iteratsiooni.
+**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad saavad kiiresti kokku panna need komponendid tööprototüübi loomiseks ilma nullist alustamata, võimaldades kiiret katsetamist ja iteratsiooni.
 
-**Praktiline toimimine**: Võite kasutada eelkokkupandud parserit info väljavõtmiseks kasutajasisendist, mälumoodulit andmete salvestamiseks ja tagasisaamiseks ning promptigeneraatorit kasutajatega suhtlemiseks, ilma et peaksite neid komponente algusest peale looma.
+**Kuidas see praktikas toimib**: Sa võid kasutada eelvalmistatud parserit, et ekstraktida teavet kasutaja sisendist, mälumoodulit andmete talletamiseks ja hankimiseks ning käsu generaatorit kasutajatega suhtlemiseks, kõike seda ilma komponentide nullist ehitamiseta.
 
-**Näidiskood**: Vaatame näidet, kuidas kasutada Microsoft Agent Frameworki koos `FoundryChatClient`-iga, et mudel vastaks kasutajasisendile tööriista kutsumiseks:
+**Näidiskood**. Vaatame näidet, kuidas Microsoft Agent Frameworki kasutada koos `FoundryChatClient`-iga, et mudel saaks vastata kasutaja päringule tööriista kutsumise abil:
 
 ``` python
-# Microsoft Agendi Raamistiku Pythoni Näide
+# Microsoft Agent Framework Python Näide
 
 import asyncio
 import os
@@ -77,7 +77,7 @@ from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 
-# Määra näidistööriista funktsioon reisi broneerimiseks
+# Määra näidis tööriista funktsioon reisi broneerimiseks
 @tool(approval_mode="never_require")
 def book_flight(date: str, location: str) -> str:
     """Book travel given location and date."""
@@ -98,27 +98,27 @@ async def main():
 
     response = await agent.run("I'd like to go to New York on January 1, 2025")
     print(response)
-    # Näiteväljund: Teie lend New Yorki 1. jaanuaril 2025 on edukalt broneeritud. Head reisi! ✈️🗽
+    # Näidise väljund: Teie lend New Yorki 1. jaanuaril 2025 on edukalt broneeritud. Head reisi! ✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Sellest näitest näete, kuidas saate kasutada eelkokkupandud parserit, et väljavõtta võtmeinfo kasutajasisendist, nagu lennubronni päritolu, sihtkoht ja kuupäev. See moodulipõhine lähenemine võimaldab teil keskenduda kõrgetasemelisele loogikale.
+Sellest näitest näed, kuidas saad kasutada eelvalmistatud parserit võtmeinfo eraldamiseks kasutaja sisendist, näiteks lennu broneerimise päritolu, sihtkoha ja kuupäeva. See moodulipõhine lähenemine võimaldab sul keskenduda kõrgetasemelisele loogikale.
 
-### Kasutage koostööriistu
+### Kasuta koostöövahendeid
 
-Microsoft Agent Framework võimaldab luua mitut agenti, kes saavad koos töötada.
+Raamistikud nagu Microsoft Agent Framework võimaldavad luua mitu agenti, kes saavad koos töötada.
 
-**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad võivad kujundada agente spetsiifiliste rollide ja ülesannetega, võimaldades testida ja täiustada koostöö töövooge ning parandada süsteemi üldist efektiivsust.
+**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad saavad disainida agente kindlate rollide ja ülesannetega, võimaldades neil testida ja täiustada koostöö töövooge ning parandada süsteemi üldist tõhusust.
 
-**Praktiline toimimine**: Võite luua agentide meeskonna, kus igal agendil on spetsialiseerunud funktsioon, näiteks andmete hankimine, analüüs või otsustusprotsess. Need agentid suudavad omavahel suhelda ja infot jagada ühise eesmärgi, näiteks kasutajaküsimusele vastamise või ülesande täitmise nimel.
+**Kuidas see praktikas toimib**: Võid luua agentide meeskonna, kus igal agentil on spetsialiseerunud funktsioon, näiteks andmete hankimine, analüüs või otsuste tegemine. Need agentid suhtlevad ja jagavad informatsiooni, et saavutada ühine eesmärk, näiteks kasutajapäringu vastamine või ülesande täitmine.
 
 **Näidiskood (Microsoft Agent Framework)**:
 
 ```python
-# Mitme agenti loomine, kes töötavad koos, kasutades Microsoft Agent Frameworki
+# Mitme agenti loomine, kes töötavad koos Microsoft Agent Frameworki abil
 
 import os
 from agent_framework.foundry import FoundryChatClient
@@ -130,54 +130,54 @@ provider = FoundryChatClient(
     credential=AzureCliCredential(),
 )
 
-# Andmete pärimise agent
+# Andmete hankimise agent
 agent_retrieve = provider.as_agent(
     name="dataretrieval",
     instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
 )
 
-# Andmete analüüsi agent
+# Andmeanalüüsi agent
 agent_analyze = provider.as_agent(
     name="dataanalysis",
     instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
 )
 
-# Agentide järjestikune käivitamine ülesandel
+# Agentide järjestikune käivitamine ülesande täitmiseks
 retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
 analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
 print(analysis_result)
 ```
 
-Eelnevast koodist näete, kuidas luua ülesanne, mis hõlmab mitut agenti, kes koos analüüsivad andmeid. Iga agent täidab kindlat funktsiooni ning ülesanne viiakse ellu agentide koordineerimisega soovitud tulemuse saavutamiseks. Pühendunud rollidega agentide loomisega saate parandada ülesannete tõhusust ja tulemuslikkust.
+Eelnevas koodis näed, kuidas luua ülesanne, mis hõlmab mitme agendi koostööd andmete analüüsimisel. Iga agent täidab konkreetset funktsiooni ja ülesanne teostatakse, koordineerides agente soovitud tulemuse saavutamiseks. Spetsialiseerunud agentide loomisega saad parandada ülesande efektiivsust ja tulemuslikkust.
 
-### Õppige reaalajas
+### Õpi reaalajas
 
-Täiustatud raamistikel on võimekus reaalajas konteksti mõistmiseks ja kohanemiseks.
+Täiustatud raamistikud pakuvad võimekust konteksti mõistmiseks ja kohanemiseks reaalajas.
 
-**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad saavad rakendada tagasiside silmuseid, kus agentide käitumist kohandatakse dünaamiliselt suhtluse põhjal, mis viib pideva täiustamiseni ja võimete arendamisse.
+**Kuidas meeskonnad saavad neid kasutada**: Meeskonnad saavad rakendada tagasisideahelad, kus agentid õpivad suhtlustest ja kohandavad oma käitumist dünaamiliselt, mis viib võimekuse pidevale parandamisele ja täiendamisele.
 
-**Praktiline toimimine**: Agentide poolt analüüsitakse kasutajate tagasisidet, keskkonnast kogutud andmeid ja ülesannete tulemusi, et uuendada oma teadmistebaasi, kohandada otsustusalgoritme ja parandada aja jooksul tulemuslikkust. See iteratiivne õppimisprotsess võimaldab agentidel kohaneda muutuvate tingimuste ja kasutajate eelistustega, parandades süsteemi üldist efektiivsust.
+**Kuidas see praktikas toimib**: Agendid analüüsivad kasutajate tagasisidet, keskkonnaandmeid ja ülesannete tulemusi, et uuendada oma teadmistebaasi, kohandada otsustusalgoritme ja parandada sooritust aja jooksul. See iteratiivne õppimisprotsess võimaldab agentidel kohaneda muutuvate tingimuste ja kasutajate eelistustega, tugevdades süsteemi üldist efektiivsust.
 
-## Millised on erinevused Microsoft Agent Frameworki ja Microsoft Foundry Agent Service'i vahel?
+## Millised on erinevused Microsoft Agent Frameworki ja Microsoft Foundry Agent Service vahel?
 
-Neid lähenemisi saab võrrelda mitmel moel, kuid vaatame mõningaid peamisi erinevusi nende disaini, võimekuste ja sihtkasutuse seisukohast:
+Nende lähenemiste võrdlemiseks on palju võimalusi, kuid vaatame mõningaid olulisi erinevusi nende disaini, võimekuste ja sihtkasutuse osas:
 
 ## Microsoft Agent Framework (MAF)
 
-Microsoft Agent Framework pakub sujuvat SDK-d AI agentide loomiseks kasutades `FoundryChatClient`-i. See lubab arendajatel luua agente, kes kasutavad Azure OpenAI mudeleid sisseehitatud tööriistade kutsumisega, vestluse juhtimise ja ettevõtte taseme turvalisusega Azure identiteedi kaudu.
+Microsoft Agent Framework pakub sujuvat SDK-d AI agentide ehitamiseks kasutades `FoundryChatClient`-i. See võimaldab arendajatel luua agente, kes kasutavad Azure OpenAI mudeleid koos sisseehitatud tööriistade kutsumise, vestluse halduse ja äriklassi turvalisusega Azure identiteedi kaudu.
 
-**Kasutusjuhtumid**: Tootmiskõlbulike AI agentide loomine tööriistade kasutamise, mitmeastmeliste töövoogude ja ettevõtte integratsiooni stsenaariumite jaoks.
+**Kasutusjuhtumid**: Tootmisklassi valmis AI agentide ehitamine tööriistade kasutamise, mitmest kergest töövoost ja ettevõtte integreerimisdomeenidega.
 
 Siin on mõned Microsoft Agent Frameworki olulised põhimõisted:
 
-- **Agendid**. Agent luuakse `FoundryChatClient` abil ning see konfigureeritakse nime, juhiste ja tööriistadega. Agent saab:
-  - **Töödelda kasutajate sõnumeid** ja genereerida vastuseid Azure OpenAI mudelite abil.
-  - **Kutsuda tööriistu** automaatselt vastavalt vestluse kontekstile.
-  - **Hoidke vestluse olekut** mitme suhtluse jooksul.
+- **Agendid**. Agent luuakse `FoundryChatClient` abil ja konfigureeritakse nime, juhiste ja tööriistadega. Agent suudab:
+  - **Kasutajate sõnumeid töödelda** ja genereerida vastuseid Azure OpenAI mudelite abil.
+  - **Tööriistu kutsuda** automaatselt vestluse konteksti põhjal.
+  - **Vestluse seisundit hoida** mitme suhtluse vältel.
 
-  Siin on koodinäide, mis näitab, kuidas agenti luua:
+  Siin on koodinäide, kuidas agenti luua:
 
     ```python
     import os
@@ -198,7 +198,7 @@ Siin on mõned Microsoft Agent Frameworki olulised põhimõisted:
     print(response)
     ```
 
-- **Tööriistad**. Raamistik toetab tööriistade defineerimist Python funktsioonidena, mida agent saab automaatselt kutsuda. Tööriistad registreeritakse agendi loomisel:
+- **Tööriistad**. Raamistik toetab tööriistade defineerimist Python funktsioonidena, mida agent saab automaatselt kutsuda. Tööriistad registreeritakse agenti loomisel:
 
     ```python
     def get_weather(location: str) -> str:
@@ -212,7 +212,7 @@ Siin on mõned Microsoft Agent Frameworki olulised põhimõisted:
     )
     ```
 
-- **Mitme agendi koordineerimine**. Võite luua mitmeid agente, kellel on erinevad spetsialiseerumised ja koordineerida nende tööd:
+- **Mitme agendi koordineerimine**. Võid luua mitu agenti erinevate spetsialiseerumistega ja koordineerida nende tööd:
 
     ```python
     planner = provider.as_agent(
@@ -230,26 +230,26 @@ Siin on mõned Microsoft Agent Frameworki olulised põhimõisted:
     result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-- **Azure identiteedi integratsioon**. Raamistik kasutab `AzureCliCredential` (või `DefaultAzureCredential`) turvalise ja võtmevaba autentimise jaoks, mis kõrvaldab vajaduse API võtmete otse haldamiseks.
+- **Azure identiteedi integratsioon**. Raamistik kasutab turvaliseks, võtmevabaks autentimiseks `AzureCliCredential`-i (või `DefaultAzureCredential`-i), kõrvaldades vajaduse API võtmete otseseks haldamiseks.
 
 ## Microsoft Foundry Agent Service
 
-Microsoft Foundry Agent Service on hiljutine täiendus, mis tutvustati Microsoft Ignite 2024 sündmusel. See võimaldab arendada ja juurutada AI agente paindlikumate mudelitega, näiteks otse kutsudes avatud lähtekoodiga LLM-e nagu Llama 3, Mistral ja Cohere.
+Microsoft Foundry Agent Service on hiljutine täiendus, mis esitleti Microsoft Ignite 2024 üritusel. See võimaldab AI agentide arendamist ja juurutamist paindlikemate mudelitega, näiteks kutsudes otse avatud lähtekoodiga LLM-e nagu Llama 3, Mistral ja Cohere.
 
-Microsoft Foundry Agent Service pakub tugevamaid ettevõtte turvamehhanisme ja andmete säilitamise meetodeid, muutes selle sobivaks ettevõtterakendustele.
+Microsoft Foundry Agent Service pakub tugevamaid äriklassi turvamehhanisme ja andmete säilitamise meetodeid, mis teevad selle sobivaks ettevõtterakenduseks.
 
-See töötab Microsoft Agent Frameworkiga koostöös agendide ehitamiseks ja juurutamiseks.
+See toimib välja karbist koos Microsoft Agent Frameworkiga, et ehitada ja juurutada agente.
 
-Teenus on praegu avalikus eelvaates ja toetab Pythonit ja C#-i agentide loomisel.
+Teenus on praegu avalikus eelvaates ja toetab agentide loomiseks Pythoni ja C# keeli.
 
-Microsoft Foundry Agent Service Python SDK abil saame luua agendi kasutaja määratud tööriistaga:
+Microsoft Foundry Agent Service Pythoni SDK abil saame luua agendi kasutaja määratletud tööriistaga:
 
 ```python
 import asyncio
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
-# Määratle tööriistade funktsioonid
+# Määra tööriistade funktsioonid
 def get_specials() -> str:
     """Provides a list of specials from the menu."""
     return """
@@ -271,7 +271,7 @@ async def main() -> None:
     )
 
     agent = project_client.agents.create_agent(
-        model="gpt-4.1-mini",
+        model="gpt-5-mini",
         name="Host",
         instructions="Answer questions about the menu.",
         tools=[get_specials, get_item_price],
@@ -304,15 +304,15 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-### Põhimõisted
+### Põhikontseptsioonid
 
-Microsoft Foundry Agent Service'l on järgmised põhimõisted:
+Microsoft Foundry Agent Service sisaldab järgmisi põhikontsepte:
 
-- **Agent**. Microsoft Foundry Agent Service integreerub Microsoft Foundry keskkonnaga. Microsoft Foundry sees tegutseb AI agent kui "nutikas" mikroteenus, mida saab kasutada küsimustele vastamiseks (RAG), tegevuste sooritamiseks või töövoogude täielikuks automatiseerimiseks. Seda saavutatakse kombineerides generatiivsete AI mudelite võime tööriistadega, mis võimaldavad ligipääsu ja interaktsiooni reaalsete andmeallikatega. Siin on näide agendist:
+- **Agent**. Microsoft Foundry Agent Service integreerub Microsoft Foundryga. Microsoft Foundry sees toimib AI agent „nutika“ mikroteenusena, mida saab kasutada küsimustele vastamiseks (RAG), tegevuste täitmiseks või töövoogude täielikuks automatiseerimiseks. See saavutatakse generatiivsete AI mudelite võimendamisega ja tööriistadega, mis võimaldavad pääseda ligi ja suhelda reaalse andmeallikatega. Siin on näide agendist:
 
     ```python
     agent = project_client.agents.create_agent(
-        model="gpt-4.1-mini",
+        model="gpt-5-mini",
         name="my-agent",
         instructions="You are helpful agent",
         tools=code_interpreter.definitions,
@@ -320,9 +320,9 @@ Microsoft Foundry Agent Service'l on järgmised põhimõisted:
     )
     ```
 
-    Selles näites luuakse agent mudeliga `gpt-4.1-mini`, nimega `my-agent` ja juhistega `You are helpful agent`. Agent on varustatud tööriistade ja ressurssidega, et täita koodi interpreteerimise ülesandeid.
+    Selles näites luuakse agent mudeli `gpt-5-mini`, nimega `my-agent` ja juhistega `You are helpful agent`. Agent on varustatud tööriistade ja ressurssidega koodi interpreteerimise ülesannete täitmiseks.
 
-- **Jutuajamine ja sõnumid**. Jutuajamine on teine oluline mõiste. See esindab vestlust või suhtlust agenti ja kasutaja vahel. Jutuajamisi kasutatakse vestluse edenemise jälgimiseks, kontekstiinfo salvestamiseks ja suhtluse oleku haldamiseks. Siin on näide jutuajamisest:
+- **Vestluslõim ja sõnumid**. Vestluslõim on teine oluline mõiste. See esindab suhtlust või interaktsiooni agendi ja kasutaja vahel. Lõimeid saab kasutada vestluse edenemise jälgimiseks, konteksti info hoidmiseks ja interaktsiooni seisundi haldamiseks. Siin on näide lõimest:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -340,51 +340,51 @@ Microsoft Foundry Agent Service'l on järgmised põhimõisted:
     print(f"Messages: {messages}")
     ```
 
-    Eelnevas koodis luuakse jutuajamine. Seejärel saadetakse sõnum jutuajamisse. Kõne `create_and_process_run` abil palutakse agendil jutuajamise kallal töötada. Lõpuks tõmmatakse sõnumid ja logitakse agendi vastuse nägemiseks. Sõnumid näitavad vestluse edenemist kasutaja ja agendi vahel. On oluline mõista, et sõnumid võivad olla erinevat tüüpi nagu tekst, pilt või fail, mis tähendab, et agentide töö on toonud tulemuseks näiteks pildi või tekstilise vastuse. Arendajana saate seda infot kasutada vastuse edasiseks töötlemiseks või kasutajale esitamiseks.
+    Eelnenud koodis luuakse lõim. Seejärel saadetakse lõimele sõnum. Kutsudes `create_and_process_run`, palutakse agendil lõimes tööd teha. Lõpuks hangitakse sõnumid ja logitakse agendi vastuse nägemiseks. Sõnumid näitavad kasutaja ja agendi vahelist vestluse edenemist. On oluline mõista, et sõnumid võivad olla erinevat tüüpi, nagu tekst, pilt või fail, mis tähendab, et agente töö võib tulemuseks olla näiteks pildi- või tekstipõhine vastus. Arendajana saad kasutada seda infot vastuse edasiseks töötlemiseks või esitamiseks kasutajale.
 
-- **Integreerub Microsoft Agent Frameworkiga**. Microsoft Foundry Agent Service töötab sujuvalt koos Microsoft Agent Frameworkiga, mis tähendab, et saate luua agente `FoundryChatClient` abil ja juurutada neid Agent Service'i kaudu tootmises.
+- **Integreerub Microsoft Agent Frameworkiga**. Microsoft Foundry Agent Service töötab laitmatult koos Microsoft Agent Frameworkiga, mis tähendab, et saad agente ehitada kasutades `FoundryChatClient`-i ja juurutada neid Agent Service'i kaudu tootmiskeskkonda.
 
-**Kasutusjuhtumid**: Microsoft Foundry Agent Service on loodud ettevõtte rakendustele, mis vajavad turvalist, skaleeritavat ja paindlikku AI agentide juurutamist.
+**Kasutusjuhtumid**: Microsoft Foundry Agent Service on mõeldud ärirakendustele, mis vajavad turvalist, skaleeritavat ja paindlikku AI agentide juurutamist.
 
-## Milline on nende kahe lähenemise vahe?
+## Mis vahe on nende lähenemiste vahel?
  
-See võib tunduda kattuvana, kuid disaini, võimekuste ja sihtotstarbe seisukohast on mõned võtmer erinevused:
+Tundub, et on kattuvusi, kuid seal on mõned olulised erinevused nende disaini, võimekuste ja sihtkasutuse osas:
  
-- **Microsoft Agent Framework (MAF)**: On tootmiskõlbulik SDK AI agentide loomiseks. Pakub sujuvat API-t agentide loomiseks tööriistade kasutamise, vestluse juhtimise ja Azure identiteedi integreerimisega.
-- **Microsoft Foundry Agent Service**: On platvorm ja juurutusteenus Microsoft Foundrys agentidele. Pakub sisseehitatud ühenduvust teenustega nagu Azure OpenAI, Azure AI Search, Bing Search ja koodi täitmine.
+- **Microsoft Agent Framework (MAF)**: On tootmisklassi SDK AI agentide ehitamiseks. See pakub sujuvat API-d agentide loomiseks tööriistade kutsumise, vestluse halduse ja Azure identiteedi integratsiooniga.
+- **Microsoft Foundry Agent Service**: On Microsoft Foundry platvorm ja juurutusteenus agentidele. Pakub sisseehitatud ühendusi teenustega nagu Azure OpenAI, Azure AI Search, Bing Search ja koodi täitmine.
  
-Kas pole siiski kindel, kumba valida?
+Kas oled endiselt otsustushetkel?
 
 ### Kasutusjuhtumid
  
-Vaatame, kas suudame aidata mõningate tavakasutusjuhtumite kaudu:
+Vaatame, kas saame sind aidata mõningate tavapäraste kasutusjuhtumite toel:
  
-> K: Ma loon tootmiskõlblikke AI agentide rakendusi ja soovin kiiresti alustada
+> K: Teen tootmisklassi AI agentide rakendust ja tahan kiiresti alustada
 >
 
->V: Microsoft Agent Framework on suurepärane valik. See pakub lihtsat ja pythonilikku API-d `FoundryChatClient` kaudu, mis võimaldab teil määratleda agente tööriistade ja juhistega vaid mõne koodireaga.
+>V: Microsoft Agent Framework on suurepärane valik. See pakub lihtsat, Pythonile omast API-d `FoundryChatClient` abil, mis võimaldab defineerida agendid tööriistade ja juhistega vaid mõne koodireaga.
 
->K: Vajan ettevõtte tasemel juurutust Azure integratsioonidega nagu Search ja koodi täitmine
+>K: Vajan äriklassi juurutust koos Azure integreeringutega nagu Search ja koodi täitmine
 >
-> V: Microsoft Foundry Agent Service on parim valik. See on platvormiteenus, mis pakub sisseehitatud võimekusid mitmete mudelite toetamiseks, Azure AI Search, Bing Search ja Azure Functions. See teeb agendide loomise Foundry portaalis ja nende skaalaühendamise lihtsaks.
+> V: Microsoft Foundry Agent Service on parim valik. See on platvormiteenus, mis pakub sisseehitatud võimeid mitmete mudelitega, Azure AI Search, Bing Search ja Azure Functions. See muudab agentide ehitamise Foundry portaalis lihtsaks ja nende ulatusliku juurutamise võimalikuks.
  
-> K: Olen endiselt segaduses, anna mulle lihtsalt üks variant
+> K: Olen ikka veel segaduses, anna mulle üks variant
 >
-> V: Alusta Microsoft Agent Frameworkiga agentide loomiseks ja kasuta Microsoft Foundry Agent Service'i, kui vajad tootmises juurutamist ja skaleerimist. See lähenemine laseb teil agentide loogikat kiiresti iteratiivselt arendada, hoides samal ajal selge tee ettevõtte juurutamiseks.
+> V: Alusta Microsoft Agent Frameworkiga agentide ehitamiseks ja kasuta seejärel Microsoft Foundry Agent Service'i, kui vajad agentide tootmisjuurutust ja skaleerimist. See lähenemine võimaldab sul kiiresti iteratiivselt arendada agendi loogikat ja samal ajal hoida selget teed äriklassi juurutuseks.
  
-Lõpetuseks võtame võtmetähtsusega erinevused kokku tabelis:
+Kokkuvõtame peamised erinevused tabelis:
 
-| Raamistik | Fookus | Põhimõttelised mõisted | Kasutusjuhtumid |
+| Raamistik | Fookus | Põhikontseptsioonid | Kasutusjuhtumid |
 | --- | --- | --- | --- |
-| Microsoft Agent Framework | Sujuv agentide SDK tööriistade kutsumisega | Agendid, Tööriistad, Azure identiteet | AI agentide loomine, tööriistad, mitmeastmelised töövood |
-| Microsoft Foundry Agent Service | Paindlikud mudelid, ettevõtte turvalisus, koodi genereerimine, tööriistade kutsumine | Moodulisus, Koostöö, Protsessi orkestreerimine | Turvaline, skaleeritav ja paindlik AI agentide juurutus |
+| Microsoft Agent Framework | Sujuv agendi SDK koos tööriista kutsumisega | Agendid, tööriistad, Azure identiteet | AI agentide ehitamine, tööriistade kasutamine, mitmeastmelised töövood |
+| Microsoft Foundry Agent Service | Paindlikud mudelid, äriklassi turvalisus, koodi genereerimine, tööriistade kutsumine | Modulaarsus, koostöö, protsesside orkestreerimine | Turvaline, skaleeritav ja paindlik AI agentide juurutus |
 
-## Kas saan oma olemasolevaid Azure ökosüsteemi tööriistu otse integreerida või on vaja iseseisvaid lahendusi?
+## Kas ma saan oma olemasolevaid Azure ökosüsteemi tööriistu otse integreerida või on vaja eraldiseisvaid lahendusi?
 
 
-Vastus on jah, saate oma olemasolevad Azure'i ökosüsteemi tööriistad integreerida otse Microsoft Foundry Agent Service'iga, eriti kuna see on loodud sujuvaks koostööks teiste Azure'i teenustega. Näiteks võiksite integreerida Bing, Azure AI Search ja Azure Functions. Samuti on sügav integratsioon Microsoft Foundry'ga.
+Vastus on jah, saate oma olemasolevaid Azure ökosüsteemi tööriistu integreerida Microsoft Foundry Agent Service'iga otse, eriti kuna see on loodud sujuvaks koostööks teiste Azure teenustega. Näiteks võiksite integreerida Bingit, Azure AI Searchi ja Azure Functions'i. Microsoft Foundry'ga on ka sügav integratsioon.
 
-Microsoft Agent Framework integreerub ka Azure'i teenustega läbi `FoundryChatClient` ja Azure identiteedi, võimaldades teil kutsuda Azure'i teenuseid otse oma agendi tööriistadest.
+Microsoft Agent Framework integreerub ka Azure teenustega läbi `FoundryChatClient` ja Azure identiteedi, võimaldades teil kutsuda Azure teenuseid otse oma agendi tööriistadest.
 
 ## Näidiskoodid
 
@@ -392,9 +392,9 @@ Microsoft Agent Framework integreerub ka Azure'i teenustega läbi `FoundryChatCl
 - Python: [Agent Framework (Azure OpenAI Responses API)](./code_samples/02-python-agent-framework-azure-openai.ipynb)
 - .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
 
-## Kas sul on rohkem küsimusi AI agendi raamistikute kohta?
+## Kas on veel küsimusi AI Agent Frameworkide kohta?
 
-Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppuritega, osaleda kontoritundides ja saada vastuseid oma AI agentide küsimustele.
+Liituge [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppuritega, osaleda kontoritundides ja saada vastused oma AI agentide küsimustele.
 
 ## Viited
 
@@ -404,11 +404,11 @@ Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et 
 
 ## Eelmine õppetund
 
-[Sissejuhatus AI agentidesse ja agentide kasutusjuhtumitesse](../01-intro-to-ai-agents/README.md)
+[Sissejuhatus AI agentidesse ja agentide kasutusjuhtudesse](../01-intro-to-ai-agents/README.md)
 
 ## Järgmine õppetund
 
-[Agentsete disainimustrite mõistmine](../03-agentic-design-patterns/README.md)
+[Agentse disaini mustrite mõistmine](../03-agentic-design-patterns/README.md)
 
 ---
 

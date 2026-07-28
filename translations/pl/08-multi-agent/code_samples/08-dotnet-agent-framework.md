@@ -1,44 +1,47 @@
-# 🤝 Systemy Przepływu Pracy Wieloagentowej dla Przedsiębiorstw (.NET)
+# 🤝 Zaawansowane systemy wieloagentowe dla przedsiębiorstw (.NET)
 
-## 📋 Cele Nauki
+## 📋 Cele nauki
 
-Ten notebook pokazuje, jak budować zaawansowane systemy wieloagentowe na poziomie przedsiębiorstwa, korzystając z Microsoft Agent Framework w .NET z modelami GitHub. Nauczysz się koordynować pracę wielu wyspecjalizowanych agentów w ramach zorganizowanych przepływów pracy, wykorzystując funkcje .NET dla rozwiązań gotowych do produkcji.
+Ten notatnik demonstruje, jak zbudować zaawansowane systemy wieloagentowe klasy korporacyjnej, wykorzystując Microsoft Agent Framework w .NET z Azure OpenAI (Responses API). Nauczysz się, jak orkiestrując wielu wyspecjalizowanych agentów współpracujących poprzez ustrukturyzowane przepływy pracy, wykorzystać możliwości .NET do rozwiązań gotowych do produkcji.
 
-**Funkcje Wieloagentowe dla Przedsiębiorstw, które Zbudujesz:**
-- 👥 **Współpraca Agentów**: Koordynacja agentów z walidacją w czasie kompilacji
-- 🔄 **Orkiestracja Przepływu Pracy**: Deklaratywne definiowanie przepływów pracy z wykorzystaniem asynchronicznych wzorców .NET
-- 🎭 **Specjalizacja Ról**: Silnie typowane osobowości agentów i ich domeny ekspertyzy
-- 🏢 **Integracja Przedsiębiorstw**: Wzorce gotowe do produkcji z monitorowaniem i obsługą błędów
+**Możliwości wieloagentowe dla przedsiębiorstw, które zbudujesz:**
+- 👥 **Współpraca agentów**: Koordynacja agentów z typowaniem i walidacją podczas kompilacji
+- 🔄 **Orkiestracja przepływów pracy**: Deklaratywne definiowanie przepływów pracy za pomocą async w .NET
+- 🎭 **Specjalizacja ról**: Silnie typowane osobowości agentów i dziedziny specjalizacji
+- 🏢 **Integracja korporacyjna**: Wzorce produkcyjne z monitorowaniem i obsługą błędów
 
-## ⚙️ Wymagania Wstępne i Konfiguracja
+## ⚙️ Wymagania wstępne i konfiguracja
 
-**Środowisko Programistyczne:**
-- .NET 9.0 SDK lub nowszy
+**Środowisko programistyczne:**
+- SDK .NET 9.0 lub nowszy
 - Visual Studio 2022 lub VS Code z rozszerzeniem C#
-- Subskrypcja Azure (dla trwałych agentów)
+- Subskrypcja Azure (dla agentów trwałych)
 
-**Wymagane Pakiety NuGet:**
+**Wymagane pakiety NuGet:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
-## Przykład Kodów
+## Przykład kodu
 
-Kompletny kod dla tej lekcji znajduje się w załączonym pliku C#: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+Kompletny działający kod do tej lekcji dostępny jest w dołączonym pliku C#: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
 Aby uruchomić przykład:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Uczyń plik wykonywalnym (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Uruchom próbkę
 ./08-dotnet-agent-framework.cs
 ```
 
@@ -48,30 +51,30 @@ Lub korzystając z .NET CLI:
 dotnet run 08-dotnet-agent-framework.cs
 ```
 
-## Co Pokazuje Ten Przykład
+## Co demonstruje ten przykład
 
-Ten system przepływu pracy wieloagentowej tworzy usługę rekomendacji podróży hotelowych z dwoma wyspecjalizowanymi agentami:
+Ten system wieloagentowy tworzy usługę rekomendacji podróży hotelowych z dwoma wyspecjalizowanymi agentami:
 
-1. **Agent Recepcji**: Agent podróży, który dostarcza rekomendacje dotyczące aktywności i lokalizacji
-2. **Agent Konsjerża**: Przegląda rekomendacje, aby zapewnić autentyczne, nieturystyczne doświadczenia
+1. **Agent FrontDesk**: Agent podróży, który dostarcza rekomendacje aktywności i lokalizacji
+2. **Agent Concierge**: Przegląda rekomendacje, aby zapewnić autentyczne, nieturystyczne doświadczenia
 
-Agenci współpracują w przepływie pracy, gdzie:
-- Agent Recepcji otrzymuje początkowe zapytanie dotyczące podróży
-- Agent Konsjerża przegląda i udoskonala rekomendację
-- Przepływ pracy przesyła odpowiedzi w czasie rzeczywistym
+Agenci współpracują w przepływie pracy, w którym:
+- Agent FrontDesk odbiera początkowe żądanie podróży
+- Agent Concierge przegląda i udoskonala rekomendacje
+- Przepływ pracy realizuje przesyłanie odpowiedzi na żywo
 
-## Kluczowe Koncepcje
+## Kluczowe pojęcia
 
-### Koordynacja Agentów
-Przykład pokazuje koordynację agentów z walidacją w czasie kompilacji, korzystając z Microsoft Agent Framework.
+### Koordynacja agentów
+Przykład demonstruje bezpieczną typowo koordynację agentów przy użyciu Microsoft Agent Framework z walidacją podczas kompilacji.
 
-### Orkiestracja Przepływu Pracy
-Wykorzystuje deklaratywne definiowanie przepływów pracy z asynchronicznymi wzorcami .NET, aby połączyć wielu agentów w jednym pipeline.
+### Orkiestracja przepływów pracy
+Wykorzystuje deklaratywne definiowanie przepływów pracy za pomocą async w .NET do łączenia wielu agentów w potok.
 
-### Strumieniowanie Odpowiedzi
-Implementuje strumieniowanie odpowiedzi agentów w czasie rzeczywistym, korzystając z asynchronicznych enumeratorów i architektury opartej na zdarzeniach.
+### Przesyłanie odpowiedzi na żywo
+Implementuje przesyłanie w czasie rzeczywistym odpowiedzi agentów korzystając z async enumerables i architektury opartej na zdarzeniach.
 
-### Integracja Przedsiębiorstw
+### Integracja korporacyjna
 Pokazuje wzorce gotowe do produkcji, w tym:
 - Konfigurację zmiennych środowiskowych
 - Bezpieczne zarządzanie poświadczeniami
@@ -80,5 +83,7 @@ Pokazuje wzorce gotowe do produkcji, w tym:
 
 ---
 
-**Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, należy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Zastrzeżenie**:
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w jego języku źródłowym należy uznawać za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,83 +1,86 @@
-# 🔍 Meneroka Microsoft Agent Framework - Ejen Asas (.NET)
+# 🔍 Menerokai Rangka Kerja Ejen Microsoft - Ejen Asas (.NET)
 
 ## 📋 Objektif Pembelajaran
 
-Contoh ini meneroka konsep asas Microsoft Agent Framework melalui pelaksanaan ejen asas dalam .NET. Anda akan mempelajari corak ejenik teras dan memahami bagaimana ejen pintar berfungsi di belakang tabir menggunakan C# dan ekosistem .NET.
+Contoh ini meneroka konsep asas Rangka Kerja Ejen Microsoft melalui pelaksanaan ejen asas dalam .NET. Anda akan mempelajari corak teras ejenik dan memahami bagaimana ejen pintar berfungsi menggunakan C# dan ekosistem .NET.
 
-### Apa yang Akan Anda Pelajari
+### Apa Yang Akan Anda Temui
 
 - 🏗️ **Seni Bina Ejen**: Memahami struktur asas ejen AI dalam .NET
-- 🛠️ **Integrasi Alat**: Bagaimana ejen menggunakan fungsi luaran untuk memperluaskan keupayaan  
-- 💬 **Aliran Perbualan**: Mengurus perbualan berbilang giliran dan konteks dengan pengurusan utas
+- 🛠️ **Integrasi Alat**: Bagaimana ejen menggunakan fungsi luar untuk meluaskan keupayaan  
+- 💬 **Aliran Perbualan**: Mengurus perbualan berbilang pusingan dan konteks dengan pengurusan thread
 - 🔧 **Corak Konfigurasi**: Amalan terbaik untuk penyediaan dan pengurusan ejen dalam .NET
 
-## 🎯 Konsep Utama yang Diliputi
+## 🎯 Konsep Utama Yang Diterokai
 
 ### Prinsip Rangka Kerja Ejenik
 
 - **Autonomi**: Bagaimana ejen membuat keputusan secara bebas menggunakan abstraksi AI .NET
 - **Reaktiviti**: Bertindak balas terhadap perubahan persekitaran dan input pengguna
 - **Proaktiviti**: Mengambil inisiatif berdasarkan matlamat dan konteks
-- **Kebolehan Sosial**: Berinteraksi melalui bahasa semula jadi dengan utas perbualan
+- **Kebolehan Sosial**: Berinteraksi melalui bahasa semula jadi dengan thread perbualan
 
 ### Komponen Teknikal
 
-- **AIAgent**: Orkestrasi ejen teras dan pengurusan perbualan (.NET)
-- **Fungsi Alat**: Memperluaskan keupayaan ejen dengan kaedah dan atribut C#
-- **Integrasi OpenAI**: Memanfaatkan model bahasa melalui API .NET yang standard
-- **Konfigurasi Selamat**: Pengurusan kunci API berdasarkan persekitaran
+- **AIAgent**: Orkestrasi teras ejen dan pengurusan perbualan (.NET)
+- **Fungsi Alat**: Meluaskan keupayaan ejen dengan kaedah dan atribut C#
+- **Integrasi Azure OpenAI**: Memanfaatkan model bahasa melalui API Respon Azure OpenAI
+- **Konfigurasi Selamat**: Pengurusan titik akhir berasaskan persekitaran
 
-## 🔧 Tumpuan Teknikal
+## 🔧 Tim Teknikal
 
 ### Teknologi Teras
 
-- Microsoft Agent Framework (.NET)
-- Integrasi API Model GitHub
-- Corak klien serasi OpenAI
-- Konfigurasi berdasarkan persekitaran dengan DotNetEnv
+- Rangka Kerja Ejen Microsoft (.NET)
+- Integrasi Azure OpenAI (API Respon)
+- Corak klien Azure.AI.OpenAI
+- Konfigurasi berasaskan persekitaran dengan DotNetEnv
 
 ### Keupayaan Ejen
 
 - Pemahaman dan penjanaan bahasa semula jadi
-- Pemanggilan fungsi dan penggunaan alat dengan atribut C#
-- Respons yang sedar konteks dengan utas perbualan
-- Seni bina yang boleh diperluaskan dengan corak suntikan kebergantungan
+- Panggilan fungsi dan penggunaan alat dengan atribut C#
+- Respon peka konteks dengan sesi perbualan
+- Seni bina boleh luaskan dengan corak suntikan kebergantungan
 
 ## 📚 Perbandingan Rangka Kerja
 
-Contoh ini menunjukkan pendekatan Microsoft Agent Framework berbanding rangka kerja ejenik lain:
+Contoh ini menunjukkan pendekatan Rangka Kerja Ejen Microsoft berbanding rangka kerja ejenik lain:
 
-| Ciri | Microsoft Agent Framework | Rangka Kerja Lain |
-|------|----------------------------|-------------------|
-| **Integrasi** | Ekosistem Microsoft asli | Keserasian berbeza |
-| **Kesederhanaan** | API bersih, intuitif | Selalunya penyediaan kompleks |
-| **Kebolehlanjutan** | Integrasi alat yang mudah | Bergantung pada rangka kerja |
+| Ciri | Rangka Kerja Ejen Microsoft | Rangka Kerja Lain |
+|---------|-------------------------|------------------|
+| **Integrasi** | Ekosistem asli Microsoft | Keserasian pelbagai |
+| **Kesederhanaan** | API yang bersih, intuitif | Selalunya penyediaan rumit |
+| **Kebolehluasan** | Integrasi alat mudah | Bergantung pada rangka kerja |
 | **Sedia untuk Perusahaan** | Dibina untuk pengeluaran | Berbeza mengikut rangka kerja |
 
 ## 🚀 Memulakan
 
 ### Prasyarat
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
-- [Token akses API Model GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
+- Sebuah [langganan Azure](https://azure.microsoft.com/free/) dengan sumber Azure OpenAI dan penyebaran model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — log masuk dengan `az login`
 
 ### Pembolehubah Persekitaran Diperlukan
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Kemudian daftar masuk supaya AzureCliCredential dapat mendapatkan token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Kemudian daftar masuk supaya AzureCliCredential boleh mendapatkan token
+az login
 ```
 
-### Kod Contoh
+### Contoh Kod
 
 Untuk menjalankan contoh kod,
 
@@ -100,14 +103,16 @@ Lihat [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -139,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -184,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -216,32 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
 
-## 🎓 Pengajaran Utama
+## 🎓 Isi Penting
 
-1. **Seni Bina Ejen**: Microsoft Agent Framework menyediakan pendekatan bersih dan selamat jenis untuk membina ejen AI dalam .NET
-2. **Integrasi Alat**: Fungsi yang dihiasi dengan atribut `[Description]` menjadi alat yang tersedia untuk ejen
-3. **Konteks Perbualan**: Pengurusan utas membolehkan perbualan berbilang giliran dengan kesedaran konteks penuh
-4. **Pengurusan Konfigurasi**: Pembolehubah persekitaran dan pengendalian kelayakan selamat mengikuti amalan terbaik .NET
-5. **Keserasian OpenAI**: Integrasi Model GitHub berfungsi dengan lancar melalui API serasi OpenAI
+1. **Seni Bina Ejen**: Rangka Kerja Ejen Microsoft menyediakan pendekatan bersih dan selamat jenis untuk membina ejen AI dalam .NET
+2. **Integrasi Alat**: Fungsi yang dihias dengan atribut `[Description]` menjadi alat tersedia untuk ejen
+3. **Konteks Perbualan**: Pengurusan sesi membolehkan perbualan berbilang pusingan dengan kesedaran konteks penuh
+4. **Pengurusan Konfigurasi**: Pembolehubah persekitaran dan pengendalian kelayakan selamat mengikut amalan terbaik .NET
+5. **Azure OpenAI Responses API**: Ejen menggunakan API Respon Azure OpenAI melalui SDK Azure.AI.OpenAI
 
 ## 🔗 Sumber Tambahan
 
-- [Dokumentasi Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [Pasar Model GitHub](https://github.com/marketplace?type=models)
+- [Dokumentasi Rangka Kerja Ejen Microsoft](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI dalam Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [Aplikasi Fail Tunggal .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

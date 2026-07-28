@@ -1,89 +1,89 @@
-# 🎨 תבניות עיצוב סוכנים עם מודלים של GitHub (.NET)
+# 🎨 דפוסי עיצוב אג'נטיים עם Azure OpenAI (Responses API) (.NET)
 
 ## 📋 מטרות למידה
 
-דוגמה זו מציגה תבניות עיצוב ברמה ארגונית לבניית סוכנים חכמים באמצעות Microsoft Agent Framework ב-.NET עם אינטגרציה של מודלים של GitHub. תלמדו תבניות מקצועיות וגישות ארכיטקטוניות שהופכות סוכנים למוכנים לייצור, ניתנים לתחזוקה ולסקיילביליות.
+דוגמה זו מראה דפוסי עיצוב ברמת ארגון לבניית סוכנים אינטיליגנטים באמצעות Microsoft Agent Framework ב-.NET עם אינטגרציה של Azure OpenAI (Responses API). תלמד דפוסים מקצועיים וגישות ארכיטקטוניות שהופכות סוכנים למוכנים לייצור, ניתנים לתחזוקה ומדרגים.
 
-### תבניות עיצוב ארגוניות
+### דפוסי עיצוב ארגוניים
 
-- 🏭 **תבנית מפעל**: יצירת סוכנים סטנדרטית עם הזרקת תלות
-- 🔧 **תבנית בונה**: הגדרה והגדרה שוטפת של סוכנים
-- 🧵 **תבניות בטוחות לשרשור**: ניהול שיחות מקבילי
-- 📋 **תבנית מאגר**: ניהול כלים ויכולות מאורגן
+- 🏭 **דפוס מפעל**: יצירת סוכנים סטנדרטית עם הזרקת תלות
+- 🔧 **דפוס בונה**: קונפיגורציה והגדרה שוטפת של סוכן
+- 🧵 **דפוסים בטוחים לתהליכים**: ניהול שיחות מתוזמנות בו זמנית
+- 📋 **דפוס מאגר**: ארגון ניהול כלים ויכולות
 
 ## 🎯 יתרונות ארכיטקטוניים ספציפיים ל-.NET
 
 ### תכונות ארגוניות
 
-- **הקלדה חזקה**: אימות בזמן קומפילציה ותמיכה ב-IntelliSense
-- **הזרקת תלות**: אינטגרציה מובנית של מיכל DI
-- **ניהול תצורה**: תבניות IConfiguration ו-Options
-- **Async/Await**: תמיכה בתכנות אסינכרוני ברמה ראשונה
+- **טיפוס חזק**: אימות בעת קימפול ותמיכה ב-IntelliSense
+- **הזרקת תלות**: אינטגרציה מובנית של מכולת DI 
+- **ניהול קונפיגורציה**: דפוסי IConfiguration ו-Options
+- **Async/Await**: תמיכה איסינכרונית ברמה גבוהה
 
-### תבניות מוכנות לייצור
+### דפוסים מוכנים לייצור
 
-- **אינטגרציית לוגים**: תמיכה ב-ILogger ולוגים מובנים
+- **אינטגרציית רישום**: ILogger ותמיכה ברישום מובנה ומובנה
 - **בדיקות בריאות**: ניטור ואבחון מובנים
-- **אימות תצורה**: הקלדה חזקה עם הערות נתונים
-- **טיפול בשגיאות**: ניהול חריגים מובנה
+- **אימות קונפיגורציה**: טיפוס חזק עם הערות נתונים
+- **ניהול שגיאות**: ניהול חריגים מובנה
 
 ## 🔧 ארכיטקטורה טכנית
 
 ### רכיבי ליבה של .NET
 
-- **Microsoft.Extensions.AI**: הפשטות שירות AI מאוחדות
-- **Microsoft.Agents.AI**: מסגרת תזמור סוכנים ארגונית
-- **אינטגרציה של מודלים של GitHub**: תבניות לקוח API בעלות ביצועים גבוהים
-- **מערכת תצורה**: אינטגרציה של appsettings.json וסביבה
+- **Microsoft.Extensions.AI**: הפשטות שירותי AI מאוחדות
+- **Microsoft.Agents.AI**: מסגרת לארכיטקטורת סוכנים ארגונית
+- **Azure OpenAI (Responses API)**: דפוסי לקוח API לביצועים גבוהים
+- **מערכת קונפיגורציה**: שילוב appsettings.json וסביבה
 
-### יישום תבניות עיצוב
+### יישום דפוסי עיצוב
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[בונה סוכן]
+    B --> C[תצורה]
+    C --> D[רישום כלים]
+    D --> E[סוכן בינה מלאכותית]
 ```
 
-## 🏗️ תבניות ארגוניות מוצגות
+## 🏗️ דפוסים ארגוניים מתועדים
 
-### 1. **תבניות יצירה**
+### 1. **דפוסי יצירה**
 
-- **מפעל סוכנים**: יצירת סוכנים מרכזית עם תצורה עקבית
-- **תבנית בונה**: API שוטף להגדרת סוכנים מורכבת
-- **תבנית סינגלטון**: ניהול משאבים ותצורה משותפים
-- **הזרקת תלות**: צימוד רופף ויכולת בדיקה
+- **מפעל סוכנים**: יצירת סוכנים ריכוזית עם קונפיגורציה עקבית
+- **דפוס בונה**: API זורם לקונפיגורציה מורכבת של סוכן
+- **דפוס סינגלטון**: משאבים משותפים וניהול קונפיגורציה
+- **הזרקת תלות**: קישור רופף ויכולת לבדיקה
 
-### 2. **תבניות התנהגותיות**
+### 2. **דפוסי התנהגות**
 
-- **תבנית אסטרטגיה**: אסטרטגיות ביצוע כלים ניתנות להחלפה
-- **תבנית פקודה**: פעולות סוכן מקופסות עם ביטול/חזרה
-- **תבנית משקיף**: ניהול מחזור חיים של סוכן מונע אירועים
-- **תבנית שיטת תבנית**: זרימות עבודה סטנדרטיות לביצוע סוכן
+- **דפוס אסטרטגיה**: אסטרטגיות ביצוע כלים ניתנות להחלפה
+- **דפוס פקודה**: פעולות סוכן מקופסות עם ביטול/שחזור
+- **דפוס מתבונן**: ניהול מחזור חיים ממוקד אירועים
+- **שיטת תבנית**: תהליכי ביצוע סוכנים סטנדרטיים
 
-### 3. **תבניות מבניות**
+### 3. **דפוסי מבנה**
 
-- **תבנית מתאם**: שכבת אינטגרציה של API מודלים של GitHub
-- **תבנית דקורטור**: שיפור יכולות סוכן
-- **תבנית חזית**: ממשקי אינטראקציה פשוטים עם סוכן
-- **תבנית פרוקסי**: טעינה עצלה וקשירה לשיפור ביצועים
+- **דפוס מתאם**: שכבת אינטגרציה של Azure OpenAI (Responses API)
+- **דפוס דקורטור**: שדרוג יכולות סוכן
+- **דפוס חזית**: ממשקי אינטראקציה מפושטים עם סוכן
+- **דפוס פרוקסי**: טעינה עצלנית ואחסון זמני לביצועים
 
 ## 📚 עקרונות עיצוב ב-.NET
 
 ### עקרונות SOLID
 
-- **אחריות יחידה**: לכל רכיב יש מטרה ברורה אחת
+- **אחריות בודדת**: לכל רכיב מטרה ברורה אחת
 - **פתוח/סגור**: ניתן להרחבה ללא שינוי
-- **החלפת ליסקוב**: יישומי כלים מבוססי ממשק
+- **החלפת ליסקוב**: מימושים מבוססי ממשק
 - **הפרדת ממשקים**: ממשקים ממוקדים וקוהרנטיים
 - **היפוך תלות**: תלות בהפשטות, לא במימושים
 
 ### ארכיטקטורה נקייה
 
 - **שכבת דומיין**: הפשטות ליבה של סוכן וכלים
-- **שכבת אפליקציה**: תזמור סוכנים וזרימות עבודה
-- **שכבת תשתית**: אינטגרציה של מודלים של GitHub ושירותים חיצוניים
+- **שכבת יישום**: תזמור ועבודות סוכן
+- **שכבת תשתית**: אינטגרציית Azure OpenAI (Responses API) ושירותים חיצוניים
 - **שכבת הצגה**: אינטראקציה עם משתמש ועיצוב תגובות
 
 ## 🔒 שיקולים ארגוניים
@@ -91,63 +91,66 @@ graph LR
 ### אבטחה
 
 - **ניהול אישורים**: טיפול מאובטח במפתחות API עם IConfiguration
-- **אימות קלט**: הקלדה חזקה ואימות הערות נתונים
-- **סינון פלט**: עיבוד תגובות מאובטח וסינון
-- **לוגים למעקב**: מעקב מקיף אחר פעולות
+- **אימות קלט**: טיפוס חזק ואימות עם הערות נתונים
+- **סניטציה של פלט**: עיבוד וסינון תגובות מאובטח
+- **רישום ביקורת**: מעקב מקיף אחר פעולות
 
 ### ביצועים
 
-- **תבניות אסינכרוניות**: פעולות I/O לא חוסמות
-- **מאגר חיבורים**: ניהול יעיל של לקוח HTTP
-- **קשירה**: קשירת תגובות לשיפור ביצועים
-- **ניהול משאבים**: דפוסי סילוק וניקוי נכונים
+- **דפוסי Async**: פעולות I/O לא חוסמות
+- **חיבור במאגר**: ניהול לקוחות HTTP יעיל
+- **אחסון זמני**: מטמון תגובות לשיפור ביצועים
+- **ניהול משאבים**: דפוסים לפינוי וניקוי נאותים
 
-### סקיילביליות
+### מדרגיות
 
-- **בטיחות שרשור**: תמיכה בביצוע סוכנים מקבילי
-- **מאגר משאבים**: ניצול משאבים יעיל
-- **ניהול עומס**: הגבלת קצב וטיפול בלחץ
+- **בטיחות תהליכים**: תמיכה בהרצת סוכנים במקביל
+- **חיבורי משאבים**: ניצול יעיל של משאבים
+- **ניהול עומסים**: הגבלת קצב וטיפול בלחץ חוזר
 - **ניטור**: מדדי ביצועים ובדיקות בריאות
 
-## 🚀 פריסת ייצור
+## 🚀 פריסה לייצור
 
-- **ניהול תצורה**: הגדרות ספציפיות לסביבה
-- **אסטרטגיית לוגים**: לוגים מובנים עם מזהי קורלציה
-- **טיפול בשגיאות**: טיפול חריגים גלובלי עם התאוששות נכונה
-- **ניטור**: Application Insights ומוני ביצועים
-- **בדיקות**: בדיקות יחידה, בדיקות אינטגרציה ודפוסי בדיקות עומס
+- **ניהול קונפיגורציה**: הגדרות מותאמות לסביבה
+- **אסטרטגיית רישום**: רישום מובנה עם מזהי קורלציה
+- **ניהול שגיאות**: טיפול גלובלי בחריגות עם החלמה נאותה
+- **ניטור**: Application Insights ומדדי ביצועים
+- **בדיקות**: בדיקות יחידה, אינטגרציה ודפוסי בדיקת עומס
 
-מוכנים לבנות סוכנים חכמים ברמה ארגונית עם .NET? בואו נבנה משהו חזק! 🏢✨
+מוכנים לבנות סוכנים אינטיליגנטים ברמת ארגון עם .NET? בואו נעצב משהו יציב! 🏢✨
 
-## 🚀 תחילת עבודה
+## 🚀 התחלת עבודה
 
 ### דרישות מוקדמות
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה גבוהה יותר
-- [אסימון גישה ל-API של מודלים של GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [מנוי Azure](https://azure.microsoft.com/free/) עם משאב Azure OpenAI ופריסת מודל
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — התחבר עם `az login`
 
 ### משתני סביבה נדרשים
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# לאחר מכן, התחבר כדי ש-AzureCliCredential יוכל לקבל אסימון
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# לאחר מכן היכנס כדי ש-AzureCliCredential יוכל לקבל אסימון
+az login
 ```
 
-### קוד לדוגמה
+### דוגמת קוד
 
-כדי להפעיל את דוגמת הקוד,
+להריץ את דוגמת הקוד,
 
 ```bash
-# zsh/bash
+# זש/באש
 chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
@@ -158,21 +161,23 @@ chmod +x ./03-dotnet-agent-framework.cs
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-ראו [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) עבור הקוד המלא.
+עיין ב-[`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) לקוד המלא.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עשויים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור הסמכותי. למידע קריטי, מומלץ להשתמש בתרגום מקצועי על ידי בני אדם. איננו אחראים לאי-הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

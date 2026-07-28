@@ -1,96 +1,96 @@
-# 🔍 استكشاف إطار عمل Microsoft Agent - العميل الأساسي (.NET)
+# 🔍 استكشاف إطار عمل وكيل مايكروسوفت - وكيل أساسي (.NET)
 
 ## 📋 أهداف التعلم
 
-يستكشف هذا المثال المفاهيم الأساسية لإطار عمل Microsoft Agent من خلال تنفيذ عميل أساسي في .NET. ستتعلم الأنماط الأساسية للوكيل وتفهم كيفية عمل الوكلاء الأذكياء تحت الغطاء باستخدام C# ونظام .NET البيئي.
+يستعرض هذا المثال المفاهيم الأساسية لإطار عمل وكيل مايكروسوفت من خلال تنفيذ وكيل أساسي في .NET. ستتعلم أنماط الوكلاء الأساسية وتفهم كيفية عمل الوكلاء الأذكياء تحت الغطاء باستخدام C# ونظام .NET البيئي.
 
 ### ما الذي ستكتشفه
 
-- 🏗️ **هيكلية الوكيل**: فهم الهيكل الأساسي لوكلاء الذكاء الاصطناعي في .NET
-- 🛠️ **تكامل الأدوات**: كيف يستخدم الوكلاء الوظائف الخارجية لتوسيع القدرات  
-- 💬 **تدفق المحادثة**: إدارة المحادثات متعددة الجولات والسياق مع إدارة الخيوط
+- 🏗️ **هيكل الوكيل**: فهم الهيكل الأساسي لوكلاء الذكاء الاصطناعي في .NET
+- 🛠️ **تكامل الأدوات**: كيف تستخدم الوكلاء الوظائف الخارجية لتوسيع القدرات  
+- 💬 **تدفق المحادثة**: إدارة المحادثات متعددة الأدوار والسياق مع إدارة الخيوط
 - 🔧 **أنماط التهيئة**: أفضل الممارسات لإعداد الوكيل وإدارته في .NET
 
-## 🎯 المفاهيم الرئيسية المشمولة
+## 🎯 المفاهيم الأساسية المغطاة
 
-### مبادئ إطار العمل الوكلي
+### مبادئ إطار عمل الوكلاء
 
-- **الاستقلالية**: كيف يتخذ الوكلاء قرارات مستقلة باستخدام تجريدات الذكاء الاصطناعي في .NET
-- **التفاعلية**: الاستجابة لتغيرات البيئة ومدخلات المستخدم
-- **المبادرة**: اتخاذ المبادرة بناءً على الأهداف والسياق
+- **الاستقلالية**: كيف يصنع الوكلاء قرارات مستقلة باستخدام تجريدات الذكاء الاصطناعي في .NET
+- **التفاعل**: الاستجابة للتغيرات البيئية ومدخلات المستخدم
+- **الاستباقية**: اتخاذ المبادرة بناءً على الأهداف والسياق
 - **القدرة الاجتماعية**: التفاعل من خلال اللغة الطبيعية مع خيوط المحادثة
 
 ### المكونات التقنية
 
 - **AIAgent**: تنسيق الوكيل الأساسي وإدارة المحادثة (.NET)
-- **وظائف الأدوات**: توسيع قدرات الوكيل بواسطة طرق وسمات C#
-- **تكامل Azure OpenAI**: الاستفادة من نماذج اللغة عبر API استجابات Azure OpenAI
+- **وظائف الأدوات**: توسيع قدرات الوكيل باستخدام طرق وسمات C#
+- **تكامل Azure OpenAI**: الاستفادة من نماذج اللغة عبر واجهة Azure OpenAI Responses API
 - **التهيئة الآمنة**: إدارة نقاط النهاية بناءً على البيئة
 
 ## 🔧 البنية التقنية
 
 ### التقنيات الأساسية
 
-- إطار عمل Microsoft Agent (.NET)
-- تكامل Azure OpenAI (API استجابات)
-- أنماط عميل Azure.AI.OpenAI
+- إطار عمل وكيل مايكروسوفت (.NET)
+- تكامل Azure OpenAI (واجهة Responses API)
+- أنماط استخدام عميل Azure.AI.OpenAI
 - التهيئة بناءً على البيئة مع DotNetEnv
 
 ### قدرات الوكيل
 
-- فهم اللغة الطبيعية وتوليدها
+- فهم وتوليد اللغة الطبيعية
 - استدعاء الوظائف واستخدام الأدوات مع سمات C#
-- استجابات واعية للسياق مع جلسات المحادثة
-- هيكلية قابلة للتوسيع مع أنماط حقن التبعيات
+- الردود المدركة للسياق مع جلسات المحادثة
+- بنية قابلة للتمديد مع أنماط حقن التبعيات
 
-## 📚 مقارنة الإطارات
+## 📚 مقارنة الأطر
 
-يعرض هذا المثال نهج إطار عمل Microsoft Agent مقارنة بالإطارات الوكلية الأخرى:
+يوضح هذا المثال نهج إطار عمل وكيل مايكروسوفت مقارنة بأطر الوكلاء الأخرى:
 
-| الميزة | إطار عمل Microsoft Agent | إطارات أخرى |
+| الميزة | إطار عمل وكيل مايكروسوفت | أُطُر أخرى |
 |---------|-------------------------|------------------|
-| **التكامل** | نظام Microsoft البيئي الأصلي | توافق متنوع |
-| **البساطة** | API نظيف وبديهي | إعداد غالباً معقد |
-| **القابلية للتوسيع** | تكامل الأدوات بسهولة | يعتمد على الإطار |
-| **جاهزية المؤسسات** | تم التصميم للإنتاج | يختلف حسب الإطار |
+| **التكامل** | نظام مايكروسوفت البيئي الأصلي | توافق متنوع |
+| **البساطة** | واجهة برمجة تطبيقات واضحة وبديهية | إعدادات غالباً معقدة |
+| **القابلية للتوسع** | تكامل أدوات سهل | يعتمد على الإطار |
+| **جاهزية المؤسسات** | مُصمم للإنتاج | يختلف حسب الإطار |
 
-## 🚀 البدء
+## 🚀 بدء الاستخدام
 
-### المتطلبات الأساسية
+### المتطلبات المسبقة
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أعلى
-- اشتراك [Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر النموذج
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — تسجيل الدخول باستخدام `az login`
+- [SDK لـ .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) أو أعلى
+- [اشتراك Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر نموذج
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — سجل الدخول باستخدام `az login`
 
-### متغيرات البيئة المطلوبة
+### المتغيرات البيئية المطلوبة
 
 ```bash
-# زد شيل/باش
+# زد شل/باش
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ثم قم بتسجيل الدخول لكي يتمكن AzureCliCredential من الحصول على رمز مميز
 az login
 ```
 
 ```powershell
-# باورشل
+# باورشيل
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
 az login
 ```
 
-### مثال على الكود
+### كود العينة
 
 لتشغيل مثال الكود،
 
 ```bash
-# زش/باش
+# زد إس إتش / باش
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-أو باستخدام CLI لـ dotnet:
+أو باستخدام dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
@@ -147,7 +147,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -217,18 +217,18 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 النقاط الرئيسية المستفادة
 
-1. **هيكلية الوكيل**: يوفر إطار عمل Microsoft Agent نهجًا نظيفًا وآمن النوع لبناء وكلاء الذكاء الاصطناعي في .NET
-2. **تكامل الأدوات**: تصبح الوظائف المزينة بسمات `[Description]` أدوات متاحة للوكيل
-3. **سياق المحادثة**: تُمكن إدارة الجلسات المحادثات متعددة الجولات مع وعي كامل بالسياق
-4. **إدارة التهيئة**: تتبع متغيرات البيئة والتعامل الآمن مع بيانات الاعتماد أفضل الممارسات في .NET
-5. **API استجابات Azure OpenAI**: يستخدم الوكيل API استجابات Azure OpenAI عبر SDK الخاص بـ Azure.AI.OpenAI
+1. **هيكل الوكيل**: يوفر إطار عمل وكيل مايكروسوفت نهجًا نظيفًا وآمنًا نوعيًا لبناء وكلاء الذكاء الاصطناعي في .NET
+2. **تكامل الأدوات**: الوظائف المزينة بسمات `[Description]` تصبح أدوات متاحة للوكيل
+3. **سياق المحادثة**: تمكن إدارة الجلسات المحادثات متعددة الأدوار مع وعي كامل بالسياق
+4. **إدارة التهيئة**: تتبع المتغيرات البيئية وإدارة بيانات الاعتماد بأمان أفضل الممارسات في .NET
+5. **واجهة Azure OpenAI Responses API**: يستخدم الوكيل واجهة Azure OpenAI Responses API من خلال SDK Azure.AI.OpenAI
 
 ## 🔗 مصادر إضافية
 
-- [توثيق إطار عمل Microsoft Agent](https://learn.microsoft.com/agent-framework)
+- [توثيق إطار عمل وكيل مايكروسوفت](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI في Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [تطبيقات ملف واحد في .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [تطبيقات .NET بملف واحد](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

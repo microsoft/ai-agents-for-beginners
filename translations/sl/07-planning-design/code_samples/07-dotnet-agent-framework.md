@@ -2,17 +2,17 @@
 
 ## 📋 Cilji učenja
 
-Ta zvezek prikazuje načrte in vzorce oblikovanja na ravni podjetja za izdelavo pametnih agentov z uporabo Microsoft Agent Framework v .NET z Azure OpenAI (Responses API). Naučili se boste ustvarjati agente, ki lahko razbijejo kompleksne probleme, načrtujejo večstopenjske rešitve in izvajajo zapletene poteke dela z uporabo podjetniških funkcij .NET.
+Ta zvezek prikazuje podjetniško stopnjo načrtovanja in vzorce oblikovanja za gradnjo inteligentnih agentov z uporabo Microsoft Agent Framework v .NET z Azure OpenAI (Responses API). Naučili se boste ustvarjati agente, ki lahko razčlenijo kompleksne probleme, načrtujejo večstopenjske rešitve in izvajajo sofisticirane delovne procese z uporabo podjetniških funkcij .NET.
 
 ## ⚙️ Zahteve in nastavitev
 
 **Razvojno okolje:**
 - .NET 9.0 SDK ali novejši
 - Visual Studio 2022 ali VS Code s C# razširitvijo
-- Azure naročnina z Azure OpenAI virom in namestitvijo modela
+- Naročnina Azure z Azure OpenAI virom in nameščeno različico modela
 - Azure CLI — prijava z `az login`
 
-**Zahtevane odvisnosti:**
+**Potrebne odvisnosti:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
@@ -25,15 +25,15 @@ Ta zvezek prikazuje načrte in vzorce oblikovanja na ravni podjetja za izdelavo 
 **Konfiguracija okolja (datoteka .env):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## Zagon kode
 
-Ta lekcija vsebuje izvedbo aplikacije .NET Single File App. Za zagon:
+Ta lekcija vključuje implementacijo .NET Single File App. Za zagon:
 
 ```bash
-# Naredite datoteko izvedljivo (Linux/macOS)
+# Naredite datoteko izvršljivo (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
 # Zaženite aplikacijo
@@ -46,21 +46,21 @@ Ali uporabite ukaz dotnet run:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Izvedba kode
+## Implementacija kode
 
-Celotna izvedba je na voljo v `07-dotnet-agent-framework.cs`, kjer je prikazano:
+Celotna implementacija je na voljo v `07-dotnet-agent-framework.cs`, ki prikazuje:
 
 - Nalaganje konfiguracije okolja z DotNetEnv
-- Konfiguracija Azure OpenAI odjemalca in ustvarjanje AI agenta z `GetChatClient().AsAIAgent()`
-- Definiranje strukturiranih podatkovnih modelov (Plan in TravelPlan) z JSON serializacijo
-- Ustvarjanje AI agenta s strukturiranim izhodom z uporabo JSON sheme
-- Izvajanje načrtovalskih zahtev z varnimi odgovori glede na tip
+- Konfiguriranje Azure OpenAI odjemalca in ustvarjanje AI agenta z `GetChatClient().AsAIAgent()`
+- Definiranje strukturiranih podatkovnih modelov (Plan in TravelPlan) s serializacijo JSON
+- Ustvarjanje AI agenta z strukturiranim izhodom z uporabo JSON sheme
+- Izvajanje zahtev za načrtovanje s tipno-varnimi odgovori
 
 ## Ključni pojmi
 
-### Strukturirano načrtovanje z varnimi modeli
+### Strukturirano načrtovanje s tipno-varnimi modeli
 
-Agent uporablja C# razrede za definiranje strukture načrtovalnih izhodov:
+Agent uporablja razrede C# za opredelitev strukture načrtovalnih izhodov:
 
 ```csharp
 public class Plan
@@ -84,7 +84,7 @@ public class TravelPlan
 
 ### JSON shema za strukturirane izhode
 
-Agent je nastavljen tako, da vrača odgovore, ki ustrezajo shemi TravelPlan:
+Agent je konfiguriran tako, da vrača odgovore, ki ustrezajo shemi TravelPlan:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new()
@@ -101,20 +101,20 @@ ChatClientAgentOptions agentOptions = new()
 };
 ```
 
-### Navodila načrtovalnemu agentu
+### Navodila za načrtovalnega agenta
 
-Agent deluje kot koordinator in delegira naloge specializiranim podagentom:
+Agent deluje kot koordinator, ki delegira naloge specializiranim podagentom:
 
-- FlightBooking: Za rezervacijo letov in zagotavljanje informacij o letih
-- HotelBooking: Za rezervacijo hotelov in zagotavljanje informacij o hotelih
-- CarRental: Za rezervacijo avtomobilov in zagotavljanje informacij o najemu avtomobilov
-- ActivitiesBooking: Za rezervacijo aktivnosti in zagotavljanje informacij o aktivnostih
-- DestinationInfo: Za zagotavljanje informacij o destinacijah
-- DefaultAgent: Za obdelavo splošnih zahtev
+- FlightBooking: za rezervacije letov in zagotavljanje informacij o letih
+- HotelBooking: za rezervacije hotelov in zagotavljanje informacij o hotelih
+- CarRental: za rezervacije avtomobilov in zagotavljanje informacij o najemu vozil
+- ActivitiesBooking: za rezervacije aktivnosti in zagotavljanje informacij o aktivnostih
+- DestinationInfo: za zagotavljanje informacij o destinacijah
+- DefaultAgent: za obravnavo splošnih zahtevkov
 
 ## Pričakovani izhod
 
-Ko zaženete agenta z zahtevo za načrtovanje potovanja, bo ta analiziral zahtevo in ustvaril strukturiran načrt z ustrezno dodelitvijo nalog specializiranim agentom, formatirano kot JSON, ki ustreza shemi TravelPlan.
+Ko zaženete agenta z zahtevkom za načrtovanje potovanja, bo analiziral zahtevek in ustvaril strukturiran načrt z ustrezno razporeditvijo nalog specializiranim agentom, oblikovan kot JSON, ki ustreza shemi TravelPlan.
 
 ---
 

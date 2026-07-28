@@ -1,6 +1,6 @@
 [![How to Design Good AI Agents](../../../translated_images/en/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Click the image above to view video of this lesson)_
+> _(Click the image above to watch the video for this lesson)_
 
 # Tool Use Design Pattern
 
@@ -233,7 +233,7 @@ provider = FoundryChatClient(
     credential=AzureCliCredential(),
 )
 
-# Create an agent and run with the tool
+# Create an agent and run it with the tool
 agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
@@ -294,7 +294,7 @@ toolset.add(fetch_data_function)
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4.1-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```

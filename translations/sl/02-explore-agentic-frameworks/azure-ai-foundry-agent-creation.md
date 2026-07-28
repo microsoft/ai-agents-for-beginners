@@ -1,42 +1,42 @@
-# Razvoj storitve Microsoft Foundry Agent
+# Microsoft Foundry Agent Service Development
 
-V tej vaji uporabite orodja Microsoft Foundry Agent Service v [Microsoft Foundry portalu](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), da ustvarite agenta za Rezervacijo letov. Agent bo lahko komuniciral z uporabniki in zagotavljal informacije o letih.
+V tej vaji uporabite orodja Microsoft Foundry Agent Service v [Microsoft Foundry portalu](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) za ustvarjanje agenta za rezervacijo letov. Agent bo lahko komuniciral z uporabniki in zagotavljal informacije o letih.
 
 ## Predpogoji
 
 Za dokončanje te vaje potrebujete naslednje:
-1. Azure račun z aktivnim naročninskim paketom. [Ustvarite račun brezplačno](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Potrebujete dovoljenja za ustvarjanje Microsoft Foundry huba ali pa vam mora nekdo ustvariti hub.
-    - Če je vaša vloga Contributor ali Owner, lahko sledite korakom v tem vodniku.
+1. Račun Azure z aktivno naročnino. [Ustvari račun brezplačno](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Potrebujete dovoljenja za ustvarjanje Microsoft Foundry hub-a ali pa naj ga za vas ustvari nekdo drug.
+    - Če je vaša vloga Contributor ali Owner, lahko sledite korakom v tem vodiču.
 
-## Ustvarite Microsoft Foundry hub
+## Ustvarjanje Microsoft Foundry hub-a
 
-> **Opomba:** Microsoft Foundry je bila prej znana kot Azure AI Studio.
+> **Opomba:** Microsoft Foundry je bil prej znan kot Azure AI Studio.
 
-1. Sledite tem navodilom iz [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog zapisa za ustvarjanje Microsoft Foundry huba.
-2. Ko je vaš projekt ustvarjen, zaprite morebitne prikazane nasvete in si oglejte stran projekta v Microsoft Foundry portalu, ki naj bi izgledala podobno kot na spodnji sliki:
+1. Sledite tem smernicam iz [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) bloga za ustvarjanje Microsoft Foundry hub-a.
+2. Ko je vaš projekt ustvarjen, zaprite vse prikazane nasvete in preglejte stran projekta v Microsoft Foundry portalu, ki naj bi izgledala podobno kot naslednja slika:
 
     ![Microsoft Foundry Project](../../../translated_images/sl/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Namestitev modela
+## Naložite model
 
-1. V levem podoknu vašega projekta, v razdelku **My assets**, izberite stran **Models + endpoints**.
-2. Na strani **Models + endpoints**, v zavihku **Model deployments**, v meniju **+ Deploy model** izberite **Deploy base model**.
-3. Poiščite model `gpt-4.1-mini` na seznamu, nato ga izberite in potrdite.
+1. V levem podoknu za vaš projekt, v razdelku **My assets**, izberite stran **Models + endpoints**.
+2. Na strani **Models + endpoints**, na zavihku **Model deployments**, v meniju **+ Deploy model** izberite **Deploy base model**.
+3. V seznamu poiščite model `gpt-5-mini`, nato ga izberite in potrdite.
 
-    > **Opomba**: Znižanje TPM pomaga preprečiti pretirano uporabo kvote, ki je na voljo v naročnini, ki jo uporabljate.
+    > **Opomba**: Znižanje TPM pomaga preprečiti prekomerno uporabo kvote, ki je na voljo v naročnini, ki jo uporabljate.
 
     ![Model Deployed](../../../translated_images/sl/model-deployment.3749c53fb81e18fd.webp)
 
-## Ustvarjanje agenta
+## Ustvarite agenta
 
-Zdaj, ko ste namestili model, lahko ustvarite agenta. Agent je konverzacijski AI model, ki ga lahko uporabite za interakcijo z uporabniki.
+Ko ste naložili model, lahko ustvarite agenta. Agent je pogovorni AI model, ki lahko komunicira z uporabniki.
 
-1. V levem podoknu vašega projekta, v razdelku **Build & Customize**, izberite stran **Agents**.
+1. V levem podoknu za vaš projekt, v razdelku **Build & Customize**, izberite stran **Agents**.
 2. Kliknite **+ Create agent**, da ustvarite novega agenta. V pogovornem oknu **Agent Setup**:
     - Vnesite ime za agenta, na primer `FlightAgent`.
-    - Prepričajte se, da je izbrana predhodno ustvarjena namestitev modela `gpt-4.1-mini`
-    - Nastavite **Instructions** v skladu z navodili, ki naj jih agent sledi. Tukaj je primer:
+    - Prepričajte se, da je izbran model `gpt-5-mini`, ki ste ga prej naložili
+    - Nastavite **Instructions** po sporočilu, ki ga želite, da agent sledi. Tukaj je primer:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,38 +64,38 @@ Zdaj, ko ste namestili model, lahko ustvarite agenta. Agent je konverzacijski AI
     
     ```
 > [!NOTE]
-> Za podrobnejši poziv lahko preverite [to repozitorij](https://github.com/ShivamGoyal03/RoamMind) za več informacij.
+> Za podrobnejše sporočilo si lahko ogledate [ta repozitorij](https://github.com/ShivamGoyal03/RoamMind) za več informacij.
     
-> Poleg tega lahko dodate **Knowledge Base** in **Actions**, da izboljšate zmožnosti agenta za zagotavljanje več informacij in izvajanje samodejnih opravil na podlagi uporabniških zahtev. Za to vajo lahko te korake preskočite.
+> Poleg tega lahko dodate **Knowledge Base** in **Actions** za izboljšanje zmogljivosti agenta, da zagotovi več informacij in izvaja avtomatizirane naloge na podlagi uporabniških zahtev. Za to vajo lahko te korake preskočite.
     
 ![Agent Setup](../../../translated_images/sl/agent-setup.9bbb8755bf5df672.webp)
 
-3. Če želite ustvariti novega več-umetnointeligentnega agenta, preprosto kliknite **New Agent**. Novi agent bo nato prikazan na strani Agents.
+3. Če želite ustvariti novega multi-AI agenta, preprosto kliknite **New Agent**. Novi agent bo nato prikazan na strani Agents.
 
 
-## Testiranje agenta
+## Preizkusite agenta
 
-Po ustvarjanju agenta ga lahko preizkusite, da vidite, kako odgovarja na uporabniške poizvedbe v igralnem polju Microsoft Foundry portala.
+Po ustvarjanju agenta ga lahko preizkusite, kako odgovarja na uporabniške poizvedbe v Microsoft Foundry portalu na poligonu.
 
 1. Na vrhu podokna **Setup** za vašega agenta izberite **Try in playground**.
-2. V podoknu **Playground** lahko komunicirate z agentom tako, da v oknu za klepet vnesete poizvedbe. Na primer, lahko prosite agenta, naj poišče lete iz Seattla v New York 28. dne.
+2. V podoknu **Playground** lahko komunicirate z agentom tako, da v pogovornem oknu vnašate poizvedbe. Na primer, lahko agenta vprašate, naj poišče lete iz Seattla v New York 28. dne.
 
-    > **Opomba**: Agent morda ne bo zagotavljal natančnih odgovorov, saj v tej vaji ne uporabljamo podatkov v realnem času. Namen je preizkusiti sposobnost agenta, da razume in odgovori na uporabniške poizvedbe glede na podana navodila.
+    > **Opomba**: Agent morda ne bo podal natančnih odgovorov, saj pri tej vaji ne uporabljamo podatkov v realnem času. Namen je preizkusiti zmožnost agenta, da razume in odgovori na uporabniške poizvedbe na podlagi danih navodil.
 
     ![Agent Playground](../../../translated_images/sl/agent-playground.dc146586de715010.webp)
 
-3. Po testiranju agenta ga lahko nadalje prilagodite z dodajanjem več namenov, učnih podatkov in dejanj za izboljšanje njegovih zmožnosti.
+3. Po preizkusu agenta ga lahko dodatno prilagodite z dodajanjem več namenov, učnih podatkov in dejanj za izboljšanje njegovih sposobnosti.
 
-## Čiščenje virov
+## Počistite vire
 
-Ko končate s testiranjem agenta, ga lahko izbrišete, da se izognete dodatnim stroškom.
-1. Odprite [Azure portal](https://portal.azure.com) in si oglejte vsebino skupine virov, kjer ste namestili vire huba, uporabljene v tej vaji.
+Ko zaključite s preizkusom agenta, ga lahko izbrišete, da se izognete dodatnim stroškom.
+1. Odprite [Azure portal](https://portal.azure.com) in si oglejte vsebino skupine virov, kjer ste namestili vire hub-a, uporabljene v tej vaji.
 2. Na orodni vrstici izberite **Delete resource group**.
 3. Vnesite ime skupine virov in potrdite, da jo želite izbrisati.
 
 ## Viri
 
-- [Dokumentacija Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry dokumentacija](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
 - [Začetek z Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
 - [Osnove AI agentov na Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)

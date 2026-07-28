@@ -2,71 +2,71 @@
 
 ## 📋 Преглед сценарија
 
-Овај пример показује како изградити интелигентног агента за планирање путовања користећи Microsoft Agent Framework за .NET. Агенат може аутоматски да генерише персонализоване дневне планове путовања за случајне дестинације широм света.
+Овај пример показује како изградити интелигентног агента за планирање путовања користећи Microsoft Agent Framework за .NET. Агент може аутоматски да генерише персонализоване дневне планове путовања за случајне дестинације широм света.
 
 ### Кључне могућности:
 
-- 🎲 **Избор случајних дестинација**: Користи прилагођени алат за избор одредишта за одмор
-- 🗺️ **Интелигентно планирање путовања**: Креира детаљне дневне планове путовања
-- 🔄 **Стриминг у реалном времену**: Подржава и тренутне и стриминг одговоре
-- 🛠️ **Интеграција прилагођених алата**: Покazuje како продужити могућности агента
+- 🎲 **Избор случајне дестинације**: Користи прилагођени алат за избор туристичких дестинација
+- 🗺️ **Интелигентно планирање путовања**: Креира детаљне дневне планове
+- 🔄 **Стриминг у реалном времену**: Подржава и тренутне и струјне одговоре
+- 🛠️ **Интеграција прилагођених алата**: Приказује како проширити могућности агента
 
 ## 🔧 Техничка архитектура
 
 ### Основне технологије
 
 - **Microsoft Agent Framework**: Најновија .NET имплементација за развој AI агената
-- **Azure OpenAI (Responses API)**: Користи Azure OpenAI Responses API за извођење модела
-- **Azure Identity**: Безбедан пријављивање путем `AzureCliCredential` (`az login`)
-- **Сигурна конфигурација**: Управљање крајњим тачкама базирано на окружењу
+- **Azure OpenAI (Responses API)**: Користи Azure OpenAI Responses API за инференцију модела
+- **Azure Identity**: Безбедна пријава преко `AzureCliCredential` (`az login`)
+- **Безбедна конфигурација**: Управљање ендпоинтима по окружењу
 
 ### Кључне компоненте
 
-1. **AIAgent**: Главни оркестратор агента који управља током разговора
+1. **AIAgent**: Главни управљач агента који контролише ток разговора
 2. **Прилагођени алати**: Функција `GetRandomDestination()` доступна агенту
-3. **Responses Client**: Интерфејс за разговор базиран на Azure OpenAI Responses
-4. **Подршка за стриминг**: Могућности генерисања одговора у реалном времену
+3. **Responses Client**: Интерфејс за разговор који користи Azure OpenAI Responses
+4. **Подршка за стриминг**: Могућност генерисања одговора у реалном времену
 
 ### Образац интеграције
 
 ```mermaid
 graph LR
     A[Кориснички захтев] --> B[AI агент]
-    B --> C[Azure OpenAI (API за одговоре)]
+    B --> C[Azure OpenAI (Responses API)]
     B --> D[Алатка GetRandomDestination]
-    C --> E[План путовања]
+    C --> E[Путни план]
     D --> E
 ```
 
-## 🚀 Почетак рада
+## 🚀 Како почети
 
 ### Захтеви
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новија верзија
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новији
 - [Azure претплата](https://azure.microsoft.com/free/) са Azure OpenAI ресурсом и распоређеним моделом
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — пријавите се са `az login`
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — пријава са `az login`
 
 ### Потребне променљиве окружења
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Затим се пријавите да би AzureCliCredential могао добити токен
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Затим се пријавите како би AzureCliCredential могао да добије токен
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Затим се пријавите да AzureCliCredential може да добије токен
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Затим се пријавите да би AzureCliCredential могао да добије токен
 az login
 ```
 
 ### Пример кода
 
-Да бисте покренули пример кода,
+За покретање примера кода,
 
 ```bash
 # зш/баш
@@ -74,13 +74,13 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Или користећи dotnet CLI:
+Или коришћењем dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Погледајте [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) за комплетан код.
+Погледајте [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) за цео код.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -159,17 +159,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Кључне поуке
 
-1. **Архитектура агента**: Microsoft Agent Framework пружа чист, типски безбедан приступ изградњи AI агената у .NET-у
-2. **Интеграција алата**: Функције украшене атрибутима `[Description]` постају доступни алати агента
-3. **Управљање конфигурацијом**: Променљиве окружења и безбедно руковање акредитивима прати .NET најбоље праксе
-4. **Azure OpenAI Responses API**: Агенат користи Azure OpenAI Responses API преко Azure.AI.OpenAI SDK
+1. **Архитектура агента**: Microsoft Agent Framework пружа чист, типски безбедан приступ изградњи AI агената у .NET
+2. **Интеграција алата**: Функције украшене са `[Description]` атрибутима постају доступни алати за агента
+3. **Управљање конфигурацијом**: Променљиве окружења и безбедно руковање креденцијалима прате .NET најбоље праксе
+4. **Azure OpenAI Responses API**: Агент користи Azure OpenAI Responses API преко Azure.AI.OpenAI SDK
 
 ## 🔗 Додатни ресурси
 
-- [Microsoft Agent Framework документација](https://learn.microsoft.com/agent-framework)
+- [Документација Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI у Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File апликације](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

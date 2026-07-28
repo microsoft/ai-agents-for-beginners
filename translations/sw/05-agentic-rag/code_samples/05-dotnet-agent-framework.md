@@ -1,32 +1,32 @@
-# 🔍 RAG ya Biashara na Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG na Microsoft Foundry (.NET)
 
 ## 📋 Malengo ya Kujifunza
 
-Notebook hii inaonyesha jinsi ya kujenga mifumo ya Retrieval-Augmented Generation (RAG) ya kiwango cha biashara kwa kutumia Microsoft Agent Framework katika .NET na Azure AI Foundry. Utajifunza kuunda mawakala wa kiwango cha uzalishaji wanaoweza kutafuta kupitia nyaraka na kutoa majibu sahihi, yenye muktadha, huku wakizingatia usalama na upanuzi wa biashara.
+Daftari hili linaonyesha jinsi ya kujenga mifumo ya Utoaji wa Maoni Iliyoimarishwa (RAG) ya daraja la biashara kwa kutumia Mfumo wa Wakala wa Microsoft katika .NET na Microsoft Foundry. Utafanya kujifunza kuunda mawakala tayari kwa uzalishaji ambao wanaweza kutafuta kupitia nyaraka na kutoa majibu sahihi, yanayojua muktadha na yenye usalama na uwezo wa kupanuka vya kiutawala.
 
-**Uwezo wa RAG ya Biashara Utakaounda:**
-- 📚 **Ujasusi wa Nyaraka**: Usindikaji wa nyaraka wa hali ya juu kwa huduma za Azure AI
-- 🔍 **Utafutaji wa Semantiki**: Utafutaji wa vector wa utendaji wa juu na vipengele vya biashara
-- 🛡️ **Ujumuishaji wa Usalama**: Udhibiti wa ufikiaji kulingana na majukumu na mifumo ya ulinzi wa data
-- 🏢 **Usanifu Unaoweza Kupanuka**: Mifumo ya RAG ya kiwango cha uzalishaji yenye ufuatiliaji
+**Uwezo wa Enterprise RAG Utakaoujenga:**
+- 📚 **Uelewa wa Nyaraka**: Usindikaji wa nyaraka wa hali ya juu kwa huduma za AI za Azure
+- 🔍 **Utafutaji wa Semantiki**: Utafutaji wa vector wenye utendaji wa juu na sifa za biashara
+- 🛡️ **Muunganisho wa Usalama**: Upatikanaji wa msingi wa majukumu na mifumo ya ulinzi wa data
+- 🏢 **Mimaariko Inayopanuka**: Mifumo ya RAG tayari kwa uzalishaji yenye usimamizi
 
-## 🎯 Usanifu wa RAG ya Biashara
+## 🎯 Mimariko ya Enterprise RAG
 
 ### Vipengele Vikuu vya Biashara
-- **Azure AI Foundry**: Jukwaa la AI la biashara linalosimamiwa na usalama na uzingatiaji
-- **Mawakala wa Kudumu**: Mawakala wenye hali ya mazungumzo na usimamizi wa muktadha
-- **Usimamizi wa Duka la Vector**: Uorodheshaji wa nyaraka za kiwango cha biashara na urejeshaji
-- **Ujumuishaji wa Utambulisho**: Uthibitishaji wa Azure AD na udhibiti wa ufikiaji kulingana na majukumu
+- **Microsoft Foundry**: Jukwaa la AI la biashara lililodhibitiwa na usalama na uzingatiaji
+- **Mawakala wa Kudumu**: Mawakala wenye hali na historia ya mazungumzo na usimamizi wa muktadha
+- **Usimamizi wa Uhifadhi wa Vector**: Uorodhesaji na upataji wa nyaraka za daraja la biashara
+- **Muunganisho wa Utambulisho**: Uthibitishaji wa Azure AD na udhibiti wa upatikanaji wa majukumu
 
-### Faida za Biashara za .NET
-- **Usalama wa Aina**: Uthibitishaji wa wakati wa kuunganisha kwa operesheni za RAG na miundo ya data
-- **Utendaji wa Async**: Usindikaji wa nyaraka usiozuia na operesheni za utafutaji
-- **Usimamizi wa Kumbukumbu**: Matumizi bora ya rasilimali kwa makusanyo makubwa ya nyaraka
-- **Mifumo ya Ujumuishaji**: Ujumuishaji wa asili wa huduma za Azure na sindikizo la utegemezi
+### Manufaa ya .NET kwa Biashara
+- **Usalama wa Aina**: Uthibitishaji wakati wa compilation kwa operesheni za RAG na muundo wa data
+- **Utendaji wa Async**: Usindikaji wa nyaraka na utafutaji usiozuia
+- **Usimamizi wa Kumbukumbu**: Matumizi madhubuti ya rasilimali kwa makusanyo makubwa ya nyaraka
+- **Mifumo ya Muunganisho**: Muunganisho wa huduma za Azure kwa kutumia injection ya utegemezi
 
-## 🏗️ Usanifu wa Kiufundi
+## 🏗️ Mimariko ya Kiufundi
 
-### Njia ya RAG ya Biashara
+### Mhimili wa Enterprise RAG
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
@@ -35,38 +35,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 ### Vipengele Vikuu vya .NET
 - **Azure.AI.Agents.Persistent**: Usimamizi wa mawakala wa biashara wenye uhifadhi wa hali
-- **Azure.Identity**: Uthibitishaji uliounganishwa kwa ufikiaji salama wa huduma za Azure
-- **Microsoft.Agents.AI.AzureAI**: Utekelezaji wa mfumo wa mawakala ulioboreshwa kwa Azure
-- **System.Linq.Async**: Operesheni za LINQ za utendaji wa juu zisizo na vizuizi
+- **Azure.Identity**: Uthibitishaji uliounganishwa kwa upatikanaji salama wa huduma za Azure
+- **Microsoft.Agents.AI.AzureAI**: Utekelezaji wa mfumo wa wakala ulioboreshwa kwa Azure
+- **System.Linq.Async**: Operesheni za LINQ zisizozuia zenye utendaji wa juu
 
-## 🔧 Vipengele na Faida za Biashara
+## 🔧 Sifa na Manufaa ya Enterprise
 
 ### Usalama na Uzingatiaji
-- **Ujumuishaji wa Azure AD**: Usimamizi wa utambulisho wa biashara na uthibitishaji
-- **Ufikiaji Kulingana na Majukumu**: Ruhusa za kina kwa ufikiaji wa nyaraka na operesheni
-- **Ulinzi wa Data**: Usimbaji wa data wakati wa kuhifadhi na kusafirisha kwa nyaraka nyeti
-- **Kumbukumbu za Ukaguzi**: Ufuatiliaji wa shughuli wa kina kwa mahitaji ya uzingatiaji
+- **Muunganisho wa Azure AD**: Usimamizi wa utambulisho wa biashara na uthibitishaji
+- **Upatikanaji wa Msingi wa Majukumu**: Ruhusa za kina kwa upatikanaji wa nyaraka na operesheni
+- **Ulinzi wa Data**: Ufungaji wa data wakati wa kutosha na wakati wa usafiri kwa nyaraka nyeti
+- **Ufuatiliaji wa Ukaguzi**: Ufuatiliaji wa shughuli kwa mahitaji ya uzingatiaji
 
-### Utendaji na Upanuzi
-- **Ujumuishaji wa Muunganisho**: Usimamizi bora wa muunganisho wa huduma za Azure
-- **Usindikaji wa Async**: Operesheni zisizo na vizuizi kwa hali za utendaji wa juu
-- **Mikakati ya Akiba**: Akiba ya akili kwa nyaraka zinazofikiwa mara kwa mara
-- **Usawazishaji wa Mizigo**: Usindikaji uliosambazwa kwa utekelezaji wa kiwango kikubwa
+### Utendaji na Uwezo wa Kupanuka
+- **Pooli ya Muunganisho**: Usimamizi madhubuti wa muunganisho wa huduma za Azure
+- **Usindikaji wa Async**: Operesheni zisizozuia kwa hali za mtiririko mkubwa
+- **Mikakati ya Kuweka kwa Cache**: Kuweka smart kwa nyaraka zinazotafutwa sana
+- **Ugawaji wa Mzigo**: Usindikaji uliogawanyika kwa usambazaji mkubwa
 
 ### Usimamizi na Ufuatiliaji
-- **Ukaguzi wa Afya**: Ufuatiliaji wa ndani kwa vipengele vya mfumo wa RAG
-- **Vipimo vya Utendaji**: Takwimu za kina kuhusu ubora wa utafutaji na nyakati za majibu
-- **Usimamizi wa Makosa**: Usimamizi wa hali ya kipekee wa kina na sera za kurudia
-- **Usimamizi wa Usanidi**: Mipangilio maalum ya mazingira yenye uthibitishaji
+- **Ukaguzi wa Afya**: Ufuatiliaji uliomo kwa vipengele vya mfumo wa RAG
+- **Vipimo vya Utendaji**: Uchambuzi wa kina juu ya ubora wa utafutaji na muda wa majibu
+- **Ushughulikiaji wa Makosa**: Usimamizi wa makosa kwa sehemu na sera za jaribio tena
+- **Usimamizi wa Mipangilio**: Mipangilio maalum ya mazingira yenye uthibitishaji
 
 ## ⚙️ Mahitaji ya Awali na Usanidi
 
 **Mazingira ya Maendeleo:**
-- .NET 9.0 SDK au zaidi
-- Visual Studio 2022 au VS Code na kiendelezi cha C#
-- Usajili wa Azure wenye ufikiaji wa AI Foundry
+- SDK ya .NET 9.0 au juu zaidi
+- Visual Studio 2022 au VS Code na ugani wa C#
+- Usajili wa Azure wenye upatikanaji wa Microsoft Foundry
 
-**Paket Zinazohitajika za NuGet:**
+**Packages za NuGet Zinazohitajika:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -77,36 +77,36 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Usanidi wa Uthibitishaji wa Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Weka Azure CLI na thibitisha utambulisho
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Usanidi wa Mazingira:**
-* Usanidi wa Azure AI Foundry (unashughulikiwa kiotomatiki kupitia Azure CLI)
-* Hakikisha umeidhinishwa kwa usajili sahihi wa Azure
+* Usanidi wa Microsoft Foundry (huendeshwa moja kwa moja kupitia Azure CLI)
+* Hakikisha umeingia kwa usajili sahihi wa Azure
 
-## 📊 Mifumo ya RAG ya Biashara
+## 📊 Mifumo ya Enterprise RAG
 
 ### Mifumo ya Usimamizi wa Nyaraka
-- **Upakiaji wa Wingi**: Usindikaji bora wa makusanyo makubwa ya nyaraka
-- **Sasisho za Kiongezi**: Ongezeko la nyaraka na marekebisho kwa wakati halisi
-- **Udhibiti wa Toleo**: Utoaji wa toleo la nyaraka na ufuatiliaji wa mabadiliko
-- **Usimamizi wa Metadata**: Sifa tajiri za nyaraka na mfumo wa taksonomia
+- **Upakiaji wa Wingi**: Usindikaji madhubuti wa makusanyo makubwa ya nyaraka
+- **Mabadiliko ya Hatua kwa Hatua**: Kuongeza na kubadilisha nyaraka kwa wakati halisi
+- **Udhibiti wa Toleo**: Utoleo wa nyaraka na ufuatiliaji wa mabadiliko
+- **Usimamizi wa Metadata**: Sifa tajiri za nyaraka na taksonomia
 
-### Mifumo ya Utafutaji na Urejeshaji
-- **Utafutaji Mseto**: Kuchanganya utafutaji wa semantiki na maneno muhimu kwa matokeo bora
-- **Utafutaji wa Vipengele**: Uchujaji wa vipengele vingi na uainishaji
-- **Urekebishaji wa Umuhimu**: Algorithimu za alama maalum kwa mahitaji ya kikoa
-- **Upangaji wa Matokeo**: Upangaji wa hali ya juu wenye ujumuishaji wa mantiki ya biashara
+### Mifumo ya Utafutaji na Upataji
+- **Utafutaji Mseto**: Kuunganisha utafutaji wa semantiki na maneno muhimu kwa matokeo bora
+- **Utafutaji wa Vigenge**: Kuchuja na kupanga kwa vipimo vingi
+- **Urekebishaji wa Uhusiano**: Algoriti za alama maalum kwa mahitaji maalum ya eneo
+- **Upangaji wa Matokeo**: Upangaji wa hali ya juu na muunganisho wa mantiki ya biashara
 
 ### Mifumo ya Usalama
-- **Usalama wa Kiwango cha Nyaraka**: Udhibiti wa ufikiaji wa kina kwa kila nyaraka
-- **Uainishaji wa Data**: Uwekaji wa lebo ya unyeti kiotomatiki na ulinzi
-- **Njia za Ukaguzi**: Kumbukumbu za kina za operesheni zote za RAG
-- **Ulinzi wa Faragha**: Ufuatiliaji wa PII na uwezo wa kufuta
+- **Usalama wa Ngazi ya Nyaraka**: Udhibiti wa upatikanaji kwa nyaraka moja moja
+- **Uainishaji wa Data**: Uwekaji lebo wa kiotomatiki wa unyeti na ulinzi
+- **Fuatiliaji wa Ukaguzi**: Kuandika kumbukumbu kamili za operesheni zote za RAG
+- **Ulinzi wa Faragha**: Kugundua na kuficha Taarifa Binafsi za Mtumiaji (PII)
 
-## 🔒 Vipengele vya Usalama vya Biashara
+## 🔒 Sifa za Usalama wa Enterprise
 
 ### Uthibitishaji na Uidhinishaji
 ```csharp
@@ -122,14 +122,14 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Ulinzi wa Data
-- **Usimbaji**: Usimbaji wa mwisho hadi mwisho kwa nyaraka na faharasa za utafutaji
-- **Udhibiti wa Ufikiaji**: Ujumuishaji na Azure AD kwa ruhusa za watumiaji na vikundi
-- **Makazi ya Data**: Udhibiti wa eneo la data kijiografia kwa uzingatiaji
-- **Hifadhi Nakala na Urejeshaji**: Uwezo wa hifadhi nakala kiotomatiki na urejeshaji wa maafa
+- **Ufungaji**: Ufungaji kamili kwa nyaraka na faharasa za utafutaji
+- **Udhibiti wa Upatikanaji**: Muunganisho na Azure AD kwa ruhusa za watumiaji na makundi
+- **Makazi ya Data**: Udhibiti wa eneo la data kwa uzingatiaji
+- **Nakili na Ufufuaji**: Nakili za automatiki na uwezo wa kupona majanga
 
 ## 📈 Uboreshaji wa Utendaji
 
-### Mifumo ya Usindikaji wa Async
+### Mifumo ya Usindikaji Async
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -139,64 +139,64 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Usimamizi wa Kumbukumbu
-- **Usindikaji wa Kutiririsha**: Kushughulikia nyaraka kubwa bila matatizo ya kumbukumbu
-- **Ujumuishaji wa Rasilimali**: Matumizi bora ya rasilimali ghali
-- **Ukusanyaji wa Takataka**: Mifumo ya ugawaji wa kumbukumbu iliyoboreshwa
+- **Usindikaji wa Mtiririko**: Hudumia nyaraka kubwa bila matatizo ya kumbukumbu
+- **Pooli ya Rasilimali**: Matumizi ya rasilimali ghali kwa ufanisi
+- **Ukusanyaji wa Takataka**: Mifumo iliyoboreshwa ya ugawaji wa kumbukumbu
 - **Usimamizi wa Muunganisho**: Mzunguko sahihi wa muunganisho wa huduma za Azure
 
-### Mikakati ya Akiba
-- **Akiba ya Maswali**: Akiba ya utafutaji unaotekelezwa mara kwa mara
-- **Akiba ya Nyaraka**: Akiba ya kumbukumbu kwa nyaraka zinazotumika mara kwa mara
-- **Akiba ya Faharasa**: Akiba ya faharasa ya vector iliyoboreshwa
-- **Akiba ya Matokeo**: Akiba ya akili ya majibu yaliyotengenezwa
+### Mikakati ya Kuweka kwa Cache
+- **Kuweka kwa Cache kwa Maswali**: Kuweka kwa cache utafutaji unaofanywa mara kwa mara
+- **Kuweka kwa Cache kwa Nyaraka**: Kuweka kwa cache kwa kumbukumbu wa nyaraka moto
+- **Kuweka kwa Cache kwa Faharasa**: Kuweka kwa cache faharasa za vector zilizo boreshwa
+- **Kuweka kwa Cache Matokeo**: Kuweka madhubuti kwa cache majibu yaliyozalishwa
 
-## 📊 Matumizi ya Biashara
+## 📊 Matumizi ya Enterprise
 
 ### Usimamizi wa Maarifa
-- **Wiki ya Kampuni**: Utafutaji wa akili katika hifadhidata za maarifa za kampuni
-- **Sera na Taratibu**: Mwongozo wa uzingatiaji na taratibu kiotomatiki
-- **Vifaa vya Mafunzo**: Msaada wa kujifunza na maendeleo ya akili
-- **Hifadhidata za Utafiti**: Mifumo ya uchambuzi wa karatasi za kitaaluma na utafiti
+- **Wiki ya Kampuni**: Utafutaji mwenye akili katika misingi ya maarifa ya kampuni
+- **Sera na Taratibu**: Uzingatiaji na mwongozo wa taratibu wa moja kwa moja
+- **Vifaa vya Mafunzo**: Msaada wa kujifunza na maendeleo wenye akili
+- **Maktaba za Utafiti**: Mifumo ya uchambuzi wa makala za kitaaluma na utafiti
 
 ### Msaada kwa Wateja
-- **Hifadhidata ya Maarifa ya Msaada**: Majibu ya huduma kwa wateja kiotomatiki
-- **Nyaraka za Bidhaa**: Urejeshaji wa taarifa za bidhaa kwa akili
-- **Mwongozo wa Utatuzi wa Matatizo**: Msaada wa kutatua matatizo kwa muktadha
-- **Mifumo ya Maswali Yanayoulizwa Mara kwa Mara**: Uundaji wa maswali yanayoulizwa mara kwa mara kutoka kwa makusanyo ya nyaraka
+- **Msingi wa Maarifa ya Msaada**: Majibu ya huduma kwa wateja ya moja kwa moja
+- **Nyaraka za Bidhaa**: Upataji wa taarifa za bidhaa kwa akili
+- **Viongozi vya Utatuzi wa Matatizo**: Msaada wa kutatua matatizo kwa muktadha
+- **Mifumo ya Maswali Yanayoulizwa Mara kwa Mara (FAQ)**: Uundaji wa FAQ kwa nyaraka zilizokusanywa
 
-### Uzingatiaji wa Kanuni
-- **Uchambuzi wa Nyaraka za Kisheria**: Ujasusi wa mikataba na nyaraka za kisheria
-- **Ufuatiliaji wa Uzingatiaji**: Ukaguzi wa uzingatiaji wa kanuni kiotomatiki
-- **Tathmini ya Hatari**: Uchambuzi wa hatari unaotegemea nyaraka na kuripoti
-- **Msaada wa Ukaguzi**: Ugunduzi wa nyaraka za akili kwa ukaguzi
+### Uzingatiaji wa Sheria
+- **Uchambuzi wa Nyaraka za Kisheria**: Uelewa wa mikataba na nyaraka za kisheria
+- **Ufuatiliaji wa Uzingatiaji**: Ukaguzi wa uzingatiaji wa kanuni kwa njia ya kiotomatiki
+- **Tathmini ya Hatari**: Uchambuzi wa hatari na utoaji ripoti kwa nyaraka
+- **Msaada wa Ukaguzi**: Ugunduzi wa nyaraka wenye akili kwa ukaguzi
 
 ## 🚀 Utekelezaji wa Uzalishaji
 
-### Ufuatiliaji na Uangalizi
-- **Application Insights**: Telemetry ya kina na ufuatiliaji wa utendaji
-- **Vipimo Maalum**: Ufuatiliaji wa KPI maalum za biashara na tahadhari
-- **Ufuatiliaji Ulioenea**: Ufuatiliaji wa maombi kutoka mwanzo hadi mwisho katika huduma
-- **Dashibodi za Afya**: Uonyeshaji wa afya ya mfumo na utendaji kwa wakati halisi
+### Ufuatiliaji na Uhitajika Kuonekana
+- **Application Insights**: Telemetri ya kina na ufuatiliaji wa utendaji
+- **Vipimo Maalum**: Ufuatiliaji na onyo la KPI za biashara maalum
+- **Ufuatiliaji Uliogawanywa**: Ufuatiliaji wa maombi kuanzia mwanzo hadi mwisho kupitia huduma
+- **Dashibodi za Afya**: Uonyesho wa afya na utendaji wa mfumo kwa wakati halisi
 
-### Upanuzi na Uaminifu
-- **Upanuzi wa Kiotomatiki**: Upanuzi wa kiotomatiki kulingana na mzigo na vipimo vya utendaji
-- **Upatikanaji wa Juu**: Utekelezaji wa maeneo mengi na uwezo wa kushindwa
-- **Upimaji wa Mizigo**: Uthibitishaji wa utendaji chini ya hali ya mzigo wa biashara
-- **Urejeshaji wa Maafa**: Taratibu za hifadhi nakala na urejeshaji kiotomatiki
+### Uwezo wa Kupanuka na Uthabiti
+- **Kupanua Kiotomatiki**: Kupanua kiotomatiki kulingana na mzigo na vipimo vya utendaji
+- **Upatikanaji wa Juu**: Utekelezaji wa maeneo mengi yenye uwezo wa kuhamia kwenye zana nyingine
+- **Upimaji wa Mzigo**: Uthibitishaji wa utendaji chini ya hali za mzigo wa biashara
+- **Ufufuaji wa Ajali**: Taratibu za nakala na kupona ajali kwa njia ya kiotomatiki
 
-Tayari kujenga mifumo ya RAG ya kiwango cha biashara inayoweza kushughulikia nyaraka nyeti kwa kiwango kikubwa? Hebu tusanifu mifumo ya maarifa ya akili kwa biashara! 🏢📖✨
+Tayari kujenga mifumo ya RAG ya daraja la biashara inayoweza kushughulikia nyaraka nyeti kwa wingi? Hebu tuitengeneze mifumo yenye akili ya maarifa kwa biashara! 🏢📖✨
 
 ## Utekelezaji wa Msimbo
 
-Mfano wa msimbo kamili wa somo hili unapatikana katika `05-dotnet-agent-framework.cs`. 
+Mfano kamili wa msimbo unaofanya kazi kwa somo hili upatikana katika `05-dotnet-agent-framework.cs`. 
 
 Kuendesha mfano:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Fanya hati ya maandishi iweze kutekelezwa (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Endesha Programu ya Faili Moja ya .NET
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Msimbo unaonyesha:
 
-1. **Usakinishaji wa Paket**: Kusakinisha paket zinazohitajika za NuGet kwa Mawakala wa Azure AI
-2. **Usanidi wa Mazingira**: Kupakia mipangilio ya mwisho wa Azure AI Foundry na modeli
+1. **Usakinishaji wa Paket**: Kusakinisha packages za NuGet zinazohitajika kwa Wakala wa Azure AI
+2. **Usanidi wa Mazingira**: Kupakia mipangilio ya mwisho wa Microsoft Foundry na modeli
 3. **Upakiaji wa Nyaraka**: Kupakia nyaraka kwa usindikaji wa RAG
-4. **Uundaji wa Duka la Vector**: Kuunda duka la vector kwa utafutaji wa semantiki
-5. **Usanidi wa Mawakala**: Kuweka wakala wa AI wenye uwezo wa utafutaji wa faili
-6. **Utekelezaji wa Maswali**: Kuendesha maswali dhidi ya nyaraka zilizopakiwa
+4. **Uundaji wa Uhifadhi wa Vector**: Kuunda duka la vector kwa utafutaji wa semantiki
+5. **Usanidi wa Wakala**: Kuanzisha wakala wa AI wenye uwezo wa kutafuta faili
+6. **Utekelezaji wa Maswali**: Kuendesha maswali dhidi ya nyaraka zilizo pakwa
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati asilia katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

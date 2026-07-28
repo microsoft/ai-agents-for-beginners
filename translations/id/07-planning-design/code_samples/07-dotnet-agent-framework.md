@@ -1,39 +1,42 @@
-# 🎯 Perencanaan & Pola Desain dengan Model GitHub (.NET)
+# 🎯 Pola Perencanaan & Desain dengan Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Tujuan Pembelajaran
 
-Notebook ini menunjukkan pola perencanaan dan desain tingkat perusahaan untuk membangun agen cerdas menggunakan Microsoft Agent Framework di .NET dengan Model GitHub. Anda akan belajar membuat agen yang dapat memecah masalah kompleks, merencanakan solusi multi-langkah, dan menjalankan alur kerja canggih dengan fitur-fitur enterprise dari .NET.
+Buku catatan ini mendemonstrasikan pola perencanaan dan desain tingkat perusahaan untuk membangun agen cerdas menggunakan Microsoft Agent Framework dalam .NET dengan Azure OpenAI (Responses API). Anda akan belajar membuat agen yang dapat memecah masalah kompleks, merencanakan solusi multi-langkah, dan menjalankan alur kerja canggih dengan fitur perusahaan .NET.
 
 ## ⚙️ Prasyarat & Pengaturan
 
 **Lingkungan Pengembangan:**
 - .NET 9.0 SDK atau lebih tinggi
 - Visual Studio 2022 atau VS Code dengan ekstensi C#
-- Akses API Model GitHub
+- Langganan Azure dengan sumber daya Azure OpenAI dan penempatan model
+- Azure CLI — masuk dengan `az login`
 
-**Dependensi yang Dibutuhkan:**
+**Dependensi yang Diperlukan:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Konfigurasi Lingkungan (file .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
 ## Menjalankan Kode
 
-Pelajaran ini mencakup implementasi Aplikasi File Tunggal .NET. Untuk menjalankannya:
+Pelajaran ini mencakup implementasi .NET Single File App. Untuk menjalankannya:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Buat file dapat dijalankan (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Jalankan aplikasi
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -45,19 +48,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Implementasi Kode
 
-Implementasi lengkap tersedia di `07-dotnet-agent-framework.cs`, yang menunjukkan:
+Implementasi lengkap tersedia di `07-dotnet-agent-framework.cs`, yang mendemonstrasikan:
 
 - Memuat konfigurasi lingkungan dengan DotNetEnv
-- Mengonfigurasi klien OpenAI untuk Model GitHub
+- Mengonfigurasi klien Azure OpenAI dan membuat agen AI menggunakan `GetChatClient().AsAIAgent()`
 - Mendefinisikan model data terstruktur (Plan dan TravelPlan) dengan serialisasi JSON
-- Membuat agen AI dengan output terstruktur menggunakan skema JSON
-- Menjalankan permintaan perencanaan dengan respons yang aman tipe
+- Membuat agen AI dengan keluaran terstruktur menggunakan skema JSON
+- Menjalankan permintaan perencanaan dengan respons tipe-aman
 
-## Konsep Utama
+## Konsep Kunci
 
-### Perencanaan Terstruktur dengan Model Aman Tipe
+### Perencanaan Terstruktur dengan Model Tipe-Aman
 
-Agen menggunakan kelas C# untuk mendefinisikan struktur output perencanaan:
+Agen menggunakan kelas C# untuk mendefinisikan struktur keluaran perencanaan:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### Skema JSON untuk Output Terstruktur
+### Skema JSON untuk Keluaran Terstruktur
 
 Agen dikonfigurasi untuk mengembalikan respons yang sesuai dengan skema TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -98,7 +103,7 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### Instruksi Agen Perencanaan
 
-Agen bertindak sebagai koordinator, mendelegasikan tugas kepada sub-agen khusus:
+Agen bertindak sebagai koordinator, mendelegasikan tugas ke sub-agen khusus:
 
 - FlightBooking: Untuk memesan penerbangan dan memberikan informasi penerbangan
 - HotelBooking: Untuk memesan hotel dan memberikan informasi hotel
@@ -107,11 +112,13 @@ Agen bertindak sebagai koordinator, mendelegasikan tugas kepada sub-agen khusus:
 - DestinationInfo: Untuk memberikan informasi tentang destinasi
 - DefaultAgent: Untuk menangani permintaan umum
 
-## Output yang Diharapkan
+## Keluaran yang Diharapkan
 
-Ketika Anda menjalankan agen dengan permintaan perencanaan perjalanan, agen akan menganalisis permintaan tersebut dan menghasilkan rencana terstruktur dengan penugasan tugas yang sesuai kepada agen khusus, diformat sebagai JSON yang sesuai dengan skema TravelPlan.
+Saat Anda menjalankan agen dengan permintaan perencanaan perjalanan, ia akan menganalisis permintaan dan menghasilkan rencana terstruktur dengan penugasan tugas yang sesuai ke agen khusus, diformat sebagai JSON yang sesuai dengan skema TravelPlan.
 
 ---
 
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan penerjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk memberikan hasil yang akurat, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang otoritatif. Untuk informasi yang penting, disarankan menggunakan jasa penerjemahan manusia profesional. Kami tidak bertanggung jawab atas kesalahpahaman atau interpretasi yang keliru yang timbul dari penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

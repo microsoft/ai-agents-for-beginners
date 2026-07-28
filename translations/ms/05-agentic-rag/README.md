@@ -1,133 +1,146 @@
 [![Agentic RAG](../../../translated_images/ms/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
-> _(Klik imej di atas untuk menonton video pelajaran ini)_
+> _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
 # Agentic RAG
 
-Pelajaran ini menyediakan gambaran menyeluruh tentang Agentic Retrieval-Augmented Generation (Agentic RAG), satu paradigma AI yang sedang muncul di mana model bahasa besar (LLMs) merancang langkah seterusnya secara autonomi sambil mendapatkan maklumat daripada sumber luaran. Berbeza dengan corak ambil-kemudian-baca yang statik, Agentic RAG melibatkan panggilan iteratif kepada LLM, diselang-seli dengan panggilan alat atau fungsi dan output berstruktur. Sistem menilai hasil, memperhalusi pertanyaan, memanggil alat tambahan jika perlu, dan meneruskan kitaran ini sehingga penyelesaian yang memuaskan dicapai.
+Pelajaran ini memberikan gambaran menyeluruh tentang Agentic Retrieval-Augmented Generation (Agentic RAG), sebuah paradigma AI yang sedang berkembang di mana model bahasa besar (LLM) secara autonomi merancang langkah seterusnya sambil menarik maklumat dari sumber luar. Tidak seperti pola pemulihan-statik kemudian-baca, Agentic RAG melibatkan panggilan berulang ke LLM, berselang-seli dengan panggilan alat atau fungsi dan keluaran berstruktur. Sistem menilai hasil, memperhalusi pertanyaan, memanggil alat tambahan jika perlu, dan meneruskan kitaran ini sehingga penyelesaian yang memuaskan dicapai.
 
-## Introduction
+## Pengenalan
 
 Pelajaran ini akan merangkumi
 
-- **Understand Agentic RAG:**  Pelajari tentang paradigma AI yang muncul di mana model bahasa besar (LLMs) merancang langkah seterusnya secara autonomi sambil menarik maklumat dari sumber data luaran.
-- **Grasp Iterative Maker-Checker Style:** Fahami gelung panggilan iteratif kepada LLM, diselang-seli dengan panggilan alat atau fungsi dan output berstruktur, yang direka untuk meningkatkan ketepatan dan mengendalikan pertanyaan yang cacat.
-- **Explore Practical Applications:** Kenal pasti senario di mana Agentic RAG menonjol, seperti persekitaran yang mengutamakan ketepatan, interaksi pangkalan data yang kompleks, dan aliran kerja yang berpanjangan.
+- **Memahami Agentic RAG:** Pelajari tentang paradigma AI yang sedang berkembang di mana model bahasa besar (LLM) secara autonomi merancang langkah-langkah seterusnya sambil menarik maklumat dari sumber data luar.
+- **Memahami Gaya Pembuat-Pemeriksa Berulang:** Fahami kitaran panggilan berulang ke LLM, berselang-seli dengan panggilan alat atau fungsi dan keluaran berstruktur, direka untuk meningkatkan ketepatan dan mengendalikan pertanyaan yang tidak sempurna.
+- **Meneroka Aplikasi Praktikal:** Kenal pasti senario di mana Agentic RAG menonjol, seperti persekitaran yang mengutamakan ketepatan, interaksi pangkalan data yang kompleks, dan aliran kerja yang dipanjangkan.
 
-## Learning Goals
+## Matlamat Pembelajaran
 
-Selepas menamatkan pelajaran ini, anda akan tahu bagaimana/lebih memahami:
+Selepas menamatkan pelajaran ini, anda akan mengetahui cara/memahami:
 
-- **Understanding Agentic RAG:** Pelajari tentang paradigma AI yang muncul di mana model bahasa besar (LLMs) merancang langkah seterusnya secara autonomi sambil menarik maklumat dari sumber data luaran.
-- **Iterative Maker-Checker Style:** Fahami konsep gelung panggilan iteratif kepada LLM, diselang-seli dengan panggilan alat atau fungsi dan output berstruktur, yang direka untuk meningkatkan ketepatan dan mengendalikan pertanyaan yang cacat.
-- **Owning the Reasoning Process:** Fahami kemampuan sistem untuk menguasai proses penaakulan, membuat keputusan tentang bagaimana mendekati masalah tanpa bergantung pada laluan yang telah ditetapkan sebelumnya.
-- **Workflow:** Fahami bagaimana model agentik membuat keputusan secara berdikari untuk mendapatkan laporan tren pasaran, mengenal pasti data pesaing, menghubungkan metrik jualan dalaman, mensintesis penemuan, dan menilai strategi.
-- **Iterative Loops, Tool Integration, and Memory:** Pelajari tentang pergantungan sistem pada corak interaksi yang berulang, mengekalkan keadaan dan memori merentasi langkah untuk mengelakkan gelung berulang dan membuat keputusan yang lebih bermaklumat.
-- **Handling Failure Modes and Self-Correction:** Terokai mekanisme pembetulan diri yang kukuh dalam sistem, termasuk iterasi dan pengambilan semula pertanyaan, menggunakan alat diagnostik, dan bergantung kepada pengawasan manusia apabila perlu.
-- **Boundaries of Agency:** Fahami batasan Agentic RAG, dengan tumpuan kepada autonomi khusus domain, pergantungan infrastruktur, dan pematuhan kepada had keselamatan.
-- **Practical Use Cases and Value:** Kenal pasti senario di mana Agentic RAG menonjol, seperti persekitaran yang mengutamakan ketepatan, interaksi pangkalan data yang kompleks, dan aliran kerja yang berpanjangan.
-- **Governance, Transparency, and Trust:** Pelajari tentang kepentingan tadbir urus dan ketelusan, termasuk penaakulan yang boleh diterangkan, kawalan bias, dan pengawasan manusia.
+- **Memahami Agentic RAG:** Pelajari tentang paradigma AI yang sedang berkembang di mana model bahasa besar (LLM) secara autonomi merancang langkah seterusnya sambil menarik maklumat dari sumber data luar.
+- **Gaya Pembuat-Pemeriksa Berulang:** Fahami konsep kitaran panggilan berulang ke LLM, berselang-seli dengan panggilan alat atau fungsi dan keluaran berstruktur, direka untuk meningkatkan ketepatan dan mengendalikan pertanyaan yang tidak sempurna.
+- **Menguasai Proses Penalaran:** Fahami keupayaan sistem untuk memiliki proses penalarannya, membuat keputusan tentang cara mendekati masalah tanpa bergantung pada laluan yang telah ditakrifkan.
+- **Aliran Kerja:** Fahami bagaimana model agentic secara bebas memutuskan untuk mendapatkan laporan trend pasaran, mengenal pasti data pesaing, mengaitkan metrik jualan dalaman, mensintesis penemuan, dan menilai strategi.
+- **Kitaran Berulang, Integrasi Alat, dan Memori:** Ketahui tentang kebergantungan sistem pada corak interaksi berulang, mengekalkan keadaan dan memori sepanjang langkah untuk mengelakkan kitaran berulang dan membuat keputusan yang berinformasi.
+- **Mengendalikan Mod Kegagalan dan Pembetulan Diri:** Terokai mekanisme pembetulan diri sistem yang mantap, termasuk mengulang dan bertanya semula, menggunakan alat diagnostik, dan beralih kepada pengawasan manusia.
+- **Had Keagenan:** Fahami had Agentic RAG, tertumpu pada autonomi khusus domain, kebergantungan infrastruktur, dan penghormatan kepada garis panduan.
+- **Kes Penggunaan Praktikal dan Nilai:** Kenal pasti senario di mana Agentic RAG menonjol, seperti persekitaran yang mengutamakan ketepatan, interaksi pangkalan data yang kompleks, dan aliran kerja yang dipanjangkan.
+- **Tadbir Urus, Ketelusan, dan Kepercayaan:** Ketahui kepentingan tadbir urus dan ketelusan, termasuk penalaran yang boleh dijelaskan, kawalan bias, dan pengawasan manusia.
 
-## What is Agentic RAG?
+## Apa itu Agentic RAG?
 
-Agentic Retrieval-Augmented Generation (Agentic RAG) adalah paradigma AI yang sedang muncul di mana model bahasa besar (LLMs) tidak hanya menarik maklumat dari sumber data luaran tetapi juga merancang langkah seterusnya secara autonomi. Berbeza daripada corak ambil-kemudian-baca yang statik atau urutan permintaan (prompt) yang ditulis rapi, Agentic RAG melibatkan gelung panggilan iteratif kepada LLM, diselang-seli dengan panggilan alat atau fungsi dan output berstruktur. Pada setiap giliran, sistem menilai hasil yang diperoleh, memutuskan sama ada untuk memperhalusi pertanyaannya, memanggil alat tambahan jika perlu, dan meneruskan kitaran ini sehingga mencapai penyelesaian yang memuaskan.
+Agentic Retrieval-Augmented Generation (Agentic RAG) adalah paradigma AI yang sedang berkembang di mana model bahasa besar (LLM) secara autonomi merancang langkah seterusnya sambil menarik maklumat dari sumber luar. Tidak seperti pola pemulihan-statik kemudian-baca, Agentic RAG melibatkan panggilan berulang ke LLM, berselang-seli dengan panggilan alat atau fungsi dan keluaran berstruktur. Sistem menilai hasil, memperhalusi pertanyaan, memanggil alat tambahan jika perlu, dan meneruskan kitaran ini sehingga penyelesaian yang memuaskan dicapai. Gaya “pembuat-pemeriksa” berulang ini meningkatkan ketepatan, mengendalikan pertanyaan tidak sempurna, dan memastikan hasil berkualiti tinggi.
 
-Gaya operasi iteratif “maker-checker” ini direka untuk meningkatkan ketepatan, mengendalikan pertanyaan yang cacat kepada pangkalan data berstruktur (contohnya NL2SQL), dan memastikan hasil yang seimbang dan berkualiti tinggi. Daripada bergantung semata-mata pada rantaian prompt yang direka secara teliti, sistem ini secara aktif menguasai proses penaakulan dirinya. Ia boleh menulis semula pertanyaan yang gagal, memilih kaedah pengambilan yang berbeza, dan menggabungkan pelbagai alat—seperti carian vektor dalam Azure AI Search, pangkalan data SQL, atau API tersuai—sebelum memuktamadkan jawapannya. Ini mengurangkan keperluan untuk rangka kerja orkestrasi yang terlalu kompleks. Sebaliknya, gelung yang agak mudah “panggilan LLM → guna alat → panggilan LLM → …” boleh menghasilkan output yang canggih dan berasas kukuh.
+Sistem ini secara aktif memiliki proses penalarannya, menulis semula pertanyaan yang gagal, memilih kaedah pemulihan berbeza, dan mengintegrasi pelbagai alat—seperti pencarian vektor dalam Azure AI Search, pangkalan data SQL, atau API tersuai—sebelum memuktamadkan jawapannya. Kualiti yang membezakan sistem agentic ialah keupayaannya memiliki proses penalarannya sendiri. Pelaksanaan RAG tradisional bergantung pada laluan yang telah ditakrifkan, tetapi sistem agentic secara autonomi menentukan urutan langkah berdasarkan kualiti maklumat yang ditemuinya.
+
+## Mendefinisikan Agentic Retrieval-Augmented Generation (Agentic RAG)
+
+Agentic Retrieval-Augmented Generation (Agentic RAG) adalah paradigma baru dalam pembangunan AI di mana LLM bukan sahaja menarik maklumat dari sumber data luar tetapi juga secara autonomi merancang langkah seterusnya. Berbeza dengan pola pemulihan-statik kemudian-baca atau urutan arahan prompt yang disusun rapi, Agentic RAG melibatkan kitaran panggilan berulang ke LLM, berselang-seli dengan panggilan alat atau fungsi dan keluaran berstruktur. Pada setiap giliran, sistem menilai hasil yang diperolehi, memutuskan sama ada untuk memperhalusi pertanyaan, memanggil alat tambahan jika perlu, dan meneruskan kitaran ini sehingga mencapai solusi yang memuaskan.
+
+Gaya operasi “pembuat-pemeriksa” berulang ini direka untuk meningkatkan ketepatan, mengendalikan pertanyaan yang tidak sempurna kepada pangkalan data berstruktur (contohnya NL2SQL), dan memastikan hasil yang seimbang dan berkualiti tinggi. Daripada hanya bergantung pada rantaian arahan prompt yang direka dengan rapi, sistem secara aktif memiliki proses penalarannya. Ia boleh menulis semula pertanyaan yang gagal, memilih kaedah pemulihan yang berbeza, dan mengintegrasi pelbagai alat—seperti pencarian vektor dalam Azure AI Search, pangkalan data SQL, atau API tersuai—sebelum memuktamadkan jawapannya. Ini menghapuskan keperluan untuk rangka kerja orkestrasi yang terlalu kompleks. Sebaliknya, kitaran yang agak mudah “panggilan LLM → penggunaan alat → panggilan LLM → …” dapat menghasilkan keluaran yang canggih dan berasas kukuh.
 
 ![Agentic RAG Core Loop](../../../translated_images/ms/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
-## Owning the Reasoning Process
+## Memiliki Proses Penalaran
 
-Kualiti pembedaan yang menjadikan sistem itu “agentic” ialah kemampuannya untuk menguasai proses penaakulannya. Pelaksanaan RAG tradisional sering bergantung pada manusia untuk menentukan laluan model terlebih dahulu: rantaian pemikiran yang menggariskan apa yang perlu diambil dan bila. Tetapi apabila sistem benar-benar agentik, ia memutuskan secara dalaman bagaimana untuk mendekati masalah. Ia bukan sekadar melaksanakan skrip; ia menentukan secara autonomi urutan langkah berdasarkan kualiti maklumat yang ditemuinya.
-Sebagai contoh, jika diminta untuk mencipta strategi pelancaran produk, ia tidak bergantung semata-mata pada prompt yang menerangkan keseluruhan aliran penyelidikan dan pembuatan keputusan. Sebaliknya, model agentik membuat keputusan secara berdikari untuk:
+Kualiti yang membezakan yang menjadikan sesuatu sistem “agentic” adalah keupayaannya memiliki proses penalarannya sendiri. Pelaksanaan RAG tradisional sering bergantung pada manusia yang mendefinisikan laluan untuk model: rantai pemikiran yang merangkum apa yang perlu dipulihkan dan bila.
+Tetapi apabila sistem benar-benar agentic, ia membuat keputusan dalaman tentang bagaimana untuk mendekati masalah itu. Ia bukan sekadar melaksanakan skrip; ia secara autonomi menentukan urutan langkah berdasarkan kualiti maklumat yang ditemuinya.
+Sebagai contoh, jika ia diminta untuk mencipta strategi pelancaran produk, ia tidak hanya bergantung pada prompt yang menerangkan keseluruhan aliran kerja penyelidikan dan pembuatan keputusan. Sebaliknya, model agentic secara bebas memutuskan untuk:
 
-1. Retrieve current market trend reports using Bing Web Grounding
-2. Identify relevant competitor data using Azure AI Search.
-3.	Correlate historical internal sales metrics using Azure SQL Database.
-4.	Synthesize the findings into a cohesive strategy orchestrated via Azure OpenAI Service.
-5.	Evaluate the strategy for gaps or inconsistencies, prompting another round of retrieval if necessary.
-All of these steps—refining queries, choosing sources, iterating until “happy” with the answer—are decided by the model, not pre-scripted by a human.
+1. Mendapatkan laporan trend pasaran semasa menggunakan Bing Web Grounding
+2. Mengenal pasti data pesaing yang relevan menggunakan Azure AI Search.
+3. Mengaitkan metrik jualan dalaman bersejarah menggunakan Azure SQL Database.
+4. Mensintesis penemuan ke dalam strategi yang kohesif yang diorkestrakan melalui Azure OpenAI Service.
+5. Menilai strategi untuk jurang atau ketidakselarasan, memicu pusingan pemulihan lagi jika perlu.
+Semua langkah ini—memperhalusi pertanyaan, memilih sumber, mengulang sehingga “berpuas hati” dengan jawapan—diputuskan oleh model, bukan diwarisi skrip oleh manusia.
 
-## Iterative Loops, Tool Integration, and Memory
+## Kitaran Berulang, Integrasi Alat, dan Memori
 
 ![Tool Integration Architecture](../../../translated_images/ms/tool-integration.0f569710b5c17c10.webp)
 
-Sistem agentik bergantung pada corak interaksi berlingkar:
+Sistem agentic bergantung pada corak interaksi berulang:
 
-- **Initial Call:** Matlamat pengguna (iaitu prompt pengguna) dibentangkan kepada LLM.
-- **Tool Invocation:** Jika model mengenal pasti maklumat yang hilang atau arahan yang samar, ia memilih alat atau kaedah pengambilan—seperti pertanyaan pangkalan data vektor (contohnya carian hibrid Azure AI Search ke atas data peribadi) atau panggilan SQL berstruktur—untuk mengumpul lebih banyak konteks.
-- **Assessment & Refinement:** Selepas menyemak data yang dikembalikan, model memutuskan sama ada maklumat itu mencukupi. Jika tidak, ia memperhalusi pertanyaan, mencuba alat berbeza, atau melaraskan pendekatannya.
-- **Repeat Until Satisfied:** Kitaran ini diteruskan sehingga model menentukan bahawa ia mempunyai kejelasan dan bukti yang mencukupi untuk memberikan jawapan muktamad yang beralasan baik.
-- **Memory & State:** Kerana sistem mengekalkan keadaan dan memori merentasi langkah, ia boleh mengingati percubaan sebelumnya dan hasilnya, mengelakkan gelung berulang dan membuat keputusan yang lebih bermaklumat ketika meneruskan.
+- **Panggilan Awal:** Matlamat pengguna (iaitu prompt pengguna) disampaikan kepada LLM.
+- **Panggilan Alat:** Jika model mengenal pasti maklumat yang hilang atau arahan yang samar, ia memilih alat atau kaedah pemulihan—seperti pertanyaan pangkalan data vektor (contohnya Azure AI Search Hybrid search ke atas data peribadi) atau panggilan SQL berstruktur—untuk mengumpul lebih banyak konteks.
+- **Penilaian & Pemurnian:** Selepas menilai data yang dikembalikan, model memutuskan sama ada maklumat itu mencukupi. Jika tidak, ia memperhalusi pertanyaan, mencuba alat berbeza, atau menyesuaikan pendekatannya.
+- **Ulang sehingga Puas:** Kitaran ini diteruskan sehingga model menentukan ia mempunyai kejelasan dan bukti mencukupi untuk memberikan jawapan akhir yang berasas baik.
+- **Memori & Keadaan:** Oleh kerana sistem mengekalkan keadaan dan memori sepanjang langkah, ia boleh mengingati percubaan sebelum ini dan hasilnya, mengelakkan kitaran berulang dan membuat keputusan yang lebih bermaklumat semasa meneruskan.
 
-Seiring masa, ini mewujudkan rasa kefahaman yang berkembang, membolehkan model menavigasi tugas bertingkat yang kompleks tanpa memerlukan campur tangan manusia yang kerap atau pembentukan semula prompt.
+Lama kelamaan, ini mencipta rasa kefahaman yang berkembang, membolehkan model mengemudi tugas rumit bertahap-tahap tanpa memerlukan campur tangan manusia yang berterusan atau merombak prompt.
 
-## Handling Failure Modes and Self-Correction
+## Mengendalikan Mod Kegagalan dan Pembetulan Diri
 
-Autonomi Agentic RAG juga melibatkan mekanisme pembetulan diri yang kukuh. Apabila sistem menemui jalan buntu—seperti mengambil dokumen yang tidak relevan atau menghadapi pertanyaan yang cacat—ia boleh:
+Autonomi Agentic RAG juga melibatkan mekanisme pembetulan diri yang mantap. Apabila sistem menghadapi jalan buntu—seperti mendapatkan dokumen yang tidak relevan atau menghadapi pertanyaan yang tidak sempurna—ia boleh:
 
-- **Iterate and Re-Query:** Daripada memberikan respons bernilai rendah, model mencuba strategi carian baru, menulis semula pertanyaan pangkalan data, atau melihat set data alternatif.
-- **Use Diagnostic Tools:** Sistem mungkin memanggil fungsi tambahan yang direka untuk membantunya menyahpepijat langkah penaakulan atau mengesahkan ketepatan data yang diambil. Alat seperti Azure AI Tracing akan penting untuk membolehkan pemerhatian dan pemantauan yang kukuh.
-- **Fallback on Human Oversight:** Untuk senario berisiko tinggi atau yang berulang kali gagal, model mungkin menandakan ketidakpastian dan meminta panduan manusia. Setelah manusia memberikan maklum balas pembetulan, model boleh menggabungkan pengajaran itu ke hadapan.
+- **Mengulang dan Bertanya Semula:** Daripada mengembalikan jawapan bernilai rendah, model cuba strategi carian baru, menulis semula pertanyaan pangkalan data, atau melihat set data alternatif.
+- **Menggunakan Alat Diagnostik:** Sistem mungkin memanggil fungsi tambahan yang direka untuk membantunya memeriksa langkah penalarannya atau mengesahkan ketepatan data yang diperoleh. Alat seperti Azure AI Tracing penting untuk membolehkan pemerhatian dan pemantauan yang mantap.
+- **Beralih kepada Pengawasan Manusia:** Untuk senario berisiko tinggi atau yang berulang kali gagal, model mungkin menandakan ketidakpastian dan meminta panduan manusia. Setelah manusia memberikan maklum balas pembetulan, model boleh menggabungkan pengajaran itu untuk masa hadapan.
 
-Pendekatan iteratif dan dinamik ini membolehkan model sentiasa memperbaiki diri, memastikan ia bukan sekadar sistem sekali sahaja tetapi satu yang belajar daripada kesilapan sepanjang sesi tertentu.
+Pendekatan berulang dan dinamik ini membolehkan model sentiasa memperbaiki diri, memastikan ia bukan sahaja sistem satu tembakan tetapi satu yang belajar daripada kesilapan semasa sesi tertentu.
 
 ![Self Correction Mechanism](../../../translated_images/ms/self-correction.da87f3783b7f174b.webp)
 
-## Boundaries of Agency
+## Had Keagenan
 
-Walaupun ia mempunyai autonomi dalam sesuatu tugas, Agentic RAG bukanlah setara dengan Kecerdasan Am Buatan. Keupayaan “agenik”nya terhad kepada alat, sumber data, dan dasar yang disediakan oleh pembangun manusia. Ia tidak boleh mencipta alat sendiri atau melangkaui sempadan domain yang telah ditetapkan. Sebaliknya, ia cemerlang dalam mengatur sumber yang ada secara dinamik.
+Walaupun mempunyai autonomi dalam sesebuah tugas, Agentic RAG tidak setara dengan Kecerdasan Umum Buatan. Keupayaan “agentic”nya terbatas kepada alat, sumber data, dan polisi yang disediakan oleh pembangun manusia. Ia tidak boleh mencipta alatnya sendiri atau melangkaui sempadan domain yang telah ditetapkan. Sebaliknya, ia cemerlang dalam mengorkestrasi sumber-sumber yang ada secara dinamik.
 Perbezaan utama daripada bentuk AI yang lebih maju termasuk:
 
-1. **Domain-Specific Autonomy:** Sistem Agentic RAG tertumpu pada mencapai matlamat yang ditakrifkan pengguna dalam domain yang dikenali, menggunakan strategi seperti penulisan semula pertanyaan atau pemilihan alat untuk memperbaiki hasil.
-2. **Infrastructure-Dependent:** Keupayaan sistem bergantung kepada alat dan data yang diintegrasikan oleh pembangun. Ia tidak boleh melampaui sempadan ini tanpa campur tangan manusia.
-3. **Respect for Guardrails:** Garis panduan etika, peraturan pematuhan, dan polisi perniagaan kekal sangat penting. Kebebasan agen sentiasa dihadkan oleh langkah keselamatan dan mekanisme pengawasan (diharapkan?)
+1. **Autonomi Khusus Domain:** Sistem Agentic RAG fokus mencapai matlamat yang ditakrifkan pengguna dalam domain yang diketahui, menggunakan strategi seperti penulisan semula pertanyaan atau pemilihan alat untuk memperbaiki hasil.
+2. **Bergantung pada Infrastruktur:** Keupayaan sistem bergantung pada alat dan data yang diintegrasikan oleh pembangun. Ia tidak boleh melepasi batasan ini tanpa campur tangan manusia.
+3. **Menghormati Garis Panduan:** Garis panduan etika, peraturan pematuhan, dan polisi perniagaan kekal sangat penting. Kebebasan agen sentiasa terhad oleh langkah keselamatan dan mekanisme pengawasan (harapnya?)
 
-## Practical Use Cases and Value
+## Kes Penggunaan Praktikal dan Nilai
 
-Agentic RAG menonjol dalam senario yang memerlukan pemurnian iteratif dan ketelitian:
+Agentic RAG menonjol dalam senario yang memerlukan pemurnian berulang dan ketepatan:
 
-1. **Correctness-First Environments:** Dalam pemeriksaan pematuhan, analisis peraturan, atau penyelidikan undang-undang, model agentik boleh berulang kali mengesahkan fakta, merujuk pelbagai sumber, dan menulis semula pertanyaan sehingga ia menghasilkan jawapan yang disemak rapi.
-2. **Complex Database Interactions:** Apabila berurusan dengan data berstruktur di mana pertanyaan sering kali gagal atau perlu disesuaikan, sistem boleh secara autonomi memperhalusi pertanyaannya menggunakan Azure SQL atau Microsoft Fabric OneLake, memastikan pengambilan akhir sejajar dengan niat pengguna.
-3. **Extended Workflows:** Sesi yang berjalan lebih lama mungkin berkembang apabila maklumat baru muncul. Agentic RAG boleh terus memasukkan data baru, mengubah strategi apabila ia mempelajari lebih banyak tentang ruang masalah.
+1. **Persekitaran Utamakan Ketepatan:** Dalam pemeriksaan pematuhan, analisis regulatori, atau penyelidikan undang-undang, model agentic boleh berulang kali mengesahkan fakta, merujuk kepada pelbagai sumber, dan menulis semula pertanyaan sehingga menghasilkan jawapan yang disemak dengan teliti.
+2. **Interaksi Pangkalan Data Kompleks:** Apabila berurusan dengan data berstruktur di mana pertanyaan mungkin sering gagal atau perlu penyesuaian, sistem boleh memperhalusi pertanyaannya secara autonomi menggunakan Azure SQL atau Microsoft Fabric OneLake, memastikan pemulihan akhir selaras dengan niat pengguna.
+3. **Aliran Kerja Berpanjangan:** Sesi yang berjalan lebih lama mungkin berkembang apabila maklumat baru muncul. Agentic RAG boleh sentiasa menggabungkan data baru, mengubah strategi apabila ia mempelajari lebih lanjut tentang ruang masalah.
 
-## Governance, Transparency, and Trust
+## Tadbir Urus, Ketelusan, dan Kepercayaan
 
-Apabila sistem ini menjadi lebih autonomi dalam penaakulan mereka, tadbir urus dan ketelusan menjadi penting:
+Apabila sistem ini menjadi lebih autonomi dalam penalaran mereka, tadbir urus dan ketelusan adalah penting:
 
-- **Explainable Reasoning:** Model boleh memberikan jejak audit tentang pertanyaan yang dibuat, sumber yang dirujuk, dan langkah penaakulan yang diambil untuk mencapai kesimpulan. Alat seperti Azure AI Content Safety dan Azure AI Tracing / GenAIOps boleh membantu mengekalkan ketelusan dan mengurangkan risiko.
-- **Bias Control and Balanced Retrieval:** Pembangun boleh melaras strategi pengambilan untuk memastikan sumber data yang seimbang dan mewakili dipertimbangkan, dan secara berkala mengaudit output untuk mengesan bias atau corak yang condong menggunakan model tersuai untuk organisasi sains data maju yang menggunakan Azure Machine Learning.
-- **Human Oversight and Compliance:** Untuk tugas sensitif, semakan manusia kekal penting. Agentic RAG tidak menggantikan pertimbangan manusia dalam keputusan berisiko tinggi—ia mengagumkannya dengan menyediakan pilihan yang disemak rapi.
+- **Penalaran yang Boleh Dijelaskan:** Model boleh menyediakan jejak audit pertanyaan yang dibuat, sumber yang dirujuk, dan langkah penalaran yang diambil untuk mencapai kesimpulan. Alat seperti Azure AI Content Safety dan Azure AI Tracing / GenAIOps membantu mengekalkan ketelusan dan mengurangkan risiko.
+- **Kawalan Bias dan Pemulihan Seimbang:** Pembangun boleh melaras strategi pemulihan untuk memastikan sumber data yang seimbang dan mewakili dipertimbangkan, serta mengaudit keluaran secara berkala untuk mengesan bias atau pola condong menggunakan model tersuai bagi organisasi sains data maju menggunakan Azure Machine Learning.
+- **Pengawasan Manusia dan Pematuhan:** Untuk tugasan sensitif, semakan manusia kekal penting. Agentic RAG tidak menggantikan penilaian manusia dalam keputusan berisiko tinggi—ia menyokongnya dengan menyediakan pilihan yang diperiksa dengan lebih teliti.
 
 Mempunyai alat yang menyediakan rekod tindakan yang jelas adalah penting. Tanpanya, menyahpepijat proses berbilang langkah boleh menjadi sangat sukar. Lihat contoh berikut dari Literal AI (syarikat di belakang Chainlit) untuk satu Agent run:
 
 ![AgentRunExample](../../../translated_images/ms/AgentRunExample.471a94bc40cbdc0c.webp)
 
-## Conclusion
+## Kesimpulan
 
-Agentic RAG mewakili evolusi semula jadi dalam cara sistem AI mengendalikan tugas yang kompleks dan intensif data. Dengan mengguna pakai corak interaksi berlingkar, memilih alat secara autonomi, dan memperhalusi pertanyaan sehingga mencapai hasil berkualiti tinggi, sistem ini bergerak melampaui pengikut arahan statik kepada pembuat keputusan yang lebih adaptif dan sedar konteks. Walaupun masih diikat oleh infrastruktur dan garis panduan etika yang ditetapkan manusia, keupayaan agentik ini membolehkan interaksi AI yang lebih kaya, lebih dinamik, dan akhirnya lebih berguna untuk perusahaan dan pengguna akhir.
+Agentic RAG mewakili evolusi semula jadi dalam cara sistem AI mengendalikan tugas yang kompleks dan berasaskan data. Dengan menggunakan corak interaksi berulang, memilih alat secara autonomi, dan memperhalusi pertanyaan sehingga mencapai hasil berkualiti tinggi, sistem bergerak melangkaui pengikut prompt statik ke arah pembuat keputusan yang lebih adaptif dan sedar konteks. Walaupun masih terhad oleh infrastruktur yang ditakrifkan manusia dan garis panduan etika, kemampuan agentic ini membolehkan interaksi AI yang lebih kaya, dinamik, dan akhirnya lebih berguna untuk perusahaan dan pengguna akhir.
 
-### Got More Questions about Agentic RAG?
+### Ada Lagi Soalan tentang Agentic RAG?
 
-Sertai the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berjumpa dengan pelajar lain, menghadiri jam pejabat dan dapatkan soalan AI Agents anda dijawab.
+Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan mendapatkan jawapan untuk soalan Agen AI anda.
 
-## Additional Resources
-- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Laksanakan Retrieval Augmented Generation (RAG) dengan Azure OpenAI Service: Pelajari cara menggunakan data anda sendiri dengan Azure OpenAI Service. Modul Microsoft Learn ini menyediakan panduan menyeluruh tentang pelaksanaan RAG</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Penilaian aplikasi AI generatif dengan Microsoft Foundry: Artikel ini merangkumi penilaian dan perbandingan model pada set data yang tersedia secara awam, termasuk aplikasi Agentic AI dan seni bina RAG</a>
-- <a href="https://weaviate.io/blog/what-is-agentic-rag" target="_blank">Apakah Agentic RAG | Weaviate</a>
-- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Panduan Lengkap untuk Retrieval Augmented Generation Berasaskan Ejen – Berita dari generation RAG</a>
-- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: Tingkatkan RAG anda dengan pembentukan semula pertanyaan dan pertanyaan sendiri! Hugging Face Open-Source AI Cookbook</a>
-- <a href="https://youtu.be/aQ4yQXeB1Ss?si=2HUqBzHoeB5tR04U" target="_blank">Menambah Lapisan Agentic kepada RAG</a>
+## Sumber Tambahan
+
+- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Melaksanakan Retrieval Augmented Generation (RAG) dengan Azure OpenAI Service: Pelajari cara menggunakan data anda sendiri dengan Azure OpenAI Service. Modul Microsoft Learn ini menyediakan panduan menyeluruh tentang pelaksanaan RAG</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Penilaian aplikasi AI generatif dengan Microsoft Foundry: Artikel ini merangkumi penilaian dan perbandingan model pada set data yang tersedia umum, termasuk aplikasi AI Agentic dan seni bina RAG</a>
+- <a href="https://weaviate.io/blog/what-is-agentic-rag" target="_blank">Apa itu Agentic RAG | Weaviate</a>
+- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Panduan Lengkap untuk Agen Berdasarkan Retrieval Augmented Generation – Berita dari generasi RAG</a>
+
+- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: percepat RAG anda dengan penstrukturan semula pertanyaan dan pertanyaan sendiri! Buku Resipi AI Terbuka Sumber Hugging Face</a>
+- <a href="https://youtu.be/aQ4yQXeB1Ss?si=2HUqBzHoeB5tR04U" target="_blank">Menambah Lapisan Agentik kepada RAG</a>
 - <a href="https://www.youtube.com/watch?v=zeAyuLc_f3Q&t=244s" target="_blank">Masa Depan Pembantu Pengetahuan: Jerry Liu</a>
-- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Cara Membina Sistem Agentic RAG</a>
-- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Menggunakan Microsoft Foundry Agent Service untuk menskala ejen AI anda</a>
+- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Cara Membina Sistem Agentik RAG</a>
+- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Menggunakan Perkhidmatan Ejen Microsoft Foundry untuk skala agen AI anda</a>
 
 ### Kertas Akademik
 
-- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: Pemurnian Iteratif dengan Maklum Balas Diri</a>
-- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Ejen Bahasa dengan Pembelajaran Penguatan Verbal</a>
-- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Model Bahasa Besar Boleh Memperbetulkan Diri dengan Kritikan Interaktif Bersama Alat</a>
+- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: Penambahbaikan Iteratif dengan Maklum Balas Sendiri</a>
+- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Agen Bahasa dengan Pembelajaran Penguatan Verbal</a>
+- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Model Bahasa Besar Boleh Membetulkan Diri dengan Kritikan Interaktif Alat</a>
 - <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: Tinjauan mengenai Agentic RAG</a>
+
+## Ujian Asas Agen Ini (Pilihan)
+
+Selepas anda belajar untuk melancarkan agen dalam [Lesson 16](../16-deploying-scalable-agents/README.md), anda boleh menguji asas `TravelRAGAgent` pelajaran ini — memeriksa bahawa jawapannya kekal berasaskan kepada pangkalan pengetahuan — dengan [`tests/lesson-05-smoke-tests.json`](../../../tests/lesson-05-smoke-tests.json). Lihat [`tests/README.md`](../tests/README.md) untuk cara menjalankannya.
 
 ## Pelajaran Sebelumnya
 
@@ -135,11 +148,11 @@ Sertai the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk b
 
 ## Pelajaran Seterusnya
 
-[Membina Ejen AI yang Boleh Dipercayai](../06-building-trustworthy-agents/README.md)
+[Membina Agen AI yang Boleh Dipercayai](../06-building-trustworthy-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Penafian:
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI Co-op Translator (https://github.com/Azure/co-op-translator). Walaupun kami berusaha sedaya upaya untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi ralat atau ketidakakuratan. Dokumen asal dalam bahasa asalnya hendaklah dianggap sebagai sumber rujukan yang muktamad. Untuk maklumat yang kritikal, disarankan mendapatkan terjemahan profesional oleh penterjemah manusia. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsiran yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

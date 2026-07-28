@@ -1,101 +1,104 @@
-# 🛠️ Geavanceerd gebruik van tools met GitHub-modellen (.NET)
+# 🛠️ Geavanceerd gereedschapgebruik met Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Leerdoelen
 
-Deze notebook demonstreert integratiepatronen van enterprise-niveau met behulp van het Microsoft Agent Framework in .NET en GitHub-modellen. Je leert geavanceerde agents bouwen met meerdere gespecialiseerde tools, waarbij je gebruik maakt van de sterke typificatie van C# en de enterprise-functionaliteiten van .NET.
+Deze notebook demonstreert enterprise-klasse integratiepatronen voor gereedschap met het Microsoft Agent Framework in .NET en Azure OpenAI (Responses API). Je leert geavanceerde agenten bouwen met meerdere gespecialiseerde gereedschappen, gebruikmakend van C#'s sterke typecontrole en .NET's enterprise functies.
 
-### Geavanceerde toolmogelijkheden die je zult beheersen
+### Geavanceerde gereedschapsmogelijkheden die je zult beheersen
 
-- 🔧 **Multi-Tool Architectuur**: Agents bouwen met meerdere gespecialiseerde mogelijkheden
-- 🎯 **Type-Safe Tool Uitvoering**: Gebruik maken van C#'s compile-time validatie
-- 📊 **Enterprise Tool Patronen**: Productieklaar toolontwerp en foutafhandeling
-- 🔗 **Toolcompositie**: Tools combineren voor complexe bedrijfsworkflows
+- 🔧 **Multi-Gereedschap Architectuur**: Agenten bouwen met meerdere gespecialiseerde mogelijkheden
+- 🎯 **Type-Veilige Gereedschapsuitvoering**: Gebruik maken van C#'s compile-tijd validatie
+- 📊 **Enterprise Gereedschappatronen**: Gereedschapontwerp en foutafhandeling klaar voor productie
+- 🔗 **Samenstelling van Gereedschap**: Gereedschappen combineren voor complexe bedrijfsworkflows
 
-## 🎯 Voordelen van .NET Tool Architectuur
+## 🎯 Voordelen van .NET Gereedschapsarchitectuur
 
-### Enterprise Tool Functionaliteiten
+### Enterprise Gereedschapskenmerken
 
-- **Compile-Time Validatie**: Sterke typificatie zorgt voor correcte toolparameters
-- **Dependency Injection**: IoC-containerintegratie voor toolbeheer
-- **Async/Await Patronen**: Niet-blokkerende tooluitvoering met goed resourcebeheer
-- **Gestructureerd Loggen**: Ingebouwde loggingintegratie voor monitoring van tooluitvoering
+- **Compile-tijd Validatie**: Sterke typing garandeert correctheid van gereedschapsparameters
+- **Dependency Injection**: IoC-container integratie voor gereedschapsbeheer
+- **Async/Await Patronen**: Niet-blokkerende uitvoering van gereedschap met correcte resourcebeheer
+- **Gestructureerde Logging**: Ingebouwde loggingintegratie voor monitoring van gereedschapsuitvoering
 
-### Productieklare Patronen
+### Productieklaarpatronen
 
-- **Foutafhandeling**: Uitgebreid foutbeheer met getypeerde uitzonderingen
-- **Resourcebeheer**: Correcte dispositiepatronen en geheugenbeheer
-- **Prestatiemonitoring**: Ingebouwde metrics en prestatiecounters
+- **Exception Handling**: Uitgebreide foutafhandeling met getypte uitzonderingen
+- **Resourcebeheer**: Juiste disposal-patronen en geheugenbeheer
+- **Prestatiemonitoring**: Ingebouwde metrics en prestatie-tellers
 - **Configuratiebeheer**: Type-veilige configuratie met validatie
 
 ## 🔧 Technische Architectuur
 
-### Kerncomponenten van .NET Tools
+### Kerncomponenten van .NET Gereedschap
 
-- **Microsoft.Extensions.AI**: Geünificeerde abstractielaag voor tools
-- **Microsoft.Agents.AI**: Enterprise-grade toolorkestratie
-- **GitHub Models Integratie**: Hoogpresterende API-client met connection pooling
+- **Microsoft.Extensions.AI**: Geünificeerde gereedschap abstractielaag
+- **Microsoft.Agents.AI**: Enterprise-klasse gereedschapsorkestratie
+- **Azure OpenAI (Responses API)**: High-performance API client met connection pooling
 
-### Tooluitvoeringspipeline
+### Gereedschap Uitvoeringspijplijn
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Gebruikersverzoek] --> B[Agentanalyse]
+    B --> C[Hulpmiddelkeuze]
+    C --> D[Typevalidatie]
+    B --> E[Parameterbinding]
+    E --> F[Hulpmiddeluitvoering]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Resultaatverwerking]
     D --> G
-    G --> H[Response]
+    G --> H[Respons]
 ```
 
-## 🛠️ Toolcategorieën & Patronen
+## 🛠️ Gereedschapcategorieën & Patronen
 
-### 1. **Dataverwerkingstools**
+### 1. **Dataverwerkingsgereedschappen**
 
-- **Inputvalidatie**: Sterke typificatie met data-annotaties
-- **Transformatieoperaties**: Type-veilige dataconversie en formattering
-- **Bedrijfslogica**: Domeinspecifieke berekening en analysetools
-- **Outputformatteringen**: Gestructureerde responsgeneratie
+- **Inputvalidatie**: Sterke typing met data-annotaties
+- **Transformatieoperaties**: Type-veilige dataconversie en formatting
+- **Business Logic**: Domeinspecifieke reken- en analysegereedschappen
+- **Outputformatering**: Gestructureerde responsgeneratie
 
-### 2. **Integratietools**
+### 2. **Integratiegereedschappen**
 
-- **API Connectors**: RESTful service-integratie met HttpClient
-- **Databasetools**: Entity Framework-integratie voor data-toegang
-- **Bestandsoperaties**: Veilige bestandssysteemoperaties met validatie
-- **Externe diensten**: Integratiepatronen voor derde partijen
+- **API-Connectoren**: RESTful service integratie met HttpClient
+- **Databasegereedschappen**: Entity Framework integratie voor data toegang
+- **Bestandsoperaties**: Veilige bestandssysteem operaties met validatie
+- **Externe Services**: Derdepartij service integratiepatronen
 
-### 3. **Hulpprogramma's**
+### 3. **Hulpmiddelen**
 
-- **Tekstverwerking**: Hulpmiddelen voor stringmanipulatie en formattering
-- **Datum/tijd operaties**: Cultuurgevoelige berekeningen met datum/tijd
-- **Wiskundige tools**: Nauwkeurige berekeningen en statistische operaties
-- **Validatietools**: Validatie van bedrijfsregels en gegevensverificatie
+- **Tekstverwerking**: Stringmanipulatie en formatteringshulpmiddelen
+- **Datum/Tijd Operaties**: Cultuurbewuste datum/tijd berekeningen
+- **Wiskundige Gereedschappen**: Precisieberekeningen en statistische operaties
+- **Validatiegereedschappen**: Validatie van bedrijfsregels en dataverificatie
 
-Klaar om enterprise-grade agents te bouwen met krachtige, type-veilige toolmogelijkheden in .NET? Laten we professionele oplossingen ontwerpen! 🏢⚡
+Klaar om enterprise-klasse agenten te bouwen met krachtige, type-veilige gereedschapsmogelijkheden in .NET? Laten we professionele oplossingen architectureren! 🏢⚡
 
 ## 🚀 Aan de slag
 
 ### Vereisten
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of hoger
-- [GitHub Models API toegangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Een [Azure-abonnement](https://azure.microsoft.com/free/) met een Azure OpenAI resource en een modeluitrol
+- De [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — aanmelden met `az login`
 
 ### Vereiste Omgevingsvariabelen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Log vervolgens in zodat AzureCliCredential een token kan verkrijgen
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Log dan in zodat AzureCliCredential een token kan krijgen
+az login
 ```
 
 ### Voorbeeldcode
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Of gebruik de dotnet CLI:
+Of met de dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Zie [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) voor de volledige code.
+Zie [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) voor de complete code.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,154 +2,154 @@
 
 ![Implementacija skalabilnih agenata](../../../translated_images/hr/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Do ovog trenutka u tečaju napravili ste agente koji rade na vašem laptopu, unutar bilježnice, pokretani `az login` i nekoliko varijabli okoline. To je upravo pravi način za učenje. Nije pravi način za pokretanje agenta o kojem tisuće korisnika ovise u 3 ujutro.
+Do sada u tečaju gradili ste agente koji rade na vašem prijenosniku, unutar bilježnice, pokretani `az login` i nekoliko varijabli okoline. To je upravo pravi način za učenje. Međutim, to nije pravi način za pokretanje agenta na kojeg tisuće korisnika ovise u 3 ujutro.
 
-Ova lekcija je o jazu između "radi na mom računalu" i "radi pouzdano i pristupačno u produkciji." Taj jaz zatvaramo korištenjem **Microsoft Foundryja** i **Microsoft Foundry Agent Service**, i to tako da gradimo pravog korisničkog agenta za podršku koji ima alate, dohvat, memoriju, evaluaciju i nadzor.
+Ova lekcija govori o jazu između "radi na mom stroju" i "radi pouzdano i pristupačno u produkciji." Taj jaz zatvaramo pomoću **Microsoft Foundryja** i **Microsoft Foundry Agent Service**, gradeći stvarnog agenta za korisničku podršku koji ima alate, dohvat, memoriju, evaluaciju i praćenje.
 
 ## Uvod
 
 Ova lekcija će obuhvatiti:
 
-- Razliku između **prototipnog agenta** i **implementiranog agenta**, i zašto je prijelaz uglavnom o svemu *oko* modela.
-- **Obrasce implementacije** za agente: klijent-hostirani, servis-hostirani (Hosted Agents) i orkestrirani radni tokovi.
-- **Životni ciklus agenta** na Microsoft Foundry — kreiranje, verzioniranje, implementacija, evaluacija, nadzor, povlačenje.
-- **Strategije skaliranja**: usmjeravanje modela, keširanje, konkurentnost i dizajn bez stanja.
+- Razliku između **prototipnog agenta** i **implementiranog agenta**, i zašto prijelaz najviše ovisi o svemu *oko* modela.
+- **Obrasce implementacije** za agente: klijent-hostirani, servis-hostirani (Hosted Agents) i orkestrirani tokovi rada.
+- **Životni ciklus agenta** na Microsoft Foundryju — kreiranje, verzioniranje, implementacija, evaluacija, promatranje, povlačenje.
+- **Strategije skaliranja**: usmjeravanje modela, keširanje, konkurentnost i bezdržavni dizajn.
 - **Promatranje** s OpenTelemetry i Foundry praćenjem.
-- **Optimizacija troškova** kroz odabir modela, usmjeravanje i evaluacijske kapije.
-- **Razmatranja za poduzeća**: upravljanje, odobrenje od strane čovjeka i sigurno pokretanje MCP servera u produkciji.
+- **Optimizacija troškova** kroz izbor modela, usmjeravanje i evaluacijske kapije.
+- **Razmatranja za poduzeća**: upravljanje, odobrenje od strane ljudi i sigurno pokretanje MCP servera u produkciji.
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije, znat ćete kako:
+Nakon završetka ove lekcije znat ćete kako:
 
-- Izabrati pravi obrazac implementacije za određeni radni opterećenje agenta.
-- Implementirati agenta u Microsoft Foundry Agent Service kako bi bio verzioniran, upravljan i vidljiv.
-- Instrumentirati agenta za praćenje te povezati evaluacijsku liniju koja se pokreće prije svakog izdanja.
-- Primijeniti usmjeravanje i keširanje modela kako biste održali kašnjenje i troškove pod kontrolom u velikom opsegu.
-- Dodati kapiju ljudskog odobrenja za rizične radnje i integrirati MCP server na siguran način za produkciju.
+- Odabrati pravilan obrazac implementacije za zadani radni opterećenje agenta.
+- Implementirati agenta u Microsoft Foundry Agent Service tako da bude verzioniran, upravljan i promatran.
+- Instrumentirati agenta za praćenje i povezati evaluacijski tok koji se izvodi prije svakog izdanja.
+- Primijeniti usmjeravanje modela i keširanje radi kontrole latencije i troškova u mjeri.
+- Dodati kapiju za ljudsko odobrenje za visokorizične radnje i integrirati MCP server na siguran način za produkciju.
 
 ## Preduvjeti
 
-Ova lekcija pretpostavlja da ste završili prethodne lekcije i da ste sigurni u:
+Ova lekcija pretpostavlja da ste završili ranije lekcije i da ste upoznati s:
 
-- Izradu agenata pomoću [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcija 14).
-- [Korištenje alata](../04-tool-use/README.md) (Lekcija 4) i [Agentic RAG](../05-agentic-rag/README.md) (Lekcija 5).
-- [Agent Memory](../13-agent-memory/README.md) (Lekcija 13) i [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lekcija 11).
-- [Observability i Evaluaciju](../10-ai-agents-production/README.md) (Lekcija 10) — ova lekcija se direktno nadovezuje.
+- Izgradnjom agenata s [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcija 14).
+- [Korištenjem alata](../04-tool-use/README.md) (Lekcija 4) i [Agentic RAG](../05-agentic-rag/README.md) (Lekcija 5).
+- [Memorijom agenta](../13-agent-memory/README.md) (Lekcija 13) i [Agentic protokolima / MCP](../11-agentic-protocols/README.md) (Lekcija 11).
+- [Promatranjem i evaluacijom](../10-ai-agents-production/README.md) (Lekcija 10) — ova lekcija se na nju izravno nadovezuje.
 
 Također će vam trebati:
 
 - **Azure pretplata** i **Microsoft Foundry projekt** s barem jednim implementiranim chat modelom.
-- **Azure CLI** prijavljen (`az login`).
-- Python 3.12+ i paketi iz spremišta [`requirements.txt`](../../../requirements.txt).
+- Autentificirani **Azure CLI** (`az login`).
+- Python 3.12+ i paketi iz repozitorija [`requirements.txt`](../../../requirements.txt).
 
 ## Od prototipa do produkcije: što se zapravo mijenja
 
-Prototipni agent i produkcijski agent dijele isti osnovni ciklus — razmišljanje, pozivanje alata, odgovor. Ono što se mijenja je sve oko tog ciklusa. Model je možda 20% produkcijskog agenta; preostalih 80% je operativni kostur.
+Prototipni agent i produkcijski agent dijele isti osnovni ciklus — zaključuju, pozivaju alate, odgovaraju. Ono što se mijenja je sve što je oko tog ciklusa. Model je možda 20% produkcijskog agenta; ostalih 80% je operativni kostur.
 
-| Pitanje | Prototip | Produkcija |
+| Briga | Prototip | Produkcija |
 | --- | --- | --- |
-| **Hosting** | Radi u vašoj bilježnici | Radi kao hostirani servis, verzioniran i uvodi se postepeno |
-| **Identitet** | Vaš `az login` token | Upravljani identitet sa ograničenim RBAC pristupom |
-| **Stanje** | U memoriji, gubi se pri ponovnom pokretanju | Eksternalizirano (thread store, memory service) |
-| **Pogreške** | Vidite traceback | Pokušaji ponovo, rezervne opcije, dead-letter, upozorenja |
-| **Trošak** | "To su par centi" | Praćeno po zahtjevu, usmjereno, keširano, budžetirano |
-| **Kvaliteta** | Provjeravate vizualno | Automatski evaluirano prije svakog izdanja |
-| **Povjerenje** | Odobravate svaku radnju | Politika + čovjek u petlji za rizične radnje |
+| **Hosting** | Radi u vašoj bilježnici | Radi kao hostirani servis, verzioniran i postepeno uveden |
+| **Identitet** | Vaš `az login` token | Upravljani identitet s ograničenim RBAC-om |
+| **Stanje** | U memoriji, izgubljeno pri ponovnom pokretanju | Eksternalizirano (spremište dretvi, memorijska usluga) |
+| **Pogreška** | Vidite traceback | Pokušaji ponovo, zamjene, mrtvi ulaz, upozorenja |
+| **Trošak** | "To je nekoliko centi" | Praćen po zahtjevu, usmjeren, keširan, budžetiran |
+| **Kvaliteta** | Vizualno provjeravate izlaz | Automatski evaluirano prije svakog izdanja |
+| **Povjerenje** | Odobravate svaku radnju | Pravila + čovjek u petlji za rizične radnje |
 
-Imajte ovu tablicu na umu. Svaki odjeljak dolje odgovara jednom od ovih redaka.
+Zapamtite ovu tablicu. Svaki odjeljak u nastavku odnosi se na jedan od ovih redaka.
 
 ## Obrasci implementacije agenata
 
-Postoje tri obrasca koja ćete koristiti, često u kombinaciji.
+Postoje tri obrasca koje ćete koristiti, često u kombinaciji.
 
 ### 1. Klijent-hostirani agenti
 
-Objekt agenta živi unutar *vašeg* procesa aplikacije. Vaš kod direktno poziva davatelja modela; krug razmišljanja radi u vašem servisu. Ovo je ono što su radile sve prethodne lekcije.
+Objekt agenta živi unutar *vašeg* procesa aplikacije. Vaš kod poziva model pružatelja direktno; petlja rezonovanja radi u vašem servisu. To je ono što je svaka prethodna lekcija radila.
 
-- **Koristite kada** trebate punu kontrolu nad ciklusom, prilagođene srednje programe ili ugrađujete agenta unutar postojećeg backend-a.
-- **Nedostatak**: sami upravljate skaliranjem, stanjem i otpornosti.
+- **Koristite ga kad** trebate potpunu kontrolu nad petljom, prilagođeni middleware ili ugrađujete agenta unutar postojećeg backend-a.
+- **Kompromis**: sami se brinete o skaliranju, stanju i otpornosti.
 
 ### 2. Hostirani agenti (Foundry Agent Service)
 
-Agent je *registriran kao resurs* unutar Microsoft Foundryja. Foundry hosta krug razmišljanja, pohranjuje threadove, provodi sigurnost sadržaja i RBAC, i čini agenta vidljivim u Foundry portalu. Vaša aplikacija postaje tanka klijentica koja stvara threadove i čita odgovore.
+Agent je *registrovan kao resurs* u Microsoft Foundryju. Foundry hostira petlju rezonovanja, pohranjuje dretve, primjenjuje sigurnost sadržaja i RBAC te čini agenta vidljivim u Foundry portalu. Vaša aplikacija postaje lagani klijent koji stvara dretve i čita odgovore.
 
-- **Koristite kada** želite trajnost, ugrađenu vidljivost, upravljanje i manju operativnu složenost.
-- **Nedostatak**: manje niskorazinske kontrole u zamjenu za upravljano vrijeme izvođenja.
+- **Koristite ga kad** želite postojanost, ugrađenu vidljivost, upravljanje i manji operativni opseg.
+- **Kompromis**: manje niskorazinske kontrole u zamjenu za upravljano runtime okruženje.
 
-### 3. Radni tokovi agenata
+### 3. Tokovi rada agenata
 
-Više agenata (i alata) komponirano je u graf s eksplicitnim upravljanjem tijekom — sekvencijalni koraci, grananje, čvorovi ljudskog odobrenja i trajne kontrolne točke koje mogu pauzirati i nastaviti. Ovo je Microsoft Agent Framework **Workflows** mogućnost primijenjena na razini implementacije.
+Više agenata (i alata) se sastavlja u graf s eksplicitnim kontrolnim tokom — uzastopni koraci, grananje, čvorovi za ljudsko odobrenje i trajne kontrolne točke koje mogu pauzirati i nastaviti. To je mogućnost Microsoft Agent Framework **Workflows** primijenjena na skalu implementacije.
 
-- **Koristite kada** zadatak obuhvaća nekoliko specijaliziranih agenata ili zahtijeva korak odobrenja usred procesa.
-- **Nedostatak**: više pokretnih dijelova; treba vidljivost na razini orkestracije.
+- **Koristite ga kad** jedan zadatak obuhvaća nekoliko specijaliziranih agenata ili zahtijeva korak odobrenja u sredini.
+- **Kompromis**: više pokretnih dijelova; potrebno je praćenje na razini orkestracije.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Hostirano na klijentu]
-        A1[Proces vaše aplikacije] --> M1[Pružatelj modela]
+    subgraph P1[Klijent-Hostirano]
+        A1[Vaš Applikacijski Proces] --> M1[Pružatelj Modela]
     end
-    subgraph P2[Hostirani agent]
-        A2[Tanki klijent] --> F2[Foundry usluga agenta]
-        F2 --> M2[Model + alati + spremište niti]
+    subgraph P2[Hostirani Agent]
+        A2[Tanak Klijent] --> F2[Foundry Usluga Agenta]
+        F2 --> M2[Model + Alati + Pohrana Threadova]
     end
-    subgraph P3[Radni tijek agenta]
-        A3[Orkestrator] --> S1[Agent za trijažu]
-        S1 --> S2[Agent za rješavanje]
-        S2 --> H[Čvor za ljudsko odobrenje]
-        H --> S3[Agent za akcije]
+    subgraph P3[Radni Tok Agenta]
+        A3[Orkestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Čvor Ljudske Odluke]
+        H --> S3[Akcijski Agent]
     end
 ```
 
 ## Životni ciklus agenta na Microsoft Foundryju
 
-Implementacija agenta nije jednokratni `push`. To je ciklus, i vrlo sliči ciklusu izdanja softvera jer upravo to i jest.
+Implementacija agenta nije jednokratno `push` izvršenje. To je petlja i vrlo sliči ciklusu izdanja softvera jer to i jest.
 
 ```mermaid
 flowchart LR
     Create[Kreiraj / Autor] --> Version[Verzija]
-    Version --> Evaluate[Ocijeni offline]
-    Evaluate -->|prolazi vrata| Deploy[Postavi hostirano]
-    Evaluate -->|ne prolazi vrata| Create
+    Version --> Evaluate[Procjeni izvan mreže]
+    Evaluate -->|prolazi kontrolu| Deploy[Implementiraj na hostu]
+    Evaluate -->|ne prolazi kontrolu| Create
     Deploy --> Observe[Promatraj online]
-    Observe --> Improve[Prikupljaj pogreške]
+    Observe --> Improve[Skupi neuspjehe]
     Improve --> Create
-    Deploy --> Retire[Umirovi staru verziju]
+    Deploy --> Retire[Povuci staru verziju]
 ```
 
-Ključna ideja, prenesena iz [Lekcije 10](../10-ai-agents-production/README.md): **offline evaluacija je kapija, ne naknadna misao.** Nova verzija agenta ne izlazi dok ne prođe vaše evaluacijske pragove. Online vidljivost potom vraća stvarne pogreške u vašu offline testnu skupinu. To je cijeli ciklus.
+Ključna ideja, preuzeta iz [Lekcije 10](../10-ai-agents-production/README.md): **offline evaluacija je kapija, a ne naknadna misao.** Nova verzija agenta ne izlazi dok ne prijeđe vašu evaluacijsku granicu. Online vidljivost zatim vraća stvarne greške u vaš offline testni skup. To je cijela petlja.
 
 ## Strategije skaliranja
 
-Skaliranje agenta razlikuje se od skaliranja stateless web API-ja, jer svaki zahtjev može pokrenuti više skupih poziva modelima i alatima. Četiri tehnike nose većinu opterećenja.
+Skaliranje agenta razlikuje se od skaliranja bezdržavnog web API-ja, jer svaki zahtjev može pokrenuti višestruke skupe pozive modela i alata. Četiri tehnike nose veći dio opterećenja.
 
-**Rukovanje zahtjevima bez stanja.** Nemojte držati stanje po korisniku u memoriji procesa. Pohranjujte threadove razgovora u Foundry thread store ili memorijski servis tako da svaka instanca može obraditi bilo koji zahtjev. To vam omogućuje horizontalno skaliranje — dodajte instance, bez prianjajućih sesija.
+**Bezdržavno rukovanje zahtjevima.** Nemojte držati stanje po korisniku u memoriji vašeg procesa. Spremite niti razgovora u Foundry spremište niti ili memorijsku uslugu tako da bilo koja instanca može obraditi bilo koji zahtjev. Ovo omogućava horizontalno skaliranje — dodajte instance, bez ljepljivih sesija.
 
-**Usmjeravanje modela.** Nije svaki zahtjev potreban najmoćniji (i najskuplji) model. Usmjerite jednostavne zahtjeve — klasifikaciju namjere, kratke faktografske odgovore — na mali, brzi model, a veliki model za stvarno rezoniranje rezervirajte. Foundryjev **Model Router** to može učiniti za vas, ili možete sami implementirati lagani klasifikator. Verziju radit ćete u laboratoriju.
+**Usmjeravanje modela.** Nije svaki zahtjev potreban vaš najmoćniji (i najskuplji) model. Usmjerite jednostavne zahtjeve — klasifikaciju namjere, kratke faktografske odgovore — na mali, brzi model i rezervirajte veliki model za stvarno rezoniranje. Foundryjev **Model Router** može to učiniti za vas ili sami implementirajte lagani klasifikator. U labu ćete izraditi samostalnu verziju.
 
-**Keširanje odgovora.** Mnogi upiti za podršku su gotovo duplikati ("kako resetirati lozinku?"). Keširajte odgovore na često postavljana pitanja i poslužite ih bez poziva modelu. Čak i umjerena stopa zadovoljenja keša značajno smanjuje troškove i kašnjenje.
+**Keširanje odgovora.** Mnogi upiti podrške su vrlo slični ("kako resetirati lozinku?"). Keširajte odgovore na česta pitanja i poslužite ih bez pozivanja modela. Čak i umjerena stopa pogodaka u kešu značajno smanjuje troškove i latenciju.
 
-**Konkurentnost i povratni pritisak (backpressure).** Davatelji modela imaju ograničenja brzine. Ograničite konkurentnost, koristite ponovna pokušavanja s eksponencijalnim odgodama, i neuspjehe rješavajte graciozno (red čekanja s odgovorom "radimo na tome" bolji je od 500 greške).
+**Konkurentnost i backpressure.** Pružatelji modela imaju limite brzine. Ograničite konkurentnost, koristite ponovne pokušaje s eksponencijalnim odmakom i neuspjehe tretirajte elegantno (odgovor u redu čekanja "radimo na tome" bolji je od 500).
 
 ```mermaid
 flowchart LR
-    Q[Upit korisnika] --> C{Pronađeno u kešu?}
-    C -->|da| R[Vrati spremljeni odgovor]
-    C -->|ne| Router{Složenost?}
+    Q[Upit korisnika] --> C{Pogodak u predmemoriji?}
+    C -->|da| R[Vratiti spremljeni odgovor]
+    C -->|ne| Router{Kompleksnost?}
     Router -->|jednostavno| SLM[Mali model]
     Router -->|složeno| LLM[Veliki model]
     SLM --> Out[Odgovor]
     LLM --> Out
-    Out --> Store[Keš + trag]
+    Out --> Store[Predmemorija + trag]
 ```
 
-## Vidljivost u produkciji
+## Promatranje u produkciji
 
-Ne možete upravljati onim što ne vidite. Kao što je pokriveno u Lekciji 10, Microsoft Agent Framework emitira **OpenTelemetry** praćenja nativno — svaki poziv modelu, invokacija alata i korak orkestracije postaje djelokrug. U produkciji te djelokrugove izvozite u Microsoft Foundry (ili bilo koji OTel-kompatibilan sustav) da biste mogli:
+Ne možete upravljati onim što ne možete vidjeti. Kao što je objašnjeno u Lekciji 10, Microsoft Agent Framework emitira **OpenTelemetry** praćenja izvorno — svaki poziv modela, poziv alata i korak orkestracije postaje jedan span. U produkciji izvozi se ti spanovi u Microsoft Foundry (ili bilo koji OTel kompatibilan backend) da možete:
 
-- Pratiti pojedinačnu korisničku žalbu od početka do kraja kroz svaki poziv modelu i alatu.
-- Pratiti p50/p95 latenciju i troškove po zahtjevu tijekom vremena.
-- Upozoravati na skokove u stopi pogrešaka i anomalije troškova prije nego što ih primijete vaši korisnici (ili financijski tim).
+- Pratiti jednu korisničku žalbu od početka do kraja kroz svaki poziv modela i alata.
+- Promatrati p50/p95 latenciju i trošak po zahtjevu kroz vrijeme.
+- Upozoriti na skokove u stopi grešaka i anomalijama troškova prije nego korisnici (ili vaš financijski tim) primijete.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -158,94 +158,94 @@ tracer = get_tracer()
 
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
-    span.set_attribute("routed.model", "gpt-4.1-mini")
-    # izvršenje agenta automatski se prati unutar ovog raspona
+    span.set_attribute("routed.model", "gpt-5-nano")
+    # izvođenje agenta automatski se prati unutar ovog raspona
 ```
 
-Atributi kao `customer.tier` i `routed.model` pretvaraju zid praćenja u pitanja na koja se može odgovoriti ("Jesu li enterprise korisnici prečesto usmjereni na mali model?").
+Atributi poput `customer.tier` i `routed.model` pretvaraju zid praćenja u odgovarajuća pitanja ("Jesu li enterprise korisnici prečesto usmjereni na mali model?").
 
 ## Optimizacija troškova
 
-Troškovi u produkcijskim agentima uglavnom dolaze od tokena. Tri poluge, po utjecaju:
+Troškovi u produkcijskim agentima dominantno dolaze od tokena. Tri poluge, po utjecaju:
 
-1. **Pravilna veličina modela.** Mali model koji prolazi vašu evaluacijsku kapiju gotovo je uvijek jeftiniji od velikog koji također prolazi. Koristite evaluaciju da *dokažete* da je mali model dovoljan umjesto da iz opreza koristite najveći.
-2. **Usmjeravanje po složenosti.** Kao gore — platite za veliki model samo za zahtjeve koji trebaju rezoniranje velikog modela.
-3. **Agresivno keširanje.** Najjeftiniji poziv modelu je onaj koji uopće ne napravite.
+1. **Pravilna veličina modela.** Mali model koji prođe vašu evaluacijsku kapiju gotovo je uvijek jeftiniji od velikog koji također prolazi. Koristite evaluaciju da *dokažete* da je mali model dovoljan, umjesto da iz opreza biraš najveći model.
+2. **Usmjeravanje prema složenosti.** Kao gore — plaćajte cijenu velikog modela samo za zahtjeve koji trebaju rezoniranje velikim modelom.
+3. **Agresivno keširanje.** Najjeftiniji poziv modela je onaj koji nikad ne napravite.
 
-Evaluacijske kapije i kontrola troškova su ista disciplina promatrana iz dva kuta: evaluacija vam daje *donju granicu kvalitete*, a usmjeravanje i keširanje drže troškove što je moguće bliže toj donjoj granici.
+Evaluacijske kapije i kontrola troškova su ista disciplina gledana s dva kuta: evaluacija vam pokazuje *kvalitetni donju granicu*, usmjeravanje i keširanje vas drže što bliže toj *cijeni* donje granice.
 
-## Razmatranja implementacije u poduzeću
+## Razmatranja implementacije za poduzeća
 
-**Upravljanje.** Hosted Agents nasljeđuju Foundryjev RBAC, sigurnost sadržaja i zapisivanje revizije. Dajte svakom agentu upravljani identitet s najmanjom potrebnom privilegijom — pristup samo za čitanje baze znanja, ograničen pristup API-ju za ticketiranje, i ništa više.
+**Upravljanje.** Hosted Agents nasljeđuju Foundryev RBAC, sigurnost sadržaja i zapisnik audita. Dajte svakom agentu upravljani identitet s najmanjim ovlastima koje su potrebne — pristup samo za čitanje baze znanja, ograničen pristup API-ju za ticketing, ništa više.
 
-**Čovjek u petlji.** Neke radnje su prevažna da bi se automatizirale — izdavanje povrata novca, brisanje računa, eskalacija pravnom timu. Microsoft Agent Framework podržava alate koji zahtijevaju **odobrenje**: agent predlaže akciju, izvršavanje se pauzira, čovjek odobrava ili odbija, a radni tok se nastavlja. Primitivno ste vidjeli u [Lekciji 6](../06-building-trustworthy-agents/README.md); ovdje ga implementirate.
+**Čovjek u petlji.** Neke radnje su previše važne da bi se automatizirale izravno — izdavanje povrata novca, brisanje računa, eskalacija pravnom timu. Microsoft Agent Framework podržava alate koji zahtijevaju **odobrenje**: agent predlaže radnju, izvršenje se pauzira, čovjek odobrava ili odbija, a tok rada nastavlja. Ovaj primitivni oblik ste vidjeli u [Lekciji 6](../06-building-trustworthy-agents/README.md); ovdje ga implementirate.
 
-**MCP u produkciji.** [MCP](../11-agentic-protocols/README.md) omogućava agentu korištenje eksternih alata preko standardnog sučelja. U produkciji tretirajte svaki MCP server kao nepouzdanu granicu: fiksirajte verziju servera, pokrećite ga s ograničenim identitetom, validirajte njegove izlaze i nikada mu ne izlažite tajne podatke. MCP server je ovisnost, a ovisnosti se popravljaju, revidiraju i ograničavaju pristup.
+**MCP u produkciji.** [MCP](../11-agentic-protocols/README.md) omogućuje vašem agentu korištenje vanjskih alata kroz standardni sučelje. U produkciji tretirajte svaki MCP server kao neovisnu granicu: fiksirajte verziju servera, pokrećite ga s ograničenim identitetom, provjeravajte njegove izlaze i nikad ne otkrivajte tajne njemu. MCP server je ovisnost, a ovisnosti se nadograđuju, auditiraju i ograničavaju.
 
 ```mermaid
 flowchart TB
     subgraph Dev[Arhitektura razvoja]
-        D1[Bilježnica] --> D2[Okvir agenta]
+        D1[Bilježnica] --> D2[Okvir za agente]
         D2 --> D3[Pružatelj modela]
         D2 --> D4[Lokalni alati]
     end
     subgraph Deploy[Arhitektura implementacije]
-        E1[CI cjevovod] --> E2[Ulaz za evaluaciju]
-        E2 -->|prođi| E3[Foundry servis za agente]
-        E3 --> E4[Verzijski hostirani agent]
+        E1[CI cjevovod] --> E2[Vrata evaluacije]
+        E2 -->|prođi| E3[Usluga Foundry agenta]
+        E3 --> E4[Verzija hostiranog agenta]
     end
     subgraph Run[Arhitektura izvršnog okruženja]
         F1[Klijentska aplikacija] --> F2[Hostirani agent]
         F2 --> F3[Usmjerivač modela]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Servis memorije]
+        F2 --> F5[Usluga memorije]
         F2 --> F6[MCP alati]
         F2 --> F7[OTel -> Foundry praćenje]
         F2 --> F8[Ljudsko odobrenje]
     end
 ```
 
-Ta tri dijagrama — razvoj, implementacija, vrijeme izvođenja — prikazuju istog agenta u tri faze njegova života. Laboratorijski zadatak koji slijedi vodi vas kroz izradu.
+Ta tri dijagrama — razvoj, implementacija, runtime — su isti agent u tri faze života. Lab koji slijedi vodi vas kroz njegovu izradu.
 
-## Praktični laboratorijski zadatak: Agent korisničke podrške spreman za produkciju
+## Praktični lab: Produkcijski spreman agent za korisničku podršku
 
-Otvorite [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) i prođite ga od početka do kraja. Sastavit ćete **Contoso agenta korisničke podrške** sa svim produkcijskim funkcijama:
+Otvorite [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) i radite ga od početka do kraja. Sastaviti ćete **Contoso agenta za korisničku podršku** sa svim produkcijskim detaljima:
 
-1. **Pozivanje alata** — dohvat statusa narudžbe i otvaranje zahtjeva za podršku.
-2. **RAG** — odgovaranje na pitanja o politici iz baze znanja (Azure AI Search, s memorijskom rezervom da bilježnica radi i bez Search resursa).
+1. **Pozivanje alata** — dohvat statusa narudžbe i otvaranje podataka o podršci.
+2. **RAG** — odgovori na pitanja o politici iz baze znanja (Azure AI Search, s memorijskim fallbackom da bilježnica radi bez Search resursa).
 3. **Memorija** — pamćenje korisnika kroz okrete razgovora.
-4. **Usmjeravanje modela** — klasifikator složenosti usmjerava svaki zahtjev na mali ili veliki model.
+4. **Usmjeravanje modela** — klasifikator složenosti usmjerava svaki zahtjev prema malom ili velikom modelu.
 5. **Keširanje odgovora** — ponovljena pitanja poslužuju se iz keša.
-6. **Ljudsko odobrenje** — povrati iznad praga čekaju ljudsko odobrenje.
-7. **Evaluacijska linija** — mali offline testni skup ocjenjuje agenta i služi kao kapija za izdanje.
-8. **Vidljivost** — OpenTelemetry praćenje za svaki zahtjev.
+6. **Ljudsko odobrenje** — povrati iznad praga pauziraju za ljudski potpis.
+7. **Evaluacijski tok** — mali offline testni skup boduje agenta i služi kao kapija izdanja.
+8. **Promatranje** — OpenTelemetry praćenje oko svakog zahtjeva.
 
 ### Korak po korak
 
-Bilježnica je organizirana tako da je svaki produkcijski aspekt zaseban, pokretni odjeljak. Srž je rukovatelj zahtjevima koji kombinira usmjeravanje i keširanje:
+Bilježnica je organizirana tako da je svaki produkcijski aspekt samostalna, izvršna sekcija. Srž je rukovatelj zahtjevima s usmjeravanjem plus keširanjem:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Poslužiti iz predmemorije kad god možemo.
+    # 1. Poslužite iz predmemorije kad god je moguće.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Usmjeriti prema složenosti za kontrolu troškova.
-    model = "gpt-4.1-mini" if is_simple(query) else "gpt-4.1"
+    # 2. Usmjeravajte prema složenosti radi kontrole troškova.
+    model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Pokrenuti agenta unutar traga za promatranje.
+    # 3. Pokrenite agenta unutar traganja za nadgledanje.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Predmemorirati i vratiti.
+    # 4. Predmemorirajte i vratite.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Evaluacijska kapija koja čuva izdanje izgleda ovako:
+Kapija evaluacije koja štiti izdanje izgleda ovako:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # implementiraj samo ako prolaz na vratima uspije
+    return pass_rate >= threshold  # implementiraj samo ako prolaz vrata uspije
 ```
 
-Pročitajte svaku liniju — bilježnica drži primitivce namjerno male kako ništa ne bi bilo skriveno iza poziva frameworka.
+Pročitajte svaki red — bilježnica drži primitive namjerno male da ništa nije skriveno iza poziva frameworka.
 
-## Validacija implementiranog agenta s Smoke testovima
+## Validacija implementiranog agenta s testovima dima
 
-Evaluacijska kapija gore radi *offline* na vašem objektu agenta. Kad je agent implementiran kao Hosted Agent, treba vam još jedna, još jeftinija provjera: **odgovara li implementirana krajnja točka?**
+Gornja kapija evaluacije se izvršava *offline* nad vašim objektom agenta. Kad agent bude implementiran kao Hosted Agent, treba vam još jedna, još jeftinija provjera: **odgovara li implementirani endpoint zapravo?**
 
-Implementacija "uspješno" samo dokazuje da je kontrolni sloj prihvatio definiciju — ne dokazuje da agent odgovara. Nedostajuća ovisnost, loše usmjeravanje modela ili istekla veza mogu ostaviti zelenu implementaciju koja ne vraća ništa. **Smoke test** to uhvati u nekoliko sekundi, pri svakoj implementaciji, bez troška pune evaluacije.
+Implementacija "uspješno" samo dokazuje da je kontrolna ravnina prihvatila definiciju — ne dokazuje da agent odgovara. Nedostajuća ovisnost, loše usmjeravanje modela ili istekla veza mogu ostaviti zelenu implementaciju koja ne vraća ništa. **Test dima** to otkriva u nekoliko sekundi, pri svakoj implementaciji, bez troška pune evaluacije.
 
-Ovo spremište donosi spremnu pipeline za smoke-testove izgrađenu na [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub akciji:
+Ovaj repozitorij donosi spreman za korištenje pipeline za test dima baziran na GitHub akciji [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
 
-- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) sadrži upite i asercije za Contoso agenta podrške (odgovori temeljeni na politici, dohvat narudžbe, ostajanje na temi i kontinuitet višekratnih okreta). Katalozi za agente iz drugih lekcija nalaze se uz njega — pogledajte [`tests/README.md`](../tests/README.md).
-- **Radni tok** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) prijavljuje se pomoću Azure OIDC i šalje POST sa svakim upitom na Responses endpoint agenta, neuspjeh na bilo kojoj aserciji prekida posao.
+- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) sadrži promptove i tvrdnje za Contoso support agenta (odgovori utemeljeni na politici, dohvat narudžbi, ostajanje na temi i kontinuitet višeokretne niti). Kataloge za agente drugih lekcija možete pronaći uz ovaj — vidi [`tests/README.md`](../tests/README.md).
+- **Tok rada** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) prijavljuje se s Azure OIDC i šalje POST svaki prompt na agentov Responses endpoint, ispuštajući posao pri bilo kojem propustu tvrdnje.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,58 +282,58 @@ Ovo spremište donosi spremnu pipeline za smoke-testove izgrađenu na [AI Smoke 
 ```
 
 
-Pokrenite ga s kartice **Actions** kad je vaš agent implementiran, pružajući krajnju točku vašeg Foundry projekta i naziv agenta. Federirana identifikacija treba imati ulogu **Azure AI User** u okviru Foundry projekta. Zamislite slojeve kao piramidu: osnovni testovi (dostupan i odgovara li?) se izvode pri svakoj implementaciji, offline evaluacija (dovoljno dobra za slanje u produkciju?) prije promocije, a online evaluacija (kako se ponaša u stvarnom okruženju?) se izvodi kontinuirano.
+Pokrenite ga s kartice **Actions** kada je vaš agent implementiran, pružajući krajnju točku Foundry projekta i ime agenta. Federirana identifikacija treba ulogu **Azure AI User** u opsegu Foundry projekta. Zamislite slojeve kao piramidu: testovi dima (dostupan i reagira li?) pokreću se pri svakoj implementaciji, offline evaluacija (dovoljno dobra za isporuku?) prije promocije, a online evaluacija (kako se ponaša u stvarnom okruženju?) se kontinuirano izvodi.
 
 ## Provjera znanja
 
 Testirajte svoje razumijevanje prije nego što prijeđete na zadatak.
 
-**1. Otprilike koliki je udio proizvodnog agenta "model," a što je ostatak?**
+**1. Otprilike koliko je „model“ udio proizvodnog agenta, a što je ostatak?**
 
 <details>
 <summary>Odgovor</summary>
 
-Model je manjina sustava — često se navodi oko 20%. Ostatak je operativni kostur: hosting i verzioniranje, identitet i RBAC, eksternalizirano stanje, upravljanje greškama, praćenje troškova, evaluacija i kontrole s human-in-the-loop pristupom. Premještanje u produkciju uglavnom je izgradnja svega *oko* petlje rezoniranja.
+Model je manjina sustava — često se navodi oko 20%. Ostatak je operativni kostur: hosting i verzioniranje, identitet i RBAC, eksternalizirano stanje, upravljanje greškama, praćenje troškova, evaluacija i kontrole s uključenim čovjekom. Prijelaz u produkciju uglavnom je o gradnji svega *oko* petljanja rezoniranja.
 </details>
 
-**2. Kada biste odabrali Hosted Agenta umjesto klijentski hostiranog agenta?**
+**2. Kada biste odabrali Hosted Agenta umjesto agenta hostanog na klijentskoj strani?**
 
 <details>
 <summary>Odgovor</summary>
 
-Kada želite upravljano izvršno okruženje s ugrađenom trajnošću (procesi koji traju i mogu nastaviti), promatranjem, sigurnošću sadržaja i RBAC-om, te ste spremni žrtvovati malo niskorazinske kontrole petlje rezoniranja za manju operativnu složenost. Klijentski hostirani agent je poželjniji kada vam je potrebna potpuna kontrola nad petljom ili kada ugrađujete agenta u postojeći backend.
+Kada želite upravljano okruženje s ugrađenom trajnošću (niti koje traju i mogu se nastaviti), promatranjem, sigurnošću sadržaja i RBAC-om, te ste spremni žrtvovati nešto niskorazinske kontrole petlje rezoniranja za manju operativnu površinu. Klijentski hostan je poželjniji kad trebate potpunu kontrolu nad petljom ili ugrađujete agenta u postojeći backend.
 </details>
 
-**3. Zašto skalabilni agent mora biti bezstanja (stateless) u vlastitoj memoriji procesa?**
+**3. Zašto skalabilni agent mora biti bez držanja stanja u memoriji svog procesa?**
 
 <details>
 <summary>Odgovor</summary>
 
-Kako bi bilo koja instanca mogla obraditi bilo koji zahtjev, što omogućava horizontalno skaliranje bez "lijepih sesija". Stanje razgovora po korisniku je eksternalizirano u pohranu niti ili memorijsku uslugu. Ako bi stanje živjelo u memoriji procesa, izgubili biste ga pri ponovnom pokretanju i ne biste mogli slobodno raspoređivati opterećenje.
+Tako da bilo koja instanca može obraditi bilo koji zahtjev, što omogućuje horizontalno skaliranje bez vezanih sesija. Stanje razgovora po korisniku eksternalizira se u pohranu niti ili memorijsku uslugu. Da je stanje u memoriji procesa, izgubili biste ga pri ponovnom pokretanju i ne biste mogli slobodno raspodijeliti opterećenje.
 </details>
 
-**4. Koji problem rješava usmjeravanje modela (model routing) i kako se odnosi na evaluaciju?**
+**4. Koji problem rješava usmjeravanje modela i kakav je njegov odnos prema evaluaciji?**
 
 <details>
 <summary>Odgovor</summary>
 
-Usmjeravanje šalje jednostavne zahtjeve na mali, jeftini i brzi model, a velikom modelu ostavlja pravo rezoniranje, kontrolirajući tako i latenciju i troškove. Odnosi se na evaluaciju jer evaluacija *dokazuje* da je mali model dovoljno dobar za određenu vrstu zahtjeva — usmjeravanje bez evaluacije je pogađanje.
+Usmjeravanje šalje jednostavne zahtjeve malom, jeftinom i brzom modelu i rezervira veliki model za pravo rezoniranje, kontrolirajući kašnjenje i trošak. Odnosi se na evaluaciju jer evaluacija *dokazuje* da je mali model dovoljno dobar za klasu zahtjeva — usmjeravanje bez evaluacije je pogađanje.
 </details>
 
-**5. Što je "evaluation gate" i gdje se nalazi u životnom ciklusu?**
+**5. Što je „evaluacijska vrata“ i gdje se nalazi u životnom ciklusu?**
 
 <details>
 <summary>Odgovor</summary>
 
-Evaluation gate izvodi skup offline testova na novoj verziji agenta i blokira implementaciju ako stopa prolaznosti ne premaši prag. Nalazi se između "verzije" i "implementacije" u životnom ciklusu, čineći kvalitetu preduvjetom za izdavanje umjesto nečim što se provjerava nakon puštanja u produkciju.
+Evaluacijska vrata izvode offline test na novoj verziji agenta i blokiraju implementaciju ako stopa prolaza ne prijeđe prag. Nalazi se između „verzije“ i „implementacije“ u životnom ciklusu, čineći kvalitetu preduvjetom za izdavanje, a ne nečim što se provjerava nakon slanja.
 </details>
 
-**6. Zašto se MCP poslužitelj mora tretirati kao nepouzdana granica u produkciji?**
+**6. Zašto se MCP poslužitelj treba tretirati kao nepouzdan rub u produkciji?**
 
 <details>
 <summary>Odgovor</summary>
 
-Zato što je vanjska ovisnost u koju vaš agent upućuje pozive. Trebali biste fiksirati njegovu verziju, pokretati ga s ograničenim identitetom, provjeravati njegove izlaze, ograničiti brzinu poziva i nikada mu ne izlagati tajne — ista disciplina primjenjuje se na sve ovisnosti trećih strana. Njegovi izlazi ulaze u rezoniranje vašeg agenta, pa neprovjerena povjerenja predstavljaju sigurnosni rizik.
+Zato što je vanjska ovisnost u koju vaš agent upućuje pozive. Trebali biste fiksirati njegovu verziju, pokretati ga s ograničenim identitetom, provjeravati njegove rezultate, ograničavati broj poziva i nikada ne izlagati tajne tom servisu — ista disciplina koju primjenjujete na bilo koju vanjsku ovisnost. Njegovi rezultati ulaze u rezoniranje vašeg agenta, pa neprovjerena povjerenja predstavljaju sigurnosni rizik.
 </details>
 
 **7. Koja pojedinačna promjena obično ima najveći utjecaj na trošak proizvodnog agenta i zašto?**
@@ -341,47 +341,47 @@ Zato što je vanjska ovisnost u koju vaš agent upućuje pozive. Trebali biste f
 <details>
 <summary>Odgovor</summary>
 
-Prilagođavanje veličine modela — korištenje najmanjeg modela koji i dalje prolazi vaš evaluation gate. Trošak dominiraju tokeni, a manji model koji dostiže zadani standard kvalitete gotovo je uvijek jeftiniji od većeg. Keširanje i usmjeravanje dodatno smanjuju troškove, ali odabir pravog osnovnog modela ima najveći primarni učinak.
+Prilagođavanje veličine modela — korištenje najmanjeg modela koji još prolazi vaša evaluacijska vrata. Trošak uglavnom proizlazi iz tokena, a manji model koji zadovoljava kvalitetne kriterije gotovo je uvijek jeftiniji od većeg. Keširanje i usmjeravanje dodatno smanjuju troškove, ali odabir pravog osnovnog modela ima najveći utjecaj prvog reda.
 </details>
 
-**8. Koju ulogu u promatranju (observability) imaju atributi spanova poput `customer.tier` i `routed.model`?**
+**8. Koju ulogu u promatranju imaju atribute raspona poput `customer.tier` i `routed.model`?**
 
 <details>
 <summary>Odgovor</summary>
 
-Oni pretvaraju sirove tragove u mjerljive poslovne upite. Bez atributa imate zid spanova; s njima možete pitati "usmjeravaju li se enterprise korisnici prečesto na mali model?" ili "koji model obrađuje naše najsporije zahtjeve?" Atributi su način na koji režete telemetriju prema dimenzijama koje su važne za vaš rad.
+Oni pretvaraju sirove tragove u poslovna pitanja koja se mogu odgovoriti. Bez atributa imate zid raspona; s njima možete pitati „zašto se poduzećima korisnicima prečesto usmjerava mali model?“ ili „koji model obrađuje naše najsporije zahtjeve?“ Atributi su način kako rezati telemetriju prema dimenzijama važnim za vašu operaciju.
 </details>
 
 ## Zadatak
 
-Uzmite agenta za korisničku podršku iz laboratorija i učvrstite ga za određeni scenarij: **agent za podršku naplati pretplate za SaaS tvrtku.**
+Uzmite agenta za korisničku podršku iz laboratorija i ojačajte ga za specifični scenarij: **agent za podršku pretplate za tvrtku SaaS-a.**
 
 Vaša predaja treba:
 
-1. **Zamijeniti alate** onima relevantnima za naplatu: `get_subscription_status`, `get_invoice` i `issue_credit` (krediti iznad 50$ zahtijevaju potvrdu čovjeka).
-2. **Dodati tri RAG dokumenta** koja pokrivaju politiku povrata novca, ciklus naplate i politiku otkazivanja kompanije.
-3. **Proširiti evaluacijski skup** na najmanje osam slučajeva, uključujući barem dva koja *mora* pokrenuti put s odobrenjem čovjeka, i potvrditi da vaš evaluation gate ispravno prolazi ili odbija.
-4. **Dodati jedan izvještaj o troškovima**: nakon izvršavanja deset miješanih upita kroz agenta, ispišite koliko je njih otišlo na mali model, koliko na veliki model i koliko je posluženo iz keša.
+1. **Zamijeniti alate** alatima relevantnima za naplatu: `get_subscription_status`, `get_invoice`, i `issue_credit` (krediti preko 50$ zahtijevaju odobrenje čovjeka).
+2. **Dodati tri RAG dokumenta** koji pokrivaju pravila povrata novca, ciklus naplate i pravila otkazivanja tvrtke.
+3. **Proširiti evaluacijski skup** na barem osam slučajeva, uključujući barem dva koja *trebaju* pokrenuti put odobrenja čovjeka, i potvrditi da vaša evaluacijska vrata ispravno prolaze ili ne prolaze.
+4. **Dodati jedan izvještaj o troškovima**: nakon što pokrenete deset mješovitih upita kroz agenta, ispišite koliko je otišlo na mali model, koliko na veliki model i koliko je posluženo iz predmemorije.
 
-Napišite kratki odlomak (u markdown ćeliji) u kojem objašnjavate pravilo usmjeravanja modela koje ste odabrali i kako biste ga validirali na stvarnom prometu. Ne postoji jedan točan odgovor — ocjenjujete se prema tome jesu li produkcijski aspekti koherentno povezani.
+Napišite kratak odlomak (u markdown ćeliji) koji objašnjava koju ste pravilo usmjeravanja modela odabrali i kako biste ga provjerili s pravim prometom. Ne postoji jedini ispravan odgovor — procjenjuje se usklađenost produkcijskih pitanja.
 
 ## Sažetak
 
-U ovoj ste lekciji premjestili agenta iz prototipa u produkciju pomoću Microsoft Foundry:
+U ovom ste lekciji premjestili agenta iz prototipa u produkciju s Microsoft Foundry:
 
-- Skok u produkciju uglavnom je o **operativnom kosturu** oko modela — hosting, identitet, stanje, upravljanje greškama, troškovi, kvaliteta i povjerenje.
-- Naučili ste tri **uzorka distribucije** — klijentski hostirani, Hosted Agenti i Agent Workflows — i kada se koji koristi.
-- Prošli ste **životni ciklus agenta**, gdje offline **evaluacija djeluje kao gateway za izdavanje** a online promatranje vraća greške u testni skup.
+- Prijelaz u produkciju uglavnom je o **operativnom kosturu** oko modela — hostingu, identitetu, stanju, upravljanju greškama, troškovima, kvaliteti i povjerenju.
+- Naučili ste tri **obračunska obrasca** — klijentski hostan, Hosted Agente i Agent Workflows — i kada koji pristaju.
+- Prošli ste kroz **životni ciklus agenta**, gdje offline **evaluacija služi kao vrata za izdavanje** i online promatranje vraća greške u testni skup.
 - Primijenili ste **strategije skaliranja** — dizajn bez stanja, usmjeravanje modela, keširanje i ograničenu konkurentnost — i povezali ih s **optimizacijom troškova**.
-- Povezali ste **kontrole za poduzeća**: RBAC, odobrenje human-in-the-loop i produkcijski siguran MCP.
-- Izgradili ste **proizvodno spremnog agenta za korisničku podršku** koji objedinjuje sve te aspekte u izvršivom kodu.
+- Uključili ste **kontrole za poduzeća**: RBAC, odobrenje s uključenim čovjekom i produkcijski siguran MCP.
+- Izgradili ste **producijski spremnog agenta za korisničku podršku** koji povezuje sve ove aspekte u kod koji se može pokrenuti.
 
-Sljedeća lekcija ide suprotnim putem: umjesto skaliranja agenata u oblak, spustit ćete ih *dolje* na jedan razvojni stroj i pokretati ih u potpunosti lokalno.
+Sljedeća lekcija vodi suprotnim putem: umjesto skaliranja agenata u oblak, spustit ćete ih *dolje* na jedan razvojni stroj i pokrenuti lokalno.
 
 ## Dodatni izvori
 
-- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentacija za Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Pregled Microsoft Foundry Agent Service</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentacija</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Pregled Microsoft Foundry Agent servisa</a>
 - <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router u Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
@@ -391,7 +391,7 @@ Sljedeća lekcija ide suprotnim putem: umjesto skaliranja agenata u oblak, spust
 
 ## Prethodna lekcija
 
-[Izrada agenata za upotrebu računala (CUA)](../15-browser-use/README.md)
+[Izgradnja agenata za upotrebu računala (CUA)](../15-browser-use/README.md)
 
 ## Sljedeća lekcija
 

@@ -1,69 +1,69 @@
-# Membina Aplikasi Multi-Ejen dengan Microsoft Agent Framework Workflow
+# Membina Aplikasi Pelbagai Ejen dengan Aliran Kerja Microsoft Agent Framework
 
-Tutorial ini akan membimbing anda memahami dan membina aplikasi multi-ejen menggunakan Microsoft Agent Framework. Kita akan meneroka konsep asas sistem multi-ejen, menyelami seni bina komponen Workflow dalam rangka kerja ini, dan melalui contoh praktikal dalam Python dan .NET untuk pelbagai corak workflow.
+Tutorial ini akan membimbing anda memahami dan membina aplikasi pelbagai ejen menggunakan Microsoft Agent Framework. Kami akan meneroka konsep teras sistem pelbagai ejen, menyelami seni bina komponen Aliran Kerja framework, dan melalui contoh praktikal dalam Python dan .NET untuk pelbagai corak aliran kerja.
 
-## 1\. Memahami Sistem Multi-Ejen
+## 1\. Memahami Sistem Pelbagai Ejen
 
-Ejen AI adalah sistem yang melangkaui kemampuan Model Bahasa Besar (LLM) biasa. Ia boleh memahami persekitarannya, membuat keputusan, dan mengambil tindakan untuk mencapai matlamat tertentu. Sistem multi-ejen melibatkan beberapa ejen ini bekerjasama untuk menyelesaikan masalah yang sukar atau mustahil untuk ditangani oleh satu ejen sahaja.
+Ejen AI ialah sistem yang melangkaui keupayaan Model Bahasa Besar (LLM) standard. Ia boleh mengesan persekitarannya, membuat keputusan, dan mengambil tindakan untuk mencapai matlamat tertentu. Sistem pelbagai ejen melibatkan beberapa ejen ini bekerjasama untuk menyelesaikan masalah yang sukar atau mustahil untuk seorang ejen tangani sendirian.
 
-### Senario Aplikasi Biasa
+### Senario Aplikasi Lazim
 
-  * **Penyelesaian Masalah Kompleks**: Memecahkan tugas besar (contohnya, merancang acara syarikat) kepada tugas kecil yang dikendalikan oleh ejen khusus (contohnya, ejen bajet, ejen logistik, ejen pemasaran).
-  * **Pembantu Maya**: Ejen pembantu utama mendelegasikan tugas seperti penjadualan, penyelidikan, dan tempahan kepada ejen khusus lain.
-  * **Penciptaan Kandungan Automatik**: Workflow di mana satu ejen merangka kandungan, ejen lain menyemak ketepatan dan nada, dan ejen ketiga menerbitkannya.
+  * **Penyelesaian Masalah Kompleks**: Memecahkan tugas besar (contohnya, merancang acara syarikat) kepada sub-tugas kecil yang dikendalikan oleh ejen pakar (contohnya, ejen bajet, ejen logistik, ejen pemasaran).
+  * **Pembantu Maya**: Ejen pembantu utama yang mendelegasikan tugasan seperti menjadual, penyelidikan, dan tempahan kepada ejen pakar lain.
+  * **Penciptaan Kandungan Automatik**: Aliran kerja di mana satu ejen menyediakan draf kandungan, satu lagi menyemak ketepatan dan gaya, dan ejen ketiga menerbitkannya.
 
-### Corak Multi-Ejen
+### Corak Pelbagai Ejen
 
-Sistem multi-ejen boleh diatur dalam beberapa corak, yang menentukan cara mereka berinteraksi:
+Sistem pelbagai ejen boleh disusun dalam beberapa corak, yang menentukan bagaimana mereka berinteraksi:
 
-  * **Berkurutan**: Ejen bekerja dalam urutan yang telah ditetapkan, seperti barisan pemasangan. Output satu ejen menjadi input untuk ejen seterusnya.
-  * **Serentak**: Ejen bekerja secara selari pada bahagian tugas yang berbeza, dan hasilnya digabungkan pada akhir.
-  * **Bersyarat**: Workflow mengikuti laluan yang berbeza berdasarkan output ejen, serupa dengan pernyataan if-then-else.
+  * **Berturutan**: Ejen bekerja dalam urutan yang telah ditetapkan, seperti barisan pemasangan. Output satu ejen menjadi input untuk ejen berikut.
+  * **Serentak**: Ejen bekerja serentak pada bahagian tugas yang berbeza, dan hasil mereka digabungkan pada akhir.
+  * **Bersyarat**: Aliran kerja mengikuti laluan yang berbeza berdasarkan output ejen, sama seperti pernyataan if-then-else.
 
-## 2\. Seni Bina Microsoft Agent Framework Workflow
+## 2\. Seni Bina Aliran Kerja Microsoft Agent Framework
 
-Sistem workflow dalam Agent Framework adalah enjin orkestrasi canggih yang direka untuk mengurus interaksi kompleks antara pelbagai ejen. Ia dibina berdasarkan seni bina berasaskan graf yang menggunakan [model pelaksanaan gaya Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), di mana pemprosesan berlaku dalam langkah-langkah yang diselaraskan yang dipanggil "supersteps."
+Sistem aliran kerja Agent Framework ialah enjin pengaturan lanjutan yang direka untuk mengurus interaksi kompleks antara pelbagai ejen. Ia dibina di atas seni bina berasaskan graf yang menggunakan [model pelaksanaan gaya Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), di mana pemprosesan berlaku dalam langkah-langkah tersinkron yang dipanggil "supersteps."
 
-### Komponen Utama
+### Komponen Teras
 
 Seni bina ini terdiri daripada tiga bahagian utama:
 
-1.  **Executor**: Unit pemprosesan asas. Dalam contoh kita, `Agent` adalah jenis executor. Setiap executor boleh mempunyai beberapa pengendali mesej yang dipanggil secara automatik berdasarkan jenis mesej yang diterima.
-2.  **Edges**: Menentukan laluan mesej antara executor. Edges boleh mempunyai syarat, membolehkan penghalaan maklumat secara dinamik melalui graf workflow.
-3.  **Workflow**: Komponen ini mengorkestrasi keseluruhan proses, mengurus executor, edges, dan aliran pelaksanaan secara keseluruhan. Ia memastikan mesej diproses dalam urutan yang betul dan menstrimkan acara untuk pemerhatian.
+1.  **Pelaksana**: Unit pemprosesan asas. Dalam contoh kami, `Agent` ialah jenis pelaksana. Setiap pelaksana boleh mempunyai pelbagai pengendali mesej yang secara automatik dipanggil berdasarkan jenis mesej yang diterima.
+2.  **Tepi**: Mendefinisikan laluan mesej antara pelaksana. Tepi boleh mempunyai syarat, membenarkan penghalaan maklumat dinamik melalui graf aliran kerja.
+3.  **Aliran Kerja**: Komponen yang menyelaraskan keseluruhan proses, mengurus pelaksana, tepi, dan aliran pelaksanaan keseluruhan. Ia memastikan mesej diproses dalam urutan yang betul dan menstrimkan acara untuk pengawasan.
 
-*Rajah yang menggambarkan komponen utama sistem workflow.*
+*Rajah yang menggambarkan komponen teras sistem aliran kerja.*
 
-Struktur ini membolehkan pembinaan aplikasi yang kukuh dan boleh diskalakan menggunakan corak asas seperti rantai berurutan, fan-out/fan-in untuk pemprosesan selari, dan logik switch-case untuk aliran bersyarat.
+Struktur ini membolehkan pembinaan aplikasi yang kukuh dan boleh diskala menggunakan corak asas seperti rantai berturutan, fan-out/fan-in untuk pemprosesan selari, dan logik beralih kes untuk aliran bersyarat.
 
 ## 3\. Contoh Praktikal dan Analisis Kod
 
-Sekarang, mari kita terokai cara melaksanakan pelbagai corak workflow menggunakan rangka kerja ini. Kita akan melihat kod Python dan .NET untuk setiap contoh.
+Kini, mari kita terokai bagaimana untuk melaksanakan pelbagai corak aliran kerja menggunakan framework ini. Kami akan melihat kod Python dan .NET untuk setiap contoh.
 
-### Kes 1: Workflow Berurutan Asas
+### Kes 1: Aliran Kerja Berturutan Asas
 
-Ini adalah corak paling mudah, di mana output satu ejen dihantar terus kepada ejen lain. Senario kita melibatkan ejen `FrontDesk` hotel yang membuat cadangan perjalanan, yang kemudian disemak oleh ejen `Concierge`.
+Ini adalah corak paling ringkas, di mana output satu ejen dipindahkan terus ke ejen lain. Senario kami melibatkan ejen `FrontDesk` hotel yang membuat cadangan perjalanan, kemudian disemak oleh ejen `Concierge`.
 
-*Rajah workflow asas FrontDesk -\> Concierge.*
+*Rajah aliran kerja FrontDesk -\> Concierge asas.*
 
 #### Latar Belakang Senario
 
 Seorang pelancong meminta cadangan di Paris.
 
-1.  Ejen `FrontDesk`, yang direka untuk ringkas, mencadangkan melawat Muzium Louvre.
-2.  Ejen `Concierge`, yang mengutamakan pengalaman autentik, menerima cadangan ini. Ia menyemak cadangan dan memberikan maklum balas, mencadangkan alternatif yang lebih tempatan dan kurang pelancong.
+1.  Ejen `FrontDesk`, direka untuk ringkas, mencadangkan melawat Muzium Louvre.
+2.  Ejen `Concierge`, yang mengutamakan pengalaman sebenar, menerima cadangan ini. Ia menyemak cadangan dan memberikan maklum balas, mencadangkan alternatif yang lebih tempatan dan kurang pelancong.
 
 #### Analisis Pelaksanaan Python
 
-Dalam contoh Python, kita mula-mula mentakrifkan dan mencipta dua ejen, masing-masing dengan arahan tertentu.
+Dalam contoh Python, kami mula-mula mentakrif dan mencipta dua ejen, setiap satunya dengan arahan khusus.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Takrifkan peranan dan arahan ejen
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Cipta contoh ejen
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Seterusnya, `WorkflowBuilder` digunakan untuk membina graf. `front_desk_agent` ditetapkan sebagai titik permulaan, dan edge dibuat untuk menghubungkan outputnya kepada `reviewer_agent`.
+Seterusnya, `WorkflowBuilder` digunakan untuk membina graf. `front_desk_agent` ditetapkan sebagai titik mula, dan satu tepi dicipta untuk menghubungkan outputnya ke `reviewer_agent`.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# 01.python-agent-framework-aliran-kerja-ghmodel-asas.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Akhirnya, workflow dilaksanakan dengan arahan awal pengguna.
+Akhirnya, aliran kerja dijalankan dengan prompt awal pengguna.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run melaksanakan aliran kerja; get_outputs() mengembalikan keputusan pelaksana output.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
 #### Analisis Pelaksanaan .NET (C\#)
 
-Pelaksanaan .NET mengikuti logik yang sangat serupa. Mula-mula, konstanta ditakrifkan untuk nama ejen dan arahan mereka.
+Pelaksanaan .NET mengikuti logik yang sangat serupa. Pertama, tetap nilai didefinisikan untuk nama dan arahan ejen.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Ejen dicipta menggunakan `OpenAIClient`, dan kemudian `WorkflowBuilder` mentakrifkan aliran berurutan dengan menambah edge dari `frontDeskAgent` ke `reviewerAgent`.
+Ejen dicipta menggunakan `AzureOpenAIClient` (API Respons), kemudian `WorkflowBuilder` mentakrifkan aliran berturutan dengan menambah tepi dari `frontDeskAgent` ke `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow kemudian dijalankan dengan mesej pengguna, dan hasilnya distrim kembali.
+Aliran kerja dijalankan dengan mesej pengguna, dan hasilnya distrim kembali.
 
-### Kes 2: Workflow Berurutan Multi-Langkah
+### Kes 2: Aliran Kerja Berturutan Berbilang Langkah
 
-Corak ini memperluaskan urutan asas untuk memasukkan lebih banyak ejen. Ia sesuai untuk proses yang memerlukan beberapa tahap penapisan atau transformasi.
+Corak ini memanjangkan urutan asas untuk merangkumi lebih banyak ejen. Sesuai untuk proses yang memerlukan beberapa peringkat penambahbaikan atau transformasi.
 
 #### Latar Belakang Senario
 
-Seorang pengguna memberikan imej ruang tamu dan meminta sebut harga perabot.
+Seorang pengguna menyediakan gambar ruang tamu dan meminta sebutharga perabot.
 
-1.  **Sales-Agent**: Mengenal pasti item perabot dalam imej dan mencipta senarai.
-2.  **Price-Agent**: Mengambil senarai item dan memberikan pecahan harga terperinci, termasuk pilihan bajet, pertengahan, dan premium.
-3.  **Quote-Agent**: Menerima senarai berharga dan memformatnya menjadi dokumen sebut harga rasmi dalam Markdown.
+1.  **Ejen Jualan**: Mengenal pasti barang perabot dalam gambar dan membuat senarai.
+2.  **Ejen Harga**: Mengambil senarai barang dan menyediakan pecahan harga terperinci, termasuk pilihan bajet, pertengahan, dan premium.
+3.  **Ejen Sebutharga**: Menerima senarai dengan harga dan memformatnya ke dalam dokumen sebutharga rasmi dalam Markdown.
 
-*Rajah workflow Sales -\> Price -\> Quote.*
+*Rajah aliran kerja Sales -\> Price -\> Quote.*
 
 #### Analisis Pelaksanaan Python
 
-Tiga ejen ditakrifkan, masing-masing dengan peranan khusus. Workflow dibina menggunakan `add_edge` untuk mencipta rantai: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Tiga ejen ditakrifkan, setiap satu dengan peranan khusus. Aliran kerja dibina menggunakan `add_edge` untuk mencipta rantai: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Cipta tiga ejen khusus
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Bina aliran kerja berurutan
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Input adalah `ChatMessage` yang merangkumi teks dan URI imej. Rangka kerja mengendalikan penghantaran output setiap ejen kepada ejen seterusnya dalam urutan sehingga sebut harga akhir dihasilkan.
+Input ialah `ChatMessage` yang termasuk teks dan URI imej. Framework mengendalikan pemindahan output setiap ejen ke seterusnya dalam urutan sehingga sebutharga akhir dijana.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Mesej pengguna mengandungi kedua-dua teks dan imej
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Jalankan aliran kerja
+events = await workflow.run(message)
 ```
 
 #### Analisis Pelaksanaan .NET (C\#)
 
-Contoh .NET mencerminkan versi Python. Tiga ejen (`salesagent`, `priceagent`, `quoteagent`) dicipta. `WorkflowBuilder` menghubungkan mereka secara berurutan.
+Contoh .NET mencerminkan versi Python. Tiga ejen (`salesagent`, `priceagent`, `quoteagent`) dicipta. `WorkflowBuilder` menghubungkait mereka secara berturutan.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Mesej pengguna dibina dengan data imej (sebagai byte) dan arahan teks. Kaedah `InProcessExecution.StreamAsync` memulakan workflow, dan output akhir ditangkap dari aliran.
+Mesej pengguna dibina dengan data imej (sebagai bait) dan prompt teks. Kaedah `InProcessExecution.RunStreamingAsync` memulakan aliran kerja, dan output akhir ditangkap dari strim.
 
-### Kes 3: Workflow Serentak
+### Kes 3: Aliran Kerja Serentak
 
-Corak ini digunakan apabila tugas boleh dilakukan serentak untuk menjimatkan masa. Ia melibatkan "fan-out" kepada beberapa ejen dan "fan-in" untuk menggabungkan hasilnya.
+Corak ini digunakan apabila tugasan boleh dilakukan serentak untuk menjimatkan masa. Ia melibatkan "fan-out" kepada pelbagai ejen dan "fan-in" untuk mengumpul hasil.
 
 #### Latar Belakang Senario
 
-Seorang pengguna meminta untuk merancang perjalanan ke Seattle.
+Seorang pengguna meminta merancang perjalanan ke Seattle.
 
-1.  **Dispatcher (Fan-Out)**: Permintaan pengguna dihantar kepada dua ejen pada masa yang sama.
-2.  **Researcher-Agent**: Menyelidik tarikan, cuaca, dan pertimbangan utama untuk perjalanan ke Seattle pada bulan Disember.
-3.  **Plan-Agent**: Secara bebas mencipta jadual perjalanan terperinci hari demi hari.
-4.  **Aggregator (Fan-In)**: Output dari penyelidik dan perancang dikumpulkan dan disampaikan bersama sebagai hasil akhir.
+1.  **Pengedar (Fan-Out)**: Permintaan pengguna dihantar kepada dua ejen serentak.
+2.  **Ejen Penyelidik**: Menyelidik tarikan, cuaca, dan pertimbangan utama untuk perjalanan ke Seattle pada bulan Disember.
+3.  **Ejen Perancang**: Secara bebas mencipta jadual perjalanan terperinci hari demi hari.
+4.  **Pengumpul (Fan-In)**: Output dari penyelidik dan perancang dikumpul dan dipersembahkan bersama sebagai hasil akhir.
 
-*Rajah workflow serentak Researcher dan Planner.*
+*Rajah aliran kerja serentak Penyelidik dan Perancang.*
 
 #### Analisis Pelaksanaan Python
 
-`ConcurrentBuilder` memudahkan penciptaan corak ini. Anda hanya menyenaraikan ejen yang terlibat, dan builder secara automatik mencipta logik fan-out dan fan-in yang diperlukan.
+`ConcurrentBuilder` memudahkan penciptaan corak ini. Anda hanya senaraikan ejen yang terlibat, dan pembina secara automatik mencipta logik fan-out dan fan-in yang diperlukan.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder mengendalikan logik fan-out/fan-in
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Jalankan aliran kerja
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Rangka kerja memastikan bahawa `research_agent` dan `plan_agent` dilaksanakan secara selari, dan output akhir mereka dikumpulkan ke dalam senarai.
+Framework memastikan `research_agent` dan `plan_agent` berjalan secara selari, dan output akhir mereka dikumpul ke dalam senarai.
 
 #### Analisis Pelaksanaan .NET (C\#)
 
-Dalam .NET, corak ini memerlukan definisi yang lebih eksplisit. Executor khusus (`ConcurrentStartExecutor` dan `ConcurrentAggregationExecutor`) dicipta untuk mengendalikan logik fan-out dan fan-in.
+Dalam .NET, corak ini memerlukan takrifan yang lebih jelas. Pelaksana tersuai (`ConcurrentStartExecutor` dan `ConcurrentAggregationExecutor`) dicipta untuk mengendalikan logik fan-out dan fan-in.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` kemudian menggunakan `AddFanOutEdge` dan `AddFanInEdge` untuk membina graf dengan executor khusus ini dan ejen.
+`WorkflowBuilder` kemudian menggunakan `AddFanOutEdge` dan `AddFanInEdge` untuk membina graf dengan pelaksana tersuai dan ejen ini.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Kes 4: Workflow Bersyarat
+### Kes 4: Aliran Kerja Bersyarat
 
-Workflow bersyarat memperkenalkan logik bercabang, membolehkan sistem mengambil laluan yang berbeza berdasarkan hasil perantaraan.
+Aliran kerja bersyarat memperkenalkan logik cabang, membolehkan sistem mengambil laluan berbeza berdasarkan hasil perantaraan.
 
 #### Latar Belakang Senario
 
-Workflow ini mengautomasi penciptaan dan penerbitan tutorial teknikal.
+Aliran kerja ini mengautomasikan penciptaan dan penerbitan tutorial teknikal.
 
-1.  **Evangelist-Agent**: Menulis draf tutorial berdasarkan garis besar dan URL yang diberikan.
-2.  **ContentReviewer-Agent**: Menyemak draf. Ia memeriksa sama ada jumlah perkataan melebihi 200 perkataan.
+1.  **Ejen Evangelis**: Menulis draf tutorial berdasarkan garis panduan dan URL yang diberikan.
+2.  **Ejen Penyemak Kandungan**: Menyemak draf. Memeriksa jika kiraan perkataan melebihi 200.
 3.  **Cabang Bersyarat**:
-      * **Jika Diluluskan (`Yes`)**: Workflow diteruskan kepada `Publisher-Agent`.
-      * **Jika Ditolak (`No`)**: Workflow berhenti dan outputkan sebab penolakan.
-4.  **Publisher-Agent**: Jika draf diluluskan, ejen ini menyimpan kandungan ke fail Markdown.
+      * **Jika Diluluskan (`Ya`)**: Aliran kerja meneruskan ke `Publisher-Agent`.
+      * **Jika Ditolak (`Tidak`)**: Aliran kerja berhenti dan mengeluarkan sebab penolakan.
+4.  **Ejen Penerbit**: Jika draf diluluskan, ejen ini menyimpan kandungan ke fail Markdown.
 
 #### Analisis Pelaksanaan Python
 
-Contoh ini menggunakan fungsi khusus, `select_targets`, untuk melaksanakan logik bersyarat. Fungsi ini diberikan kepada `add_multi_selection_edge_group` dan mengarahkan workflow berdasarkan medan `review_result` dari output penyemak.
+Contoh ini menggunakan fungsi tersuai, `select_targets`, untuk melaksanakan logik bersyarat. Fungsi ini diserahkan kepada `add_multi_selection_edge_group` dan mengarahkan aliran kerja berdasarkan medan `review_result` dari output penyemak.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Fungsi ini menentukan langkah seterusnya berdasarkan hasil semakan
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Jika diluluskan, teruskan ke pelaksana 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Jika ditolak, teruskan ke pelaksana 'handle_review' untuk melaporkan kegagalan
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Pembina aliran kerja menggunakan fungsi pemilihan untuk penghalaan
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Tepi pemilihan berganda melaksanakan logik bersyarat
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Executor khusus seperti `to_reviewer_result` digunakan untuk menganalisis output JSON dari ejen dan menukarnya menjadi objek yang ditaip kuat yang boleh diperiksa oleh fungsi pemilihan.
+Pelaksana tersuai seperti `to_reviewer_result` digunakan untuk mengurai output JSON dari ejen dan menukarnya ke objek berjenis kuat yang fungsi pemilihan boleh periksa.
 
 #### Analisis Pelaksanaan .NET (C\#)
 
-Versi .NET menggunakan pendekatan serupa dengan fungsi syarat. `Func<object?, bool>` ditakrifkan untuk memeriksa sifat `Result` objek `ReviewResult`.
+Versi .NET menggunakan pendekatan serupa dengan fungsi syarat. `Func<object?, bool>` ditakrif untuk memeriksa sifat `Result` objek `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Parameter `condition` kaedah `AddEdge` membolehkan `WorkflowBuilder` mencipta laluan bercabang. Workflow hanya akan mengikuti edge ke `publishExecutor` jika syarat `GetCondition(expectedResult: "Yes")` mengembalikan nilai benar. Jika tidak, ia mengikuti laluan ke `sendReviewerExecutor`.
+Parameter `condition` pada kaedah `AddEdge` membolehkan `WorkflowBuilder` mencipta laluan cabang. Aliran kerja hanya akan mengikuti tepi ke `publishExecutor` jika syarat `GetCondition(expectedResult: "Yes")` benar. Jika tidak, ia mengikuti laluan ke `sendReviewerExecutor`.
 
 ## Kesimpulan
 
-Microsoft Agent Framework Workflow menyediakan asas yang kukuh dan fleksibel untuk mengorkestrasi sistem multi-ejen yang kompleks. Dengan memanfaatkan seni bina berasaskan graf dan komponen utamanya, pembangun boleh mereka bentuk dan melaksanakan workflow yang canggih dalam Python dan .NET. Sama ada aplikasi anda memerlukan pemprosesan berurutan yang mudah, pelaksanaan selari, atau logik bersyarat yang dinamik, rangka kerja ini menawarkan alat untuk membina penyelesaian AI yang berkuasa, boleh diskalakan, dan selamat jenis.
+Microsoft Agent Framework Workflow menyediakan asas yang kukuh dan fleksibel untuk menyelaraskan sistem pelbagai ejen yang kompleks. Dengan memanfaatkan seni bina berasaskan graf dan komponen terasnya, pembangun dapat mereka bentuk dan melaksanakan aliran kerja canggih dalam Python dan .NET. Sama ada aplikasi anda memerlukan pemprosesan berturutan mudah, pelaksanaan selari, atau logik bersyarat dinamik, framework ini menawarkan alat untuk membina penyelesaian AI yang kuat, boleh diskala, dan selamat jenis.
 
 ---
 
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk memastikan ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat yang kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

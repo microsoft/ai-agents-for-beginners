@@ -1,18 +1,18 @@
-# 🎯 Planung & Entwurfsmuster mit Azure OpenAI (Responses API) (.NET)
+# 🎯 Planung & Design Patterns mit Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Lernziele
 
-Dieses Notebook zeigt unternehmensgerechte Planungs- und Entwurfsmuster für den Aufbau intelligenter Agenten mit dem Microsoft Agent Framework in .NET und Azure OpenAI (Responses API). Sie lernen, Agenten zu erstellen, die komplexe Probleme zerlegen, mehrstufige Lösungen planen und ausgeklügelte Workflows mit den Enterprise-Funktionen von .NET ausführen können.
+Dieses Notebook zeigt unternehmensgerechte Planungs- und Designmuster zum Aufbau intelligenter Agenten mit dem Microsoft Agent Framework in .NET und Azure OpenAI (Responses API). Sie lernen, Agenten zu erstellen, die komplexe Probleme zerlegen, mehrstufige Lösungen planen und ausgeklügelte Workflows mit den Unternehmensfunktionen von .NET ausführen können.
 
 ## ⚙️ Voraussetzungen & Einrichtung
 
 **Entwicklungsumgebung:**
 - .NET 9.0 SDK oder höher
-- Visual Studio 2022 oder VS Code mit C#-Erweiterung
-- Ein Azure-Abonnement mit einer Azure OpenAI-Ressource und einem Modell-Deployment
+- Visual Studio 2022 oder VS Code mit C# Erweiterung
+- Ein Azure-Abonnement mit einer Azure OpenAI-Ressource und einer Modellbereitstellung
 - Die Azure CLI — Anmeldung mit `az login`
 
-**Benötigte Abhängigkeiten:**
+**Erforderliche Abhängigkeiten:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
@@ -25,12 +25,12 @@ Dieses Notebook zeigt unternehmensgerechte Planungs- und Entwurfsmuster für den
 **Umgebungskonfiguration (.env-Datei):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Den Code ausführen
+## Ausführen des Codes
 
-Diese Lektion beinhaltet eine Implementierung als .NET Single File App. Zum Ausführen:
+Diese Lektion enthält eine .NET Single File App Implementierung. Um sie auszuführen:
 
 ```bash
 # Machen Sie die Datei ausführbar (Linux/macOS)
@@ -40,7 +40,7 @@ chmod +x 07-dotnet-agent-framework.cs
 ./07-dotnet-agent-framework.cs
 ```
 
-Oder nutzen Sie den Befehl dotnet run:
+Oder verwenden Sie den Befehl dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -48,19 +48,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Code-Implementierung
 
-Die vollständige Implementierung finden Sie in `07-dotnet-agent-framework.cs`, welche Folgendes demonstriert:
+Die vollständige Implementierung finden Sie in `07-dotnet-agent-framework.cs`, die zeigt:
 
 - Laden der Umgebungskonfiguration mit DotNetEnv
 - Konfigurieren des Azure OpenAI-Clients und Erstellen eines KI-Agenten mit `GetChatClient().AsAIAgent()`
 - Definieren strukturierter Datenmodelle (Plan und TravelPlan) mit JSON-Serialisierung
-- Erstellen eines KI-Agenten mit strukturiertem Output mittels JSON-Schema
+- Erstellen eines KI-Agenten mit strukturierter Ausgabe mittels JSON-Schema
 - Ausführen von Planungsanfragen mit typsicheren Antworten
 
-## Schlüsselkonzepte
+## Wichtige Konzepte
 
-### Strukturiertes Planen mit typsicheren Modellen
+### Strukturierte Planung mit typsicheren Modellen
 
-Der Agent verwendet C#-Klassen, um die Struktur der Planungsausgaben zu definieren:
+Der Agent verwendet C#-Klassen, um die Struktur der Planungsoutputs zu definieren:
 
 ```csharp
 public class Plan
@@ -84,7 +84,7 @@ public class TravelPlan
 
 ### JSON-Schema für strukturierte Ausgaben
 
-Der Agent ist so konfiguriert, dass er Antworten zurückgibt, die dem TravelPlan-Schema entsprechen:
+Der Agent ist so konfiguriert, dass er Antworten liefert, die dem TravelPlan-Schema entsprechen:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new()
@@ -103,18 +103,18 @@ ChatClientAgentOptions agentOptions = new()
 
 ### Anweisungen für den Planungsagenten
 
-Der Agent fungiert als Koordinator und delegiert Aufgaben an spezialisierte Teilagenten:
+Der Agent fungiert als Koordinator und delegiert Aufgaben an spezialisierte Sub-Agenten:
 
-- FlightBooking: Für Flugbuchungen und Fluginformationen
-- HotelBooking: Für Hotelbuchungen und Hotelinformationen
-- CarRental: Für Mietwagenbuchungen und Mietwageninformationen
-- ActivitiesBooking: Für Buchung von Aktivitäten und Bereitstellung von Aktivitätsinformationen
+- FlightBooking: Für die Buchung von Flügen und Bereitstellung von Fluginformationen
+- HotelBooking: Für die Buchung von Hotels und Bereitstellung von Hotelinformationen
+- CarRental: Für die Buchung von Autos und Bereitstellung von Mietwageninformationen
+- ActivitiesBooking: Für die Buchung von Aktivitäten und Bereitstellung von Aktivitätsinformationen
 - DestinationInfo: Für die Bereitstellung von Informationen über Reiseziele
 - DefaultAgent: Für die Bearbeitung allgemeiner Anfragen
 
 ## Erwartete Ausgabe
 
-Wenn Sie den Agenten mit einer Reiseplanungsanfrage ausführen, analysiert er die Anfrage und generiert einen strukturierten Plan mit passenden Aufgabenverteilungen an spezialisierte Agenten, formatiert als JSON entsprechend dem TravelPlan-Schema.
+Wenn Sie den Agenten mit einer Reiseplanungsanfrage ausführen, analysiert er die Anfrage und generiert einen strukturierten Plan mit geeigneten Aufgabenverteilungen an spezialisierte Agenten, formatiert als JSON, das dem TravelPlan-Schema entspricht.
 
 ---
 

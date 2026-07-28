@@ -1,150 +1,153 @@
-# 🎨 Agentische Ontwerppatronen met GitHub-modellen (.NET)
+# 🎨 Agentgeoriënteerde Ontwerppatronen met Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Leerdoelen
 
-Dit voorbeeld demonstreert ontwerpprincipes van ondernemingsniveau voor het bouwen van intelligente agenten met behulp van het Microsoft Agent Framework in .NET, geïntegreerd met GitHub-modellen. Je leert professionele patronen en architecturale benaderingen die agenten productie-klaar, onderhoudbaar en schaalbaar maken.
+Dit voorbeeld demonstreert bedrijfsklare ontwerppatronen voor het bouwen van intelligente agents met behulp van het Microsoft Agent Framework in .NET met Azure OpenAI (Responses API) integratie. Je leert professionele patronen en architecturale benaderingen die agents productieklaar, onderhoudbaar en schaalbaar maken.
 
-### Ontwerppatronen voor ondernemingen
+### Bedrijfsklare Ontwerppatronen
 
 - 🏭 **Factory Pattern**: Gestandaardiseerde agentcreatie met dependency injection
-- 🔧 **Builder Pattern**: Vloeiende configuratie en opzet van agenten
-- 🧵 **Thread-Safe Patterns**: Beheer van gelijktijdige gesprekken
+- 🔧 **Builder Pattern**: Vloeiende agentconfiguratie en -opzet
+- 🧵 **Thread-Safe Patronen**: Gelijktijdig gesprekbeheer
 - 📋 **Repository Pattern**: Georganiseerd beheer van tools en mogelijkheden
 
-## 🎯 .NET-specifieke architecturale voordelen
+## 🎯 .NET-specifieke Architectuurvoordelen
 
-### Kenmerken voor ondernemingen
+### Bedrijfsfeatures
 
-- **Sterke Typing**: Validatie tijdens compilatie en ondersteuning voor IntelliSense
-- **Dependency Injection**: Ingebouwde DI-containerintegratie
-- **Configuratiebeheer**: IConfiguration en Options-patronen
-- **Async/Await**: Ondersteuning voor asynchrone programmering van topniveau
+- **Sterke Typing**: Compile-tijd validatie en IntelliSense-ondersteuning
+- **Dependency Injection**: Ingebouwde DI-containeraanpak
+- **Configuratiebeheer**: IConfiguration- en Options-patronen
+- **Async/Await**: Asynchrone programmeerondersteuning als eersteklas
 
-### Productieklare patronen
+### Productieklare Patronen
 
-- **Logintegratie**: ILogger en ondersteuning voor gestructureerd loggen
-- **Gezondheidscontroles**: Ingebouwde monitoring en diagnostiek
+- **Logging Integratie**: ILogger en gestructureerde loggingondersteuning
+- **Health Checks**: Ingebouwde monitoring en diagnostiek
 - **Configuratievalidatie**: Sterke typing met data-annotaties
-- **Foutafhandeling**: Gestructureerd beheer van uitzonderingen
+- **Foutafhandeling**: Gestructureerde uitzonderingbeheer
 
-## 🔧 Technische architectuur
+## 🔧 Technische Architectuur
 
-### Kerncomponenten van .NET
+### Kern .NET-componenten
 
-- **Microsoft.Extensions.AI**: Geünificeerde AI-service-abstracties
-- **Microsoft.Agents.AI**: Framework voor ondernemingsagenten
-- **GitHub Models Integration**: API-clientpatronen met hoge prestaties
-- **Configuratiesysteem**: Integratie van appsettings.json en omgevingen
+- **Microsoft.Extensions.AI**: Geünificeerde AI service-abstraheringen
+- **Microsoft.Agents.AI**: Enterprise agent orchestratie framework
+- **Azure OpenAI (Responses API)**: Hoge-prestatie API client patronen
+- **Configuratiesysteem**: appsettings.json en omgeving integratie
 
-### Implementatie van ontwerppatronen
+### Implementatie van Ontwerppatronen
 
 ```mermaid
 graph LR
     A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    B --> C[Configuratie]
+    C --> D[Hulpmiddelenregister]
+    D --> E[AI-agent]
 ```
 
-## 🏗️ Gedemonstreerde ondernemingspatronen
+## 🏗️ Gedemonstreerde Enterprise Patronen
 
-### 1. **Creational Patterns**
+### 1. **Creational Patronen**
 
 - **Agent Factory**: Gecentraliseerde agentcreatie met consistente configuratie
 - **Builder Pattern**: Vloeiende API voor complexe agentconfiguratie
-- **Singleton Pattern**: Beheer van gedeelde bronnen en configuratie
+- **Singleton Pattern**: Gedeelde resources en configuratiebeheer
 - **Dependency Injection**: Losse koppeling en testbaarheid
 
-### 2. **Behavioral Patterns**
+### 2. **Gedragsmatige Patronen**
 
-- **Strategy Pattern**: Verwisselbare uitvoeringsstrategieën voor tools
-- **Command Pattern**: Geïntegreerde agentoperaties met undo/redo
-- **Observer Pattern**: Eventgestuurd beheer van de levenscyclus van agenten
-- **Template Method**: Gestandaardiseerde workflows voor agentuitvoering
+- **Strategy Pattern**: Verwisselbare tool-executiestrategieën
+- **Command Pattern**: Ingesloten agentoperaties met undo/redo
+- **Observer Pattern**: Gebeurtenisgestuurd lifecyclebeheer van agents
+- **Template Method**: Gestandaardiseerde agentuitvoeringsworkflows
 
-### 3. **Structural Patterns**
+### 3. **Structurele Patronen**
 
-- **Adapter Pattern**: Integratielaag voor GitHub Models API
-- **Decorator Pattern**: Verbetering van agentmogelijkheden
-- **Facade Pattern**: Vereenvoudigde interfaces voor agentinteractie
-- **Proxy Pattern**: Lazy loading en caching voor prestaties
+- **Adapter Pattern**: Azure OpenAI (Responses API) integratielaag
+- **Decorator Pattern**: Agent-mogelijkheid verbeteringen
+- **Facade Pattern**: Vereenvoudigde agent-interactie interfaces
+- **Proxy Pattern**: Lazy loading en caching voor prestatieoptimalisatie
 
-## 📚 Ontwerpprincipes in .NET
+## 📚 .NET Ontwerpprincipes
 
-### SOLID-principes
+### SOLID-Principes
 
-- **Single Responsibility**: Elk component heeft één duidelijke functie
+- **Single Responsibility**: Elk component heeft één duidelijke verantwoordelijkheidsgebied
 - **Open/Closed**: Uitbreidbaar zonder aanpassing
-- **Liskov Substitution**: Implementaties van tools op basis van interfaces
-- **Interface Segregation**: Gerichte, samenhangende interfaces
-- **Dependency Inversion**: Afhankelijkheid van abstracties, niet van concreties
+- **Liskov Substitutie**: Interface-gebaseerde toolimplementaties
+- **Interface Segregatie**: Gefocuste, coherente interfaces
+- **Dependency Inversion**: Afhankelijk van abstracties, niet van concreetheden
 
 ### Clean Architecture
 
-- **Domeinlaag**: Kernabstracties voor agenten en tools
-- **Applicatielaag**: Orchestratie en workflows van agenten
-- **Infrastructuurlaag**: Integratie van GitHub-modellen en externe services
-- **Presentatielaag**: Gebruikersinteractie en responsformattering
+- **Domain Laag**: Kern agent- en toolabstraheringen
+- **Applicatielaag**: Agent orchestratie en workflows
+- **Infrastructuur Laag**: Azure OpenAI (Responses API) integratie en externe services
+- **Presentatielaag**: Gebruikersinteractie en responsopmaak
 
-## 🔒 Overwegingen voor ondernemingen
+## 🔒 Enterprise Overwegingen
 
 ### Beveiliging
 
-- **Beheer van referenties**: Veilige API-sleutelverwerking met IConfiguration
-- **Validatie van invoer**: Sterke typing en validatie met data-annotaties
-- **Sanitatie van uitvoer**: Veilige verwerking en filtering van reacties
-- **Audit Logging**: Uitgebreide tracking van operaties
+- **Credential Management**: Veilige API-sleutelverwerking met IConfiguration
+- **Invoervalidatie**: Sterke typing en data-annotatievalidatie
+- **Output Sanitization**: Veilige verwerking en filtering van antwoorden
+- **Audit Logging**: Uitgebreide operatie-tracking
 
-### Prestaties
+### Prestatie
 
-- **Async Patterns**: Niet-blokkerende I/O-operaties
+- **Async Patronen**: Niet-blokkerende I/O-operaties
 - **Connection Pooling**: Efficiënt beheer van HTTP-clients
-- **Caching**: Responscaching voor verbeterde prestaties
-- **Beheer van bronnen**: Correcte verwijdering en opruimingspatronen
+- **Caching**: Response caching voor betere prestaties
+- **Resourcebeheer**: Correct afhandelen en schoonmaaktechnieken
 
 ### Schaalbaarheid
 
-- **Thread Safety**: Ondersteuning voor gelijktijdige uitvoering van agenten
-- **Resource Pooling**: Efficiënt gebruik van bronnen
-- **Load Management**: Rate limiting en backpressure handling
-- **Monitoring**: Prestatiestatistieken en gezondheidscontroles
+- **Thread Veilighied**: Gelijktijdige agentuitvoering ondersteuning
+- **Resource Pooling**: Efficiënt gebruik van middelen
+- **Load Management**: Rate limiting en backpressure afhandeling
+- **Monitoring**: Prestatiestatistieken en health checks
 
-## 🚀 Productie-implementatie
+## 🚀 Productiedistributie
 
-- **Configuratiebeheer**: Omgevingsspecifieke instellingen
-- **Logstrategie**: Gestructureerd loggen met correlatie-ID's
-- **Foutafhandeling**: Globale foutafhandeling met correcte herstelmethoden
-- **Monitoring**: Application Insights en prestatiecounters
+- **Configuratiebeheer**: Omgeving-specifieke instellingen
+- **Logging Strategie**: Gestructureerde logging met correlatie-ID's
+- **Foutafhandeling**: Globale uitzonderingafhandeling met juiste herstelmethodes
+- **Monitoring**: Application insights en prestatiecounters
 - **Testen**: Unit tests, integratietests en load testing patronen
 
-Klaar om intelligente agenten van ondernemingsniveau te bouwen met .NET? Laten we iets robuusts ontwerpen! 🏢✨
+Klaar om bedrijfsklare intelligente agents te bouwen met .NET? Laten we iets robuusts ontwerpen! 🏢✨
 
 ## 🚀 Aan de slag
 
 ### Vereisten
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of hoger
-- [GitHub Models API-toegangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Een [Azure-abonnement](https://azure.microsoft.com/free/) met een Azure OpenAI resource en een modeldeploy
+- De [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — aanmelden met `az login`
 
-### Vereiste omgevingsvariabelen
+### Vereiste Omgevingsvariabelen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Meld je dan aan zodat AzureCliCredential een token kan krijgen
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Meld u vervolgens aan zodat AzureCliCredential een token kan ophalen
+az login
 ```
 
 ### Voorbeeldcode
 
-Om het codevoorbeeld uit te voeren,
+Om de code te draaien,
 
 ```bash
 # zsh/bash
@@ -152,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Of gebruik de dotnet CLI:
+Of met de dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -165,14 +168,16 @@ Zie [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

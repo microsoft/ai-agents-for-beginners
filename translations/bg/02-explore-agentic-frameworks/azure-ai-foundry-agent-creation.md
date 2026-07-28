@@ -1,42 +1,42 @@
-# Разработка на Microsoft Foundry Agent Service  
+# Разработка на Microsoft Foundry Agent Service
 
-В това упражнение използвате инструментите на Microsoft Foundry Agent Service в [Microsoft Foundry портала](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), за да създадете агент за резервация на полети. Агентът ще може да взаимодейства с потребителите и да предоставя информация за полети.  
+В това упражнение използвате инструментите на Microsoft Foundry Agent Service в [Microsoft Foundry портала](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), за да създадете агент за Резервация на полети. Агентът ще може да взаимодейства с потребителите и да предоставя информация за полетите.
 
-## Предварителни изисквания  
+## Предварителни изисквания
 
-За да завършите това упражнение, ви трябват следните неща:  
-1. Акаунт в Azure с активен абонамент. [Създайте акаунт безплатно](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).  
-2. Трябва да имате разрешения за създаване на Microsoft Foundry hub или някой да създаде такъв вместо вас.  
-    - Ако вашата роля е Contributor или Owner, можете да следвате стъпките в това ръководство.  
+За да завършите това упражнение, ви трябват следните неща:
+1. Акаунт в Azure с активен абонамент. [Създайте акаунт безплатно](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Необходими са ви разрешения за създаване на Microsoft Foundry hub или да имате такъв, създаден за вас.
+    - Ако ролята ви е Contributor или Owner, можете да следвате стъпките в този урок.
 
-## Създаване на Microsoft Foundry hub  
+## Създаване на Microsoft Foundry hub
 
-> **Забележка:** Microsoft Foundry преди беше известна като Azure AI Studio.  
+> **Забележка:** Microsoft Foundry преди се е наричал Azure AI Studio.
 
-1. Следвайте насоките от публикацията в блога на [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) за създаване на Microsoft Foundry hub.  
-2. Когато проектът ви е създаден, затворете всички показани съвети и прегледайте страницата на проекта в портала на Microsoft Foundry, която трябва да изглежда подобно на следната снимка:  
+1. Следвайте тези насоки от [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) публикацията в блога за създаване на Microsoft Foundry hub.
+2. Когато проектът ви бъде създаден, затворете всички показани съвети и прегледайте страницата на проекта в Microsoft Foundry портала, която трябва да изглежда подобно на следното изображение:
 
-    ![Microsoft Foundry Project](../../../translated_images/bg/azure-ai-foundry.88d0c35298348c2f.webp)  
+    ![Microsoft Foundry Project](../../../translated_images/bg/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Разгръщане на модел  
+## Разгръщане на модел
 
-1. В панела вляво за проекта си, в секцията **My assets**, изберете страницата **Models + endpoints**.  
-2. В страницата **Models + endpoints**, в раздела **Model deployments**, от менюто **+ Deploy model** изберете **Deploy base model**.  
-3. Потърсете модела `gpt-4.1-mini` в списъка, след това го изберете и потвърдете.  
+1. В панела вляво за вашия проект, в секцията **My assets**, изберете страницата **Models + endpoints**.
+2. В страницата **Models + endpoints**, в раздела **Model deployments**, в менюто **+ Deploy model**, изберете **Deploy base model**.
+3. Потърсете модела `gpt-5-mini` в списъка, след което го изберете и потвърдете.
 
-    > **Забележка**: Намаляването на TPM помага да се избегне прекомерното използване на квотата, налична в абонамента, който използвате.  
+    > **Забележка**: Намаляването на TPM помага да се избегне прекомерното използване на наличната квота в абонамента, който използвате.
 
-    ![Model Deployed](../../../translated_images/bg/model-deployment.3749c53fb81e18fd.webp)  
+    ![Model Deployed](../../../translated_images/bg/model-deployment.3749c53fb81e18fd.webp)
 
-## Създаване на агент  
+## Създаване на агент
 
-След като сте разположили модел, можете да създадете агент. Агентът е разговорен AI модел, който може да се използва за взаимодействие с потребителите.  
+След като сте разположили модел, можете да създадете агент. Агентът е разговорен AI модел, който може да се използва за взаимодействие с потребителите.
 
-1. В панела вляво за проекта си, в секцията **Build & Customize**, изберете страницата **Agents**.  
-2. Кликнете **+ Create agent**, за да създадете нов агент. В диалоговия прозорец **Agent Setup**:  
-    - Въведете име за агента, например `FlightAgent`.  
-    - Уверете се, че е избрано разгръщането на модела `gpt-4.1-mini`, което сте създали по-рано.  
-    - Задайте **Instructions** според подсказката, която искате агентът да следва. Ето един пример:  
+1. В панела вляво за вашия проект, в секцията **Build & Customize**, изберете страницата **Agents**.
+2. Кликнете **+ Create agent**, за да създадете нов агент. В диалоговия прозорец **Agent Setup**:
+    - Въведете име за агента, например `FlightAgent`.
+    - Уверете се, че е избрано разгръщането на модела `gpt-5-mini`, което създадохте по-рано.
+    - Задайте **Instructions** според подканата, която искате агентът да следва. Ето един пример:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -63,43 +63,43 @@
     - If no data is found or an error occurs, explain it to the user gently and offer alternative actions (e.g., refine search, try another query).
     
     ```
-> [!NOTE]  
-> За подробна подсказка можете да разгледате [този репозиторий](https://github.com/ShivamGoyal03/RoamMind) за повече информация.  
+> [!NOTE]
+> За подробна подканваща инструкция, можете да разгледате [този репозиторий](https://github.com/ShivamGoyal03/RoamMind) за повече информация.
     
-> Освен това, може да добавите **Knowledge Base** и **Actions**, за да подобрите възможностите на агента да предоставя повече информация и да изпълнява автоматизирани задачи според исканията на потребителя. За това упражнение можете да пропуснете тези стъпки.  
+> Освен това, можете да добавите **Knowledge Base** и **Actions**, за да разширите възможностите на агента да предоставя повече информация и да извършва автоматизирани задачи въз основа на потребителски заявки. За това упражнение можете да пропуснете тези стъпки.
     
-![Agent Setup](../../../translated_images/bg/agent-setup.9bbb8755bf5df672.webp)  
+![Agent Setup](../../../translated_images/bg/agent-setup.9bbb8755bf5df672.webp)
 
-3. За да създадете нов мулти-AI агент, просто кликнете **New Agent**. Новосъздаденият агент ще се покаже на страницата Agents.  
+3. За да създадете нов много-AI агент, просто кликнете **New Agent**. Новосъздаденият агент ще се показва на страницата Agents.
 
 
-## Тествайте агента  
+## Тествайте агента
 
-След като създадете агента, можете да го тествате, за да видите как отговаря на въпроси от потребителите в playground-а на Microsoft Foundry портала.  
+След създаването на агента можете да го тествате, за да видите как отговаря на потребителски запитвания в Microsoft Foundry порталния плейграунд.
 
-1. В горната част на панела **Setup** за агента си изберете **Try in playground**.  
-2. В панела **Playground** можете да взаимодействате с агента, като въвеждате запитвания в чат прозореца. Например, можете да помолите агента да търси полети от Сиатъл до Ню Йорк на 28-ми.  
+1. В горната част на панела **Setup** за вашия агент изберете **Try in playground**.
+2. В панела **Playground** можете да взаимодействате с агента, като въвеждате запитвания в прозореца за чат. Например, можете да помолите агента да търси полети от Сиатъл до Ню Йорк на 28-ми.
 
-    > **Забележка**: Агентът може да не предоставя точни отговори, тъй като в това упражнение не се използват актуални данни в реално време. Целта е да се тества способността на агента да разбира и отговаря на запитванията на потребителите според предоставените инструкции.  
+    > **Забележка**: Агентът може да не предостави точни отговори, тъй като в това упражнение не се използват данни в реално време. Целта е да се тества способността на агента да разбира и отговаря на потребителски заявки въз основа на предоставените инструкции.
 
-    ![Agent Playground](../../../translated_images/bg/agent-playground.dc146586de715010.webp)  
+    ![Agent Playground](../../../translated_images/bg/agent-playground.dc146586de715010.webp)
 
-3. След тестване на агента можете да го персонализирате допълнително, като добавите повече намерения, тренировъчни данни и действия, за да подобрите възможностите му.  
+3. След тестването агента можете допълнително да го персонализирате, като добавите повече намерения, тренировъчни данни и действия, за да подобрите възможностите му.
 
-## Почистване на ресурси  
+## Изчистване на ресурси
 
-Когато приключите с тестването на агента, можете да го изтриете, за да избегнете допълнителни разходи.  
-1. Отворете [Azure портала](https://portal.azure.com) и прегледайте съдържанието на ресурсната група, в която сте разположили ресурсите на hub-a, използвани в това упражнение.  
-2. В лентата с инструменти изберете **Delete resource group**.  
-3. Въведете името на ресурсната група и потвърдете, че искате да я изтриете.  
+Когато приключите с тестването на агента, можете да го изтриете, за да избегнете допълнителни разходи.
+1. Отворете [Azure портала](https://portal.azure.com) и прегледайте съдържанието на ресурсната група, където сте разположили hub ресурсите, използвани в това упражнение.
+2. В лентата с инструменти изберете **Delete resource group**.
+3. Въведете името на ресурсната група и потвърдете, че искате да я премахнете.
 
-## Ресурси  
+## Ресурси
 
-- [Документация за Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)  
-- [Microsoft Foundry портал](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)  
-- [Започване с Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)  
-- [Основи на AI агентите в Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)  
-- [Azure AI Discord](https://aka.ms/AzureAI/Discord)  
+- [Документация на Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry портал](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
+- [Започване с Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Основи на AI агентите в Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 

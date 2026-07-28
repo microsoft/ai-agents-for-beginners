@@ -1,18 +1,18 @@
-# 🎯 Planavimo ir Dizaino Šablonai su Azure OpenAI (Atsakymų API) (.NET)
+# 🎯 Planavimas ir dizaino šablonai su Azure OpenAI (Atsakymų API) (.NET)
 
-## 📋 Mokymosi Tikslai
+## 📋 Mokymosi tikslai
 
-Šiame užrašų knygelėje demonstruojami aukščiausio lygio planavimo ir dizaino šablonai kuriant intelektualius agentus naudojant Microsoft Agent Framework .NET su Azure OpenAI (Atsakymų API). Išmoksite kurti agentus, kurie gali detalizuoti sudėtingas problemas, planuoti daugiapakopes sprendimo schemą ir vykdyti pažangias darbo eigas su .NET įmonių funkcijomis.
+Ši užrašų knygutė demonstruoja įmonės lygio planavimo ir dizaino šablonus, kaip kurti išmaniuosius agentus naudojant Microsoft Agent Framework .NET su Azure OpenAI (Atsakymų API). Išmoksite kurti agentus, kurie gali suskaidyti sudėtingas problemas, planuoti daugiažingsnius sprendimus ir vykdyti sudėtingus darbo srautus, naudojant .NET įmonės funkcijas.
 
-## ⚙️ Reikalavimai ir Paruošimas
+## ⚙️ Reikalavimai ir nustatymas
 
-**Plėtros Aplinka:**
+**Kūrimo aplinka:**
 - .NET 9.0 SDK arba naujesnė versija
 - Visual Studio 2022 arba VS Code su C# plėtiniu
-- Azure prenumerata su Azure OpenAI ištekliais ir modelio diegimu
-- Azure CLI — prisijunkite naudodami `az login`
+- Azure prenumerata su Azure OpenAI ištekliumi ir modelio diegimu
+- Azure CLI — prisijunkite su `az login`
 
-**Reikalingos Priklausomybės:**
+**Reikalingos priklausomybės:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
@@ -22,45 +22,45 @@
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Aplinkos Konfigūracija (.env failas):**
+**Aplinkos konfigūracija (.env failas):**
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Kodo Vykdymas
+## Kodo vykdymas
 
-Šioje pamokoje pateikta .NET vieno failo programos implementacija. Norėdami ją paleisti:
+Šiame pamokoje yra .NET vieno failo programos įgyvendinimas. Norėdami ją paleisti:
 
 ```bash
 # Padarykite failą vykdomu (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Paleiskite programėlę
+# Paleiskite programą
 ./07-dotnet-agent-framework.cs
 ```
 
-Arba naudokite komandą dotnet run:
+Arba naudokite dotnet run komandą:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Kodo Įgyvendinimas
+## Kodo įgyvendinimas
 
-Visa implementacija pateikta faile `07-dotnet-agent-framework.cs`, kuri demonstruoja:
+Pilnas įgyvendinimas yra faile `07-dotnet-agent-framework.cs`, kuris demonstruoja:
 
 - Aplinkos konfigūracijos įkėlimą naudojant DotNetEnv
-- Azure OpenAI kliento konfigūravimą ir AI agente kūrimą naudojant `GetChatClient().AsAIAgent()`
-- Struktūrizuotų duomenų modelių (Plan ir TravelPlan) apibrėžimą su JSON serializacija
-- AI agente kūrimą su struktūruotu išvesties formatu naudojant JSON schemą
-- Planavimo užklausų vykdymą su tipais patikrintais atsakymais
+- Azure OpenAI kliento konfigūravimą ir AI agente kūrimą su `GetChatClient().AsAIAgent()`
+- Struktūrinių duomenų modelių (Plan ir TravelPlan) apibrėžimą su JSON serializacija
+- AI agente kūrimą su struktūruotu rezultatu naudojant JSON schemą
+- Planavimo užklausų vykdymą su tipų saugiais atsakymais
 
-## Pagrindinės Sąvokos
+## Pagrindinės sąvokos
 
-### Struktūruotas Planavimas su Tipiškai Patikrintais Modeliais
+### Struktūruotas planavimas su tipų saugiais modeliais
 
-Agentas naudoja C# klases planavimo išėjimų struktūrai apibrėžti:
+Agentas naudoja C# klases apibrėžti planavimo išvesties struktūrai:
 
 ```csharp
 public class Plan
@@ -82,9 +82,9 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema Struktūruotoms Išvestims
+### JSON schema struktūruotoms išvestims
 
-Agentas sukonfigūruotas grąžinti atsakymus pagal TravelPlan schemą:
+Agentas yra sukonfigūruotas grąžinti atsakymus, atitinkančius TravelPlan schemą:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new()
@@ -101,20 +101,20 @@ ChatClientAgentOptions agentOptions = new()
 };
 ```
 
-### Planavimo Agentų Nurodymai
+### Planavimo agente nurodymai
 
-Agentas veikia kaip koordinatorius, paskirstydamas užduotis specializuotiems sub-agentams:
+Agentas veikia kaip koordinatorius, paskirdamas užduotis specializuotiems subagentams:
 
-- FlightBooking: Skrydžių rezervavimui ir skrydžių informacijos teikimui
-- HotelBooking: Viešbučių rezervavimui ir viešbučių informacijos teikimui
-- CarRental: Automobilių nuomai ir nuomos informacijos teikimui
-- ActivitiesBooking: Veiklų rezervavimui ir veiklų informacijos teikimui
-- DestinationInfo: Informacijos apie kryptis teikimui
-- DefaultAgent: Bendrųjų užklausų apdorojimui
+- FlightBooking: Skrydžių užsakymui ir skrydžių informacijos pateikimui
+- HotelBooking: Viešbučių užsakymui ir viešbučių informacijos pateikimui
+- CarRental: Automobilių nuomai ir automobilių nuomos informacijos pateikimui
+- ActivitiesBooking: Veiklų užsakymui ir veiklų informacijos pateikimui
+- DestinationInfo: Turizmo vietovių informacijos pateikimui
+- DefaultAgent: Bendrų užklausų tvarkymui
 
-## Laukiamas Rezultatas
+## Tikėtina išvestis
 
-Paleidus agentą su kelionės planavimo užklausa, jis išanalizuos užklausą ir sugeneruos struktūruotą planą su tinkamu užduočių paskirstymu specializuotiems agentams, suformatuotą kaip JSON, atitinkantį TravelPlan schemą.
+Kai paleisite agentą su kelionės planavimo užklausa, jis analizuos užklausą ir sukurs struktūruotą planą su tinkamu užduočių paskirstymu specializuotiems agentams, suformatuotą JSON formatu, atitinkančiu TravelPlan schemą.
 
 ---
 

@@ -1,91 +1,108 @@
-# ပြောင်းလဲမှုများမှတ်တမ်း
+# အပြောင်းအလဲမှတ်တမ်း
 
-**AI Agents for Beginners** သင်တန်းတွင် ထင်ရှားစွာပြောင်းလဲမှုများအားလုံးကိုဤဖိုင်တွင်မှတ်တမ်းတင်ထားသည်။
+**AI Agents for Beginners** သင်ရိုးကိုယ်ပိုင်သင်ခန်းစာများရှိ အရေးကြီးပြောင်းလဲမှုများအားလုံးကို ဤဖိုင်တွင်မှတ်တမ်းတင်ထားသည်။
 
-## [ထုတ်ပြန်ပြီး] — ၂၀၂၆-ခုနှစ် ၇-လ ၁၃-ရက်
+## [ထုတ်လုပ်ပြီး] — 2026-07-14
 
-ဤထုတ်ပိုးမှုတွင် Microsoft Foundry မှအေဂျင့်များကို အဆင့်မြှင့်တင်ခြင်းနှင့် တစ်လုံးတည်းရှိ workstation သို့ အဆင့်ချန့်တင်ခြင်းကို စုစည်းပြီးမောင်းနှင်ခြင်း (deployment arc) ကိုပြီးစီးစေသည့်သင်ခန်းစာနှစ်ခုအသစ်၊ smoke-test pipeline အသစ်၊ သင်တန်းလမ်းညွှန်ကို ပြန်လည်အသစ်ပြုပြင်ခြင်း၊ သင်ကြားသူကျွမ်းကျင်မှုအသစ်များနှင့် အမှတ်တံဆိပ်ပုံစံကို အပ်ဒိတ်လုပ်ထားသည်။
+ဤထုတ်လုပ်မှုသည် သင်ခန်းစာကို နောက်ဆုံးထုတ်ခဲ့ပြီး အသုံးမပြုတော့သော မော်ဒယ်၂ခုမှ ကူးပြောင်းသွားပြီး ကျန်ရှိသည့် သင်ခန်းစာမှတ်စုများကို Microsoft Agent Framework API တည်ငြိမ်သော ဗားရှင်းသို့ ပြောင်းရွှေ့ပြီး Python မှတ်စုများကို Microsoft Foundry တင်ထားသည့် live ပတ်ဝန်းကျင်တွင် စစ်ဆေးသေချာထားသည်။
+
+### ပြောင်းလဲခဲ့သည်
+
+- **အသုံးမပြုတော့သည့် မော်ဒယ်များမှ ကူးပြောင်းခြင်း (`gpt-4.1` / `gpt-4.1-mini` → `gpt-5-mini`)။** `gpt-4.1` နှင့် `gpt-4.1-mini` တို့အား ၂၀၂၆ အောက်တိုဘာ ၁၄ ရက်မှစ၍ အသုံးမပြုတော့အောင် ထုတ်ပြန်ထားသည်။ သင်ခန်းစာတွင်ပါဝင်သည့် စာရွက်စာတမ်းများ၊ `.env.example`၊ Python/.NET မှတ်စုများနှင့် နမူနာများကို `gpt-5-mini` ဖြင့် အစားထိုးထားသည်။ သင်ခန်းစာ ၁၆ ရဲ့ မော်ဒယ်လမ်းညွှန် ဥပမာတွင် အသေးစား/ကြီးစား ကွာခြားမှုကို `gpt-5-nano` (အသေးစား) နှင့် `gpt-5-mini` (ကြီးစား) ကို အသုံးပြုထားသည်။ တတိယ पक्षဖိုင်များ ([15-browser-use/llms.txt](../../15-browser-use/llms.txt))၊ သမိုင်းဝင် GitHub မော်ဒယ်စာသားများနှင့် `azure-openai-to-responses` ကျွမ်းကျင်မှု မှတ်စုများကို မပြောင်းလဲထားပဲ ကျန်ရှိထားသည်။
+- **သင်ခန်းစာ ၁၄ handoff မှတ်စုသည် တည်ငြိမ် API သို့ ကူးပြောင်းထားသည်။** [14-handoff.ipynb](./14-microsoft-agent-framework/code-samples/14-handoff.ipynb) သည် `agent_framework.orchestrations.HandoffBuilder` နှင့် `.with_start_agent(...)`၊ `HandoffAgentUserRequest.create_response(...)`၊ `event.type` အခြေခံ သတင်းစီးဆင်းမှုနှင့် `FoundryChatClient` ကို အသုံးပြုထားပြီး ယခင်က ဖယ်ရှားထားသော `HandoffBuilder`/`ChatMessage`/`RequestInfoEvent` သင်္ကေတများကို အစားထိုးထားသည်။
+- **သင်ခန်းစာ ၁၄ human-in-the-loop မှတ်စုသည် တည်ငြိမ် API သို့ ကူးပြောင်းထားသည်။** [14-human-loop.ipynb](./14-microsoft-agent-framework/code-samples/14-human-loop.ipynb) သည် `ctx.request_info(...)` နှင့် `@response_handler` မှတဆင့် ရပ်နားပြီး (ဖယ်ရှားထားသော `RequestInfoExecutor` / `RequestInfoMessage` / `RequestResponse` ကို အစားထိုး), `WorkflowBuilder(start_executor=..., output_executors=[...])` ဖြင့် တည်ဆောက်၊ `default_options={"response_format": ...}` ဖြင့် စနစ်တကျ ထုတ်လွှင့်ပြီး script ဖြင့် ဖြေရှင်းမှုရှိသော ရေးသားချက်ကို အသုံးပြုပြီး လူထည့်စောင့်ကြည့်မလိုအပ်သော မှတ်စုဖြစ်သည် (input() အသုံးပြု၍ ပိတ်ရန် မလိုအပ်)။
+- **ပတ်ဝန်းကျင်အဆင်ပြေမှု စီမံချက်** ([.env.example](../../.env.example)): မော်ဒယ်တင်သွင်းမှု အမည်များကို `gpt-5-mini` သို့ ပြောင်းပြီး `AZURE_AI_SMALL_MODEL` / `AZURE_AI_LARGE_MODEL` (သင်ခန်းစာ ၁၆ လမ်းညွှန်မှု) နှင့် ယခင်တွင် မပါဝင်သော `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` (သင်ခန်းစာ ၁၅ browser-use) ကို ထည့်သွင်းထားသည်။
+- **လိုအပ်ချက်များ** ([requirements.txt](../../requirements.txt)): `agent-framework`, `agent-framework-foundry` နှင့် `agent-framework-openai` ကို `~=1.10.0` မှတ်ထားပြီး၊ နောက်ထပ် စမ်းသပ်ခွင့်ပြုချက် ယူထားသည် (1.11.0 သည် သင်ခန်းစာများအသုံးပြုရာ surface များတွင် စမ်းသပ်မှု ချိုးဖောက် အပြောင်းအလဲများပါရှိသည်)။
+
+### မှတ်ချက်များနှင့် သိရှိရသော ကန့်သတ်ချက်များ
+
+- **Microsoft Foundry သက်ထိမ်းစစ်ဆေးထားသည်။** Python မှတ်စုများကို Microsoft Foundry စီမံကိန်းတစ်ခုတွင် `gpt-5-mini` (နှင့် သင်ခန်းစာ ၁၆ လမ်းညွှန်မှုအတွက် `gpt-5-nano`) အသုံးပြု၍ `nbconvert` ဖြင့် မျက်မှောက်မမြင် စစ်ဆေးထားသည်။ ကျွန်ုပ်တို့၏စီမံကိန်းတွင် အသုံးမပြုတော့သော မော်ဒယ်များကို တင်သွင်းပြီး၊ မှတ်စုများသည် `AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT` မှ Deployment အမည်ကို ဖတ်ယူသည်။
+- **အချို့သင်ခန်းစာများအတွက် ထပ်ဆောင်းအရင်းအမြစ်များ လိုအပ်ခြင်းစိတ်မပျက်။** သင်ခန်းစာ ၀၅ အတွက် Azure AI Search လိုအပ်သည်။ သင်ခန်းစာ ၀၈ အတွက် Bing ပြင်ဆင်မှု workflow (`04.python-agent-framework-workflow-aifoundry-condition.ipynb`) တွင် Bing ချိတ်ဆက်မှုနှင့် Microsoft Foundry Agent Service hosted tools လိုအပ်သည်။ သင်ခန်းစာ ၁၃ (Cognee) နှင့် ၁၇ (Foundry Local) သည် မိမိအလိုက် Runtime များ လိုအပ်သည်။
+
+## [ထုတ်လုပ်ပြီး] — 2026-07-13
+
+ဤထုတ်လုပ်မှုသည် တင်သွင်းမှု သင်ခန်းစာ၂ခု (Microsoft Foundry နှင့် workstation တစ်ခုတည်းသို့ အဆင့်ချထားခြင်း) ဖြင့် ပြီးစီးမှု ၊ Smoke-test pipeline အသစ်၊ သင်ခန်းစာ navigation ပြန်လည်သစ်ခြင်း၊ သင်ယူသူ ကျွမ်းကျင်မှုအသစ်များနှင့် အမှတ်တံဆိပ်ကို အပ်ဒိတ်လုပ်ပေးသည်။
+
+### ထည့်စွက်ခဲ့သည်
+
+- **သင်ခန်းစာ ၁၆ — Microsoft Foundry ဖြင့် Scalable Agents တင်သွင်းခြင်း။** သစ်ထည့်သွင်းသင်ခန်းစာ [16-deploying-scalable-agents/README.md](./16-deploying-scalable-agents/README.md) နှင့် ထုတ်လုပ်မှုဖောက်သည်-ထောက်ပံ့မှု agent တစ်ခု တည်ဆောက်သော runnable notebook [16-python-agent-framework.ipynb](./16-deploying-scalable-agents/code_samples/16-python-agent-framework.ipynb) (ကိရိယာများ၊ RAG, memory, မော်ဒယ်လမ်းညွှန်မှု, ပြန်ကြားမှု cache, လူ့အတည်ပြုခြင်း, သုံးသပ်မှု စနစ်နှင့် OpenTelemetry စိတ်ကြိုက်ပြည့်စုံခြင်း), ဖွံ့ဖြိုးမှု/တင်သွင်းမှု/အသုံးပြုမှု Mermaid diagrams၊ ဗဟုသုတ စစ်ဆေးမှု၊ တာဝန်ပေးမှု နှင့် စိန်ခေါ်မှုပါရှိသည်။
+- **သင်ခန်းစာ ၁၇ — Foundry Local နှင့် Qwen ဖြင့် ဒေသန္တရ AI Agents ဖန်တီးခြင်း။** သစ်ထည့်သွင်းသင်ခန်းစာ [17-creating-local-ai-agents/README.md](./17-creating-local-ai-agents/README.md) နှင့် fully on-device အင်ဂျင်နီယာ အကူအညီပေးသူ တည်ဆောက်သော notebook [17-local-agent-foundry-local.ipynb](./17-creating-local-ai-agents/code_samples/17-local-agent-foundry-local.ipynb) (Foundry Local မှ Qwen function calling, sandboxed ဖိုင်ကိရိယာများ, local RAG with Chroma, ရွေးချယ်ရသော local MCP), local-only / local-RAG / tool-calling diagram များ၊ ဗဟုသုတစစ်ဆေးမှု၊ တာဝန်ပေးမှု နှင့် စိန်ခေါ်မှု ပါဝင်သည်။
+- **Smoke-test pipeline**: အသစ်ထည့်သွင်းထားသော [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) workflow [.github/workflows/smoke-test.yml](../../.github/workflows/smoke-test.yml) နှင့် သင်ခန်းစာ ၀၁၊ ၀၄၊ ၀၅၊ ၁၆ မှ deploy လုပ်နိုင်သော agents များအတွက် catalog များကို [tests/](./tests/README.md) တွင် ထည့်သွင်းထားပြီး၊ စာရင်းတစ်ခုတွင် မှတ်စုတွင်သင့်တော်သည့် သင်ခန်းစာနှင့် hosted-agent အမည်ဖော်ပြထားသည်။ သင်ခန်းစာ ၁၆ တွင် "Smoke Tests ဖြင့် တင်သွင်းထားသော Agent အတည်ပြုခြင်း" အပိုင်း ပါဝင်ပြီး သင်ခန်းစာ ၀၁/၀၄/၀၅ တွင် အလိုအလျောက် smoke-test လမ်းညွှန်ထည့်သွင်းထားသည်။
+- **သင်ယူသူ ကျွမ်းကျင်မှုများ။** `.agents/skills/` တွင် အသစ်ထည့်သွင်းပြီး [deploying-scalable-agents](./.agents/skills/deploying-scalable-agents/SKILL.md), [local-ai-agents](./.agents/skills/local-ai-agents/SKILL.md) (သင်ခန်းစာ ၁၆ နှင့် ၁၇ ညွှန်ကြားချက်များ ပက်ကေး) နှင့် [testing-course-samples](./.agents/skills/testing-course-samples/SKILL.md) (Microsoft Foundry / Azure OpenAI တင်ထားသည့် notebook နမူနာများစစ်ဆေးခြင်း) ပါဝင်သည်။
+- **Notebook သေချာစစ်ဆေးမှု runner။** အသစ်ထည့်သွင်းထားသော [scripts/validate-notebooks.ps1](../../scripts/validate-notebooks.ps1) သည် Python မှတ်စုများအားလုံးကို `nbconvert` ဖြင့် မျက်မှောက်မမြင်စွာ ပြေးဆွဲပြီး PASS/FAIL matrix (နှင့် `results.json`) ကို ထုတ်ပြသည်။ repo root နှင့် Python ကို အလိုအလျောက် တွေ့ရှိပြီး သင်ခန်းစာ မဟုတ်သော မှတ်စုများ (`.venv`, `site-packages`, `translations`, skill template asset များ) နှင့် `.NET` မှတ်စုများကို ပယ်ဖျက်ထားသည်။ `-Filter`, `-Timeout`, `-List`, `-IncludeDotnet`, နှင့် `-Python` ကို ထောက်ပံ့သည်။
+- **သင်ခန်းစာ navigation.** သင်ခန်းစာ ၁၁ မှ ၁၅ အထိ အရင် မပါဝင်ခဲ့သော Previous/Next link များ ထည့်သွင်းကာ သင်ခန်းစာ ၀၀ မှ ၁၈ အထိ ရိုးဝိုင်းချိတ်ဆက်ထားသည်။
+- **အသစ်ထည့်သွင်းသည့် Thumbnailsများ။** သင်ခန်းစာ ၁၆ နှင့် ၁၇ အတွက် သင်ခန်းစာ thumbnail များ၊ အတူတူ repository social image အသစ် [images/repo-thumbnailv3.png](./images/repo-thumbnailv3.png) (သစ်ထည့်သွင်းသင်ခန်းစာ နှစ်ခုနှင့် `aka.ms/ai-agents-beginners` URL ကို ကြော်ညာထားသည်) ပါဝင်သည်။
+- **လိုအပ်ချက်များ** ([requirements.txt](../../requirements.txt)): သင်ခန်းစာ ၁၇ အတွက် `foundry-local-sdk` နှင့် `chromadb` ထည့်သွင်းထားသည်။
+
+### ပြောင်းလဲခဲ့သည်
+
+- **Main [README.md](./README.md)** သင်ခန်းစာ အချက်အလက်ဇယား: သင်ခန်းစာ ၁၆ နှင့် ၁၇ တွင် ယခုအခါ ကောင်းမွန်သော content link များ (အရင်အခါ "လျင်မြန်စွာ ရောက်ရှိမည်" ဟု မှတ်သား) ပါရှိသည်။ repository image ကို `repo-thumbnailv3.png` သို့ မြှင့်တင်ထားသည်။
+- **[STUDY_GUIDE.md](./STUDY_GUIDE.md)**: သင်ခန်းစာ ၁၆ နှင့် ၁၇ ကို သင်ခန်းစာအလိုက် လမ်းညွှန်နှင့် သင်ယူမှု လမ်းကြောင်းများတွင် ထည့်သွင်းပြီး "Smoke Tests ဖြင့် တင်သွင်းထားသော Agents အတည်ပြုခြင်း" အပိုင်း ရှိသည်။
+- **[AGENTS.md](./AGENTS.md)**: သင်ခန်းစာ အရေအတွက်/ဖေါ်ပြချက် (၀၀–၁၈) ကို အပ်ဒိတ်လုပ်ပြီး smoke-testing အတည်ပြုမှု အပိုင်း ထည့်သွင်းသည်။ သင်ခန်းစာ ၁၆/၁၇ ၏ နမူနာအမည်ဖေါ်ပြချက်များပါဝင်သည်။
+- **[18-securing-ai-agents/README.md](./18-securing-ai-agents/README.md)**: "Previous Lesson" ကို ယခု သင်ခန်းစာ ၁၇ (အရင် ၁၅) သို့ ချိတ်ဆက်ပြီး စနစ်ကို ပိတ်ပင်သည်။
+- **သုံးလုံး မော်ဒယ်များအတွက် စံချိန်သတ်မှတ်ထားသော ကိုးကားမှုများ။** သင်ခန်းစာတွင်ပါဝင်သည့် `gpt-4o` / `gpt-4o-mini` ကို `gpt-4.1-mini` ဖြင့် အစားထိုးထားသည် (docs, `.env.example`, Python/.NET မှတ်စုများနှင့် နမူနာများ). `gpt-4o` (အားလုံး ဗားရှင်းများ) သည် ၂၀၂၆ တွင် အသုံးမပြုတော့ပါ။ သင်ခန်းစာ ၁၆ ရဲ့ မော်ဒယ်လမ်းညွှန် ဥပမာတွင် အသေးစား/ကြီးစား အား `gpt-4.1-mini` (အသေးစား) နှင့် `gpt-4.1` (ကြီးစား) ဖြင့် ထားရှိသည်။ Python မှတ်စုများတွင် မော်ဒယ်အမည်ကို မိုက်ခရိုဆိုဖ် Azure openAI မော်ဒယ် အသုံးပြုရန် မှတ်ပုံတင်အမှတ်အသားများ (`AZURE_AI_MODEL_DEPLOYMENT_NAME` / `AZURE_OPENAI_DEPLOYMENT`) မှ ဖတ်ရွေးရသည်။
+
+### မှတ်ချက်များနှင့် သိရှိရသော ကန့်သတ်ချက်များ
+
+- **Live Azure တွင် စမ်းသပ်မထားပါ။** သစ်ထည့်သွင်းသင်ခန်းစာများမှာ ပညာရေးနမူနာများဖြစ်ပြီး မိမိ Microsoft Foundry / Foundry Local ပြင်ပတပ်ဆင်မှု၌ စမ်းသပ်ရမည်။ Smoke-test workflow သည် သင်ခန်းစာ တွင် အေးဂျင့်ကို တင်သွင်း၍ Azure OIDC လျှို့ဝှက်ချက်များ (`AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`) ကို Microsoft Foundry စီမံကိန်း ကွက်လပ်တွင် Azure AI User အလုပ်အတွက် သတ်မှတ်ထားရန်လိုအပ်သည်။
+- **သင်ခန်းစာ ၁၇ သည် ဒေသန္တရသာ ဖြစ်သည်။** ဤသင်ခန်းစာတွင် Foundry Responses endpoint မရှိသဖြင့် smoke-test လည်ပတ်မှု မဟုတ်ပါ။ သင်ခန်းစာကို မိမိ ဒက်စတော့ပ်ပေါ်တွင် မိမိဖြင့် စစ်ဆေးရန်ရှိသည်။
+
+## [ထုတ်လုပ်ပြီး] — 2026-07-06
+
+ဤထုတ်လုပ်မှုသည် သင်ခန်းစာကို **Azure OpenAI Responses API** သို့ ကူးပြောင်း၊ **Microsoft Foundry** နှင့် **Microsoft Agent Framework (MAF)** က ထုတ်ကုန်အမည်များ တူညီစေပြီး GitHub မော်ဒယ်များကို ရုပ်သိမ်း၊ SDK ဗားရှင်းများ ထပ်မံ အပ်ဒိတ်လုပ်ပြီး ဒေသန္တရ မော်ဒယ်များမှာမဟုတ်သော ဖောင်မြားများကို Foundry တွင် တင်သွင်းခြင်း အကြောင်း အမြင်သစ် များ ထည့်သွင်းသည်။
 
 ### ထည့်သွင်းခဲ့သည်
 
-- **သင်ခန်းစာ ၁၆ — Microsoft Foundry ဖြင့် အစွမ်းထက်သောအေဂျင့်များတပ်ဆင်ခြင်း။** အသစ်ထည့်သွင်းသောသင်ခန်းစာ [16-deploying-scalable-agents/README.md](./16-deploying-scalable-agents/README.md) နှင့် production customer-support agent တည်ဆောက်ခြင်း (ကိရိယာများ၊ RAG, memory, ပုံစံချိတ်ဆက်မှု, တုံ့ပြန်မှု cache ထည့်ခြင်း၊ လူ့အတည်ပြုခြင်း၊ အကဲဖြတ်ရန်တံခါး၊ OpenTelemetry ခြေရာခံမှုများ) ပါဝင်သည့် ဖြည့်စွက် Notebook [16-python-agent-framework.ipynb](./16-deploying-scalable-agents/code_samples/16-python-agent-framework.ipynb), တီထွင်အားဖြင့်/တပ်ဆင်ခြင်း/အချိန်ပြေး Mermaid ပုံနှိပ်များ၊ အတတ်ပညာစစ်ဆေးမှု၊ အိမ်စာ၊ နှင့် စိန်ခေါ်မှုပါရှိသည်။
-- **သင်ခန်းစာ ၁၇ — Foundry Local နှင့် Qwen ဖြင့် ဒေသိယ AI အေဂျင့်များ ဖန်တီးခြင်း။** အသစ်ထည့်သွင်းသည့်သင်ခန်းစာ [17-creating-local-ai-agents/README.md](./17-creating-local-ai-agents/README.md) နှင့် ဖန်တီးရေးသားထားသော Notebook [17-local-agent-foundry-local.ipynb](./17-creating-local-ai-agents/code_samples/17-local-agent-foundry-local.ipynb) (Qwen function calling ဖြင့် Foundry Local, sandboxed ဖိုင်ကိရိယာများ၊ Chroma ဖြင့် ဒေသိယ RAG၊ ရွေးချယ်နိုင်သော ဒေသိယ MCP) ပါဝင်ပြီး ဒေသိယသာ/ဒေသိယ RAG/ကိရိယာခေါ်မှုအစီအစဉ်များ၊ အတတ်ပညာစစ်ဆေးမှု၊ အိမ်စာနှင့် စိန်ခေါ်မှုပါဝင်သည်။
-- **Smoke-test pipeline အသစ်။** အသစ် [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) workflow [.github/workflows/smoke-test.yml](../../.github/workflows/smoke-test.yml) နှင့် Lessons 01, 04, 05, 16 တွင် တပ်ဆင်နိုင်သောအေဂျင့်များအတွက် [tests/](./tests/README.md) အောက်ရှိ per-lesson အညွှန်းများ၊ စာရင်းများ၊ နှင့် စာမျက်နှာ README တစ်ခု၍ သင်ခန်းစာနှင့် hosted-agent အမည်တိုက်ဆိုင်မှုပါရှိသည်။ သင်ခန်းစာ ১৬ တွင် "Smoke Tests ဖြင့် တပ်ဆင်ပြီးအေဂျင့်ကို စစ်ဆေးခြင်း" အပိုင်းအသစ် ထည့်သွင်းပြီး Lessons 01/04/05 တွင် ရွေးချယ်စရာ smoke-test လင့်ခ်ပါဝင်သည်။
-- **သင်ကြားသူ ကျွမ်းကျင်မှုများ။** အသစ် `.agents/skills/` အောက်ရှိ Agent Skills: [deploying-scalable-agents](./.agents/skills/deploying-scalable-agents/SKILL.md), [local-ai-agents](./.agents/skills/local-ai-agents/SKILL.md) (သင်ခန်းစာ ၁၆ နှင့် ၁၇ အကြောင်းအရာများနှင့်အတူ) နှင့် [testing-course-samples](./.agents/skills/testing-course-samples/SKILL.md) (live Microsoft Foundry / Azure OpenAI ပတ်ဝန်းကျင်အတိုင်း notebook စမ်းသပ်ချက်များစစ်ဆေးနည်း)။
-- **Notebook စစ်ဆေးမှု runner.** အသစ် [scripts/validate-notebooks.ps1](../../scripts/validate-notebooks.ps1) သည် Python notebook များအားလုံးကို `nbconvert` ဖြင့် ခေါ်ယူလုပ်ဆောင်ပြီး PASS/FAIL matrix (နှင့် `results.json`) ပုံသဏ္ဍာန်ဖြင့် ဖော်ပြသည်။ repo အမြစ်အတိုင်းမှ သိမ်းဆည်းပြီး Python ကို ရှာတွေ့သည်၊ သင်တန်းပြင်ပ notebook များ (`.venv`, `site-packages`, `translations`, skill template assets) နှင့် `.NET` notebook များကို မပါဝင်စေဘဲ၊ `-Filter`, `-Timeout`, `-List`, `-IncludeDotnet`, `-Python` option များကို ထောက်ပံ့သည်။
-- **သင်တန်းလမ်းညွှန်။** သင်ခန်းစာ ၁၁ မှ ၁၅ အထိ မရှိသည့် Previous/Next lesson link များကို ထည့်သွင်းပြီး သင်တန်းတစ်ခုလုံးကို ၀၀ → ၁၈ တိုင် အဆက်မပြတ် ချိတ်ဆက်ထားသည်။
-- **သင်ခန်းစာ thumbnail အသစ်များ။** သင်ခန်းစာ ၁၆ နှင့် ၁၇ အတွက် thumbnail များနှင့် repository ရဲ့ လူမှုရေးပုံစံတစ်ခုအသစ် [images/repo-thumbnailv3.png](./images/repo-thumbnailv3.png) (သင်ခန်းစာနှစ်ခုနှင့် `aka.ms/ai-agents-beginners` URL ကို ကြော်ငြာနေသည်)။
-- **လိုအပ်ချက်များ** ([requirements.txt](../../requirements.txt)): သင်ခန်းစာ ၁၇ အတွက် `foundry-local-sdk` နှင့် `chromadb` ထည့်သွင်းခြင်း။
+- **ကူးပြောင်းခြင်း ကျွမ်းကျင်မှု** — `.agents/skills/` အောက်မှ [`azure-openai-to-responses`](./.agents/skills/azure-openai-to-responses/SKILL.md) Agent Skill ကို [Azure-Samples/azure-openai-to-responses](https://github.com/Azure-Samples/azure-openai-to-responses) မှ ထည့်သွင်းပြီး အသုံးပြုမှုအညွှန်းနှင့် scanner script ပါဝင်သည်။
+- **Foundry Local (မော်ဒယ်များကို on-device တွင် ပြေးဆွဲခြင်း)** — [00-course-setup/README.md](./00-course-setup/README.md) တွင် "Alternative Provider: Foundry Local" အပိုင်း အသစ် ထည့်သွင်းထားကာ install လုပ်ခြင်း (`winget` / `brew`), `foundry model run`, `foundry-local-sdk`, နှင့် Microsoft Agent Framework မှ `OpenAIChatClient` ကို FoundryLocalManager တွင် ဆက်သွယ်ခြင်း ဖေါ်ပြထားသည်။
+- **Microsoft Foundry တွင် LangChain / LangGraph agents ကို တင်သွင်းခြင်း** — [14-microsoft-agent-framework/README.md](./14-microsoft-agent-framework/README.md) တွင် အသစ်အပိုင်း ထည့်သွင်းပြီး runnable နမူနာတစ်ခု [14-langchain-hosted-agent.py](../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) သည် `langchain-azure-ai[hosting]` နှင့် `ResponsesHostServer` (/responses protocol) ကို အသုံးပြုသည်၊ [Microsoft Learn](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) ကို အခြေခံထားသည်။
+- **Microsoft Project Opal** — [15-browser-use/README.md](./15-browser-use/README.md) တွင် "Real-World Example: Microsoft Project Opal" အပိုင်း အသစ်ထည့်ကာ Opal ကို ကုမ္ပဏီတွင် ကြားနာကူညီမှု agent အဖြစ် ဖော်ပြထားသည်။ သင်ခန်းစာ အကြောင်းအရာများ (လူအတည်ပြုမှု, ဘေးကင်းကြပ်ကြားမှု, စီမံချက်, ကျွမ်းကျင်မှုများ) နှင့် မြှင့်တင်တွဲဖက်ထားသည်။
+- **သင်ခန်းစာ ၀၂ Python နမူနာ ၂ ခုမြောက်** — ယခင် Semantic Kernel မှတ်စုမှ ကူးပြောင်းထားသည့် [02-python-agent-framework-azure-openai.ipynb](./02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb) ထပ်ထည့်သွင်းပြီး သင်ခန်းစာ README တွင် ချိတ်ဆက်ထားသည်။
+- **မော်ဒယ်များနှင့် ပံ့ပိုးသူများ** အပိုင်းကို [STUDY_GUIDE.md](./STUDY_GUIDE.md) တွင် ထည့်သွင်းထားသည်။
 
-### ပြောင်းလဲမှုများ
+### ပြောင်းလဲခဲ့သည်
 
-- **Main [README.md](./README.md)** သင်ခန်းစာဇယား: သင်ခန်းစာ ၁၆ နှင့် ၁၇ အကြောင်းအရာကို "Coming Soon" မှအကြောင်းအရာတွေသို့ ပြောင်းလဲပြီး repository ၏ပုံစံသည် `repo-thumbnailv3.png` ဖြစ်သွားသည်။
-- **[STUDY_GUIDE.md](./STUDY_GUIDE.md)**: သင်ခန်းစာ ၁၆ နှင့် ၁၇ ကို သင်ခန်းစာအလိုက်လမ်းညွှန်နှင့် သင်ယူမှုလမ်းကြောင်းများသို့ ထည့်သွင်းပြီး "Smoke Tests ဖြင့် တပ်ဆင်ပြီးအေဂျင့်ကို စစ်ဆေးခြင်း" အပိုင်းအသစ်ပါဝင်သည်။
-- **[AGENTS.md](./AGENTS.md)**: သင်ခန်းစာအရေအတွက်/ဖော်ပြချက် (၀၀–၁၈), smoke-testing validation အပိုင်းနှင့် သင်ခန်းစာ ၁၆/၁၇ နမူနာအမည်များကို ပြင်ဆင်ထားသည်။
-- **[18-securing-ai-agents/README.md](./18-securing-ai-agents/README.md)**: "Previous Lesson" သည် ယခင် Lesson ၁၅ မှ Lesson ၁၇သို့ ပြောင်းလဲပြီး ချိတ်ဆက်မှုကို ပိတ်သည်။
-- **ဟောင်းကွယ်နေသော မော်ဒယ်များမပါဘဲ စံပြ မော်ဒယ်ကို သတ်မှတ်ခြင်း။** တစ်ခုတည်းသော `gpt-4o`/`gpt-4o-mini` ကို `gpt-4.1-mini` ဖြင့် အစားထိုးပြီး ၂၀၂၆ တွင် `gpt-4o` (ဗားရှင်းအားလုံး) ပယ်ဖျက်မည်။ သင်ခန်းစာ ၁၆ ၏ မော်ဒယ်ချိတ်ဆက်မှု ဥပမာသည် သေးငယ်/ကြီးမား ခြားနားချက်ကို `gpt-4.1-mini` (သေးငယ်) နှင့် `gpt-4.1` (ကြီးမား) အသုံးပြုထားသည်။ Python notebook များသည် မော်ဒယ်အမည်တစ်ခုကို ခိုင်လုံစွာမသုံးဘဲ environment variable များမှ ရွေးချယ်သည် (`AZURE_AI_MODEL_DEPLOYMENT_NAME`/`AZURE_OPENAI_DEPLOYMENT`)။
-
-### မှတ်ချက်များနှင့် သိရှိထားသောကန့်သတ်ချက်များ
-
-- **အသက်ဝင်သော Azure မ်ားအပေါ် အလုပ်မလုပ်ပါ။** သင်ခန်းစာအသစ်များ၏ Notebook များသည် ပညာပေး နမူနာအနေနှင့် Microsoft Foundry / Foundry Local ကိုယ်ပိုင်စနစ်တွင် စမ်းသပ်ပြင်ဆင်ရန် ဖြစ်သည်။ smoke-test workflow သည် သင်ခန်းစာအေဂျင့်ကို တပ်ဆင်ပြီး Azure OIDC လျှို့ဝှက်ချက်များ (`AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`) ကို Foundry project scope တွင် **Azure AI User** အခန်းကဏ္ဍဖြင့် ချိန်ညှိရမည်။
-- **သင်ခန်းစာ ၁၇ သည် ဒေသိယသာဖြစ်သည်။** Foundry Responses endpoint မရှိသောကြောင့် smoke-test လုပ်ဆောင်မှု မသင့်တော်ပါ; သင်၏ workstation ပေါ်တွင် Notebook များကို ပတ်သက်၍ စစ်ဆေးရန်လိုသည်။
-
-## [ထုတ်ပြန်ပြီး] — ၂၀၂၆-ခုနှစ် ၇-လ ၆-ရက်
-
-ဤထုတ်ပိုးမှုသည် သင်တန်းကို **Azure OpenAI Responses API** သို့ ပြောင်းရွှေ့ခြင်း၊ **Microsoft Foundry** နှင့် **Microsoft Agent Framework (MAF)** ထွက်ကုန်အမည်ကို စံချိန်တင်ခြင်း၊ GitHub Models ပယ်ဖျက်ခြင်း၊ SDK ဗားရှင်းများကို အပ်ဒိတ်လုပ်ခြင်းနှင့် ဒေသိယ မော်ဒယ်များနှင့် Foundry တွင် အခြား Framework များကို ဟိုစတင်း စနစ်အကြောင်းအသစ်များ ထည့်သွင်းထားသည်။
-
-### ထည့်သွင်းခဲ့သည်
-
-- **ပြောင်းရွှေ့မှု ကျွမ်းကျင်မှု** — `.agents/skills/` အောက်ရှိ [`azure-openai-to-responses`](./.agents/skills/azure-openai-to-responses/SKILL.md) Agent Skill ကို ထည့်သွင်းပြီး (အရင်းအမြစ် [Azure-Samples/azure-openai-to-responses](https://github.com/Azure-Samples/azure-openai-to-responses) မှ) ၊ အညွှန်းနှင့် စကင်နာ script ပါဝင်သည်။
-- **Foundry Local (မော်ဒယ်များကို device တွင် တိုက်ရိုက်ပြောင်းလဲသုံးခြင်း)** — [00-course-setup/README.md](./00-course-setup/README.md) တွင် အသစ် “Alternative Provider: Foundry Local” အပိုင်းဖြင့် ထည့်သွင်းခြင်း။ winget / brew ဖြင့် ထည့်သွင်းခြင်း၊ `foundry model run` သုံးခြင်း၊ `foundry-local-sdk` သုံးခြင်း နှင့် Microsoft Agent Framework တွင် `OpenAIChatClient` ဖြင့် FoundryLocalManager ဆက်သွယ်ခြင်း။
-- **Microsoft Foundry တွင် LangChain / LangGraph အေဂျင့်များ ဟိုစတင်းခြင်း** — [14-microsoft-agent-framework/README.md](./14-microsoft-agent-framework/README.md) တွင် အသစ် အပိုင်းပေါင်းထည့်ပြီး `langchain-azure-ai[hosting]` နှင့် `ResponsesHostServer` ( `/responses` ပရိုတိုကော) အသုံးပြုထားသော ဥပမာများ [14-langchain-hosted-agent.py](../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) ပါဝင်သည်၊ [Microsoft Learn](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) ကို အခြေခံသည်။
-- **Microsoft Project Opal** — [15-browser-use/README.md](./15-browser-use/README.md) တွင် "လက်တွေ့ဥပမာ: Microsoft Project Opal" အပိုင်းအသစ် ထည့်သွင်းပြီး Opal ကို ဆန်းပြားစွာအသုံးပြုသော ကွန်ပြူတာသုံး အေဂျင့်အဖြစ် ဖော်ပြသည် (လူအဖွဲ့ ထဲတွင်ပါဝင်ခြင်း၊ ယုံကြည်မှု/လုံခြုံရေး, စီမံခန့်ခွဲမှု, ကျွမ်းကျင်မှုများ)။
-- **ဒုတိယ သင်ခန်းစာ ၀၂ Python နမူနာ** — [02-python-agent-framework-azure-openai.ipynb](./02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb) အသစ်ထည့်သွင်း၊ ပြောင်းရွှေ့ထားသော Semantic Kernel notebook မှ ရွှေ့ပြောင်းပြီး README တွင် ဖော်ပြသည်။
-- **မော်ဒယ်များနှင့် ပံ့ပိုးသူများ** အပိုင်းကို [STUDY_GUIDE.md](./STUDY_GUIDE.md) တွင် ထည့်သွင်းသည်။
-
-### ပြောင်းလဲမှုများ
-
-- **Chat Completions → Responses API (Python).** မော်ဒယ်ကို တိုက်ရိုက် အခေါ်ပြုခဲ့သည့် နမူနာများကို Chat Completions မှ Responses API (`client.responses.create(input=..., store=False)`, `resp.output_text`) သို့ ပြောင်းရွှေ့ပြီး Azure OpenAI `/openai/v1/` stabilized endpoint သုံးသည် (version မပါရှိ)။ သက်ရောက်မှုရှိသော နမူနာများမှာ -
+- **Chat Completions → Responses API (Python).** မော်ဒယ်ကို တိုက်ရိုက် ခေါ်ဆိုထားသည့် နမူနာများကို Chat Completions မှ Responses API (`client.responses.create(input=..., store=False)`, `resp.output_text`) သို့ ပြောင်းလဲပြီး၊ Azure OpenAI stable `/openai/v1/` endpoint တွင် `OpenAI` client ကို အသုံးပြုထားသည် (api_version မပါ။) ထိခိုက်မှုရှိသည့် နမူနာများတွင်:
   - [06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb](./06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb)
   - [06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb](./06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb)
-  - [04-tool-use/README.md](./04-tool-use/README.md) — function-calling လမ်းညွှန်သူမလေးတစ်ခု (tool schema ကို Responses format တွင် သတ်မှတ်၊ tool results ကို `function_call_output`, `max_output_tokens` နှင့် ပြန်လည်ထုတ်ပြန်ခြင်း)။
-- **GitHub Models → Azure OpenAI.** GitHub Models သည် ပယ်ဖျက်တောင့်တင်းနေပြီး (၂၀၂၆ ဇူလိုင်တွင် ပယ်ဖျက်မည်) Responses API မထောက်ပံ့တော့ပါ။ GitHub Models ကို Python နှင့် .NET နမူနာများတွင် Azure OpenAI / Microsoft Foundry သို့ ပြောင်းလဲထားသည်။
+  - [04-tool-use/README.md](./04-tool-use/README.md) — function-calling ပြည့်စုံမှု (tool schema ကို Responses ပုံစံသို့ ပြောင်းလဲသွားပြီး tool ရလဒ်များကို `function_call_output`, `max_output_tokens` အစရှိသဖြင့် ပြန်လည်ပေးပို့သည်)။
+
+- **GitHub Models → Azure OpenAI.** GitHub Models သည် ပျက်သိမ်းသွားပြီး (အလုပ်မှ ထွက်ခွာမည့်အချိန် **ဇူလိုင် ၂၀၂၆**) Responses API ကို မပံ့ပိုးပါ။ GitHub Models ၏ ကုဒ်လမ်းကြောင်းများအားလုံးကို Python နှင့် .NET စမ်းသပ်မှုများတွင် Azure OpenAI / Microsoft Foundry သို့ ပြောင်းလဲထားသည်။
   - Python: Lesson 08 workflow notebooks (`01`–`03`), Lesson 14 (`14-handoff`, `14-human-loop`, `hotel_booking_workflow_sample.py`)။
-  - .NET: `01`–`04`, `07`, `08` `*-dotnet-agent-framework.cs` နှင့် `.md` စာရွက်စာတမ်းများ၊ Lesson 08 dotNET workflow notebooks/`.md` (`01`–`03`) ကို `AzureOpenAIClient(...).GetOpenAIResponseClient(deployment).CreateAIAgent(...)` နှင့် `AzureCliCredential` အသုံးပြုသည်။
-- **Semantic Kernel → Microsoft Agent Framework.** ယခင် `02-semantic-kernel.ipynb` ကို Microsoft Agent Framework နှင့် Azure OpenAI (Responses API) ဖြင့်ပြန်ရေးပြီး `02-python-agent-framework-azure-openai.ipynb` ဟု အမည်ပြောင်းထားသည်။
-- **`FoundryChatClient` + `as_agent` ကို စံပြအသုံးပြုခြင်း။** README နှင့် notebook တွင် `AzureAIProjectAgentProvider` ကိုသုံးမှုသည် သင်ခန်းစာ ၀၁ နှင့် framework ၏ မူလနမူနာများတွင် သုံးသော canonical ပုံစံဖြင့် `FoundryChatClient(project_endpoint=..., model=..., credential=AzureCliCredential())` နှင့် `provider.as_agent(...)` ဖြင့် ပြောင်းလဲထားသည်။ သင်ခန်းစာ ၀၂ မှ ၁၄ ထိ README များနှင့် notebook များကို ပြုပြင်ထားသည် (ဥပမာ- သင်ခန်းစာ ၁၃ မှ Memory, သင်ခန်းစာ ၁၄ များအားလုံး, `11-agentic-protocols/code_samples/github-mcp/app.py`)။
-- **ထုတ်ကုန်အမည်များ**။ အင်္ဂလိပ်ဘာသာအချက်အလက်အပြင် အတိအကျ ပြောင်းလဲထားသည်။
+  - .NET: `01`–`04`, `07`, `08` `*-dotnet-agent-framework.cs` နှင့် အထက်ပါ `.md` စာရွက်များ၊ Lesson 08 dotNET workflow notebooks/`.md` (`01`–`03`) သည် ယခု `AzureOpenAIClient(...).GetOpenAIResponseClient(deployment).CreateAIAgent(...)` နှင့် `AzureCliCredential` ကို အသုံးပြုသည်။
+- **Semantic Kernel → Microsoft Agent Framework.** ယခင် `02-semantic-kernel.ipynb` ကို Microsoft Agent Framework နှင့် Azure OpenAI (Responses API) ဖြင့် ပြန်ရေးပြီး `02-python-agent-framework-azure-openai.ipynb` ဟု အမည်ပြောင်းခဲ့သည်။
+- **`FoundryChatClient` + `as_agent` သို့ တည်ဆောက်ခြင်း။** README နှင့် notebook ကုဒ်များတွင် `AzureAIProjectAgentProvider` ကို ကိုးကားသော နေရာအားလုံးကို Lesson 01 နှင့် Framework ၏ မူရင်း စမ်းသပ်မှုများတွင် အသုံးပြုသည့် ပုံစံဖြင့်: `FoundryChatClient(project_endpoint=..., model=..., credential=AzureCliCredential())` နှင့် `provider.as_agent(...)` ဖြင့် စံပြုပြောင်းလဲထားသည်။ Lesson 02–14 README များနှင့် notebook များ (ဥပမာ၊ Lesson 13 memory, Lesson 14 အားလုံး၊ `11-agentic-protocols/code_samples/github-mcp/app.py`) တွင် ပြင်ဆင်ပြီးဖြစ်သည်။
+- **ကုန်ပစ္စည်းအမည်များ။** အင်္ဂလိပ်ဘာသာ စာအချက်အလက်များတွင် အမည်များ ပြောင်းလဲထားသည်။
   - "Azure AI Foundry" / "Azure AI Studio" → **Microsoft Foundry**
   - "Azure AI Agent Service" → **Microsoft Foundry Agent Service**
-  - (မပြောင်းလဲသည့်အကြောင်းအရာများ: "Azure OpenAI", "Azure AI Search", "Azure AI Inference", နှင့် environment-variable အမည်များ)
-- **လိုအပ်ချက်များ** ([requirements.txt](../../requirements.txt)):
-  - `agent-framework>=1.10.0`, `agent-framework-foundry>=1.10.0`, `agent-framework-openai>=1.10.0` ကို အတက်ခံထားသည်။
-  - Responses API အတွက် `openai>=1.108.1` ကို ထည့်သွင်းထားသည်။
-  - GitHub Models နမူနာများမှ အသုံးပြုပုံရှိသော `azure-ai-inference` ကို ဖယ်ရှားထားသည်။
-- **ပတ်ဝန်းကျင်ချိန်ညှိမှု** ([.env.example](../../.env.example)): GitHub Models ပြင်ပပတ်ဝန်းကျင်များ (`GITHUB_TOKEN`, `GITHUB_ENDPOINT`, `GITHUB_MODEL_ID`) ကို ဖယ်ရှားပြီး `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, နှင့် ရွေးချယ်စရာ `AZURE_OPENAI_API_KEY` ကို ထည့်သွင်းထားသည်။ Microsoft Foundry အမည်များကို ပြင်ဆင်ထားသည်။
-- **စာရွက်စာတမ်းများ** — [00-course-setup/README.md](./00-course-setup/README.md), [AGENTS.md](./AGENTS.md), [README.md](./README.md), နှင့် [STUDY_GUIDE.md](./STUDY_GUIDE.md) ကို အထက်ဖေါ်ပြပါ အချက်အလက်များအတိုင်း ပြင်ဆင်ထားသည် (env ရွေ့ပြောင်းချက်များ၊ သက်ဆိုင်မှု စစ်ဆေးမှု နမူနာ၊ ပံ့ပိုးသူလမ်းညွှန်ချက်များ, အမည်ပေါ်မူတည်မှု)။
+  - (မပြောင်းလဲသေးသည် - "Azure OpenAI", "Azure AI Search", "Azure AI Inference", နှင့် ပတ်ဝန်းကျင် ဗေရီယာများအမည်များ)
+- **လိုအပ်သော အပလီကေးရှင်းများ** ([requirements.txt](../../requirements.txt)):
+  - `agent-framework>=1.10.0`, `agent-framework-foundry>=1.10.0`, `agent-framework-openai>=1.10.0` တို့ကို သတ်မှတ်ထားသည်။
+  - Responses API အတွက် အနည်းဆုံး သုံးစွဲရန် `openai>=1.108.1` ကို သတ်မှတ်ထားသည်။
+  - GitHub Models မှ ရွှေ့ပြောင်းခဲ့သော စမ်းသပ်မှုများတွင်သာ အသုံးပြုသော `azure-ai-inference` ကို ဖယ်ရှားထားသည်။
+- **ပတ်ဝန်းကျင် ဆက်တင်များ** ([.env.example](../../.env.example)) တွင် GitHub Models အသုံးပြုထားသော ဗေရီယာများ (`GITHUB_TOKEN`, `GITHUB_ENDPOINT`, `GITHUB_MODEL_ID`) ကို ဖယ်ရှားပြီး `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, နှင့် ရွေးချယ်စရာ `AZURE_OPENAI_API_KEY` ကို ထည့်သွင်းထားကာ Microsoft Foundry အမည်ပြောင်းခြင်း ပြုလုပ်ရသည်။
+- **စာရွက်များ** — [00-course-setup/README.md](./00-course-setup/README.md), [AGENTS.md](./AGENTS.md), [README.md](./README.md), နှင့် [STUDY_GUIDE.md](./STUDY_GUIDE.md) တွင် အထက်ဖော်ပြပါအတိုင်း (ပတ်ဝန်းကျင်ဗေရီယာ စနစ် ရေးထည့်ခြင်း၊ စစ်ဆေးရေး snippet, provider လမ်းညွှန်ချက်၊ အမည်ပြောင်းခြင်း) များ ပြင်ဆင်ထားသည်။
 
-### ဖျက်သိမ်းခဲ့သည်
+### ဖယ်ရှားပြီး
 
-- GitHub Models စတင်အသုံးပြုခြင်းအဆင့်နှင့် ပတ်ဝန်းကျင်အပြောင်းအလဲများကို ဖယ်ရှားထားသည် (Azure OpenAI / Microsoft Foundry ဖြင့် အစားထိုးသည်)။
+- GitHub Models ၏ onboarding အဆင့်များနှင့် ပတ်ဝန်းကျင်ဗေရီယာများကို setup စာရွက်များမှ ဖယ်ရှားထားပြီး Azure OpenAI / Microsoft Foundry ဖြင့် အစားထိုးထားသည်။
 
-### လုံခြုံရေး / ကိုယ်ရေးအချက်အလက်(အများပြည်သူဝေမျှမှု ဖြုတ်ချခြင်း)
+### လုံခြုံရေး / ကိုယ်ရေးအချက်အလက် လုံခြုံမှု (အများပြည်သူ ဝေမျှမှု စစ်ဆေးခြင်း)
 
-- လက်တွေ့ **Azure subscription ID**, resource-group/ resource အမည်များ၊ Bing ချိတ်ဆက်မှတ်ပါ၊ developer ဒေသိယ ဖိုင်လမ်းကြောင်းများနှင့် အသုံးပြုသူအမည်များ ပါဝင်သော Jupyter notebook အထွက်များကို ဖယ်ရှားထားသည်။
+- Jupyter notebook များတွင် ထွက်ရှိခဲ့သော အမှန်တကယ်ရှိသော **Azure subscription ID**, resource-group / resource အမည်များ၊ Bing ဆက်သွယ်မှု ID နှင့် developer **တည်နေရာ ဖိုင်လမ်းကြောင်းများ နှင့် အသုံးပြုသူအမည်များ**ကို စာရွက်များတွင် ဖယ်ရှားထားသည်။
   - `08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb`
-
   - `08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb`
   - `15-browser-use/15-browser-user.ipynb`
-- တွေ့ရှိချက်အရ API keys, tokens, subscription IDs, သို့မဟုတ် ကိုယ်ပိုင်လမ်းကြောင်းများသည် စောင့်ကြည့်နေသော အင်္ဂလိပ်စာအတွက် မကျန်ရှိကြောင်း အတည်ပြုခဲ့သည် (GITHUB_TOKEN မှ ရည်ညွှန်းချက်များမှာ workflow များအတွက် GitHub Actions token နှင့် Lesson 11 setup မှ GitHub MCP server PAT ဖြစ်ပြီး လက်ခံရရှိနိုင်ပြီး GitHub Models နှင့်ဆက်စပ်မှုမရှိပါ)။
+- API key များ၊ token များ၊ subscription ID များ သို့မဟုတ် ကိုယ်ရေးသတင်းအချက်အလက်များ မရှိကြောင်း စစ်ဆေးခဲ့ပြီး ရှိနေသေးသော `GITHUB_TOKEN` တွင် GitHub Actions token (workflows တွင်) နှင့် GitHub MCP server PAT (Lesson 11 setup တွင်) ဖြစ်ကာ GitHub Models နှင့် မဆက်နွယ်ပါ။
 
-### မှတ်ချက်များနှင့် သိရှိထားသော ကန့်သတ်ချက်များ
+### မှတ်ချက်များ နှင့် သိရှိထားသည့် ကန့်သတ်ချက်များ
 
-- **မပြေးသော/မစုစည်းသော။** ဤနမူနာများသည် API/နာမတ် မှန်ကန်မှု အတွက် ပြင်ဆင်ထားသော ပညာရေးဆိုင်ရာ နမူနာများဖြစ်သည်၊ Azure အသုံးပြုမှုတွင် အသုံးမပြုခဲ့ကြ၊ .NET နမူနာများကိုလည်း ဤပတ်ဝန်းကျင်တွင် စုစည်းခြင်းမပြုခဲ့ပါ။ မိမိ၏ Microsoft Foundry / Azure OpenAI သွင်းထားမှုနှင့် စစ်ဆေးပါ။
-- **မော်ဒယ် ဖြန့်ချိမှုသည် Responses API ကို ထောက်ပံ့ရမည်။** `gpt-4.1-mini`, `gpt-4.1`, သို့မဟုတ် `gpt-5.x` မော်ဒယ်တစ်ခုအသုံးပြုပါ။ မဟောင်းမော်ဒယ်များသည် Responses ကို အခြေခံ အလုပ်လုပ်နိုင်သော်လည်း စိတ်ကြိုက် လုပ်ဆောင်ချက်အားလုံး မပါဝင်ပါ။
-- **Agent-framework ဗားရှင်း။** နမူနာများသည် နောက်ဆုံး MAF (`>=1.10.0`) ကို ရည်ညွှန်းသည်။ ပုံမှန် agent ဖန်တီးမှုခေါ်ဆိုချက်မှာ `client.as_agent(...)` ဖြစ်ပြီး API များကို framework ထုတ်ပြန်ထားသော စာတမ်းများနှင့် တပ်ဆင်ထားသော ကိုယ်ပိုင် build ဖြင့် စစ်ဆေးထားသည်။ မတူညီသော ဗားရှင်း pin လုပ်လိုပါက အကြံပြုချက်များကို သေချာစွာ စစ်ဆေးပါ (`as_agent` နှင့် `create_agent`)။
-- **Lesson 08 workflow notebook 04** သည် `AzureAIAgentClient` (agent-framework-azure-ai မှ) ကို ရည်ရွယ်ပြီး ထိုးထွင်းထားသည်၊ မိုက်ခရိုဆိုဖ် Foundry Agent Service အစီအစဉ်များ (Bing grounding, code interpreter) အသုံးပြုသည်၊ သက်ဆိုင်ရာ Responses အခြေပြုဖြစ်သည်။
-- **.NET ပုံသေ ဖြန့်ချိမှု။** Lesson 08 dotNET workflow နမူနာ နှစ်ခုသည် အရင်က အထူးမော်ဒယ်တစ်ခုကို ချိတ်ဆက်ထားခဲ့သည်။ ယခုတွင် `AZURE_OPENAI_DEPLOYMENT` (`gpt-4.1-mini`) ကို ပုံသေထားသည်။ မူလ multimodal/vision input အသုံးပြုမှုရှိပါက `AZURE_OPENAI_DEPLOYMENT` ကို သင့်တော်သော မော်ဒယ်သို့ သတ်မှတ်ပါ။
-- **Foundry Local** သည် OpenAI နှင့် ကိုက်ညီသော **Chat Completions** endpoint ကို ဖော်ပြသည်၊ ဒေသတွင်း ဖွံ့ဖြိုးရေးအတွက် ရည်ရွယ်သည်။ Responses API အပြည့်အစုံ လုပ်ဆောင်ချက်အတွက် Azure OpenAI / Microsoft Foundry ကို အသုံးပြုပါ။
+- **မဖြစ်ရပ်/မပြုလုပ်ထား။** ဤသည်များသည် အတတ်ပညာဆိုင်ရာ စမ်းသပ်မှုများဖြစ်ပြီး API နှင့် အမည်ပြောင်းခြင်းတို့အတွက် ပြင်ဆင်ထားသည်။ Azure ရှိတည်နေရာများတွင် run မလုပ်ခဲ့ခြင်းသဖြင့် .NET စမ်းသပ်မှုများကို ဒီပတ်ဝန်းကျင်တွင် ဂျုံမကုပ်ထားပါ။ သင့် Microsoft Foundry / Azure OpenAI deployment တွင် စစ်ဆေးရန် လိုအပ်သည်။
+- **Model deployment သည် Responses API ကို ပံ့ပိုးရမည်။** `gpt-4.1-mini`, `gpt-4.1`, သို့မဟုတ် `gpt-5.x` မော်ဒယ်တစ်ခုကို အသုံးပြုပါ။ ဟောင်းသော မော်ဒယ်များသည် Responses ၏ အခြေခံလုပ်ဆောင်မှုကိုသာ ပံ့ပိုးပြီး feature အားလုံး မပါဝင်နိုင်ပါ။
+- **Agent-framework ဗားရှင်း။** စမ်းသပ်မှုများသည် နောက်ဆုံး MAF (`>=1.10.0`) ကို ရည်ညွှန်းသည်။ canonical agent-ဖြစ်စေတာ ကို `client.as_agent(...)` ဟူ၍ ရည်ညွှန်းပြီး API များကို framework ၏ ထုတ်ဝေထားသော စာရွက်များနှင့် တပ်ဆင်ထားသော build နှင့် မျှတမှုရှိကြောင်း အတည်ပြုထားသည်။ သင့်အား အခြားဗားရှင်းတစ်ခုကို သတ်မှတ်ပါက method ရှိမရှိ စစ်ဆေးပါ (`as_agent` နှင့် `create_agent`)။
+- **Lesson 08 workflow notebook 04** တွင်  `AzureAIAgentClient` (`agent-framework-azure-ai` မှ) ကို ရည်ရွယ်တည်ရှိစွာ သုံးစွဲထားပြီး Microsoft Foundry Agent Service ၏ hosted tools (Bing grounding, code interpreter) ကို အသုံးပြုသည်။ ယင်းအရာသည် Responses-based ဖြစ်ပြီး ဖြစ်သည်။
+- **.NET default deployment.** Lesson 08 dotNET workflow စမ်းသပ်မှု ၂ ခုသည် မော်ဒယ် အသေးစိတ်ကို ကုတ်ထဲတွင် ဖြည့်ထားခဲ့ပြီး ယခုမှာ `AZURE_OPENAI_DEPLOYMENT` (`gpt-4.1-mini`) ကို default သတ်မှတ်ထားသည်။ စမ်းသပ်မှုတစ်ခုတွင် multimodal/vision input ကို အားထားပါက `AZURE_OPENAI_DEPLOYMENT` ကို သင့်လျော်သည့် မော်ဒယ်ဖြင့် သတ်မှတ်ပါ။
+- **Foundry Local** သည် OpenAI-compatible **Chat Completions** endpoint ကို ဖော်ပြထားပြီး local development အတွက် ရည်ရွယ်သည်။ Responses API ၏ လုံးဝ လုပ်ဆောင်ချက်များအတွက် Azure OpenAI / Microsoft Foundry ကို အသုံးပြုပါ။
 
 ---
 

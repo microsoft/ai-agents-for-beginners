@@ -1,70 +1,70 @@
-[![Istraživanje AI Agent Okvira](../../../translated_images/hr/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Istraživanje AI Agent Frameworka](../../../translated_images/hr/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(Kliknite na gornju sliku za pregled video lekcije)_
+> _(Kliknite na gornju sliku za pregled videa ove lekcije)_
 
-# Istražite AI Agent Okvire
+# Istražite AI Agent Frameworke
 
-AI agent okviri su softverske platforme dizajnirane za pojednostavljenje stvaranja, implementacije i upravljanja AI agentima. Ti okviri pružaju programerima unaprijed izgrađene komponente, apstrakcije i alate koji ubrzavaju razvoj složenih AI sustava.
+AI agent frameworki su softverske platforme dizajnirane za pojednostavljivanje stvaranja, implementacije i upravljanja AI agentima. Ovi frameworki pružaju programerima unaprijed izrađene komponente, apstrakcije i alate koji olakšavaju razvoj složenih AI sustava.
 
-Ovi okviri pomažu programerima da se usredotoče na jedinstvene aspekte svojih aplikacija pružajući standardizirane pristupe uobičajenim izazovima u razvoju AI agenata. Povećavaju skalabilnost, pristupačnost i učinkovitost u izgradnji AI sustava.
+Ovi frameworki pomažu programerima da se fokusiraju na jedinstvene aspekte svojih aplikacija pružajući standardizirane pristupe uobičajenim izazovima u razvoju AI agenata. Povećavaju skalabilnost, pristupačnost i učinkovitost u izgradnji AI sustava.
 
 ## Uvod
 
-Ova lekcija će pokriti:
+Ova lekcija će obuhvatiti:
 
-- Što su AI Agent Okviri i što omogućuju programerima?
-- Kako timovi mogu koristiti ove okvire za brzo prototipiranje, iteraciju i poboljšavanje sposobnosti agenta?
-- Koje su razlike između okvira i alata koje je izradio Microsoft (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> i <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
-- Mogu li izravno integrirati svoje postojeće alate iz Azure ekosustava ili trebam samostalna rješenja?
+- Što su AI Agent Frameworki i što omogućuju programerima postići?
+- Kako timovi mogu koristiti te frameworke za brzo prototipiranje, iteraciju i poboljšanje sposobnosti svojih agenata?
+- Koje su razlike između frameworka i alata koje je stvorio Microsoft (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Microsoft Foundry Agent Service</a> i <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
+- Mogu li integrirati alate mog postojećeg Azure ekosustava izravno ili trebam samostalna rješenja?
 - Što je Microsoft Foundry Agent Service i kako mi pomaže?
 
 ## Ciljevi učenja
 
-Ciljevi ove lekcije su pomoći vam da razumijete:
+Ciljevi ove lekcije su vam pomoći razumjeti:
 
-- Ulogu AI Agent Okvira u razvoju AI-ja.
-- Kako iskoristiti AI Agent Okvire za izgradnju inteligentnih agenata.
-- Ključne mogućnosti omogućene AI Agent Okvirima.
+- Ulogu AI Agent Frameworka u razvoju AI-ja.
+- Kako iskoristiti AI Agent Frameworke za izgradnju inteligentnih agenata.
+- Ključne mogućnosti koje omogućuju AI Agent Frameworki.
 - Razlike između Microsoft Agent Frameworka i Microsoft Foundry Agent Servicea.
 
-## Što su AI Agent Okviri i što omogućuju programerima?
+## Što su AI Agent Frameworki i što omogućuju programerima?
 
-Tradicionalni AI okviri mogu vam pomoći integrirati AI u vaše aplikacije i poboljšati ih na sljedeće načine:
+Tradicionalni AI Frameworki vam mogu pomoći integrirati AI u vaše aplikacije i učiniti ih boljima na sljedeće načine:
 
 - **Personalizacija**: AI može analizirati ponašanje i preferencije korisnika kako bi pružio personalizirane preporuke, sadržaj i iskustva.
-Primjer: Streaming servisi kao Netflix koriste AI za predlaganje filmova i emisija na temelju povijesti gledanja, čime povećavaju angažman i zadovoljstvo korisnika.
-- **Automatizacija i učinkovitost**: AI može automatizirati repetitivne zadatke, pojednostaviti radne tokove i poboljšati operativnu učinkovitost.
-Primjer: Aplikacije za korisničku podršku koriste AI-pokretane chatbote za obradu čestih upita, smanjujući vrijeme odgovora i oslobađajući ljudske agente za složenije probleme.
+Primjer: Streaming servisi poput Netflixa koriste AI za predlaganje filmova i emisija temeljenih na povijesti gledanja, povećavajući angažman i zadovoljstvo korisnika.
+- **Automatizacija i učinkovitost**: AI može automatizirati ponavljajuće zadatke, pojednostaviti radne tokove i poboljšati operativnu učinkovitost.
+Primjer: Aplikacije za korisničku podršku koriste AI chatbotove za rješavanje čestih upita, skraćujući vrijeme odgovora i oslobađajući ljudske agente za složenije probleme.
 - **Poboljšano korisničko iskustvo**: AI može unaprijediti ukupno korisničko iskustvo pružajući inteligentne značajke poput prepoznavanja glasa, obrade prirodnog jezika i prediktivnog teksta.
-Primjer: Virtualni asistenti poput Siri i Google Assistanta koriste AI za razumijevanje i odgovaranje na glasovne naredbe, čime olakšavaju korisnicima interakciju s uređajima.
+Primjer: Virtualni asistenti poput Siri i Google Assistant koriste AI za razumijevanje i reagiranje na glasovne naredbe, olakšavajući korisnicima interakciju s uređajima.
 
-### Sve to zvuči sjajno, zar ne? Zašto nam onda treba AI Agent Framework?
+### Sve to zvuči sjajno, ali zašto nam treba AI Agent Framework?
 
-AI Agent okviri predstavljaju nešto više od običnih AI okvira. Dizajnirani su za omogućavanje stvaranja inteligentnih agenata koji mogu komunicirati s korisnicima, drugim agentima i okolinom kako bi postigli određene ciljeve. Ti agenti mogu pokazivati autonomno ponašanje, donositi odluke i prilagođavati se promjenjivim uvjetima. Pogledajmo neke ključne mogućnosti omogućene AI Agent Okvirima:
+AI Agent frameworki predstavljaju nešto više od samih AI frameworka. Dizajnirani su za omogućavanje stvaranja inteligentnih agenata koji mogu komunicirati s korisnicima, drugim agentima i okolinom kako bi postigli određene ciljeve. Ti agenti mogu pokazivati autonomno ponašanje, donositi odluke i prilagođavati se promjenama u uvjetima. Pogledajmo neke ključne mogućnosti koje omogućuju AI Agent Frameworki:
 
-- **Suradnja i koordinacija agenata**: Omogućuju stvaranje više AI agenata koji mogu međusobno surađivati, komunicirati i koordinirati se za rješavanje složenih zadataka.
-- **Automatizacija i upravljanje zadacima**: Pružaju mehanizme za automatizaciju višestepenih radnih tokova, delegaciju zadataka i dinamičko upravljanje zadacima među agentima.
-- **Kontekstualno razumijevanje i prilagodba**: Opremaju agente sposobnošću razumijevanja konteksta, prilagodbe promjenjivim uvjetima i donošenja odluka na temelju informacija u stvarnom vremenu.
+- **Suradnja i koordinacija agenata**: Omogućuju stvaranje više AI agenata koji mogu surađivati, komunicirati i koordinirati se za rješavanje složenih zadataka.
+- **Automatizacija i upravljanje zadacima**: Pružaju mehanizme za automatizaciju višekorakih radnih tokova, delegaciju zadataka i dinamičko upravljanje zadacima među agentima.
+- **Kontekstualno razumijevanje i prilagodba**: Opremaju agente sposobnošću razumijevanja konteksta, prilagodbe promjenjivim okolnostima i donošenja odluka na temelju trenutnih informacija.
 
-Ukratko, agenti vam omogućuju više - da dignete automatizaciju na višu razinu, da stvorite inteligentnije sustave koji se mogu prilagođavati i učiti iz okoline.
+Ukratko, agenti vam omogućuju više: podizanje automatizacije na višu razinu i stvaranje inteligentnijih sustava koji se mogu prilagođavati i učiti iz svoje okoline.
 
-## Kako brzo prototipizirati, iterirati i poboljšavati sposobnosti agenta?
+## Kako brzo prototipirati, iterirati i poboljšavati sposobnosti agenata?
 
-Ovo je brzo mijenjajuće područje, ali postoje neke zajedničke značajke kod većine AI Agent Okvira koje vam mogu pomoći brzo prototipizirati i iterirati, poput modularnih komponenti, alata za suradnju i učenja u stvarnom vremenu. Pogledajmo ih:
+Ovo je brzo dinamično područje, no postoje neke zajedničke značajke u većini AI Agent Frameworka koje vam mogu pomoći da brzo prototipirate i iterirate, kao što su modularne komponente, suradnički alati i učenje u stvarnom vremenu. Pogledajmo ih detaljnije:
 
-- **Koristite modularne komponente**: AI SDK-ovi nude unaprijed izgrađene komponente poput AI i memorijskih konektora, pozivanja funkcija pomoću prirodnog jezika ili dodataka za kod, predložaka za upute i više.
-- **Iskoristite alate za suradnju**: Dizajnirajte agente sa specifičnim ulogama i zadacima, omogućujući im testiranje i usavršavanje suradničkih radnih tokova.
-- **Učite u stvarnom vremenu**: Implementirajte povratne petlje u kojima agenti uče iz interakcija i dinamički prilagođavaju svoje ponašanje.
+- **Koristite modularne komponente**: AI SDK-ovi nude unaprijed izrađene komponente poput AI i Memory konektora, poziva funkcija pomoću prirodnog jezika ili dodataka koda, predložaka prompta i drugih.
+- **Iskoristite suradničke alate**: Dizajnirajte agente s određenim ulogama i zadacima, što im omogućuje testiranje i usavršavanje suradničkih radnih tokova.
+- **Učite u stvarnom vremenu**: Implementirajte petlje povratnih informacija gdje agenti uče iz interakcija i dinamički prilagođavaju svoje ponašanje.
 
 ### Koristite modularne komponente
 
 SDK-ovi poput Microsoft Agent Frameworka nude unaprijed izrađene komponente poput AI konektora, definicija alata i upravljanja agentima.
 
-**Kako timovi mogu koristiti ove**: Timovi mogu brzo sastaviti ove komponente za stvaranje funkcionalnog prototipa bez početka od nule, što omogućuje brzo eksperimentiranje i iteraciju.
+**Kako timovi to mogu koristiti**: Timovi mogu brzo sastaviti ove komponente da bi stvorili funkcionalni prototip bez potrebe za početkom od nule, što omogućuje brzo eksperimentiranje i iteraciju.
 
-**Kako to funkcionira u praksi**: Možete koristiti unaprijed izrađeni parser za izdvajanje informacija iz korisničkog unosa, memorijski modul za spremanje i dohvat podataka te generator uputa za interakciju s korisnicima, sve bez izgradnje ovih komponenti od nule.
+**Kako to funkcionira u praksi**: Možete koristiti unaprijed izrađeni parser za izdvajanje informacija iz korisničkog unosa, memorijski modul za pohranu i dohvat podataka te generator prompta za interakciju s korisnicima, sve bez potrebe za izgradnjom tih komponenti od nule.
 
-**Primjer koda**. Pogledajmo primjer kako koristiti Microsoft Agent Framework s `FoundryChatClient` da model odgovara na korisnički unos pozivanjem alata:
+**Primjer koda**. Pogledajmo primjer kako možete koristiti Microsoft Agent Framework s `FoundryChatClient` da model odgovara na korisnički unos pozivanjem alata:
 
 ``` python
 # Microsoft Agent Framework Python primjer
@@ -98,22 +98,22 @@ async def main():
 
     response = await agent.run("I'd like to go to New York on January 1, 2025")
     print(response)
-    # Primjer izlaza: Vaš let za New York 1. siječnja 2025. je uspješno rezerviran. Sretan put! ✈️🗽
+    # Primjer izlaza: Vaš let za New York 1. siječnja 2025. uspješno je rezerviran. Sigurno putovanje! ✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Ono što možete vidjeti u ovom primjeru jest kako iskoristiti unaprijed izrađeni parser za izdvajanje ključnih informacija iz korisničkog unosa, poput podrijetla, odredišta i datuma zahtjeva za rezervaciju leta. Ovaj modularni pristup vam omogućuje da se usredotočite na visokorazinsku logiku.
+Iz ovog primjera vidite kako možete iskoristiti unaprijed izrađeni parser za izdvajanje ključnih informacija iz korisničkog unosa, poput početka, odredišta i datuma zahtjeva za rezervaciju leta. Ovaj modularni pristup omogućuje vam da se fokusirate na logiku na višoj razini.
 
-### Iskoristite alate za suradnju
+### Iskoristite suradničke alate
 
-Okviri poput Microsoft Agent Frameworka olakšavaju stvaranje više agenata koji mogu međusobno surađivati.
+Frameworki poput Microsoft Agent Frameworka olakšavaju stvaranje više agenata koji mogu surađivati.
 
-**Kako timovi mogu koristiti ove**: Timovi mogu dizajnirati agente s posebnim ulogama i zadacima, omogućujući im testirati i usavršavati suradničke radne tokove te poboljšati ukupnu učinkovitost sustava.
+**Kako timovi to mogu koristiti**: Timovi mogu dizajnirati agente s posebnim ulogama i zadacima, omogućujući im testiranje i usavršavanje suradničkih radnih tokova te povećanje ukupne učinkovitosti sustava.
 
-**Kako to funkcionira u praksi**: Možete stvoriti tim agenata gdje svaki agent ima specijaliziranu funkciju, poput dohvaćanja podataka, analize ili donošenja odluka. Ti agenti mogu međusobno komunicirati i dijeliti informacije kako bi postigli zajednički cilj, poput odgovora na korisnički upit ili dovršetka zadatka.
+**Kako to funkcionira u praksi**: Možete stvoriti tim agenata gdje svaki agent ima specijaliziranu funkciju, poput dohvaćanja podataka, analize ili donošenja odluka. Ti agenti mogu komunicirati i dijeliti informacije kako bi postigli zajednički cilj, poput odgovora na korisnički upit ili izvršenja zadatka.
 
 **Primjer koda (Microsoft Agent Framework)**:
 
@@ -130,7 +130,7 @@ provider = FoundryChatClient(
     credential=AzureCliCredential(),
 )
 
-# Agent za dohvaćanje podataka
+# Agent za dohvat podataka
 agent_retrieve = provider.as_agent(
     name="dataretrieval",
     instructions="Retrieve relevant data using available tools.",
@@ -144,40 +144,40 @@ agent_analyze = provider.as_agent(
     tools=[analyze_tool],
 )
 
-# Pokreni agente redom na zadatku
+# Pokretanje agenata jedan za drugim na zadatku
 retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
 analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
 print(analysis_result)
 ```
 
-Ono što vidite u prethodnom kodu jest kako se može stvoriti zadatak koji uključuje rad više agenata na analizi podataka. Svaki agent izvodi određenu funkciju, a zadatak se izvršava koordinacijom agenata radi postizanja željenog ishoda. Stvaranjem posvećenih agenata sa specijaliziranim ulogama možete poboljšati učinkovitost i performanse zadatka.
+U prethodnom kodu vidite kako stvoriti zadatak koji uključuje više agenata koji surađuju na analizi podataka. Svaki agent obavlja određenu funkciju, a zadatak se izvršava koordiniranjem agenata kako bi se postigao željeni ishod. Stvaranjem posvećenih agenata sa specijaliziranim ulogama možete poboljšati učinkovitost i performanse zadataka.
 
 ### Učite u stvarnom vremenu
 
-Napredni okviri pružaju mogućnosti za razumijevanje i prilagodbu konteksta u stvarnom vremenu.
+Napredni frameworki pružaju mogućnosti za razumijevanje konteksta i prilagodbu u stvarnom vremenu.
 
-**Kako timovi mogu koristiti ove**: Timovi mogu implementirati povratne petlje u kojima agenti uče iz interakcija i dinamički prilagođavaju svoje ponašanje, što vodi do kontinuiranog poboljšanja i usavršavanja sposobnosti.
+**Kako timovi to mogu koristiti**: Timovi mogu implementirati petlje povratnih informacija gdje agenti uče iz interakcija i dinamički prilagođavaju svoje ponašanje, što vodi kontinuiranom poboljšanju i usavršavanju sposobnosti.
 
-**Kako to funkcionira u praksi**: Agenti mogu analizirati korisničku povratnu informaciju, podatke o okolišu i rezultate zadataka kako bi ažurirali svoju bazu znanja, prilagodili algoritme donošenja odluka i s vremenom poboljšali performanse. Ovaj iterativni proces učenja omogućuje agentima da se prilagođavaju promjenjivim uvjetima i korisničkim preferencijama, povećavajući ukupnu učinkovitost sustava.
+**Kako to funkcionira u praksi**: Agenti mogu analizirati povratne informacije korisnika, podatke o okolišu i ishode zadataka kako bi ažurirali svoju bazu znanja, prilagodili algoritme donošenja odluka i poboljšali izvedbu tijekom vremena. Ovaj iterativni proces učenja omogućuje agentima da se prilagođavaju promjenjivim uvjetima i preferencijama korisnika, čime se poboljšava ukupna učinkovitost sustava.
 
 ## Koje su razlike između Microsoft Agent Frameworka i Microsoft Foundry Agent Servicea?
 
-Postoji mnogo načina za usporedbu ovih pristupa, ali pogledajmo neke ključne razlike u pogledu dizajna, mogućnosti i ciljane primjene:
+Postoji mnogo načina za usporedbu ovih pristupa, ali pogledajmo neke ključne razlike u pogledu njihovog dizajna, mogućnosti i ciljnih slučajeva uporabe:
 
 ## Microsoft Agent Framework (MAF)
 
-Microsoft Agent Framework pruža pojednostavljeni SDK za izgradnju AI agenata pomoću `FoundryChatClient`. Omogućuje programerima stvaranje agenata koji koriste Azure OpenAI modele s ugrađenim pozivanjem alata, upravljanjem razgovorima i sigurnošću na razini poduzeća putem Azure identiteta.
+Microsoft Agent Framework pruža pojednostavljeni SDK za izgradnju AI agenata koristeći `FoundryChatClient`. Omogućuje programerima stvaranje agenata koji koriste Azure OpenAI modele s ugrađenim pozivanjem alata, upravljanjem razgovorom i sigurnošću na razini poduzeća putem Azure identiteta.
 
-**Primjene**: Izgradnja proizvodno spremnih AI agenata s korištenjem alata, višestepenih radnih tokova i scenarija integracije s poduzećem.
+**Slučajevi upotrebe**: Izgradnja AI agenata spremnih za proizvodnju s korištenjem alata, višekoraka radnih tokova i scenarija integracije poduzeća.
 
 Evo nekoliko važnih osnovnih pojmova Microsoft Agent Frameworka:
 
-- **Agenti**. Agent se stvara putem `FoundryChatClient` i konfigurira s imenom, uputama i alatima. Agent može:
-  - **Obrađivati korisničke poruke** i generirati odgovore koristeći Azure OpenAI modele.
+- **Agenti**. Agent se stvara pomoću `FoundryChatClient` i konfigurira s imenom, uputama i alatima. Agent može:
+  - **Obrađivati poruke korisnika** i generirati odgovore koristeći Azure OpenAI modele.
   - **Automatski pozivati alate** na temelju konteksta razgovora.
   - **Održavati stanje razgovora** kroz više interakcija.
 
-  Evo isječka koda koji prikazuje kako stvoriti agenta:
+  Evo primjera koda koji pokazuje kako stvoriti agenta:
 
     ```python
     import os
@@ -198,7 +198,7 @@ Evo nekoliko važnih osnovnih pojmova Microsoft Agent Frameworka:
     print(response)
     ```
 
-- **Alati**. Okvir podržava definiranje alata kao Python funkcija koje agent može automatski pozivati. Alati se registriraju prilikom stvaranja agenta:
+- **Alati**. Framework podržava definiciju alata kao Python funkcija koje agent može automatski pozivati. Alati se registriraju prilikom stvaranja agenta:
 
     ```python
     def get_weather(location: str) -> str:
@@ -212,7 +212,7 @@ Evo nekoliko važnih osnovnih pojmova Microsoft Agent Frameworka:
     )
     ```
 
-- **Koordinacija višestrukih agenata**. Možete stvoriti više agenata sa različitim specijalizacijama i koordinirati njihov rad:
+- **Koordinacija više agenata**. Možete stvoriti više agenata s različitim specijalizacijama i koordinirati njihov rad:
 
     ```python
     planner = provider.as_agent(
@@ -230,19 +230,19 @@ Evo nekoliko važnih osnovnih pojmova Microsoft Agent Frameworka:
     result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-- **Integracija Azure identiteta**. Okvir koristi `AzureCliCredential` (ili `DefaultAzureCredential`) za sigurnu autentifikaciju bez ključeva, eliminirajući potrebu za upravljanjem API ključevima izravno.
+- **Integracija Azure identiteta**. Framework koristi `AzureCliCredential` (ili `DefaultAzureCredential`) za sigurnu autentifikaciju bez ključeva, čime se uklanja potreba za izravnim upravljanjem API ključevima.
 
 ## Microsoft Foundry Agent Service
 
 Microsoft Foundry Agent Service je noviji dodatak, predstavljen na Microsoft Ignite 2024. Omogućuje razvoj i implementaciju AI agenata s fleksibilnijim modelima, kao što je izravno pozivanje open-source LLM-ova poput Llama 3, Mistral i Cohere.
 
-Microsoft Foundry Agent Service pruža snažnije mehanizme sigurnosti poduzeća i metode pohrane podataka, što ga čini pogodnim za poduzetničke aplikacije.
+Microsoft Foundry Agent Service pruža snažnije sigurnosne mehanizme za poduzeća i metode pohrane podataka, što ga čini prikladnim za poduzećne aplikacije.
 
-Radi odmah s Microsoft Agent Frameworkom za izgradnju i implementaciju agenata.
+On radi odmah s Microsoft Agent Frameworkom za izgradnju i implementaciju agenata.
 
-Ova usluga je trenutno u javnoj verziji (Public Preview) i podržava Python i C# za izgradnju agenata.
+Ova usluga je trenutno u javnoj pretpregledu i podržava Python i C# za izgradnju agenata.
 
-Koristeći Microsoft Foundry Agent Service Python SDK, možemo stvoriti agenta s korisnički definiranim alatom:
+Korištenjem Microsoft Foundry Agent Service Python SDK-a možemo stvoriti agenta s korisnički definiranim alatom:
 
 ```python
 import asyncio
@@ -271,7 +271,7 @@ async def main() -> None:
     )
 
     agent = project_client.agents.create_agent(
-        model="gpt-4.1-mini",
+        model="gpt-5-mini",
         name="Host",
         instructions="Answer questions about the menu.",
         tools=[get_specials, get_item_price],
@@ -308,11 +308,11 @@ if __name__ == "__main__":
 
 Microsoft Foundry Agent Service ima sljedeće osnovne pojmove:
 
-- **Agent**. Microsoft Foundry Agent Service integrira se s Microsoft Foundryjem. Unutar Microsoft Foundry, AI Agent djeluje kao "pametan" mikroservis koji može odgovarati na pitanja (RAG), obavljati radnje ili potpuno automatizirati radne tokove. To postiže kombiniranjem snage generativnih AI modela s alatima koji mu omogućuju pristup i interakciju s izvornim podacima iz stvarnog svijeta. Evo primjera agenta:
+- **Agent**. Microsoft Foundry Agent Service integrira se s Microsoft Foundryjem. Unutar Microsoft Foundryja, AI agent djeluje kao "pametna" mikrousluga koja se može koristiti za odgovaranje na pitanja (RAG), izvršavanje akcija ili potpuno automatiziranje radnih tokova. To postiže kombiniranjem moći generativnih AI modela s alatima koji mu omogućuju pristup i interakciju s stvarnim izvorima podataka. Evo primjera agenta:
 
     ```python
     agent = project_client.agents.create_agent(
-        model="gpt-4.1-mini",
+        model="gpt-5-mini",
         name="my-agent",
         instructions="You are helpful agent",
         tools=code_interpreter.definitions,
@@ -320,9 +320,9 @@ Microsoft Foundry Agent Service ima sljedeće osnovne pojmove:
     )
     ```
 
-    U ovom primjeru, agent je kreiran s modelom `gpt-4.1-mini`, imenom `my-agent` i uputama `You are helpful agent`. Agent je opremljen alatima i resursima za obavljanje zadataka tumačenja koda.
+    U ovom primjeru agent je stvoren s modelom `gpt-5-mini`, imenom `my-agent` i uputama `You are helpful agent`. Agent je opremljen alatima i resursima za izvršavanje zadataka interpretacije koda.
 
-- **Thread i poruke**. Thread je još jedan važan pojam. Predstavlja razgovor ili interakciju između agenta i korisnika. Threadovi se mogu koristiti za praćenje napretka razgovora, pohranu kontekstualnih informacija i upravljanje stanjem interakcije. Evo primjera thread-a:
+- **Tema i poruke**. Tema je još jedan važan pojam. Predstavlja razgovor ili interakciju između agenta i korisnika. Temama se može pratiti napredak razgovora, pohranjivati kontekstualne informacije i upravljati stanjem interakcije. Evo primjera teme:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -332,7 +332,7 @@ Microsoft Foundry Agent Service ima sljedeće osnovne pojmove:
         content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
     )
     
-    # Zamolite agenta da izvrši rad na temi
+    # Zamolite agenta da izvrši rad na niti
     run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
     
     # Dohvatite i zabilježite sve poruke kako biste vidjeli odgovor agenta
@@ -340,75 +340,75 @@ Microsoft Foundry Agent Service ima sljedeće osnovne pojmove:
     print(f"Messages: {messages}")
     ```
 
-    U prethodnom kodu je kreiran thread. Nakon toga, šalje se poruka u thread. Pozivanjem `create_and_process_run`, agent se traži da izvrši rad na threadu. Na kraju se poruke dohvaćaju i bilježe kako bi se vidio odgovor agenta. Poruke pokazuju napredak razgovora između korisnika i agenta. Također je važno razumjeti da poruke mogu biti različitih tipova, poput teksta, slike ili datoteke, što znači da je rad agenta rezultirao, na primjer, slikom ili tekstualnim odgovorom. Kao programer, tada možete koristiti ove informacije za daljnju obradu odgovora ili njegovo prikazivanje korisniku.
+    U prethodnom kodu tema je stvorena. Zatim se šalje poruka temi. Pozivom `create_and_process_run`, agent se traži da izvedbe rad na temi. Na kraju se poruke dohvaćaju i zapisuju kako bi se vidio odgovor agenta. Poruke pokazuju napredak razgovora između korisnika i agenta. Također je važno razumjeti da poruke mogu biti različitih vrsta, poput teksta, slike ili datoteke, što znači da je rad agenta rezultirao, na primjer, slikom ili tekstualnim odgovorom. Kao programer, možete koristiti te informacije za daljnju obradu odgovora ili njegovo prikazivanje korisniku.
 
-- **Integrira se s Microsoft Agent Frameworkom**. Microsoft Foundry Agent Service besprijekorno surađuje s Microsoft Agent Frameworkom, što znači da možete graditi agente pomoću `FoundryChatClient` i implementirati ih kroz Agent Service za produkcijske scenarije.
+- **Integracija s Microsoft Agent Frameworkom**. Microsoft Foundry Agent Service radi besprijekorno s Microsoft Agent Frameworkom, što znači da možete graditi agente koristeći `FoundryChatClient` i implementirati ih putem Agent Servicea za produkcijske scenarije.
 
-**Primjene**: Microsoft Foundry Agent Service je dizajniran za poduzetničke aplikacije koje zahtijevaju sigurnu, skalabilnu i fleksibilnu implementaciju AI agenata.
+**Slučajevi upotrebe**: Microsoft Foundry Agent Service je dizajniran za poduzećne aplikacije koje zahtijevaju sigurnu, skalabilnu i fleksibilnu implementaciju AI agenata.
 
 ## Koja je razlika između ovih pristupa?
  
-Zvuči kao da postoji preklapanje, ali postoje neke ključne razlike u pogledu dizajna, mogućnosti i ciljane uporabe:
+Zvuči kao da postoji preklapanje, ali postoje neke ključne razlike u pogledu njihovog dizajna, mogućnosti i ciljnih slučajeva uporabe:
  
-- **Microsoft Agent Framework (MAF)**: Je proizvodno spreman SDK za izgradnju AI agenata. Pruža pojednostavljeni API za stvaranje agenata s pozivanjem alata, upravljanjem razgovorima i integracijom Azure identiteta.
-- **Microsoft Foundry Agent Service**: Je platforma i usluga implementacije u Microsoft Foundryju za agente. Nudi ugrađenu konektivnost s uslugama kao što su Azure OpenAI, Azure AI Search, Bing Search i izvršavanje koda.
+- **Microsoft Agent Framework (MAF)**: Je SDK spreman za produkciju za izgradnju AI agenata. Pruža pojednostavljeni API za stvaranje agenata s pozivanjem alata, upravljanjem razgovorom i integracijom Azure identiteta.
+- **Microsoft Foundry Agent Service**: Je platforma i servis za implementaciju u Microsoft Foundryju za agente. Nudi ugrađenu povezanost s uslugama poput Azure OpenAI, Azure AI Search, Bing Search i izvršavanjem koda.
  
-Još uvijek niste sigurni koji odabrati?
+Još niste sigurni koju odabrati?
 
-### Primjene
+### Slučajevi upotrebe
  
-Pogledajmo može li vam pomoći pregled nekih uobičajenih slučajeva korištenja:
+Pogledajmo možemo li vam pomoći kroz neke uobičajene slučajeve:
  
-> P: Izrađujem proizvodne AI aplikacije agenata i želim brzo započeti
+> P: Gradim produkcijske AI agent aplikacije i želim brzo početi
 >
 
->O: Microsoft Agent Framework je izvrstan izbor. Pruža jednostavan, Pythonovski API preko `FoundryChatClient` koji vam dopušta definiranje agenata s alatima i uputama u samo nekoliko redaka koda.
+>O: Microsoft Agent Framework je izvrstan izbor. Pruža jednostavan, pythonovski API putem `FoundryChatClient` koji vam omogućuje definiranje agenata s alatima i uputama u samo nekoliko linija koda.
 
->P: Trebam implementaciju razine poduzeća s Azure integracijama poput Search i izvršavanja koda
+>P: Trebam implementaciju na razini poduzeća s Azure integracijama poput Searcha i izvršavanja koda
 >
-> O: Microsoft Foundry Agent Service je najbolji izbor. To je platforma koja pruža ugrađene mogućnosti za višestruke modele, Azure AI Search, Bing Search i Azure Functions. Omogućuje vam da lako gradite agente u Foundry portalu i implementirate ih na velikoj skali.
+> O: Microsoft Foundry Agent Service je najbolji izbor. To je platforma koja nudi ugrađene mogućnosti za više modela, Azure AI Search, Bing Search i Azure Functions. Omogućuje jednostavno izgradnju vaših agenata u Foundry portalu i široku implementaciju.
  
-> P: Još sam zbunjen, samo mi dajte jednu opciju
+> P: Još sam zbunjen, dajte mi samo jednu opciju
 >
-> O: Počnite s Microsoft Agent Frameworkom za izgradnju agenata, a zatim koristite Microsoft Foundry Agent Service kad trebate implementirati i skalirati u produkciji. Ovaj pristup omogućuje vam brzo iteriranje na logici agenta uz jasan put do implementacije na razini poduzeća.
+> O: Započnite s Microsoft Agent Frameworkom za izgradnju svojih agenata, a zatim koristite Microsoft Foundry Agent Service kad ih trebate implementirati i skalirati u produkciji. Ovaj pristup omogućava vam brzu iteraciju logike agenta, a pritom imate jasan put prema implementaciji u poduzeću.
  
 Sažmimo ključne razlike u tablici:
 
-| Okvir | Fokus | Osnovni Pojmovi | Primjene |
+| Framework | Fokus | Osnovni pojmovi | Slučajevi upotrebe |
 | --- | --- | --- | --- |
-| Microsoft Agent Framework | Pojednostavljeni SDK za agente s pozivanjem alata | Agenti, Alati, Azure Identitet | Izgradnja AI agenata, korištenje alata, višestepeni radni tokovi |
-| Microsoft Foundry Agent Service | Fleksibilni modeli, sigurnost poduzeća, generiranje koda, pozivanje alata | Modularnost, Suradnja, Orkestracija procesa | Sigurna, skalabilna i fleksibilna implementacija AI agenata |
+| Microsoft Agent Framework | Pojednostavljeni agent SDK s pozivanjem alata | Agenti, Alati, Azure identitet | Izgradnja AI agenata, korištenje alata, višekorak radni tokovi |
+| Microsoft Foundry Agent Service | Fleksibilni modeli, sigurnost za poduzeća, generiranje koda, pozivanje alata | Modularnost, Suradnja, Orkestracija procesa | Sigurna, skalabilna i fleksibilna implementacija AI agenata |
 
-## Mogu li izravno integrirati svoje postojeće alate iz Azure ekosustava ili trebam samostalna rješenja?
+## Mogu li integrirati moje postojeće Azure ekosustavne alate izravno ili trebam samostalna rješenja?
 
 
-Odgovor je da, možete izravno integrirati svoje postojeće alate iz Azure ekosustava s Microsoft Foundry Agent Service, posebno jer je izgrađen da besprijekorno radi s drugim Azure uslugama. Na primjer, možete integrirati Bing, Azure AI Search i Azure Functions. Također postoji duboka integracija s Microsoft Foundry.
+Odgovor je da, možete integrirati svoje postojeće alate unutar Azure ekosustava izravno s Microsoft Foundry Agent Servisom posebno, jer je izgrađen za besprijekoran rad s drugim Azure uslugama. Na primjer, mogli biste integrirati Bing, Azure AI Search i Azure Functions. Postoji i duboka integracija s Microsoft Foundry.
 
-Microsoft Agent Framework također se integrira s Azure uslugama putem `FoundryChatClient` i Azure identiteta, što vam omogućuje izravno pozivanje Azure usluga iz vaših agent alata.
+Microsoft Agent Framework također se integrira s Azure uslugama putem `FoundryChatClient` i Azure identiteta, omogućujući vam da pozivate Azure usluge izravno iz vaših alata za agente.
 
-## Primjeri koda
+## Primjeri Koda
 
 - Python: [Agent Framework (Microsoft Foundry)](./code_samples/02-python-agent-framework.ipynb)
 - Python: [Agent Framework (Azure OpenAI Responses API)](./code_samples/02-python-agent-framework-azure-openai.ipynb)
 - .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
 
-## Imate li još pitanja o AI Agent Frameworkovima?
+## Imate li Više Pitanja o AI Agent Framework-ovima?
 
-Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) da se susretnete s drugim učenicima, sudjelujete na uredskim satima i dobijete odgovore na svoja pitanja o AI Agentima.
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kako biste se susreli s drugim učenicima, prisustvovali uredskim satima i dobili odgovore na svoja pitanja o AI Agentima.
 
 ## Reference
 
 - <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent Service</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Azure OpenAI Responses</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Azure OpenAI Odgovori</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a>
 
-## Prethodna lekcija
+## Prethodna Lekcija
 
-[Uvod u AI agente i primjenu agenata](../01-intro-to-ai-agents/README.md)
+[Uvod u AI Agente i Upotrebu Agenata](../01-intro-to-ai-agents/README.md)
 
-## Sljedeća lekcija
+## Sljedeća Lekcija
 
-[Razumijevanje agentnih dizajnerskih obrazaca](../03-agentic-design-patterns/README.md)
+[Razumijevanje Agentnih Dizajn Obrasca](../03-agentic-design-patterns/README.md)
 
 ---
 

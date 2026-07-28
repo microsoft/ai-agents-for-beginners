@@ -1,101 +1,104 @@
-# 🛠️ Matumizi ya Zana za Juu na Miundo ya GitHub (.NET)
+# 🛠️ Matumizi ya Zana Zinazoendelea na Azure OpenAI (API ya Majibu) (.NET)
 
 ## 📋 Malengo ya Kujifunza
 
-Notebook hii inaonyesha mifumo ya ujumuishaji wa zana za kiwango cha biashara kwa kutumia Microsoft Agent Framework katika .NET na Miundo ya GitHub. Utajifunza jinsi ya kujenga mawakala wa hali ya juu wenye zana nyingi maalum, ukitumia nguvu ya C# na vipengele vya biashara vya .NET.
+Daftari hili linaonyesha mifumo ya ujumuishaji wa zana za daraja la biashara kwa kutumia Mfumo wa Wakala wa Microsoft katika .NET na Azure OpenAI (API ya Majibu). Utajifunza kujenga mawakala mahiri wenye zana nyingi maalum, ukitumia aina kali za C# na sifa za biashara za .NET.
 
-### Uwezo wa Zana za Juu Utakaomasteri
+### Uwezo wa Zana Zinazoendelea Utazizawadia
 
-- 🔧 **Usanifu wa Zana Nyingi**: Kujenga mawakala wenye uwezo maalum mbalimbali
-- 🎯 **Utekelezaji wa Zana Salama kwa Aina**: Kutumia uthibitishaji wa wakati wa kuandaa wa C#
-- 📊 **Mifumo ya Zana za Biashara**: Ubunifu wa zana tayari kwa uzalishaji na usimamizi wa makosa
-- 🔗 **Muundo wa Zana**: Kuchanganya zana kwa mtiririko wa kazi wa biashara wenye changamoto
+- 🔧 **Mimaaruba ya Zana Nyingi**: Kujenga mawakala wenye uwezo maalum mbalimbali
+- 🎯 **Utendaji wa Zana Uliye Salama kwa Aina**: Kutumia uthibitishaji wa wakati wa kompyuta wa C#
+- 📊 **Mifumo ya Zana za Biashara**: Ubunifu wa zana zinazotumika kwa uzalishaji na usimamizi wa makosa
+- 🔗 **Muundo wa Zana**: Kuchanganya zana kwa ajili ya mtiririko tata wa biashara
 
-## 🎯 Faida za Usanifu wa Zana za .NET
+## 🎯 Manufaa ya Mimaaruba ya Zana za .NET
 
-### Vipengele vya Zana za Biashara
+### Sifa za Zana za Biashara
 
-- **Uthibitishaji wa Wakati wa Kuandaa**: Uandishi wenye nguvu unahakikisha usahihi wa vigezo vya zana
-- **Uingizaji wa Utegemezi**: Ujumuishaji wa kontena la IoC kwa usimamizi wa zana
-- **Mifumo ya Async/Await**: Utekelezaji wa zana bila kuzuia na usimamizi sahihi wa rasilimali
-- **Ufuatiliaji wa Kumbukumbu**: Ujumuishaji wa kumbukumbu uliojengwa ndani kwa ufuatiliaji wa utekelezaji wa zana
+- **Uthibitishaji wa Wakati wa Kuunganisha**: Aina kali kuhakikisha usahihi wa vigezo vya zana
+- **Uingizaji wa Tegemezi**: Ujumuishaji wa kontena ya IoC kwa usimamizi wa zana
+- **Mifumo ya Async/Await**: Utendaji wa zana usiozuia kwa usimamizi mzuri wa rasilimali
+- **Ufuatiliaji wa Kuraalishe**: Ujumuishaji wa ufuatiliaji wa uendeshaji wa zana
 
 ### Mifumo Tayari kwa Uzalishaji
 
-- **Usimamizi wa Makosa**: Usimamizi wa makosa wa kina na makosa yaliyoainishwa
-- **Usimamizi wa Rasilimali**: Mifumo sahihi ya utupaji na usimamizi wa kumbukumbu
-- **Ufuatiliaji wa Utendaji**: Vipimo vilivyojengwa ndani na kaunta za utendaji
-- **Usimamizi wa Usanidi**: Usanidi salama kwa aina na uthibitishaji
+- **Usimamizi wa Makosa**: Usimamizi kamili wa makosa yenye aina maalum
+- **Usimamizi wa Rasilimali**: Mifumo sahihi ya utupa na usimamizi wa kumbukumbu
+- **Ufuatiliaji wa Utendaji**: Vipimo na majumuisho ya utendaji yaliyojumuishwa
+- **Usimamizi wa Mipangilio**: Mipangilio inayolindwa kwa aina na uthibitishaji
 
-## 🔧 Usanifu wa Kiufundi
+## 🔧 Mimaaruba ya Kiufundi
 
-### Vipengele vya Msingi vya Zana za .NET
+### Vipengele Muhimu vya Zana za .NET
 
-- **Microsoft.Extensions.AI**: Safu ya muhtasari wa zana iliyounganishwa
-- **Microsoft.Agents.AI**: Usanifu wa zana za kiwango cha biashara
-- **Ujumuishaji wa Miundo ya GitHub**: Mteja wa API wa utendaji wa juu na ujumuishaji wa hifadhi ya muunganisho
+- **Microsoft.Extensions.AI**: Tabaka la upendeleo la zana linalounganisha
+- **Microsoft.Agents.AI**: Uendeshaji wa zana kwa daraja la biashara
+- **Azure OpenAI (API ya Majibu)**: Mteja wa API mwenye utendaji wa juu na usimamizi wa muunganisho
 
-### Mtiririko wa Utekelezaji wa Zana
+### Mlolongo wa Utendaji wa Zana
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Ombi la Mtumiaji] --> B[Uchambuzi wa Wakala]
+    B --> C[Uteuzi wa Zana]
+    C --> D[Uhakiki wa Aina]
+    B --> E[Ufungaji wa Vigezo]
+    E --> F[Uendeshaji wa Zana]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Usindishaji wa Matokeo]
     D --> G
-    G --> H[Response]
+    G --> H[Jibu]
 ```
 
-## 🛠️ Aina za Zana & Mifumo
+## 🛠️ Makundi na Mifumo ya Zana
 
-### 1. **Zana za Usindikaji wa Data**
+### 1. **Zana za Usindikaji Data**
 
-- **Uthibitishaji wa Ingizo**: Uandishi wenye nguvu na maelezo ya data
-- **Operesheni za Kubadilisha**: Ubadilishaji wa data salama kwa aina na uundaji
-- **Mantiki ya Biashara**: Zana za hesabu na uchambuzi maalum wa kikoa
-- **Uundaji wa Matokeo**: Uzalishaji wa majibu yaliyojengwa
+- **Uthibitishaji wa Ingizo**: Aina kali pamoja na maelezo ya data
+- **Uendeshaji wa Mabadiliko**: Ubadilishaji wa data salama kwa aina na uundaji
+- **Mantiki ya Biashara**: Zana za mahesabu na uchambuzi maalum kwa uwanja
+- **Uundaji wa Matokeo**: Uzalishaji wa majibu yenye muundo
 
-### 2. **Zana za Ujumuishaji**
+### 2. **Zana za Ujumlishaji**
 
-- **Viunganishi vya API**: Ujumuishaji wa huduma za RESTful na HttpClient
-- **Zana za Hifadhidata**: Ujumuishaji wa Entity Framework kwa ufikiaji wa data
-- **Operesheni za Faili**: Operesheni salama za mfumo wa faili na uthibitishaji
-- **Huduma za Nje**: Mifumo ya ujumuishaji wa huduma za wahusika wa tatu
+- **Vianzilishi vya API**: Ujumuishaji wa huduma za RESTful na HttpClient
+- **Zana za Hifadhidata**: Ujumuishaji wa Entity Framework kwa upatikanaji wa data
+- **Uendeshaji wa Faili**: Uendeshaji salama wa mfumo wa faili na uthibitishaji
+- **Huduma za Nje**: Mifumo ya ujumuishaji wa huduma za pande tatu
 
-### 3. **Zana za Kusaidia**
+### 3. **Zana za Huduma za Msingi**
 
-- **Usindikaji wa Maandishi**: Huduma za uundaji na urekebishaji wa maandishi
-- **Operesheni za Tarehe/Muda**: Hesabu za tarehe/muda zinazojali utamaduni
-- **Zana za Hisabati**: Hesabu za usahihi na operesheni za takwimu
-- **Zana za Uthibitishaji**: Uthibitishaji wa sheria za biashara na uhakiki wa data
+- **Usindikaji wa Nyaraka**: Zana za utunzaji na uundaji maandishi
+- **Uendeshaji wa Tarehe/Nakala**: Maambo ya tarehe/nyakati yenye utambuzi wa tamaduni
+- **Zana za Hisabati**: Mahesabu sahihi na shughuli za takwimu
+- **Zana za Uthibitishaji**: Uthibitishaji wa sheria za biashara na uhakikisho wa data
 
-Uko tayari kujenga mawakala wa kiwango cha biashara wenye uwezo wa zana salama kwa aina katika .NET? Hebu tuunde suluhisho za kiwango cha kitaalamu! 🏢⚡
+Tayari kujenga mawakala wa daraja la biashara wenye uwezo mkubwa, ulio salama kwa aina katika .NET? Chukua hatua za kusanifu suluhisho za kitaalamu! 🏢⚡
 
-## 🚀 Kuanza
+## 🚀 Kuanzia
 
 ### Mahitaji ya Awali
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) au zaidi
-- [Tokeni ya ufikiaji wa API ya Miundo ya GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK ya .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) au zaidi
+- Usajili wa [Azure](https://azure.microsoft.com/free/) wenye rasilimali ya Azure OpenAI na usambazaji wa mfano
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ingia na `az login`
 
-### Vigezo vya Mazingira Vinavyohitajika
+### Mabadiliko ya Mazingira Yanayohitajika
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Kisha ingia ili AzureCliCredential ipate tokeni
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Kisha ingia ili AzureCliCredential iweze kupata tokeni
+az login
 ```
 
 ### Mfano wa Msimbo
@@ -114,21 +117,23 @@ Au kwa kutumia dotnet CLI:
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Tazama [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) kwa msimbo kamili.
+Angalia [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) kwa msimbo kamili.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

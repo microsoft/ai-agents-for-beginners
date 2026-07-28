@@ -1,57 +1,57 @@
-# 🌍 AI cestovný agent s Microsoft Agent Framework (.NET)
+# 🌍 AI Cestovný agent s Microsoft Agent Framework (.NET)
 
 ## 📋 Prehľad scenára
 
-Tento príklad demonštruje, ako vytvoriť inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky generovať personalizované jednodňové itineráre pre náhodné destinácie po celom svete.
+Tento príklad demonštruje, ako vybudovať inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky vygenerovať personalizované itineráre jednodňových výletov pre náhodné destinácie po celom svete.
 
 ### Kľúčové schopnosti:
 
-- 🎲 **Výber náhodnej destinácie**: Používa vlastný nástroj na výber dovolenkových miest
-- 🗺️ **Inteligentné plánovanie výletu**: Vytvára podrobné itineráre deň po dni
-- 🔄 **Streamovanie v reálnom čase**: Podpora okamžitých a streamovaných odpovedí
-- 🛠️ **Integrácia vlastných nástrojov**: Ukazuje, ako rozšíriť schopnosti agenta
+- 🎲 **Výber náhodnej destinácie**: Používa vlastný nástroj na výber miest na dovolenku
+- 🗺️ **Inteligentné plánovanie výletu**: Vytvára podrobné itineráre po jednotlivých dňoch
+- 🔄 **Streamovanie v reálnom čase**: Podporuje okamžité aj streamované odpovede
+- 🛠️ **Integrácia vlastných nástrojov**: Demonštruje, ako rozšíriť schopnosti agenta
 
 ## 🔧 Technická architektúra
 
-### Jadro technológií
+### Hlavné technológie
 
-- **Microsoft Agent Framework**: Najnovšia implementácia pre .NET na vývoj AI agentov
-- **Azure OpenAI (Responses API)**: Používa Azure OpenAI Responses API na modelové inferencie
+- **Microsoft Agent Framework**: Najnovšia implementácia .NET pre vývoj AI agentov
+- **Azure OpenAI (Responses API)**: Používa Azure OpenAI Responses API pre inferenciu modelu
 - **Azure Identity**: Bezpečné prihlásenie cez `AzureCliCredential` (`az login`)
-- **Bezpečná konfigurácia**: Správa koncových bodov na základe prostredia
+- **Bezpečná konfigurácia**: Správa koncových bodov pomocou prostredia
 
 ### Kľúčové komponenty
 
-1. **AIAgent**: Hlavný koordinátor agenta riadiaci tok konverzácie
+1. **AIAgent**: Hlavný agent riadiaci tok konverzácie
 2. **Vlastné nástroje**: Funkcia `GetRandomDestination()` dostupná agentovi
-3. **Responses Client**: Rozhranie konverzácie založené na Azure OpenAI Responses
+3. **Klient Responses**: Rozhranie konverzácie založené na Azure OpenAI Responses
 4. **Podpora streamovania**: Schopnosti generovať odpovede v reálnom čase
 
-### Vzorec integrácie
+### Vzor integrácie
 
 ```mermaid
 graph LR
-    A[Užívateľská požiadavka] --> B[AI agent]
-    B --> C[Azure OpenAI (API odpovedí)]
+    A[Požiadavka používateľa] --> B[AI agent]
+    B --> C[Azure OpenAI (Responses API)]
     B --> D[Nástroj GetRandomDestination]
-    C --> E[Cestovný itinerár]
+    C --> E[Cestovný plán]
     D --> E
 ```
 
 ## 🚀 Začíname
 
-### Predpoklady
+### Požiadavky
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo vyšší
-- Predplatné [Azure](https://azure.microsoft.com/free/) s Azure OpenAI zdrojom a nasadením modelu
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prihlásenie cez `az login`
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo novší
+- [Predplatné Azure](https://azure.microsoft.com/free/) s Azure OpenAI zdrojom a nasadeným modelom
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prihláste sa pomocou `az login`
 
 ### Povinné premenné prostredia
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Potom sa prihláste, aby AzureCliCredential mohol získať token
 az login
 ```
@@ -59,14 +59,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Potom sa prihláste, aby AzureCliCredential mohol získať token
 az login
 ```
 
 ### Ukážkový kód
 
-Na spustenie príkladu kódu,
+Pre spustenie príkladu kódu,
 
 ```bash
 # zsh/bash
@@ -80,7 +80,7 @@ Alebo použite dotnet CLI:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Kompletný kód nájdete v súbore [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs).
+Pozrite si [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) pre kompletný kód.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -131,7 +131,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
@@ -157,11 +157,11 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Kľúčové poznatky
+## 🎓 Hlavné zistenia
 
-1. **Architektúra agenta**: Microsoft Agent Framework poskytuje čistý, typovo bezpečný prístup k tvorbe AI agentov v .NET
-2. **Integrácia nástrojov**: Funkcie s atribútmi `[Description]` sa stávajú dostupnými nástrojmi pre agenta
-3. **Správa konfigurácie**: Premenné prostredia a bezpečné spracovanie poverení podľa najlepších praktík .NET
+1. **Architektúra agenta**: Microsoft Agent Framework poskytuje čistý, bezpečný a typovo prísny prístup k tvorbe AI agentov v .NET
+2. **Integrácia nástrojov**: Funkcie označené atribútmi `[Description]` sa stávajú dostupnými nástrojmi pre agenta
+3. **Správa konfigurácie**: Premenné prostredia a bezpečné spracovanie poverení nasledujú najlepšie praktiky .NET
 4. **Azure OpenAI Responses API**: Agent používa Azure OpenAI Responses API cez Azure.AI.OpenAI SDK
 
 ## 🔗 Ďalšie zdroje
@@ -169,7 +169,7 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 - [Dokumentácia Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
 - [Azure OpenAI v Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET aplikácie v jednom súbore](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

@@ -1,182 +1,190 @@
-# ការប្រើប្រាស់ពិធីសាស្ត្រសម្រាប់ភ្នាក់ងារ (MCP, A2A និង NLWeb)
+# ការប្រើប្រាស់ពិធីនៃភាសាជាអ្នកតំណាង (MCP, A2A និង NLWeb)
 
-[![ពិធីសាស្ត្រសម្រាប់ភ្នាក់ងារ](../../../translated_images/km/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/km/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(ចុចលើរូបភាពខាងលើដើម្បីមើលវីដេអូរបស់មេរៀននេះ)_
+> _(ចុចលើរូបភាពខាងលើដើម្បីមើលវីដេអូមេរៀននេះ)_
 
-នៅពេលដែលការប្រើភ្នាក់ងារ AI កើនឡើង ការទាមទារពីពិធីសាស្ត្រដែលធានាការមានស្តង់ដារ សុវត្ថិភាព និងគាំទ្រការបង្កើតថ្មីបើកចំហត្រូវកើនឡើងផងដែរ។ នៅក្នុងមេរៀននេះ យើងនឹងគណនាអំពីពិធីសាស្ត្រ 3 ប្រភេទ ដែលមានគោលបំណងបំពេញតម្រូវការនេះ - Model Context Protocol (MCP), Agent to Agent (A2A) និង Natural Language Web (NLWeb)។
+នៅពេលដែលការប្រើប្រាស់ភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរឡើង ក៏មានតម្រូវការពាណិជ្ជកម្មស្តង់ដារ សុវត្ថិភាព និងគាំទ្រការច្នៃប្រឌិតបើកចំហ។ ក្នុងមេរៀននេះ យើងនឹងពិនិត្យពីពិធី ៣ របស់ប្រព័ន្ធដែលប្រុងប្រយ័ត្នលើតម្រូវការនេះ — ពិធីបែបបទតាមបាតុកម្មម៉ូដែល (MCP), ភាសាអ្នកតំណាងទៅអ្នកតំណាង (A2A) និង វេបភាសាធម្មជាតិ (NLWeb)។
 
-## Introduction
+## ចំណេះដឹងមូលដ្ឋាន
 
-នៅក្នុងមេរៀននេះ យើងនឹងពិភាក្សាអំពី៖
+ក្នុងមេរៀននេះ យើងនឹងពាក់ព័ន្ធ៖
 
-• របៀបដែល **MCP** អនុញ្ញាតឲ្យភ្នាក់ងារ AI ចូលដំណើរការឧបករណ៍ និងទិន្នន័យខាងក្រៅ ដើម្បីបញ្ចប់ភារកិច្ចរបស់អ្នកប្រើ។
+• របៀបដែល **MCP** អនុញ្ញាតឲ្យភាសារូបិយបច្ចេកវិទ្យា អាចចូលដំណើរការឧបករណ៍ និងទិន្នន័យខាងក្រៅ ដើម្បីបញ្ចប់ភារកិច្ចអ្នកប្រើ។
 
-• របៀបដែល **A2A** អនុញ្ញាតឲ្យមានការទំនាក់ទំនង និងសហការវិបាគ្នារវាងភ្នាក់ងារផ្សេងៗ។
+• របៀបដែល **A2A** អនុញ្ញាតឲ្យទំនាក់ទំនង និងសហការណ៍រវាងភាសារូបិយបច្ចេកវិទ្យាផ្សេងៗ។
 
-• របៀបដែល **NLWeb** នាំយកចំណុចចំណាំភាសាធម្មជាតិក្នុងគេហទំព័រណាមួយ ដែលអនុញ្ញាតឲ្យភ្នាក់ងារ AI ស្វែងរក និងអន្តរកម្មជាមួយមាតិកា។
+• របៀបដែល **NLWeb** បង្កើតផ្ទាំងភាសាធម្មជាតិសម្រាប់គេហទំព័រណាមួយ ដែលអនុញ្ញាតឲ្យភាសារូបិយបច្ចេកវិទ្យា អាចស្វែងរក និងអន្តរការជាមួយមាតិកា។
 
-## Learning Goals
+## គោលបំណងរៀន
 
-• **កំណត់** គោលបំណងស្នូល និងអត្ថប្រយោជន៍នៃ MCP, A2A, និង NLWeb នៅក្នុងបរិបទនៃភ្នាក់ងារ AI។
+• **កំណត់អត្តសញ្ញាណ** គោលបំណងសំខាន់ និងអត្ថប្រយោជន៍នៃ MCP, A2A, និង NLWeb ក្នុងបរិបទភាសារូបិយបច្ចេកវិទ្យា។
 
-• **ពន្យល់** របៀបដែលពិធីសាស្ត្រនីមួយៗសម្រួលការទំនាក់ទំនង និងអន្តរកម្មរវាង LLMs, ឧបករណ៍ និងភ្នាក់ងារផ្សេងទៀត។
+• **ពន្យល់** របៀបដែលពិធីនីមួយៗ អាចលើកទឹកចិត្តការទំនាក់ទំនង និងអន្តរកម្មរវាង LLMs, ឧបករណ៍ និងភាសារូបិយបច្ចេកវិទ្យាផ្សេងទៀត។
 
-• **ស្គាល់** តួនាទីដ៍ផ្សេងគ្នាដែលពិធីសាស្ត្រនីមួយៗមានក្នុងការកសាងប្រព័ន្ធភ្នាក់ងារ​ដែលស្មុគស្មាញ។
+• **ស្គាល់ថា** តួនាទីខុសគ្នារបស់ពិធីនីមួយៗគឺសំខាន់សម្រាប់សាងសង់ប្រព័ន្ធភាសារូបិយបច្ចេកវិទ្យាចម្រុះ។
 
-## Model Context Protocol
+## ពិធីបែបបទតាមបាតុកម្មម៉ូដែល
 
-The **Model Context Protocol (MCP)** ជាស្ដង់ដារបើកដែលផ្តល់នូវវិធីសាស្ត្រមានស្តង់ដារ សម្រាប់កម្មវិធីដើម្បីផ្តល់បរិបទ និងឧបករណ៍ទៅកាន់ LLMs។ នេះអនុញ្ញាតឲ្យមាន "ឧបករណពហុប្រយោជន៍" ដែលអាចភ្ជាប់ទៅប្រភពទិន្នន័យ និងឧបករណ៍ផ្សេងៗនៅក្នុងវិធីសាស្ត្រដែលទៀងទាត់។
+**ពិធីបែបបទតាមបាតុកម្មម៉ូដែល (MCP)** គឺជាស្តង់ដារបើកដែលផ្ដល់វិធីសាស្រ្តស្តង់ដារសម្រាប់កម្មវិធី ដើម្បីផ្ដល់បរិបទ និងឧបករណ៍ទៅ LLMs។ វាជាឧបករណ៍ "កម្មវិធីភ្ជាប់សកល" ទៅអ្នកចេញទិន្នន័យ និងឧបករណ៍ផ្សេងៗ ដែលភាសារូបិយបច្ចេកវិទ្យាអាចភ្ជាប់បានយ៉ាងប្រកបដោយកម្រិតស្រដៀងគ្នា។
 
-យើងមកមើលសមាសធាតុនៃ MCP អត្ថប្រយោជន៍ប្រៀបធៀបទៅនឹងការប្រើ API ដោយផ្ទាល់ និងឧទាហរណ៍ពីរបៀបដែលភ្នាក់ងារ AI អាចប្រើម៉ាស៊ីនអ៊ិនធើន MCP ។
+មកមើលគ្រឿងផ្សំពី MCP, អត្ថប្រយោជន៍ប្រៀបធៀបនឹងការប្រើប្រាស់ API ត្រូវត្រជាក់ដ៏ផ្ទាល់ និងគំរូនៃរបៀបដែលភាសារូបិយបច្ចេកវិទ្យាអាចប្រើម៉ាស៊ីនបម្រើ MCP។
 
-### MCP Core Components
+### គ្រឿងផ្សំពី MCP
 
-MCP ធ្វើការលើស្ថាបត្យកម្ម **client-server** ហើយសមាសធាតុក្រិតស្នូលមានដូចជា៖
+MCP ប្រតិបត្តិលើ **សំណង់អតិថិជន-ម៉ាស៊ីនបម្រើ** ហើយគ្រឿងផ្សំពីគឺ៖
 
-• **Hosts** គឺជាកម្មវិធី LLM (ឧ. កម្មវិធីកែសម្រួលកូដដូចជា VSCode) ដែលចាប់ផ្តើមការតភ្ជាប់ទៅកាន់ MCP Server។
+• **ម៉ាស៊ីនផ្ទុកខ្សែ** គឺកម្មវិធី LLM (ឧទាហរណ៍អ្នកកែសម្រួលកូដដូចជា VSCode) ដែលចាប់ផ្តើមការភ្ជាប់ទៅម៉ាស៊ីនបម្រើ MCP។
 
-• **Clients** គឺជាសមាសធាតុនៅក្នុងកម្មវិធី host ដែលរក្សាការតភ្ជាប់មួយទៅមួយជាមួយស៊ែវ័រ។
+• **អតិថិជន** គឺជាផ្នែកបន្ថែមនៅក្នុងកម្មវិធីហ្វ្រីមវើក ដែលរក្សាការតភ្ជាប់មួយទៅមួយជាមួយម៉ាស៊ីនបម្រើ។
 
-• **Servers** គឺជាផ្នែកកម្មវិធីទ្រៃភ្លឺដែលបង្ហាញពីសមត្ថភាពជាក់លាក់។
+• **ម៉ាស៊ីនបម្រើ** គឺកម្មវិធីស្រាលដែលបង្ហាញសមត្ថភាពជាក់លាក់ទៅក្រៅ។
 
-ដែលរួមបញ្ចូលនៅក្នុងពិធីសាស្ត្រមានបីធាតុមូលដ្ឋានដែលជាសមត្ថភាពរបស់ MCP Server៖
+រួមបញ្ចូលនៅក្នុងពិធីនេះ គឺមានប្រភពបូកបញ្ចូល ៣ ដែលជាសមត្ថភាពចម្បងរបស់ម៉ាស៊ីនបម្រើ MCP ៖
 
-• **Tools**: វា​ជាសកម្មភាពឬមុខងារដែលភ្នាក់ងារ AI អាចហៅដើម្បីអនុវត្តសកម្មភាពមួយ។ ឧទាហរណ៍ សេវាកម្មអាកាសធាតុអាចបង្ហាញឧបករណ៍ "get weather" មួយ ឬស៊ែវ័រ​អេឡិចត្រូនិកអាចបង្ហាញឧបករណ៍ "purchase product" មួយ។ MCP servers ប្រកាសឈ្មោះ, ការពណ៌នា និង schema នៃ input/output របស់ឧបករណ៍នីមួយៗនៅក្នុងបញ្ជីសមត្ថភាពរបស់ពួកវា។
+• **ឧបករណ៍**៖ ជាចលនាឬមុខងារដែលភាសារូបិយបច្ចេកវិទ្យាអាចហៅដើម្បីអនុវត្តចលនា។ ឧទាហរណ៍ សេវាកម្មអាកាសធាតុអាចបង្ហាញឧបករណ៍ "ទទួលបានអាកាសធាតុ" ឬម៉ាស៊ីនបម្រើអ៊ិនធឺណិតអេឡិចត្រូនិកអាចបង្ហាញឧបករណ៍ "ទិញផលិតផល" ។ ម៉ាស៊ីនបម្រើ MCP ប្រកាសឈ្មោះ, ពិពណ៌នា និងស្ដង់ដារបញ្ចូល/បញ្ចេញទិន្នន័យនៃឧបករណ៍នីមួយៗក្នុងបញ្ជីសមត្ថភាពរបស់ខ្លួន។
 
-• **Resources**: វាជាធាតុទិន្នន័យអានតែម្ដង ឬឯកសារដែល MCP server អាចផ្ដល់បាន ហើយ clients អាចទាញយកវាបានតាមតម្រូវការ។ ឧទាហរណ៍រួមមានមាតិកាឯកសារ កំណត់ត្រាឃ្លាំងទិន្នន័យ ឬកំណត់ហេតុ។ Resources អាចជាអត្ថបទ (ដូចជា code ឬ JSON) ឬទ្រង់ទ្រាយបាន（二進制）ដូចជា រូបភាព ឬ PDF។
+• **ធនធាន**៖ ជា​ទិន្នន័យឬឯកសារដែលអានបានតែប៉ុណ្ណោះ ដែលម៉ាស៊ីនបម្រើ MCP អាចផ្ដល់បាន ហើយអតិថិជនអាចទទួលយកតាមតម្រូវការ។ ឧទាហរណ៍រួមមានមាតិកាឯកសារ កំណត់ត្រាធនាគារ ឬឯកសារចុះកំណត់ហេតុ។ ធនធានអាចជាអក្ខរកម្ម (ដូចជា កូដឬ JSON) ឬគឺជាឯកសារប៊៊ីណារី (ដូចជា រូបភាពឬ PDF)។
 
-• **Prompts**: វាជា template ដែលបានកំណត់រួចដែលផ្តល់នូវសេចក្តីផ្ដល់ឱកាសសំណួរ ដើម្បីអនុញ្ញាតការងារដែលស្មុគស្មាញជាច្រើន។
+• **សារស្នើសុំ**៖ ជាគំរូដែលបានកំណត់ជាមុន ដែលផ្ដល់ជាសារស្នើសុំដ៏មានអត្ថន័យជាមួយនឹងការងារលំបាកក្នុងកម្មវិធី។
 
-### Benefits of MCP
+### អត្ថប្រយោជន៍នៃ MCP
 
-MCP ផ្តល់អត្ថប្រយោជន៍សំខាន់ៗសម្រាប់ភ្នាក់ងារ AI:
+MCP ផ្ដល់អត្ថប្រយោជន៍ដ៏ចម្បងសម្រាប់ភាសារូបិយបច្ចេកវិទ្យា ៖
 
-• **ការរកឧបករណ៍ប្រភេទ Dynamic**: ភ្នាក់ងារអាចទទួលបានបញ្ជីឧបករណ៍ដែលអាចប្រើបានពីស៊ែវ័រមួយដោយឥតស្ថិតស្ថេរ ជាមួយការពណ៌នាអំពីអ្វីដែលពួកវាធ្វើ។ នេះខុសពី API ប្រពៃណី ដែលភាគច្រើនត្រូវការកូដបញ្ចូលតាំងពីដើមសម្រាប់ការរួមបញ្ចូល ដូច្នេះការផ្លាស់ប្តូរ API បណ្តាលឲ្យត្រូវអាប់ដេតកូដ។ MCP ផ្តល់នូវវិធានការ "integrate once" ដែលនាំឱ្យមានការយល់រួមបានពេញលេញជាងមុន។
+• **រកឃើញឧបករណ៍បានឆាប់រហ័ស**៖ ភាសារូបិយបច្ចេកវិទ្យាអាចទទួលបញ្ជីឧបករណ៍ដែលមានពីម៉ាស៊ីនបម្រើ ជាមួយនឹងការពិពណ៌នា។ ខុសពី API ស្តង់ដារដែលតម្រូវឲ្យកូដថែទាំច្រើន សម្រាប់ការជួសជុលផ្សេងៗ MCP ផ្ដល់វិធីសាស្រ្ត "ភ្ជាប់តែមួយដង" ដែលអាចបត់បែនបានយ៉ាងច្រើន។
 
-• **ការទៅវិលគ្នាយឺតនៅលើ LLMs**: MCP ធ្វើការជាមួយ LLMs ផ្សេងៗផ្តល់ឱកាសបត់បែនសម្រាប់ប្ដូរម៉ូដែលស្នូល ដើម្បីវាយតម្លៃប្រសិទ្ធភាពល្អជាងមុន។
+• **អាចប្រើបានឆ្លាតវៃជាមួយគ្រប់ LLMs**៖ MCP អាចប្រតិបត្តិបានជាម៉ូដោយ លីវើរ (LLMs) ផ្សេងៗ ប្រើប្រាស់បានយ៉ាងឆ្លាតវៃ លៃតម្រូវបានគ្រាន់ដើម្បីប្រសើរឡើង។
 
-• **សុវត្ថិភាព​មានស្តង់ដារ**: MCP រួមបញ្ចូលវិធីសាស្ត្រផ្ទៀងផ្ទាត់សម្ថភាពមួយដែលធ្វើឲ្យមានសមត្ថភាពក្នុងការពង្រីកពេលបន្ថែមការចូលដំណើរការ MCP servers ផ្សេងគ្នា។ វាងាយស្រួលជាងការគ្រប់គ្រងកូនសោ និងប្រភេទការផ្ទៀងផ្ទាត់ប្លែកៗសម្រាប់ API ប្រពៃណីផ្សេងៗ។
+• **សុវត្ថិភាពស្តង់ដារ**៖ MCP រួមបញ្ចូលវិធីសាស្រ្តសម្គាល់អត្តសញ្ញាណមួយ ដែលធ្វើឱ្យអាចពង្រីកបានងាយដោយបន្ថែមការចូលដំណើរការទៅម៉ាស៊ីនបម្រើ MCP ផ្សេងៗ។ វាសាមញ្ញជាងការគ្រប់គ្រងកូនសោ និងប្រភេទសម្គាល់បន្ថែមនៅក្នុង API ស្តង់ដារផ្សេងៗ។
 
-### MCP Example
+### ឧទាហរណ៍ MCP
 
-![រូបបង្ហាញ MCP](../../../translated_images/km/mcp-diagram.e4ca1cbd551444a1.webp)
+![MCP Diagram](../../../translated_images/km/mcp-diagram.e4ca1cbd551444a1.webp)
 
-សូមសន្និដ្ឋានថាអ្នកប្រើចង់កក់ Tiket เรือบินជាមួយជំនួយក AI ដែលដំណើរការដោយ MCP។
+គិតឲ្យបានរួចថា អ្នកប្រើចង់កក់ជើងហោះហើរជាមួយជំនួយករដោយ MCP។
 
-1. **Connection**: ជំនួយ AI (the MCP client) តភ្ជាប់ទៅកាន់ MCP server ដែលផ្ដល់ដោយក្រុមហ៊ុនអាកាសចរណ៍មួយ។
+1. **ការតភ្ជាប់**៖ ជំនួយករ AI (អតិថិជន MCP) ភ្ជាប់ទៅម៉ាស៊ីនបម្រើ MCP ដែលផ្ដល់ដោយក្រុមហ៊ុនអាកាសចរណ៍។
 
-2. **Tool Discovery**: client សួរស៊ែវ័រអាកាសចរណ៍ថា "តើអ្នកមានឧបករណ៍អ្វីខ្លះដែលអាចប្រើបាន?" ស៊ែវ័រឆ្លើយតបដោយឧបករណ៍ដូចជា "search flights" និង "book flights"។
+2. **រកឧបករណ៍**៖ អតិថិជនសួរម៉ាស៊ីនបម្រើ MCP របស់ក្រុមហ៊ុនផ្ដល់សេវា "តើមានឧបករណ៍អ្វីខ្លះ?" ម៉ាស៊ីនបម្រើឆ្លើយថា "ស្វែងរកជើងហោះហើរ," និង "កក់ជើងហោះហើរ"។
 
-3. **Tool Invocation**: បន្ទាប់មកអ្នកស្នើជំនួយAI ថា "សូមស្វែងរកបញ្ជីជើងហោះពី Portland ទៅ Honolulu" ជំនួយAI ដែលប្រើ LLM របស់វា ស្គាល់ថាវាចាំបាច់ត្រូវហៅឧបករណ៍ "search flights" ហើយដាក់ទិន្នន័យពាក់ព័ន្ធ (ដើមដំណើរ, គោលដៅ) ទៅ MCP server។
+3. **ហៅឧបករណ៍**៖ អ្នកសួរជំនួយករ AI "សូមស្វែងរកជើងហោះហើរពីទីក្រុង Portland ទៅ Honolulu។" ជំនួយករដាក់ LLM ដើម្បីកំណត់ថាត្រូវហៅឧបករណ៍ "ស្វែងរកជើងហោះហើរ" និងផ្ញើប៉ារ៉ាម៉ែត្រ (ទីដើម និងទីបរិញ្ញាណ) ទៅម៉ាស៊ីនបម្រើ MCP។
 
-4. **Execution and Response**: MCP server ដែលមានតួនាទីជា wrapper ត្រូវធ្វើការហៅ API កក់សំបុត្រផ្ទៃក្នុងរបស់អាកាសចរណ៍។ វាទទួលព័ត៌មានជើងហោះ (ឧ. ទិន្នន័យ JSON) ហើយផ្ញើត្រឡប់ទៅជំនួយAI។
+4. **អនុវត្តន៍ និងឆ្លើយតប**៖ ម៉ាស៊ីនបម្រើ MCP ជាអ្នកដាក់ខ្សែធ្វើការហៅ API កក់ជើងហោះហើរផ្ទៃក្នុងតាមក្រុមហ៊ុន។ វាទទួលបានព័ត៌មានជើងហោះហើរដូចជា JSON ហើយផ្ញើវាទៅជំនួយករ AI។
 
-5. **Further Interaction**: ជំនួយAI បង្ហាញជំរើសជើងហោះ។ ពេលអ្នកជ្រើសជើងហោះមួយ ជំនួយអាចហៅឧបករណ៍ "book flight" លើ MCP server ដដែល ដើម្បីបញ្ចប់ការកក់។
+5. **អន្តរកម្មបន្ថែម**៖ ជំនួយករ AI បង្ហាញជម្រើសជើងហោះហើរ។ នៅពេលអ្នកជ្រើសជើងហោះហើរមួយ ជំនួយករ​អាចហៅឧបករណ៍ "កក់ជើងហោះហើរ" នៅលើម៉ាស៊ីនបម្រើ MCP ដូចគ្នា ដើម្បីបញ្ចប់ការកក់។
 
-## Agent-to-Agent Protocol (A2A)
+## ពិធីភាសារូបិយបច្ចេកវិទ្យាទៅភាសារូបិយបច្ចេកវិទ្យា (A2A)
 
-ខណៈដែល MCP ផ្តោតទៅលើការភ្ជាប់ LLMs ទៅឧបករណ៍ ពិធីសាស្ត្រ **Agent-to-Agent (A2A)** ធ្វើម្ដងទៀតដោយអនុញ្ញាតឲ្យមានការទំនាក់ទំនង និងសហការវិបាគ្នារវាងភ្នាក់ងារ AI ផ្សេងៗ។ A2A ភ្ជាប់ភ្នាក់ងារ AI រួមគ្នាចន្លោះអង្គភាព អរិយធម៌ និងបច្ចេកវិទ្យាផ្សេងៗ ដើម្បីបញ្ចប់ភារកិច្ចចែករំលែក។
+ខណៈដែល MCP ផ្ដោតលើការភ្ជាប់ LLM ទៅឧបករណ៍ ពិធី **Agent-to-Agent (A2A)** បានធ្វើជំហានបន្ថែម ដោយអនុញ្ញាតឲ្យភាសារូបិយបច្ចេកវិទ្យា​ផ្សេងគ្នា ទាក់ទង និងសហការណ៍គ្នា។ A2A ភ្ជាប់ភាសារូបិយបច្ចេកវិទ្យាទៅគ្នា ឆ្លងកាត់អង្គការផ្សេងៗ បរិបទ និងបច្ចេកវិទ្យាផ្សេងៗ ដើម្បីបញ្ចប់ភារកិច្ចរួម។
 
-យើងនឹងពិនិត្យសមាសធាតុនិងអត្ថប្រយោជន៍នៃ A2A ដោយមានឧទាហរណ៍ពីរបៀបវាអាចអនុវត្តនៅក្នុងកម្មវិធីដំណើរកំសាន្តរបស់យើង។
+យើងនឹងពិនិត្យពីគ្រឿងផ្សំ និងអត្ថប្រយោជន៍នៃ A2A រួមទាំងឧទាហរណ៍នៃរបៀបប្រើប្រាស់វា ក្នុងកម្មវិធីចុះបញ្ជីធ្វើដំណើររបស់យើង។
 
-### A2A Core Components
+### គ្រឿងផ្សំពី A2A
 
-A2A ផ្តោតលើការអនុញ្ញាតឲ្យភ្នាក់ងារទំនាក់ទំនងគ្នានិងធ្វើការជាមួយគ្នាដើម្បីបញ្ចប់បំបែកភារកិច្ចមួយ។ សមាសធាតុនីមួយៗនៃពិធីសាស្ត្រមានការរួមចំណែកដូចខាងក្រោម៖
+A2A ផ្ដោតលើការអនុញ្ញាតឲ្យភាសារូបិយបច្ចេកវិទ្យាទំនាក់ទំនង និងសហការណ៍គ្នា ដើម្បីបញ្ចប់ភារកិច្ចរងមួយសម្រាប់អ្នកប្រើ។ គ្រឿងផ្សំមួយៗរបស់ពិធីនេះ មានតួនាទីដូចជា:
 
-#### Agent Card
+#### កាតអ្នកតំណាង
 
-Similar to how an MCP server shares a list of tools, an Agent Card has:
-- The Name of the Agent .
-- A **description of the general tasks** it completes.
-- A **list of specific skills** with descriptions to help other agents (or even human users) understand when and why they would want to call that agent.
-- The **current Endpoint URL** of the agent
-- The **version** and **capabilities** of the agent such as streaming responses and push notifications.
+ដូចដំណើរការដូចម៉ាស៊ីនបម្រើ MCP បង្ហាញបញ្ជីឧបករណ៍ កាតអ្នកតំណាងមាន៖
+- ឈ្មោះអ្នកតំណាង។
+- **ពិពណ៌នាអំពីភារកិច្ចទូទៅ** ដែលវាបញ្ចប់។
+- **បញ្ជីជំនាញជាក់លាក់ទស្សន៍** ដោយមានពិពណ៌នា ឲ្យភាសារូបិយបច្ចេកវិទ្យាអ្នកដទៃ (ឬអ្នកប្រើប្រាស់មនុស្ស) ស្គាល់ពីពេលណា ហើយហេតុអ្វីត្រូវហៅអ្នកតំណាងនោះ។
+- **URL ចុងផ្តាច់** បច្ចុប្បន្នរបស់អ្នកតំណាង។
+- **ជំនាន់** និង **សមត្ថភាព** របស់អ្នកតំណាង ដូចជា ការផ្ទាយផ្សាយចម្លើយ និងការប្រាប់ជូន។
 
-#### Agent Executor
+#### អ្នកអនុវត្តការងារ
 
-The Agent Executor is responsible for **passing the context of the user chat to the remote agent**, the remote agent needs this to understand the task that needs to be completed. In an A2A server, an agent uses its own Large Language Model (LLM) to parse incoming requests and execute tasks using its own internal tools.
+អ្នកអនុវត្តការងារទទួលខុសត្រូវក្នុងការផ្ញើបរិបទនៃសន្ទនានៅអ្នកប្រើទៅអ្នកតំណាងចម្ងាយ។ អ្នកតំណាងចម្ងាយត្រូវការព័ត៌មាននេះ ដើម្បីយល់ពីភារកិច្ចដែលត្រូវបញ្ចប់។ នៅម៉ាស៊ីនបម្រើ A2A អ្នកតំណាងប្រើ LLM ផ្ទាល់ខ្លួនដើម្បីអានសំណើ និងអនុវត្តភារកិច្ចដោយប្រើឧបករណ៍ផ្ទៃខ្លួន។
 
-#### Artifact
+#### ឯកសារវត្ថុ
 
-Once a remote agent has completed the requested task, its work product is created as an artifact.  An artifact **contains the result of the agent's work**, a **description of what was completed**, and the **text context** that is sent through the protocol. After the artifact is sent, the connection with the remote agent is closed until it is needed again.
+ក្រោយពីអ្នកតំណាងចម្ងាយបានបញ្ចប់ភារកិច្ច តម្រងនៃការងាររបស់វាត្រូវបានបង្កើតជាឯកសារវត្ថុ។ ឯកសារវត្ថុនេះ **ផ្ទុកលទ្ធផលនៃការងារអ្នកតំណាង** មាន **ពិពណ៌នាអំពីអ្វីដែលបានបញ្ចប់** និង **បរិបទអត្ថបទ** ដែលផ្ញើតាមពិធី។ បន្ទាប់ពីផ្ញើឯកសារវត្ថុ ការតភ្ជាប់ទៅអ្នកតំណាងចម្ងាយត្រូវបានបិទរហូតដល់ចាំបានម្តងទៀត។
 
-#### Event Queue
+#### ផ្នែកជួរនាំព្រឹត្តិការណ៍
 
-This component is used for **handling updates and passing messages**. It is particularly important in production for agentic systems to prevent the connection between agents from being closed before a task is completed, especially when task completion times can take a longer time.
+គ្រឿងផ្សំនេះត្រូវបានប្រើសម្រាប់ **គ្រប់គ្រងបច្ចុប្បន្នភាព និងផ្ញើសារ**។ វាមានសារៈសំខាន់ខ្លាំងក្នុងផលិតកម្មសម្រាប់ប្រព័ន្ធភាសារូបិយបច្ចេកវិទ្យា ដើម្បីជៀសវាងការបិទការតភ្ជាប់រវាងភាសារូបិយបច្ចេកវិទ្យា មុនពេលបញ្ចប់ភារកិច្ច ជាពិសេសពេលវេលាបញ្ចប់ភារកិច្ចអាចយឺតយ៉ាវ។
 
-### Benefits of A2A
+### អត្ថប្រយោជន៍នៃ A2A
 
-• **Enhanced Collaboration**: It enables agents from different vendors and platforms to interact, share context, and work together, facilitating seamless automation across traditionally disconnected systems.
+• **សហការជាច្រើនជាងមុន**៖ វាអនុញ្ញាតឲ្យភាសារូបិយបច្ចេកវិទ្យាពីអ្នកផ្គត់ផ្គង់ និងវេទិកាផ្សេងៗ អាចទំនាក់ទំនង ចែករំលែកបរិបទ និងសហការគ្នា ដើម្បីបង្កើតការងារជាស្វ័យប្រវត្តដែលល្អឥតខ្ចោះនៅក្នុងប្រព័ន្ធដែលមិនគ្នាដាច់ពីរនេះពីមុន។
 
-• **Model Selection Flexibility**: Each A2A agent can decide which LLM it uses to service its requests, allowing for optimized or fine-tuned models per agent, unlike a single LLM connection in some MCP scenarios.
+• **ភាពបត់បែនការជ្រើសរើសម៉ូដែល**៖ អ្នកតំណាង A2A ម្នាក់ៗអាចជ្រើសរើស LLM ដែលវាប្រើសម្រាប់បម្រើសំណើររបស់ខ្លួន ដែលអាចធ្វើម៉ូដែលប្រសើរឬល្អិតល្អន់បាន ចំឡើយខុសពីការតភ្ជាប់ LLM តែមួយក្នុងសកម្មភាព MCP មួយចំនួន។
 
-• **Built-in Authentication**: Authentication is integrated directly into the A2A protocol, providing a robust security framework for agent interactions.
+• **សម្គាល់អត្តសញ្ញាណបានបញ្ចូល**៖ ការសម្គាល់អត្តសញ្ញាណបញ្ចូលផ្ទាល់ក្នុងពិធី A2A ផ្ដល់ស្នូលសុវត្ថិភាពខ្លាំងសម្រាប់ការប្រាស្រ័យគ្នារវាងភាសារូបិយបច្ចេកវិទ្យា។
 
-### A2A Example
+### ឧទាហរណ៍ A2A
 
-![រូបបង្ហាញ A2A](../../../translated_images/km/A2A-Diagram.8666928d648acc26.webp)
+![A2A Diagram](../../../translated_images/km/A2A-Diagram.8666928d648acc26.webp)
 
-Let's expand on our travel booking scenario, but this time using A2A.
+យើងយកសេចក្ដីសុំធ្វើដំណើររបស់យើងពិចារណាមុន ប៉ុន្តែពេលនេះប្រើប្រាស់ A2A។
 
-1. **User Request to Multi-Agent**: A user interacts with a "Travel Agent" A2A client/agent, perhaps by saying, "Please book an entire trip to Honolulu for next week, including flights, a hotel, and a rental car".
+1. **សំណើអ្នកប្រើទៅភាសារូបិយបច្ចេកវិទ្យាច្រើននាក់**៖ អ្នកប្រើប្រាស់ទំនាក់ទំនង ជាមួយ "ភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរ" (Travel Agent) ជាអតិថិជន/អ្នកតំណាង A2A ដោយនិយាយថា "សូមកក់ការធ្វើដំណើរទៅ Honolulu សប្ដាហ៍ក្រោយ រួមមានជើងហោះហើរ សណ្ឋាគារ និងរថយន្តជួល"។
 
-2. **Orchestration by Travel Agent**: The Travel Agent receives this complex request. It uses its LLM to reason about the task and determine that it needs to interact with other specialized agents.
+2. **ការគ្រប់គ្រងដោយភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរ**៖ ភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរទទួលបានសំណើគួរឲ្យចាប់អារម្មណ៍នេះ។ វាប្រើ LLM របស់ខ្លួន ដើម្បីមើលឃើញភារកិច្ច និងកំណត់ថាត្រូវពិភាក្សាជាមួយភាសារូបិយបច្ចេកវិទ្យាពិសេសផ្សេងទៀត។
 
-3. **Inter-Agent Communication**: The Travel Agent then uses the A2A protocol to connect to downstream agents, such as an "Airline Agent," a "Hotel Agent," and a "Car Rental Agent" that are created by different companies.
+3. **ការទំនាក់ទំនងរវាងភាសារូបិយបច្ចេកវិទ្យា**៖ ភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរប្រើប្រាស់ពិធី A2A ដើម្បីភ្ជាប់ទៅភាសារូបិយបច្ចេកវិទ្យាដូចជា "ភាសារូបិយបច្ចេកវិទ្យាអាកាសចរណ៍", "ភាសារូបិយបច្ចេកវិទ្យាសណ្ឋាគារ" និង "ភាសារូបិយបច្ចេកវិទ្យាជួលរថយន្ត" ដែលបង្កើតដោយក្រុមហ៊ុនផ្សេងៗ។
 
-4. **Delegated Task Execution**: The Travel Agent sends specific tasks to these specialized agents (e.g., "Find flights to Honolulu," "Book a hotel," "Rent a car"). Each of these specialized agents, running their own LLMs and utilizing their own tools (which could be MCP servers themselves), performs its specific part of the booking.
+4. **ការបង្កើតភារកិច្ចអនុវត្តដោយភាសារូបិយបច្ចេកវិទ្យាពិសេសនីមួយៗ**៖ ភាសារូបិយបច្ចេកវិទ្យាធ្វើដំណើរផ្ញើភារកិច្ចជាក់លាក់ទៅភាសារូបិយបច្ចេកវិទ្យាពិសេសទាំងនេះ (ដូចជា "ស្វែងរកជើងហោះហើរ", "កក់សណ្ឋាគារ", "ជួលរថយន្ត")។ ភាសារូបិយបច្ចេកវិទ្យាជាក់លាក់នីមួយៗ ប្រើ LLM និងឧបករណ៍ផ្ទៃខ្លួន (ប្រហែលជាម៉ាស៊ីនបម្រើ MCP ផ្ទាល់ខ្លួន) ដើម្បីអនុវត្តភារកិច្ចផ្នែករបស់ខ្លួន។
 
-5. **Consolidated Response**: Once all downstream agents complete their tasks, the Travel Agent compiles the results (flight details, hotel confirmation, car rental booking) and sends a comprehensive, chat-style response back to the user.
+5. **ការឆ្លើយតបលាយគ្នា**៖ បន្ទាប់ពីភាសារូបិយបច្ចេកវិទ្យាផ្នែកក្រោមបញ្ចប់ភារកិច្ចរបស់ពួកគេ ភាសាររូបិយបច្ចេកវិទ្យាធ្វើដំណើរប្រមូលផ្ដុំលទ្ធផល (ព័ត៌មានជើងហោះហើរ, ការបញ្ជាក់សណ្ឋាគារ, ការកក់រថយន្តជួល) ហើយផ្ញើចម្លើយអង្គុយសន្ទនាសំរាប់អ្នកប្រើ។
 
-## Natural Language Web (NLWeb)
+## វេបភាសាធម្មជាតិ (NLWeb)
 
-គេហទំព័របានជាទីបំផុតជារបៀបសម្រាប់អ្នកប្រើក្នុងការទទួលព័ត៌មាន និងទិន្នន័យតាមអ៊ីនធឺណិតរយៈពេលយូរ។
+គេហទំព័រមិនធ្លាប់ជារបៀបសំខាន់សម្រាប់អ្នកប្រើក្នុងការចូលដំណើរការព័ត៌មាន និងទិន្នន័យតាមអុីនធឺណិត។
 
-យើងមកមើលសមាសធាតុផ្សេងៗរបស់ NLWeb អត្ថប្រយោជន៍របស់វា និងឧទាហរណ៍ពីរបៀបដែល NLWeb ដំណើរការដោយយកគេហទំព័រដំណើរកមសាន្តរបស់យើងជាគំរូ។
+យើងមើលប្រភេទផ្សេងៗនៃ NLWeb, អត្ថប្រយោជន៍ នៃ NLWeb និងឧទាហរណ៍របៀបដែល NLWeb ដំណើរការដោយមើលកម្មវិធីធ្វើដំណើររបស់យើង។
 
-### Components of NLWeb
+### គ្រឿងផ្សំពី NLWeb
 
-- **NLWeb Application (Core Service Code)**: The system that processes natural language questions. It connects the different parts of the platform to create responses. You can think of it as the **engine that powers the natural language features** of a website.
+- **កម្មវិធី NLWeb (កូដសេវាកម្មសំខាន់)** ៖ ប្រព័ន្ធដែលដំណើរការសំណួរភាសាធម្មជាតិ។ វាភ្ជាប់ផ្នែកផ្សេងៗនៃវេទិកាដើម្បីបង្កើតចម្លើយ។ អ្នកអាចគិតវាជាដំណើរការចម្បងដែលជំរុញមុខងារ​ភាសាធម្មជាតិ​របស់គេហទំព័រ។
 
-- **NLWeb Protocol**: This is a **basic set of rules for natural language interaction** with a website. It sends back responses in JSON format (often using Schema.org). Its purpose is to create a simple foundation for the “AI Web,” in the same way that HTML made it possible to share documents online.
+- **ពិធី NLWeb**៖ នេះគឺជាការតំលៃនៃច្បាប់មូលដ្ឋានសម្រាប់អន្តរកម្មភាសាធម្មជាតិក្នុងគេហទំព័រ។ វាផ្ញើចម្លើយតាមទ្រង់ទ្រាយ JSON (ជាទូទៅប្រើ Schema.org)។ គោលបំណងគឺបង្កើតមូលដ្ឋានសាមញ្ញសម្រាប់ “វេប AI” ដូច HTML បានធ្វើសម្រាប់ការចែករំលែកឯកសារតាមអនឡាញ។
 
-- **MCP Server (Model Context Protocol Endpoint)**: Each NLWeb setup also works as an **MCP server**. This means it can **share tools (like an “ask” method) and data** with other AI systems. In practice, this makes the website’s content and abilities usable by AI agents, allowing the site to become part of the wider “agent ecosystem.”
+- **ម៉ាស៊ីនបម្រើ MCP (ចុងផ្តាច់ពិធីបែបបទតាមបាតុកម្មម៉ូដែល)**៖ រៀបចំ NLWeb ក៏ដំណើរការ​ជា **ម៉ាស៊ីនបម្រើ MCP** ផងដែរ។ នេះមានន័យថាវាអាច **ចែករំលែកឧបករណ៍ (ដូចជា វិធីសាស្រ្ត "ask") និងទិន្នន័យ** ជាមួយប្រព័ន្ធ AI ផ្សេងៗ។ នៅក្នុងការអនុវត្ត បង្រៀនធាតុ និងសមត្ថភាពគេហទំព័រត្រូវបានប្រើដោយភាសារូបិយបច្ចេកវិទ្យា ដើម្បីធ្វើឲ្យវាគ្រប់គ្រងនៅក្នុង生态系统ភាសារូបិយបច្ចេកវិទ្យាវិប។
 
-- **Embedding Models**: These models are used to **convert website content into numerical representations called vectors** (embeddings). These vectors capture meaning in a way computers can compare and search. They are stored in a special database, and users can choose which embedding model they want to use.
+- **ម៉ូដែលបញ្ចូល**៖ ម៉ូដែលទាំងនេះប្រើសម្រាប់ **បម្លែងមាតិកាគេហទំព័រទៅជារូបាត្រួតលេខដែលហៅថា vectors (កំណត់តម្លៃ)**។ Vectors ទទួលយកន័យមួយដែលកុំព្យូទ័រអាចប្រៀបធៀប និងស្វែងរកបាន។ វាត្រូវបានរក្សាទុកក្នុងមូលដ្ឋានទិន្នន័យពិសេស ហើយអ្នកប្រើអាចជ្រើសម៉ូដែលបញ្ចូលដែលចង់ប្រើ។
 
-- **Vector Database (Retrieval Mechanism)**: This database **stores the embeddings of the website content**. When someone asks a question, NLWeb checks the vector database to quickly find the most relevant information. It gives a fast list of possible answers, ranked by similarity. NLWeb works with different vector storage systems such as Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
+- **មូលដ្ឋានទិន្នន័យវិកទ័រ (យន្តការទាញយក)**៖ មូលដ្ឋានទិន្នន័យនេះ **រក្សាទុក embeddings នៃមាតិកាគេហទំព័រ**។ នៅពេលមានសំណួរ NLWeb រកមើលមូលដ្ឋានទិន្នន័យវិកទ័រដើម្បីរកព័ត៌មានដែលពាក់ព័ន្ធបំផុតយ៉ាងលឿន។ វាផ្តល់បញ្ជីចម្លើយជាបន្ទាន់ ដែលបានចាត់តម្រៀបតាមការស្រដៀងគ្នា។ NLWeb ប្រើបានជាមួយប្រព័ន្ធផ្ទុកវិកទ័រប្រភេទផ្សេងគ្នា ដូចជា Qdrant, Snowflake, Milvus, Azure AI Search និង Elasticsearch។
 
-### NLWeb by Example
+### NLWeb ជាឧទាហរណ៍
 
-![រូបបង្ហាញ NLWeb](../../../translated_images/km/nlweb-diagram.c1e2390b310e5fe4.webp)
+![NLWeb](../../../translated_images/km/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Consider our travel booking website again, but this time, it's powered by NLWeb.
+សូមពិចារណាគេហទំព័រកក់ដំណើររបស់យើងម្តងទៀត ប៉ុន្តែពេលនេះវាដំណើរការដោយ NLWeb។
 
-1. **Data Ingestion**: The travel website's existing product catalogs (e.g., flight listings, hotel descriptions, tour packages) are formatted using Schema.org or loaded via RSS feeds. NLWeb's tools ingest this structured data, create embeddings, and store them in a local or remote vector database.
+1. **ការបញ្ចូលទិន្នន័យ**៖ បញ្ជីផលិតផលបច្ចុប្បន្ន (ដូចជាបញ្ជីជើងហោះហើរ, ពិពណ៌នាសណ្ឋាគារ និងកញ្ចប់ទំនិញ) ត្រូវបានទ្រង់ទ្រាយឲ្យសមនឹង Schema.org ឬផ្ទុកតាម RSS feed។ ឧបករណ៍ NLWeb ពិសោធទិន្នន័យនេះ បង្កើត embeddings ហើយរក្សាទុកក្នុងមូលដ្ឋានទិន្នន័យវិកទ័រទីតាំងក្នុងឬចម្ងាយ។
 
-2. **Natural Language Query (Human)**: A user visits the website and, instead of navigating menus, types into a chat interface: "Find me a family-friendly hotel in Honolulu with a pool for next week".
+2. **សំណួរភាសាធម្មជាតិ (មនុស្ស)**៖ អ្នកប្រើប្រាស់ចូលគេហទំព័រ ហើយជំនួសមិនចូលមែនមនុស្សពុំចង់ចូលមើលម៉ឺនុយ ប៉ុន្តែវាយសារដោយភាសាធម្មជាតិ "សូមរកសណ្ឋាគារដែលសម្របសម្រួលសម្រាប់គ្រួសារនៅ Honolulu មានអាងហែលទឹកសម្រាប់សប្ដាហ៍ក្រោយ។
 
-3. **NLWeb Processing**: The NLWeb application receives this query. It sends the query to an LLM for understanding and simultaneously searches its vector database for relevant hotel listings.
+3. **ការគ្រប់គ្រង NLWeb**៖ កម្មវិធី NLWeb ទទួលសំណួរនេះ។ វាផ្ញើសំណួរទៅ LLM ដើម្បីយល់ និងពេលតែមួយបានស្វែងរកក្នុងមូលដ្ឋានទិន្នន័យវិកទ័រដើម្បីស្វែងរកបញ្ជីសណ្ឋាគារដែលពាក់ព័ន្ធ។
 
-4. **Accurate Results**: The LLM helps to interpret the search results from the database, identify the best matches based on "family-friendly," "pool," and "Honolulu" criteria, and then formats a natural language response. Crucially, the response refers to actual hotels from the website's catalog, avoiding made-up information.
+4. **លទ្ធផលមានត្រឹមត្រូវ**៖ LLM ជួយបកស្រាយលទ្ធផលស្វែងរកពីមូលដ្ឋានទិន្នន័យ, កំណត់ការតរួតត្រាល្អបំផុត ដោយផ្អែកលើ "សម្របសម្រួលគ្រួសារ", "អាងហែលទឹក" និង "Honolulu" ហើយបំពង់ចម្លើយជាភាសាធម្មជាតិ។ សំខាន់សម្រាប់ចម្លើយត្រូវយោងទៅគណនីពិតពីបញ្ជីគេហទំព័រ មិនប្រើពត៌មានក្លែងក្លាយទេ។
 
-5. **AI Agent Interaction**: Because NLWeb serves as an MCP server, an external AI travel agent could also connect to this website's NLWeb instance. The AI agent could then use the `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. The NLWeb instance would process this, leveraging its database of restaurant information (if loaded), and return a structured JSON response.
+5. **អន្តរកម្មជាមួយភាសារូបិយបច្ចេកវិទ្យា**៖ ព្រោះ NLWeb ដំណើរការ​ជា​ម៉ាស៊ីនបម្រើ MCP ភាសារូបិយបច្ចេកវិទ្យាផ្នែកក្រៅអាចភ្ជាប់ទៅ NLWeb នៃគេហទំព័រនេះបាន។ ភាសារូបិយបច្ចេកវិទ្យាអាចប្រើ វិធីសាស្រ្ត `ask` របស់ MCP ដើម្បីសួរក្នុងគេហទំព័រតាមផ្ទាល់៖ `ask("តើមានភោជនីយដ្ឋានសមរម្យសំរាប់សត្វល្អិតនៅតំបន់ Honolulu ដែលសណ្ឋាគារបណ្តាំដំណើរដែរ?")`។ គំរូ NLWeb នេះនឹងដំណើរការ នឹងប្រើប្រាស់មូលដ្ឋានទិន្នន័យភោជនីយដ្ឋាន (បើបានផ្ទុក) ហើយបញ្ចូនចម្លើយ JSON ដោយរចនាសម្ព័ន្ធត្រឹមត្រូវ។
 
-### Got More Questions about MCP/A2A/NLWeb?
+### តើអ្នកមានសំណួរចំពោះ MCP/A2A/NLWeb ទៀតទេ?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+ចូលរួម [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) ដើម្បីជួបជាមួយអ្នករៀនផ្សេងៗ ស្វែងរកម៉ោងការិយាល័យ និងទទួលបានចម្លើយសំណួរអំពីភាសារូបិយបច្ចេកវិទ្យារបស់អ្នក។
 
-## Resources
+## សំណុំព័ត៌មាន
 
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
-- [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [MCP សម្រាប់អ្នកចាប់ផ្តើម](https://aka.ms/mcp-for-beginners)  
+- [ឯកសារពី MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [គម្រោង NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [បណ្តាញភាសារូបិយបច្ចេកវិទ្យា Microsoft](https://aka.ms/ai-agents-beginners/agent-framework)
+
+## មេរៀនមុន
+
+[ភាសារូបិយបច្ចេកវិទ្យាក្នុងផលិតកម្ម](../10-ai-agents-production/README.md)
+
+## មេរៀនបន្ទាប់
+
+[វិស្វកម្មបរិបទសម្រាប់ភាសារូបិយបច្ចេកវិទ្យា](../12-context-engineering/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាបកប្រែ AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំខំប្រឹងប្រែងដើម្បីឲ្យបានត្រឹមត្រូវ សូមយល់ដឹងថាការបកប្រែដោយស្វ័យប្រវត្តិអាចមានកំហុស ឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមនៅក្នុងភាសាដើមគួរត្រូវបានចាត់ទុកថាជា​ប្រភពដែលអាចទុកចិត្តបាន។ សម្រាប់ព័ត៌មានសំខាន់ ការបកប្រែដោយមនុស្សវិជ្ជាជីវៈគឺបានផ្ដល់អនុសាសន៍។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសណាមួយ ដែលកើតឡើងពីការប្រើប្រាស់ការបកប្រែនេះទេ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

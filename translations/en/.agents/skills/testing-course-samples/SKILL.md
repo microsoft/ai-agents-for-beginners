@@ -28,7 +28,7 @@ runs the notebooks locally.
 2. **`.env` at the repo root** (copy from [`.env.example`](../../../../../.env.example)) with at least:
    - `AZURE_AI_PROJECT_ENDPOINT` — Foundry project endpoint
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — a non-deprecated deployment (e.g. `gpt-4.1-mini`)
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — a non-deprecated deployment (e.g. `gpt-5-mini`)
    - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) and `AZURE_OPENAI_DEPLOYMENT`
      for lessons that call Azure OpenAI directly (Lesson 06, 02-azure-openai, 14 handoff/human-loop).
 3. **`az login`** completed — samples authenticate with `AzureCliCredential` (Entra ID, keyless).
@@ -51,6 +51,13 @@ pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
 The script writes executed copies, per-notebook logs, and `results.json` to
 `$env:TEMP\aiab-nbval` and exits with the number of failures.
+
+Transient failures (shared-subscription HTTP 429 rate limits, an occasional
+`AzureCliCredential` token hiccup, or a timeout) are retried automatically
+(`-Retries`, default 2, with `-RetryDelaySeconds` backoff, default 20). If a
+model deployment is regularly 429-ing, check the subscription's GlobalStandard
+TPM quota (`az cognitiveservices usage list -l <region>`) — raising a single
+deployment's capacity does not help when the *subscription* quota is exhausted.
 
 ## Interpreting results
 - `PASS` — the notebook ran end-to-end with no cell error.

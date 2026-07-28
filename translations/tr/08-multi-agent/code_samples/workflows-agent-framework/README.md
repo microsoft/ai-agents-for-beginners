@@ -1,69 +1,69 @@
 # Microsoft Agent Framework Workflow ile Çoklu Ajan Uygulamaları Geliştirme
 
-Bu eğitim, Microsoft Agent Framework kullanarak çoklu ajan uygulamalarını anlamanızı ve geliştirmenizi sağlayacak. Çoklu ajan sistemlerinin temel kavramlarını keşfedecek, framework'ün Workflow bileşeninin mimarisine dalacak ve farklı iş akışı modelleri için hem Python hem de .NET'te pratik örnekler üzerinden ilerleyeceğiz.
+Bu eğitim, Microsoft Agent Framework kullanarak çoklu ajan uygulamalarını anlamanıza ve oluşturmanıza rehberlik edecektir. Çoklu ajan sistemlerinin temel kavramlarını keşfedecek, framework'ün Workflow bileşeninin mimarisine dalacak ve farklı iş akışı desenleri için hem Python hem de .NET'te pratik örnekler üzerinde ilerleyeceğiz.
 
 ## 1\. Çoklu Ajan Sistemlerini Anlamak
 
-Bir AI Ajanı, standart bir Büyük Dil Modeli (LLM) yeteneklerinin ötesine geçen bir sistemdir. Çevresini algılayabilir, kararlar alabilir ve belirli hedeflere ulaşmak için eylemler gerçekleştirebilir. Çoklu ajan sistemi, birden fazla ajanın bir araya gelerek tek bir ajanın başa çıkamayacağı bir problemi çözmek için iş birliği yaptığı bir yapıdır.
+Bir Yapay Zeka Ajanı, standart Büyük Dil Modeli'nin (LLM) yeteneklerinin ötesine geçen bir sistemdir. Çevresini algılayabilir, kararlar verebilir ve belirli hedeflere ulaşmak için eylemler gerçekleştirebilir. Çoklu ajan sistemi, tek bir ajanın tek başına halledemeyeceği bir problemi çözmek için iş birliği yapan birden fazla ajanı içerir.
 
 ### Yaygın Uygulama Senaryoları
 
-  * **Karmaşık Problem Çözme**: Büyük bir görevi (örneğin, şirket çapında bir etkinlik planlama) daha küçük alt görevlere ayırmak ve bu görevleri uzmanlaşmış ajanlara devretmek (örneğin, bütçe ajanı, lojistik ajanı, pazarlama ajanı).
-  * **Sanal Asistanlar**: Bir ana asistan ajanın, takvim oluşturma, araştırma ve rezervasyon gibi görevleri diğer uzmanlaşmış ajanlara devretmesi.
-  * **Otomatik İçerik Üretimi**: Bir ajanın içerik taslağı oluşturduğu, diğerinin doğruluk ve ton açısından gözden geçirdiği ve üçüncüsünün yayınladığı bir iş akışı.
+  * **Karmaşık Problem Çözme**: Büyük bir görevi (ör. şirket çapında bir etkinlik planlaması) uzmanlaşmış ajanların (ör. bütçe ajanı, lojistik ajanı, pazarlama ajanı) yönettiği küçük alt görevlere bölmek.
+  * **Sanal Asistanlar**: Öncelikli bir asistan ajanın takvim düzenleme, araştırma ve rezervasyon gibi görevleri diğer uzman ajanlara devretmesi.
+  * **Otomatik İçerik Oluşturma**: Bir ajanın içerik taslağı hazırladığı, başka bir ajanın doğruluk ve ton açısından değerlendirme yaptığı ve üçüncü bir ajanın yayınladığı bir iş akışı.
 
-### Çoklu Ajan Modelleri
+### Çoklu Ajan Desenleri
 
-Çoklu ajan sistemleri, etkileşim biçimlerini belirleyen çeşitli modellerde düzenlenebilir:
+Çoklu ajan sistemleri, etkileşim biçimlerini belirleyen çeşitli desenlerde organize edilebilir:
 
-  * **Sıralı**: Ajanlar önceden belirlenmiş bir sırayla çalışır, bir ajanın çıktısı bir sonraki ajanın girdisi olur.
-  * **Eşzamanlı**: Ajanlar bir görevin farklı bölümleri üzerinde paralel olarak çalışır ve sonuçlar sonunda birleştirilir.
-  * **Koşullu**: İş akışı, bir ajanın çıktısına bağlı olarak farklı yollar izler, tıpkı bir if-then-else ifadesi gibi.
+  * **Ardışık**: Ajanlar, bir montaj hattı gibi önceden belirlenmiş sırayla çalışır. Bir ajanın çıktısı, bir sonraki ajanın girdisi olur.
+  * **Eşzamanlı**: Ajanlar, bir görevin farklı bölümleri üzerinde paralel olarak çalışır ve sonuçları sonunda birleştirilir.
+  * **Koşullu**: İş akışı, bir ajanın çıktısına bağlı olarak if-then-else ifadesine benzer farklı yollar izler.
 
-## 2\. Microsoft Agent Framework Workflow Mimarisini Anlamak
+## 2\. Microsoft Agent Framework Workflow Mimarisi
 
-Agent Framework'ün iş akışı sistemi, birden fazla ajanın karmaşık etkileşimlerini yönetmek için tasarlanmış gelişmiş bir orkestrasyon motorudur. "Süper adımlar" olarak adlandırılan senkronize adımlarda işlem yapılan [Pregel tarzı bir yürütme modeli](https://kowshik.github.io/JPregel/pregel_paper.pdf) üzerine kuruludur.
+Agent Framework’ün iş akışı sistemi, birden fazla ajan arasındaki karmaşık etkileşimleri yönetmek için tasarlanmış gelişmiş bir orkestrasyon motorudur. İşlem, [Pregel tarzı yürütme modeli](https://kowshik.github.io/JPregel/pregel_paper.pdf) kullanan grafik tabanlı bir mimari üzerine kuruludur; burada işlem "süperadımlar" olarak adlandırılan senkronize adımlarda gerçekleşir.
 
 ### Temel Bileşenler
 
 Mimari üç ana bölümden oluşur:
 
-1.  **Executors**: Temel işlem birimleridir. Örneklerimizde, bir `Agent` bir tür executor'dır. Her executor, alınan mesaj türüne göre otomatik olarak çağrılan birden fazla mesaj işleyiciye sahip olabilir.
-2.  **Edges**: Mesajların executor'lar arasında izlediği yolu tanımlar. Edges koşullara sahip olabilir, bu da iş akışı grafiği boyunca bilgilerin dinamik olarak yönlendirilmesine olanak tanır.
-3.  **Workflow**: Tüm süreci orkestre eden bu bileşen, executor'ları, edges'leri ve genel yürütme akışını yönetir. Mesajların doğru sırada işlenmesini sağlar ve gözlemlenebilirlik için olayları yayınlar.
+1.  **Yürütücüler**: Bunlar temel işleme birimleridir. Örneklerimizde bir `Agent` bir yürütücü türüdür. Her yürütücünün, alınan mesaj türüne göre otomatik çağrılan birden çok mesaj işleyicisi olabilir.
+2.  **Kenarlar**: Mesajların yürütücüler arasında izlediği yolu tanımlar. Kenarlar koşullara sahip olabilir, bu da bilgi akışının iş akışı grafiğinde dinamik yönlendirilmesini sağlar.
+3.  **İş Akışı**: Tüm süreci yöneten bileşendir, yürütücüleri, kenarları ve yürütmenin genel akışını yönetir. Mesajların doğru sırayla işlenmesini sağlar ve gözlemlenebilirlik için olay akışları yayınlar.
 
 *İş akışı sisteminin temel bileşenlerini gösteren bir diyagram.*
 
-Bu yapı, sıralı zincirler, paralel işlem için fan-out/fan-in ve koşullu akışlar için switch-case mantığı gibi temel modelleri kullanarak sağlam ve ölçeklenebilir uygulamalar oluşturmayı mümkün kılar.
+Bu yapı, ardışık zincirler, paralel işlem için fan-out/fan-in ve koşullu akışlar için switch-case mantığı gibi temel desenler kullanarak sağlam ve ölçeklenebilir uygulamalar geliştirmeye olanak tanır.
 
 ## 3\. Pratik Örnekler ve Kod Analizi
 
-Şimdi framework kullanarak farklı iş akışı modellerini nasıl uygulayacağımızı inceleyelim. Her örnek için hem Python hem de .NET kodlarına bakacağız.
+Şimdi, framework kullanarak farklı iş akışı desenlerini nasıl uygulayacağımıza göz atalım. Her örnek için Python ve .NET kodlarına bakacağız.
 
-### Örnek 1: Temel Sıralı İş Akışı
+### Durum 1: Temel Ardışık İş Akışı
 
-Bu en basit modeldir; bir ajanın çıktısı doğrudan diğerine aktarılır. Senaryomuzda, bir otel `FrontDesk` ajanı seyahat önerisi yapar ve bu öneri bir `Concierge` ajanı tarafından gözden geçirilir.
+Bu en basit desendir; bir ajanın çıktısı doğrudan diğerine aktarılır. Senaryomuzda, seyahat önerisi yapan bir otel `FrontDesk` ajanı vardır, ardından `Concierge` ajanı bu öneriyi inceler.
 
 *Temel FrontDesk -\> Concierge iş akışı diyagramı.*
 
 #### Senaryo Arka Planı
 
-Bir gezgin Paris'te bir öneri ister.
+Bir yolcu Paris'te öneri ister.
 
-1.  Kısa öneriler sunmak için tasarlanmış `FrontDesk` ajanı Louvre Müzesi'ni ziyaret etmeyi önerir.
-2.  Daha otantik deneyimlere öncelik veren `Concierge` ajanı bu öneriyi alır. Öneriyi gözden geçirir ve daha yerel, daha az turistik bir alternatif önerir.
+1.  Kısa olması amaçlanan `FrontDesk` ajanı Louvre Müzesi'ni gezmeyi önerir.
+2.  Otantik deneyimlere önem veren `Concierge` ajanı bu öneriyi alır, inceler ve daha yerel, turistik olmayan bir alternatif önerir.
 
 #### Python Uygulama Analizi
 
-Python örneğinde, önce iki ajan tanımlanır ve oluşturulur, her biri belirli talimatlarla.
+Python örneğinde, önce her biri özel talimatlara sahip iki ajan tanımlanır ve oluşturulur.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Ajan rollerini ve talimatlarını tanımla
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Ajan örnekleri oluştur
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Sonra, `WorkflowBuilder` kullanılarak grafik oluşturulur. `front_desk_agent` başlangıç noktası olarak ayarlanır ve çıktısını `reviewer_agent`a bağlayan bir edge oluşturulur.
+Ardından, `WorkflowBuilder` grafik oluşturmak için kullanılır. `front_desk_agent` başlangıç noktası olarak ayarlanır ve çıktısını `reviewer_agent` ile bağlamak için bir kenar oluşturulur.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Son olarak, iş akışı kullanıcıdan gelen ilk istemle çalıştırılır.
+Son olarak, iş akışı başlangıç kullanıcı istemi ile çalıştırılır.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run iş akışını çalıştırır; get_outputs() çıkış yürütücüsünün sonucunu döner.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
 #### .NET (C\#) Uygulama Analizi
 
-.NET uygulaması çok benzer bir mantığı takip eder. Önce ajanların isimleri ve talimatları için sabitler tanımlanır.
+.NET uygulaması çok benzer bir mantık izler. Önce ajan isimleri ve talimatları için sabitler tanımlanır.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Ajanlar bir `OpenAIClient` kullanılarak oluşturulur ve ardından `WorkflowBuilder` sıralı akışı tanımlamak için `frontDeskAgent` ile `reviewerAgent` arasında bir edge ekler.
+Ajanlar, `AzureOpenAIClient` (Yanıtlar API) kullanılarak oluşturulur ve ardından `WorkflowBuilder` `frontDeskAgent`'ten `reviewerAgent`'a ardışık akışı tanımlamak için bir kenar ekler.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-İş akışı, kullanıcının mesajıyla çalıştırılır ve sonuçlar geri akışla yayınlanır.
+İş akışı, kullanıcının mesajı ile çalıştırılır ve sonuçlar akış olarak geri iletilir.
 
-### Örnek 2: Çok Adımlı Sıralı İş Akışı
+### Durum 2: Çok Adımlı Ardışık İş Akışı
 
-Bu model, temel sıralı iş akışını daha fazla ajan ekleyerek genişletir. Birden fazla aşama gerektiren süreçler için idealdir.
+Bu desen temel sıralamayı daha fazla ajan içerecek şekilde genişletir. Birden çok aşamalı inceleme veya dönüşüm gerektiren süreçler için idealdir.
 
 #### Senaryo Arka Planı
 
-Bir kullanıcı bir oturma odası fotoğrafı gönderir ve mobilya fiyat teklifi ister.
+Bir kullanıcı, bir oturma odasının resmini sağlar ve mobilya teklifi ister.
 
-1.  **Sales-Agent**: Görüntüdeki mobilya öğelerini tanımlar ve bir liste oluşturur.
-2.  **Price-Agent**: Öğelerin listesini alır ve bütçe, orta seviye ve premium seçenekler dahil olmak üzere ayrıntılı bir fiyat dökümü sağlar.
-3.  **Quote-Agent**: Fiyatlandırılmış listeyi alır ve Markdown formatında resmi bir teklif belgesi oluşturur.
+1.  **Satış-Ajanı**: Resimdeki mobilya öğelerini tanımlar ve liste oluşturur.
+2.  **Fiyat-Ajanı**: Listeyi alır ve bütçe, orta seviye ve premium seçenekler dahil detaylı fiyatlandırma yapar.
+3.  **Teklif-Ajanı**: Fiyatlandırılmış listeyi alır ve resmi bir Markdown teklif dokümanı olarak formatlar.
 
-*Sales -\> Price -\> Quote iş akışı diyagramı.*
+*Satış -\> Fiyat -\> Teklif iş akışı diyagramı.*
 
 #### Python Uygulama Analizi
 
-Üç ajan tanımlanır, her biri özel bir role sahiptir. İş akışı, `add_edge` kullanılarak bir zincir oluşturur: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Üç ajan, her biri özel bir işleve sahip olarak tanımlanır. İş akışı, `add_edge` ile `sales_agent` -\> `price_agent` -\> `quote_agent` zinciri oluşturularak inşa edilir.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Üç özel ajan oluşturun
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Ardışık iş akışını oluşturun
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Girdi, hem metin hem de görüntü URI'sini içeren bir `ChatMessage`dir. Framework, her ajanın çıktısını sırayla bir sonrakine aktarır ve nihai teklif oluşturulana kadar devam eder.
+Girdi, metin ve resim URI'sini içeren bir `ChatMessage`'dir. Framework, her ajanın çıktısını sonraki ajana zincir boyunca geçirmeyi yönetir ve son teklif oluşturulur.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Kullanıcı mesajı hem metin hem de resim içeriyor
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# İş akışını çalıştır
+events = await workflow.run(message)
 ```
 
 #### .NET (C\#) Uygulama Analizi
 
-.NET örneği Python versiyonunu yansıtır. Üç ajan (`salesagent`, `priceagent`, `quoteagent`) oluşturulur. `WorkflowBuilder` bunları sıralı olarak bağlar.
+.NET örneği, Python sürümünü yansıtır. Üç ajan (`salesagent`, `priceagent`, `quoteagent`) oluşturulur. `WorkflowBuilder` onları ardışık olarak bağlar.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Kullanıcının mesajı, hem görüntü verilerini (byte olarak) hem de metin istemini içerir. `InProcessExecution.StreamAsync` yöntemi iş akışını başlatır ve nihai çıktı akıştan alınır.
+Kullanıcının mesajı, hem resim verisi (bayt olarak) hem de metin istemi ile oluşturulur. `InProcessExecution.RunStreamingAsync` yöntemi iş akışını başlatır ve son çıktı akıştan alınır.
 
-### Örnek 3: Eşzamanlı İş Akışı
+### Durum 3: Eşzamanlı İş Akışı
 
-Bu model, zaman tasarrufu sağlamak için görevlerin aynı anda gerçekleştirilebildiği durumlarda kullanılır. Birden fazla ajana "fan-out" yapılır ve sonuçlar "fan-in" ile birleştirilir.
+Bu desen, görevlerin aynı anda yapılabileceği durumlarda zamandan tasarruf etmek için kullanılır. Birden fazla ajana "fan-out" ve sonuçları toplamak için "fan-in" içerir.
 
 #### Senaryo Arka Planı
 
-Bir kullanıcı Seattle'a bir gezi planlamasını ister.
+Bir kullanıcı Seattle'a seyahat planlaması ister.
 
-1.  **Dispatcher (Fan-Out)**: Kullanıcının isteği aynı anda iki ajana gönderilir.
-2.  **Researcher-Agent**: Seattle'da Aralık ayında gezilecek yerler, hava durumu ve önemli hususları araştırır.
-3.  **Plan-Agent**: Bağımsız olarak ayrıntılı bir günlük seyahat planı oluşturur.
-4.  **Aggregator (Fan-In)**: Araştırmacı ve planlayıcıdan gelen çıktılar toplanır ve nihai sonuç olarak sunulur.
+1.  **Gönderici (Fan-Out)**: Kullanıcı isteği aynı anda iki ajana gönderilir.
+2.  **Araştırmacı-Ajan**: Seattle'da Aralık ayında gezilecek yerler, hava durumu ve önemli hususları araştırır.
+3.  **Planlayıcı-Ajan**: Ayrı olarak ayrıntılı günlük seyahat programı hazırlamaktadır.
+4.  **Toplayıcı (Fan-In)**: Araştırmacı ve planlayıcıdan gelen sonuçlar toplanır ve birlikte nihai sonuç olarak sunulur.
 
-*Eşzamanlı Researcher ve Planner iş akışı diyagramı.*
+*Eşzamanlı Araştırmacı ve Planlayıcı iş akışı diyagramı.*
 
 #### Python Uygulama Analizi
 
-`ConcurrentBuilder`, bu modelin oluşturulmasını basitleştirir. Katılan ajanları listelemeniz yeterlidir ve builder gerekli fan-out ve fan-in mantığını otomatik olarak oluşturur.
+`ConcurrentBuilder`, bu desenin oluşturulmasını basitleştirir. Katılımcı ajanları listelemeniz yeterlidir; builder gerekli fan-out ve fan-in mantığını otomatik oluşturur.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder kümelenme/genleşme mantığını yönetir
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# İş akışını çalıştırın
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework, `research_agent` ve `plan_agent`ın paralel olarak çalışmasını sağlar ve nihai çıktıları bir listeye toplar.
+Framework, `research_agent` ve `plan_agent`ın paralel çalışmasını sağlar ve nihai çıktılar bir listeye toplanır.
 
 #### .NET (C\#) Uygulama Analizi
 
-.NET'te bu model daha açık bir tanım gerektirir. Fan-out ve fan-in mantığını yönetmek için özel executor'lar (`ConcurrentStartExecutor` ve `ConcurrentAggregationExecutor`) oluşturulur.
+.NET’te bu desen daha açık bir tanım gerektirir. Fan-out ve fan-in mantığını işlemek için özel yürütücüler (`ConcurrentStartExecutor` ve `ConcurrentAggregationExecutor`) oluşturulur.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder`, bu özel executor'lar ve ajanlarla grafiği oluşturmak için `AddFanOutEdge` ve `AddFanInEdge` kullanır.
+Sonra `WorkflowBuilder`, bu özel yürütücüler ve ajanlarla grafiği inşa etmek için `AddFanOutEdge` ve `AddFanInEdge` yöntemlerini kullanır.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Örnek 4: Koşullu İş Akışı
+### Durum 4: Koşullu İş Akışı
 
-Koşullu iş akışları, ara sonuçlara bağlı olarak farklı yollar izlenmesine olanak tanıyan dallanma mantığını tanıtır.
+Koşullu iş akışları, ara sonuçlara bağlı olarak sistemin farklı yollar izlemesine olanak tanıyan dallanma mantığını tanıtır.
 
 #### Senaryo Arka Planı
 
-Bu iş akışı, teknik bir eğitimin oluşturulmasını ve yayınlanmasını otomatikleştirir.
+Bu iş akışı, teknik bir eğitici oluşturma ve yayınlama sürecini otomatikleştirir.
 
-1.  **Evangelist-Agent**: Verilen bir taslak ve URL'lere dayanarak eğitimin taslağını yazar.
-2.  **ContentReviewer-Agent**: Taslağı gözden geçirir. Kelime sayısının 200'den fazla olup olmadığını kontrol eder.
+1.  **Evangelist-Ajan**: Verilen bir taslak ve URL'ler temelinde eğitici taslağı yazar.
+2.  **ContentReviewer-Ajan**: Taslağı inceler. Kelime sayısının 200'ün üzerinde olup olmadığını kontrol eder.
 3.  **Koşullu Dal**:
-      * **Onaylanırsa (`Evet`)**: İş akışı `Publisher-Agent`a devam eder.
-      * **Reddedilirse (`Hayır`)**: İş akışı durur ve reddedilme nedenini çıktılar.
-4.  **Publisher-Agent**: Taslak onaylanırsa, bu ajan içeriği bir Markdown dosyasına kaydeder.
+      * **Onaylandıysa (`Evet`)**: İş akışı `Publisher-Agent`'a devam eder.
+      * **Reddedildiyse (`Hayır`)**: İş akışı durur ve reddedilme nedeni çıktı olarak verilir.
+4.  **Publisher-Agent**: Taslak onaylanırsa, bu ajan içeriği bir Markdown dosyası olarak kaydeder.
 
 #### Python Uygulama Analizi
 
-Bu örnek, koşullu mantığı uygulamak için özel bir `select_targets` fonksiyonu kullanır. Bu fonksiyon, `add_multi_selection_edge_group`a geçirilir ve iş akışını `review_result` alanına göre yönlendirir.
+Bu örnek, koşullu mantığı uygulamak için `select_targets` adlı özel bir fonksiyon kullanır. Bu fonksiyon `add_multi_selection_edge_group`'a aktarılır ve anonim seçici olarak review_result alanına göre iş akışının yönlendirilmesini sağlar.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Bu fonksiyon, inceleme sonucuna göre bir sonraki adımı belirler
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Onaylanırsa, 'save_draft' yürütücüsüne geçilir
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Reddedilirse, başarısızlık bildirmek için 'handle_review' yürütücüsüne geçilir
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# İş akışı oluşturucu yönlendirme için seçim fonksiyonunu kullanır
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Çoklu seçim kenarı, koşullu mantığı uygular
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-`to_reviewer_result` gibi özel executor'lar, ajanlardan gelen JSON çıktısını ayrıştırmak ve seçim fonksiyonunun inceleyebileceği güçlü tipte nesnelere dönüştürmek için kullanılır.
+`to_reviewer_result` gibi özel yürütücüler, ajanlardan JSON çıktısını ayrıştırıp seçim fonksiyonunun inceleyebileceği güçlü yazımlı objelere dönüştürmek için kullanılır.
 
 #### .NET (C\#) Uygulama Analizi
 
-.NET versiyonu benzer bir yaklaşım kullanır ve bir koşul fonksiyonu tanımlar. `Func<object?, bool>` tanımlanır ve `ReviewResult` nesnesinin `Result` özelliğini kontrol eder.
+.NET sürümü, koşul fonksiyonuyla benzer bir yaklaşım kullanır. `ReviewResult` nesnesinin `Result` özelliğini kontrol eden bir `Func<object?, bool>` tanımlanır.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` metodunun `condition` parametresi, `WorkflowBuilder`ın bir dallanma yolu oluşturmasına olanak tanır. İş akışı yalnızca `GetCondition(expectedResult: "Yes")` koşulu doğru dönerse `publishExecutor`a gider. Aksi takdirde `sendReviewerExecutor` yolunu izler.
+`AddEdge` metodunun `condition` parametresi, `WorkflowBuilder`'ın dallanma yolu oluşturmasını sağlar. İş akışı, koşul `GetCondition(expectedResult: "Yes")` doğruysa `publishExecutor` kenarını izler; aksi halde `sendReviewerExecutor` yolunu takip eder.
 
 ## Sonuç
 
-Microsoft Agent Framework Workflow, karmaşık, çoklu ajan sistemlerini orkestre etmek için sağlam ve esnek bir temel sağlar. Grafik tabanlı mimarisi ve temel bileşenleri sayesinde, geliştiriciler hem Python hem de .NET'te sofistike iş akışları tasarlayıp uygulayabilir. Uygulamanız basit sıralı işlem, paralel yürütme veya dinamik koşullu mantık gerektirse de, framework güçlü, ölçeklenebilir ve tip güvenli AI destekli çözümler oluşturmak için gerekli araçları sunar.
+Microsoft Agent Framework Workflow, karmaşık çoklu ajan sistemlerini orkestre etmek için sağlam ve esnek bir temel sağlar. Grafik tabanlı mimarisi ve temel bileşenleri sayesinde, geliştiriciler hem Python hem de .NET'te gelişmiş iş akışları tasarlayıp uygulayabilirler. Uygulamanız basit ardışık işlem, paralel yürütme veya dinamik koşullu mantık gerektirsin, framework güçlü, ölçeklenebilir ve tip güvenli yapay zeka destekli çözümler oluşturmak için araçlar sunar.
 
 ---
 
-**Feragatname**:  
-Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul etmiyoruz.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
