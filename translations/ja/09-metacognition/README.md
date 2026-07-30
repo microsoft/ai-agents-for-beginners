@@ -1429,11 +1429,11 @@ print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendatio
 
 ## 前のレッスン
 
-[マルチエージェントデザインパターン](../08-multi-agent/README.md)
+[マルチエージェント設計パターン](../08-multi-agent/README.md)
 
 ## 次のレッスン
 
-[実運用でのAIエージェント](../10-ai-agents-production/README.md)
+[本番環境におけるAIエージェント](../10-ai-agents-production/README.md)
 
 ---
 
