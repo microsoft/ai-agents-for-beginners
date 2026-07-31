@@ -176,11 +176,11 @@ MCPサーバーがツール一覧を共有するのと似て、エージェン�
 
 ## 前回のレッスン
 
-[AI Agents in Production](../10-ai-agents-production/README.md)
+[本番環境におけるAIエージェント](../10-ai-agents-production/README.md)
 
 ## 次のレッスン
 
-[Context Engineering for AI Agents](../12-context-engineering/README.md)
+[AIエージェントのためのコンテキストエンジニアリング](../12-context-engineering/README.md)
 
 ---
 
