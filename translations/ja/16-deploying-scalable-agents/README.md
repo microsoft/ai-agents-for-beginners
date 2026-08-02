@@ -1,4 +1,4 @@
-# Microsoft Foundryでスケーラブルなエージェントをデプロイする
+# Microsoft Foundryでスケーラブルなエージェントをデプロイ
 
 ![スケーラブルなエージェントのデプロイ](../../../translated_images/ja/lesson-16-thumbnail.d78cace536bc5d50.webp)
 

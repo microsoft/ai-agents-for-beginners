@@ -174,11 +174,11 @@ AIエージェントが管理する必要がある可能性のあるコンテキ
 他の学習者と交流したり、オフィスアワーに参加したり、AIエージェントに関する質問に回答してもらうために、[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)に参加しましょう。
 ## 前のレッスン
 
-[Agentic Protocols](../11-agentic-protocols/README.md)
+[エージェンティックプロトコルの使用](../11-agentic-protocols/README.md)
 
 ## 次のレッスン
 
-[Memory for AI Agents](../13-agent-memory/README.md)
+[AIエージェントのメモリ](../13-agent-memory/README.md)
 
 ---
 
