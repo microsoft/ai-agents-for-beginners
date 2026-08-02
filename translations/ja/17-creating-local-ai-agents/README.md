@@ -307,11 +307,11 @@ Foundry Localは<strong>OpenAI互換のHTTPエンドポイント</strong>を公�
 
 ## 前のレッスン
 
-[Deploying Scalable Agents](../16-deploying-scalable-agents/README.md)
+[スケーラブルなエージェントのデプロイ](../16-deploying-scalable-agents/README.md)
 
 ## 次のレッスン
 
-[Securing AI Agents](../18-securing-ai-agents/README.md)
+[AIエージェントのセキュリティ確保](../18-securing-ai-agents/README.md)
 
 ---
 
