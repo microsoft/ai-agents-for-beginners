@@ -264,6 +264,20 @@ Add these variables to your `.env` file:
 
 The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
 
+## Alternative Provider: Novita AI (OpenAI-Compatible)
+
+[Novita AI](https://novita.ai/llm-api) provides an OpenAI-compatible API for open-source and frontier LLMs (DeepSeek, Llama, Qwen, and more). Since the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, you can use Novita AI as a drop-in alternative to Azure OpenAI or OpenAI.
+
+Add these variables to your `.env` file:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `NOVITA_API_KEY` | [Novita AI Dashboard](https://novita.ai/settings/key-management) → API Keys |
+| `NOVITA_BASE_URL` | Use `https://api.novita.ai/openai` (default value) |
+| `NOVITA_MODEL_ID` | Model name to use (e.g., `deepseek/deepseek-r1`) |
+
+**Example models**: `deepseek/deepseek-r1`. Novita AI also hosts many other open-source model families (Llama, Qwen, GLM, and more) — check the [Novita AI model library](https://novita.ai/llm-api) for the current list of available models and their model IDs.
+
 ## Alternative Provider: Foundry Local (Run Models On-Device)
 
 [Foundry Local](https://foundrylocal.ai) is a lightweight runtime that downloads, manages, and serves language models **entirely on your own machine** through an OpenAI-compatible API — no cloud, no Azure subscription, and no API keys. It's a great option for offline development, experimenting without incurring cloud costs, or keeping data on-device.
