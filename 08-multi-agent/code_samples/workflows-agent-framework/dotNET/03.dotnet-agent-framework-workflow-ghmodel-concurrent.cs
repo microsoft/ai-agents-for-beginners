@@ -13,8 +13,6 @@ using Azure.Identity;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
-using OpenAI.Chat;
 using DotNetEnv;
 using System.Text;
 
@@ -37,9 +35,9 @@ const string PlanAgentName = "Plan-Agent";
 const string PlanAgentInstructions = "You are my travel planner, working with me to create a detailed travel plan based on the researcher's findings.";
 
 // Create AI agents for concurrent workflow
-AIAgent researcherAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent researcherAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: ResearcherAgentName, instructions: ResearcherAgentInstructions);
-AIAgent plannerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent plannerAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: PlanAgentName, instructions: PlanAgentInstructions);
 
 // Create custom executor instances
