@@ -16,8 +16,6 @@ using Azure.Identity;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using OpenAI.Chat;
-using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
 using DotNetEnv;
 
 // Load environment variables from .env file
@@ -70,11 +68,11 @@ async Task<byte[]> OpenImageBytesAsync(string path)
 var imageBytes = await OpenImageBytesAsync(imgPath);
 
 // Create AI agents for the sequential workflow
-AIAgent salesAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent salesAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: SalesAgentName, instructions: SalesAgentInstructions);
-AIAgent priceAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent priceAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: PriceAgentName, instructions: PriceAgentInstructions);
-AIAgent quoteAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent quoteAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: QuoteAgentName, instructions: QuoteAgentInstructions);
 
 // Build sequential workflow: Sales → Price → Quote
