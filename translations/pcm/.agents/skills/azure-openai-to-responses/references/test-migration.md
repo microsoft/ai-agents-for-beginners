@@ -1,0 +1,170 @@
+# Test Infrastructure Migration
+
+Wen you dey move code from Chat Completions go Responses API, **tests go break for way we fit predict**. Dis reference go show wetin to fix.
+
+---
+
+## Mocking Streaming Responses (Python pytest)
+
+### Core mock classes
+
+```python
+class MockResponseEvent:
+    """Simulates a Responses API streaming event."""
+    def __init__(self, event_type: str, delta: str | None = None):
+        self.type = event_type
+        self.delta = delta
+
+class AsyncResponseIterator:
+    """Async iterator that yields Responses API streaming events from a string answer."""
+    def __init__(self, answer: str):
+        self.event_index = 0
+        self.events = []
+        for i, word in enumerate(answer.split(" ")):
+            # Make whitespace dey: put space before all di words except di first one
+            if i > 0:
+                word = " " + word
+            self.events.append(MockResponseEvent("response.output_text.delta", delta=word))
+        self.events.append(MockResponseEvent("response.completed"))
+
+    def __aiter__(self):
+        return self
+
+    async def __anext__(self):
+        if self.event_index < len(self.events):
+            event = self.events[self.event_index]
+            self.event_index += 1
+            return event
+        raise StopAsyncIteration
+```
+
+### Routing mock responses by message content
+
+Real apps dey serve different answers based on di prompt. Make you route by `input` (no be `messages`):
+
+```python
+async def mock_acreate(*args, **kwargs):
+    # Responses API dey use 'input' no be 'messages'
+    last_message = kwargs.get("input", [])[-1]["content"]
+    if last_message == "What is the capital of France?":
+        return AsyncResponseIterator("The capital of France is Paris.")
+    elif last_message == "What is the capital of Germany?":
+        return AsyncResponseIterator("The capital of Germany is Berlin.")
+    else:
+        raise ValueError(f"Unexpected message: {last_message}")
+```
+
+### Monkeypatch paths
+
+| Client type | Monkeypatch path |
+|-------------|------------------|
+| `AsyncOpenAI` | `openai.resources.responses.AsyncResponses.create` |
+| `OpenAI` (sync) | `openai.resources.responses.Responses.create` |
+
+> **Before** (Chat Completions): `openai.resources.chat.AsyncCompletions.create`
+> **After** (Responses): `openai.resources.responses.AsyncResponses.create`
+
+### Full fixture example
+
+```python
+@pytest.fixture
+def mock_openai_responses(monkeypatch):
+    # ... MockResponseEvent and AsyncResponseIterator klas dem deya ...
+
+    async def mock_acreate(*args, **kwargs):
+        last_message = kwargs.get("input", [])[-1]["content"]
+        if last_message == "What is the capital of France?":
+            return AsyncResponseIterator("The capital of France is Paris.")
+        else:
+            raise ValueError(f"Unexpected message: {last_message}")
+
+    monkeypatch.setattr("openai.resources.responses.AsyncResponses.create", mock_acreate)
+```
+
+---
+
+## 1. Update mock fixtures
+
+Commot `ChatCompletionChunk`-based mocks put for ground come use `MockResponseEvent` / `AsyncResponseIterator` style wey dey above. Di main changes na:
+
+| Before (Chat Completions mock) | After (Responses mock) |
+|-------------------------------|------------------------|
+| `openai.types.chat.ChatCompletionChunk(...)` | `MockResponseEvent(event_type, delta)` |
+| `choices[0].delta.content` | `event.delta` |
+| `finish_reason="stop"` in chunk | `event.type == "response.completed"` |
+| Azure-specific `prompt_filter_results` chunk | Remove am completely |
+| Azure-specific `content_filter_results` per choice | Remove am completely |
+| `kwargs.get("messages")` for mock | `kwargs.get("input")` for mock |
+
+---
+
+## 2. Update snapshot / golden files
+
+If your test suite dey use snapshot testing (like `pytest-snapshot`, syrupy, or hand-made JSONL snapshots), di shape wey you expect don change:
+
+**Before** (Chat Completions streaming JSONL):
+```jsonl
+{"delta": {"content": null, "function_call": null, "refusal": null, "role": "assistant", "tool_calls": null}, "finish_reason": null, "index": 0, "logprobs": null, "content_filter_results": {}}
+{"delta": {"content": "The", "function_call": null, "refusal": null, "role": null, "tool_calls": null}, "finish_reason": null, "index": 0, "logprobs": null, "content_filter_results": {"hate": {"filtered": false, "severity": "safe"}, ...}}
+{"delta": {"content": null, ...}, "finish_reason": "stop", "index": 0, "logprobs": null, "content_filter_results": {}}
+```
+
+**After** (Responses API streaming JSONL):
+```jsonl
+{"delta": {"content": "The"}}
+{"delta": {"content": " capital"}}
+{"delta": {"content": null}, "finish_reason": "stop"}
+```
+
+Di new shape na much more easier — no `function_call`, `refusal`, `role`, `tool_calls`, `index`, `logprobs`, or `content_filter_results` fields again. Update or regenerate all your snapshot files.
+
+> **Tip**: Run your tests with `--snapshot-update` (pytest-snapshot) or `--update-snapshots` (syrupy) after you migrate make e auto-regenerate.
+
+---
+
+## 3. Update test assertions
+
+Common assertion breakages:
+
+| Old assertion | Wahala | New assertion |
+|--------------|---------|---------------|
+| `client._azure_ad_token_provider is not None` | `AsyncOpenAI` no get `_azure_ad_token_provider` attribute | `isinstance(client, AsyncOpenAI)` and `"/openai/v1/" for inside str(client.base_url)` |
+| `client.api_version == "2024-..."` | `OpenAI`/`AsyncOpenAI` no get `api_version` | Remove am complete |
+| `isinstance(client, AsyncAzureOpenAI)` | Client type don change | `isinstance(client, AsyncOpenAI)` |
+
+---
+
+## 4. Update environment variables in test fixtures
+
+Tests dey usually set env vars with `monkeypatch.setenv`. Make you update dem:
+
+| Old env var | New env var | Notes |
+|-------------|-------------|-------|
+| `AZURE_OPENAI_CLIENT_ID` | `AZURE_CLIENT_ID` | Na the normal Azure Identity SDK way |
+| `AZURE_OPENAI_VERSION` | Remove am | No need `api_version` again |
+| `AZURE_OPENAI_API_VERSION` | Remove am | No need `api_version` again |
+| `AZURE_OPENAI_ENDPOINT` | `AZURE_OPENAI_ENDPOINT` | Keep am (you still need am for `base_url`) |
+| `AZURE_OPENAI_CHAT_DEPLOYMENT` | `AZURE_OPENAI_CHAT_DEPLOYMENT` | Keep am (na deployment name for `model` param) |
+
+---
+
+## 5. Search for test code wey need migration
+
+```bash
+# Test spesifik old-old patterns
+rg "ChatCompletionChunk" tests/
+rg "AsyncCompletions\.create" tests/
+rg "chat\.completions" tests/
+rg "_azure_ad_token_provider" tests/
+rg "prompt_filter_results" tests/
+rg "content_filter_results" tests/
+rg "AZURE_OPENAI_VERSION|AZURE_OPENAI_API_VERSION" tests/
+rg "AZURE_OPENAI_CLIENT_ID" tests/
+```
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

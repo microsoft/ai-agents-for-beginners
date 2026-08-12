@@ -1,0 +1,16 @@
+{
+  "type": "agent.tool_call.v1",
+  "agent_id": "contoso-travel-bot",
+  "tool_name": "lookup_flights",
+  "tool_args_hash": "sha256:47578acca4df262c8f172b91493b818a26d042e7beb8e7b121e2bc3776152746",
+  "result_hash": "sha256:ffd8f2415a40774c57ee0fb4aa78df7bed9c02dbdee37b707cac6ff8712ba7ad",
+  "policy_id": "contoso-travel-policy-PERMISSIVE",
+  "timestamp": "2026-04-25T14:30:00Z",
+  "sequence": 0,
+  "previous_receipt_hash": null,
+  "signature": {
+    "alg": "EdDSA",
+    "sig": "ZrU64gQd-rs_jgYaHFl2PbuhY6PY8ZsapXBf7GZSxym0Egbvn9dJmFOuO_fj7T4AcV80lzxylaXpznlKUmJSDw",
+    "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+  }
+}

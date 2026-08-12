@@ -1,0 +1,5 @@
+- **Contoso Travel** offers luxury vacation packages to exotic destinations worldwide.
+- Our premium travel services include personalized itinerary planning and 24/7 concierge support.
+- Contoso's travel insurance covers medical emergencies, trip cancellations, and lost baggage.
+- Popular destinations include the Maldives, Swiss Alps, and African safaris.
+- Contoso Travel provides exclusive access to boutique hotels and private guided tours.

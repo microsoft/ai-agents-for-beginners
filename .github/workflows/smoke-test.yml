@@ -1,0 +1,64 @@
+name: Smoke-test hosted agents
+
+# Validates that a deployed Microsoft Foundry hosted agent actually answers,
+# using the AI Smoke Test action: https://github.com/marketplace/actions/ai-smoke-test
+#
+# This is a lightweight, cheap post-deploy gate that complements (does not replace)
+# the full evaluation pipeline taught in Lesson 10 and Lesson 16. It POSTs the
+# prompts in the selected tests/lesson-XX-smoke-tests.json catalog to the agent's
+# Responses endpoint and asserts on the returned text. See tests/README.md for the
+# catalog-to-lesson-to-agent mapping.
+#
+# Run it manually from the Actions tab (workflow_dispatch) and supply your
+# Foundry project endpoint and hosted agent name. Configure these repository
+# secrets first (Settings -> Secrets and variables -> Actions):
+#   AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID
+# The federated identity needs the "Azure AI User" role at Foundry project scope.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_file:
+        description: "Which lesson's smoke-test catalog to run"
+        required: true
+        type: choice
+        default: tests/lesson-16-smoke-tests.json
+        options:
+          - tests/lesson-01-smoke-tests.json
+          - tests/lesson-04-smoke-tests.json
+          - tests/lesson-05-smoke-tests.json
+          - tests/lesson-16-smoke-tests.json
+      project_endpoint:
+        description: "Foundry project endpoint, e.g. https://<account>.services.ai.azure.com/api/projects/<project>"
+        required: true
+        type: string
+      agent_name:
+        description: "Deployed hosted agent name (must match the catalog's lesson; comma-separate for multiple)"
+        required: true
+        type: string
+        default: ContosoSupportAgent
+
+permissions:
+  id-token: write   # required for azure/login OIDC
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Smoke-test hosted agent
+        uses: JFolberth/ai-smoketest@v1
+        with:
+          project_endpoint: ${{ inputs.project_endpoint }}
+          agent_name: ${{ inputs.agent_name }}
+          tests_file: ${{ inputs.tests_file }}
