@@ -273,10 +273,12 @@ Add these variables to your `.env` file:
 | Variable | Where to find it |
 |----------|-----------------|
 | `NOVITA_API_KEY` | [Novita AI Dashboard](https://novita.ai/settings/key-management) → API Keys |
-| `NOVITA_BASE_URL` | Use `https://api.novita.ai/openai` (default value) |
+| `NOVITA_BASE_URL` | Use `https://api.novita.ai/openai/v1` (default value) |
 | `NOVITA_MODEL_ID` | Model name to use (e.g., `moonshotai/kimi-k3`) |
 
 **Example models**: `moonshotai/kimi-k3`, `zai-org/glm-5.2`, `deepseek/deepseek-v4-flash-0731`. Novita AI also hosts many other open-source model families (Llama, Qwen, GLM, and more) — check the [Novita AI model library](https://novita.ai/llm-api) for the current list of available models and their model IDs.
+
+The current samples do not automatically consume `NOVITA_*` variables. To use Novita AI, pass these values explicitly when constructing `OpenAIChatClient` in the sample you are running.
 
 ## Alternative Provider: Foundry Local (Run Models On-Device)
 
