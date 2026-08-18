@@ -102,7 +102,7 @@ Together these properties provide three guarantees:
 
 You do not need a special library to produce a receipt. The cryptographic primitives are widely available and the logic is a few dozen lines of Python.
 
-The hands-on exercises in `code_samples/18-signed-receipts.ipynb` walk through the full flow. The summary version:
+The hands-on exercises in `code_samples/18-signed-receipts.ipynb` walk through the full flow. The source-controlled `code_samples/18-signed-receipts.execution-receipt.json` records the exact notebook hash, Python environment, cell count, and checks from the latest clean execution without changing the lesson's saved outputs. The summary version:
 
 ```python
 import json

@@ -1,0 +1,43 @@
+{
+  "assertions": {
+    "downstream_chain_link_break_detected": true,
+    "prehashed_signature_rejected": true,
+    "receipted_tool_three_calls": true,
+    "tampered_middle_receipt_rejected": true,
+    "tampered_receipt_rejected": true,
+    "three_receipt_chain_valid": true,
+    "valid_receipt_accepted": true
+  },
+  "attestation_boundary": "Repository record of a local notebook run, not an independent attestation.",
+  "cells": {
+    "code_total": 14,
+    "errors": 0,
+    "executed": 14
+  },
+  "execution_output_committed": false,
+  "finished_at_utc": "2026-08-18T16:26:44.914453Z",
+  "implementation": "CPython",
+  "notebook": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
+  "packages": {
+    "PyNaCl": "1.6.2",
+    "ipykernel": "7.3.0",
+    "jcs": "0.2.1",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "python": "3.12.13",
+  "reproduction": {
+    "execute": "jupyter execute 18-signed-receipts.ipynb --output=18-signed-receipts.executed.ipynb --timeout=600 --kernel_name=python3",
+    "executor": "nbclient.NotebookClient.execute",
+    "install": "python3.12 -m pip install nbclient==0.11.0 nbformat==5.11.1 ipykernel==7.3.0 pynacl==1.6.2 jcs==0.2.1",
+    "timeout_seconds": 600,
+    "working_directory": "18-securing-ai-agents/code_samples"
+  },
+  "result": "PASS",
+  "schema": "notebook-execution-receipt/v1",
+  "source_commit": "473aeeb1faa0d5663c38fccf092a306a743fa3b3",
+  "source_git_blob": "44ed7492080ef5c47376d0ce0fd7829cb8ae27ff",
+  "source_notebook_outputs": 11,
+  "source_sha256": "03641e76a8ea49df2aa85ed88f2da27222ec46e0c604226903a57d2c89a4b56d",
+  "started_at_utc": "2026-08-18T16:26:43.292284Z"
+}
