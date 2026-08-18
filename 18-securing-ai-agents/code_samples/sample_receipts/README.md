@@ -53,8 +53,8 @@ do not always provide. Students who skim the JSON often notice:
 
 1. The signature is an opaque base64url string, but every other field is plain
    readable JSON. The signature does not encrypt the content; it attests to it.
-2. The `public_key` is embedded in the receipt. An auditor needs nothing else
-   to verify (subject to trusting that the key actually belongs to the claimed
-   issuer; see the lesson README on identity infrastructure).
+2. The `public_key` is embedded in the receipt, which is enough to check
+   self-consistency but not issuer trust. An auditor must compare it with a key
+   pinned outside the receipt or resolved through a trusted registry.
 3. Modifying a single character of any field, then re-comparing this file with
    `02_tampered_receipt.json`, makes the byte-level mechanism concrete.
