@@ -285,6 +285,22 @@ Add these variables to your `.env` file:
 
 The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
 
+## Alternative Provider: OrcaRouter (OpenAI-Compatible)
+
+[OrcaRouter](https://www.orcarouter.ai) is an AI gateway that routes requests to frontier models (Claude, GPT, Gemini, DeepSeek, and more) through a single OpenAI-compatible endpoint. Since the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, you can use OrcaRouter as a drop-in alternative to Azure OpenAI or OpenAI.
+
+Add these variables to your `.env` file:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `ORCAROUTER_API_KEY` | [OrcaRouter Console](https://www.orcarouter.ai) → API Keys |
+| `ORCAROUTER_BASE_URL` | Use `https://api.orcarouter.ai/v1` (default value) |
+| `ORCAROUTER_MODEL_ID` | Model name to use (e.g., `orcarouter/auto`) |
+
+**Example models**: `orcarouter/auto` (smart routing), `anthropic/claude-sonnet-4.6`, `openai/gpt-5.5`, `google/gemini-2.5-flash`, `deepseek/deepseek-v4-flash-0731`. Model names and availability can change over time, and access to a given model may depend on your account or region — check the [OrcaRouter model directory](https://www.orcarouter.ai) for the current list.
+
+The current samples do not automatically consume `ORCAROUTER_*` variables. To use OrcaRouter, pass these values explicitly when constructing `OpenAIChatClient` in the sample you are running.
+
 ## Alternative Provider: Foundry Local (Run Models On-Device)
 
 [Foundry Local](https://foundrylocal.ai) is a lightweight runtime that downloads, manages, and serves language models **entirely on your own machine** through an OpenAI-compatible API — no cloud required.
