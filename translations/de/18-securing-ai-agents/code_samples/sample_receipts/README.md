@@ -1,23 +1,27 @@
-# Beispielbeleg Fixtures
+# Beispiel-Beleg Fixtures
 
-Drei vorab generierte Belegdateien zur Inspektion ohne Ausführung des Notebooks.
+Drei vorerstellte Belegdateien zur Inspektion, ohne das Notebook auszuführen.
 
 | Datei | Was es ist |
 |---|---|
-| `01_valid_receipt.json` | Ein gültiger signierter Beleg für einen `lookup_flights` Toolaufruf. Die Verifikation ergibt True. |
-| `02_tampered_receipt.json` | Derselbe Beleg mit einem Feld, das nach der Signierung geändert wurde. Die Verifikation ergibt False. |
-| `03_chain_three_receipts.json` | Eine Kette von drei gültigen Belegen (Suche, Reservierung, Buchung) mit `previous_receipt_hash`, die jeden mit dem vorherigen verbindet. |
+| `01_valid_receipt.json` | Ein gültiger signierter Beleg für einen `lookup_flights` Tool-Aufruf. Die Verifikation ergibt True. |
+| `02_tampered_receipt.json` | Derselbe Beleg mit einem nach der Signierung geänderten Feld. Die Verifikation ergibt False. |
+| `03_chain_three_receipts.json` | Eine Kette von drei gültigen Belegen (Suche, Reservierung, Buchung) mit `previous_receipt_hash`, der jeden mit dem vorherigen verknüpft. |
+
+Die Fixtures signieren die kanonischen JCS-Bytes des Payloads direkt mit Ed25519.
+SHA-256 wird weiterhin für Inhalts-Digests und Belegketten-Verknüpfungen verwendet, nicht als
+zusätzliches Pre-Hash vor der Signierung.
 
 ## Verifikation der Beispiele
 
 Das Notebook führt die Verifikation in vier Abschnitten durch. Um diese Fixtures
-direkt zu verifizieren, ohne das Notebook-Szenario durchzugehen:
+direkt zu verifizieren, ohne die Notebook-Erzählung durchzugehen:
 
 ```python
 import json
 from pathlib import Path
 
-# Es wird angenommen, dass Sie die Importe und Hilfsfunktionen abgeschlossen haben
+# Geht davon aus, dass Sie die Importe und Hilfsfunktionen abgeschlossen haben
 # aus den Abschnitten 1 und 2 von 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -34,26 +38,26 @@ for r in verify_chain(chain):
 ## Wie diese erzeugt wurden
 
 Die Fixtures verwenden denselben Codepfad wie das Notebook, mit einem festen Signierschlüssel
-und festen Zeitstempeln für byte-reproduzierbarkeit. Zur Neuerzeugung:
+und festen Zeitstempeln für byte-reproduzierbare Ergebnisse. Zum Regenerieren:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Das Skript befindet sich in `generate_fixtures.py` in diesem Verzeichnis.)
+(Das Skript befindet sich in diesem Verzeichnis unter `generate_fixtures.py`.)
 
-## Was Studierende beim Betrachten des rohen JSON lernen
+## Was Studenten beim Inspektieren des rohen JSON lernen
 
-Das Lesen des rohen Belegformats baut Intuition auf, die die Zellen im Notebook
-nicht immer vermitteln. Studierende, die das JSON überfliegen, bemerken oft:
+Das Lesen des rohen Belegformats baut ein Verständnis auf, das die Zellen im Notebook
+nicht immer vermitteln. Studenten, die das JSON überfliegen, bemerken oft:
 
-1. Die Signatur ist ein undurchschaubarer base64url-String, aber jedes andere Feld ist einfach
+1. Die Signatur ist ein undurchsichtiger base64url-String, aber jedes andere Feld ist einfach
    lesbares JSON. Die Signatur verschlüsselt den Inhalt nicht; sie bestätigt ihn.
-2. Der `public_key` ist im Beleg eingebettet. Ein Prüfer benötigt nichts Anderes
-   zur Verifikation (vorausgesetzt, er vertraut darauf, dass der Schlüssel tatsächlich zum angegebenen
-   Aussteller gehört; siehe die README der Lektion zur Identitätsinfrastruktur).
-3. Wird ein einzelnes Zeichen eines Feldes verändert und diese Datei dann mit
-   `02_tampered_receipt.json` verglichen, macht das den Mechanismus auf Byte-Ebene anschaulich.
+2. Der `public_key` ist im Beleg eingebettet. Ein Prüfer benötigt nichts Weiteres,
+   um zu verifizieren (vorausgesetzt, er vertraut darauf, dass der Schlüssel tatsächlich dem angegebenen
+   Aussteller gehört; siehe die README-Lektion zur Identitätsinfrastruktur).
+3. Wenn man ein einzelnes Zeichen eines Feldes ändert und danach diese Datei mit
+   `02_tampered_receipt.json` vergleicht, macht das den Mechanismus auf Byte-Ebene greifbar.
 
 ---
 
