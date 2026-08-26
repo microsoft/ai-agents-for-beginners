@@ -107,14 +107,14 @@ Deploying an agent is not a one-time `push`. It is a loop, and it looks a lot li
 
 ```mermaid
 flowchart LR
-    Create[Erstellen / Autor] --> Version[Version]
-    Version --> Evaluate[Offline bewerten]
-    Evaluate -->|Tor besteht| Deploy[Gehostet bereitstellen]
-    Evaluate -->|Tor nicht bestanden| Create
-    Deploy --> Observe[Online beobachten]
-    Observe --> Improve[Fehler sammeln]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Alte Version ausmuster]
+    Deploy --> Retire[Retire old version]
 ```
 
 The key idea, carried over from [Lesson 10](../10-ai-agents-production/README.md): **offline evaluation is a gate, not an afterthought.** A new agent version does not ship unless it clears your evaluation thresholds. Online observability then feeds real-world failures back into your offline test set. That is the whole loop.
@@ -382,7 +382,7 @@ The next lesson takes the opposite journey: instead of scaling agents up into th
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry documentation</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service overview</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>

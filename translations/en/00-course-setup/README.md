@@ -20,7 +20,7 @@ You should now have your own forked version of this course in the following link
 
 ### Shallow Clone (recommended for workshop / Codespaces)
 
-  >The full repository can be large (~3 GB) when you download full history and all files. If you're only attending the workshop or only need a few lesson folders, a shallow clone (or a sparse clone) avoids most of that download by truncating history and/or skipping blobs.
+  >The full repository can be large (~3 GB) when you download full history and all files. If you're only attending the workshop or only need a few lesson folders, a shallow clone (or a sparse clone) downloads much less.
 
 #### Quick shallow clone — minimal history, all files
 
@@ -28,13 +28,13 @@ Replace `<your-username>` in the below commands with your fork URL (or the upstr
 
 To clone only the latest commit history (small download):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
 To clone a specific branch:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
@@ -42,23 +42,23 @@ git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai
 
 This uses partial clone and sparse-checkout (requires Git 2.25+ and recommended modern Git with partial clone support):
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
 Traverse into the repo folder:
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
 Then specify which folders you want (example below shows two folders):
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
+After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality):
 
 ```bash
 # zsh/bash
@@ -76,7 +76,7 @@ Remove-Item -Recurse -Force .git
 
 - In the terminal of the newly created codespace, run one of the shallow/sparse clone commands above to bring only the lesson folders you need into the Codespace workspace.
 - Optional: after cloning inside Codespaces, remove .git to reclaim extra space (see removal commands above).
-- Note: If you prefer to open the repo directly in Codespaces (without an extra clone), be aware Codespaces will construct the devcontainer environment and may still provision more than you need. Cloning a shallow copy inside a fresh Codespace gives you more control over disk usage.
+- Note: If you prefer to open the repo directly in Codespaces (without an extra clone), be aware Codespaces will construct the devcontainer environment and may still provision more than you need.
 
 #### Tips
 
@@ -100,7 +100,7 @@ All Python notebooks are labelled `*-python-agent-framework.ipynb`.
 
     Create Python venv directory:
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
@@ -118,7 +118,7 @@ All Python notebooks are labelled `*-python-agent-framework.ipynb`.
 
 - .NET 10+: For the sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
@@ -130,7 +130,7 @@ We have included a `requirements.txt` file in the root of this repository that c
 
 You can install them by running the following command in your terminal at the root of the repository:
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
@@ -165,19 +165,19 @@ From your project in the Microsoft Foundry portal:
 
 ### Step 3: Sign in to Azure with `az login`
 
-All notebooks use **`AzureCliCredential`** for authentication — no API keys to manage. This requires you to be signed in via the Azure CLI.
+Most notebooks authenticate through your **Azure CLI sign-in** — using `AzureCliCredential` or `DefaultAzureCredential` (both pick up your `az login` session) from the `azure-identity` package — so they do not require API keys. A few lessons and optional integrations use API keys; check each lesson's prerequisites for any additional environment variables. This requires you to be signed in via the Azure CLI.
 
 1. **Install the Azure CLI** if you haven't already: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
 2. **Sign in** by running:
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
     Or if you're in a remote/Codespace environment without a browser:
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
@@ -185,11 +185,11 @@ All notebooks use **`AzureCliCredential`** for authentication — no API keys to
 
 4. **Verify** you're signed in:
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **Why `az login`?** The notebooks authenticate using `AzureCliCredential` from the `azure-identity` package. This means your Azure CLI session provides the credentials — no API keys or secrets in your `.env` file. This is a [security best practice](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+> **Why `az login`?** The notebooks authenticate using `AzureCliCredential` (or `DefaultAzureCredential`, which also picks up your Azure CLI sign-in) from the `azure-identity` package. This means your Azure CLI session provides the credentials — no API keys or secrets in your `.env` file. This is a [security best practice](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
 ### Step 4: Create Your `.env` File
 
@@ -221,24 +221,45 @@ That's it for most lessons! The notebooks will authenticate automatically throug
 
 ### Step 5: Install Python Dependencies
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
 We recommend running this inside the virtual environment you created earlier.
 
-## Additional Setup for Lesson 5 (Agentic RAG)
+## Optional Setup: Azure AI Search (Lessons 5 and 16)
 
-Lesson 5 uses **Azure AI Search** for retrieval-augmented generation. If you plan to run that lesson, add these variables to your `.env` file:
+The Lesson 5 (Agentic RAG) and Lesson 16 notebooks run out of the box with an **in-memory knowledge base** — no extra Azure resources needed. If you want to back them with a real **Azure AI Search** index, note that the **Lesson 16 notebook currently uses key-based authentication**: it switches from in-memory search to Azure AI Search only when **both** `AZURE_SEARCH_SERVICE_ENDPOINT` **and** `AZURE_SEARCH_API_KEY` are set, and otherwise stays on in-memory search — so to run it against a real index you must set the admin key as well. Keyless authentication with Microsoft Entra ID (RBAC) is the recommended approach for your own production code, consistent with the `az login` flow used everywhere else in this course.
+
+The RBAC steps below apply to the setup-guide samples and your own code. They do not enable keyless authentication in the Lesson 16 notebook; Lesson 16 still requires both the endpoint and admin key to use Azure AI Search.
+
+1. **Enable role-based access** on your search service:
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. **Assign yourself the required roles** (create/load indexes and query):
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. **Add the endpoint** to your `.env` file:
 
 | Variable | Where to find it |
 |----------|-----------------|
 | `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → your **Azure AI Search** resource → **Overview** → URL |
-| `AZURE_SEARCH_API_KEY` | Azure portal → your **Azure AI Search** resource → **Settings** → **Keys** → primary admin key |
+| `AZURE_SEARCH_API_KEY` | Required (with the endpoint) to enable Azure AI Search in the Lesson 16 notebook, which uses key-based auth. Azure portal → **Settings** → **Keys** → primary admin key |
+
+> **Why keyless?** Admin keys grant full write access to your search service and can leak via `.env` files. With RBAC, your `az login` identity is used instead — the same keyless Entra ID pattern the course notebooks use (via `AzureCliCredential` / `DefaultAzureCredential`). See [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+See the [Azure AI Search setup guide](./AzureSearch.md) for full index-creation samples in Python and .NET.
 
 ## Additional Setup for Lessons that Call Azure OpenAI Directly (Lessons 6 and 8)
 
-Some notebooks in lessons 6 and 8 call **Azure OpenAI** directly (using the **Responses API**) instead of going through a Microsoft Foundry project. These samples previously used GitHub Models, which is deprecated (retiring July 2026) and does not support the Responses API. If you plan to run those samples, add these variables to your `.env` file:
+Some notebooks in lessons 6 and 8 call **Azure OpenAI** directly (using the **Responses API**) instead of going through a Microsoft Foundry project. These samples previously used GitHub Models, which is deprecated and does not support the Responses API. Add these variables to your `.env` file:
 
 | Variable | Where to find it |
 |----------|-----------------|
@@ -250,7 +271,7 @@ Some notebooks in lessons 6 and 8 call **Azure OpenAI** directly (using the **Re
 
 ## Alternative Provider: MiniMax (OpenAI-Compatible)
 
-[MiniMax](https://platform.minimaxi.com/) provides large-context models (up to 204K tokens) through an OpenAI-compatible API. Since the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, you can use MiniMax as a drop-in alternative to Azure OpenAI or OpenAI.
+[MiniMax](https://platform.minimaxi.com/) provides large-context models (up to 204K tokens) through an OpenAI-compatible API. Since the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, you can use MiniMax as a drop-in alternative for lessons that use `OpenAIChatClient`.
 
 Add these variables to your `.env` file:
 
@@ -260,13 +281,14 @@ Add these variables to your `.env` file:
 | `MINIMAX_BASE_URL` | Use `https://api.minimax.io/v1` (default value) |
 | `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M3`) |
 
-**Example models**: `MiniMax-M3` (recommended), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (faster responses). Model names and availability can change over time, and access to a given model may depend on your account or region — check the [MiniMax Platform](https://platform.minimaxi.com/) for the current list. If `MiniMax-M3` isn't available to your account, set `MINIMAX_MODEL_ID` to a model you have access to (e.g. `MiniMax-M2.7`).
+**Example models**: `MiniMax-M3` (recommended), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (faster responses). Model names and availability can change over time, and access to a given model may depend on your account.
 
 The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
 
+
 ## Alternative Provider: Foundry Local (Run Models On-Device)
 
-[Foundry Local](https://foundrylocal.ai) is a lightweight runtime that downloads, manages, and serves language models **entirely on your own machine** through an OpenAI-compatible API — no cloud, no Azure subscription, and no API keys. It's a great option for offline development, experimenting without incurring cloud costs, or keeping data on-device.
+[Foundry Local](https://foundrylocal.ai) is a lightweight runtime that downloads, manages, and serves language models **entirely on your own machine** through an OpenAI-compatible API — no cloud required.
 
 Because the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, Foundry Local is a drop-in local alternative to Azure OpenAI.
 
@@ -314,10 +336,9 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **Note:** Foundry Local exposes an OpenAI-compatible **Chat Completions** endpoint. Use it for local development and offline scenarios. For the full **Responses API** feature set (stateful conversations, deep tool orchestration, and agent-style development), target **Azure OpenAI** or a **Microsoft Foundry** project as shown in the lessons. See the [Foundry Local documentation](https://foundrylocal.ai) for the current model catalog and platform support.
+> **Note:** Foundry Local exposes an OpenAI-compatible **Chat Completions** endpoint. Use it for local development and offline scenarios. For the full **Responses API** feature set (stateful conversations, etc.), use Azure OpenAI or a Microsoft Foundry project.
 
 ## Additional Setup for Lesson 8 (Bing Grounding Workflow)
-
 
 The conditional workflow notebook in lesson 8 uses **Bing grounding** via Microsoft Foundry. If you plan to run that sample, add this variable to your `.env` file:
 
@@ -346,7 +367,7 @@ This is a known issue with Python on macOS where the system SSL certificates are
 
 **Option 2: Use `connection_verify=False` in your notebook (for GitHub Models notebooks only)**
 
-In the Lesson 6 notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), a commented-out workaround is already included. Uncomment `connection_verify=False` when creating the client:
+In the Lesson 6 notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), a commented-out workaround is already included. Uncomment `connection_verify=False` when you hit certificate errors:
 
 ```python
 client = ChatCompletionsClient(
@@ -356,7 +377,7 @@ client = ChatCompletionsClient(
 )
 ```
 
-> **⚠️ Warning:** Disabling SSL verification (`connection_verify=False`) reduces security by skipping certificate validation. Use this only as a temporary workaround in development environments, never in production.
+> **⚠️ Warning:** Disabling SSL verification (`connection_verify=False`) reduces security by skipping certificate validation. Use this only as a temporary workaround in development environments. Never use it in production.
 
 **Option 3: Install and use `truststore`**
 
