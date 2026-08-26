@@ -5,7 +5,7 @@ on:
     types: [opened]
 permissions:
   contents: read
-  pull-requests: write
+  issues: write
 jobs:
   asses-pull-request:
     runs-on: ubuntu-latest
