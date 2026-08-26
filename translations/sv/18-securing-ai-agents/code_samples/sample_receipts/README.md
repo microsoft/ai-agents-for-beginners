@@ -1,24 +1,28 @@
-# Exempelkvitto-fixtures
+# Exempel på kvitto-fixtures
 
 Tre förgenererade kvittofiler för inspektion utan att köra notebooken.
 
 | Fil | Vad det är |
 |---|---|
-| `01_valid_receipt.json` | Ett giltigt signerat kvitto för ett verktygskall `lookup_flights`. Verifiering returnerar Sant. |
-| `02_tampered_receipt.json` | Samma kvitto med ett fält ändrat efter signering. Verifiering returnerar Falskt. |
+| `01_valid_receipt.json` | Ett giltigt signerat kvitto för ett `lookup_flights`-verktygssamtal. Verifiering returnerar True. |
+| `02_tampered_receipt.json` | Samma kvitto med ett fält modifierat efter signering. Verifiering returnerar False. |
 | `03_chain_three_receipts.json` | En kedja av tre giltiga kvitton (sök, håll, boka) med `previous_receipt_hash` som länkar varje till det föregående. |
+
+Fixtures signerar nyttolastens kanoniska JCS-bytes direkt med Ed25519.
+SHA-256 används fortfarande för innehållsdigester och kvittokedjelänkar, inte som en
+extra för-hash innan signering.
 
 ## Verifiera exemplen
 
 Notebooken går igenom verifiering i fyra avsnitt. För att verifiera dessa fixtures
-direkt utan att köra genom notebook-berättelsen:
+direkt utan att gå igenom notebookens berättelse:
 
 ```python
 import json
 from pathlib import Path
 
 # Antar att du har slutfört importerna och hjälpfunktionerna
-# från avsnitten 1 och 2 i 18-signed-receipts.ipynb.
+# från avsnitt 1 och 2 i 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Sant
@@ -31,29 +35,29 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Hur dessa genererades
+## Hur de genererades
 
 Fixtures använder samma kodväg som notebooken, med en fast signeringsnyckel
-och fasta tidsstämplar för byte-reproducerbarhet. För att regenerera:
+och fasta tidsstämplar för byte-reproducerbarhet. För att generera igen:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skriptet finns i `generate_fixtures.py` i denna katalog.)
+(Skriptet ligger i `generate_fixtures.py` i denna katalog.)
 
-## Vad studenter lär sig genom att inspektera rå JSON
+## Vad studenter lär sig av att inspektera rå JSON
 
-Att läsa råa kvittotsformatet bygger upp en intuition som cellerna i notebooken
-inte alltid ger. Studenter som skummar JSON märker ofta:
+Att läsa det råa kvittoformatet bygger intuition som cellerna i notebooken
+inte alltid förmedlar. Studenter som snabbt tittar på JSON noterar ofta:
 
 1. Signaturen är en ogenomskinlig base64url-sträng, men varje annat fält är vanlig
    läsbar JSON. Signaturen krypterar inte innehållet; den intygar det.
-2. `public_key` är inbäddad i kvittot. En granskare behöver inget annat
-   för att verifiera (med förutsättning att man litar på att nyckeln faktiskt tillhör den påstådda
+2. `public_key` är inbäddad i kvittot. En revisor behöver inget annat
+   för att verifiera (förutsatt att nyckeln verkligen tillhör den påstådda
    utfärdaren; se lektionens README om identitetsinfrastruktur).
-3. Att ändra ett enda tecken i något fält, och sedan jämföra denna fil med
-   `02_tampered_receipt.json`, gör mekanismen på byte-nivå konkret.
+3. Att modifiera ett enda tecken i något fält, och sedan jämföra denna fil med
+   `02_tampered_receipt.json`, gör bytenivå-mekanismen konkret.
 
 ---
 
