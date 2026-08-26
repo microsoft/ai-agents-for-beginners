@@ -1,67 +1,67 @@
-# 使用 Microsoft Foundry Local 和 Qwen 建立本地 AI 代理
+# 使用 Microsoft Foundry Local 和 Qwen 創建本地 AI 代理
 
-![建立本地 AI 代理](../../../translated_images/zh-MO/lesson-17-thumbnail.f86434c595a408fc.webp)
+![Creating Local AI Agents](../../../translated_images/zh-MO/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-上一課將代理 <em>擴展</em> 至雲端。本課則將代理 <em>縮減</em> 至單一機器上。結束時你將擁有一個能進行推理、呼叫工具、閱讀你的檔案，並搜尋你的文件的運作中工程助理 — **完全不透過任何雲端推論呼叫。**
+上一課將代理擴展到雲端。本課則將它們帶回單機端。結束時，你將擁有一個可工作的工程助理，能推理、調用工具、閱讀你的檔案並搜尋你的文件 — **不需任何雲端推理呼叫。**
 
-為什麼你會想要這樣？在實際工程工作中經常出現以下三個理由：
+為何需要這樣做？實際工程工作中經常遇到三個理由：
 
-- **隱私。** 程式碼和文件永遠不會離開機器。沒有提示、片段或客戶資料越過網絡邊界。
-- **成本。** 本地推論沒有每個字元計費。你可以用一天的電費反覆迭代。
-- **離線。** 在飛機上、安全設施內或停電期間，代理依然能運作。
+- **隱私。** 代碼和文檔永遠留在機器上。沒有提示、片段或客戶資料會穿越網絡邊界。
+- **成本。** 本地推理無需按 Token 計費。你可以整天迭代，只需支付電費。
+- **離線。** 無論在飛機上、安全設施內或網絡中斷期間，代理都能正常工作。
 
-缺點是你要從前沿的雲端模型換成在 CPU、GPU 或 NPU 運行的 **小型語言模型（SLM）**。本課討論如何建立能在該限制下 <em>良好</em> 運作的代理，而不是假裝限制不存在。
+關鍵是你正在用 **小型語言模型 (SLM)** 取代最先進的雲端模型，並在你的 CPU、GPU 或 NPU 上運行。本課討論如何在這種限制下構建 <em>優秀</em> 的代理，而不是假裝限制不存在。
 
-## 介紹
+## 簡介
 
 本課將涵蓋：
 
-- **小型語言模型（SLMs）** — 它們是什麼、擅長什麼、不擅長什麼。
-- **Microsoft Foundry Local** — 一個在裝置上下載並提供模型的運行時，通過 **OpenAI 相容 API**。
-- **Qwen 函數呼叫模型** — 可靠產生工具呼叫的 SLM，使得本地 <em>代理</em>（不只是本地聊天）成為可能。
-- **本地工具、本地 RAG 和本地 MCP** — 在無雲的情況下給代理能力。
-- <strong>混合模式</strong> — 何時保持本地，何時伸手往雲端。
+- **小型語言模型 (SLMs)** — 它們是什麼、在哪些情境下表現優越、哪些情況不適合。
+- **Microsoft Foundry Local** — 一種在裝置上下載並服務模型的運行時，通過<strong>OpenAI 相容 API</strong>提供服務。
+- **Qwen 函數調用模型** — 可靠產生工具調用的 SLM，使本地<em>代理</em>（不僅是本地聊天）成為可能。
+- **本地工具、本地 RAG 及本地 MCP** — 在無雲端的情況下賦予代理能力。
+- <strong>混合模式</strong> — 何時保留本地，何時呼叫雲端。
 
 ## 學習目標
 
-完成本課後，你將會知道如何：
+完成本課後，你將了解如何：
 
 - 解釋 SLM 的權衡並挑選適合的本地代理使用案例。
-- 使用 Foundry Local 本地服務 Qwen 模型，並通過 OpenAI 相容端點連接。
-- 建立完全在你的工作站上運行的工具呼叫代理。
-- 使用本地向量資料庫（Chroma）在自有文件上加上本地 RAG。
-- 將代理連接到本地 MCP 伺服器並思考混合本地/雲端設計。
+- 使用 Foundry Local 本地提供 Qwen 模型，並透過 OpenAI 相容端點連接。
+- 建立完全運行於工作站的工具調用代理。
+- 利用本地向量資料庫（Chroma）加入本地 RAG，處理你自己的文檔。
+- 將代理連接至本地 MCP 伺服器，並對混合本地與雲端設計進行推理。
 
-## 先備條件
+## 先決條件
 
-本課假設你已完成前面課程並熟悉：
+本課假設你已完成之前課程，且熟悉：
 
-- [工具使用](../04-tool-use/README.md)（第4課）與 [Agentic RAG](../05-agentic-rag/README.md)（第5課）。
+- [工具使用](../04-tool-use/README.md)（第4課）及 [Agentic RAG](../05-agentic-rag/README.md)（第5課）。
 - [Agentic Protocols / MCP](../11-agentic-protocols/README.md)（第11課）。
-- [Microsoft 代理框架](../14-microsoft-agent-framework/README.md)（第14課）。
+- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)（第14課）。
 
-你還需：
+你還需要：
 
-- 一台開發工作站。**8 GB RAM 是實際的最低限度**，16 GB 以上較為舒適。有 GPU 或 NPU 有幫助但非必要。
-- 已安裝 **Microsoft Foundry Local**（參見下文安裝部分）。
-- Python 3.12+ 及本倉庫 `requirements.txt` 中的套件，還有本課用到的 `foundry-local-sdk`、`openai` 和 `chromadb`。
+- 一台開發工作站。**8 GB 記憶體是現實最小需求**；16 GB 以上較舒適。有 GPU 或 NPU 有助益但非必須。
+- 安裝 **Microsoft Foundry Local**（請參見以下設定章節）。
+- Python 3.12 以上以及本儲存庫中的 [`requirements.txt`](../../../requirements.txt) 套件，另需本課的 `foundry-local-sdk`、`openai` 和 `chromadb`。
 
-## 小型語言模型：本地工作的合適工具
+## 小型語言模型：本地工作的適合工具
 
-前沿雲端模型有數千億參數和資料中心支撐。小型語言模型有數十億參數且必須塞入筆記型電腦 RAM。差異設定了明確的期待。
+頂尖的雲端模型擁有數千億參數，背靠大型數據中心。SLM 則擁有數十億參數，必須裝入你筆記型電腦的記憶體。這個差異設定了明確的期待。
 
 **SLMs 擅長：**
 
-- 結構化、有界的任務 — 分類、提取、已知文件的摘要。
-- <strong>工具呼叫</strong> — 決定呼叫哪個函數以及使用哪些參數。
-- 針對自己的資料快速、便宜、私下迭代。
+- 結構化、有界的任務 — 分類、抽取、已知文檔的摘要。
+- <strong>工具調用</strong> — 決定調用哪個函數及參數。
+- 快速、廉價、私密地迭代你自己的資料。
 
-**SLMs 較弱：**
+**SLMs 較弱於：**
 
-- 開放式、多步推理於大型上下文。
-- 廣泛世界知識（見得少且容易忘）。
+- 大範圍且開放的多跳推理。
+- 廣博的世界知識（見過較少且較易忘記）。
 
-本地代理的最佳策略為：**讓 SLM 負責協調，讓工具做重活。** 模型不需 <em>知道</em> 你的程式碼庫，只要知道何時呼叫 `read_file` 和 `search_docs`。這直擊 SLM 的擅長點。
+本地代理的勝出策略是：**讓 SLM 負責指揮，讓工具負責繁重工作。** 模型不需要<em>了解</em>你的代碼庫 — 它需要知道何時呼叫 `read_file` 和 `search_docs`。這正好發揮了 SLM 的優勢。
 
 ```mermaid
 flowchart LR
@@ -72,90 +72,90 @@ flowchart LR
     T1 --> A
     T2 --> A
     T3 --> A
-    A --> R[回答，全程在裝置上進行]
+    A --> R[回答，全程本地處理]
 ```
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** 是輕量級執行環境，能在你的機器上下載、管理並提供模型。最重要的是對我們而言，它公開了一個 **OpenAI 相容 HTTP 端點** — 意味著 OpenAI SDK 與 Microsoft 代理框架的 OpenAI 用戶端可經由僅變更 `base_url` 來使用它。你先前學習的代理編寫技巧完全可延用；只是端點從雲端變成 `localhost`。
+**Microsoft Foundry Local** 是一個輕量級運行時，在你的機器上完全下載、管理並提供模型服務。對我們最重要的功能是它暴露了一個<strong>OpenAI 兼容的 HTTP 端點</strong> — 這表示 OpenAI SDK 和 Microsoft Agent Framework 的 OpenAI 用戶端只需更改 `base_url` 後即可使用它。你建立代理時學到的一切知識均可直接套用；唯一不同的是端點從雲端變成了 `localhost`。
 
-Foundry Local 還會自動為硬體選擇最佳模型版本 — CPU 版本、CUDA/GPU 版本或 NPU 版本 — 不用你針對每台機器手動優化。
+Foundry Local 會根據你的硬體自動選擇最適合的模型版本 — CPU 版本、CUDA/GPU 版本或 NPU 版本 — 不用你為每台機器手動優化。
 
-### 安裝設定
+### 設定
 
-安裝 Foundry Local（參見你的作業系統專屬[文件](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)），然後確認其運作：
+安裝 Foundry Local（請參閱你的作業系統的 [文件](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)），然後確認其可用性：
 
 ```bash
-# 安裝（範例；請依據您的平台參考文件）
+# 安裝（範例；請依照你的平台文件操作）
 winget install Microsoft.FoundryLocal      # Windows 作業系統
-# brew install microsoft/foundrylocal/foundrylocal   ＃ macOS
+# brew 安裝 microsoft/foundrylocal/foundrylocal   # macOS
 
 # 下載並執行 Qwen 模型，然後啟動本地服務
 foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-服務啟動後，你就有一個本地 OpenAI 相容端點（通常是 `http://localhost:PORT/v1`）。筆記本使用 `foundry-local-sdk` 自動發現端點，省去你硬編碼埠號的麻煩。
+服務啟動後，你便擁有一個本地的 OpenAI 兼容端點（通常是 `http://localhost:PORT/v1`）。筆記本使用 `foundry-local-sdk` 自動發現此端點，無需你硬編端口號。
 
-## Qwen 函數呼叫：為何重要
+## Qwen 函數調用：為何重要
 
-一個代理只有能呼叫工具才是真正代理。許多 SLM 能聊天卻產生不可靠、格式錯誤的工具呼叫。**Qwen** 模型受訓於函數呼叫，穩定產生格式良好的工具呼叫結構 — 正是將本地聊天模型轉成本地 <em>代理</em> 的關鍵。
+代理唯有能夠調用工具才是真正的代理。許多 SLM 可用於聊天，但生成不可靠且格式錯誤的工具調用。**Qwen** 模型專為函數調用訓練，能一致地輸出格式良好的工具調用結構 — 這正是將本地聊天模型轉變為本地 <em>代理</em> 的關鍵。
 
-流程是你已知的標準工具呼叫迴圈，只是移至本機運行：
+流程是你熟悉的標準工具調用循環，僅是在裝置端運行：
 
 ```mermaid
 sequenceDiagram
     participant U as 使用者
     participant A as Qwen 代理（本地）
     participant T as 本地工具
-    U->>A: 「auth.py 是做什麼的？」
+    U->>A: 「auth.py 做什麼？」
     A->>A: 決定：呼叫 read_file
     A->>T: read_file("auth.py")
     T-->>A: 檔案內容
-    A->>A: 推理內容
-    A-->>U: 解釋
+    A->>A: 理解內容
+    A-->>U: 解說
 ```
 
 ## 本地 RAG
 
-文件搜尋是本地代理的賣點。不需指望 SLM 記住你的框架文件，而是將這些文件嵌入至 <strong>本地向量資料庫</strong>，令代理按需檢索相關片段。
+文件搜尋是本地代理的用武之地。不用指望 SLM 記住你的框架文件，你可以將文檔嵌入到<strong>本地向量資料庫</strong>，並讓代理按需檢索相關片段。
 
-我們使用 **Chroma**，一個內嵌向量庫，無需管理伺服器。整條管線完全本地：本地嵌入模型→本地向量→本地檢索→本地 SLM。
+我們使用 **Chroma**，一款嵌入式向量庫，與進程一同運行，無需管理伺服器。整個流程完全本地化：本地嵌入模型 → 本地向量 → 本地檢索 → 本地 SLM。
 
 ```mermaid
 flowchart TB
     D[你的文件 / 程式碼] --> E[本地嵌入模型]
-    E --> V[（Chroma 向量資料庫 - 磁碟上）]
+    E --> V[(Chroma 向量資料庫 - 硬碟上)]
     Q[代理查詢] --> QE[本地嵌入查詢]
     QE --> V
-    V -->|前 k 個區塊| A[Qwen 代理]
+    V -->|top-k 資料塊| A[Qwen 代理]
     A --> Ans[有根據的答案]
 ```
 
-這是第5課中 Agentic RAG 的相同模式 — 唯一改變是每個組件皆在你的機器上運行。
+這是第5課的 Agentic RAG 模式 — 唯一差異是每個組件均在你的機器上運行。
 
 ## 本地 MCP 伺服器
 
-[MCP](../11-agentic-protocols/README.md) 是一種傳輸協議，非雲端服務。MCP 伺服器能以本地進程方式於 `stdio` 運行，透過標準協議向代理暴露工具。你可以離線重用 MCP 生態系統中的伺服器 — 檔案系統存取、git 操作、資料庫查詢。
+[MCP](../11-agentic-protocols/README.md) 是一種傳輸協定，而非雲端服務。MCP 伺服器可作為本地進程運行於 `stdio`，通過標準協定對你的代理暴露工具。這讓你能離線重用越來越多的 MCP 伺服器生態系 — 檔案系統存取、git 操作、資料庫查詢等。
 
-安全姿態與雲端不同，但並非不存在：本地 MCP 伺服器仍以你的使用者權限運行，請限制其能接觸的範圍（如專案資料夾，非整個家目錄），並將其輸出視為輸入來驗證。
+安全狀態與雲端不同，但並非不存在：本地 MCP 伺服器以你用戶的權限運行，因此請限制其可存取範圍（例如一個專案目錄，而非整個家目錄），並將其輸出視為輸入加以驗證。
 
 ## 混合雲端與本地模式
 
-本地優先不等於只有本地。成熟系統依敏感度與難度分流：
+以本地為先不代表只能靠本地。成熟系統會依敏感度與難度來分流：
 
-| 情境 | 運行地點 |
+| 情況 | 運行位置 |
 | --- | --- |
-| 敏感程式碼/資料，或離線 | **本地 SLM** |
-| 簡單、有界任務 | **本地 SLM**（便宜、快速） |
-| 非敏感資料上的艱深多步推理 | <strong>雲端模型</strong> |
-| 任何情況下停電 | **本地 SLM**（優雅降級） |
+| 敏感代碼/資料或離線 | **本地 SLM** |
+| 簡單、有界任務 | **本地 SLM**（廉價、快速） |
+| 困難多跳推理（非敏感資料） | <strong>雲端模型</strong> |
+| 網絡中斷時全部任務 | **本地 SLM**（優雅降級） |
 
-這和第16課的 <strong>模型路由</strong> 概念類似 — 差別是現在「模型」之一是你的機器。穩健設計在雲端不可用時退回本地，讓代理品質降低但不中斷。
+這與第16課的<strong>模型路由</strong>理念相符 — 不同的是，「模型」之一是你自己的機器。健壯的設計會在雲端不可用時退回本地，讓代理品質降低但不會完全失效。
 
 ```mermaid
 flowchart LR
-    Q[請求] --> S{敏感或離線？}
+    Q[請求] --> S{敏感或者離線？}
     S -->|是| L[本地 SLM]
     S -->|否| C{需要深度推理？}
     C -->|否| L
@@ -164,32 +164,32 @@ flowchart LR
     Cloud --> Out
 ```
 
-## 實作操作：本地工程助理
+## 實作實驗室：本地工程助理
 
-打開 [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) 跟著做。你會構建一個 <strong>完全在工作站運行</strong> 的本地工程助理，能做到：
+打開 [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) 並跟著進行。你將建立一個<strong>完全在工作站運行的本地工程助理</strong>，它能：
 
-1. <strong>呼叫工具</strong> — 透過 Foundry Local 的 Qwen 函數呼叫。
-2. <strong>執行本地檔案操作</strong> — 列出及閱讀專案目錄中的檔案。
-3. <strong>分析程式碼</strong> — 報告源檔的基本度量。
-4. <strong>搜尋文件</strong> — 利用 Chroma 對文件資料夾執行本地 RAG。
-5. **使用 MCP** — 連接本地 MCP 伺服器（若無設定則優雅跳過）。
+1. <strong>調用工具</strong> — 通過 Foundry Local 的 Qwen 函數調用。
+2. <strong>執行本地檔案操作</strong> — 列出並閱讀專案目錄中的檔案。
+3. <strong>分析代碼</strong> — 報告源文件的基本度量。
+4. <strong>搜尋文件</strong> — 使用 Chroma 在本地文件夾中進行 RAG。
+5. **使用 MCP** — 連接到本地 MCP 伺服器（如未配置則優雅跳過）。
 
-全流程不透過雲端推論。
+任何時候都不使用雲端推理。
 
-### 過程解說
+### 操作導覽
 
-助理透過 OpenAI 相容端點連接 Foundry Local，因此代理編碼看起來與雲端課程幾乎相同 — 唯獨用戶端改變：
+助理通過 OpenAI 兼容端點連接 Foundry Local，因此代理代碼與雲端課程近乎相同，唯獨用戶端變更：
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local 會發現/下載模型並提供本地端點。
+# Foundry Local 發現/下載模型，並為我們提供本地端點。
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key 是一個本地佔位符。
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key 是本地佔位符
 ```
 
-工具是範圍限定的普通 Python 函數，限定於專案目錄：
+工具是範圍限制在專案目錄的普通 Python 函數：
 
 ```python
 def read_file(path: str) -> str:
@@ -200,107 +200,107 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-留意沙盒檢查 — 即使本地，讀取任意路徑的工具依然風險高。筆記本將所有工具限制於單一專案根目錄內。
+注意沙箱檢查 — 即使本地，讀取任意路徑的工具也是風險。筆記本使每個工具皆限定在單一專案根目錄。
 
-## 知識檢核
+## 知識檢測
 
-進入作業前先自測理解。
+在前往作業前測試你的理解。
 
-**1. 請舉出兩個將代理運行於本地而非雲端的具體原因。**
+**1. 請列舉兩個將代理設置為本地運行而非雲端的具體理由。**
 
 <details>
 <summary>答案</summary>
 
-三者擇二：<strong>隱私</strong>（程式碼及資料永遠留在機器）、<strong>成本</strong>（無每字元推論費用）、<strong>離線能力</strong>（無網路依舊可用 — 飛機上、安全場所或停電）。法規合規限制不允許設備外傳資料也是促成隱私理由的常見原因。
+任選兩項：<strong>隱私</strong>（程式碼和資料永不離機）、<strong>成本</strong>（無按 Token 推理計費）、<strong>離線能力</strong>（無網路也能用 — 無論飛機上、安全設施或網絡中斷）。隱私理由常因合規限制禁止資料外送而起。
 </details>
 
-**2. 在本地代理中，SLM 與工具的推薦分工是什麼？為何如此？**
+**2. 在本地代理中，建議的 SLM 與工具間分工為何？為什麼？**
 
 <details>
 <summary>答案</summary>
 
-讓 SLM 擔任 <strong>協調者</strong>（決定呼叫何種工具及參數），工具負責 <strong>重活</strong>（讀檔、取文、計算結果）。SLMs 擅長有界決策如工具選擇，並在廣泛知識與長多步推理上較弱，故依靠工具能發揮其長處。
+讓 SLM <strong>負責指揮</strong>（決定調用哪個工具及參數），工具則 <strong>負責重活</strong>（讀檔、取文檔、計算結果）。SLM 擅長有界決策如工具選擇，但在廣泛知識與長多跳推理較弱，所以依賴工具恰好發揮強項。
 </details>
 
-**3. 什麼讓 Foundry Local 能夠重用雲端代理程式碼？**
+**3. 為何能用 Foundry Local 重用雲端代理程式代碼？**
 
 <details>
 <summary>答案</summary>
 
-Foundry Local 公開 **OpenAI 相容 HTTP 端點**。OpenAI SDK 與代理框架的 OpenAI 用戶端只需改變 `base_url`（並使用本地假 API key）即可使用。代理程式碼其它部分無須變動。
+Foundry Local 暴露了<strong>OpenAI 相容的 HTTP 端點</strong>。OpenAI SDK 和 Agent Framework 的 OpenAI 用戶端只需變更 `base_url`（並使用本地佔位 API 金鑰）即可使用。代理代碼其餘部分均不變。
 </details>
 
-**4. 為何特別使用 Qwen 函數呼叫模型，而非任何 SLM？**
+**4. 為何特別使用 Qwen 函數調用模型，而非任何 SLM？**
 
 <details>
 <summary>答案</summary>
 
-因為代理必須產生可靠、格式良好的 <strong>工具呼叫</strong>。許多 SLM 可聊聊對話，卻釋出格式錯誤或不一致的呼叫結構。Qwen 模型受訓於函數呼叫，可穩定產生一致工具呼叫，這正是使本地聊天模型成為可用本地代理的關鍵。
+因為代理必須生成可靠且格式良好的<strong>工具調用</strong>。許多 SLM 能聊天，但會產生格式錯誤或不一致的工具調用結構。Qwen 模型經函數調用訓練，產生一致的工具調用，這讓本地聊天模型成為可工作的本地代理。
 </details>
 
-**5. 在本地 RAG 管線中，哪些組件運行於機器上？**
+**5. 在本地 RAG 流程中，哪些組件運行在機器上？**
 
 <details>
 <summary>答案</summary>
 
-全部：嵌入模型、向量資料庫（Chroma，磁碟上）、檢索步驟以及 SLM。文件在本機被嵌入、存储、檢索並由本機模型推理 — 無一觸及雲端。
+全部組件：嵌入模型、向量資料庫（Chroma，儲存在磁碟上）、檢索步驟與 SLM。文檔本地嵌入、本地存儲、本地檢索，並由本地模型進行推理 — 沒有任何元件接觸雲端。
 </details>
 
-**6. 本地 MCP 伺服器在你機器上執行，這是否自動表示安全？你仍應採取什麼預防？**
+**6. 本地 MCP 伺服器運行於你的機器上，這是否自動代表它是安全的？你還應採取哪些預防措施？**
 
 <details>
 <summary>答案</summary>
 
-否。本地 MCP 伺服器以你使用者權限運行，因此可以接觸你能接觸的任何東西。請限制其範圍（例如限制於單一專案目錄，而非整個家目錄），並將其輸出視為需驗證的輸入再行動。
+不。因為本地 MCP 伺服器以你的用戶權限運行，可以存取你能存取的任何東西。請限制它所需的存取範圍（例如單一專案目錄，而非整個家目錄），並將其輸出視為輸入，執行驗證後再處理。
 </details>
 
-**7. 請描述包含本地模型的合理混合路由規則。**
+**7. 描述一個包含本地模型的合理混合路由規則。**
 
 <details>
 <summary>答案</summary>
 
-將敏感或離線請求路由至本地 SLM；將簡單且有限任務路由至本地 SLM 以求快速及降低成本；將非敏感資料上的複雜多步推理委由雲端模型處理；當雲端不可用時退回本地 SLM，使代理優雅降級而非直接失敗。這是第16課的模型路由，並將本地機器視為其中一個模型。
+將敏感或離線請求導向本地 SLM；將簡單有界任務導向本地 SLM 以獲得速度與成本效益；將非敏感資料上的困難多跳推理導向雲端模型；如雲端不可用則退回本地 SLM，讓代理優雅降級而非失敗。這是第16課的模型路由概念，且將本地機器視作其中一個模型。
 </details>
 
-**8. 本課本地代理的實際最低 RAM 容量為多少？多點 RAM 有什麼好處？**
+**8. 本課本地代理的實際最低 RAM 需求是多少？更多 RAM 可帶來什麼好處？**
 
 <details>
 <summary>答案</summary>
 
-約 **8 GB** 是實際最低；16 GB 以上較舒適。較多 RAM 允許你運行更大、更強能力的模型並記憶更多上下文。GPU 或 NPU 可加速推論，但非必要 — 若無硬體加速器，Foundry Local 會選 CPU 版本。
+約 **8 GB** 是現實最低需求；16 GB 以上較舒適。更多 RAM 讓你能運行更大型、能力更強的模型，並保有更多上下文於記憶體中。有 GPU 或 NPU 可加速推理，但非必要 — 當無加速器時，Foundry Local 會選擇 CPU 版本。
 </details>
 
 ## 作業
 
-將本地工程助理擴充為小型專案的 <strong>本地文件審查員</strong>（若想可使用本倉庫的任一課程資料夾）。
+擴展本地工程助理成你自行選擇一個小案子的<strong>本地文件審查員</strong>（如果願意，可使用本儲存庫中的任一課程資料夾）。
 
 你的提交應包含：
 
-1. 將一個真實文件/程式碼資料夾索引進 Chroma（至少五個檔案）。
-2. 新增一個 `find_todos` 工具，掃描專案中含 `TODO`/`FIXME` 的註解並返回它們及其檔案與行號 — 同時維護與 `read_file` 相同的沙盒檢查。
+1. 將一個真實的文件／代碼資料夾索引至 Chroma（至少五個檔案）。
+2. 新增一個 `find_todos` 工具，掃描專案中的 `TODO`／`FIXME` 註解並返回其檔案與行號 — 同時保持與 `read_file` 相同的沙箱檢查。
 
-3. <strong>問代理人三個問題</strong>，迫使它結合工具：一個純 RAG 問題，一個需要閱讀特定文件，另一個需要尋找 TODO。
-4. <strong>測量它</strong>：計時這三個回應，並在 markdown 儲存格中記錄。評述延遲是否符合你的預期工作流程。
+3. <strong>向代理提出三個問題</strong>，要求它結合多個工具：一個純粹的 RAG 問題、一個需要閱讀特定文件的問題，還有一個需要尋找 TODO 的問題。
+4. <strong>測量它</strong>：計時三個回答的時間，並在 markdown 單元格中記錄。評論這些延遲是否適合你預期的工作流程。
 
-接著寫一小段落說明<strong>你會將哪些部分遷移到雲端、哪些部分會保留在本地</strong>給這位審查者，以及原因。你的評估標準是本地組件是否正確串接，以及你的混合推理是否合理 — 並非模型品質。
+然後寫一段簡短的文字，說明<strong>哪些部分你會移到雲端，哪些會保留在本地</strong>給這個審閱者，以及原因。評估標準是本地元件是否正確串接，以及你的混合推理是否合理——而非模型質量。
 
-## 摘要
+## 總結
 
-在本課中，你建構了一個完全在你自己機器上運行的代理：
+在本課程中，你建立了一個完全運行在你自己機器上的代理：
 
-- **SLMs** 換取隱私、成本和離線操作的廣度 — 並在<strong>協調工具</strong>時發揮最佳，而不是承擔所有知識。
-- **Foundry Local** 在裝置端後面提供模型，且有一個<strong>相容 OpenAI 的端點</strong>，讓你的雲端代理碼只需一行變更即可轉移。
-- **Qwen 函數調用模型** 使可靠的本地工具調用成為可能，因而也成就了本地<em>代理</em>。
-- **本地 RAG**（Chroma）與<strong>本地 MCP</strong> 讓代理在不離開機器的情況下具備能力。
-- <strong>混合模式</strong> 讓你能依敏感性與難度進行路由，本地則作為一個優雅的後備方案。
+- **SLM** 以隱私、成本和離線運作換取廣度 —— 當它們<strong>編排工具</strong>而非自己承載所有知識時表現出色。
+- **Foundry Local** 在裝置上提供模型，並透過與 **OpenAI 相容的端點**，讓你的雲端代理程式碼可藉由一行程式碼改動轉移。
+- **Qwen 函數調用模型** 使可靠的本地工具調用成為可能，因此實現本地<em>代理</em>。
+- **本地 RAG**（Chroma）及<strong>本地 MCP</strong> 讓代理具備在本機執行的能力。
+- <strong>混合模式</strong> 讓你可依敏感度和難易度路由，且本地端作為優雅的後備方案。
 
-本課完成了部署弧線：第 16 章將代理規模擴展至 Microsoft Foundry，本課則縮減至單一工作站。下一課將聚焦於保持部署代理的安全。
+這完成了部署階段：第 16 課將代理擴展到 Microsoft Foundry，本課將它們縮減到單一工作站。下一課將聚焦於保持已部署代理的安全。
 
 ## 其他資源
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local 文件</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry 文件</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen 函數調用文件</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma 向量資料庫</a>
@@ -311,7 +311,7 @@ Foundry Local 公開 **OpenAI 相容 HTTP 端點**。OpenAI SDK 與代理框架�
 
 ## 下一課
 
-[保障 AI 代理安全](../18-securing-ai-agents/README.md)
+[保護 AI 代理](../18-securing-ai-agents/README.md)
 
 ---
 
