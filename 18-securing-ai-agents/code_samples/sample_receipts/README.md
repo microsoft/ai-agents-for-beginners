@@ -23,15 +23,22 @@ from pathlib import Path
 
 # Assumes you have completed the imports and helper functions
 # from sections 1 and 2 of 18-signed-receipts.ipynb.
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
@@ -53,8 +60,8 @@ do not always provide. Students who skim the JSON often notice:
 
 1. The signature is an opaque base64url string, but every other field is plain
    readable JSON. The signature does not encrypt the content; it attests to it.
-2. The `public_key` is embedded in the receipt. An auditor needs nothing else
-   to verify (subject to trusting that the key actually belongs to the claimed
-   issuer; see the lesson README on identity infrastructure).
+2. The `public_key` is embedded in the receipt, which is enough to check
+   self-consistency but not issuer trust. An auditor must compare it with a key
+   pinned outside the receipt or resolved through a trusted registry.
 3. Modifying a single character of any field, then re-comparing this file with
    `02_tampered_receipt.json`, makes the byte-level mechanism concrete.
