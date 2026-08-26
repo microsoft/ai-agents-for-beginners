@@ -1,25 +1,25 @@
-# தொடக்கத்திற்கான AI முகவர்கள் - ஒரு பாடநெறி
+# புதிதாக ஆரம்பிக்கும்வர்களுக்கு AI முகவர்கள் - ஒரு பாடநெறி
 
-![தொடக்கத்திற்கான AI முகவர்கள்](../../translated_images/ta/repo-thumbnailv3.917487e234b90100.webp)
+![புதிதாக ஆரம்பிக்கும்வர்களுக்கு AI முகவர்கள்](../../translated_images/ta/repo-thumbnailv3.917487e234b90100.webp)
 
-## AI முகவர்களை கட்டமைக்கத் தொடங்க அனைவருக்கும் தேவையான அனைத்தையும் கற்பது ஒரு பாடநெறி
+## AI முகவர்கள் உருவாக்குவதற்கான தேவையான அனைத்தையும் கற்றுக் கொள்ள ஒரு பாடநெறி
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub உரிமம்](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub பங்களிப்பாளர்கள்](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub பிரச்சினைகள்](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub புல் வேண்டுகோள்கள்](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PRs வரவேற்கின்றன](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 பல மொழி ஆதரவு
+### 🌐 பலமொழி ஆதரவு
 
-#### GitHub செயல்முறை மூலம் ஆதரிக்கப்படுகிறது (தானாகவும் எப்போதும் புதுப்பிக்கப்பட்டதாகவும்)
+#### GitHub நடவடிக்கையின் மூலம் ஆதரிக்கப்படுகிறது (தானாகவும் எப்போதும் புதுப்பித்து இருக்கும்)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](./README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-> **உள்ளூரில் கிளோன் செய்வது விரும்பும்தா?**
+> **உள்ளூரில் கிளோன் செய்வது விரும்புகிறீர்களா?**
 >
-> இந்த கிடங்கில் 50 க்கும் மேற்பட்ட மொழி மொழிபெயர்ப்புகள் அடங்கியுள்ளன, இது பதிவிறக்க அளவை பெரிய அளவு அதிகரிக்கிறது. மொழிபெயர்ப்புகள் இல்லாமல் கிளோன் செய்ய, sparse checkout ஐ பயன்படுத்தவும்:
+> இந்த கோப்பகத்தில் 50+ மொழி மொழிபெயர்ப்புகள் உள்ளன, இது பதிவிறக்கும் அளவை முக்கியமாக அதிகரிக்கிறது. மொழிபெயர்ப்புகளின்றி கிளோன் செய்ய, sparse checkout ஐ பயன்படுத்தவும்:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,164 +35,164 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> இதனால் படிப்பை முடிக்க தேவையான அனைத்தும் வேகமான பதிவிறக்கத்துடன் கிடைக்கும்.
+> இதனால் பாடநெறியை நிறைவு செய்ய தேவையான அனைத்தும் மிக விரைவான பதிவிறக்கத்துடன் கிடைக்கும்.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**மேலும் மொழிப் மொழிபெயர்ப்புகளை ஆதரிக்க விரும்பினால், அவை [இங்கே](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) பட்டியலிடப்பட்டுள்ளன.**
+**கூடுதல் மொழிபெயர்ப்பு மொழிகள் ஆதரிக்க வேண்டுமெனில், அவை இங்கே பட்டியலிடப்பட்டுள்ளன [இங்கே](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub கண்காணிப்பாளர்கள்](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub கிளோன்கள்](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub நட்சத்திரங்கள்](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ATgtXmAS5D)](https://discord.com/invite/ATgtXmAS5D)
 
 
-## 🌱 தொடக்கம்
+## 🌱 தொடங்குதல்
 
-இந்த பாடநெறியில் AI முகவர்கள் கட்டமைப்பின் அடிப்படைகள் குறித்த பாடங்கள் உள்ளன. ஒவ்வொரு பாடமும் தனிப்பட்ட தலைப்பைக் கொண்டது, எனவே நீங்கள் விரும்பும் எந்த இடத்திலிருந்தும் தொடங்குங்கள்!
+இந்த பாடநெறி AI முகவர்கள் உருவாக்க அடிப்படைகளை உள்ளடக்கிய பாடங்களைக் கொண்டுள்ளது. ஒவ்வொரு பாடமும் தன்னுடைய தலைப்பைக் கையாள்கிறது, ஆகவே நீங்கள் விரும்பிய இடத்தில் தொடங்குங்கள்!
 
-இந்த பாடநெறிக்குப் பல மொழி ஆதரவு உள்ளது. எங்கள் [கிடைக்கும் மொழிகள் இங்கே](#-multi-language-support) செல்லவும்.
+இந்த பாடநெறிக்கு பலமொழி ஆதரவு உள்ளது. எங்கள் [கிடைக்கக்கூடிய மொழிகள் இங்கே](#-multi-language-support) பார்க்கவும்.
 
-நீங்கள் முதன்முறையாக ஜெனரேட்டிவ் AI மாதிரிகளுடன் கட்டமைக்கிறீர்களானால், எங்கள் [தொடக்கத்திற்கான ஜெனரேட்டிவ் AI](https://aka.ms/genai-beginners) பாடநெறியைப் பார்க்கவும், இதில் ஜெனAI உடன் கட்டமைப்பதற்கான 21 பாடங்கள் உள்ளன.
+நீங்கள் முதன்முறையாக Generative AI மாதிரிகளுடன் உருவாக்குகிறீர்களானால், 21 பாடங்களையும் உள்ளடக்கிய எங்கள் [புதிதாக தொடங்குபவர்களுக்கான Generative AI](https://aka.ms/genai-beginners) பாடநெறியை பாருங்கள்.
 
-இந்த ரெப்போவை [நட்சத்திரம் (🌟) சேர்க்க](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) மறக்காதீர்கள் மற்றும் [ரெப்போவை கிளோன் செய்ய](https://github.com/microsoft/ai-agents-for-beginners/fork) கோட் இயக்க.
+இந்த களஞ்சியத்தை [நட்சத்திரம் (🌟) வழங்க ](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) மறக்க வேண்டாமே மற்றும் [இந்தக் கோப்பகத்தை கிளோன் செய்யவும்](https://github.com/microsoft/ai-agents-for-beginners/fork) என்றால் குறியீட்டை இயக்கலாம்.
 
-### மற்ற கற்றாளர்களை சந்திக்கவும், உங்கள் கேள்விகளுக்கு பதில் பெறவும்
+### மற்ற கற்கையாளர்களைக் சந்திக்கவும், உங்கள் கேள்விகளுக்கு பதில் பெறவும்
 
-நீங்கள் கசிந்து கொண்டால் அல்லது AI முகவர்கள் கட்டமைப்பதில் ஏதேனும் கேள்விகள் இருந்தால், எங்கள் மிக்க அங்கு Microsoft Foundry Discord இல் உள்ள dedicated Discord சேனலுக்கு இணைந்துகொள்ளுங்கள்.
+நீங்கள் வழுவடிக்கிறீர்களா அல்லது AI முகவர்கள் உருவாக்குவதில் ஏதேனும் கேள்விகள் இருந்தால், எங்கள் [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) இல் உள்ள அர்ப்பணிக்கப்பட்ட Discord சேனலுக்கு இணைக.
 
-### நீங்கள் தேவையானவை
+### உங்கள் தேவைகள்
 
-இந்த பாடநெறியில் ஒவ்வொரு பாடத்திலும் குறியீடு உதாரணங்கள் உட்படுகின்றன, அவைகள் code_samples கோப்புறையில் உள்ளன. உங்கள் சொந்த பிரதியை உருவாக்க [இந்த ரெப்போவை கிளோன் செய்யலாம்](https://github.com/microsoft/ai-agents-for-beginners/fork).
+இந்த பாடநெறியின் ஒவ்வொரு பாடமும் குறியீட்டு உதாரணங்களைக் கொண்டுள்ளது, அவை code_samples அடைவில் காணலாம். நீங்கள் [இந்தக் கோப்பகத்தை கிளோன் செய்யக்கூடியது](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
-இந்த பயிற்சிகளின் குறியீடு உதாரணங்கள் Microsoft Agent Framework உடன் Microsoft Foundry Agent Service V2 ஐ பயன்படுத்துகின்றன:
+இந்த பயிற்சிகளில் உள்ள குறியீட்டு உதாரணங்கள் Microsoft Agent Framework-ஐ Microsoft Foundry Agent Service V2 உடன் பயன்படுத்துகின்றன:
 
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure கணக்கு தேவையானது
 
-இந்த பாடநெறி Microsoft இன் கீழ்வரும் AI முகவர் கட்டமைப்புகள் மற்றும் சேவைகளைப் பயன்படுத்துகிறது:
+இந்த பாடநெறி கல்விக்கான Microsoft AI முகவர் கட்டமைப்புகள் மற்றும் சேவைகளை பயன்படுத்துகிறது:
 
-- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/agent-framework/overview/)
 - [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-சில குறியீடு உதாரணங்கள் OpenAI-உடன் பொருந்தக்கூடிய மாற்று வழங்குநர்களான [MiniMax](https://platform.minimaxi.com/) ஐ ஆதரிக்கின்றன, இது பெரிய சிறுதொடர்கள் மாடல்களை (அதிவரை 204K டோக்கன்கள்) வழங்குகிறது. கட்டமைப்பு விவரங்களுக்கு [பாடநெறி செட்டப்பை](./00-course-setup/README.md) பார்க்கவும்.
+சில குறியீட்டு உதாரணங்கள் [MiniMax](https://platform.minimaxi.com/) போன்ற மாற்று OpenAI-உகந்த வழங்குநர்களையும் ஆதரிக்கின்றன, இது பெரிய முன்னணி மாதிரிகளை (முதல் 204K டோக்கன்கள் வரை) வழங்குகிறது. அமைப்பு விவரங்களுக்கு [Course Setup](./00-course-setup/README.md)-ஐப் பாருங்கள்.
 
-இந்த பாடநெறிக்கு குறியீடு இயக்குவதற்கான மேலதிக தகவலுக்கு, [பாடநெறி செட்டப்பை](./00-course-setup/README.md) பார்க்கவும்.
+இந்த பாடநெறிக்கான குறியீட்டை இயக்க மேலதிகத் தகவலுக்கு [Course Setup](./00-course-setup/README.md) பக்கத்துக்கு செல்லவும்.
 
 ## 🙏 உதவ விரும்புகிறீர்களா?
 
-பரிந்துரைகள் அல்லது எழுத்து தவறுகள் அல்லது குறியீடு பிழைகள் இருந்தால், [ஒரு issue ஐ எழுப்பவும்](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) அல்லது [ஒரு கோரிக்கைசெய்யவும் pull request உருவாக்கவும்](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+உங்களிடம் பரிந்துரைகள் உள்ளனவா அல்லது எழுத்துப்பிழைகள் அல்லது குறியீட்டு பிழைகள் கண்டுபிடித்தீர்களா? [ஒரு பிரச்சினையை பதிவு செய்யவும்](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) அல்லது [ஒரு புல் வேண்டுகோலை உருவாக்கவும்](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
-## 📂 ஒவ்வொரு பாடத்திலும் உட்படுகின்றன
+## 📂 ஒவ்வொரு பாடத்தையும் உள்ளடக்கியது
 
-- README இல் உள்ள எழுதிய பாடமும் குறுகிய வீடியோவும்
-- Microsoft Agent Framework உடன் Microsoft Foundry ஐ பயன்படுத்தி Python குறியீடு உதாரணங்கள்
-- உங்கள் கற்றலை தொடர கூடுதல் வளங்களுக்கு இணைப்புகள்
+- README-யில் உள்ள ஒரு எழுதப்பட்ட பாடம் மற்றும் ஒரு சிறிய வீடியோ
+- Microsoft Agent Framework மற்றும் Microsoft Foundry உடன் Python குறியீட்டு உதாரணங்கள்
+- உங்கள் கற்றலை தொடர்வதற்கான கூடுதல் வளங்களுக்கான இணைப்புகள்
 
 
 ## 🗃️ பாடங்கள்
 
-| **பாடம்**                                  | **உரை மற்றும் குறியீடு**                              | **வீடியோ**                                               | **கூடுதல் கற்று கொள்ளுதல்**                                                          |
+| **பாடம்**                                    | **உரை மற்றும் குறியீடு**                              | **வீடியோ**                                                  | **கூடுதல் கற்றல்**                                                                      |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| AI முகவர்கள் அறிமுகமும் முகவர் பயன்பாடுகளும்    | [இணைப்பு](./01-intro-to-ai-agents/README.md)         | [வீடியோ](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI முகவர் கட்டமைப்புகளை ஆராய்தல்                | [இணைப்பு](./02-explore-agentic-frameworks/README.md) | [வீடியோ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI முகவர் வடிவமைப்பு முறைமைகள் புரிதல்           | [இணைப்பு](./03-agentic-design-patterns/README.md)    | [வீடியோ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| கருவி பயன்படுத்தும் வடிவமைப்பு முறைமை               | [இணைப்பு](./04-tool-use/README.md)                   | [வீடியோ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| முகவர் RAG                                | [இணைப்பு](./05-agentic-rag/README.md)                | [வீடியோ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| நம்பகமான AI முகவர்களை உருவாக்குதல்            | [இணைப்பு](./06-building-trustworthy-agents/README.md) | [வீடியோ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK )  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| திட்டமிடும் வடிவமைப்பு முறைமை                       | [இணைப்பு](./07-planning-design/README.md)            | [வீடியோ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| பல முகவர் வடிவமைப்பு முறைமை                        | [இணைப்பு](./08-multi-agent/README.md)                | [வீடியோ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI முகவர்களின் அறிமுகமும் முகவர் பயன்பாட்டு வழக்குகளும்    | [இணைப்பு](./01-intro-to-ai-agents/README.md)            | [வீடியோ](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| AI முகவர் கட்டமைப்புகளை ஆய்வு செய்தல்                    | [இணைப்பு](./02-explore-agentic-frameworks/README.md)    | [வீடியோ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| AI முகவர் வடிவமைப்பு வடிவங்கள் புரிதல்                       | [இணைப்பு](./03-agentic-design-patterns/README.md)       | [வீடியோ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| கருவி பயன்பாட்டு வடிவமைப்பு வடிவம்                          | [இணைப்பு](./04-tool-use/README.md)                      | [வீடியோ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| முகவர்களின் RAG                                          | [இணைப்பு](./05-agentic-rag/README.md)                   | [வீடியோ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| நம்பகமான AI முகவர்களை கட்டுதல்                        | [இணைப்பு](./06-building-trustworthy-agents/README.md)   | [வீடியோ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| திட்டமிடல் வடிவமைப்பு வடிவம்                              | [இணைப்பு](./07-planning-design/README.md)               | [வீடியோ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| பல முகவர் வடிவமைப்பு வடிவம்                               | [இணைப்பு](./08-multi-agent/README.md)                   | [வீடியோ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [இணைப்பு](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
 
-| மேடகாக்னிஷன் வடிவமைப்பு மாதிரி                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| தயாரிப்பில் AI முகவர்கள்                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| முகவரிக Protocols (MCP, A2A மற்றும் NLWeb) பயன்படுத்துவது | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI முகவர்களுக்கான உள்ளடக்கக் கண்கருத்து            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| முகவரி நினைவுத்தகவை நிர்வகித்தல்                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| மைக்ரோசாஃப்ட் முகவர் கட்டமைப்பை ஆராய்தல்                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| கணனி பயன்பாட்டுக் முகவர்களை கட்டமைத்தல் (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| அளவிடத்தக்க முகவர்களை நிலைத்தல்                    | [Link](./16-deploying-scalable-agents/README.md) |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
-| உள்ளூர் AI முகவர்களை உருவாக்குதல்                     | [Link](./17-creating-local-ai-agents/README.md)  |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
-| AI முகவர்களை பாதுகாப்பதன்                  | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| மெடாகாச்னிஷன் வடிவமைப்பு பகுப்பு           | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| தயாரிப்பில் AI முகவரிகள்                    | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ஏஜென்டிக் நெறிமுறைகளைப் பயன்படுத்துதல் (MCP, A2A மற்றும் NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI முகவரிகளுக்கான சூழல் பொறியியல்          | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ஏஜென்டிக் நினைவகத்தை நிர்வகித்தல்             | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Microsoft ஏஜென்ட் கட்டமைப்பை ஆராய்தல்                  | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| கம்ப்யூட்டர் பயன்பாட்டு முகவரிகள் (CUA) உருவாக்குதல்       | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| விரிவாக்கக்கூடிய முகவரிகளைக் கொண்டு செல்லுதல்           | [Link](./16-deploying-scalable-agents/README.md) |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
+| உள்ளூர் AI முகவரிகளை உருவாக்குதல்                   | [Link](./17-creating-local-ai-agents/README.md)  |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
+| AI முகவரிகளை பாதுகாப்பது                        | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
-## 🎒 பிற பாடச்சேரிகள்
+## 🎒 பிற பாடநெறிகள்
 
-எங்கள் குழு பிற பாடச்சேரிகளை உருவாக்குகிறது! பாருங்கள்:
+எங்கள் குழு பிற பாடநெறிகளையும் தயாரிக்கிறது! இதைப் பார்க்கவும்:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
-### லாங்செயின்
-[![LangChain4j தொடக்கங்களுக்கான](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
-[![LangChain.js தொடக்கங்களுக்கான](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
-[![LangChain தொடக்கங்களுக்கான](https://img.shields.io/badge/LangChain%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin)
+### லாங்ச்செயின்
+[![LangChain4j for Beginners](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
+[![LangChain.js for Beginners](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
+[![LangChain for Beginners](https://img.shields.io/badge/LangChain%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin)
 ---
 
-### அசூர் / எட்ஜ் / MCP / முகவர்கள்
-[![AZD தொடக்கங்களுக்கான](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![எட்ஜ் AI தொடக்கங்களுக்கான](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![MCP தொடக்கங்களுக்கான](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI முகவர்கள் தொடக்கங்களுக்கான](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
-
----
- 
-### உருவாக்கும் AI தொடர்
-[![உருவாக்கும் AI தொடக்கங்களுக்கான](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![உருவாக்கும் AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![உருவாக்கும் AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![உருவாக்கும் AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Azure / Edge / MCP / முகவர்கள்
+[![AZD for Beginners](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Edge AI for Beginners](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![MCP for Beginners](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI Agents for Beginners](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### மூல கற்றல்
-[![ML தொடக்கங்களுக்கான](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-[![தரவு அறிவியல் தொடக்கங்களுக்கான](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI தொடக்கங்களுக்கான](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-[![சைபர்சிசியுரிட்டி தொடக்கங்களுக்கான](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
-[![வலை மேம்பாடு தொடக்கங்களுக்கான](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
-[![IoT தொடக்கங்களுக்கான](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
-[![XR மேம்பாடு தொடக்கங்களுக்கான](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+### உருவாக்கல் AI தொடர்
+[![Generative AI for Beginners](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![Generative AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### கோபைலட் தொடர்
-[![கோபைலட் AI இணைந்த நிரலாக்கத்திற்கான](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![C#/.NETக்கு கோபைலட்](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![கோபைலட் சாகசம்](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+### முக்கியக் கற்றல்
+[![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+[![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+[![Cybersecurity for Beginners](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+[![Web Dev for Beginners](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+[![IoT for Beginners](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
+[![XR Development for Beginners](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+
+---
+ 
+### கோப்பைலட் தொடர்ச்சி
+[![Copilot for AI Paired Programming](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![Copilot for C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ## 🌟 சமூக நன்றி
 
-முகварி RAGஐ விளக்கும் முக்கியமான குறியீடு மாதிரிகள் வழங்கியதற்கு [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) அவர்களுக்கு நன்றி.
+Agentic RAG-ஐ வெளிப்படுத்தும் முக்கியமான குறியீட்டு உதாரணங்களை வழங்கிய [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) அவர்களுக்கு நன்றி.
 
 ## பங்களிப்பு
 
-இந்த திட்டம் பங்களிப்புகளையும் பரிந்துரைகளையும் வரவேற்கிறது. பெரும்பாலான பங்களிப்புகள்
-உங்களிடம் உரிமை உள்ளதாகவும், உண்மையில் இருப்பதாகவும் அறிவிக்கும் ஒரு
-பங்களிப்பாளரின் உரிமை ஒப்பந்தத்துடன் (CLA) இணங்குவதை நீங்கள் ஒப்புக்கொள்ள வேண்டும். விவரங்களுக்கு <https://cla.opensource.microsoft.com> ஐப் பாருங்கள்.
+இந்த திட்டம் பங்களிப்புகளையும் பரிந்துரைகளையும் வரவேற்கிறது. பெரும்பாலான பங்களிப்புகளுக்கு நீங்கள் பின்பற்ற வேண்டியது
+பங்களிப்பாளர் உரிமம் உடன்படிக்கை (CLA) ஆகும், இது நீங்கள் உரிமை கொண்டதாகவும், உண்மையில் பங்களிப்பை நமக்கு அனுமதிக்கிறீர்கள் என்று தெரிவிக்கும்.
+விரிவான தகவலுக்கு <https://cla.opensource.microsoft.com> என்றதிற்குப் பாருங்கள்.
 
-நீங்கள் ஒரு புல் கோரிக்கையை சமர்ப்பிக்கும் போதே, CLA பாணி தானாகவே உங்களுக்கு CLA வழங்க வேண்டுமா என்பதை தீர்மானித்து PR-ஐ ஏற்புடைய வகையிலும் (எ.கா., நிலை சரிபார்ப்பு, கருத்து) உருவாக்கும். பாணியால் கொடுக்கபடும் வழிமுறைகளை பின்பற்றவும். நாங்கள் வழங்கும் CLA உடன் அனைத்து சேமிப்பகங்களிலும் இதைப் ஒருமுறை மட்டும் செய்ய வேண்டும்.
-
-
-
-இந்த திட்டம் [Microsoft திறந்தமுறைக் குறியீட்டு நடத்தை விதிகள்](https://opensource.microsoft.com/codeofconduct/)ஐ ஏற்றுக்கொண்டுள்ளது.
-மேலும் தகவலுக்கு [நடத்தை விதிகளின் FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ஐப் பார்க்கவும் அல்லது
-கூடுதல் கேள்விகள் அல்லது கருத்துக்களுக்கு [opencode@microsoft.com](mailto:opencode@microsoft.com) என்ற முகவரிக்குத் தொடர்பு கொள்ளவும்.
-
-## வர்த்தக அடையாளங்கள்
-
-இந்த திட்டத்தில் திட்டங்கள், தயாரிப்புகள் அல்லது சேவைகளுக்கான வர்த்தக அடையாளங்கள் அல்லது லோகோக்கள் இருக்கக்கூடும். Microsoft
-வர்த்தக அடையாளங்கள் அல்லது லோகோக்களை அங்கீகாரம் பெற்றவாறு பயன்படுத்துவதற்கு கீழ்க்காணும்
-[Microsoft வர்த்தக அடையாள மற்றும் பிராண்ட் வழிகாட்டுதல்கள்](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)ஐ பின்பற்றவேண்டும்.
-இந்த திட்டத்தின் மாற்றியமைக்கப்பட்ட பதிப்புகளில் Microsoft வர்த்தக அடையாளங்கள் அல்லது லோகோக்களை பயன்படுத்துவது குழப்பத்தை ஏற்படுத்தக்கூடாது அல்லது Microsoft ஆதரவாகக் குறிக்கக்கூடாது.
-எந்த மூன்றாம் தரப்பின் வர்த்தக அடையாளங்கள் அல்லது லோகோக்களைப் பயன்படுத்துவது அந்த மூன்றாம் தரப்பின் கொள்கைகளுக்கு உட்பட்டது.
-
-## உதவி பெறுதல்
+நீங்கள் ஒரு pull request சமர்ப்பிக்கும் பொழுது, ஒரு CLA புக்‌பாட் தானாகவே நீங்கள் CLA வழங்க வேண்டுமா என்பதையும் PR ஐ பொருத்ததாக அலங்கரிக்கும் (உதா., நிலை சரிபார்ப்பு, கருத்து). புக்‌பாட் வழங்கும் வழிமுறைகளை பின்பற்றுங்கள். இந்த செயல்முறையை அனைத்து ரெப்போகளிலும் ஒருமுறை மட்டும் செய்யவேண்டும்.
 
 
-நீங்கள் தவத்தில் சிக்கினால் அல்லது AI பயன்பாடுகள் உருவாக்கும் பொழுது ஏதேனும் கேள்விகள் இருந்தால், சேர்ந்துகொள்ளவும்:
+
+இந்த திட்டம் [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ஐ ஏற்றுக்கொண்டுள்ளது.
+கூடுதல் தகவலுக்கு [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) அல்லது
+[opencode@microsoft.com](mailto:opencode@microsoft.com) இனை தொடர்பு கொள்ளவும்.
+
+## வர்த்தகचின்னங்கள்
+
+இந்த திட்டத்தில் திட்டங்கள், தயாரிப்புகள் அல்லது சேவைகள் தொடர்பான வர்த்தகச் சின்னங்கள் அல்லது லோகோக்கள் இருக்கலாம். Microsoft
+வர்த்தகச் சின்னங்களின் அங்கீகாரப் பயன்பாடு மற்றும் Microsoft இன்
+[Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) ஐ பின்பற்ற வேண்டும்.
+Microsoft வர்த்தகசின்னங்கள் அல்லது லோகோக்களுக்கு மாற்றப்பட்ட பதிப்புகளில் பயன்படுத்துவதால் குழப்பம் இல்லாமல் இருக்கவும் அல்லது Microsoft ஆதரவைக் குறிக்க கூடாது.
+மூன்றாம் தரப்பின் வர்த்தகசின்னம் அல்லது லோகோக்களின் பயன்பாடு அந்த மூன்றாம் தரப்பின் கொள்கைகளுக்கு உட்பட்டது.
+
+## உதவி பெறல்
+
+
+AI செயலிகள் உருவாக்குவதில் சிக்கல் ஏற்பட்டால் அல்லது கேள்விகள் இருந்தால், இணைக:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-நீங்கள் தயாரிப்பு பின்னூட்டம் அல்லது பிழைகள் அடையாளப்படுத்தினால், பார்வையிடவும்:
+தயாரிப்புக் கருத்து அல்லது பிழைகள் இருந்தால், கட்டுமானத்தில்:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

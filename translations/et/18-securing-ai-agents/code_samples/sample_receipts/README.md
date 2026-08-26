@@ -1,23 +1,28 @@
-# Näidisarvete konksud
+# Näidistõendite mallid
 
-Kolm eelnevalt genereeritud arve faili kontrollimiseks ilma märkmetega töökava läbita.
+Kolm eelnevalt genereeritud tšeki faili kontrollimiseks ilma märkmiku käivitamiseta.
 
 | Fail | Mis see on |
 |---|---|
-| `01_valid_receipt.json` | Kehtiv allkirjastatud arve `lookup_flights` tööriista kõne jaoks. Kontrollimine tagastab True. |
-| `02_tampered_receipt.json` | Sama arve ühe välja muutmisega pärast allkirjastamist. Kontrollimine tagastab False. |
-| `03_chain_three_receipts.json` | Kolme kehtiva arve ahel (otsing, reserveerimine, broneerimine), kus `previous_receipt_hash` lingib iga eelneva arvega. |
+| `01_valid_receipt.json` | Kehtiv allkirjastatud tšekk `lookup_flights` tööriista kõne jaoks. Kontroll annab True. |
+| `02_tampered_receipt.json` | Sama tšekk, mille üks väli on pärast allkirjastamist muudetud. Kontroll annab False. |
+| `03_chain_three_receipts.json` | Kolme kehtiva tšeki (otsing, broneerimine, kinnitamine) ahel koos `previous_receipt_hash`-ga, mis lingib igaühe eelnenuga. |
 
-## Näidiste kontrollimine
+Mallid allkirjastavad otse Ed25519-ga koormuse kanonilised JCS-baidid.
+SHA-256 jääb kasutusele sisu digesti ja tšeki ahela linkide jaoks, mitte lisaks
+enne allkirjastamist eelhäälestamiseks.
 
-Märkmik läbib kontrolli neljas jaotises. Nende konksude otsene kontroll ilma märkmetega töökava jutustust läbi tegemata:
+## Näidete kontrollimine
+
+Märkmik tutvustab kontrolli neljas osas. Kui soovite neid malle kontrollida
+otse ilma märmiku narratiivis käimata:
 
 ```python
 import json
 from pathlib import Path
 
 # Eeldab, et olete lõpetanud impordid ja abifunktsioonid
-# alates 18-signed-receipts.ipynb 1. ja 2. osast.
+# failidest 1 ja 2 18-signed-receipts.ipynb-st.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Tõene
@@ -32,22 +37,27 @@ for r in verify_chain(chain):
 
 ## Kuidas need genereeriti
 
-Konksud kasutavad sama koodirada kui märkmetega töökava, ühe fikseeritud allkirjastamisvõtmega
-ja fikseeritud ajatemplitena baitide taasesitatavuse saavutamiseks. Taasgenereerimiseks:
+Mallid kasutavad sama koodi rada mis märkmik, ühe fikseeritud allkirjastamisvõtme
+ja fikseeritud ajatemplitena baitide taastekitatavuse jaoks. Taastekitamiseks:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript on selles kataloogis failis `generate_fixtures.py`.)
+(Skript asub selles kataloogis `generate_fixtures.py` failis.)
 
-## Mida õpilased õpivad toores JSON-i uurides
+## Mida õpilased õpivad JSON-i lugemise käigus
 
-Tooressarve vormingu lugemine loob tunnetuse, mida märkmiku lahtrid alati ei paku. Õpilased, kes JSON-i üle sirvivad, märkavad sageli:
+Tšeki puhta vormingu lugemine loob intuitsiooni, mida märkmiku lahtrid alati ei anna.
+Õpilased, kes JSON-i silmad mööda lasevad, märkavad sageli:
 
-1. Allkiri on opakne base64url string, kuid iga teine väli on selge ja loetav JSON. Allkiri ei krüpteeri sisu; see kinnitab seda.
-2. `public_key` on arvel manustatud. Audiitoril pole vaja muud, et kontrollida (tingimusel, et võti kuulub tõepoolest väidetud väljastajale; vt õppetunni README identiteedi infrastruktuuri kohta).
-3. Ühe tähemärgi muutmine lõppemiseks mis tahes väljas ning selle faili võrdlemine `02_tampered_receipt.json`-ga teeb baitide tasandi mehhanismi konkreetseks.
+1. Allkiri on läbipaistev base64url-string, kuid iga teine väli on tavaline
+   loetav JSON. Allkiri ei krüpteeri sisu; see kinnitab seda.
+2. `public_key` on tšeki sees. Audiitoril ei ole kontrolliks muud tarvis
+   (tingimusel, et usaldab, et võti kuulub tõepoolest väidetud
+   väljastajale; vt oppematerjalidega README-d identiteedi infrastruktuuri kohta).
+3. Ühe märgi muutmine ükskõik millises väljas ja seejärel selle faili
+   võrdlemine `02_tampered_receipt.json` failiga teeb baitidel põhineva mehhanismi konkreetseks.
 
 ---
 

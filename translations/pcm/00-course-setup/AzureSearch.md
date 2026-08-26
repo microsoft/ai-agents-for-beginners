@@ -1,6 +1,6 @@
 # Azure AI Search Setup Guide
 
-Dis guide go help you set up Azure AI Search using di Azure portal. Follow di steps wey dey below to create and configure your Azure AI Search service.
+Dis guide go help you set up Azure AI Search wit di Azure portal. Follow di steps wey dey below to create and configure your Azure AI Search service.
 
 ## Prerequisites
 
@@ -15,75 +15,94 @@ Before you start, make sure say you get di following:
 
 ## Step 2: Create an Azure AI Search Service
 
-1. Log in to di [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. For di left-hand navigation pane, click **Create a resource**.
-3. For di search box, type "Azure AI Search" and select **Azure AI Search** from di list of results.
+1. Sign in to di [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
+2. For di left-hand navigation pane, click on **Create a resource**.
+3. For di search box, type "Azure AI Search" and select **Azure AI Search** from di list.
 4. Click di **Create** button.
 5. For di **Basics** tab, provide di following information:
    - **Subscription**: Select your Azure subscription.
-   - **Resource group**: Create new resource group or select di one wey dey already.
-   - **Resource name**: Enter unique name for your search service.
-   - **Region**: Select di region wey near your users pass.
-   - **Pricing tier**: Choose pricing tier wey fit your needs. You fit start with di Free tier for testing.
+   - **Resource group**: Create new resource group or select one wey dey.
+   - **Resource name**: Put unique name for your search service.
+   - **Region**: Select di region wey dey near your users.
+   - **Pricing tier**: Choose di pricing tier wey fit your need. You fit start with Free tier for testing.
 6. Click **Review + create**.
-7. Check di settings and click **Create** to create di search service.
+7. Review di settings and click **Create** to create di search service.
 
 ## Step 3: Get Started with Azure AI Search
 
-1. Once di deployment don complete, go to your search service for di Azure portal.
-2. For di search service overview pane, copy di URL. E go look like `https://<service-name>.search.windows.net`.
-3. For di Settings > Keys pane, copy di query key.
-4. Follow di steps for di [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create index, upload data, and perform search query.
+1. Once deployment finish, go your search service for Azure portal.
+2. For di search service overview pane, copy di URL. E go be like `https://<service-name>.search.windows.net`.
+3. **(Recommended)** Enable keyless access wit Microsoft Entra ID (RBAC) like e dey for Step 4 below — no key necessary. Di samples for dis guide dey create/update indexes and upload documents wey need **Search Service Contributor** and **Search Index Data Contributor** roles (or for key-based auth, di **primary admin key** — no be query key). Only if you no fit use RBAC, open **Settings > Keys** pane and copy **primary admin key**.
+4. Follow di steps for di [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create index, upload data, and perform search.
 
 ## Step 4: Use Azure AI Search Tools
 
-Azure AI Search dey work with different tools to make your search better. You fit use Azure CLI, Python SDK, .NET SDK and other tools for advanced configurations and operations.
+Azure AI Search dey work with different tools to make your search beta. You fit use Azure CLI, Python SDK, .NET SDK and other tools for advanced configurations and operations.
 
 ### Using Azure CLI
 
-1. Install di Azure CLI by following di instructions for [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Log in to Azure CLI using dis command:
+1. Install Azure CLI by following instructions for [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Sign in to Azure CLI wit dis command:
 
    ```bash
    az login
    ```
+3. **(Recommended) Enable keyless access wit Microsoft Entra ID (RBAC):**
 
-3. Store di endpoint and API key for Azure AI Search instance for environment variables.
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service no get "endpoint" field; make di URL from di service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    ```
+
+    Wit RBAC enabled, di Python and .NET SDK samples below dey authenticate wit `DefaultAzureCredential`, wey dey use your `az login` session during local development — no admin key needed. See [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+4. **(Fallback) Key-based auth** — only if you no fit use RBAC, store di admin key too:
+
+#### Store both endpoint and API key for Azure AI Search instance to environment variables.
 
     ```bash
     # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show no get "endpoint" field; build di URL from di service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
     ```powershell
     # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show no get "endpoint" field; build di URL from di service name.
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
 ### Using Python SDK
 
-1. Install di Azure Cognitive Search client library for Python:
+1. Install Azure Cognitive Search client library and Azure Identity for Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. Use dis Python code to create index and upload documents:
+2. Use di Python code below to create index and upload documents:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (wey dem recommend): e dey use your `az login` identity tru Entra ID RBAC.
+    # E need di "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # If e no work (auth wey use key):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -107,28 +126,36 @@ Azure AI Search dey work with different tools to make your search better. You fi
 
 ### Using .NET SDK
 
-1. Run dis command to create index and upload documents:
+1. Run di command below to create index and upload documents:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
+    Di .NET sample below dey use `DefaultAzureCredential`, wey fit use your Azure CLI sign-in from `az login` during local development.
+
 2. Dis na di .NET code for `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -154,7 +181,7 @@ Azure AI Search dey work with different tools to make your search better. You fi
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-For more detailed information, check di following documentation:
+For more detailed info, check di following documentation:
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -162,13 +189,13 @@ For more detailed information, check di following documentation:
 
 ## Conclusion
 
-You don successfully set up Azure AI Search using di Azure portal and di tools wey dey work with am. You fit now explore more advanced features and capabilities of Azure AI Search to make your search solutions better.
+You don successfully set up Azure AI Search using Azure portal and integrated tools. Now you fit explore beta features and capabilities of Azure AI Search to improve your search solutions.
 
-If you need more help, visit di [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+For more help, visit di [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI transleto service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am correct, abeg sabi say machine translation fit get mistake or no dey accurate well. Di original dokyument wey dey for im native language na di main source wey you go fit trust. For important mata, e good make professional human transleto check am. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

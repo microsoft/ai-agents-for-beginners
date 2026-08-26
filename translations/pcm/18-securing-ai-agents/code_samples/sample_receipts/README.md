@@ -1,17 +1,21 @@
 # Sample Receipt Fixtures
 
-Thri pre-generated receipt files for inspection without run di notebook.
+Tri pre-gen-generated receipt files for inspection without running the notebook.
 
 | File | Wetin e be |
 |---|---|
-| `01_valid_receipt.json` | Valid signed receipt for `lookup_flights` tool call. Verification go return True. |
-| `02_tampered_receipt.json` | Same receipt but one field modify after signing. Verification go return False. |
-| `03_chain_three_receipts.json` | Chain of three valid receipts (search, hold, book) wit `previous_receipt_hash` weh link each one to di one wey dey before am. |
+| `01_valid_receipt.json` | A correct signed receipt for one `lookup_flights` tool call. Verification go return True. |
+| `02_tampered_receipt.json` | Same receipt but one field change after dem sign am. Verification go return False. |
+| `03_chain_three_receipts.json` | Chain of three correct receipts (search, hold, book) wey `previous_receipt_hash` link each one to the one before am. |
 
-## Verifying the samples
+The fixtures dey sign the payload's canonical JCS bytes directly with Ed25519.
+SHA-256 still dey use for content digests and receipt-chain links, no be as
+extra pre-hash before dem sign.
 
-Di notebook go show how to verify am for four sections. If you want verify these fixtures
-direct without run di notebook talk:
+## How to verify the samples
+
+The notebook go show how to verify am for four sections. If you want verify these fixtures
+direct without to run the notebook story:
 
 ```python
 import json
@@ -31,10 +35,10 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## How dem generate am
+## How dem generate dem
 
-Di fixtures use di same code path as di notebook, wit one fixed signing key
-and fixed timestamps for byte-reproducibility. To generate am again:
+The fixtures use the same code path as the notebook, with one fixed signing key
+and fixed timestamps for byte-reproducibility. If you wan regenerate:
 
 ```bash
 python3 generate_fixtures.py
@@ -42,18 +46,18 @@ python3 generate_fixtures.py
 
 (Script dey for `generate_fixtures.py` for this directory.)
 
-## Wetin students fit learn from inspecting raw JSON
+## Wetin pikin dem go learn if dem inspect raw JSON
 
-Read di raw receipt format dey build intuition wey di cells for di notebook
-no dey always show. Students wey just waka through di JSON go notice:
+If you read the raw receipt format, e go help you know better pass wetin the cells for the notebook
+dey show. Students wey just quickly look the JSON go notice:
 
-1. Di signature na opaque base64url string, but every other field na plain
-   readable JSON. Di signature no dey encrypt di content; e dey confirm am.
-2. Di `public_key` dey inside di receipt. Auditor no need anything else
-   to verify (if dem trust say di key na correct one wey belong to di
-   issuer wey dem talk about; see di lesson README on identity infrastructure).
-3. If you modify one character for any field, then compare dis file wit
-   `02_tampered_receipt.json`, e go make di byte-level mechanism clear.
+1. The signature na opaque base64url string, but all other fields na plain
+   readable JSON. The signature no encrypt the content; e just attest to am.
+2. The `public_key` dey inside the receipt. Auditor no need anything else
+   to verify (if im trust say the key really belong to the person wey dem claim be
+   the issuer; check the lesson README about identity infrastructure).
+3. If you change just one character for any field, then compare this file with
+   `02_tampered_receipt.json`, e go make the byte-level mechanism clear.
 
 ---
 
