@@ -95,7 +95,6 @@ vocabulário que você precisará para o resto do curso.
 | [03 - Padrões de Design Agentic](./03-agentic-design-patterns/README.md) | Padrões comuns para projetar o comportamento do agente. | Desenhe a jornada do usuário antes de escrever código. |
 | [04 - Uso de Ferramentas](./04-tool-use/README.md) | Como agentes chamam ferramentas para obter dados ou agir. | Defina uma ferramenta que seu agente de demonstração precisaria. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Como a recuperação fundamenta as respostas do agente em documentos ou dados. | Decida qual fonte de conhecimento sua demonstração deve buscar. |
-
 | [06 - Agentes Confiáveis](./06-building-trustworthy-agents/README.md) | Como adicionar proteções, supervisão e comportamento mais seguro. | Adicione uma regra para quando o agente deve perguntar ao usuário primeiro. |
 | [07 - Design de Planejamento](./07-planning-design/README.md) | Como agentes dividem grandes objetivos em etapas menores. | Escreva um plano de três etapas para sua solicitação de demonstração. |
 | [08 - Design Multi-Agente](./08-multi-agent/README.md) | Quando dividir o trabalho entre agentes especializados. | Decida se sua demonstração precisa de um agente ou vários. |

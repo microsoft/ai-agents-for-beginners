@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add Label and thanks comment to Pull request
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
           script: |
             const issueAuthor = context.payload.sender.login
@@ -29,7 +29,7 @@ jobs:
             })
       - name: Auto-assign issue
         continue-on-error: true
-        uses: pozil/auto-assign-issue@v2
+        uses: pozil/auto-assign-issue@7bf9d82c77d45976224660b873fc83e60576c5aa # v2
         with:
           repo-token:  ${{ secrets.GITHUB_TOKEN }}
           assignees: koreyspace

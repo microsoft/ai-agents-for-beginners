@@ -95,7 +95,6 @@ từ vựng cần thiết cho phần còn lại của khóa học.
 | [03 - Mẫu thiết kế Agentic](./03-agentic-design-patterns/README.md) | Các mẫu phổ biến thiết kế hành vi đại lý. | Phác thảo hành trình người dùng trước khi viết mã. |
 | [04 - Sử dụng công cụ](./04-tool-use/README.md) | Cách đại lý gọi công cụ để lấy dữ liệu hoặc thực hiện hành động. | Xác định một công cụ mà đại lý demo của bạn cần. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Cách truy xuất làm cơ sở trả lời đại lý bằng tài liệu hoặc dữ liệu. | Quyết định nguồn kiến thức mà demo của bạn nên tìm kiếm. |
-
 | [06 - Đại Lý Đáng Tin Cậy](./06-building-trustworthy-agents/README.md) | Cách thêm các hàng rào bảo vệ, kiểm soát và hành vi an toàn hơn. | Thêm một quy tắc cho khi đại lý nên hỏi người dùng trước. |
 | [07 - Thiết Kế Lập Kế Hoạch](./07-planning-design/README.md) | Cách các đại lý chia mục tiêu lớn thành các bước nhỏ hơn. | Viết kế hoạch ba bước cho yêu cầu demo của bạn. |
 | [08 - Thiết Kế Đa Đại Lý](./08-multi-agent/README.md) | Khi nào chia công việc cho các đại lý chuyên môn hóa. | Quyết định xem demo của bạn cần một đại lý hay nhiều đại lý. |

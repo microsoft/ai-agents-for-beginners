@@ -1,148 +1,192 @@
-# Tvorba agentů pro používání počítače (CUA)
+# Vytváření agentů pro používání počítače (CUA)
 
-Agenti pro používání počítače mohou komunikovat s webovými stránkami stejným způsobem jako člověk: otevřou prohlížeč, prozkoumají stránku a provedou další nejlepší akci podle toho, co vidí. V této lekci vytvoříte agenta pro automatizaci prohlížeče, který vyhledá na Airbnb, extrahuje strukturovaná data o nabídkách a identifikuje nejlevnější pobyt ve Stockholmu.
+Agenti používající počítač mohou komunikovat s webovými stránkami stejným způsobem jako člověk: otevřením prohlížeče, prozkoumáním stránky a provedením nejlepší dostupné akce podle toho, co vidí. V této lekci vytvoříte agenta pro automatizaci prohlížeče, který vyhledá na Airbnb, extrahuje strukturovaná data o nabídkách a identifikuje nejlevnější ubytování ve Stockholmu.
 
-Lekce kombinuje Browser-Use pro navigaci řízenou AI, Playwright a Chrome DevTools Protocol (CDP) pro kontrolu prohlížeče, Azure OpenAI pro zpracování s vizuálním vnímáním a Pydantic pro strukturovanou extrakci.
+Lekce kombinuje Browser-Use pro navigaci řízenou AI, Playwright a Chrome DevTools Protocol (CDP) pro ovládání prohlížeče, Azure OpenAI pro rozpoznávání s vizí a Pydantic pro strukturovanou extrakci.
 
 ## Úvod
 
 Tato lekce pokryje:
 
-- Pochopení, kdy jsou agenti pro používání počítače vhodnější než pouze API automatizace
-- Kombinaci Browser-Use s Playwright a CDP pro spolehlivou správu životního cyklu prohlížeče
-- Použití Azure OpenAI s vizí a strukturovanými výstupy Pydantic pro extrakci dat o nabídkách z dynamických webových stránek
-- Rozhodování, kdy použít workflow prohlížeče založené na agentovi, na aktérovi nebo hybridní
+- Porozumění, kdy jsou agenti používající počítač vhodnější než automatizace pouze přes API
+- Kombinaci Browser-Use s Playwright a CDP pro spolehlivé řízení životního cyklu prohlížeče
+- Použití Azure OpenAI s vizí a strukturovaný výstup Pydantic pro extrakci dat nabídek z dynamických webových stránek
+- Rozhodování, kdy použít agent-first, actor-first nebo hybridní pracovní postup automatizace prohlížeče
 
-## Výukové cíle
+## Cíle učení
 
 Po dokončení této lekce budete umět:
 
 - Nakonfigurovat Browser-Use s Azure OpenAI a Playwright
-- Vytvořit workflow automatizace prohlížeče, které prochází reálnou webovou stránku a pracuje s dynamickými UI prvky
-- Extrahovat typované výsledky z viditelného obsahu stránky a přeměnit je na další obchodní logiku
-- Vybrat mezi vzory agenta a aktéra podle toho, jak předvídatelný je úkol v prohlížeči
+- Vytvořit pracovní postup automatizace prohlížeče, který naviguje na skutečné webové stránce a pracuje s dynamickými prvky UI
+- Extrahovat typované výsledky z viditelného obsahu stránky a převést je do následné obchodní logiky
+- Volit mezi vzory agenta a aktora na základě toho, jak předvídatelná je úloha v prohlížeči
 
-## Ukázka kódu
+## Ukázkový kód
 
-Tato lekce obsahuje jeden sešit s tutoriálem:
+Tato lekce obsahuje jeden tutoriál v notebooku:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Spustí relaci Chrome přes CDP, vyhledá nabídky ve Stockholmu na Airbnb, extrahuje ceny pomocí Browser-Use s vizí a vrátí nejlevnější možnost jako strukturovaná data.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Spustí se Chrome přes CDP, vyhledá nabídky Airbnb ve Stockholmu, extrahuje ceny pomocí Browser-Use vision a vrátí nejlevnější možnost jako strukturovaná data.
 
-## Předpoklady
+## Požadavky
 
 - Python 3.12+
-- Azure OpenAI nasazení nakonfigurované ve vašem prostředí
-- Lokálně nainstalovaný Chrome nebo Chromium
+- Nasazené Azure OpenAI nakonfigurované ve vašem prostředí
+- Místně nainstalovaný Chrome nebo Chromium
 - Nainstalované závislosti Playwright
 - Základní znalost asynchronního Pythonu
 
 ## Nastavení
 
-Nainstalujte balíčky použité v sešitu:
+Nainstalujte balíčky používané v notebooku:
 
 ```bash
 pip install browser_use playwright python-dotenv
 playwright install chromium
 ```
 
-Nastavte environmentální proměnné Azure OpenAI používané v sešitu:
+Nastavte proměnné prostředí Azure OpenAI používané notebookem:
 
 ```bash
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Volitelné: pokud je vynecháno, použije se nejnovější verze API
+# Volitelné: pokud není uvedeno, použije se nejnovější verze API
 AZURE_OPENAI_API_VERSION=...
 ```
 
 ## Přehled architektury
 
-Sešit ukazuje hybridní workflow automatizace prohlížeče:
+Notebook demonstruje hybridní pracovní postup automatizace prohlížeče:
 
-1. Chrome je spuštěn s povoleným CDP, takže Playwright i Browser-Use sdílejí stejnou relaci prohlížeče.
-2. Agent Browser-Use řeší otevřené navigační úkoly jako otevření Airbnb, zavření vyskakovacích oken a vyhledávání Stockholmu.
-3. Aktivní stránka je analyzována pomocí strukturovaného Pydantic schématu k extrakci názvů nabídek, cen za noc, hodnocení a URL.
-4. Python logika porovná extrahované nabídky a zvýrazní nejlevnější výsledek.
+1. Chrome se spustí s povoleným CDP, takže Playwright i Browser-Use mohou sdílet stejnou relaci prohlížeče.
+2. Agent Browser-Use zvládá otevřené úlohy navigace, jako je otevření Airbnb, zavření vyskakovacích oken a hledání Stockholmu.
+3. Aktivní stránka je prozkoumána pomocí strukturovaného schématu Pydantic pro extrakci názvů nabídek, cen za noc, hodnocení a URL.
+4. Pythonovská logika porovnává extrahované nabídky a zvýrazní nejlevnější výsledek.
 
-Tento přístup zachovává flexibilní uvažování založené na vizuálním vnímání, v čemž je Browser-Use silný, a zároveň poskytuje deterministickou kontrolu prohlížeče, když ji potřebujete.
+Tento přístup udržuje flexibilní úsudek založený na vidění, ve kterém je Browser-Use dobrý, a zároveň poskytuje deterministické ovládání prohlížeče, když jej potřebujete.
 
-## Hlavní poznatky a nejlepší praktiky
+## Klíčové poznatky a nejlepší postupy
 
-### Kdy použít agenta vs aktéra
+### Kdy použít agenta versus aktora
 
-| Scénář | Použít agenta | Použít aktéra |
+| Scénář | Použít agenta | Použít aktora |
 |----------|-----------|-----------|
-| Dynamické rozložení | Ano, AI se přizpůsobí změnám stránky | Ne, křehké selektory mohou prasknout |
-| Známá struktura | Ne, agent je pomalejší než přímá kontrola | Ano, rychlé a přesné |
-| Nalezení prvků | Ano, přirozený jazyk funguje dobře | Ne, jsou potřeba přesné selektory |
-| Řízení času | Ne, méně předvídatelné | Ano, plná kontrola čekání a opakování |
-| Složité workflow | Ano, zvládá neočekávané UI stavy | Ne, vyžaduje explicitní větvení |
+| Dynamické rozvržení | Ano, AI se přizpůsobí změnám na stránce | Ne, křehké selektory mohou selhat |
+| Známá struktura | Ne, agent je pomalejší než přímé ovládání | Ano, rychlé a přesné |
+| Nalezení prvků | Ano, přirozený jazyk funguje dobře | Ne, vyžadují se přesné selektory |
+| Řízení časování | Ne, méně předvídatelné | Ano, plná kontrola nad čekáním a opakováními |
+| Složité pracovní postupy | Ano, zvládá neočekávané stavy UI | Ne, vyžaduje explicitní větvení |
 
-### Nejlepší praktiky Browser-Use
+### Nejlepší postupy Browser-Use
 
 1. Začněte s agentem pro průzkum a dynamickou navigaci.
-2. Přepněte na přímou kontrolu stránky, když se interakce stane předvídatelnou.
+2. Přepněte na přímé ovládání stránky, když je interakce předvídatelná.
 3. Používejte strukturované výstupní modely, aby extrahovaná data byla validována a typově bezpečná.
-4. Přidávejte záměrné prodlevy po akcích, které vyvolají viditelné změny UI.
-5. Při iteracích zaznamenávejte snímky obrazovky, aby bylo snadnější ladit chyby.
-6. Očekávejte změny webových stránek a navrhujte záložní strategie pro vyskakovací okna a posuny rozvržení.
-7. Kombinujte vzory agenta a aktéra, abyste získali jak flexibilitu, tak přesnost.
+4. Přidávejte záměrné zpoždění po akcích, které vyvolají viditelné změny UI.
+5. Zachycujte screenshoty během iterací, aby byly chyby snadněji laditelné.
+6. Počítejte s tím, že se webové stránky mění, a navrhujte záložní strategie pro vyskakovací okna a posuny rozvržení.
+7. Kombinujte vzory agenta a aktora, abyste získali jak flexibilitu, tak přesnost.
 
-### Bezpečnostní opatření pro browser agenty
+### Bezpečnostní omezení pro browser agenty
 
-Agentům pro prohlížeč, kteří pracují na živých webech, musíte nastavit přísnější hranice než skriptu, který jen volá známé API. Před převedením demonstračního sešitu do reálného workflow definujte pravidla, co agent může vidět, na co kliknout a co odeslat.
+Agenti prohlížeče pracují na živých webových stránkách, takže potřebují přísnější hranice než skript, který pouze volá známé API. Před přechodem z demo notebooku na reálný pracovní postup definujte kontroly toho, co agent může vidět, kliknout a odeslat.
 
-1. **Omezte prostředí prohlížeče.** Spouštějte agenta v odděleném profilu prohlížeče nebo sandboxu a omezte jej na domény potřebné pro úkol.
-2. **Oddělte pozorování od akce.** Nechte agenta nejdřív hledat, číst a extrahovat data; vyžadujte explicitní krok schválení před odesláním formulářů, zasláním zpráv, rezervacemi, nákupy, mazáním záznamů nebo změnami nastavení účtu.
-3. **Nepoužívejte tajné údaje v dotazech a trasách.** Nepokládejte hesla, platební údaje, cookies relací ani osobní údaje do kontextu modelu. Nechte uživatele, aby se autentizoval a vymazal citlivá pole z protokolů.
-4. **Považujte obsah stránky za nedůvěryhodný vstup.** Web může obsahovat instrukce určené agentovi, ne uživateli. Agent by měl ignorovat text, který žádá o změnu cíle, zpřístupnění dat, deaktivaci ochrany nebo návštěvu nesouvisejících stránek.
-5. **Používejte deterministické kontroly kolem rizikových kroků.** Před tím, než požádáte uživatele o schválení finálního kroku, ověřte aktuální URL, titul stránky, vybraný prvek, cenu, příjemce a shrnutí akce kódem.
-6. **Nastavte limity a podmínky zastavení.** Omezte počet akcí, opakování, záložek a minut, které agent může použít. Zastavte, pokud je stav stránky nejasný místo pokračování v klikání.
-7. **Zaznamenávejte užitečné důkazy, nikoliv všechno.** Uchovávejte shrnutí akcí, časová razítka, URL, popisy vybraných prvků a odkazy na snímky obrazovky, aby bylo možné chyby zkontrolovat bez ukládání zbytečného citlivého obsahu stránky.
+1. **Omezte prostředí pro prohlížení.** Spusťte agenta v dedikovaném profilu prohlížeče nebo sandboxu a omezte jej na domény potřebné pro úlohu.
+2. **Oddělte pozorování od akce.** Nechte agenta nejprve vyhledávat, číst a extrahovat data; vyžadujte explicitní schvalovací krok před odesláním formulářů, zpráv, rezervací, nákupů, mazání záznamů nebo změnou nastavení účtu.
+3. **Neukládejte tajné údaje do promptů a stop.** Neumísťujte hesla, platební údaje, session cookies ani surová osobní data do kontextu modelu. Nechte uživatele provést autentizaci a odstraňovat citlivá data z logů.
+4. **Považujte obsah stránky za nedůvěryhodný vstup.** Webová stránka může obsahovat pokyny určené agentovi, nikoli uživateli. Agent by měl ignorovat text na stránce, který ho žádá o změnu cíle, zveřejnění dat, deaktivaci ochrany nebo návštěvu nesouvisejících stránek.
+5. **Používejte deterministické kontroly při rizikových krocích.** Ověřte aktuální URL, název stránky, vybranou položku, cenu, příjemce a shrnutí akce v kódu, než požádáte uživatele o schválení finálního kroku.
+6. **Nastavte rozpočty a podmínky zastavení.** Omezte počet akcí, pokusů, záložek a minut, které může agent použít. Zastavte, pokud je stav stránky nejasný, místo pokračování v klikání.
+7. **Ukládejte užitečné důkazy, nikoli vše.** Uchovávejte shrnutí akcí, časová razítka, URL, popisy vybraných prvků a odkazy na screenshoty, aby bylo možné chyby přezkoumat bez ukládání zbytečného citlivého obsahu.
 
-V ukázce Airbnb je bezpečné výchozí nastavení vyhledávat nabídky a extrahovat ceny. Přihlášení, kontaktování hostitele nebo dokončení rezervace by měly být separátní akce schválené uživatelem.
+V ukázce Airbnb je bezpečnou výchozí volbou vyhledávání nabídek a extrakce cen. Přihlášení, kontaktování hostitele nebo dokončení rezervace by mělo být uživatelem schválené samostatné opatření.
 
-### Aplikace v reálném světě
+### Příklady z reálného světa
 
 - Rezervace cest a sledování cen
 - Porovnávání cen v e-commerce a kontrola dostupnosti
-- Strukturovaná extrakce z dynamických webů
-- Testování a ověřování UI s vědomím vidění
-- Monitoring webových stránek a upozornění
-- Inteligentní vyplňování formulářů v několika krocích
+- Strukturovaná extrakce z dynamických webových stránek
+- Testování a ověřování UI s podporou vidění
+- Sledování webových stránek a upozornění
+- Inteligentní vyplňování formulářů v rámci vícekrokových procesů
 
-## Příklad z praxe: Microsoft Project Opal
+## Příklad z reálného světa: Microsoft Project Opal
 
-Agent, kterého v této lekci vytvoříte, je malou, lokální verzí **agenta pro používání počítače (CUA)** — programu, který ovládá prohlížeč stejným způsobem jako člověk. Microsoft přináší tento stejný koncept do firem pomocí **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, funkce v Microsoft 365 Copilotu.
+Agent, kterého vytvoříte v této lekci, je malá, lokální verze **agenta používajícího počítač (CUA)** — programu, který ovládá prohlížeč stejně jako člověk. Microsoft přináší tento stejný koncept do podnikového prostředí s **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, schopností v Microsoft 365 Copilot.
 
-S projektem Opal popíšete úkol a agent za vás pracuje pomocí **používání počítače na zabezpečeném Windows 365 Cloud PC**, funguje napříč aplikacemi, stránkami a daty v prohlížeči vaší organizace. Pracuje **asynchronně na pozadí** a můžete práci kdykoliv ovládat nebo převzít kontrolu. Mezi příklady úkolů patří:
+S Project Opal popíšete úlohu a agent za vás pracuje pomocí **používání počítače na zabezpečeném Windows 365 Cloud PC**, fungujícím přes prohlížeč založené aplikace, stránky a data vaší organizace. Pracuje **asynchronně na pozadí** a můžete jej kdykoli navádět nebo převzít kontrolu. Příklady úkolů zahrnují:
 
-- Správa požadavků na členství v bezpečnostní skupině
-- Sbírání a ověřování auditních důkazů pro kontrolu souladu
-- Řízení IT incidentů (aktualizace stavu ticketu, přidělování vlastníků, zavírání duplicit)
-- Sestavování dat z Excelu do finanční závěrky
+- Správa žádostí o členství v bezpečnostních skupinách
+- Shromažďování a ověřování auditních důkazů pro compliance kontroly
+- Řešení IT incidentů (aktualizace stavu ticketu, přiřazování vlastníků, uzavírání duplicit)
+- Kompilace dat z Excelu do finanční závěrky
 
-Opal je užitečnou referencí, jak vypadá **produkční a důvěryhodný** agent pro používání počítače — a podporuje koncepty z předchozích lekcí:
+Opal je užitečnou referencí toho, jak vypadá **produkční, důvěryhodný** agent používající počítač — a posiluje koncepty z předchozích lekcí:
 
-| Koncept v tomto kurzu | Jak to použije Project Opal |
+| Koncept v tomto kurzu | Jak se to uplatňuje v Project Opal |
 |------------------------|-----------------------------|
-| **Člověk ve smyčce** (Lekce 06) | Opal zastaví pro přihlašovací údaje, citlivá data nebo nejasné instrukce a nikdy nezadává hesla ani neodesílá formuláře bez výslovného potvrzení. Můžete *převzít kontrolu* a *vrátit kontrolu* uprostřed úkolu. |
-| **Důvěryhodní a zabezpečení agenti** (Lekce 06 a 18) | Běží v izolovaném Windows 365 Cloud PC, je ve výchozím stavu pouze prohlížečový (ostatní přístupy k počítači blokovány, vynucováno Intune), používá *vaši* identitu a přistupuje jen k tomu, na co máte oprávnění, a zaznamenává každou akci pro auditovatelnost. |
-| **Plánování a metakognice** (Lekce 07 a 09) | Opal nejprve vygeneruje plán úkolu, pak dohlíží na své vlastní uvažování v každém kroku a zastaví se, pokud detekuje podezřelou aktivitu. |
-| **Znovupoužitelné schopnosti / nástroje** (Lekce 04) | **Dovednosti** vám umožňují psát instrukce pro opakované úkoly (importované z `.md` souboru nebo psané pomocí Opalu) a znovu je používat v různých konverzacích. |
+| **Člověk v procesu** (lekce 06) | Opal pozastavuje proces pro přihlašovací údaje, citlivá data nebo nejednoznačné instrukce a nikdy nezadává hesla ani neodesílá formuláře bez explicitního potvrzení. Můžete *Převzít kontrolu* a *Vrátit kontrolu* uprostřed úlohy. |
+| **Důvěryhodní a bezpeční agenti** (lekce 06 a 18) | Běží v izolovaném Windows 365 Cloud PC, standardně pouze v prohlížeči (ostatní přístup k počítači blokován, vynucováno přes Intune), používá *vaši* identitu, takže přistupuje jen k tomu, na co máte oprávnění, a loguje každou akci pro audit. |
+| **Plánování a metakognice** (lekce 07 a 09) | Opal nejprve generuje plán úlohy, pak dohlíží na vlastní úsudek v každém kroku a pozastavuje, pokud detekuje podezřelou činnost. |
+| **Znovupoužitelné schopnosti / nástroje** (lekce 04) | **Dovednosti** umožňují psát instrukce pro opakované úkoly (importované z `.md` souboru nebo vytvořené v Opalu) a opakovaně je používat v konverzacích. |
 
-> **Dostupnost:** Project Opal je momentálně dostupný uživatelům v rámci [programu raného přístupu Frontier](https://adoption.microsoft.com/copilot/frontier-program/) s předplatným Microsoft 365 Copilot a váš správce musí provést nastavení. Protože jde o experimentální funkci Frontier, schopnosti se mohou postupem času měnit.
+> **Dostupnost:** Project Opal je aktuálně dostupný uživatelům v [programu včasného přístupu Frontier](https://adoption.microsoft.com/copilot/frontier-program/) s předplatným Microsoft 365 Copilot a administrátor musí provést nastavení. Protože je to experimentální funkce Frontier, schopnosti se mohou časem měnit.
+
+## Kontrola znalostí
+
+Otestujte své porozumění před přechodem na další lekci.
+
+**1. Kdy je agent používající prohlížeč vhodnější než pracovní postup založený pouze na API?**
+
+<details>
+<summary>Odpověď</summary>
+
+Použijte agenta s prohlížečem, když úloha závisí na tom, co je viditelné v uživatelském rozhraní webu, stránka neumožňuje potřebné API nebo se stránka mění natolik často, že by pevná logika API nebo selektorů byla křehká. Pokud pro stejný úkol existuje stabilní API, upřednostněte API, protože je obvykle rychlejší, jednodušší na testování a bezpečnější.
+</details>
+
+**2. V hybridním pracovním postupu, které části by měl řešit agent a které by měl řídit přímý kód Playwright?**
+
+<details>
+<summary>Odpověď</summary>
+
+Nechte agenta řešit otevřené navigační úkoly a dynamické stavy UI, jako je nalezení správné stránky nebo zavření neočekávaných vyskakovacích oken. Přepněte na přímé řízení Playwrightu, když je struktura stránky známá a akce vyžaduje přesnost, opakování, čekání nebo deterministickou validaci.
+</details>
+
+**3. Ukázka Airbnb najde nabídku, kterou by uživatel mohl chtít zamluvit. Co by se mělo stát před přihlášením, kontaktováním hostitele nebo dokončením rezervace?**
+
+<details>
+<summary>Odpověď</summary>
+
+Pracovní postup by se měl pozastavit a požádat o explicitní souhlas uživatele. Než toto požádá, měl by zobrazit jasné shrnutí vybrané nabídky, aktuální URL, cenu, data a zamýšlenou akci. Vyhledávání a extrakce cen může být autonomní; přístup k účtu, zprávy, nákupy a rezervace by měly být schváleny uživatelem.
+</details>
+
+**4. Webová stránka říká agentovi, aby ignoroval původní instrukce, navštívil jiný web a odhalil uložené přihlašovací údaje. Jak by měl agent tento text brát?**
+
+<details>
+<summary>Odpověď</summary>
+
+Považujte to za nedůvěryhodný obsah stránky, ne jako pokyny od vývojáře nebo uživatele. Agent by měl zůstat v povolené doméně a rozsahu úkolu, odmítat odhalení tajemství a vyhýbat se sledování textu na stránce, který mění cíl, deaktivuje ochrany nebo ho posílá na nesouvisející stránky.
+</details>
+
+**5. Jaké důkazy je užitečné uchovávat, když agent prohlížeče běží, a čemu je třeba se vyhnout?**
+
+<details>
+<summary>Odpověď</summary>
+
+Uchovávejte shrnutí akcí, časová razítka, URL, popisy vybraných prvků, výsledky validací a odkazy na screenshoty, aby bylo možné běh zkontrolovat. Vyhněte se ukládání hesel, platebních údajů, session cookies, surových osobních dat nebo celého obsahu stránky, pokud není konkrétní důvod z hlediska uchovávání a soukromí.
+</details>
 
 ## Další zdroje
 
 - [Začínáme s Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
 - [Šablona integrace Browser-Use Playwright](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Parametry Browser-Use aktéra a extrakce obsahu](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Parametry aktora Browser-Use a extrakce obsahu](https://docs.browser-use.com/customize/actor/all-parameters)
 - [Nastavení kurzu](../00-course-setup/README.md)
 
 ## Předchozí lekce
 
-[Průzkum Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)
+[Prozkoumání Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)
 
 ## Další lekce
 

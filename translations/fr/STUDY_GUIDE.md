@@ -96,7 +96,6 @@ le vocabulaire nécessaire pour le reste du cours.
 | [03 - Modèles de conception agentique](./03-agentic-design-patterns/README.md) | Modèles courants pour concevoir le comportement d’un agent. | Esquissez le parcours utilisateur avant de coder. |
 | [04 - Utilisation d'outils](./04-tool-use/README.md) | Comment les agents appellent des outils pour obtenir des données ou agir. | Définissez un outil dont votre agent de démo aurait besoin. |
 | [05 - RAG agentique](./05-agentic-rag/README.md) | Comment la récupération ancre les réponses d’agent dans des documents ou des données. | Décidez quelle source de connaissance votre démo doit interroger. |
-
 | [06 - Agents dignes de confiance](./06-building-trustworthy-agents/README.md) | Comment ajouter des garde-fous, une supervision et un comportement plus sûr. | Ajoutez une règle pour quand l’agent doit d’abord demander à l’utilisateur. |
 | [07 - Conception de la planification](./07-planning-design/README.md) | Comment les agents divisent des objectifs plus grands en étapes plus petites. | Rédigez un plan en trois étapes pour votre demande de démonstration. |
 | [08 - Conception multi-agents](./08-multi-agent/README.md) | Quand répartir le travail entre plusieurs agents spécialisés. | Décidez si votre démonstration a besoin d’un agent ou de plusieurs. |

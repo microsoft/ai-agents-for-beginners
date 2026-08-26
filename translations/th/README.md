@@ -103,7 +103,6 @@
 | การสร้างตัวแทน AI ที่น่าเชื่อถือ               | [ลิงก์](./06-building-trustworthy-agents/README.md) | [วิดีโอ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | แบบแผนการวางแผน                             | [ลิงก์](./07-planning-design/README.md)             | [วิดีโอ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | แบบแผนการออกแบบ Multi-Agent                 | [ลิงก์](./08-multi-agent/README.md)                 | [วิดีโอ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | รูปแบบการออกแบบการคิดเหนือการรับรู้                | [ลิงก์](./09-metacognition/README.md)                | [วิดีโอ](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)   | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | เอเย่นต์ AI ในการใช้งานจริง                         | [ลิงก์](./10-ai-agents-production/README.md)         | [วิดีโอ](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)   | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | การใช้โปรโตคอล Agentic (MCP, A2A และ NLWeb)       | [ลิงก์](./11-agentic-protocols/README.md)            | [วิดีโอ](https://youtu.be/X-Dh9R3Opn8)                                  | [ลิงก์](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

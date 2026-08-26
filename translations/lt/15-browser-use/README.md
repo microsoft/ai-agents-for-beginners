@@ -1,152 +1,196 @@
 # Kompiuterio naudojimo agentų (CUA) kūrimas
 
-Kompiuterio naudojimo agentai gali sąveikauti su svetainėmis taip pat kaip žmogus: atverdami naršyklę, tikrindami puslapį ir imdamiesi geriausio kito veiksmo pagal tai, ką mato. Šioje pamokoje jūs sukursite naršyklės automatikos agentą, kuris ieško Airbnb, ištraukia struktūrizuotus skelbimų duomenis ir nustato pigiausią nakvynę Stokholme.
+Kompiuterio naudojimo agentai gali sąveikauti su svetainėmis taip pat, kaip ir žmogus: atidarant naršyklę, tikrinant puslapį ir imantis geriausio tolimesnio veiksmo pagal tai, ką jie mato. Šiame pamokoje sukursite naršyklės automatizavimo agentą, kuris ieško Airbnb, ištraukia struktūrizuotus skelbimų duomenis ir nustato pigiausią viešnagę Stokholme.
 
-Pamoka apjungia Browser-Use AI valdomą navigaciją, Playwright ir Chrome DevTools protokolą (CDP) naršyklės valdymui, Azure OpenAI regos pagrindu veikiančiai logikai ir Pydantic struktūrizuotam duomenų išgavimui.
+Pamoka sujungia Browser-Use AI valdomam naršymui, Playwright ir Chrome DevTools protokolą (CDP) naršyklės valdymui, Azure OpenAI vaizdu pagrįstam samprotavimui ir Pydantic struktūrizuotam duomenų gavimui.
 
 ## Įvadas
 
 Šioje pamokoje bus aptarta:
 
-- Kada kompiuterio naudojimo agentai yra tinkamesni nei tik API automatizavimas
-- Kaip apjungti Browser-Use su Playwright ir CDP patikimam naršyklės gyvenimo ciklo valdymui
-- Kaip naudoti Azure OpenAI regą ir struktūrizuotą Pydantic išvestį norint išgauti sąrašų duomenis iš dinamiškų tinklalapių
-- Kada pasirinkti agento pirmumo, aktoriaus pirmumo ar mišrią naršyklės automatikos darbo eigą
+- Kada kompiuterio naudojimo agentai yra geresnis pasirinkimas nei tik API automatizavimas
+- Browser-Use su Playwright ir CDP derinimas patikimam naršyklės veikimo ciklo valdymui
+- Azure OpenAI vaizdo ir struktūriškai Pydantic išvesties naudojimas skelbimų duomenų išgavimui iš dinamiškų svetainių
+- Sprendimas, kada naudoti agento, aktoriaus ar hibridinį naršyklės automatizavimo darbo eigą
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką žinosite, kaip:
+Baigę šią pamoką, žinosite, kaip:
 
 - Konfigūruoti Browser-Use su Azure OpenAI ir Playwright
-- Sukurti naršyklės automatikos darbo eigą, kuri naršo realią svetainę ir tvarko dinamiškus UI elementus
-- Išgauti tipizuotus rezultatus iš matomo puslapio turinio ir paversti juos verslo logika
-- Pasirinkti tarp agento ir aktoriaus modelių, priklausomai nuo naršyklės užduoties nuspėjamumo
+- Sukurti naršyklės automatizavimo darbo eigą, kuri naršo tikroje svetainėje ir valdo dinamiškus UI elementus
+- Išgauti tipuotas išvestis iš matomo puslapio turinio ir paversti jas verslo logika
+- Pasirinkti agento arba aktoriaus modelį priklausomai nuo naršyklės užduoties nuspėjamumo
 
 ## Kodo pavyzdys
 
-Ši pamoka apima vieną užrašų knygelės (notebook) pamoką:
+Šioje pamokoje rasite vieną užrašų bloką:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Paleidžia Chrome sesiją per CDP, ieško Airbnb Stokholmo skelbimų, ištraukia kainas su Browser-Use rega ir grąžina pigiausią variantą kaip struktūrizuotą duomenį.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Paleidžia Chrome seansą per CDP, ieško Airbnb Stokholmo skelbimų, ištraukia kainas naudodamas Browser-Use vaizdą ir pateikia pigiausią variantą struktūrizuotais duomenimis.
 
-## Priešistorė
+## Reikalavimai
 
 - Python 3.12+
-- Azure OpenAI diegimas sukonfigūruotas jūsų aplinkoje
+- Jūsų aplinkoje sukonfigūruotas Azure OpenAI diegimas
 - Vietoje įdiegta Chrome arba Chromium naršyklė
-- Įdiegti Playwright priklausomybės
-- Pagrindinis susipažinimas su asinchroniniu Python
+- Įdiegti Playwright priklausomybes
+- Pagrindinės žinios apie asinchroninį Python
 
-## Nustatymas
+## Diegimas
 
-Įdiekite užrašų knygelėje naudojamas bibliotekas:
+Įdiekite paketus, naudojamus užrašų bloke:
 
 ```bash
 pip install browser_use playwright python-dotenv
 playwright install chromium
 ```
 
-Nustatykite Azure OpenAI aplinkos kintamuosius, kuriuos naudoja užrašų knygelė:
+Nustatykite Azure OpenAI aplinkos kintamuosius, kuriuos naudoja užrašų blokas:
 
 ```bash
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Pasirinktinai: praleidus, naudojama naujausia API versija
+# Neprivaloma: pagal numatytuosius nustatymus naudojama naujausia API versija, kai paliekama tuščia
 AZURE_OPENAI_API_VERSION=...
 ```
 
 ## Architektūros apžvalga
 
-Užrašų knygelė demonstruoja hibridinę naršyklės automatikos darbo eigą:
+Užrašų blokas demonstruoja hibridinę naršyklės automatizavimo darbo eigą:
 
-1. Chrome paleidžiamas su įjungtu CDP, todėl tiek Playwright, tiek Browser-Use gali naudoti tą pačią naršyklės sesiją.
-2. Browser-Use agentas atlieka atviras navigacijos užduotis, tokias kaip Airbnb atidarymas, iššokančių langų atmetimas ir Stokholmo paieška.
-3. Aktyvus puslapis tikrinamas pagal struktūrizuotą Pydantic schemą, siekiant išgauti skelbimų pavadinimus, nakvynės kainas, įvertinimus ir URL.
-4. Python logika palygina išgautus skelbimus ir paryškina pigiausią variantą.
+1. Chrome paleidžiamas su įjungtu CDP, tad tiek Playwright, tiek Browser-Use gali naudoti tą pačią naršyklės sesiją.
+2. Browser-Use agentas tvarko atvirus navigacijos uždavinius, tokius kaip Airbnb atidarymas, iškylančių langų atmetimas ir paieška Stokholme.
+3. Aktyvus puslapis tikrinamas pagal struktūrizuotą Pydantic schemą, kad būtų ištraukti skelbimų pavadinimai, kainos už naktį, įvertinimai ir URL.
+4. Python logika palygina išgautus skelbimus ir paryškina pigiausią rezultatą.
 
-Šis požiūris palaiko lanksčią, rega pagrįstą logiką, kurioje Browser-Use yra stiprus, tuo pat metu suteikiant deterministinį naršyklės valdymą tada, kai reikia.
+Šis požiūris išlaiko lankstų, vaizdu pagrįstą samprotavimą, kuriame Browser-Use yra stiprus, kartu suteikdamas deterministinį naršyklės valdymą, kai to reikia.
 
-## Pagrindinės išvados ir gerosios praktikos
+## Pagrindinės įžvalgos ir gerosios praktikos
 
-### Kada naudoti agentą ir kada aktorių
+### Kada naudoti agentą ar aktorių
 
 | Scenarijus | Naudoti agentą | Naudoti aktorių |
-|----------|-----------------|-------------|
-| Dinamiški išdėstymai | Taip, AI gali prisitaikyti prie puslapio pokyčių | Ne, trapūs selektoriai gali gesti |
-| Žinoma struktūra | Ne, agentas yra lėtesnis nei tiesioginis valdymas | Taip, greitas ir tikslus |
-| Elementų radimas | Taip, natūralios kalbos reikšmės puikiai veikia | Ne, reikalingi tikslūs selektoriai |
-| Laiko valdymas | Ne, mažiau nuspėjamas | Taip, pilnas laukimų ir bandymų kontrolė |
-| Kompleksinės darbo eigos | Taip, tvarko netikėtas UI būsenas | Ne, reikia explicit šakų |
+|----------|-----------|-----------|
+| Dinamiški maketai | Taip, AI gali prisitaikyti prie puslapio pokyčių | Ne, trapūs selektoriai gali sugesti |
+| Žinoma struktūra | Ne, agentas veikia lėčiau nei tiesioginė kontrolė | Taip, greita ir tiksli |
+| Elementų radimas | Taip, natūrali kalba veikia gerai | Ne, reikalingi tikslūs selektoriai |
+| Laiko valdymas | Ne, mažiau nuspėjama | Taip, visiškas laukimo ir bandymų kontroliavimas |
+| Sudėtingos darbo eigų | Taip, tvarko netikėtas UI būsenas | Ne, reikalauja aiškaus šakojimo |
 
-### Browser-Use gerosios praktikos
+### Browser-Use geriausios praktikos
 
 1. Pradėkite nuo agento tyrinėjimui ir dinamiškai navigacijai.
-2. Pereikite prie tiesioginio puslapio valdymo, kai sąveika tampa nuspėjama.
-3. Naudokite struktūrizuotus išvesties modelius, kad išgauti duomenys būtų patikrinti ir tipizuoti.
-4. Strategiškai pridėkite uždelsimus po veiksmų, kurie sukelia matomus UI pokyčius.
-5. Fiksuokite ekrano nuotraukas iteracijų metu, kad būtų lengviau identifikuoti klaidas.
-6. Tikėkitės, kad svetainės keisis ir sukurkite atsargines strategijas iššokančioms langų ir išdėstymo pokyčiams.
-7. Derinkite agento ir aktoriaus modelius, kad gautumėte tiek lankstumą, tiek tikslumą.
+2. Pereikite prie tiesioginės puslapio kontrolės, kai sąveika tampa nuspėjama.
+3. Naudokite struktūrizuotos išvesties modelius, kad išgauti duomenys būtų patikrinti ir tipų saugūs.
+4. Strategiškai pridėkite vėlavimus po veiksmų, kurie sukelia matomus UI pokyčius.
+5. Fiksuokite ekrano kopijas iteracijos metu, kad gedimus būtų lengviau analizuoti.
+6. Tikėkitės, kad svetainės keisis, ir sukurkite atsarginius planus iškylantiems langams ir maketų pasikeitimams.
+7. Derinkite agento ir aktoriaus modelius, kad gautumėte ir lankstumą, ir tikslumą.
 
 ### Saugumo gairės naršyklės agentams
 
-Naršyklės agentai veikia gyvose svetainėse, todėl jiems reikia griežtesnių ribojimų nei scenarijui, kuris tik kviečia žinomą API. Prieš pereinant nuo užrašų knygelės demonstracijos prie realios darbo eigos, apibrėžkite kontrolę, ką agentas gali matyti, spausti ir pateikti.
+Naršyklės agentai veikia tiesiogiai svetainėse, tad jiems reikia griežtesnių ribų nei skriptui, kuris tik kviečia žinomą API. Prieš pereinant nuo užrašų bloko demonstravimo prie realios darbo eigos, apibrėžkite, ką agentas gali matyti, spausti ir siųsti.
 
-1. **Apribokite naršyklės aplinką.** Paleiskite agentą skirtingoje naršyklės profilyje arba izoliuotoje aplinkoje ir apribokite jį tik užduočiai reikalingiems domenams.
-2. **Atskirkite stebėjimą nuo veiksmų.** Leiskite agentui pirmiausia ieškoti, skaityti ir išgauti duomenis; reikalaukite aiškios patvirtinimo žingsnio prieš pateikiant formas, siuntinėjant žinutes, užsakant keliones, perkant, trinant įrašus ar keičiant paskyros nustatymus.
-3. **Nelaikykite slaptažodžių ir konfidencialių duomenų užklausose ir žurnaluose.** Neskelbkite modelio kontekste slaptažodžių, mokėjimo detalių, sesijos slapukų ar asmens duomenų. Leiskite naudotojui atlikti autentifikaciją ir šalinimą iš žurnalų.
-4. **Traktuokite puslapio turinį kaip nepatikimą įvestį.** Svetainėje gali būti instrukcijos agentui, o ne naudotojui. Agentas turėtų ignoruoti tekstą, kuris prašo pakeisti tikslą, atskleisti duomenis, išjungti saugiklius ar lankytis nesusijusiose svetainėse.
-5. **Naudokite deterministines patikras rizikingose vietose.** Prieš prašant naudotojo patvirtinimo, patikrinkite dabartinį URL, puslapio pavadinimą, pasirinktą elementą, kainą, gavėją ir veiksmo santrauką su kodu.
-6. **Nustatykite biudžetus ir stabdymo sąlygas.** Apribokite veiksmų, pakartojimų, skirtukų ir minučių skaičių, kuriuos agentas gali naudoti. Sustabdykite veiklą, kai puslapio būsena neaiški, vietoje to, kad tęstumėte spustelėjimus.
-7. **Fiksuokite naudingus įrodymus, o ne viską.** Laikykite veiksmų santraukas, laiko žymes, URL, pasirinktų elementų aprašymus ir ekrano nuotraukų nuorodas, kad būtų galima peržiūrėti klaidas nesaugant nereikalingo jautraus turinio.
+1. **Apribokite naršymo aplinką.** Vykdykite agentą specialiame naršyklės profilyje ar smėlio dėžėje ir ribokite prie užduočiai reikalingų domenų.
+2. **Atskirkite stebėjimą nuo veiksmų.** Leiskite agentui pirmiausia ieškoti, skaityti ir išgauti duomenis; reikalaukite aiškaus patvirtinimo, prieš siunčiant formas, žinutes, užsakant keliones, atlikus pirkimus, trinant įrašus ar keičiant paskyros nustatymus.
+3. **Neįtraukite slaptų duomenų į užklausas ir pėdsakus.** Neskelbkite slaptažodžių, mokėjimo duomenų, sesijų slapukų ar asmeninių duomenų atvirame modelio kontekste. Leiskite naudotojui autentifikuotis ir ištrinti jautrius laukus iš žurnalų.
+4. **Vertinkite puslapio turinį kaip nepatikimą įvestį.** Svetainėje gali būti instrukcijų agentui, ne naudotojui. Agentas turėtų ignoruoti teksto dalis, kurios verčia keisti tikslus, atskleisti duomenis, išjungti apsaugas ar lankytis nesusijusiose svetainėse.
+5. **Naudokite determinuotus patikrinimus dėl rizikingų veiksmų.** Patikrinkite dabartinį URL, puslapio pavadinimą, pasirinktą elementą, kainą, gavėją ir veiksmų santrauką su kodu prieš prašant naudotojo patvirtinimo galutiniam veiksmui.
+6. **Nustatykite biudžetus ir sustabdymo sąlygas.** Apribokite agento veiksmų, pakartojimų, skirtukų ir laiko kiekį. Sustabdykite darbą, kai puslapio būsena netiksli, vietoje tęsiamo spustelėjimo.
+7. **Fiksuokite naudotą įrodymą, o ne viską.** Saugojimo santraukas, laiko žymes, URL, pasirinktų elementų aprašymus, ekrano kopijų nuorodas, kad būtų galima peržiūrėti klaidas, ne saugant nereikalingą jautrų puslapio turinį.
 
-Airbnb pavyzdyje saugiausia numatytoji veiksena yra ieškoti skelbimų ir išgauti kainas. Prisijungimas, kontakto užmezgimas su šeimininku ar užsakymo užbaigimas turėtų būti atskira naudotojo patvirtinta operacija.
+Airbnb pavyzdyje saugus numatytasis veiksmas yra ieškoti skelbimų ir išgauti kainas. Prisijungimas, susisiekimas su šeimininku ar užsakymo atlikimas turi būti atskiri naudotojo patvirtinti veiksmai.
 
-### Realūs pritaikymai
+### Tikri panaudojimo atvejai
 
-- Kelionių užsakymas ir kainų stebėjimas
-- Elektroninės prekybos kainų palyginimas ir prieinamumo patikra
-- Struktūrizuotas duomenų išgavimo iš dinamiškų svetainių procesas
-- Regos pagrindu UI testavimas ir tikrinimas
+- Kelionių užsakymų ir kainų stebėjimas
+- Elektroninės prekybos kainų palyginimas ir prieinamumo patikrinimai
+- Struktūrizuotas duomenų išgavimas iš dinamiškų svetainių
+- Vaizdu pagrįstas UI testavimas ir patikra
 - Svetainių stebėjimas ir perspėjimai
-- Išmanus formų užpildymas daugiapakopiuose procesuose
+- Protingas formų pildymas kelių žingsnių procesuose
 
-## Realus pavyzdys: Microsoft Project Opal
+## Tikras pavyzdys: Microsoft Project Opal
 
-Šiame pamokoje kuriamas agentas yra mažoji vietinė **kompiuterio naudojimo agento (CUA)** versija — programa, kuri valdo naršyklę taip, lyg ją naudotų žmogus. Microsoft diegia tą pačią idėją verslui su **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, galimybe Microsoft 365 Copilot platformoje.
+Šiame pamokoje kuriamas agentas yra nedidelė, vietinė **kompiuterio naudojimo agente (CUA)** versija — programa, kuri valdo naršyklę taip, kaip tai darytų žmogus. Microsoft diegia šią idėją verslui per **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)** — funkciją Microsoft 365 Copilot.
 
-Naudodami Project Opal, jūs aprašote užduotį, o agentas veikia jūsų vardu naudodamas **kompiuterio naudojimą saugioje Windows 365 Cloud PC aplinkoje**, dirbdamas su jūsų organizacijos naršyklės pagrindu veikiančiomis programomis, svetainėmis ir duomenimis. Jis veikia **asinchroniškai fone**, ir jūs galite bet kada vadovauti ar perimti kontrolę. Pavyzdinės užduotys:
+Su Project Opal apibūdinate užduotį, o agentas veikia jūsų vardu naudodamas **kompiuterio naudojimą saugiame Windows 365 Cloud PC**, operuodamas jūsų organizacijos naršyklės programose, svetainėse ir duomenyse. Jis veikia **asinchroniškai fone**, o jūs galite bet kada nukreipti darbą arba perimti kontrolę. Pavyzdiniai darbai apima:
 
-- Valdyti saugumo grupių narių užklausas
-- Rinkti ir tikrinti auditui skirtus įrodymus atitikties patikrinimams
-- IT incidentų skirstymas (bilietų būsenos atnaujinimas, savininkų paskyrimas, dublikatų uždarymas)
-- Apjungti Excel duomenis į finansinių uždarymų pristatymus
+- Saugumo grupių narystės užklausų valdymą
+- Audito įrodymų rinkimą ir patvirtinimą atitikčiai
+- IT incidentų tvarkymą (bilieto būsenos atnaujinimą, savininkų paskyrimą, dublikatus uždarant)
+- Excel duomenų apibendrinimą finansiniam uždarymui
 
-Opal yra naudingas pavyzdys, ką reiškia **gamybai tinkamas, patikimas** kompiuterio naudojimo agentas — ir jis sustiprina ankstesnių pamokų koncepcijas:
+Opal yra naudingas pavyzdys, kaip atrodo **gamybinės klasės, patikimas** kompiuterio naudojimo agentas — ir jis sustiprina ankstesnių pamokų konceptus:
 
-| Šios pamokos konceptas | Kaip jį įgyvendina Project Opal |
+| Koncepcija šiame kurse | Kaip Project Opal ją įgyvendina |
 |------------------------|-----------------------------|
-| **Žmogus grandyje** (pamoka 06) | Opal sustoja prisijungimo duomenims, jautriai informacijai ar neaiškioms instrukcijoms ir niekada nepateikia slaptažodžių ar nepateikia formų be aiškaus patvirtinimo. Galite *Perimti kontrolę* ir *Grąžinti kontrolę* vykdant užduotį. |
-| **Patikimi ir saugūs agentai** (pamokos 06 ir 18) | Veikia izoliuotoje Windows 365 Cloud PC aplinkoje, pagal nutylėjimą tik naršyklėje (kitas kompiuterio prieigas blokuoja Intune), naudoja *jūsų* tapatybę, todėl pasiekia tik tai, kam esate įgaliotas, ir fiksuoja kiekvieną veiksmą audito tikslais. |
-| **Planavimas ir metakognicija** (pamokos 07 ir 09) | Opal pirmiausia generuoja veiksmų planą, po to stebi savo logiką kiekviename žingsnyje ir sustoja, jei aptinka įtartiną veiklą. |
-| **Pakartotinai naudojamos galimybės / įrankiai** (pamoka 04) | **Įgūdžiai** leidžia rašyti instrukcijas kartotinoms užduotims (importuojamas iš `.md` failo arba kuriamas su Opal) ir pakartotinai naudoti jas pokalbiuose. |
+| **Žmogus procese** (Pamoka 06) | Opal laukia prisijungimo duomenų, jautrios informacijos ar neaiškių nurodymų, niekada neįveda slaptažodžių ar neišsiunčia formų be aiškaus patvirtinimo. Galite *Perimti kontrolę* ir *Grąžinti kontrolę* proceso viduryje. |
+| **Patikimi ir saugūs agentai** (Pamokos 06 ir 18) | Veikia izoliuotame Windows 365 Cloud PC, pagal nutylėjimą tik naršyklė (kitokie kompiuterio pasiekiamumai blokuojami per Intune), naudoja *jūsų* tapatybę, tad pasiekia tik tai, ką leidžiama, ir registruoja kiekvieną veiksmą audito tikslams. |
+| **Planavimas & metakognicija** (Pamokos 07 ir 09) | Opal pirmiausia sudaro darbo planą, tada prižiūri savo samprotavimą kiekviename žingsnyje ir sustoja, jei aptinka įtartiną veiklą. |
+| **Pakartotinai naudojamos galimybės / įrankiai** (Pamoka 04) | **Įgūdžiai** leidžia rašyti instrukcijas kartotinams darbams (importuojamus iš `.md` failo ar kuriamus Opal aplinkoje) ir naudoti juos pokalbiuose. |
 
-> **Pasiekiamumas:** Project Opal šiuo metu yra prieinamas vartotojams per [Frontier ankstyvojo prieigos programą](https://adoption.microsoft.com/copilot/frontier-program/) su Microsoft 365 Copilot prenumerata, ir jūsų administratorius turi atlikti nustatymus. Kadangi tai eksperimentinė Frontier funkcija, galimybės gali keistis laikui bėgant.
+> **Prieinamumas:** Project Opal šiuo metu pasiekiamas vartotojams [Frontier ankstyvos prieigos programoje](https://adoption.microsoft.com/copilot/frontier-program/) turint Microsoft 365 Copilot prenumeratą, ir administratoriui būtina atlikti nustatymus. Kadangi tai eksperimentinė Frontier funkcija, galimybės gali keistis.
 
-## Papildomi ištekliai
+## Žinių tikrinimas
+
+Patikrinkite savo supratimą prieš pereidami prie kitos pamokos.
+
+**1. Kada naršyklėje veikiantis kompiuterio naudojimo agentas yra geresnis už API ar užduoties darbo eigą?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Naudokite naršyklės agentą, kai užduotis priklauso nuo to, kas matoma interneto vartotojo sąsajoje, svetainė neteikia reikiamos API, arba puslapis keičiasi pakankamai dažnai, kad fiksuota API ar selektorių logika būtų trapūs. Jei egzistuoja stabili API tais pačiais tikslais, pirmenybę teikite API, nes ji paprastai yra greitesnė, lengviau testuojama ir saugesnė.
+</details>
+
+**2. Hibridinėje darbo eigoje, kokias dalis turėtų valdyti agentas ir kokias tiesioginis Playwright kodas?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Tegul agentas tvarko atvirus navigacijos ir dinamiškų UI būsenų uždavinius, tokius kaip tinkamo puslapio radimas arba netikėtų iškylančių langų uždarymas. Pereikite prie tiesioginio Playwright valdymo, kai puslapio struktūra žinoma ir veiksmui reikalingas tikslumas, pakartojimai, laukimai ar determinuotas patikrinimas.
+</details>
+
+**3. Airbnb pavyzdyje randamas skelbimas, kurį naudotojas galbūt norės užsakyti. Kas turėtų įvykti prieš darbo eigai prisijungiant, susisiekus su šeimininku ar užbaigiant užsakymą?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Darbo eiga turėtų sustoti ir paprašyti aiškaus naudotojo patvirtinimo. Prieš tai parodykite aiškią pasirinktą skelbimą, esamą URL, kainą, datas ir numatomą veiksmą. Ieškojimas ir kainų išgavimas gali būti autonomiški; paskyros prieiga, žinutės, pirkimai ir užsakymai turi būti patvirtinti naudotojo.
+</details>
+
+**4. Internetinis puslapis nurodo agentui ignoruoti originalias instrukcijas, lankytis kitoje svetainėje ir atskleisti išsaugotus prisijungimo duomenis. Kaip agentas turėtų traktuoti tą tekstą?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Traktuokite jį kaip nepatikimą puslapio turinį, o ne kaip kūrėjo ar naudotojo nurodymą. Agentas turėtų likti leidžiamoje domene ir užduoties ribose, atsisakyti atskleisti paslaptis ir vengti sekti puslapio teksto, kuris keičia tikslą, išjungia apsaugas ar nukreipia į nesusijusias svetaines.
+</details>
+
+**5. Kokius įrodymus verta išsaugoti agentui veikimo metu, o ko reiktų vengti?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Saugokite veiksmų santraukas, laiko žymes, URL, pasirinktų elementų aprašymus, patikrinimų rezultatus ir ekrano kopijų nuorodas, kad būtų galima peržiūrėti veikimą. Venkite saugoti slaptažodžius, mokėjimo duomenis, sesijų slapukus, neapdorotus asmeninius duomenis ar visą puslapio turinį be aiškios pagrįstos poreikio dėl saugojimo ir privatumo.
+</details>
+
+## Papildomi šaltiniai
 
 - [Pradžia su Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
 - [Browser-Use Playwright integracijos šablonas](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Browser-Use aktorių parametrai ir turinio išgavimas](https://docs.browser-use.com/customize/actor/all-parameters)
-- [Kurso nustatymas](../00-course-setup/README.md)
+- [Browser-Use aktoriaus parametrai ir turinio išgavimas](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Kurso diegimas](../00-course-setup/README.md)
 
 ## Ankstesnė pamoka
 
-[Microsoft Agent Framework tyrinėjimas](../14-microsoft-agent-framework/README.md)
+[Microsoft agentų sistemos tyrinėjimas](../14-microsoft-agent-framework/README.md)
 
 ## Kitoji pamoka
 
-[Mastelio didinimas agentams](../16-deploying-scalable-agents/README.md)
+[Mastelio keitimo agentų išdėstymas](../16-deploying-scalable-agents/README.md)
 
 ---
 

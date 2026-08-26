@@ -42,7 +42,6 @@ Până la finalul cursului, ar trebui să poți explica și construi sisteme de 
 
 
 | Parte | Semnificație în limbaj simplu | În demo |
-
 | Model | Motorul de raționament care interpretează cererea utilizatorului | Înțelege că învățăcelul vrea lecții despre folosirea instrumentelor |
 | Instrumente | Funcții, API-uri, fișiere, browsere sau servicii pe care agentul le poate folosi | Caută în depozit sau extrage conținutul lecțiilor |
 | Cunoștințe | Documente sau date folosite pentru a fundamenta răspunsul | Fișiere README ale cursului și material de lecție |
@@ -95,7 +94,6 @@ vocabularul de care vei avea nevoie pentru restul cursului.
 | [03 - Tipare de Design Agentice](./03-agentic-design-patterns/README.md) | Tipare comune pentru proiectarea comportamentului agentului. | Conturează traseul utilizatorului înainte de a scrie cod. |
 | [04 - Folosirea Instrumentelor](./04-tool-use/README.md) | Cum agenții apelează instrumente pentru a obține date sau a acționa. | Definiți un instrument de care agentul tău demo ar avea nevoie. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Cum recuperarea fundamentează răspunsurile agenților în documente sau date. | Decide ce sursă de cunoștințe ar trebui să caute demo-ul tău. |
-
 | [06 - Agenți de Încredere](./06-building-trustworthy-agents/README.md) | Cum să adaugi bariere de protecție, supraveghere și comportament mai sigur. | Adaugă o regulă pentru când agentul ar trebui să întrebe utilizatorul mai întâi. |
 | [07 - Proiectarea Planificării](./07-planning-design/README.md) | Cum împart agenții obiectivele mai mari în pași mai mici. | Scrie un plan în trei pași pentru cererea ta de demonstrație. |
 | [08 - Proiectare Multi-Agent](./08-multi-agent/README.md) | Când să distribui munca între agenți specializați. | Decide dacă demo-ul tău are nevoie de un singur agent sau mai mulți. |

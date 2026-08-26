@@ -330,8 +330,8 @@
     "language_code": "fa"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md": {
-    "original_hash": "9bb612db702d7bc6cd232255894e3d11",
-    "translation_date": "2026-07-29T19:29:24+00:00",
+    "original_hash": "294d3005de3b16fb38dc5188f89533ca",
+    "translation_date": "2026-08-18T10:49:15+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md",
     "language_code": "fa"
   },
@@ -558,8 +558,8 @@
     "language_code": "fa"
   },
   "15-browser-use/README.md": {
-    "original_hash": "a504ebba09994852386f7866b73693d9",
-    "translation_date": "2026-07-15T19:06:49+00:00",
+    "original_hash": "1090ec69eba0425ac9afc15b0b534034",
+    "translation_date": "2026-08-18T10:48:18+00:00",
     "source_file": "15-browser-use/README.md",
     "language_code": "fa"
   },
@@ -658,7 +658,7 @@
       "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
       "source_file": "STUDY_GUIDE.md",
       "language_code": "fa",
-      "failure_date": "2026-07-29T19:28:41+00:00",
+      "failure_date": "2026-08-18T10:47:16+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.1.1 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
@@ -680,7 +680,7 @@
       "original_hash": "4f435a5cf6d6c7a08dff0d2fbc62a849",
       "source_file": ".agents/skills/testing-course-samples/SKILL.md",
       "language_code": "fa",
-      "failure_date": "2026-07-29T19:30:08+00:00",
+      "failure_date": "2026-08-18T10:50:04+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1 of 'SKILL.md', and the chunk could not be split further.",

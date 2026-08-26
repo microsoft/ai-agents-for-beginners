@@ -48,28 +48,28 @@ class SimpleEventStore(EventStore):
     ) -> StreamId | None:
         """Replay events after the specified ID."""
         logger.info(f"Replaying events after {last_event_id}")
-        
-        # Find the index of the last event ID
+
+        # Find the last event and its stream. Event IDs are global, but replay
+        # must remain scoped to the stream being resumed.
         start_index = None
-        for i, (_, event_id, _) in enumerate(self._events):
+        stream_id = None
+        for i, (event_stream_id, event_id, _) in enumerate(self._events):
             if event_id == last_event_id:
                 start_index = i + 1
+                stream_id = event_stream_id
                 break
 
         if start_index is None:
-            # If event ID not found, start from beginning
-            start_index = 0
-            logger.info("Event ID not found, starting from beginning")
+            logger.warning(f"Event ID {last_event_id} not found")
+            return None
 
-        stream_id = None
         # Replay events
         replayed_count = 0
-        for _, event_id, message in self._events[start_index:]:
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
             replayed_count += 1
-            # Capture the stream ID from the first replayed event
-            if stream_id is None and len(self._events) > start_index:
-                stream_id = self._events[start_index][0]
 
         logger.info(f"Replayed {replayed_count} events, stream_id: {stream_id}")
         return stream_id

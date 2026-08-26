@@ -103,7 +103,6 @@ AI ကိုယ်စားလှယ်များ တည်ဆောက်ရ�
 | ယုံကြည်စိတ်ချရသော AI ကိုယ်စားလှယ်များ တည်ဆောက်ခြင်း | [လင့်ခ်](./06-building-trustworthy-agents/README.md) | [ဗီဒီယို](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [လင့်ခ်](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | စီမံကိန်း ဒီဇိုင်း ပုံစံ | [လင့်ခ်](./07-planning-design/README.md)             | [ဗီဒီယို](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [လင့်ခ်](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | မျိုးစုံ ကိုယ်စားလှယ် ဒီဇိုင်း ပုံစံ | [လင့်ခ်](./08-multi-agent/README.md)                 | [ဗီဒီယို](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [လင့်ခ်](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | Metacognition Design Pattern                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Agents in Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Using Agentic Protocols (MCP, A2A and NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

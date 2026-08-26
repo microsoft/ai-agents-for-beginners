@@ -103,7 +103,6 @@
 | ನಂಬಿಗಸ್ತ ಎಐ ಏಜೆಂಟ್ ಕಂಡು ನಿರ್ಮಿಸುವುದು         | [ಕೊಂಡಿ](./06-building-trustworthy-agents/README.md) | [ವೀಡಿಯೋ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [ಕೊಂಡಿ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿ                            | [ಕೊಂಡಿ](./07-planning-design/README.md)             | [ವೀಡಿಯೋ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [ಕೊಂಡಿ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ಬಹು-ಏಜೆಂಟ್ ವಿನ್ಯಾಸ ಮಾದರಿ                       | [ಕೊಂಡಿ](./08-multi-agent/README.md)                 | [ವೀಡಿಯೋ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [ಕೊಂಡಿ](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | ಮೆಟಾಕಾಗ್ನಿಷನ್ ಡಿಸೈನ್ ಪ್ಯಾಟರ್ನ್                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ಉತ್ಪಾದನೆಯಲ್ಲಿ AI ಏಜೆಂಟ್ಸ್                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ಏಜೆಂಟಿಕ್ ಪ್ರೋಟೋಕಾಲ್ಗಳ ಬಳಕೆ (MCP, A2A ಮತ್ತು NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

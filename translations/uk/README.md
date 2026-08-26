@@ -103,7 +103,6 @@
 | Створення надійних агентів AI    | [Посилання](./06-building-trustworthy-agents/README.md) | [Відео](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Посилання](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Патерн дизайну планування         | [Посилання](./07-planning-design/README.md)   | [Відео](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC) | [Посилання](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Патерн мультиагентного дизайну   | [Посилання](./08-multi-agent/README.md)       | [Відео](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g) | [Посилання](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | Шаблон проектування метакогніції                  | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI-агенти у продуктивному середовищі             | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Використання агентських протоколів (MCP, A2A та NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

@@ -96,7 +96,6 @@ vocabulario que necesitarás para el resto del curso.
 | [03 - Patrones de Diseño Agéntico](./03-agentic-design-patterns/README.md) | Patrones comunes para diseñar el comportamiento de agentes. | Esboza el viaje del usuario antes de escribir código. |
 | [04 - Uso de Herramientas](./04-tool-use/README.md) | Cómo los agentes llaman herramientas para obtener datos o actuar. | Define una herramienta que tu agente demo necesitaría. |
 | [05 - RAG Agéntico](./05-agentic-rag/README.md) | Cómo la recuperación fundamenta las respuestas del agente en documentos o datos. | Decide qué fuente de conocimiento debería buscar tu demo. |
-
 | [06 - Agentes Confiables](./06-building-trustworthy-agents/README.md) | Cómo añadir protecciones, supervisión y comportamientos más seguros. | Añade una regla para cuándo el agente debe preguntar al usuario primero. |
 | [07 - Diseño de Planificación](./07-planning-design/README.md) | Cómo los agentes descomponen objetivos grandes en pasos más pequeños. | Escribe un plan de tres pasos para tu solicitud de demo. |
 | [08 - Diseño Multi-Agente](./08-multi-agent/README.md) | Cuándo dividir el trabajo entre agentes especializados. | Decide si tu demo necesita un agente o varios. |

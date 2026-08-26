@@ -95,7 +95,6 @@ bokabularyo na kakailanganin mo para sa natitirang bahagi ng kurso.
 | [03 - Agentic Design Patterns](./03-agentic-design-patterns/README.md) | Mga karaniwang pattern para sa disenyo ng ugali ng agent. | Gumuhit ng user journey bago magsulat ng code. |
 | [04 - Paggamit ng Tool](./04-tool-use/README.md) | Paano tinatawag ng mga agent ang mga tool para kumuha ng data o gumawa ng aksyon. | Tukuyin ang isang tool na kakailanganin ng demo agent mo. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Paano ginagamitan ng retrieval upang i-ground ang mga sagot ng agent sa mga dokumento o data. | Magpasya kung anong source ng kaalaman ang dapat hanapin ng demo mo. |
-
 | [06 - Mapagkakatiwalaang mga Ahente](./06-building-trustworthy-agents/README.md) | Paano magdagdag ng mga guardrail, pangangasiwa, at mas ligtas na kilos. | Magdagdag ng isang panuntunan kung kailan dapat muna tanungin ng ahente ang gumagamit. |
 | [07 - Disenyo ng Pagpaplano](./07-planning-design/README.md) | Paano hinahati ng mga ahente ang mas malalaking layunin sa mas maliliit na hakbang. | Sumulat ng tatlong-hakbang na plano para sa iyong demo na kahilingan. |
 | [08 - Disenyo ng Multi-Ahente](./08-multi-agent/README.md) | Kailan hahatiin ang trabaho sa mga dalubhasang ahente. | Magpasya kung ang iyong demo ay nangangailangan ng isang ahente o ilan. |

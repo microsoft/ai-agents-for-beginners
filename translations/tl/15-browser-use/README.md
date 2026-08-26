@@ -1,40 +1,40 @@
-# Paggawa ng Computer Use Agents (CUA)
+# Paggawa ng Mga Ahente sa Paggamit ng Kompyuter (CUA)
 
-Ang mga computer use agents ay maaaring makipag-ugnayan sa mga website sa parehong paraan ng isang tao: sa pamamagitan ng pagbubukas ng browser, pagsuri sa pahina, at paggawa ng susunod na pinakamainam na hakbang mula sa nakikita nila. Sa araling ito, gagawa ka ng isang browser automation agent na naghahanap sa Airbnb, kumukuha ng nakaayos na data ng mga listahan, at nagtutukoy ng pinakamurang tuluyan sa Stockholm.
+Ang mga ahente sa paggamit ng kompyuter ay maaaring makipag-ugnayan sa mga website sa parehong paraan na ginagawa ng tao: sa pamamagitan ng pagbubukas ng browser, pagsiyasat sa pahina, at paggawa ng susunod na pinakamahusay na aksyon base sa kanilang nakikita. Sa araling ito, gagawa ka ng isang ahente ng awtomasyon ng browser na naghahanap sa Airbnb, kumukuha ng nakaayos na datos ng listahan, at tinutukoy ang pinakamurang pananatili sa Stockholm.
 
-Pinagsasama ng araling ito ang Browser-Use para sa AI-driven navigation, Playwright at Chrome DevTools Protocol (CDP) para sa kontrol ng browser, Azure OpenAI para sa vision-enabled na pangangatwiran, at Pydantic para sa nakaayos na pagkuha.
+Pinagsasama-sama ng araling ito ang Browser-Use para sa AI-driven na pag-navigate, Playwright at Chrome DevTools Protocol (CDP) para sa kontrol ng browser, Azure OpenAI para sa vision-enabled na pangangatwiran, at Pydantic para sa nakaayos na pagkuha.
 
 ## Panimula
 
 Tatalakayin sa araling ito ang:
 
-- Pag-unawa kung kailan mas angkop ang computer use agents kaysa sa API-only automation
-- Pagsasama ng Browser-Use kasama ang Playwright at CDP para sa maaasahang pamamahala ng lifecycle ng browser
-- Paggamit ng Azure OpenAI vision at nakaayos na Pydantic output para kumuha ng data ng listahan mula sa mga dynamic na web page
-- Pagpapasya kung kailan gagamit ng agent-first, actor-first, o hybrid browser automation workflow
+- Pag-unawa kung kailan mas angkop ang mga ahente sa paggamit ng kompyuter kaysa API-only na awtomasyon
+- Pagsasama ng Browser-Use sa Playwright at CDP para sa maasahang pamamahala ng lifecycle ng browser
+- Paggamit ng Azure OpenAI vision at nakaayos na output ng Pydantic upang kunin ang datos ng listahan mula sa mga dynamic na web page
+- Pagpapasya kung kailan gagamit ng agent-first, actor-first, o hybrid na workflow ng awtomasyon ng browser
 
-## Mga Layunin sa Pagkatuto
+## Mga Layunin ng Pagkatuto
 
 Pagkatapos makumpleto ang araling ito, malalaman mo kung paano:
 
 - I-configure ang Browser-Use gamit ang Azure OpenAI at Playwright
-- Bumuo ng browser automation workflow na nagna-navigate sa totoong website at humahawak ng dynamic na mga elemento ng UI
-- Kunin ang mga typed na resulta mula sa nakikitang nilalaman ng pahina at gawing downstream business logic
-- Pumili sa pagitan ng agent at actor patterns batay sa gaano kakatagalan ang gawain sa browser
+- Gumawa ng workflow ng awtomasyon ng browser na nag-navigate sa totoong website at humaharap sa mga dynamic na UI element
+- Kunin ang mga tinype na resulta mula sa nakikitang nilalaman ng pahina at gawing downstream na business logic
+- Pumili sa pagitan ng agent at actor patterns base sa kung gaano kapredictable ang gawain sa browser
 
 ## Halimbawa ng Code
 
 Kasama sa araling ito ang isang notebook tutorial:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Naglulunsad ng Chrome session gamit ang CDP, naghahanap ng mga listahan sa Airbnb para sa Stockholm, kumukuha ng mga presyo gamit ang Browser-Use vision, at ibinabalik ang pinakamurang opsyon bilang nakaayos na data.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Nagpapasimula ng sesyon ng Chrome gamit ang CDP, naghahanap sa Airbnb para sa mga listahan ng Stockholm, kumukuha ng mga presyo gamit ang Browser-Use vision, at ibinabalik ang pinakamurang opsyon bilang nakaayos na datos.
 
 ## Mga Kinakailangan
 
 - Python 3.12+
-- Na-configure na Azure OpenAI deployment sa iyong kapaligiran
-- Naka-install na Chrome o Chromium nang lokal
-- Naka-install na Playwright dependencies
-- Basic na pamilyar sa async Python
+- Azure OpenAI deployment na naka-configure sa iyong kapaligiran
+- Chrome o Chromium na naka-install nang lokal
+- Mga dependency ng Playwright na na-install
+- Pangunahing pamilyar sa async Python
 
 ## Setup
 
@@ -45,97 +45,141 @@ pip install browser_use playwright python-dotenv
 playwright install chromium
 ```
 
-I-set ang Azure OpenAI environment variables na ginagamit ng notebook:
+I-set ang mga environment variable ng Azure OpenAI na ginagamit ng notebook:
 
 ```bash
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Opsyonal: awtomatikong gagamitin ang pinakabagong bersyon ng API kapag hindi isinama
+# Opsyonal: awtomatikong ginagamit ang pinakabagong bersyon ng API kapag hindi ipinasa
 AZURE_OPENAI_API_VERSION=...
 ```
 
 ## Pangkalahatang-ideya ng Arkitektura
 
-Ipinapakita ng notebook ang isang hybrid na browser automation workflow:
+Ipinapakita ng notebook ang isang hybrid na workflow ng awtomasyon ng browser:
 
-1. Nagsisimula ang Chrome na naka-enable ang CDP upang parehong maibahagi ng Playwright at Browser-Use ang iisang browser session.
-2. Isang Browser-Use agent ang humahawak sa open-ended na mga gawain ng pag-navigate gaya ng pagbubukas ng Airbnb, pagtatanggal ng mga pop-ups, at paghahanap para sa Stockholm.
-3. Sinusuri ang aktibong pahina gamit ang nakaayos na Pydantic schema para kunin ang mga pamagat ng listahan, presyo kada gabi, rating, at mga URL.
-4. Kinukumpara ng Python logic ang mga nakuhang listahan at itinatampok ang pinakamurang resulta.
+1. Sinisimulan ang Chrome na may CDP na naka-enable para sabay na magamit ng Playwright at Browser-Use ang parehong session ng browser.
+2. Isang Browser-Use agent ang humahawak sa mga open-ended na gawain ng pag-navigate tulad ng pagbubukas ng Airbnb, pagtanggi sa mga pop-up, at paghahanap ng Stockholm.
+3. Sinusuri ang aktibong pahina gamit ang isang nakaayos na Pydantic schema upang makuha ang mga pamagat ng listahan, mga presyo kada gabi, mga rating, at mga URL.
+4. Kinukumpara ng lohika ng Python ang mga nakuha na listahan at itinatampok ang pinakamurang resulta.
 
-Pinapanatili ng pamamaraang ito ang flexible, vision-based na pangangatwiran na magaling ang Browser-Use habang binibigyan ka ng deterministikong kontrol sa browser kapag kailangan mo ito.
+Pinananatili ng pamamaraan na ito ang flexible, vision-based reasoning na mahusay sa Browser-Use habang nagbibigay pa rin ng deterministic na kontrol ng browser kapag kailangan.
 
-## Mga Pangunahing Aral at Pinakamahuhusay na Gawi
+## Pangunahing Mga Aral at Pinakamahuhusay na Gawi
 
-### Kailan Gagamit ng Agent kumpara sa Actor
+### Kailan Gagamit ng Agent vs Actor
 
-| Scenario | Gumamit ng Agent | Gumamit ng Actor |
-|----------|------------------|-----------------|
-| Dynamic na layout | Oo, kaya ng AI na umangkop sa mga pagbabago sa pahina | Hindi, madaling masira ang mga brittle selector |
-| Kilalang istruktura | Hindi, mas mabagal ang agent kaysa sa direktang kontrol | Oo, mabilis at tumpak |
-| Paghahanap ng mga elemento | Oo, mahusay ang natural na wika | Hindi, kailangan ang eksaktong selector |
-| Kontrol sa timing | Hindi, mas hindi napopredict | Oo, buong kontrol sa paghihintay at retries |
-| Komplikadong workflows | Oo, humahawak ng mga hindi inaasahang estado ng UI | Hindi, kailangan ng tahasang branching |
+| Senaryo | Gamitin ang Agent | Gamitin ang Actor |
+|----------|----------------|---------------|
+| Dynamic na mga layout | Oo, kayang umangkop ng AI sa mga pagbabago sa pahina | Hindi, maaaring masira ang mga marupok na selector |
+| Kilalang estruktura | Hindi, mas mabagal ang agent kaysa sa direktang kontrol | Oo, mabilis at tumpak |
+| Paghahanap ng mga elemento | Oo, mahusay ang natural na wika | Hindi, kailangan ng tumpak na selector |
+| Kontrol sa timing | Hindi, hindi gaanong predictible | Oo, kumpletong kontrol sa paghihintay at pag-uulit |
+| Komplikadong workflow | Oo, humahawak ng mga hindi inaasahang estado ng UI | Hindi, kailangan ng tahasang branching |
 
 ### Pinakamahuhusay na Gawi sa Browser-Use
 
 1. Magsimula sa isang agent para sa eksplorasyon at dynamic na pag-navigate.
-2. Lumipat sa direktang kontrol ng pahina kapag naging predictable na ang interaksyon.
-3. Gumamit ng mga nakaayos na output model upang masiguro na validated at type-safe ang data na nakuha.
-4. Magdagdag ng mga delay nang stratehiko pagkatapos ng mga aksyon na nagdudulot ng nakikitang pagbabago sa UI.
-5. Kumuha ng mga screenshot habang nagsusubok upang mas madali ang pag-debug ng mga pagkabigo.
-6. Asahan ang mga pagbabago sa mga website at magdisenyo ng fallback strategies para sa mga pop-ups at layout shifts.
-7. Pagsamahin ang agent at actor patterns upang makuha ang parehong flexibility at precision.
+2. Lumipat sa direktang kontrol ng pahina kapag predictable na ang interaksyon.
+3. Gumamit ng nakaayos na mga output model upang mapatunayan at maging type-safe ang nakuha na datos.
+4. Magdagdag ng mga delay nang maayos pagkatapos ng mga aksyong nagpapahiwatig ng pagbabago sa UI.
+5. Kumuha ng mga screenshot habang nag-iiterate upang maging mas madali ang pag-debug ng mga pagkabigo.
+6. Asahan na magbabago ang mga website at magdisenyo ng mga fallback na estratehiya para sa pop-ups at mga layout shift.
+7. Pagsamahin ang mga agent at actor pattern upang makuha ang parehong flexibility at precision.
 
-### Mga Safety Guardrails para sa Browser Agents
+### Mga Pananggalang sa Kaligtasan para sa Mga Ahente ng Browser
 
-Ang mga browser agents ay nagpapatakbo sa mga live na website, kaya nangangailangan sila ng mas mahigpit na hangganan kaysa sa script na tumatawag lamang sa kilalang API. Bago lumipat mula sa notebook demo patungo sa totoong workflow, tukuyin ang mga kontrol kung ano ang makikita, makiklik, at maisusumite ng agent.
+Ang mga browser agent ay gumagana sa mga live na website, kaya't kailangan nila ng mas mahigpit na hangganan kaysa sa script na tumatawag lang ng kilalang API. Bago lumipat mula sa notebook demo patungo sa totoong workflow, tukuyin ang mga kontrol sa paligid ng kung ano ang maaaring makita, i-click, at isubmit ng agent.
 
-1. **Iscope ang browsing environment.** Patakbuhin ang agent sa dedicated na browser profile o sandbox, at limitahan ito sa mga domain na kailangan para sa gawain.
-2. **Paghiwalayin ang obserbasyon mula sa aksyon.** Hayaan muna ang agent na maghanap, magbasa, at kumuha ng data; kailangan ng tahasang approval bago ito magsumite ng mga form, magpadala ng mensahe, mag-book ng byahe, bumili, mag-delete ng tala, o magbago ng mga setting ng account.
-3. **Panatilihing lihim ang mga sikreto mula sa prompts at traces.** Huwag ilagay ang mga password, detalye ng pagbabayad, session cookies, o raw na personal na data sa context ng modelo. Hayaan ang user na mag-autenticate at itago ang sensitibong mga field mula sa mga log.
-4. **Tingnan ang nilalaman ng pahina bilang hindi pinagkakatiwalaang input.** Maaaring may mga tagubilin sa website na para sa agent, hindi para sa user. Dapat balewalain ng agent ang mga teksto sa pahina na hinihiling na baguhin ang layunin nito, ipakita ang data, i-disable ang mga safeguard, o bisitahin ang mga di-kaugnay na site.
-5. **Gumamit ng mga deterministic na tseke sa mga mapanganib na hakbang.** Patunayan ang kasalukuyang URL, pamagat ng pahina, napiling item, presyo, tatanggap, at buod ng aksyon gamit ang code bago hilingin sa user ang pag-apruba sa huling hakbang.
-6. **Magtakda ng budget at stop conditions.** Limitahan ang bilang ng mga aksyon, retries, tabs, at minuto na magagamit ng agent. Itigil kapag ambiguous ang estado ng pahina sa halip na patuloy na mag-click.
-7. **Mag-record ng kapaki-pakinabang na ebidensya, hindi lahat.** Panatilihin ang mga buod ng aksyon, timestamps, URL, deskripsyon ng napiling elemento, at reference ng screenshot upang madali i-review ang mga pagkabigo nang hindi inilalagay ang hindi kinakailangang sensitibong nilalaman ng pahina.
+1. **Limitahan ang kapaligiran sa pag-browse.** Patakbuhin ang agent sa isang dedikadong profile ng browser o sandbox, at limitahan ito sa mga domain na kinakailangan para sa gawain.
+2. **Paghiwalayin ang pagmamasid mula sa aksyon.** Hayaan munang maghanap, magbasa, at kumuha ng datos ang agent; kailangan ng tahasang apruba bago magsumite ng mga form, magpadala ng mensahe, mag-book ng biyahe, gumawa ng mga pagbili, magtanggal ng rekord, o magbago ng mga setting ng account.
+3. **Itago ang mga sikreto mula sa mga prompt at trace.** Huwag ilagay ang mga password, detalye ng pagbabayad, session cookies, o mga raw na personal na datos sa konteksto ng modelo. Hayaan ang user ang humawak sa authentication at i-redact ang mga sensitibong field mula sa mga log.
+4. **Turingin ang nilalaman ng pahina bilang hindi pinagkakatiwalaang input.** Maaaring may mga instruksyon ang website na para sa agent, hindi para sa user. Dapat balewalain ng agent ang text sa pahina na nag-uutos na baguhin ang layunin, ilantad ang datos, i-disable ang mga pananggalang, o bisitahin ang mga hindi kaugnay na site.
+5. **Gumamit ng deterministic checks sa mga mapanganib na hakbang.** Patunayan ang kasalukuyang URL, pamagat ng pahina, piniling item, presyo, tatanggap, at buod ng aksyon gamit ang code bago hingin ang apruba ng user para sa huling hakbang.
+6. **Magtakda ng mga budget at stop condition.** Limitahan ang bilang ng aksyon, pag-uulit, tab, at minuto na maaaring gamitin ng agent. Huminto kapag malabo na ang estado ng pahina imbes na patuloy na mag-click.
+7. **Itala ang mahalagang ebidensya, hindi lahat.** Itago ang mga buod ng aksyon, timestamp, URL, deskripsyon ng piniling elemento, at mga sanggunian sa screenshot upang masuri ang mga pagkabigo nang hindi nag-iimbak ng hindi kinakailangang sensitibong nilalaman ng pahina.
 
-Sa halimbawa ng Airbnb, ang ligtas na default ay maghanap ng mga listahan at kunin ang mga presyo. Ang pag-sign in, pakikipag-ugnayan sa host, o pagkompleto ng booking ay dapat na hiwalay na action na pinahintulutan ng user.
+Sa sample ng Airbnb, ang ligtas na default ay maghanap ng mga listahan at kunin ang mga presyo. Ang pag-sign in, pakikipag-ugnayan sa host, o pagkumpleto ng booking ay dapat na isang hiwalay na aksyong inaprubahan ng user.
 
-### Mga Aplikasyon sa Totoong Mundo
+### Mga Aplikasyong Totoong Mundo
 
-- Pag-book ng paglalakbay at pagsubaybay ng presyo
-- Paghahambing ng presyo at pagsusuri ng availability sa e-commerce
-- Nakaayos na pagkuha mula sa dynamic na mga website
+- Pag-book ng biyahe at pagmamanman ng presyo
+- Paghahambing ng presyo at pagsuri ng availability sa e-commerce
+- Nakaayos na pagkuha mula sa mga dynamic na website
 - Vision-aware UI testing at beripikasyon
-- Pagsubaybay at pagbibigay-alam ng website
-- Intelligent form filling sa mga multi-step na proseso
+- Pagsubaybay sa website at alerto
+- Intelihenteng pag-fill ng form sa mga multi-step na daloy
 
 ## Halimbawa sa Totoong Mundo: Microsoft Project Opal
 
-Ang agent na gagawin mo sa araling ito ay isang maliit, lokal na bersyon ng isang **computer use agent (CUA)** — isang program na nagpapatakbo ng browser sa paraan ng isang tao. Dinadala ng Microsoft ang parehong ideya sa enterprise gamit ang **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, isang kakayahan sa Microsoft 365 Copilot.
+Ang ahenteng ginagawa mo sa araling ito ay isang maliit, lokal na bersyon ng isang **computer use agent (CUA)** — isang programa na nagmamaneho ng browser sa paraang ginagawa ng tao. Dinadala ng Microsoft ang parehong ideya sa enterprise gamit ang **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, isang kakayahan sa Microsoft 365 Copilot.
 
-Sa Project Opal, inilalarawan mo ang isang gawain at ang agent ang gagawa nito para sa iyo gamit ang **computer use sa isang secure na Windows 365 Cloud PC**, na nagpapatakbo sa mga browser-based na aplikasyon, site, at data ng iyong organisasyon. Nagtatrabaho ito **ng asynchronous sa background**, at maaari mong gabayan ang trabaho o kontrolin ito anumang oras. Mga halimbawa ng trabaho ay:
+Sa Project Opal, inilalarawan mo ang isang gawain at ang ahente ay gumagana sa iyong ngalan gamit ang **computer use sa isang secure na Windows 365 Cloud PC**, na nagpapatakbo sa mga browser-based na aplikasyon, site, at datos ng iyong organisasyon. Ito ay gumagana **asynchronously sa background**, at maaari mong gabayan ang trabaho o kontrolin ito anumang oras. Ilang halimbawa ng trabaho ay:
 
-- Pamamahala ng mga kahilingan sa miyembro ng security group
-- Pagkolekta at pag-validate ng audit evidence para sa mga pagsusuri ng pagsunod
-- Pagtatangi ng mga IT incident (pag-update ng estado ng ticket, pagtatalaga ng may-ari, pagsasara ng duplicate)
-- Pagsasama-sama ng data ng Excel sa isang financial close deck
+- Pamamahala sa mga kahilingan sa membership ng security group
+- Pangangalap at pag-verify ng audit evidence para sa compliance reviews
+- Triaging ng mga IT incident (pag-update ng status ng ticket, pagtatalaga ng mga may-ari, pagsasara ng mga duplicate)
+- Pag-compila ng datos sa Excel para sa financial close deck
 
-Ang Opal ay isang kapaki-pakinabang na sanggunian kung ano ang hitsura ng isang **production-grade, mapagkakatiwalaang** computer use agent — at pinapalakas nito ang mga konsepto mula sa mga naunang aralin:
+Ang Opal ay isang kapaki-pakinabang na sanggunian para sa kung ano ang hitsura ng isang **production-grade, trustworthy** computer use agent — at pinagtitibay nito ang mga konsepto mula sa mga naunang aralin:
 
-| Konsepto sa kursong ito | Paano inaaplay ito ng Project Opal |
-|------------------------|-------------------------------|
-| **Human-in-the-loop** (Lesson 06) | Humihinto si Opal para sa login credentials, sensitibong data, o malabong mga tagubilin, at hindi kailanman naglalagay ng password o nagsusumite ng mga form nang walang tahasang kumpirmasyon. Maaari kang *Kumontrol* at *Ibalik ang Kontrol* sa gitna ng gawain. |
-| **Mapagkakatiwalaan at secure na agents** (Lessons 06 & 18) | Nagtatakbo sa isolated Windows 365 Cloud PC, browser-only bilang default (hinarangan ang ibang computer access gamit ang Intune), ginagamit ang *iyong* pagkakakilanlan kaya naa-access lang ang pinahihintulutan mo, at nagla-log ng bawat aksyon para sa auditability. |
-| **Planning at metacognition** (Lessons 07 & 09) | Gumagawa si Opal ng plano para sa trabaho, pagkatapos pinangangasiwaan ang sariling pangangatwiran sa bawat hakbang at humihinto kung may natuklasang kahina-hinalang aktibidad. |
-| **Reusable na kakayahan / tools** (Lesson 04) | Pinapayagan ka ng **Skills** na magsulat ng mga tagubilin para sa mga paulit-ulit na trabaho (imported mula sa `.md` na file o gawa gamit ang Opal) at gamitin muli ang mga ito sa iba’t ibang pag-uusap. |
+| Konsepto sa kursong ito | Paano ito inilalapat ng Project Opal |
+|-----------------------|--------------------------------|
+| **Human-in-the-loop** (Aralin 06) | Humihinto ang Opal para sa login credentials, sensitibong datos, o malabong instruksyon, at hindi kailanman naglalagay ng mga password o nagsusumite ng mga form nang walang tahasang kumpirmasyon. Maaari kang *Kunin ang Kontrol* at *Ibalik ang Kontrol* sa gitna ng gawain. |
+| **Mapagkakatiwalaan at secure na mga ahente** (Aralin 06 at 18) | Tumakbo sa isang hiwalay na Windows 365 Cloud PC, browser-only bilang default (naharang ang iba pang computer access, ipinatutupad via Intune), ginagamit ang *iyong* pagkakakilanlan kaya naa-access lang nito ang pinapayagan, at nagla-log ng bawat aksyon para sa auditability. |
+| **Pagpaplano at metacognition** (Aralin 07 at 09) | Gumagawa muna ang Opal ng plano para sa trabaho, saka mino-monitor ang sariling pangangatwiran sa bawat hakbang at humihinto kapag nakakita ng kahina-hinalang gawain. |
+| **Reusableng kakayahan / kasangkapan** (Aralin 04) | Pinahihintulutan ka ng **Skills** na magsulat ng mga instruksyon para sa mga paulit-ulit na trabaho (inarere-import mula sa `.md` file o nililikha gamit ang Opal) at gamitin ito sa iba't ibang usapan. |
 
-> **Availability:** Ang Project Opal ay kasalukuyang available sa mga user sa [Frontier early access program](https://adoption.microsoft.com/copilot/frontier-program/) na may Microsoft 365 Copilot subscription, at kailangang kumpletuhin ng iyong administrator ang setup. Dahil ito ay isang experimental na tampok ng Frontier, maaaring magbago ang mga kakayahan sa paglipas ng panahon.
+> **Availability:** Ang Project Opal ay kasalukuyang available sa mga gumagamit sa [Frontier early access program](https://adoption.microsoft.com/copilot/frontier-program/) na may Microsoft 365 Copilot subscription, at kailangang matapos ng iyong administrator ang setup. Dahil ito ay isang eksperimentong tampok ng Frontier, maaaring magbago ang mga kakayahan sa paglipas ng panahon.
 
-## Karagdagang Mga Mapagkukunan
+## Pagsusulit sa Kaalaman
 
-- [Simulan gamit ang Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
+Subukan ang iyong pag-unawa bago lumipat sa susunod na aralin.
+
+**1. Kailan mas angkop ang isang browser-based computer use agent kaysa sa isang API-only workflow?**
+
+<details>
+<summary>Sagot</summary>
+
+Gumamit ng browser agent kapag nakadepende ang gawain sa kung ano ang nakikita sa web UI, hindi inihahayag ng site ang kinakailangang API, o madalas magbago ang pahina kaya't magiging marupok ang fixed API o selector logic. Kung mayroong stable na API para sa parehong gawain, mas piliin ang API dahil karaniwan itong mas mabilis, mas madaling subukan, at mas madaling siguraduhin.
+</details>
+
+**2. Sa isang hybrid workflow, aling mga bahagi ang dapat hawakan ng agent at alin ang dapat hawakan ng direktang code ng Playwright?**
+
+<details>
+<summary>Sagot</summary>
+
+Hayaan ang agent ang humawak sa open-ended na pag-navigate at mga dynamic na estado ng UI, tulad ng paghahanap ng tamang pahina o pagtanggi sa hindi inaasahang mga pop-up. Lumipat sa direktang kontrol ng Playwright kapag kilala na ang estruktura ng pahina at kailangan ang precision, retries, waits, o deterministic validation sa aksyon.
+</details>
+
+**3. Nakakita ang sample ng Airbnb ng listahan na maaaring gustuhin ng user na i-book. Ano ang dapat mangyari bago mag-sign in, makipag-ugnayan sa host, o tapusin ang booking?**
+
+<details>
+<summary>Sagot</summary>
+
+Dapat huminto ang workflow at hingin ang tahasang apruba ng user. Bago humingi, dapat ipakita ang malinaw na buod ng piniling listahan, kasalukuyang URL, presyo, mga petsa, at intensyon ng aksyon. Maaaring autonomous ang paghahanap at pagkuha ng mga presyo; ang pag-access sa account, mga mensahe, pagbili, at booking ay dapat aprubahan ng user.
+</details>
+
+**4. Sinasabi ng isang web page sa agent na balewalain ang orihinal nitong instruksyon, bisitahin ang ibang site, at ilantad ang mga nakalistang credentials. Paano dapat tratuhin ng agent ang tekstong iyon?**
+
+<details>
+<summary>Sagot</summary>
+
+Tratuhin ito bilang hindi pinagkakatiwalaang nilalaman ng pahina, hindi bilang instruksyon ng developer o user. Dapat manatili ang agent sa loob ng pinapayagang domain at saklaw ng gawain, tanggihan ang paglabas ng mga sikreto, at iwasang sundan ang text sa pahina na nagbabago ng layunin, nag-disable ng mga pananggalang, o nagpadadala sa hindi kaugnay na mga site.
+</details>
+
+**5. Anong ebidensya ang kapaki-pakinabang itago kapag tumatakbo ang browser agent, at ano ang dapat iwasan?**
+
+<details>
+<summary>Sagot</summary>
+
+Itago ang mga buod ng aksyon, mga timestamp, mga URL, mga deskripsyon ng piniling elemento, mga resulta ng pag-validate, at mga sanggunian ng screenshot upang masuri ang takbo. Iwasang mag-imbak ng mga password, detalye ng pagbabayad, session cookies, raw personal na datos, o buong nilalaman ng pahina maliban kung may partikular na dahilan para sa retention at privacy.
+</details>
+
+## Karagdagang Mga Sanggunian
+
+- [Simulan ang Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
 - [Browser-Use Playwright integration template](https://docs.browser-use.com/examples/templates/playwright-integration)
 - [Browser-Use actor parameters at pagkuha ng nilalaman](https://docs.browser-use.com/customize/actor/all-parameters)
 - [Course Setup](../00-course-setup/README.md)
@@ -146,7 +190,7 @@ Ang Opal ay isang kapaki-pakinabang na sanggunian kung ano ang hitsura ng isang 
 
 ## Susunod na Aralin
 
-[Pag-deploy ng Scalable Agents](../16-deploying-scalable-agents/README.md)
+[Pagdeploy ng Scalable Agents](../16-deploying-scalable-agents/README.md)
 
 ---
 
