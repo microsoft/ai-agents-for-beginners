@@ -28,7 +28,7 @@ Microsoft 기술 생태계에 대한 리서치 스킬입니다. learn.microsoft.
 
 다음 카테고리는 **learn.microsoft.com 외부**에 있습니다. 대신 지정된 도구를 사용하세요.
 
-### .NET Aspire — Aspire MCP Server(권장) 또는 Context7 사용
+### Aspire — Aspire MCP Server(권장) 또는 Context7 사용
 
 Aspire 문서는 **aspire.dev**에 있으며 Learn에 있지 않습니다. 최적의 도구는 Aspire CLI 버전에 따라 다릅니다:
 
@@ -40,14 +40,14 @@ Aspire 문서는 **aspire.dev**에 있으며 Learn에 있지 않습니다. 최�
 | `search_docs` | aspire.dev 콘텐츠에 대한 가중치 기반 어휘 검색 |
 | `get_doc` | 슬러그로 특정 문서를 검색합니다 |
 
-이 기능들은 Aspire CLI 13.2에 포함되어 있습니다 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). 업데이트하려면: `aspire update --self --channel daily`. 참조: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+이 기능들은 Aspire CLI 13.2에 포함되어 있습니다 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). 업데이트하려면: `aspire update --self --channel daily`. 참조: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP 서버는 통합 조회(`list_integrations`, `get_integration_docs`)를 제공하지만 문서 검색은 제공하지 않습니다. 이 경우 Context7을 사용하세요:
 
 | Library ID | 사용 용도 |
 |---|---|
 | `/microsoft/aspire.dev` | 주요 — 가이드, 통합, CLI 참조, 배포 |
-| `/dotnet/aspire` | 런타임 소스 — API 내부, 구현 세부사항 |
+| `/microsoft/aspire` | 런타임 소스 — API 내부, 구현 세부사항 |
 | `/communitytoolkit/aspire` | 커뮤니티 통합 — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 사용

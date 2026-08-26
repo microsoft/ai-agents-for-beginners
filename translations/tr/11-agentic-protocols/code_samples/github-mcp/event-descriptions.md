@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service, sağlam AI odaklı çözümler geliştirmeyi ba
 
 ---
 
-## Etkinlik Adı: AI Ajanları + .NET Aspire
+## Etkinlik Adı: AI Ajanları + Aspire
 
 ## Açıklama
 
-Bu oturumda, .NET platformundaki Ajanlar ile ilgili en heyecan verici gelişmelerden bazılarını paylaşacağız. .NET'in mevcut durumunu, yeni özelliklerini ve geliştirmelerini keşfedin. Güçlü AI Ajan yeteneklerini inceleyin. Ayrıca, Ajanlar ve .NET Aspire ile canlı kodlama yapacağız.
+Bu oturumda, .NET platformundaki Ajanlar ile ilgili en heyecan verici gelişmelerden bazılarını paylaşacağız. .NET'in mevcut durumunu, yeni özelliklerini ve geliştirmelerini keşfedin. Güçlü AI Ajan yeteneklerini inceleyin. Ayrıca, Ajanlar ve Aspire ile canlı kodlama yapacağız.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

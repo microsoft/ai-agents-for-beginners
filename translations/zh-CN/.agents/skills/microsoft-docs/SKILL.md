@@ -28,7 +28,7 @@ description: 查询官方 Microsoft 文档，以查找有关 Azure、.NET、Agen
 
 以下类别位于 learn.microsoft.com **之外**。请改用指定的工具。
 
-### .NET Aspire — 使用 Aspire MCP Server（首选）或 Context7
+### Aspire — 使用 Aspire MCP Server（首选）或 Context7
 
 Aspire 文档位于 **aspire.dev**，而不是 Learn。最佳工具取决于你的 Aspire CLI 版本：
 
@@ -40,14 +40,14 @@ Aspire 文档位于 **aspire.dev**，而不是 Learn。最佳工具取决于你�
 | `search_docs` | 跨 aspire.dev 内容的加权词汇搜索 |
 | `get_doc` | 按 slug 检索特定文档 |
 
-这些包含于 Aspire CLI 13.2（[PR #14028](https://github.com/dotnet/aspire/pull/14028)）。要更新：`aspire update --self --channel daily`。参考： https://davidpine.dev/posts/aspire-docs-mcp-tools/
+这些包含于 Aspire CLI 13.2（[PR #14028](https://github.com/microsoft/aspire/pull/14028)）。要更新：`aspire update --self --channel daily`。参考： https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** —— MCP 服务器提供集成查找（`list_integrations`, `get_integration_docs`），但**不**提供文档搜索。回退使用 Context7：
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | 主要 —— 指南、集成、CLI 参考、部署 |
-| `/dotnet/aspire` | 运行时源码 —— API 内部、实现细节 |
+| `/microsoft/aspire` | 运行时源码 —— API 内部、实现细节 |
 | `/communitytoolkit/aspire` | 社区集成 —— Go、Java、Node.js、Ollama |
 
 ### VS Code — 使用 Context7

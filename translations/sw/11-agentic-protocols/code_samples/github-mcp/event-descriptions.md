@@ -162,11 +162,11 @@ Huduma ya Microsoft Foundry Agent ni mchanganyiko usio na mshono wa huduma na SD
 
 ---
 
-## Jina la Tukio: AI Agents + .NET Aspire
+## Jina la Tukio: AI Agents + Aspire
 
 ## Maelezo
 
-Katika kikao hiki tutashiriki baadhi ya maendeleo ya kusisimua zaidi kwenye jukwaa la .NET kuhusu mawakala. Gundua hali ya sasa ya .NET, ikiwa ni pamoja na vipengele vipya na maboresho yake. Chunguza uwezo mkubwa wa AI Agent. Na tutafanya uandishi wa msimbo wa moja kwa moja na mawakala na .NET Aspire.
+Katika kikao hiki tutashiriki baadhi ya maendeleo ya kusisimua zaidi kwenye jukwaa la .NET kuhusu mawakala. Gundua hali ya sasa ya .NET, ikiwa ni pamoja na vipengele vipya na maboresho yake. Chunguza uwezo mkubwa wa AI Agent. Na tutafanya uandishi wa msimbo wa moja kwa moja na mawakala na Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

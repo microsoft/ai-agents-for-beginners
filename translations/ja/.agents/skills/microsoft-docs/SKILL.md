@@ -28,7 +28,7 @@ Microsoft テクノロジー エコシステム向けのリサーチスキル。
 
 以下のカテゴリは **learn.microsoft.com の外部** にあります。代わりに指定されたツールを使用してください。
 
-### .NET Aspire — Aspire MCP Server（推奨）または Context7 を使用
+### Aspire — Aspire MCP Server（推奨）または Context7 を使用
 
 Aspire ドキュメントは **aspire.dev** にあり、Learn ではありません。最適なツールは Aspire CLI のバージョンによります。
 
@@ -40,14 +40,14 @@ Aspire ドキュメントは **aspire.dev** にあり、Learn ではありませ
 | `search_docs` | aspire.dev コンテンツに対する重み付きレキシカル検索 |
 | `get_doc` | スラッグで特定のドキュメントを取得します |
 
-これらは Aspire CLI 13.2 に同梱されています（[PR #14028](https://github.com/dotnet/aspire/pull/14028)）。更新するには: `aspire update --self --channel daily`。参照: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+これらは Aspire CLI 13.2 に同梱されています（[PR #14028](https://github.com/microsoft/aspire/pull/14028)）。更新するには: `aspire update --self --channel daily`。参照: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP サーバーは統合の検索（`list_integrations`, `get_integration_docs`）を提供しますが、ドキュメント検索は提供しません。Context7 にフォールバックしてください:
 
 | Library ID | 使用対象 |
 |---|---|
 | `/microsoft/aspire.dev` | 主要 — ガイド、統合、CLI リファレンス、デプロイ |
-| `/dotnet/aspire` | ランタイムソース — API 内部、実装の詳細 |
+| `/microsoft/aspire` | ランタイムソース — API 内部、実装の詳細 |
 | `/communitytoolkit/aspire` | コミュニティ統合 — Go、Java、Node.js、Ollama |
 
 ### VS Code — Context7 を使用

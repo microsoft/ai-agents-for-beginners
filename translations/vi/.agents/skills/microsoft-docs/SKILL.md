@@ -29,7 +29,7 @@ Sử dụng `microsoft_docs_fetch` sau khi tìm kiếm khi bạn cần hướng 
 
 Các danh mục sau nằm **bên ngoài** learn.microsoft.com. Hãy sử dụng công cụ được chỉ định thay thế.
 
-### .NET Aspire — Sử dụng Aspire MCP Server (ưu tiên) hoặc Context7
+### Aspire — Sử dụng Aspire MCP Server (ưu tiên) hoặc Context7
 
 Tài liệu Aspire nằm trên **aspire.dev**, không phải Learn. Công cụ tốt nhất phụ thuộc vào phiên bản Aspire CLI của bạn:
 
@@ -41,14 +41,14 @@ Tài liệu Aspire nằm trên **aspire.dev**, không phải Learn. Công cụ t
 | `search_docs` | Tìm kiếm từ vựng có trọng số trên nội dung của aspire.dev |
 | `get_doc` | Lấy một tài liệu cụ thể theo slug |
 
-Những công cụ này được phát hành trong Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Để cập nhật: `aspire update --self --channel daily`. Tham khảo: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Những công cụ này được phát hành trong Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Để cập nhật: `aspire update --self --channel daily`. Tham khảo: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP server cung cấp tra cứu tích hợp (`list_integrations`, `get_integration_docs`) nhưng **không** có tìm kiếm tài liệu. Quay về dùng Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Chính — hướng dẫn, tích hợp, tham chiếu CLI, triển khai |
-| `/dotnet/aspire` | Nguồn runtime — nội bộ API, chi tiết triển khai |
+| `/microsoft/aspire` | Nguồn runtime — nội bộ API, chi tiết triển khai |
 | `/communitytoolkit/aspire` | Tích hợp cộng đồng — Go, Java, Node.js, Ollama |
 
 ### VS Code — Sử dụng Context7

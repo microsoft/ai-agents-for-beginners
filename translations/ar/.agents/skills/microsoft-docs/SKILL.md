@@ -29,7 +29,7 @@ Use these tools for **كل شيء على learn.microsoft.com** — Azure، .NET�
 
 الفئات التالية موجودة **خارج** learn.microsoft.com. استخدم الأداة المحددة بدلاً من ذلك.
 
-### .NET Aspire — استخدم Aspire MCP Server (مُفضّل) أو Context7
+### Aspire — استخدم Aspire MCP Server (مُفضّل) أو Context7
 
 توثيق Aspire موجود على **aspire.dev**، وليس على Learn. أفضل أداة تعتمد على إصدار Aspire CLI لديك:
 
@@ -41,14 +41,14 @@ Use these tools for **كل شيء على learn.microsoft.com** — Azure، .NET�
 | `search_docs` | بحث لفظي موزون عبر محتوى aspire.dev |
 | `get_doc` | يسترجع مستندًا محددًا بواسطة slug |
 
-تتضمن هذه في Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). للتحديث: `aspire update --self --channel daily`. مراجع: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+تتضمن هذه في Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). للتحديث: `aspire update --self --channel daily`. مراجع: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — يوفر خادم MCP البحث عن تكاملات (`list_integrations`, `get_integration_docs`) لكنه **لا** يوفر بحثًا في التوثيق. ارجع إلى Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | أساسي — الأدلة، التكاملات، مرجع CLI، النشر |
-| `/dotnet/aspire` | مصدر وقت التشغيل — تفاصيل داخلية للـ API، تفاصيل التنفيذ |
+| `/microsoft/aspire` | مصدر وقت التشغيل — تفاصيل داخلية للـ API، تفاصيل التنفيذ |
 | `/communitytoolkit/aspire` | تكاملات المجتمع — Go، Java، Node.js، Ollama |
 
 ### VS Code — استخدم Context7

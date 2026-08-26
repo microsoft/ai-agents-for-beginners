@@ -30,7 +30,7 @@ description: سرکاری Microsoft دستاویزات میں استفسار ک�
 
 مندرجہ ذیل زمرے learn.microsoft.com کے باہر موجود ہیں۔ اس کی بجائے مخصوص ٹول استعمال کریں۔
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire کی دستاویزات **aspire.dev** پر ہیں، Learn پر نہیں۔ بہترین ٹول آپ کے Aspire CLI ورژن پر منحصر ہے:
 
@@ -42,14 +42,14 @@ Aspire کی دستاویزات **aspire.dev** پر ہیں، Learn پر نہیں�
 | `search_docs` | aspire.dev مواد میں وزن شدہ لِیگزیکل تلاش |
 | `get_doc` | slug کے ذریعے مخصوص دستاویز حاصل کرتا ہے |
 
-یہ Aspire CLI 13.2 میں شامل ہیں ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). اپڈیٹ کرنے کے لیے: `aspire update --self --channel daily`. حوالہ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+یہ Aspire CLI 13.2 میں شامل ہیں ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). اپڈیٹ کرنے کے لیے: `aspire update --self --channel daily`. حوالہ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP سرور انٹیگریشن تلاش فراہم کرتا ہے (`list_integrations`, `get_integration_docs`) مگر ڈاکس سرچ فراہم نہیں کرتا۔ Context7 پر واپس جائیں:
 
 | لائبریری ID | استعمال کے لیے |
 |---|---|
 | `/microsoft/aspire.dev` | پرائمری — رہنما، انٹیگریشنز، CLI حوالہ، ڈیپلائمنٹ |
-| `/dotnet/aspire` | رن ٹائم ماخذ — API اندرونی اجزا، نفاذ کی تفصیلات |
+| `/microsoft/aspire` | رن ٹائم ماخذ — API اندرونی اجزا، نفاذ کی تفصیلات |
 | `/communitytoolkit/aspire` | کمیونٹی انٹیگریشنز — Go، Java، Node.js، Ollama |
 
 ### VS Code — Use Context7

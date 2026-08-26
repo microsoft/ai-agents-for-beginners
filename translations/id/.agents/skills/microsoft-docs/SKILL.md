@@ -29,7 +29,7 @@ Gunakan `microsoft_docs_fetch` setelah pencarian ketika Anda membutuhkan tutoria
 
 Kategori berikut berada **di luar** learn.microsoft.com. Gunakan alat yang ditentukan sebagai gantinya.
 
-### .NET Aspire — Gunakan Aspire MCP Server (direkomendasikan) atau Context7
+### Aspire — Gunakan Aspire MCP Server (direkomendasikan) atau Context7
 
 Dokumentasi Aspire berada di **aspire.dev**, bukan Learn. Alat terbaik bergantung pada versi Aspire CLI Anda:
 
@@ -41,14 +41,14 @@ Dokumentasi Aspire berada di **aspire.dev**, bukan Learn. Alat terbaik bergantun
 | `search_docs` | Pencarian leksikal berbobot di seluruh konten aspire.dev |
 | `get_doc` | Mengambil dokumen tertentu berdasarkan slug |
 
-Fitur ini dikirimkan pada Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Untuk memperbarui: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Fitur ini dikirimkan pada Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Untuk memperbarui: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — Server MCP menyediakan pencarian integrasi (`list_integrations`, `get_integration_docs`) tetapi **tidak** pencarian dokumen. Kembalikan ke Context7:
 
 | Library ID | Gunakan untuk |
 |---|---|
 | `/microsoft/aspire.dev` | Utama — panduan, integrasi, referensi CLI, deployment |
-| `/dotnet/aspire` | Sumber runtime — internal API, detail implementasi |
+| `/microsoft/aspire` | Sumber runtime — internal API, detail implementasi |
 | `/communitytoolkit/aspire` | Integrasi komunitas — Go, Java, Node.js, Ollama |
 
 ### VS Code — Gunakan Context7

@@ -29,7 +29,7 @@ Microsoft तंत्रज्ञान इकोसिस्टमसाठी
 
 खालील वर्गीकरणे **learn.microsoft.com च्या बाहेर** आहेत. त्याऐवजी निर्दिष्ट केलेले साधन वापरा.
 
-### .NET Aspire — Aspire MCP Server (प्राधान्य) किंवा Context7 वापरा
+### Aspire — Aspire MCP Server (प्राधान्य) किंवा Context7 वापरा
 
 Aspire दस्तऐवजीकरणे **aspire.dev** वर आहेत, Learn वर नाहीत. सर्वोत्तम साधन तुमच्या Aspire CLI आवृत्तीवर अवलंबून आहे:
 
@@ -41,14 +41,14 @@ Aspire दस्तऐवजीकरणे **aspire.dev** वर आहेत, 
 | `search_docs` | aspire.dev सामग्रीवर वजनदार लेक्सिकल शोध |
 | `get_doc` | slug ने एखादे विशिष्ट दस्तऐवज प्राप्त करते |
 
-हे Aspire CLI 13.2 मध्ये डिलिव्हर होतात ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). अपडेट करण्यासाठी: `aspire update --self --channel daily`. संदर्भ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+हे Aspire CLI 13.2 मध्ये डिलिव्हर होतात ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). अपडेट करण्यासाठी: `aspire update --self --channel daily`. संदर्भ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP सर्व्हर इंटीग्रेशन लुकअप (`list_integrations`, `get_integration_docs`) प्रदान करते परंतु **docs शोध** नाही. या प्रकरणात Context7 वापरा:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | प्राथमिक — मार्गदर्शक, इंटीग्रेशन्स, CLI संदर्भ, डिप्लॉयमेंट |
-| `/dotnet/aspire` | रनटाइम स्रोत — API अंतर्गत रचना, अंमलबजावणी तपशील |
+| `/microsoft/aspire` | रनटाइम स्रोत — API अंतर्गत रचना, अंमलबजावणी तपशील |
 | `/communitytoolkit/aspire` | सामुदायिक इंटीग्रेशन्स — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 वापरा

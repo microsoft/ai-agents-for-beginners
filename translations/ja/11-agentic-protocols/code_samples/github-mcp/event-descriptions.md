@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service はサービスとSDKをシームレスに組み
 
 ---
 
-## イベント名: AIエージェント + .NET Aspire
+## イベント名: AIエージェント + Aspire
 
 ## 説明
 
-このセッションでは、Agentsを中心とした.NETプラットフォーム上の最もエキサイティングな開発を共有します。.NETの現状、新機能と強化機能を紹介し、強力なAIエージェント機能を探求します。さらに、Agents と .NET Aspireを使ったライブコーディングも行います。
+このセッションでは、Agentsを中心とした.NETプラットフォーム上の最もエキサイティングな開発を共有します。.NETの現状、新機能と強化機能を紹介し、強力なAIエージェント機能を探求します。さらに、Agents と Aspireを使ったライブコーディングも行います。
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

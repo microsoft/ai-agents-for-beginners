@@ -162,11 +162,11 @@ Ang Microsoft Foundry Agent Service ay isang seamless na pagsasanib ng serbisyo 
 
 ---
 
-## Pangalan ng Kaganapan: AI Agents + .NET Aspire
+## Pangalan ng Kaganapan: AI Agents + Aspire
 
 ## Paglalarawan
 
-Sa sesyong ito, ibabahagi namin ang ilan sa mga pinaka-kapanapanabik na pag-unlad sa platform ng .NET tungkol sa mga Agent. Tuklasin ang kasalukuyang kalagayan ng .NET, kabilang ang mga bagong tampok at pagpapahusay nito. Tiyakin ang makapangyarihang AI Agent capabilities. At gagawa kami ng live coding gamit ang Agents at .NET Aspire.
+Sa sesyong ito, ibabahagi namin ang ilan sa mga pinaka-kapanapanabik na pag-unlad sa platform ng .NET tungkol sa mga Agent. Tuklasin ang kasalukuyang kalagayan ng .NET, kabilang ang mga bagong tampok at pagpapahusay nito. Tiyakin ang makapangyarihang AI Agent capabilities. At gagawa kami ng live coding gamit ang Agents at Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

@@ -29,7 +29,7 @@ search အပြီးမှာ သင်အပြည့်အစုံ သင�
 
 အောက်ပါ အမျိုးအစားများသည် learn.microsoft.com အပြင်တွင် ရှိသည်။ အစားထိုးထားသော ကိရိယာကို အသုံးပြုပါ။
 
-### .NET Aspire — Aspire MCP Server (အကြိုက်ဆုံး) သို့မဟုတ် Context7 ကို အသုံးပြုပါ
+### Aspire — Aspire MCP Server (အကြိုက်ဆုံး) သို့မဟုတ် Context7 ကို အသုံးပြုပါ
 
 Aspire စာတမ်းများသည် Learn တွင်မဟုတ်ဘဲ **aspire.dev** ပေါ်တွင် ရှိသည်။ အကောင်းဆုံး ကိရိယာမှာ သင့် Aspire CLI ဗားရှင်းပေါ် မူတည်ပါသည်။
 
@@ -41,14 +41,14 @@ Aspire စာတမ်းများသည် Learn တွင်မဟုတ်
 | `search_docs` | aspire.dev အကြောင်းအရာများအနှံ့ အလေးချိန်ထားသော စကားလုံးအခြေခံ ရှာဖွေမှု |
 | `get_doc` | slug ဖြင့် သတ်မှတ်ထားသော စာတမ်းကို ရယူမည် |
 
-ဤများသည် Aspire CLI 13.2 တွင် ပါဝင်သည် ([PR #14028](https://github.com/dotnet/aspire/pull/14028))။ အပ်ဒိတ်လုပ်ရန်: `aspire update --self --channel daily`။ Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ဤများသည် Aspire CLI 13.2 တွင် ပါဝင်သည် ([PR #14028](https://github.com/microsoft/aspire/pull/14028))။ အပ်ဒိတ်လုပ်ရန်: `aspire update --self --channel daily`။ Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP server သည် integration lookup (`list_integrations`, `get_integration_docs`) ကို ပံ့ပိုးပေးသော်လည်း docs ရှာဖွေမှုကို မပံ့ပိုးပါ။ Context7 သို့ ပြန်လှည့်ပါ။
 
 | Library ID | အသုံးပြုရန် |
 |---|---|
 | `/microsoft/aspire.dev` | Primary — လမ်းညွှန်များ၊ integrations, CLI ကိုးကားချက်, deployment |
-| `/dotnet/aspire` | Runtime source — API အတွင်းပိုင်း၊ အကောင်အထည်ဖော်ချက် အသေးစိတ်များ |
+| `/microsoft/aspire` | Runtime source — API အတွင်းပိုင်း၊ အကောင်အထည်ဖော်ချက် အသေးစိတ်များ |
 | `/communitytoolkit/aspire` | Community integrations — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 ကို အသုံးပြုပါ

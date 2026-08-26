@@ -30,7 +30,7 @@ Használd a `microsoft_docs_fetch` eszközt a keresés után, ha teljes oktatóa
 
 A következő kategóriák a **learn.microsoft.com-on kívül** találhatók. Használd helyettük a megadott eszközt.
 
-### .NET Aspire — Használd az Aspire MCP szervert (ajánlott) vagy a Context7-et
+### Aspire — Használd az Aspire MCP szervert (ajánlott) vagy a Context7-et
 
 Az Aspire dokumentáció az **aspire.dev** oldalon található, nem a Learn-en. A legjobb eszköz az Aspire CLI verziójától függ:
 
@@ -42,14 +42,14 @@ Az Aspire dokumentáció az **aspire.dev** oldalon található, nem a Learn-en. 
 | `search_docs` | Súlyozott lexikális keresés az aspire.dev tartalmában |
 | `get_doc` | Lekéri egy adott dokumentumot slug alapján |
 
-Ezek az Aspire CLI 13.2-ben érkeznek ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Frissítéshez: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ezek az Aspire CLI 13.2-ben érkeznek ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Frissítéshez: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — Az MCP szerver integráció-keresést biztosít (`list_integrations`, `get_integration_docs`), de **nem** biztosít dokumentáció-keresést. Használj Context7-et:
 
 | Library ID | Használat |
 |---|---|
 | `/microsoft/aspire.dev` | Elsődleges — útmutatók, integrációk, CLI referencia, telepítés |
-| `/dotnet/aspire` | Futási idő forrás — API belső részei, megvalósítási részletek |
+| `/microsoft/aspire` | Futási idő forrás — API belső részei, megvalósítási részletek |
 | `/communitytoolkit/aspire` | Közösségi integrációk — Go, Java, Node.js, Ollama |
 
 ### VS Code — Használd a Context7-et

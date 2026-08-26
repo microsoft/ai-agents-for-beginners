@@ -29,7 +29,7 @@ Use `microsoft_docs_fetch` após a busca quando precisar de tutoriais completos,
 
 As seguintes categorias ficam **fora** do learn.microsoft.com. Use a ferramenta especificada em vez disso.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 A documentação do Aspire está em **aspire.dev**, não no Learn. A melhor ferramenta depende da sua versão do Aspire CLI:
 
@@ -41,14 +41,14 @@ A documentação do Aspire está em **aspire.dev**, não no Learn. A melhor ferr
 | `search_docs` | Busca lexical ponderada no conteúdo do aspire.dev |
 | `get_doc` | Recupera um documento específico pelo slug |
 
-Essas funcionalidades são entregues no Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Para atualizar: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Essas funcionalidades são entregues no Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Para atualizar: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — O servidor MCP fornece consulta de integrações (`list_integrations`, `get_integration_docs`) mas **não** busca na documentação. Recorrer ao Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Principal — guias, integrações, referência do CLI, implantação |
-| `/dotnet/aspire` | Fonte de runtime — internos da API, detalhes de implementação |
+| `/microsoft/aspire` | Fonte de runtime — internos da API, detalhes de implementação |
 | `/communitytoolkit/aspire` | Integrações da comunidade — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

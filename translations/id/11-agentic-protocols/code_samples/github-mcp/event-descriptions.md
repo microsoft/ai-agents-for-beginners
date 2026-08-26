@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service adalah perpaduan mulus antara layanan dan SDK ya
 
 ---
 
-## Nama Acara: Agen AI + .NET Aspire
+## Nama Acara: Agen AI + Aspire
 
 ## Deskripsi
 
-Dalam sesi ini kami akan berbagi beberapa perkembangan paling menarik di platform .NET mengenai Agen. Temukan status terkini .NET, termasuk fitur dan peningkatan barunya. Eksplorasi kemampuan Agen AI yang kuat. Dan kami akan melakukan pemrograman langsung dengan Agen dan .NET Aspire.
+Dalam sesi ini kami akan berbagi beberapa perkembangan paling menarik di platform .NET mengenai Agen. Temukan status terkini .NET, termasuk fitur dan peningkatan barunya. Eksplorasi kemampuan Agen AI yang kuat. Dan kami akan melakukan pemrograman langsung dengan Agen dan Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

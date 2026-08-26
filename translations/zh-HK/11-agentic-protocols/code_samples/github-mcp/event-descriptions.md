@@ -162,11 +162,11 @@ Microsoft Foundry 代理服務融合服務與 SDK，簡化開發強大 AI 解決
 
 ---
 
-## 活動名稱：AI 代理 + .NET Aspire
+## 活動名稱：AI 代理 + Aspire
 
 ## 活動描述
 
-在本節中，我們將分享 .NET 平台上關於代理的最新且最激動人心的發展。了解 .NET 的現況，包括其新功能與增強功能。探索強大的 AI 代理能力。我們也將實作一些代理及 .NET Aspire 的現場編碼示範。
+在本節中，我們將分享 .NET 平台上關於代理的最新且最激動人心的發展。了解 .NET 的現況，包括其新功能與增強功能。探索強大的 AI 代理能力。我們也將實作一些代理及 Aspire 的現場編碼示範。
 
 ## 連結
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service는 강력한 AI 기반 솔루션 개발을 간�
 
 ---
 
-## 이벤트 이름: AI 에이전트 + .NET Aspire
+## 이벤트 이름: AI 에이전트 + Aspire
 
 ## 설명
 
-이 세션에서는 에이전트 관련 .NET 플랫폼에서 가장 흥미로운 개발들을 공유합니다. 새로운 기능과 향상점 등 .NET의 현황을 발견하세요. 강력한 AI 에이전트 역량도 탐구하고, .NET Aspire와 함께 에이전트 라이브 코딩도 진행합니다.
+이 세션에서는 에이전트 관련 .NET 플랫폼에서 가장 흥미로운 개발들을 공유합니다. 새로운 기능과 향상점 등 .NET의 현황을 발견하세요. 강력한 AI 에이전트 역량도 탐구하고, Aspire와 함께 에이전트 라이브 코딩도 진행합니다.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

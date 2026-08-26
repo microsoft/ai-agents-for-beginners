@@ -29,7 +29,7 @@ Kasutage `microsoft_docs_fetch`-i pärast otsingut, kui vajate täielikke õpetu
 
 Järgnevate kategooriate dokumentatsioon asub **väljaspool** learn.microsoft.com-i. Kasutage selle asemel määratud tööriista.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire'i dokumendid asuvad **aspire.dev**-is, mitte Learn'is. Parim tööriist sõltub teie Aspire CLI versioonist:
 
@@ -41,14 +41,14 @@ Aspire'i dokumendid asuvad **aspire.dev**-is, mitte Learn'is. Parim tööriist s
 | `search_docs` | Kaalutud leksikaalne otsing aspire.dev sisu ulatuses |
 | `get_doc` | Toob konkreetse dokumendi slugi järgi |
 
-Need on kaasas Aspire CLI 13.2-s ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Uuendamiseks: `aspire update --self --channel daily`. Viide: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Need on kaasas Aspire CLI 13.2-s ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Uuendamiseks: `aspire update --self --channel daily`. Viide: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP server pakub integratsioonide otsimist (`list_integrations`, `get_integration_docs`), kuid ei paku dokumentide otsingut. Tuleks kasutada Context7-i:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Põhiline — juhendid, integratsioonid, CLI viide, juurutamine |
-| `/dotnet/aspire` | Käitusaja lähtekood — API sise-elemendid, teostuse üksikasjad |
+| `/microsoft/aspire` | Käitusaja lähtekood — API sise-elemendid, teostuse üksikasjad |
 | `/communitytoolkit/aspire` | Kogukonna integratsioonid — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

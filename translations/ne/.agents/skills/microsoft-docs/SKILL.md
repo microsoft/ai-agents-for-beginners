@@ -29,7 +29,7 @@ Microsoft प्रविधि इकोसिस्टमका लागि �
 
 तलका वर्गहरू **learn.microsoft.com भन्दा बाहिर** बस्छन्। साटोमा निर्दिष्ट उपकरण प्रयोग गर्नुहोस्।
 
-### .NET Aspire — Aspire MCP Server (सिफारिश गरिएको) वा Context7 प्रयोग गर्नुहोस्
+### Aspire — Aspire MCP Server (सिफारिश गरिएको) वा Context7 प्रयोग गर्नुहोस्
 
 Aspire दस्तावेजहरू **aspire.dev** मा बस्छन्, Learn मा होइन। उत्कृष्ट उपकरण तपाईंको Aspire CLI संस्करणमा निर्भर गर्दछ:
 
@@ -41,14 +41,14 @@ Aspire दस्तावेजहरू **aspire.dev** मा बस्छन�
 | `search_docs` | aspire.dev सामग्रीमा भारित लेक्सिकल खोज |
 | `get_doc` | एक विशिष्ट कागजात slug द्वारा प्राप्त गर्दछ |
 
-यी Aspire CLI 13.2 मा समावेश छन् ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). अपडेट गर्न: `aspire update --self --channel daily`. सन्दर्भ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+यी Aspire CLI 13.2 मा समावेश छन् ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). अपडेट गर्न: `aspire update --self --channel daily`. सन्दर्भ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP सर्वरले integration lookup (`list_integrations`, `get_integration_docs`) प्रदान गर्छ तर **not** docs search। Context7 मा फर्किनुहोस्:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Primary — guides, integrations, CLI reference, deployment |
-| `/dotnet/aspire` | Runtime source — API internals, implementation details |
+| `/microsoft/aspire` | Runtime source — API internals, implementation details |
 | `/communitytoolkit/aspire` | Community integrations — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 प्रयोग गर्नुहोस्

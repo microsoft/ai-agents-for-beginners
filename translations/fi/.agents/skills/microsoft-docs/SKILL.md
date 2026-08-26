@@ -29,7 +29,7 @@ Käytä `microsoft_docs_fetch`-työkalua haun jälkeen, kun tarvitset täydellis
 
 Seuraavat kategoriat sijaitsevat **sen ULKOPUOLELLA** learn.microsoft.com-sivustoa. Käytä sen sijaan määriteltyä työkalua.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire-dokumentaatio löytyy osoitteesta **aspire.dev**, ei Learnista. Paras työkalu riippuu Aspire CLI -versiostasi:
 
@@ -41,14 +41,14 @@ Aspire-dokumentaatio löytyy osoitteesta **aspire.dev**, ei Learnista. Paras ty�
 | `search_docs` | Painotettu leksikaalinen haku aspire.dev -sisällöstä |
 | `get_doc` | Hakee tietyn dokumentin slugin perusteella |
 
-Nämä sisältyvät Aspire CLI 13.2:een ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Päivitä: `aspire update --self --channel daily`. Viite: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Nämä sisältyvät Aspire CLI 13.2:een ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Päivitä: `aspire update --self --channel daily`. Viite: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP-palvelin tarjoaa integraatiohaun (`list_integrations`, `get_integration_docs`) mutta **ei** dokumentaation hakua. Palaa Context7:aan:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Ensisijainen — oppaat, integraatiot, CLI-viite, käyttöönotto |
-| `/dotnet/aspire` | Ajonaikainen lähdekoodi — API:n sisäiset osat, toteutusyksityiskohdat |
+| `/microsoft/aspire` | Ajonaikainen lähdekoodi — API:n sisäiset osat, toteutusyksityiskohdat |
 | `/communitytoolkit/aspire` | Yhteisön integraatiot — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

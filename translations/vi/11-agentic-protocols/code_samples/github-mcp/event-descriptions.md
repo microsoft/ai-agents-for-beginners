@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service là sự kết hợp liền mạch giữa dịch
 
 ---
 
-## Tên sự kiện: AI Agents + .NET Aspire
+## Tên sự kiện: AI Agents + Aspire
 
 ## Mô tả
 
-Trong buổi này chúng tôi sẽ chia sẻ một số phát triển thú vị nhất trên nền tảng .NET liên quan đến Agents. Tìm hiểu về tình trạng hiện tại của .NET, bao gồm các tính năng và cải tiến mới. Khám phá khả năng mạnh mẽ của AI Agent. Và chúng tôi sẽ có phần lập trình trực tiếp với Agents và .NET Aspire.
+Trong buổi này chúng tôi sẽ chia sẻ một số phát triển thú vị nhất trên nền tảng .NET liên quan đến Agents. Tìm hiểu về tình trạng hiện tại của .NET, bao gồm các tính năng và cải tiến mới. Khám phá khả năng mạnh mẽ của AI Agent. Và chúng tôi sẽ có phần lập trình trực tiếp với Agents và Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

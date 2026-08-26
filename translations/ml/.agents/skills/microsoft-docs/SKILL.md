@@ -29,7 +29,7 @@ learn.microsoft.com-上的 എല്ലാത്തിലുമുള്ളവ�
 
 താഴെ കൊടുത്തിരിക്കുന്ന വിഭാഗങ്ങൾ learn.microsoft.com-നു പുറത്താണ്. പകരം വ്യക്തമാക്കിയ ടൂൾ ഉപയോഗിക്കുക.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire ഡോക്യുമെന്റേഷൻ **aspire.dev**-യിൽ ആണ്, Learn-ൽ അല്ല. മികച്ച ടൂൾ നിങ്ങളുടെ Aspire CLI പതിപ്പിനെ ആശ്രയിച്ചിരിക്കുന്നു:
 
@@ -41,14 +41,14 @@ Aspire ഡോക്യുമെന്റേഷൻ **aspire.dev**-യിൽ ആ�
 | `search_docs` | aspire.dev ഉള്ളടക്കത്തിൽ ഭാരിത ലെക്സിക്കൽ തിരയൽ |
 | `get_doc` | slug ഉപയോഗിച്ച് ഒരു പ്രത്യേക ഡോക്യുമെന്റ് തിരികെയെടുക്കുന്നു |
 
-ഇവ Aspire CLI 13.2-ൽ ഉൾപ്പെടുത്തിയിട്ടുണ്ട് ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). അപ്ഡേറ്റ് ചെയ്യാൻ: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ഇവ Aspire CLI 13.2-ൽ ഉൾപ്പെടുത്തിയിട്ടുണ്ട് ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). അപ്ഡേറ്റ് ചെയ്യാൻ: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP സെർവർ ഇന്റഗ്രേഷൻ ലുക്കപ്പ് (`list_integrations`, `get_integration_docs`) നൽകുന്നു, പക്ഷേ ഡോക്കുകൾ തിരയൽ നൽകുന്നില്ല. ഈ സാഹചര്യത്തിൽ Context7-ലേക്ക് മടങ്ങുക:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Primary — മാർഗ്ഗനിർദ്ദേശങ്ങൾ, ഇന്റഗ്രേഷനുകൾ, CLI റഫറൻസ്, ഡിപ്ലോയ്മെന്റ് |
-| `/dotnet/aspire` | റൺടൈം സോഴ്‌സ് — API ഇന്റർണൽ, ഇംപ്ലിമെന്റേഷൻ വിശദാംശങ്ങൾ |
+| `/microsoft/aspire` | റൺടൈം സോഴ്‌സ് — API ഇന്റർണൽ, ഇംപ്ലിമെന്റേഷൻ വിശദാംശങ്ങൾ |
 | `/communitytoolkit/aspire` | കമ്മ്യൂണിറ്റി ഇന്റഗ്രേഷനുകൾ — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

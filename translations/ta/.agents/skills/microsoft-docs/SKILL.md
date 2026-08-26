@@ -30,7 +30,7 @@ Microsoft தொழில்நுட்ப சூழலுக்கான ஆ�
 
 பின்வரும் பிரிவுகள் **learn.microsoft.com இற்கு வெளியே** உள்ளன. பதிலுக்கு குறிப்பிடப்பட்ட கருவியைப் பயன்படுத்தவும்.
 
-### .NET Aspire — Aspire MCP Server (முன்னுரிமை) அல்லது Context7 ஐ பயன்படுத்தவும்
+### Aspire — Aspire MCP Server (முன்னுரிமை) அல்லது Context7 ஐ பயன்படுத்தவும்
 
 Aspire ஆவணங்கள் **aspire.dev** இல் பிரசுரிக்கப்படுகின்றன, Learn இல் அல்ல. சிறந்த கருவி உங்கள் Aspire CLI பதிப்பின் மீது பொருந்தும்:
 
@@ -42,14 +42,14 @@ Aspire ஆவணங்கள் **aspire.dev** இல் பிரசுரி�
 | `search_docs` | aspire.dev உள்ளடக்கத்தின் முழுவதும் எடைப்பட்ட எழுத்துத் தேடலைச் செய்கிறது |
 | `get_doc` | ஒரு குறிப்பிட்ட ஆவணத்தை slug மூலம் பெறுகிறது |
 
-இவை Aspire CLI 13.2 இல் அடங்கಿವೆ ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). புதுப்பிக்க: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+இவை Aspire CLI 13.2 இல் அடங்கಿವೆ ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). புதுப்பிக்க: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP சேவையகம் ஒருங்கிணைப்பு தேடலை (`list_integrations`, `get_integration_docs`) வழங்குகிறது ஆனால் docs தேடலை வழங்காது. Context7க்கு மறு வழியாக செல்லவும்:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | முதன்மை — வழிகாட்டிகள், ஒருங்கிணைப்புகள், CLI குறிப்பு, நிறுவல் |
-| `/dotnet/aspire` | ரன்டைம் மூலம் — API உள் அம்சங்கள், அமலாக்க விவரங்கள் |
+| `/microsoft/aspire` | ரன்டைம் மூலம் — API உள் அம்சங்கள், அமலாக்க விவரங்கள் |
 | `/communitytoolkit/aspire` | சமூக ஒருங்கிணைப்புகள் — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 பயன்படுத்தவும்

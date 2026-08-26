@@ -28,7 +28,7 @@ Use `microsoft_docs_fetch` after search when you need complete tutorials, all co
 
 The following categories live **outside** learn.microsoft.com. Use the specified tool instead.
 
-### .NET Aspire — 使用 Aspire MCP Server（建議）或 Context7
+### Aspire — 使用 Aspire MCP Server（建議）或 Context7
 
 Aspire 文件位於 **aspire.dev**，而非 Learn。最佳工具取決於你的 Aspire CLI 版本：
 
@@ -40,14 +40,14 @@ Aspire 文件位於 **aspire.dev**，而非 Learn。最佳工具取決於你的 
 | `search_docs` | 在 aspire.dev 內容中進行加權詞彙搜尋 |
 | `get_doc` | 以 slug 取得特定文件 |
 
-These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). To update: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). To update: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — The MCP server provides integration lookup (`list_integrations`, `get_integration_docs`) but **not** docs search. Fall back to Context7:
 
 | Library ID | 使用於 |
 |---|---|
 | `/microsoft/aspire.dev` | 主要 — 指南、整合、CLI 參考、部署 |
-| `/dotnet/aspire` | 執行時來源 — API 內部、實作細節 |
+| `/microsoft/aspire` | 執行時來源 — API 內部、實作細節 |
 | `/communitytoolkit/aspire` | 社群整合 — Go、Java、Node.js、Ollama |
 
 ### VS Code — 使用 Context7

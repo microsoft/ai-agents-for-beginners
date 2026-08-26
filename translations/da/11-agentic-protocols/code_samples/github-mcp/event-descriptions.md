@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service er en sømløs kombination af service og SDK, de
 
 ---
 
-## Begivenhedsnavn: AI-agenter + .NET Aspire
+## Begivenhedsnavn: AI-agenter + Aspire
 
 ## Beskrivelse
 
-I denne session vil vi dele nogle af de mest spændende udviklinger på .NET-platformen omkring agenter. Opdag den nuværende status for .NET, inklusive nye funktioner og forbedringer. Udforsk de kraftfulde AI-agent-muligheder. Og vi vil lave noget live kodning med agenter og .NET Aspire.
+I denne session vil vi dele nogle af de mest spændende udviklinger på .NET-platformen omkring agenter. Opdag den nuværende status for .NET, inklusive nye funktioner og forbedringer. Udforsk de kraftfulde AI-agent-muligheder. Og vi vil lave noget live kodning med agenter og Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

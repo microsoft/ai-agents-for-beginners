@@ -25,7 +25,7 @@ Microsoft ਤਕਨਾਲੋਜੀ ਇਕੋਸਿਸਟਮ ਲਈ ਰਿਸਰ�
 
 ਹੇਠਾਂ ਦਿੱਤੀਆਂ ਸ਼੍ਰੇਣੀਆਂ **learn.microsoft.com ਦੇ ਬਾਹਰ** ਰਹਿੰਦੀਆਂ ਹਨ। ਇਸ ਦੀ ਬਜਾਇ ਨਿਰਧਾਰਿਤ ਟੂਲ ਵਰਤੋ।
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire ਡੌਕਸ **aspire.dev** 'ਤੇ ਹੁੰਦੇ ਹਨ, Learn 'ਤੇ ਨਹੀਂ। ਸਭ ਤੋਂ ਵਧੀਆ ਟੂਲ ਤੁਹਾਡੇ Aspire CLI ਸੰਸਕਰਣ 'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ:
 
@@ -37,14 +37,14 @@ Aspire ਡੌਕਸ **aspire.dev** 'ਤੇ ਹੁੰਦੇ ਹਨ, Learn 'ਤੇ
 | `search_docs` | aspire.dev ਸਮੱਗਰੀ 'ਤੇ ਵਜ਼ਨੀ ਸ਼ਬਦਿਕ ਖੋਜ |
 | `get_doc` | ਇੱਕ ਖ਼ਾਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ slug ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ |
 
-ਇਹ Aspire CLI 13.2 ਨਾਲ ਸ਼ਿਪ ਹੁੰਦੇ ਹਨ ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ਅਪਡੇਟ ਕਰਨ ਲਈ: `aspire update --self --channel daily`. ਸੰਦਰਭ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ਇਹ Aspire CLI 13.2 ਨਾਲ ਸ਼ਿਪ ਹੁੰਦੇ ਹਨ ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). ਅਪਡੇਟ ਕਰਨ ਲਈ: `aspire update --self --channel daily`. ਸੰਦਰਭ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP ਸਰਵਰ ਇੰਟੀਗ੍ਰੇਸ਼ਨ ਲੁੱਕਅਪ (`list_integrations`, `get_integration_docs`) ਮੁਹੱਈਆ ਕਰਦਾ ਹੈ ਪਰ ਡੌਕਸ ਖੋਜ ਨਹੀਂ। Context7 ਨੂੰ ਵਰਤੋ:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | ਮੁੱਖ — ਗਾਈਡ, ਇੰਟੀਗ੍ਰੇਸ਼ਨ, CLI ਰੈਫਰੈਂਸ, ਡਿਪਲੋਇਮੈਂਟ |
-| `/dotnet/aspire` | ਰਨਟਾਈਮ ਸੋਰਸ — API ਅੰਦਰੂਨੀ ਹਿੱਸੇ, ਇੰਪਲੀਮੇੰਟੇਸ਼ਨ ਵੇਰਵੇ |
+| `/microsoft/aspire` | ਰਨਟਾਈਮ ਸੋਰਸ — API ਅੰਦਰੂਨੀ ਹਿੱਸੇ, ਇੰਪਲੀਮੇੰਟੇਸ਼ਨ ਵੇਰਵੇ |
 | `/communitytoolkit/aspire` | ਕਮਿਊਨਿਟੀ ਇੰਟੀਗ੍ਰੇਸ਼ਨ — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

@@ -29,7 +29,7 @@ Naudokite `microsoft_docs_fetch` po paieškos, kai reikia išsamių pamokų, vis
 
 Tolimesnės kategorijos yra **už** learn.microsoft.com ribų. Vietoj to naudokite nurodytą įrankį.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire dokumentacija yra **aspire.dev**, ne Learn. Geriausias įrankis priklauso nuo jūsų Aspire CLI versijos:
 
@@ -41,14 +41,14 @@ Aspire dokumentacija yra **aspire.dev**, ne Learn. Geriausias įrankis priklauso
 | `search_docs` | Svorinė leksinė paieška per aspire.dev turinį |
 | `get_doc` | Gauti konkretų dokumentą pagal slug'ą |
 
-Šios funkcijos pristatomos Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Norėdami atnaujinti: `aspire update --self --channel daily`. Nuoroda: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Šios funkcijos pristatomos Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Norėdami atnaujinti: `aspire update --self --channel daily`. Nuoroda: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP serveris suteikia integracijų paiešką (`list_integrations`, `get_integration_docs`), bet **ne** dokumentacijos paieškos. Grįžkite prie Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Pagrindinė — vadovai, integracijos, CLI referencija, diegimas |
-| `/dotnet/aspire` | Vykdymo šaltinis — API vidiniai elementai, įgyvendinimo detalės |
+| `/microsoft/aspire` | Vykdymo šaltinis — API vidiniai elementai, įgyvendinimo detalės |
 | `/communitytoolkit/aspire` | Bendruomenės integracijos — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7
