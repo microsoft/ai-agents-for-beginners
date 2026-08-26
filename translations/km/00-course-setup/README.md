@@ -2,63 +2,63 @@
 
 ## ការណែនាំ
 
-មេរៀននេះនឹងពិភាក្សាពីរបៀបដំណើរការឧទាហរណ៍កូដនៃវគ្គសិក្សានេះ។
+មេរៀននេះនឹងបណ្តុះបណទពីវិធីដើម្បីរត់កូដឧទាហរណ៍នៃវគ្គសិក្សានេះ។
 
-## ចូលរួមជាមួយអ្នករៀនផ្សេងទៀត និងទទួលបានជំនួយ
+## ចូលរួមជាមួយសិស្សផ្សេងទៀត ហើយទទួលបានជំនួយ
 
-មុនពេលអ្នកចាប់ផ្តើមបង្កើតច្បាប់ចម្លង repo របស់អ្នក សូមចូលរួមក្នុង [ប៉ុស្តិ៍ AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) ដើម្បីទទួលបានជំនួយណាមួយទាក់ទងនឹងការតំឡើង, សំណួរអំពីវគ្គសិក្សា, ឬដើម្បីភ្ជាប់ជាមួយអ្នករៀនផ្សេងទៀត។
+មុនពេលអ្នកចាប់ផ្តើមចម្លង repo របស់អ្នក សូមចូលរួមក្នុង [ប៉ុស្តិ៍ Discord របស់ AI Agents សម្រាប់អ្នកចាប់ផ្តើម](https://aka.ms/ai-agents/discord) ដើម្បីទទួលបានជំនួយណាមួយសម្រាប់ការតំឡើង សម្រាប់សំណួរណាមួយទាក់ទងនឹងវគ្គសិក្សា ឬសម្រាប់ភ្ជាប់ទៅអ្នកសិក្សាផ្សេងទៀត។
 
-## ចម្លងឬចុះបញ្ជី Fork Repo នេះ
+## ចម្លងឬ Fork repo នេះ
 
-ដើម្បីចាប់ផ្តើម សូមចម្លងឬ fork GitHub Repository។ នេះនឹងបង្កើតជំនាន់ផ្ទាល់ខ្លួនរបស់អ្នកនៃសម្ភារៈវគ្គសិក្សា ដើម្បីអោយអ្នកអាចដំណើរការ, សាកល្បង, និងកែប្រែកូដបាន!
+ដើម្បីចាប់ផ្តើម សូមចម្លងឬ fork GitHub Repository។ នេះនឹងបង្កើតជំនាន់ផ្ទាល់ខ្លួនរបស់អ្នកនៃសម្ភារៈវគ្គសិក្សា ដើម្បីអ្នកអាចរត់ បង្កើតតែមើល ជួសជុលកូដបាន!
 
-អ្នកអាចធ្វើបានដោយចុចលីងទៅ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repo</a>
+អ្នកអាចធ្វើការនេះដោយចុចតំណភ្ជាប់ទៅ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork repo</a>
 
-ឥឡូវនេះអ្នកគួរតែមានជំនាន់ fork ផ្ទាល់ខ្លួនរបស់វគ្គសិក្សានេះនៅលីងដូចខាងក្រោម៖
+ឥឡូវនេះអ្នកគួរតែមានជំនាន់ fork ផ្ទាល់ខ្លួននៃវគ្គសិក្សានៅតាមតំណភ្ជាប់ខាងក្រោម៖
 
 ![Forked Repo](../../../translated_images/km/forked-repo.33f27ca1901baa6a.webp)
 
-### ចម្លង Shallow (ផ្ដល់អនុសាសន៍សម្រាប់សិក្ខាសាលា / Codespaces)
+### រចនាសម្ព័ន shallow clone (ផ្ដល់អនុសាសន៍សម្រាប់វគ្គសិក្សា / Codespaces)
 
-  >Repository ពេញលេញអាចធំ (~3 GB) នៅពេលអ្នកទាញយកប្រវត្តិពេញលេញនិងឯកសារទាំងអស់។ ប្រសិនបើអ្នកតែចូលរួមសិក្ខាសាលា ឬត្រូវការត្រឹមតែមេរៀនខ្លះៗទេ ភាពចម្លង shallow (ឬ sparse clone) នឹងជៀសវាងការទាញយកភាគច្រើនដោយកាត់បន្ថយប្រវត្តិនិង/ឬបដិសេធ blobs។
+  > រក្សាទុកកន្លែង Repository ពេញលេញអាចធំ (~3 GB) នៅពេលអ្នកទាញយកប្រវត្តិពេញលេញនិងគ្រប់ឯកសារ។ ប្រសិនបើអ្នកត្រឹមតែកំពុងចូលរួមវគ្គសិក្សា ឬត្រឹមតែចង់បានថតមេរៀនមួយចំនួនប៉ុណ្ណោះ រចនាសម្ព័ន shallow clone (ឬ sparse clone) នឹងទាញយកតិចជាង។
 
-#### ចម្លង shallow លឿន — ប្រវត្តិទាបជាង គ្រប់ឯកសារ
+#### រចនាសម្ព័ន quick shallow clone — ប្រវត្តិអប្បបរមា, គ្រប់ឯកសារ
 
-ជំនួស `<your-username>` ក្នុងពាក្យបញ្ជានៅខាងក្រោមជាមួយ URL fork របស់អ្នក (ឬ URL upstream ប្រសិនបើអ្នកចូលចិត្ត)។
+ប្តូរ `<your-username>` ក្នុងពាក្យបញ្ជានៅខាងក្រោមជាមួយ URL fork របស់អ្នក (ឬ URL upstream ប្រសើរជាង ប្រសិនបើអ្នកចូលចិត្ត)។
 
-ដើម្បីចម្លងតែប្រវត្តិ commit ចុងក្រោយប៉ុណ្ណោះ (ទាញយកតិច):
+ដើម្បីចម្លងតែប្រវត្តិសកម្មថ្មីបំផុត (ទាញយកតិច):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-ដើម្បីចម្លងសាខាតែមួយច្បាស់លាស់:
+ដើម្បីចម្លងបង្អួចភាគច្រើន:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### ចម្លង​បង្រួម (sparse) — blobs ទាបបំផុត + ត្រឹមតែថតដែលបានជ្រើសរើស
+#### រចនាសម្ព័ន Partial (sparse) clone — ប្លចតិចបំផុត + ថតដែលបានជ្រើសរើសតែប៉ុណ្ណោះ
 
-វានៅត្រូវការចម្លងបង្រួម និង sparse-checkout (តម្រូវ Git 2.25+ និងផ្ដល់អនុសាសន៍ថ្មីសម្រាប់ Git មាន partial clone):
+នេះប្រើ partial clone និង sparse-checkout (ត្រូវការជំនាន់ Git 2.25+ និងផ្ដល់អនុសាសន៍ដល់ Git នាពេលបច្ចុប្បន្នដែលគាំទ្រ partial clone):
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
 ចូលទៅក្នុងថត repo:
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-បន្ទាប់មកបញ្ជាក់ថតដែលអ្នកចង់បាន (ឧទាហរណ៍ខាងក្រោមបង្ហាញពីពីរថត):
+បន្ទាប់មកបញ្ជាក់ថាតើអ្នកចង់បានថតណា (ឧទាហរណ៍ខាងក្រោមបង្ហាញថតពីរ):
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-បន្ទាប់ពីចម្លងនិងផ្ទៀងផ្ទាត់ឯកសារ ប្រសិនបើអ្នកត្រូវការតែឯកសារនិងចង់សំអាតកន្លែងទំនេរ (គ្មានប្រវត្តិ git) សូមលុបបណ្តាញទិន្នន័យ repo (💀 មិនអាចប្រតិបត្តិឡើងវិញ — អ្នកនឹងបាត់បង់មុខងារ Git ទាំងឡាយ៖ គ្មាន commit, pull, push ឬការចូលប្រវត្តិ)។
+បន្ទាប់ពីចម្លងនិងបញ្ជាក់ឯកសារ ប្រសិនបើអ្នកត្រឹមតែត្រូវការឯកសារ និងចង់ដកដេញកន្លែង (គ្មានប្រវត្តិក្នុង git) សូមលុប metadata repository (💀មិនអាចធ្វើឡើងវិញ — អ្នកនឹងបាត់បង់មុខងារ Git ទាំងអស់):
 
 ```bash
 # zsh/bash
@@ -70,41 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### ប្រើ GitHub Codespaces (ផ្ដល់អនុសាសន៍ដើម្បីជៀសវាងការទាញយកធំៗនៅក្នុងម៉ាស៊ីន)
+#### ការប្រើ GitHub Codespaces (ផ្ដល់អនុសាសន៍ដើម្បីជៀសវាងការទាញយកធំៗក្នុងម៉ាស៊ីនបន្ទាល់)
 
 - បង្កើត Codespace ថ្មីសម្រាប់ repo នេះតាមរយៈ [GitHub UI](https://github.com/codespaces)។  
 
-- នៅក្នុង terminal របស់ codespace ថ្មី បើកដំណើរការបញ្ជា shallow/sparse clone ខាងលើដើម្បីយកតែថតមេរៀនដែលអ្នកត្រូវការចូលទៅក្នុងបរិយាកាស Codespace។
-- ជម្រើសបន្ថែម៖ បន្ទាប់ពីចម្លងក្នុង Codespaces សូមដក .git ដើម្បីស្ដារកន្លែងបន្ថែម (មើលបញ្ជាដកចេញខាងលើ)។
-- សម្គាល់៖ ប្រសិនបើអ្នកចូលចិត្តបើក repo ដោយផ្ទាល់នៅក្នុង Codespaces (គ្មានការចម្លងបន្ថែម) សូមយល់ព្រមថា Codespaces នឹងរៀបចំបរិយាកាស devcontainer ហើយអាចនឹងពន្លឿនការផ្គត់ផ្គង់លើសត្រូវការដែរ។ ការ fork ចម្លង shallow ក្នុង Codespace ថ្មីផ្តល់ឱ្យអ្នកការត្រួតពិនិត្យល្អជាងការប្រើទំហំ hard disk។
+- ក្នុង Terminal របស់ codespace ថ្មីបង្កើត រ៉ាន់ពីរ shallow/sparse clone ពីលើដើម្បីយកតែថតមេរៀនដែលអ្នកត្រូវការចូល Codespace workspace។
+- ជាជម្រើស៖ បន្ទាប់ពីចម្លងក្នុង Codespaces លុប .git ដើម្បីទទួលបានកន្លែងបន្ថែម (មើលពាក្យបញ្ជាលុបខាងលើ)។
+- សម្គាល់៖ ប្រសិនបើអ្នកចូលចិត្តបើក repo ដោយផ្ទាល់ក្នុង Codespaces (ដោយមិនចម្លងបន្ថែម) សូមយល់ថា Codespaces នឹងបង្កើតបរិយាកាស devcontainer និងប្រហែលជានឹងផ្គត់ផ្គង់ច្រើនជាងអ្វីដែលអ្នកត្រូវការនោះទេ។
 
-#### យោបល់ជំនួយ
+#### ជំនួយ
 
-- តែងតែជំនួស URL ចម្លងជាមួយ fork របស់អ្នកប្រសិនបើចង់កែប្រែ/commit។
-- ប្រសិនបើអ្នកត្រូវការប្រវត្តិឬឯកសារបន្ថែមពេលក្រោយ អ្នកអាច fetch ឬកែ sparse-checkout ដើម្បីបញ្ចូលថតបន្ថែម។
+- តែងតែបម្លែង URL clone ជាមួយ fork របស់អ្នក ប្រសិនបើអ្នកចង់កែ/បញ្ជូនកូដ។
+- ប្រសិនបើអ្នកត្រូវការបន្ថែមប្រវត្តិ ឬឯកសារជាក្រោយ អ្នកអាច fetch យកពួកវា ឬកែ sparse-checkout ដើម្បីបញ្ចូលថតបន្ថែម។
 
-## ដំណើរការកូដ
+## រត់កូដ
 
-វគ្គសិក្សានេះផ្តល់អោយនូវ Jupyter Notebooks ដែលអ្នកអាចដំណើរការដើម្បីទទួលបទពិសោធន៍ដៃលើការបង្កើត AI Agents។
+វគ្គសិក្សានេះផ្ដល់ជាស៊េរី Jupyter Notebooks ដែលអ្នកអាចរត់បាន ដើម្បីទទួលបទពិសោធន៍ផ្ទាល់ខ្លួនក្នុងការសាងសង់ AI Agents។
 
-ឧទាហរណ៍កូដប្រើ **Microsoft Agent Framework (MAF)** ជាមួយ `FoundryChatClient` ដែលភ្ជាប់ទៅកាន់ **Microsoft Foundry Agent Service V2** (API Responses) តាមរយៈ **Microsoft Foundry**។
+កូដឧទាហរណ៍ប្រើ **Microsoft Agent Framework (MAF)** ជាមួយ `FoundryChatClient` ដែលភ្ជាប់ទៅ **Microsoft Foundry Agent Service V2** (Responses API) តាមរយៈ **Microsoft Foundry**។
 
 កំណត់ត្រា Python ទាំងអស់ត្រូវបានស្លាក `*-python-agent-framework.ipynb`។
 
 ## តម្រូវការ
 
 - Python 3.12+
-  - **សម្គាល់**៖ ប្រសិនអ្នកមិនមាន Python3.12 ត្រូវតែដំឡើងវា។ បន្ទាប់មកបង្កើត venv របស់អ្នកដោយប្រើ python3.12 ដើម្បីធានាថាចំំណែកត្រូវបានដំឡើងត្រឹមត្រូវពី requirements.txt។
+  - **សម្គាល់**៖ ប្រសិនបើអ្នកមិនមាន Python3.12 ដំឡើង សូមធ្វើការដំឡើង។ បន្ទាប់មក បង្កើត venv របស់អ្នកដោយប្រើ python3.12 ដើម្បីធានាថា កំណែត្រឹមត្រូវត្រូវបានដំឡើងពីឯកសារ requirements.txt។
   
     >ឧទាហរណ៍
 
-    បង្កើតថត Python venv:
+    បង្កើតថត Python venv៖
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
-    បន្ទាប់មកបើកបរិយាកាស venv សម្រាប់:
+    បន្ទាប់មកធ្វើអាជីវកម្មវេទិកានិង venv សំរាប់:
 
     ```bash
     # zsh/bash
@@ -116,84 +116,84 @@ Remove-Item -Recurse -Force .git
     venv\Scripts\activate
     ```
 
-- .NET 10+: សម្រាប់ឧទាហរណ៍កូដដែលប្រើ .NET សូមដំឡើង [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬថ្មីជាងនេះ។ បន្ទាប់មកពិនិត្យមើលកំណែ .NET SDK ដែលបានដំឡើងរបស់អ្នក។
+- .NET 10+: សម្រាប់កូដឧទាហរណ៍ដែលប្រើ .NET សុំធានាថាអ្នកបានដំឡើង [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬកាន់តែថ្មី។ បន្ទាប់មក ពិនិត្យកំណែ SDK .NET ដែលបានដំឡើងរបស់អ្នក៖
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — តម្រូវឲ្យមានសម្រាប់ការផ្ទៀងផ្ទាត់។ ដំឡើងពី [aka.ms/installazurecli](https://aka.ms/installazurecli)។
-- **Azure Subscription** — សម្រាប់ចូលដំណើរការទៅ Microsoft Foundry និង Microsoft Foundry Agent Service។
-- **Microsoft Foundry Project** — គម្រោងមួយដែលមានម៉ូដែលបានចុះបញ្ជី (ឧ. `gpt-5-mini`)។ មើល [ជំហានទី 1](#ជំហាន-1៖-បង្កើតគម្រោង-microsoft-foundry) ខាងក្រោម។
+- **Azure CLI** — តម្រូវសម្រាប់ការផ្ទៀងផ្ទាត់អត្តសញ្ញាណ។ ដំឡើងពី [aka.ms/installazurecli](https://aka.ms/installazurecli)។
+- **Azure Subscription** — សម្រាប់ការចូលដំណើរការទៅ Microsoft Foundry និង Microsoft Foundry Agent Service។
+- **Microsoft Foundry Project** — គម្រោងដែលមានម៉ូដែលបានដាប់ឡូយ (ឧទាហរណ៍ `gpt-5-mini`)។ មើល៖ [ជំហានទី 1](#ជំហានទី-1៖-បង្កើតគម្រោង-microsoft-foundry) ខាងក្រោម។
 
-យើងបានបញ្ចូលឯកសារ `requirements.txt` នៅឬកណ្តាល repo នេះដែលមាន កញ្ចប់ Python រួមទាំងអស់ដែលត្រូវការដើម្បីរត់ឧទាហរណ៍កូដ។
+យើងបានបញ្ចូលឯកសារ `requirements.txt` នៅក្នុងឫស repo នេះ ដែលមាន paquet Python ត្រូវតែប្រើដើម្បីរត់កូដឧទាហរណ៍ទាំងអស់។
 
-អ្នកអាចដំឡើងវាដោយបញ្ជារបញ្ជាដូចខាងក្រោមក្នុង terminal នៅឬកណ្តាល repo៖
+អ្នកអាចដំឡើងពួកវា ដោយរត់ពាក្យបញ្ជាខាងក្រោមក្នុង terminal របស់អ្នកនៅឫស repo៖
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-យើងផ្ដល់អនុសាសន៍បង្កើតបរិយាកាស Python virtual environment ដើម្បីជៀសវាងជំងឺផ្ទុះណាមួយនិងបញ្ហា។
+យើងផ្ដល់អនុសាសន៍បង្កើតបរិយាកាស Python virtual ដើម្បីជៀសវាងការជំរះ និងបញ្ហាផ្សេងៗ។
 
-## កំណត់ VSCode
+## តំឡើង VSCode
 
-ត្រូវប្រាកដថាអ្នកកំពុងប្រើកំណែ Python ត្រឹមត្រូវនៅក្នុង VSCode។
+ធានាថាអ្នកកំពុងប្រើកំណែ Python ត្រឹមត្រូវក្នុង VSCode។
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## កំណត់ Microsoft Foundry និង Microsoft Foundry Agent Service
+## តំឡើង Microsoft Foundry និង Microsoft Foundry Agent Service
 
-### ជំហាន 1៖ បង្កើតគម្រោង Microsoft Foundry
+### ជំហានទី 1៖ បង្កើតគម្រោង Microsoft Foundry
 
-អ្នកត្រូវការប្រព័ន្ធ Microsoft Foundry **hub** និង **project** ដែលមានម៉ូដែលបានចុះបញ្ជីដើម្បីរត់ notebooks។
+អ្នកត្រូវការ **hub** និង **គម្រោង** Microsoft Foundry ជាមួយម៉ូដែលបានដាប់ឡូយដើម្បីរត់ notebook។
 
 1. ចូលទៅ [ai.azure.com](https://ai.azure.com) ហើយចុះឈ្មោះជាមួយគណនី Azure របស់អ្នក។
-2. បង្កើត **hub** (ឬប្រើវាដែលមានរួចមកហើយ)។ មើល៖ [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)។
-3. ក្នុង hub បង្កើត **project**។
-4. ចុះបញ្ជីម៉ូដែល (ឧ. `gpt-5-mini`) ពី **Models + Endpoints** → **Deploy model**។
+2. បង្កើត **hub** (ឬប្រើ hub ដែលមានស្រាប់)។ មើលៈ [ផែនការដំណើរការ Hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)។
+3. នៅក្នុង hub សូមបង្កើត **គម្រោង**។
+4. ដាប់ឡូយម៉ូដែល (ឧទាហរណ៍ `gpt-5-mini`) ពី **Models + Endpoints** → **Deploy model**។
 
-### ជំហាន 2៖ យក Endpoint គំរូនិងឈ្មោះម៉ូដែលចុះបញ្ជីរបស់អ្នក
+### ជំហានទី 2៖ ទទួល URL Endpoint របស់គម្រោង និងឈ្មោះការដាប់ឡូយម៉ូដែលរបស់អ្នក
 
-ពីគម្រោងរបស់អ្នកក្នុង Microsoft Foundry portal៖
+ពីគម្រោងរបស់អ្នកនៅក្នុង Microsoft Foundry portal៖
 
-- **Project Endpoint** — ចូលទៅទំព័រ **Overview** ហើយចម្លង URL endpoint។
+- **Project Endpoint** — ចូលទៅទំព័រ **Overview** និងចម្លង URL endpoint។
 
 ![Project Connection String](../../../translated_images/km/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Model Deployment Name** — ចូលទៅ **Models + Endpoints** រើសម៉ូដែលដែលបានចុះបញ្ជី ហើយចំណាំឈ្មោះ **Deployment name** (ឧ. `gpt-5-mini`)។
+- **Model Deployment Name** — ចូលទៅ **Models + Endpoints**, ជ្រើសម៉ូដែលដែលបានដាប់ឡូយរបស់អ្នក ហើយចំណាំ **Deployment name** (ឧទាហរណ៍ `gpt-5-mini`)។
 
-### ជំហាន 3៖ ចូលតាម Azure ជាមួយ `az login`
+### ជំហានទី 3៖ ចុះឈ្មោះក្នុង Azure ជាមួយ `az login`
 
-កំណត់ត្រាគ្រប់ទាំង notebooks ប្រើ **`AzureCliCredential`** សម្រាប់ការផ្ទៀងផ្ទាត់ — គ្មាន key API ត្រូវគ្រប់គ្រងទេ។ នេះទាមទារឲ្យអ្នកចូលតាម Azure CLI។
+ខ្លឹមសារ notebook របស់ភាគច្រើន Authenticate តាមរយៈ **ការចុះឈ្មោះ Azure CLI** — ប្រើ `AzureCliCredential` ឬ `DefaultAzureCredential` (ទាំងពីរគឺយកសម័យ `az login` របស់អ្នក) ពី paquet `azure-identity` — ដូច្នេះពួកវាមិនត្រូវការ API keysទេ។ មេរៀនខ្លះ និងការចូលរួមជាជម្រើសប្រើ API keys; សូមពិនិត្យមើលលក្ខខណ្ឌមុននៃមេរៀនសម្រាប់អថេរផ្សេងទៀតនៅក្នុងបរិយាកាស។ នេះតម្រូវឱ្យអ្នកចុះឈ្មោះតាមរយៈ Azure CLI។
 
-1. **ដំឡើង Azure CLI** ប្រសិនបើអ្នកមិនទាន់មានៈ [aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. **ដំឡើង Azure CLI** ប្រសិនបើអ្នកមិនបានធ្វើ: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-2. **ចូល** ដោយបញ្ជារបញ្ជា:
+2. **ចុះឈ្មោះ** ដោយរត់ពាក្យបញ្ជា៖
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
-    ប្រសិនអ្នកនៅក្នុងបរិយាកាស remote/Codespace ដែលគ្មាន browser:
+    រឺប្រសិនបើអ្នកនៅក្នុងបរិយាកាស remote/Codespace ដោយគ្មាន browser៖
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
-3. **ជ្រើសរើស subscription** ប្រសិនបានស្នើ — ជ្រើសរើស subscription ដែលមានគម្រោង Foundry របស់អ្នក។
+3. **ជ្រើសរើស subscription** ប្រសិនបើបានទទួលសំណួរ — ជ្រើស subscription ដែលមានគម្រោង Foundry របស់អ្នក។
 
-4. **ផ្ទៀងផ្ទាត់** ថាអ្នកបានចូល។
+4. **ផ្ទៀងផ្ទាត់** អ្នកបានចុះឈ្មោះហើយ៖
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **ហេតុអ្វីគួរប្រើ `az login`?** notebooks ផ្ទៀងផ្ទាត់ដោយប្រើ `AzureCliCredential` ពី package `azure-identity`។ នេះមានន័យថា អង្គភាព Azure CLI របស់អ្នកផ្ដល់អត្តសញ្ញាណ — គ្មាន key API ឬសម្ងាត់នៅក្នុងឯកសារ `.env`។ នេះគឺជាលំនាំអនុវត្តល្អបំផុតក្នុងសន្តិសុខ។
+> **ហេតុអ្វីបានជា `az login`?** Notebook authenticate ដោយប្រើ `AzureCliCredential` (ឬ `DefaultAzureCredential` ដែលក៏យក session ចុះឈ្មោះ Azure CLI របស់អ្នក) ពី paquet `azure-identity`។ នេះមានន័យថា session Azure CLI របស់អ្នកផ្តល់ការផ្ទៀងផ្ទាត់អត្តសញ្ញាណ — មិនមាន API keys ឬសម្ងាត់ក្នុងឯកសារ `.env`។ នេះគឺជា [អនុវត្តដោយមានសុវត្ថិភាពខ្ពស់](https://learn.microsoft.com/azure/developer/ai/keyless-connections)។
 
-### ជំហាន 4៖ បង្កើតឯកសារ `.env` របស់អ្នក
+### ជំហានទី 4៖ បង្កើតឯកសារ `.env` របស់អ្នក
 
-ចម្លងឯកសារឧទាហរណ៍:
+ចម្លងឯកសារឧទាហរណ៍៖
 
 ```bash
 # zsh/bash
@@ -212,99 +212,121 @@ AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/proje
 AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
-| ប្លាក | កន្លែងរកឃើញ |
+| អថេរ | ទីកន្លែងរកបាន |
 |----------|-----------------|
-| `AZURE_AI_PROJECT_ENDPOINT` | កន្លែង Microsoft Foundry portal → គម្រោងរបស់អ្នក → ទំព័រ **Overview** |
-| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Microsoft Foundry portal → **Models + Endpoints** → ឈ្មោះម៉ូដែលដែលបានចុះបញ្ជី |
+| `AZURE_AI_PROJECT_ENDPOINT` | ផ្ទាំង Foundry → គម្រោងរបស់អ្នក → ទំព័រ **Overview** |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | ផ្ទាំង Foundry → **Models + Endpoints** → ឈ្មោះម៉ូដែលដែលបានដាប់ឡូយរបស់អ្នក |
 
-នេះគឺគ្រប់គ្រាន់សម្រាប់មេរៀនភាគច្រើន! notebooks នឹងផ្ទៀងផ្ទាត់ស្វ័យប្រវត្តិតាមរយៈសម័យ `az login` របស់អ្នក។
+នេះគឺគ្រប់គ្រងសម្រាប់តែប៉ុន្មានមេរៀនភាគច្រើន! Notebook នឹង Authenticate ដោយស្វ័យប្រវត្តិតាម `az login` session របស់អ្នក។
 
-### ជំហាន 5៖ តំឡើង Python Dependencies
+### ជំហានទី 5៖ ដំឡើងការពឹងផ្អែក Python
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-យើងផ្ដល់អនុសាសន៍ដំណើរការនេះនៅក្នុងបរិយាកាស virtual environment ដែលអ្នកបានបង្កើតមុននេះ។
+យើងផ្ដល់អនុសាសន៍ដើម្បីរត់វានៅក្នុងបរិយាកាស virtual ដែលអ្នកបានបង្កើតមុននេះ។
 
-## ការតំឡើងបន្ថែមសម្រាប់មេរៀនទី 5 (Agentic RAG)
+## ការតំឡើងជាជម្រើស៖ Azure AI Search (មេរៀន 5 និង 16)
 
-មេរៀន 5 ប្រើ **Azure AI Search** សម្រាប់ការបង្កើតតាមការស្វែងរកបន្ថែម។ ប្រសិនបើអ្នកមានគម្រោងដំណើរការមេរៀននោះ សូមបន្ថែមប្លាកទាំងនេះទៅឯកសារ `.env` របស់អ្នក៖
+មេរៀន 5 (Agentic RAG) និង Notebook មេរៀន 16 រត់បានភ្លាមៗជាមួយ **មូលដ្ឋានចំណេះដឹងនៅក្នុងหน่วยចងចាំ** — មិនតម្រូវឱ្យមានធនធាន Azure បន្ថែម។ ប្រសិនបើអ្នកចង់គាំទ្រពួកវាជាមួយរយៈពេលពិត **Azure AI Search** សូមចំណាំថា **Notebook មេរៀន 16 ប្រើការផ្ទៀងផ្ទាត់ដោយ key (key-based authentication)**៖ វាប្ដូរពីការស្វែងរកក្នុងหน่วยចងចាំទៅ Azure AI Search តែពេលដែលទាំងពីរ `AZURE_SEARCH_SERVICE_ENDPOINT` និង `AZURE_SEARCH_API_KEY` ត្រូវបានកំណត់ ហើយវានឹងនៅ​លើការស្វែងរកក្នុងหน่วยចងចាំប៉ុណ្ណោះ — ដូច្នេះដើម្បីរត់វាពីរប្រភេទពិត អ្នកត្រូវតែមើលថែ Admin Key ផងដែរ។ ការផ្ទៀងផ្ទាត់មិនប្រើ Key (keyless) ជាមួយ Microsoft Entra ID (RBAC) គឺជាវិធីសាស្រ្តដែលបានផ្តល់អនុសាសន៍សម្រាប់កូដផលិតកម្មផ្ទាល់ខ្លួនរបស់អ្នក ដែលស្របទៅនឹងប្រព័ន្ធ `az login` ដែលប្រើនៅកន្លែងផ្សេងទៀតក្នុងវគ្គសិក្សានេះ។
 
-| ប្លាក | កន្លែងរក |
+ជំហាន RBAC ខាងក្រោមអនុវត្តសម្រាប់គំរូមេនាំផ្ដល់មុខតាមរយៈការណែនាំ និងកូដផ្ទាល់ខ្លួនរបស់អ្នក។ មិនបើកការផ្ទៀងផ្ទាត់ keyless នៅក្នុង Notebook មេរៀន 16 ទេ; Notebook មេរៀន 16 នៅតែត្រូវការទាំង endpoint និង Admin key ដើម្បីប្រើ Azure AI Search។
+
+1. **បើកការចូលដំណើរការតាមតួនាទី** នៅលើសេវាកម្មស្វែងរករបស់អ្នក៖
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. **ផ្ដល់តួនាទីដែលត្រូវការ** សម្រាប់ខ្លួនអ្នក (បង្កើត/ទាញយក index និងសំណួរ):
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. **បន្ថែម endpoint** ទៅឯកសារ `.env` របស់អ្នក៖
+
+| អថេរ | ទីកន្លែងរកបាន |
 |----------|-----------------|
-| `AZURE_SEARCH_SERVICE_ENDPOINT` | នាយកដ្ឋាន Azure → អ្នក resource **Azure AI Search** → **Overview** → URL |
-| `AZURE_SEARCH_API_KEY` | នាយកដ្ឋាន Azure → អ្នក resource **Azure AI Search** → **Settings** → **Keys** → កូនសោគ្រប់គ្រងសំខាន់ |
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | ផ្ទាំង Azure → ធនធាន **Azure AI Search** របស់អ្នក → ទំព័រ **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | ត្រូវការ (ជាមួយ endpoint) ដើម្បីបើក Azure AI Search នៅក្នុង Notebook មេរៀន 16 ដែលប្រើ authentication ដោយ key។ ផ្ទាំង Azure → **Settings** → **Keys** → key អ្នកគ្រប់គ្រងសំខាន់ |
 
-## ការតំឡើងបន្ថែមសម្រាប់មេរៀនដែលហៅ Azure OpenAI ដោយផ្ទាល់ (មេរៀនទី 6 និង 8)
+> **ហេតុអ្វីបានជា បន្តិចមិនប្រើ Key?** Key អ្នកគ្រប់គ្រងផ្តល់សិទ្ធិការសរសេរ​ពេញលេញទៅសេវាដំណើរការ ស្របពេលដែលកំហុសក្នុង `.env` អាចបញ្ចេញ key ឡើង។ ជាមួយ RBAC អត្តសញ្ញាណ `az login` របស់អ្នកត្រូវបានប្រើជំនួស — គំរូពី Entra ID keyless ដូចដែល notebook នៅក្នុងវគ្គសិក្សា ប្រើ (តាមរយៈ `AzureCliCredential` / `DefaultAzureCredential`)។ មើល [ភ្ជាប់ទៅ Azure AI Search ដោយប្រើតួនាទី](https://learn.microsoft.com/azure/search/search-security-rbac)។
 
-គម្រោង notebooks ក្នុងមេរៀន 6 និង 8 ហៅ **Azure OpenAI** ដោយផ្ទាល់ (ប្រើ **Responses API**) ជំនួសមិនឲ្យឆ្លងកាត់គម្រោង Microsoft Foundry។ ឧទាហរណ៍នោះត្រូវបានប្រើក្រោយមក GitHub Models ដែលត្រូវបានលើកលែង (នឹងផុតកំណត់ត្រឡប់ខ្សែ ២០២៦ ខែកញ្ញា) ហើយមិនគាំទ្រ Responses API ទេ។ ប្រសិនបើអ្នកមានគម្រោងដំណើរការឧទាហរណ៍ទាំងនេះ សូមបន្ថែមប្លាកទាំងនេះទៅឯកសារ `.env` របស់អ្នក៖
+មើល [Azure AI Search មគ្គុទេសក៍តំឡើង](./AzureSearch.md) សម្រាប់គំរូបង្កើត index ពេញលេញក្នុង Python និង .NET។
 
-| ប្លាក | កន្លែងរក |
+## ការតំឡើងបន្ថែមសម្រាប់មេរៀនដែលហៅ Azure OpenAI ដោយផ្ទាល់ (មេរៀន 6 និង 8)
+
+notebook ខ្លះក្នុងមេរៀន 6 និង 8 ហៅ **Azure OpenAI** ដោយផ្ទាល់ (ប្រើ **Responses API**) មិនត្រូវបានបណ្តោះអាសន្នជាមួយគម្រោង Microsoft Foundry។ ឧទាហរណ៍ទាំងនេះបានប្រើ GitHub Models មុននេះ ដែលបានបាត់បង់ និងមិនគាំទ្រ Responses API ទេ។ បន្ថែមអថេរទាំងនេះទៅឯកសារ `.env` របស់អ្នក៖
+
+| អថេរ | ទីកន្លែងរកបាន |
 |----------|-----------------|
-| `AZURE_OPENAI_ENDPOINT` | នាយកដ្ឋាន Azure → អ្នក resource **Azure OpenAI** → **Keys and Endpoint** → Endpoint (ឧ. `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | ឈ្មោះម៉ូដែលដែលបានចុះបញ្ជី (ឧ. `gpt-5-mini`) ដែលគាំទ្រ Responses API |
-| `AZURE_OPENAI_API_KEY` | ជាចំណង់ចំណូល — តែបើអ្នកប្រើការផ្ទៀងផ្ទាត់ដោយ key ជំនួស `az login` / Entra ID |
+| `AZURE_OPENAI_ENDPOINT` | ផ្ទាំង Azure → ធនធាន **Azure OpenAI** របស់អ្នក → **Keys and Endpoint** → Endpoint (ឧទាហរណ៍ `https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | ឈ្មោះម៉ូដែលដែលបានដាប់ឡូយ (ឧទាហរណ៍ `gpt-5-mini`) ដែលគាំទ្រ Responses API |
+| `AZURE_OPENAI_API_KEY` | ជាជម្រើស — តែប៉ុណ្ណោះបើអ្នកប្រើ authentication ដោយ key មិនមែន `az login` / Entra ID |
 
-> Responses API ប្រើ stable endpoint `/openai/v1/` ដូច្នេះមិនចាំបាច់មាន `api-version` ទេ។ ចូលតាម `az login` ដើម្បីប្រើការផ្ទៀងផ្ទាត់ Entra ID ដោយគ្មាន key។
+> Responses API ប្រើ endpoint មានស្ថិរភាព `/openai/v1/` ដូច្នេះមិនត្រូវការប្រើ `api-version` មួយទេ។ ចុះឈ្មោះជាមួយ `az login` ដើម្បីប្រើ authentication keyless Entra ID។
 
-## អ្នកផ្គត់ផ្គង់ជំនួស៖ MiniMax (បង្កើតស្របទៅ OpenAI)
+## អ្នកផ្គត់ផ្គង់ជំនួស៖ MiniMax (គាំទ្រដូច OpenAI)
 
-[MiniMax](https://platform.minimaxi.com/) ផ្ដល់ម៉ូដែល context ធំ (រហូតដល់ 204K tokens) តាមរយៈ API ដែលស្របទៅ OpenAI។ ពីព្រោះ Microsoft Agent Framework `OpenAIChatClient` អាចប្រើជាមួយ endpoint ស្របទៅ OpenAI មួយណាក៏បាន អ្នកអាចប្រើ MiniMax ជាជំនួសត្រង់ទៅ Azure OpenAI ឬ OpenAI។
+[MiniMax](https://platform.minimaxi.com/) ផ្ដល់ម៉ូដែល context ធំ (រហូតដល់ 204K tokens) តាមរយៈ API ដែលគាំទ្រដូច OpenAI។ ពីព្រោះ Microsoft Agent Framework `OpenAIChatClient` អាចដំណើរការជាមួយ endpoint គាំទ្រដូច OpenAI អ្នកអាចប្រើ MiniMax ជាជំនួសដោយបញ្ចូលស្វ័យប្រវត្តិសម្រាប់មេរៀនដែលប្រើ `OpenAIChatClient`។
 
-បន្ថែមប្លាកទាំងនេះទៅក្នុងឯកសារ `.env` របស់អ្នក៖
+បន្ថែមអថេរទាំងនេះទៅឯកសារ `.env` របស់អ្នក៖
 
-| ប្លាក | កន្លែងរក |
+| អថេរ | ទីកន្លែងរកបាន |
 |----------|-----------------|
 | `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
 | `MINIMAX_BASE_URL` | ប្រើ `https://api.minimax.io/v1` (តម្លៃលំនាំដើម) |
-| `MINIMAX_MODEL_ID` | ឈ្មោះម៉ូដែលសម្រាប់ប្រើ (ឧ. `MiniMax-M3`) |
+| `MINIMAX_MODEL_ID` | ឈ្មោះម៉ូដែលដែលប្រើ (ឧទាហរណ៍ `MiniMax-M3`) |
 
-**ម៉ូដែលឧទាហរណ៍**៖ `MiniMax-M3` (ផ្តល់អនុសាសន៍), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (ឆ្លើយតបលឿនជាង)។ ឈ្មោះម៉ូដែល និងភាពរួមមានអាចផ្លាស់ប្ដូរតាមពេលវេលា ហើយការចូលដំណើរការម៉ូដែលមួយអាចអាស្រ័យលើគណនីឬតំបន់របស់អ្នក — សូមពិនិត្យ [MiniMax Platform](https://platform.minimaxi.com/) សម្រាប់បញ្ជីបច្ចុប្បន្ន។ បើ `MiniMax-M3` មិនអាចប្រើបាន សូមកំណត់ `MINIMAX_MODEL_ID` ទៅម៉ូដែលដែលអ្នកអាចចូលប្រើ (ឧ. `MiniMax-M2.7`)។
+**ម៉ូដែលឧទាហរណ៍**៖ `MiniMax-M3` (ផ្ដល់អនុសាសន៍), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (មានចម្លើយលឿនជាង)។ ឈ្មោះម៉ូដែលនិងភាពមានស្រាប់អាចផ្លាស់ប្តូរជាលំដាប់សម័យ ហើយការចូលដំណើរការម៉ូដែលណាមួយអាស្រ័យទៅលើគណនីរបស់អ្នក។
 
-ឧទាហរណ៍កូដដែលប្រើ `OpenAIChatClient` (ឧ. មេរៀន 14 លំហាត់ការកក់សណ្ឋាគារ) នឹងស្វ័យប្រវត្តិកំណត់ហើយប្រើកំណត់រចនាសម្ព័ន្ធ MiniMax របស់អ្នកពេល `MINIMAX_API_KEY` ត្រូវបានកំណត់។
+កូដឧទាហរណ៍ដែលប្រើ `OpenAIChatClient` (ឧទាហរណ៍ ដំណើរការការកក់សណ្ឋាគារមេរៀន ១៤) នឹងស្វ័យប្រវត្តិយល់ដឹង និងប្រើកំណត់រចនាសម្ព័ន MiniMax របស់អ្នកនៅពេលដែល `MINIMAX_API_KEY` ត្រូវបានកំណត់។
 
-## អ្នកផ្គត់ផ្គង់ជំនួស៖ Foundry Local (ដំណើរការម៉ូដែលលើឧបករណ៍)
 
-[Foundry Local](https://foundrylocal.ai) គឺជាកម្មវិធី runtime ទ្រទ្រង់ស្រាលដែលទាញយក គ្រប់គ្រង និងបម្រើម៉ូដែលភាសា **តែម្ដងនៅលើម៉ាស៊ីនរបស់អ្នកផ្ទាល់** តាមរយៈ API ស្របទៅ OpenAI — គ្មាន cloud, គ្មាន اشتراك Azure, ហើយគ្មាន key API។ វាជាជម្រើសល្អសម្រាប់ការអភិវឌ្ឍក្រៅបណ្តាញ សាកល្បងដោយគ្មានចំណាយ cloud, ឬរក្សាទិន្នន័យនៅលើឧបករណ៍។
+## កម្ម៉ងជំនួស: Foundry Local (រត់ម៉ូដែលលើឧបករណ៍)
 
-ពីព្រោះ Microsoft Agent Framework `OpenAIChatClient` អាចប្រើជាមួយ endpoint ស្របទៅ OpenAI ណាមួយបាន Foundry Local គឺជាជំនួសក្នុងស្រុកមួយសម្រាប់ Azure OpenAI។
+[Foundry Local](https://foundrylocal.ai) គឺជារត់ไทម៍ស្រាលដែលទាញយក គ្រប់គ្រង និងបម្រើម៉ូដែលភាសា **ដោយពេញលេញលើកុំព្យូទ័រប្រព័ន្ធរបស់អ្នក** តាមរយៈ API ដែលស្របតាម OpenAI — មិនចាំបាច់ប្រើពពក។
 
-**1. ដំឡើង Foundry Local**
+ពីព្រោះ `OpenAIChatClient` នៃ Microsoft Agent Framework អាចប្រើបានជាមួយកន្លែងបញ្ចប់ណាមួយដែលស្របតាម OpenAI បាន, Foundry Local គឺជាកម្ម៉ងជំនួសក្នុងក្នុងសម្រាប់ Azure OpenAI។
+
+**1. តម្លើង Foundry Local**
 
 ```bash
-# វីនដូว์
+# វីនដូوز
 winget install Microsoft.FoundryLocal
 
 # ម៉ាក់អូអេស
 brew install foundrylocal
 ```
 
-**2. ទាញយក ហើយរត់ម៉ូដែល** (វានៅចាប់ផ្តើមសេវាកម្មក្នុងស្រុកផងដែរ)៖
+**2. ទាញយក និងរត់ម៉ូដែល** (នេះក៏ជាចាប់ផ្តើមសេវាកម្មក្នុងក្នុងផងដែរ):
 
 ```bash
 foundry model list          # មើលម៉ូដែលដែលមានស្រាប់
 foundry model run phi-4-mini
 ```
 
-**3. ដំឡើង Python SDK** ដែលប្រើសម្រាប់រក endpoint ក្នុងស្រុក៖
+**3. តម្លើង Python SDK** ដែលប្រើសម្រាប់ស្វែងរកកន្លែងបញ្ចប់ក្នុងក្នុង:
 
 ```bash
 pip install foundry-local-sdk
 ```
 
-**4. ផ្ដោត Microsoft Agent Framework នឹងម៉ូដែលក្នុងស្រុករបស់អ្នក៖**
+**4. ចំរុះ Microsoft Agent Framework ទៅម៉ូដែលក្នុងក្នុងរបស់អ្នក:**
 
 ```python
 from foundry_local import FoundryLocalManager
 from agent_framework.openai import OpenAIChatClient
 
-# ទាញយក (បើត្រូវការ) ហើយបម្រើម៉ូដែលក្នុងតំបន់រួចបន្ទាប់មកស្វែងរកចំណុចចេញ/គ្រឿងចុច។
+# ទាញយក (បើចាំបាច់) និងបម្រើគំរូនៅក្នុងតំបន់មូលដ្ឋាន រួចស្វែងរកចំណុចបញ្ចប់/ការច្រក។
 manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
-    base_url=manager.endpoint,      # ឧទាហរណ៍ http://localhost:<port>/v1
-    api_key=manager.api_key,        # ទៅតែ "មិនទាមទារ" សម្រាប់ Foundry Local ផង​ពេលណា
+    base_url=manager.endpoint,      # ឧ. http://localhost:<port>/v1
+    api_key=manager.api_key,        # តែងតែ "មិនទាមទារ" សម្រាប់ Foundry Local
     model_id=manager.get_model_info("phi-4-mini").id,
 )
 
@@ -314,72 +336,71 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **សម្គាល់:** Foundry Local បង្ហាញ endpoint OpenAI-compatible **Chat Completions**។ ប្រើវាសម្រាប់អភិវឌ្ឍន៍ក្នុងស្រុក និងករណីក្រៅបណ្តាញ។ សម្រាប់មុខងារ **Responses API** ពេញលេញ (ការសន្ទនាស្ថិតស្ថេរ, រៀបចំឧបករណ៍ជ្រៅ, និងអភិវឌ្ឍអ្នកតំណាង), សូមកំណត់ត្រូវទៅ **Azure OpenAI** ឬគម្រោង **Microsoft Foundry** ដូចបានបង្ហាញនៅក្នុងមេរៀន។ សូមមើល [ឯកសាររបស់ Foundry Local](https://foundrylocal.ai) សម្រាប់បញ្ជីម៉ូដែលបច្ចុប្បន្ន និងការគាំទ្រផ្ល랫폼។
+> **បញ្ជាក់៖** Foundry Local បង្ហាញច្រក **Chat Completions** ដែលស្របតាម OpenAI។ ប្រើវាសម្រាប់ការអភិវឌ្ឍក្នុងក្នុង និងសេណារីយ៉ូក្រៅបណ្តាញ។ សម្រាប់មុខងារ **Responses API** ពេញលេញ (សន្ទនាទាន់សម័យ ល។។), ប្រើ Azure OpenAI ឬគម្រោង Microsoft Foundry។
 
-## ការតំឡើងបន្ថែមសម្រាប់មេរៀន 8 (កម្មវិធី Bing Grounding)
+## ការតម្លើងបន្ថែមសម្រាប់មេរៀន 8 (ដំណើរការ Bing Grounding)
 
+កំណត់ត្រាដំណើរការ ជាភាពលក្ខណៈក្នុងមេរៀន 8 ប្រើ **Bing grounding** តាម Microsoft Foundry។ ប្រសិនបើអ្នកមានគ្រោងរត់គំរូប៏នេះ សូមបន្ថែមអថេរ​នេះទៅឯកសារ `.env` របស់អ្នក៖
 
-សៀវភៅកំណត់ត្រាដំណើរការតាមលក្ខខណ្ឌនៅក្នុងមេរៀនទី 8 ប្រើ **Bing grounding** តាមរយៈ Microsoft Foundry។ ប្រសិនបើអ្នកមានគម្រោងធ្វើដំណើរការឧទាហរណ៍នោះ សូមបន្ថែមអថេរនេះទៅក្នុងឯកសារ `.env` របស់អ្នក៖
-
-| អថេរ | បណ្តឹងរកទីតាំង |
+| អថេរ | កន្លែងរកបាន |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | វេទិកា Microsoft Foundry → គម្រោងរបស់អ្នក → **Management** → **Connected resources** → ការតភ្ជាប់ Bing របស់អ្នក → ចម្លង ID ការតភ្ជាប់ |
+| `BING_CONNECTION_ID` | ច្រក Microsoft Foundry → គម្រោងរបស់អ្នក → **ការគ្រប់គ្រង** → **ឧបករណ៍ភ្ជាប់** → ការភ្ជាប់ Bing របស់អ្នក → ចម្លងលេខសម្គាល់នៃការភ្ជាប់ |
 
-## ការដោះស្រាយបញ្ហា
+## ការជួសជុលបញ្ហា
 
-### កំហុសផ្ទៀងផ្ទាត់លិខិតសញ្ញា SSL នៅលើ macOS
+### សេចក្ដីកំហុសវាយតម្លៃសិទ្ធិ SSL លើ macOS
 
-បើអ្នកប្រើ macOS ហើយជួបប្រទះកំហុសដូចជា៖
+ប្រសិនបើអ្នកប្រើ macOS ហើយឃើញកំហុសដូចជា៖
 
 ```plaintext
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-នេះជាបញ្ហាដែលបានគេដឹងជាមួយ Python នៅលើ macOS ដូចដែលលិខិតសញ្ញា SSL ប្រព័ន្ធមិនត្រូវបានទុកចិត្តដោយស្វ័យប្រវត្តិ។ សូមព្យាយាមដំណោះស្រាយខាងក្រោមតាមលំដាប់៖
+ព这是ជាបញ្ហាដែលគេស្គាល់ជាមួយ Python លើ macOS ដែលវិញ្ញាបនបត្រ SSL របស់ប្រព័ន្ធមិនត្រូវបានទុកចិត្តដោយស្វ័យប្រវត្តិ។ សូមសាកល្បងដំណោះស្រាយខាងក្រោមក្នុងលំដាប់៖
 
-**ជម្រើស 1៖ ដំណើរការស្ក្រីប Install Certificates របស់ Python (ផ្តល់អនុសាសន៍)**
+**ជម្រើស 1: រត់ស្គ្រីប Install Certificates របស់ Python (ផ្ដល់អនុសាសន៍)**
 
 ```bash
-# ជំនួស 3.XX ជាមួយនឹងកំណែ Python ដែលអ្នកបានដំឡើង (ឧ. 3.12 ឬ 3.13):
+# ជំនួស 3.XX ជាមួយកំណែ Python ដែលអ្នកបានដំឡើងរួច (ឧ. 3.12 ឬ 3.13):
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**ជម្រើស 2៖ ប្រើ `connection_verify=False` នៅក្នុងសៀវភៅកំណត់ត្រារបស់អ្នក (សម្រាប់សៀវភៅកំណត់ត្រា GitHub Models ប៉ុណ្ណោះ)**
+**ជម្រើស 2: ប្រើ `connection_verify=False` ក្នុងកំណត់ត្រារបស់អ្នក (សម្រាប់កំណត់ត្រា GitHub Models តែប៉ុណ្ណោះ)**
 
-នៅក្នុងសៀវភៅកំណត់ត្រាមេរៀនទី 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), មានការធ្វើបច្ចុប្បន្នភាពដោយមិនបង្ហាញសម្ងាត់ហើយ។ សូមដោះសោ `connection_verify=False` ពេលបង្កើត client៖
+នៅក្នុងកំណត់ត្រា មេរៀន 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), មានវិធីដោះស្រាយដែលបានមើលមិនចេញដោយបានធ្វើការcomment។ សូមដកcomment `connection_verify=False` ពេលដែលអ្នកជួបកំហុសវិញ្ញាបនបត្រ៖
 
 ```python
 client = ChatCompletionsClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(token),
-    connection_verify=False,  # បិទការត្រួតពិនិត្យ SSL ប្រសិនបើអ្នកប្រទះបញ្ហាការផ្ទៀងផ្ទាត់វិញ្ញាបនបត្រ
+    connection_verify=False,  # បិទការផ្ទៀងផ្ទាត់ SSL ប្រសិន​បើ​អ្នក​ជួប​កំហុសវិញ្ញាបនប័ត្រ
 )
 ```
 
-> **⚠️ សំគាល់៖** ការផ្អាកការផ្ទៀងផ្ទាត់ SSL (`connection_verify=False`) នាំឲ្យសុវត្ថិភាពកាន់តិចដោយផ្លាស់ប្ដូរដំណើរការផ្ទៀងផ្ទាត់លិខិតសញ្ញាដោយខ្លួនឯង។ សូមប្រើវាមិនលើសពីឱកាសបណ្ដោះអាសន្នក្នុងបរិយាកាសអភិវឌ្ឍន៍ទេ ហើយមិនត្រូវប្រើសម្រាប់ផលិតកម្មឡើយ។
+> **⚠️ ការព្រមានៈ** ធ្វើឲ្យត្រួតពិនិត្យ SSL មិនដំណើរការ (`connection_verify=False`) បន្ថយសុវត្ថិភាពដោយរំលងការបញ្ជាក់វិញ្ញាបនបត្រ។ ប្រើនូវនេះវាជាវិធីដោះស្រាយបណ្ដោះអាសន្នក្នុងបរិវេណអភិវឌ្ឍន៍ប៉ុណ្ណោះ។ កុំប្រើវានៅក្នុងផលិតកម្ម។
 
-**ជម្រើស 3៖ ตំឡើង និងប្រើ `truststore`**
+**ជម្រើស 3: តម្លើង និងប្រើ `truststore`**
 
 ```bash
 pip install truststore
 ```
 
-បន្ទាប់មកបន្ថែមអ្វីខាងក្រោមនៅលើបណ្តាសៀវភៅកំណត់ត្រារបស់អ្នក ឬ ស្ក្រីបជាមុនសិនមុនពេលធ្វើការហៅបណ្តាញណាមួយ៖
+រួចបន្ថែមខាងក្រោមនៅលើកំណត់ត្រារបស់អ្នក ឬស្គ្រីប មុនពេលមានការហៅបណ្តាញណាមួយ៖
 
 ```python
 import truststore
 truststore.inject_into_ssl()
 ```
 
-## ចាប់សោះនៅកន្លែងណាមួយ?
+## ភស្តុតាងធ្វើមិនបាន?
 
-ប្រសិនបើអ្នកមានបញ្ហារបស់ការបង្ហោះការដំឡើងនេះ សូមចូលរួមនៅ <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> ឬ <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">បង្កើតបញ្ហាតាមតំណ</a>។
+ប្រសិនបើអ្នកប្រឈមនឹងបញ្ហាណាមួយក្នុងការដំណើរការការតំឡើងនេះ សូមចូលរួមក្នុង <a href="https://discord.gg/kzRShWzttr" target="_blank">ក្រុម Azure AI Community Discord</a> ឬ <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">បង្កើតបញ្ហាឡើង</a>។
 
 ## មេរៀនបន្ទាប់
 
-ឥឡូវនេះអ្នករួចរាល់ក្នុងការប្រតិបត្តិកូដសម្រាប់វគ្គនេះ។ សូមសំណាងល្អក្នុងការស្វែងយល់បន្ថែមអំពីពិភពខ្លួន AI Agents!
+ឥឡូវនេះអ្នកបានត្រៀមខ្លួនរួចសម្រាប់រត់កូដសម្រាប់វគ្គសិក្សានេះ។ សូមសំណាងល្អក្នុងការសិក្សាបន្ថែមអំពីពិភពអ្នកទទួល AI!
 
-[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+[ភាពម៉ាស៊ីនសង្ខេបអំពី AI Agents និងករណីប្រើប្រាស់របស់ Agent](../01-intro-to-ai-agents/README.md)
 
 ---
 
