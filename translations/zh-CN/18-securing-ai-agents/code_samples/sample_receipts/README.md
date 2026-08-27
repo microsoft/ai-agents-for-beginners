@@ -1,22 +1,27 @@
-# 示例收据夹具
+# 示例收据固定文件
 
-三个预生成的收据文件，可在不运行笔记本的情况下进行检查。
+三个预生成的收据文件，用于检查而不运行笔记本。
 
-| 文件 | 内容说明 |
+| 文件 | 说明 |
 |---|---|
-| `01_valid_receipt.json` | 一个有效的签名收据，针对 `lookup_flights` 工具调用。验证结果为 True。 |
-| `02_tampered_receipt.json` | 同一收据，在签名后修改了一个字段。验证结果为 False。 |
-| `03_chain_three_receipts.json` | 三个有效收据的链（搜索、保留、预订），通过 `previous_receipt_hash` 将每个收据链接到前一个。 |
+| `01_valid_receipt.json` | 一个有效签名的 `lookup_flights` 工具调用收据。验证返回 True。 |
+| `02_tampered_receipt.json` | 同一收据在签名后修改了一个字段。验证返回 False。 |
+| `03_chain_three_receipts.json` | 三个有效收据的链（搜索，保留，预订），通过 `previous_receipt_hash` 连接每一个到前一个。 |
+
+这些固定文件直接用 Ed25519 签名负载的规范 JCS 字节。
+SHA-256 仍用于内容摘要和收据链链接，而不是签名前的额外预哈希。
+
 
 ## 验证示例
 
-笔记本分四部分讲解验证过程。要直接验证这些夹具文件而不运行笔记本叙述：
+笔记本分四部分演示验证步骤。若想直接验证这些固定文件而不执行笔记本内容：
+
 
 ```python
 import json
 from pathlib import Path
 
-# 假设您已经完成了导入和辅助函数的编写
+# 假设你已经完成了导入和辅助函数
 # 来自18-signed-receipts.ipynb的第1和第2部分。
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -30,23 +35,29 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## 这些文件是如何生成的
+## 这些文件的生成方法
 
-这些夹具使用与笔记本相同的代码路径，采用固定签名密钥和固定时间戳以实现字节级可复现。重新生成方法：
+这些固定文件使用与笔记本相同的代码路径，采用固定签名密钥
+和固定时间戳以保证字节复现性。重新生成方法：
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-（脚本位于本目录的 `generate_fixtures.py`。）
+（脚本位于本目录下的 `generate_fixtures.py` 文件。）
 
-## 学生从检查原始 JSON 中学到的内容
+## 学生通过检查原始 JSON 学到的内容
 
-阅读原始收据格式有助于建立直观认识，而这些认识在笔记本单元格中并不总是提供。快速浏览 JSON 的学生通常会注意到：
+阅读原始收据格式可以建立笔记本单元格中不总是显现的直觉。快速浏览 JSON 的学生通常注意到：
 
-1. 签名是一个不透明的 base64url 字符串，而其他字段都是纯可读的 JSON。签名不对内容加密；它是内容的证明。
-2. 收据中嵌入了 `public_key`。审核者无需其他东西即可验证（前提是信任该密钥确实属于声称的发行者；参考课程 README 中关于身份基础设施的部分）。
-3. 修改任何字段的单个字符，然后将该文件与 `02_tampered_receipt.json` 进行字节级比较，使机制更具体。
+
+   可读 JSON。签名不加密内容；它是内容的证明。
+2. `public_key` 嵌入在收据中。审计者无需其他信息即可验证（条件是相信该密钥确实属于声称的
+   发行者；有关身份基础设施，请参见课程 README）。
+3. 修改任何字段的单个字符，再与
+   `02_tampered_receipt.json` 比较，使字节级机制具体可感知。
+
+
 
 ---
 
