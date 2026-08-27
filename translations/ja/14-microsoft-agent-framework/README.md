@@ -1,56 +1,56 @@
-# Microsoft Agent Frameworkの探求
+# Microsoft Agent Framework の探求
 
 ![Agent Framework](../../../translated_images/ja/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### はじめに
 
-このレッスンでは以下について説明します：
+本レッスンでは以下を扱います：
 
-- Microsoft Agent Frameworkの理解：主な特徴と価値  
-- Microsoft Agent Frameworkの主要概念の探求
-- 高度なMAFパターン：ワークフロー、ミドルウェア、メモリ
+- Microsoft Agent Framework の理解：主な特徴と価値
+- Microsoft Agent Framework の主要な概念の探求
+- 高度な MAF パターン：ワークフロー、ミドルウェア、メモリ
 
 ## 学習目標
 
-このレッスンを終えると、以下ができるようになります：
+本レッスンを終了すると、次のことが分かるようになります：
 
-- Microsoft Agent Frameworkを使って本番環境対応のAIエージェントを構築する
-- Microsoft Agent Frameworkのコア機能をエージェント利用ケースに適用する
-- ワークフロー、ミドルウェア、可観測性を含む高度なパターンを使用する
+- Microsoft Agent Framework を使って本番対応可能な AI エージェントの構築
+- Microsoft Agent Framework のコア機能をエージェント用途に適用
+- ワークフロー、ミドルウェア、観測性を含む高度なパターンの利用
 
-## コードサンプル 
+## コードサンプル
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) のコードサンプルは、このリポジトリの `xx-python-agent-framework` と `xx-dotnet-agent-framework` ファイルで見つけることができます。
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) のコードサンプルは、本リポジトリの `xx-python-agent-framework` および `xx-dotnet-agent-framework` ファイルにあります。
 
-## Microsoft Agent Frameworkの理解
+## Microsoft Agent Framework の理解
 
 ![Framework Intro](../../../translated_images/ja/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) は、AIエージェントを構築するためのマイクロソフトの統合フレームワークです。これは、本番環境と研究環境の両方で見られる様々なエージェント利用ケースに対応できる柔軟性を提供します。例えば：
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) は Microsoft の統合された AI エージェント構築フレームワークです。生産環境や研究環境で見られるさまざまなエージェントケースに柔軟に対応します。以下のようなシナリオを含みます：
 
-- <strong>逐次的エージェントオーケストレーション</strong>：段階的なワークフローが必要なシナリオ。
-- <strong>並行オーケストレーション</strong>：エージェントが同時にタスクを完了する必要があるシナリオ。
-- <strong>グループチャットオーケストレーション</strong>：エージェントが一つのタスクに協力して取り組むシナリオ。
-- <strong>ハンドオフオーケストレーション</strong>：サブタスクが完了するごとにエージェントがタスクを引き継ぐシナリオ。
-- <strong>マグネティックオーケストレーション</strong>：マネージャーエージェントがタスクリストを作成・修正し、サブエージェントの調整を行うシナリオ。
+- <strong>逐次的なエージェントオーケストレーション</strong>：ステップバイステップのワークフローが必要な場合のシナリオ。
+- <strong>同時進行のオーケストレーション</strong>：複数エージェントが同時にタスクを完了すべき場合のシナリオ。
+- <strong>グループチャットオーケストレーション</strong>：エージェントが協働して一つのタスクに取り組む場合のシナリオ。
+- <strong>ハンドオフオーケストレーション</strong>：部分タスク完了に伴いエージェントがタスクを引き継ぐ場合のシナリオ。
+- <strong>マグネティックオーケストレーション</strong>：マネージャーエージェントがタスクリストを作成・変更し、サブエージェントの調整でタスクを完了させる場合のシナリオ。
 
-AIエージェントを本番環境で提供するために、MAFは以下の機能も備えています：
+本番での AI エージェント提供のために、MAF は以下の機能も組み込んでいます：
 
-- <strong>可観測性</strong>：OpenTelemetryを利用し、AIエージェントのすべてのアクション（ツール呼び出し、オーケストレーションステップ、推論の流れ、Microsoft Foundryのダッシュボードを通じたパフォーマンス監視）を追跡。
-- <strong>セキュリティ</strong>：Microsoft Foundryでエージェントをネイティブにホスティングし、役割ベースのアクセス、プライベートデータ処理、組み込みコンテンツ安全機能などのセキュリティ制御を提供。
-- <strong>耐久性</strong>：エージェントスレッドやワークフローを一時停止、再開、エラーから回復可能にし、長時間実行プロセスを可能に。
-- <strong>制御</strong>：人間が介在するワークフローをサポートし、承認を必要とするタスクをマーク可能。
+- <strong>観測性</strong>：OpenTelemetry を用いた監視で、ツール呼び出し、オーケストレーションのステップ、推論フロー、Microsoft Foundry ダッシュボードでのパフォーマンス監視が行えます。
+- <strong>セキュリティ</strong>：エージェントを Microsoft Foundry 上でネイティブにホストし、役割ベースアクセス、プライバシーデータ処理、組み込みのコンテンツセーフティなどのセキュリティ制御を提供。
+- <strong>耐障害性</strong>：エージェントスレッドやワークフローは一時停止や再開、エラー回復が可能で、長時間の処理が可能。
+- <strong>制御</strong>：人間の介入が必要なタスクを示し、ループ内人間ワークフローをサポート。
 
-Microsoft Agent Frameworkは、相互運用性にも注力しています：
+Microsoft Agent Framework は相互運用性にも注力しています：
 
-- <strong>クラウドに依存しない</strong> - エージェントはコンテナ、オンプレミス、複数のクラウドで動作可能。
-- <strong>プロバイダーに依存しない</strong> - Azure OpenAIやOpenAIなど、好みのSDKでエージェントを作成可能。
-- <strong>オープンスタンダードの統合</strong> - Agent-to-Agent(A2A)やModel Context Protocol（MCP）などのプロトコルを利用して他エージェントやツールを検出し利用可能。
-- <strong>プラグインとコネクタ</strong> - Microsoft Fabric、SharePoint、Pinecone、Qdrantなどのデータ・メモリサービスに接続可能。
+- <strong>クラウド非依存</strong>：エージェントはコンテナ上、オンプレミス、複数クラウド上で実行可能。
+- <strong>プロバイダー非依存</strong>：Azure OpenAI や OpenAI を含む好きな SDK でエージェントを作成可能。
+- <strong>オープン標準の統合</strong>：Agent-to-Agent (A2A) や Model Context Protocol (MCP) といったプロトコルを用いて他のエージェントやツールを発見・利用可能。
+- <strong>プラグインとコネクタ</strong>：Microsoft Fabric、SharePoint、Pinecone、Qdrant などのデータ・メモリサービスと接続可能。
 
-これらの機能がMicrosoft Agent Frameworkの主要概念にどのように適用されるかを見てみましょう。
+これらの特徴が Microsoft Agent Framework の主要コンセプトにどのように適用されるか見てみましょう。
 
-## Microsoft Agent Frameworkの主要概念
+## Microsoft Agent Framework の主要コンセプト
 
 ### エージェント
 
@@ -58,15 +58,14 @@ Microsoft Agent Frameworkは、相互運用性にも注力しています：
 
 <strong>エージェントの作成</strong>
 
-エージェントの作成は、推論サービス（LLMプロバイダー）、
-AIエージェントが従う命令セット、そして割り当てられた `name` を定義することで行います：
+エージェントの作成は、推論サービス（LLM プロバイダー）、AI エージェントが従う命令セット、および割り当てられた `name` を定義することで行います：
 
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-上記は `Azure OpenAI` を使用していますが、エージェントは `Microsoft Foundry Agent Service` を含むさまざまなサービスを使用して作成できます：
+上記は `Azure OpenAI` を使用していますが、エージェントは以下を含む様々なサービスで作成可能です：
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -82,13 +81,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-または大きなコンテキストウィンドウ（最大204Kトークン）を備えたOpenAI互換APIを提供する [MiniMax](https://platform.minimaxi.com/)：
+また [MiniMax](https://platform.minimaxi.com/) のような、大きなコンテキストウィンドウ（最大204Kトークン）に対応した OpenAI 互換APIもあります：
 
 ```python
 agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-または A2A プロトコルを利用したリモートエージェント：
+また A2A プロトコルを使ったリモートエージェントも可能です：
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -96,7 +95,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 <strong>エージェントの実行</strong>
 
-エージェントはストリーミング応答か非ストリーミング応答かに応じて、`.run` または `.run_stream` メソッドを使って実行されます。
+エージェントは `.run` または `.run_stream` メソッドを使い、非ストリーミングまたはストリーミング応答で実行します。
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -110,39 +109,39 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-各エージェントの実行には、エージェントが使用する `max_tokens`、エージェントが呼び出せる `tools`、さらにはエージェントに使われる `model` など、パラメータをカスタマイズするオプションを指定できます。
+各エージェント実行時には、`max_tokens` や `tools`、さらにはエージェントに使用する `model` 自体などのパラメーターをカスタマイズするオプションもあります。
 
-これは、ユーザーのタスクを完了するために特定のモデルやツールが必要な場合に便利です。
+これはユーザーのタスクを完了するために特定のモデルやツールが必要な場合に便利です。
 
 <strong>ツール</strong>
 
-ツールはエージェントを定義するときにも定義できます：
+ツールはエージェント定義時：
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
 
 
-# ChatAgentを直接作成するとき
+# ChatAgentを直接作成する場合
 
 agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
 
 ```
 
-また、エージェントを実行するときにも定義できます：
+またエージェント実行時にも定義可能です：
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # この実行専用のツールです )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # この実行のためだけに提供されたツール )
 ```
 
 <strong>エージェントスレッド</strong>
 
-エージェントスレッドはマルチターンの会話を処理するために使われます。スレッドは次のいずれかで作成できます：
+エージェントスレッドは複数ターンの会話を扱うために使います。スレッドの作成は以下の方法があります：
 
-- 時間をかけてスレッドを保存できる `get_new_thread()` を使う
-- エージェント実行時にスレッドを自動的に作成し、現在の実行中のみスレッドを持続させる
+- `get_new_thread()` を使いスレッドを長期間保存できるようにする
+- エージェント実行時に自動的にスレッドを作成し、その実行中のみスレッドが有効
 
-スレッドを作成するコードは次のようになります：
+スレッド作成のコード例は次の通りです：
 
 ```python
 # 新しいスレッドを作成します。
@@ -151,7 +150,7 @@ response = await agent.run("Hello, I am here to help you book travel. Where woul
 
 ```
 
-その後、スレッドをシリアライズして後で保存することができます：
+後で使用するためにスレッドをシリアライズして保存できます：
 
 ```python
 # 新しいスレッドを作成します。
@@ -172,13 +171,13 @@ resumed_thread = await agent.deserialize_thread(serialized_thread)
 
 <strong>エージェントミドルウェア</strong>
 
-エージェントはツールやLLMと連携してユーザーのタスクを完了します。特定のシナリオではこれらのやり取りの間に処理や追跡を行いたい場合があります。エージェントミドルウェアはこれを可能にします：
+エージェントはユーザーのタスクを完了するためにツールや LLM とやり取りします。特定の状況では、その間の実行や追跡を行いたいことがあります。エージェントミドルウェアにより、以下のことが可能です：
 
 <em>関数ミドルウェア</em>
 
-このミドルウェアはエージェントと呼び出す関数やツールの間で処理を実行します。たとえば、関数呼び出しのログを取りたい場合に使われます。
+このミドルウェアはエージェントと呼び出す関数/ツール間で処理を実行します。例えば関数呼び出し時のログ記録に使えます。
 
-下のコードで `next` は次のミドルウェアか実際の関数を呼ぶかを定義しています。
+下記のコードでは `next` が次のミドルウェアか実際の関数を呼ぶかを定義します。
 
 ```python
 async def logging_function_middleware(
@@ -186,21 +185,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # 前処理：関数実行前のログ
+    # 前処理：関数実行前にログを記録
     print(f"[Function] Calling {context.function.name}")
 
-    # 次のミドルウェアまたは関数実行へ続行
+    # 次のミドルウェアまたは関数実行へ継続
     await next(context)
 
-    # 後処理：関数実行後のログ
+    # 後処理：関数実行後にログを記録
     print(f"[Function] {context.function.name} completed")
 ```
 
 <em>チャットミドルウェア</em>
 
-このミドルウェアはエージェントとLLMとの間のリクエストに対して処理を実行したりログを取ったりします。
+このミドルウェアはエージェントと LLM 間のリクエスト間で処理やログ記録を行えます。
 
-ここにはAIサービスに送信される `messages` などの重要な情報が含まれています。
+ここには AI サービスに送る `messages` といった重要な情報が含まれます。
 
 ```python
 async def logging_chat_middleware(
@@ -211,7 +210,7 @@ async def logging_chat_middleware(
     # 前処理: AI呼び出し前のログ
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # 次のミドルウェアまたはAIサービスへ進む
+    # 次のミドルウェアまたはAIサービスに進む
     await next(context)
 
     # 後処理: AI応答後のログ
@@ -221,11 +220,11 @@ async def logging_chat_middleware(
 
 <strong>エージェントメモリ</strong>
 
-`Agentic Memory` レッスンでも説明したように、メモリはエージェントが異なるコンテキストで動作できるようにする重要な要素です。MAFは複数の種類のメモリを提供します：
+`Agentic Memory` レッスンで扱ったように、メモリはエージェントが異なるコンテキストで動作する上で重要な要素です。MAF は複数のメモリタイプを提供します：
 
 <em>インメモリストレージ</em>
 
-これはアプリケーションの実行時にスレッド内に保存されるメモリです。
+これはアプリのランタイム中にスレッド内に保存されるメモリです。
 
 ```python
 # 新しいスレッドを作成します。
@@ -235,7 +234,7 @@ response = await agent.run("Hello, I am here to help you book travel. Where woul
 
 <em>永続メッセージ</em>
 
-これは異なるセッション間で会話履歴を保存するのに使われます。`chat_message_store_factory` を使って定義されます：
+セッション間で会話履歴を保存するためのメモリです。`chat_message_store_factory` で定義されます：
 
 ```python
 from agent_framework import ChatMessageStore
@@ -254,12 +253,12 @@ agent = ChatAgent(
 
 <em>動的メモリ</em>
 
-これはエージェント実行前にコンテキストに追加されるメモリです。mem0などの外部サービスに保存可能です：
+これはエージェントの実行前にコンテキストに追加されるメモリです。mem0 のような外部サービスに保存されることもあります：
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# 高度なメモリ機能のためにMem0を使用する
+# 高度なメモリ機能のためにMem0を使用しています
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -274,10 +273,9 @@ agent = ChatAgent(
 
 ```
 
-<strong>エージェントの可観測性</strong>
+<strong>エージェントの観測性</strong>
 
-
-オブザーバビリティは信頼性が高くメンテナブルなエージェントシステムを構築するうえで重要です。MAFはOpenTelemetryと統合して、より良いオブザーバビリティのためのトレーシングやメーターを提供します。
+観測性は信頼性が高く保守性のあるエージェントシステム構築に重要です。MAF は OpenTelemetry と統合しトレースやメーターで観測性を向上させます。
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -293,21 +291,21 @@ counter.add(1, {"key": "value"})
 
 ### ワークフロー
 
-MAFは、タスクを完了するための事前定義されたステップであり、それらのステップの構成要素としてAIエージェントを含むワークフローを提供します。
+MAF は、タスクを完了するための事前定義されたステップであるワークフローを提供し、AI エージェントをコンポーネントとして組み込みます。
 
-ワークフローはさまざまなコンポーネントで構成されており、制御フローの改善を可能にします。ワークフローはまた、<strong>マルチエージェントオーケストレーション</strong>とワークフロー状態を保存する<strong>チェックポイント</strong>も可能にします。
+ワークフローは異なるコンポーネントで構成され、より良い制御フローを実現します。また、<strong>マルチエージェントオーケストレーション</strong>やワークフローステートを保存するための<strong>チェックポイント</strong>を可能にします。
 
-ワークフローの主要なコンポーネントは次のとおりです：
+ワークフローの主要コンポーネントは以下です：
 
-<strong>エグゼキューター</strong>
+**実行者（Executors）**
 
-エグゼキューターは入力メッセージを受け取り、割り当てられたタスクを実行し、出力メッセージを生成します。これによりワークフローはより大きなタスクの完了に向かって進みます。エグゼキューターはAIエージェントまたはカスタムロジックのいずれかです。
+実行者は入力メッセージを受け取り、割り当てられたタスクを実行し、出力メッセージを生成します。これによりワークフローは大きなタスクの完了に向かって進行します。実行者は AI エージェントまたはカスタムロジックのいずれかです。
 
-<strong>エッジ</strong>
+**エッジ（Edges）**
 
-エッジはワークフロー内のメッセージの流れを定義するために使用されます。次のようなものがあります：
+エッジはワークフロー内のメッセージの流れを定義します。これには以下があります：
 
-<em>ダイレクトエッジ</em> - エグゼキューター間の単純な一対一の接続：
+<em>直接エッジ</em> - 実行者間の単純な一対一接続：
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -318,67 +316,67 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-<em>条件付きエッジ</em> - 特定の条件が満たされた後に有効になるもの。例えば、ホテルの部屋が利用できない場合、エグゼキューターは他のオプションを提案できます。
+<em>条件付きエッジ</em> - 一定条件が満たされた場合にアクティブ化。例：ホテルの部屋が利用不可の場合、実行者が他の選択肢を示唆。
 
-<em>スイッチケースエッジ</em> - 定義された条件に基づいてメッセージを異なるエグゼキューターにルーティングします。例えば、旅行顧客に優先アクセスがある場合、そのタスクは別のワークフローで処理されます。
+<em>スイッチケースエッジ</em> - 定義条件に基づいてメッセージを異なる実行者に振り分け。例：優先アクセスのある旅行客のタスクは別のワークフローで処理。
 
-<em>ファンアウトエッジ</em> - 1つのメッセージを複数のターゲットに送信します。
+<em>ファンアウトエッジ</em> - 一つのメッセージを複数のターゲットに送信。
 
-<em>ファンインエッジ</em> - 複数のエグゼキューターからのメッセージを収集して1つのターゲットに送信します。
+<em>ファンインエッジ</em> - 複数の実行者からのメッセージを一つのターゲットに集約。
 
 <strong>イベント</strong>
 
-ワークフローのオブザーバビリティを改善するために、MAFは実行に関する組み込みイベントを提供します：
+ワークフローの観測性向上のため、MAF は実行中の組み込みイベントを提供します：
 
-- `WorkflowStartedEvent`  - ワークフローの実行開始
+- `WorkflowStartedEvent` - ワークフロー実行開始
 - `WorkflowOutputEvent` - ワークフローが出力を生成
 - `WorkflowErrorEvent` - ワークフローがエラーに遭遇
-- `ExecutorInvokeEvent`  - エグゼキューターが処理を開始
-- `ExecutorCompleteEvent`  - エグゼキューターが処理を完了
-- `RequestInfoEvent` - リクエストが発行される
+- `ExecutorInvokeEvent` - 実行者の処理開始
+- `ExecutorCompleteEvent` - 実行者の処理完了
+- `RequestInfoEvent` - リクエスト発行
 
-## 高度なMAFパターン
+## 高度な MAF パターン
 
-上記のセクションはMicrosoft Agent Frameworkの基本概念をカバーしています。より複雑なエージェントを構築する際に考慮すべき高度なパターンは以下の通りです：
+上記は Microsoft Agent Framework の主要コンセプトをカバーしました。より複雑なエージェントを構築する際に検討すべき高度なパターンは以下の通りです：
 
-- <strong>ミドルウェアの合成</strong>：エージェントの動作を細かく制御するために、関数とチャットミドルウェアを使って複数のミドルウェアハンドラー（ロギング、認証、レート制限）を連鎖させます。
-- <strong>ワークフローチェックポイント</strong>：ワークフローイベントとシリアル化を利用して、長時間実行されるエージェントプロセスを保存し、再開します。
-- <strong>動的ツール選択</strong>：ツールの説明に対するRAGとMAFのツール登録を組み合わせて、クエリごとに関連するツールのみを提示します。
-- <strong>マルチエージェントの引き継ぎ</strong>：ワークフローのエッジと条件付きルーティングを使って、専門エージェント間の引き継ぎをオーケストレーションします。
+- <strong>ミドルウェアの合成</strong>：複数のミドルウェアハンドラー（ログ、認証、レート制限）を関数とチャットミドルウェアで連鎖し、エージェントの動作を細かく制御。
+- <strong>ワークフローチェックポイント</strong>：ワークフローイベントとシリアル化を活用し、長時間のエージェント処理を保存・再開。
+- <strong>動的なツール選択</strong>：ツール説明に基づく RAG と MAF のツール登録を組み合わせ、クエリごとに関連ツールのみを提示。
+- <strong>マルチエージェントハンドオフ</strong>：ワークフローのエッジと条件付きルーティングを使い、専門化されたエージェント間のタスク引継ぎをオーケストレーション。
 
-## Microsoft FoundryでのLangChain / LangGraphエージェントのホスティング
+## Microsoft Foundry での LangChain / LangGraph エージェントのホスティング
 
-Microsoft Agent Frameworkは<strong>フレームワーク間の相互運用性</strong>があり、MAFで書かれたエージェントに限定されません。すでに<strong>LangChain</strong>または<strong>LangGraph</strong>で構築されたエージェントをお持ちの場合、それを<strong>Microsoft Foundryホストエージェント</strong>として実行可能であり、Foundryがランタイム、セッション、スケーリング、ID管理、プロトコルエンドポイントを管理する一方で、エージェントのロジックはLangGraphに維持されます。
+Microsoft Agent Framework は <strong>フレームワーク間の互換性</strong>を持ち、MAF で書かれたエージェントに限定されません。既に **LangChain** や **LangGraph** で構築したエージェントがある場合、<strong>Microsoft Foundry ホストエージェント</strong>として実行し、Foundry がランタイム、セッション、スケーリング、ID、プロトコルエンドポイントを管理しつつ、エージェントのロジックは LangGraph 内に保持できます。
 
-これは`langchain_azure_ai.agents.hosting`パッケージを使用して実現されており、Foundryホストエージェントが使用するのと同じプロトコルでコンパイル済みのLangGraphグラフを公開します。
+これは `langchain_azure_ai.agents.hosting` パッケージを使用し、Foundry ホストエージェントと同じプロトコルでコンパイル済の LangGraph グラフを公開します。
 
-**1. ホスティング用のエクストラをインストールします：**
+**1. ホスティングのエクストラをインストール：**
 
 ```bash
 pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
 
-`hosting`エクストラはFoundryプロトコルライブラリをインストールします：`azure-ai-agentserver-responses`（OpenAI互換の`/responses`エンドポイント）と`azure-ai-agentserver-invocations`（汎用の`/invocations`エンドポイント）。
+`hosting` エクストラは Foundry プロトコルライブラリである `azure-ai-agentserver-responses`（OpenAI 互換の `/responses` エンドポイント）と `azure-ai-agentserver-invocations`（汎用 `/invocations` エンドポイント）をインストールします。
 
-**2. ホスティングプロトコルを選択します：**
+**2. ホスティングプロトコルの選択：**
 
-| プロトコル | ホストクラス | エンドポイント | 使用する状況 |
+| プロトコル | ホストクラス | エンドポイント | 利用時 |
 |----------|-----------|----------|----------|
-| **Responses** | `ResponsesHostServer` | `/responses` | OpenAI互換のチャット、ストリーミング、応答履歴、会話スレッドを利用したい場合 — 会話型エージェントに推奨されるデフォルトです。 |
-| **Invocations** | `InvocationsHostServer` | `/invocations` | カスタムJSON形式やWebhookスタイルのエンドポイント、または非会話型処理が必要な場合。 |
+| **Responses** | `ResponsesHostServer` | `/responses` | OpenAI互換チャット、ストリーミング、応答履歴、会話スレッドを使いたい場合に推奨のデフォルト。 |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | カスタムJSON形式やWebhookスタイルのエンドポイント、非会話処理が必要な場合。 |
 
-Foundryにおけるエージェント開発の主なAPIは<strong>Responses API</strong>であるため、ほとんどのエージェントは`ResponsesHostServer`から始めてください。
+**Responses API は Foundry におけるエージェント開発の主要APIであるため**、ほとんどのエージェントは `ResponsesHostServer` から始めることを推奨します。
 
-**3. 環境変数を設定します**（`az login`を先にして`DefaultAzureCredential`が認証できるようにします）：
+**3. 環境変数を設定** (`az login` を先に行い `DefaultAzureCredential` が認証できるようにします)：
 
 ```bash
 export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
 export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
 
-後でエージェントがFoundryでホストエージェントとして実行される際には、プラットフォームが自動的に`FOUNDRY_PROJECT_ENDPOINT`を注入します。
+後ほどエージェントを Foundry でホストエージェントとして実行するとき、プラットフォームが自動的に `FOUNDRY_PROJECT_ENDPOINT` を注入します。
 
-**4. LangGraphエージェントをResponsesプロトコルで公開する：**
+**4. Responses プロトコルで LangGraph エージェントを公開：**
 
 ```python
 import os
@@ -400,7 +398,7 @@ def build_chat_model() -> ChatOpenAI:
     openai_client = project.get_openai_client()
     token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
 
-    # ChatOpenAI ここでは Foundry プロジェクトの OpenAI 互換（Responses）エンドポイントを対象としています。
+    # ChatOpenAIはFoundryプロジェクトのOpenAI互換（Responses）エンドポイントをターゲットにしています。
     return ChatOpenAI(
         model=deployment,
         base_url=str(openai_client.base_url),
@@ -418,30 +416,30 @@ if __name__ == "__main__":
     main()
 ```
 
-ローカルで`python main.py`で実行し、`http://localhost:8088/responses`にResponsesリクエストを送信します。
+ローカルで `python main.py` で実行し、`http://localhost:8088/responses` に Responses リクエストを送信します。
 
-**主な動作：**
+**主な動作ポイント：**
 
-- <strong>会話の継続</strong>: クライアントは`previous_response_id`または`conversation` IDを渡すことで会話を継続します。グラフがLangGraphのチェックポインターでコンパイルされている場合、Foundryは会話状態をチェックポイントに関連付けます（本番環境では耐久性のあるチェックポインターを使用し、ローカルテストには`MemorySaver`で十分です）。
-- <strong>ヒューマンインザループ</strong>: グラフがLangGraphの`interrupt()`を使用している場合、`ResponsesHostServer`は保留中の割り込みをResponsesの`function_call` / `mcp_approval_request`アイテムとして表面化し、クライアントは対応する`function_call_output` / `mcp_approval_response`で再開します。
-- **Foundryへのデプロイ**: Azure Developer CLIを使用します— `azd ext install azure.ai.agents`、`azd ai agent init -m <manifest>`、`azd ai agent run`（ローカル、Docker必須）、その後`azd provision`および`azd deploy`。ホストエージェントのデプロイには<strong>Foundry Project Manager</strong>ロールが必要です。
+- <strong>会話</strong>：クライアントは `previous_response_id` または `conversation` ID を渡して会話を継続します。グラフが LangGraph チェックポインターでコンパイルされていれば、Foundry は会話状態をチェックポイントに紐付けます（本番では耐久性あるチェックポインターの使用を推奨。ローカル検証では `MemorySaver` も可）。
+- <strong>人間の介入ループ</strong>：グラフが LangGraph の `interrupt()` を使うと、`ResponsesHostServer` は保留中の割り込みを Responses の `function_call` / `mcp_approval_request` 項目として表現し、クライアントは対応する `function_call_output` / `mcp_approval_response` で再開します。
+- **Foundry へのデプロイ**：Azure Developer CLI を使用します。`azd ext install azure.ai.agents`、`azd ai agent init -m <manifest>`、`azd ai agent run`（ローカル、Docker 必須）、続いて `azd provision` と `azd deploy`。ホストエージェントのデプロイには **Foundry Project Manager** ロールが必要です。
 
-この例は[code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py)に実際に動作するバージョンがあります。完全な手順（Invocationsプロトコル、カスタムリクエストスキーマ、トラブルシューティング）については[Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents)をご覧ください。
+この例の実行可能版は [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) にあります。詳細な手順（Invocations プロトコル、カスタムリクエストスキーマ、トラブルシューティング）は [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) をご参照ください。
 
-## コードサンプル 
+## コードサンプル
 
-Microsoft Agent Frameworkのコードサンプルはこのリポジトリの`xx-python-agent-framework`と`xx-dotnet-agent-framework`のファイルで見つけられます。
+Microsoft Agent Framework のコードサンプルは、本リポジトリの `xx-python-agent-framework` と `xx-dotnet-agent-framework` ファイルにあります。
 
-## Microsoft Agent Frameworkについてさらに質問がありますか？
+## Microsoft Agent Framework に関するさらに質問がありますか？
 
-他の学習者と交流し、オフィスアワーに参加し、AIエージェントの質問に答えてもらうには[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)に参加してください。
+他の学習者と交流し、オフィスアワーに参加し、AI エージェントに関する質問に対する回答を得るには [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) にご参加ください。
 ## 前のレッスン
 
-[AIエージェントのメモリ](../13-agent-memory/README.md)
+[AI エージェントのメモリ](../13-agent-memory/README.md)
 
 ## 次のレッスン
 
-[コンピュータ利用エージェント（CUA）の構築](../15-browser-use/README.md)
+[コンピュータ使用エージェント構築 (CUA)](../15-browser-use/README.md)
 
 ---
 
