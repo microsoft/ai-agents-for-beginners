@@ -1,140 +1,140 @@
-# Masto keičiamų agentų diegimas su Microsoft Foundry
+# Mastelio agentų diegimas su Microsoft Foundry
 
-![Masto keičiamų agentų diegimas](../../../translated_images/lt/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Mastelio agentų diegimas](../../../translated_images/lt/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Iki šiol šiame kurse jūs sukūrėte agentus, kurie veikia jūsų nešiojamajame kompiuteryje, užrašų knygelėje, valdomi per `az login` ir keletą aplinkos kintamųjų. Tai būtent tinkamas būdas mokytis. Tačiau tai nėra tinkamas būdas paleisti agentą, nuo kurio 3 val. nakties priklauso tūkstančiai klientų.
+Iki šiol kurse sukūrėte agentus, kurie veikia jūsų nešiojamajame kompiuteryje, užrašų knygelėje, valdoma `az login` ir kelių aplinkos kintamųjų. Tai būtent teisingas būdas mokytis. Tačiau tai nėra tinkamas būdas paleisti agentą, nuo kurio priklauso tūkstančiai klientų 3 val. nakties.
 
-Ši pamoka yra apie skirtumą tarp "veikia mano kompiuteryje" ir "veikia patikimai ir ekonomiškai gamyboje." Tą skirtumą užtverdami naudodami **Microsoft Foundry** ir **Microsoft Foundry Agent Service**. Mes tai darome kurdami tikrą klientų aptarnavimo agentą, kuriame yra įrankiai, informacijos paieška, atmintis, vertinimas ir stebėjimas.
+Ši pamoka apie atotrūkį tarp „veikia mano mašinoje“ ir „veikia patikimai ir ekonomiškai gamyboje“. Mes uždarome šį atotrūkį naudodami **Microsoft Foundry** ir **Microsoft Foundry Agent Service**, kurdami tikrą klientų aptarnavimo agentą, turintį įrankius, paiešką, atmintį, vertinimą ir stebėjimą.
 
 ## Įvadas
 
-Ši pamoka apima:
+Ši pamoka apims:
 
-- Skirtumą tarp **prototipo agento** ir **įdiegtinio agento**, ir kodėl perėjimas daugiausiai susijęs su tuo, kas vyksta *apie* modelį.
-- Agentų **diegimo modeliai**: klientų hositinimas, paslaugų hositinimas (Hosted Agents) ir darbo srautų orkestravimas.
-- **Agento gyvenimo ciklas** Microsoft Foundry — sukūrimas, versijavimas, diegimas, vertinimas, stebėjimas, pašalinimas.
-- **Masto keitimo strategijos**: modelio nukreipimas, talpyklų naudojimas, lygiagretumas ir bevaldinis dizainas.
-- **Stebėjimas** naudojant OpenTelemetry ir Foundry sekimo priemones.
-- **Išlaidų optimizavimas** pasirinkus modelį, nukreipimą ir vertinimo vartus.
-- **Įmonių aspektai**: valdymas, žmonių patvirtinimas, ir saugus MCP serverių paleidimas gamyboje.
+- Skirtumą tarp **prototipinio agento** ir **įdiegto agento**, ir kodėl perėjimas daugiausiai susijęs su viskuo, kas *supa* modelį.
+- **Diegimo modelius** agentams: klientų valdomas, paslaugos valdomas (Hosted Agents) ir darbo srauto orkestruotas.
+- **Agentų gyvavimo ciklą** Microsoft Foundry platformoje — kurti, versijuoti, diegti, vertinti, stebėti, nutraukti.
+- **Mastelio didinimo strategijas**: modelių maršrutizavimas, talpinimas, lygiagretumas ir bevalstė architektūra.
+- **Stebėjimą** su OpenTelemetry ir Foundry sekimu.
+- **Sąnaudų optimizavimą** per modelių pasirinkimą, maršrutizavimą ir vertinimo vartus.
+- **Įmonių aspektus**: valdymą, žmonių patvirtinimą ir MCP serverių saugų paleidimą gamyboje.
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką sugebėsite:
+Užbaigę šią pamoką, mokėsite:
 
-- Pasirinkti tinkamą diegimo modelį pagal agento apkrovą.
-- Įdiegti agentą Microsoft Foundry Agent Service, kad jis būtų versijuojamas, valdomas ir stebimas.
-- Įrankinti agentą stebėjimui ir sujungti vertinimo procesą, vykstantį prieš kiekvieną išleidimą.
-- Pritaikyti modelio nukreipimą ir talpyklavimą, kad masto metu kontroliuotumėte delsą ir išlaidas.
-- Įtraukti žmonių patvirtinimo vartus svarbiais veiksmais ir saugiai integruoti MCP serverį gamyboje.
+- Pasirinkti tinkamą diegimo modelį konkrečiam agento darbo krūviui.
+- Įdiegti agentą į Microsoft Foundry Agent Service, kad jis būtų versijuojamas, valdomas ir stebimas.
+- Instrumentuoti agentą sekimui ir sukurti vertinimo vamzdyną, kuris vykdomas prieš kiekvieną leidimą.
+- Taikyti modelių maršrutizavimą ir talpinimą, kad mastelis nekeltų delsimų ir kontroliuotų sąnaudas.
+- Įtraukti žmogaus patvirtinimą svarbiems veiksmams ir integruoti MCP serverį saugiu gamybos būdu.
 
-## Išankstinės sąlygos
+## Priešpriešos
 
-Ši pamoka daro prielaidą, kad esate baigę ankstesnes pamokas ir gerai mokate:
+Ši pamoka laikoma, kad jūs esate baigę ankstesnes pamokas ir gerai suprantate:
 
-- Kurti agentus naudojant [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (14 pamoka).
-- [Įrankių naudojimą](../04-tool-use/README.md) (4 pamoka) ir [Agentic RAG](../05-agentic-rag/README.md) (5 pamoka).
-- [Agentų atmintį](../13-agent-memory/README.md) (13 pamoka) ir [Agentic protokolus / MCP](../11-agentic-protocols/README.md) (11 pamoka).
-- [Stebėjimą ir vertinimą](../10-ai-agents-production/README.md) (10 pamoka) — ši pamoka tiesiogiai juo remiasi.
+- Agentų kūrimą su [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Pamoka 14).
+- [Įrankių naudojimą](../04-tool-use/README.md) (Pamoka 4) ir [Agentic RAG](../05-agentic-rag/README.md) (Pamoka 5).
+- [Agentų atmintį](../13-agent-memory/README.md) (Pamoka 13) ir [Agentic protokolus / MCP](../11-agentic-protocols/README.md) (Pamoka 11).
+- [Stebėjimą ir vertinimą](../10-ai-agents-production/README.md) (Pamoka 10) — ši pamoka tiesiogiai remiasi ja.
 
 Taip pat reikės:
 
-- **Azure prenumeratos** ir **Microsoft Foundry projekto** su bent vienu įdiegtu pokalbių modeliu.
-- Autentifikuotos **Azure CLI** (`az login`).
-- Python 3.12+ ir paketų iš saugyklos [`requirements.txt`](../../../requirements.txt).
+- **Azure prenumeratą** ir **Microsoft Foundry projektą** su bent vienu įdiegtu pokalbių modeliu.
+- Autentifikuotą **Azure CLI** (`az login`).
+- Python 3.12+ ir bibliotekas iš saugyklos [`requirements.txt`](../../../requirements.txt).
 
-## Nuo prototipo iki gamybos: kas iš tikrųjų keičiasi
+## Nuo prototipo iki gamybos: kas iš tiesų keičiasi
 
-Prototipo agentas ir gamybinis agentas dalijasi ta pačia pagrindine kilpa — mąstyti, kviesti įrankius, atsakyti. Kas keičiasi, yra visa tai, kas supa šią kilpą. Modelis sudaro galbūt 20% gamybinio agento; likę 80% yra operacinė struktūra.
+Prototipinis ir gamybinis agentai dalijasi tuo pačiu pagrindiniu ciklu — mąstymas, įrankių iškvietimas, atsakas. Kas keičiasi, yra viskas aplink tą ciklą. Modelis užima gal apie 20% gamybinio agento; likę 80% – operacinė struktūra.
 
-| Sritis | Prototipas | Gamyba |
+| Aspektas | Prototipas | Gamyba |
 | --- | --- | --- |
-| **Hositinimas** | Veikia jūsų užrašų knygelėje | Veikia kaip hositinama paslauga, versijuojama ir diegiama |
-| **Tapatybė** | Jūsų `az login` tokenas | Valdoma tapatybė su ribotu RBAC |
-| **Būsena** | Atmintyje, prarandama perkrovus | Išorinė saugykla (siūlų saugykla, atminties tarnyba) |
-| **Klaidos** | Matote klaidos trasą | Pakartotiniai bandymai, atsarginiai variantai, neapdoroti pranešimai, įspėjimai |
-| **Išlaidos** | "Tai keli centai" | Sekamos pagal užklausą, nukreipiamos, talpinamos, planuojamos |
-| **Kokybė** | Žiūrite rezultatą akimis | Vertinama automatiškai prieš kiekvieną išleidimą |
-| **Pasitikėjimas** | Patvirtinate kiekvieną veiksmą | Politika + žmogaus patvirtinimas rizikingiems veiksmams |
+| **Talpinimas** | Veikia užrašų knygelėje | Veikia kaip valdomas servisas, versijuojamas ir diegiamas |
+| **Tapatybė** | Jūsų `az login` žetonas | Valdoma tapatybė su apibrėžtais RBAC leidimais |
+| **Būsena** | Atmintyje, prarandama perkrovus | Išorinė (gijos saugykla, atminties servisas) |
+| **Klaidos** | Matote steko pėdsaką | Bandymas iš naujo, atsarginių variantų taikymas, dead-letter, įspėjimai |
+| **Kaina** | „Kelios centai“ | Sekama pagal užklausą, maršrutizuojama, talpinama, biudžetuojama |
+| **Kokybė** | Patikrinimas akimis | Automatiškai vertinama prieš kiekvieną leidimą |
+| **Pasitikėjimas** | Patvirtinate kiekvieną veiksmą | Politika + žmogus procese rizikingiems veiksmams |
 
-Atminkite šią lentelę. Kiekviena žemiau esanti dalis atitinka šias eilutes.
+Atminkite šią lentelę. Kiekviena iš žemiau esančių skirsnių atitinka vieną iš šių eilučių.
 
 ## Agentų diegimo modeliai
 
-Yra trys modeliai, kuriuos naudosite, dažnai derindami.
+Yra trys modeliai, kuriuos dažnai naudosite kartu.
 
-### 1. Klientų hositinami agentai
+### 1. Kliento valdomi agentai
 
-Agentas egzistuoja *jūsų* programos procese. Jūsų kodas tiesiogiai kviečia modelio tiekėją; mąstymo kilpa veikia jūsų paslaugoje. Tai darė kiekviena ankstesnė pamoka.
+Agentas gyvena jūsų programos procese. Jūsų kodas tiesiogiai kviečia modelį; mąstymo ciklas vyksta jūsų servise. Tai darė visos ankstesnės pamokos.
 
-- **Naudokite, kai** reikia visiškos kontrolės kilpai, tinkintos tarpinės programinės įrangos ar agento įterpimo į esamą backend.
-- **Kompromisas**: patys valdote mastelį, būseną ir atsparumą.
+- **Naudokite, kai** reikia pilnos kontrolės ciklo, pasirinktinio tarpinio sluoksnio, arba kai agentas įembedded į esamą backend.
+- **Sutartis**: pats tvarkote mastelį, būseną ir patikimumą.
 
-### 2. Hositinami agentai (Foundry Agent Service)
+### 2. Valdomi agentai (Foundry Agent Service)
 
-Agentas *užregistruotas kaip resursas* Microsoft Foundry. Foundry palaiko mąstymo kilpą, saugo siūlus, užtikrina turinio saugumą ir RBAC, leidžia agentą matyti Foundry portale. Jūsų programa tampa plonu klientu, kuris kuria siūlus ir skaito atsakymus.
+Agentas yra *užregistruotas kaip resursas* Microsoft Foundry. Foundry valdo mąstymo ciklą, saugo gijas, taiko turinio saugą ir RBAC, bei daro agentą matomą Foundry portale. Jūsų programa tampa plonu klientu, kuris kuria gijas ir skaito atsakymus.
 
-- **Naudokite, kai** norite patvarumo, įmontuoto stebėjimo, valdymo ir mažesnio operacinio paviršiaus.
-- **Kompromisas**: mažiau žemesnio lygio kontrolės mainais į valdomą vykdymo aplinką.
+- **Naudokite, kai** norite ištvermės, įmontuoto stebėjimo, valdymo ir mažesnės operacinės atsakomybės.
+- **Sutartis**: mažiau žemo lygio kontrolės už valdomą vykdymo aplinką.
 
 ### 3. Agentų darbo srautai
 
-Keli agentai (ir įrankiai) sudedami į grafą su aiškia valdymo eiga — nuoseklūs žingsniai, šakos, žmonių patvirtinimo mazgai ir patvarūs kontroliniai taškai, kuriuos galima pristabdyti ir atnaujinti. Tai yra Microsoft Agent Framework **Workflows** galimybė, taikoma diegimo mastu.
+Keli agentai (ir įrankiai) sujungiami į grafą su aiškiu valdymo srautu — sekos žingsniai, šakojimasis, žmogaus patvirtinimo mazgai, ir ištvermingi kontroliniai taškai, kurie gali stabdyti ir tęsti veiklą. Tai Microsoft Agent Framework **Workflows** galimybė, taikoma diegimo mastu.
 
-- **Naudokite, kai** viena užduotis apima kelis specializuotus agentus arba viduryje reikalingas patvirtinimo žingsnis.
-- **Kompromisas**: daugiau judančių dalių; reikia orkestravimo lygmens stebėjimo.
+- **Naudokite, kai** vienam užduoties etapui reikia kelių specializuotų agentų arba reikia patvirtinimo žingsnio viduryje.
+- **Sutartis**: daugiau judančių dalių; reikia orkestravimo lygio stebėjimo.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Kliento talpinamas]
-        A1[Jūsų programos procesas] --> M1[Modelio tiekėjas]
+    subgraph P1[Kliento pagrindu]
+        A1[Jūsų programos procesas] --> M1[Modelio teikėjas]
     end
     subgraph P2[Talpinamas agentas]
         A2[Plonas klientas] --> F2[Foundry agento paslauga]
-        F2 --> M2[Modelis + Įrankiai + Gijų saugykla]
+        F2 --> M2[Modelis + Įrankiai + Gijų kaupiklis]
     end
-    subgraph P3[Agento darbo eiga]
-        A3[Orkestruotojas] --> S1[Triažo agentas]
+    subgraph P3[Agenčių darbas]
+        A3[Orkestravimas] --> S1[Triage agentas]
         S1 --> S2[Sprendimų agentas]
         S2 --> H[Žmogaus patvirtinimo mazgas]
-        H --> S3[Veiksmų agentas]
+        H --> S3[Veiksmo agentas]
     end
 ```
 
-## Agento gyvenimo ciklas Microsoft Foundry
+## Agentų gyvavimo ciklas Microsoft Foundry
 
-Agento diegimas nėra vienkartinis `push`. Tai kilpa, kuri labai primena programinės įrangos išleidimo ciklą, nes iš tikrųjų tai ir yra.
+Agentų diegimas nėra vienkartinis `push`. Tai ciklas, kuris labai panašus į programinės įrangos leidimo ciklą, nes tai ir yra tas pats.
 
 ```mermaid
 flowchart LR
-    Create[Kurti / Autorius] --> Version[Versija]
-    Version --> Evaluate[Vertinti neprisijungus]
+    Create[Kūrėjas / Autorius] --> Version[Versija]
+    Version --> Evaluate[Įvertinti neprisijungus]
     Evaluate -->|praeina vartus| Deploy[Diegti talpinamą]
     Evaluate -->|nepraeina vartų| Create
     Deploy --> Observe[Stebėti internetu]
-    Observe --> Improve[Rinkti klaidas]
+    Observe --> Improve[Surinkti gedimus]
     Improve --> Create
-    Deploy --> Retire[Atšaukti seną versiją]
+    Deploy --> Retire[Atsisakyti seno versijos]
 ```
 
-Pagrindinė idėja, perimta iš [10 pamokos](../10-ai-agents-production/README.md): **neprisijungęs vertinimas yra vartai, o ne požiūris "vėliau".** Nauja agento versija neišleidžiama, kol neperžengia jūsų vertinimo slenksčių. Online stebėjimas sugrąžina realius klaidų duomenis į jūsų neprisijungusių testų rinkinį. Tai visa kilpa.
+Pagrindinė idėja, perkelta iš [Pamokos 10](../10-ai-agents-production/README.md): **offline vertinimas yra vartai, ne atsitiktinumas.** Nauja agento versija nebus išleista, jei neperžengs jūsų vertinimo ribų. Tada online stebėjimas grąžina tikrų klaidų duomenis į jūsų offline testų rinkinį. Tai visas ciklas.
 
-## Masto keitimo strategijos
+## Mastelio didinimo strategijos
 
-Agentų masto keitimas skiriasi nuo bevaldinės web API masto keitimo, nes kiekviena užklausa gali suaktyvinti kelis brangius modelio ir įrankių kvietimus. Keturios technikos neša daugumą apkrovos.
+Agentų mastelio didinimas skiriasi nuo bevalstės web API mastelio, nes kiekviena užklausa gali sukelti daugybę brangių modelio ir įrankių kvietimų. Keturi metodai neša daugumą darbo.
 
-**Bevaldinis užklausų apdorojimas.** Neišlaikykite būsenos apie vartotoją savo proceso atmintyje. Išsaugokite pokalbių siūlus Foundry siūlų saugykloje arba atminties tarnyboje, kad bet kuri egzempliorius galėtų apdoroti bet kurią užklausą. Tai leidžia horizontaliai plėsti — pridėti egzempliorių, be lipnių sesijų.
+**Bevalstis užklausų apdorojimas.** Neišlaikykite vartotojo būsenos savo proceso atmintyje. Išsaugokite pokalbių gijas Foundry gijų saugykloje arba atminties paslaugoje, kad bet kuris egzempliorius galėtų apdoroti bet kurią užklausą. Tai leidžia horizontaliai masteliuoti — pridėkite egzempliorius, be klijų sesijų.
 
-**Modelio nukreipimas.** Ne kiekviena užklausa reikalauja jūsų pajėgiausio (ir brangiausio) modelio. Nukreipkite paprastas užklausas — ketinimų klasifikavimą, trumpus faktinius atsakymus — į mažą ir greitą modelį, o didelį modelį rezervuokite tik tikrajai mąstysenai. Foundry **modelių nukreipėjas** gali tai atlikti už jus, arba pats galite sukurti lengvą klasifikatorių. Jūs kūrsite savo versiją laboratorijoje.
+**Modelių maršrutizavimas.** Ne kiekviena užklausa reikalauja galingiausio (ir brangiausio) modelio. Paprastas užklausas — ketinimo klasifikavimas, trumpi faktiniai atsakymai — nukreipkite į mažą, greitą modelį, o didelį modelį rezervuokite tik rimtam mąstymui. Foundry **Model Router** gali tai padaryti už jus, arba galite sukurti savą lengvą klasifikatorių. Laboratorijoje kursite šį savo versiją.
 
-**Atsakymų talpyklavimas.** Daugelis pagalbos užklausų yra beveik dubliuotos („kaip atstatyti slaptažodį?“). Talpinkite dažnai užduodamus klausimus ir tiekkite atsakymus be modelio kvietimo. Net vidutinis talpyklos pataikymo rodiklis žymiai sumažina išlaidas ir delsą.
+**Atsakymų talpinimas (caching).** Daugelis pagalbos užklausų yra beveik dublikatai („kaip atstatyti slaptažodį?“). Talpinkite atsakymus į dažnus klausimus ir teikite juos be modelio kadrų. Net ir vidutinis talpinimo efektyvumas ženkliai sumažina sąnaudas ir delsą.
 
-**Lygiagretumas ir atgalinis slėgis.** Modelių tiekėjai turi ribojimus. Ribokite lygiagrečių užklausų skaičių, naudokite eksponentinį pakartotinį bandymą, ir klaidos atveju elkitės maloniai (užstatyta "mes dirbame" atsakymo eilė geriau nei klaida 500).
+**Lygiagretumas ir atgalinis spaudimas.** Modelių tiekėjai turi užklausų limitus. Ribokite lygiagrečių užklausų skaičių, naudokite bandymus iš naujo su eksponentiniu atidėjimu ir veikiate tvarkingai klaidų atveju (eilėje laukiančio „dirbame“ atsakymas geriau nei 500 klaida).
 
 ```mermaid
 flowchart LR
-    Q[Vartotojo užklausa] --> C{Buvo rastas talpyklos atitikmuo?}
-    C -->|taip| R[Grąžinti talpykloje esančią atsaką]
+    Q[Vartotojo užklausa] --> C{Talpyklos pataikymas?}
+    C -->|taip| R[Grąžinti talpykloje esančią atsakymą]
     C -->|ne| Router{Sudėtingumas?}
     Router -->|paprasta| SLM[Mažas modelis]
     Router -->|sudėtinga| LLM[Didelis modelis]
@@ -145,11 +145,11 @@ flowchart LR
 
 ## Stebėjimas gamyboje
 
-Negalite valdyti to, ko nematote. Kaip aprašyta 10 pamokoje, Microsoft Agent Framework natūraliai generuoja **OpenTelemetry** sekas — kiekvienas modelio kvietimas, įrankio paleidimas ir orkestravimo žingsnis tampa intervalais. Gamyboje šias sekas eksportuojate į Microsoft Foundry (ar bet kurį OTel suderinamą backendą), kad galėtumėte:
+Negalite valdyti to, ko nematote. Kaip aprašyta Pamokoje 10, Microsoft Agent Framework natūraliai išmeta **OpenTelemetry** sekas — kiekvienas modelio kvietimas, įrankio iškvietimas ir orkestracijos žingsnis tampa seka. Gamyboje eksportuojate šias sekas į Microsoft Foundry (ar bet kurią OTel suderinamą sistemą), kad galėtumėte:
 
-- Sekti atskiro kliento skundo kelią per kiekvieną modelio ir įrankio kvietimą.
-- Stebėti p50/p95 delsą ir išlaidas pagal užklausas laikui bėgant.
-- Gauti įspėjimus apie klaidų spurtus ir išlaidų anomalijas anksčiau negu vartotojai (ar jūsų finansų komanda).
+- Sekti vieną kliento skundą visame modeliavimo ir įrankių iškvietimų grandyje.
+- Stebėti p50/p95 delsą ir sąnaudas užklausai laikui bėgant.
+- Apie klaidų dažnio ir sąnaudų anomalijas įspėti anksčiau nei visiškai pastebi vartotojai (ar finansų komanda).
 
 ```python
 from agent_framework.observability import get_tracer
@@ -162,42 +162,42 @@ with tracer.start_as_current_span("support_request") as span:
     # agento vykdymas automatiškai stebimas šiame intervale
 ```
 
-Atributai, tokie kaip `customer.tier` ir `routed.model`, paverčia didelį kiekį sekų į užduodamus klausimus ("ar verslo klientai per dažnai nukreipiami į mažą modelį?").
+Tokie atributai kaip `customer.tier` ir `routed.model` padeda pakeisti daugybę sekų į atsakomas užklausas („ar įmonių klientai per dažnai keliauja į mažą modelį?“).
 
-## Išlaidų optimizavimas
+## Sąnaudų optimizavimas
 
-Išlaidos gamybos agentuose daugiausia priklauso nuo žetonų naudojimo. Trys svirtelės, pagal poveikį:
+Sąnaudos gamybiniuose agentuose daugiausia lemia tokenai. Trys svertai, pagal poveikį:
 
-1. **Tinkamai pasirinkite modelio dydį.** Mažas modelis, kuris praeina jūsų vertinimo vartus, beveik visada yra pigesnis už didelį modelį, kuris taip pat praeina. Naudokite vertinimą įrodymui, kad mažas modelis yra pakankamai geras, o ne vykdykite korektiškai didžiausią modelį.
-2. **Nukreipčiau pagal sudėtingumą.** Kaip ir anksčiau — mokėkite už didelio modelio naudojimą tik užklausoms, kurios tikrai to reikalauja.
-3. **Agresyviai naudokite talpyklavimą.** Pigiausias modelio kvietimas yra tas, kurio išvis nepadarote.
+1. **Tinkamai parinkti modelį.** Mažas modelis, kuris praeina jūsų vertinimo vartus, beveik visada pigesnis už didelį, kuris taip pat praeina. Naudokite vertinimą, kad įrodytumėte mažo modelio pakankamumą, vietoj to, kad iš pradžių imtumėte didžiausią atsargumo dėlei.
+2. **Maršrutizuoti pagal sudėtingumą.** Kaip aukščiau — mokėkite už didelio modelio kainą tik už užklausas, kur reikia rimto mąstymo.
+3. **Agresyviai talpinti.** Pigiausias modelio kvietimas yra tas, kurio jūs niekada neatliekate.
 
-Vertinimo vartai ir išlaidų kontrolė yra ta pati disciplina žiūrima iš dviejų pusių: vertinimas nustato *kokybės ribą*, nukreipimas ir talpyklavimas leidžia laikytis kuo arčiau tos ribos *išlaidų*.
+Vertinimo vartai ir sąnaudų kontrolė yra ta pati disciplina iš skirtingų perspektyvų: vertinimas parodo *kokybės minimumą*, maršrutizavimas ir talpinimas palaiko jus kuo arčiau šio *sąnaudų* minimo.
 
 ## Įmonių diegimo aspektai
 
-**Valdymas.** Hositinami agentai paveldi Foundry RBAC, turinio saugumą ir audito žurnalus. Kiekvienam agentui suteikite valdomą tapatybę su minimaliais būtinais leidimais — tik skaitymo prieiga prie žinių bazės, ribota prieiga prie bilietų API, nieko daugiau.
+**Valdymas.** Valdomi agentai paveldi Foundry RBAC, turinio saugą ir audito žurnalus. Kiekvienam agentui skirkite valdomą tapatybę su minimaliais reikiamais leidimais — tik skaitymui prie žinių bazės, apibrėžta prieiga prie bilietų API, nieko daugiau.
 
-**Žmogus procese.** Kai kurie veiksmai per daug svarbūs, kad būtų vykdomi automatiškai — grąžinti pinigus, ištrinti paskyrą, perduoti teisinei komandai. Microsoft Agent Framework palaiko **reikalaujančius patvirtinimo** įrankius: agentas siūlo veiksmą, vykdymas pristabdomas, žmogus patvirtina arba atmeta, darbų srautas tęsiamas. Šį elementą matėte [6 pamokoje](../06-building-trustworthy-agents/README.md); čia jį diegiate.
+**Žmogus procese.** Kai kurie veiksmai yra per svarbūs, kad juos visiškai automatizuotumėte — grąžinimo išdavimas, paskyros ištrynimas, eskalavimas teisinei komandai. Microsoft Agent Framework palaiko **priėjimo reikalaujančius** įrankius: agentas siūlo veiksmą, vykdymas sustoja, žmogus patvirtina arba atmeta, darbo srautas tęsiasi. Tai primityvą matėte [Pamokoje 6](../06-building-trustworthy-agents/README.md); čia ją diegiate.
 
-**MCP gamyboje.** [MCP](../11-agentic-protocols/README.md) leidžia agentui naudotis išoriniais įrankiais per standartinę sąsają. Gamyboje laikykite MCP serverį kaip nepatikimą ribą: fiksuokite serverio versiją, paleiskite su ribota tapatybe, tikrinkite jo išėjimus, ir niekada neatskleiskite jam slaptų duomenų. MCP serveris yra priklausomybė, o priklausomybės gauna pataisymus, auditą ir ribojimus.
+**MCP gamyboje.** [MCP](../11-agentic-protocols/README.md) leidžia agentui naudoti išorinius įrankius per standartinę sąsają. Gamyboje kiekvieną MCP serverį laikykite nepatikima riba: užrakinkite serverio versiją, paleiskite su apibrėžta tapatybe, tikrinkite jo rezultatus ir niekada neatskleiskite jam slaptų duomenų. MCP serveris yra priklausomybė ir priklausomybės bus pataisytos, audituotos ir ribojamos pagal užklausų skaičių.
 
 ```mermaid
 flowchart TB
     subgraph Dev[Kūrimo architektūra]
         D1[Užrašų knygelė] --> D2[Agentų sistema]
-        D2 --> D3[Modelio teikėjas]
+        D2 --> D3[Modelių tiekėjas]
         D2 --> D4[Vietiniai įrankiai]
     end
     subgraph Deploy[Diegimo architektūra]
-        E1[CI dujotiekis] --> E2[Vertinimo vartai]
+        E1[CI kanalas] --> E2[Įvertinimo vartai]
         E2 -->|praeiti| E3[Foundry agentų paslauga]
         E3 --> E4[Versijuotas talpinamas agentas]
     end
-    subgraph Run[Laikinosios vykdymo architektūra]
+    subgraph Run[Vykdymo architektūra]
         F1[Kliento programa] --> F2[Talpinamas agentas]
-        F2 --> F3[Modelio maršrutizatorius]
-        F2 --> F4[Azure AI Search RAG]
+        F2 --> F3[Modelių maršrutizatorius]
+        F2 --> F4[Azure AI Paieškos RAG]
         F2 --> F5[Atminties paslauga]
         F2 --> F6[MCP įrankiai]
         F2 --> F7[OTel -> Foundry sekimas]
@@ -205,28 +205,28 @@ flowchart TB
     end
 ```
 
-Šie trys diagramos — vystymas, diegimas, vykdymas — vaizduoja tą patį agentą jo gyvavimo trijose stadijose. Sekanti laboratorija jus veda per jo kūrimą.
+Šie trys diagramų rinkiniai — vystymas, diegimas, vykdymas — yra tas pats agentas trijose gyvavimo stadijose. Tolimesnė laboratorija praves jus per jo kūrimą.
 
 ## Praktinė laboratorija: gamybai paruoštas klientų aptarnavimo agentas
 
-Atidarykite [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ir dirbkite per viską nuo pradžios iki pabaigos. Surinksite **Contoso klientų aptarnavimo agentą** su visomis gamybos rūpimis įjungtomis:
+Atidarykite [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ir vykdykite pilnai. Surinksite **Contoso klientų aptarnavimo agentą** su visais gamybos aspektais:
 
-1. **Įrankių kvietimas** — užsakymų statuso paieška ir atvirų bilietų valdymas.
-2. **RAG** — atsakymai į politikos klausimus iš žinių bazės (Azure AI Search, su laikinąją atminties atsvara, kad užrašų knygelė veiktų be Search resurso).
-3. **Atmintis** — atsiminti klientą per pokalbio etapus.
-4. **Modelio nukreipimas** — sudėtingumo klasifikatorius nukreipia kiekvieną užklausą į mažą arba didelį modelį.
-5. **Atsakymų talpyklavimas** — pasikartojančios užklausos aptarnaujamos iš talpyklos.
-6. **Žmogiškas patvirtinimas** — pinigų grąžinimai virš slenksčio sustabdomi žmogaus parašui.
-7. **Vertinimo procesas** — mažas neprisijungęs testų rinkinys įvertina agentą ir veikia kaip išleidimo vartai.
+1. **Įrankių kvietimas** — užsakymų statuso tikrinimas ir pagalbos bilietų atidarymas.
+2. **RAG** — atsakymai į politikos klausimus iš žinių bazės (Azure AI Search, su atmintyje veikiančia atsargine kopija, kad užrašų knygelė veiktų be Search resurso).
+3. **Atmintis** — prisimena klientą pokalbio metu.
+4. **Modelių maršrutizavimas** — sudėtingumo klasifikatorius nukreipia kiekvieną užklausą į mažą arba didelį modelį.
+5. **Atsakymų talpinimas** — pasikartojantys klausimai tiekiami iš talpyklos.
+6. **Žmogaus patvirtinimas** — grąžinimai virš ribos laukia žmogaus patvirtinimo.
+7. **Vertinimo vamzdis** — nedidelis offline testų rinkinys vertina agentą ir veikia kaip leidimo vartai.
 8. **Stebėjimas** — OpenTelemetry sekimas aplink kiekvieną užklausą.
 
-### Vadybinė dalis
+### Žingsnis po žingsnio
 
-Užrašų knygelė suorganizuota taip, kad kiekviena gamybos rūpestis yra atskira, paleidžiama sekcija. Jos širdis yra nukreipimo + talpyklavimo užklausų apdorotojas:
+Užrašų knygelė organizuota taip, kad kiekvienas gamybos aspektas būtų savarankiškas, paleidžiamas skyrius. Šerdis yra maršrutizavimo ir talpinimo užklausų apdorotojas:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Aptarnauti iš talpyklos, kai galime.
+    # 1. Tiekti iš talpyklos, kai tik galime.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
@@ -234,18 +234,18 @@ async def handle_support_request(query: str, customer_id: str) -> str:
     # 2. Maršrutuoti pagal sudėtingumą, kad kontroliuotume išlaidas.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Vykdyti agentą viduje trasos ruožo stebimumui.
+    # 3. Vykdyti agentą viduje trasos intervalo stebėsenai.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Talpyklinti ir grąžinti.
+    # 4. Talpinti į talpyklą ir grąžinti.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Išleidimo vartai atrodo taip:
+Leidimo vartai, kurie saugo leidimą, atrodo taip:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -259,18 +259,18 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
     return pass_rate >= threshold  # diegti tik jei vartai praeina
 ```
 
-Perskaitykite kiekvieną eilutę — užrašų knygelė palaiko elementus tyčia mažus, kad niekas nebūtų paslėpta už kitų kvietimų.
+Perskaitykite kiekvieną eilutę — užrašų knygelėje primityvai skirti sąmoningai mažais, kad niekas nebūtų paslėpta po framework iškvietimu.
 
-## Diegto agento patikra su dūmų testais
+## Įdiegtų agentų validavimas per dūmų testus
 
-Aukščiau aprašyti vertinimo vartai veikia *neprisijungę* prieš jūsų agento objektą. Kai agentas įdiegtas kaip Hositinamas Agentas, reikia dar vieno, net pigesnio, patikrinimo: **ar įdiegtas galinis taškas iš tikrųjų atsakinėja?**
+Aukščiau minėti vertinimo vartai veikia *offline*, prieš jūsų agento objektą. Kai agentas įdiegtas kaip Valdomas Agentas, reikia dar vienos, dar pigesnės, patikros: **ar įdiegtas galinis taškas iš tiesų atsako?**
 
-Sėkmingas diegimas tik įrodo, kad valdymo plokštė priėmė apibrėžimą — tai neįrodo, kad agentas atsako. Trūkstama priklausomybė, klaidingas modelio nukreipimas ar pasibaigęs ryšys gali palikti žalią diegimą, kuris nieko negrąžina. **Dūmų testas** tai užfiksuoja per kelias sekundes, kiekvieno diegimo metu, be pilno vertinimo kainos.
+„Sėkmingas“ diegimas įrodo tik, kad valdymo lygmuo priėmė apibrėžimą — neįrodo, kad agentas atsako. Priklausomybės trūkumas, klaidingas modelių maršrutizavimas ar pasibaigęs ryšys gali palikti žalią diegimą, kuris nieko negrąžina. **Dūmų testas** pagaus tai per sekundes, kiekviename diegime, nepatiriant pilno vertinimo sąnaudų.
 
-Ši saugykla tiekia paruoštą naudoti dūmų testų procesą, pastatytą ant [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
+Ši saugykla tiekia paruoštą naudoti dūmų testo vamzdyną, pagrįstą [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub veiksmais:
 
-- **Katalogas** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) turi šablonus ir patikrinimus Contoso aptarnavimo agentui (tikslūs politinės atsakymai, užsakymo paieška, temos laikymasis, daugiaturnis pokalbio tęstinumas). Kitų pamokų agentų katalogai yra šalia — žr. [`tests/README.md`](../tests/README.md).
-- **Darbo srautas** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) prisijungia su Azure OIDC ir POST siunčia kiekvieną užklausą į agento responses galinį tašką, nepavykus bet kuriam patikrinimui, neleidžia darbui tęstis.
+- **Katalogas** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) turi užklausas ir patikras Contoso aptarnavimo agentui (pririšti politikos atsakymai, užsakymų tikrinimas, klausyto tematika ir daugiapakopė gijų tęstinumas). Kitų pamokų agentų katalogai gyvena šalia — žr. [`tests/README.md`](../tests/README.md).
+- **Darbo srautas** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) prisijungia su Azure OIDC ir POST siunčia kiekvieną užklausą į agento Responses galinį tašką, nepavykus kokiai nors patikrai, darbas nepavyksta.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,34 +282,34 @@ Sėkmingas diegimas tik įrodo, kad valdymo plokštė priėmė apibrėžimą —
 ```
 
 
-Vykdykite tai skirtuke **Actions**, kai jūsų agentas bus diegiamas, pateikdami savo Foundry projekto galinį tašką ir agento pavadinimą. Federuota tapatybė turi turėti **Azure AI User** vaidmenį Foundry projekto aprėptyje. Galvokite apie sluoksnius kaip piramidę: dūmų testai (pasiekiamas ir atsako?) vykdomi kiekvieno diegimo metu, neprisijungus vykdoma vertinimas (pakankamai geras pristatymui?) vykdomas prieš paaukštinimą, o prisijungus vykdoma vertinimas (kaip jam sekasi realiame pasaulyje?) vyksta nuolat.
+Paleiskite jį iš **Actions** skirtuko, kai jūsų agentas bus diegiamas, pateikdami savo Foundry projekto galinį tašką ir agento pavadinimą. Federuota tapatybė turi turėti **Azure AI User** vaidmenį Foundry projekto aprėptyje. Įsivaizduokite sluoksnius kaip piramidę: dūmų testai (ar pasiekiamas ir atsako?) vykdomi kiekvieno diegimo metu, neprisijungęs įvertinimas (ar pakankamai geras išleidimui?) vykdomas prieš pakėlimą, o prisijungęs įvertinimas (kaip jis veikia realiame pasaulyje?) vykdomas nuolat.
 
 ## Žinių patikrinimas
 
-Išbandykite savo supratimą prieš pereidami prie užduoties.
+Patikrinkite savo supratimą prieš pereinant prie užduoties.
 
-**1. Apie kiek procentų veikiamo agento sudaro „modelis“, ir kas yra likusi dalis?**
+**1. Apytiksliai kiek gamybinio agente sudaro "modelis", o kas yra likusi dalis?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Modelis sudaro mažumą sistemos — dažnai sakoma apie 20%. Likusi dalis yra operacinė sistema: viešinimas ir versijų valdymas, tapatybė ir RBAC, išorinė būsena, klaidų valdymas, sąnaudų sekimas, vertinimas ir žmogaus įtraukimo valdymas. Pereiti į gamybą daugiausia reiškia viską sukurti *aplink* samprotavimo ciklą.
+Modelis sudaro mažumą sistemos — dažnai nurodomą apie 20 %. Likusi dalis yra operacinis karkasas: talpinimas ir versijavimas, tapatybė ir RBAC, išorinė būsena, gedimų valdymas, sąnaudų sekimas, vertinimas ir žmogaus įsitraukimas valdymui. Pereiti į gamybą daugiausia reiškia sukurti viską *aplink* mąstymo ciklą.
 </details>
 
-**2. Kada rinktumėtės Hostinamą Agentą vietoj kliento talpinamo agente?**
+**2. Kada rinktumėtės Hosted Agent prieš kliento talpinamą agentą?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Kai norite valdomos laikmenos su įmontuotu patvarumu (gijos, kurios išlieka ir gali atnaujinti), stebėjimo, turinio saugumo ir RBAC ir esate pasirengę paaukoti dalį žemesnio lygio samprotavimo ciklo valdymo, kad sumažintumėte operacinį paviršių. Kliento talpinamas agentas yra rekomenduojamas, kai reikia visiško ciklo valdymo arba kai agentas įterpiamas į esamą backendą.
+Kai norite valdomos vykdymo aplinkos su įmontuotu patvarumu (gijos, kurios išlieka ir gali tęstis), stebimumu, turinio saugumu ir RBAC, ir esate pasiruošę mainyti šiek tiek žemesnio lygio kontrolės mąstymo ciklui už mažesnį operacinį paviršių. Kliento talpinamas agentas yra geriau, kai reikia visiškos kontrolės ciklui arba kai agentas įterpiamas į esamą galinę dalį.
 </details>
 
-**3. Kodėl skaliuojamas agentas turi būti bevalstis savo proceso atmintyje?**
+**3. Kodėl mastelio keičiamas agentas turi būti bevalstis savo proceso atmintyje?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Kad bet kuris instancijos atvejis galėtų apdoroti bet kurį užklausą, tai leidžia horizontaliai skalauti be prisirišimo prie konkrečių sesijų. Vartotojo pokalbio būsena yra saugoma išoriniame gijų saugyklos arba atminties paslaugoje. Jei būsena būtų proceso atmintyje, ją prarastumėte perkrovus ir negalėtumėte laisvai paskirstyti apkrovos.
+Kad bet kuri egzempliorius galėtų tvarkyti bet kurį užklausą, kas leidžia horizontalią skalę be prisirišimo prie sesijų. Vartotojo pokalbio būsena yra išorine gijų saugykla ar atminties paslauga. Jei būsena būtų proceso atmintyje, ją prarastumėte perkrovus ir negalėtumėte laisvai paskirstyti apkrovos.
 </details>
 
 **4. Kokią problemą sprendžia modelio maršrutizavimas ir kaip jis susijęs su vertinimu?**
@@ -317,73 +317,73 @@ Kad bet kuris instancijos atvejis galėtų apdoroti bet kurį užklausą, tai le
 <details>
 <summary>Atsakymas</summary>
 
-Maršrutizavimas siunčia paprastas užklausas mažam, pigiems ir greitam modeliui, o didelį modelį palieka tik tikram samprotavimui, taip kontroliuodamas delsą ir sąnaudas. Tai susiję su vertinimu, nes vertinimas yra tas, kas *įrodo*, kad mažas modelis yra pakankamai geras tam tikrai užklausų klasei — maršrutizavimas be vertinimo yra spėjimas.
+Maršrutizavimas siunčia paprastas užklausas mažam, pigiam ir greitam modeliui ir rezervuoja didelį modelį tik tikram mąstymui, kontroliuodamas delsą ir sąnaudas. Tai susiję su vertinimu, nes vertinimas įrodo, kad mažas modelis yra pakankamai geras tam užklausų tipui — maršrutizavimas be vertinimo yra spėjimas.
 </details>
 
-**5. Kas yra „vertinimo vartai“ ir kur jie yra gyvavimo cikle?**
+**5. Kas yra "vertinimo vartai" ir kur jie yra gyvavimo cikle?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Vertinimo vartai vykdo offline testų rinkinį prieš naują agento versiją ir blokuoja diegimą, jei pralaidumo rodiklis nepasiekia ribos. Jie yra „versijos“ ir „diegimo“ gyvavimo ciklo dalies viduryje – kokybė tampa išleidimo išankstine sąlyga, o ne kažkuo, ką tikriname po pristatymo.
+Vertinimo vartai vykdo neprisijungus testų rinkinį naujai agento versijai ir blokuoja diegimą, jei praeinamumo rodiklis nepasiekia ribos. Jie yra tarp "versijos" ir "diegimo" gyvavimo cikle, paversdami kokybę paleidimo prielaida, o ne kažkuo, ką tikrinama po išleidimo.
 </details>
 
-**6. Kodėl MCP serveris gamyboje turi būti traktuojamas kaip nepatikima riba?**
+**6. Kodėl MCP serveris gamyboje turi būti traktuojamas kaip nepatikima siena?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Nes tai yra išorinė priklausomybė, į kurią kviečiasi jūsų agentas. Turėtumėte prisegti jo versiją, paleisti jį su apribota tapatybe, tikrinti jo išvestis, riboti jo užklausas ir niekada neskelbti jam slaptų duomenų – ta pati drausmė, kuri taikoma bet kokiai trečiųjų šalių priklausomybei. Jo išvestys patenka į agento samprotavimą, tad netikrinamas pasitikėjimas kelia saugumo riziką.
+Nes tai yra išorinis priklausomas resursas, į kurį jūsų agentas kreipiasi. Jūs turėtumėte fiksuoti jo versiją, vykdyti jį su apribota tapatybe, tikrinti jo išvestis, riboti užklausų dažnį ir niekada nesuteikti jam slaptų duomenų — tokia pati disciplina kaip ir su bet kokia trečios šalies priklausomybe. Jo išvestys patenka į jūsų agento mąstymo procesą, tad netikrinta pasitikėjimas yra saugumo rizika.
 </details>
 
-**7. Koks vienas pokytis paprastai turi didžiausią įtaką gamybos agentei kainai ir kodėl?**
+**7. Koks vienas pokytis dažniausiai daro didžiausią įtaką gamybinio agente sąnaudoms ir kodėl?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Tinkamo dydžio modelio pasirinkimas – naudoti mažiausią modelį, kuris vis tiek praeina jūsų vertinimo vartus. Sąnaudas daugiausia lemia žetonai, ir mažesnis modelis, atitinkantis kokybės standartą, beveik visada yra pigesnis už didesnį. Talpyklos ir maršrutizavimas dar labiau sumažina kainą, bet teisingas bazinio modelio pasirinkimas turi didžiausią pirmo laipsnio poveikį.
+Tinkamiausio modelio pasirinkimas — naudoti mažiausią modelį, kuris vis dar praeina jūsų vertinimo vartus. Sąnaudas daugiausia lemia tokenai, o mažesnis modelis, atitinkantis kokybės reikalavimus, beveik visada yra pigesnis už didesnį. Talpyklos ir maršrutizavimas sumažina sąnaudas dar labiau, tačiau pagrindinio modelio pasirinkimas turi didžiausią poveikį.
 </details>
 
-**8. Kokią reikšmę stebimumui turi užfiksuoti atributai, tokie kaip `customer.tier` ir `routed.model`?**
+**8. Kokią reikšmę observabilumui turi span atributai, tokie kaip `customer.tier` ir `routed.model`?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Jie paverčia žaliąsias sekas į atsakymus į verslo klausimus. Be atributų turite tik galybę įrašų; su jais galite klausti „ar verslo klientai per dažnai nukreipiami į mažą modelį?“ arba „koks modelis apdoroja mūsų lėčiausias užklausas?“ Atributai leidžia rūšiuoti telemetriją pagal svarbias jūsų veiklai dimensijas.
+Jie paverčia žalius trasavimus į verslui atsakytinus klausimus. Be atributų turite tik spanų sieną; su jais galite klausti: "ar įmonių klientai pernelyg dažnai maršrutuojami į mažą modelį?" arba "kuri modelis tvarko mūsų lėčiausias užklausas?" Atributai leidžia rūšiuoti telemetriją pagal svarbiausius veiklos matmenis.
 </details>
 
 ## Užduotis
 
-Paimkite laboratorijoje sukurtą klientų palaikymo agentą ir pritaikykite jį konkrečiam scenarijui: **sąskaitų faktūrų aptarnavimo agentui abonementų SaaS kompanijai.**
+Paimkite klientų aptarnavimo agentą iš laboratorijos ir pritaikykite jį konkrečiam scenarijui: **abonemento sąskaitų aptarnavimo agentas SaaS įmonei.**
 
-Jūsų pateiktame darbe reikia:
+Jūsų pateikimas turėtų:
 
-1. **Pakeisti įrankius** į tuos, kurie susiję su sąskaitomis: `get_subscription_status`, `get_invoice` ir `issue_credit` (kredito virš $50 reikalauja žmogaus patvirtinimo).
-2. **Pridėti tris RAG dokumentus** apie įmonės grąžinimo politiką, sąskaitų ciklą ir atšaukimo politiką.
-3. **Išplėsti vertinimo rinkinį** bent iki aštuonių atvejų, įskaitant bent du, kurie *turėtų* suaktyvinti žmogaus patvirtinimo kelią, ir patvirtinkite, kad jūsų vertinimo vartai tinkamai priima arba atmeta.
-4. **Pridėti vieną sąnaudų ataskaitą**: po dešimties mišrių užklausų paleidimo per agentą atspausdinkite, kiek užklausų nukeliavo į mažą modelį, kiek į didelį, ir kiek buvo aptarnauta iš talpyklos.
+1. **Pakeisti įrankius** į su sąskaitų mokėjimu susijusius: `get_subscription_status`, `get_invoice` ir `issue_credit` (kredito viršyti $50 reikalauja žmogaus patvirtinimo).
+2. **Pridėti tris RAG dokumentus**, apimančius įmonės grąžinimo politiką, sąskaitų ciklą ir atšaukimo politiką.
+3. **Išplėsti vertinimo rinkinį** bent iki aštuonių atvejų, įskaitant bent du, kurie *turėtų* sukelti žmogaus patvirtinimo kelią, ir patvirtinkite, kad jūsų vertinimo vartai tinkamai praleidžia arba blokuoja.
+4. **Pridėti vieną sąnaudų ataskaitą**: po dešimties mišrių užklausų paleidimo per agentą, atspausdinti, kiek jų atėjo į mažą modelį, kiek į didelį modelį ir kiek buvo aptarnauta iš talpyklos.
 
-Parašykite trumpą pastraipą (markdown langelyje), paaiškindami, kokią modelio maršrutizavimo taisyklę pasirinkote ir kaip ją patikrintumėte tikru srautu. Tikslaus teisingo atsakymo nėra – jus vertins, ar sugebėjote sujungti gamybos aspektus nuosekliai.
+Parašykite trumpą pastraipą (markdown ląstelėje), paaiškindami, kurį modelio maršrutizavimo taisyklę pasirinkote ir kaip ją patvirtintumėte su tikru srautu. Vieno teisingo atsakymo nėra — jus vertins pagal tai, ar gamybos klausimai yra sujungti nuosekliai.
 
 ## Santrauka
 
-Šiame pamokoje jūs perkėlėte agentą iš prototipo į gamybą su Microsoft Foundry:
+Šiame pamokoje perkėlėte agentą nuo prototipo iki gamybos naudojant Microsoft Foundry:
 
-- Šuolis į gamybą daugiausia susijęs su **operaciniu skeletu** aplink modelį — talpinimu, tapatybe, būsena, klaidų valdymu, sąnaudomis, kokybe ir pasitikėjimu.
-- Sužinojote tris **diegimo modelius** — kliento talpinamą, Hostinamą Agentą ir Agentų Darbo eigos — bei kada kuriuos taikyti.
-- Išmokote agento **gyvavimo ciklą**, kur offline **vertinimas veikia kaip išleidimo vartai**, o online stebimumas grąžina klaidas į testų rinkinį.
-- Taikėte **skalavimo strategijas** — bevalstę architektūrą, modelio maršrutizavimą, talpyklavimą ir ribotą lygiagretumą — ir sujungėte juos su **sąnaudų optimizavimu**.
-- Integravote **įmonės valdymo priemones**: RBAC, žmogaus patvirtinimą ir gamybai saugią MCP integraciją.
-- Sukūrėte **gamybai pasirengusį klientų palaikymo agentą**, kuris apjungia visus šiuos aspektus veiksniame kode.
+- Perėjimas į gamybą daugiausia apie **operacinį karkasą** aplink modelį — talpinimą, tapatybę, būseną, gedimų valdymą, sąnaudas, kokybę ir pasitikėjimą.
+- Sužinojote tris **diegimo modelius** — kliento talpinamą, Hosted Agents ir Agent Workflows — ir kada kiekvienas tinka.
+- Apžvelgėte **agento gyvavimo ciklą**, kur neprisijungęs **vertinimas veikia kaip leidimo vartai** ir prisijungęs stebimumas grąžina gedimus atgal į testų rinkinį.
+- Taikėte **masto didinimo strategijas** — bevalstį dizainą, modelio maršrutizavimą, talpyklas ir ribotą daugiagiją veiklą — ir susiejote jas su **sąnaudų optimizavimu**.
+- Prijungėte **įmonių valdymą**: RBAC, žmogaus patvirtinimą cikle ir gamybai tinkamą MCP integraciją.
+- Sukūrėte **gamybai paruoštą klientų aptarnavimo agentą**, kuris sujungia kiekvieną iš šių aspektų į veikiantį kodą.
 
-Kita pamoka eina priešinga kryptimi: vietoje to, kad agentus skalautumėte debesyje, juos nuleisite *žemyn* į vieną kūrėjo kompiuterį ir paleisite visiškai lokaliai.
+Kita pamoka eina priešinga kryptimi: vietoje mastelio didinimo debesyje, jūs perkelsite agentus *žemyn* į vieną kūrėjo mašiną ir paleisite juos visiškai lokaliai.
 
 ## Papildomi ištekliai
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentacija</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service apžvalga</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Modelio maršrutizatorius Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
@@ -393,9 +393,9 @@ Kita pamoka eina priešinga kryptimi: vietoje to, kad agentus skalautumėte debe
 
 [Kompiuterio naudojimo agentų kūrimas (CUA)](../15-browser-use/README.md)
 
-## Kita pamoka
+## Sekanti pamoka
 
-[Lokalių AI agentų kūrimas](../17-creating-local-ai-agents/README.md)
+[Vietinių AI agentų kūrimas](../17-creating-local-ai-agents/README.md)
 
 ---
 

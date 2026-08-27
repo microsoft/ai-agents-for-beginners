@@ -84,14 +84,14 @@
     "language_code": "lt"
   },
   "00-course-setup/AzureSearch.md": {
-    "original_hash": "11e38db0898a788612b917e329dcdb5b",
-    "translation_date": "2025-11-07T08:53:39+00:00",
+    "original_hash": "1fc9b25d924e719fa515c6eb680bc65e",
+    "translation_date": "2026-08-27T00:59:28+00:00",
     "source_file": "00-course-setup/AzureSearch.md",
     "language_code": "lt"
   },
   "00-course-setup/README.md": {
-    "original_hash": "44cf765768c9b8b4eb824dbff037ea00",
-    "translation_date": "2026-07-18T04:56:32+00:00",
+    "original_hash": "94713d88cc5c82d1b1b571f36828c273",
+    "translation_date": "2026-08-27T00:59:00+00:00",
     "source_file": "00-course-setup/README.md",
     "language_code": "lt"
   },
@@ -216,8 +216,8 @@
     "language_code": "lt"
   },
   "05-agentic-rag/code_samples/05-python-agent-framework.ipynb": {
-    "original_hash": "9a213e95636bc5d27d609b1499b68b2b",
-    "translation_date": "2026-07-14T01:20:09+00:00",
+    "original_hash": "1f3c43f19e15f8b3f6cfcd6fc3281841",
+    "translation_date": "2026-08-27T00:20:43+00:00",
     "source_file": "05-agentic-rag/code_samples/05-python-agent-framework.ipynb",
     "language_code": "lt"
   },
@@ -294,8 +294,8 @@
     "language_code": "lt"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb": {
-    "original_hash": "69957f4d6891dae91e2dd0985d98d772",
-    "translation_date": "2026-07-18T04:09:00+00:00",
+    "original_hash": "d7f955677e2d744cb527a4dd76336795",
+    "translation_date": "2026-08-27T00:19:26+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb",
     "language_code": "lt"
   },
@@ -306,8 +306,8 @@
     "language_code": "lt"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb": {
-    "original_hash": "db66326f8f4e94d2d30610ee40a3c778",
-    "translation_date": "2026-07-18T04:09:55+00:00",
+    "original_hash": "46548033e56ee829f034d933b404f369",
+    "translation_date": "2026-08-27T00:19:48+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb",
     "language_code": "lt"
   },
@@ -318,8 +318,8 @@
     "language_code": "lt"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb": {
-    "original_hash": "dbb10a4260db2a7f94dc56114f5632da",
-    "translation_date": "2026-07-18T04:09:17+00:00",
+    "original_hash": "f6b41145d8f48ded527724ea2a911263",
+    "translation_date": "2026-08-27T00:20:11+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb",
     "language_code": "lt"
   },
@@ -408,8 +408,8 @@
     "language_code": "lt"
   },
   "11-agentic-protocols/README.md": {
-    "original_hash": "14b73ffab75bba70c4090d922fd7dc4e",
-    "translation_date": "2026-07-14T02:57:47+00:00",
+    "original_hash": "40ba2bb0daac57c1221c74eca1c0a03a",
+    "translation_date": "2026-08-27T00:57:44+00:00",
     "source_file": "11-agentic-protocols/README.md",
     "language_code": "lt"
   },
@@ -504,8 +504,8 @@
     "language_code": "lt"
   },
   "14-microsoft-agent-framework/README.md": {
-    "original_hash": "623641957f2555c02f7447a639cedaab",
-    "translation_date": "2026-07-29T18:16:47+00:00",
+    "original_hash": "612912c433803772619b52d7ec52577e",
+    "translation_date": "2026-08-27T01:00:34+00:00",
     "source_file": "14-microsoft-agent-framework/README.md",
     "language_code": "lt"
   },
@@ -558,8 +558,8 @@
     "language_code": "lt"
   },
   "16-deploying-scalable-agents/README.md": {
-    "original_hash": "e4b90692e9cb15f21bd03c8424510d26",
-    "translation_date": "2026-07-18T04:54:32+00:00",
+    "original_hash": "f5de9bfd30ff3d92c7b787d9a05c00f7",
+    "translation_date": "2026-08-27T00:56:52+00:00",
     "source_file": "16-deploying-scalable-agents/README.md",
     "language_code": "lt"
   },
@@ -570,8 +570,8 @@
     "language_code": "lt"
   },
   "17-creating-local-ai-agents/README.md": {
-    "original_hash": "832bae8de58b2bd584144d1fa5fa6d1b",
-    "translation_date": "2026-07-14T03:22:19+00:00",
+    "original_hash": "d2938934489b5d05e815be7e5b403676",
+    "translation_date": "2026-08-27T00:55:13+00:00",
     "source_file": "17-creating-local-ai-agents/README.md",
     "language_code": "lt"
   },
@@ -582,26 +582,26 @@
     "language_code": "lt"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "20de0c62f5cfb690bf4fad55df8a74e4",
-    "translation_date": "2026-07-14T02:56:08+00:00",
+    "original_hash": "b789e73c357bfbcd179133077fd3b34c",
+    "translation_date": "2026-08-27T00:53:55+00:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "lt"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "555ffd8b291bc1ef84b17663de846e6f",
-    "translation_date": "2026-07-14T01:19:48+00:00",
+    "original_hash": "ca70977fa1a9378cc3c9b0b5c368930d",
+    "translation_date": "2026-08-27T00:19:07+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "lt"
   },
   "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb": {
-    "original_hash": "2ec1c71fee5fbdfa182c07d6427f9b54",
-    "translation_date": "2026-07-14T03:51:10+00:00",
+    "original_hash": "90d12015db78ea6bd1559073996f7ad9",
+    "translation_date": "2026-08-27T00:18:00+00:00",
     "source_file": "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb",
     "language_code": "lt"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "259f4c2f1b978af641a0aaf40bcb7445",
-    "translation_date": "2026-05-13T13:25:29+00:00",
+    "original_hash": "a71e64d926c907b86db11696bd955aa2",
+    "translation_date": "2026-08-27T01:00:56+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "lt"
   },
@@ -624,8 +624,8 @@
     "language_code": "lt"
   },
   "README.md": {
-    "original_hash": "d5e344a2d984aa5a9f5b41f57c079af0",
-    "translation_date": "2026-07-14T02:48:32+00:00",
+    "original_hash": "1095bd7f7f86caa02b20f99af0c0c530",
+    "translation_date": "2026-08-27T00:52:28+00:00",
     "source_file": "README.md",
     "language_code": "lt"
   },

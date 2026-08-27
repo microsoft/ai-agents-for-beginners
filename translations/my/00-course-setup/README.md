@@ -1,64 +1,64 @@
-# သင်တန်း စတင်ချိန်
+# သင်တန်း စတင်ခြင်း
 
 ## နိဒါန်း
 
-ဤသင်ခန်းစာသည် သင်တန်း၏ ကိုဒ်နမူနာများကို မည်သို့ချည့်ရမည်ကိုဖော်ပြပါမည်။
+ဤသင်ခန်းစာတွင် သင်တန်း၏ ကုဒ်သင်ခန်းစာများကို မည်သို့ ဖွင့်၍ လုပ်ဆောင်ရမည်ကို ဖေါ်ပြပါမည်။
 
-## အခြားလေ့လာသူများနှင့် စည်းဝေးကူညီမှုရယူရန်
+## အခြားသင်တန်းသားများနှင့် ပူးပေါင်းပြီး ကူညီမှုရယူခြင်း
 
-သင့်ရဲ့ repo ကို ကလုံးခြင်းမပြုမီ၊ [AI Agents For Beginners Discord နာရီချန်နယ်](https://aka.ms/ai-agents/discord) တွင် ပါဝင်ကူညီမှု၊ သင်တန်းနှင့်ပတ်သက်သော မေးခွန်းများအတွက် သို့မဟုတ် အခြားလေ့လာသူများနှင့် ဆက်သွယ်ရန် ပါဝင်ပါ။
+သင်၏ repo ကို clone မလုပ်မီ [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) ကို ဝင်ရောက်ပါက စတင်ခြင်းအတွက် ကူညီမှုများ၊ သင်တန်းအကြောင်း မေးခွန်းများ သို့မဟုတ် အခြားသင်တန်းသားများနှင့် ဆက်သွယ်နိုင်ပါသည်။
 
-## Repo ဒီကို ကလုံးခြင်း သို့မဟုတ် Fork လုပ်ခြင်း
+## ဒီ Repo ကို Clone သို့မဟုတ် Fork စေခြင်း
 
-စတင်ရန် GitHub Repository ကို ကျေးဇူးပြု၍ ကလုံးခြင်း သို့မဟုတ် fork လုပ်ပါ။ ၎င်းသည် သင်တန်းပစ္စည်း၏ ကိုယ်ပိုင် ဗားရှင်းကို ဖန်တီးပေးပြီး သင်သည် ကိုဒ်ကို ပြေးစမ်း၊ စမ်းသပ်၊ ပြင်ဆင်နိုင်သည်။
+စတင်ရန် GitHub Repository ကို clone သို့မဟုတ် fork ပြုလုပ်ပါ။ ဒါက သင်တန်းပစ္စည်းကို ကိုယ်ပိုင်ဗားရှင်း ရရှိစေပြီး ကုဒ်ကို လည်ပတ်၍ စမ်းသပ်ကာ ပြင်ဆင်နိုင်ပါသည်။
 
-၎င်းအား <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">repo ကို fork လုပ်ရန်</a> ခလုတ်ကို နှိပ်ခြင်းဖြင့် ပြုလုပ်နိုင်သည်
+<a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">repo ကို fork ဆောင်ရွက်ရန်</a> တွင်ကလစ်နှိပ်၍ ပြုလုပ်နိုင်ပါသည်။
 
-ယခု သင်မှာ ဤသင်တန်း၏ ကိုယ်ပိုင် fork လုပ်ထားသော ဗားရှင်းအား အောက်ပါလင့်ခ်တွင်ရှိနေပါပြီ-
+ယခု သင်၏ ကိုယ်ပိုင် forked version ကို အောက်ပါ link တွင် ရရှိထားမည်ဖြစ်သည်။
 
 ![Forked Repo](../../../translated_images/my/forked-repo.33f27ca1901baa6a.webp)
 
-### အနည်းငယ် ကလုံးခြင်း (Workshop / Codespaces အတွက် အကြံပြု)
+### Shallow Clone (workshop / Codespaces အတွက် အကြံပြု)
 
-  >မှတ်ချက်-အပြည့်အစုံကို ရယူသည်မှာ (လက်ရှိထည့်သွင်းမှု အပြည့်အစုံနှင့် ဖိုင်အားလုံးပါ ~3 GB) အရွယ်ကြီးနိုင်သည်။ သင်သည် workshop ပဲ တက်ရောက်မည်ဆိုပါက သို့မဟုတ် သင်ခန်းစာဖိုဒါ အနည်းငယ်ပဲ လိုပါက အနည်းငယ် ကလုံးခြင်း (သို့မဟုတ် sparse ကလုံးခြင်း) ကို အသုံးပြုခြင်းဖြင့် အများဆုံးဒေါင်းလုပ်ကိုယ်တာမှ ရှောင်လွှဲနိုင်သည် (သမိုင်းကိုတ်ခြင်း/ blob များ မယူခြင်း)။
+ > အနက်အပြည့်ကို ဒေါင်းလုပ်လုပ်ယူပါက repository စုစုပေါင်းသည် (ခန့်မှန်း၍ 3 GB) ကြီးမားနိုင်ပါသည်။ သင်သည် workshop တစ်ခုတွင် ပါဝင်နေသည် သို့မဟုတ် သင်ခန်းစာအတန်းအနည်းငယ်ကိုသာ လိုအပ်ပါက shallow clone (သို့) sparse clone ဖြင့် ကွန်ပြူတာတွင် လိုအပ်သည့် ပမာဏသာ ဒေါင်းလုပ်လုပ်ပါသည်။
 
-#### လျွောက်လွှာ အနည်းငယ် ကလုံးခြင်း — သမိုင်းနိမ့် အနည်းဆံုး၊ ဖိုင်အားလုံး
+#### အလျင်အမြန် shallow clone — သမိုင်းနောက်ခံအနည်းဆုံး၊ ဖိုင်အားလုံးပါဝင်သည်
 
-အောက်ပါ command များတွင် `<your-username>` ကို သင့် fork URL (သို့မဟုတ် upstream URL ကို သုံးချင်ပါက) ဖြင့် အစားထိုးပါ။
+အောက်ပါ commands တွင် `<your-username>` ကို သင့် fork URL နှင့် (သို့) upstream URL နှင့် အစားထိုးပါ။
 
-နောက်ဆုံး commit သမိုင်းကိုသာ ကလုံးရန် (ဒေါင်းလုပ်သေးရေ) ကိုင်တွယ်ပါ:
+နောက်ဆုံး commit သမိုင်းကိုသာ clone ဆောင်ရွက်ရန် (ဒေါင်းလုပ်အရွယ်အစားသိမ်မွေ့):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-အထူးတစ်ခွင့်ခွဲ ကို ကလုံးရန်:
+အထူး branch တစ်ခုကို clone ဆောင်ရွက်ရန်:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### အစိတ်အပိုင်း (sparse) ကလုံးခြင်း — blob အနည်းငယ် + ဖိုဒါများ ထောက်ပြချက်အရသာရွေးချယ်ခြင်း
+#### အစိတ်အပိုင်း (sparse) clone — blobs နည်းပါးပြီး folder များရွေးချယ်သည်သာ
 
-၎င်းသည် partial clone နှင့် sparse-checkout ကို အသုံးပြုသည် (Git 2.25+ လိုအပ်ပြီး partial clone လုပ်ထားသော နောက်ဆုံး Git အတွက် အကြံပြု).
+ဤသည်မှာ partial clone နှင့် sparse-checkout ကို အသုံးပြုသည် (Git 2.25+ လိုအပ်ပြီး partial clone ကို ထောက်ခံသော modern Git အတွက် အကြံပြုသည်)။
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-repo ဖိုဒါထဲ သွားပါ:
+repo folder ထဲ သို့ ဝင်ရောက်ပါ။
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-အသုံးပြုလိုသော ဖိုဒါများကို သတ်မှတ်ပါ (အောက်ပါ ဥပမာတွင် ဖိုဒါ ၂ ခု ပြသထားသည်):
+ပြီးနောက် သင်လိုချင်သော folders များကို ဖော်ပြပါ (နမူနာအနေဖြင့် ဖိုလ်ဒါနှစ်ခုပြထားသည်)။
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-ကလုံးပြီး ဖိုင်များကို အတည်ပြုပြီးနောက် သင် ဖိုင်များကိုသာ လိုအပ်ပြီးနေရာပိုင်ခွင့် ရယူလိုပါက (git သမိုင်း မပါ) repo metadata ကို ဖျက်ပစ်ပါ (💀 ပြန်ဘယ်မရ။ Git လုပ်ဆောင်ချက်များအားလုံး ပျောက်ဆုံးသည်- commit မရှိ၊ pull မလုပ်နိုင်၊ push မလုပ်နိုင်၊ သမိုင်း ကြည့်ရှုမှု မရှိ။
+cloning ပြုလုပ်ပြီး ဖိုင်များ စစ်ဆေးပြီးပါက ဖိုင်ပင်ပန်း မလိုအပ်၍ နေရာလွတ်ချင်ပါက (git history မလိုအပ်သော) repository metadata ကို ဖျက်ပစ်ပါ (💀 ပြန်လည်ဆပ်မရ — Git လုပ်ဆောင်ချက်အားလုံးဆုံးရှုံးမည်)။
 
 ```bash
 # zsh/bash
@@ -70,41 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### GitHub Codespaces ကို အသုံးပြုခြင်း (ဒေါင်းလုပ်ကြီးများကို ရှောင်ရန် အကြံပြု)
+#### GitHub Codespaces အသုံးပြုခြင်း (ဒေါင်းလုပ်ကြီးများကိုမလိုအပ်ရန် အကြံပြု)
 
-- ဒီ repo အတွက် [GitHub UI](https://github.com/codespaces) မှ Codespace အသစ် တစ်ခု ဖန်တီးပါ။  
+- [GitHub UI](https://github.com/codespaces) မှတဆင့် ဤ repo အတွက် သစ်မည့် Codespace အသစ်တစ်ခု ဖန်တီးပါ။
 
-- အသစ်ဖန်တီးသော Codespace ၏ terminal မှ shallow/sparse ကလုံး command များကို သုံးပြီး သင့်လိုအပ်သော သင်ခန်းစာ ဖိုဒါများကို Codespace အလုပ်ကွင်းထဲ ရယူပါ။
-- ရွေးချယ်စရာ- Codespaces တွင် clone ပြီးနောက် .git ကို ဖျက်ပစ်၍ နေရာ ပိုလျှော့ပါ (အထက်ဖော်ပြသော ဖျက်ပစ် command များကြည့်ပါ)။
-- မှတ်ချက်- Repo ကို ဒါရိုက် ကျ Codespaces ထဲ တိုက်ရိုက်ဖွင့်ရန် ရွေးပါက (clone သေးတင့်မဟုတ်ဘဲ), Codespaces သည် devcontainer ပတ်ဝန်းကျင်ကို ဖန်တီးပေးပြီး သင့်လိုအပ်ချက်ထက်ပို Provision လုပ်ပေးနိုင်သည်။ သင့်ကိုယ်ပိုင် fresh Codespace ထဲ shallow copy ကလုံးခြင်းဖြင့် диск နှုန်းများ ထိန်းချုပ်မှုပိုမို ရရှိမည်။
+- အသစ်ဖန်တီးသော codespace ၏ terminal တွင် အထက်ပါ shallow/sparse clone command များကို ဆောင်ရွက်ကာ သင်လိုအပ်သည့် lesson folders များကို Codespace workspace ထဲ သာ ရယူပါ။
+- ရွေးချယ်စရာ - Codespaces မှာ cloning ပြီးနောက်၊ .git ဖိုင် ကိုဖယ်ရှားကာ နေရာ ပြန်လွတ်နိုင်ပါသည် (အထက်ဖော်ပြသော ဖယ်ရှားခြင်း မှတ်ချက်များကို ကြည့်ပါ)။
+- သတိပြုရန် - Repo ကို Codespaces တွင် တိုက်ရိုက်ဖွင့်လိုပါက (clone အပို လုပ်ရန်မလိုသော နေရာ) Codespaces သည် devcontainer ပတ်ဝန်းကျင်ကို တည်ဆောက်ပြီး သင့်လိုအပ်ချက်ထက် ပိုမို provision လုပ်နိုင်သည်။
 
 #### အကြံပြုချက်များ
 
-- ကိုယ်တိုင် ပြင်ဆင်/commit လုပ်လိုပါက clone URL ကို သင့် fork URL ဖြင့် အမြဲအစားထိုးပါ။
-- နောက်မှ သမိုင်းပိုများ သို့မဟုတ် ဖိုင်ပိုများ လိုအပ်လာပါက fetch လုပ်နိုင်ပြီး sparse-checkout ဖြင့် ဖိုဒါ များ ထပ်ထည့်နိုင်သည်။
+- သင့်အတွက် ပြင်ဆင်/commit လုပ်လိုပါက clone URL ကို သင့်ကိုယ်ပိုင် fork သို့ အမြဲပြောင်းပါ။
+- နောက်ပိုင်းတွင် သမိုင်းနောက်ခံများ သို့မဟုတ် ဖိုင်များပိုလိုအပ်ပါက fetch လုပ်ပါ သို့မဟုတ် sparse-checkout ဖြင့် folder များ ထပ်ထည့်ပါ။
 
-## ကိုဒ် အလုပ်လုပ်ခြင်း
+## ကုဒ် လည်ပတ်ခြင်း
 
-ဤသင်တန်းသည် AI Agents ဖန်တီးခြင်းအတွက် လက်တွေ့ အတွေ့အကြုံရရှိရန် အသုံးပြုနိုင်သော Jupyter Notebooks စုစည်းမှုတစ်ခုကို ပေးပါသည်။
+ဤသင်တန်းတွင် သင်လက်တွေ့လုပ်ကိုင်ကြည့်ရန် Jupyter Notebooks များကို ပေးထားသည်။
 
-ကိုဒ်နမူနာများသည် **Microsoft Agent Framework (MAF)** ကို `FoundryChatClient` နှင့် အသုံးပြုသည်။ ၎င်းသည် **Microsoft Foundry** မှတစ်ဆင့် **Microsoft Foundry Agent Service V2** (Responses API) နှင့် ချိတ်ဆက်ထားသည်။
+ကုဒ်နမူနာများသည် **Microsoft Agent Framework (MAF)** ကို အသုံးပြုပြီး `FoundryChatClient` အသုံးပြုသည်၊ သည်သည် **Microsoft Foundry Agent Service V2** (Responses API) နှင့် **Microsoft Foundry** မှ ဆက်သွယ်သည်။
 
-Python notebooks အားလုံးမှာ `*-python-agent-framework.ipynb` ဟူသော အမှတ်အသားရှိပါသည်။
+Python notebooks အားလုံးကို `*-python-agent-framework.ipynb` ဟုပဲ အမည်တပ်ထားသည်။
 
 ## လိုအပ်ချက်များ
 
-- Python 3.12+  
-  - **မှတ်ချက်**: Python3.12 မရှိပါက ထည့်သွင်းရန် လိုအပ်သည်။ ထို့နောက် python3.12 ဖြင့် virtual environment ကို ဖန်တီးပြီး လိုအပ်သော package များကို requirements.txt မှ တင်သွင်းပေးရန်။
+- Python 3.12+
+  - **မှတ်ချက်**: Python3.12 မရှိပါက ထည့်သွင်းကြပါ။ ထို့နောက် venv ကို python3.12 ဖြင့် ဖန်တီးကာ requirements.txt မှ လိုအပ်သော ဗားရှင်းများ ထည့်သွင်းပါ။
   
     >ဥပမာ
 
-    Python venv directory ဖန်တီးခြင်း:
+    Python venv directory ဖန်တီးခြင်း။
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
-    ထို့နောက် venv environment ကို အောက်ပါအတိုင်း ချိန်ဆက်ပါ:
+    ထို့နောက် venv environment ကို အောက်ပါအတိုင်း ဖွင့်ပါ။
 
     ```bash
     # zsh/bash
@@ -116,84 +116,84 @@ Python notebooks အားလုံးမှာ `*-python-agent-framework.ipynb`
     venv\Scripts\activate
     ```
 
-- .NET 10+ : .NET ကို သုံးသော နမူနာကိုဒ်များအတွက် [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် နောက်ဆုံးဗားရှင်းကို ထည့်သွင်းထားမှသာ မည်သည့် .NET SDK ကို ထည့်သွင်းထားသည်ကိုစစ်ဆေးပါ။
+- .NET 10+: .NET ကို အသုံးပြုသော ကုဒ်များအတွက် [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် ေနာက္ပိုင်းဗားရှင်း ထည့်သွင်းထားရန်။ ထို့နောက် သင့်ထည့်သွင်းထားသော .NET SDK ဗားရှင်းကို ဆန်းစစ်ပါ။
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — authentication အတွက် လိုအပ်သည်။ [aka.ms/installazurecli](https://aka.ms/installazurecli) မှ ထည့်သွင်းပါ။
-- **Azure Subscription** — Microsoft Foundry နှင့် Microsoft Foundry Agent Service အတွက် ဝင်ရောက်ခွင့်။
-- **Microsoft Foundry Project** — တပ်ဆင်ပြီးရှိသော မော်ဒယ်ပါရှိသော project (ဥပမာ- `gpt-5-mini`)။ [Step 1](#အဆင့်-၁-microsoft-foundry-project-တစ်ခု-ဖန်တီးပါ) ကိုကြည့်ပါ။
+- **Azure CLI** — အတည်ပြုခြင်းအတွက် မရှိမဖြစ်လိုအပ်သည်။ [aka.ms/installazurecli](https://aka.ms/installazurecli) မှတဆင့် ထည့်သွင်းပါ။
+- **Azure Subscription** — Microsoft Foundry နှင့် Microsoft Foundry Agent Service သို့ ဝင်ရောက်ခွင့်။
+- **Microsoft Foundry Project** — deployed model တစ်ခုဖြင့် project (ဥပမာ `gpt-5-mini`)။ အောက်တွင် [Step 1](#အဆင့်-1-microsoft-foundry-project-ဖန်တီးခြင်း) ပြုလုပ်ရန်။
 
-ဤ repo ၏ root တွင် `requirements.txt` ပါဝင်ပြီး ကိုဒ်နမူနာများကို chạyရန် လိုအပ်သော Python package များကို ပါဝင်ထားသည်။
+repository ရဲ့ root မှာ `requirements.txt` ဖိုင်တစ်ခု ပါရှိပြီး ကုဒ်နမူနာများ ထည့်သွင်းရန် လိုအပ်သော Python package အားလုံး ပါဝင်သည်။
 
-terminal မှာ အောက်ပါတို့ကို ရိုက်ထည့်လို့ package များကို ထည့်သွင်းနိုင်သည်။
+repo root ကို terminal တွင် သွားပြီး အောက်ပါ command ဖြင့် ထည့်သွင်းနိုင်ပါသည်။
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-ပြဋ္ဌာန်းချက် ပြဿနာများ ရှောင်ရန် Python virtual environment ဖန်တီးပြီး ကျွမ်းကျင်စွာ သုံးရန် အကြံပြုပါသည်။
+အမြဲ Python virtual environment တစ်ခုဖန်တီး၍ conflicts မဖြစ်အောင် ကြံ့ကြံ့ခံပြီး အသုံးပြုရန် အကြံပြုပါသည်။
 
-## VSCode ကို တပ်ဆင်ခြင်း
+## VSCode ကို ပြင်ဆင်ခြင်း
 
-VSCode တွင် သင့်အသုံးပြုမည့် Python ဗားရှင်းမှန်ကန်ကြောင်း အာမခံပါ။
+VSCode တွင် သင့်အသုံးပြုသော Python ဗားရှင်း သေချာစွာ ငြိမ်းချမ်းစွာအသုံးပြုနေမည်စစ်ဆေးပါ။
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Microsoft Foundry နှင့် Microsoft Foundry Agent Service ကို တပ်ဆင်ခြင်း
+## Microsoft Foundry နှင့် Microsoft Foundry Agent Service ကို ပြင်ဆင်ခြင်း
 
-### အဆင့် ၁: Microsoft Foundry Project တစ်ခု ဖန်တီးပါ
+### အဆင့် 1: Microsoft Foundry Project ဖန်တီးခြင်း
 
-Notebooks များ ရှေ့ မောင်းရန် စွဲထားပြီး project နှင့် hub တို့ လိုအပ်ပါသည်။
+notebooks များမှာ လည်ပတ်ရန် deployed model ပါရှိသည့် Microsoft Foundry **hub** နှင့် **project** တို့ လိုအပ်ပါသည်။
 
-၁။ [ai.azure.com](https://ai.azure.com) သို့သွား၍ သင့် Azure အကောင့်ဖြင့် ဝင်ပါ။
-၂။ **hub** အသစ် ဖန်တီးပါ (သို့မဟုတ် ရှိရှိ hub ကို အသုံးပြုပါ)။ [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources) ကို ကြည့်ပါ။
-၃။ hub အတွင်း သို့ ဝင်၍ **project** တစ်ခု ဖန်တီးပါ။
-၄။ **Models + Endpoints** → **Deploy model** မှ မော်ဒယ်တစ်ခု (ဥပမာ- `gpt-5-mini`) ကို တပ်ဆင်ပါ။
+1. [ai.azure.com](https://ai.azure.com) သို့ သွား၍ Azure အကောင့်ဖြင့် ဝင်ရောက်ပါ။
+2. **hub** တစ်ခု ဖန်တီးပါ (သို့) ရှိပြီးသားကို အသုံးပြုပါ။ ကြည့်ရန်: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)။
+3. hub အတွင်းတွင် **project** တစ်ခု ဖန်တီးပါ။
+4. **Models + Endpoints** → **Deploy model** မှ မော်ဒယ်တစ်ခု (ဥပမာ `gpt-5-mini`) ကို deploy ပါ။
 
-### အဆင့် ၂: Project Endpoint နှင့် Model Deployment နာမည် ရယူခြင်း
+### အဆင့် 2: Project Endpoint နှင့် Model Deployment Name ရယူခြင်း
 
-Microsoft Foundry portal တွင် သင့် project မှ:
+Microsoft Foundry portal မှ သင့် project ထဲမှ:
 
-- **Project Endpoint** — **Overview** စာမျက်နှာသို့ သွား၍ endpoint URL ကို ကူးယူပါ။
+- **Project Endpoint** — **Overview** စာမျက်နှာသို့ သွားရောက်ပြီး endpoint URL ကို ကူးယူပါ။
 
 ![Project Connection String](../../../translated_images/my/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Model Deployment Name** — **Models + Endpoints** သို့ သွား၍ တပ်ဆင်ထားသော မော်ဒယ်ကို ရွေးပါ၊ **Deployment name** (ဥပမာ- `gpt-5-mini`) ကို မှတ်သားပါ။
+- **Model Deployment Name** — **Models + Endpoints** သို့သွား၍ deployed model ကို ရွေးချယ်ပြီး၊ **Deployment name** ကို မှတ်ထားပါ (ဥပမာ `gpt-5-mini`)။
 
-### အဆင့် ၃: `az login` ဖြင့် Azure မှာ ဝင်ရောက်ခြင်း
+### အဆင့် 3: Azure သို့ `az login` ဖြင့် အကောင့်ဝင်ခြင်း
 
-Notebooks များသည် authentication အတွက် **`AzureCliCredential`** ကို အသုံးပြုသည် — API key မလိုအပ်ပါ။ သင့်ကို Azure CLI ဖြင့် ဝင်ထားရမည်။
+notebooks များသည် သင့်ရဲ့ **Azure CLI sign-in** ဖြင့် သော့ချက်မလိုဘဲ `AzureCliCredential` သို့မဟုတ် `DefaultAzureCredential` (စကားဝှက်မပါသော signin session ကို သုံးသည်) ဖြင့် authentication လုပ်သည်။ တချို့ သင်ခန်းစာနှင့် လိုအပ်ချက်ကွဲပြားမှုများသည် API keys သုံးမှုရှိနိုင်သည်။ အဆိုပါသင့်ကို Azure CLI ဖြင့် အသုံးပြု sign in ပြုလုပ်ထားရန် လိုအပ်သည်။
 
-၁။ **Azure CLI ကို ထည့်သွင်းပါ** - [aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. **Azure CLI ကို ထည့်သွင်းခြင်း** (မရှိသေးလျှင်): [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-၂။ **ဝင်ရန်** အောက်ပါ command ကို run ပါ။
+2. **Signin** အတွက် အောက်ပါ command ကို လည်ပတ်ပါ။
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
-    ဒါမှမဟုတ် browser မရှိတဲ့ remote/Codespace ပတ်ဝန်းကျင်မှာ ရှိပါက:
+    မိုဘိုင်း / remote/Codespace ပတ်ဝန်းကျင်မှ browser မပါရှိပါက:
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
-၃။ **သင်၏ Subscription ကို ရွေးချယ်ပါ** (ဖေါ်ပြပါက) — သင့် Foundry project ပါဝင်သော subscription ကို ရွေးချယ်ပါ။
+3. **Subscription ရွေးချယ်မှု** လိုအပ်ပါက သင့် Foundry project ပါသော subscription ကို ရွေးပါ။
 
-၄။ **ဝင်ထားကြောင်း အတည်ပြုပါ** -
+4. **Signin ဖြစ်ပါက အတည်ပြုခြင်း**။
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **`az login` ရဲ့ အနှစ်သာရ?** Notebooks များသည် `azure-identity` package ထဲက `AzureCliCredential` ကို အသုံးပြုပြီး authentication လုပ်သည်။ ဒါဟာ သင့် Azure CLI session ကလီဒင်ရှယ်များ ပေးစွမ်းသည့်အတွက် API keys သို့မဟုတ် လျှို့ဝှက်ချက်များကို `.env` ဖိုင်တွင် မလိုအပ်တော့ပါ။ ၎င်းသည် [လုံခြုံရေးအကောင်းဆုံး လေ့ကျင်မှုတစ်ခု](https://learn.microsoft.com/azure/developer/ai/keyless-connections) ဖြစ်သည်။
+> **`az login` အကြောင်း** notebooks များသည် `azure-identity` package မှ `AzureCliCredential` (သို့) `DefaultAzureCredential` ကို အသုံးပြု၍ API သော့ချက်မလိုဘဲ Azure CLI session မှ credentials ပေးသည်။  `.env` ဖိုင်တွင် သော့ချက်မပါ။ ဒါသည် [လုံခြုံရေးအကောင်းဆုံးလုပ်နည်း](https://learn.microsoft.com/azure/developer/ai/keyless-connections) ဖြစ်သည်။
 
-### အဆင့် ၄: သင့် `.env` ဖိုင်ကို ဖန်တီးပါ
+### အဆင့် 4: `.env` ဖိုင် ဖန်တီးခြင်း
 
-ဥပမာ ဖိုင်ကို ကူးယူပါ:
+ဥပမာဖိုင်ကို ကူးယူပါ။
 
 ```bash
 # zsh/bash
@@ -205,72 +205,94 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-`.env` ဖိုင်ကို ဖွင့်ပြီး အောက်ပါ တန်ဖိုး ၂ ခု ဖြည့်ပါ -
+`.env` ဖိုင်ကို ဖွင့်ပြီး အောက်ပါ မှန်ကန်သည့် တန်ဖိုး ၂ ခု သွင်း ထားပါ။
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
 AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
-| Variable | ရှာဖွေရမည့်နေရာ |
+| Variable | ဘယ်မှာတွေ့ရမလဲ |
 |----------|-----------------|
-| `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → သင့် project → **Overview** စာမျက်နှာ |
-| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → တပ်ဆင်ထားသော မော်ဒယ် နာမည် |
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → သင့် project → **Overview** စာမျက်နှာ |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → သင့် deployed model အမည် |
 
-ဒီသင်ခန်းစာများအတွက် ပြီးဆုံးပါပြီ! Notebooks များသည် သင့် `az login` session မှတဆင့် အလိုအလျောက် authentication လုပ်မည်။
+များသော သင်ခန်းစာများနှင့် notebooks များ အတွက် ရပ်တန့်ပါသည်။ notebooks များမှာ `az login` session ကနေ အလိုအလျောက် အတည်ပြုမှု ပြုလုပ်ပါသည်။
 
-### အဆင့် ၅: Python အားလိုအပ်သော package များ ထည့်သွင်းပါ
+### အဆင့် 5: Python လိုအပ်ချက်များ ထည့်သွင်းခြင်း
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-ယခင်ဖန်တီးထားသော virtual environment အတွင်းတွင် ၎င်းကို run စေခြင်းကို အကြံပြုပါသည်။
+သင့်ဖန်တီးထားသော virtual environment အတွင်းတွင် လည်ပတ်ရန် အကြံပြုသည်။
 
-## သင်ခန်းစာ ၅ (Agentic RAG) အတွက် ထပ်ဆောင်း ပြင်ဆင်မှု
+## ရွေးချယ်စရာ: Azure AI Search (သင်ခန်းစာ 5 နှင့် 16)
 
-သင်ခန်းစာ ၅ သည် ရယူဖော်ပြန်ထုတ်မှု အတွက် **Azure AI Search** ကို သုံးသည်။ ဤသင်ခန်းစာ run လုပ်မည်ဆိုလျှင် `.env` ဖိုင်ထဲတွင် အောက်ပါ variables များ ထည့်သွင်းပါ -
+သင်ခန်းစာ 5 (Agentic RAG) နှင့် 16 notebooks များသည် **in-memory knowledge base** ဖြင့် အလိုအလျောက် ရိုက်သွင်းသည်။ သင်သည် အမှန်တကယ် **Azure AI Search** index အသုံးပြုရန် လိုပါက သတိပြုပါ။ **Lesson 16 notebook သည် key-based authentication အသုံးပြုခြင်း** ဖြစ်သည်။ `AZURE_SEARCH_SERVICE_ENDPOINT` နှင့် `AZURE_SEARCH_API_KEY` နှစ်ခုလုံး မပါသော်လည်း in-memory search ကို သုံးသည်။ ထို့ကြောင့် သင့်မှာ admin key ကိုလည်း သတ်မှတ်ရမည်ဖြစ်သည်။ Keyless authentication က Microsoft Entra ID (RBAC) ဖြစ်ပြီး သင်၏ ကိုယ်ပိုင် ထုတ်လုပ်မှုကုဒ်အတွက် အကြံပြုသောနည်းလမ်းဖြစ်သည်။ ဒါက ဒီသင်တန်းတွင် သုံးတဲ့ `az login` စနစ်နှင့်ကိုက်ညီပါသည်။
 
-| Variable | ရှာဖွေရမည့်နေရာ |
+RBAC အဆင့်များမှာ အောက်ပါ setup-guide နမူနာများ နှင့် ကိုယ်ပိုင်ကုဒ်များတွင် အသုံးပြုနိုင်သည်။ တွဲချိတ်ထားခြင်း မရှိပါ။ Lesson 16 notebook သည် Azure AI Search ကို အသုံးပြုရန် endpoint နှင့် admin key နှစ်ခုလုံး လိုအပ်သည်။
+
+1. သင်၏ search service တွင် **role-based access** ကို ဖွင့်ပါ
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. လိုအပ်သော roles များကို သင်ကိုယ်တိုင် ထည့်သွင်းပါ (index များ ဖန်တီး/တင်သည်နှင့် query လုပ်သည်။
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. သင့် `.env` ဖိုင်တွင် endpoint ကို ထည့်ပါ။
+
+| Variable | ဘယ်မှာတွေ့ရမလဲ |
 |----------|-----------------|
-| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → သင့် **Azure AI Search** အရင်းအမြစ် → **Overview** → URL |
-| `AZURE_SEARCH_API_KEY` | Azure portal → သင်၏ **Azure AI Search** အရင်းအမြစ် → **Settings** → **Keys** → primary admin key |
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → သင့် **Azure AI Search** resource → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Lesson 16 notebook သည် key-based auth ကို အသုံးပြု၍ Azure portal → **Settings** → **Keys** → primary admin key | 
 
-## Lessons 6 နှင့် 8 တွေမှာ Azure OpenAI ကို တိုက်ရိုက်ခေါ်သုံးခြင်း အတွက် ထပ်သွင်း စီစဉ်မှုများ
+> **ဘာကြောင့် keyless?** Admin keys သည် search service ကို အပြီးအမှတ်ရေးမှု များ ဖွင့်ပေးပြီး `.env` ဖိုင်များမှ ဖြန့်လွှင့်နိုင်ပါသည်။ RBAC ဖြင့် `az login` အကောင့်ကို အသုံးပြုပြီး key မလိုအပ်ပါ။ သင်ခန်းစာ notebooks တွင် အသုံးပြုသော keyless Entra ID ပုံစံဖြစ်သည် (`AzureCliCredential` / `DefaultAzureCredential`)။ [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac) ကို ကြည့်ပါ။
 
-Lessons 6 နှင့် 8 တွင် အသုံးပြုသည့် notebooks များသည် **Microsoft Foundry project** မှတစ်ဆင့်မဟုတ်ဘဲ, **Responses API** ကို သုံးသော Azure OpenAI ကို တိုက်ရိုက်ခေါ်သုံးသည်။ ဤနမူနာများသည် ယူ GitHub Models ကို ယခင်က သုံးခဲ့ပြီး ထို Models သည် ၂၀၂၆ ခုနှစ် ဇူလိုင်တွင် ရုပ်သိမ်းမည်မဟုတ်ပဲ Responses API ကို မထောက်ပံ့တော့ပါ။ ၎င်းနမူနာများကို run မည်ဆိုလျှင် `.env` ထဲတွင် အောက်ပါ variables များ ထည့်ပါ -
+Python နှင့် .NET မှာ အပြည့်အစုံ index ဖန်တီးနမူနာများအတွက် [Azure AI Search setup guide](./AzureSearch.md) ကို ကြည့်ပါ။
 
-| Variable | ရှာဖွေရမည့်နေရာ |
+## Azure OpenAI ကို တိုက်ရိုက် ဖုန်းခေါ်သော သင်ခန်းစာများအတွက် အထူးပြုဖြည့်သွင်းချက် (သင်ခန်းစာ 6 နှင့် 8)
+
+သင်ခန်းစာ 6 နှင့် 8 အချို့သော notebooks များသည် Microsoft Foundry project မှတစ်ဆင့် မသွားပဲ **Azure OpenAI** ကို တိုက်ရိုက် **Responses API** အသုံးပြု၍ ဖုန်းခေါ်သည်။ GitHub Models ကို ယခင်တွင်အသုံးပြုခဲ့သည်ကတော့ Response API ကို ထောက်ခံမထားပေ။ အောက်ဖော်ပြထားသော variable များကို `.env` ဖိုင်တွင် ထည့်သွင်းပါ။
+
+| Variable | ဘယ်မှာတွေ့ရမလဲ |
 |----------|-----------------|
-| `AZURE_OPENAI_ENDPOINT` | Azure portal → သင်၏ **Azure OpenAI** အရင်းအမြစ် → **Keys and Endpoint** → Endpoint (ဥပမာ `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | Responses API ကို ထောက်ပံ့သော သင်တပ်ဆင်ထားသော မော်ဒယ် နာမည် (ဥပမာ `gpt-5-mini`) |
-| `AZURE_OPENAI_API_KEY` | ရွေးချယ်စရာ — `az login` / Entra ID ထက် key-based auth သုံးလျှင်သာ |
+| `AZURE_OPENAI_ENDPOINT` | Azure portal → သင့် **Azure OpenAI** resource → **Keys and Endpoint** → Endpoint (ဥပမာ `https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | Responses API ကို ထောက်ခံသော သင့် deployed model အမည် (ဥပမာ `gpt-5-mini`) |
+| `AZURE_OPENAI_API_KEY` | ရွေးချယ်စရာ — 'az login' / Entra ID အစား key-based auth သုံးလိုပါကသာ |
 
-> Responses API သည် stable `/openai/v1/` endpoint ကို သုံးသည်၊ ဒါကြောင့် `api-version` မလိုပါ။ Keyless Entra ID authentication  သုံးရန် `az login` ဖြင့် ဝင်ရောက်ပါ။
+> Responses API သည် stable `/openai/v1/` endpoint ကို အသုံးပြုသည်၊ `api-version` မလိုအပ်ပါ။ keyless Entra ID auth အတွက် `az login` ဖြင့် signin ပြုလုပ်ပါ။
 
-## အခြား Provider: MiniMax (OpenAI-Compatible)
+## အခြား provider: MiniMax (OpenAI-compatible)
 
-[MiniMax](https://platform.minimaxi.com/) သည် OpenAI-compatible API ဖြင့် သိုင်းကြီး token 204K အထိ မော်ဒယ်များကို ပေးသည်။ Microsoft Agent Framework ၏ `OpenAIChatClient` သည် OpenAI-compatible endpoint မည်သည့်ဟာကိုမဆို အသုံးပြုနိုင်သောကြောင့် MiniMax ကို Azure OpenAI သို့မဟုတ် OpenAI ၏ အစားထိုး အဖြစ် သုံးနိုင်သည်။
+[MiniMax](https://platform.minimaxi.com/) သည် OpenAI-compatible API ဖြင့် 204K token အထိ စိတ်ဓာတ်ကြီးမားသော model များ ပေးအပ်သည်။ Microsoft Agent Framework ၏ `OpenAIChatClient` က OpenAI-compatible endpoint များအားလုံးနှင့် အလုပ်လုပ်နိုင်ပြီး MiniMax ကို `OpenAIChatClient` အသုံးပြုသည့် သင်ခန်းစာများအတွက် လွယ်ကူစွာ အစားထိုးအသုံးပြုနိုင်ပါသည်။
 
-`.env` ဖိုင်ထဲတွင် အောက်ပါ variables များ ထည့်ပါ –
+variable များကို `.env` ဖိုင်တွင်ထည့်ပါ။
 
-| Variable | ရှာဖွေရမည့်နေရာ |
+| Variable | ဘယ်မှာတွေ့ရမလဲ |
 |----------|-----------------|
 | `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
-| `MINIMAX_BASE_URL` | သုံးရန်- `https://api.minimax.io/v1` (ပုံမှန်တန်ဖိုး) |
-| `MINIMAX_MODEL_ID` | သုံးမည့် မော်ဒယ် နာမည် (ဥပမာ `MiniMax-M3`) |
+| `MINIMAX_BASE_URL` | `https://api.minimax.io/v1` (အပျမ်းမျှတန်ဖိုး) အသုံးပြုပါ |
+| `MINIMAX_MODEL_ID` | အသုံးပြုမည့် model အမည် (ဥပမာ `MiniMax-M3`) |
 
-**မော်ဒယ်နမူနာများ**: `MiniMax-M3` (အကြံပြု), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (အမြန်တုံ့ပြန်မှု)။ မော်ဒယ်နာမည်များနှင့် ရရှိနိုင်မှုသည် အချိန်နှင့်အညီပြောင်းနိုင်သည်၊ သင့်အကောင့် သို့မဟုတ် ဒေသပေါ် မူတည်၍ မော်ဒယ်ချင်း အသုံးပြုခွင့်ရှိ/မရှိ တိုင်းတာသည်။ သက်ဆိုင်ရာ စာရင်းအတွက် [MiniMax Platform](https://platform.minimaxi.com/) ကြည့်ပါ။ `MiniMax-M3` သင့်အကောင့်တွင် မရရှိပါက `MINIMAX_MODEL_ID` တွင် သင့်အကောင့် ရရှိနိုင်သည့် မော်ဒယ်တစ်ခု (ဥပမာ- `MiniMax-M2.7`) ထည့်သွင်းပါ။
+**နမူနာ model များ**: `MiniMax-M3` (အကြံပြု), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (အမြန်၍ တုံ့ပြန်မှုမြန်)။ Model အမည်များနှင့် ရရှိနိုင်မှုက အချိန်နှင့်အညီ ပြောင်းလဲနိုင်ပြီး သင့်အကောင့်ပေါ်မှပေါ်မူတည်သည်။
 
-`OpenAIChatClient` (ဥပမာ - သင်ခန်းစာ 14 ဟိုတယ်ဘွတ်ကင် ဝါသနာ) ကိုသုံးသော ကိုဒ်နမူနာများသည် `MINIMAX_API_KEY` များထားရှိထားပါက သင့် MiniMax ဖန်တီးချက်ကို အလိုအလျောက် တွေ့ရှိအသုံးပြုမည်။
+`OpenAIChatClient` ကို အသုံးပြုသော ကုဒ်နမူနာများ (ဥပမာ သင်ခန်းစာ 14 ဟိုတယ်မှာတင်ခြင်း workflow) သည် `MINIMAX_API_KEY` သတ်မှတ်ထားသောအခါ သင့် MiniMax ဖော်ပြချက်အား အလိုအလျောက် တွေ့ရှိသုံးစွဲပါမည်။
 
-## အခြား Provider: Foundry Local (မော်ဒယ်များကို စက်ပေါ်တွင် တိုက်ရိုက် run)
 
-[Foundry Local](https://foundrylocal.ai) သည် အလေးချိန်နည်းသော runtime ဖြစ်ပြီး မော်ဒယ်များကို ဒေါင်းလုပ်ရယူ စီမံခန့်ခွဲပြီး OpenAI-compatible API ဖြင့် **သင့်စက်ပေါ်တွင် တစ်ရပ်တည်း** သိမ်းဆည်း ပေးသည်။ Cloud မလိုအပ်၊ Azure subscription မလိုအပ်၊ API keys မလိုအပ်ပါ။ Offline development အတွက်၊ cloud ကုန်ကျစရိတ် မဖြစ်စေဖို့၊ ဒေတာများကို စက်ပေါ်မှာထားရှိချင်သောသူများအတွက် အထူးသင့်တော်သည်။
+## အခြားဆောင်ရွက်သူ: Foundry Local (မော်ဒယ်တွေကို စက်ပေါ်မှာ လည်ပတ်စေခြင်း)
 
-Microsoft Agent Framework ၏ `OpenAIChatClient` သည် OpenAI-compatible endpoint မည်သည့်ဟာနဲ့မဆို အလုပ်လုပ်နိုင်သဖြင့် Foundry Local ကို Azure OpenAI အစား ပင်အသုံးပြုနိုင်သည်။
+[Foundry Local](https://foundrylocal.ai) သည် သင့်ရဲ့စက်ပေါ်မှာပင် OpenAI-ကိုက်ညီသော API များမှတဆင့် ဘာသာစကားမော်ဒယ်များကို ဒေါင်းလုပ်ဆွဲ၊ စီမံခန့်ခွဲ၊ နှင့် စနစ်တကျ ဖြန့်ဝေရန်အတွက် အလေးပြုထားသော runtime တစ်ခုဖြစ်သည် — မိုးကောင်းကင်မလိုအပ်ပါ။
 
-**၁။ Foundry Local ထည့်သွင်းပါ**
+Microsoft Agent Framework ရဲ့ `OpenAIChatClient` သည် OpenAI-ကိုက်ညီသော endpoint များနှင့် မည်သည့်အချိန်မဆို လုပ်ဆောင်နိုင်သဖြင့် Foundry Local သည် Azure OpenAI အတွက် တိုက်ရိုက်အစားထိုး local ဖြေရှင်းချက်တစ်ခုဖြစ်သည်။
+
+**၁။ Foundry Local ကို 설치 လုပ်ပါ**
 
 ```bash
 # Windows
@@ -280,31 +302,31 @@ winget install Microsoft.FoundryLocal
 brew install foundrylocal
 ```
 
-**၂။ မော်ဒယ်တစ်ခု ဒေါင်းလုပ်ပြီး run ပါ** (local service  ကိုလည်း စတင်သည်) -
+**၂။ မော်ဒယ်တစ်ခုကို ဒေါင်းလုပ်ဆွဲပြီး မောင်းနှင်ပါ** (ဤအဆင့်တွင် local service ကိုလည်း စတင်လည်ပတ်စေသည်)။
 
 ```bash
-foundry model list          # ရနိုင်သော မော်ဒယ်များကိုကြည့်ပါ
+foundry model list          # အသုံးပြုနိုင်သော မော်ဒယ်များကို ကြည့်ပါ
 foundry model run phi-4-mini
 ```
 
-**၃။ local endpoint ကို ရှာဖွေရာတွင် အသုံးပြုသော Python SDK ကို ထည့်သွင်းပါ**
+**၃။ local endpoint ကို ရှာဖွေရန် အသုံးပြုမည့် Python SDK ကို 설치 လုပ်ပါ**
 
 ```bash
 pip install foundry-local-sdk
 ```
 
-**၄။ Microsoft Agent Framework ကို သင့်စက်ပေါ် မော်ဒယ်ဆီ ရွှေ့ပြောင်းပါ -**
+**၄။ Microsoft Agent Framework ကို သင့် local မော်ဒယ်သို့ ချိတ်ဆက်ပါ:**
 
 ```python
 from foundry_local import FoundryLocalManager
 from agent_framework.openai import OpenAIChatClient
 
-# လိုအပ်ပါက ဒေါင်းလုဒ်လုပ်ပြီး မော်ဒယ်ကို ဒေသဆိုင်ရာတွင် စတင်ဆောင်ရွက်ပြီး၊ ပြီးလျောက် endpoint/port ကို ရှာဖွေသည်။
+# မော်ဒယ်ကို (လိုအပ်လျှင်) ဒေါင်းလုတ်လုပ်ပြီး ဒေသတွင်သုံးရန် ပေးဆောင်ပြီး ထို့နောက် endpoint/port ကို ရှာဖွေသည်။
 manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
     base_url=manager.endpoint,      # ဥပမာ http://localhost:<port>/v1
-    api_key=manager.api_key,        # Foundry Local အတွက် အမြဲ "မလိုအပ်ပါ" ဖြစ်သည်။
+    api_key=manager.api_key,        # Foundry Local အတွက် အမြဲတမ်း "လိုအပ်မထားပါ" ဖြစ်သည်။
     model_id=manager.get_model_info("phi-4-mini").id,
 )
 
@@ -314,70 +336,69 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **မှတ်ချက်:** Foundry Local သည် OpenAI-compatible **Chat Completions** endpoint ကို ပံ့ပိုးပေးသည်။ ဒါကို ဒေတာဆုံးရှုံးခြင်းမရှိဘဲ offline သက်ဆိုင်ရာနှင့် development အတွက် သုံးပါ။ **Responses API** အပြည့်အစုံအသုံးပြုမှုများ (stateful conversations, နက်ရှိုင်းသော tool orchestration, agent-style ဖွံ့ဖြိုးမှု) များအတွက် သင်ခန်းစာများအတိုင်း **Azure OpenAI** သို့မဟုတ် **Microsoft Foundry** project ကို ရည်ညွှန်းပါ။ [Foundry Local documentation](https://foundrylocal.ai) တွင် လက်ရှိ မော်ဒယ်စာရင်းနှင့် ပလက်ဖောင်း ထောက်ပံ့မှုကို ကြည့်ရှုနိုင်သည်။
+> **မှတ်ချက်။** Foundry Local သည် OpenAI-ကိုက်ညီသော **Chat Completions** endpoint ကို ဖော်ပြထားသည်။ ဒါကို local ဖွံ့ဖြိုးရေးနှင့် offline ဖြစ်ပြီးသော အခြေအနေများအတွက် အသုံးပြုပါ။ **Responses API** အပြည့်အစုံသော လုပ်ဆောင်ချက်များ (stateful conversations စသည်) အတွက် Azure OpenAI သို့မဟုတ် Microsoft Foundry project ကို အသုံးပြုပါ။
 
-## သင်ခန်းစာ ၈ (Bing Grounding Workflow) အတွက် ထပ်ဆောင်း ပြင်ဆင်ခြင်း
+## ကိစ္စ ၈ အတွက် အပိုပြင်ဆင်မှု (Bing Grounding Workflow)
 
+ကိစ္စ ၈ တွင် conditional workflow notebook သည် Microsoft Foundry မှ Bing grounding ကို အသုံးပြုသည်။ ထိုစမ်းသပ်မှုကို မောင်းနှင်ရန် ရည်ရွယ်ပါက `.env` ဖိုင်၌ ဤ variable ကို ထည့်သွင်းပါ-
 
-အတန်း ၈ မှ ကြီးကြပ်စောင့်ကြည့်မှုလုပ်ငန်းစဉ်မှတ်စုတွင် Microsoft Foundry မှ **Bing grounding** ကို အသုံးပြုထားသည်။ ဥပမာကို chạyရန် စီစဥ်ပါက၊ သင်၏ `.env` ဖိုင်တွင် ဒီအပြောင်းအလဲကို ထည့်သွင်းပါ။
-
-| အပြောင်းအလဲ | ဘယ်မှာတွေ့မလဲ |
+| Variable | ရရှိနိုင်သောနေရာ |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | Microsoft Foundry portal → သင်၏ ပရောဂျက် → **Management** → **Connected resources** → သင်၏ Bing ဆက်သွယ်ချက် → ဆက်သွယ်ချက် ID ကို ကူးယူပါ |
+| `BING_CONNECTION_ID` | Microsoft Foundry portal → သင့် project → **Management** → **Connected resources** → သင့် Bing ချိတ်ဆက်မှု → connection ID ကို ကူးယူပါ |
 
 ## ပြဿနာဖြေရှင်းခြင်း
 
-### macOS တွင် SSL မှတ်ပုံတင်အတည်ပြုမှု အမှားများ
+### macOS တွင် SSL လက်မှတ်စစ်ဆေးမှုပြဿနာများ
 
-သင် macOS သုံးပြီး အောက်ပါအမှားဖြစ်ပေါ်ခဲ့ပါက -
+macOS တွင် အောက်ပါအတုအယောင်ဖြစ်မှုပုံစံ တစ်ခုကြုံတွေ့ပါက-
 
 ```plaintext
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-၎င်းသည် macOS 系统တွင် Python အသုံးပြုရာတွင် စနစ် SSL မှတ်ပုံတင်များကို အလိုအလျောက် ယုံကြည်မှု မရရှိသော အမှားအကြောင်းဖြစ်သည်။ အောက်ပါ ဖြေရှင်းနည်းများကို နောက်တစ်ကြိမ်စဉ်းစားကြည့်ပါ။
+ဤသည်မှာ macOS ပေါ်ရှိ Python တွင် စနစ် SSL လက်မှတ်များကို အလိုအလြောအယား ယုံကြည်မထားသော ပြဿနာတစ်ခုဖြစ်သည်။ အောက်ပါ ကူညီမှုများကို စီစဉ်အသုံးပြုကြည့်ပါ-
 
-**ရွေးချယ်စရာ ၁: Python ၏ Install Certificates လုပ်ဆောင်ချက်ကို chạy (အကြံပြုသည်)**
+**ရွေးချယ်မှု ၁။ Python Install Certificates script ကို run ရန် (အကြံပြုချက်)**
 
 ```bash
-# သင်ထည့်သွင်းထားသော Python ဗားရှင်း (ဥပမာ၊ 3.12 သို့မဟုတ် 3.13) ဖြင့် 3.XX ကို အစားထိုးပါ:
+# သင်တပ်ဆင်ထားသော Python ဗားရှင်း (ဥပမာ 3.12 သို့မဟုတ် 3.13) ဖြင့် 3.XX ကို အစားထိုးပါ။
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**ရွေးချယ်စရာ ၂: သင့်မှတ်စုတွင် `connection_verify=False` ကို သုံးပါ (GitHub Models မှတ်စုများအတွက်သာ)**
+**ရွေးချယ်မှု ၂။ notebook များတွင် `connection_verify=False` ကို အသုံးပြု (GitHub Models notebooks သာ)**
 
-Lesson 6 မှတ်စု (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) တွင် မှတ်ချက်ထည့်ထားသော နည်းလမ်းလည်း ပါပြီးဖြစ်သည်။ client ဖန်တီးသည့်အခါ `connection_verify=False` ကို ပြန်ဖျက်ထုတ်ပါ။
+Lesson 6 notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) တွင် အဆိုပါ workaround ကို မှတ်ချက်ထဲကနေ ဖယ်ရှားထားပြီးဖြစ်သည်။ လက်မှတ်အမှားဖြစ်ပါက `connection_verify=False` ကို ဖွင့်လိုက်ပါ-
 
 ```python
 client = ChatCompletionsClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(token),
-    connection_verify=False,  # လက်မှတ်အမှားများတွေ့ပါက SSL အတည်ပြုချက်ကို ပိတ်လိုက်ပါ
+    connection_verify=False,  # လက်မှတ်ဆိုင်ရာ အမှားများ ကြုံတွေ့ပါက SSL စစ်ဆေးမှုကို ပိတ်မည်
 )
 ```
 
-> **⚠️ သတိပေးချက်။:** SSL အတည်ပြုမှု ပိတ်ထားခြင်း (`connection_verify=False`) သည် မှတ်ပုံတင်အတည်ပြုချက်စစ်ဆေးမှုကို ကျော်လွန်ခြင်းကြောင့် လုံခြုံမှုလျော့နည်းစေပါသည်။ ဖွံ့ဖြိုးတိုးတက်မှုပတ်ဝန်းကျင်တွင် တစ်ခဏအတွက်သာ အသုံးပြုပါ၊ ထုတ်လွှင့်မှုတွင် မသုံးပါနှင့်။
+> **⚠️ သတိပေးချက်။** SSL စစ်ဆေးမှု ဖျက်ပစ်ခြင်း (`connection_verify=False`) သည် လက်မှတ်အတည်ပြုခြင်းကို ရှောင်ကြဉ်လျှော့ချပေးသဖြင့် လုံခြုံမှုကို လျော့နည်းစေနိုင်သည်။ ထိုကာလအတွင်း ဖွံ့ဖြိုးရေး (development environment) အတွက်သာ ယင်းကို စမ်းသပ်အသုံးပြုပါ။ ထုတ်လုပ်မှု (production) တွင် မသုံးရ။
 
-**ရွေးချယ်စရာ ၃: `truststore` ကို ထည့်သွင်းအသုံးပြုပါ**
+**ရွေးချယ်မှု ၃။ `truststore` ကို 설치 လုပ်ပြီး အသုံးပြုပါ**
 
 ```bash
 pip install truststore
 ```
 
-ထို့နောက်၊ မှတ်စု သို့မဟုတ် စကရစ်ပ် ၏ အပေါ်အစပိုင်းတွင် နောက်ကောက်ခိုးခိုး မည်သည့် network ခေါ်ဆိုမှုမလုပ်မီ အောက်ပါ ကိုးဒ်ကိုထည့်ပါ။
+နောက်တစ်ဆင့်မှာ သင့် notebook သို့ script ၏ အပေါ်ဆုံးတွင် ကွန်ယက်ခေါ်ဆိုမှု မပြုမီ အောက်ဖော်ပြပါကို ထည့်ပါ-
 
 ```python
 import truststore
 truststore.inject_into_ssl()
 ```
 
-## ဘာမှတ်စုတခုခုတွင် ပိတ်ဆို့နေပါသလား?
+## နေရာတစ်ခုမှာ ပိတ်မိသလား?
 
-ဤစနစ်ကို ခရီးဆက်မည့်အခါ ပြဿနာများ ဖြစ်ပေါ်ပါက သင်၏ <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> သို့ သွားရောက် ဆွေးနွေးနိုင်ပါသည် သို့မဟုတ် <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">ပြဿနာတင်ပြနိုင်ပါသည်</a>။
+ဤလုပ်ထုံးလုပ်နည်းတွင် ပြဿနာရှိပါက <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> သို့ မိတ်ဆက် ပေးနိုင်သော်လည်း <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">issue တင်နိုင်ပါသည်</a>။
 
-## နောက်ထပ်သင်ခန်းစာ
+## နောက်တစ်ခန်း
 
-သင်သည် ယခုသင်ကြားမည့် သင်ခန်းစာကို chạyဖို့ ပြင်ဆင်ပြီးဖြစ်ပါပြီ။ AI Agent များ၏ကမ္ဘာကြီးအကြောင်း တက်ကြွစွာလေ့လာရင်း ပျော်ရွှင်ပါစေ။
+သင်သည် ယခုဤသင်ခန်းစာအတွက် ကုဒ်များကို မောင်းနှင်ရန် အဆင်သင့်ဖြစ်ပါပြီ။ AI Agents ၏ ကမ္ဘာအကြောင်း ပိုမိုသင်ယူ ဖို့ပျော်ရွှင်ပါစေ!
 
 [Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
