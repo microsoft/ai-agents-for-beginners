@@ -1,22 +1,27 @@
-# Mostre de chitanțe
+# Exemple de chitanțe predefinite
 
-Trei fișiere de chitanțe pre-generate pentru inspectare fără a rula notebook-ul.
+Trei fișiere de chitanțe pre-generate pentru inspecție fără a rula notebook-ul.
 
 | Fișier | Ce este |
 |---|---|
-| `01_valid_receipt.json` | O chitanță validă semnată pentru un apel la instrumentul `lookup_flights`. Verificarea returnează True. |
+| `01_valid_receipt.json` | O chitanță semnată validă pentru un apel al uneltei `lookup_flights`. Verificarea returnează True. |
 | `02_tampered_receipt.json` | Aceeași chitanță cu un câmp modificat după semnare. Verificarea returnează False. |
-| `03_chain_three_receipts.json` | Un lanț de trei chitanțe valide (căutare, rezervare temporară, rezervare finală) cu `previous_receipt_hash` care leagă fiecare de precedentă. |
+| `03_chain_three_receipts.json` | Un lanț de trei chitanțe valide (căutare, rezervare temporară, rezervare) cu `previous_receipt_hash` care leagă fiecare de precedentul. |
 
-## Verificarea mostrelor
+Exemplele semnează direct octeții canonici JCS ai încărcăturii utile folosind Ed25519.
+SHA-256 rămâne utilizat pentru digesturile de conținut și legăturile din lanțul de chitanțe, nu ca un
+pre-hash suplimentar înainte de semnare.
 
-Notebook-ul parcurge verificarea în patru secțiuni. Pentru a verifica aceste mostre direct fără a parcurge narațiunea notebook-ului:
+## Verificarea exemplelor
+
+Notebook-ul parcurge verificarea în patru secțiuni. Pentru a verifica aceste exemple
+direct, fără a trece prin narațiunea notebook-ului:
 
 ```python
 import json
 from pathlib import Path
 
-# Presupuneți că ați finalizat importurile și funcțiile ajutătoare
+# Presupune că ai terminat importurile și funcțiile ajutătoare
 # din secțiunile 1 și 2 ale fișierului 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -32,8 +37,8 @@ for r in verify_chain(chain):
 
 ## Cum au fost generate acestea
 
-Mostrele folosesc aceeași cale de cod ca și notebook-ul, cu o cheie de semnare fixă
-și timpi fixați pentru reproducibilitate la nivel de octeți. Pentru a regenera:
+Exemplele folosesc aceeași cale de cod ca notebook-ul, cu o cheie de semnare fixă
+și timpi fixați pentru reprodusibilitate a octeților. Pentru a regenera:
 
 ```bash
 python3 generate_fixtures.py
@@ -43,13 +48,14 @@ python3 generate_fixtures.py
 
 ## Ce învață studenții din inspectarea JSON-ului brut
 
-Citind formatul brut al chitanței se construiește o intuiție pe care celulele din notebook
-nu o oferă întotdeauna. Studenții care parcurg JSON-ul observă adesea:
+Citirea formatului brut al chitanței construiește o intuiție pe care celulele din notebook
+nu o oferă întotdeauna. Studenții care răsfoiesc JSON-ul observă adesea:
 
-1. Semnătura este un șir opac în base64url, dar toate celelalte câmpuri sunt în JSON simplu
-   lizibil. Semnătura nu criptează conținutul; aceasta îl atestă.
-2. `public_key` este inclusă în chitanță. Un auditor nu are nevoie de altceva
-   pentru a verifica (sub rezerva încrederii că cheia aparține într-adevăr emitentului reclamat; vezi README-ul lecției despre infrastructura de identitate).
+1. Semnătura este un șir opac base64url, dar fiecare alt câmp este JSON simplu și
+   lizibil. Semnătura nu criptează conținutul; o atestă.
+2. `public_key` este încorporată în chitanță. Un auditor nu are nevoie de altceva
+   pentru a verifica (cu condiția să aibă încredere că cheia aparține cu adevărat emitentului
+   revendicat; vezi README-ul lecției despre infrastructura de identitate).
 3. Modificarea unui singur caracter din orice câmp, apoi compararea din nou a acestui fișier cu
    `02_tampered_receipt.json`, face mecanismul la nivel de octeți concret.
 

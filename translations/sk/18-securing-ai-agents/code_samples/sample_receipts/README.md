@@ -1,24 +1,28 @@
-# Ukážkové fixtures príjmov
+# Ukážkové príklady príjmov
 
-Tri predvygenerované súbory príjmov na kontrolu bez spustenia notebooku.
+Tri predgenerované súbory príjmov na kontrolu bez spustenia notebooku.
 
 | Súbor | Čo to je |
 |---|---|
-| `01_valid_receipt.json` | Platný podpísaný príjem pre volanie nástroja `lookup_flights`. Overenie vracia True. |
-| `02_tampered_receipt.json` | Ten istý príjem s jedným po podpise zmeneným poľom. Overenie vracia False. |
-| `03_chain_three_receipts.json` | Reťazec troch platných príjmov (vyhľadávanie, držanie, rezervovanie) s `previous_receipt_hash`, ktorý každý spája s predchádzajúcim. |
+| `01_valid_receipt.json` | Platný podpísaný príjem pre volanie nástroja `lookup_flights`. Overenie vráti True. |
+| `02_tampered_receipt.json` | Ten istý príjem s jedným poľa zmeneným po podpise. Overenie vráti False. |
+| `03_chain_three_receipts.json` | Reťaz troch platných príjmov (vyhľadávanie, držanie, rezervácia) s `previous_receipt_hash` spájajúcim každý s predchádzajúcim. |
 
-## Overenie ukážok
+Príklady priamo podpisujú kanonické bajty JCS zaťaženia pomocou Ed25519.
+Šifrovací algoritmus SHA-256 sa naďalej používa na obsahové digesty a prepojenia v reťazci príjmov, nie ako 
+extra pred-hash pred podpisom.
 
-Notebook prechádza overením v štyroch častiach. Ak chcete overiť tieto fixtures
-priamo bez prechádzania cez text notebooku:
+## Overovanie príkladov
+
+Notebook vedie overovanie v štyroch sekciách. Na priamu kontrolu týchto príkladov 
+bez spustenia vyučovacej časti notebooku:
 
 ```python
 import json
 from pathlib import Path
 
 # Predpokladá sa, že ste dokončili importy a pomocné funkcie
-# z častí 1 a 2 súboru 18-signed-receipts.ipynb.
+# zo sekcií 1 a 2 súboru 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Pravda
@@ -33,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Ako boli tieto vygenerované
 
-Fixtures používajú rovnakú cestu kódu ako notebook, s jedným pevne daným kľúčom na podpisovanie
-a fixnými časovými značkami pre bitovo reprodukovateľný výsledok. Pre regenerovanie:
+Príklady používajú tú istú cestu kódu ako notebook, s jedným fixným podpisovým kľúčom 
+a fixnými časovými pečiatkami pre byte-reprodukovateľnosť. Na opätovné vygenerovanie:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript je v `generate_fixtures.py` v tomto adresári.)
+(Skript je v súbore `generate_fixtures.py` v tomto adresári.)
 
-## Čo sa študenti naučia z kontroly surového JSONu
+## Čo sa študenti naučia z kontroly surového JSON
 
-Čítanie surového formátu príjmu buduje intuíciu, ktorú bunky v notebooku
-nie vždy zabezpečujú. Študenti, ktorí si ľahko prehliadnu JSON, často všimnú:
+Čítanie surového formátu príjmu buduje intuíciu, ktorú bunky v notebooku 
+často neposkytujú. Študenti, ktorí preletia JSON, si často všimnú:
 
-1. Podpis je nepriehľadný base64url reťazec, ale každé iné pole je obyčajný
-   čitateľný JSON. Podpis nešifruje obsah; potvrdzuje ho.
-2. `public_key` je vložený v príjme. Auditujúci nepotrebuje nič iné
-   na overenie (s výhradou dôvery, že kľúč skutočne patrí tvrdenému
-   vystavovateľovi; pozri lekciu v README o identitnej infraštruktúre).
-3. Zmena jediného znaku v ktoromkoľvek poli, a následné porovnanie tohto súboru s
-   `02_tampered_receipt.json`, robí mechanizmus na úrovni bajtov konkrétnym.
+1. Podpis je nepriehľadný reťazec base64url, ale každé iné pole je obyčajný 
+   čitateľný JSON. Podpis nešifruje obsah; len ho potvrdzuje.
+2. `public_key` je vložený v príjme. Auditor nepotrebuje nič iné na overenie 
+   (za predpokladu, že dôveruje, že kľúč naozaj patrí deklarovanému 
+   vydavateľovi; pozri README lekcie o infraštruktúre identity).
+3. Zmena jediného znaku v ľubovoľnom poli a následné porovnanie tohto súboru 
+   so súborom `02_tampered_receipt.json` konkretizuje mechanizmus na úrovni bajtov.
 
 ---
 
