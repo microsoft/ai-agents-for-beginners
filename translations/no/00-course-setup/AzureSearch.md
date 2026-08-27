@@ -1,39 +1,39 @@
-# Veiledning for oppsett av Azure AI Search
+# Azure AI Search oppsettsveiledning
 
-Denne veiledningen hjelper deg med å sette opp Azure AI Search ved hjelp av Azure-portalen. Følg trinnene nedenfor for å opprette og konfigurere din Azure AI Search-tjeneste.
+Denne veiledningen hjelper deg med å sette opp Azure AI Search ved hjelp av Azure-portalen. Følg trinnene nedenfor for å opprette og konfigurere Azure AI Search-tjenesten din.
 
 ## Forutsetninger
 
-Før du begynner, må du ha følgende:
+Før du begynner, må du sikre deg følgende:
 
 - Et Azure-abonnement. Hvis du ikke har et Azure-abonnement, kan du opprette en gratis konto på [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Trinn 1: Opprett en Azure Storage-konto
 
 1. Følg denne instruksjonen, [Opprett en Azure Storage-konto](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), for å opprette en ny Azure Storage-konto.
-   **NOTE**: Sørg for at typen Storage-konto er Standard General Purpose V2.
+   **MERK**: Sørg for at typen Storage-konto er Standard General Purpose V2.
 
 ## Trinn 2: Opprett en Azure AI Search-tjeneste
 
 1. Logg inn på [Azure-portalen](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Klikk på **Opprett en ressurs** i navigasjonsfeltet til venstre.
-3. Skriv "Azure AI Search" i søkeboksen og velg **Azure AI Search** fra resultatlisten.
+2. Klikk på **Opprett en ressurs** i navigasjonsruten til venstre.
+3. Skriv "Azure AI Search" i søkefeltet og velg **Azure AI Search** fra resultatlisten.
 4. Klikk på **Opprett**-knappen.
-5. I **Grunnleggende**-fanen, oppgi følgende informasjon:
+5. På fanen **Grunnleggende**, fyll inn følgende informasjon:
    - **Abonnement**: Velg ditt Azure-abonnement.
    - **Ressursgruppe**: Opprett en ny ressursgruppe eller velg en eksisterende.
-   - **Ressursnavn**: Angi et unikt navn for søketjenesten din.
-   - **Region**: Velg regionen nærmest brukerne dine.
-   - **Prisnivå**: Velg et prisnivå som passer dine behov. Du kan starte med gratisnivået for testing.
+   - **Ressursnavn**: Skriv inn et unikt navn for søketjenesten din.
+   - **Region**: Velg regionen som er nærmest brukerne dine.
+   - **Prisnivå**: Velg et prisnivå som passer dine behov. Du kan starte med Gratis-nivået for testing.
 6. Klikk **Gjennomgå + opprett**.
 7. Gjennomgå innstillingene og klikk **Opprett** for å opprette søketjenesten.
 
 ## Trinn 3: Kom i gang med Azure AI Search
 
 1. Når distribusjonen er fullført, naviger til søketjenesten din i Azure-portalen.
-2. I oversiktspanelet for søketjenesten, kopier URL-en. Den skal se slik ut: `https://<service-name>.search.windows.net`.
-3. I Innstillinger > Nøkler-panelet, kopier spørringsnøkkelen.
-4. Følg trinnene på [Hurtigstart-veiledningen](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) for å opprette en indeks, laste opp data og utføre en søkespørring.
+2. I oversiktsruten for søketjenesten kopierer du nettadressen. Den skal se slik ut: `https://<service-name>.search.windows.net`.
+3. **(Anbefalt)** Aktiver nøkkelfri tilgang med Microsoft Entra ID (RBAC) som vist i Trinn 4 nedenfor — ingen nøkkel nødvendig. Eksemplene i denne veiledningen oppretter/oppdaterer indekser og laster opp dokumenter, som krever rollene **Search Service Contributor** og **Search Index Data Contributor** (eller for nøkkelbasert autentisering, **primær administrasjonsnøkkel** — ikke spørringsnøkkelen). Bare hvis du ikke kan bruke RBAC, åpne **Innstillinger > Nøkler** og kopier **primær administrasjonsnøkkel**.
+4. Følg trinnene på [Kom i gang-veiledningen](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) for å opprette en indeks, laste opp data og utføre et søk.
 
 ## Trinn 4: Bruk Azure AI Search-verktøy
 
@@ -42,48 +42,67 @@ Azure AI Search integreres med ulike verktøy for å forbedre søkefunksjonalite
 ### Bruke Azure CLI
 
 1. Installer Azure CLI ved å følge instruksjonene på [Installer Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Logg inn på Azure CLI ved å bruke kommandoen:
+2. Logg inn i Azure CLI med kommandoen:
 
    ```bash
    az login
    ```
+3. **(Anbefalt) Aktiver nøkkelfri tilgang med Microsoft Entra ID (RBAC):**
 
-3. Lagre både endepunkt og API-nøkkel for Azure AI Search-instansen til miljøvariabler.
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show har ikke noe "endpoint"-felt; bygg URL-en fra tjenestenavnet.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    ```
+
+    Med RBAC aktivert autentiserer Python- og .NET SDK-eksemplene nedenfor med `DefaultAzureCredential`, som bruker din `az login`-økt under lokal utvikling — ingen administrasjonsnøkkel nødvendig. Se [Koble til Azure AI Search ved hjelp av roller](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+4. **(Reserve) Nøkkelbasert autentisering** — bare hvis du ikke kan bruke RBAC, lagre administrasjonsnøkkelen også:
+
+#### Lagre både endepunkt og API-nøkkel for Azure AI Search-instansen som miljøvariabler.
 
     ```bash
     # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show har ikke feltet "endpoint"; bygg URL-en fra tjenestenavnet.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
     ```powershell
     # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show har ikke feltet "endpoint"; bygg URL-en fra tjenestenavnet.
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
 ### Bruke Python SDK
 
-1. Installer Azure Cognitive Search-klientbiblioteket for Python:
+1. Installer Azure Cognitive Search-klientbiblioteket og Azure Identity for Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
 2. Bruk følgende Python-kode for å opprette en indeks og laste opp dokumenter:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (anbefalt): bruker din `az login` identitet via Entra ID RBAC.
+    # Krever rollene "Search Service Contributor" og "Search Index Data Contributor".
+    credential = DefaultAzureCredential()
+    # Tilbakefall (nøkkelbasert autentisering):
+    # fra azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -113,22 +132,30 @@ Azure AI Search integreres med ulike verktøy for å forbedre søkefunksjonalite
     dotnet run ./AzureSearch.cs
     ```
 
-2. Her er .NET-koden for `AzureSearch.cs`:
+    .NET-eksemplet nedenfor bruker `DefaultAzureCredential`, som kan bruke din Azure CLI pålogging via `az login` under lokal utvikling.
+
+2. Her er .NET-koden i `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -168,5 +195,7 @@ For ytterligere hjelp, besøk [Azure Cognitive Search-dokumentasjonen](https://l
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

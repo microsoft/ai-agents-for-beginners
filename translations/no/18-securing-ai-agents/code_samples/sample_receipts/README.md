@@ -1,23 +1,27 @@
-# Eksempel på kvitteringsmaler
+# Eksempel på kvitteringsfiler
 
 Tre forhåndsgenererte kvitteringsfiler for inspeksjon uten å kjøre notatboken.
 
 | Fil | Hva det er |
 |---|---|
-| `01_valid_receipt.json` | En gyldig signert kvittering for et `lookup_flights` verktøys kall. Verifisering gir True. |
-| `02_tampered_receipt.json` | Den samme kvitteringen med ett felt endret etter signering. Verifisering gir False. |
-| `03_chain_three_receipts.json` | En kjede med tre gyldige kvitteringer (search, hold, book) med `previous_receipt_hash` som kobler hver til den forrige. |
+| `01_valid_receipt.json` | En gyldig signert kvittering for en `lookup_flights` verktøysanrop. Verifiseringen returnerer True. |
+| `02_tampered_receipt.json` | Den samme kvitteringen med ett felt endret etter signering. Verifiseringen returnerer False. |
+| `03_chain_three_receipts.json` | En kjede på tre gyldige kvitteringer (søk, hold, bestilling) med `previous_receipt_hash` som lenker hver til den forrige. |
+
+Fiksturene signerer nyttelastens kanoniske JCS-bytes direkte med Ed25519.
+SHA-256 brukes fortsatt for innholdsdigester og kjedelenker i kvitteringene, ikke som en
+ekstra forhånds-hash før signering.
 
 ## Verifisering av eksemplene
 
-Notatboken går gjennom verifisering i fire seksjoner. For å verifisere disse malene
-direkte uten å kjøre gjennom notatbokfortellingen:
+Notatboken går gjennom verifisering i fire seksjoner. For å verifisere disse fiksturene
+direkte uten å følge notatbokens forklaring:
 
 ```python
 import json
 from pathlib import Path
 
-# Forutsetter at du har fullført importene og hjelpefunksjonene
+# Antar at du har fullført importene og hjelpefunksjonene
 # fra seksjonene 1 og 2 i 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -33,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Hvordan disse ble generert
 
-Malene bruker samme kodebane som notatboken, med én fast signeringsnøkkel
-og faste tidsstempler for byte-reproduserbarhet. For å gjenskape:
+Fiksturene bruker samme kodevei som notatboken, med én fast signeringsnøkkel
+og faste tidsstempel for byte-reproduserbarhet. For å regenerere:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skriptet ligger i `generate_fixtures.py` i denne katalogen.)
+(Scriptet ligger i `generate_fixtures.py` i denne mappen.)
 
-## Hva studenter lærer ved å inspisere rå JSON
+## Hva studentene lærer av å inspisere rå JSON
 
-Å lese det råe kvitteringsformatet bygger intuisjon som cellene i notatboken
-ikke alltid gir. Studenter som skummer JSON-en legger ofte merke til:
+Å lese rå kvitteringsformat bygger opp intuisjon som cellene i notatboken
+ikke alltid gir. Studenter som raskt skumer JSON-en merker ofte:
 
-1. Signaturen er en ugjennomsiktig base64url-streng, men alle andre felt er vanlig,
-   lesbar JSON. Signaturen krypterer ikke innholdet; den bekrefter det.
-2. `public_key` er innebygd i kvitteringen. En revisor trenger ikke noe annet
-   for å verifisere (med forbehold om å stole på at nøkkelen faktisk tilhører den påståtte
+1. Signaturen er en ugjennomsiktig base64url-streng, men hvert annet felt er klar
+   lesbar JSON. Signaturen krypterer ikke innholdet; den bevitner det.
+2. `public_key` er innebygd i kvitteringen. En revisor trenger ingenting annet
+   for å verifisere (forutsatt at nøkkelen faktisk tilhører den påståtte
    utstederen; se leksjonens README om identitetsinfrastruktur).
-3. Å endre ett enkelt tegn i hvilket som helst felt, og så sammenligne denne filen med
-   `02_tampered_receipt.json`, gjør mekanismen på bytenivå konkret.
+3. Å endre ett tegn i et hvilket som helst felt, og så sammenligne denne filen med
+   `02_tampered_receipt.json`, gjør byte-nivå mekanismen konkret.
 
 ---
 

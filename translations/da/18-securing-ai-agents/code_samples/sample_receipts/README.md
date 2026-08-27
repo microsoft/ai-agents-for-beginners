@@ -1,24 +1,28 @@
-# Sample Receipt Fixtures
+# Eksempel på kvitterings-fixtures
 
 Tre forudgenererede kvitteringsfiler til inspektion uden at køre notebooken.
 
-| File | Hvad det er |
+| Fil | Hvad det er |
 |---|---|
-| `01_valid_receipt.json` | En gyldig underskrevet kvittering for et `lookup_flights` værktøjsopkald. Verificering returnerer Sandt. |
-| `02_tampered_receipt.json` | Samme kvittering med ét felt ændret efter signering. Verificering returnerer Falsk. |
-| `03_chain_three_receipts.json` | En kæde af tre gyldige kvitteringer (søg, hold, book) med `previous_receipt_hash` som forbinder hver til den forrige. |
+| `01_valid_receipt.json` | En gyldig signeret kvittering for et `lookup_flights` værktøjsopkald. Verifikation returnerer True. |
+| `02_tampered_receipt.json` | Den samme kvittering med et felt ændret efter signering. Verifikation returnerer False. |
+| `03_chain_three_receipts.json` | En kæde af tre gyldige kvitteringer (søg, reserver, book) med `previous_receipt_hash` der forbinder hver til den forrige. |
 
-## Verifikation af prøverne
+Fixtures signerer payloadens kanoniske JCS-bytes direkte med Ed25519.
+SHA-256 bruges stadig til content-digests og kvitteringskædelinks, ikke som en
+ekstra forhash før signering.
 
-Notebooken gennemgår verifikation i fire sektioner. For at verificere disse fixtures
-direkte uden at køre gennem notebook-fortællingen:
+## Verificering af eksemplerne
+
+Notebooken gennemgår verificering i fire afsnit. For at verificere disse fixtures
+direkte uden at følge notebook-fortællingen:
 
 ```python
 import json
 from pathlib import Path
 
-# Antager at du har gennemført importerne og hjælpefunktionerne
-# fra sektionerne 1 og 2 i 18-signed-receipts.ipynb.
+# Antager at du har færdiggjort importerne og hjælpefunktionerne
+# fra sektionerne 1 og 2 af 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Sandt
@@ -33,7 +37,7 @@ for r in verify_chain(chain):
 
 ## Hvordan disse blev genereret
 
-Fixtures bruger samme kodevej som notebooken, med én fast underskrivningsnøgle
+Fixtures bruger den samme kodevej som notebooken, med en fast signeringsnøgle
 og faste tidsstempler for byte-reproducerbarhed. For at regenerere:
 
 ```bash
@@ -44,16 +48,16 @@ python3 generate_fixtures.py
 
 ## Hvad studerende lærer ved at inspicere rå JSON
 
-At læse det rå kvitteringsformat opbygger intuition, som cellerne i notebooken
-ikke altid giver. Studerende, der hurtigt kigger på JSON, bemærker ofte:
+Læsning af det rå kvitteringsformat opbygger intuition, som cellerne i notebooken
+ikke altid giver. Studerende, der skimter JSON'en, bemærker ofte:
 
-1. Signaturen er en uigennemtrængelig base64url-streng, men alle andre felter er almindelig
+1. Signaturen er en uigennemsigtig base64url-streng, men alle andre felter er almindelig
    læsbar JSON. Signaturen krypterer ikke indholdet; den bekræfter det.
 2. `public_key` er indlejret i kvitteringen. En revisor behøver ikke andet
-   for at verificere (med forbehold for tillid til, at nøglen faktisk tilhører den angivne
+   for at verificere (med forbehold for, at man stoler på at nøglen faktisk tilhører den påståede
    udsteder; se lektionens README om identitetsinfrastruktur).
-3. At ændre et enkelt tegn i et hvilket som helst felt og herefter sammenligne denne fil med
-   `02_tampered_receipt.json` gør byte-niveau mekanismen håndgribelig.
+3. Ændring af et enkelt tegn i et hvilket som helst felt, og derefter sammenligning af denne fil med
+   `02_tampered_receipt.json`, gør byte-niveau mekanismen konkret.
 
 ---
 

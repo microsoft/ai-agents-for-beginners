@@ -1,67 +1,66 @@
-[Katso oppituntivideo: Turvaaminen tekoäly agenteille kryptografisilla kuiteilla](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Katso oppituntivideo: AI-agenttien suojaaminen kryptografisilla kuiteilla](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Oppituntivideo ja pikkukuva lisätään Microsoftin sisältötiimin toimesta yhdistämisen jälkeen, vastaamaan oppituntien 14 / 15 kaavaa.)_
+> _(Oppituntivideo ja pikkukuva lisätään Microsoftin sisältötiimin toimesta yhdistämisen jälkeen, noudattaen oppituntien 14 / 15 kaavaa.)_
 
-# Tekoälyagenttien turvaaminen kryptografisilla kuiteilla
+# AI-agenttien suojaaminen kryptografisilla kuiteilla
 
 ## Johdanto
 
 Tässä oppitunnissa käsitellään:
 
-- Miksi tekoälyagenttien tarkastuslokeilla on merkitystä vaatimustenmukaisuuden, virheenkorjauksen ja luottamuksen kannalta.
+- Miksi auditointilokit AI-agenteille ovat tärkeitä vaatimustenmukaisuuden, virheenkorjauksen ja luottamuksen kannalta.
 - Mikä kryptografinen kuitti on ja miten se eroaa allekirjoittamattomasta lokirivistä.
-- Kuinka tuottaa allekirjoitettu kuitti agentin työkalukutsusta puhtaalla Pythonilla.
-- Kuinka vahvistaa kuitti offline-tilassa ja havaita manipuloinnit.
-- Kuinka ketjuttaa kuitteja niin, että yhden poistaminen tai uudelleenjärjestely katkaisee ketjun.
-- Mitä kuitit todistavat ja mitä ne nimenomaan eivät todista.
+- Miten tuottaa allekirjoitettu kuitti agentin työkalukutsusta tavallisella Pythonilla.
+- Miten tarkistaa kuitti offline-tilassa ja havaita manipulointi.
+- Miten ketjuttaa kuitteja siten, että yhden poistaminen tai uudelleenjärjestely rikkoo ketjun.
+- Mitä kuitit todistavat ja mitä ne nimenomaisesti eivät todista.
 
 ## Oppimistavoitteet
 
 Oppitunnin jälkeen osaat:
 
-- Tunnistaa epäonnistumistilat, jotka motivoivat kryptografista alkuperän todentamista agenttitoiminnoille.
-- Tuottaa Ed25519-allekirjoitetun kuitin kanonisesta JSON-payloadista.
-- Vahvistaa kuitin itsenäisesti käyttäen vain allekirjoittajan julkista avainta.
-- Havainnoida manipuloinnit suorittamalla vahvistus uudelleen muokatuilla kuiteilla.
-- Rakentaa hajautusketjutettu kuitujono ja selittää, miksi ketju on tärkeä.
-- Tunnistaa raja, jonka sisällä kuitit todistavat (attribuutio, eheys, järjestys) ja mitä ne eivät todista (toiminnon oikeellisuus, politiikan pätevyys).
+- Tunnistaa epäonnistumistilat, jotka motivoivat kryptografisen alkuperän varmistamista agentin toimille.
+- Tuottaa Ed25519-allekirjoitettu kuitti kanonisen JSON-payloadin perusteella.
+- Varmistaa kuitti itsenäisesti käyttäen vain allekirjoittajan julkista avainta.
+- Havaita manipulointi uudelleenvahvistamalla muunneltu kuitti.
+- Rakentaa hash-ketjutettu kuittijono ja selittää, miksi ketju on tärkeä.
+- Tunnistaa rajapinta sen välillä, mitä kuitit todistavat (attribuutio, eheys, järjestys) ja mitä ne eivät todista (toiminnon oikeellisuus, politiikan pätevyys).
 
-## Ongelma: Agenttisi tarkastusloki
+## Ongelmana: Agenttisi auditointiloki
 
-Kuvittele, että olet ottanut käyttöön tekoälyagentin Contoso Travelille. Agentti lukee asiakaspyynnöt, kutsuu lentojen APIa etsiäkseen vaihtoehtoja ja varaa paikkoja asiakkaan puolesta. Viime neljänneksellä agentti käsitteli 50 000 varausta.
+Kuvittele, että olet ottanut käyttöön AI-agentin Contoso Travelille. Agentti lukee asiakaspyyntöjä, kutsuu lentojen APIa vaihtoehtojen etsimiseksi ja varaa istuimia asiakkaan puolesta. Viimeisellä neljänneksellä agentti käsitteli 50 000 varausta.
 
-Tänään tarkastaja saapuu. Hän esittää yksinkertaisen kysymyksen: "Näytä minulle, mitä agenttisi teki."
+Tänään saapuu tarkastaja. Hän kysyy yksinkertaisen kysymyksen: "Näytä minulle, mitä agenttisi teki."
 
-Luovutat lokitiedostosi. Tarkastaja katsoo niitä ja esittää vaikeamman kysymyksen: "Mistä tiedän, ettei näitä lokeja ole muokattu?"
+Luovutat lokitiedostosi. Tarkastaja katsoo niitä ja esittää vaikeamman kysymyksen: "Mistä tiedän, ettei näitä lokitietoja ole muokattu?"
 
-Tämä on tarkastuslokiongelma. Suurin osa agenttien käyttöönotosta perustuu nykyään:
+Tämä on auditointilokiongelma. Suurin osa agenttien käyttöönotosta nykyisin nojaa:
 
-- **Sovelluslokit**: agentin itsensä kirjoittamia, muokattavissa kuka tahansa, jolla on tiedostojärjestelmän käyttöoikeus.
-- **Pilvilokinpalvelut**: alustatasolla havaittavia manipulaatioita, mutta vain jos tarkastaja luottaa alustan ylläpitäjään.
-- **Tietokantatapahtumalokit**: sopivia tietokantamuutoksiin, mutta eivät satunnaisiin työkalukutsuihin.
+- **Sovelluslokit**: agentin itsensä kirjoittamia, jotka voi muokata kuka tahansa, jolla on tiedostojärjestelmän pääsy.
+- **Pilvilogipalvelut**: alustatasolla manipuloinnin havaitsevia, mutta vain jos tarkastaja luottaa alustan operaattoriin.
+- **Tietokannan transaktio-lokit**: sopivia tietokantamuutoksille, mutta eivät mielivaltaisille työkalukutsuille.
 
-Mikään näistä ei voi vastata tarkastajan kysymykseen ilman, että tarkastajan täytyy luottaa johonkin (sinuun, pilvipalveluntarjoajaasi, tietokantavalmistajaasi). Sisäiseen käyttöön tämä luottamus on usein hyväksyttävää. Säännellyissä työkuormissa (rahoitus, terveydenhuolto, kaiken EU:n tekoälyasetuksen alaisena) se ei ole.
+Yksikään näistä ei voi vastata tarkastajan kysymykseen ilman, että tarkastaja luottaa johonkuhun (sinuun, pilvipalveluntarjoajaan, tietokantatoimittajaan). Sisäiseen käyttöön tämä luottamus on usein hyväksyttävää. Säännellyissä työkuormissa (rahoitus, terveydenhuolto, EU:n AI-lain alaiset) ei ole.
 
-Kryptografiset kuitit ratkaisevat tämän tekemällä jokaisesta agentin toiminnosta itsenäisesti varmennettavan. Tarkastajan ei tarvitse luottaa sinuun. Tarvitaan vain julkinen avain ja kuitti itse.
+Kryptografiset kuitit ratkaisevat tämän tekemällä jokaisesta agentin toiminnosta itsenäisesti varmennettavan. Tarkastajan ei tarvitse luottaa sinuun. Tarvitaan vain sinun julkinen avain ja kuitti itse.
 
 ## Mikä on kryptografinen kuitti?
 
-Kuitti on JSON-objekti, joka tallentaa agentin tekemän toimen, allekirjoitettuna digitaalisella allekirjoituksella.
+Kuitti on JSON-objekti, joka tallentaa, mitä agentti teki, allekirjoitettuna digitaalisella allekirjoituksella.
 
 ```mermaid
 flowchart LR
-    A[Agentti kutsuu työkalua] --> B[Luo kuittausdata]
-    B --> C[Normalisoi JSON RFC 8785 mukaisesti]
-    C --> D[SHA-256 tiiviste]
-    D --> E[Ed25519 allekirjoitus]
+    A[Agentti kutsuu työkalua] --> B[Luo kuittausdatan]
+    B --> C[Canonicalisoi JSON RFC 8785:n mukaisesti]
+    C --> E[Allekirjoita canonical-tavut Ed25519:llä]
     E --> F[Kuitti allekirjoituksella]
-    F --> G[Tarkastaja varmistaa offline-tilassa]
-    G --> H{Onko allekirjoitus voimassa?}
-    H -- yes --> I[Muokkaussuojattu todiste]
+    F --> G[Auditoija tarkistaa offline-tilassa]
+    G --> H{Onko allekirjoitus kelvollinen?}
+    H -- yes --> I[Muokkaustodiste]
     H -- no --> J[Kuitti hylätty]
 ```
 
-Pienin kuitti näyttää tältä:
+Minimikuitti näyttää tältä:
 
 ```json
 {
@@ -82,25 +81,25 @@ Pienin kuitti näyttää tältä:
 }
 ```
 
-Kolme ominaisuutta tekevät työn:
+Kolme ominaisuutta tekee työnsä:
 
-1. **Allekirjoitus**. Kuitti allekirjoitetaan agentin portin toimesta Ed25519-avaimella. Kenellä tahansa, jolla on vastaava julkinen avain, on mahdollisuus vahvistaa allekirjoitus offline-tilassa. Kenttien manipulointi mitätöi allekirjoituksen.
+1. **Allekirjoitus**. Kuitti allekirjoitetaan agentin väylän toimesta Ed25519-yksityisavaimella. Jokainen, jolla on vastaava julkinen avain, voi varmistaa allekirjoituksen offline-tilassa. Minkä tahansa kentän manipulointi mitätöi allekirjoituksen.
 
-2. **Kanoninen koodaus**. Ennen allekirjoitusta kuitti serialisoidaan JSON Canonicalization Scheme (JCS, RFC 8785) -standardin mukaisesti. Tämä takaa, että kaksi eri toteutusta, jotka tuottavat saman loogisen kuitin, tuottavat täysin identtisen tavujonon. Ilman kanonisoimista eri JSON-serialisoijat tuottaisivat eri allekirjoituksia samalle sisällölle.
+2. **Kanoninen koodaus**. Ennen allekirjoitusta kuitti sarjallistetaan JSON Canonicalization Schemeä (JCS, RFC 8785) käyttäen. Tämä varmistaa, että kaksi toteutusta, jotka tuottavat saman loogisen kuitin, tuottavat myös tavultaan identtisen tuloksen. Ilman kanonisointia eri JSON-sarjallistimet tekisivät erilaiset allekirjoitukset samalle sisällölle.
 
-3. **Hajautusketjutus**. `previous_receipt_hash` -kenttä linkittää jokaisen kuitin edeltäjäänsä. Yhden kuitin poistaminen tai uudelleenjärjestely rikkoo kaikki sen jälkeiset kuitit. Manipuloinnit näkyvät ketjutasolla vaikka yksittäiset allekirjoitukset ohitettaisiin.
+3. **Hash-ketjutus**. `previous_receipt_hash` -kenttä linkittää jokaiseen kuittiin sitä edeltävän kuitin. Kuitin poistaminen tai uudelleenjärjestely rikkoo kaikki sitä seuraavat kuitit. Manipulointi näkyy koko ketjutasolla, vaikka yksittäiset allekirjoituksetkin kiistettäisiin.
 
-Yhdessä nämä ominaisuudet tarjoavat kolme takuita:
+Nämä ominaisuudet yhdessä tarjoavat kolme takeita:
 
 - **Attribuutio**: tämä avain allekirjoitti tämän sisällön.
-- **Eheys**: sisältö ei ole muuttunut allekirjoittamisen jälkeen.
-- **Järjestys**: tämä kuitti tuli ketjussa sen kuitin jälkeen.
+- **Eheys**: sisältö ei ole muuttunut allekirjoituksen jälkeen.
+- **Järjestys**: tämä kuitti tuli ketjussa tuon kuitin jälkeen.
 
 ## Kuittien tuottaminen Pythonissa
 
-Kuittia varten ei tarvita erikoiskirjastoa. Kryptografiset peruskomponentit ovat laajalti saatavilla ja logiikka on muutaman kymmenen rivin Python-koodia.
+Kuittia ei tarvitse tuottaa erityisellä kirjastolla. Kryptografiset primitiivit ovat laajalti saatavilla ja logiikka on muutama kymmenen riviä Python-koodia.
 
-Käytännön harjoitukset `code_samples/18-signed-receipts.ipynb` kävelevät koko prosessin läpi. Yhteenveto:
+Käytännön harjoitukset tiedostossa `code_samples/18-signed-receipts.ipynb` käyvät koko prosessin läpi. Tiivistetty versio:
 
 ```python
 import json
@@ -116,11 +115,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Luo tai lataa allekirjoitusavain (tuotannossa, säilytä avain holvissa)
+# Luo tai lataa allekirjoitusavain (tuotannossa säilytä avainholvissa)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Rakenna kuittausmaksu (ei vielä allekirjoitusta)
+# Rakenna kuitin hyötykuorma (ei vielä allekirjoitusta)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,10 +135,9 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanonisoi, hajauta, allekirjoita.
+# Kanonisoi ja allekirjoita JCS-tavujoukko suoraan. PureEdDSA hajauttaa sisäisesti.
 canonical_bytes = canonicalize(payload)
-message_hash = hashlib.sha256(canonical_bytes).digest()
-signature_bytes = signing_key.sign(message_hash).signature
+signature_bytes = signing_key.sign(canonical_bytes).signature
 
 # Liitä rakenteellinen allekirjoitusobjekti.
 receipt = {
@@ -152,11 +150,11 @@ receipt = {
 }
 ```
 
-Tämä on koko allekirjoitusputki. Muistikirjan harjoitukset esittelevät jokaisen vaiheen.
+Tämä on koko allekirjoitusputki. Kirjanmerkin harjoituskohdat käyvät jokaisen vaiheen läpi.
 
-## Kuitin vahvistaminen ja manipuloinnin havaitseminen
+## Kuittien tarkistaminen ja manipuloinnin havaitseminen
 
-Vahvistaminen on päinvastainen operaatio:
+Tarkistaminen on käänteinen operaatio:
 
 ```python
 import base64
@@ -170,38 +168,37 @@ def b64url_decode(s: str) -> bytes:
     return base64.urlsafe_b64decode(s + padding)
 
 def verify_receipt(receipt: dict) -> bool:
-    # Allekirjoitus on jäsennelty objekti: {"alg", "sig", "public_key"}.
+    # Allekirjoitus on rakenteellinen objekti: {"alg", "sig", "public_key"}.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Rakenna uudelleen varsinainen allekirjoitettava sisältö (kaikki paitsi allekirjoitus).
+    # Rakenna uudelleen se data, joka oikeastaan allekirjoitettiin (kaikki paitsi allekirjoitus).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
-    message_hash = hashlib.sha256(canonical_bytes).digest()
 
     try:
         verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(message_hash, b64url_decode(sig_obj["sig"]))
+        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
         return True
     except BadSignatureError:
         return False
 ```
 
-Tämä funktio ottaa kuitin ja palauttaa `True`, jos allekirjoitus on validi, muuten `False`. Ei verkkokutsua, ei palveluriippuvuutta, ei kolmannen osapuolen luottamusta.
+Tämä funktio ottaa kuitin ja palauttaa `True`, jos allekirjoitus on validi, `False` muuten. Ei verkkokutsuja, ei palveluriippuvuutta, ei luottamusta kolmansien osapuolten varaan.
 
-Näyttämään, miten manipuloinnin havaitseminen toimii, muistikirja käy läpi:
+Havaitseaksesi manipuloinnin käytännössä, kirjanmerkin harjoitukset käyvät läpi:
 
-1. Validin kuitin tuottaminen ja sen vahvistuksen varmistaminen.
-2. Yhden tavun muokkaaminen `tool_args_hash` -kentässä.
-3. Vahvistuksen suorittaminen uudestaan ja epäonnistumisen todistaminen.
+1. Tuotetaan kelvollinen kuitti ja varmistetaan sen pätevyys.
+2. Muutetaan yhtä tavua `tool_args_hash` -kentästä.
+3. Ajetaan tarkistus uudelleen ja nähdään epäonnistuminen.
 
-Tämä on käytännön demonstraatio siitä, että kuitit ovat manipulaatioita vastaan suojaavia: mikä tahansa muutos, kuinka pieni tahansa, rikkoo allekirjoituksen.
+Tämä on käytännön osoitus, että kuitit ovat manipuloinnin havaitsevia: kaikki muutos, kuinka pieni tahansa, rikkoo allekirjoituksen.
 
 ## Kuittien ketjuttaminen monivaiheisille agenteille
 
-Yksi allekirjoitettu kuitti suojaa yhtä toimintoa. Kuituketju suojaa toimintojen sarjaa.
+Yksi allekirjoitettu kuitti suojaa yhtä toimintoa. Ketju kuittteja suojaa toimintojen sarjaa.
 
 ```mermaid
 flowchart LR
@@ -213,180 +210,180 @@ flowchart LR
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Jokainen kuitti tallentaa edellisen kuitin hajautuksen. Jos hyökkääjä poistaisi kuitin 2 hiljaisesti, hänen täytyisi joko:
+Jokainen kuitti tallentaa edeltävän kuitin hashin. Hiljaisen kuitin 2 poistamisen hyökkääjän täytyisi joko:
 
-- Muokata kuitin 3 `previous_receipt_hash` -kenttää (rikkoutuu kuitin 3 allekirjoitus) TAI
-- Väärennellä uusi allekirjoitus muokatulle kuittille 3 (vaatii agentin yksityisen avaimen).
+- Muuttaa kuitti 3:n `previous_receipt_hash`-kenttää (rikkoo kuitti 3:n allekirjoituksen), TAI
+- Väärentää uusi allekirjoitus muokatulle kuitti 3:lle (tarvitaan agentin yksityisavain).
 
-Jos yksityinen avain on laitteistopohjaisessa avainholvissa ja julkinen avain julkaistaan jokaisen kuitin mukana, kumpikaan hyökkäys ei ole havaittamaton.
+Jos yksityisavain on laiteavaimen suojassa ja julkinen avain julkaistaan jokaisen kuitin kanssa, kumpikaan hyökkäys ei ole havaittavissa toteutettavissa.
 
-Muistikirja käy läpi seuraavat:
+Harjoitukset käyvät läpi:
 
 1. Kolmen kuitin ketjun rakentamisen.
-2. Todenna, että kunkin kuitin `previous_receipt_hash` vastaa edellisen kuitin todellista hajautusarvoa.
-3. Muokkaa keskellä olevaa kuittia ja katso, miten ketju katkeaa juuri siinä kohtaa.
+2. Varmistamisen, että jokaisen kuitin `previous_receipt_hash` vastaa edellisen kuitin todellista hashia.
+3. Yhden kuitin manipuloinnin ketjun keskellä ja ketjun murtumisen juuri siinä kohdassa.
 
-Näin tuot auditointilokin, jonka ulkopuolinen tarkastaja voi varmentaa luottamatta sinuun.
+Näin tuotat auditointilokin, jonka ulkoinen tarkastaja voi varmentaa luottamatta sinuun.
 
-## Mitä kuitit todistavat (ja mitä ne eivät todista)
+## Mitä kuitit todistavat (ja mitä eivät todista)
 
-Tämä on tämän oppitunnin tärkein osio. Kuitit ovat tehokkaita, mutta niiden voima on rajallinen.
+Tämä on tämän oppitunnin tärkein osio. Kuitit ovat voimakkaita, mutta niiden voima on rajattu.
 
 **Kuitit todistavat kolme asiaa:**
 
 1. **Attribuutio**: tietty avain allekirjoitti tietyn payloadin.
-2. **Eheys**: payload ei ole muuttunut allekirjoittamisen jälkeen.
-3. **Järjestys**: tämä kuitti tuli sen kuitin jälkeen hajautusketjussa.
+2. **Eheys**: payload ei ole muuttunut allekirjoituksen jälkeen.
+3. **Järjestys**: tämä kuitti tuli tämän kuitin jälkeen hash-ketjussa.
 
-**Kuitit EIVÄT todista:**
+**Kuitit eivät todista:**
 
-1. **Oikeellisuus**: että agentin toiminto oli oikea toiminto. Kuitti voidaan allekirjoittaa väärälle vastaukselle yhtä puhtain konstein kuin oikealle.
-2. **Politiikan noudattaminen**: että `policy_id`-kentässä viitattu politiikka todella arvioitiin tai että se olisi sallinut tämän toiminnon, jos olisi tarkistettu. Kuitti tallentaa mitä väitettiin, ei mitä toteutettiin.
-3. **Identiteetti avaimen ulkopuolella**: kuitti sanoo "tämä avain allekirjoitti tämän sisällön." Se ei sanou "tämä ihminen valtuutti tämän." Avain voidaan yhdistää henkilöön tai organisaatioon vain erillisellä tunnistusjärjestelmällä (hakemisto, julkisen avaimen rekisteri jne.).
-4. **Syötteiden totuudenmukaisuus**: jos agentti saa manipuloidun kehotteen ja toimii sen mukaan, kuitti tallentaa toiminnon uskollisesti. Kuitit ovat syötteen validoinnin jälkeisiä, eivät sen korvaavia.
+1. **Oikeellisuus**: että agentin toiminto oli oikea. Kuitti voidaan allekirjoittaa väärälle vastaukselle yhtä helposti kuin oikealle.
+2. **Politiikan noudattaminen**: että `policy_id`:ssä viitattu politiikkaa arvioitiin oikeasti tai että se olisi sallinut toiminnon, jos olisi tarkastettu. Kuitti tallentaa väitteen, ei toteutusta.
+3. **Identiteetti avaimen lisäksi**: kuitti sanoo "tämä avain allekirjoitti tämän sisällön." Se ei sano "tämä ihminen valtuutti tämän." Avain yhdistetään henkilöön tai organisaatioon erillisellä identiteetti-infrastruktuurilla (hakemisto, julkisen avaimen rekisteri jne.).
+4. **Syötteiden totuudenmukaisuus**: jos agentille annetaan manipulointia sisältävä kehotus ja agentti toimii sen mukaan, kuitti tallentaa toiminnon uskollisesti. Kuitit ovat syötteen validoinnin jälkeisiä, eivät sen korvikkeita.
 
 Tämä raja on tärkeä kahdesta syystä:
 
-- Se kertoo, mihin kuitit soveltuvat: agentin käyttäytymisen auditointiin ja manipulointien havaitsemiseen, myös organisaatiorajojen yli.
-- Se kertoo, mitä lisäkerroksia edelleen tarvitaan: syötteen validointi (oppitunti 6), politiikan siirtyminen (käsitelty tiiviisti alla) ja tunnistusjärjestelmät (ei tämän oppitunnin aihe).
+- Se kertoo, mihin kuitteja kannattaa käyttää: agentin käyttäytymisen auditointiin ja manipuloinnin havaitsemiseen myös organisaatiorajojen yli.
+- Se kertoo, mitä muita kerroksia tarvitaan: syötteen validointi (Oppitunti 6), politiikan valvonta (lyhyesti alla), ja identiteetti-infrastruktuuri (tämän oppitunnin ulkopuolella).
 
-Yleinen virhe on olettaa, että "meillä on kuitit" tarkoittaa "meitä säännellään." Näin ei ole. Kuitit ovat perusta. Hallinto on järjestelmä, jonka rakennat tämän päälle.
+Yleinen virhe on olettaa, että "meillä on kuittaus" tarkoittaa "olemme säädeltyjä." Se ei tarkoita. Kuitit ovat perusta. Sääntely on järjestelmä, jonka rakentaa perustan päälle.
 
-## Todistaminen, että ihminen hyväksyi tarkalleen toiminnon
+## Todistamassa, että ihminen hyväksyi tarkan toiminnon
 
-Kohta 3 edellä ansaitsee oman osionsa: toimintakuitti sanoo "tämä avain allekirjoitti tämän sisällön," ei koskaan "ihminen valtuutti tämän." Korkean riskin toiminnoissa (hyvitykset, poistot, tilisiirrot) hallintakehykset vaativat yhä useammin juuri tämän puuttuvan lausuman, ja se voidaan tuottaa samoilla perustoiminnoilla, jotka rakensit tässä oppitunnissa.
+Kohta 3 yllä ansaitsee oman osionsa: toimintakuitti sanoo "tämä avain allekirjoitti tämän sisällön," ei koskaan "ihminen valtuutti tämän." Korkean riskin toiminnoissa (hyvitykset, poistot, tilisiirrot) sääntelykehykset vaativat yhä enemmän juuri tätä puuttuvaa lausetta, ja se voidaan tuottaa samoilla primitiiveillä, jotka olet jo rakentanut tässä oppitunnissa.
 
-Seuraava muistikirja `code_samples/human-authorization-receipts.ipynb` lisää toisen kuittilajin, `human.approval.v1`, samanlaisessa kuorimuodossa kuin tämän oppitunnin kuitit (tyypitetty payload, allekirjoitettu Ed25519:llä kanonisesta SHA-256:sta, jossa `signature` on allekirjoitettujen tavujen ulkopuolella). Nimeltä mainittu hyväksyjä allekirjoittaa **kokonaisen kanonisen toiminnon ja sen tiivisteen** ennen suorittamista; agentin toimintakuitti kantaa **saman toimintatiivisteen** ja parent_approval_ref:n, hyväksynnän kuitin tiivisteen, saman konvention kuin `previous_receipt_hash` ketjussa, jonka rakensit ylhäällä. Yksi `verify_chain` suorittaa molemmat artefaktit **erillisissä kiinnitetyissä avainrekistereissä** (hyväksyjien avaimet vs agenttien avaimet), joten koodipolku on jaettu, mutta valtuudet eivät ole.
+Seurantakansiossa `code_samples/human-authorization-receipts.ipynb` lisätään toinen kuittilaji, `human.approval.v1`, samassa kuorimuodossa kuin tämän oppitunnin kuitit (tyyppimerkattu payload, joka on allekirjoitettu Ed25519:llä kanonisista JCS-tavuista, ja `signature`-objekti allekirjoitettujen tavujen ulkopuolella). Nimetty hyväksyjä allekirjoittaa **kokonaisen kanonisen toiminnon ja sen tiivisteen** ennen suoritusta; agentin toimintakuitti sisältää **saman toimintatiivisteen** ja `parent_approval_ref`in, hyväksynnän `receipt_hash`in, saman konvention kuin `previous_receipt_hash` ketjussa, jonka rakensit yllä. Yksi `verify_chain` tarkistaa molemmat artefaktit **eri lukittujen avainrekisterien** avulla (hyväksyjien avaimet vs agentin avaimet), joten koodipolkua jaetaan, mutta valtiaita ei.
 
-Ominaisuus, jonka tämä ostaa, jonka ilmaisee tarkasti: *ihminen hyväksyi tämän tarkalleen toiminnon, ja agentti suoritti juuri sen hyväksytyn toiminnon.* Muistikirjan kieltomekanismit ovat ne, jotka tekevät ominaisuudesta todellisen, eivät pelkän väitteen:
+Tämä ominaisuus ilmaistuna tarkasti: *ihminen hyväksyi juuri tämän toiminnon, ja agentti suoritti täsmälleen sen hyväksytyn toiminnon.* Kirjanmerkin torjuntamekanismit tekevät siitä aidon, eivät vain väitteen:
 
-- klassinen setti: manipulointi, sekoittunut sijainen, uudelleensoitto, väärennetyt avaimet kummallakin puolella, väärän muodon syöte;
-- **vanhentunut valtuutus**: allekirjoitus, joka edelleen validoituu, mutta hylätään koska politiikan versio on muuttunut, hyväksyjän avain on poistettu kiinnitetyistä rekistereistä tai hyväksyntä on vanhentunut ennen suoritusta;
-- **tiivisteen vaihto**: validisti allekirjoitettu toimintakuitti, joka osoittaa *todelliseen* hyväksyntään, joka sitoo *toisen* kanonisen toiminnon.
+- klassinen tuotteisto: manipulointi, erehtynyt apulainen, uudelleentoisto, allekirjoitusten väärentäminen kummallakin puolella, vääränlainen syöte;
+- **vanhentunut valtuutus**: allekirjoitus, joka vielä tarkistuu, mutta hylätään, koska politiikkaversio muuttui, hyväksyjän avain poistettiin rekisteristä tai hyväksyntä vanhentui ennen suoritusta;
+- **tiivisteen vaihto**: validisti allekirjoitettu toimintakuitti, joka osoittaa *todelliseen* hyväksyntään, joka sitoo *erilaiseen* kanoniseen toimintoon.
 
-Jokainen epäonnistuminen hylätään eri syystä, joten tarkastaja lukemassa kieltoa pystyy erottamaan, johtuuko se henkilön valtuutuksen vanhentumisesta vai toiminnon muuttumisesta. Oppikirjan sääntö: allekirjoitettu hyväksyntä ei ole valtuutus sellaisenaan. Valtuutus on olemassa vain, jos molemmat kuitit sitoutuvat samaan kanoniseen toimintaan suorituksen aikaan. Samassa Internet-Draftissa, jota tämä oppitunti seuraa (`draft-farley-acta-signed-receipts`), yhteisallekirjoitusreitti on tämän kaavan standardirakenteen muoto.
+Kukin epäonnistuminen hylkää selkeällä syyllä, joten tarkastaja voi kuittien kielen lukea, tuliko valtuutus vanhentuneeksi vai muutettiinko suoritettua toimintoa. Kirjanmerkin oppi: allekirjoitettu hyväksyntä ei ole itsessään valtuutus. Valtuus on olemassa vain, jos molemmat kuitit sitoutuvat samaan kanoniseen toimintaan suorituksen hetkellä. Ihmisen hyväksymä kuitti on tämän oppitunnin määrittelemä opetuskoostumus, ei `draft-farley-acta-signed-receipts`-dokumentin käsite.
 
 ## Tuotantoviitteet
 
-Tämän oppitunnin Python-koodi on tarkoituksella minimaalista, jotta voit lukea jokaisen rivin ja ymmärtää tarkalleen, mitä tapahtuu. Tuotannossa sinulla on kaksi vaihtoehtoa:
+Python-koodi tässä oppitunnissa on tarkoituksella minimaalinen, jotta voit lukea jokaisen rivin ja ymmärtää tarkalleen, mitä tapahtuu. Tuotannossa sinulla on kaksi vaihtoehtoa:
 
-1. **Rakenna suoraan kryptografisten primitiivien päälle.** Yllä nähty 50 riviä riittää moniin käyttötarkoituksiin. PyNaCl (Ed25519) ja `jcs`-paketti (kanoninen JSON) ovat hyvin ylläpidettyjä ja auditoituja kirjastoja.
+1. **Rakenna suoraan kryptografisten primitiivien päälle.** Yllä näkemäsi 50 riviä riittää moniin käyttötarkoituksiin. PyNaCl (Ed25519) ja `jcs`-paketti (kanoninen JSON) ovat hyvin ylläpidettyjä ja auditoituja kirjastoja.
 
-2. **Käytä tuotantovalmiita kuittikirjastoja.** Useat avoimen lähdekoodin projektit toteuttavat saman kaavan lisäominaisuuksilla (avainten kierto, erävarmennus, JWK-setin jakelu, integraatio politiikkamoottoreihin):
-   - Tässä oppitunnissa käytetty kuittimuoto seuraa IETF Internet-Draftia ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revisio 02), joka on parhaillaan standardiprosessissa, ja jolla on yhteinen yhteensopivuussarja ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)), jota riippumattomat toteutukset ristiinvarmentavat tavujonoidenttisen kanonisen tuloksen varmistamiseksi.
-   - Microsoft Agent Governance Toolkit yhdistää kuitit Cedar-pohjaisiin politiikkapäätöksiin; katso tuon varaston opastus 33 täydellisen esimerkin saamiseksi.
-   - `protect-mcp` (npm) ja `@veritasacta/verify` (npm) paketit tarjoavat Node-pohjaisen toteutuksen kuittien allekirjoitukseen ja offline-varmennukseen, tarkoitettu minkä tahansa MCP-palvelimen kääreeksi manipulaatioita havaitsevalla auditointilogilla, mukaan lukien "pidetty yhteisallekirjoitus" työnkulku, jossa pysäytetty toiminto lähettää hyväksyntäkuitin sidottuna toimintotiivisteeseen (WebAuthn-tuettu työpöytävirtaus); sama hyväksyntäkuittikaava kuin yllä mainitussa ihmisen valtuutusmuistikirjassa.
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) tarjoaa saman Ed25519 + JCS allekirjoituskaavan Pythonissa LangChain- ja CrewAI-integroinneilla, mukaan lukien julkaistut ristiinvalidointitestivektorit ja OWASP PR #2210:n kautta lahjoitettu vaatimustenmukaisuuskartoitus.
+2. **Käytä tuotantokuittikirjastoa.** Useita avoimen lähdekoodin projekteja toteuttaa saman mallin lisäominaisuuksilla (avaimen kierto, erävarmennus, JWK-setin jakelu, integraatio politiikan moottoreihin):
+   - Allekirjoitusputki käyttää JCS- ja signature-scope-konventioita itsenäisessä IETF Internet-Draftissa ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revisio 02). Tämän oppitunnin litteä opetuskuitti eroaa draftin `{payload, signature}`-kuorista eikä ole conformantti toteutus. Draft julkaisee yhteisen conformancesarjan ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) toteutuksille, jotka kohdistuvat sen langan muotoon.
+   - Microsoft Agent Governance Toolkit yhdistää kuitit Cedar-pohjaisiin politiikkapäätöksiin; katso Tutorial 33 tästä reposta kokonaisvaltaiseksi esimerkkiksi.
+   - `protect-mcp` (npm) ja `@veritasacta/verify` (npm) paketit tarjoavat Node-pohjaisen toteutuksen kuittien allekirjoitukseen ja offline-varmennukseen, tarkoitettu minkä tahansa MCP-palvelimen ympärille tamper-evident auditointilokiksi, sisältäen pidetyn allekirjoitusvirran jossa keskeytetty toiminto lähettää hyväksyntäkuitin toiminnon tiivisteeseen sidottuna (WebAuthn-tukea työpöytävirrassa), sama hyväksyntäkuittimalli kuin ihmisen valtuutus-kirjanmerkin yllä.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) tarjoaa saman Ed25519 + JCS allekirjoitusmallin Pythonissa LangChain- ja CrewAI-integraatioilla, mukaan lukien julkistetut ristiinvalidoinnin testivektorit ja vaatimustenmukaisuuskartoituksen, joka on lahjoitettu [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Päätös rakentaa itse tai käyttää kirjastoa muistuttaa valintaa JWT-kirjaston kirjoittamisen ja testatun kirjaston käytön välillä: molemmat ovat perusteltuja; kirjasto säästää aikaa ja vähentää auditointipinta-alaa; itse tehty polku pakottaa ymmärtämään jokaisen primitiivin. Tämä oppitunti opettaa itse tehdyn polun, jotta sinulla on perusta kumpaankin vaihtoehtoon.
+Päätös oman toteutuksen ja kirjaston käytön välillä muistuttaa päätöstä JWT-kirjaston kirjoittamisesta itse tai testatun käytöstä: molemmat ovat järkeviä; kirjasto säästää aikaa ja vähentää auditointipintaa; alusta alkaen rakennettu polku pakottaa ymmärtämään jokaisen primitiivin. Tämä oppitunti opettaa alusta asti, jotta sinulla on perusta molemmille valinnoille.
 
 ## Tietotarkistus
 
-Testaa ymmärrystäsi ennen käytännön harjoitusta.
+Testaa ymmärryksesi ennen siirtymistä harjoituksiin.
 
-**1. Kuitti allekirjoitetaan agentin yksityisellä Ed25519-avaimella. Tarkastajalla on vain julkinen avain. Voiko tarkastaja vahvistaa kuitin offline-tilassa?**
+**1. Kuitti allekirjoitetaan agentin yksityisellä Ed25519-avaimella. Tarkastajalla on vain julkinen avain. Voiko tarkastaja varmistaa kuitin offline-tilassa?**
 
 <details>
 <summary>Vastaus</summary>
 
-Kyllä. Ed25519-varmennukseen tarvitaan vain julkinen avain ja allekirjoitetut tavut. Ei verkkokutsua, ei palveluriippuvuutta. Tämä ominaisuus tekee kuiteista hyödyllisiä ilmakytkennöissä, moniorganisaatioympäristöissä tai vähäluottamuksisissa tarkastustilanteissa.
+Kyllä. Ed25519-varmennus vaatii vain julkisen avaimen ja allekirjoitetut tavut. Ei verkkokutsuja, ei palveluriippuvuutta. Tämä ominaisuus tekee kuiteista hyödyllisiä suljetuissa, moniorganisaatioisissa tai vähäluottamuksellisissa tarkastusympäristöissä.
 </details>
 
-**2. Hyökkääjä muuttaa kuitin `policy_id`-kentän väittääkseen, että sitä säätelee sallivampi politiikka. Allekirjoitus oli alkuperäisen payloadin ylitse. Mitä vahvistuksen aikana tapahtuu?**
+**2. Hyökkääjä muuttaa kuitin `policy_id`-kenttää väittääkseen että sitä hallinnoi sallivampi politiikka. Allekirjoitus oli alkuperäisestä payloadista. Mitä tapahtuu tarkistuksen aikana?**
 
 <details>
 <summary>Vastaus</summary>
 
 
-Varmennus epäonnistuu. Allekirjoitus laskettiin alkuperäisen hyötykuorman kanonisista tavuista; minkä tahansa kentän muuttaminen muuttaa kanonisia tavuja, mikä muuttaa SHA-256-tiivistettä, mikä tekee allekirjoituksesta virheellisen. Hyökkääjä tarvitsisi yksityisen avaimen tuottaakseen uuden kelvollisen allekirjoituksen, jota heillä ei ole.
+Vahvistus epäonnistuu. Allekirjoitus laskettiin alkuperäisen hyötykuorman kanonisista tavuista; minkä tahansa kentän muuttaminen muuttaa näitä tavuja, mikä tekee allekirjoituksesta kelvottoman. Hyökkääjän täytyisi omistaa yksityinen avain tuottaakseen uuden kelvollisen allekirjoituksen, mitä heillä ei ole.
 </details>
 
-**3. Miksi kuitti sisältää kentät `tool_args_hash` ja `result_hash` sen sijaan, että se sisältäisi raakat argumentit ja tuloksen?**
+**3. Miksi kuitti sisältää `tool_args_hash` ja `result_hash` eikä raakaa argumentteja ja tulosta?**
 
 <details>
 <summary>Vastaus</summary>
 
-Kaksi syytä. Ensinnäkin kuitti saatetaan joutua arkistoimaan tai siirtämään ympäristöissä, joissa raakadatan (henkilötiedot, liiketoimintadata) vuotaminen on ongelma. Tiivistelmä pitää kuitin pienenä ja sisällön yksityisenä; tarkastaja varmistaa, että tiiviste vastaa erikseen tallennettua varsinaista sisältöä. Toiseksi tiivisteillä on kiinteä koko; kuitti, joka sisältää tiivisteitä, on kooltaan rajallinen riippumatta siitä, kuinka suuret syötteet ja tulokset olivat.
+Kaksi syytä. Ensinnäkin, kuitti on ehkä arkistoitava tai siirrettävä ympäristöissä, joissa raakadatan (HETU, liiketoimintadata) vuotaminen on ongelma. Tiivisteiden käyttö pitää kuitin pienenä ja sisällön yksityisenä; auditoija vahvistaa, että tiiviste vastaa erikseen tallennettua sisältöä. Toiseksi, tiivisteillä on kiinteä koko; kuitissa olevien tiivisteiden kokoraja ei muutu riippumatta syötteiden ja tulosten koosta.
 </details>
 
-**4. Kenttä `previous_receipt_hash` linkittää jokaisen kuitin edeltäjäänsä. Mitä käy vikaan, jos hyökkääjä poistaa hiljaa yhden kuitin ketjun keskeltä?**
+**4. Kenttä `previous_receipt_hash` linkittää jokaisen kuitin sitä edeltävään. Jos hyökkääjä poistaa hiljaa yhden kuitin ketjun keskeltä, mikä muuttuu virheelliseksi?**
 
 <details>
 <summary>Vastaus</summary>
 
-Kaikki kuitit, jotka tulivat poistettua jälkeen. Niiden `previous_receipt_hash` -kentät eivät enää vastaa todellista ketjua (koska viitattu kuitti ei enää ole olemassa, tai ketju osoittaa nyt eri edeltäjään). Poiston piilottamiseksi hyökkääjän pitäisi allekirjoittaa kaikki myöhemmät kuitit uudelleen, mikä vaatii yksityistä avainta.
+Kaikki kuitit, jotka tulivat poistettua kuittia myöhemmin. Niiden kentät `previous_receipt_hash` eivät enää vastaa ketjua (koska kuitti, johon ne viittasivat, on poistettu tai ketju viittaa nyt eri edeltäjään). Peittääkseen poiston hyökkääjän täytyisi allekirjoittaa kaikki myöhemmät kuitit uudelleen, mikä vaatii yksityisen avaimen.
 </details>
 
-**5. Kuitti varmentuu puhtaasti. Todistaako se agentin toiminnan olleen oikea, pätevä tai sääntöjen mukainen?**
+**5. Kuitti vahvistuu puhtaasti. Todistaako se, että agentin toiminta oli oikea, järkevä tai sääntöjen mukainen?**
 
 <details>
 <summary>Vastaus</summary>
 
-Ei. Kelvollinen kuitti todistaa kolme asiaa: kohdistuksen (tämä avain allekirjoitti tämän sisällön), eheyden (sisältöä ei ole muutettu) ja järjestyksen (tässä kuitti tuli tuon kuitin jälkeen). Se EI todista, että toiminta oli oikea, että `policy_id`-kentässä nimetty sääntö todella arvioitiin, tai että agentti noudatti kaikkia sääntöjä. Kuitit tekevät agentin toiminnan auditoitavaksi, eivät pakosti oikeaksi. Tämä on tärkein oppitunnin rajapyykki.
+Ei. Kelvollinen kuitti todistaa kolme asiaa: attribuution (tällä avaimella allekirjoitettiin tämä sisältö), eheys (sisältöä ei ole muutettu) ja järjestyksen (tämä kuitti tuli tuon kuitin jälkeen). Se EI todista, että toiminta oli oikea, että `policy_id`:ssä nimettyä sääntöä arvioitiin tai että agentti noudatti kaikkia sääntöjä. Kuitit tekevät agentin toiminnan auditoitavaksi, eivät välttämättä oikeaksi. Tämä on opetuksen tärkein raja.
 </details>
 
 ## Harjoitustehtävä
 
-Avaa tiedosto `code_samples/18-signed-receipts.ipynb` ja tee kaikki neljä osiota:
+Avaa `code_samples/18-signed-receipts.ipynb` ja suorita kaikki neljä osaa:
 
-1. **Osa 1**: Allekirjoita ensimmäinen kuittisi ja varmista se.
-2. **Osa 2**: Muokkaa kuittia ja tarkkaile varmennuksen epäonnistumista.
-3. **Osa 3**: Rakenna kolmen kuitin ketju ja varmista ketjun eheys.
-4. **Osa 4**: Käytä mallia Microsoft Agent Frameworkilla rakennetun agentin työkalukutsun ympärillä, allekirjoita ja varmista kuitti itsenäisesti.
+1. **Osa 1**: Allekirjoita ensimmäinen kuittisi ja vahvista se.
+2. **Osa 2**: Muokkaa kuittia ja tarkkaile vahvistuksen epäonnistumista.
+3. **Osa 3**: Rakenna kolmen kuitin ketju ja vahvista ketjun eheys.
+4. **Osa 4**: Käytä kuviota agentissa, joka on rakennettu Microsoft Agent Frameworkilla: kääri työkalukutsu kuitin allekirjoitukseen ja vahvista sitten kuitti erikseen.
 
-**Lisähaaste 1:** laajenna kuittikaavaa omalla valitsemallasi lisäkentällä (esim. pyyntö-ID jäljitettävyyteen), päivitä kanoninen allekirjoituslogiikka ottamaan se mukaan, ja varmista, että kuitti silti käy läpi varmennuksen. Muuta kenttää allekirjoittamisen jälkeen ja varmista, että varmennus epäonnistuu. Tämä pakottaa sinut ymmärtämään, miten jokainen kanonisen koodauksen tavu vaikuttaa allekirjoitukseen.
+**Haaste 1:** laajenna kuittikaavaa omalla lisäkentällä (esim. jäljitettävyyden pyyntötunnus), päivitä kanonisen allekirjoituslogiikka sisällyttämään se, ja varmista, että kuitti käy läpi vahvistuksen. Muokkaa sitten kenttää allekirjoituksen jälkeen ja varmista, että vahvistus epäonnistuu. Tämä pakottaa sinut ymmärtämään, kuinka jokainen tavua kanonisessa koodauksessa vaikuttaa allekirjoitukseen.
 
-**Lisähaaste 2:** Aggregoi kahden kuitin SHA-256-tiivisteet yhdeksi (ketjuta kanonisina tavuina deterministisesti) ja upota tuloksena oleva tiiviste kolmannen kuitin uudeksi kentäksi ennen allekirjoitusta. Varmista, että kaikki kolme kuittia käyvät edelleen varmennuksen läpi. Olet juuri rakentanut yhden askeleen sisällyttämistodistuksen: kuka tahansa, jolla on kolmas kuitti, voi todistaa, että ensimmäiset kaksi olivat olemassa allekirjoitushetkellä paljastamatta niiden sisältöä. Tätä mallia valikoivasti paljastavat kuitit käyttävät laajamittaisesti (Merkle-sitoumukset, RFC 6962).
+**Haaste 2:** tee kahdesta kuitistasi SHA-256-tiiviste yhteen (liittäen kanoniset tavut deterministisesti) ja upota tulos kolmannen kuitin uudeksi kentäksi ennen allekirjoitusta. Vahvista, että kaikki kolme kuittia käyvät edelleen läpi vahvistuksen. Olet juuri rakentanut yhden askeleen sisällytysprotokollan: kuka tahansa, jolla on kolmas kuitti, voi todistaa ensimmäisten kahden olemassaolon allekirjoitushetkellä paljastamatta sisältöä. Tätä kaavaa valikoivat kuittaukset käyttävät suuressa mittakaavassa (Merkle-sitoumukset, RFC 6962).
 
 ## Yhteenveto
 
-Kryptografiset kuitit antavat tekoälyagenteille auditointiketjun, joka on:
+Kryptografiset kuitit antavat tekoälyagenteille auditointijäljen, joka on:
 
-- **Riippumattomasti varmennettavissa**: kuka tahansa julkisella avaimella voi varmistaa, ei palvelu-riippuvuutta.
-- **Muokkaustodistettavia**: mikä tahansa muutos mitätöi allekirjoituksen.
-- **Siirrettäviä**: kuitti on pieni JSON-tiedosto; sen voi arkistoida, siirtää ja varmistaa missä tahansa.
-- **Standardien mukaisia**: perustuu Ed25519:ään (RFC 8032), JCS:ään (RFC 8785) ja SHA-256:een, kaikki laajasti käytettyjä primitiivejä.
+- **Riippumattomasti vahvistettavissa**: kuka tahansa julkisen avaimen haltija voi tarkistaa, ei palvelusidonnaisuuksia.
+- **Muokkaussuojattu**: muutokset mitätöivät allekirjoituksen.
+- **Siirrettävä**: kuitti on pieni JSON-tiedosto; sitä voi arkistoida, siirtää ja vahvistaa missä tahansa.
+- **Standardien mukainen**: perustuu Ed25519:een (RFC 8032), JCS:ään (RFC 8785) ja SHA-256:een, kaikki laajasti käytettyjä primitiivejä.
 
-Ne eivät korvaa syötteiden validointia, sääntöjen noudattamisen valvontaa tai identiteettijärjestelmää. Ne ovat näiden kerrosten perusta. Kun otat agentteja käyttöön säädellyissä järjestelmissä, moniorganisaatiotyönkuluissa tai missä tahansa tilanteessa, jossa tulevaa tarkastajaa ei voi olettaa luottavan sinuun, kuitit tekevät auditointiketjusta luotettavan.
+Ne eivät korvaa syötteiden validointia, sääntöjen noudattamista tai identiteettijärjestelmiä. Ne ovat näiden kerrosten perustana. Kun otat agentteja käyttöön säännellyissä kuormissa, moniorganisaatiotyönkuluissa tai missä tahansa, jossa tuleva tarkastaja ei voi luottaa sinuun, kuitit tekevät auditointijäljestä rehellisen.
 
-Tärkein asia: kuitit todistavat kuka sanoi mitä ja milloin. Ne eivät todista, että sanottu oli totta tai oikein. Pidä tämä ero tarkasti mielessä. Se erottaa rehellisen alkuperäisjärjestelmän harhaanjohtavasta.
+Tärkein oppi: kuitit todistavat, kuka sanoi mitä ja milloin. Ne eivät todista sanotun olevan totta tai oikeaa. Pidä tämä ero tarkasti mielessä. Se erottaa rehellisen alkuperäisyysjärjestelmän harhaanjohtavasta.
 
-## Tuotantovalmiuden tarkistuslista
+## Tuotantotarkistuslista
 
-Kun olet valmis etenemään tämän oppitunnin jälkeen kuitin allekirjoittavien agenttien tuotantokäyttöön:
+Kun olet valmis siirtymään tässä oppitunnissa kuittien allekirjoittamisen agentteihin tuotantoympäristössä:
 
-- [ ] **Siirrä allekirjoitusavain pois kehittäjän läppäriltä.** Käytä Azure Key Vaultia, AWS KMS:ää tai laitteistoturvamoduulia. Yksityinen avain, jolla allekirjoitat kuitit, ei koskaan saa olla versionhallinnassa tai selväkielisenä sovelluslaitteissa.
-- [ ] **Julkaise varmennuksen julkinen avain.** Tarkastajat tarvitsevat sen offline-varmennukseen. Standardikäytäntö on JWK Set tunnetussa URL-osoitteessa (RFC 7517), esim. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Ankkuroi ketju ulkoisesti.** Kirjoita säännöllisesti ketjun viimeisimmän pään tiiviste läpinäkyvyyslokiin (Sigstore Rekor, RFC 3161 -aikaleiman myöntäjä, tai toinen sisäinen järjestelmä) niin, että ulkopuolinen voi vahvistaa "tämä ketju oli olemassa tähän aikaan."
-- [ ] **Tallenna kuitit muuttumattomasti.** Lisäys-only tyyppinen blob-varasto (Azure Storage immutability-politiikoilla, AWS S3 Object Lock) estää sisäpiiriläisen kostean historian muokkauksen tallennustasolla.
-- [ ] **Päätä säilytysaika.** Monet säädökset vaativat monen vuoden säilytyksen. Suunnittele kuitujen kasvu (kuitti ~500 tavua; agentti, joka tekee 10 000 kutsua päivässä tuottaa noin 1,8 GB vuodessa).
-- [ ] **Dokumentoi, mitä kuitit eivät kata.** Kuitit todistavat kohdistuksen, eheyden ja järjestyksen. Toimintakäsikirjasi tulisi nimenomaan mainita, mitä lisävalvontoja (syötteiden validointi, sääntöjen noudattaminen, nopeuden rajoitus, identiteettijärjestelmä) ovat kuitin rinnalla hallintasi osana.
+- [ ] **Siirrä allekirjoitusavain pois kehittäjän kannettavasta.** Käytä Azure Key Vaultia, AWS KMS:ää tai laitteistoturvamoduulia. Yksityisen avaimen, joka allekirjoittaa kuitit, ei koskaan tule säilyä koodivarastossa tai selväkielisenä sovelluslaitteissa.
+- [ ] **Julkaise vahvistuksen julkinen avain.** Tarkastajat tarvitsevat sen offline-vahvistukseen. Vakio on JWK-joukko tunnetussa URL-osoitteessa (RFC 7517), esim. `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Ankkuroi ketju ulkoisesti.** Kirjoita säännöllisesti ketjun uusimman pään tiiviste läpinäkyvyyshaulla (Sigstore Rekor, RFC 3161 -aikaleimatodistus tai toinen sisäinen järjestelmä), jotta ulkopuolinen osapuoli voi todistaa "tämän ketjun olleen olemassa tätä hetkeä."
+- [ ] **Tallenna kuitit muuttumattomasti.** Liittämällä vain blob-varasto (Azure Storage immuuttisuuskäytännöillä, AWS S3 Object Lock) estää sisäistä väärentämistä tallennustasolla.
+- [ ] **Päätä säilytysaika.** Monet sääntelyvaatimukset edellyttävät monivuotista säilytystä. Varaudu kuitujen kasvuun (jokainen kuitti on ~500 tavua; agentti, joka tekee 10 000 kutsua päivässä, tuottaa ~1,8 GB vuodessa).
+- [ ] **Dokumentoi mitä kuitit eivät kata.** Kuitit todistavat attribuution, eheyden ja järjestyksen. Ajokirjallasi tulee eritellä, mitä muita kontrollitoimia (syötteiden validointi, sääntöjen noudattaminen, nopeuden rajoittaminen, identiteettijärjestelmä) käytetään hallintakokonaisuudessa.
 
-### Lisää kysymyksiä tekoälyagenttien turvaamisesta?
+### Lisää kysyttyä tekoälyagenttien suojaamisesta?
 
-Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan ohjaustunteihin ja saamaan vastaukset tekoälyagentteja koskeviin kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tavata muiden oppijoiden kanssa, osallistua toimistoaikoihin ja saada vastauksia AI-agenttikysymyksiisi.
 
-## Oppitunnin jälkeiset aiheet
+## Tämän oppitunnin jälkeen
 
-Tässä oppitunnissa käsiteltiin yksittäisten kuittien allekirjoitusta ja tiivisteketjutettuja sekvenssejä. Samat primitiivit muodostavat useita edistyneempiä kaavoja, joita voit kohdata hallinnan kehittyessä:
+Tämä oppitunti kattaa yksittäisen kuitin allekirjoituksen ja tiivisteketjut. Samat primitiivit muodostavat useita edistyneempiä kuvioita, joita kohtaat, kun hallintasi kypsyy:
 
-- **Valikoiva paljastus.** Kun kuitin kentät sitoutuvat itsenäisesti (RFC 6962 -tyylinen Merkle-puu), voit paljastaa tietyt kentät tietyille tarkastajille ja todistaa, että muut kentät ovat muuttumattomia ilman niiden näyttämistä. Hyödyllinen, kun sama kuitti tarvitsee täyttää kokonaisvaltainen auditointi (joka vaatii täydellisyyttä) ja tietosuoja-asetukset kuten GDPR (joka haluaa, että tarkastaja näkee vain tarpeellisen).
-- **Kuittien mitätöinti.** Jos allekirjoitusavain vaarantuu, tarvitaan tapa merkitä kaikki kyseisellä avaimella allekirjoitetut kuitit epäluotettaviksi tietystä ajankohdasta alkaen. Vakiotapoja: lyhytikäiset allekirjoitusavaimet ja julkaistu mitätöintilista, tai läpinäkyvyysloki mitätöintimerkinnöillä.
-- **Kaksois-/yhteisallekirjoituskuittaukset.** Joissain toteutuksissa allekirjoitettu hyötykuorma on jaettu esisuoritukseen (`authorization_*`) ja jälkisuoritukseen (`result_*`), joilla on omat allekirjoituksensa. Tämä on hyödyllistä, kun valtuutuspäätös ja tapahtuman tulos tuottaa eri toimija tai eri aikaan. Tämä kerrostuu tämän oppitunnin kuittikaavan päälle.
-- **Hyötykuorman koostaminen.** Kuitti sinetöi mitä tahansa `result_hash`-kenttään laitat. Todelliset hyötykuormat ovat usein rikkaampia kuin yksittäisen työkalukutsun tulos: ennakkopäätöksen pohdinta (mallin ennuste, harkitut vaihtoehdot, todisteet ja niiden täydellisyys, riskitaso, vastuuketju, portin lopputulos) voivat kaikki sisältää kuormassa, sinetöitynä yhdellä kuitilla. Tämä pitää kuittikaavan minimaalisena, mutta antaa hyötykuorimallien kehittyä toimialakohtaisesti.
-- **Eri toteutusten yhteensopivuus.** Useat riippumattomat toteutukset samalle kuittikaavalle (Python, TypeScript, Rust, Go) testaavat yhteensopivuutta ja tarkkuutta jakamalla yhteisiä testivektoreita. Jos rakennat oman toteutuksen, julkisiin vektoreihin vertailu varmistaa protokollan yhteensopivuuden.
-- **Jälkikvanttimigraatio.** Ed25519 on laajasti käytössä nyt, mutta ei kvanttikestävä. Kuittikaava on algoritmisesti joustava: `signature.alg`-kenttä voi sisältää `ML-DSA-65` (NISTin jälkikvanttimekanismi), kun haluat migroida. Suunnittele siirtymäkausi, jolloin kuitit allekirjoitetaan kahdesti.
+- **Valikoiva paljastus.** Kun kuitin kentät ovat itsenäisesti sitoutuneet (RFC 6962 -tyylinen Merkle-puu), voit paljastaa tietyt kentät tietyille tarkastajille ja todistaa, että muut eivät ole muuttuneet ilman, että paljastat niitä. Hyödyllistä, kun sama kuitti täytyy tyydyttää sekä kattava auditointi (haluaa täydellisyyden) että tietosuoja-asetukset kuten GDPR (haluavat, että tarkastaja näkee vain tarpeellisen).
+- **Kuitin peruutus.** Jos allekirjoitusavain vaarantuu, tarvitset tavan merkitä kaikki kyseisellä avaimella allekirjoitetut kuitit epäluotettaviksi tietystä ajankohdasta eteenpäin. Vakiokuvat: lyhytikäiset allekirjoitusavaimet ja julkaistu peruutuslista, tai läpinäkyvyysloki peruutustiedoilla.
+- **Kahdensuuntainen/jakautunut allekirjoitus.** Joissakin toteutuksissa allekirjoitettu hyötykuorma on jaettu suoritusajan edeltäviin (`authorization_*`) ja jälkeisiin (`result_*`) osiin itsenäisillä allekirjoituksilla, hyödyllistä, kun valtuutuspäätös ja havaittu tulos tulevat eri toimijoilta tai eri aikoina. Tämä lisätty kuvio pohjautuu tämän oppitunnin kuittimuotoon.
+- **Hyötykuorman koostaminen.** Kuitti sulkee mitä tahansa tavujasi `result_hash`-kentässä. Todelliset hyötykuormat ovat usein monipuolisempia kuin yksittäinen työkalukutsun tulos: päätöksen esipohdinta (mallin ennuste, harkitut vaihtoehdot, todisteet ja niiden täydellisyys, riskit, vastuuketju, portin lopputulos) voivat kaikki olla hyötykuorma sisällä, yhden kuitin allekirjoittamana. Tämä pitää kuitin muodon minimalistisena, samalla kun hyötykuvaukset voivat kehittyä toimialakohtaisesti.
+- **Toteutusten välinen yhteensopivuus.** Useat itsenäiset toteutukset samasta kuittimuodosta (Python, TypeScript, Rust, Go) tarkistavat toisiaan jaettujen testivektoreiden avulla. Jos rakennat oman toteutuksen, validoimalla julkaistuja vektoreita vastaan varmistat virran yhteensopivuuden.
+- **Jälkikvanttimuutos.** Ed25519 on laajalti käytössä nykyään, mutta ei ole kvanttivakaa. Kuittimuoto on algoritmista joustava: kenttä `signature.alg` voi kantaa arvon `ML-DSA-65` (NISTin jälkikvanttiallekirjoitusstandardin), kun tarvitset siirtymistä. Varaudu siirtymäkauteen, jolloin kuitteja allekirjoitetaan kaksin kappalein.
 
 ## Lisäresurssit
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Alleissäkirjoitetut päätöskuittaukset koneiden väliseen pääsynhallintaan</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Vastuullinen tekoäly – yleiskatsaus (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-käyräpohjainen digitaalinen allekirjoitusalgoritmi (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikaattien läpinäkyvyys</a> (Merkle-puun rakentelu, jota käytetään valikoivasti paljastavissa kuiteissa)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Opas 33: Offline-vahvistettavat päätöskuittaukset</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Moniimplementaation yhteensopivuustestivektorit</a> tässä oppitunnissa käytetylle kuittikaavalle (Apache-2.0)
-- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentaatio</a> (Ed25519 Pythonissa)
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF:n Internet-Draft: Machine-to-Machine -pääsynvalvonnan allekirjoitetut päätöskuitit</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI yleiskatsaus (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-käyrän digitaalinen allekirjoitusalgo (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON- kanonisointijärjestelmä (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikaattien läpinäkyvyys</a> (Merkle-puun rakenne, jota valikoivat kuittaukset käyttävät)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Opastus 33: Offline-vahvistettavat päätöskuitit</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Toteutusten välinen yhteensopivuustestaus kuittimuodolle tässä oppitunnissa (Apache-2.0)</a>
+- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl-dokumentaatio</a> (Ed25519 Pythonissa)
 
 ## Edellinen oppitunti
 
