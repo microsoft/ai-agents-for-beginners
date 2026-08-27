@@ -1,67 +1,66 @@
-[Oglejte si video lekcije: Zavarovanje AI agentov s kriptografskimi prejemki](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Oglejte si video lekcije: Varnost AI agentov s kriptografskimi potrdili](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Video lekcije in sličica bosta dodana s strani Microsoftove ekipe za vsebino po združitvi, v skladu z vzorcem lekcije 14 / 15.)_
+> _(Video lekcije in sličica bosta dodana s strani Microsoftove vsebinske ekipe po združitvi, skladno s predlogom za lekciji 14 / 15.)_
 
-# Zavarovanje AI agentov s kriptografskimi prejemki
+# Varnost AI agentov s kriptografskimi potrdili
 
 ## Uvod
 
 Ta lekcija bo zajemala:
 
 - Zakaj so revizijske sledi za AI agente pomembne za skladnost, odpravljanje napak in zaupanje.
-- Kaj je kriptografski prejemek in kako se razlikuje od nepotpisane vrstice dnevnika.
-- Kako ustvariti podpisan prejemek za klic orodja agenta s pomočjo navadnega Pythona.
-- Kako offline preveriti prejemek in zaznati poseg.
-- Kako povezati prejemke tako, da odstranitev ali prerazporeditev enega prekine verigo.
-- Kaj prejemki dokazujejo in kaj izrecno ne dokazujejo.
+- Kaj je kriptografsko potrdilo in kako se razlikuje od neodpodpisane vrstice dnevnika.
+- Kako ustvariti podpisano potrdilo za klic orodja agenta v običajnem Pythonu.
+- Kako preveriti potrdilo brez povezave in zaznati poseg.
+- Kako povezati potrdila tako, da odstranjevanje ali prerazvrščanje enega prekine verigo.
+- Kaj potrdila dokazujejo in kaj izrecno ne dokazujejo.
 
 ## Cilji učenja
 
 Po zaključku te lekcije boste znali:
 
-- Prepoznati načine okvar, ki motivirajo kriptografsko sledljivost dejanj agenta.
-- Ustvariti prejemek podpisan z Ed25519 na canonical JSON podatku.
-- Neodvisno preveriti prejemek samo s pomočjo javnega ključa podpisnika.
-- Zaznati poseg z ponovnim izvajanjem preverjanja na spremenjenem prejemku.
-- Zgraditi zaporedje prejemkov z zgoščeno verigo in razložiti pomen verige.
-- Prepoznati mejo med tem, kaj prejemki dokazujejo (pripis, celovitost, zaporedje) in kaj ne (pravilnost dejanja, ustreznost politike).
+- Prepoznati načine odpovedi, ki motivirajo kriptografsko sledljivost za dejanja agenta.
+- Ustvariti Ed25519 podpisano potrdilo nad kanoničnim JSON sporočilom.
+- Neodvisno preveriti potrdilo samo z uporabo javnega ključa podpisnika.
+- Zaznati poseg z ponovnim preverjanjem na spremenjenem potrdilu.
+- Zgraditi zaporedje potrdil s sklenjeno zaporedno zgoščenko in pojasniti, zakaj je veriga pomembna.
+- Prepoznati mejo med tem, kaj potrdila dokazujejo (pripis, celovitost, vrstni red) in čemur ne (pravilen odziv agenta, smiselnost politike).
 
-## Problem: revizijska sled vašega agenta
+## Težava: revizijska sled vašega agenta
 
-Predstavljajte si, da ste uvedli AI agenta za Contoso Travel. Agent bere zahteve strank, kliče API za lete za iskanje možnosti in rezervira sedeže v imenu stranke. V zadnjem četrtletju je agent obdelal 50.000 rezervacij.
+Predstavljajte si, da ste uvedli AI agenta za Contoso Travel. Agent bere zahteve strank, kliče API za lete, da poišče možnosti, in rezervira sedeže v imenu stranke. V zadnjem četrtletju je agent obdelal 50.000 rezervacij.
 
-Danes pride revizor. Postavi preprosto vprašanje: "Pokažite mi, kaj je vaš agent storil."
+Danes pride revizor. Postavi preprosto vprašanje: "Pokažite mi, kaj je vaš agent naredil."
 
-Predložite svoje datoteke dnevnika. Revizor jih pregleda in postavi težje vprašanje: "Kako vem, da ti dnevniki niso bili spremenjeni?"
+Predložite datoteke dnevnikov. Revizor jih pogleda in postavi težje vprašanje: "Kako vem, da ti dnevniki niso bili urejeni?"
 
-To je problem revizijske sledi. Večina današnjih uvedb agentov se zanaša na:
+To je problem revizijske sledi. Večina današnjih namestitev agentov se zanaša na:
 
-- **Aplikacijske dnevnike**: zapisane s strani samega agenta, ki jih lahko ureja kdorkoli z dostopom do datotečnega sistema.
-- **Spletne storitve za beleženje v oblaku**: dokazljivo varne na ravni platforme, vendar samo če revizor zaupa upravljavcu platforme.
-- **Transakcijske dnevnike baze podatkov**: primerni za spremembe baze, ne pa za poljubne klice orodij.
+- **Aplikacijske dnevnike**: piše jih sam agent, jih lahko ureja vsakdo z dostopom do datotečnega sistema.
+- **Oblačne storitve za beleženje**: dokaz, da ni posegov na ravni platforme, ampak le če revizor zaupa upravljavcu platforme.
+- **Dnevnike transakcij v podatkovnih bazah**: primerni za spremembe v bazi, ne pa za poljubne klice orodij.
 
-Nobeden od teh ne more na vprašanje revizorja odgovoriti brez zahteve po zaupanju nekomu (vam, vašemu ponudniku oblaka, vašemu ponudniku baze podatkov). Za notranjo uporabo je to pogosto sprejemljivo. Za regulirane obremenitve (finance, zdravstvo, karkoli, kar je predmet zakonodaje EU o AI) ni.
+Nobeden od teh ne more odgovoriti na revizorjevo vprašanje brez zahteve, da revizor zaupa nekomu (vam, vašemu ponudniku oblaka, prodajalcu baze). Za notranjo uporabo je takšno zaupanje pogosto sprejemljivo. Za regulirane naloge (finance, zdravstvo, karkoli po Uredbi EU o AI) pa ni.
 
-Kriptografski prejemki to rešijo tako, da je vsako dejanje agenta neodvisno preverljivo. Revizor vam ne mora zaupati. Potrebuje samo vaš javni ključ in sam prejemek.
+Kriptografska potrdila rešujejo ta problem tako, da je vsako dejanje agenta neodvisno preverljivo. Revizor vam ni dolžan zaupati. Potrebuje le vaš javni ključ in samo potrdilo.
 
-## Kaj je kriptografski prejemek?
+## Kaj je kriptografsko potrdilo?
 
-Prejemek je JSON objekt, ki beleži, kaj je agent storil, podpisan z digitalnim podpisom.
+Potrdilo je JSON objekt, ki beleži, kaj je agent naredil, in je podpisano z digitalnim podpisom.
 
 ```mermaid
 flowchart LR
-    A[Agent sproži orodje] --> B[Sestavi uporabnino prejemka]
+    A[Agent izvede orodje] --> B[Ustvari uporabnino potrdila]
     B --> C[Kanoniziraj JSON RFC 8785]
-    C --> D[SHA-256 zgoščenka]
-    D --> E[Podpiši z Ed25519]
-    E --> F[Prejemek z podpisom]
-    F --> G[Revident preveri brez povezave]
-    G --> H{Je podpis veljaven?}
-    H -- yes --> I[Dokaz odpornosti na posege]
-    H -- no --> J[Prejemek zavrnjen]
+    C --> E[Podpiši kanonične bajte z Ed25519]
+    E --> F[Potrdilo s podpisom]
+    F --> G[Revizor preverja brez povezave]
+    G --> H{Ali je podpis veljaven?}
+    H -- yes --> I[Dokaz z vidnimi posegi]
+    H -- no --> J[Potrdilo zavrnjeno]
 ```
 
-Minimalni prejemek izgleda takole:
+Minimalno potrdilo izgleda takole:
 
 ```json
 {
@@ -84,23 +83,23 @@ Minimalni prejemek izgleda takole:
 
 Tri lastnosti opravljajo delo:
 
-1. **Podpis**. Prejemek je podpisan vstopno-točkovni agent s pomočjo Ed25519 zasebnega ključa. Kdor ima ustrezni javni ključ, lahko offline preveri podpis. Vsaka sprememba polja velja podpis za neveljaven.
+1. **Podpis**. Potrdilo je podpisano na vmesniku agenta z Ed25519 zasebnim ključem. Kdor ima ustrezen javni ključ, lahko podpis preveri brez povezave. Vsaka sprememba polja razveljavi podpis.
 
-2. **Kanonizirana kodifikacija**. Pred podpisovanjem je prejemek serializiran s pomočjo JSON Canonicalization Scheme (JCS, RFC 8785). To zagotavlja, da dve implementaciji, ki ustvarita isti logični prejemek, dajeta bit-po-bit identičen izhod. Brez kanonizacije bi različni JSON serializatorji proizvajali različne podpise za isto vsebino.
+2. **Kanonična kodifikacija**. Pred podpisom se potrdilo serializira z uporabo JSON Canonicalization Scheme (JCS, RFC 8785). To zagotavlja, da dve implementaciji, ki ustvarita isto logično potrdilo, proizvedeta identičen niz bajtov. Brez kanonizacije bi različni JSON serializatorji proizvedli različne podpise za isto vsebino.
 
-3. **Zgoščena veriga**. Polje `previous_receipt_hash` povezuje vsak prejemek s predhodnim. Odstranitev ali prerazporeditev enega prekine vsak naslednji prejemek. Poseg je viden na ravni verige, tudi če so posamezni podpisi obšli.
+3. **Verižna zgoščenka**. Polje `previous_receipt_hash` povezuje vsako potrdilo s prejšnjim. Odstranjevanje ali prerazvrščanje potrdila prekine vsako potrdilo, ki sledi. Posegi so vidni na ravni verige, tudi če se posamezni podpisi zaobidejo.
 
-Skupaj te lastnosti zagotavljajo tri zagotovila:
+Te lastnosti skupaj nudijo tri zagotovila:
 
 - **Pripis**: ta ključ je podpisal to vsebino.
-- **Celovitost**: vsebina od podpisa ni bila spremenjena.
-- **Zaporedje**: ta prejemek je prišel po tistem prejemku v verigi.
+- **Celovitost**: vsebina se od podpisa ni spremenila.
+- **Vrstni red**: to potrdilo je nastalo po določenem potrdilu v verigi.
 
-## Ustvarjanje prejemka v Pythonu
+## Ustvarjanje potrdila v Pythonu
 
-Za izdelavo prejemka ne potrebujete posebne knjižnice. Kriptografski gradniki so široko dostopni, logika pa je nekaj deset vrstic Pythona.
+Za izdelavo potrdila ne potrebujete posebne knjižnice. Kriptografski primitivi so široko dostopni, logika pa je le nekaj deset vrstic Pythona.
 
-Vaje v `code_samples/18-signed-receipts.ipynb` prikazujejo celoten potek. Povzetek:
+Praktične vaje v `code_samples/18-signed-receipts.ipynb` vodijo skozi celoten potek. Povzetek:
 
 ```python
 import json
@@ -116,11 +115,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Ustvari ali naloži ključ za podpisovanje (v produkciji shrani v ključavnico ključev)
+# Ustvari ali naloži podpisni ključ (v produkciji shranjuj v ključavnico ključev)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Oblikuj vsebino potrdila (še brez podpisa)
+# Sestavi vsebino potrdila (še brez podpisa)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +135,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanoniziraj, zmešaj, podpiši.
+# Kanoniziraj in podpiši JCS bajte neposredno. PureEdDSA znotraj izvaja zgoščevanje.
 canonical_bytes = canonicalize(payload)
-message_hash = hashlib.sha256(canonical_bytes).digest()
-signature_bytes = signing_key.sign(message_hash).signature
+signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Pripni strukturiran podpisni objekt.
+# Pripni strukturirani objekt podpisa.
 receipt = {
     **payload,
     "signature": {
@@ -152,9 +150,9 @@ receipt = {
 }
 ```
 
-To je celotni postopek podpisovanja. Vaje v zvezku prikazujejo vsak korak.
+To je celoten podpisni potek. Vaje v zvezku pojasnjujejo vsak korak.
 
-## Preverjanje prejemka in zaznavanje posega
+## Preverjanje potrdila in zaznavanje posegov
 
 Preverjanje je obratna operacija:
 
@@ -175,217 +173,216 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Rekonstruirajte uporabno vsebino, ki je bila dejansko podpisana (vse razen podpisa).
+    # Rekonstruirajte vsebino, ki je bila dejansko podpisana (vse razen podpisa).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
-    message_hash = hashlib.sha256(canonical_bytes).digest()
 
     try:
         verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(message_hash, b64url_decode(sig_obj["sig"]))
+        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
         return True
     except BadSignatureError:
         return False
 ```
 
-Ta funkcija sprejme prejemek in vrne `True`, če je podpis veljaven, sicer `False`. Brez klicev v omrežje, brez odvisnosti od storitve, brez zaupanja v tretjo osebo.
+Funkcija prejme potrdilo in vrne `True`, če je podpis veljaven, `False` sicer. Brez klica omrežja, brez odvisnosti storitev, brez zaupanja v tretjo osebo.
 
-Za ogled zaznavanja posega v praksi zvezek prikazuje:
+Za prikaz zaznave posegov zvezek vodi skozi:
 
-1. Ustvarjanje veljavnega prejemka in potrditev, da se preverjanje uspe.
-2. Spreminjanje enega bajta v polju `tool_args_hash`.
+1. Ustvarjanje veljavnega potrdila in potrditev, da se preveri.
+2. Spremembo enega bajta polja `tool_args_hash`.
 3. Ponovno preverjanje in opazovanje neuspeha.
 
-To je praktični dokaz, da so prejemki odporni na posege: vsaka sprememba, še tako majhna, prekine podpis.
+To je praktični dokaz, da so potrdila odporna na posege: vsaka sprememba, še tako majhna, prekine podpis.
 
-## Verižna povezava prejemkov za večstopenjske agente
+## Verižna potrdila za večstopenjske agente
 
-En sam podpisan prejemek ščiti eno dejanje. Veriga prejemkov ščiti zaporedje.
+En sam podpisan račun varuje eno dejanje. Veriga potrdil varuje zaporedje dejanj.
 
 ```mermaid
 flowchart LR
-    R0[Potrdilo 0<br/>geneza] --> R1[Potrdilo 1]
-    R1 --> R2[Potrdilo 2]
-    R2 --> R3[Potrdilo 3]
+    R0[Prejemek 0<br/>genesis] --> R1[Prejemek 1]
+    R1 --> R2[Prejemek 2]
+    R2 --> R3[Prejemek 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Vsak prejemek beleži zgoščeno vrednost prejšnjega prejemka. Za tiho odstranitev prejemka 2 bi napadalec moral:
+Vsako potrdilo beleži zgoščenko prejšnjega potrdila. Da bi napadalec tiho odstranil potrdilo 2, bi moral:
 
-- Spremeniti polje `previous_receipt_hash` prejemka 3 (prekine podpis prejemka 3), ALI
-- Ustvariti nov podpis na spremenjenem prejemku 3 (zahteva zasebni ključ agenta).
+- Spremeniti polje `previous_receipt_hash` potrdila 3 (prekine podpis potrdila 3), ALI
+- Izdelati nov podpis na spremenjenem potrdilu 3 (zahteva zasebni ključ agenta).
 
-Če je zasebni ključ v strojni shrambi ključev in javni ključ objavite z vsakim prejemkom, nobeden od teh napadov ni možen brez odkritja.
+Če je zasebni ključ v strojno zaščitenem ključnem skladišču in javni ključ objavite z vsakim potrdilom, nobeden napad ni izvedljiv brez odkritja.
 
-Zvezek prikazuje:
+Zvezek vodi skozi:
 
-1. Gradnjo verige treh prejemkov.
-2. Preverjanje, da se `previous_receipt_hash` vsakega prejemka ujema z dejansko zgoščeno vrednostjo prejšnjega prejemka.
-3. Poseg v en prejemek sredi verige in opazovanje prekinitve verige prav na tem mestu.
+1. Izgradnjo verige treh potrdil.
+2. Preverjanje, da se `previous_receipt_hash` vsakega potrdila ujema s pravo zgoščenko prejšnjega potrdila.
+3. Zaznavanje posega z enim potrdilom na sredini in opazovanje prekinitve verige na prav tistem mestu.
 
 Tako ustvarite revizijsko sled, ki jo lahko zunanji revizor preveri brez zaupanja v vas.
 
-## Kaj prejemki dokazujejo (in kaj ne dokazujejo)
+## Kaj potrdila dokazujejo (in kaj ne)
 
-Ta del je najpomembnejši v tej lekciji. Prejemki so močni, a imajo omejitve.
+To je najpomembnejši del te lekcije. Potrdila so močna, a njihova moč je omejena.
 
-**Prejemki dokazujejo tri stvari:**
+**Potrdila dokazujejo tri stvari:**
 
-1. **Pripis**: določen ključ je podpisal določen naklad.
-2. **Celovitost**: naklad od podpisa ni bil spremenjen.
-3. **Zaporedje**: ta prejemek je prišel po tistem prejemku v zgoščeni verigi.
+1. **Pripis**: določen ključ je podpisal določen prenos podatkov.
+2. **Celovitost**: vsebina se od podpisa ni spremenila.
+3. **Vrstni red**: to potrdilo je prišlo po določenem potrdilu v verigi.
 
-**Prejemki ne dokazujejo:**
+**Potrdila ne dokazujejo:**
 
-1. **Pravilnost**: da je bilo dejanje agenta pravilno. Prejemek je lahko podpisan za napačen odgovor prav tako čisto kot za pravilen.
-2. **Upoštevanje politike**: da je bila politika v `policy_id` dejansko ocenjena, ali da bi dovolila to dejanje, če bi bila preverjena. Prejemek beleži, kaj je bilo trjeno, ne kaj je bilo izvršeno.
-3. **Identiteta onkraj ključa**: prejemek pravi "ta ključ je podpisal to vsebino." Ne pravi "ta človek je pooblastil to." Povezava ključa s človekom ali organizacijo zahteva ločeno infrastrukturo identitete (imenik, register javnih ključev itd.).
-4. **Resničnost vhodov**: če agent prejme manipuliran poziv in na njem temelji, prejemek zvesto beleži dejanje. Prejemki so posledica validacije vhodov, ne nadomestek zanjo.
+1. **Pravilnosti**: da je bil ukrep agenta pravilen. Potrdilo se lahko podpiše tudi za napačen odgovor enako kot za pravilen.
+2. **Skladnosti s politiko**: da je politika, navedena v `policy_id`, dejansko ocenjevala ali bi dovolila dejanje, če bi bila preverjena. Potrdilo beleži trditve, ne pa izvrševanja.
+3. **Identitete onkraj ključa**: potrdilo pravi "ta ključ je podpisal to vsebino". Ne pravi "ta človek je to odobril". Povezovanje ključa s človekom ali organizacijo zahteva ločeno identitetno infrastrukturo (imenik, register javnih ključev itd.).
+4. **Resničnosti vhodnih podatkov**: če agent prejme manipulirano zahtevo in ukrepa, potrdilo odsevno beleži dejanje. Potrdila so posledica preverjanja vhodnih podatkov, ne njegova zamenjava.
 
 Ta meja je pomembna iz dveh razlogov:
 
-- Pove, za kaj so prejemki uporabni: za revizijsko sledljivo in odporen na posege agentovo vedenje, tudi preko organizacijskih meja.
-- Pove, katere dodatne plasti še potrebujete: validacijo vhodov (lekcija 6), izvrševanje politike (na kratko obravnavano spodaj) in infrastrukturo identitete (izven obsega te lekcije).
+- Pove, za kaj so potrdila uporabna: za preglednost in dokazljivost vedenja agenta, tudi čez organizacijske meje.
+- Pove, kakšne dodatne sloje še potrebujete: preverjanje vhodov (Lekcija 6), izvrševanje politik (kratko obravnano spodaj) in identitetno infrastrukturo (izven obsega te lekcije).
 
-Pogosta zmota je domnevati, da "imamo prejemke" pomeni "imamo upravljanje". Ne pomeni. Prejemki so temelj. Upravljanje je sistem, ki ga gradite na temu temelju.
+Pogosta napaka je domnevati, da "imamo potrdila" pomeni "upravljani smo". Ne pomeni. Potrdila so temelj. Upravljanje je sistem, ki ga zgradite na tem temelju.
 
-## Dokazati, da je človek odobril točno to dejanje
+## Dokazati, da je človek odobril točno dejanje
 
-Točka 3 zgoraj velja svojo ločeno sekcijo: prejemek dejanja pravi "ta ključ je podpisal to vsebino," nikoli "človek je to odobril". Za dejanja z visokim tveganjem (vračila denarja, izbrisi, bančna nakazila) okviri upravljanja vedno bolj zahtevajo natanko to manjkajočo izjavo, ki jo je mogoče realizirati z enakimi gradniki, ki ste jih že izdelali v tej lekciji.
+Tretja točka zgoraj je vredna lastnega razdelka: potrdilo dejanja pravi "ta ključ je podpisal to vsebino", nikoli "človek je to odobril". Za dejanja z visokim tveganjem (vračila, brisanja, prenos sredstev) okviri upravljanja vse bolj zahtevajo prav to manjkajočo izjavo, ki jo lahko ustvarite z istimi gradniki, ki ste jih že izdelali v tej lekciji.
 
-Naslednji zvezek `code_samples/human-authorization-receipts.ipynb` doda drugo vrsto prejemka, `human.approval.v1`, v isti obliki ovojnice kot prejemki te lekcije (tipiziran naklad podpisan z Ed25519 prek njegove kanonične SHA-256, z objektom `signature` zunaj podpisanih bajtov). Imenovani odobravalec podpiše **celotno kanonično dejanje in njegov digest** pred izvršitvijo; prejemek dejanja agenta nosi **isti digest dejanja** in `parent_approval_ref`, `receipt_hash` odobritve, enako konvencijo kot `previous_receipt_hash` v verigi zgoraj. Ena `verify_chain` poteka za oba artefakta pod **ločenimi registri pripetih ključev** (ključi odobravateljev proti ključem agentov), torej je koda skupna, a oblasti nikoli niso.
+Nadaljnji zvezek `code_samples/human-authorization-receipts.ipynb` doda drugo vrsto potrdila, `human.approval.v1`, v isti obliki ovojnice kot potrdila lekcije (tipiziran prenos podatkov, podpisan z Ed25519 prek kanoničnih JCS bajtov, s `signature` objektom zunaj podpisanih bajtov). Imenovani odobritelj podpiše **celotno kanonično dejanje in njegov digest** pred izvedbo; potrdilo agenta nosi **isti digest dejanja** in `parent_approval_ref`, `receipt_hash` odobritve, enako konvencijo kot `previous_receipt_hash` v prej zgrajeni verigi. Ena funkcija `verify_chain` preveri oba artefakta pod **ločenimi registri pritrjenih ključev** (ključ odobritelja proti ključem agenta), tako da je koda skupna, a oblasti nikoli.
 
-Lastnost, ki jo to omogoča, izraženo natančno: *človek je odobril točno to dejanje, agent pa je izvedel ravno to odobreno dejanje.* Objekti zavrnitve v zvezku so tisto, kar lastnost dejansko potrdi, ne le potrdi:
+Lastnost, ki jo to prinaša, natančno povedano: *človek je odobril točno to dejanje, agent pa je izvedel prav to odobreno dejanje.* Zavrnitev v zvezku so tiste, ki lastnost naredijo resnično, ne samo trditev:
 
-- klasični nabor: posegi, zmeden zaščitnik, ponovitve, ponarejeni ključi na obeh straneh, nepravilni vhodi;
-- **zastarela pristojnost**: podpis, ki se še vedno preverja, zavrnjen zaradi premika verzije politike, rotacije ključa odobravatelja ali poteka odobritve pred izvršitvijo;
-- **zamenjava digesta**: veljaven podpis prejemka dejanja, ki kaže na *resnično* odobritev drugega *kanoničnega* dejanja.
+- klasični nabor: poseg, zmeden posrednik (confused deputy), ponavljanje, ponarejeni ključi na obeh straneh, napačno oblikovan vhod;
+- **zastarela oblast**: podpis, ki se še vedno preveri, a je zavrnjen, ker se je različica politike spremenila, ključ odobritelja je bil odstranjen iz registra ali je odobritev potekla pred izvedbo;
+- **zamenjava digestov**: veljavno podpisano potrdilo dejanja, ki kaže na *pravo* odobritev, ki zavezuje *drugo* kanonično dejanje.
 
-Vsaka napaka zavrne z razlikovalnim razlogom, tako da revizor ob branju zavrnitve vidi, ali je pristojnost zastarala ali se je dejanje spremenilo. Pravilo, ki ga uči zvezek: podpisana odobritev sama po sebi ni pristojnost. Pristojnost obstaja le, če oba prejemka še vedno pripadata istemu kanoničnemu dejanju ob izvršitvi. Pot sobeležnika v istem Internet-Draftu, ki ga ta lekcija sledi (`draft-farley-acta-signed-receipts`), je standardni vzorec tega modela.
+Vsaka napaka se zavrne z različnim razlogom, tako da revizor ob branju zavrnitve lahko zazna, ali je oblast zastarala ali se je izvedeno dejanje spremenilo. Pravilo, ki ga uči zvezek: podpisana odobritev sama po sebi ni oblast. Oblast obstaja le, če se obe potrdili še vedno nanašata na isto kanonično dejanje ob času izvedbe. Potrdilo človeške odobritve je izobraževalna sestava, definirana v tej lekciji, ne vrsta potrdila po `draft-farley-acta-signed-receipts`.
 
-## Referenčne rešitve za produkcijo
+## Proizvodni viri
 
-Python koda v tej lekciji je namenoma minimalna, da lahko preberete vsako vrstico in natančno razumete, kaj se dogaja. V produkciji imate dve možnosti:
+Python koda v tej lekciji je namensko minimalna, da lahko preberete vsak vrstico in natančno razumete, kaj se dogaja. V produkciji imate dve možnosti:
 
-1. **Gradite neposredno na kriptografskih gradnikih.** 50 vrstic, ki ste jih zgoraj videli, zadostuje za veliko primerov uporabe. PyNaCl (Ed25519) in paket `jcs` (kanonični JSON) so dobro vzdrževani in verificirani knjižnici.
+1. **Gradite neposredno na kriptografskih primitivih.** 50 vrstic, ki ste jih videli zgoraj, zadostuje za mnoge primere uporabe. PyNaCl (Ed25519) in paket `jcs` (kanonični JSON) so dobro vzdrževane in pregledane knjižnice.
 
-2. **Uporabite knjižnico za produkcijske prejemke.** Več odprtokodnih projektov implementira isti vzorec z dodatnimi funkcijami (rotacija ključev, serijsko preverjanje, distribucija JWK seta, integracija s politiko):
-   - Format prejemkov v tej lekciji sledi IETF Internet-Draftu ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revizija 02), ki je trenutno v postopku standardizacije, z deljenim paketom skladnosti ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)), ki ga neodvisne implementacije vzajemno preverjajo za bit-identičen kanonični izhod.
-   - Microsoft Agent Governance Toolkit sestavlja prejemke s pravili Cedar; glejte Tutorial 33 v tem repozitoriju za primer od začetka do konca.
-   - Paketa `protect-mcp` (npm) in `@veritasacta/verify` (npm) zagotavljata implementacijo podpisovanja prejemkov in offline preverjanje v Node okolju, namenjeni ovitju kateregakoli MCP strežnika s protivohunsko revizijsko sledjo, vključno s tokom zadrževalnega sobeležnika, kjer pavzirano dejanje sproži prejemek odobritve, vezan na digest dejanja (WebAuthn-podprt v namiznem toku), isti vzorec odobritvenega prejemka kot zgornji zvezek za avtorizacijo ljudi.
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) zagotavlja isti Ed25519 + JCS podpisovalni vzorec v Pythonu z integracijami LangChain in CrewAI, vključno z objavljenimi testnimi vektorji in prispevkom skladnostne preslikave prek [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+2. **Uporabite knjižnico za proizvodnjo potrdil.** Nekateri odprtokodni projekti implementirajo isti vzorec z dodatnimi funkcijami (rotacija ključev, množično preverjanje, distribucija JWK seta, integracija s politiki):
+   - Podpisni potek uporablja JCS in konvencije obsega podpisa v neodvisnem IETF Internet-Draftu ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revizija 02). Izobraževalno plosko potrdilo iz te lekcije se razlikuje od ovojnice `{payload, signature}` osnutka in ni predstavljeno kot skladna implementacija. Osnutek objavlja skupen skladnostni paket ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) za implementacije, ki ciljajo na njegov žični format.
+   - Microsoft Agent Governance Toolkit združuje potrdila s politiki Cedar; glejte Tutorial 33 v repozitoriju za primer od začetka do konca.
+   - Paketi `protect-mcp` (npm) in `@veritasacta/verify` (npm) zagotavljajo implementacijo podpisovanja potrdil in preverjanja brez povezave v Node okolju, namenjeno ovojitvi vsakega MCP strežnika z revizijsko sledjo, vključno z operacijo so-podpisa, kjer ustavljeno dejanje ustvari odobritev povezano z digestom dela (WebAuthn podprt v namiznem toku), isti vzorec odobritve kot v zvezku za človeško avtorizacijo zgoraj.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) zagotavlja isti vzorec podpisovanja Ed25519 + JCS s Pythonom ter integracijo z LangChain in CrewAI, vključno z objavljenimi preizkusnimi vektorji in prispevkom za skladnost preko [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Odločitev med lastno implementacijo in uporabo knjižnice je podobna izbiri med pisanjem svoje JWT knjižnice in uporabo preizkušene: oba pristopa sta razumna; knjižnica prihrani čas in zmanjša površino revizije; pristop od začetka vas sili, da razumete vsak gradnik. Ta lekcija uči pot od začetka, da imate osnovo za katerokoli izbiro.
+Odločitev med lastno implementacijo in uporabo knjižnice je podobna odločitvi med pisanjem lastne JWT knjižnice in uporabo preverjene: obe sta upravičeni; knjižnica prihrani čas in zmanjša površino revizije; pristop iz nič zahteva popolno razumevanje vsakogar primitiva. Ta lekcija uči pristop iz nič, da imate temelj za obe možnosti.
 
 ## Preverjanje znanja
 
-Preizkusite svoje razumevanje, preden nadaljujete na praktično vajo.
+Preizkusite svoje razumevanje pred začetkom praktičnega dela.
 
-**1. Prejemek je podpisan z zasebnim Ed25519 ključem agenta. Revizor ima le javni ključ. Ali lahko revizor prejemek preveri offline?**
+**1. Potrdilo je podpisano z agentovim zasebnim Ed25519 ključem. Revizor ima samo javni ključ. Ali lahko revizor potrdilo preveri brez povezave?**
 
 <details>
 <summary>Odgovor</summary>
 
-Da. Preverjanje Ed25519 zahteva samo javni ključ in podpisane bajte. Brez klicev v omrežje, brez odvisnosti od storitev. To je lastnost, ki naredi prejemke uporabne v zavarovanih, medorganizacijskih ali nizko-zaupljivih revizijskih okoljih.
+Da. Preverjanje Ed25519 zahteva samo javni ključ in podpisane bajte. Brez klica omrežja, brez odvisnosti od storitev. To je lastnost, ki naredi potrdila uporabna v ločenih, večorganizacijskih ali nizkoverjetnih okoljih revizij.
 </details>
 
-**2. Napadalec spremeni polje `policy_id` prejemka, da trdi, da ga upravlja bolj permisivna politika. Podpis je bil nad izvirnim nakladom. Kaj se zgodi med preverjanjem?**
+**2. Napadalec spremeni polje `policy_id` potrdila, da trdi, da ga upravlja bolj dovoljevalna politika. Podpis je bil na originalni prenos podatkov. Kaj se zgodi med preverjanjem?**
 
 <details>
 <summary>Odgovor</summary>
 
 
-Preverjanje ne uspe. Podpis je bil izračunan preko kanoničnih bajtov izvirne obremenitve; sprememba katerega koli polja spremeni kanonične bajte, kar spremeni SHA-256 hash, s čimer postane podpis neveljaven. Napadalec bi potreboval zasebni ključ za izdelavo novega veljavnega podpisa, česar nima.
+Preverjanje spodleti. Podpis je bil izračunan preko kanoničnih bajtov izvirne vsebine; sprememba katerega koli polja spremeni te bajte, zaradi česar postane podpis neveljaven. Napadalec bi potreboval zasebni ključ, da bi ustvaril novega veljavnega podpisa, česar nima.
 </details>
 
-**3. Zakaj prejem vsebuje `tool_args_hash` in `result_hash` namesto surovih argumentov in rezultata?**
+**3. Zakaj račun vsebuje `tool_args_hash` in `result_hash` namesto surovih argumentov in rezultata?**
 
 <details>
 <summary>Odgovor</summary>
 
-Dva razloga. Prvič, prejem je morda treba arhivirati ali prenašati v okoljih, kjer je uhajanje surove vsebine (PII, poslovni podatki) problem. Hasiranje ohranja prejem majhen in vsebino zasebno; revizor preveri, da hash ustreza ločeno shranjeni kopiji dejanske vsebine. Drugič, hashi imajo fiksno velikost; prejem z hashi je velikostno omejen ne glede na velikost vhodov in izhodov.
+Dva razloga. Prvič, račun je morda treba arhivirati ali prenesti v okolja, kjer je razkrivanje surove vsebine (osebni podatki, poslovni podatki) problematično. Z zgoščevanjem račun ostane majhen in vsebina zasebna; revizor preveri, da se zgoščenka ujema z ločeno shranjeno kopijo dejanske vsebine. Drugič, zgoščenke imajo fiksno velikost; račun z zgoščenkami je omejen po velikosti ne glede na velikost vhodov in izhodov.
 </details>
 
-**4. Polje `previous_receipt_hash` povezuje vsak prejem z njegovim predhodnikom. Če napadalec tiho izbriše en prejem sredi verige, kaj postane neveljavno?**
+**4. Polje `previous_receipt_hash` poveže vsak račun s predhodnikom. Če napadalec tiho izbriše en račun sredi verige, kaj postane neveljavno?**
 
 <details>
 <summary>Odgovor</summary>
 
-Vsak prejem, ki je sledil po izbrisanem. Njihova polja `previous_receipt_hash` se ne ujemajo več z dejansko verigo (ker prejem, na katerega so se sklicevali, ne obstaja več, ali veriga zdaj kaže na drugačnega predhodnika). Da bi prikril izbris, bi moral napadalec znova podpisati vsak kasnejši prejem, kar zahteva zasebni ključ.
+Vsak račun, ki je bil po izbrisanem. Njihova polja `previous_receipt_hash` se ne ujemajo več z dejansko verigo (ker račun, na katerega so se sklicevali, ne obstaja več, ali pa veriga zdaj kaže na drugega predhodnika). Da bi prikril izbris, bi moral napadalec ponovno podpisati vsak kasnejši račun, kar zahteva zasebni ključ.
 </details>
 
-**5. Prejem se uspešno preveri. Ali to dokazuje, da je bila dejanja agenta pravilna, smiselna ali skladna s politiko?**
+**5. Račun je validno preverjen. Ali to dokazuje, da je bila akcija agenta pravilna, smiselna ali skladna s politiko?**
 
 <details>
 <summary>Odgovor</summary>
 
-Ne. Veljaven prejem dokazuje tri stvari: pripis (ta ključ je podpisal to vsebino), integriteto (vsebina ni bila spremenjena) in vrstni red (ta prejem je prišel po tistem). Ne dokazuje, da je bilo dejanje pravilno, da je bila politika z `policy_id` dejansko ocenjena ali da je agent upošteval vsako pravilo. Prejemi omogočajo revizijo vedenja agenta, ne zagotavljajo nujno pravilnosti. To je najpomembnejša meja v lekciji.
+Ne. Veljaven račun dokaže tri stvari: prisvojitev (ta ključ je podpisal to vsebino), integriteto (vsebina se ni spremenila) in vrstni red (ta račun je prišel za tistim računom). Ne dokazuje, da je bila akcija pravilna, da je bila politika določena v `policy_id` res ocenjena, ali da je agent upošteval vsa pravila. Računi omogočajo revidiranje vedenja agenta, ne nujno pravilnost. To je najpomembnejša meja v lekciji.
 </details>
 
 ## Praktična vaja
 
 Odprite `code_samples/18-signed-receipts.ipynb` in dokončajte vseh štiri razdelke:
 
-1. **Razdelek 1**: Podpišite svoj prvi prejem in ga preverite.
-2. **Razdelek 2**: Spremenite prejem in opazujte, kako preverjanje ne uspe.
-3. **Razdelek 3**: Ustvarite verigo s tremi prejemi in preverite integriteto verige.
-4. **Razdelek 4**: Uporabite vzorec v agentu, ustvarjenem z Microsoft Agent Framework: v prejem vključite klic orodja, nato samostojno preverite prejem.
+1. **Razdelek 1**: Podpišite vaš prvi račun in ga preverite.
+2. **Razdelek 2**: Spremenite račun in opazujte, da preverjanje spodleti.
+3. **Razdelek 3**: Zgradite verigo treh računov in preverite celovitost verige.
+4. **Razdelek 4**: Uporabite vzorec za agenta zgrajenega z Microsoft Agent Framework: zavijte klic orodja v podpisovanje računa, nato račun preverite ločeno.
 
-**Razširjen izziv 1:** razširite shemo prejema z dodatnim poljem po lastni izbiri (npr. ID zahteve za sledenje), posodobite kanonično logiko podpisa, da ga vključite, in potrdite, da prejem še vedno prehaja preverjanje. Nato spremenite polje po podpisu in potrdite, da preverjanje ne uspe. To vas prisili razumeti, kako vsak bajt kanoničnega kodiranja prispeva k podpisu.
+**Izziv razširitve 1:** razširite shemo računa z dodatnim lastnim poljem (na primer ID zahteve za sledenje), posodobite kanonično logiko podpisovanja, da ga vključite, in potrdite, da račun še vedno prehaja preverjanje. Nato spremenite polje po podpisu in potrdite, da preverjanje spodleti. To vas sili razumeti, kako vsak bajt kanoničnega kodiranja prispeva k podpisu.
 
-**Razširjen izziv 2:** združite SHA-256 hash dveh vaših prejemov (zaporedno združite kanonične bajte v determinističnem vrstnem redu) in vstavite nastali digest kot novo polje v tretji prejem pred podpisom. Preverite, da vsi trije prejemi še vedno preidejo preverjanje. Pravkar ste zgradili dokaz o vključitvi v enem koraku: vsak, ki ima tretji prejem, lahko dokaže, da sta prva dva obstajala v času podpisa, brez razkrivanja vsebine. To je vzorec, ki ga prejmi z selektivno razkritostjo množično uporabljajo (Merkle zaveze, RFC 6962).
+**Izziv razširitve 2:** Združite SHA-256 zgoščenkama dveh vaših računov (združite njihove kanonične bajte v determinističnem vrstnem redu) in vdelajte nastali povzetek kot novo polje na tretjem računu pred podpisom. Preverite, da vsi trije računi še vedno prehajajo preverjanje. Pravkar ste ustvarili dokaz enostopenjske vključenosti: vsak, ki ima tretji račun, lahko dokaže, da sta prva dva obstajala v času podpisa, brez razkrivanja njune vsebine. To je vzorec, ki ga uporabljajo računi z izbirnim razkritjem v velikem merilu (Merkle obveznosti, RFC 6962).
 
 ## Zaključek
 
-Kriptografski prejmi dajo AI agentom revizijsko sled, ki je:
+Kriptografski računi dajejo AI agentom revizijsko sled, ki je:
 
-- **Neodvisno preverljiva**: kdorkoli z javnim ključem lahko preveri, brez odvisnosti od storitev.
-- **Spremembe razkrijejo**: vsaka sprememba razveljavi podpis.
-- **Prenosljiva**: prejem je majhna JSON datoteka; lahko jo arhivirate, prenašate in preverjate kjerkoli.
-- **Skladna s standardi**: zgrajena na Ed25519 (RFC 8032), JCS (RFC 8785) in SHA-256, vse široko uporabljene primitive.
+- **Neodvisno preverljiva**: vsak, ki ima javni ključ, lahko preveri, brez odvisnosti od storitve.
+- **Odpornost na spreminjanje**: vsaka sprememba naredi podpis neveljaven.
+- **Prenosljiva**: račun je majhna JSON datoteka; lahko se arhivira, prenaša in preverja kjerkoli.
+- **Skupna s standardi**: temelji na Ed25519 (RFC 8032), JCS (RFC 8785) in SHA-256, vseh široko uporabljenih primitivih.
 
-Niso nadomestilo za validacijo vhodov, izvajanje politik ali infrastrukturo identitete. So temelj za te plasti. Ko uvajate agente v regulirane delovne obremenitve, večorganizacijske delovne tokove ali kjer koli, kjer prihodnji revizor ne more vam zaupati, so prejmi način, da revizijska sled ostane poštena.
+Niso nadomestilo za validacijo vhodov, izvajanje politik ali infrastrukturo identitete. So temelj za te plasti. Ko nameščate agente v regulirana okolja, delovne procese več organizacij ali kjerkoli, kjer prihodnji revizor ne more zaupat, so računi način, da revizijska sled ostane poštena.
 
-Najpomembnejše spoznanje: prejmi dokazujejo, kdo je kaj rekel in kdaj. Ne dokazujejo, da je bilo rečeno res ali pravilno. To razliko tesno ohranite. Je razlika med poštenim sistemom izvora in zavajajočim.
+Najpomembnejša ugotovitev: računi dokazujejo, kdo je kaj povedal in kdaj. Ne dokazujejo, da je bilo povedano resnično ali pravilno. To razliko se držite tesno. Je razlika med poštenim in zavajajočim sistemom izvora.
 
 ## Kontrolni seznam za produkcijo
 
-Ko ste pripravljeni prestopiti v izvajanje agentov s podpisi prejema v resničnem okolju:
+Ko ste pripravljeni zaključiti to lekcijo in namestiti agente s podpisovanjem računov v resničnem okolju:
 
-- [ ] **Premaknite podpisni ključ s prenosnika razvijalca.** Uporabite Azure Key Vault, AWS KMS ali strojni varnostni modul. Zasebni ključ, s katerim podpisujete prejme, nikoli ne sme biti v izvorni kodi ali v nešifrirani obliki na aplikacijskih napravah.
-- [ ] **Objavite javni preverjevalni ključ.** Revizorji ga potrebujejo za preverjanje brez povezave. Standardni vzorec je JWK Set na znanem URL-ju (RFC 7517), npr. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Zunanje pripnite verigo.** Občasno zapišite zadnji hash glave verige v transparentni dnevnik (Sigstore Rekor, RFC 3161 časovni žig ali drugi interni sistem), da lahko zunanji deležnik potrdi "ta veriga je obstajala ob tem času."
-- [ ] **Hranite prejme nespremenljivo.** Shramba samo za dodajanje (Azure Storage z neizbrisnimi politiki, AWS S3 Object Lock) preprečuje notranjim osebam prepisovanje zgodovine na sloju shranjevanja.
-- [ ] **Odločite o hranjenju.** Veliko skladnostnih režimov zahteva večletno hranjenje. Načrtujte rast prejmov (vsak prejem je ~500 bajtov; agent, ki dnevno ustvari 10K klicev, proizvede ~1,8 GB na leto).
-- [ ] **Dokumentirajte, kaj prejmi ne pokrivajo.** Prejmi dokazujejo pripis, integriteto in vrstni red. Vaš delovni načrt naj jasno navede dodatne kontrole (validacijo vhodov, izvajanje politik, omejevanje hitrosti, infrastrukturo identitete), ki stojijo ob prejmih v vaši upravljavski drži.
+- [ ] **Premaknite podpisni ključ s prenosnika razvijalca.** Uporabite Azure Key Vault, AWS KMS ali strojni varnostni modul. Zasebni ključ, s katerim podpisujete račune, nikoli ne sme biti v kontrolnem sistemu ali v nešifrirani obliki na aplikacijskih napravah.
+- [ ] **Objavite javni ključ za preverjanje.** Revizorji ga potrebujejo za preverjanje brez povezave. Standardni vzorec je JWK Set na znanem URL-ju (RFC 7517), npr. `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Zunanje sidranje verige.** Občasno zapišite zadnjo glavo verige v dnevnik transparentnosti (Sigstore Rekor, RFC 3161 časovni žig ali drugi notranji sistem), da lahko zunanji udeleženec potrdi "ta veriga je obstajala v tem času."
+- [ ] **Shranjevanje računov brez možnosti spreminjanja.** Enačinski pomnilnik samo za dodajanje (Azure Storage z neizbrisnimi politikami, AWS S3 Object Lock) preprečuje prepisovanje zgodovine na ravni shranjevanja s strani notranjih oseb.
+- [ ] **Odločitev o zadrževanju.** Mnogo skladnostnih režimov zahteva večletno zadrževanje. Načrtujte rast računov (vsak račun je ~500 bajtov; agent, ki opravi 10,000 klicev dnevno, ustvari ~1.8 GB na leto).
+- [ ] **Dokumentirajte, kaj računi ne zajemajo.** Računi dokazujejo prisvojitev, integriteto in vrstni red. Vaša izvedbena navodila naj jasno navajajo dodatne kontrole (validacija vhodov, izvajanje politik, omejevanje hitrosti, infrastruktura identitete), ki gredo z računi v vaši upravljavski drži.
 
 ### Imate več vprašanj o varovanju AI agentov?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), da se srečate z drugimi učenci, se udeležite uradnih ur in dobite odgovore na vprašanja o AI agentih.
+Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), da se povežete z drugimi učenci, udeležite ur uradnih ur in dobite odgovore na vprašanja o AI agentih.
 
-## Za tem lekcijo
+## Onkraj te lekcije
 
-Ta lekcija pokriva podpisovanje posameznega prejema in verige z hashi. Enake primitive sestavljajo več naprednih vzorcev, s katerimi se lahko srečate, ko se vaša upravljavska drža razvija:
+Ta lekcija pokriva podpis posameznega računa in verigo na osnovi zgoščenk. Enake primitive sestavljajo več naprednih vzorcev, na katere lahko naletite z razvojem upravljavske drže:
 
-- **Selektivna razkritost.** Ko so polja prejema neodvisno zavezana (Merkle drevo po RFC 6962), lahko določena polja razkrijete določenim revizorjem in dokažete, da ostala niso spremenjena, brez, da jih odkrijete. Uporabno, ko mora isti prejem ustrezati tako celoviti reviziji (ki želi popolnost) kot predpisom o minimizaciji podatkov, kot je GDPR (ki želi, da revizor vidi le najmanj potrebno).
-- **Razveljavitev prejmov.** Če je bil podpisni ključ ogrožen, morate imeti način označevanja vseh prej podpisanih prejemov kot nezaupanja vrednih od določenega trenutka naprej. Standardni vzorci: kratkotrajni podpisni ključi s seznamom razveljavitev, ali transparentni dnevnik z vnosi razveljavitve.
-- **Dvostranski / razdeljeni podpisi prejmov.** Nekatere implementacije razdelijo podpisano obremenitev na pred-izvedbene (`authorization_*`) in po-izvedbene (`result_*`) polovice z neodvisnimi podpisi, uporabno, kadar odločitev o avtorizaciji in opažen rezultat ustvarita različni strani ali ob različnih časih. To nadgradi format prejema, predstavljen v tej lekciji.
-- **Sestavljanje obremenitve.** Prejem zapečati katerikoli bajt, ki ga vstavite v `result_hash`. Realni primeri obremenitev so pogosto bogatejši od samega rezultata klica orodja: premisleki pred odločitvijo (modelna napoved, opcije, dokazila in njihova popolnost, ocena tveganja, veriga odgovornosti, izhod vrata) lahko živijo znotraj obremenitve, zapečatene z enim samim prejemom. To ohranja format prejema minimalen in hkrati omogoča razvoj shem po domenah.
-- **Skladnost več implementacij.** Več neodvisnih implementacij istega formata prejma (Python, TypeScript, Rust, Go) se medsebojno preverja z deljenimi testnimi vektorji. Če izdelate lastno izvedbo, validacija z objavljenimi vektorji potrjuje združljivost.
-- **Migracija po kvantnem računalniku.** Ed25519 je danes široko uporabljen, ni pa odporen na kvantne računalnike. Format prejma je algoritemsko agilen: polje `signature.alg` lahko nosi `ML-DSA-65` (NIST po-kvanten podpisni standard), ko boste morali migrirati. Načrtujte prehodno obdobje, ko bodo prejmi podpisani dvojno.
+- **Izbirno razkritje.** Ko so polja računa neodvisno obljubljena (Merkle drevo po RFC 6962), lahko razkrijete določena polja določenim revizorjem in dokažete, da so ostala nespremenjena, brez razkrivanja njihove vsebine. Uporabno, ko isti račun zadosti celoviti reviziji (ki zahteva popolnost) in regulativam o minimizaciji podatkov, kot je GDPR (ki zahtevajo, da revizor vidi čim manj).
+- **Razveljavitev računov.** Če je podpisni ključ kompromitiran, potrebujete način, da označite vse račune, podpisane s tem ključem, kot nezaupanja vredne od določenega trenutka naprej. Standardni vzorci: kratkotrajni podpisni ključi in javno objavljen seznam razveljavitev ali dnevnik transparentnosti z vnosi o razveljavitvi.
+- **Dvojni / razdeljeni podpisi računov.** Nekatere implementacije razdelijo podpisano vsebino v polprevidno (`authorization_*`) in poizvedeno (`result_*`) polovico z neodvisnimi podpisi, uporabno, ko odločitev o avtorizaciji in opazovani rezultat nastaneta pri različnih akterjih ali ob različnih časih. To se doda na format računa, predstavljen v tej lekciji.
+- **Sestava vsebine.** Račun zapečati katerikoli niz bajtov, ki jih vstavite v `result_hash`. Dejanske vsebine so pogosto bogatejše od rezultata posameznega klica orodja: predhodno razmišljanje (napoved modela, upoštevane možnosti, dokazi in njihova popolnost, tveganjska drža, sledljivost, izid začetne pregrade) lahko vse teče znotraj vsebine, zapečateno z enim računom. To ohranja format računa minimalen in omogoča razvoj shem vsebine po domenah.
+- **Skladnost med implementacijami.** Več neodvisnih implementacij istega formata računa (Python, TypeScript, Rust, Go) križno preverja na skupnih testnih vektorjih. Če naredite svojo implementacijo, preverjanje na objavljenih vektorjih potrdi združljivost s protokolom.
+- **Migracija po kvantni varnosti.** Ed25519 je danes široko uporabljen, vendar ni odporen na kvantne napade. Format računa je algoritemsko agilen: polje `signature.alg` lahko nosi `ML-DSA-65` (NIST-ov post-kvantni podpisni standard), ko je potrebna migracija. Načrtujte prehodno obdobje, ko so računi podvojen podpisani.
 
 ## Dodatni viri
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF internetni osnutek: Podpisani odločitveni prejmi za nadzor dostopa med stroji</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pregled odgovorne uporabe AI (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoritem digitalnega podpisa na Edwardsovi krivulji (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Podpisani računi odločitev za nadzor dostopa med stroji</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pregled Odgovorne umetne inteligence (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Digitalni podpis po Edwardsovi krivulji (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Shema kanonizacije JSON (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Transparentnost certifikatov</a> (uporaba Merkle drevesa v prejmih s selektivno razkritostjo)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, vodič 33: Prejmi odločitev, preverljivi brez povezave</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Preveritveni vektorji skladnosti več implementacij</a> za format prejma, uporabljen v tej lekciji (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Transparentnost potrdil</a> (uporaba konstrukcije Merkle drevesa za račune z izbirnim razkritjem)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Lekcija 33: Računi odločitev preverljivi brez povezave</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Testni vektorji za preverjanje skladnosti formatov računov, uporabljenih v tej lekciji (Apache-2.0)</a>
 - <a href="https://pynacl.readthedocs.io/" target="_blank">Dokumentacija PyNaCl</a> (Ed25519 v Pythonu)
 
 ## Prejšnja lekcija

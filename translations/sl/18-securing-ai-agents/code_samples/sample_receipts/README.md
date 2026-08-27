@@ -1,29 +1,34 @@
-# Vzorčni prejemniki
+# Primerne predloge prejemkov
 
-Tri vnaprej ustvarjene datoteke s prejemniki za pregled brez zagona zvezka.
+Tri vnaprej ustvarjene datoteke prejemkov za pregled brez zagona beležnice.
 
-| Datoteka | Kaj je to |
+| Datoteka | Kaj je |
 |---|---|
-| `01_valid_receipt.json` | Veljaven podpisan prejemnik za klic orodja `lookup_flights`. Preverjanje vrne True. |
-| `02_tampered_receipt.json` | Enak prejemnik z enim spremenjenim poljem po podpisu. Preverjanje vrne False. |
-| `03_chain_three_receipts.json` | Veriga treh veljavnih prejemnikov (iskanje, rezervacija, potrdi) s `previous_receipt_hash`, ki vsak povezuje s predhodnim. |
+| `01_valid_receipt.json` | Veljaven podpisan prejemek za klic orodja `lookup_flights`. Preverjanje vrne True. |
+| `02_tampered_receipt.json` | Enak prejemek z enim poljem spremenjenim po podpisu. Preverjanje vrne False. |
+| `03_chain_three_receipts.json` | Veriga treh veljavnih prejemkov (iskanje, rezervacija, potrdi) z `previous_receipt_hash`, ki povezuje vsak z prejšnjim. |
+
+Predloge podpisujejo canonical JCS bajtne podatke obremenitve neposredno z Ed25519.
+SHA-256 se še vedno uporablja za vsebinski digest in povezave verige prejemkov, ne kot
+dodaten prej-hash pred podpisom.
 
 ## Preverjanje vzorcev
 
-Zvezek vodi skozi preverjanje v štirih delih. Če želite te vnaprej ustvarjene datoteke preveriti neposredno brez zagona zgodbe v zvezku:
+Beležnica vodi skozi preverjanje v štirih delih. Če želite neposredno preveriti te predloge
+brez zagona pripovedi v beležnici:
 
 ```python
 import json
 from pathlib import Path
 
-# Predpostavlja, da ste zaključili uvoze in pomožne funkcije
-# iz odsekov 1 in 2 datoteke 18-signed-receipts.ipynb.
+# Predpostavlja, da ste končali uvoze in pomožne funkcije
+# iz razdelkov 1 in 2 datoteke 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Resnično
+print(f"Valid receipt: {verify_receipt(valid)}")        # Res
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Neresnično
+print(f"Tampered receipt: {verify_receipt(tampered)}")  # Neresnica
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain):
@@ -32,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Kako so bili ustvarjeni
 
-Vzorce ustvarja enaka koda kot zvezek, z eno fiksno podpisno ključno
-in fiksnimi časovnimi žigi za enako ponovljivost bajtov. Za ponovno ustvarjanje:
+Predloge uporabljajo isto kodo kot beležnica, z enim fiksnim podpisnim ključem
+in fiksnim časovnim žigom za ponovljivost bajtov. Za ponovno ustvarjanje:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripta je v `generate_fixtures.py` v tem imeniku.)
+(Skript je v `generate_fixtures.py` v tej mapi.)
 
-## Kaj se študenti naučijo s pregledovanjem surove JSON
+## Kaj se študentje naučijo z ogledom surovega JSON-a
 
-Branje surove oblike prejemnika gradi intuicijo, ki je celice v zvezku
-ne nudijo vedno. Študentje, ki hitro pregledajo JSON, pogosto opazijo:
+Branje surovega formata prejemkov gradi intuicijo, ki je celice v beležnici
+ne zagotavljajo vedno. Študentje, ki pregledajo JSON, pogosto opazijo:
 
-1. Podpis je neprozoren niz base64url, vendar je vsak drug podatek v preprostem
-   berljivem JSON formatu. Podpis ne šifrira vsebine; potrjuje jo.
-2. `public_key` je vključen v prejemniku. Revizor ne potrebuje ničesar drugega
-   za preverjanje (ob predpostavki zaupanja, da ključ dejansko pripada trditvenemu
-   izdajatelju; glej README lekcije o identitetni infrastrukturi).
-3. Sprememba enega znaka v katerem koli polju in nato primerjava te datoteke z
-   `02_tampered_receipt.json` naredi mehanizem na nivoju bajtov otipljiv.
+1. Podpis je neprozoren niz base64url, a vsako drugo polje je jasno
+   berljiv JSON. Podpis ne šifrira vsebine; potrjuje jo.
+2. `public_key` je vgrajen v prejemek. Revident ne potrebuje ničesar drugega
+   za preverjanje (ob predpostavki, da zaupa, da ključ dejansko pripada
+   navedenemu izdajatelju; glej README lekcije o infrastrukturi identitete).
+3. Spreminjanje enega znaka v katerem koli polju in nato primerjava te datoteke z
+   `02_tampered_receipt.json` naredi mehanizem na ravni bajtov konkreten.
 
 ---
 
