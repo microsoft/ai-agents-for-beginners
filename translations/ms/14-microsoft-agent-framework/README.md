@@ -1,121 +1,121 @@
-# Meneroka Rangka Kerja Ejen Microsoft
+# Meneroka Rangka Kerja Ejen Microsoft  
 
-![Agent Framework](../../../translated_images/ms/lesson-14-thumbnail.90df0065b9d234ee.webp)
+![Agent Framework](../../../translated_images/ms/lesson-14-thumbnail.90df0065b9d234ee.webp)  
 
-### Pengenalan
+### Pengenalan  
 
-Pelajaran ini akan meliputi:
+Pelajaran ini akan merangkumi:  
 
-- Memahami Rangka Kerja Ejen Microsoft: Ciri Utama dan Nilai  
-- Meneroka Konsep Utama Rangka Kerja Ejen Microsoft
-- Corak MAF Lanjutan: Aliran Kerja, Perantara, dan Memori
+- Memahami Rangka Kerja Ejen Microsoft: Ciri-ciri Utama dan Nilai  
+- Meneroka Konsep-Konsep Utama Rangka Kerja Ejen Microsoft  
+- Corak MAF Lanjutan: Aliran Kerja, Perisian Perantaraan, dan Memori  
 
-## Matlamat Pembelajaran
+## Matlamat Pembelajaran  
 
 Selepas menamatkan pelajaran ini, anda akan tahu bagaimana untuk:
 
-- Membina Ejen AI yang Sedia untuk Pengeluaran menggunakan Rangka Kerja Ejen Microsoft
-- Menerapkan ciri teras Rangka Kerja Ejen Microsoft ke dalam Kes Penggunaan Ejen anda
-- Menggunakan corak lanjutan termasuk aliran kerja, perantara, dan pemerhatian
+- Membangunkan Ejen AI Sedia Produksi menggunakan Rangka Kerja Ejen Microsoft  
+- Menerapkan ciri-ciri teras Rangka Kerja Ejen Microsoft kepada Kes Penggunaan Ejen anda  
+- Menggunakan corak lanjutan termasuk aliran kerja, perisian perantaraan, dan keterlihatan  
 
-## Contoh Kod 
+## Contoh Kod   
 
-Contoh kod untuk [Rangka Kerja Ejen Microsoft (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) boleh didapati dalam repositori ini di bawah fail `xx-python-agent-framework` dan `xx-dotnet-agent-framework`.
+Contoh kod untuk [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) boleh didapati dalam repositori ini di bawah fail `xx-python-agent-framework` dan `xx-dotnet-agent-framework`.  
 
-## Memahami Rangka Kerja Ejen Microsoft
+## Memahami Rangka Kerja Ejen Microsoft  
 
-![Framework Intro](../../../translated_images/ms/framework-intro.077af16617cf130c.webp)
+![Framework Intro](../../../translated_images/ms/framework-intro.077af16617cf130c.webp)  
 
-[Rangka Kerja Ejen Microsoft (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) adalah rangka kerja bersepadu Microsoft untuk membina ejen AI. Ia menawarkan fleksibiliti untuk menangani pelbagai kes penggunaan ejen yang dilihat di persekitaran pengeluaran dan penyelidikan termasuk:
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) ialah rangka kerja sehenti Microsoft untuk membina ejen AI. Ia menawarkan kelenturan untuk menangani pelbagai jenis kes penggunaan ejen yang dilihat dalam persekitaran produksi dan penyelidikan termasuk:  
 
-- **Orkestrasi Ejen Bersiri** dalam senario di mana aliran kerja langkah demi langkah diperlukan.
-- **Orkestrasi Serentak** dalam senario di mana ejen perlu menyelesaikan tugas pada masa yang sama.
-- **Orkestrasi Sembang Kumpulan** dalam senario di mana ejen boleh bekerjasama dalam satu tugas.
-- **Orkestrasi Penyerahan** dalam senario di mana ejen menyerahkan tugas antara satu sama lain apabila subtugas diselesaikan.
-- **Orkestrasi Magnetik** dalam senario di mana ejen pengurus mencipta dan mengubah senarai tugas serta mengendalikan penyelarasan ejen kecil untuk melengkapkan tugas tersebut.
+- **Orkestrasi Ejen Berurutan** dalam senario di mana aliran kerja langkah demi langkah diperlukan.  
+- **Orkestrasi Serentak** dalam senario di mana ejen perlu menyelesaikan tugas pada masa yang sama.  
+- **Orkestrasi Sembang Kumpulan** dalam senario di mana ejen boleh bekerjasama bersama untuk satu tugas.  
+- **Orkestrasi Penyerahan** dalam senario di mana ejen menyerahkan tugas antara satu sama lain apabila subtugas disiapkan.  
+- **Orkestrasi Magnetik** dalam senario di mana ejen pengurus mencipta dan mengubah senarai tugas dan mengendalikan koordinasi ejen sub untuk menyelesaikan tugas tersebut.  
 
-Untuk memberikan Ejen AI dalam Pengeluaran, MAF juga telah memasukkan ciri untuk:
+Untuk menyampaikan Ejen AI dalam Produksi, MAF juga telah memasukkan ciri-ciri untuk:  
 
-- **Pemerhatian** melalui penggunaan OpenTelemetry di mana setiap tindakan Ejen AI termasuk panggilan alat, langkah orkestrasi, aliran penaakulan dan pemantauan prestasi melalui papan pemuka Microsoft Foundry.
-- **Keselamatan** dengan mengehoskan ejen secara asli di Microsoft Foundry yang merangkumi kawalan keselamatan seperti akses berasaskan peranan, pengendalian data peribadi dan keselamatan kandungan terbina dalam.
-- **Ketahanan** kerana jejari dan aliran kerja Ejen boleh berhenti, sambung semula dan pulih daripada ralat yang membolehkan proses berjalan lebih lama.
-- **Kawalan** kerana aliran kerja manusia dalam gelung disokong di mana tugas ditandakan sebagai memerlukan kelulusan manusia.
+- **Keterlihatan** melalui penggunaan OpenTelemetry di mana setiap tindakan Ejen AI termasuk panggilan alat, langkah orkestrasi, aliran alasan dan pemantauan prestasi melalui papan pemuka Microsoft Foundry.  
+- **Keselamatan** dengan mengehos ejen secara asli di Microsoft Foundry yang termasuk kawalan keselamatan seperti akses berdasarkan peranan, pengendalian data peribadi dan keselamatan kandungan terbina dalam.  
+- **Ketahanan** kerana utas dan aliran kerja Ejen boleh dijeda, disambung semula dan pulih dari ralat yang membolehkan proses berjalan lebih lama.  
+- **Kawalan** kerana aliran kerja manusia dalam gelung disokong di mana tugasan ditandakan sebagai memerlukan kelulusan manusia.  
 
-Rangka Kerja Ejen Microsoft juga memfokuskan pada kebolehoperasian dengan:
+Rangka Kerja Ejen Microsoft juga memberi tumpuan kepada keterhubungan dengan:  
 
-- **Bersifat Awan-agnostik** - Ejen boleh dijalankan dalam bekas, di premis dan merentasi pelbagai awan yang berbeza.
-- **Bersifat Penyedia-agnostik** - Ejen boleh dicipta melalui SDK pilihan anda termasuk Azure OpenAI dan OpenAI
-- **Mengintegrasi Standard Terbuka** - Ejen boleh menggunakan protokol seperti Agent-to-Agent(A2A) dan Model Context Protocol (MCP) untuk menemui dan menggunakan ejen serta alat lain.
-- **Plugin dan Penyambung** - Sambungan boleh dibuat ke perkhidmatan data dan memori seperti Microsoft Fabric, SharePoint, Pinecone dan Qdrant.
+- **Bebas Awan** - Ejen boleh dijalankan dalam bekas, secara atas premis dan merentasi pelbagai awan berbeza.  
+- **Bebas Penyedia** - Ejen boleh dicipta melalui SDK pilihan anda termasuk Azure OpenAI dan OpenAI  
+- **Mengintegrasi Piawaian Terbuka** - Ejen boleh menggunakan protokol seperti Agent-to-Agent(A2A) dan Model Context Protocol (MCP) untuk menemui dan menggunakan ejen dan alat lain.  
+- **Plugin dan Penyambung** - Sambungan boleh dibuat ke perkhidmatan data dan memori seperti Microsoft Fabric, SharePoint, Pinecone dan Qdrant.  
 
-Mari lihat bagaimana ciri-ciri ini diterapkan pada beberapa konsep teras Rangka Kerja Ejen Microsoft.
+Mari kita lihat bagaimana ciri-ciri ini diterapkan pada beberapa konsep teras Rangka Kerja Ejen Microsoft.  
 
-## Konsep Utama Rangka Kerja Ejen Microsoft
+## Konsep Utama Rangka Kerja Ejen Microsoft  
 
-### Ejen
+### Ejen  
 
-![Agent Framework](../../../translated_images/ms/agent-components.410a06daf87b4fef.webp)
+![Agent Framework](../../../translated_images/ms/agent-components.410a06daf87b4fef.webp)  
 
-**Mencipta Ejen**
+**Mencipta Ejen**  
 
-Penciptaan ejen dilakukan dengan menentukan perkhidmatan inferens (Penyedia LLM), satu
-set arahan untuk Ejen AI ikuti, dan `nama` yang diberikan:
+Penciptaan ejen dilakukan dengan mentakrifkan perkhidmatan inferens (Penyedia LLM), satu  
+set arahan untuk Ejen AI ikuti, dan `nama` yang ditetapkan:  
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
-
-Di atas menggunakan `Azure OpenAI` tetapi ejen boleh dicipta menggunakan pelbagai perkhidmatan termasuk `Microsoft Foundry Agent Service`:
+  
+Di atas menggunakan `Azure OpenAI` tetapi ejen boleh dicipta menggunakan pelbagai perkhidmatan termasuk `Microsoft Foundry Agent Service`:  
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
-
-API OpenAI `Responses`, `ChatCompletion`
+  
+OpenAI `Responses`, API `ChatCompletion`  
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
 ```
-
+  
 ```python
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
-
-atau [MiniMax](https://platform.minimaxi.com/), yang menyediakan API serasi OpenAI dengan tetingkap konteks besar (sehingga 204K token):
+  
+atau [MiniMax](https://platform.minimaxi.com/), yang menyediakan API yang serasi OpenAI dengan tetingkap konteks besar (sehingga 204K token):  
 
 ```python
 agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
-
-atau ejen jauh menggunakan protokol A2A:
+  
+atau ejen jauh menggunakan protokol A2A:  
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
 ```
+  
+**Menjalankan Ejen**  
 
-**Menjalankan Ejen**
-
-Ejen dijalankan menggunakan kaedah `.run` atau `.run_stream` untuk respons bukan streaming atau streaming.
+Ejen dijalankan menggunakan kaedah `.run` atau `.run_stream` untuk tindak balas tidak penstriman atau penstriman.  
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
 print(result.text)
 ```
-
+  
 ```python
 async for update in agent.run_stream("What are the good places to visit in Amsterdam?"):
     if update.text:
         print(update.text, end="", flush=True)
 
 ```
+  
+Setiap larian ejen juga boleh mempunyai pilihan untuk menyesuaikan parameter seperti `max_tokens` yang digunakan oleh ejen, `tools` yang boleh dipanggil oleh ejen, dan bahkan `model` itu sendiri yang digunakan untuk ejen.  
 
-Setiap larian ejen juga boleh mempunyai pilihan untuk menyesuaikan parameter seperti `max_tokens` yang digunakan oleh ejen, `tools` yang boleh dipanggil oleh ejen, malah `model` itu sendiri yang digunakan untuk ejen.
+Ini berguna dalam kes di mana model atau alat tertentu diperlukan untuk menyelesaikan tugas pengguna.  
 
-Ini berguna dalam kes model atau alat tertentu diperlukan untuk melengkapkan tugas pengguna.
+**Alat**  
 
-**Alat**
-
-Alat boleh ditakrifkan semasa menentukan ejen:
+Alat boleh ditakrifkan semasa mentakrif ejen:  
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -126,58 +126,58 @@ def get_attractions( location: Annotated[str, Field(description="The location to
 agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
 
 ```
-
-dan juga semasa menjalankan ejen:
+  
+dan juga semasa menjalankan ejen:  
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Alat disediakan hanya untuk larian ini )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Alat disediakan untuk larian ini sahaja )
 ```
+  
+**Utas Ejen**  
 
-**Jejari Ejen**
+Utas Ejen digunakan untuk mengendalikan perbualan pelbagai giliran. Utas boleh dicipta dengan:  
 
-Jejari Ejen digunakan untuk mengendalikan perbualan multi-pusingan. Jejari boleh dicipta sama ada dengan:
+- Menggunakan `get_new_thread()` yang membolehkan utas disimpan dari masa ke masa  
+- Mencipta utas secara automatik semasa menjalankan ejen dan hanya menjadikan utas itu bertahan sepanjang larian semasa.  
 
-- Menggunakan `get_new_thread()` yang membolehkan jejari disimpan dari masa ke masa
-- Mencipta jejari secara automatik semasa menjalankan ejen dan hanya menjadikan jejari itu wujud sepanjang larian semasa.
-
-Untuk mencipta jejari, kodnya nampak seperti ini:
+Untuk mencipta utas, kodnya seperti berikut:  
 
 ```python
-# Cipta benang baru.
-thread = agent.get_new_thread() # Jalankan ejen dengan benang tersebut.
+# Cipta utas baru.
+thread = agent.get_new_thread() # Jalankan ejen dengan utas tersebut.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
-
-Anda kemudian boleh menyimpan secara bersiri jejari untuk disimpan bagi kegunaan kemudian:
+  
+Anda boleh kemudian menyusunkan utas untuk disimpan bagi kegunaan kemudian:  
 
 ```python
 # Cipta benang baru.
 thread = agent.get_new_thread() 
 
-# Jalankan ejen dengan benang tersebut.
+# Jalankan agen dengan benang.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Serealkan benang untuk penyimpanan.
+# Serikan benang untuk penyimpanan.
 
 serialized_thread = await thread.serialize() 
 
-# Deserialkan keadaan benang selepas dimuatkan dari penyimpanan.
+# Deserikan keadaan benang selepas memuatkan dari storan.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
+  
+**Perisian Perantaraan Ejen**  
 
-**Perantara Ejen**
+Ejen berinteraksi dengan alat dan LLM untuk menyelesaikan tugasan pengguna. Dalam sesetengah senario, kita mahu melaksanakan atau menjejaki di antara interaksi tersebut. Perisian perantaraan ejen membolehkan kita melakukan ini melalui:  
 
-Ejen berinteraksi dengan alat dan LLM untuk melengkapkan tugas pengguna. Dalam senario tertentu, kita mahu melaksanakan atau mengesan interaksi antara ini. Perantara ejen membolehkan kita melakukan ini melalui:
+*Perisian Perantaraan Fungsi*  
 
-*Perantara Fungsi*
+Perisian perantaraan ini membolehkan kita melaksanakan tindakan di antara ejen dan fungsi/alat yang akan dipanggilnya. Contohnya bila anda mahu melakukan sedikit log pada panggilan fungsi.  
 
-Perantara ini membolehkan kita melaksanakan tindakan antara ejen dan fungsi/alat yang akan dipanggil. Contoh bila ini digunakan ialah apabila anda mahu membuat log panggilan fungsi.
-
-Dalam kod di bawah `next` mentakrifkan jika perantara seterusnya atau fungsi sebenar harus dipanggil.
+Dalam kod di bawah `next` menentukan sama ada perisian perantaraan seterusnya atau fungsi sebenar harus dipanggil.  
 
 ```python
 async def logging_function_middleware(
@@ -194,12 +194,12 @@ async def logging_function_middleware(
     # Pasca-pemprosesan: Log selepas pelaksanaan fungsi
     print(f"[Function] {context.function.name} completed")
 ```
+  
+*Perisian Perantaraan Sembang*  
 
-*Perantara Sembang*
+Perisian perantaraan ini membolehkan kita melaksanakan atau mencatat tindakan di antara ejen dan permintaan antara LLM.  
 
-Perantara ini membolehkan kita melaksanakan atau merekod tindakan antara ejen dan permintaan antara LLM .
-
-Ini mengandungi maklumat penting seperti `mesej` yang dihantar ke perkhidmatan AI.
+Ini mengandungi maklumat penting seperti `méssages` yang dihantar ke perkhidmatan AI.  
 
 ```python
 async def logging_chat_middleware(
@@ -217,24 +217,24 @@ async def logging_chat_middleware(
     print("[Chat] AI response received")
 
 ```
+  
+**Memori Ejen**  
 
-**Memori Ejen**
+Seperti yang dibincangkan dalam pelajaran `Agentic Memory`, memori adalah elemen penting untuk membolehkan ejen beroperasi dalam konteks berbeza. MAF menawarkan beberapa jenis memori:  
 
-Seperti yang dibincangkan dalam pelajaran `Memori Ejenik`, memori adalah unsur penting untuk membolehkan ejen beroperasi dalam konteks berbeza. MAF menawarkan beberapa jenis memori yang berbeza:
+*Penyimpanan Dalam Memori*  
 
-*Penyimpanan Dalam Memori*
-
-Ini adalah memori yang disimpan dalam jejari semasa runtime aplikasi.
+Ini adalah memori yang disimpan dalam utas semasa masa jalan aplikasi.  
 
 ```python
-# Cipta benang baru.
-thread = agent.get_new_thread() # Jalankan ejen dengan benang tersebut.
+# Cipta utas baru.
+thread = agent.get_new_thread() # Jalankan agen dengan utas tersebut.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
+  
+*Mesej Kekal*  
 
-*Mesej Kekal*
-
-Memori ini digunakan apabila menyimpan sejarah perbualan merentasi sesi berbeza. Ia ditakrifkan menggunakan `chat_message_store_factory` :
+Memori ini digunakan apabila menyimpan sejarah perbualan merentasi sesi berbeza. Ia ditakrifkan menggunakan `chat_message_store_factory`:  
 
 ```python
 from agent_framework import ChatMessageStore
@@ -250,10 +250,10 @@ agent = ChatAgent(
 )
 
 ```
+  
+*Memori Dinamik*  
 
-*Memori Dinamik*
-
-Memori ini ditambah ke konteks sebelum ejen dijalankan. Memori ini boleh disimpan dalam perkhidmatan luaran seperti mem0:
+Memori ini ditambah ke konteks sebelum ejen dijalankan. Memori ini boleh disimpan dalam perkhidmatan luaran seperti mem0:  
 
 ```python
 from agent_framework.mem0 import Mem0Provider
@@ -272,11 +272,10 @@ agent = ChatAgent(
 )
 
 ```
+  
+**Keterlihatan Ejen**  
 
-**Pemerhatian Ejen**
-
-
-Observabiliti adalah penting untuk membina sistem agentik yang boleh dipercayai dan mudah diselenggara. MAF berintegrasi dengan OpenTelemetry untuk menyediakan penjejakan dan meter bagi observabiliti yang lebih baik.
+Keterlihatan penting untuk membina sistem ejen yang boleh dipercayai dan mudah diselenggara. MAF mengintegrasikan dengan OpenTelemetry untuk menyediakan penjejakan dan meter bagi keterlihatan yang lebih baik.  
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -284,29 +283,29 @@ from agent_framework.observability import get_tracer, get_meter
 tracer = get_tracer()
 meter = get_meter()
 with tracer.start_as_current_span("my_custom_span"):
-    # buat sesuatu
+    # lakukan sesuatu
     pass
 counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
 ```
+  
+### Aliran Kerja  
 
-### Aliran Kerja
+MAF menawarkan aliran kerja yang merupakan langkah yang telah ditetapkan untuk menyelesaikan satu tugas dan termasuk ejen AI sebagai komponen dalam langkah tersebut.  
 
-MAF menawarkan aliran kerja yang merupakan langkah-langkah yang telah ditetapkan untuk menyelesaikan tugas dan termasuk agen AI sebagai komponen dalam langkah-langkah tersebut.
+Aliran kerja terdiri daripada komponen berbeza yang membenarkan kawalan aliran yang lebih baik. Aliran kerja juga membolehkan **orkestrasi pelbagai ejen** dan **penandaan semula** untuk menyimpan status aliran kerja.  
 
-Aliran kerja terdiri daripada komponen yang berbeza yang membolehkan kawalan aliran yang lebih baik. Aliran kerja juga membenarkan **orkestrasi multi-agen** dan **penanda checkpoint** untuk menyimpan status aliran kerja.
+Komponen teras aliran kerja adalah:  
 
-Komponen teras aliran kerja adalah:
+**Pelaksana**  
 
-**Pelaksana**
+Pelaksana menerima mesej input, melaksanakan tugasan yang diberikan, dan kemudian menghasilkan mesej output. Ini menggerakkan aliran kerja ke arah menyelesaikan tugas lebih besar. Pelaksana boleh menjadi sama ada ejen AI atau logik khusus.  
 
-Pelaksana menerima mesej input, melaksanakan tugas yang diberikan, dan kemudian menghasilkan mesej output. Ini menggerakkan aliran kerja ke hadapan ke arah menyelesaikan tugasan yang lebih besar. Pelaksana boleh jadi agen AI atau logik tersuai.
+**Sisi**  
 
-**Sisi**
+Sisi digunakan untuk mentakrifkan aliran mesej dalam aliran kerja. Ini boleh jadi:  
 
-Sisi digunakan untuk menentukan aliran mesej dalam aliran kerja. Ini boleh menjadi:
-
-*Sisi Langsung* - Sambungan satu-ke-satu ringkas antara pelaksana:
+*Sisi Terus* - Sambungan satu-ke-satu mudah antara pelaksana:  
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -316,68 +315,68 @@ builder.add_edge(source_executor, target_executor)
 builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
+  
+*Sisi Bersyarat* - Diaktifkan selepas syarat tertentu dipenuhi. Contohnya, apabila bilik hotel tidak tersedia, pelaksana boleh mencadangkan pilihan lain.  
 
-*Sisi Bersyarat* - Diaktifkan selepas syarat tertentu dipenuhi. Contohnya, apabila bilik hotel tidak tersedia, pelaksana boleh mencadangkan pilihan lain.
+*Sisi Tukar-Kes* - Menghala mesej ke pelaksana berbeza berdasarkan syarat yang ditetapkan. Contohnya, jika pelanggan pelancongan mempunyai akses keutamaan dan tugasan mereka akan diurus melalui aliran kerja lain.  
 
-*Sisi Suis-kes* - Menghala mesej kepada pelaksana berbeza berdasarkan syarat yang ditetapkan. Contohnya, jika pelanggan perjalanan mempunyai akses keutamaan dan tugas mereka akan dikendalikan melalui aliran kerja lain.
+*Sisi Penyaluran* - Hantar satu mesej ke pelbagai sasaran.  
 
-*Sisi Fan-out* - Hantar satu mesej kepada pelbagai sasaran.
+*Sisi Pengumpulan* - Kumpul pelbagai mesej daripada pelaksana berbeza dan hantar kepada satu sasaran.  
 
-*Sisi Fan-in* - Kumpul pelbagai mesej dari pelaksana berbeza dan hantar kepada satu sasaran.
+**Peristiwa**  
 
-**Acara**
+Untuk menyediakan keterlihatan yang lebih baik ke dalam aliran kerja, MAF menawarkan peristiwa terbina dalam untuk pelaksanaan termasuk:  
 
-Untuk menyediakan observabiliti yang lebih baik dalam aliran kerja, MAF menawarkan acara terbina dalam untuk pelaksanaan termasuk:
+- `WorkflowStartedEvent`  - Pelaksanaan aliran kerja bermula  
+- `WorkflowOutputEvent` - Aliran kerja menghasilkan output  
+- `WorkflowErrorEvent` - Aliran kerja menghadapi ralat  
+- `ExecutorInvokeEvent`  - Pelaksana mula memproses  
+- `ExecutorCompleteEvent`  -  Pelaksana selesai memproses  
+- `RequestInfoEvent` - Permintaan dikeluarkan  
 
-- `WorkflowStartedEvent`  - Pelaksanaan aliran kerja bermula
-- `WorkflowOutputEvent` - Aliran kerja menghasilkan output
-- `WorkflowErrorEvent` - Aliran kerja mengalami ralat
-- `ExecutorInvokeEvent`  - Pelaksana mula memproses
-- `ExecutorCompleteEvent`  -  Pelaksana selesai memproses
-- `RequestInfoEvent` - Permintaan dikeluarkan
+## Corak MAF Lanjutan  
 
-## Corak MAF Lanjutan
+Bahagian di atas merangkumi konsep utama Rangka Kerja Ejen Microsoft. Semasa anda membina ejen yang lebih kompleks, berikut adalah beberapa corak lanjutan yang perlu dipertimbangkan:  
 
-Bahagian di atas merangkumi konsep utama Microsoft Agent Framework. Apabila anda membina agen yang lebih kompleks, berikut adalah beberapa corak lanjutan yang boleh dipertimbangkan:
+- **Komposisi Perisian Perantaraan**: Menggabungkan berbilang pengendali perisian perantaraan (log, pengesahan, sekatan kadar) menggunakan perisian perantaraan fungsi dan sembang untuk kawalan perilaku ejen yang halus.  
+- **Penandaan Semula Aliran Kerja**: Gunakan peristiwa aliran kerja dan penyusunan untuk menyimpan dan menyambung semula proses ejen yang berjalan lama.  
+- **Pemilihan Alat Dinamik**: Gabungkan RAG ke atas penerangan alat dengan pendaftaran alat MAF untuk mempersembahkan hanya alat yang relevan bagi setiap pertanyaan.  
+- **Penyerahan Pelbagai Ejen**: Gunakan sisi aliran kerja dan penghalaan bersyarat untuk mengatur penyerahan antara ejen khusus.  
 
-- **Komposisi Middleware**: Rantai beberapa pengendali middleware (log, pengesahan, had kadar) menggunakan fungsi dan middleware sembang untuk kawalan terperinci ke atas tingkah laku agen.
-- **Penanda Checkpoint Aliran Kerja**: Gunakan acara aliran kerja dan penyerialan untuk menyimpan dan menyambung semula proses agen yang berjalan lama.
-- **Pemilihan Alat Dinamik**: Gabungkan RAG ke atas penerangan alat dengan pendaftaran alat MAF untuk membentangkan hanya alat yang relevan bagi setiap pertanyaan.
-- **Penyerahan Multi-Agen**: Gunakan sisi aliran kerja dan penghalaan bersyarat untuk mengorkestrasi penyerahan antara agen khusus.
+## Mengehos Ejen LangChain / LangGraph pada Microsoft Foundry  
 
-## Menghoskan Agen LangChain / LangGraph pada Microsoft Foundry
+Rangka Kerja Ejen Microsoft adalah **interoperabel rangka kerja** — anda tidak terhad kepada ejen yang ditulis dengan MAF sahaja. Jika anda sudah mempunyai ejen yang dibina dengan **LangChain** atau **LangGraph**, anda boleh menjalankannya sebagai **ejen yang dihoskan Microsoft Foundry** supaya Foundry menguruskan runtime, sesi, penalaan skala, identiti dan titik akhir protokol untuk anda, sementara logik ejen kekal dalam LangGraph.  
 
-Microsoft Agent Framework adalah **rangka kerja-interoperasi** — anda tidak terhad kepada agen yang ditulis dengan MAF. Jika anda sudah mempunyai agen yang dibina dengan **LangChain** atau **LangGraph**, anda boleh menjalankannya sebagai **agen yang dihoskan Microsoft Foundry** supaya Foundry menguruskan masa jalan, sesi, penskalaan, identiti, dan titik hujung protokol untuk anda, sementara logik agen anda kekal dalam LangGraph.
+Ini dilakukan dengan pakej `langchain_azure_ai.agents.hosting`, yang mendedahkan graf LangGraph terkompilasi melalui protokol yang sama yang digunakan oleh ejen hos Foundry.  
 
-Ini dilakukan dengan pakej `langchain_azure_ai.agents.hosting`, yang mendedahkan graf LangGraph yang dikompilasi melalui protokol yang sama seperti agen yang dihoskan Foundry gunakan.
-
-**1. Pasang ekstra hosting:**
+**1. Pasang tambahan hosting:**  
 
 ```bash
 pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
+  
+Tambahan `hosting` memasang perpustakaan protokol Foundry: `azure-ai-agentserver-responses` (titik akhir `/responses` yang serasi OpenAI) dan `azure-ai-agentserver-invocations` (titik akhir `/invocations` generik).  
 
-Ekstra `hosting` memasang perpustakaan protokol Foundry: `azure-ai-agentserver-responses` (titik hujung `/responses` yang serasi OpenAI) dan `azure-ai-agentserver-invocations` (titik hujung `/invocations` generik).
+**2. Pilih protokol hosting:**  
 
-**2. Pilih protokol hosting:**
+| Protokol | Kelas Hos | Titik Akhir | Gunakan apabila |  
+|----------|-----------|----------|----------|  
+| **Responses** | `ResponsesHostServer` | `/responses` | Anda mahukan sembang serasi OpenAI, aliran penstriman, sejarah respons, dan pengurusan perbualan — lalai yang disyorkan bagi ejen perbualan. |  
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Anda memerlukan bentuk JSON khusus, titik akhir gaya webhook, atau pemprosesan bukan perbualan. |  
 
-| Protokol | Kelas Hos | Titik Hujung | Gunakan apabila |
-|----------|-----------|-------------|------------------|
-| **Respons** | `ResponsesHostServer` | `/responses` | Anda mahukan sembang, penstriman, sejarah respons, dan penjejakan perbualan yang serasi OpenAI — lalai yang disyorkan untuk agen perbualan. |
-| **Panggilan** | `InvocationsHostServer` | `/invocations` | Anda memerlukan bentuk JSON tersuai, titik hujung gaya webhook, atau pemprosesan bukan perbualan. |
+Kerana **API Responses adalah API utama untuk pembangunan gaya ejen di Foundry**, mulakan dengan `ResponsesHostServer` untuk kebanyakan ejen.  
 
-Oleh kerana **API Respons adalah API utama untuk pembangunan gaya agen dalam Foundry**, mulakan dengan `ResponsesHostServer` untuk kebanyakan agen.
-
-**3. Konfigurasikan pembolehubah persekitaran** (`az login` dahulu supaya `DefaultAzureCredential` boleh mengesahkan):
+**3. Konfigurasikan pembolehubah persekitaran** (`az login` dahulu supaya `DefaultAzureCredential` boleh mengesahkan):  
 
 ```bash
 export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
 export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
+  
+Apabila ejen nanti dijalankan sebagai ejen hos di Foundry, platform secara automatik menyuntik `FOUNDRY_PROJECT_ENDPOINT`.  
 
-Apabila agen kemudian berjalan sebagai agen dihoskan di Foundry, platform secara automatik menyuntik `FOUNDRY_PROJECT_ENDPOINT`.
-
-**4. Dedahkan agen LangGraph melalui protokol Respons:**
+**4. Dedahkan ejen LangGraph melalui protokol Responses:**  
 
 ```python
 import os
@@ -399,7 +398,7 @@ def build_chat_model() -> ChatOpenAI:
     openai_client = project.get_openai_client()
     token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
 
-    # ChatOpenAI di sini menyasarkan titik hujung (Responses) yang serasi OpenAI dari projek Foundry.
+    # ChatOpenAI di sini menyasarkan titik akhir (Responses) yang serasi dengan OpenAI bagi projek Foundry.
     return ChatOpenAI(
         model=deployment,
         base_url=str(openai_client.base_url),
@@ -416,31 +415,31 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+  
+Jalankan secara tempatan dengan `python main.py`, kemudian hantar permintaan Responses ke `http://localhost:8088/responses`.  
 
-Jalankan secara tempatan dengan `python main.py`, kemudian hantar permintaan Respons ke `http://localhost:8088/responses`.
+**Kelakuan utama:**  
 
-**Tingkah laku utama:**
+- **Perbualan**: Pelanggan menyambung perbualan dengan menghantar `previous_response_id` atau ID `conversation`. Jika graf anda dikompilasi dengan penanda semak LangGraph, Foundry mengikat status perbualan ke penanda semak (gunakan penanda semak tahan lama dalam produksi; `MemorySaver` baik untuk ujian tempatan).  
+- **Manusia dalam gelung**: Jika graf anda menggunakan LangGraph `interrupt()`, `ResponsesHostServer` memaparkan gangguan tertunda sebagai item `function_call` / `mcp_approval_request` Responses, dan pelanggan menyambung dengan `function_call_output` / `mcp_approval_response` yang sepadan.  
+- **Sebarkan ke Foundry**: Gunakan Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (tempatan, perlukan Docker), kemudian `azd provision` dan `azd deploy`. Penyebaran ejen hos memerlukan peranan **Foundry Project Manager**.  
 
-- **Perbualan**: Pelanggan meneruskan perbualan dengan menghantar `previous_response_id` atau ID `conversation`. Jika graf anda dikompilasi dengan cekpoin LangGraph, Foundry mengikat status perbualan kepada checkpoint (gunakan cekpoin tahan lama dalam produksi; `MemorySaver` sesuai untuk ujian tempatan).
-- **Manusia dalam gelung**: Jika graf anda menggunakan LangGraph `interrupt()`, `ResponsesHostServer` memaparkan interupsi yang sedang menunggu sebagai item `function_call` / `mcp_approval_request` Respons, dan pelanggan meneruskan dengan `function_call_output` / `mcp_approval_response` yang sepadan.
-- **Dideploy ke Foundry**: Gunakan Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (tempatan, memerlukan Docker), kemudian `azd provision` dan `azd deploy`. Pelaksanaan agen yang dihoskan memerlukan peranan **Pengurus Projek Foundry**.
+Versi yang boleh dijalankan bagi contoh ini terdapat di [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). Untuk panduan penuh (protokol Invocations, skema permintaan tersuai, dan penyelesaian masalah), lihat [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).  
 
-Versi boleh dijalankan bagi contoh ini terdapat dalam [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). Untuk panduan lengkap (protokol Panggilan, skema permintaan tersuai, dan penyelesaian masalah), lihat [Hoskan agen LangGraph sebagai agen dihoskan Foundry](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+## Contoh Kod   
 
-## Contoh Kod 
+Contoh kod untuk Rangka Kerja Ejen Microsoft boleh didapati dalam repositori ini di bawah fail `xx-python-agent-framework` dan `xx-dotnet-agent-framework`.  
 
-Contoh kod untuk Microsoft Agent Framework boleh didapati dalam repositori ini di bawah fail `xx-python-agent-framework` dan `xx-dotnet-agent-framework`.
+## Ada Soalan Lagi Tentang Rangka Kerja Ejen Microsoft?  
 
-## Ada Soalan Lanjut Mengenai Microsoft Agent Framework?
+Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan dapatkan jawapan kepada soalan Ejen AI anda.  
+## Pelajaran Sebelumnya  
 
-Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan dapatkan jawapan bagi soalan AI Agents anda.
-## Pelajaran Sebelumnya
+[Memori untuk Ejen AI](../13-agent-memory/README.md)  
 
-[Memori untuk AI Agents](../13-agent-memory/README.md)
+## Pelajaran Seterusnya  
 
-## Pelajaran Seterusnya
-
-[Membina Agen Penggunaan Komputer (CUA)](../15-browser-use/README.md)
+[Membangunkan Ejen Pengguna Komputer (CUA)](../15-browser-use/README.md)  
 
 ---
 

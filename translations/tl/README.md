@@ -1,25 +1,25 @@
-# AI Agents para sa Mga Nagsisimula - Isang Kurso
+# Mga AI Agent para sa Mga Nagsisimula - Isang Kurso
 
-![AI Agents para sa Mga Nagsisimula](../../translated_images/tl/repo-thumbnailv3.917487e234b90100.webp)
+![Mga AI Agent para sa Mga Nagsisimula](../../translated_images/tl/repo-thumbnailv3.917487e234b90100.webp)
 
-## Isang kurso na nagtuturo ng lahat ng kailangan mong malaman upang magsimulang gumawa ng AI Agents
+## Isang kurso na nagtuturo ng lahat ng kailangan mong malaman upang magsimulang gumawa ng Mga AI Agent
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![Lisensya sa GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![Mga kontribyutor sa GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![Mga isyu sa GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![Mga pull-request sa GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![Malugod ang mga PR](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 Suporta sa Maraming Wika
+### 🌐 Suporta sa Maramihang Wika
 
-#### Sinusuportahan sa pamamagitan ng GitHub Action (Awtomatiko at Palaging Napapanahon)
+#### Sinusuportahan sa pamamagitan ng GitHub Action (Automatiko at Laging Napapanahon)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](./README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-> **Mas gusto mo bang Kopyahin nang Lokal?**
+> **Mas gusto mo bang Kopyahin Nang Lokal?**
 >
-> Kasama sa repositoryong ito ang higit sa 50 na pagsasalin sa iba't ibang wika na malaki ang dagdag sa laki ng pag-download. Para mag-clone nang walang mga pagsasalin, gamitin ang sparse checkout:
+> Kasama sa repositoryong ito ang mahigit 50+ na pagsasalin ng wika na malaki ang dagdag sa laki ng pag-download. Para mag-clone nang walang mga pagsasalin, gamitin ang sparse checkout:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,74 +35,74 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> Binibigyan ka nito ng lahat ng kailangan mo upang tapusin ang kurso nang mas mabilis ang pag-download.
+> Binibigyan ka nito ng lahat ng kailangan mo para tapusin ang kurso na may mas mabilis na pag-download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Kung nais mo ng karagdagang sinusuportahang mga wika ng pagsasalin, nakalista ang mga ito [dito](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
+**Kung nais mong magkaroon ng karagdagang mga suportadong wika sa pagsasalin, nakalista ang mga ito [dito](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![Mga tagamasid sa GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![Mga bifurcation sa GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![Mga bituin sa GitHub](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ATgtXmAS5D)](https://discord.com/invite/ATgtXmAS5D)
 
 
 ## 🌱 Pagsisimula
 
-Ang kursong ito ay may mga aralin na sumasaklaw sa mga pundasyon ng paggawa ng AI Agents. Bawat aralin ay sumasaklaw sa sariling paksa kaya maaari kang magsimula kahit saan mo gusto!
+Ang kursong ito ay may mga leksiyon na sumasaklaw sa mga pangunahing kaalaman sa paggawa ng Mga AI Agent. Bawat leksiyon ay sumasaklaw sa sarili nitong paksa kaya magsimula kahit saan ka man gusto!
 
-May suporta sa maraming wika para sa kursong ito. Pumunta sa aming [mga available na wika dito](#-multi-language-support).
+May suporta ito sa maraming wika para sa kursong ito. Pumunta sa aming [magagamit na mga wika dito](#-multi-language-support).
 
-Kung ito ang iyong unang pagkakataon na gumawa gamit ang mga Generative AI models, tingnan ang aming [Generative AI Para sa Mga Nagsisimula](https://aka.ms/genai-beginners) na kurso, na may 21 aralin sa paggawa gamit ang GenAI.
+Kung ito ang unang pagkakataon mong gumawa gamit ang Generative AI models, tingnan ang aming [Generative AI Para sa Mga Nagsisimula](https://aka.ms/genai-beginners) na kurso, na naglalaman ng 21 mga leksyon sa paggawa gamit ang GenAI.
 
-Huwag kalimutang [i-star (🌟) ang repo na ito](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) at [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang patakbuhin ang code.
+Huwag kalimutang [bigyan ng bituin (🌟) ang repo na ito](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) at [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang patakbuhin ang code.
 
-### Makipagkilala sa Ibang mga Nag-aaral, Sagutin ang Iyong mga Tanong
+### Makipagkita sa Ibang mga Nag-aaral, Sagutin ang Iyong mga Tanong
 
-Kung ikaw ay ma-stuck o may mga tanong tungkol sa paggawa ng AI Agents, sumali sa aming dedikadong Discord Channel sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Kung ikaw ay matrapik o may mga tanong tungkol sa paggawa ng Mga AI Agent, sumali sa aming dedikadong Discord Channel sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Ano ang Kailangan Mo
+### Mga Kailangan Mo
 
-Bawat aralin sa kurso na ito ay may mga halimbawa ng code, na makikita sa folder na code_samples. Maaari mong [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang gumawa ng sarili mong kopya.
+Bawat leksiyon sa kursong ito ay may kasamang mga halimbawa ng code, na matatagpuan sa folder na code_samples. Maaari kang [mag-fork ng repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang gumawa ng sarili mong kopya.
 
-Ang mga halimbawa ng code sa mga ehersisyong ito ay gumagamit ng Microsoft Agent Framework kasama ang Microsoft Foundry Agent Service V2:
+Ang mga halimbawa ng code sa mga pagsasanay na ito ay gumagamit ng Microsoft Agent Framework gamit ang Microsoft Foundry Agent Service V2:
 
-- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Kailangan ng Azure Account
+- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Kinakailangang Azure Account
 
-Ang kursong ito ay gumagamit ng mga sumusunod na AI Agent frameworks at serbisyo mula sa Microsoft:
+Ginagamit ng kursong ito ang mga sumusunod na AI Agent frameworks at serbisyo mula sa Microsoft:
 
-- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/agent-framework/overview/)
 - [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Ang ilang halimbawa ng code ay sumusuporta rin sa alternatibong mga OpenAI-compatible provider tulad ng [MiniMax](https://platform.minimaxi.com/), na nag-aalok ng malalaking context models (hanggang 204K tokens). Tingnan ang [Course Setup](./00-course-setup/README.md) para sa mga detalye ng configuration.
+Ang ilang mga halimbawa ng code ay sumusuporta rin sa mga alternatibong OpenAI-compatible na mga provider tulad ng [MiniMax](https://platform.minimaxi.com/), na nag-aalok ng mga malalaking context na modelo (hanggang 204K na mga token). Tingnan ang [Course Setup](./00-course-setup/README.md) para sa mga detalye ng konfigurasyon.
 
 Para sa karagdagang impormasyon sa pagpapatakbo ng code para sa kursong ito, pumunta sa [Course Setup](./00-course-setup/README.md).
 
-## 🙏 Nais mo bang tumulong?
+## 🙏 Nais Bang Tumulung?
 
-May mga suhestiyon ka ba o nakakita ng mga mali sa spelling o code? [Mag-raise ng isyu](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) o [Gumawa ng pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
-
-
-
-## 📂 Kasama sa Bawat Aralin
-
-- Isang nakasulat na aralin na matatagpuan sa README at isang maikling video
-- Mga halimbawa ng Python code na gumagamit ng Microsoft Agent Framework kasama ang Microsoft Foundry
-- Mga link sa karagdagang mga resources para ipagpatuloy ang iyong pag-aaral
+Mayroon ka bang mga mungkahi o nakakita ng mga maling baybay o code error? [Mag-raise ng isyu](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) o [Gumawa ng pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
-## 🗃️ Mga Aralin
 
-| **Aralin**                                   | **Teksto at Code**                                  | **Video**                                                  | **Karagdagang Pag-aaral**                                                          |
-|----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------------------------------|
-| Panimula sa AI Agents at Mga Kaso ng Paggamit | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pagsusuri sa AI Agentic Frameworks             | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pag-unawa sa AI Agentic Design Patterns        | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Disenyo sa Paggamit ng Tool                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                    | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pagbuo ng Mapagkakatiwalaang AI Agents          | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Disenyo sa Pagpaplano                            | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Disenyo ng Multi-Agent                          | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+## 📂 Bawat leksiyon ay may kasamang
+
+- Isinulat na leksiyon na matatagpuan sa README at isang maikling video
+- Mga halimbawa ng Python code gamit ang Microsoft Agent Framework na may Microsoft Foundry
+- Mga link sa karagdagang mga mapagkukunan upang ipagpatuloy ang iyong pag-aaral
+
+
+## 🗃️ Mga Leksyon
+
+| **Leksyon**                                 | **Teksto at Code**                                  | **Video**                                                  | **Karagdagang Pag-aaral**                                                             |
+|----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Pambungad sa Mga AI Agent at Mga Gamit ng Agent | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pagsusuri sa AI Agentic Frameworks           | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pag-unawa sa AI Agentic Design Patterns      | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern ng Paggamit ng Tool                   | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pagtatayo ng Mapagkakatiwalaang Mga AI Agent  | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern ng Pagpaplano                         | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern ng Maramihang Agent                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 | Metacognition Design Pattern                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Agents in Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -115,7 +115,7 @@ May mga suhestiyon ka ba o nakakita ng mga mali sa spelling o code? [Mag-raise n
 | Creating Local AI Agents                     | [Link](./17-creating-local-ai-agents/README.md)  |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
 | Securing AI Agents                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
-## 🎒 Iba Pang Kurso
+## 🎒 Iba Pang Mga Kurso
 
 Gumagawa ang aming koponan ng iba pang mga kurso! Tingnan ang:
 
@@ -142,7 +142,7 @@ Gumagawa ang aming koponan ng iba pang mga kurso! Tingnan ang:
 
 ---
  
-### Pangunahing Pag-aaral
+### Core Learning
 [![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -161,38 +161,38 @@ Gumagawa ang aming koponan ng iba pang mga kurso! Tingnan ang:
 
 ## 🌟 Pasasalamat sa Komunidad
 
-Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) sa pagbibigay ng mahahalagang code sample na nagpapakita ng Agentic RAG. 
+Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) sa pagbibigay ng mahahalagang halimbawa ng code na nagpapakita ng Agentic RAG.
 
-## Pagsali
+## Pagsasama
 
-Tinatanggap ng proyektong ito ang mga kontribusyon at suhestiyon. Karamihan sa mga kontribusyon ay nangangailangan mong sumang-ayon sa isang
-Contributor License Agreement (CLA) na nagdeklara na mayroon kang karapatan, at talagang ibinibigay mo, sa amin
-ang mga karapatan na gamitin ang iyong kontribusyon. Para sa mga detalye, bisitahin ang <https://cla.opensource.microsoft.com>.
+Malugod na tinatanggap ng proyektong ito ang mga kontribusyon at suhestiyon. Karamihan sa mga kontribusyon ay nangangailangan ng iyong pagsang-ayon sa isang
+Contributor License Agreement (CLA) na nagsasaad na ikaw ay may karapatang, at talagang nagbibigay sa amin
+ng mga karapatan na gamitin ang iyong kontribusyon. Para sa mga detalye, bisitahin ang <https://cla.opensource.microsoft.com>.
 
-Kapag nagsumite ka ng pull request, awtomatikong matutukoy ng isang CLA bot kung kailangan mong magbigay
-ng CLA at lalagyan ng angkop na palamuti ang PR (hal., status check, comment). Sundin lamang ang mga tagubilin
-na ibinigay ng bot. Isang beses mo lang ito kailangang gawin para sa lahat ng repos na gumagamit ng aming CLA.
+Kapag nag-submit ka ng pull request, awtomatikong titingnan ng isang CLA bot kung kailangan mong magbigay
+ng CLA at bibigyan ang PR ng tamang dekorasyon (hal. status check, comment). Sundin lamang ang mga tagubiling
+ibinigay ng bot. Isang beses mo lamang ito kailangang gawin sa lahat ng repos na gumagamit ng aming CLA.
 
 Inampon ng proyektong ito ang [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o
-kontakin ang [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o komento.
+kontakin ang [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o puna.
 
 ## Mga Tanda ng Kalakal
 
-Maaaring naglalaman ang proyektong ito ng mga tanda ng kalakal o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga Microsoft
-tanda ng kalakal o logo ay nasasakupan at dapat sundin ang
+Maaring maglaman ang proyektong ito ng mga trademark o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga Microsoft
+trademark o logo ay sumasailalim at dapat sundin ang
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Ang paggamit ng mga tanda ng kalakal o logo ng Microsoft sa mga binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magpahiwatig ng pag-sponsor ng Microsoft.
-Anumang paggamit ng mga tanda ng kalakal o logo ng mga ikatlong partido ay nasasakupan ng mga patakaran ng mga ito.
+Ang paggamit ng mga Microsoft trademark o logo sa mga binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magmungkahi ng pagsuporta ng Microsoft.
+Ang anumang paggamit ng mga trademark o logo ng ikatlong partido ay sumasailalim sa mga patakaran ng mga ikatlong partidong iyon.
 
 ## Pagkuha ng Tulong
 
 
-Kung ikaw ay naipit o may mga tanong tungkol sa pagbuo ng mga AI na app, sumali sa:
+Kung ikaw ay natigil o may mga katanungan tungkol sa paggawa ng mga AI na app, sumali sa:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Kung mayroon kang puna tungkol sa produkto o may mga error habang bumubuo, bisitahin:
+Kung mayroon kang feedback sa produkto o mga error habang gumagawa bisitahin ang:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

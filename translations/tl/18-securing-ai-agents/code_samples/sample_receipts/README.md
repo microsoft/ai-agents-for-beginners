@@ -1,27 +1,31 @@
-# Sample Receipt Fixtures
+# Mga Sample na Resibo na Fixtures
 
 Tatlong pre-generated na mga file ng resibo para sa inspeksyon nang hindi pinapatakbo ang notebook.
 
 | File | Ano ito |
 |---|---|
-| `01_valid_receipt.json` | Isang valid na nilagdang resibo para sa `lookup_flights` tool call. Ang beripikasyon ay nagbabalik ng True. |
-| `02_tampered_receipt.json` | Ang parehong resibo na may isang field na binago matapos lagdaan. Ang beripikasyon ay nagbabalik ng False. |
-| `03_chain_three_receipts.json` | Isang chain ng tatlong valid na mga resibo (search, hold, book) na may `previous_receipt_hash` na nag-uugnay ng bawat isa sa naunang isa. |
+| `01_valid_receipt.json` | Isang valid na pirmahang resibo para sa tawag na `lookup_flights` tool. Nagbabalik ng True ang beripikasyon. |
+| `02_tampered_receipt.json` | Ang parehong resibo na may isang field na binago pagkatapos pumirma. Nagbabalik ng False ang beripikasyon. |
+| `03_chain_three_receipts.json` | Isang chain ng tatlong valid na resibo (search, hold, book) na may `previous_receipt_hash` na nag-uugnay bawat isa sa naunang resibo. |
 
-## Pag-beripika sa mga sample
+Pinipirmahan ng fixtures ang canonical JCS bytes ng payload nang direkta gamit ang Ed25519.
+Ang SHA-256 ay nananatiling ginagamit para sa content digests at mga link ng receipt-chain, hindi bilang isang
+dagdag na pre-hash bago pumirma.
 
-Ang notebook ay naglalakad sa beripikasyon sa apat na seksyon. Upang beripikahin ang mga fixture na ito
-direkta nang hindi nagpapatakbo sa kuwentong notebook:
+## Pagberipika ng mga sample
+
+Nilalakbay ng notebook ang proseso ng pagberipika sa apat na seksyon. Upang i-verify ang mga fixtures
+nang direkta nang hindi dumadaan sa kwento ng notebook:
 
 ```python
 import json
 from pathlib import Path
 
-# Ipinagpapalagay na natapos mo na ang mga imports at helper functions
-# mula sa mga seksyon 1 at 2 ng 18-signed-receipts.ipynb.
+# Ipinapalagay na natapos mo na ang mga import at mga helper function
+# mula sa mga sections 1 at 2 ng 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Tama
+print(f"Valid receipt: {verify_receipt(valid)}")        # Totoo
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
 print(f"Tampered receipt: {verify_receipt(tampered)}")  # Mali
@@ -33,8 +37,8 @@ for r in verify_chain(chain):
 
 ## Paano ito ginawa
 
-Ang mga fixture ay gumagamit ng parehong daan ng code tulad ng notebook, na may isang fixed na signing key
-at fixed na mga timestamp para sa byte-reproducibility. Upang muling likhain:
+Ginagamit ng fixtures ang parehong path ng code tulad ng sa notebook, na may isang fixed na signing key
+at fixed na mga timestamp para sa reproducibility ng bytes. Upang muling gawin:
 
 ```bash
 python3 generate_fixtures.py
@@ -42,18 +46,18 @@ python3 generate_fixtures.py
 
 (Ang script ay nasa `generate_fixtures.py` sa direktoryong ito.)
 
-## Ano ang natutunan ng mga estudyante mula sa pagsusuri ng raw JSON
+## Ano ang natututunan ng mga estudyante mula sa pagsusuri ng raw JSON
 
-Ang pagbabasa ng raw na format ng resibo ay nagtatatag ng intuwisyon na hindi palaging naibibigay ng mga cell sa notebook.
+Ang pagbabasa ng raw receipt format ay nagtuturo ng intuwisyon na hindi palaging ibinibigay ng mga cell sa notebook.
 Ang mga estudyanteng mabilis na tumingin sa JSON ay madalas napapansin:
 
-1. Ang lagda ay isang opaque na base64url string, ngunit bawat ibang field ay plain
-   readable JSON. Hindi ini-encrypt ng lagda ang nilalaman; pinatutunayan nito ito.
-2. Ang `public_key` ay naka-embed sa resibo. Hindi kailangan ng auditor ng anumang iba pa
-   para magberipika (depende sa pagtitiwala na ang key ay talagang pag-aari ng sinasabing
-   nag-isyu; tingnan ang lesson README tungkol sa identity infrastructure).
-3. Ang pagbabago ng isang karakter sa anumang field, pagkatapos ay muling paghahambingin ang file na ito sa
-   `02_tampered_receipt.json`, ay nagpapalinaw ng byte-level na mekanismo.
+1. Ang pirma ay isang opaque na base64url na string, ngunit ang bawat ibang field ay plain
+   na nababasang JSON. Hindi ini-encrypt ng pirma ang nilalaman; pinatutunayan nito ito.
+2. Ang `public_key` ay naka-embed sa resibo. Wala nang iba pang kailangan ang isang auditor
+   upang ma-verify (basta't pinagkakatiwalaan na ang key ay talaga namang pag-aari ng inihayag na
+   na issuer; tingnan ang README ng leksyon tungkol sa identity infrastructure).
+3. Ang pagbabago ng isang karakter sa kahit anong field, pagkatapos ay pag-kompara muli sa file na ito gamit ang
+   `02_tampered_receipt.json`, ay nagpapalinaw sa mekanismo sa lebel ng bytes.
 
 ---
 

@@ -1,10 +1,10 @@
-# Menggunakan Protokol Agentic (MCP, A2A dan NLWeb)
+# Menggunakan Protokol Agenik (MCP, A2A dan NLWeb)
 
-[![Agentic Protocols](../../../translated_images/id/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Protokol Agenik](../../../translated_images/id/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Klik gambar di atas untuk melihat video dari pelajaran ini)_
+> _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
-Seiring pertumbuhan penggunaan agen AI, kebutuhan akan protokol yang menjamin standarisasi, keamanan, dan mendukung inovasi terbuka juga meningkat. Dalam pelajaran ini, kita akan membahas 3 protokol yang bertujuan memenuhi kebutuhan ini - Model Context Protocol (MCP), Agent to Agent (A2A) dan Natural Language Web (NLWeb).
+Seiring dengan meningkatnya penggunaan agen AI, semakin besar pula kebutuhan akan protokol yang memastikan standarisasi, keamanan, dan mendukung inovasi terbuka. Dalam pelajaran ini, kita akan membahas 3 protokol yang berupaya memenuhi kebutuhan ini - Model Context Protocol (MCP), Agent to Agent (A2A) dan Natural Language Web (NLWeb).
 
 ## Pendahuluan
 
@@ -14,171 +14,171 @@ Dalam pelajaran ini, kita akan membahas:
 
 • Bagaimana **A2A** memungkinkan komunikasi dan kolaborasi antar agen AI yang berbeda.
 
-• Bagaimana **NLWeb** menghadirkan antarmuka bahasa alami ke situs web manapun sehingga Agen AI dapat menemukan dan berinteraksi dengan konten.
+• Bagaimana **NLWeb** membawa antarmuka bahasa alami ke situs web mana pun yang memungkinkan Agen AI menemukan dan berinteraksi dengan konten.
 
 ## Tujuan Pembelajaran
 
 • **Mengidentifikasi** tujuan inti dan manfaat MCP, A2A, dan NLWeb dalam konteks agen AI.
 
-• **Menjelaskan** bagaimana masing-masing protokol memfasilitasi komunikasi dan interaksi antara LLM, alat, dan agen lain.
+• **Menjelaskan** bagaimana masing-masing protokol memfasilitasi komunikasi dan interaksi antara LLM, alat, dan agen lainnya.
 
-• **Mengenali** peran berbeda yang dimainkan setiap protokol dalam membangun sistem agen kompleks.
+• **Mengenali** peran berbeda yang dimainkan setiap protokol dalam membangun sistem agenik yang kompleks.
 
 ## Model Context Protocol
 
-**Model Context Protocol (MCP)** adalah standar terbuka yang menyediakan cara standar bagi aplikasi untuk menyediakan konteks dan alat kepada LLM. Ini memungkinkan "adaptor universal" ke berbagai sumber data dan alat yang dapat dihubungkan oleh Agen AI secara konsisten.
+**Model Context Protocol (MCP)** adalah standar terbuka yang menyediakan cara standar untuk aplikasi memberikan konteks dan alat ke LLM. Ini memungkinkan sebuah "adaptor universal" ke berbagai sumber data dan alat yang dapat dihubungkan oleh Agen AI secara konsisten.
 
-Mari kita lihat komponen MCP, manfaat dibanding penggunaan API langsung, dan contoh bagaimana agen AI dapat menggunakan server MCP.
+Mari kita lihat komponen MCP, manfaatnya dibandingkan penggunaan API langsung, dan contoh bagaimana agen AI dapat menggunakan server MCP.
 
 ### Komponen Inti MCP
 
-MCP beroperasi dengan **arsitektur klien-server** dan komponen intinya adalah:
+MCP beroperasi pada **arsitektur klien-server** dan komponen inti adalah:
 
 • **Host** adalah aplikasi LLM (misalnya editor kode seperti VSCode) yang memulai koneksi ke Server MCP.
 
-• **Klien** adalah komponen dalam aplikasi host yang mempertahankan koneksi satu-ke-satu dengan server.
+• **Klien** adalah komponen dalam aplikasi host yang memelihara koneksi satu-ke-satu dengan server.
 
-• **Server** adalah program ringan yang menyediakan kapabilitas spesifik.
+• **Server** adalah program ringan yang mengekspose kemampuan tertentu.
 
-Termasuk dalam protokol adalah tiga primitif inti yang menjadi kapabilitas Server MCP:
+Termasuk dalam protokol ada tiga primitif inti yang merupakan kemampuan Server MCP:
 
-• **Alat**: Ini adalah tindakan atau fungsi terpisah yang dapat dipanggil oleh agen AI untuk melakukan aksi. Contohnya, layanan cuaca mungkin menyediakan alat "dapatkan cuaca", atau server e-commerce menyediakan alat "beli produk". Server MCP mengiklankan nama, deskripsi, dan skema masukan/keluaran setiap alat dalam daftar kapabilitasnya.
+• **Alat**: Ini adalah tindakan atau fungsi terpisah yang dapat dipanggil agen AI untuk melakukan aksi. Misalnya, layanan cuaca mungkin mengekspose alat "dapatkan cuaca", atau server e-commerce mengekspose alat "beli produk". Server MCP mengiklankan nama, deskripsi, dan skema input/output dari tiap alat dalam daftar kemampuannya.
 
-• **Sumber Daya**: Item data atau dokumen baca-saja yang dapat disediakan oleh server MCP dan dapat diambil oleh klien sesuai permintaan. Contohnya mencakup isi file, rekaman database, atau file log. Sumber daya bisa berupa teks (seperti kode atau JSON) atau binari (seperti gambar atau PDF).
+• **Sumber Daya**: Ini adalah data atau dokumen baca-saja yang dapat disediakan oleh server MCP, dan klien dapat mengambilnya sesuai kebutuhan. Contohnya termasuk isi file, catatan database, atau berkas log. Sumber daya bisa berupa teks (seperti kode atau JSON) atau biner (seperti gambar atau PDF).
 
-• **Prompt**: Template yang sudah ditentukan sebelumnya yang memberikan saran prompt, memungkinkan alur kerja yang lebih kompleks.
+• **Prompt**: Ini adalah template yang sudah ditentukan yang menyediakan saran prompt, memungkinkan alur kerja yang lebih kompleks.
 
 ### Manfaat MCP
 
-MCP menawarkan keuntungan signifikan untuk Agen AI:
+MCP menawarkan keuntungan signifikan bagi Agen AI:
 
-• **Penemuan Alat Dinamis**: Agen dapat secara dinamis menerima daftar alat yang tersedia dari server beserta deskripsi fungsi mereka. Ini berbeda dengan API tradisional yang biasanya memerlukan pengkodean statis untuk integrasi, sehingga setiap perubahan API butuh pembaruan kode. MCP menawarkan pendekatan "integrasi sekali", menghasilkan adaptabilitas lebih besar.
+• **Penemuan Alat Dinamis**: Agen dapat secara dinamis menerima daftar alat yang tersedia dari server beserta deskripsi fungsinya. Ini berbeda dengan API tradisional yang sering membutuhkan pengkodean statis untuk integrasi, sehingga setiap perubahan API mengharuskan pembaruan kode. MCP menawarkan pendekatan "integrasi sekali", yang memberikan adaptabilitas lebih besar.
 
-• **Interoperabilitas Antar LLM**: MCP bekerja lintas LLM yang berbeda, menyediakan fleksibilitas untuk mengganti model inti guna evaluasi performa lebih baik.
+• **Interoperabilitas Antar LLM**: MCP bekerja lintas LLM yang berbeda, menyediakan fleksibilitas untuk mengganti model inti guna evaluasi performa yang lebih baik.
 
-• **Standarisasi Keamanan**: MCP mencakup metode autentikasi standar, meningkatkan skalabilitas ketika menambah akses ke server MCP lain. Ini lebih sederhana dibanding mengelola berbagai kunci dan tipe autentikasi untuk berbagai API tradisional.
+• **Keamanan Standar**: MCP menyertakan metode autentikasi standar, meningkatkan skalabilitas saat menambahkan akses ke server MCP tambahan. Ini lebih sederhana dibanding mengelola berbagai kunci dan jenis autentikasi untuk berbagai API tradisional.
 
 ### Contoh MCP
 
-![MCP Diagram](../../../translated_images/id/mcp-diagram.e4ca1cbd551444a1.webp)
+![Diagram MCP](../../../translated_images/id/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Bayangkan seorang pengguna ingin memesan penerbangan menggunakan asisten AI yang didukung MCP.
+Bayangkan seorang pengguna ingin memesan penerbangan menggunakan asisten AI yang didukung oleh MCP.
 
 1. **Koneksi**: Asisten AI (klien MCP) terhubung ke server MCP yang disediakan oleh maskapai penerbangan.
 
-2. **Penemuan Alat**: Klien menanyakan ke server MCP maskapai, "Alat apa yang Anda miliki?" Server merespons dengan alat seperti "cari penerbangan" dan "pesan penerbangan".
+2. **Penemuan Alat**: Klien menanyakan ke server MCP maskapai, "Alat apa saja yang Anda miliki?" Server merespon dengan alat seperti "cari penerbangan" dan "pesan penerbangan".
 
-3. **Pemanggilan Alat**: Anda kemudian meminta asisten AI, "Tolong cari penerbangan dari Portland ke Honolulu." Asisten AI menggunakan LLM-nya mengidentifikasi perlunya memanggil alat "cari penerbangan" dan mengirim parameter terkait (asal, tujuan) ke server MCP.
+3. **Pemanggilan Alat**: Anda kemudian meminta asisten AI, "Tolong cari penerbangan dari Portland ke Honolulu." Asisten AI, menggunakan LLM-nya, mengidentifikasi bahwa ia perlu memanggil alat "cari penerbangan" dan mengirimkan parameter relevan (asal, tujuan) ke server MCP.
 
-4. **Eksekusi dan Respon**: Server MCP, sebagai pembungkus, melakukan panggilan aktual ke API pemesanan internal maskapai. Server mendapat informasi penerbangan (misal data JSON) dan mengembalikannya ke asisten AI.
+4. **Eksekusi dan Respon**: Server MCP, bertindak sebagai pembungkus, melakukan panggilan sebenarnya ke API pemesanan internal maskapai. Lalu menerima informasi penerbangan (misalnya data JSON) dan mengirimkannya kembali ke asisten AI.
 
-5. **Interaksi Lanjutan**: Asisten AI menyajikan opsi penerbangan. Setelah Anda memilih penerbangan, asisten dapat memanggil alat "pesan penerbangan" pada server MCP yang sama untuk menyelesaikan pemesanan.
+5. **Interaksi Lanjutan**: Asisten AI menampilkan pilihan penerbangan. Setelah Anda memilih penerbangan, asisten mungkin memanggil alat "pesan penerbangan" pada server MCP yang sama, menyelesaikan pemesanan.
 
-## Protokol Agent-to-Agent (A2A)
+## Protokol Agen-ke-Agen (A2A)
 
-Sementara MCP fokus menyambungkan LLM ke alat, **protokol Agent-to-Agent (A2A)** melangkah lebih jauh dengan memungkinkan komunikasi dan kolaborasi antar agen AI yang berbeda. A2A menghubungkan agen AI dari organisasi, lingkungan, dan tumpukan teknologi berbeda untuk menyelesaikan tugas bersama.
+Sementara MCP fokus pada menghubungkan LLM ke alat, **Protokol Agen-ke-Agen (A2A)** melangkah lebih jauh dengan memungkinkan komunikasi dan kolaborasi antar agen AI yang berbeda. A2A menghubungkan agen AI di berbagai organisasi, lingkungan, dan tumpukan teknologi untuk menyelesaikan tugas bersama.
 
-Kita akan membahas komponen dan manfaat A2A, beserta contoh penerapannya dalam aplikasi perjalanan kita.
+Kita akan memeriksa komponen dan manfaat A2A, beserta contoh penerapannya pada aplikasi perjalanan kita.
 
 ### Komponen Inti A2A
 
-A2A fokus pada memungkinkan komunikasi antar agen dan membuat mereka bekerja bersama menyelesaikan subtugas pengguna. Setiap komponen protokol berkontribusi pada ini:
+A2A fokus pada mengaktifkan komunikasi antara agen dan membuat mereka bekerja sama menyelesaikan subtugas pengguna. Setiap komponen protokol berkontribusi pada hal ini:
 
 #### Kartu Agen
 
-Seperti bagaimana server MCP berbagi daftar alat, Kartu Agen memiliki:
+Mirip dengan bagaimana server MCP membagikan daftar alat, Kartu Agen memiliki:
 - Nama Agen.
 - **deskripsi tugas umum** yang diselesaikannya.
-- **daftar keterampilan spesifik** dengan deskripsi untuk membantu agen lain (atau pengguna manusia) memahami kapan dan mengapa memanggil agen tersebut.
-- **URL Endpoint saat ini** dari agen.
-- **versi** dan **kapabilitas** agen seperti streaming respon dan notifikasi push.
+- **daftar keterampilan spesifik** dengan deskripsi untuk membantu agen lain (atau pengguna manusia) memahami kapan dan mengapa mereka ingin memanggil agen tersebut.
+- **URL Endpoint saat ini** dari agen
+- **versi** dan **kemampuan** agen seperti streaming respons dan notifikasi push.
 
 #### Eksekutor Agen
 
-Eksekutor Agen bertanggung jawab **mengoper konteks chat pengguna ke agen jarak jauh**, agen jarak jauh perlu ini untuk memahami tugas yang harus diselesaikan. Dalam server A2A, agen menggunakan LLM-nya sendiri untuk memparsing permintaan masuk dan menjalankan tugas dengan alat internalnya.
+Eksekutor Agen bertugas untuk **mengoper konteks percakapan pengguna ke agen remote**, agen remote memerlukan ini agar memahami tugas yang harus diselesaikan. Dalam server A2A, seorang agen menggunakan Large Language Model (LLM) miliknya untuk mengurai permintaan yang masuk dan mengeksekusi tugas menggunakan alat internalnya.
 
 #### Artefak
 
-Setelah agen jarak jauh menyelesaikan tugas yang diminta, hasil kerjanya dibuat sebagai artefak. Artefak **berisi hasil kerja agen**, **deskripsi apa yang diselesaikan**, dan **konteks teks** yang dikirim melalui protokol. Setelah artefak dikirim, koneksi dengan agen jarak jauh ditutup sampai diperlukan lagi.
+Setelah agen remote menyelesaikan tugas yang diminta, hasil kerjanya dibuat sebagai artefak. Artefak **mengandung hasil kerja agen**, **deskripsi tentang apa yang diselesaikan**, dan **konteks teks** yang dikirimkan melalui protokol. Setelah artefak dikirim, koneksi dengan agen remote ditutup sampai dibutuhkan lagi.
 
-#### Antrian Acara
+#### Antrian Event
 
-Komponen ini dipakai untuk **menangani pembaruan dan meneruskan pesan**. Ini sangat penting di produksi untuk sistem agentik agar mencegah koneksi antar agen tertutup sebelum tugas selesai, terutama saat penyelesaian tugas bisa berlangsung lama.
+Komponen ini digunakan untuk **menangani pembaruan dan mengirim pesan**. Ini sangat penting dalam produksi untuk sistem agenik agar mencegah koneksi antar agen ditutup sebelum tugas selesai, terutama saat waktu penyelesaian tugas bisa lama.
 
 ### Manfaat A2A
 
-• **Kolaborasi Lebih Baik**: Memungkinkan agen dari vendor dan platform berbeda berinteraksi, berbagi konteks, dan bekerja sama, memudahkan otomasi lancar di sistem yang biasanya terpisah.
+• **Kolaborasi yang Ditingkatkan**: Memungkinkan agen dari vendor dan platform berbeda untuk berinteraksi, berbagi konteks, dan bekerja sama, memfasilitasi otomatisasi lancar lintas sistem yang secara tradisional terpisah.
 
-• **Fleksibilitas Pemilihan Model**: Setiap agen A2A dapat memilih LLM yang digunakannya untuk melayani permintaan, memungkinkan model yang dioptimalkan atau disesuaikan per agen, berbeda dengan koneksi LLM tunggal pada beberapa skenario MCP.
+• **Fleksibilitas Pemilihan Model**: Setiap agen A2A bisa menentukan LLM mana yang digunakannya untuk melayani permintaan, memungkinkan model yang dioptimalkan atau khusus per agen, berbeda dengan koneksi LLM tunggal di beberapa skenario MCP.
 
-• **Autentikasi Terintegrasi**: Autentikasi terintegrasi langsung ke protokol A2A, menyediakan kerangka keamanan kuat untuk interaksi agen.
+• **Autentikasi Terintegrasi**: Autentikasi langsung terintegrasi ke dalam protokol A2A, menyediakan kerangka keamanan yang kuat untuk interaksi agen.
 
 ### Contoh A2A
 
-![A2A Diagram](../../../translated_images/id/A2A-Diagram.8666928d648acc26.webp)
+![Diagram A2A](../../../translated_images/id/A2A-Diagram.8666928d648acc26.webp)
 
-Mari kita kembangkan skenario pemesanan perjalanan kita, tapi kali ini menggunakan A2A.
+Mari kita perluas skenario pemesanan perjalanan kita, kali ini menggunakan A2A.
 
-1. **Permintaan Pengguna ke Multi-Agen**: Pengguna berinteraksi dengan agen-klien A2A "Travel Agent", misalnya dengan berkata, "Tolong pesan seluruh perjalanan ke Honolulu untuk minggu depan, termasuk penerbangan, hotel, dan sewa mobil".
+1. **Permintaan Pengguna ke Multi-Agen**: Seorang pengguna berinteraksi dengan agen/klien A2A "Agen Perjalanan", mungkin dengan mengatakan, "Tolong pesan seluruh perjalanan ke Honolulu untuk minggu depan, termasuk penerbangan, hotel, dan sewa mobil".
 
-2. **Orkestrasi oleh Travel Agent**: Travel Agent menerima permintaan kompleks ini. Ia menggunakan LLM-nya untuk menalar tugas dan memastikan perlu berinteraksi dengan agen spesialis lain.
+2. **Orkestrasi oleh Agen Perjalanan**: Agen Perjalanan menerima permintaan kompleks ini. Ia menggunakan LLM-nya untuk memikirkan tugas dan menentukan bahwa dia perlu berinteraksi dengan agen khusus lainnya.
 
-3. **Komunikasi Antar Agen**: Travel Agent lalu menggunakan protokol A2A untuk terhubung dengan agen hilir, seperti "Airline Agent", "Hotel Agent", dan "Car Rental Agent" yang dibuat oleh perusahaan berbeda.
+3. **Komunikasi Antar Agen**: Agen Perjalanan kemudian menggunakan protokol A2A untuk terhubung ke agen hilir, seperti "Agen Maskapai", "Agen Hotel", dan "Agen Sewa Mobil" yang dibuat oleh perusahaan berbeda.
 
-4. **Eksekusi Tugas yang Didelegasikan**: Travel Agent mengirim tugas spesifik ke agen spesialis ini (misal, "Cari penerbangan ke Honolulu", "Pesan hotel", "Sewa mobil"). Masing-masing agen spesialis, yang menjalankan LLM dan menggunakan alat sendiri (mungkin juga server MCP), menyelesaikan bagian pemesanan spesifiknya.
+4. **Eksekusi Tugas yang Delegasi**: Agen Perjalanan mengirim tugas khusus ke agen khusus ini (misalnya, "Cari penerbangan ke Honolulu", "Pesan hotel", "Sewa mobil"). Masing-masing agen khusus ini, menjalankan LLM mereka sendiri dan menggunakan alat mereka sendiri (yang bisa berupa server MCP), melakukan bagian pemesanan mereka.
 
-5. **Respon Terpadu**: Setelah semua agen hilir menyelesaikan tugasnya, Travel Agent mengkompilasi hasil (detail penerbangan, konfirmasi hotel, pemesanan sewa mobil) dan mengirimkan respon gaya chat lengkap ke pengguna.
+5. **Respon Terpadu**: Setelah semua agen hilir menyelesaikan tugasnya, Agen Perjalanan menyusun hasil (detail penerbangan, konfirmasi hotel, pemesanan sewa mobil) dan mengirimkan respon gaya chat yang komprehensif kembali ke pengguna.
 
 ## Natural Language Web (NLWeb)
 
-Situs web telah lama menjadi cara utama bagi pengguna mengakses informasi dan data di internet.
+Situs web telah lama menjadi cara utama bagi pengguna untuk mengakses informasi dan data di internet.
 
-Mari kita lihat komponen berbeda dari NLWeb, manfaat NLWeb dan contoh bagaimana NLWeb bekerja melalui aplikasi perjalanan kita.
+Mari kita lihat komponen berbeda dari NLWeb, manfaat NLWeb dan contoh bagaimana NLWeb bekerja dengan melihat aplikasi perjalanan kita.
 
 ### Komponen NLWeb
 
-- **Aplikasi NLWeb (Kode Layanan Inti)**: Sistem yang memproses pertanyaan bahasa alami. Ia menghubungkan bagian-bagian platform berbeda untuk menghasilkan respon. Anda dapat memikirkannya sebagai **mesin yang menggerakkan fitur bahasa alami** dari sebuah situs web.
+- **Aplikasi NLWeb (Kode Layanan Inti)**: Sistem yang memproses pertanyaan bahasa alami. Ia menghubungkan bagian berbeda dari platform untuk membuat jawaban. Anda bisa menganggapnya sebagai **mesin yang menggerakkan fitur bahasa alami** sebuah situs web.
 
-- **Protokol NLWeb**: Ini adalah **sekumpulan aturan dasar untuk interaksi bahasa alami** dengan situs web. Mengirimkan balik respon dalam format JSON (sering menggunakan Schema.org). Tujuannya membuat dasar sederhana bagi “AI Web,” sama seperti HTML memungkinkan berbagi dokumen online.
+- **Protokol NLWeb**: Ini adalah **set aturan dasar untuk interaksi bahasa alami** dengan situs web. Mengirimkan balik respon dalam format JSON (sering menggunakan Schema.org). Tujuannya membuat fondasi sederhana untuk "AI Web", sama seperti HTML memungkinkan berbagi dokumen secara online.
 
-- **Server MCP (Model Context Protocol Endpoint)**: Setiap setup NLWeb juga bekerja sebagai **server MCP**. Ini berarti dapat **berbagi alat (seperti metode “ask”) dan data** dengan sistem AI lainnya. Dalam praktik, ini membuat konten dan kemampuan situs web dapat digunakan oleh agen AI, memungkinkan situs menjadi bagian dari “ekosistem agen” yang lebih luas.
+- **Server MCP (Titik Akhir Model Context Protocol)**: Setiap pengaturan NLWeb juga berfungsi sebagai **server MCP**. Ini berarti dapat **berbagi alat (seperti metode “ask”) dan data** dengan sistem AI lain. Dalam praktiknya, ini membuat konten dan kemampuan situs web dapat digunakan oleh agen AI, memungkinkan situs menjadi bagian dari “ekosistem agen” yang lebih luas.
 
-- **Model Embedding**: Model ini digunakan untuk **mengubah konten situs web menjadi representasi numerik yang disebut vektor** (embedding). Vektor ini menangkap makna dengan cara komputer dapat membandingkan dan mencari. Mereka disimpan dalam database khusus, dan pengguna bisa memilih model embedding yang ingin dipakai.
+- **Model Embedding**: Model ini digunakan untuk **mengubah konten situs web menjadi representasi angka yang disebut vektor** (embedding). Vektor ini menangkap makna dengan cara yang bisa dibandingkan dan dicari oleh komputer. Mereka disimpan dalam database khusus, dan pengguna dapat memilih model embedding yang ingin digunakan.
 
-- **Database Vektor (Mekanisme Pengambilan)**: Database ini **menyimpan embedding konten situs web**. Saat seseorang mengajukan pertanyaan, NLWeb memeriksa database vektor untuk menemukan informasi paling relevan dengan cepat. Memberikan daftar jawaban cepat, diurutkan berdasarkan kesamaan. NLWeb bekerja dengan berbagai sistem penyimpanan vektor seperti Qdrant, Snowflake, Milvus, Azure AI Search, dan Elasticsearch.
+- **Database Vektor (Mekanisme Pengambilan)**: Database ini **menyimpan embedding konten situs web**. Ketika seseorang mengajukan pertanyaan, NLWeb memeriksa database vektor untuk dengan cepat menemukan informasi paling relevan. Ia memberikan daftar jawaban yang cepat, diurutkan berdasarkan kemiripan. NLWeb bekerja dengan berbagai sistem penyimpanan vektor seperti Qdrant, Snowflake, Milvus, Azure AI Search, dan Elasticsearch.
 
 ### NLWeb dengan Contoh
 
 ![NLWeb](../../../translated_images/id/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Pertimbangkan kembali situs web pemesanan perjalanan kita, tetapi kali ini didukung oleh NLWeb.
+Pertimbangkan situs pemesanan perjalanan kita lagi, tetapi kali ini, didukung oleh NLWeb.
 
-1. **Ingesti Data**: Katalog produk situs perjalanan yang sudah ada (misal daftar penerbangan, deskripsi hotel, paket tur) diformat menggunakan Schema.org atau dimuat lewat RSS feed. Alat NLWeb mengolah data terstruktur ini, membuat embedding, dan menyimpannya di database vektor lokal atau jarak jauh.
+1. **Pengambilan Data**: Katalog produk situs perjalanan yang ada (misalnya, daftar penerbangan, deskripsi hotel, paket tur) diformat menggunakan Schema.org atau dimuat melalui feed RSS. Alat NLWeb mengambil data terstruktur ini, membuat embedding, dan menyimpannya di database vektor lokal atau jarak jauh.
 
-2. **Query Bahasa Alami (Manusia)**: Seorang pengguna mengunjungi situs dan, daripada menavigasi menu, mengetik ke antarmuka chat: "Cari hotel ramah keluarga di Honolulu dengan kolam renang untuk minggu depan".
+2. **Kueri Bahasa Alami (Manusia)**: Seorang pengguna mengunjungi situs dan, alih-alih menavigasi menu, mengetik di antarmuka chat: "Cari hotel ramah keluarga di Honolulu dengan kolam renang untuk minggu depan".
 
-3. **Pemrosesan NLWeb**: Aplikasi NLWeb menerima query ini. Ia mengirim query ke LLM untuk memahami sambil mencari di database vektor untuk daftar hotel relevan.
+3. **Pemrosesan NLWeb**: Aplikasi NLWeb menerima kueri ini. Ia mengirim kueri ke LLM untuk pemahaman dan secara bersamaan mencari database vektor untuk daftar hotel yang relevan.
 
-4. **Hasil Akurat**: LLM membantu menginterpretasi hasil pencarian database, mengidentifikasi kecocokan terbaik berdasarkan kriteria "ramah keluarga", "kolam renang", dan "Honolulu", lalu memformat jawaban bahasa alami. Penting, jawaban merujuk ke hotel nyata dari katalog situs, menghindari informasi yang dibuat-buat.
+4. **Hasil Akurat**: LLM membantu menginterpretasi hasil pencarian dari database, mengidentifikasi kecocokan terbaik berdasarkan kriteria "ramah keluarga," "kolam renang," dan "Honolulu," lalu memformat respon bahasa alami. Yang penting, respon merujuk ke hotel aktual dari katalog situs, menghindari informasi yang dibuat-buat.
 
-5. **Interaksi Agen AI**: Karena NLWeb berperan sebagai server MCP, agen AI perjalanan eksternal juga dapat terhubung ke instance NLWeb situs ini. Agen AI kemudian bisa menggunakan metode `ask` MCP untuk menanyakan langsung ke situs: `ask("Apakah ada restoran vegan yang direkomendasikan oleh hotel di area Honolulu?")`. Instance NLWeb akan memproses ini, memanfaatkan database informasi restoran (jika dimuat), dan mengembalikan respon JSON terstruktur.
+5. **Interaksi Agen AI**: Karena NLWeb berfungsi sebagai server MCP, agen perjalanan AI eksternal juga dapat terhubung ke instansi NLWeb situs ini. Agen AI kemudian bisa menggunakan metode `ask` MCP untuk mengajukan pertanyaan langsung ke situs: `ask("Apakah ada restoran ramah vegan di area Honolulu yang direkomendasikan oleh hotel?")`. Instansi NLWeb akan memproses ini, memanfaatkan database informasi restoran (jika dimuat), dan mengembalikan respon JSON terstruktur.
 
 ### Punya Pertanyaan Lebih Lanjut tentang MCP/A2A/NLWeb?
 
-Bergabunglah dengan [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pembelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan Agen AI Anda.
+Bergabunglah dengan [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu pelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan Agen AI Anda.
 
 ## Sumber Daya
 
 - [MCP untuk Pemula](https://aka.ms/mcp-for-beginners)  
 - [Dokumentasi MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [Repo NLWeb](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
 
 ## Pelajaran Sebelumnya
 
-[AI Agents dalam Produksi](../10-ai-agents-production/README.md)
+[Agen AI dalam Produksi](../10-ai-agents-production/README.md)
 
-## Pelajaran Berikutnya
+## Pelajaran Selanjutnya
 
 [Rekayasa Konteks untuk Agen AI](../12-context-engineering/README.md)
 

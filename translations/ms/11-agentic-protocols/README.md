@@ -1,186 +1,186 @@
 # Menggunakan Protokol Agentik (MCP, A2A dan NLWeb)
 
-[![Agentic Protocols](../../../translated_images/ms/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Protokol Agentik](../../../translated_images/ms/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
-Apabila penggunaan ejen AI berkembang, begitu juga keperluan untuk protokol yang memastikan standardisasi, keselamatan, dan menyokong inovasi terbuka. Dalam pelajaran ini, kita akan membincangkan 3 protokol yang bertujuan memenuhi keperluan ini - Model Context Protocol (MCP), Agent to Agent (A2A) dan Natural Language Web (NLWeb).
+Semakin berkembang penggunaan agen AI, semakin meningkat keperluan protokol yang memastikan standardisasi, keselamatan, dan menyokong inovasi terbuka. Dalam pelajaran ini, kami akan membincangkan 3 protokol yang bertujuan memenuhi keperluan ini - Model Context Protocol (MCP), Agent to Agent (A2A) dan Natural Language Web (NLWeb).
 
 ## Pengenalan
 
 Dalam pelajaran ini, kita akan membincangkan:
 
-• Bagaimana **MCP** membenarkan Ejen AI mengakses alat dan data luaran untuk melengkapkan tugasan pengguna.
+• Bagaimana **MCP** membolehkan Agen AI mengakses alat dan data luaran untuk menyelesaikan tugasan pengguna.
 
-• Bagaimana **A2A** membolehkan komunikasi dan kolaborasi antara pelbagai ejen AI.
+• Bagaimana **A2A** membolehkan komunikasi dan kerjasama antara agen AI yang berbeza.
 
-• Bagaimana **NLWeb** membawa antara muka bahasa semula jadi ke mana-mana laman web membolehkan Ejen AI menemui dan berinteraksi dengan kandungan.
+• Bagaimana **NLWeb** membawa antara muka bahasa semula jadi kepada mana-mana laman web membolehkan Agen AI menemui dan berinteraksi dengan kandungan.
 
 ## Matlamat Pembelajaran
 
-• **Kenal pasti** tujuan teras dan manfaat MCP, A2A, dan NLWeb dalam konteks ejen AI.
+• **Kenal pasti** tujuan utama dan manfaat MCP, A2A, dan NLWeb dalam konteks agen AI.
 
-• **Terangkan** bagaimana setiap protokol memudahkan komunikasi dan interaksi antara LLM, alat, dan ejen lain.
+• **Terangkan** bagaimana setiap protokol memudahkan komunikasi dan interaksi antara LLM, alat, dan agen lain.
 
-• **Sedar** peranan berbeza yang dimainkan oleh setiap protokol dalam membina sistem agentik yang kompleks.
+• **Kenali** peranan berbeza yang dimainkan oleh setiap protokol dalam membina sistem agentik yang kompleks.
 
-## Protokol Konteks Model
+## Model Context Protocol
 
-**Model Context Protocol (MCP)** adalah standard terbuka yang menyediakan cara standard untuk aplikasi memberikan konteks dan alat kepada LLM. Ini membolehkan "penyesuai universal" ke pelbagai sumber data dan alat yang boleh disambungkan oleh Ejen AI dengan cara yang konsisten.
+**Model Context Protocol (MCP)** ialah satu standard terbuka yang menyediakan cara piawai untuk aplikasi menyediakan konteks dan alat kepada LLM. Ini membolehkan "penyesuai universal" untuk pelbagai sumber data dan alat yang boleh disambungkan oleh Agen AI secara konsisten.
 
-Mari kita lihat komponen MCP, manfaat berbanding penggunaan API langsung, dan contoh bagaimana ejen AI mungkin menggunakan pelayan MCP.
+Mari kita lihat komponen MCP, manfaat berbanding penggunaan API terus, dan contoh bagaimana agen AI mungkin menggunakan pelayan MCP.
 
 ### Komponen Teras MCP
 
-MCP beroperasi pada **arsitektur klien-pelayan** dan komponen teras adalah:
+MCP beroperasi pada **senibina klien-pelayan** dan komponen terasnya adalah:
 
-• **Hos** adalah aplikasi LLM (contoh editor kod seperti VSCode) yang memulakan sambungan ke Pelayan MCP.
+• **Hos** ialah aplikasi LLM (contohnya penyunting kod seperti VSCode) yang memulakan sambungan ke Pelayan MCP.
 
-• **Klien** adalah komponen dalam aplikasi hos yang mengekalkan sambungan satu-dengan-satu dengan pelayan.
+• **Klien** adalah komponen dalam aplikasi hos yang mengekalkan sambungan satu-ke-satu dengan pelayan.
 
-• **Pelayan** adalah program ringan yang mendedahkan keupayaan khusus.
+• **Pelayan** adalah program ringan yang mendedahkan kebolehan tertentu.
 
-Termasuk dalam protokol adalah tiga primitif utama yang merupakan keupayaan Pelayan MCP:
+Termasuk dalam protokol adalah tiga primitif teras yang merupakan kebolehan Pelayan MCP:
 
-• **Alat**: Ini adalah tindakan atau fungsi tertentu yang boleh dipanggil oleh ejen AI untuk melaksanakan sesuatu tindakan. Contohnya, perkhidmatan cuaca mungkin mendedahkan alat "dapatkan cuaca", atau pelayan e-dagang mungkin mendedahkan alat "beli produk". Pelayan MCP mengiklan nama, penerangan, dan skema input/output setiap alat dalam senarai keupayaan mereka.
+• **Alat**: Tindakan atau fungsi khusus yang boleh dipanggil oleh agen AI untuk melakukan tindakan. Contohnya, perkhidmatan cuaca mungkin mendedahkan alat "dapatkan cuaca", atau pelayan e-dagang mungkin mendedahkan alat "beli produk". Pelayan MCP mengiklan nama, penerangan, dan skema input/output setiap alat dalam senarai kebolehannya.
 
-• **Sumber**: Ini adalah item data baca sahaja atau dokumen yang boleh disediakan oleh pelayan MCP, dan klien boleh mengambilnya mengikut permintaan. Contohnya termasuk kandungan fail, rekod pangkalan data, atau fail log. Sumber boleh berupa teks (seperti kod atau JSON) atau binari (seperti imej atau PDF).
+• **Sumber**: Item data atau dokumen yang boleh dibaca sahaja yang boleh disediakan oleh pelayan MCP, dan klien boleh memperolehnya atas permintaan. Contohnya termasuk kandungan fail, rekod pangkalan data, atau fail log. Sumber boleh berupa teks (seperti kod atau JSON) atau binari (seperti imej atau PDF).
 
-• **Prompt**: Ini adalah templat yang telah ditetapkan yang menyediakan cadangan prompt, membolehkan aliran kerja yang lebih kompleks.
+• **Prompts**: Templet yang telah ditetapkan yang menyediakan cadangan prompt, membolehkan aliran kerja yang lebih kompleks.
 
 ### Manfaat MCP
 
-MCP menawarkan kelebihan ketara untuk Ejen AI:
+MCP menawarkan kelebihan signifikan untuk Agen AI:
 
-• **Penemuan Alat Dinamik**: Ejen boleh secara dinamik menerima senarai alat tersedia dari pelayan bersama penerangan tentang fungsinya. Ini berbeza dengan API tradisional yang sering memerlukan pengkodan statik untuk integrasi, bermakna apa-apa perubahan API perlu dikemaskini kod. MCP menawarkan pendekatan "integrasi sekali", membawa kepelbagaian yang lebih besar.
+• **Penemuan Alat Dinamik**: Agen boleh menerima secara dinamik senarai alat yang tersedia daripada pelayan beserta penerangan tentang fungsinya. Ini berbeza dengan API tradisional, yang sering memerlukan pengkodan statik untuk integrasi, bermakna sebarang perubahan API memerlukan kemas kini kod. MCP menawarkan pendekatan "integrasi sekali", membawa kepada lebih kebolehsuaian.
 
-• **Keserasian Antara LLM**: MCP berfungsi merentas pelbagai LLM, menyediakan fleksibiliti untuk menukar model teras bagi menilai prestasi yang lebih baik.
+• **Interoperabiliti Rentas LLM**: MCP berfungsi merentas LLM berbeza, memberikan fleksibiliti untuk bertukar model teras untuk penilaian prestasi lebih baik.
 
-• **Keselamatan Standard**: MCP termasuk kaedah pengesahan standard, meningkatkan skalabiliti ketika menambah akses ke pelayan MCP tambahan. Ini lebih mudah daripada menguruskan pelbagai kekunci dan jenis pengesahan bagi pelbagai API tradisional.
+• **Keselamatan Piawai**: MCP termasuk kaedah pengesahan piawai, meningkatkan skala apabila menambah akses ke pelayan MCP tambahan. Ini lebih mudah daripada mengurus pelbagai kekunci dan jenis pengesahan untuk API tradisional yang berlainan.
 
 ### Contoh MCP
 
-![MCP Diagram](../../../translated_images/ms/mcp-diagram.e4ca1cbd551444a1.webp)
+![Rajah MCP](../../../translated_images/ms/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Bayangkan seorang pengguna ingin menempah penerbangan menggunakan pembantu AI yang dikuasakan oleh MCP.
+Bayangkan pengguna ingin menempah penerbangan menggunakan pembantu AI yang dikuasakan oleh MCP.
 
 1. **Sambungan**: Pembantu AI (klien MCP) menyambung ke pelayan MCP yang disediakan oleh syarikat penerbangan.
 
-2. **Penemuan Alat**: Klien bertanya kepada pelayan MCP syarikat penerbangan, "Apa alat yang tersedia?" Pelayan membalas dengan alat seperti "cari penerbangan" dan "tempah penerbangan".
+2. **Penemuan Alat**: Klien bertanya kepada pelayan MCP syarikat penerbangan, "Alat apa yang anda ada?" Pelayan membalas dengan alat seperti "cari penerbangan" dan "tempah penerbangan".
 
-3. **Pemanggilan Alat**: Anda kemudian meminta pembantu AI, "Sila cari penerbangan dari Portland ke Honolulu." Pembantu AI, menggunakan LLM-nya, mengenal pasti bahawa ia perlu memanggil alat "cari penerbangan" dan memberikan parameter berkaitan (asal, destinasi) kepada pelayan MCP.
+3. **Pemanggilan Alat**: Anda kemudian meminta pembantu AI, "Sila cari penerbangan dari Portland ke Honolulu." Pembantu AI, menggunakan LLMnya, mengenal pasti ia perlu memanggil alat "cari penerbangan" dan menghantar parameter berkaitan (asal, destinasi) ke pelayan MCP.
 
-4. **Pelaksanaan dan Respons**: Pelayan MCP, bertindak sebagai pembungkus, membuat panggilan sebenar ke API tempahan dalaman syarikat penerbangan. Ia kemudian menerima maklumat penerbangan (contoh data JSON) dan menghantarnya kembali kepada pembantu AI.
+4. **Pelaksanaan dan Respons**: Pelayan MCP, bertindak sebagai pembalut, membuat panggilan sebenar ke API tempahan dalaman syarikat penerbangan. Kemudian menerima maklumat penerbangan (contohnya, data JSON) dan menghantarnya kembali ke pembantu AI.
 
-5. **Interaksi Lanjutan**: Pembantu AI membentangkan pilihan penerbangan. Setelah anda memilih penerbangan, pembantu mungkin memanggil alat "tempah penerbangan" pada pelayan MCP yang sama, melengkapkan tempahan.
+5. **Interaksi Lanjutan**: Pembantu AI memaparkan pilihan penerbangan. Setelah anda memilih penerbangan, pembantu mungkin memanggil alat "tempah penerbangan" pada pelayan MCP yang sama, menyiapkan tempahan.
 
-## Protokol Ejen-ke-Ejen (A2A)
+## Protokol Agen-ke-Agen (A2A)
 
-Sementara MCP menumpukan pada menyambungkan LLM ke alat, **Protokol Agent-to-Agent (A2A)** membawa lebih jauh dengan membolehkan komunikasi dan kolaborasi antara pelbagai ejen AI. A2A menghubungkan ejen AI merentas organisasi, persekitaran dan teknologi untuk melengkapkan tugasan bersama.
+Walaupun MCP memberi tumpuan kepada menyambung LLM ke alat, **Protokol Agent-to-Agent (A2A)** mengambil langkah lebih jauh dengan membolehkan komunikasi dan kerjasama antara agen AI yang berbeza. A2A menghubungkan agen AI merentas organisasi, persekitaran dan tumpukan teknologi berbeza untuk menyelesaikan tugasan bersama.
 
-Kita akan meneliti komponen dan manfaat A2A, serta contoh bagaimana ia boleh diaplikasikan dalam aplikasi perjalanan kita.
+Kita akan mengkaji komponen dan kelebihan A2A, bersama contoh bagaimana ia boleh digunakan dalam aplikasi pelancongan kita.
 
 ### Komponen Teras A2A
 
-A2A menumpukan pada membolehkan komunikasi antara ejen dan bekerjasama melengkapkan sub-tugasan pengguna. Setiap komponen protokol menyumbang kepada ini:
+A2A menumpukan pada membolehkan komunikasi antara agen dan membolehkan mereka bekerjasama menyelesaikan sub-tugasan pengguna. Setiap komponen protokol menyumbang kepada ini:
 
-#### Kad Ejen
+#### Kad Agen
 
-Serupa dengan bagaimana pelayan MCP berkongsi senarai alat, Kad Ejen mempunyai:
-- Nama Ejen.
-- **penerangan tugasan umum** yang diselesaikan.
-- **senarai kemahiran khusus** dengan penerangan untuk membantu ejen lain (atau pengguna manusia) memahami bila dan kenapa mereka ingin memanggil ejen tersebut.
-- **URL Titik Akhir semasa** ejen tersebut
-- **versi** dan **keupayaan** ejen seperti balasan penstriman dan pemberitahuan push.
+Sama seperti bagaimana pelayan MCP berkongsi senarai alat, Kad Agen mempunyai:
+- Nama Agen.
+- **penerangan tentang tugasan umum** yang dilaksanakannya.
+- **senarai kemahiran khusus** dengan penerangan untuk membantu agen lain (atau pengguna manusia) memahami bila dan mengapa mereka ingin memanggil agen itu.
+- **URL Penamat semasa** agen.
+- **versi** dan **kebolehan** agen seperti respons penstriman dan pemberitahuan tolak.
 
-#### Pelaksana Ejen
+#### Pelaksana Agen
 
-Pelaksana Ejen bertanggungjawab untuk **menyerahkan konteks sembang pengguna kepada ejen jauh**, ejen jauh memerlukan ini untuk memahami tugasan yang perlu dilengkapkan. Dalam pelayan A2A, ejen menggunakan model bahasa besar (LLM) sendiri untuk menganalisis permintaan masuk dan melaksanakan tugasan menggunakan alat dalaman sendiri.
+Pelaksana Agen bertanggungjawab untuk **menyampaikan konteks sembang pengguna kepada agen jauh**, agen jauh memerlukannya untuk memahami tugasan yang perlu diselesaikan. Dalam pelayan A2A, agen menggunakan Model Bahasa Besarnya (LLM) sendiri untuk mengurai permintaan masuk dan melaksanakan tugasan menggunakan alat dalaman mereka sendiri.
 
 #### Artifak
 
-Setelah ejen jauh menyelesaikan tugasan yang diminta, hasil kerjanya dibuat sebagai artifak. Artifak **mengandungi hasil kerja ejen**, **penerangan apa yang diselesaikan**, dan **konteks teks** yang dihantar melalui protokol. Setelah artifak dihantar, sambungan dengan ejen jauh ditutup sehingga diperlukan lagi.
+Setelah agen jauh selesai tugasan diminta, hasil kerja itu dibuat sebagai artifak. Artifak **mengandungi hasil kerja agen**, **penerangan apa yang telah diselesaikan**, dan **konteks teks** yang dihantar melalui protokol. Setelah artifak dihantar, sambungan dengan agen jauh ditutup sehingga diperlukan semula.
 
 #### Antrian Acara
 
-Komponen ini digunakan untuk **mengendalikan kemas kini dan penghantaran mesej**. Ia sangat penting dalam produksi bagi sistem agentik untuk mengelakkan sambungan antara ejen ditutup sebelum tugasan selesai, terutamanya apabila masa penyelesaian tugasan boleh mengambil masa lebih lama.
+Komponen ini digunakan untuk **mengendalikan kemas kini dan menghantar mesej**. Ia sangat penting dalam pengeluaran untuk sistem agentik bagi mengelakkan sambungan antara agen ditutup sebelum tugasan selesai, terutama apabila masa penyelesaian tugasan boleh mengambil masa lama.
 
 ### Manfaat A2A
 
-• **Kolaborasi Dipertingkatkan**: Ia membolehkan ejen dari vendor dan platform berbeza untuk berinteraksi, berkongsi konteks, dan bekerja bersama, memudahkan automasi lancar merentas sistem yang biasanya terpisah.
+• **Kerjasama Dipertingkatkan**: Ia membolehkan agen dari vendor dan platform berbeza berinteraksi, berkongsi konteks, dan bekerjasama, memudahkan automasi lancar merentas sistem yang biasa tidak bersambung.
 
-• **Fleksibiliti Pemilihan Model**: Setiap ejen A2A boleh memilih LLM yang digunakannya untuk melayani permintaan, membolehkan model yang dioptimumkan atau ditala khusus per ejen, berbeza dengan sambungan LLM tunggal dalam beberapa senario MCP.
+• **Fleksibiliti Pemilihan Model**: Setiap agen A2A boleh memilih LLM yang digunakannya untuk melayani permintaan, membenarkan model yang dioptimumkan atau ditala khas per agen, berbeza dengan sambungan LLM tunggal dalam beberapa senario MCP.
 
-• **Pengesahan Terbina Dalam**: Pengesahan disepadukan terus dalam protokol A2A, menyediakan rangka kerja keselamatan yang kukuh untuk interaksi ejen.
+• **Pengesahan Terbina Dalam**: Pengesahan diintegrasikan terus ke dalam protokol A2A, menyediakan rangka kerja keselamatan kukuh untuk interaksi agen.
 
 ### Contoh A2A
 
-![A2A Diagram](../../../translated_images/ms/A2A-Diagram.8666928d648acc26.webp)
+![Rajah A2A](../../../translated_images/ms/A2A-Diagram.8666928d648acc26.webp)
 
-Mari kita kembangkan senario tempahan perjalanan kita, kali ini menggunakan A2A.
+Mari kita kembangkan senario tempahan pelancongan kita, tetapi kali ini menggunakan A2A.
 
-1. **Permintaan Pengguna ke Multi-Ejen**: Pengguna berinteraksi dengan "Ejen Perjalanan" klien/ejen A2A, mungkin dengan berkata, "Sila tempah semua perjalanan ke Honolulu minggu depan, termasuk penerbangan, hotel, dan kereta sewa".
+1. **Permintaan Pengguna ke Multi-Agen**: Pengguna berinteraksi dengan klien/agen A2A "Ejen Pelancongan", mungkin dengan berkata, "Sila tempah keseluruhan perjalanan ke Honolulu untuk minggu depan, termasuk penerbangan, hotel, dan kereta sewa".
 
-2. **Orkestrasi oleh Ejen Perjalanan**: Ejen Perjalanan menerima permintaan kompleks ini. Ia menggunakan LLMnya untuk berfikir tentang tugasan dan menentukan bahawa ia perlu berinteraksi dengan ejen khusus lain.
+2. **Orkestrasi oleh Ejen Pelancongan**: Ejen Pelancongan menerima permintaan kompleks ini. Ia menggunakan LLM-nya untuk berfikir tentang tugasan dan menentukan bahawa ia perlu berinteraksi dengan agen khusus lain.
 
-3. **Komunikasi Antara Ejen**: Ejen Perjalanan kemudian menggunakan protokol A2A untuk menyambung ke ejen hiliran, seperti “Ejen Syarikat Penerbangan,” “Ejen Hotel,” dan “Ejen Sewa Kereta” yang dicipta oleh syarikat berbeza.
+3. **Komunikasi Antara Agen**: Ejen Pelancongan kemudian menggunakan protokol A2A untuk menyambung ke agen hiliran, seperti "Ejen Syarikat Penerbangan", "Ejen Hotel", dan "Ejen Kereta Sewa" yang dibina oleh syarikat berbeza.
 
-4. **Pelaksanaan Tugasan Didelegasi**: Ejen Perjalanan menghantar tugasan khusus kepada ejen pakar ini (contoh, "Cari penerbangan ke Honolulu," "Tempah hotel," "Sewa kereta"). Setiap ejen khusus ini, yang menjalankan LLM dan menggunakan alat sendiri (yang mungkin juga pelayan MCP), melaksanakan bahagian tempahan khusus mereka.
+4. **Pelaksanaan Tugasan yang Didelegasikan**: Ejen Pelancongan menghantar tugasan tertentu kepada agen khusus ini (contohnya, "Cari penerbangan ke Honolulu," "Tempah hotel," "Sewa kereta"). Setiap agen khusus ini, menjalankan LLM sendiri dan menggunakan alat mereka (yang mungkin juga pelayan MCP), melaksanakan bahagian tempahannya.
 
-5. **Respons Disatukan**: Setelah semua ejen hiliran menyelesaikan tugasan mereka, Ejen Perjalanan mengumpul hasil (butiran penerbangan, pengesahan hotel, tempahan sewa kereta) dan menghantar respons gaya sembang yang lengkap kembali kepada pengguna.
+5. **Respons Disatukan**: Setelah semua agen hiliran selesai tugasan mereka, Ejen Pelancongan mengumpul hasil (butiran penerbangan, pengesahan hotel, tempahan kereta sewa) dan menghantar respons berbentuk sembang kepada pengguna.
 
-## Web Bahasa Semula Jadi (NLWeb)
+## Natural Language Web (NLWeb)
 
-Laman web telah lama menjadi cara utama bagi pengguna mengakses maklumat dan data di seluruh internet.
+Laman web telah lama menjadi cara utama untuk pengguna mengakses maklumat dan data di internet.
 
-Mari kita lihat komponen berbeza NLWeb, manfaat NLWeb dan contoh cara NLWeb berfungsi dengan melihat aplikasi perjalanan kita.
+Mari lihat komponen berbeza NLWeb, manfaat NLWeb dan contoh bagaimana NLWeb berfungsi dengan melihat aplikasi pelancongan kita.
 
 ### Komponen NLWeb
 
-- **Aplikasi NLWeb (Kod Perkhidmatan Teras)**: Sistem yang memproses soalan bahasa semula jadi. Ia menyambungkan bahagian berbeza platform untuk mencipta respons. Boleh dianggap sebagai **enjin yang menggerakkan ciri bahasa semula jadi** laman web.
+- **Aplikasi NLWeb (Kod Perkhidmatan Teras)**: Sistem yang memproses soalan bahasa semula jadi. Ia menghubungkan bahagian platform yang berbeza untuk mencipta respons. Anda boleh fikirkan ia sebagai **enjin yang menggerakkan ciri bahasa semula jadi** laman web.
 
-- **Protokol NLWeb**: Ini adalah **set asas peraturan untuk interaksi bahasa semula jadi** dengan laman web. Ia menghantar kembali respons dalam format JSON (sering menggunakan Schema.org). Tujuannya adalah untuk mewujudkan asas mudah untuk "Web AI," sama seperti HTML membolehkan perkongsian dokumen dalam talian.
+- **Protokol NLWeb**: Ini ialah **set asas peraturan untuk interaksi bahasa semula jadi** dengan laman web. Ia menghantar balik respons dalam format JSON (sering menggunakan Schema.org). Tujuannya adalah untuk mewujudkan asas mudah bagi “Web AI,” sama seperti HTML membolehkan perkongsian dokumen secara online.
 
-- **Pelayan MCP (Titik Akhir Model Context Protocol)**: Setiap persediaan NLWeb juga berfungsi sebagai **pelayan MCP**. Ini bermakna ia boleh **berkongsi alat (seperti kaedah "ask") dan data** dengan sistem AI lain. Dalam praktik, ini menjadikan kandungan dan kemampuan laman web boleh digunakan oleh ejen AI, membolehkan laman menjadi sebahagian daripada "ekosistem ejen" yang lebih luas.
+- **Pelayan MCP (Penamat Protokol Model Context)**: Setiap penyediaan NLWeb juga berfungsi sebagai **pelayan MCP**. Ini bermakna ia boleh **berkongsi alat (seperti kaedah “ask”) dan data** dengan sistem AI lain. Dalam praktiknya, ini menjadikan kandungan dan kebolehan laman web boleh digunakan oleh agen AI, membolehkan laman itu menjadi sebahagian daripada “ekosistem agen” yang lebih luas.
 
-- **Model Embedding**: Model ini digunakan untuk **menukar kandungan laman web menjadi representasi numerik yang dipanggil vektor** (embedding). Vektor ini menangkap makna dengan cara yang boleh dibanding dan dicari oleh komputer. Ia disimpan dalam pangkalan data khas, dan pengguna boleh memilih model embedding yang mereka mahu gunakan.
+- **Model Embedding**: Model ini digunakan untuk **menukar kandungan laman web menjadi perwakilan berangka yang dipanggil vektor** (embedding). Vektor ini menangkap makna dalam cara yang komputer boleh banding dan cari. Ia disimpan dalam pangkalan data khas, dan pengguna boleh memilih model embedding yang mahu digunakan.
 
-- **Pangkalan Data Vektor (Mekanisme Pengambilan)**: Pangkalan data ini **menyimpan embeddings kandungan laman web**. Apabila seseorang bertanya soalan, NLWeb memeriksa pangkalan data vektor untuk dengan cepat mencari maklumat paling relevan. Ia memberikan senarai jawapan berpotensi dengan pantas, disusun mengikut persamaan. NLWeb bekerja dengan pelbagai sistem penyimpanan vektor seperti Qdrant, Snowflake, Milvus, Azure AI Search, dan Elasticsearch.
+- **Pangkalan Data Vektor (Mekanisme Pengambilan)**: Pangkalan data ini **menyimpan embedding kandungan laman web**. Apabila seseorang bertanya soalan, NLWeb menyemak pangkalan data vektor untuk mencari maklumat paling relevan dengan cepat. Ia memberi senarai pantas jawapan yang mungkin, di susun mengikut kesamaan. NLWeb bekerjasama dengan sistem simpanan vektor seperti Qdrant, Snowflake, Milvus, Azure AI Search, dan Elasticsearch.
 
 ### NLWeb melalui Contoh
 
 ![NLWeb](../../../translated_images/ms/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Pertimbangkan laman tempahan perjalanan kita lagi, kali ini ia dikuasakan oleh NLWeb.
+Pertimbangkan laman web tempahan pelancongan kita sekali lagi, tetapi kali ini, ia dikuasakan oleh NLWeb.
 
-1. **Pengambilan Data**: Katalog produk laman perjalanan sedia ada (contoh, senarai penerbangan, penerangan hotel, pakej pelancongan) diformat menggunakan Schema.org atau dimuat melalui RSS feed. Alat NLWeb mengambil data berstruktur ini, mencipta embeddings, dan menyimpannya dalam pangkalan data vektor tempatan atau jauh.
+1. **Pengambilan Data**: Katalog produk sedia ada laman pelancongan (contohnya, senarai penerbangan, penerangan hotel, pakej pelancongan) diformat menggunakan Schema.org atau dimuatkan melalui suapan RSS. Alat NLWeb mengambil data berstruktur ini, membuat embeddings, dan menyimpannya dalam pangkalan data vektor tempatan atau jauh.
 
-2. **Pertanyaan Bahasa Semula Jadi (Manusia)**: Pengguna melawat laman web dan, bukannya menavigasi menu, menaip ke dalam antara muka sembang: "Cari hotel mesra keluarga di Honolulu dengan kolam renang untuk minggu depan".
+2. **Pertanyaan Bahasa Semula Jadi (Manusia)**: Pengguna melawat laman web dan, bukannya melayari menu, menaip dalam antara muka sembang: "Cari hotel mesra keluarga di Honolulu dengan kolam renang untuk minggu depan".
 
-3. **Pemprosesan NLWeb**: Aplikasi NLWeb menerima pertanyaan ini. Ia menghantar pertanyaan kepada LLM untuk pemahaman dan serentak mencari pangkalan data vektor untuk senarai hotel yang relevan.
+3. **Pemprosesan NLWeb**: Aplikasi NLWeb menerima pertanyaan ini. Ia menghantar pertanyaan ke LLM untuk memahami dan serentak mencari pangkalan data vektor terhadap senarai hotel yang relevan.
 
-4. **Keputusan Tepat**: LLM membantu mentafsir keputusan carian dari pangkalan data, mengenal pasti padanan terbaik berdasarkan kriteria "mesra keluarga", "kolam renang," dan "Honolulu," kemudian memformat respons bahasa semula jadi. Penting, respons merujuk kepada hotel sebenar dari katalog laman, mengelakkan maklumat rekaan.
+4. **Keputusan Tepat**: LLM membantu mentafsir keputusan carian dari pangkalan data, mengenal pasti padanan terbaik berdasarkan kriteria "mesra keluarga," "kolam renang," dan "Honolulu," kemudian memformat respons dalam bahasa semula jadi. Yang penting, respons merujuk hotel sebenar dari katalog laman, mengelakkan maklumat rekaan.
 
-5. **Interaksi Ejen AI**: Oleh kerana NLWeb berfungsi sebagai pelayan MCP, ejen perjalanan AI luaran juga boleh menyambung ke instance NLWeb laman web ini. Ejen AI boleh menggunakan kaedah `ask` MCP untuk bertanya terus ke laman web: `ask("Adakah terdapat restoran mesra vegan di kawasan Honolulu yang disyorkan oleh hotel?")`. Instance NLWeb akan memproses ini, menggunakan pangkalan data maklumat restoran (jika dimuatkan), dan mengembalikan respons JSON berstruktur.
+5. **Interaksi Agen AI**: Oleh kerana NLWeb berfungsi sebagai pelayan MCP, agen pelancongan AI luar juga boleh menyambung ke instans NLWeb laman ini. Agen AI boleh menggunakan kaedah `ask` MCP untuk bertanya terus kepada laman web: `ask("Adakah terdapat restoran mesra vegan di kawasan Honolulu yang disyorkan oleh hotel?")`. Instans NLWeb akan memproses ini, menggunakan pangkalan data maklumat restoran (jika dimuatkan), dan memberikan respons JSON berstruktur.
 
-### Ada Soalan Lagi tentang MCP/A2A/NLWeb?
+### Ada Lebih Banyak Soalan tentang MCP/A2A/NLWeb?
 
-Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu pembelajar lain, menghadiri waktu pejabat dan dapatkan jawapan untuk soalan tentang AI Agents anda.
+Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan mendapatkan jawapan untuk soalan Agen AI anda.
 
 ## Sumber
 
 - [MCP untuk Pemula](https://aka.ms/mcp-for-beginners)  
 - [Dokumentasi MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [Repositori NLWeb](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Rangka Kerja Agen Microsoft](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
 
 ## Pelajaran Sebelumnya
 
-[Ejen AI dalam Pengeluaran](../10-ai-agents-production/README.md)
+[Agen AI dalam Pengeluaran](../10-ai-agents-production/README.md)
 
 ## Pelajaran Seterusnya
 
-[Konteks Kejuruteraan untuk Ejen AI](../12-context-engineering/README.md)
+[Kejuruteraan Konteks untuk Agen AI](../12-context-engineering/README.md)
 
 ---
 

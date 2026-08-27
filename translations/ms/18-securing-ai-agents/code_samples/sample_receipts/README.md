@@ -1,27 +1,31 @@
-# Sample Receipt Fixtures
+# Penetapan Resit Contoh
 
-Tiga fail resit yang telah dijana terlebih dahulu untuk pemeriksaan tanpa menjalankan notebook.
+Tiga fail resit pra-jana untuk pemeriksaan tanpa menjalankan buku nota.
 
-| Fail | Apa itu |
+| Fail | Apa ia |
 |---|---|
-| `01_valid_receipt.json` | Resit sah yang ditandatangani untuk panggilan alat `lookup_flights`. Pengesahan mengembalikan True. |
+| `01_valid_receipt.json` | Resit yang sah yang ditandatangani untuk panggilan alat `lookup_flights`. Pengesahan mengembalikan True. |
 | `02_tampered_receipt.json` | Resit yang sama dengan satu medan diubah selepas penandatanganan. Pengesahan mengembalikan False. |
-| `03_chain_three_receipts.json` | Rangkaian tiga resit sah (carian, tahan, tempah) dengan `previous_receipt_hash` yang menghubungkan setiap satu dengan yang sebelumnya. |
+| `03_chain_three_receipts.json` | Rantaian tiga resit sah (cari, tahan, tempah) dengan `previous_receipt_hash` menghubungkan setiap satunya kepada yang sebelumnya. |
 
-## Memeriksa contoh-contoh
+Penetapan ini menandatangani bait JCS kanonik payload secara langsung dengan Ed25519.
+SHA-256 kekal digunakan untuk ringkasan kandungan dan pautan rantaian resit, bukan sebagai
+pra-hash tambahan sebelum menandatangani.
 
-Notebook menerangkan pengesahan dalam empat bahagian. Untuk mengesahkan fixture ini
-secara langsung tanpa mengikuti naratif notebook:
+## Mengesahkan contoh-contoh
+
+Buku nota menerangkan pengesahan dalam empat bahagian. Untuk mengesahkan penetapan ini
+secara langsung tanpa menjalankan naratif buku nota:
 
 ```python
 import json
 from pathlib import Path
 
-# Berpura-pura anda telah menyelesaikan import dan fungsi pembantu
-# dari bahagian 1 dan 2 dari 18-signed-receipts.ipynb.
+# Menganggap anda telah menyelesaikan import dan fungsi pembantu
+# dari bahagian 1 dan 2 fail 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Benar
+print(f"Valid receipt: {verify_receipt(valid)}")        # Betul
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
 print(f"Tampered receipt: {verify_receipt(tampered)}")  # Salah
@@ -33,7 +37,7 @@ for r in verify_chain(chain):
 
 ## Cara ia dijana
 
-Fixture menggunakan laluan kod yang sama seperti notebook, dengan satu kunci tandatangan tetap
+Penetapan menggunakan laluan kod yang sama seperti buku nota, dengan satu kunci tandatangan tetap
 dan cap masa tetap untuk kebolehulangan bait. Untuk menjana semula:
 
 ```bash
@@ -42,17 +46,18 @@ python3 generate_fixtures.py
 
 (Skrip berada di `generate_fixtures.py` dalam direktori ini.)
 
-## Apa yang pelajar pelajari dari memeriksa JSON mentah
+## Apa yang pelajar pelajari daripada memeriksa JSON mentah
 
-Membaca format resit mentah membina intuisi yang tidak selalu diberikan oleh sel-sel dalam notebook.
-Pelajar yang cepat melihat JSON selalunya perasan:
+Membaca format resit mentah membina intuisinya yang mana sel dalam buku nota
+tidak sentiasa berikan. Pelajar yang meneliti JSON sering menyedari:
 
-1. Tandatangan adalah rentetan base64url yang kabur, tetapi setiap medan lain adalah JSON yang boleh dibaca dengan jelas. Tandatangan tidak menyulitkan kandungan; ia mengesahkan kandungan tersebut.
-2. `public_key` disematkan dalam resit. Seorang juruaudit tidak memerlukan apa-apa lagi
-   untuk mengesahkan (tertakluk kepada mempercayai bahawa kunci itu benar-benar milik yang dinyatakan
-   penerbit; lihat README pelajaran mengenai infrastruktur identiti).
-3. Mengubah satu aksara dalam mana-mana medan, kemudian membandingkan semula fail ini dengan
-   `02_tampered_receipt.json`, menjadikan mekanisme peringkat bait itu konkrit.
+1. Tandatangan adalah rentetan base64url yang kabur, tetapi setiap medan lain adalah JSON yang
+   boleh dibaca dengan jelas. Tandatangan tidak menyulitkan kandungan; ia mengesahkannya.
+2. `public_key` disisipkan dalam resit. Pemeriksa tidak memerlukan apa-apa lagi
+   untuk pengesahan (bergantung pada kepercayaan bahawa kunci itu benar-benar milik penerbit yang didakwa;
+   lihat README pelajaran mengenai infrastruktur identiti).
+3. Mengubah satu aksara pada mana-mana medan, kemudian membandingkan semula fail ini dengan
+   `02_tampered_receipt.json`, menjadikan mekanisme peringkat bait itu nyata.
 
 ---
 
