@@ -1,23 +1,28 @@
-# Sampuli za Risiti za Mfano
+# Sampuli za Risiti
 
-Faili tatu za risiti zilizotengenezwa awali kwa ajili ya ukaguzi bila kuendesha daftari.
+Faili tatu za risiti zilizotengenezwa awali kwa ukaguzi bila kuendesha daftari.
 
 | Faili | Ni nini |
 |---|---|
-| `01_valid_receipt.json` | Risiti halali iliyosainiwa kwa wito wa zana ya `lookup_flights`. Uhakiki unarudisha Kweli. |
-| `02_tampered_receipt.json` | Risiti ile ile yenye uwanja mmoja uliobadilishwa baada ya kusainiwa. Uhakiki unarudisha Si kweli. |
-| `03_chain_three_receipts.json` | Mnyororo wa risiti tatu halali (tafutiza, shika, fungua) zenye `previous_receipt_hash` kuziunganisha kwa kila moja hadi ile ya awali. |
+| `01_valid_receipt.json` | Risiti halali iliyo saini kwa wito wa zana ya `lookup_flights`. Uhakiki unarudisha Kweli. |
+| `02_tampered_receipt.json` | Risiti ile ile iliyo na uwanja mmoja uliobadilishwa baada ya kusaini. Uhakiki unarudisha Kw falso. |
+| `03_chain_three_receipts.json` | Mnyororo wa risiti tatu halali (tafuta, shikilia, toa kitabu) zenye `previous_receipt_hash` zinazowahangaisha kila moja kwa ile ya awali. |
 
-## Kuhakiki Sampuli
+Sampuli hizi zinaweka saini moja kwa moja kwa biti za JCS za mzigo wa data kwa kutumia Ed25519.
+SHA-256 bado inatumika kwa vidokezo vya maudhui na viungo vya mnyororo wa risiti, si kama
+maandalizi ya ziada ya kabla ya kusaini.
 
-Daftari linaelekeza kupitia uhakiki sehemu nne. Ili kuhakiki sampuli hizi moja kwa moja bila kupitia simulizi la daftari:
+## Kuhakiki sampuli
+
+Daftari linaeleza uhakiki katika sehemu nne. Ili kuhakiki sampuli hizi
+moja kwa moja bila kupitia hadithi ya daftari:
 
 ```python
 import json
 from pathlib import Path
 
-# Inadhani umekamilisha imports na kazi za msaada
-# kutoka sehemu 1 na 2 za 18-signed-receipts.ipynb.
+# Inadhani umekamilisha kuleta na kazi za msaada
+# kutoka sehemu za 1 na 2 za 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Kweli
@@ -32,24 +37,27 @@ for r in verify_chain(chain):
 
 ## Jinsi hizi zilivyotengenezwa
 
-Sampuli hizi hutumia njia ile ile ya msimbo kama daftari, kwa funguo moja la kusaini lililowekwa
-na nyakati za kudumu kwa ajili ya kurudiwa kwa biti. Ili kutengeneza upya:
+Sampuli hutumia njia ile ile ya msimbo kama daftari, na ufunguo mmoja wa kusaini ulio thibitishwa
+na nyakati zilizo thibitishwa kwa uundaji wa biti zinazoweza kurudiwa. Kutengeneza tena:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripti iko katika `generate_fixtures.py` katika saraka hii.)
+(Skripti iko `generate_fixtures.py` katika saraka hii.)
 
-## Kile wanafunzi wanachojifunza kwa kukagua JSON ghafi
+## Wanajifunza nini kwa kukagua JSON ghafi
 
-Kusoma muundo wa risiti ghafi hujenga hisia ambazo seli katika daftari haitoi kila wakati. Wanafunzi wanaosoma haraka JSON mara nyingi hugundua:
+Kusoma muundo wa risiti ghafi hujenga ufahamu ambao seli katika daftari
+hazitoi kila mara. Wanafunzi wanaosoma JSON kwa makini mara nyingi hugundua:
 
-1. Saini ni mfuatiliaji wa base64url usio wazi, lakini kila uwanja mwingine ni JSON rahisi kusomeka. Saini haihifadhi siri ya maudhui; inathibitisha tu.
-2. `public_key` imejumuishwa ndani ya risiti. Mkaguzi hahitaji kitu kingine chochote
-   kuthibitisha (kwa sharti la kuamini kuwa ufunguo huo kweli ni wa mtengenezaji aliyedaiwa; angalia README ya somo kuhusu miundombinu ya utambulisho).
-3. Kubadilisha herufi moja tu ya uwanja wowote, kisha kulinganisha tena faili hii na
-   `02_tampered_receipt.json`, hufanya utaratibu wa ngazi ya biti uonekane wazi.
+1. Saini ni mfuatano wa siri wa base64url, lakini kila uwanja mwingine ni JSON rahisi
+   inayosomeka. Saini haiwafichui maudhui; inathibitisha tu.
+2. `public_key` imejumuishwa ndani ya risiti. Mkaguzi hahitaji chochote kingine
+   kuthibitisha (kulingana na kuamini kuwa ufunguo kweli unatoka kwa mtangazaji aliye tamka;
+   angalia README ya somo juu ya miundombinu ya utambulisho).
+3. Kubadilisha herufi moja ya uwanja wowote, kisha kulinganisha tena faili hii na
+   `02_tampered_receipt.json`, hufanya utaratibu wa ngazi za biti kuwa dhahiri.
 
 ---
 

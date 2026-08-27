@@ -1,54 +1,54 @@
-# A Microsoft Agent Framework felfedezése
+# A Microsoft Agent Framework feltérképezése
 
 ![Agent Framework](../../../translated_images/hu/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Bevezetés
 
-Ez a lecke a következőkről fog szólni:
+Ez a lecke a következőket fogja lefedni:
 
-- A Microsoft Agent Framework megértése: kulcsfontosságú jellemzők és érték
+- A Microsoft Agent Framework megértése: Főbb jellemzők és érték  
 - A Microsoft Agent Framework kulcsfogalmainak feltárása
 - Fejlett MAF minták: munkafolyamatok, middleware és memória
 
 ## Tanulási célok
 
-A lecke elvégzése után tudni fogod, hogyan kell:
+A lecke elvégzése után tudni fogja, hogyan kell:
 
-- Gyártásra kész AI ügynököket építeni a Microsoft Agent Framework segítségével
-- Alkalmazni a Microsoft Agent Framework alapvető funkcióit az ügynöki használati esetekre
-- Haladó mintákat használni, beleértve a munkafolyamatokat, middleware-t és megfigyelhetőséget
+- Gyártásra kész MI ügynököket építeni a Microsoft Agent Framework használatával
+- Alkalmazni a Microsoft Agent Framework alapvető funkcióit az ügynöki használati esetekhez
+- Fejlett minták használata, beleértve a munkafolyamatokat, middleware-t és megfigyelhetőséget
 
-## Kódpéldák
+## Kódminták 
 
-A [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) kódmintái megtalálhatók ebben a tárházban az `xx-python-agent-framework` és `xx-dotnet-agent-framework` fájlok alatt.
+A [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) kódmintái megtalálhatók ebben a tárolóban az `xx-python-agent-framework` és `xx-dotnet-agent-framework` fájlok alatt.
 
 ## A Microsoft Agent Framework megértése
 
 ![Framework Intro](../../../translated_images/hu/framework-intro.077af16617cf130c.webp)
 
-A [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) a Microsoft egységes keretrendszere AI ügynökök építésére. Rugalmasságot kínál, hogy kezelje az ügynökhasználati esetek széles skáláját mind produkciós, mind kutatási környezetekben, beleértve:
+A [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) a Microsoft egységes keretrendszere MI ügynökök építéséhez. Rugalmasságot kínál, hogy kezelje az ügynöki használati esetek széles körét, amelyek mind gyártási, mind kutatási környezetekben előfordulnak, beleértve:
 
-- **Szekvenciális ügynök-orkesztáció** olyan helyzetekben, ahol lépésről-lépésre történő munkafolyamatokra van szükség.
-- **Párhuzamos orkesztáció** olyan helyzetekben, amikor az ügynököknek egyszerre kell feladatokat végrehajtaniuk.
-- **Csoportos beszélgetés-orkesztáció** olyan helyzetekben, amikor az ügynökök együttműködhetnek egy feladaton.
-- **Átadási orkesztáció** olyan helyzetekben, amikor az ügynökök átadják a feladatot egymásnak, amint az alfeladatok elkészültek.
-- **Mágneses orkesztáció** olyan helyzetekben, ahol egy menedzserügynök létrehoz és módosít feladatlistákat, és kezeli az alügynökök koordinációját a feladat teljesítéséhez.
+- **Szekvenciális ügynök-orkesztrációt** olyan esetekben, ahol lépésről lépésre haladó munkafolyamatokra van szükség.
+- **Párhuzamos orchesztrációt** olyan esetekben, ahol az ügynököknek egyszerre kell feladatokat elvégezniük.
+- **Csoportos csevegés orkestrációt** olyan esetekben, ahol az ügynökök együttműködnek egy feladaton.
+- **Átadás-orchesztrációt** olyan esetekben, ahol az ügynökök átadják egymásnak a feladatot, amint az alfeladatok kész vannak.
+- **Mágneses orkestrációt** olyan esetekben, ahol egy menedzser ügynök hoz létre és módosít egy feladatlistát, és koordinálja az alügynököket a feladat elvégzéséhez.
 
-Az AI ügynökök produkcióban történő biztosításához a MAF a következő funkciókat is tartalmazza:
+Az MI ügynökök gyártásba juttatásához a MAF további funkciókat is tartalmaz:
 
-- **Megfigyelhetőség** az OpenTelemetry használatával, amely figyeli az AI ügynök minden tevékenységét, beleértve az eszközhasználatot, az orkesztációs lépéseket, az érvelési folyamatokat és a teljesítményfigyelést a Microsoft Foundry műszerfalakon keresztül.
-- **Biztonság** azáltal, hogy az ügynökök natívan futnak a Microsoft Foundry-n, amely biztonsági vezérlőket tartalmaz, például szerepalapú hozzáférést, privát adatkezelést és beépített tartalombiztonságot.
-- **Tartósság**, mivel az ügynök szálak és munkafolyamatok szüneteltethetők, folytathatók és hibákból felépülhetnek, ami lehetővé teszi a hosszabb futású folyamatokat.
-- **Ellenőrzés**, mivel támogatottak az emberi beavatkozással működő munkafolyamatok, ahol a feladatok emberi jóváhagyást igényelnek.
+- **Megfigyelhetőség** az OpenTelemetry használatával, ahol az MI Ügynök minden tevékenységét – beleértve az eszközhívásokat, orkésztrációs lépéseket, következtetési folyamatokat és teljesítményfigyelést a Microsoft Foundry műszerfalain keresztül – megfigyelhetjük.
+- **Biztonság** az ügynökök natív hosztolásával a Microsoft Foundry-ban, amely tartalmazza a szerepalapú hozzáférés-vezérlést, a privát adatkezelést és a beépített tartalombiztonságot.
+- **Tartósság** mivel az ügynök szálak és munkafolyamatok szüneteltethetők, folytathatók és hibákból helyreállíthatók, ami hosszabb futású folyamatokat tesz lehetővé.
+- **Irányítás** emberi beavatkozás támogatása a munkafolyamatokban, ahol a feladatokat emberi jóváhagyáshoz kell megjelölni.
 
-A Microsoft Agent Framework interoperábilitásra is fókuszál:
+A Microsoft Agent Framework interoperábilitásra is fókuszál azáltal, hogy:
 
-- **Felhőfüggetlen** - Az ügynökök futhatnak konténerekben, helyszínen vagy többféle felhőn keresztül.
-- **Szolgáltatófüggetlen** - Az ügynökök létrehozhatók a preferált SDK-val, beleértve az Azure OpenAI-t és az OpenAI-t.
-- **Nyílt szabványok integrálása** - Az ügynökök használhatnak olyan protokollokat, mint az Agent-to-Agent (A2A) és a Model Context Protocol (MCP), hogy felfedezzék és használják más ügynököket és eszközöket.
-- **Bővítmények és csatlakozók** - Csatlakozások létrehozhatók adat- és memória szolgáltatásokhoz, például Microsoft Fabric, SharePoint, Pinecone és Qdrant.
+- **Fellegfüggetlen** - az ügynökök futtathatók konténerekben, helyben vagy több különböző felhőben.
+- **Szolgáltatófüggetlen** - ügynökök létrehozhatók az általad preferált SDK-val, beleértve az Azure OpenAI-t és az OpenAI-t
+- **Nyílt szabványok integrálása** - az ügynökök olyan protokollokat használhatnak, mint az Agent-to-Agent (A2A) és a Model Context Protocol (MCP), hogy felfedezzék és használják más ügynököket és eszközöket.
+- **Bővítmények és kapcsolók** - kapcsolódhatnak adat- és memóriaszolgáltatásokhoz, például a Microsoft Fabric, SharePoint, Pinecone és Qdrant szolgáltatásokhoz.
 
-Nézzük meg, hogyan alkalmazzák ezeket a funkciókat a Microsoft Agent Framework néhány kulcsfogalmára.
+Nézzük meg, hogy ezek a funkciók hogyan alkalmazhatók a Microsoft Agent Framework kulcsfogalmainál.
 
 ## A Microsoft Agent Framework kulcsfogalmai
 
@@ -58,14 +58,14 @@ Nézzük meg, hogyan alkalmazzák ezeket a funkciókat a Microsoft Agent Framewo
 
 **Ügynökök létrehozása**
 
-Az ügynök létrehozása úgy történik, hogy meghatározzuk az inferencia szolgáltatást (LLM Szolgáltató), az AI ügynök által követendő utasításkészletet, és hozzárendeljük a `name` értéket:
+Az ügynök létrehozása úgy történik, hogy meghatározzuk az inferencia szolgáltatást (LLM szolgáltató), egy sor utasítást, amit az MI Ügynöknek követnie kell, valamint egy kijelölt `név`-et:
 
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Az előbbi példa az `Azure OpenAI`-t használja, de az ügynökök létrehozhatók különféle szolgáltatásokkal, beleértve a `Microsoft Foundry Agent Service`-t is:
+A fenti példa az `Azure OpenAI`-t használja, de ügynökök különféle szolgáltatásokkal is létrehozhatók, beleértve a `Microsoft Foundry Agent Service`-t:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -81,13 +81,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-vagy a [MiniMax](https://platform.minimaxi.com/) használatával, amely OpenAI-kompatibilis API-t kínál nagy kontextusablakkal (akár 204K tokenig):
+vagy a [MiniMax](https://platform.minimaxi.com/) használatával, amely OpenAI-kompatibilis API-t kínál nagy kontextusablakokkal (akár 204K tokenig):
 
 ```python
 agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-vagy távoli ügynökök az A2A protokollal:
+vagy távoli ügynökök az A2A protokoll segítségével:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -95,7 +95,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Ügynökök futtatása**
 
-Az ügynökök `.run` vagy `.run_stream` metódusokkal futtathatók, nem-streaming vagy streaming válaszokkal.
+Az ügynökök a `.run` vagy `.run_stream` metódusokkal futtathatók, nem-streaming vagy streaming válaszokhoz.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -109,13 +109,13 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Minden ügynök futtatásához lehetőség van olyan paraméterek testreszabására is, mint az ügynök által használt `max_tokens`, az ügynök által hívható `tools`, vagy akár magának az ügynök által használt `model`.
+Minden ügynök futtatásnak lehetnek olyan opciói is, amelyek testreszabják az olyan paramétereket, mint az ügynök által használt `max_tokens`, az általa hívható `eszközök`, vagy akár maga az ügynök által használt `modell`.
 
-Ez hasznos olyan esetekben, amikor a felhasználói feladat elvégzéséhez specifikus modellek vagy eszközök szükségesek.
+Ez hasznos olyan esetekben, amikor specifikus modellekre vagy eszközökre van szükség a felhasználó feladatának teljesítéséhez.
 
 **Eszközök**
 
-Az eszközök definiálhatók az ügynök definiálásakor:
+Az eszközök definiálhatók mind az ügynök definiálásakor:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -127,21 +127,21 @@ agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpf
 
 ```
 
-és az ügynök futtatásakor is:
+valamint az ügynök futtatásakor is:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Az eszköz csak ehhez a futtatáshoz érhető el )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Ez az eszköz csak erre a futtatásra van biztosítva )
 ```
 
-**Ügynök Szálak**
+**Ügynök szálak**
 
-Az ügynök szálakat többszörös körös beszélgetések kezelésére használják. A szálak létrehozhatók:
+Az ügynök szálak többfordulós beszélgetések kezelésére szolgálnak. Szálak létrehozhatók:
 
-- A `get_new_thread()` használatával, ami lehetővé teszi, hogy a szál idővel el legyen mentve
-- Szálak automatikus létrehozásával az ügynök futtatásakor, ahol a szál csak az adott futtatásig él.
+- a `get_new_thread()` használatával, amely lehetővé teszi a szál időbeli mentését
+- vagy egy szál automatikus létrehozásával az ügynök futtatásakor, amely csak az aktuális futás idejére létezik.
 
-Egy szál létrehozásához a kód a következő:
+Egy szál létrehozása így néz ki:
 
 ```python
 # Hozzon létre egy új szálat.
@@ -150,7 +150,7 @@ response = await agent.run("Hello, I am here to help you book travel. Where woul
 
 ```
 
-Majd a szál sorosítható későbbi tárolásra:
+A szál későbbi használatra történő mentéséhez sorosítható:
 
 ```python
 # Hozzon létre egy új szálat.
@@ -164,20 +164,20 @@ response = await agent.run("Hello, how are you?", thread=thread)
 
 serialized_thread = await thread.serialize() 
 
-# Deszerializálja a szál állapotát a tárolóból való betöltés után.
+# A szál állapotának deszerializálása a tárolásból való betöltés után.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
-**Ügynök Middleware**
+**Ügynök köztes réteg (Middleware)**
 
-Az ügynökök kölcsönhatásban állnak eszközökkel és LLM-ekkel a felhasználói feladatok teljesítéséhez. Bizonyos esetekben szeretnénk végrehajtani vagy követni az ezek közötti interakciókat. Az ügynök middleware ezt teszi lehetővé a következők révén:
+Az ügynökök eszközökkel és LLM-ekkel lépnek kapcsolatba a felhasználói feladatok elvégzéséhez. Bizonyos esetekben a két interakció között végre szeretnénk hajtani vagy nyomon követni tevékenységeket. Az ügynök köztes réteg ezt teszi lehetővé:
 
 *Funkció Middleware*
 
-Ez a middleware lehetővé teszi, hogy egy lépést hajtsunk végre az ügynök és egy funkció/eszköz hívása között. Például hasznos lehet a funkcióhívások naplózása.
+Ez a middleware lehetővé teszi, hogy műveletet hajtsunk végre az ügynök és egy hívott funkció/eszköz között. Például, ha szeretnénk naplózni a funkcióhívást.
 
-Az alábbi kódban a `next` határozza meg, hogy a következő middleware vagy a tényleges funkció hívódjon.
+Az alábbi kódban a `next` határozza meg, hogy a következő middleware vagy maga a tényleges funkció legyen-e meghívva.
 
 ```python
 async def logging_function_middleware(
@@ -188,7 +188,7 @@ async def logging_function_middleware(
     # Előfeldolgozás: Naplózás a függvény végrehajtása előtt
     print(f"[Function] Calling {context.function.name}")
 
-    # Folytatás a következő middleware vagy függvény végrehajtásához
+    # Folytatás a következő middleware-rel vagy a függvény végrehajtásával
     await next(context)
 
     # Utófeldolgozás: Naplózás a függvény végrehajtása után
@@ -197,9 +197,9 @@ async def logging_function_middleware(
 
 *Chat Middleware*
 
-Ez a middleware lehetővé teszi egy akció végrehajtását vagy naplózását az ügynök és az LLM közötti üzenetváltás során.
+Ez a middleware lehetővé teszi, hogy végrehajtsunk vagy naplózzunk egy műveletet az ügynök és az LLM közötti kérés-válasz között.
 
-Ez tartalmaz fontos információkat, például az AI szolgáltatásnak küldött `messages`-eket.
+Ez tartalmaz fontos információkat, például az AI szolgáltatásnak küldött `üzeneteket`.
 
 ```python
 async def logging_chat_middleware(
@@ -207,39 +207,39 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Előfeldolgozás: Naplózás az MI hívás előtt
+    # Előfeldolgozás: Naplózás az AI hívás előtt
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Folytatás a következő middleware vagy MI szolgáltatáshoz
+    # Folytatás a következő middleware vagy AI szolgáltatás felé
     await next(context)
 
-    # Utófeldolgozás: Naplózás az MI válasz után
+    # Utófeldolgozás: Naplózás az AI válasz után
     print("[Chat] AI response received")
 
 ```
 
-**Ügynök Memória**
+**Ügynök memória**
 
-Ahogy az `Agentic Memory` leckében szerepel, a memória fontos eleme annak, hogy az ügynök különböző kontextusokban tudjon működni. A MAF többféle memóriatípust kínál:
+Ahogyan a `Agentic Memory` leckében tárgyaltuk, a memória fontos elem az ügynök működésének kontextusai feletti kezelése szempontjából. A MAF többféle memóriatípust kínál:
 
-*Memória a memóriában (In-Memory Storage)*
+*Memória tárolás futás közben*
 
-Ez a memória az alkalmazás futása során a szálakban tárolódik.
+Ez a szálakon belüli memória, amely az alkalmazás futási ideje alatt tárolódik.
 
 ```python
-# Hozzon létre egy új szálat.
-thread = agent.get_new_thread() # Futtassa az ügynököt a szállal.
+# Hozz létre egy új szálat.
+thread = agent.get_new_thread() # Futtasd az ügynököt a szállal.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
-*Tartós üzenetek*
+*Állandó üzenetek*
 
-Ezt a memóriát több munkamenet közötti beszélgetés előzményeinek tárolására használják. A `chat_message_store_factory` segítségével definiálható:
+Ez a memória a különböző munkamenetek közötti beszélgetési történelem tárolására szolgál. A `chat_message_store_factory` segítségével definiálható:
 
 ```python
 from agent_framework import ChatMessageStore
 
-# Egyedi üzenettár létrehozása
+# Egyéni üzenettár létrehozása
 def create_message_store():
     return ChatMessageStore()
 
@@ -253,7 +253,7 @@ agent = ChatAgent(
 
 *Dinamikus memória*
 
-Ez a memória az ügynökök futtatása előtt kerül hozzáadásra a kontextushoz. Ezek a memóriák külső szolgáltatásokban is tárolhatók, például mem0-ban:
+Ezt a memóriát a kontextushoz adjuk hozzá, mielőtt az ügynökök futnak. Ezek a memóriák külső szolgáltatásokban is tárolhatók, például mem0-ban:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
@@ -273,9 +273,9 @@ agent = ChatAgent(
 
 ```
 
-**Ügynök Megfigyelhetőség**
+**Ügynök megfigyelhetősége**
 
-A megfigyelhetőség fontos a megbízható és karbantartható ügynökrendszerek építéséhez. A MAF integrálódik OpenTelemetry-vel a jobb követés és mérés érdekében.
+A megfigyelhetőség fontos a megbízható és karbantartható ügynökrendszerek építéséhez. A MAF integrálódik az OpenTelemetry-vel, hogy jobb megfigyelhetőséget biztosítson nyomkövetéssel és mérőszámokkal.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -291,21 +291,21 @@ counter.add(1, {"key": "value"})
 
 ### Munkafolyamatok
 
-A MAF előre definiált munkafolyamatokat kínál, amelyek lépéseket tartalmaznak a feladat elvégzésére, és AI ügynököket is beépít összetevőként ezekben a lépésekben.
+A MAF munkafolyamatokat kínál, amelyek előre definiált lépések egy feladat teljesítéséhez, és az MI ügynököket is bevonják komponensként ezekbe a lépésekbe.
 
-A munkafolyamatok különböző komponensekből állnak, amelyek jobb vezérlést tesznek lehetővé. A munkafolyamatok támogatják a **több ügynökből álló orkesztációt** és a **mentési pontokat** a munkafolyamat állapotának megőrzésére.
+A munkafolyamatok különböző összetevőkből állnak, amelyek jobb vezérlésfolyamot tesznek lehetővé. A munkafolyamatok támogatják a **több ügynökös orkestrációt** és az állapotmentést, azaz **checkpointolást** a munkafolyamat állapotainak mentésére.
 
-A munkafolyamat alapvető összetevői:
+Egy munkafolyamat főbb összetevői:
 
 **Végrehajtók**
 
-A végrehajtók bemeneti üzeneteket kapnak, végrehajtják a kijelölt feladatokat, majd kimeneti üzenetet állítanak elő. Ez előreviszi a munkafolyamatot a nagyobb feladat teljesítése felé. A végrehajtók lehetnek AI ügynökök vagy egyéni logika.
+A végrehajtók input üzeneteket kapnak, elvégzik a feladataikat, majd output üzenetet generálnak. Ez előreviszi a munkafolyamatot a nagyobb feladat befejezése felé. A végrehajtók lehetnek MI ügynökök vagy egyéni logikák is.
 
 **Élek**
 
-Az élek definiálják az üzenetek áramlását a munkafolyamatban. Ezek lehetnek:
+Az élek határozzák meg az üzenetek áramlását egy munkafolyamatban. Ezek lehetnek:
 
-*Közvetlen élek* - Egyszerű egy az egyhez kapcsolat a végrehajtók között:
+*Direkt élek* - Egyszerű egy az egyhez kapcsolatok a végrehajtók között:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -316,67 +316,67 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Feltételes élek* - Egy adott feltétel teljesülése után aktiválódnak. Például, ha a szállodai szobák nem elérhetők, a végrehajtó más lehetőségeket javasolhat.
+*Feltételes élek* - Akkor aktiválódnak, ha bizonyos feltétel teljesül. Például, ha szállodai szobák nem elérhetők, egy végrehajtó alternatívákat javasolhat.
 
-*Switch-case élek* - Üzenetek irányítása különböző végrehajtókhoz meghatározott feltételek alapján. Például, ha egy utazási ügyfél prioritásos hozzáféréssel rendelkezik, a feladatait egy másik munkafolyamat kezeli.
+*Kapcsoló-eset élek* - Üzenetek irányítása különböző végrehajtókhoz meghatározott feltételek alapján. Például, ha egy utazó ügyfél prioritási hozzáféréssel rendelkezik, a feladatai egy másik munkafolyamaton keresztül kerülnek kezelésre.
 
-*Fan-out élek* - Egy üzenet küldése több célpontra.
+*Sokirányú élek* - Egy üzenet több címzetthez küldése.
 
-*Fan-in élek* - Több üzenet összegyűjtése különböző végrehajtóktól, majd egyetlen célpontnak való továbbítás.
+*Bejövő élek* - Több üzenet gyűjtése különböző végrehajtóktól és egy címzetthez továbbítása.
 
 **Események**
 
-A jobb megfigyelhetőség érdekében a MAF beépített eseményeket kínál a végrehajtás során, többek között:
+A jobb megfigyelhetőség érdekében a MAF beépített eseményeket biztosít a végrehajtáshoz, többek között:
 
-- `WorkflowStartedEvent`  - A munkafolyamat végrehajtása megkezdődik
-- `WorkflowOutputEvent` - A munkafolyamat kimenetet állít elő
-- `WorkflowErrorEvent` - A munkafolyamat hibát tapasztal
-- `ExecutorInvokeEvent`  - A végrehajtó elindítja a feldolgozást
+- `WorkflowStartedEvent`  - A munkafolyamat végrehajtásának kezdete
+- `WorkflowOutputEvent` - A munkafolyamat kimenetet termel
+- `WorkflowErrorEvent` - A munkafolyamat hibába ütközik
+- `ExecutorInvokeEvent`  - A végrehajtó elkezdi a feldolgozást
 - `ExecutorCompleteEvent`  -  A végrehajtó befejezi a feldolgozást
-- `RequestInfoEvent` - Kérés érkezik
+- `RequestInfoEvent` - Egy kérés elindul
 
-## Fejlett MAF Minták
+## Fejlett MAF minták
 
-A fentiek a Microsoft Agent Framework kulcsfogalmait tárgyalják. Amint összetettebb ügynököket építesz, fontolj meg néhány fejlett mintát:
+A fentiek a Microsoft Agent Framework kulcsfogalmait fedik le. Ahogy bonyolultabb ügynököket épít, íme néhány fejlett minta, amit érdemes fontolóra venni:
 
-- **Middleware Kompozíció**: Több middleware kezelő láncolása (naplózás, hitelesítés, sebességkorlátozás) funkció- és chat middleware-rel az ügynök viselkedésének finomhangolt irányításához.
-- **Munkafolyamat Mentési Pontok**: Munkafolyamat események és sorosítás használata a hosszú futású ügynök folyamatok mentésére és folytatására.
-- **Dinamikus Eszközválasztás**: A RAG kombinálása az eszközleírások alapján a MAF eszközregisztrációjával, hogy lekérdezésenként csak releváns eszközöket jelenítsen meg.
-- **Több Ügynök Közötti Átadás**: Munkafolyamat élek és feltételes irányítás használata a specializált ügynökök közötti átadások megszervezéséhez.
+- **Middleware összefűzés**: Több middleware kezelő láncolása (naplózás, hitelesítés, sebességkorlátozás) funkció- és chat-middleware használatával az ügynök viselkedésének finomhangolt kontrolljához.
+- **Munkafolyamat állapotmentés**: Használja a munkafolyamat eseményeit és sorosítást a hosszabb futású ügynök folyamatok mentésére és folytatására.
+- **Dinamikus eszközválasztás**: Kombinálja a RAG-et az eszközleírásokon az MAF eszközregisztrációjával, hogy csak a vonatkozó eszközöket jelenítse meg lekérdezésenként.
+- **Több ügynök közötti átadás**: Használja a munkafolyamat éleket és feltételes útválasztást a specializált ügynökök közötti átadások orkestrálására.
 
-## LangChain / LangGraph Ügynökök tárolása Microsoft Foundry-n
+## LangChain / LangGraph Ügynökök hosztolása Microsoft Foundry-n
 
-A Microsoft Agent Framework **keretrendszer interoperábilis** — nem vagy korlátozva a MAF-val írt ügynökökre. Ha már rendelkezel egy **LangChain** vagy **LangGraph** ügynökkel, futtathatod azt, mint egy **Microsoft Foundry által tárolt ügynököt**, így a Foundry kezeli a futási időt, munkameneteket, méretezést, azonosítást és protokoll végpontokat, miközben az ügynök logikád a LangGraph-ban marad.
+A Microsoft Agent Framework **keretrendszer-interoperábilis** — nem kötött az MAF segítségével írt ügynökökhöz. Ha már van egy ügynöke, amit **LangChain** vagy **LangGraph** segítségével épített, futtathatja azt **Microsoft Foundry hosztolt ügynökként**, így a Foundry kezeli a futásidőt, munkameneteket, skálázást, azonosítást és protokoll végpontokat, míg az ügynök logikája a LangGraph-ban marad.
 
-Ezt a `langchain_azure_ai.agents.hosting` csomaggal érik el, amely egy lefordított LangGraph gráfot tesz elérhetővé ugyanazokon a protokollokon keresztül, amelyeket a Foundry tárolt ügynökei használnak.
+Ez a `langchain_azure_ai.agents.hosting` csomaggal valósítható meg, amely egy lefordított LangGraph gráfot tesz elérhetővé ugyanazokon a protokollokon, amelyeket a Foundry hosztolt ügynökök használnak.
 
-**1. Telepítsd a hosting extrát:**
+**1. Telepítse a hosting kiegészítőt:**
 
 ```bash
 pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
 
-A `hosting` extra telepíti a Foundry protokoll könyvtárakat: `azure-ai-agentserver-responses` (az OpenAI-kompatibilis `/responses` végpont) és `azure-ai-agentserver-invocations` (az általános `/invocations` végpont).
+A `hosting` kiegészítő telepíti a Foundry protokoll könyvtárait: az `azure-ai-agentserver-responses` (az OpenAI-kompatibilis `/responses` végpont) és az `azure-ai-agentserver-invocations` (a generikus `/invocations` végpont).
 
-**2. Válassz egy hosting protokollt:**
+**2. Válasszon hosting protokollt:**
 
-| Protokoll | Host osztály | Végpont | Használat ideje |
-|----------|-----------|----------|----------|
-| **Responses** | `ResponsesHostServer` | `/responses` | Olyan ügynökök számára ajánlott alapértelmezett, akik OpenAI-kompatibilis chatet, streaminget, válasz előzményeket és beszélgetés szálazást szeretnének. |
-| **Invocations** | `InvocationsHostServer` | `/invocations` | Ha egyedi JSON formátumra, webhook-stílusú végpontra vagy nem beszélgetés alapú feldolgozásra van szükséged. |
+| Protokoll | Hoszt osztály | Végpont | Használat esete |
+|----------|---------------|---------|-----------------|
+| **Responses** | `ResponsesHostServer` | `/responses` | OpenAI-kompatibilis chat, streaming, válasz előzmények és beszélgetés szálazás támogatása – az ajánlott alapértelmezett konverzációs ügynökök számára. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Egyedi JSON formátum, webhook-szerű végpont vagy nem konverzációs feldolgozás szükséges. |
 
-Mivel a **Responses API a fő API agent-stílusú fejlesztéshez a Foundry-ban**, a legtöbb ügynökhöz kezd a `ResponsesHostServer`-rel.
+Mivel a **Responses API a Foundry-ban az elsődleges ügynök-fejlesztési API**, a legtöbb ügynöknél kezdje a `ResponsesHostServer`-rel.
 
-**3. Konfiguráld a környezeti változókat** (`az login` előtte, hogy a `DefaultAzureCredential` tudjon hitelesíteni):
+**3. Konfigurálja a környezeti változókat** (`az login` lefuttatása előtte, hogy a `DefaultAzureCredential` tudjon hitelesíteni):
 
 ```bash
 export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
 export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
 
-Amikor az ügynök később tárolt ügynökként fut a Foundry-ban, a platform automatikusan kezeli a `FOUNDRY_PROJECT_ENDPOINT` változót.
+Amikor az ügynök később fut egy hosztolt ügynökként a Foundry-ban, a platform automatikusan injektálja a `FOUNDRY_PROJECT_ENDPOINT` változót.
 
-**4. Tedd elérhetővé a LangGraph ügynököt a Responses protokollon keresztül:**
+**4. Tegye elérhetővé a LangGraph ügynököt a Responses protokollon keresztül:**
 
 ```python
 import os
@@ -398,7 +398,7 @@ def build_chat_model() -> ChatOpenAI:
     openai_client = project.get_openai_client()
     token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
 
-    # A ChatOpenAI itt a Foundry projekt OpenAI-kompatibilis (Válaszok) végpontját célozza meg.
+    # A ChatOpenAI itt a Foundry projekt OpenAI-kompatibilis (Responses) végpontját célozza meg.
     return ChatOpenAI(
         model=deployment,
         base_url=str(openai_client.base_url),
@@ -416,26 +416,26 @@ if __name__ == "__main__":
     main()
 ```
 
-Futtasd helyben a `python main.py` paranccsal, majd küldj egy Responses kérést a `http://localhost:8088/responses` címre.
+Futtassa helyben a `python main.py` parancsal, majd küldjön egy Responses kérést a `http://localhost:8088/responses` címre.
 
-**Fontos viselkedések:**
+**Kulcs viselkedések:**
 
-- **Beszélgetések**: Az ügyfelek egy beszélgetést folytatnak a `previous_response_id` vagy egy `conversation` azonosító továbbításával. Ha a gráfot LangGraph checkpoint-al fordították le, a Foundry a beszélgetés állapotát a checkpoint-hoz rendeli (használj tartós checkpointot produkcióban; a `MemorySaver` helyi teszteléshez megfelelő).
-- **Emberi beavatkozás**: Ha a gráf használja a LangGraph `interrupt()` függvényt, a `ResponsesHostServer` megjeleníti a függőben lévő megszakítást mint Responses `function_call` / `mcp_approval_request` elemet, és az ügyfelek folytatják egy megfelelő `function_call_output` / `mcp_approval_response`-sal.
-- **Foundry-ba telepítés**: Használd az Azure Developer CLI-t — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (helyi, Docker szükséges), majd `azd provision` és `azd deploy`. A tárolt ügynök telepítéséhez szükséges a **Foundry Project Manager** szerepkör.
+- **Beszélgetések**: Az ügyfelek folytatják a beszélgetést `previous_response_id` vagy egy `conversation` azonosító átadásával. Ha a gráf LangGraph checkpointot használ, a Foundry a beszélgetési állapotot a checkpointhoz köti (gyártásban tartós checkpointot használjon; helyi tesztelésre a MemorySaver megfelelő).
+- **Ember a hurkon belül**: Ha a gráf használja a LangGraph `interrupt()` funkcióját, a `ResponsesHostServer` a függőben lévő megszakítást válaszként (`function_call` / `mcp_approval_request`) jelzi, és az ügyfelek a hozzá illeszkedő `function_call_output` / `mcp_approval_response` válasszal folytathatják.
+- **Kibocsátás a Foundry-ba**: Használja az Azure Developer CLI-t — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (helyi, Docker szükséges), majd `azd provision` és `azd deploy`. A hosztolt ügynök telepítéséhez szükség van a **Foundry Project Manager** szerepre.
 
-Ennek a példának egy futtatható változata megtalálható a [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) fájlban. A teljes bemutatóért (Invocations protokoll, egyedi kérés sémák és hibakeresés) lásd: [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+Ennek a példának futtatható verziója a [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py) fájlban található. A teljes ismertetőért (Invocations protokoll, egyedi kérés sémák és hibajavítás) lásd a [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents) oldalt.
 
-## Kódpéldák
+## Kódminták 
 
-A Microsoft Agent Framework-kel kapcsolatos kódminták megtalálhatóak a tárházban az `xx-python-agent-framework` és `xx-dotnet-agent-framework` fájlok alatt.
+A Microsoft Agent Framework kódmintái megtalálhatók ebben a tárolóban az `xx-python-agent-framework` és `xx-dotnet-agent-framework` fájlok alatt.
 
-## További kérdéseid vannak a Microsoft Agent Framework-ről?
+## Több kérdésed van a Microsoft Agent Frameworkkel kapcsolatban?
 
-Csatlakozz a [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) szerverhez, hogy találkozz más tanulókkal, részt vegyél hivatalos órákon és választ kapj AI ügynökökkel kapcsolatos kérdéseidre.
+Csatlakozz a [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) közösséghez, hogy találkozz más tanulókkal, részt vegyél az irodai órákon, és választ kapj MI Ügynökökkel kapcsolatos kérdéseidre.
 ## Előző lecke
 
-[Memória az AI ügynökök számára](../13-agent-memory/README.md)
+[Memória MI Ügynökök számára](../13-agent-memory/README.md)
 
 ## Következő lecke
 

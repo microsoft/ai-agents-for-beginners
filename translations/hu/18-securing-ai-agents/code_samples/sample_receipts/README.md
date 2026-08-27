@@ -1,23 +1,28 @@
-# Minta blokkok nyugtákhoz
+# Minta blokknyugták
 
-Három előre legenerált nyugta fájl ellenőrzéshez a jegyzetfüzet futtatása nélkül.
+Három előre generált blokknyugta fájl ellenőrzéshez a notebook futtatása nélkül.
 
-| Fájl | Mi ez? |
+| Fájl | Mit tartalmaz |
 |---|---|
-| `01_valid_receipt.json` | Egy érvényes aláírt nyugta a `lookup_flights` eszköz híváshoz. Az ellenőrzés True értéket ad vissza. |
-| `02_tampered_receipt.json` | Ugyanaz a nyugta, egy mező módosítása után aláíráskor. Az ellenőrzés False-t ad vissza. |
-| `03_chain_three_receipts.json` | Három érvényes nyugta láncolata (keresés, foglalás, könyvelés), melyek `previous_receipt_hash`-szal egymáshoz vannak kötve. |
+| `01_valid_receipt.json` | Egy érvényes, aláírt blokknyugta egy `lookup_flights` eszköz híváshoz. Az ellenőrzés True értéket ad vissza. |
+| `02_tampered_receipt.json` | Ugyanaz a blokknyugta, amelyben egy mező módosítva lett az aláírás után. Az ellenőrzés False értéket ad vissza. |
+| `03_chain_three_receipts.json` | Három érvényes blokknyugta láncolata (keresés, foglalás, lefoglalás) `previous_receipt_hash` mezővel, amely összekapcsolja őket egymással. |
+
+A minták a terhelés kanonikus JCS byte-jait közvetlenül az Ed25519-gyel írják alá.
+A SHA-256 továbbra is a tartalomösszefoglalókhoz és a blokknyugtalánc linkekhez használatos, nem pedig
+külön előfeldolgozásként az aláírás előtt.
 
 ## A minták ellenőrzése
 
-A jegyzetfüzet négy részben vezeti végig az ellenőrzést. Ha azokat a blokkokat közvetlenül szeretnénk ellenőrizni a jegyzetfüzet magyarázatának futtatása nélkül:
+A notebook négy részben halad az ellenőrzésen keresztül. Ezeknek a mintáknak 
+az ellenőrzéséhez közvetlenül, a notebook narratíva futtatása nélkül:
 
 ```python
 import json
 from pathlib import Path
 
-# Feltételezi, hogy befejezte az importokat és segédfunkciókat
-# az 18-signed-receipts.ipynb 1. és 2. szakaszából.
+# Feltételezi, hogy befejezted az importokat és a segédfunkciókat
+# az 18-signed-receipts.ipynb 1-es és 2-es szakaszából.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Igaz
@@ -32,22 +37,27 @@ for r in verify_chain(chain):
 
 ## Hogyan készültek ezek
 
-A minták ugyanazon a kódúton haladnak, mint a jegyzetfüzet, egy fix aláírási kulccsal
-és fix időbélyegekkel a bájt-reprodukálhatóságért. A regeneráláshoz:
+A minták ugyanazt a kódfolyamatot használják, mint a notebook, egy fix aláíró kulccsal
+és fix időbélyegekkel a byte-reprodukálhatóság érdekében. Újrageneráláshoz:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(A szkript a `generate_fixtures.py` ebben a könyvtárban.)
+(A szkript a `generate_fixtures.py` fájlban található ebben a könyvtárban.)
 
-## Mit tanulnak a diákok az alap JSON átnézéséből
+## Mit tanulnak a hallgatók a nyers JSON megtekintéséből
 
-Az alap nyugta formátum olvasása segíti az intuíció kiépítését, amit a jegyzetfüzet cellái nem mindig adnak meg. A JSON-t átnéző diákok gyakran észreveszik:
+A nyers blokknyugta formátum olvasása olyan intuíciót épít, amit a notebook cellák nem
+mindig nyújtanak. A hallgatók, akik átlapozzák a JSON-t, gyakran észreveszik:
 
-1. Az aláírás egy átlátszatlan base64url karakterlánc, de a többi mező sima, olvasható JSON. Az aláírás nem titkosítja a tartalmat; csak igazolja azt.
-2. A `public_key` be van ágyazva a nyugtába. Egy ellenőrnek nincs szüksége másra az ellenőrzéshez (feltéve, hogy megbízik abban, hogy a kulcs valóban a kijelölt kibocsátóhoz tartozik; lásd a tananyag README-jét az identitás-infrastruktúráról).
-3. Egyetlen karakter módosítása bármelyik mezőben, majd a fájl újraösszehasonlítása a `02_tampered_receipt.json`-nel, kézzelfoghatóvá teszi a bájtszintű mechanizmust.
+1. Az aláírás egy átlátszatlan base64url karakterlánc, de minden más mező egyszerű,
+   olvasható JSON. Az aláírás nem titkosítja a tartalmat; annak hitelesítésére szolgál.
+2. A `public_key` beágyazva van a blokknyugtában. Egy ellenőrnek nincs szüksége másra
+   az ellenőrzéshez (feltéve, hogy bízik abban, hogy a kulcs valóban a kijelölt
+   kibocsátóhoz tartozik; lásd a tananyag README fájlját az identitás infrastruktúráról).
+3. Bármely mező egyetlen karakterének megváltoztatása, majd ennek a fájlnak az összehasonlítása az
+   `02_tampered_receipt.json` fájllal konkrétan bemutatja a byte-szintű mechanizmust.
 
 ---
 
