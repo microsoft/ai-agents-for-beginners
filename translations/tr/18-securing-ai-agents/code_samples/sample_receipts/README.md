@@ -1,23 +1,28 @@
-# Örnek Makbuz Düzenekleri
+# Örnek Makbuz Örnekleri
 
-Defteri çalıştırmadan inceleme için üç önceden oluşturulmuş makbuz dosyası.
+Defteri çalıştırmadan inceleme için önceden oluşturulmuş üç makbuz dosyası.
 
-| Dosya | Ne olduğu |
+| Dosya | Nedir |
 |---|---|
-| `01_valid_receipt.json` | `lookup_flights` aracının çağrısı için geçerli imzalı bir makbuz. Doğrulama True döner. |
+| `01_valid_receipt.json` | `lookup_flights` aracı çağrısı için geçerli, imzalı bir makbuz. Doğrulama True döner. |
 | `02_tampered_receipt.json` | İmzalandıktan sonra bir alanı değiştirilmiş aynı makbuz. Doğrulama False döner. |
-| `03_chain_three_receipts.json` | Üç geçerli makbuzun (arama, tutma, rezervasyon) `previous_receipt_hash` ile her biri öncekine bağlanmış zinciri. |
+| `03_chain_three_receipts.json` | Üç geçerli makbuzdan oluşan bir zincir (arama, tutma, rezervasyon) ve her biri bir öncekine bağlı `previous_receipt_hash` ile. |
+
+Örnekler, yükün kanonik JCS baytlarını doğrudan Ed25519 ile imzalarlar.
+SHA-256, içerik özetleri ve makbuz zinciri bağlantılarında kullanılmaya devam eder, imzadan önce
+ekstra bir ön özet olarak değil.
 
 ## Örneklerin doğrulanması
 
-Defter, doğrulamayı dört bölümde anlatır. Bu düzenekleri defter anlatımı olmadan doğrudan doğrulamak için:
+Defter doğrulamayı dört bölümde açıklar. Bu örnekleri defter anlatısını çalıştırmadan
+doğrudan doğrulamak için:
 
 ```python
 import json
 from pathlib import Path
 
-# İçe aktarmaları ve yardımcı fonksiyonları tamamladığınızı varsayar
-# 18-signed-receipts.ipynb dosyasının 1 ve 2. bölümlerinden.
+# İçe aktarımları ve yardımcı fonksiyonları tamamladığınızı varsayar
+# 18-signed-receipts.ipynb dosyasının 1. ve 2. bölümlerinden.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Doğru
@@ -32,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Bunların nasıl oluşturulduğu
 
-Düzenekler defterle aynı kod yolunu kullanır, sabit bir imzalama anahtarı
-ve bayt yeniden üretilebilirliği için sabit zaman damgaları ile. Yeniden oluşturmak için:
+Örnekler, defterdeki ile aynı kod yolunu kullanır, sabit bir imzalama anahtarı
+ve byte-tekrarlanabilirliği için sabit zaman damgaları vardır. Yeniden oluşturmak için:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript bu dizindeki `generate_fixtures.py` dosyasında.)
+(Betik, bu dizindeki `generate_fixtures.py` dosyasındadır.)
 
-## Öğrenciler hammadde JSON’u inceleyerek ne öğrenir?
+## Öğrencilerin ham JSON'u inceleyerek öğrendikleri
 
-Hammadde makbuz formatını okumak, defter hücrelerinde her zaman sağlanmayan bir sezgi
-kazandırır. JSON’u hızla gözden geçiren öğrenciler genellikle fark eder:
+Ham makbuz formatını okumak, defterdeki hücrelerin her zaman sağlamadığı bir sezgi oluşturur.
+JSON'a hızlıca göz atan öğrenciler genellikle fark ederler ki:
 
-1. İmza opak bir base64url dizisidir, ancak diğer tüm alanlar okunabilir
-   düz JSON’dur. İmza içeriği şifrelemez; ona doğruluk onayı verir.
-2. `public_key` makbuzda gömülüdür. Bir denetçi doğrulama için başka bir şeye ihtiyaç
-   duymaz (ancak anahtarın gerçekten iddia edilen vericiye ait olduğuna güvenmek gerekir;
-   kimlik altyapısına ilişkin ders README’sine bakınız).
-3. Herhangi bir alanın tek bir karakterini değiştirmek ve sonra bu dosyayı
-   `02_tampered_receipt.json` ile karşılaştırmak, bayt düzeyindeki mekanizmayı somutlaştırır.
+1. İmza opak bir base64url dizisidir, ancak diğer tüm alanlar düz okunabilir JSON'dur.
+   İmza içeriği şifrelemez; ona dair onay verir.
+2. `public_key` makbuzun içine gömülüdür. Bir denetçi
+   doğrulama için başka bir şeye ihtiyaç duymaz (anahtarın gerçekten iddia edilen
+   yayıncıya ait olduğuna güvenmek şartıyla; kimlik altyapısı için ders README'sine bakınız).
+3. Herhangi bir alanın tek bir karakterini değiştirip bu dosyayı
+   `02_tampered_receipt.json` ile tekrar karşılaştırmak, bayt düzeyindeki mekanizmayı somutlaştırır.
 
 ---
 

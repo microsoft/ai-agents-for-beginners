@@ -8,16 +8,20 @@ Trzy wstępnie wygenerowane pliki paragonów do inspekcji bez uruchamiania notat
 | `02_tampered_receipt.json` | Ten sam paragon z jednym zmodyfikowanym polem po podpisaniu. Weryfikacja zwraca False. |
 | `03_chain_three_receipts.json` | Łańcuch trzech prawidłowych paragonów (wyszukiwanie, rezerwacja, potwierdzenie) z `previous_receipt_hash` łączącym każdy z poprzednim. |
 
+Pliki podpisują bezpośrednio kanoniczne bajty JCS ładunku z Ed25519.
+SHA-256 pozostaje używany do skrótów zawartości i łączenia łańcucha paragonów, a nie jako
+dodatkowe wstępne haszowanie przed podpisem.
+
 ## Weryfikacja próbek
 
 Notatnik przeprowadza weryfikację w czterech sekcjach. Aby zweryfikować te pliki
-bezpośrednio bez przechodzenia narracji notatnika:
+bezpośrednio, bez przechodzenia narracji notatnika:
 
 ```python
 import json
 from pathlib import Path
 
-# Zakłada, że ukończyłeś importy i funkcje pomocnicze
+# Zakłada się, że ukończyłeś importy i funkcje pomocnicze
 # z sekcji 1 i 2 pliku 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -34,7 +38,7 @@ for r in verify_chain(chain):
 ## Jak zostały wygenerowane
 
 Pliki używają tej samej ścieżki kodu co notatnik, z jednym stałym kluczem podpisu
-i stałymi znacznikami czasu dla reprodukowalności na poziomie bajtów. Aby wygenerować ponownie:
+i stałymi znacznikami czasu dla powtarzalności bajtów. Aby wygenerować ponownie:
 
 ```bash
 python3 generate_fixtures.py
@@ -42,18 +46,18 @@ python3 generate_fixtures.py
 
 (Skrypt znajduje się w `generate_fixtures.py` w tym katalogu.)
 
-## Co studenci uczą się, analizując surowy JSON
+## Czego uczą się studenci, przeglądając surowe JSON
 
 Czytanie surowego formatu paragonu buduje intuicję, której komórki w notatniku
 nie zawsze dostarczają. Studenci, którzy przeglądają JSON, często zauważają:
 
-1. Podpis jest nieprzezroczystym ciągiem base64url, ale każde inne pole to czysty
-   czytelny JSON. Podpis nie szyfruje zawartości; jest jej potwierdzeniem.
-2. `public_key` jest osadzony w paragonie. Audytor nie potrzebuje niczego więcej,
-   aby zweryfikować (pod warunkiem, że ufa, że klucz rzeczywiście należy do deklarowanego
-   wystawcy; zobacz README lekcji o infrastrukturze tożsamości).
-3. Modyfikacja jednego znaku w dowolnym polu, a następnie ponowne porównanie tego pliku z
-   `02_tampered_receipt.json` urealnia mechanizm na poziomie bajtów.
+1. Podpis jest nieprzejrzystym ciągiem base64url, ale każde inne pole to zwykły
+   czytelny JSON. Podpis nie szyfruje zawartości; poświadcza ją.
+2. `public_key` jest osadzony w paragonie. Audytor nie potrzebuje nic więcej
+   do weryfikacji (pod warunkiem zaufania, że klucz faktycznie należy do podanego
+   wystawcy; zobacz plik README lekcji o infrastrukturze tożsamości).
+3. Zmiana pojedynczego znaku dowolnego pola, a następnie ponowne porównanie tego pliku z
+   `02_tampered_receipt.json`, sprawia, że mechanizm na poziomie bajtów staje się namacalny.
 
 ---
 

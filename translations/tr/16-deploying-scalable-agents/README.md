@@ -1,100 +1,100 @@
-# Microsoft Foundry ile Ölçeklenebilir Ajanların Dağıtımı
+# Microsoft Foundry ile Ölçeklenebilir Ajanlar Dağıtma
 
-![Ölçeklenebilir Ajanların Dağıtımı](../../../translated_images/tr/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Ölçeklenebilir Ajanlar Dağıtma](../../../translated_images/tr/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Kursun bu noktasına kadar, dizüstü bilgisayarınızda, `az login` ve bir avuç ortam değişkeniyle çalışan ajanlar oluşturdunuz. Bu, öğrenmek için tam doğru yoldur. Ancak binlerce müşterinin 3 sabah saatinde bağlı olduğu bir ajanı çalıştırmak için doğru yol değildir.
+Kursun bu noktasına kadar bir dizüstü bilgisayarda, `az login` ve birkaç ortam değişkeni tarafından yönlendirilen ajanlar oluşturdunuz. Bu öğrenmek için tam doğru yoldur. Ancak binlerce müşterinin sabaha karşı 3'te dayandığı bir ajanı çalıştırmak için doğru yol değildir.
 
-Bu ders, "makinemde çalışıyor" ile "üretimde güvenilir ve uygun maliyetli şekilde çalışıyor" arasındaki farkla ilgilidir. Bu farkı **Microsoft Foundry** ve **Microsoft Foundry Agent Service** kullanarak kapatıyoruz ve araçlar, geri getirme, hafıza, değerlendirme ve izleme özelliklerine sahip gerçek bir müşteri destek ajanı oluşturarak yapıyoruz.
+Bu ders, "makinemde çalışıyor" ile "üretimde güvenilir ve uygun maliyetli çalışıyor" arasındaki fark hakkındadır. Bu farkı **Microsoft Foundry** ve **Microsoft Foundry Ajan Servisi** kullanarak kapatıyoruz ve bunu, araçları, veri getirme, bellek, değerlendirme ve izleme özelliklerine sahip gerçek bir müşteri destek ajanı oluşturarak yapıyoruz.
 
 ## Giriş
 
-Bu ders şunları kapsayacak:
+Bu ders aşağıdaki konuları kapsayacaktır:
 
-- **Prototip ajan** ile **dağıtılmış ajan** arasındaki fark ve geçişin büyük ölçüde modelin *etrafındaki* her şeyle ilgili olması.
-- Ajanlar için **Dağıtım kalıpları**: istemci barındırmalı, hizmet barındırmalı (Hosted Agents) ve iş akışı orkestrasyonlu.
-- Microsoft Foundry'deki **ajan yaşam döngüsü** — oluşturma, sürümlendirme, dağıtma, değerlendirme, gözlemleme, emekliye ayırma.
+- Bir **prototip ajan** ile **dağıtılmış ajan** arasındaki fark ve geçişin çoğunlukla modelin *etrafındaki* her şeyle ilgili olması.
+- Ajanlar için **dağıtım desenleri**: istemci barındırmalı, servis barındırmalı (Barındırılan Ajanlar) ve iş akışı düzenlemeli.
+- Microsoft Foundry üzerindeki **ajan yaşam döngüsü** — oluşturma, sürümleme, dağıtım, değerlendirme, gözlemleme, emekliye ayırma.
 - **Ölçeklendirme stratejileri**: model yönlendirme, önbellekleme, eşzamanlılık ve durumsuz tasarım.
 - OpenTelemetry ve Foundry izleme ile **gözlemlenebilirlik**.
-- Model seçimi, yönlendirme ve değerlendirme kapıları ile **maliyet optimizasyonu**.
-- **Kurumsal hususlar**: yönetişim, insan onayı ve MCP sunucularının üretimde güvenli çalıştırılması.
+- Model seçimi, yönlendirme ve değerlendirme kapılarıyla **maliyet optimizasyonu**.
+- **Kurumsal değerlendirmeler**: yönetim, insan onayı ve üretimde MCP sunucularının güvenli çalıştırılması.
 
 ## Öğrenme Hedefleri
 
 Bu dersi tamamladıktan sonra şunları bileceksiniz:
 
-- Belirli bir ajan iş yükü için doğru dağıtım kalıbını seçmek.
-- Bir ajanı Microsoft Foundry Agent Service'e dağıtarak sürümlendirmek, yönetmek ve gözlemlenebilir yapmak.
-- Bir ajanı izleme için donatmak ve her sürüm öncesi çalışan değerlendirme hattı kurmak.
-- Ölçeklendirmede gecikme ve maliyeti kontrol altında tutmak için model yönlendirme ve önbellekleme uygulamak.
-- Yüksek riskli işlemler için insan onay kapısı eklemek ve MCP sunucusunu üretim açısından güvenli şekilde entegre etmek.
+- Bir ajanın iş yükü için doğru dağıtım desenini seçmek.
+- Bir ajanı Microsoft Foundry Ajan Servisine dağıtarak onun sürümlendiğinden, yönetildiğinden ve gözlemlendiğinden emin olmak.
+- İzleme için bir ajanı donatmak ve her sürüm öncesi çalıştırılan bir değerlendirme hattı kurmak.
+- Ölçeklenebilirlikte gecikme ve maliyeti kontrol altında tutmak için model yönlendirme ve önbellekleme uygulamak.
+- Yüksek riskli işlemler için insan onay kapısı eklemek ve üretim güvenliği sağlamak için bir MCP sunucusunu entegre etmek.
 
 ## Ön Koşullar
 
-Bu ders, önceki dersleri tamamladığınızı ve şunlara hakim olduğunuzu varsayar:
+Bu ders, önceki dersleri tamamlamış ve aşağıdaki konularda rahat olduğunuzu varsayar:
 
-- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) ile ajan oluşturmaya (Ders 14).
+- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) ile ajan oluşturma (Ders 14).
 - [Araç Kullanımı](../04-tool-use/README.md) (Ders 4) ve [Agentic RAG](../05-agentic-rag/README.md) (Ders 5).
-- [Agent Belleği](../13-agent-memory/README.md) (Ders 13) ve [Agentic Protokoller / MCP](../11-agentic-protocols/README.md) (Ders 11).
-- [Gözlemlenebilirlik ve Değerlendirme](../10-ai-agents-production/README.md) (Ders 10) — bu ders onun üzerine doğrudan inşa edilir.
+- [Ajan Belleği](../13-agent-memory/README.md) (Ders 13) ve [Agentic Protokoller / MCP](../11-agentic-protocols/README.md) (Ders 11).
+- [Gözlemlenebilirlik ve Değerlendirme](../10-ai-agents-production/README.md) (Ders 10) — bu ders doğrudan buna dayanır.
 
-Ayrıca ihtiyacınız olacak:
+Ayrıca şunlara ihtiyacınız olacak:
 
-- En az bir dağıtılmış sohbet modeli olan **Azure aboneliği** ve **Microsoft Foundry projesi**.
-- Kimlik doğrulamalı **Azure CLI** (`az login`).
-- Python 3.12+ ve depodaki [`requirements.txt`](../../../requirements.txt) içindeki paketler.
+- En az bir dağıtılmış sohbet modeli içeren bir **Azure aboneliği** ve **Microsoft Foundry projesi**.
+- Kimlik doğrulaması yapılmış **Azure CLI** (`az login`).
+- Python 3.12+ ve depodaki [`requirements.txt`](../../../requirements.txt) dosyasında belirtilen paketler.
 
-## Prototipten Üretime: Aslında Neler Değişir
+## Prototipten Üretime: Gerçekten Ne Değişiyor
 
-Prototip ajan ile üretim ajanı aynı temel döngüyü paylaşır — mantık yürütme, araç çağırma, yanıt verme. Değişen, bu döngünün etrafında bulunan her şeydir. Model, bir üretim ajanının belki %20'sidir; diğer %80 operasyonel iskeletdir.
+Bir prototip ajan ile bir üretim ajanı aynı temel döngüyü paylaşır — mantık yürüt, araçları çağır, yanıtla. Değişen şey, o döngüyü çevreleyen her şeydir. Model üretim ajanının yaklaşık %20'si olabilir; diğer %80 operasyonel iskelettir.
 
-| Husus | Prototip | Üretim |
+| Endişe | Prototip | Üretim |
 | --- | --- | --- |
-| **Barındırma** | Dizüstünüzde çalışır | Barındırılan hizmet olarak çalışır, sürümlenir ve yayılır |
-| **Kimlik** | Sizin `az login` belirteciniz | Kapsamlı RBAC ile yönetilen kimlik |
-| **Durum** | Bellekte, yeniden başlatmada kaybolur | Dışsallaştırılmış (dizi deposu, bellek servisi) |
-| **Hata** | İzlemeyi görürsünüz | Tekrarlar, geri dönüşler, ölü mektup, uyarılar |
-| **Maliyet** | "Birkaç sent" | İstek bazında takip, yönlendirme, önbellekleme, bütçeleme |
-| **Kalite** | Çıktıyı gözle kontrol edersiniz | Her sürüm öncesi otomatik değerlendirilir |
-| **Güven** | Her işlemi siz onaylarsınız | Politikalar + riskli işlemler için insan denetimi |
+| **Barındırma** | Dizüstünüzde çalışır | Barındırılan servis olarak çalışır, sürümlenir ve yayılır |
+| **Kimlik** | Sizin `az login` jetonunuz | Kapsamlı RBAC ile yönetilen kimlik |
+| **Durum** | Bellek içi, yeniden başlatmada kaybolur | Harici (thread deposu, bellek servisi) |
+| **Hata** | İzlenecek geri izleme görürsünüz | Tekrar denemeler, yedek planlar, dead letter, uyarılar |
+| **Maliyet** | "Birkaç sent" | İstek başına takip edilir, yönlendirilir, önbelleğe alınır, bütçelenir |
+| **Kalite** | Çıktıya göz atarsınız | Her sürümden önce otomatik değerlendirilir |
+| **Güven** | Her işlemi siz onaylarsınız | Riskli işlemler için politika + insan döngüsü |
 
 Bu tabloyu aklınızda tutun. Aşağıdaki her bölüm bu satırlardan birine karşılık gelir.
 
-## Ajan Dağıtım Kalıpları
+## Ajan Dağıtım Desenleri
 
-Sıklıkla birlikte kullandığınız üç kalıp vardır.
+Sıklıkla kombinasyon halinde kullanılan üç desen vardır.
 
 ### 1. İstemci Barındırmalı Ajanlar
 
-Ajan nesnesi *sizin* uygulama işleminizin içindedir. Kodunuz model sağlayıcısını doğrudan çağırır; mantık döngüsü hizmetinizde çalışır. Önceki tüm dersler bunu yaptı.
+Ajan nesnesi *sizin* uygulama sürecinizin içinde yaşar. Kodunuz doğrudan model sağlayıcısını çağırır; mantık döngüsü serviste çalışır. Daha önceki derslerin hepsi bu şekildeydi.
 
-- **Ne zaman kullanılır** döngü üzerinde tam kontrol, özel ara katmanlar gerektiğinde veya ajan zaten var olan bir altyapıya gömüldüğünde.
-- **Dezavantaj**: ölçeklendirme, durum ve dayanıklılıktan siz sorumlusunuz.
+- **Kullanımı:** döngü üzerinde tam kontrol, özel ara yazılım veya ajanı mevcut arka uca gömmek istediğinizde.
+- **Dezavantaj:** ölçeklendirme, durum ve dayanıklılığı kendiniz yönetirsiniz.
 
-### 2. Barındırmalı Ajanlar (Foundry Agent Service)
+### 2. Barındırılan Ajanlar (Foundry Ajan Servisi)
 
-Ajan Microsoft Foundry'de *bir kaynak olarak kaydedilir*. Foundry mantık döngüsünü barındırır, dizileri depolar, içerik güvenliği ve RBAC uygular ve ajanı Foundry portalında görünür kılar. Uygulamanız ise dizileri oluşturan ve yanıtları okuyan ince bir istemci olur.
+Ajan, Microsoft Foundry'de *bir kaynak olarak kaydedilir*. Foundry mantık döngüsünü barındırır, thread'leri depolar, içerik güvenliğini ve RBAC'yi uygular ve ajanı Foundry portalında görünür kılar. Uygulamanız, thread oluşturup yanıtları okuyan ince bir istemci haline gelir.
 
-- **Ne zaman kullanılır** dayanıklılık, yerleşik gözlemlenebilirlik, yönetişim ve daha az operasyonel yüzey alanı istendiğinde.
-- **Dezavantaj**: yönetilen çalışma zamanında daha az düşük seviyeli kontrol.
+- **Kullanımı:** dayanıklılık, yerleşik gözlemlenebilirlik, yönetim ve daha az operasyonel yüzey alanı istediğinizde.
+- **Dezavantaj:** yönetilen bir çalışma zamanı karşılığında daha az düşük seviyeli kontrol.
 
 ### 3. Ajan İş Akışları
 
-Birden çok ajan (ve araç) açık kontrol akışıyla grafik halinde birleştirilir — ardışık adımlar, dallanma, insan onay düğümleri ve durdurulup devam edilebilen kalıcı kontrol noktaları. Bu, Microsoft Agent Framework **İş Akışları** özelliğinin dağıtım ölçeğinde uygulanmasıdır.
+Birden fazla ajan (ve araç) açık kontrol akışı ile bir grafik içinde birleştirilir — ardışık adımlar, dallanma, insan onay düğümleri ve duraklatıp devam ettirilebilen dayanıklı kontrol noktaları. Bu, Microsoft Agent Framework'ün dağıtım ölçeğine uygulanan **İş Akışları** özelliğidir.
 
-- **Ne zaman kullanılır** tek görev birçok uzmanlaşmış ajanı kapsıyorsa veya ortasında onay gerektiren bir adım varsa.
-- **Dezavantaj**: daha fazla hareketli parça; orkestrasyon seviyesi gözlemlenebilirlik gerekir.
+- **Kullanımı:** tek bir görev birkaç özel ajanı kapsadığında veya ortada onay adımı gerektiğinde.
+- **Dezavantaj:** daha fazla hareketli parça; düzenleme seviyesinde gözlemlenebilirlik gerekir.
 
 ```mermaid
 flowchart TB
-    subgraph P1[İstemci Barındırılan]
+    subgraph P1[İstemci Barındırmalı]
         A1[Uygulama Süreciniz] --> M1[Model Sağlayıcı]
     end
     subgraph P2[Barındırılan Ajan]
-        A2[İnce İstemci] --> F2[Foundry Ajan Servisi]
+        A2[İnce İstemci] --> F2[Foundry Ajan Hizmeti]
         F2 --> M2[Model + Araçlar + Konu Deposu]
     end
     subgraph P3[Ajan İş Akışı]
-        A3[Orkestratör] --> S1[Ön İnceleme Ajanı]
+        A3[Orkestratör] --> S1[Triaj Ajanı]
         S1 --> S2[Çözücü Ajan]
         S2 --> H[İnsan Onay Düğümü]
         H --> S3[Eylem Ajanı]
@@ -103,37 +103,37 @@ flowchart TB
 
 ## Microsoft Foundry'de Ajan Yaşam Döngüsü
 
-Ajan dağıtımı tek seferlik bir `push` değildir. Bir döngüdür ve yazılım sürüm döngüsüne çok benzer çünkü tam olarak odur.
+Bir ajan dağıtmak tek seferlik bir `push` değildir. Bir döngüdür ve çok benzer şekilde bir yazılım sürüm döngüsüdür.
 
 ```mermaid
 flowchart LR
     Create[Oluştur / Yazar] --> Version[Sürüm]
     Version --> Evaluate[Çevrimdışı değerlendir]
-    Evaluate -->|kapıdan geçer| Deploy[Barındırılan şekilde dağıt]
+    Evaluate -->|kapıyı geçer| Deploy[Barındırılan şekilde dağıt]
     Evaluate -->|kapıda başarısız olur| Create
-    Deploy --> Observe[Çevrimiçi izle]
+    Deploy --> Observe[Çevrimiçi gözlemle]
     Observe --> Improve[Hataları topla]
     Improve --> Create
     Deploy --> Retire[Eski sürümü emekliye ayır]
 ```
 
-Ana fikir, [Ders 10](../10-ai-agents-production/README.md)'dan aktarılmıştır: **çevrimdışı değerlendirme bir kapıdır, sonrasında düşünülmez.** Yeni ajan sürümü, değerlendirme eşiklerini geçmediği sürece yayımlanmaz. Çevrimiçi gözlemlenebilirlik gerçek dünyadaki hataları çevrimdışı test setine geri besler. Bu döngünün tamamıdır.
+Ana fikir, [Ders 10](../10-ai-agents-production/README.md)'dan gelir: **çevrimdışı değerlendirme bir kapıdır, sonradan düşünülmez.** Yeni bir ajan sürümü değerlendirme eşiklerini geçmedikçe dağıtılmaz. Çevrimiçi gözlemlenebilirlik gerçek dünya hatalarını çevrimdışı test setinize geri besler. Bütün döngü budur.
 
 ## Ölçeklendirme Stratejileri
 
-Bir ajanı ölçeklendirmek, durumsuz web API'si ölçeklendirmekten farklıdır çünkü her istek birden çok pahalı model ve araç çağrısı tetikleyebilir. Yükü taşıyan dört teknik vardır.
+Bir ajanı ölçeklendirmek, durumsuz bir web API'sini ölçeklendirmekten farklıdır, çünkü her istek birden fazla pahalı model ve araç çağrısını tetikleyebilir. Dört teknik yükün çoğunu taşır.
 
-**Durumsuz istek işleme.** İşlem belleğinizde kullanıcı başına durum tutmayın. Konuşma dizilerini Foundry dizi deposunda veya bellek servisinde kalıcı hale getirin ki herhangi bir örnek her isteği işleyebilsin. Bu yatay ölçeklendirmeyi sağlar — yeni örnekler ekleyin, yapışkan oturum yok.
+**Durumsuz istek işleme.** Süreç belleğinizde kullanıcıya özel durum tutmayın. Konuşma thread'lerini Foundry thread deposunda veya bir bellek servisinde kalıcı hale getirin, böylece herhangi bir örnek herhangi bir isteği işleyebilir. Bu, yatay ölçeklendirmenizi sağlar — örnekler ekleyin, yapışkan oturum yok.
 
-**Model yönlendirme.** Her istek sizin en güçlü (ve en pahalı) modelinizi gerektirmez. Basit istekleri — niyet sınıflandırma, kısa gerçek cevaplar — küçük, hızlı bir modele yönlendirin ve büyük modeli gerçek akıl yürütme için ayırın. Foundry'nin **Model Yönlendiricisi** bunu sizin için yapabilir veya hafif bir sınıflandırıcı kendiniz oluşturabilirsiniz. Laboratuvarda bu kendin-yap versiyonunu yapacaksınız.
+**Model yönlendirme.** Her istek en yetenekli (ve en pahalı) modelelmeniz gerekmez. Basit istekleri — amaç sınıflandırması, kısa gerçek cevaplar — küçük, hızlı bir modele yönlendirin ve büyük modeli gerçek mantık yürütme için ayırın. Foundry'nin **Model Yönlendiricisi** bunu sizin için yapabilir veya hafif bir sınıflandırıcı kendiniz yazabilirsiniz. Laboratuvarda DIY versiyonunu oluşturacaksınız.
 
-**Yanıt önbellekleme.** Birçok destek sorgusu neredeyse tekrar ("şifremi nasıl sıfırlarım?"). Yaygın soruların cevaplarını önbelleğe alın ve modeli hiç çağırmadan sunun. Orta seviyede bir önbellek vurma oranı bile maliyet ve gecikmeyi anlamlı ölçüde azaltır.
+**Yanıt önbellekleme.** Birçok destek sorgusu neredeyse kopya ("şifremi nasıl sıfırlarım?"). Yaygın sorulara verilen yanıtları önbelleğe alın ve hiç modele dokunmadan sunun. Orta seviyede bir önbellek başarı oranı bile maliyet ve gecikmeyi anlamlı şekilde düşürür.
 
-**Eşzamanlılık ve geri basınç.** Model sağlayıcıların oran limitleri vardır. Eşzamanlılığınızı sınırlandırın, üssel geri çekilme ile tekrarlar kullanın ve nazikçe başarısız olun (kuyruğa alınmış "Üstündeyiz" yanıtı 500'den iyidir).
+**Eşzamanlılık ve geri basınç.** Model sağlayıcıların hız sınırları vardır. Eşzamanlılığınızı sınırlayın, üstel artışla yeniden deneme kullanın ve nazikçe başarısız olun (kuyruğa alınmış "üzerindeyiz" yanıtı 500 hatasından iyidir).
 
 ```mermaid
 flowchart LR
-    Q[Kullanıcı sorgusu] --> C{Önbellek isabeti?}
+    Q[Kullanıcı sorgusu] --> C{Ön bellek isabeti?}
     C -->|evet| R[Önbelleğe alınmış cevabı döndür]
     C -->|hayır| Router{Karmaşıklık?}
     Router -->|basit| SLM[Küçük model]
@@ -145,11 +145,11 @@ flowchart LR
 
 ## Üretimde Gözlemlenebilirlik
 
-Göremediğinizi işletemezsiniz. Ders 10’da ele alındığı gibi, Microsoft Agent Framework yerleşik olarak **OpenTelemetry** izleri yayımlar — her model çağrısı, araç çağrısı ve orkestrasyon adımı bir span olur. Üretimde bu spanlar Microsoft Foundry (veya OTel uyumlu herhangi bir arka uç) 'a aktarılır ki:
+Göremediğinizi işletemezsiniz. Ders 10'da ele alındığı gibi, Microsoft Agent Framework **OpenTelemetry** izlerini doğal olarak yayımlar — her model çağrısı, araç çağrısı ve düzenleme adımı bir span olur. Üretimde, bu spanları Microsoft Foundry'ye (veya herhangi bir OTel uyumlu arka uca) dışa aktarırsınız, böylece:
 
-- Tek bir müşteri şikayetini her model ve araç çağrısı boyunca uçtan uca izleyin.
-- Zaman içinde her istek için p50/p95 gecikme ve maliyete bakın.
-- Hataların artışı ve maliyet anormallikleri konusunda kullanıcılarınız (veya finans ekibiniz) fark etmeden önce uyarı alın.
+- Tek bir müşteri şikayetini her model ve araç çağrısı boyunca baştan sona izleyebilirsiniz.
+- Zaman içinde p50/p95 gecikme ve maliyeti istek başına izleyebilirsiniz.
+- Kullanıcılarınız (veya finans ekibiniz) fark etmeden önce hata oranı artışları ve maliyet anomalileri üzerine uyarılar alabilirsiniz.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,28 +159,28 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # ajan yürütülmesi bu kapsam içinde otomatik olarak izlenir
+    # ajan yürütmesi bu aralık içinde otomatik olarak izlenir
 ```
 
-`customer.tier` ve `routed.model` gibi öznitelikler, izler duvarını yanıtlanabilir sorulara dönüştürür ("kurumsal müşteriler küçük modele çok sık mı yönlendiriliyor?").
+`customer.tier` ve `routed.model` gibi öznitelikler, bir iz duvarını yanıt verilebilir sorulara dönüştürür ("kurumsal müşteriler küçük modele çok sık mı yönlendiriliyor?").
 
 ## Maliyet Optimizasyonu
 
-Üretim ajanlarındaki maliyetler tokenlar tarafından domine edilir. Üç kol var, etki sırasına göre:
+Üretim ajanlarında maliyet genellikle tokenlar tarafından domine edilir. Etkiye göre sıralanmış üç kolla:
 
-1. **Modeli doğru boyutta seçmek.** Değerlendirme kapısından geçen küçük model, genellikle geçen büyük modelden daha ucuzdur. Korkudan en büyük modeli varsayılan olarak kullanmak yerine, küçük modelin yeterli olduğunu değerlendirmeyle *kanıtlayın.*
-2. **Kompleksiteye göre yönlendirme.** Yukarıda belirtildiği gibi — yalnızca büyük model gerekliyse onun fiyatını ödeyin.
-3. **Agresif önbellekleme.** En ucuz model çağrısı, hiç yapmadığınızdır.
+1. **Modeli doğru boyuta getirin.** Değerlendirme kapınızı geçen küçük bir model, geçen büyük bir modelden neredeyse her zaman daha ucuzdur. Küçük modelin yeterince iyi olduğunu değerlendirme ile *kanıtlayın*; varsayılan olarak en büyük modeli kullanmayın.
+2. **Karmaşıklığa göre yönlendirin.** Yukarıdaki gibi — sadece büyük model mantığı gereken istekler için büyük model maliyeti ödeyin.
+3. **Agresifçe önbellekleme yapın.** En ucuz model çağrısı hiç yapmadığınızdır.
 
-Değerlendirme kapıları ve maliyet kontrolü, iki açıdan görülen aynı disiplindir: değerlendirme size *kalite tabanını* söyler, yönlendirme ve önbellekleme sizi o tabanın *maliyeti*ne mümkün olduğunca yaklaştırır.
+Değerlendirme kapıları ve maliyet kontrolü aynı disiplindir, iki açıdan görülür: değerlendirme *kalite tabanını* söyler, yönlendirme ve önbellekleme maliyeti mümkün olduğunca o tabanın *altında* tutar.
 
-## Kurumsal Dağıtım Düşünceleri
+## Kurumsal Dağıtım Dikkatleri
 
-**Yönetişim.** Hosted Agents, Foundry'nin RBAC, içerik güvenliği ve denetim kayıtlarını miras alır. Her ajana ihtiyaç duyduğu en az ayrıcalıkla yönetilen kimlik verin — bilgi tabanına salt okunur erişim, bilet API'sine kapsamlı erişim, başka hiçbir şey yok.
+**Yönetim.** Barındırılan Ajanlar Foundry'nin RBAC'sını, içerik güvenliğini ve denetim günlüklerini devralır. Her ajana ihtiyaç duyduğu en az ayrıcalıkla yönetilen bir kimlik verin — bilgi tabanına salt okunur erişim, biletleme API'sine kapsamlama erişimi, fazlası değil.
 
-**İnsan-tam döngüde.** Bazı işlemler tamamen otomatikleştirilemeyecek kadar sonuçludur — iade yapmak, hesap silmek, hukuk ekibine yükseltmek. Microsoft Agent Framework **onay-gerekli** araçları destekler: ajan işlemi önerir, yürütme duraklar, bir insan onaylar ya da reddeder, iş akışı devam eder. Bunu [Ders 6](../06-building-trustworthy-agents/README.md)'da gördünüz; burada dağıtıyoruz.
+**İnsanın döngüde olması.** Bazı işlemler doğrudan otomatikleştirilemeyecek kadar kritik — iade gerçekleştirmek, bir hesabı silmek, hukuki ekibe yükseltmek. Microsoft Agent Framework **onay gerektiren** araçları destekler: ajan işlemi önerir, yürütme durur, insan onaylar veya reddeder ve iş akışı devam eder. Bunu [Ders 6](../06-building-trustworthy-agents/README.md)'de gördünüz; burada dağıtıyorsunuz.
 
-**Üretimde MCP.** [MCP](../11-agentic-protocols/README.md), ajanın dış araçları standart arayüzle tüketmesini sağlar. Üretimde her MCP sunucusunu güvenilmeyen bir sınır olarak değerlendirin: sunucu sürümünü sabitleyin, kısıtlı kimlik ile çalıştırın, çıktısını doğrulayın ve ona asla gizli bilgi ifşa etmeyin. MCP sunucusu bir bağımlılıktır ve bağımlılıklar yamalanır, denetlenir ve oran sınırlandırılır.
+**Üretimde MCP.** [MCP](../11-agentic-protocols/README.md) ajanınızın harici araçları standart bir arayüzle tüketmesini sağlar. Üretimde her MCP sunucusunu güvenilir olmayan sınır olarak kabul edin: sunucu sürümünü sabitleyin, kapsamalı kimlikle çalıştırın, çıktıları doğrulayın ve sırları asla ona açmayın. MCP sunucusu bir bağımlılıktır ve bağımlılıklar yamalanır, denetlenir ve hız sınırına tabi tutulur.
 
 ```mermaid
 flowchart TB
@@ -192,7 +192,7 @@ flowchart TB
     subgraph Deploy[Dağıtım Mimarisi]
         E1[CI hattı] --> E2[Değerlendirme kapısı]
         E2 -->|geç| E3[Foundry Ajan Hizmeti]
-        E3 --> E4[Sürümlenmiş barındırılan ajan]
+        E3 --> E4[Sürümlü barındırılan ajan]
     end
     subgraph Run[Çalışma zamanı Mimarisi]
         F1[İstemci uygulaması] --> F2[Barındırılan ajan]
@@ -205,24 +205,24 @@ flowchart TB
     end
 ```
 
-Bu üç diyagram — geliştirme, dağıtım, çalışma zamanı — ajanın yaşamının üç aşamasındaki aynı hali. Takip eden laboratuvar sizi bunu kurmaya götürecek.
+Bu üç diyagram — geliştirme, dağıtım, çalışma zamanı — aynı ajanın hayatının üç aşamasıdır. Takip eden laboratuvarda yapımını adım adım göstereceğiz.
 
 ## Uygulamalı Laboratuvar: Üretime Hazır Bir Müşteri Destek Ajanı
 
-[`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) dosyasını açın ve baştan sona ilerleyin. Her üretim endişesi kablolanmış bir **Contoso müşteri destek ajanı** oluşturacaksınız:
+[`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) dosyasını açın ve baştan sona çalışın. Her üretim konusu entegre edilmiş bir **Contoso müşteri destek ajanı** oluşturacaksınız:
 
-1. **Araç çağırma** — sipariş durumu sorgula ve destek biletleri aç.
-2. **RAG** — bilgi tabanından politika sorularını yanıtla (Azure AI Search, dizüstü bilgisayarın Arama kaynağı olmadan çalışması için bellek içi yedek).
-3. **Bellek** — müşteriyle konuşmanın turlarında hatırlama.
-4. **Model yönlendirme** — karmaşıklık sınıflandırıcısı her isteği küçük ya da büyük modele yönlendirir.
-5. **Yanıt önbellekleme** — tekrarlanan sorular önbellekten yanıtlanır.
-6. **İnsan onayı** — eşiğin üzerindeki iadeler insan onayı için duraklar.
-7. **Değerlendirme hattı** — küçük bir çevrimdışı test seti ajanı puanlar ve sürüm kapısı olarak hareket eder.
-8. **Gözlemlenebilirlik** — her istek için OpenTelemetry izleme.
+1. **Araç çağırma** — sipariş durumunu sorgula ve destek biletleri aç.
+2. **RAG** — bir bilgi tabanından politika sorularını cevapla (Azure AI Search, ve arama kaynağı olmadan çalışan bellek içi yedeklemeyle).
+3. **Bellek** — müşteri konuşma turlarında hatırlanır.
+4. **Model yönlendirme** — bir karmaşıklık sınıflandırıcısı her isteği küçük veya büyük modele yönlendirir.
+5. **Yanıt önbellekleme** — tekrarlanan sorular önbellekten sunulur.
+6. **İnsan onayı** — belirli eşiğin üstündeki iadelerde insan onayına duraklar.
+7. **Değerlendirme hattı** — küçük bir çevrimdışı test seti ajanı puanlar ve sürüm kapısı olarak işlev görür.
+8. **Gözlemlenebilirlik** — her isteğin etrafında OpenTelemetry izleme.
 
-### Yürütme
+### Adım Adım
 
-Dizüstü, her üretim endişesini kendi içinde çalışan bir bölüm olarak organize eder. Kalbi, yönlendirme artı önbellekleme istek işlemcisidir:
+Dizüstü kitabı, her üretim konusunun kendi başına çalışabilen ve bağımsız bölümler halinde düzenlenmiştir. Kalbi yönlendirme-artı-önbellek istek işleyicisidir:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
@@ -234,7 +234,7 @@ async def handle_support_request(query: str, customer_id: str) -> str:
     # 2. Maliyeti kontrol etmek için karmaşıklığa göre yönlendir.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Gözlemlenebilirlik için ajanı bir iz süresi içinde çalıştır.
+    # 3. Gözlemlenebilirlik için ajanı bir izleme kapsamı içinde çalıştır.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # sadece kapı geçerse dağıtım yap
+    return pass_rate >= threshold  # sadece kapı geçerse dağıtım yapınız
 ```
 
-Her satırı okuyun — dizüstü parçacıkları bilinçli olarak küçük tutar, böylece hiçbir şey bir framework çağrısının arkasında gizlenmez.
+Her satırı okuyun — dizüstü kitabı temel öğeleri kasıtlı olarak küçük tutar, böylece hiçbir şey bir çatı çağrısının arkasına saklanmaz.
 
-## Dağıtılmış Ajanı Duman Testleri ile Doğrulama
+## Dağıtılmış Ajanı Duman Testleriyle Doğrulama
 
-Yukarıdaki değerlendirme kapısı *çevrimdışıdır* ve ajan nesnenize karşı çalışır. Ajan Hosted Agent olarak dağıtıldıktan sonra, bir kontrol daha gerekir, çok daha ucuz: **dağıtılmış uç nokta gerçekten cevap veriyor mu?**
+Yukarıdaki değerlendirme kapısı *çevrimdışı* olarak ajan nesnenize karşı çalışır. Ajan Bir Barındırılan Ajan olarak dağıtıldığında, sizden bir tane daha, daha ucuz bir kontrol gereklidir: **dağıtılan uç nokta gerçekten yanıt veriyor mu?**
 
-"Başarılı" dağıtım yalnızca kontrol düzleminin tanımı kabul ettiğini gösterir — ajanın yanıt verdiğini kanıtlamaz. Eksik bir bağımlılık, yanlış model yönlendirmesi veya süresi dolmuş bağlantı, hiçbir şey döndürmeyen yeşil bir dağıtım sonucu verir. Bir **duman testi** bunu saniyeler içinde, her dağıtımda, tam değerlendirme maliyeti olmadan yakalar.
+"Başarılı" dağıtım, yalnızca kontrol düzleminin tanımı kabul ettiğini kanıtlar — ajanın yanıt verdiğini kanıtlamaz. Eksik bir bağımlılık, kötü model yönlendirme veya süresi dolmuş bir bağlantı, hiçbir şey döndürmeyen yeşil bir dağıtıma yol açabilir. **Duman testi** bunu saniyeler içinde, her dağıtımda, tam bir değerlendirmenin maliyeti olmadan yakalar.
 
-Bu depo, [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action tabanlı hazır bir duman testi hattı sağlar:
+Bu depo, [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action'a dayalı kullanıma hazır bir duman test hattı sunar:
 
-- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json), Contoso destek ajanı için istemler ve doğrulamaları içerir (temelli politika yanıtları, sipariş sorgulama, konu dışına çıkmama ve çok tur dizin sürekliliği). Diğer ders ajanlarının katalogları da yanındadır — bkz. [`tests/README.md`](../tests/README.md).
-- **İş akışı** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml), Azure OIDC ile oturum açar ve her istemi ajanın Responses uç noktasına POST eder, herhangi bir doğrulama kaçarsa işi başarısız kılar.
+- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json), Contoso destek ajanı için istemler ve doğrulamalar içerir (temellendirilmiş politika cevapları, sipariş sorgulama, konuda kalma ve çok turlu thread sürekliliği). Diğer ders ajanları için kataloglar onun yanında bulunur — bkz. [`tests/README.md`](../tests/README.md).
+- **İş Akışı** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml), Azure OIDC ile giriş yapar ve her istemi ajanın Yanıtlar uç noktasına POST eder, herhangi bir doğrulama başarısızlığında işi başarısız sayar.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,111 +282,111 @@ Bu depo, [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) G
 ```
 
 
-Ajanınız dağıtıldıktan sonra **Actions** sekmesinden, Foundry proje uç noktanızı ve ajan adını sağlayarak çalıştırın. Federasyon kimliğinin, Foundry proje kapsamı içinde **Azure AI Kullanıcısı** rolüne ihtiyacı vardır. Katmanları bir piramit gibi düşünün: duman testleri (erişilebilir ve yanıt veriyor mu?) her dağıtımda çalışır, çevrimdışı değerlendirme (gönderilmeye yeterince iyi mi?) terfi öncesinde yapılır ve çevrimiçi değerlendirme (yaban hayatında nasıl gidiyor?) sürekli olarak çalışır.
+Ajanınız dağıtıldıktan sonra, Foundry proje uç noktanızı ve ajan adınızı sağlayarak **Actions** sekmesinden çalıştırın. Federatif kimlik, Foundry proje kapsamı üzerinde **Azure AI User** rolüne sahip olmalıdır. Katmanları bir piramit olarak düşünün: duman testleri (erişilebilir ve yanıt veriyor mu?) her dağıtımda çalıştırılır, çevrimdışı değerlendirme (gönderilecek kadar iyi mi?) terfi öncesinde çalıştırılır ve çevrimiçi değerlendirme (gerçek koşullarda nasıl işliyor?) sürekli olarak çalıştırılır.
 
 ## Bilgi Kontrolü
 
-Göreve geçmeden önce anlayışınızı test edin.
+Ödeve geçmeden önce anlayışınızı test edin.
 
-**1. Bir üretim ajanının yaklaşık ne kadar kısmı “model”dir ve geriye kalan nerede?**
+**1. Üretim ajanının yaklaşık ne kadarı "model"dir ve geri kalanı nedir?**
 
 <details>
 <summary>Cevap</summary>
 
-Model, sistemin azınlığıdır — genellikle %20 civarında belirtilir. Geri kalanı ise operasyonel iskelet: barındırma ve sürümleme, kimlik ve RBAC, dışsal durum, hata yönetimi, maliyet takibi, değerlendirme ve insan denetimi kontrolleridir. Üretime geçiş, aslında akıl döngüsünün *etrafında* her şeyi inşa etmekle ilgilidir.
+Model sistemin azınlığıdır — genellikle %20 civarında belirtilir. Geri kalanı operasyonel iskelettir: barındırma ve sürümleme, kimlik ve RBAC, dışa aktarılmış durum, hata yönetimi, maliyet takibi, değerlendirme ve insan müdahalesi kontrolü. Üretime geçmek çoğunlukla muhakeme döngüsünün *etrafında* her şeyi inşa etmekle ilgilidir.
 </details>
 
-**2. Ne zaman bir Barındırılan Ajanı, istemci barındırmalı ajan yerine seçersiniz?**
+**2. Bir Hosted Agent’ı ne zaman client-hosted ajan yerine seçersiniz?**
 
 <details>
 <summary>Cevap</summary>
 
-Yerleşik dayanıklılık (devam eden ve yeniden başlayabilen iş parçacıkları), gözlemlenebilirlik, içerik güvenliği ve RBAC sunan yönetilen bir çalışma zamanı istediğinizde ve mantık döngüsünün düşük seviyeli kontrolünden biraz vazgeçip operasyonel yüzey alanını küçültmek istediğinizde Barındırılan tercih edilir. Döngü üzerinde tam kontrol gerektiren ya da ajanı mevcut arka uçta gömmek isteyenler için istemci barındırmalı tercih edilmelidir.
+Yönetilen bir çalışma zamanı istiyorsanız; yerleşik dayanıklılığa (devam eden ve yeniden başlayabilen iş parçacıkları), gözlemlenebilirliğe, içerik güvenliğine ve RBAC’a sahip ve muhakeme döngüsü üzerinde biraz daha az düşük seviyeli kontrol karşılığında daha az operasyonel yüzey alanı istiyorsanız Hosted Agent tercih edilir. Döngü üzerinde tam kontrol gerektiğinde veya ajan mevcut bir arka uç sistemine gömülecekse client-hosted tercih edilir.
 </details>
 
-**3. Ölçeklenebilir bir ajanın neden kendi işlem belleğinde durumsuz (stateless) olması gerekir?**
+**3. Ölçeklenebilir bir ajanın kendi işlem belleğinde durum tutmaması neden önemlidir?**
 
 <details>
 <summary>Cevap</summary>
 
-Böylece herhangi bir örnek herhangi bir isteği işleyebilir, bu da yapışkan oturumlar olmadan yatay ölçeklendirmeyi mümkün kılar. Kullanıcı başına konuşma durumu iş parçacığı deposu ya da bellek hizmetine dışsal olarak çıkarılır. Durum işlem belleğinde olsaydı, yeniden başlatmada kaybolur ve yükü özgürce dağıtamazdınız.
+Böylece herhangi bir örnek herhangi bir isteği işleyebilir; bu, yapışkan oturumlar olmadan yatay ölçekleme yapılmasını sağlar. Kullanıcı başına konuşma durumu bir iş parçacığı deposuna veya bellek servislerine dışa aktarılır. Durum işlem belleğinde tutulursa, yeniden başlatmada kaybolur ve yükü serbestçe dağıtamazsınız.
 </details>
 
-**4. Model yönlendirme hangi sorunu çözer ve değerlendirme ile nasıl ilişkilidir?**
+**4. Model yönlendirme hangi problemi çözer ve değerlendirme ile ilişkisi nedir?**
 
 <details>
 <summary>Cevap</summary>
 
-Yönlendirme, basit istekleri küçük, ucuz ve hızlı modele gönderir ve büyük modeli gerçek mantık yürütme için ayırır; böylece hem gecikme hem maliyeti kontrol eder. Değerlendirmeyle ilişkisi şu: değerlendirme, küçük modelin belirli istekler için yeterince iyi olduğunu *kanıtlarken* — değerlendirme olmadan yönlendirme yalnızca tahmindir.
+Yönlendirme, basit istekleri küçük, ucuz, hızlı bir modele gönderir ve büyük modeli gerçek muhakeme için ayırır; böylece gecikme süresi ve maliyet kontrol edilir. Değerlendirme ile ilişkisi, küçük modelin belli bir istek sınıfı için yeterince iyi olduğunu *kanıtlayan* şeyin değerlendirme olmasıdır — değerlendirme olmadan yönlendirme tahmindir.
 </details>
 
-**5. Bir “değerlendirme kapısı” nedir ve yaşam döngüsünde nerede yer alır?**
+**5. "Değerlendirme kapısı" nedir ve yaşam döngüsünde nerededir?**
 
 <details>
 <summary>Cevap</summary>
 
-Değerlendirme kapısı, yeni bir ajan sürümüne karşı çevrimdışı bir test seti çalıştırır ve geçme oranı eşik değerini aşmadıkça dağıtımı engeller. Yaşam döngüsünde “sürüm” ile “dağıtım” arasında yer alır, böylece kaliteyi yayın sonrası kontrol etmek yerine yayın için ön koşul yapar.
+Değerlendirme kapısı yeni bir ajan sürümüne karşı çevrimdışı bir test seti çalıştırır ve geçme oranı eşik seviyesini aşmadıkça dağıtımı engeller. Yaşam döngüsünde "sürüm" ile "dağıtım" arasında yer alır ve kaliteyi yayın için ön koşul haline getirir, gönderimi takip eden bir kontrol değil.
 </details>
 
-**6. Neden MCP sunucusu üretimde güvenilmeyen bir sınır olarak ele alınmalıdır?**
+**6. MCP sunucusu neden üretimde güvensiz bir sınır olarak ele alınmalıdır?**
 
 <details>
 <summary>Cevap</summary>
 
-Çünkü ajanınızın eriştiği dış bir bağımlılıktır. Sürümünü sabitlemeli, kapsamlı bir kimlikle çalıştırmalı, çıktılarının doğruluğunu kontrol etmeli, hız sınırlaması uygulamalı ve ona asla sır vermemelisiniz — herhangi bir üçüncü taraf bağımlılığına uyguladığınız disiplinle aynı. Çıktıları ajanın akıl yürütmesine akar, dolayısıyla doğrulanmamış güvenlik riski oluşturur.
+Çünkü ajanınızın çağırdığı harici bir bağımlılıktır. Versiyonunu sabitlemeli, sınırlandırılmış kimlikle çalıştırmalı, çıktısını doğrulamalı, oran sınırı uygulamalı ve asla gizli bilgileri ona açmamalısınız — herhangi bir üçüncü taraf bağımlılığına uyguladığınız disiplin aynen geçerlidir. Çıktıları ajanın muhakemesine akar, doğrulanmamış güvenlik riski oluşturur.
 </details>
 
-**7. Genellikle üretim ajanı maliyetini en çok etkileyen tek değişiklik nedir ve neden?**
+**7. Genellikle üretim ajan maliyetini en çok etkileyen tek değişiklik nedir ve neden?**
 
 <details>
 <summary>Cevap</summary>
 
-Modeli doğru boyutlandırmak — değerlendirme kapınızı geçen en küçük modeli kullanmak. Maliyet çoğunlukla tokenlar tarafından domine edilir ve kaliteyi karşılayan daha küçük model çoğu zaman daha büyük bir modelden daha ucuzdur. Önbellekleme ve yönlendirme maliyeti daha da azaltır ama doğru taban modeli seçmek ilk derecede en büyük etkiye sahiptir.
+Modeli uygun boyuta getirmek — değerlendirme kapınızı geçebilen en küçük modeli kullanmak. Maliyet tokenlarla domine edilir ve kalite barını karşılayan daha küçük model hemen her zaman daha büyüğünden daha ucuzdur. Önbellekleme ve yönlendirme maliyeti daha da azaltır ama doğru temel modeli seçmek en büyük birinci dereceden etkendir.
 </details>
 
-**8. `customer.tier` ve `routed.model` gibi span (iz) özelliklerinin gözlemlenebilirlikteki rolü nedir?**
+**8. `customer.tier` ve `routed.model` gibi span nitelikleri gözlemlenebilirlikte ne işe yarar?**
 
 <details>
 <summary>Cevap</summary>
 
-Ham izleri yanıtlanabilir iş sorularına dönüştürürler. Özellikler olmadan sadece bir span duvarına sahipsiniz; özelliklerle “kurumsal müşteriler çok sık küçük modele yönlendiriliyor mu?” veya “en yavaş isteğimizi hangi model işliyor?” gibi sorular sorabilirsiniz. Özellikler, telemetriyi operasyonunuz için önemli boyutlara göre dilimlemenin yoludur.
+Ham izleri yanıtlanabilir iş sorularına dönüştürürler. Nitelikler olmadan bir span duvarınız vardır; niteliklerle "kurumsal müşteriler küçük modele çok sık mı yönlendiriliyor?" ya da "en yavaş isteklerimizi hangi model işliyor?" diye sorabilirsiniz. Nitelikler, telemetrinin operasyonunuz için önemli boyutlara göre dilimlenme yöntemidir.
 </details>
 
 ## Ödev
 
-Laboratuvardan müşteri destek ajanını alın ve belirli bir senaryo için güçlendirin: **bir SaaS şirketi için abonelik faturalama destek ajanı.**
+Laboratuvardan alınan müşteri destek ajanını belirli bir senaryo için sertleştirin: **bir SaaS şirketi için abonelik faturalama destek ajanı.**
 
-Gönderiminiz aşağıdakileri içermelidir:
+Gönderiminiz şunları içermelidir:
 
-1. Faturalamayla ilgili araçlarla **araçları değiştirin**: `get_subscription_status`, `get_invoice` ve `issue_credit` (50$ üzeri krediler insan onayı gerektirir).
-2. Şirketin iade politikası, fatura döngüsü ve iptal politikası hakkında üç RAG dökümanı **ekleyin.**
-3. En az iki insan onay yolunu tetiklemesi gereken vaka dahil olmak üzere, değerlendirme setini **en az sekiz vaka** olarak genişletin ve değerlendirme kapısının doğru geçiş veya başarısızlık durumunu doğrulayın.
-4. On karışık sorguyu ajandan geçirip, küçük modele kaç tane, büyük modele kaç tane, önbellekten kaç tane hizmet verildiğini yazdıran bir **maliyet raporu ekleyin.**
+1. Faturalama ile ilgili araçları değiştirin: `get_subscription_status`, `get_invoice` ve `issue_credit` (50$ üzerindeki krediler insan onayı gerektirir).
+2. Şirketin iade politikası, fatura döngüsü ve iptal politikasını kapsayan üç RAG dokümanı ekleyin.
+3. Değerlendirme setini en az sekiz vakaya genişletin; en az iki vaka insan onayı yolunu *tetiklemeli*, ve değerlendirme kapınızın doğru geçip başarısız olduğunu doğrulayın.
+4. Bir maliyet raporu ekleyin: ajan üzerinden on karışık sorgu çalıştırdıktan sonra kaçının küçük modele, kaçının büyük modele gittiğini ve kaçının önbellekten karşılandığını yazdırın.
 
-Kısa bir paragraf (markdown hücresinde) yazın; hangi model yönlendirme kuralını seçtiğinizi ve gerçek trafik ile nasıl doğrulayacağınızı açıklayın. Tek doğru cevap yok — değerlendirme, üretim kaygılarının mantıklı şekilde birleştirilip birleştirilmediği üzerine olacaktır.
+Kısa bir paragraf (bir markdown hücresinde) hangi model-yönlendirme kuralını seçtiğinizi ve bunu gerçek trafikle nasıl doğrulayacağınızı açıklayın. Tek doğru cevap yoktur — değerlendirme üretim kaygılarının tutarlı şekilde bağlanması üzerinedir.
 
 ## Özet
 
-Bu derste, bir ajanı Microsoft Foundry ile prototipten üretime taşıdınız:
+Bu derste bir ajanı prototipten Microsoft Foundry ile üretime taşıdınız:
 
-- Üretime geçiş esas olarak modelin etrafındaki **operasyonel iskelet** hakkındadır — barındırma, kimlik, durum, hata yönetimi, maliyet, kalite ve güven.
-- Üç **dağıtım modelini** öğrendiniz — istemci barındırmalı, Barındırılan Ajanlar ve Ajan İş Akışları — ve her birinin ne zaman uygun olduğunu.
-- **Ajan yaşam döngüsünü** takip ettiniz, çevrimdışı **değerlendirmenin sürüm kapısı** gibi davrandığını ve çevrimiçi gözlemlenebilirliğin hataları test setine geri beslediğini öğrendiniz.
-- **Ölçeklendirme stratejileri** — durumsuz tasarım, model yönlendirme, önbellekleme ve sınırlı eşzamanlılık — uyguladınız ve bunları **maliyet optimizasyonu** ile bağdaştırdınız.
-- **Kurumsal kontrolleri** entegre ettiniz: RBAC, insan denetimi onayı ve üretime uygun MCP entegrasyonu.
-- Hepsini çalışır koda bağlayan **üretime hazır müşteri destek ajanı** inşa ettiniz.
+- Üretime geçiş çoğunlukla modelin *çevresindeki operasyonel iskeletle* ilgilidir — barındırma, kimlik, durum, hata yönetimi, maliyet, kalite ve güven.
+- Üç **dağıtım deseni**ni öğrendiniz — client-hosted, Hosted Agents ve Agent Workflows — ve her birinin ne zaman uygun olduğunu.
+- **Ajan yaşam döngüsünde** gezindiniz; çevrimdışı **değerlendirme yayın kapısı olarak iş görür** ve çevrimiçi gözlemlenebilirlik hataları test setine geri besler.
+- **Ölçeklendirme stratejileri** uyguladınız — durumsuz tasarım, model yönlendirme, önbellekleme ve sınırlı eşzamanlılık — ve bunları **maliyet optimizasyonuna** bağladınız.
+- **Kurumsal kontrolleri** entegre ettiniz: RBAC, insan müdahalesi onayı ve üretime uygun MCP entegrasyonu.
+- Tüm bu kaygıları çalışan koda bağlayan **üretime hazır müşteri destek ajanı** oluşturdunuz.
 
-Sonraki derste tam tersi yolculuk olacak: ajanları bulut yerine tek bir geliştirici makinesine *indirecek* ve tamamen yerel çalıştıracaksınız.
+Sonraki derste zıt yolculuk yapılacak: ajanları buluta ölçeklendirmek yerine, onları *aşağı* tek bir geliştirici makinesine getirip tamamen yerelde çalıştıracaksınız.
 
 ## Ek Kaynaklar
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokümantasyonu</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Ajan Servisi genel bakış</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Ajan Çerçevesi</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Microsoft Foundry’de Model Yönlendirme</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Microsoft Foundry’de Model Yönlendirici</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
-- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Eylemi</a>
+- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
 ## Önceki Ders
