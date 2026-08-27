@@ -4,20 +4,25 @@ Drie vooraf gegenereerde bonbestanden voor inspectie zonder de notebook uit te v
 
 | Bestand | Wat het is |
 |---|---|
-| `01_valid_receipt.json` | Een geldige ondertekende bon voor een `lookup_flights` toolaanroep. Verificatie geeft True terug. |
-| `02_tampered_receipt.json` | Dezelfde bon met één veld gewijzigd na ondertekening. Verificatie geeft False terug. |
-| `03_chain_three_receipts.json` | Een keten van drie geldige bonnen (zoeken, reserveren, boeken) met `previous_receipt_hash` die elke bon aan de vorige koppelt. |
+| `01_valid_receipt.json` | Een geldige ondertekende bon voor een `lookup_flights` tool-aanroep. Verificatie retourneert True. |
+| `02_tampered_receipt.json` | Dezelfde bon met één veld aangepast na ondertekening. Verificatie retourneert False. |
+| `03_chain_three_receipts.json` | Een keten van drie geldige bonnetjes (zoeken, vasthouden, boeken) met `previous_receipt_hash` die elk koppelt aan de voorgaande. |
 
-## De voorbeelden verifiëren
+De fixtures ondertekenen de payloads canonieke JCS-bytes rechtstreeks met Ed25519.
+SHA-256 blijft in gebruik voor inhoudsdigests en bonketenlinks, niet als een
+extra pre-hash vóór het ondertekenen.
 
-De notebook doorloopt verificatie in vier secties. Om deze fixtures direct te verifiëren zonder door de notebook tekst te gaan:
+## Verifiëren van de voorbeelden
+
+De notebook doorloopt verificatie in vier secties. Om deze fixtures direct te verifiëren
+zonder door het notebook verhaal te lopen:
 
 ```python
 import json
 from pathlib import Path
 
-# Gaat ervan uit dat je de imports en hulpfuncties hebt voltooid
-# uit secties 1 en 2 van 18-signed-receipts.ipynb.
+# Er wordt vanuit gegaan dat je de imports en hulp functies hebt voltooid
+# van secties 1 en 2 van 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Waar
@@ -32,22 +37,27 @@ for r in verify_chain(chain):
 
 ## Hoe deze zijn gegenereerd
 
-De fixtures gebruiken dezelfde codepad als de notebook, met één vaste ondertekeningssleutel
+De fixtures gebruiken hetzelfde codepad als de notebook, met één vaste ondertekeningssleutel
 en vaste tijdstempels voor byte-reproduceerbaarheid. Om opnieuw te genereren:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script bevindt zich in `generate_fixtures.py` in deze map.)
+(Script staat in `generate_fixtures.py` in deze map.)
 
 ## Wat studenten leren door het inspecteren van ruwe JSON
 
-Het lezen van het ruwe bonformaat bouwt intuïtie op die de cellen in de notebook niet altijd bieden. Studenten die de JSON snel doorlezen merken vaak:
+Het lezen van het ruwe bonformaat bouwt intuïtie op die de cellen in de notebook
+niet altijd geven. Studenten die de JSON snel bekijken merken vaak op:
 
-1. De handtekening is een ondoorzichtige base64url-string, maar elk ander veld is gewone leesbare JSON. De handtekening versleutelt de inhoud niet; het getuigt ervan.
-2. De `public_key` is ingebed in de bon. Een controleur heeft verder niets nodig om te verifiëren (mits vertrouwd wordt dat de sleutel daadwerkelijk van de opgegeven uitgever is; zie de les README over identiteitsinfrastructuur).
-3. Het wijzigen van één enkel teken in een veld en daarna dit bestand vergelijken met `02_tampered_receipt.json` maakt het Byte-niveau mechanisme concreet.
+1. De handtekening is een ondoorzichtige base64url-string, maar elk ander veld is gewone
+   leesbare JSON. De handtekening versleutelt de inhoud niet; hij bevestigt deze.
+2. De `public_key` is ingebed in de bon. Een auditor heeft verder niets nodig
+   om te verifiëren (ervan uitgaande dat de sleutel daadwerkelijk toe behoort aan de beweerde
+   uitgever; zie de README van de les over identiteitsinfrastructuur).
+3. Het wijzigen van één teken in een veld en vervolgens dit bestand vergelijken met
+   `02_tampered_receipt.json`, maakt het mechanisme op byteniveau concreet.
 
 ---
 

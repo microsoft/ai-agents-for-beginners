@@ -1,182 +1,182 @@
-# Sử dụng Giao thức Agentic (MCP, A2A và NLWeb)
+# Sử dụng Các Giao Thức Agentic (MCP, A2A và NLWeb)
 
 [![Agentic Protocols](../../../translated_images/vi/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Nhấn vào hình trên để xem video bài học này)_
+> _(Nhấp vào hình ảnh trên để xem video bài học này)_
 
-Khi việc sử dụng các đại lý AI ngày càng tăng, nhu cầu về các giao thức đảm bảo tiêu chuẩn hóa, an toàn và hỗ trợ đổi mới mở cũng càng lớn. Trong bài học này, chúng ta sẽ tìm hiểu 3 giao thức nhằm đáp ứng nhu cầu này - Giao thức Ngữ cảnh Mô hình (MCP), Đại lý với Đại lý (A2A) và Mạng Ngôn ngữ Tự nhiên (NLWeb).
+Khi việc sử dụng các đại lý AI ngày càng tăng, nhu cầu về các giao thức đảm bảo chuẩn hóa, bảo mật và hỗ trợ đổi mới mở cũng tăng theo. Trong bài học này, chúng ta sẽ tìm hiểu 3 giao thức nhằm đáp ứng nhu cầu này - Giao Thức Ngữ Cảnh Mô Hình (MCP), Agent to Agent (A2A) và Mạng Ngôn Ngữ Tự Nhiên (NLWeb).
 
 ## Giới thiệu
 
-Trong bài học này, chúng ta sẽ đề cập đến:
+Trong bài học này, chúng ta sẽ tìm hiểu:
 
-• Cách **MCP** cho phép Đại lý AI truy cập các công cụ và dữ liệu bên ngoài để hoàn thành nhiệm vụ người dùng.
+• Cách **MCP** cho phép các Đại lý AI truy cập công cụ và dữ liệu bên ngoài để hoàn thành nhiệm vụ người dùng.
 
 • Cách **A2A** cho phép giao tiếp và hợp tác giữa các đại lý AI khác nhau.
 
-• Cách **NLWeb** mang các giao diện ngôn ngữ tự nhiên đến bất kỳ trang web nào, cho phép các đại lý AI khám phá và tương tác với nội dung.
+• Cách **NLWeb** đưa giao diện ngôn ngữ tự nhiên vào bất kỳ trang web nào, cho phép các Đại lý AI khám phá và tương tác với nội dung.
 
 ## Mục tiêu học tập
 
 • **Xác định** mục đích cốt lõi và lợi ích của MCP, A2A và NLWeb trong bối cảnh các đại lý AI.
 
-• **Giải thích** cách mỗi giao thức tạo điều kiện cho giao tiếp và tương tác giữa các LLM, công cụ, và các đại lý khác.
+• **Giải thích** cách mỗi giao thức hỗ trợ giao tiếp và tương tác giữa LLMs, công cụ và các đại lý khác.
 
-• **Nhận biết** các vai trò riêng biệt mà mỗi giao thức đóng vai trò trong việc xây dựng các hệ thống đa đại lý phức tạp.
+• **Nhận biết** vai trò riêng biệt của mỗi giao thức trong xây dựng các hệ thống agentic phức tạp.
 
-## Giao thức Ngữ cảnh Mô hình
+## Giao Thức Ngữ Cảnh Mô Hình
 
-**Giao thức Ngữ cảnh Mô hình (MCP)** là một tiêu chuẩn mở cung cấp cách chuẩn hóa để ứng dụng cung cấp ngữ cảnh và công cụ cho các LLM. Điều này tạo điều kiện cho một "bộ điều hợp chung" với các nguồn dữ liệu và công cụ khác nhau mà các Đại lý AI có thể kết nối một cách nhất quán.
+**Giao Thức Ngữ Cảnh Mô Hình (MCP)** là một tiêu chuẩn mở cung cấp cách chuẩn hóa để ứng dụng cung cấp ngữ cảnh và công cụ cho LLMs. Điều này cho phép một "bộ điều hợp chung" kết nối với các nguồn dữ liệu và công cụ khác nhau theo cách nhất quán mà các Đại lý AI có thể sử dụng.
 
-Hãy cùng xem các thành phần của MCP, lợi ích so với việc sử dụng API trực tiếp, và một ví dụ về cách các đại lý AI có thể sử dụng một máy chủ MCP.
+Hãy cùng xem các thành phần của MCP, lợi ích so với việc sử dụng API trực tiếp, và một ví dụ về cách các đại lý AI có thể sử dụng máy chủ MCP.
 
-### Các thành phần cốt lõi của MCP
+### Thành phần cốt lõi của MCP
 
-MCP hoạt động trên kiến trúc **máy khách - máy chủ** và các thành phần cốt lõi gồm:
+MCP hoạt động trên kiến trúc **client-server** và các thành phần cốt lõi bao gồm:
 
-• **Hosts (Máy chủ lưu trữ)** là các ứng dụng LLM (ví dụ một trình soạn thảo mã như VSCode) khởi tạo kết nối với một Máy chủ MCP.
+• **Hosts** là các ứng dụng LLM (ví dụ một trình soạn thảo mã như VSCode) bắt đầu kết nối đến máy chủ MCP.
 
-• **Clients (Máy khách)** là các thành phần trong ứng dụng host duy trì kết nối một-một với các máy chủ.
+• **Clients** là các thành phần trong ứng dụng host duy trì kết nối một-một với các máy chủ.
 
-• **Servers (Máy chủ)** là các chương trình nhẹ cung cấp các khả năng cụ thể.
+• **Servers** là các chương trình nhẹ cung cấp các khả năng cụ thể.
 
-Bao gồm trong giao thức là ba nguyên tắc cốt lõi, tức là khả năng của một Máy chủ MCP:
+Bao gồm trong giao thức là ba khái niệm cơ bản đại diện cho các khả năng của máy chủ MCP:
 
-• **Tools (Công cụ)**: Đây là các hành động hoặc chức năng riêng biệt mà một đại lý AI có thể gọi để thực hiện hành động. Ví dụ, một dịch vụ thời tiết có thể cung cấp công cụ "lấy thời tiết", hoặc một máy chủ thương mại điện tử có thể cung cấp công cụ "mua sản phẩm". Máy chủ MCP quảng bá tên công cụ, mô tả và lược đồ đầu vào/đầu ra trong danh sách khả năng của chúng.
+• **Tools**: Đây là các hành động hoặc chức năng riêng biệt mà một đại lý AI có thể gọi để thực hiện một hành động. Ví dụ, một dịch vụ thời tiết có thể cung cấp công cụ "lấy thời tiết", hoặc máy chủ thương mại điện tử có thể cung cấp công cụ "mua sản phẩm". Máy chủ MCP công bố tên công cụ, mô tả và sơ đồ đầu vào/đầu ra trong danh sách khả năng.
 
-• **Resources (Tài nguyên)**: Đây là các mục dữ liệu hoặc tài liệu chỉ đọc mà một máy chủ MCP có thể cung cấp và các máy khách có thể truy xuất theo yêu cầu. Ví dụ bao gồm nội dung tệp, bản ghi cơ sở dữ liệu hoặc tệp nhật ký. Tài nguyên có thể là văn bản (như mã hoặc JSON) hoặc nhị phân (như hình ảnh hoặc PDF).
+• **Resources**: Đây là các mục dữ liệu hoặc tài liệu chỉ đọc mà máy chủ MCP có thể cung cấp, và client có thể lấy theo yêu cầu. Ví dụ bao gồm nội dung tập tin, bản ghi cơ sở dữ liệu hoặc tệp nhật ký. Tài nguyên có thể là văn bản (như mã hoặc JSON) hoặc nhị phân (như hình ảnh hoặc PDF).
 
-• **Prompts (Lời nhắc)**: Đây là các mẫu được định nghĩa trước cung cấp các lời nhắc đề xuất, cho phép các luồng công việc phức tạp hơn.
+• **Prompts**: Đây là các mẫu định nghĩa trước cung cấp các đề xuất prompt, cho phép quy trình làm việc phức tạp hơn.
 
 ### Lợi ích của MCP
 
-MCP mang lại các lợi thế đáng kể cho các Đại lý AI:
+MCP mang lại nhiều ưu điểm đáng kể cho các Đại lý AI:
 
-• **Khám phá Công cụ Động**: Các đại lý có thể nhận được động danh sách các công cụ sẵn có từ máy chủ cùng với mô tả về chức năng của chúng. Điều này khác với API truyền thống, thường yêu cầu mã hóa tĩnh cho các tích hợp, có nghĩa là bất kỳ thay đổi API nào cũng đòi hỏi cập nhật mã. MCP cung cấp cách "tích hợp một lần", dẫn đến sự thích ứng tốt hơn.
+• **Khám phá Công cụ động**: Đại lý có thể nhận danh sách công cụ có sẵn từ máy chủ cùng với mô tả công dụng của chúng. Điều này khác với các API truyền thống, vốn thường yêu cầu mã hóa tĩnh cho các tích hợp, nghĩa là mỗi thay đổi API đều phải cập nhật mã. MCP mang đến cách tiếp cận "tích hợp một lần", dẫn đến khả năng thích ứng cao hơn.
 
-• **Tương tác Đa LLM**: MCP hoạt động trên nhiều LLM khác nhau, cung cấp sự linh hoạt để thay đổi mô hình cốt lõi để đánh giá hiệu suất tốt hơn.
+• **Tương tác đa LLM**: MCP hoạt động trên nhiều LLM khác nhau, cung cấp linh hoạt để thay đổi mô hình lõi nhằm đánh giá và cải thiện hiệu suất.
 
-• **Bảo mật Chuẩn hóa**: MCP bao gồm phương thức xác thực tiêu chuẩn, cải thiện khả năng mở rộng khi thêm quyền truy cập vào các máy chủ MCP bổ sung. Điều này đơn giản hơn nhiều so với quản lý các khóa và loại xác thực khác nhau cho các API truyền thống.
+• **Bảo mật Chuẩn hóa**: MCP bao gồm phương thức xác thực chuẩn, cải thiện khả năng mở rộng khi thêm truy cập các máy chủ MCP khác. Điều này đơn giản hơn nhiều so với việc quản lý các khóa và kiểu xác thực khác nhau cho nhiều API truyền thống.
 
 ### Ví dụ về MCP
 
 ![MCP Diagram](../../../translated_images/vi/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Hãy tưởng tượng một người dùng muốn đặt một chuyến bay bằng một trợ lý AI được hỗ trợ bởi MCP.
+Hãy tưởng tượng một người dùng muốn đặt vé máy bay bằng trợ lý AI chạy MCP.
 
-1. **Kết nối**: Trợ lý AI (một máy khách MCP) kết nối với một máy chủ MCP do một hãng hàng không cung cấp.
+1. **Kết nối**: Trợ lý AI (client MCP) kết nối đến máy chủ MCP do hãng hàng không cung cấp.
 
-2. **Khám phá Công cụ**: Máy khách hỏi máy chủ MCP của hãng hàng không, "Bạn có những công cụ nào sẵn có?" Máy chủ trả về các công cụ như "tìm kiếm chuyến bay" và "đặt chuyến bay".
+2. **Khám phá Công cụ**: Client hỏi máy chủ MCP của hãng hàng không: "Bạn có công cụ nào sẵn có?" Máy chủ trả lời với các công cụ như "tìm chuyến bay" và "đặt chuyến bay".
 
-3. **Gọi Công cụ**: Bạn sau đó bảo trợ lý AI, "Hãy tìm chuyến bay từ Portland đến Honolulu." Trợ lý AI, sử dụng LLM của mình, xác định cần gọi công cụ "tìm kiếm chuyến bay" và truyền các tham số liên quan (nơi đi, điểm đến) đến máy chủ MCP.
+3. **Gọi Công cụ**: Người dùng yêu cầu trợ lý AI: "Vui lòng tìm chuyến bay từ Portland tới Honolulu." Trợ lý AI, sử dụng LLM, nhận ra cần gọi công cụ "tìm chuyến bay" và chuyển các tham số liên quan (nơi đi, nơi đến) cho máy chủ MCP.
 
-4. **Thực thi và Phản hồi**: Máy chủ MCP, hoạt động như một lớp bao quanh, thực hiện cuộc gọi thực tế đến API đặt chỗ nội bộ của hãng hàng không. Sau đó nhận thông tin chuyến bay (ví dụ dữ liệu JSON) và gửi về cho trợ lý AI.
+4. **Thực thi và Phản hồi**: Máy chủ MCP, hoạt động như lớp bao bọc, thực hiện gọi API nội bộ đặt vé của hãng hàng không. Sau đó nhận dữ liệu chuyến bay (ví dụ dữ liệu JSON) và gửi về cho trợ lý AI.
 
-5. **Tương tác tiếp theo**: Trợ lý AI trình bày các lựa chọn chuyến bay. Khi bạn chọn chuyến, trợ lý có thể gọi công cụ "đặt chuyến bay" trên cùng máy chủ MCP, hoàn tất đặt chỗ.
+5. **Tương tác thêm**: Trợ lý AI trình bày các lựa chọn chuyến bay. Khi người dùng chọn chuyến bay, trợ lý có thể gọi công cụ "đặt chuyến bay" trên cùng máy chủ MCP để hoàn tất đặt vé.
 
-## Giao thức Đại lý với Đại lý (A2A)
+## Giao Thức Agent-to-Agent (A2A)
 
-Trong khi MCP tập trung kết nối LLM với công cụ, **Giao thức Đại lý với Đại lý (A2A)** tiến một bước nữa bằng cách cho phép giao tiếp và hợp tác giữa các đại lý AI khác nhau. A2A kết nối các đại lý AI thuộc các tổ chức, môi trường và nền tảng kỹ thuật khác nhau để hoàn thành một nhiệm vụ chung.
+Trong khi MCP tập trung kết nối LLM với công cụ, **giao thức Agent-to-Agent (A2A)** đi xa hơn khi cho phép giao tiếp và hợp tác giữa các đại lý AI khác nhau. A2A kết nối các đại lý AI thuộc các tổ chức, môi trường và nền tảng kỹ thuật khác nhau để hoàn thành nhiệm vụ chung.
 
-Chúng ta sẽ xem xét các thành phần và lợi ích của A2A, cùng một ví dụ về cách nó có thể được áp dụng trong ứng dụng du lịch của chúng ta.
+Chúng ta sẽ tìm hiểu các thành phần và lợi ích của A2A cùng ví dụ áp dụng trong ứng dụng du lịch.
 
-### Các thành phần cốt lõi của A2A
+### Thành phần cốt lõi của A2A
 
-A2A tập trung vào việc tạo điều kiện giao tiếp giữa các đại lý và khiến họ làm việc cùng nhau để hoàn thành một phần tác vụ của người dùng. Mỗi thành phần trong giao thức góp phần vào điều này:
+A2A tập trung vào cho phép giao tiếp giữa các đại lý và làm việc cùng nhau hoàn thành một phần nhiệm vụ của người dùng. Mỗi thành phần trong giao thức góp phần vào điều này:
 
 #### Thẻ Đại lý (Agent Card)
 
-Tương tự như cách máy chủ MCP chia sẻ danh sách công cụ, Thẻ Đại lý có:
+Tương tự cách một máy chủ MCP chia sẻ danh sách công cụ, một Thẻ Đại lý có:
 - Tên của Đại lý.
-- Một **mô tả về các nhiệm vụ chung** mà nó thực hiện.
-- Một **danh sách các kỹ năng cụ thể** với mô tả giúp các đại lý khác (hoặc người dùng con người) hiểu khi nào và tại sao họ nên gọi đại lý đó.
-- **URL điểm cuối hiện tại** của đại lý.
-- **Phiên bản** và **khả năng** của đại lý như phản hồi liên tục và thông báo đẩy.
+- **Mô tả các nhiệm vụ chung** mà đại lý thực hiện.
+- **Danh sách các kỹ năng cụ thể** kèm mô tả giúp các đại lý khác (hoặc người dùng) hiểu khi nào và vì sao họ muốn gọi đến đại lý đó.
+- **URL Endpoint hiện tại** của đại lý
+- **Phiên bản** và **khả năng** của đại lý, ví dụ như hỗ trợ streaming phản hồi và thông báo đẩy.
 
-#### Bộ Thực thi Đại lý (Agent Executor)
+#### Bộ thực thi đại lý (Agent Executor)
 
-Bộ Thực thi Đại lý chịu trách nhiệm **truyền bối cảnh cuộc trò chuyện người dùng đến đại lý từ xa**, đại lý cần điều này để hiểu nhiệm vụ cần hoàn thành. Trong máy chủ A2A, một đại lý sử dụng chính mô hình ngôn ngữ lớn (LLM) của mình để phân tích các yêu cầu đến và thực hiện các tác vụ bằng các công cụ nội bộ của nó.
+Bộ thực thi đại lý chịu trách nhiệm **chuyển ngữ cảnh cuộc chat người dùng đến đại lý từ xa**, đại lý từ xa cần ngữ cảnh này để hiểu nhiệm vụ cần hoàn thành. Trong máy chủ A2A, đại lý sử dụng LLM của chính mình để phân tích yêu cầu đến và thực thi nhiệm vụ với các công cụ nội bộ.
 
-#### Thành phẩm (Artifact)
+#### Tác phẩm (Artifact)
 
-Khi một đại lý từ xa hoàn thành nhiệm vụ được yêu cầu, sản phẩm công việc của nó được tạo thành một thành phẩm. Một thành phẩm **chứa kết quả công việc của đại lý**, một **mô tả những gì đã hoàn thành**, và **bối cảnh văn bản** được gửi qua giao thức. Sau khi thành phẩm được gửi đi, kết nối với đại lý từ xa bị đóng cho đến khi cần lại.
+Khi đại lý từ xa hoàn thành nhiệm vụ, sản phẩm công việc được tạo dưới dạng tác phẩm. Một tác phẩm **chứa kết quả công việc của đại lý**, một **mô tả về những gì đã hoàn thành**, và **bối cảnh văn bản** được gửi qua giao thức. Sau khi gửi tác phẩm, kết nối với đại lý từ xa được đóng cho đến khi cần lại.
 
 #### Hàng đợi Sự kiện (Event Queue)
 
-Thành phần này được dùng để **xử lý cập nhật và truyền tin nhắn**. Nó đặc biệt quan trọng trong môi trường sản xuất cho hệ thống đa đại lý để ngăn ngừa việc kết nối giữa các đại lý bị đóng trước khi tác vụ hoàn thành, nhất là khi thời gian thực hiện tác vụ có thể kéo dài.
+Thành phần này dùng để **xử lý cập nhật và truyền tin nhắn**. Nó đặc biệt quan trọng trong sản xuất đối với các hệ thống agentic để ngăn kết nối giữa các đại lý bị đóng trước khi nhiệm vụ hoàn thành, nhất là khi thời gian hoàn thành có thể kéo dài.
 
 ### Lợi ích của A2A
 
-• **Hợp tác Nâng cao**: Nó cho phép các đại lý từ các nhà cung cấp và nền tảng khác nhau tương tác, chia sẻ ngữ cảnh, và làm việc cùng nhau, tạo điều kiện tự động hóa liền mạch trên các hệ thống từng bị tách rời.
+• **Tăng cường Hợp tác**: Cho phép các đại lý từ nhiều nhà cung cấp và nền tảng khác nhau tương tác, chia sẻ ngữ cảnh và làm việc cùng nhau, giúp tự động hóa liền mạch trên các hệ thống trước đây tách rời.
 
-• **Lựa chọn Mô hình Linh hoạt**: Mỗi đại lý A2A có thể quyết định LLM nào được sử dụng để phục vụ yêu cầu của mình, cho phép tối ưu hóa hoặc tinh chỉnh mô hình theo từng đại lý, khác với việc chỉ kết nối một LLM trong một số tình huống MCP.
+• **Linh hoạt trong Lựa chọn Mô hình**: Mỗi đại lý A2A có thể quyết định LLM nào sử dụng để phục vụ yêu cầu, cho phép tối ưu hoặc tinh chỉnh mô hình riêng cho mỗi đại lý, khác với kết nối LLM đơn trong một số kịch bản MCP.
 
-• **Xác thực Tích hợp sẵn**: Xác thực được tích hợp trực tiếp vào giao thức A2A, cung cấp một khung bảo mật mạnh mẽ cho tương tác giữa các đại lý.
+• **Xác thực tích hợp sẵn**: Xác thực được tích hợp trực tiếp trong giao thức A2A, cung cấp khung bảo mật mạnh mẽ cho tương tác đại lý.
 
 ### Ví dụ về A2A
 
 ![A2A Diagram](../../../translated_images/vi/A2A-Diagram.8666928d648acc26.webp)
 
-Hãy mở rộng kịch bản đặt chuyến du lịch của chúng ta, nhưng lần này sử dụng A2A.
+Hãy mở rộng kịch bản đặt du lịch, lần này sử dụng A2A.
 
-1. **Yêu cầu Người dùng tới Multi-Đại lý**: Người dùng tương tác với một đại lý "Du lịch" là máy khách/đại lý A2A, có thể bằng cách nói, "Hãy đặt một chuyến đi toàn bộ đến Honolulu cho tuần tới, bao gồm chuyến bay, khách sạn, và xe thuê."
+1. **Yêu cầu người dùng đến đa đại lý**: Người dùng tương tác với một client/đại lý "Travel Agent" A2A, có thể bằng cách nói: "Vui lòng đặt một chuyến đi trọn gói tới Honolulu cho tuần tới, bao gồm vé máy bay, khách sạn và thuê xe".
 
-2. **Điều phối bởi Đại lý Du lịch**: Đại lý Du lịch nhận yêu cầu phức tạp này. Nó sử dụng LLM của mình để suy luận về nhiệm vụ và xác định rằng cần tương tác với các đại lý chuyên môn khác.
+2. **Điều phối bởi Travel Agent**: Travel Agent nhận yêu cầu phức tạp này. Nó sử dụng LLM của mình để suy nghĩ về nhiệm vụ và xác định cần tương tác với các đại lý chuyên môn khác.
 
-3. **Giao tiếp Giữa các Đại lý**: Đại lý Du lịch dùng giao thức A2A kết nối với các đại lý hạ nguồn, như "Đại lý Hàng không", "Đại lý Khách sạn", và "Đại lý Thuê xe" được tạo bởi các công ty khác nhau.
+3. **Giao tiếp giữa các đại lý**: Travel Agent sử dụng giao thức A2A để kết nối với các đại lý hạ nguồn, như "Airline Agent," "Hotel Agent," và "Car Rental Agent" được tạo bởi các công ty khác nhau.
 
-4. **Giao nhiệm vụ Ủy quyền**: Đại lý Du lịch gửi các nhiệm vụ cụ thể cho các đại lý chuyên môn này (ví dụ, "Tìm chuyến bay đến Honolulu," "Đặt khách sạn," "Thuê xe"). Mỗi đại lý chuyên môn, chạy LLM của riêng và sử dụng công cụ riêng của mình (có thể là máy chủ MCP), thực hiện phần việc đặt chỗ cụ thể.
+4. **Phân công thực thi nhiệm vụ**: Travel Agent gửi các nhiệm vụ cụ thể cho các đại lý chuyên biệt này (ví dụ, "Tìm chuyến bay tới Honolulu," "Đặt khách sạn," "Thuê xe"). Mỗi đại lý chuyên biệt này, chạy LLM riêng và sử dụng công cụ của mình (có thể là máy chủ MCP), thực hiện phần việc riêng của họ trong quá trình đặt.
 
-5. **Phản hồi Hợp nhất**: Khi tất cả các đại lý hạ nguồn hoàn tất nhiệm vụ, Đại lý Du lịch tổng hợp kết quả (chi tiết chuyến bay, xác nhận khách sạn, đặt xe thuê) và gửi một phản hồi toàn diện, kiểu trò chuyện lại cho người dùng.
+5. **Phản hồi tổng hợp**: Khi tất cả đại lý hạ nguồn hoàn thành nhiệm vụ, Travel Agent tổng hợp kết quả (chi tiết chuyến bay, xác nhận khách sạn, đặt thuê xe) và gửi phản hồi tổng hợp, kiểu trò chuyện, trở lại cho người dùng.
 
-## Mạng Ngôn ngữ Tự nhiên (NLWeb)
+## Mạng Ngôn Ngữ Tự Nhiên (NLWeb)
 
-Các trang web đã từ lâu là phương tiện chính để người dùng truy cập thông tin và dữ liệu trên internet.
+Các trang web từ lâu đã là cách chính để người dùng truy cập thông tin và dữ liệu trên internet.
 
-Hãy xem xét các thành phần khác nhau của NLWeb, lợi ích của NLWeb và một ví dụ về cách NLWeb hoạt động qua ứng dụng du lịch của chúng ta.
+Hãy xem các thành phần khác nhau của NLWeb, lợi ích của NLWeb và một ví dụ về cách NLWeb hoạt động qua ứng dụng du lịch của chúng ta.
 
 ### Các thành phần của NLWeb
 
-- **Ứng dụng NLWeb (Mã dịch vụ cốt lõi)**: Hệ thống xử lý các câu hỏi ngôn ngữ tự nhiên. Nó kết nối các phần khác nhau của nền tảng để tạo câu trả lời. Có thể coi nó như **động cơ cung cấp các tính năng ngôn ngữ tự nhiên** của một trang web.
+- **Ứng dụng NLWeb (Mã dịch vụ cốt lõi)**: Hệ thống xử lý các câu hỏi ngôn ngữ tự nhiên. Nó kết nối các phần khác nhau của nền tảng để tạo ra các phản hồi. Bạn có thể xem nó như **động cơ vận hành các tính năng ngôn ngữ tự nhiên** của một trang web.
 
-- **Giao thức NLWeb**: Đây là **bộ quy tắc cơ bản cho tương tác ngôn ngữ tự nhiên** với một trang web. Nó trả về các phản hồi ở định dạng JSON (thường dùng Schema.org). Mục tiêu là tạo nền tảng đơn giản cho “Web AI,” tương tự như HTML cho phép chia sẻ tài liệu trực tuyến.
+- **Giao thức NLWeb**: Đây là **bộ quy tắc cơ bản cho tương tác ngôn ngữ tự nhiên** với một trang web. Nó gửi lại câu trả lời ở định dạng JSON (thường sử dụng Schema.org). Mục đích là tạo nền tảng đơn giản cho "Mạng AI", tương tự cách HTML giúp chia sẻ tài liệu trên mạng.
 
-- **Máy chủ MCP (Điểm cuối Giao thức Ngữ cảnh Mô hình)**: Mỗi thiết lập NLWeb cũng hoạt động như một **máy chủ MCP**. Điều này nghĩa là nó có thể **chia sẻ công cụ (như phương thức “ask”) và dữ liệu** với các hệ thống AI khác. Thực tế, điều này làm cho nội dung và khả năng của trang web có thể dùng được bởi các đại lý AI, cho phép trang web trở thành một phần của “hệ sinh thái đại lý” rộng lớn hơn.
+- **Máy chủ MCP (Điểm cuối Giao thức Ngữ cảnh Mô hình)**: Mỗi thiết lập NLWeb cũng đóng vai trò là **máy chủ MCP**. Điều này có nghĩa nó có thể **chia sẻ công cụ (như phương thức “ask”) và dữ liệu** với các hệ thống AI khác. Trên thực tế, điều này làm cho nội dung và chức năng của trang web có thể sử dụng bởi các đại lý AI, cho phép trang web trở thành một phần của "hệ sinh thái đại lý" rộng lớn hơn.
 
-- **Mô hình Nhúng**: Các mô hình này được dùng để **chuyển đổi nội dung trang web thành các biểu diễn số gọi là vector** (embedding). Các vector này nắm bắt ý nghĩa theo cách mà máy tính có thể so sánh và tìm kiếm. Chúng được lưu trong cơ sở dữ liệu đặc biệt, và người dùng có thể chọn mô hình nhúng mình muốn dùng.
+- **Mô hình nhúng (Embedding Models)**: Các mô hình này dùng để **chuyển nội dung trang web thành các biểu diễn số gọi là vectors** (embeddings). Các vectors này biểu diễn ý nghĩa theo cách máy tính có thể so sánh và tìm kiếm. Chúng được lưu trữ trong cơ sở dữ liệu đặc biệt, và người dùng có thể chọn mô hình nhúng họ muốn sử dụng.
 
-- **Cơ sở dữ liệu vector (Cơ chế truy xuất)**: Cơ sở dữ liệu này **lưu trữ các embedding của nội dung trang web**. Khi ai đó đặt câu hỏi, NLWeb kiểm tra cơ sở dữ liệu vector để nhanh chóng tìm thông tin phù hợp nhất. Nó cung cấp danh sách nhanh các câu trả lời khả thi, xếp theo độ tương đồng. NLWeb hoạt động với nhiều hệ thống lưu trữ vector khác nhau như Qdrant, Snowflake, Milvus, Azure AI Search, và Elasticsearch.
+- **Cơ sở dữ liệu Vector (Cơ chế truy xuất)**: Cơ sở dữ liệu này **lưu trữ embeddings của nội dung trang web**. Khi ai đó hỏi một câu, NLWeb tra cứu trong cơ sở dữ liệu vector để nhanh chóng tìm thông tin phù hợp nhất. Nó cung cấp danh sách câu trả lời có thể, xếp hạng theo độ tương đồng. NLWeb hoạt động với nhiều hệ thống lưu trữ vector như Qdrant, Snowflake, Milvus, Azure AI Search và Elasticsearch.
 
-### NLWeb thông qua ví dụ
+### Ví dụ về NLWeb
 
 ![NLWeb](../../../translated_images/vi/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Hãy xem lại trang web đặt chuyến du lịch của chúng ta, nhưng lần này được hỗ trợ bởi NLWeb.
+Hãy tiếp tục với trang web đặt du lịch, lần này trang web chạy trên NLWeb.
 
-1. **Nhập dữ liệu**: Danh mục sản phẩm hiện có của trang web du lịch (ví dụ, danh sách chuyến bay, mô tả khách sạn, gói tour) được định dạng theo Schema.org hoặc tải qua RSS feeds. Công cụ của NLWeb nhập dữ liệu có cấu trúc này, tạo embedding và lưu trong cơ sở dữ liệu vector cục bộ hoặc từ xa.
+1. **Nhập dữ liệu**: Danh mục sản phẩm hiện có của trang web du lịch (ví dụ, danh sách chuyến bay, mô tả khách sạn, các gói tour) được định dạng theo Schema.org hoặc tải qua nguồn cấp RSS. Các công cụ của NLWeb nhập dữ liệu có cấu trúc này, tạo embeddings và lưu vào cơ sở dữ liệu vector cục bộ hoặc từ xa.
 
-2. **Truy vấn ngôn ngữ tự nhiên (Con người)**: Người dùng truy cập trang web và thay vì điều hướng menu, nhập vào giao diện trò chuyện: "Tìm khách sạn thân thiện với gia đình ở Honolulu có hồ bơi cho tuần tới."
+2. **Truy vấn ngôn ngữ tự nhiên (con người)**: Người dùng vào website và thay vì duyệt menu, nhập câu hỏi vào giao diện chat: "Tìm cho tôi khách sạn phù hợp gia đình ở Honolulu có hồ bơi cho tuần tới".
 
-3. **Xử lý NLWeb**: Ứng dụng NLWeb nhận truy vấn này. Nó gửi truy vấn đến LLM để hiểu và đồng thời tìm kiếm cơ sở dữ liệu vector cho danh sách khách sạn liên quan.
+3. **Xử lý NLWeb**: Ứng dụng NLWeb nhận truy vấn này. Nó gửi truy vấn đến LLM để hiểu và đồng thời tìm kiếm trong cơ sở dữ liệu vector cho các bản ghi khách sạn phù hợp.
 
-4. **Kết quả chính xác**: LLM giúp diễn giải kết quả tìm kiếm từ cơ sở dữ liệu, xác định các kết quả phù hợp nhất dựa trên tiêu chí "thân thiện với gia đình," "hồ bơi," và "Honolulu," rồi định dạng phản hồi bằng ngôn ngữ tự nhiên. Quan trọng là, phản hồi tham chiếu đến các khách sạn thực từ danh mục trang web, tránh thông tin bịa đặt.
+4. **Kết quả chính xác**: LLM giúp diễn giải kết quả tìm kiếm, xác định các kết quả phù hợp nhất dựa trên tiêu chí "phù hợp gia đình," "hồ bơi," và "Honolulu," rồi định dạng câu trả lời ngôn ngữ tự nhiên. Quan trọng là câu trả lời tham chiếu đúng các khách sạn thật từ danh mục của website, tránh thông tin giả mạo.
 
-5. **Tương tác đại lý AI**: Vì NLWeb đóng vai trò máy chủ MCP, một đại lý du lịch AI bên ngoài cũng có thể kết nối với phiên bản NLWeb của trang web này. Đại lý AI có thể dùng phương thức `ask` của MCP để truy vấn trực tiếp trang web: `ask("Có nhà hàng ăn chay được khách sạn giới thiệu nào ở khu vực Honolulu không?")`. Phiên bản NLWeb sẽ xử lý, tận dụng cơ sở dữ liệu về nhà hàng (nếu có), và trả về phản hồi JSON có cấu trúc.
+5. **Tương tác Đại lý AI**: Vì NLWeb hoạt động như một máy chủ MCP, một đại lý du lịch AI bên ngoài cũng có thể kết nối đến instance NLWeb của trang này. Đại lý AI có thể sử dụng phương thức `ask` của MCP để truy vấn trực tiếp trang web: `ask("Có nhà hàng thuần chay nào gần khu vực Honolulu được khách sạn giới thiệu không?")`. Instance NLWeb sẽ xử lý câu hỏi này, khai thác dữ liệu nhà hàng (nếu đã tải), và trả về phản hồi có cấu trúc JSON.
 
-### Có thêm câu hỏi về MCP/A2A/NLWeb?
+### Còn Thắc Mắc về MCP/A2A/NLWeb?
 
-Tham gia [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) để gặp gỡ những người học khác, tham gia giờ tư vấn và nhận câu trả lời cho các câu hỏi về Đại lý AI.
+Tham gia [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) để gặp gỡ các học viên khác, tham dự giờ văn phòng và nhận câu trả lời cho các câu hỏi về Đại lý AI.
 
 ## Tài nguyên
 
-- [MCP dành cho người mới bắt đầu](https://aka.ms/mcp-for-beginners)  
+- [MCP cho Người mới bắt đầu](https://aka.ms/mcp-for-beginners)  
 - [Tài liệu MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
-- [Kho mã nguồn NLWeb](https://github.com/nlweb-ai/NLWeb)
-- [Khung Đại lý Microsoft](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Kho mã NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
 
 ## Bài học trước
 
-[Đại lý AI trong sản xuất](../10-ai-agents-production/README.md)
+[Đại lý AI trong Sản xuất](../10-ai-agents-production/README.md)
 
 ## Bài học tiếp theo
 
