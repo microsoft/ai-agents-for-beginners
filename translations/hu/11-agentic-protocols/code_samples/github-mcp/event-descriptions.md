@@ -166,7 +166,7 @@ A Microsoft Foundry Agent Service egy zökkenőmentes szolgáltatás és SDK öt
 
 ## Leírás
 
-Ebben az ülésben megosztjuk a legizgalmasabb fejlesztéseket a .NET platformon az ügynökök körül. Fedezd fel a .NET jelenlegi állapotát, beleértve az új funkciókat és fejlesztéseket. Ismerd meg a hatékony MI ügynök képességeket. És élőben kódolunk ügynökökkel és a Aspire-rel.
+Ebben az ülésben megosztjuk a legizgalmasabb fejlesztéseket a .NET platformon az ügynökök körül. Fedezd fel a .NET jelenlegi állapotát, beleértve az új funkciókat és fejlesztéseket. Ismerd meg a hatékony MI ügynök képességeket. És élőben kódolunk ügynökökkel és az Aspire-rel.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
