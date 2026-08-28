@@ -29,7 +29,7 @@ Arama sonrası tam öğreticilere, tüm yapılandırma seçeneklerine veya arama
 
 Aşağıdaki kategoriler **learn.microsoft.com dışında** yer alır. Bunun yerine belirtilen aracı kullanın.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire belgeleri **aspire.dev** üzerinde bulunur, Learn üzerinde değil. En iyi araç Aspire CLI sürümünüze bağlıdır:
 
@@ -41,14 +41,14 @@ Aspire belgeleri **aspire.dev** üzerinde bulunur, Learn üzerinde değil. En iy
 | `search_docs` | aspire.dev içeriği üzerinde ağırlıklı leksikal arama yapar |
 | `get_doc` | Belirli bir slug ile bir belge getirir |
 
-Bunlar Aspire CLI 13.2 ile gelir ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Güncellemek için: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Bunlar Aspire CLI 13.2 ile gelir ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Güncellemek için: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP sunucusu entegrasyon araması (`list_integrations`, `get_integration_docs`) sağlar ancak belge araması sağlamaz. Context7'e geri dönün:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Birincil — kılavuzlar, entegrasyonlar, CLI referansı, dağıtım |
-| `/dotnet/aspire` | Çalışma zamanı kaynağı — API iç detayları, uygulama ayrıntıları |
+| `/microsoft/aspire` | Çalışma zamanı kaynağı — API iç detayları, uygulama ayrıntıları |
 | `/communitytoolkit/aspire` | Topluluk entegrasyonları — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

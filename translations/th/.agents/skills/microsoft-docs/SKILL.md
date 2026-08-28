@@ -28,7 +28,7 @@ description: ค้นหาเอกสารอย่างเป็นทา�
 
 หมวดหมู่ต่อไปนี้อยู่ **นอก** learn.microsoft.com ให้ใช้เครื่องมือที่ระบุแทน
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 เอกสาร Aspire อยู่บน **aspire.dev** ไม่ใช่ Learn เครื่องมือที่ดีที่สุดขึ้นอยู่กับเวอร์ชัน Aspire CLI ของคุณ:
 
@@ -40,14 +40,14 @@ description: ค้นหาเอกสารอย่างเป็นทา�
 | `search_docs` | การค้นหาเชิงเล็กซิคอลแบบถ่วงน้ำหนักผ่านเนื้อหา aspire.dev |
 | `get_doc` | ดึงเอกสารเฉพาะโดยใช้ slug |
 
-ฟีเจอร์เหล่านี้มาพร้อมกับ Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ในการอัปเดต: `aspire update --self --channel daily`. อ้างอิง: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ฟีเจอร์เหล่านี้มาพร้อมกับ Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). ในการอัปเดต: `aspire update --self --channel daily`. อ้างอิง: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — เซิร์ฟเวอร์ MCP มีการค้นหาอินทิเกรชัน (`list_integrations`, `get_integration_docs`) แต่ **ไม่มี** การค้นหาเอกสาร ให้ถอยกลับไปใช้ Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | หลัก — คำแนะนำ, การผนวกรวม, เอกสารอ้างอิง CLI, การปรับใช้ |
-| `/dotnet/aspire` | แหล่งรันไทม์ — โครงสร้างภายใน API, รายละเอียดการใช้งาน |
+| `/microsoft/aspire` | แหล่งรันไทม์ — โครงสร้างภายใน API, รายละเอียดการใช้งาน |
 | `/communitytoolkit/aspire` | การผนวกรวมของชุมชน — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

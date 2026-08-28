@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service 是服務和 SDK 的無縫結合，簡化了強�
 
 ---
 
-## 活動名稱：AI 代理 + .NET Aspire
+## 活動名稱：AI 代理 + Aspire
 
 ## 描述
 
-本節將分享 .NET 平台上與代理相關的最令人振奮的發展。了解 .NET 的現狀，包括新功能和改進。探索強大的 AI 代理功能，並進行代理與 .NET Aspire 的現場編程演示。
+本節將分享 .NET 平台上與代理相關的最令人振奮的發展。了解 .NET 的現狀，包括新功能和改進。探索強大的 AI 代理功能，並進行代理與 Aspire 的現場編程演示。
 
 ## 網址
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

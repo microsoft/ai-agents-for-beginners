@@ -29,7 +29,7 @@ Folosește `microsoft_docs_fetch` după căutare când ai nevoie de tutoriale co
 
 Următoarele categorii există **în afara** learn.microsoft.com. Folosește instrumentul specificat în schimb.
 
-### .NET Aspire — Folosește Aspire MCP Server (preferat) sau Context7
+### Aspire — Folosește Aspire MCP Server (preferat) sau Context7
 
 Documentația Aspire se află pe **aspire.dev**, nu pe Learn. Cel mai bun instrument depinde de versiunea CLI Aspire pe care o folosești:
 
@@ -41,14 +41,14 @@ Documentația Aspire se află pe **aspire.dev**, nu pe Learn. Cel mai bun instru
 | `search_docs` | Căutare lexicală ponderată în conținutul aspire.dev |
 | `get_doc` | Recuperează un document specific după slug |
 
-Acestea sunt incluse în Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Pentru actualizare: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Acestea sunt incluse în Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Pentru actualizare: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — Serverul MCP oferă căutare a integrărilor (`list_integrations`, `get_integration_docs`) dar **nu** oferă căutare în documentație. Recurge la Context7:
 
 | Library ID | Utilizare pentru |
 |---|---|
 | `/microsoft/aspire.dev` | Principal — ghiduri, integrări, referință CLI, deployment |
-| `/dotnet/aspire` | Sursă runtime — internals API, detalii de implementare |
+| `/microsoft/aspire` | Sursă runtime — internals API, detalii de implementare |
 | `/communitytoolkit/aspire` | Integrări comunitare — Go, Java, Node.js, Ollama |
 
 ### VS Code — Folosește Context7

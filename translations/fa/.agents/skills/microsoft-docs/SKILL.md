@@ -29,7 +29,7 @@ description: پرس‌وجو در مستندات رسمی مایکروسافت �
 
 دسته‌های زیر در **خارج از** learn.microsoft.com قرار دارند. به‌جای آن از ابزار مشخص‌شده استفاده کنید.
 
-### .NET Aspire — از Aspire MCP Server (ترجیحی) یا Context7 استفاده کنید
+### Aspire — از Aspire MCP Server (ترجیحی) یا Context7 استفاده کنید
 
 مستندات Aspire در **aspire.dev** قرار دارند، نه Learn. بهترین ابزار به نسخه Aspire CLI شما بستگی دارد:
 
@@ -41,14 +41,14 @@ description: پرس‌وجو در مستندات رسمی مایکروسافت �
 | `search_docs` | جستجوی واژگانی وزن‌دار در میان محتوای aspire.dev |
 | `get_doc` | بازیابی یک سند مشخص با slug |
 
-این‌ها در Aspire CLI 13.2 عرضه می‌شوند ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). برای به‌روزرسانی: `aspire update --self --channel daily`. مرجع: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+این‌ها در Aspire CLI 13.2 عرضه می‌شوند ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). برای به‌روزرسانی: `aspire update --self --channel daily`. مرجع: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — سرور MCP جستجوی یکپارچه‌سازی را فراهم می‌کند (`list_integrations`, `get_integration_docs`) اما **جستجوی مستندات** را فراهم نمی‌کند. به Context7 بازگردید:
 
 | Library ID | استفاده برای |
 |---|---|
 | `/microsoft/aspire.dev` | اصلی — راهنماها، یکپارچگی‌ها، مرجع CLI، استقرار |
-| `/dotnet/aspire` | منبع زمان اجرا — اجزای داخلی API، جزئیات پیاده‌سازی |
+| `/microsoft/aspire` | منبع زمان اجرا — اجزای داخلی API، جزئیات پیاده‌سازی |
 | `/communitytoolkit/aspire` | یکپارچگی‌های جامعه — Go، Java، Node.js، Ollama |
 
 ### VS Code — از Context7 استفاده کنید

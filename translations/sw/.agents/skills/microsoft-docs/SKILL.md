@@ -29,7 +29,7 @@ Tumia `microsoft_docs_fetch` baada ya utafutaji wakati unahitaji mafunzo kamili,
 
 Makundi yafuatayo yapo **nje** ya learn.microsoft.com. Tumia zana maalum badala yake.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Nyaraka za Aspire zinapatikana kwenye **aspire.dev**, si Learn. Zana bora inategemea toleo lako la Aspire CLI:
 
@@ -41,14 +41,14 @@ Nyaraka za Aspire zinapatikana kwenye **aspire.dev**, si Learn. Zana bora inateg
 | `search_docs` | Utafutaji wa kifasiri wenye uzito kwenye yaliyomo ya aspire.dev |
 | `get_doc` | Inarekebisha hati maalum kwa slug |
 
-Hizi zinaambatana katika Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Ili kusasisha: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Hizi zinaambatana katika Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Ili kusasisha: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP server hutoa utafutaji wa integrasiyo (`list_integrations`, `get_integration_docs`) lakini **si** utafutaji wa nyaraka. Rudia Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Msingi — mwongozo, integrasiyo, rejea ya CLI, upeleka |
-| `/dotnet/aspire` | Chanzo cha runtime — ndani za API, maelezo ya utekelezaji |
+| `/microsoft/aspire` | Chanzo cha runtime — ndani za API, maelezo ya utekelezaji |
 | `/communitytoolkit/aspire` | Integrasiyo za jamii — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

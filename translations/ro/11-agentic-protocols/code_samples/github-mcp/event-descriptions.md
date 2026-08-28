@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service este o combinație perfectă între serviciu și
 
 ---
 
-## Numele Evenimentului: Agenți AI + .NET Aspire
+## Numele Evenimentului: Agenți AI + Aspire
 
 ## Descriere
 
-În această sesiune vom împărtăși unele dintre cele mai captivante dezvoltări pe platforma .NET în jurul Agenților. Descoperă stadiul actual al .NET, inclusiv noile funcții și îmbunătățiri. Explorează capabilitățile puternice ale Agenților AI. Și vom face ceva codare live cu Agenți și .NET Aspire.
+În această sesiune vom împărtăși unele dintre cele mai captivante dezvoltări pe platforma .NET în jurul Agenților. Descoperă stadiul actual al .NET, inclusiv noile funcții și îmbunătățiri. Explorează capabilitățile puternice ale Agenților AI. Și vom face ceva codare live cu Agenți și Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

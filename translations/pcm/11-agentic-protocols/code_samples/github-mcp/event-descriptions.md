@@ -162,11 +162,11 @@ Di Microsoft Foundry Agent Service na smooth blend of service and SDK wey dey si
 
 ---
 
-## Event Name: AI Agents + .NET Aspire
+## Event Name: AI Agents + Aspire
 
 ## Description
 
-For dis session we go share some of the most exciting developments for .NET platform about Agents. Discover how .NET dey now, including new features and improvements. Explore di powerful AI Agent capabilities. And we go do some live coding with Agents and .NET Aspire.
+For dis session we go share some of the most exciting developments for .NET platform about Agents. Discover how .NET dey now, including new features and improvements. Explore di powerful AI Agent capabilities. And we go do some live coding with Agents and Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

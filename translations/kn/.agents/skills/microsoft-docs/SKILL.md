@@ -29,7 +29,7 @@ Microsoft ತಂತ್ರಜ್ಞಾನ ಪರಿಸರಕ್ಕಾಗಿ ಸ�
 
 ಕೆಳಗಿನ ವರ್ಗಗಳು **learn.microsoft.com ರ ಹೊರಗೆ** ಇವೆ. ಬದಲಾಗಿ ನಿಗದಿಗೊಂಡಿರುವ ಉಪಕರಣವನ್ನು ಬಳಸಿ.
 
-### .NET Aspire — Aspire MCP ಸರ್ವರ್ ಬಳಸಿ (ಶಿಫಾರಸು) ಅಥವಾ Context7
+### Aspire — Aspire MCP ಸರ್ವರ್ ಬಳಸಿ (ಶಿಫಾರಸು) ಅಥವಾ Context7
 
 Aspire ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು **aspire.dev** ನಲ್ಲಿ ಇವೆ, Learn ನಲ್ಲಿ ಅಲ್ಲ. ಉತ್ತಮ ಉಪಕರಣವು ನಿಮ್ಮ Aspire CLI ಆವೃತ್ತಿಯ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ:
 
@@ -41,14 +41,14 @@ Aspire ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು **aspire.dev** ನಲ್ಲ
 | `search_docs` | aspire.dev ವಿಷಯದ ಮೇಲೆ ತೂಕದ ಲೆಕ್ಸಿಕಲ್ ಹುಡುಕಾಟ |
 | `get_doc` | ಶ್ಲಗ್ ಮೂಲಕ ನಿರ್ದಿಷ್ಟ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಪಡೆಯುತ್ತದೆ |
 
-ಈವು Aspire CLI 13.2 ನಲ್ಲಿ ಶಿಪ್ ಆಗುತ್ತವೆ ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ಅಪ್‌ಡೇಟ್ ಮಾಡಲು: `aspire update --self --channel daily`. ಉಲ್ಲೇಖ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ಈವು Aspire CLI 13.2 ನಲ್ಲಿ ಶಿಪ್ ಆಗುತ್ತವೆ ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). ಅಪ್‌ಡೇಟ್ ಮಾಡಲು: `aspire update --self --channel daily`. ಉಲ್ಲೇಖ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP ಸರ್ವರ್ ಇಂಟಿಗ್ರೇಷನ್ ಹುಡುಕಾಟ (`list_integrations`, `get_integration_docs`) ಅನ್ನು ಒದಗಿಸುತ್ತದೆ ಆದರೆ ಡಾಕ್ಸ್ ಹುಡುಕಾಟವನ್ನು **ಕೊಡುವುದಿಲ್ಲ**. Context7 ಗೆ ಮರಳಿರಿ:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | ಪ್ರಾಥಮಿಕ — ಮಾರ್ಗದರ್ಶಿಗಳು, ಇಂಟಿಗ್ರೇಷನ್ಗಳು, CLI ರೆಫರೆನ್ಸ್, ಡಿಪ್ಲೊಯ್ಮೆಂಟ್ |
-| `/dotnet/aspire` | ರನ್‌ಟೈಮ್ ಮೂಲ — API ಅಂತರಂಗ, ಜಾರಿಗೆ ಸಂಬಂಧಿಸಿದ ವಿವರಗಳು |
+| `/microsoft/aspire` | ರನ್‌ಟೈಮ್ ಮೂಲ — API ಅಂತರಂಗ, ಜಾರಿಗೆ ಸಂಬಂಧಿಸಿದ ವಿವರಗಳು |
 | `/communitytoolkit/aspire` | ಸಮುದಾಯ ಇಂಟಿಗ್ರೇಷನ್ಗಳು — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 ಬಳಸಿ

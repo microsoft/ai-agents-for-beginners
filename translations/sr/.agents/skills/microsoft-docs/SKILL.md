@@ -29,7 +29,7 @@ description: Претражите званичну Microsoft документа�
 
 Следеће категорије се налазе **ван** learn.microsoft.com. Уместо тога користите назначени алат.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire документација живи на **aspire.dev**, не на Learn. Најбољи алат зависи од ваше Aspire CLI верзије:
 
@@ -41,14 +41,14 @@ Aspire документација живи на **aspire.dev**, не на Learn.
 | `search_docs` | Тежинско лексичко претраживање садржаја aspire.dev |
 | `get_doc` | Преузима одређени документ по slug-у |
 
-Ово је доступно у Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). За ажурирање: `aspire update --self --channel daily`. Реф: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ово је доступно у Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). За ажурирање: `aspire update --self --channel daily`. Реф: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP сервер пружа претрагу интеграција (`list_integrations`, `get_integration_docs`) али **не** претрагу документacije. Вратите се на Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Примарно — водичи, интеграције, CLI референца, деплојмент |
-| `/dotnet/aspire` | Извор окружења за извршавање — унутрашњости API-ја, детаљи имплементације |
+| `/microsoft/aspire` | Извор окружења за извршавање — унутрашњости API-ја, детаљи имплементације |
 | `/communitytoolkit/aspire` | Заједничке интеграције — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7

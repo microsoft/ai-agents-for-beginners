@@ -162,11 +162,11 @@ Der Microsoft Foundry Agent Service ist eine nahtlose Kombination aus Dienst und
 
 ---
 
-## Veranstaltungsname: KI-Agenten + .NET Aspire
+## Veranstaltungsname: KI-Agenten + Aspire
 
 ## Beschreibung
 
-In dieser Sitzung teilen wir einige der spannendsten Entwicklungen auf der .NET Plattform rund um Agenten. Entdecken Sie den aktuellen Stand von .NET, einschließlich neuer Features und Verbesserungen. Erforschen Sie die leistungsstarken KI-Agent-Fähigkeiten. Und wir werden live mit Agenten und .NET Aspire programmieren.
+In dieser Sitzung teilen wir einige der spannendsten Entwicklungen auf der .NET Plattform rund um Agenten. Entdecken Sie den aktuellen Stand von .NET, einschließlich neuer Features und Verbesserungen. Erforschen Sie die leistungsstarken KI-Agent-Fähigkeiten. Und wir werden live mit Agenten und Aspire programmieren.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

@@ -29,7 +29,7 @@ Použijte `microsoft_docs_fetch` po hledání, když potřebujete kompletní tut
 
 Následující kategorie žijí **mimo** learn.microsoft.com. Použijte místo toho určený nástroj.
 
-### .NET Aspire — Použijte Aspire MCP Server (preferováno) nebo Context7
+### Aspire — Použijte Aspire MCP Server (preferováno) nebo Context7
 
 Aspire dokumentace žije na **aspire.dev**, ne na Learn. Nejlepší nástroj závisí na vaší verzi Aspire CLI:
 
@@ -41,14 +41,14 @@ Aspire dokumentace žije na **aspire.dev**, ne na Learn. Nejlepší nástroj zá
 | `search_docs` | Vážené lexikální vyhledávání napříč obsahem aspire.dev |
 | `get_doc` | Získá konkrétní dokument podle slug |
 
-Tyto nástroje jsou součástí Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Aktualizace: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Tyto nástroje jsou součástí Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Aktualizace: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP server poskytuje integraci lookup (`list_integrations`, `get_integration_docs`) ale **ne** vyhledávání dokumentace. Použijte jako zálohu Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Primárně — průvodci, integrace, reference CLI, nasazení |
-| `/dotnet/aspire` | Zdroj runtime — interní API, implementační detaily |
+| `/microsoft/aspire` | Zdroj runtime — interní API, implementační detaily |
 | `/communitytoolkit/aspire` | Komunitní integrace — Go, Java, Node.js, Ollama |
 
 ### VS Code — Použijte Context7

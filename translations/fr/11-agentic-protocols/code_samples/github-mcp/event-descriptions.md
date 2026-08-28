@@ -162,11 +162,11 @@ Le Microsoft Foundry Agent Service est un mélange fluide de service et de SDK q
 
 ---
 
-## Nom de l'événement : Agents IA + .NET Aspire
+## Nom de l'événement : Agents IA + Aspire
 
 ## Description
 
-Lors de cette session, nous partagerons certains des développements les plus excitants sur la plateforme .NET autour des Agents. Découvrez l’état actuel de .NET, y compris ses nouvelles fonctionnalités et améliorations. Explorez les puissantes capacités des Agents IA. Et nous ferons du live coding avec les Agents et .NET Aspire.
+Lors de cette session, nous partagerons certains des développements les plus excitants sur la plateforme .NET autour des Agents. Découvrez l’état actuel de .NET, y compris ses nouvelles fonctionnalités et améliorations. Explorez les puissantes capacités des Agents IA. Et nous ferons du live coding avec les Agents et Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

@@ -30,7 +30,7 @@ Microsoft టెక్నాలజీ ఎకోసిస్టమ్ కోస�
 
 క్రింది వర్గాలు **learn.microsoft.comకి బయట** ఉన్నాయి. బదులుగా పేర్కొన్న టూల్‌ను ఉపయోగించండి.
 
-### .NET Aspire — Aspire MCP Server (పసందైనది) లేదా Context7 ఉపయోగించండి
+### Aspire — Aspire MCP Server (పసందైనది) లేదా Context7 ఉపయోగించండి
 
 Aspire డాక్స్ **aspire.dev** పై ఉంటాయి, Learn పై కాదు. ఉత్తమ టూల్ మీ Aspire CLI వెర్షన్‌పై ఆధారపడుతుంది:
 
@@ -42,14 +42,14 @@ Aspire డాక్స్ **aspire.dev** పై ఉంటాయి, Learn పై
 | `search_docs` | aspire.dev కంటెంట్‌పై బరువు-ఆధారిత లెక్సికల్ శోధన |
 | `get_doc` | స్లగ్ ద్వారా ఒక నిర్దిష్ట డాక్యుమెంట్‌ను పొందుతుంది |
 
-ఇవి Aspire CLI 13.2లో వస్తాయి ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). అప్‌డేట్ చేయడానికి: `aspire update --self --channel daily`. సూచన: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ఇవి Aspire CLI 13.2లో వస్తాయి ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). అప్‌డేట్ చేయడానికి: `aspire update --self --channel daily`. సూచన: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP సర్వర్ ఇంటిగ్రేషన్ లుకప్ (`list_integrations`, `get_integration_docs`) అందిస్తుంది కానీ డాక్స్ శోధన ఇవ్వదు. Context7కి fallback చేయండి:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Primary — గైడ్లు, ఇంటిగ్రేషన్లు, CLI సూచిక, డిప్లాయ్మెంట్ |
-| `/dotnet/aspire` | Runtime source — API అంతర్గతాలు, అమలు వివరాలు |
+| `/microsoft/aspire` | Runtime source — API అంతర్గతాలు, అమలు వివరాలు |
 | `/communitytoolkit/aspire` | Community integrations — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 ఉపయోగించండి

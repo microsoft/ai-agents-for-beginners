@@ -25,7 +25,7 @@ Search করার পরে যখন আপনাকে সম্পূর্
 
 নিচের ক্যাটাগরিগুলো learn.microsoft.com-এর **বাইরে** অবস্থিত। পরিবর্তে নির্দিষ্ট টুলটি ব্যবহার করুন।
 
-### .NET Aspire — Aspire MCP Server ব্যবহার করুন (প্রস্তাবিত) অথবা Context7
+### Aspire — Aspire MCP Server ব্যবহার করুন (প্রস্তাবিত) অথবা Context7
 
 Aspire ডকুমেন্টেশন **aspire.dev**-এ থাকে, Learn-এ নয়। সর্বোত্তম টুল আপনার Aspire CLI ভার্সনের উপর নির্ভর করে:
 
@@ -37,14 +37,14 @@ Aspire ডকুমেন্টেশন **aspire.dev**-এ থাকে, Learn-
 | `search_docs` | aspire.dev কন্টেন্ট জুড়ে ওজনভিত্তিক লেক্সিকাল সার্চ |
 | `get_doc` | slug দ্বারা একটি নির্দিষ্ট ডকুমেন্ট রিট্রিভ করে |
 
-These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). আপডেট করতে: `aspire update --self --channel daily`. রেফ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). আপডেট করতে: `aspire update --self --channel daily`. রেফ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
 
 **CLI 13.1** — MCP সার্ভার ইন্টিগ্রেশন লুকআপ (`list_integrations`, `get_integration_docs`) প্রদান করে কিন্তু **not** ডক্স সার্চ করে না। Context7-এ ফিরুন:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | প্রাথমিক — গাইড, ইন্টিগ্রেশন, CLI রেফারেন্স, ডিপ্লয়মেন্ট |
-| `/dotnet/aspire` | রানটাইম সোর্স — API অভ্যন্তরীণ বিষয়সমূহ, ইমপ্লিমেন্টেশন বিবরণ |
+| `/microsoft/aspire` | রানটাইম সোর্স — API অভ্যন্তরীণ বিষয়সমূহ, ইমপ্লিমেন্টেশন বিবরণ |
 | `/communitytoolkit/aspire` | কমিউনিটি ইন্টিগ্রেশন — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 ব্যবহার করুন

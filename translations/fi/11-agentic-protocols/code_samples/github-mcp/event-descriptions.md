@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service on saumaton yhdistelmä palvelua ja SDK:ta, joka
 
 ---
 
-## Tapahtuman nimi: Tekoälyagentit + .NET Aspire
+## Tapahtuman nimi: Tekoälyagentit + Aspire
 
 ## Kuvaus
 
-Tässä sessiossa jaamme joitakin jännittävimpiä kehityksiä .NET-alustalla agenttien ympärillä. Tutustu .NET:n nykytilaan, mukaan lukien sen uudet ominaisuudet ja parannukset. Tutki tehokkaita tekoälyagenttitoimintoja. Ja teemme live-koodausta agenttien ja .NET Aspiren kanssa.
+Tässä sessiossa jaamme joitakin jännittävimpiä kehityksiä .NET-alustalla agenttien ympärillä. Tutustu .NET:n nykytilaan, mukaan lukien sen uudet ominaisuudet ja parannukset. Tutki tehokkaita tekoälyagenttitoimintoja. Ja teemme live-koodausta agenttien ja Aspiren kanssa.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
