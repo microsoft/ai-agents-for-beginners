@@ -11,7 +11,7 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 - Azure AI Services: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Architecture:**
-- Lesson-based structure (00-15+ directories)
+- Lesson-based structure (00-18 directories)
 - Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
 - Multi-language support via automated translation system
 - One Python notebook per lesson using Microsoft Agent Framework
