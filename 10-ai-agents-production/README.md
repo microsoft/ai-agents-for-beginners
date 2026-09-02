@@ -120,7 +120,7 @@ For business agents, evaluation often needs realistic records: claims, orders, t
 For example, a schema-based generator such as [Great Generator](https://github.com/ravikiranpagidi/great-generator) can create repeatable, non-production records for an expense-claim evaluation set:
 
 ```bash
-pip install great-generator
+pip install great-generator==0.1.7
 ```
 
 ```python
