@@ -113,6 +113,46 @@ For instance, if you built a math word-problem agent, you might have a [test dat
 
 The key challenge with offline eval is ensuring your test dataset is comprehensive and stays relevant – the agent might perform well on a fixed test set but encounter very different queries in production. Therefore, you should keep test sets updated with new edge cases and examples that reflect real-world scenarios​. A mix of small “smoke test” cases and larger evaluation sets is useful: small sets for quick checks and larger ones for broader performance metrics​.
 
+### Building Safe Evaluation Data
+
+For business agents, evaluation often needs realistic records: claims, orders, tickets, invoices, customers, policy cases, or account states. Avoid copying production data into an evaluation set. Instead, start from the schema or contract your agent expects, generate synthetic records, and attach expected outcomes from your business rules.
+
+For example, a schema-based generator such as [Great Generator](https://github.com/ravikiranpagidi/great-generator) can create repeatable, non-production records for an expense-claim evaluation set:
+
+```bash
+pip install great-generator==0.1.7
+```
+
+```python
+from great_generator import generate_from_schema
+
+claim_schema = {
+    "claim_id": "string",
+    "employee_id": "string",
+    "expense_date": "date",
+    "category": "string",
+    "amount": "float",
+    "approval_status": "string",
+}
+
+claims = generate_from_schema(
+    schema=claim_schema,
+    rows=50,
+    seed=42,
+    custom_rules={
+        "claim_id": {"prefix": "CLM"},
+        "employee_id": {"prefix": "EMP"},
+        "category": {"values": ["Transportation", "Meals", "Accommodation", "Miscellaneous"]},
+        "amount": {"min": 5, "max": 750},
+        "approval_status": {"values": ["approved", "needs_review", "rejected"]},
+    },
+)
+```
+
+The generated rows are only the raw material. A useful evaluation set still needs prompts, expected answers, and edge cases: high-value claims that should trigger review, unsupported categories, missing receipts, duplicate submissions, and policy exceptions. Keep the generator seed and schema with the eval set so failures can be reproduced.
+
+Synthetic data is not the same as anonymized production data. Review the generated records, avoid seeding from real customer data, and follow your organization's privacy and retention rules.
+
 ### Online Evaluation 
 
 ![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
