@@ -4,7 +4,7 @@ This optional Lesson 11 exercise connects to [Parallel Search MCP](https://docs.
 
 ## Run the example
 
-Use Python 3.12 or later with the course's `mcp[cli]` dependency installed. If you have not installed the course dependencies, you can run this exercise in a virtual environment with just the MCP SDK:
+Use Python 3.12 or later. This example uses the MCP SDK 1.x client API; SDK 2.x has a different API. Install the compatible version in a separate virtual environment so the other course examples keep their dependencies:
 
 ```bash
 python -m venv .venv
@@ -12,7 +12,7 @@ python -m venv .venv
 source .venv/bin/activate
 # Windows PowerShell instead:
 # .venv\Scripts\Activate.ps1
-python -m pip install "mcp[cli]"
+python -m pip install "mcp[cli]>=1.28,<2"
 ```
 
 From the repository root, run:
