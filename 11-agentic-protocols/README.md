@@ -74,6 +74,10 @@ Imagine a user wants to book a flight using an AI assistant powered by MCP.
 
 5. **Further Interaction**: The AI assistant presents the flight options. Once you select a flight, the assistant might invoke the "book flight" tool on the same MCP server, completing the booking.
 
+### Try a real remote MCP connection
+
+The optional [Parallel Search MCP exercise](./code_samples/parallel-search-mcp/README.md) uses the course's Python MCP SDK dependency to connect to a remote server, discover tool schemas, search the public web, and fetch page text. It requires no local server, Azure subscription, or Parallel API key. Running it sends the sample queries, URLs, and objectives to Parallel; anonymous access is rate limited.
+
 ## Agent-to-Agent Protocol (A2A)
 
 While MCP focuses on connecting LLMs to tools, the **Agent-to-Agent (A2A) protocol** takes it a step further by enabling communication and collaboration between different AI agents.  A2A connects AI agents across different organizations, environments and tech stacks to complete a shared task.
