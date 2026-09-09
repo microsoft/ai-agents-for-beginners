@@ -1,42 +1,42 @@
 # Phát triển Dịch vụ Microsoft Foundry Agent
 
-Trong bài tập này, bạn sử dụng các công cụ Microsoft Foundry Agent Service trong [cổng Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) để tạo một đại lý cho Đặt Vé Máy Bay. Đại lý sẽ có khả năng tương tác với người dùng và cung cấp thông tin về các chuyến bay.
+Trong bài tập này, bạn sẽ sử dụng các công cụ Microsoft Foundry Agent Service trong [cổng Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) để tạo một agent cho Đặt vé máy bay. Agent sẽ có thể tương tác với người dùng và cung cấp thông tin về các chuyến bay.
 
 ## Yêu cầu trước
 
-Để hoàn thành bài tập này, bạn cần những điều sau:
+Để hoàn thành bài tập này, bạn cần những thứ sau:
 1. Một tài khoản Azure với một đăng ký đang hoạt động. [Tạo tài khoản miễn phí](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Bạn cần có quyền tạo một trung tâm Microsoft Foundry hoặc có một trung tâm được tạo cho bạn.
-    - Nếu vai trò của bạn là Người đóng góp hoặc Chủ sở hữu, bạn có thể theo các bước trong hướng dẫn này.
+2. Bạn cần quyền tạo một Microsoft Foundry hub hoặc có người tạo cho bạn.
+    - Nếu vai trò của bạn là Người đóng góp hoặc Chủ sở hữu, bạn có thể làm theo các bước trong hướng dẫn này.
 
-## Tạo một trung tâm Microsoft Foundry
+## Tạo một Microsoft Foundry hub
 
 > **Lưu ý:** Microsoft Foundry trước đây được biết đến với tên Azure AI Studio.
 
-1. Theo các hướng dẫn từ bài đăng trên blog [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) để tạo một trung tâm Microsoft Foundry.
-2. Khi dự án của bạn được tạo, đóng bất kỳ mẹo nào hiển thị và xem lại trang dự án trên cổng Microsoft Foundry, nó sẽ giống như hình ảnh sau:
+1. Làm theo các hướng dẫn từ bài đăng blog [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) để tạo một Microsoft Foundry hub.
+2. Khi dự án của bạn được tạo, đóng mọi mẹo hiển thị và xem lại trang dự án trong cổng Microsoft Foundry, trang này sẽ trông tương tự như hình ảnh sau:
 
     ![Microsoft Foundry Project](../../../translated_images/vi/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Triển khai một mô hình
 
-1. Trong ngăn bên trái cho dự án của bạn, trong phần **Tài sản của tôi**, chọn trang **Models + endpoints**.
-2. Trong trang **Models + endpoints**, ở tab **Model deployments**, trong menu **+ Deploy model**, chọn **Deploy base model**.
-3. Tìm kiếm mô hình `gpt-4.1-mini` trong danh sách, sau đó chọn và xác nhận.
+1. Trong ngăn bên trái cho dự án của bạn, trong phần **Tài sản của tôi**, chọn trang **Mô hình + điểm cuối**.
+2. Trong trang **Mô hình + điểm cuối**, trong tab **Triển khai mô hình**, trong menu **+ Triển khai mô hình**, chọn **Triển khai mô hình cơ bản**.
+3. Tìm kiếm mô hình `gpt-5-mini` trong danh sách, sau đó chọn và xác nhận nó.
 
-    > **Lưu ý**: Giảm TPM giúp tránh sử dụng quá mức hạn mức có sẵn trong đăng ký bạn đang sử dụng.
+    > **Lưu ý**: Giảm TPM giúp tránh sử dụng vượt mức hạn ngạch có sẵn trong đăng ký bạn đang sử dụng.
 
     ![Model Deployed](../../../translated_images/vi/model-deployment.3749c53fb81e18fd.webp)
 
-## Tạo một đại lý
+## Tạo một agent
 
-Bây giờ bạn đã triển khai một mô hình, bạn có thể tạo một đại lý. Đại lý là một mô hình AI hội thoại có thể được sử dụng để tương tác với người dùng.
+Bây giờ bạn đã triển khai xong một mô hình, bạn có thể tạo một agent. Agent là một mô hình AI hội thoại có thể được dùng để tương tác với người dùng.
 
-1. Trong ngăn bên trái cho dự án của bạn, trong phần **Xây dựng & Tùy chỉnh**, chọn trang **Agents**.
-2. Nhấp vào **+ Tạo đại lý** để tạo một đại lý mới. Trong hộp thoại **Thiết lập Đại lý**:
-    - Nhập tên cho đại lý, ví dụ như `FlightAgent`.
-    - Đảm bảo rằng triển khai mô hình `gpt-4.1-mini` bạn đã tạo trước đó được chọn
-    - Đặt **Hướng dẫn** theo lời nhắc bạn muốn đại lý tuân theo. Đây là một ví dụ:
+1. Trong ngăn bên trái cho dự án của bạn, trong phần **Xây dựng & Tùy chỉnh**, chọn trang **Agent**.
+2. Nhấn **+ Tạo agent** để tạo một agent mới. Trong hộp thoại **Cài đặt Agent**:
+    - Nhập tên cho agent, ví dụ `FlightAgent`.
+    - Đảm bảo rằng bạn đã chọn triển khai mô hình `gpt-5-mini` đã tạo trước đó
+    - Đặt **Hướng dẫn** theo lời nhắc mà bạn muốn agent tuân theo. Đây là một ví dụ:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -66,30 +66,30 @@ Bây giờ bạn đã triển khai một mô hình, bạn có thể tạo một 
 > [!NOTE]
 > Để có lời nhắc chi tiết, bạn có thể tham khảo [kho lưu trữ này](https://github.com/ShivamGoyal03/RoamMind) để biết thêm thông tin.
     
-> Hơn nữa, bạn có thể thêm **Cơ sở Kiến thức** và **Hành động** để nâng cao khả năng của đại lý trong việc cung cấp thêm thông tin và thực hiện các tác vụ tự động dựa trên yêu cầu của người dùng. Trong bài tập này, bạn có thể bỏ qua các bước này.
+> Hơn nữa, bạn có thể thêm **Cơ sở Tri thức** và **Hành động** để nâng cao khả năng của agent trong việc cung cấp thêm thông tin và thực hiện các tác vụ tự động dựa trên yêu cầu của người dùng. Trong bài tập này, bạn có thể bỏ qua các bước này.
     
 ![Agent Setup](../../../translated_images/vi/agent-setup.9bbb8755bf5df672.webp)
 
-3. Để tạo một đại lý đa AI mới, chỉ cần nhấp vào **Đại lý Mới**. Đại lý mới tạo sẽ được hiển thị trên trang Agents.
+3. Để tạo một agent đa AI mới, chỉ cần nhấp vào **Agent Mới**. Agent mới được tạo sẽ hiển thị trên trang Agents.
 
 
-## Kiểm tra đại lý
+## Kiểm tra agent
 
-Sau khi tạo đại lý, bạn có thể kiểm tra nó để xem cách nó phản hồi các truy vấn của người dùng trong sân chơi của cổng Microsoft Foundry.
+Sau khi tạo agent, bạn có thể kiểm tra nó để xem nó phản hồi như thế nào với các truy vấn của người dùng trong playground của cổng Microsoft Foundry.
 
-1. Ở đầu ngăn **Thiết lập** cho đại lý của bạn, chọn **Thử trong sân chơi**.
-2. Trong ngăn **Sân chơi**, bạn có thể tương tác với đại lý bằng cách nhập truy vấn trong cửa sổ trò chuyện. Ví dụ, bạn có thể yêu cầu đại lý tìm chuyến bay từ Seattle đến New York vào ngày 28.
+1. Ở đầu ngăn **Cài đặt** cho agent của bạn, chọn **Thử trong playground**.
+2. Trong ngăn **Playground**, bạn có thể tương tác với agent bằng cách nhập các truy vấn trong cửa sổ chat. Ví dụ, bạn có thể yêu cầu agent tìm các chuyến bay từ Seattle đến New York vào ngày 28.
 
-    > **Lưu ý**: Đại lý có thể không cung cấp câu trả lời chính xác, vì không sử dụng dữ liệu thời gian thực trong bài tập này. Mục đích là để kiểm tra khả năng hiểu và phản hồi các truy vấn của người dùng dựa trên hướng dẫn đã cung cấp.
+    > **Lưu ý**: Agent có thể không cung cấp câu trả lời chính xác, vì không có dữ liệu thời gian thực được sử dụng trong bài tập này. Mục tiêu là kiểm tra khả năng agent hiểu và phản hồi các truy vấn của người dùng dựa trên các hướng dẫn đã cung cấp.
 
     ![Agent Playground](../../../translated_images/vi/agent-playground.dc146586de715010.webp)
 
-3. Sau khi kiểm tra đại lý, bạn có thể tùy chỉnh thêm bằng cách thêm nhiều mục đích, dữ liệu huấn luyện và hành động để nâng cao khả năng của nó.
+3. Sau khi kiểm tra agent, bạn có thể tùy chỉnh thêm bằng cách thêm nhiều mục đích, dữ liệu huấn luyện và hành động để nâng cao khả năng của nó.
 
 ## Dọn dẹp tài nguyên
 
-Khi bạn đã hoàn tất việc kiểm tra đại lý, bạn có thể xóa nó để tránh phát sinh thêm chi phí.
-1. Mở [cổng Azure](https://portal.azure.com) và xem nội dung của nhóm tài nguyên nơi bạn đã triển khai các tài nguyên trung tâm sử dụng trong bài tập này.
+Khi bạn đã hoàn thành kiểm tra agent, bạn có thể xóa nó để tránh phát sinh thêm chi phí.
+1. Mở [cổng Azure](https://portal.azure.com) và xem nội dung nhóm tài nguyên nơi bạn đã triển khai các tài nguyên hub dùng trong bài tập này.
 2. Trên thanh công cụ, chọn **Xóa nhóm tài nguyên**.
 3. Nhập tên nhóm tài nguyên và xác nhận rằng bạn muốn xóa nó.
 
@@ -98,7 +98,7 @@ Khi bạn đã hoàn tất việc kiểm tra đại lý, bạn có thể xóa n�
 - [Tài liệu Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Cổng Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
 - [Bắt đầu với Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Những điều cơ bản về đại lý AI trên Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Tổng quan về các agent AI trên Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---

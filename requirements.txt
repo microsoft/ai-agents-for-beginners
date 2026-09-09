@@ -8,7 +8,11 @@ azure-search-documents
 # Pinned to the 1.10.x line: 1.11.0 introduced breaking API changes used by the
 # course notebooks (removed ChatMessage and HostedWebSearchTool, changed the
 # Message constructor, and dropped the model= argument on Agent.run()).
-agent-framework~=1.10.0
+#
+# NOTE: agent-framework-core is pinned directly (not via the agent-framework meta-package)
+# to avoid the [all] extras pulling in unpinned integration sub-packages whose newer
+# pre-releases require agent-framework-core>=1.11.0 and cause a pip conflict.
+agent-framework-core==1.10.0
 agent-framework-foundry~=1.10.0
 agent-framework-openai~=1.10.0
 a2a-sdk

@@ -1,73 +1,80 @@
 ---
 name: testing-course-samples
 ---
-# اختبار عينات الدورة التدريبية
+# اختبار عينات الدورة
 
-تحقق من أن دفاتر الدروس وعيّنات الأكواد تعمل على إعداد Microsoft Foundry / Azure OpenAI المباشر.
-يضم المستودع مشغّلًا في
+تحقق من أن دفاتر الدروس وعينات الشيفرة تعمل ضد إعداد Microsoft Foundry / Azure OpenAI مباشر.
+يشتمل المستودع على مشغل في
 [`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) الذي
-ينفّذ كل دفتر Python بدون واجهة ويطبع مصفوفة النتيجة PASS/FAIL.
+ينفذ كل دفتر ملاحظات بايثون بدون واجهة ويطبع مصفوفة تمر/فشل.
 
 ## متى تستخدم
-- "تحقق من جميع دفاتر / عينات الدورة مقابل اشتراك Azure الخاص بي."
-- "اختبار سريع للدورة بعد ترقية الحزم أو تغيير النماذج."
-- "أي الدروس لا تزال تمر / تفشل على الواقع الحي؟"
+- "تحقق من صحة كل دفاتر الملاحظات / العينات مقابل اشتراك Azure الخاص بي."
+- "اختبار سريع للدورة بعد تحديث الحزم أو تغيير النماذج."
+- "أي الدروس لا تزال تمر / تفشل مباشرة؟"
 
-لا تستخدم هذا لاختبار دخان AI GitHub Action (الذي يتحقق من 
-الوكلاء المستضافين *المنتشرين* — راجع [`tests/README.md`](../../../tests/README.md)). هذه المهارة
-تشغّل الدفاتر محليًا.
+لا تستخدم هذا لاختبار AI Smoke Test GitHub Action (الذي يتحقق من العملاء *النشرين*
+المستضافين — راجع [`tests/README.md`](../../../tests/README.md)). تقوم هذه المهارة
+بتشغيل دفاتر الملاحظات محليًا.
 
-## المتطلبات الأساسية (تحقق أولاً)
-1. **Python 3.12+** مع تبعيات الدورة: `python -m pip install -r requirements.txt`
-   بالإضافة إلى المنفذ: `python -m pip install nbconvert ipykernel`.
+## المتطلبات الأساسية (افحص أولاً)
+1. **بايثون 3.12+** مع تبعيات الدورة: `python -m pip install -r requirements.txt`
+   بالإضافة إلى المشغل: `python -m pip install nbconvert ipykernel`.
 2. **`.env` في جذر المستودع** (انسخ من [`.env.example`](../../../../../.env.example)) مع على الأقل:
-   - `AZURE_AI_PROJECT_ENDPOINT` — نقطة النهاية لمشروع Foundry
+   - `AZURE_AI_PROJECT_ENDPOINT` — نقطة نهاية مشروع Foundry
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — نشر غير مهجور (مثل `gpt-4.1-mini`)
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — نشر غير مهجور (مثل `gpt-5-mini`)
    - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) و `AZURE_OPENAI_DEPLOYMENT`
-     للدروس التي تستدعي Azure OpenAI مباشرة (الدرس 06، 02-azure-openai، 14 handoff/human-loop).
-3. **إتمام `az login`** — العينات تثبت الهوية باستخدام `AzureCliCredential` (Entra ID، بدون مفتاح).
+     للدروس التي تستدعي Azure OpenAI مباشرة (الدرس 06، 02-azure-openai، 14 التسليم/الحلقة البشرية).
+3. إتمام **`تسجيل الدخول az`** — تقوم العينات بالمصادقة باستخدام `AzureCliCredential` (Entra ID، بدون مفتاح).
 4. تحقق من وجود نشر النموذج:
    `az cognitiveservices account deployment list -g <rg> -n <account> -o table`.
 
 ## تشغيل التحقق
 ```powershell
-# جميع دفاتر بايثون (يتخطى .NET و .venv و site-packages والترجمات وأصول المهارات)
+# كل دفاتر بايثون (يتجاوز .NET، .venv، site-packages، الترجمات، موارد المهارات)
 pwsh scripts/validate-notebooks.ps1
 
 # درس واحد، مع مهلة أطول لكل خلية
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# فقط سرد ما سيتم تشغيله (بدون تنفيذ)
+# فقط عرض ما سيتم تشغيله (دون تنفيذ)
 pwsh scripts/validate-notebooks.ps1 -List
 
-# مفسر صريح (إذا لم يكن `python` في PATH، مثل كنية متجر ويندوز)
+# مترجم صريح (إذا لم يكن `python` في PATH، مثلًا اسم مستعار لمتجر ويندوز)
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-تكتب السكريبت نسخًا منفذة، سجلات لكل دفتر، و`results.json` في
-`$env:TEMP\aiab-nbval` وتخرج بعدد الإخفاقات.
+تقوم السكربت بكتابة نسخ منفذة، وسجلات لكل دفتر ملاحظات، و`results.json` إلى
+`$env:TEMP\aiab-nbval` وتخرج بعدد حالات الفشل.
+
+يتم إعادة محاولة الإخفاقات المؤقتة (حدود سرعة HTTP 429 لاشتراك مشترك، تعطل
+عرضي لـ `AzureCliCredential`، أو انتهاء المهلة) تلقائيًا
+(`-Retries`، الافتراضي 2، مع تأخير الإعادة `-RetryDelaySeconds`، الافتراضي 20). إذا كان
+نشر النموذج يعاني من 429 بشكل منتظم، تحقق من حصة TPM العالمية للاشتراك
+(`az cognitiveservices usage list -l <region>`) — زيادة سعة نشر واحد
+لا تساعد عندما يتم استنفاد حصة *الاشتراك*.
 
 ## تفسير النتائج
-- `PASS` — نفذ الدفتر من البداية للنهاية بدون أخطاء في الخلايا.
-- `FAIL` — يظهر أول خط `*Error` / `*Exception`؛ افتح
-  ملف `log_*.txt` المطابق في مجلد الإخراج لرؤية تتبع الأخطاء الكامل.
-- فشل دفتر واحد محصور بـ `-Timeout` (لكل خلية)، لذا تظهر خلية متوقفة بسبب تدخل بشري
-  كـ `StdinNotImplementedError` بدلًا من التوقف.
+- `PASS` — تم تشغيل دفتر الملاحظات كاملاً بدون خطأ في أي خلية.
+- `FAIL` — يتم عرض أول سطر `*Error` / `*Exception`؛ افتح سطر السجل المطابق
+  `log_*.txt` في مجلد المخرجات للتمشيط الكامل.
+- فشل دفتر ملاحظات واحد مقيد بـ `-Timeout` (لكل خلية)، لذا تظهر خلايا التدخل البشري المتوقفة
+  كـ`StdinNotImplementedError` بدلاً من التوقف.
 
-## الدروس التي تحتاج إلى موارد إضافية (من المتوقع أن تفشل بدونها)
+## دروس تحتاج إلى موارد إضافية (من المتوقع أن تفشل بدونها)
 | الدرس | متطلب إضافي |
 |--------|-------------------|
-| 05 عامل RAG | بحث Azure AI (`AZURE_SEARCH_SERVICE_ENDPOINT`، مفتاح) — يحتوي على مسار بديل في الذاكرة |
-| 11 MCP / GitHub | خادم MCP لـ GitHub + PAT |
-| 13 الذاكرة (cognee) | `cognee` مُكوّن مع مزود نموذج |
+| 05 Agentic RAG | بحث Azure AI (`AZURE_SEARCH_SERVICE_ENDPOINT`، المفتاح) — يحتوي على مسار احتياطي في الذاكرة |
+| 11 MCP / GitHub | خادم GitHub MCP + PAT |
+| 13 memory (cognee) | `cognee` مهيأ مع مزود نموذج |
 | 15 استخدام المتصفح | متصفحات Playwright مثبتة (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 وكيل محلي | بيئة تشغيل Foundry Local + نموذج Qwen محمل (على الجهاز، بدون سحابة) |
-| دفاتر `*-dotnet-*` | نواة .NET Interactive (مستثناة افتراضيًا؛ استخدم `-IncludeDotnet`) |
+| 17 وكيل محلي | بيئة تنفيذ Foundry المحلية + نموذج Qwen محمل (على الجهاز، بدون سحابة) |
+| دفاتر `*-dotnet-*` | نواة .NET Interactive (مستبعدة افتراضيًا؛ استخدم `-IncludeDotnet`) |
 
-## التقرير
-لخّص في جدول PASS/FAIL مجمّع حسب الدرس. فصل التراجعات الحقيقية 
-(أخطاء البرمجة/التكوين التي يجب إصلاحها) عن فجوات البيئة (البحث المفقود / Foundry Local / PAT)،
-واذكر ملف `log_*.txt` الذي يفشل لكل فشل حقيقي.
+## التبليغ
+لخّص كجدول PASS/FAIL مجمع حسب الدرس. افصل بين التراجع الحقيقي
+(أخطاء الشيفرة / التكوين التي يجب إصلاحها) وفجوات البيئة (فقدان البحث / Foundry المحلية / PAT)،
+واستشهد بسجلات `log_*.txt` للفشل الحقيقي.
 
 ---
 

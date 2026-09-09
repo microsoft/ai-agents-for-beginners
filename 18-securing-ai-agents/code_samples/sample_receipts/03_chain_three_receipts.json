@@ -11,7 +11,7 @@
     "previous_receipt_hash": null,
     "signature": {
       "alg": "EdDSA",
-      "sig": "5rQAm4RMiAlfXmqufD9HJWQnFxRBbkpKkQmktgUGQUzZcEqsVofLsXmr7RkizTqYOCSaWjCGd-_Yy-7jloo1Cg",
+      "sig": "i6k11Rl6VvDSwjowvu15CDlK0rDZT6dU0JGc8dq52_HUA7lJ-7GWzPfb2nfLFP9zTEAEsHh01MH8idVjQ6q-Bw",
       "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
     }
   },
@@ -24,10 +24,10 @@
     "policy_id": "contoso-travel-policy-v3",
     "timestamp": "2026-04-25T14:30:00Z",
     "sequence": 1,
-    "previous_receipt_hash": "sha256:99afc07cbdc4341c52d958dfeebea77c86cbb901c620c3ca762db0a9fc2086b5",
+    "previous_receipt_hash": "sha256:66d8867fa8fa501e91e0ceaa1b75d0747c0f48b71cfb95d7255963098887d6fb",
     "signature": {
       "alg": "EdDSA",
-      "sig": "cLcIEcm9aLdV4FelzCMNfBv-CAhqXsSOFoJHXyeWyzMT-V5L0zj8vPm28cf-zjEzNvtoMbOOeGES35wduMT-Bw",
+      "sig": "wRcwv6pCTwxDn_GtLFyO4skriw6pP_rS1siiCy8Ij9PXB496G4UmCxIzmY1hN12VtezuwkRKm33N73GBFgWOCg",
       "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
     }
   },
@@ -40,10 +40,10 @@
     "policy_id": "contoso-travel-policy-v3",
     "timestamp": "2026-04-25T14:30:00Z",
     "sequence": 2,
-    "previous_receipt_hash": "sha256:79cbd0a4a623b2d9a7d7a35aafae725a35449a9e07fb4fdf6f6beb5abc8cca83",
+    "previous_receipt_hash": "sha256:3e4bbfab545ae67a2839fe3113bce1a3038b4eb77f9eaec59bc3926d048473d1",
     "signature": {
       "alg": "EdDSA",
-      "sig": "aXwWF0mOAGGUfLM_hY6Ut46Z3PWZ0o6w-yzqYToSI262YMnIX979SzeNKz48YeuPxVFKFbuB0m9A4GiS0aQzDQ",
+      "sig": "l3-EGdBRCPlZAs05aNesMef8PjWVLAfRhoZYNHwKeoStLBIxyLiJw8N0oW8bkBrzDlBlTe5seqrEld1XU7LECA",
       "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
     }
   }

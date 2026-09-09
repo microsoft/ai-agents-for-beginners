@@ -1,37 +1,37 @@
 # Erstellung von Computer Use Agents (CUA)
 
-Computer Use Agents können mit Websites genauso interagieren wie eine Person: indem sie einen Browser öffnen, die Seite inspizieren und die nächstbeste Aktion basierend auf dem, was sie sehen, ausführen. In diesem Unterricht bauen Sie einen Browser-Automatisierungsagenten, der Airbnb durchsucht, strukturierte Angebotsdaten extrahiert und den günstigsten Aufenthalt in Stockholm ermittelt.
+Computer Use Agents können mit Websites auf dieselbe Weise interagieren wie eine Person: indem sie einen Browser öffnen, die Seite inspizieren und die nächste beste Aktion basierend auf dem, was sie sehen, ausführen. In dieser Lektion erstellen Sie einen Browser-Automatisierungsagenten, der Airbnb durchsucht, strukturierte Angebotsdaten extrahiert und den günstigsten Aufenthalt in Stockholm ermittelt.
 
-Die Lektion kombiniert Browser-Use für KI-gesteuerte Navigation, Playwright und das Chrome DevTools Protocol (CDP) für Browsersteuerung, Azure OpenAI für visionbasiertes Schlussfolgern und Pydantic für strukturierte Extraktion.
+Die Lektion kombiniert Browser-Use für KI-gesteuerte Navigation, Playwright und Chrome DevTools Protocol (CDP) für die Browsersteuerung, Azure OpenAI für vision-aktiviertes Schließen von Zusammenhängen und Pydantic für strukturierte Extraktion.
 
 ## Einführung
 
 Diese Lektion behandelt:
 
-- Verständnis, wann Computer Use Agents gegenüber reiner API-Automatisierung besser geeignet sind
+- Verständnis, wann Computer Use Agents besser geeignet sind als reine API-Automatisierung
 - Kombination von Browser-Use mit Playwright und CDP für zuverlässiges Browser-Lifecycle-Management
-- Nutzung von Azure OpenAI Vision und strukturierter Pydantic-Ausgabe zur Extraktion von Angebotsdaten aus dynamischen Webseiten
-- Entscheidung, wann ein agentenzentrierter, akteursorientierter oder hybrider Browser-Automatisierungs-Workflow sinnvoll ist
+- Verwendung von Azure OpenAI Vision und strukturierter Pydantic-Ausgabe zur Extraktion von Angebotsdaten aus dynamischen Webseiten
+- Entscheidung, wann ein agentenorientierter, akteursorientierter oder hybrider Browser-Automatisierungsworkflow verwendet wird
 
 ## Lernziele
 
-Nach Abschluss dieser Lektion wissen Sie, wie Sie:
+Nach Abschluss dieser Lektion wissen Sie, wie man:
 
-- Browser-Use mit Azure OpenAI und Playwright konfigurieren
-- Einen Browser-Automatisierungsworkflow erstellen, der eine echte Website navigiert und dynamische UI-Elemente handhabt
-- Typisierte Ergebnisse aus sichtbarem Seiteninhalt extrahieren und in nachgelagerte Geschäftslogik umwandeln
-- Zwischen Agent- und Actor-Pattern je nach Vorhersagbarkeit der Browseraufgabe wählen
+- Browser-Use mit Azure OpenAI und Playwright konfiguriert
+- Einen Browser-Automatisierungsworkflow erstellt, der eine reale Website navigiert und dynamische UI-Elemente handhabt
+- Typisierte Ergebnisse aus sichtbarem Seiteninhalt extrahiert und sie in nachgelagerte Geschäftslogik umwandelt
+- Basierend auf der Vorhersagbarkeit der Browseraufgabe zwischen Agent- und Schauspielermustern wählt
 
-## Code-Beispiel
+## Codebeispiel
 
-Diese Lektion beinhaltet ein Notebook-Tutorial:
+Diese Lektion enthält ein Notebook-Tutorial:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Startet eine Chrome-Session über CDP, sucht auf Airbnb nach Angeboten in Stockholm, extrahiert Preise mit Browser-Use Vision und gibt die günstigste Option als strukturierte Daten zurück.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Startet eine Chrome-Sitzung über CDP, durchsucht Airbnb nach Einträgen in Stockholm, extrahiert Preise mit Browser-Use Vision und gibt die günstigste Option als strukturierte Daten zurück.
 
 ## Voraussetzungen
 
 - Python 3.12+
-- Azure OpenAI-Bereitstellung in Ihrer Umgebung konfiguriert
+- Azure OpenAI Deployment in Ihrer Umgebung konfiguriert
 - Chrome oder Chromium lokal installiert
 - Playwright-Abhängigkeiten installiert
 - Grundkenntnisse in asynchronem Python
@@ -45,13 +45,13 @@ pip install browser_use playwright python-dotenv
 playwright install chromium
 ```
 
-Stellen Sie die Azure OpenAI-Umgebungsvariablen ein, die vom Notebook verwendet werden:
+Legen Sie die von dem Notebook verwendeten Azure OpenAI-Umgebungsvariablen fest:
 
 ```bash
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Optional: Standardmäßig wird die neueste API-Version verwendet, wenn sie weggelassen wird
+# Optional: Standardmäßig die neueste API-Version, wenn weggelassen
 AZURE_OPENAI_API_VERSION=...
 ```
 
@@ -59,85 +59,129 @@ AZURE_OPENAI_API_VERSION=...
 
 Das Notebook demonstriert einen hybriden Browser-Automatisierungsworkflow:
 
-1. Chrome startet mit aktiviertem CDP, sodass sowohl Playwright als auch Browser-Use die gleiche Browsersitzung teilen können.
+1. Chrome startet mit aktiviertem CDP, sodass sowohl Playwright als auch Browser-Use dieselbe Browsersitzung teilen können.
 2. Ein Browser-Use-Agent übernimmt offene Navigationsaufgaben wie das Öffnen von Airbnb, das Schließen von Pop-ups und die Suche nach Stockholm.
-3. Die aktive Seite wird mit einem strukturierten Pydantic-Schema inspiziert, um Angebotstitel, Übernachtungspreise, Bewertungen und URLs zu extrahieren.
+3. Die aktive Seite wird mit einem strukturierten Pydantic-Schema inspiziert, um Angebotsüberschriften, Übernachtungspreise, Bewertungen und URLs zu extrahieren.
 4. Python-Logik vergleicht die extrahierten Angebote und hebt das günstigste Ergebnis hervor.
 
-Dieser Ansatz bewahrt die flexible, visionbasierte Schlussfolgerung, für die Browser-Use bekannt ist, bietet jedoch gleichzeitig deterministische Browsersteuerung, wenn Sie sie benötigen.
+Dieser Ansatz bewahrt das flexible, auf Vision basierende Schließen von Zusammenhängen, für das Browser-Use gut ist, während Sie dennoch bei Bedarf eine deterministische Browsersteuerung erhalten.
 
-## Wichtige Erkenntnisse und Best Practices
+## Wichtige Erkenntnisse und bewährte Methoden
 
-### Wann Agent vs Actor verwenden
+### Wann Agent vs. Schauspieler verwenden
 
-| Szenario | Agent verwenden | Actor verwenden |
-|----------|-----------------|------------------|
-| Dynamische Layouts | Ja, KI passt sich an Seitenänderungen an | Nein, fragile Selektoren können brechen |
+| Szenario | Agent verwenden | Schauspieler verwenden |
+|----------|-----------------|------------------------|
+| Dynamische Layouts | Ja, KI passt sich gut an Seitenänderungen an | Nein, fragile Selektoren können brechen |
 | Bekannte Struktur | Nein, ein Agent ist langsamer als direkte Steuerung | Ja, schnell und präzise |
-| Elemente finden | Ja, natürliche Sprache funktioniert gut | Nein, exakte Selektoren sind erforderlich |
-| Timing-Steuerung | Nein, weniger vorhersehbar | Ja, vollständige Kontrolle über Wartezeiten und Wiederholungen |
+| Elemente finden | Ja, natürliche Sprache funktioniert gut | Nein, genaue Selektoren sind erforderlich |
+| Timing-Steuerung | Nein, weniger vorhersehbar | Ja, volle Kontrolle über Wartezeiten und Wiederholungen |
 | Komplexe Workflows | Ja, handhabt unerwartete UI-Zustände | Nein, erfordert explizite Verzweigungen |
 
-### Browser-Use Best Practices
+### Beste Praktiken für Browser-Use
 
-1. Beginnen Sie mit einem Agenten zur Erkundung und dynamischen Navigation.
+1. Beginnen Sie mit einem Agenten für Erkundung und dynamische Navigation.
 2. Wechseln Sie zur direkten Seitensteuerung, wenn die Interaktion vorhersehbar wird.
-3. Verwenden Sie strukturierte Ausgabemodelle, damit extrahierte Daten validiert und typ-sicher sind.
-4. Fügen Sie nach Aktionen, die sichtbare UI-Änderungen auslösen, gezielt Verzögerungen ein.
-5. Machen Sie während der Iteration Screenshots, damit Fehler leichter debuggt werden können.
-6. Erwarten Sie, dass Websites sich ändern, und entwerfen Sie Ausweichstrategien für Pop-ups und Layoutverschiebungen.
-7. Kombinieren Sie Agent- und Actor-Pattern, um sowohl Flexibilität als auch Präzision zu erhalten.
+3. Verwenden Sie strukturierte Ausgabemodelle, damit extrahierte Daten validiert und typsicher sind.
+4. Fügen Sie nach Aktionen, die sichtbare UI-Änderungen auslösen, strategisch Verzögerungen hinzu.
+5. Erstellen Sie während der Iteration Screenshots, damit Fehler leichter zu debuggen sind.
+6. Erwarten Sie, dass sich Websites ändern, und entwerfen Sie Backup-Strategien für Pop-ups und Layoutverschiebungen.
+7. Kombinieren Sie Agent- und Schauspielermuster, um sowohl Flexibilität als auch Präzision zu erhalten.
 
-### Sicherheitshinweise für Browser-Agenten
+### Sicherheitsrichtlinien für Browser-Agenten
 
-Browser-Agenten arbeiten auf Live-Websites, daher benötigen sie engere Grenzen als ein Skript, das nur eine bekannte API aufruft. Bevor Sie von einer Notebook-Demo zu einem echten Workflow wechseln, definieren Sie Kontrollen darüber, was der Agent sehen, klicken und absenden kann.
+Browser-Agenten arbeiten auf Live-Websites, daher benötigen sie engere Grenzen als ein Skript, das nur eine bekannte API aufruft. Bevor Sie von einer Notebook-Demo zu einem echten Workflow wechseln, definieren Sie die Kontrollen darüber, was der Agent sehen, klicken und absenden darf.
 
-1. **Begrenzen Sie die Browsing-Umgebung.** Führen Sie den Agenten in einem dedizierten Browserprofil oder einer Sandbox aus und beschränken Sie ihn auf die für die Aufgabe erforderlichen Domains.
-2. **Trennen Sie Beobachtung und Aktion.** Lassen Sie den Agenten zuerst suchen, lesen und Daten extrahieren; eine explizite Genehmigungsstufe soll erforderlich sein, bevor Formulare abgeschickt, Nachrichten gesendet, Reisen gebucht, Käufe getätigt, Datensätze gelöscht oder Kontoeinstellungen geändert werden.
-3. **Halten Sie Geheimnisse aus Eingabeaufforderungen und Protokollen heraus.** Platzieren Sie keine Passwörter, Zahlungsinformationen, Sitzungscookies oder rohe persönliche Daten im Modellkontext. Übergeben Sie die Authentifizierung dem Benutzer und schwärzen Sie sensible Felder in Protokollen.
-4. **Behandeln Sie Seiteninhalte als nicht vertrauenswürdige Eingaben.** Eine Website kann Anweisungen enthalten, die für den Agenten bestimmt sind, nicht für den Benutzer. Der Agent sollte Seitentexte ignorieren, die ihn auffordern, sein Ziel zu ändern, Daten preiszugeben, Schutzmechanismen zu deaktivieren oder nicht verwandte Seiten zu besuchen.
-5. **Verwenden Sie deterministische Prüfungen bei riskanten Schritten.** Überprüfen Sie die aktuelle URL, den Seitentitel, das ausgewählte Element, Preise, Empfänger und Aktionszusammenfassungen programmatisch, bevor der Benutzer den letzten Schritt genehmigt.
-6. **Setzen Sie Budgets und Abbruchbedingungen.** Begrenzen Sie die Anzahl der Aktionen, Wiederholungen, Tabs und Minuten, die der Agent verwenden darf. Stoppen Sie, wenn der Seitenstatus unklar ist, anstatt weiterzuklicken.
-7. **Zeichnen Sie nützliche Beweise auf, nicht alles.** Bewahren Sie Aktionszusammenfassungen, Zeitstempel, URLs, Beschreibungen der ausgewählten Elemente und Screenshot-Referenzen auf, sodass Fehler überprüft werden können, ohne unnötigen sensiblen Seiteninhalt zu speichern.
+1. **Begrenzen Sie die Browser-Umgebung.** Führen Sie den Agenten in einem dedizierten Browserprofil oder Sandbox aus und beschränken Sie ihn auf die für die Aufgabe erforderlichen Domains.
+2. **Trennen Sie Beobachtung von Aktion.** Lassen Sie den Agenten erst suchen, lesen und Daten extrahieren; verlangen Sie einen ausdrücklichen Genehmigungsschritt, bevor Formulare abgesendet, Nachrichten gesendet, Reisen gebucht, Einkäufe getätigt, Datensätze gelöscht oder Kontoeinstellungen geändert werden.
+3. **Halten Sie Geheimnisse aus Eingabeaufforderungen und Protokollen fern.** Platzieren Sie keine Passwörter, Zahlungsdetails, Sitzungscookies oder Roh-Personendaten im Modellkontext. Lassen Sie den Benutzer die Authentifizierung übernehmen und schwärzen Sie sensible Felder aus Protokollen.
+4. **Behandeln Sie Seiteninhalt als nicht vertrauenswürdige Eingabe.** Eine Website kann Anweisungen enthalten, die an den Agenten gerichtet sind, nicht an den Benutzer. Der Agent sollte Seitentext ignorieren, der ihn auffordert, das Ziel zu ändern, Daten offenzulegen, Schutzmechanismen zu deaktivieren oder zu nicht verwandten Seiten zu navigieren.
+5. **Verwenden Sie deterministische Prüfungen bei riskanten Schritten.** Überprüfen Sie aktuelle URL, Seitentitel, ausgewähltes Element, Preis, Empfänger und Aktionsübersicht programmgesteuert, bevor Sie den Benutzer um Freigabe des letzten Schrittes bitten.
+6. **Setzen Sie Budgets und Stopbedingungen.** Begrenzen Sie die Anzahl der Aktionen, Wiederholungen, Tabs und Minuten, die der Agent verwenden darf. Stoppen Sie, wenn der Seitenzustand mehrdeutig ist, anstatt weiter zu klicken.
+7. **Protokollieren Sie nützliche Beweise, aber nicht alles.** Bewahren Sie Aktionsübersichten, Zeitstempel, URLs, Beschreibungen ausgewählter Elemente und Screenshot-Verweise auf, damit Fehlschläge überprüft werden können, ohne unnötigen sensiblen Seiteninhalt zu speichern.
 
-Im Airbnb-Beispiel ist der sichere Standard, Angebote zu suchen und Preise zu extrahieren. Anmelden, einen Gastgeber kontaktieren oder eine Buchung abschließen sollte eine vom Benutzer genehmigte separate Aktion sein.
+Im Airbnb-Beispiel ist die sichere Voreinstellung, Angebote zu suchen und Preise zu extrahieren. Anmeldung, Kontaktaufnahme mit einem Gastgeber oder Abschluss einer Buchung sollten separate, vom Benutzer genehmigte Aktionen sein.
 
 ### Anwendungen in der Praxis
 
-- Reisebuchungen und Preisüberwachung
+- Reisebuchung und Preisüberwachung
 - Preisvergleiche und Verfügbarkeitsprüfungen im E-Commerce
-- Strukturierte Extraktion von dynamischen Webseiten
-- Vision-basierte UI-Tests und Verifikation
-- Webseitenüberwachung und Benachrichtigungen
-- Intelligentes Ausfüllen von Formularen in mehrstufigen Abläufen
+- Strukturierte Extraktion von dynamischen Websites
+- Visionsbasierte UI-Tests und Verifikation
+- Website-Überwachung und Alarmierung
+- Intelligentes Ausfüllen von Formularen über mehrstufige Abläufe
 
 ## Praxisbeispiel: Microsoft Project Opal
 
-Der in dieser Lektion erstellte Agent ist eine kleine, lokale Version eines **Computer Use Agent (CUA)** – ein Programm, das einen Browser genauso steuert wie ein Mensch. Microsoft bringt diese Idee mit **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)** in Microsoft 365 Copilot unter die Unternehmen.
+Der Agent, den Sie in dieser Lektion erstellen, ist eine kleine, lokale Version eines **Computer Use Agent (CUA)** — ein Programm, das einen Browser so steuert, wie es eine Person tun würde. Microsoft bringt diese Idee mit **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)** in die Unternehmenswelt, eine Funktion in Microsoft 365 Copilot.
 
-Mit Project Opal beschreiben Sie eine Aufgabe, und der Agent arbeitet in Ihrem Auftrag unter Verwendung von **Computer Use auf einem sicheren Windows 365 Cloud-PC**, der über die browserbasierten Anwendungen, Sites und Daten Ihrer Organisation hinweg operiert. Er arbeitet **asynchron im Hintergrund**, und Sie können die Arbeit jederzeit lenken oder übernehmen. Beispielaufgaben umfassen:
+Mit Project Opal beschreiben Sie eine Aufgabe, und der Agent arbeitet in Ihrem Namen unter Verwendung von **Computer Use auf einem sicheren Windows 365 Cloud-PC**, der über die browserbasierten Anwendungen, Webseiten und Daten Ihrer Organisation operiert. Er arbeitet **asynchron im Hintergrund**, und Sie können die Arbeit jederzeit anleiten oder die Kontrolle übernehmen. Beispielaufgaben sind:
 
-- Verwaltung von Anfragen zur Sicherheitsgruppenmitgliedschaft
-- Sammlung und Validierung von Prüfnachweisen für Compliance-Überprüfungen
-- Klassifizierung von IT-Vorfällen (Aktualisierung des Ticketstatus, Zuweisung von Verantwortlichen, Schließen von Duplikaten)
-- Zusammenstellung von Excel-Daten zu einem Financial-Close-Bericht
+- Verwaltung von Sicherheitsgruppenmitgliedschaftsanfragen
+- Sammlung und Validierung von Prüfungsnachweisen für Compliance-Prüfungen
+- Priorisierung von IT-Vorfällen (Ticketstatus aktualisieren, Zuständige zuweisen, Duplikate schließen)
+- Zusammenstellung von Excel-Daten zu einem Abschlussbericht
 
-Opal ist ein nützlicher Referenzpunkt dafür, wie ein **Produktionsreifer, vertrauenswürdiger** Computer Use Agent aussieht – und verstärkt Konzepte aus früheren Lektionen:
+Opal ist eine nützliche Referenz dafür, wie ein **produktionsreifer, vertrauenswürdiger** Computer Use Agent aussieht – und bestärkt die Konzepte aus früheren Lektionen:
 
 | Konzept in diesem Kurs | Wie Project Opal es anwendet |
 |------------------------|-----------------------------|
-| **Human-in-the-loop** (Lektion 06) | Opal pausiert für Login-Daten, sensible Informationen oder unklare Anweisungen und gibt niemals Passwörter ein oder sendet Formulare ohne ausdrückliche Bestätigung. Sie können während der Aufgabe *die Kontrolle übernehmen* und *zurückgeben*. |
-| **Vertrauenswürdige & sichere Agenten** (Lektionen 06 & 18) | Läuft isoliert auf einem Windows 365 Cloud-PC, ist standardmäßig browserbasiert (anderer Computerzugriff wird über Intune blockiert), verwendet *Ihre* Identität, sodass nur autorisierte Zugriffe möglich sind, und protokolliert jede Aktion zur Auditierbarkeit. |
-| **Planung & Metakognition** (Lektionen 07 & 09) | Opal erstellt zuerst einen Plan für die Aufgabe, überwacht dann in jedem Schritt ihre eigene Logik und pausiert, wenn es verdächtige Aktivitäten erkennt. |
-| **Wiederverwendbare Fähigkeiten/Tools** (Lektion 04) | **Skills** erlauben es Ihnen, Anweisungen für wiederholbare Aufgaben zu schreiben (importiert aus einer `.md`-Datei oder mit Opal erstellt) und diese in verschiedenen Konversationen wiederzuverwenden. |
+| **Human-in-the-loop** (Lektion 06) | Opal hält für Anmeldeinformationen, sensible Daten oder mehrdeutige Anweisungen inne und gibt niemals Passwörter ein oder sendet Formulare ohne explizite Bestätigung. Sie können *Die Kontrolle übernehmen* und *Die Kontrolle zurückgeben* mitten in der Aufgabe. |
+| **Vertrauenswürdige & sichere Agenten** (Lektionen 06 & 18) | Läuft in einem isolierten Windows 365 Cloud-PC, ist standardmäßig browsergebunden (andere Computerzugriffe blockiert, über Intune erzwungen), verwendet *Ihre* Identität, so dass es nur auf berechtigte Ressourcen zugreift, und protokolliert jede Aktion für die Nachvollziehbarkeit. |
+| **Planung & Metakognition** (Lektionen 07 & 09) | Opal erstellt zuerst einen Plan für die Aufgabe, überwacht dann sein eigenes Schließen von Zusammenhängen bei jedem Schritt und hält an, wenn verdächtige Aktivitäten erkannt werden. |
+| **Wiederverwendbare Fähigkeiten / Werkzeuge** (Lektion 04) | **Skills** ermöglichen es Ihnen, Anweisungen für wiederholbare Aufgaben zu schreiben (importiert aus einer `.md`-Datei oder in Opal erstellt) und diese in mehreren Gesprächen wiederzuverwenden. |
 
-> **Verfügbarkeit:** Project Opal ist derzeit im [Frontier Early Access Program](https://adoption.microsoft.com/copilot/frontier-program/) mit einem Microsoft 365 Copilot-Abonnement für Nutzer verfügbar, und Ihr Administrator muss die Einrichtung abschließen. Da es eine experimentelle Frontier-Funktion ist, können sich Fähigkeiten im Laufe der Zeit ändern.
+> **Verfügbarkeit:** Project Opal ist derzeit für Nutzer im [Frontier Early Access Program](https://adoption.microsoft.com/copilot/frontier-program/) mit einem Microsoft 365 Copilot Abonnement verfügbar, und Ihr Administrator muss die Einrichtung abschließen. Da es sich um eine experimentelle Frontier-Funktion handelt, können sich die Fähigkeiten im Laufe der Zeit ändern.
 
-## Zusätzliche Ressourcen
+## Wissensprüfung
+
+Testen Sie Ihr Verständnis, bevor Sie zur nächsten Lektion übergehen.
+
+**1. Wann ist ein browserbasierter Computer Use Agent besser geeignet als ein reiner API-Workflow?**
+
+<details>
+<summary>Antwort</summary>
+
+Verwenden Sie einen Browser-Agenten, wenn die Aufgabe davon abhängt, was in einer Web-UI sichtbar ist, die Seite die benötigte API nicht bereitstellt oder die Seite häufig genug geändert wird, dass feste API- oder Selektor-Logik unzuverlässig wäre. Wenn eine stabile API für dieselbe Aufgabe existiert, bevorzugen Sie die API, da sie in der Regel schneller, leichter zu testen und sicherer ist.
+</details>
+
+**2. Welche Teile sollte der Agent in einem hybriden Workflow übernehmen, und welche Teile sollte direkter Playwright-Code übernehmen?**
+
+<details>
+<summary>Antwort</summary>
+
+Lassen Sie den Agenten offene Navigation und dynamische UI-Zustände übernehmen, wie das Finden der richtigen Seite oder das Schließen unerwarteter Pop-ups. Wechseln Sie zur direkten Playwright-Steuerung, wenn die Seitenstruktur bekannt ist und die Aktion Präzision, Wiederholungen, Wartezeiten oder deterministische Validierung erfordert.
+</details>
+
+**3. Das Airbnb-Beispiel findet ein Angebot, das der Nutzer möglicherweise buchen möchte. Was sollte geschehen, bevor der Workflow sich anmeldet, einen Gastgeber kontaktiert oder eine Buchung abschließt?**
+
+<details>
+<summary>Antwort</summary>
+
+Der Workflow sollte pausieren und eine ausdrückliche Benutzerfreigabe einholen. Vor der Anfrage sollte er eine klare Zusammenfassung des ausgewählten Angebots, der aktuellen URL, des Preises, der Daten und der beabsichtigten Aktion anzeigen. Suche und Preisextraktion können autonom erfolgen; Konto-Zugriff, Nachrichten, Einkäufe und Buchungen sollten vom Benutzer genehmigt werden.
+</details>
+
+**4. Eine Webseite fordert den Agenten auf, seine ursprünglichen Anweisungen zu ignorieren, eine andere Seite zu besuchen und gespeicherte Anmeldeinformationen offenzulegen. Wie sollte der Agent diesen Text behandeln?**
+
+<details>
+<summary>Antwort</summary>
+
+Behandeln Sie ihn als nicht vertrauenswürdigen Seiteninhalt, nicht als Entwickler- oder Benutzeranweisung. Der Agent sollte innerhalb der erlaubten Domain und des Aufgabenumfangs bleiben, die Offenlegung von Geheimnissen verweigern und Seite-Text, der das Ziel ändert, Schutzmechanismen deaktiviert oder ihn zu nicht verwandten Sites schickt, ignorieren.
+</details>
+
+**5. Welche Nachweise sind nützlich, wenn ein Browser-Agent läuft, und was sollte vermieden werden?**
+
+<details>
+<summary>Antwort</summary>
+
+Bewahren Sie Aktionsübersichten, Zeitstempel, URLs, Beschreibungen ausgewählter Elemente, Validierungsergebnisse und Screenshot-Verweise auf, damit der Lauf überprüft werden kann. Vermeiden Sie das Speichern von Passwörtern, Zahlungsdetails, Sitzungscookies, Roh-Personendaten oder vollständigen Seiteninhalten, sofern es keinen spezifischen Aufbewahrungs- oder Datenschutzgrund gibt.
+</details>
+
+## Weitere Ressourcen
 
 - [Erste Schritte mit Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
-- [Browser-Use Playwright-Integrationsvorlage](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Browser-Use Actor-Parameter und Inhaltsextraktion](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Browser-Use Playwright Integrationsvorlage](https://docs.browser-use.com/examples/templates/playwright-integration)
+- [Browser-Use Schauspielerparameter und Inhaltsextraktion](https://docs.browser-use.com/customize/actor/all-parameters)
 - [Kurs-Setup](../00-course-setup/README.md)
 
 ## Vorherige Lektion

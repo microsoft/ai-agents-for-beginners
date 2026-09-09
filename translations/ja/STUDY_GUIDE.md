@@ -7,7 +7,7 @@
 
 ここが初めてなら、シンプルに始めましょう：
 
-1. [Course Setup](./00-course-setup/README.md) を読みます。
+1. [コース設定](./00-course-setup/README.md) を読みます。
 2. レッスン01～06を順番に完了します。
 3. 学びながら、一つの小さなデモアイデアを心に留めておきます。
 4. 各レッスンの後で「これまでできなかったことが、今エージェントは何ができる
@@ -61,7 +61,7 @@
 レッスンを進める中で、いくつかのプロバイダーオプションがあります：
 
 - **Microsoft Foundry / Azure OpenAI (Responses API)** — レッスン全体で使われる主要ルート。`az login`でキー不要のEntra ID認証が可能です。
-- **Foundry Local** — OpenAI互換APIを通じてデバイス上で完全にモデルを実行（クラウド不要、APIキー不要）。オフラインやコストなし実験に最適。[Course Setup](./00-course-setup/README.md)を参照。
+- **Foundry Local** — OpenAI互換APIを通じてデバイス上で完全にモデルを実行（クラウド不要、APIキー不要）。オフラインやコストなし実験に最適。[コース設定](./00-course-setup/README.md)を参照。
 - **MiniMax** — 大きなコンテキストモデルが使えるOpenAI互換プロバイダーで、代替として利用可能。
 
 > **注意：** GitHub Modelsは廃止予定（2026年7月引退）でResponses APIをサポートしていません。サンプルはAzure OpenAI / Microsoft Foundryへ更新されています。
@@ -95,7 +95,6 @@
 | [03 - Agentic Design Patterns](./03-agentic-design-patterns/README.md) | エージェントの動作設計でよく使われるパターン。 | コードを書く前にユーザージャーニーをスケッチする。 |
 | [04 - Tool Use](./04-tool-use/README.md) | エージェントがツールを使ってデータを得たり行動をとる方法。 | デモエージェントが必要とする一つのツールを定義する。 |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | 検索により文書やデータで回答を根拠づける方法。 | デモが検索すべき知識源を決める。 |
-
 | [06 - 信頼できるエージェント](./06-building-trustworthy-agents/README.md) | ガードレール、監督、および安全な動作を追加する方法。 | エージェントが最初にユーザーに尋ねるべき場合のルールを1つ追加する。 |
 | [07 - 計画設計](./07-planning-design/README.md) | エージェントが大きな目標を小さなステップに分解する方法。 | デモのリクエストに対して3段階の計画を書く。 |
 | [08 - マルチエージェント設計](./08-multi-agent/README.md) | 仕事を専門エージェント間で分割するタイミング。 | デモに1つのエージェントが必要か複数かを決める。 |

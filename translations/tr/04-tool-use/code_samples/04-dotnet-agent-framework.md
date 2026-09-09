@@ -2,29 +2,29 @@
 
 ## 📋 Öğrenme Hedefleri
 
-Bu not defteri, .NET'te Microsoft Agent Framework kullanarak Azure OpenAI (Yanıtlar API) ile kurumsal düzeyde araç entegrasyon kalıplarını göstermektedir. C#'ın güçlü tip denetimi ve .NET'in kurumsal özelliklerinden yararlanarak birden çok uzmanlaşmış araç içeren gelişmiş ajanlar oluşturmayı öğreneceksiniz.
+Bu not defteri, Azure OpenAI (Yanıtlar API) ile .NET'te Microsoft Agent Framework kullanarak kurumsal düzeyde araç entegrasyon desenlerini gösterir. C#'ın güçlü tip sistemini ve .NET'in kurumsal özelliklerini kullanarak birden çok özel araç içeren gelişmiş ajanlar oluşturmayı öğreneceksiniz.
 
-### Ustalaşacağınız Gelişmiş Araç Özellikleri
+### Ustalaşacağınız Gelişmiş Araç Yetenekleri
 
-- 🔧 **Çoklu Araç Mimarisi**: Birden fazla uzmanlaşmış yetenekle ajanlar oluşturma
-- 🎯 **Tip Güvenli Araç Çalıştırma**: C#'ın derleme zamanı doğrulamasından yararlanma
-- 📊 **Kurumsal Araç Kalıpları**: Üretime hazır araç tasarımı ve hata yönetimi
-- 🔗 **Araç Bileşimi**: Karmaşık iş akışları için araçların birleştirilmesi
+- 🔧 **Çoklu Araç Mimarisi**: Birden çok özel yeteneğe sahip ajanlar oluşturma
+- 🎯 **Tip Güvenli Araç Çalıştırma**: C#'ın derleme zamanı doğrulamasını kullanma
+- 📊 **Kurumsal Araç Desenleri**: Üretime hazır araç tasarımı ve hata yönetimi
+- 🔗 **Araç Bileşimi**: Karmaşık iş akışları için araçları birleştirme
 
 ## 🎯 .NET Araç Mimarisi Avantajları
 
 ### Kurumsal Araç Özellikleri
 
-- **Derleme Zamanı Doğrulama**: Güçlü tip kullanımı araç parametrelerinin doğruluğunu sağlar
+- **Derleme Zamanı Doğrulaması**: Güçlü tip denetimi ile araç parametre doğruluğu
 - **Bağımlılık Enjeksiyonu**: Araç yönetimi için IoC konteyner entegrasyonu
-- **Async/Await Kalıpları**: Uygun kaynak yönetimi ile engellemeyen araç çalıştırma
-- **Yapılandırılmış Günlük Kaydı**: Araç çalıştırma izleme için yerleşik günlük entegrasyonu
+- **Async/Await Desenleri**: Kaynak yönetimiyle engellemeyen araç çalıştırma
+- **Yapılandırılmış Günlükleme**: Araç çalıştırma takibi için entegre günlükleme
 
-### Üretime Hazır Kalıplar
+### Üretime Hazır Desenler
 
-- **İstisna Yönetimi**: Tipli istisnalar ile kapsamlı hata yönetimi
-- **Kaynak Yönetimi**: Uygun atma kalıpları ve bellek yönetimi
-- **Performans İzleme**: Yerleşik metrikler ve performans sayıcıları
+- **İstisna Yönetimi**: Tipli istisnalarla kapsamlı hata yönetimi
+- **Kaynak Yönetimi**: Doğru bellek ve kaynak atma desenleri
+- **Performans İzleme**: Yerleşik metrikler ve performans sayaçları
 - **Yapılandırma Yönetimi**: Doğrulamalı tip güvenli yapılandırma
 
 ## 🔧 Teknik Mimari
@@ -33,15 +33,15 @@ Bu not defteri, .NET'te Microsoft Agent Framework kullanarak Azure OpenAI (Yanı
 
 - **Microsoft.Extensions.AI**: Birleşik araç soyutlama katmanı
 - **Microsoft.Agents.AI**: Kurumsal düzeyde araç orkestrasyonu
-- **Azure OpenAI (Yanıtlar API)**: Bağlantı havuzlu yüksek performanslı API istemcisi
+- **Azure OpenAI (Yanıtlar API)**: Bağlantı havuzlama özellikli yüksek performanslı API istemcisi
 
-### Araç Çalıştırma Hattı
+### Araç Çalıştırma Boru Hattı
 
 ```mermaid
 graph LR
     A[Kullanıcı Talebi] --> B[Ajan Analizi]
     B --> C[Araç Seçimi]
-    C --> D[Tür Doğrulaması]
+    C --> D[Tür Doğrulama]
     B --> E[Parametre Bağlama]
     E --> F[Araç Çalıştırma]
     C --> F
@@ -50,60 +50,60 @@ graph LR
     G --> H[Yanıt]
 ```
 
-## 🛠️ Araç Kategorileri ve Kalıpları
+## 🛠️ Araç Kategorileri & Desenler
 
 ### 1. **Veri İşleme Araçları**
 
-- **Girdi Doğrulama**: Veri açıklamaları ile güçlü tip kullanımı
-- **Dönüşüm İşlemleri**: Tip güvenli veri dönüştürme ve biçimlendirme
-- **İş Mantığı**: Alanlara özgü hesaplama ve analiz araçları
+- **Girdi Doğrulaması**: Veri açıklamalarıyla güçlü tip denetimi
+- **Dönüşüm Operasyonları**: Tip güvenli veri dönüştürme ve biçimlendirme
+- **İş Mantığı**: Alan özel hesaplama ve analiz araçları
 - **Çıktı Biçimlendirme**: Yapılandırılmış yanıt oluşturma
 
-### 2. **Entegrasyon Araçları** 
+### 2. **Entegrasyon Araçları**
 
 - **API Bağlayıcıları**: HttpClient ile RESTful servis entegrasyonu
-- **Veritabanı Araçları**: Veri erişimi için Entity Framework entegrasyonu
-- **Dosya İşlemleri**: Doğrulamaya sahip güvenli dosya sistemi işlemleri
-- **Dış Hizmetler**: Üçüncü taraf servis entegrasyon kalıpları
+- **Veri Tabanı Araçları**: Veri erişimi için Entity Framework entegrasyonu
+- **Dosya İşlemleri**: Doğrulamalı güvenli dosya sistemi işlemleri
+- **Harici Servisler**: Üçüncü taraf servis entegrasyon desenleri
 
 ### 3. **Yardımcı Araçlar**
 
-- **Metin İşleme**: Dize manipülasyonu ve biçimlendirme yardımcıları
+- **Metin İşleme**: Dize manipülasyonu ve biçimlendirme araçları
 - **Tarih/Saat İşlemleri**: Kültüre duyarlı tarih/saat hesaplamaları
-- **Matematiksel Araçlar**: Hassas hesaplamalar ve istatistiksel işlemler
+- **Matematik Araçları**: Hassas hesaplamalar ve istatistiksel işlemler
 - **Doğrulama Araçları**: İş kuralı doğrulama ve veri denetimi
 
-.NET'te güçlü, tip güvenli araç yetenekleriyle kurumsal düzey ajanlar geliştirmeye hazır mısınız? Haydi profesyonel düzey çözümler tasarlayalım! 🏢⚡
+.NET'te güçlü, tip güvenli araç yetenekleriyle kurumsal düzeyde ajanlar oluşturmak için hazır mısınız? Haydi profesyonel çözümler tasarlayalım! 🏢⚡
 
 ## 🚀 Başlarken
 
-### Gereksinimler
+### Ön Koşullar
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yüksek sürüm
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya üzeri
 - Azure OpenAI kaynağı ve model dağıtımı içeren bir [Azure aboneliği](https://azure.microsoft.com/free/)
-- `az login` ile giriş yapacağınız [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- `az login` ile oturum açılmış [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 
 ### Gerekli Ortam Değişkenleri
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Sonra AzureCliCredential'in bir token alabilmesi için giriş yapın
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Ardından AzureCliCredential bir belirteç alabilmesi için oturum açın
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Daha sonra AzureCliCredential token alabilmesi için oturum açın
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# AzureCliCredential bir token alabilmesi için ardından oturum açın
 az login
 ```
 
 ### Örnek Kod
 
-Kod örneğini çalıştırmak için,
+Örnek kodu çalıştırmak için,
 
 ```bash
 # zsh/bash
@@ -111,13 +111,13 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Ya da dotnet CLI kullanarak:
+Veya dotnet CLI kullanarak:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Tam kod için [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) dosyasına bakınız.
+Tam kod için bkz. [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

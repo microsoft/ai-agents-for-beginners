@@ -3,71 +3,78 @@ name: testing-course-samples
 ---
 # コースサンプルのテスト
 
-レッスンノートブックとコードサンプルがライブの
-Microsoft Foundry / Azure OpenAI 環境で動作することを検証します。リポジトリには
-[`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) に
-すべてのPythonノートブックをヘッドレスで実行し、PASS/FAILマトリックスを表示するランナーが含まれています。
-
-## いつ使うか
-- 「すべてのノートブック／サンプルが自分のAzureサブスクリプションで動作するか検証したい」
-- 「パッケージをアップグレードしたりモデルを変更した後のコースのスモークテスト」
-- 「まだ動作する／動作しないレッスンはどれか？」
-
-AI Smoke Test GitHub Action には<strong>使用しないでください</strong>（<em>デプロイ済み</em>ホストエージェントを検証する — [`tests/README.md`](../../../tests/README.md) を参照）。このスキルは
-ローカルでノートブックを実行します。
+レッスン用ノートブックおよびコードサンプルが実際の
+Microsoft Foundry / Azure OpenAI 環境で動作するかを検証します。このリポジトリには
+[`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) という
+ランナーが付属しており、全てのPythonノートブックをヘッドレス実行し、
 
 
-1. **Python 3.12+** とコースの依存関係：`python -m pip install -r requirements.txt`
-   に加え、実行環境用に：`python -m pip install nbconvert ipykernel`。
-2. リポジトリルートに **`.env`** （[`.env.example`](../../../../../.env.example) からコピー）を配置し、
-   少なくとも以下を含める：
-   - `AZURE_AI_PROJECT_ENDPOINT` — Foundryプロジェクトエンドポイント
+## 使用タイミング
+- "すべてのノートブック／サンプルを自分のAzureサブスクリプションで検証したいとき。"
+- "パッケージのアップグレードやモデル変更後にコースのスモークテストを行いたいとき。"
+
+
+AI Smoke Test GitHub Action（<em>デプロイ済み</em>ホストエージェントを検証するもの—[`tests/README.md`](../../../tests/README.md)参照）には<strong>使用しないでください</strong>。このスキルは
+ノートブックをローカルで実行します。
+
+## 前提条件（最初にチェック）
+1. **Python 3.12+** とコース依存パッケージ：`python -m pip install -r requirements.txt`
+   および実行用：`python -m pip install nbconvert ipykernel`。
+2. リポジトリルートに **`.env`**（[`.env.example`](../../../../../.env.example) からコピー）を用意し、少なくとも以下を設定：
+   - `AZURE_AI_PROJECT_ENDPOINT` — Foundryプロジェクトのエンドポイント
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — 廃止されていないデプロイメント（例：`gpt-4.1-mini`）
-   - Azure OpenAIを直接呼び出すレッスン用に `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) と `AZURE_OPENAI_DEPLOYMENT`
-     （レッスン06、02-azure-openai、14 handoff/human-loop）。
-3. **`az login`** が完了していること — サンプルは `AzureCliCredential`（Entra ID、キーレス）で認証します。
-4. モデルデプロイメントが存在することを確認：
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — 廃止されていないデプロイメント名（例：`gpt-5-mini`）
+   - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) と `AZURE_OPENAI_DEPLOYMENT`
+     これはAzure OpenAIを直接呼び出すレッスン用（Lesson 06、02-azure-openai、14 handoff/human-loop）。
+3. **`az login`** の完了 — サンプルは `AzureCliCredential` で認証します（Entra ID、キーレス）。
+4. モデルデプロイメントが存在するか確認：
    `az cognitiveservices account deployment list -g <rg> -n <account> -o table`。
 
-## 検証の実行
+## 検証の実行方法
 ```powershell
-# すべてのPythonノートブック（.NET、.venv、site-packages、翻訳、スキルアセットは除外）
+# すべてのPythonノートブック（.NET、.venv、site-packages、translations、スキルアセットはスキップ）
 pwsh scripts/validate-notebooks.ps1
 
-# より長いセルごとのタイムアウトがある単一のレッスン
+# 1つのレッスン、セルごとのタイムアウトが長い
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# 実行せずに実行されるものを一覧表示するだけ
+# 実行されるものをリスト表示するだけ（実行はしない）
 pwsh scripts/validate-notebooks.ps1 -List
 
-# 明示的なインタープリター（`python`がPATHにない場合、例：Windowsストアのエイリアス）
+# 明示的なインタプリタ（`python`がPATHにない場合、例：Windowsストアのエイリアス）
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-スクリプトは実行したコピー、ノートブックごとのログ、`results.json` を
-`$env:TEMP\aiab-nbval` に書き込み、失敗数を返します。
+スクリプトは実行済みのコピー、ノートブックごとのログ、`results.json`を
+`$env:TEMP\aiab-nbval` に書き出し、失敗数を終了コードとして返します。
+
+一時的な失敗（共有サブスクリプションのHTTP 429レート制限、たまに起こる
+`AzureCliCredential` トークンの不具合、タイムアウト）は自動的に
+リトライされます（`-Retries`（デフォルト2）および `-RetryDelaySeconds` バックオフ（デフォルト20秒））。モデルデプロイメントが頻繁に429を返す場合は、
+サブスクリプションのGlobalStandard
+TPMクォータ（`az cognitiveservices usage list -l <region>`）を確認してください。単一の
+デプロイメントの容量増強は、<em>サブスクリプション</em> クォータが枯渇している場合は効果がありません。
 
 ## 結果の解釈
-- `PASS` — ノートブックがセルエラーなしで最後まで実行されました。
-- `FAIL` — 最初に検出された `*Error` / `*Exception` の行が表示されます。対応する
-  出力ディレクトリの `log_*.txt` を開き、完全なトレースバックを確認してください。
-- 単一ノートブックの失敗は `-Timeout`（セル単位）で制限されるため、
-  ハングしている人間ループセルは `StdinNotImplementedError` として検出され、ハングしっぱなしにはなりません。
+- `PASS` — ノートブックはセルエラーなく最後まで実行されました。
+- `FAIL` — 最初の `*Error` / `*Exception` 行が表示されます。完全なトレースバックは、
+  出力ディレクトリ内の該当する `log_*.txt` を開いて確認してください。
+- 単一ノートブックの失敗は `-Timeout`（セルごと）により制限されます。つまり、
+  ハングしたヒューマンインザループセルは `StdinNotImplementedError` として検出され、ハング状態にはなりません。
 
-## 追加リソースが必要なレッスン（それらがなければ失敗します）
+## 追加リソースが必要なレッスン（無ければ失敗が予想される）
 | レッスン | 追加要件 |
-|--------|------------|
-| 05 Agentic RAG | Azure AI Search（`AZURE_SEARCH_SERVICE_ENDPOINT`, キー）— インメモリフォールバックパスあり |
+|--------|-------------------|
+| 05 Agentic RAG | Azure AI Search（`AZURE_SEARCH_SERVICE_ENDPOINT`、キー）— インメモリのフォールバックパスあり |
 | 11 MCP / GitHub | GitHub MCPサーバー + PAT |
-| 13 memory (cognee) | `cognee` がモデルプロバイダーと設定済み |
-| 15 browser-use | Playwrightブラウザをインストール済み（`playwright install`） + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 local agent | Foundry Local runtime + ダウンロード済みQwenモデル（オンデバイス、クラウド不要） |
-| `*-dotnet-*` ノートブック | .NET Interactive カーネル（デフォルトで除外、`-IncludeDotnet`を使用） |
+| 13 memory (cognee) | `cognee` がモデルプロバイダーで設定されていること |
+| 15 browser-use | Playwrightのブラウザがインストール済み（`playwright install`） + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
+| 17 local agent | Foundry Localランタイム + ダウンロード済みQwenモデル（デバイス内、クラウド不要） |
+| `*-dotnet-*` ノートブック | .NET Interactiveカーネル（既定では除外；`-IncludeDotnet` 使用で含む） |
 
-## レポート
-レッスンごとにグループ化したPASS/FAIL表としてまとめます。真の回帰（修正が必要なコード／設定バグ）と
-環境の不足（Search/Foundry Local/PATが足りないなど）を分けて、
-実際に失敗した部分には対応する `log_*.txt` を引用してください。
+## 結果の報告
+レッスン単位でまとめたPASS／FAILテーブルを作成します。実際のリグレッション
+（修正すべきコード・設定のバグ）と環境不足（Search/Foundry Local/PATの未設定）を区別し、
+本物の失敗ごとに該当する `log_*.txt` を記載してください。
 
 ---
 

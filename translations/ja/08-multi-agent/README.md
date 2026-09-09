@@ -156,7 +156,7 @@
 
 ## 解決策
 
-[Solution](./solution/solution.md)
+[解決策](./solution/solution.md)
 
 ## 知識チェック
 
@@ -176,7 +176,7 @@
 - [ ] A2: エージェントが複数のツールにアクセスできる。
 - [ ] A3: ワークフローが異なる権限と独立した監査証跡を持つ別々の役割を必要とする場合。
 
-[Solution quiz](./solution/solution-quiz.md)
+[知識チェックの解答](./solution/solution-quiz.md)
 
 ## まとめ
 
@@ -194,11 +194,11 @@
 
 ## 前のレッスン
 
-[Planning Design](../07-planning-design/README.md)
+[計画デザイン](../07-planning-design/README.md)
 
 ## 次のレッスン
 
-[Metacognition in AI Agents](../09-metacognition/README.md)
+[AIエージェントにおけるメタ認知](../09-metacognition/README.md)
 
 ---
 

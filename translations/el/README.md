@@ -103,7 +103,6 @@
 | Δημιουργία Αξιόπιστων Πρακτόρων AI             | [Σύνδεσμος](./06-building-trustworthy-agents/README.md) | [Βίντεο](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Σχεδιαστικό Πρότυπο Προγραμματισμού           | [Σύνδεσμος](./07-planning-design/README.md)        | [Βίντεο](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC) | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Σχεδιαστικό Πρότυπο Πολλαπλών Πρακτόρων       | [Σύνδεσμος](./08-multi-agent/README.md)            | [Βίντεο](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g) | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | Σχέδιο Μεταγνωσίας                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Πράκτορες AI στην Παραγωγή                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Χρήση Πρωτοκόλλων Πράκτορα (MCP, A2A και NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

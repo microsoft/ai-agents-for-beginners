@@ -96,7 +96,6 @@ msamiati utakao hitajika kwa kozi yote.
 | [03 - Mifano ya Muundo wa Agentic](./03-agentic-design-patterns/README.md) | Mifano ya kawaida ya kubuni tabia ya maajenti. | Tekeleza safari ya mtumiaji kabla ya kuandika nambari. |
 | [04 - Matumizi ya Zana](./04-tool-use/README.md) | Jinsi maajenti wanavyopiga zana kupata data au kuchukua hatua. | Tambua zana moja ambayo maajenti wako wa maonyesho wangahitaji. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Jinsi utafutaji unavyosababisha majibu ya maajenti kuwa na msingi katika nyaraka au data. | Amua chanzo cha maarifa ambacho maonyesho yako yanapaswa kutafuta. |
-
 | [06 - Wakala Wanaoweza Kuaminika](./06-building-trustworthy-agents/README.md) | Jinsi ya kuongeza vizuizi, uangalizi, na tabia salama zaidi. | Ongeza sheria moja ya wakati wakala anapaswa kumuuliza mtumiaji kwanza. |
 | [07 - Ubunifu wa Mipango](./07-planning-design/README.md) | Jinsi mawakala wanavyogawanya malengo makubwa kuwa hatua ndogo ndogo. | Andika mpango wa hatua tatu kwa ombi lako la maonyesho. |
 | [08 - Ubunifu wa Mawakala Wengi](./08-multi-agent/README.md) | Wakati wa kugawanya kazi kati ya mawakala waliobobea. | Amua ikiwa maonyesho yako yanahitaji wakala mmoja au kadhaa. |

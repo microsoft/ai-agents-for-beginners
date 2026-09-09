@@ -1,94 +1,94 @@
-# 🛠️ Matumizi ya Zana Zinazoendelea na Azure OpenAI (API ya Majibu) (.NET)
+# 🛠️ Matumizi ya Zana za Juu na Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Malengo ya Kujifunza
 
-Daftari hili linaonyesha mifumo ya ujumuishaji wa zana za daraja la biashara kwa kutumia Mfumo wa Wakala wa Microsoft katika .NET na Azure OpenAI (API ya Majibu). Utajifunza kujenga mawakala mahiri wenye zana nyingi maalum, ukitumia aina kali za C# na sifa za biashara za .NET.
+Daftari hili linaonyesha mifumo ya kuunganisha zana za viwandani kwa kutumia Microsoft Agent Framework katika .NET na Azure OpenAI (Responses API). Utajifunza kujenga maajenti mahiri yenye zana nyingi maalum, ukitumia uainishaji thabiti wa C# na vipengele vya viwandani vya .NET.
 
-### Uwezo wa Zana Zinazoendelea Utazizawadia
+### Uwezo za Zana za Juu Utazozitawala
 
-- 🔧 **Mimaaruba ya Zana Nyingi**: Kujenga mawakala wenye uwezo maalum mbalimbali
-- 🎯 **Utendaji wa Zana Uliye Salama kwa Aina**: Kutumia uthibitishaji wa wakati wa kompyuta wa C#
-- 📊 **Mifumo ya Zana za Biashara**: Ubunifu wa zana zinazotumika kwa uzalishaji na usimamizi wa makosa
-- 🔗 **Muundo wa Zana**: Kuchanganya zana kwa ajili ya mtiririko tata wa biashara
+- 🔧 **Msaada wa Zana Nyingi**: Kujenga maajenti yenye uwezo mbalimbali maalum
+- 🎯 **Uendeshaji Salama wa Aina**: Kutumia uhakiki wa aina wakati wa kuwasilisha programu katika C#
+- 📊 **Mifumo ya Zana za Viwanda**: Ubunifu wa zana kwa matumizi ya uzalishaji na usimamizi wa makosa
+- 🔗 **Muundo wa Zana**: Kuunganisha zana kwa ajili ya michakato tata ya biashara
 
-## 🎯 Manufaa ya Mimaaruba ya Zana za .NET
+## 🎯 Manufaa ya Muundo wa Zana za .NET
 
-### Sifa za Zana za Biashara
+### Vipengele vya Zana za Viwanda
 
-- **Uthibitishaji wa Wakati wa Kuunganisha**: Aina kali kuhakikisha usahihi wa vigezo vya zana
-- **Uingizaji wa Tegemezi**: Ujumuishaji wa kontena ya IoC kwa usimamizi wa zana
-- **Mifumo ya Async/Await**: Utendaji wa zana usiozuia kwa usimamizi mzuri wa rasilimali
-- **Ufuatiliaji wa Kuraalishe**: Ujumuishaji wa ufuatiliaji wa uendeshaji wa zana
+- **Uhakiki wa Aina Wakati wa Kujenga**: Uainishaji thabiti unaohakikisha usahihi wa vigezo vya zana
+- **Injection ya Tegemezi**: Uunganisho wa kontena la IoC kwa usimamizi wa zana
+- **Mifumo ya Async/Await**: Uendeshaji usiozuia zana kwa usimamizi sahihi wa rasilimali
+- **Ufuatiliaji wa Matukio uliofadhiliwa**: Uunganisho wa ufuatiliaji wa matukio kwa uangalizi wa utekelezaji wa zana
 
 ### Mifumo Tayari kwa Uzalishaji
 
-- **Usimamizi wa Makosa**: Usimamizi kamili wa makosa yenye aina maalum
-- **Usimamizi wa Rasilimali**: Mifumo sahihi ya utupa na usimamizi wa kumbukumbu
-- **Ufuatiliaji wa Utendaji**: Vipimo na majumuisho ya utendaji yaliyojumuishwa
-- **Usimamizi wa Mipangilio**: Mipangilio inayolindwa kwa aina na uthibitishaji
+- **Usimamizi wa Maeneo ya Makosa**: Usimamizi wa makosa kwa kina na makosa yanayoainishwa kwa aina
+- **Usimamizi wa Rasilimali**: Mifumo sahihi ya kutupilia mbali na usimamizi wa kumbukumbu
+- **Ufuatiliaji wa Utendaji**: Vipimo na vivyo vya utendaji vilivyojengwa ndani
+- **Usimamizi wa Mpangilio**: Mpangilio salama kwa aina na uhakiki
 
-## 🔧 Mimaaruba ya Kiufundi
+## 🔧 Muundo wa Kifundi
 
-### Vipengele Muhimu vya Zana za .NET
+### Vipengele Vikuu vya Zana za .NET
 
-- **Microsoft.Extensions.AI**: Tabaka la upendeleo la zana linalounganisha
-- **Microsoft.Agents.AI**: Uendeshaji wa zana kwa daraja la biashara
-- **Azure OpenAI (API ya Majibu)**: Mteja wa API mwenye utendaji wa juu na usimamizi wa muunganisho
+- **Microsoft.Extensions.AI**: Tabaka la udanganyifu wa zana lililojumuishwa
+- **Microsoft.Agents.AI**: Usimamizi wa zana wa viwanda
+- **Azure OpenAI (Responses API)**: Mteja mwenye utendaji wa juu wa API na usimamizi wa muunganisho
 
-### Mlolongo wa Utendaji wa Zana
+### Mchakato wa Utekelezaji wa Zana
 
 ```mermaid
 graph LR
     A[Ombi la Mtumiaji] --> B[Uchambuzi wa Wakala]
-    B --> C[Uteuzi wa Zana]
-    C --> D[Uhakiki wa Aina]
+    B --> C[Uchaguzi wa Zana]
+    C --> D[Uthibitishaji wa Aina]
     B --> E[Ufungaji wa Vigezo]
-    E --> F[Uendeshaji wa Zana]
+    E --> F[Utekelezaji wa Zana]
     C --> F
-    F --> G[Usindishaji wa Matokeo]
+    F --> G[Usindikaji wa Matokeo]
     D --> G
-    G --> H[Jibu]
+    G --> H[Majibu]
 ```
 
-## 🛠️ Makundi na Mifumo ya Zana
+## 🛠️ Aina za Zana & Mifumo
 
 ### 1. **Zana za Usindikaji Data**
 
-- **Uthibitishaji wa Ingizo**: Aina kali pamoja na maelezo ya data
-- **Uendeshaji wa Mabadiliko**: Ubadilishaji wa data salama kwa aina na uundaji
-- **Mantiki ya Biashara**: Zana za mahesabu na uchambuzi maalum kwa uwanja
-- **Uundaji wa Matokeo**: Uzalishaji wa majibu yenye muundo
+- **Uhakiki wa Kuingiza**: Uainishaji thabiti na maelezo ya data
+- **Mabadiliko ya Operesheni**: Ubadilishaji wa data salama kwa aina na uundaji wa muundo
+- **Mantiki ya Biashara**: Zana za utambuzi na uchambuzi wa maeneo maalum
+- **Uundaji wa Matokeo**: Uzalishaji wa majibu yaliyopangwa
 
-### 2. **Zana za Ujumlishaji**
+### 2. **Zana za Muunganisho**
 
-- **Vianzilishi vya API**: Ujumuishaji wa huduma za RESTful na HttpClient
-- **Zana za Hifadhidata**: Ujumuishaji wa Entity Framework kwa upatikanaji wa data
-- **Uendeshaji wa Faili**: Uendeshaji salama wa mfumo wa faili na uthibitishaji
-- **Huduma za Nje**: Mifumo ya ujumuishaji wa huduma za pande tatu
+- **Waunganishaji wa API**: Uunganisho wa huduma za RESTful kwa HttpClient
+- **Zana za Hifadhidata**: Uunganisho wa Entity Framework kwa upatikanaji wa data
+- **Operesheni za Faili**: Operesheni salama za mfumo wa faili na uhakiki
+- **Huduma za Nje**: Mifumo ya kuunganisha huduma za wahudumu wa tatu
 
-### 3. **Zana za Huduma za Msingi**
+### 3. **Zana za Huduma**
 
-- **Usindikaji wa Nyaraka**: Zana za utunzaji na uundaji maandishi
-- **Uendeshaji wa Tarehe/Nakala**: Maambo ya tarehe/nyakati yenye utambuzi wa tamaduni
-- **Zana za Hisabati**: Mahesabu sahihi na shughuli za takwimu
-- **Zana za Uthibitishaji**: Uthibitishaji wa sheria za biashara na uhakikisho wa data
+- **Usindikaji wa Nambari**: Zana za uandishi na uundaji muundo wa maandishi
+- **Operesheni za Tarehe/Nakala**: Misaada ya mahesabu ya tarehe na wakati kulingana na tamaduni
+- **Zana za Hisabati**: Kuhesabu kwa usahihi na operesheni za takwimu
+- **Zana za Uhifadhi**: Uhakiki wa kanuni za biashara na uthibitishaji wa data
 
-Tayari kujenga mawakala wa daraja la biashara wenye uwezo mkubwa, ulio salama kwa aina katika .NET? Chukua hatua za kusanifu suluhisho za kitaalamu! 🏢⚡
+Tayari kujenga maajenti wa viwanda wenye uwezo mzito wa zana salama kwa aina katika .NET? Hebu tuunde suluhisho za kitaalamu! 🏢⚡
 
-## 🚀 Kuanzia
+## 🚀 Jinsi ya Kuanza
 
-### Mahitaji ya Awali
+### Vigezo Vinavyohitajika
 
-- [SDK ya .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) au zaidi
-- Usajili wa [Azure](https://azure.microsoft.com/free/) wenye rasilimali ya Azure OpenAI na usambazaji wa mfano
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ingia na `az login`
+- [SDK ya .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) au toleo la juu zaidi
+- [Usajili wa Azure](https://azure.microsoft.com/free/) wenye rasilimali ya Azure OpenAI na tume ya mfano
+- [CLI ya Azure](https://learn.microsoft.com/cli/azure/install-azure-cli) — jumuika kwa `az login`
 
-### Mabadiliko ya Mazingira Yanayohitajika
+### Mazingira Yanayohitajika Kuwekwa
 
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 # Kisha ingia ili AzureCliCredential ipate tokeni
 az login
 ```
@@ -96,14 +96,14 @@ az login
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
 # Kisha ingia ili AzureCliCredential iweze kupata tokeni
 az login
 ```
 
 ### Mfano wa Msimbo
 
-Ili kuendesha mfano wa msimbo,
+Kuendesha mfano wa msimbo,
 
 ```bash
 # zsh/bash
@@ -111,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Au kwa kutumia dotnet CLI:
+Au kutumia CLI ya dotnet:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

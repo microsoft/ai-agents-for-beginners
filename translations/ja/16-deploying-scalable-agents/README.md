@@ -1,4 +1,4 @@
-# Microsoft Foundryでスケーラブルなエージェントをデプロイする
+# Microsoft Foundryでスケーラブルなエージェントをデプロイ
 
 ![スケーラブルなエージェントのデプロイ](../../../translated_images/ja/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
@@ -391,11 +391,11 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
 
 ## 前のレッスン
 
-[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
+[コンピュータ利用エージェント (CUA) の構築](../15-browser-use/README.md)
 
 ## 次のレッスン
 
-[Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
+[ローカルAIエージェントの作成](../17-creating-local-ai-agents/README.md)
 
 ---
 

@@ -52,8 +52,7 @@ A receipt is a JSON object that records what an agent did, signed with a digital
 flowchart LR
     A[Agent invokes a tool] --> B[Build receipt payload]
     B --> C[Canonicalize JSON RFC 8785]
-    C --> D[SHA-256 hash]
-    D --> E[Ed25519 sign]
+    C --> E[Ed25519 sign canonical bytes]
     E --> F[Receipt with signature]
     F --> G[Auditor verifies offline]
     G --> H{Signature valid?}
@@ -136,10 +135,9 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canonicalize, hash, sign.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
-message_hash = hashlib.sha256(canonical_bytes).digest()
-signature_bytes = signing_key.sign(message_hash).signature
+signature_bytes = signing_key.sign(canonical_bytes).signature
 
 # Attach a structured signature object.
 receipt = {
@@ -179,11 +177,10 @@ def verify_receipt(receipt: dict) -> bool:
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
-    message_hash = hashlib.sha256(canonical_bytes).digest()
 
     try:
         verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(message_hash, b64url_decode(sig_obj["sig"]))
+        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
         return True
     except BadSignatureError:
         return False
@@ -256,7 +253,7 @@ A common mistake is to assume that "we have receipts" means "we are governed." I
 
 Item 3 above is worth its own section: an action receipt says "this key signed this content," never "a human authorized this." For high-risk actions (refunds, deletions, wire transfers), governance frameworks increasingly require exactly that missing statement, and it is producible with the same primitives you already built in this lesson.
 
-The follow-on notebook `code_samples/human-authorization-receipts.ipynb` adds a second receipt kind, `human.approval.v1`, in the same envelope shape as the lesson's receipts (a typed payload signed by Ed25519 over its canonical SHA-256, with the `signature` object outside the signed bytes). A named approver signs the **full canonical action and its digest** before execution; the agent's action receipt carries the **same action digest** and a `parent_approval_ref`, the `receipt_hash` of the approval, the same convention as `previous_receipt_hash` in the chain you built above. One `verify_chain` walks both artifacts under **separate pinned key registries** (approver keys vs agent keys), so the code path is shared but the authorities never are.
+The follow-on notebook `code_samples/human-authorization-receipts.ipynb` adds a second receipt kind, `human.approval.v1`, in the same envelope shape as the lesson's receipts (a typed payload signed by Ed25519 over its canonical JCS bytes, with the `signature` object outside the signed bytes). A named approver signs the **full canonical action and its digest** before execution; the agent's action receipt carries the **same action digest** and a `parent_approval_ref`, the `receipt_hash` of the approval, the same convention as `previous_receipt_hash` in the chain you built above. One `verify_chain` walks both artifacts under **separate pinned key registries** (approver keys vs agent keys), so the code path is shared but the authorities never are.
 
 The property this buys, stated carefully: *the human approved this exact action, and the agent executed exactly that approved action.* The notebook's refusal fixtures are what make the property real rather than asserted:
 
@@ -264,7 +261,7 @@ The property this buys, stated carefully: *the human approved this exact action,
 - **stale authority**: a signature that still verifies, refused anyway because the policy version moved, the approver key was rotated out of the pinned registry, or the approval expired before execution;
 - **digest substitution**: a validly signed action receipt pointing at a *real* approval that binds a *different* canonical action.
 
-Each failure refuses with a distinct reason, so an auditor reading a refusal can tell whether authority went stale or the executed action changed. The rule the notebook teaches: a signed approval is not authority by itself. Authority exists only if both receipts still bind to the same canonical action at execution time. The co-signature path in the same Internet-Draft this lesson follows (`draft-farley-acta-signed-receipts`) is the standards-track shape of this pattern.
+Each failure refuses with a distinct reason, so an auditor reading a refusal can tell whether authority went stale or the executed action changed. The rule the notebook teaches: a signed approval is not authority by itself. Authority exists only if both receipts still bind to the same canonical action at execution time. The human-approval receipt is an educational composition defined by this lesson, not a receipt type defined by `draft-farley-acta-signed-receipts`.
 
 ## Production References
 
@@ -273,7 +270,7 @@ The Python code in this lesson is intentionally minimal so you can read every li
 1. **Build directly on the cryptographic primitives.** The 50 lines you saw above are sufficient for many use cases. PyNaCl (Ed25519) and the `jcs` package (canonical JSON) are well-maintained and audited libraries.
 
 2. **Use a production receipt library.** Several open-source projects implement the same pattern with additional features (key rotation, batch verification, JWK Set distribution, integration with policy engines):
-   - The receipt format used in this lesson follows an IETF Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revision 02) currently in the standards process, with a shared conformance suite ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) that independent implementations cross-verify against for byte-identical canonical output.
+   - The signing pipeline uses the JCS and signature-scope conventions in an independent IETF Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revision 02). This lesson's flat educational receipt differs from the draft's `{payload, signature}` envelope and is not presented as a conformant implementation. The draft publishes a shared conformance suite ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) for implementations targeting its wire format.
    - The Microsoft Agent Governance Toolkit composes receipts with Cedar-based policy decisions; see Tutorial 33 in that repository for an end-to-end example.
    - The `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages provide a Node-based implementation of receipt signing and offline verification, intended for wrapping any MCP server with a tamper-evident audit trail, including a held-for-co-sign flow in which a paused action emits an approval receipt bound to the action digest (WebAuthn-backed in the desktop flow), the same approval-receipt pattern as the human-authorization notebook above.
    - The **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) provides the same Ed25519 + JCS signing pattern in Python with LangChain and CrewAI integrations, including published cross-validation test vectors and a compliance mapping contributed via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
@@ -297,7 +294,7 @@ Yes. Ed25519 verification requires only the public key and the signed bytes. No 
 <details>
 <summary>Answer</summary>
 
-Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any field changes the canonical bytes, which changes the SHA-256 hash, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
+Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any field changes those bytes, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
 </details>
 
 **3. Why does the receipt include a `tool_args_hash` and `result_hash` rather than the raw arguments and result?**
@@ -390,4 +387,3 @@ This lesson covers single-receipt signing and hash-chained sequences. The same p
 ## Previous Lesson
 
 [Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
-

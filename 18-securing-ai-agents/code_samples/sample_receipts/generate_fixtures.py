@@ -35,8 +35,7 @@ def sha256_canonical(obj) -> str:
 
 def sign_receipt(payload: dict, signing_key, verify_key) -> dict:
     canonical = canonicalize(payload)
-    message_hash = hashlib.sha256(canonical).digest()
-    sig_bytes = signing_key.sign(message_hash).signature
+    sig_bytes = signing_key.sign(canonical).signature
     return {
         **payload,
         "signature": {

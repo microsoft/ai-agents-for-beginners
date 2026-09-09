@@ -32,8 +32,8 @@ Before you begin, ensure you have the following:
 
 1. Once the deployment is complete, navigate to your search service in the Azure portal.
 2. In the search service overview pane, copy the URL. It should look like `https://<service-name>.search.windows.net`.
-3. In the Settings > Keys pane, copy the query key.
-4. Follow the steps in the [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create an index, upload data, and perform a search query.
+3. **(Recommended)** Enable keyless access with Microsoft Entra ID (RBAC) as shown in Step 4 below — no key needed. The samples in this guide create/update indexes and upload documents, which require the **Search Service Contributor** and **Search Index Data Contributor** roles (or, for key-based auth, the **primary admin key** — not the query key). Only if you cannot use RBAC, open the **Settings > Keys** pane and copy the **primary admin key**.
+4. Follow the steps in the [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create an index, upload data, and perform a search.
 
 ## Step 4: Use Azure AI Search Tools
 
@@ -47,43 +47,62 @@ Azure AI Search integrates with various tools to enhance your search capabilitie
    ```bash
    az login
    ```
+3. **(Recommended) Enable keyless access with Microsoft Entra ID (RBAC):**
 
-3. Store both endpoint and API key for Azure AI Search instance to environment variables.
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    ```
+
+    With RBAC enabled, the Python and .NET SDK samples below authenticate with `DefaultAzureCredential`, which uses your `az login` session during local development — no admin key needed. See [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+4. **(Fallback) Key-based auth** — only if you cannot use RBAC, store the admin key as well:
+
+#### Store both endpoint and API key for Azure AI Search instance to environment variables.
 
     ```bash
     # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
     ```powershell
     # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
 ### Using Python SDK
 
-1. Install the Azure Cognitive Search client library for Python:
+1. Install the Azure Cognitive Search client library and Azure Identity for Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
 2. Use the following Python code to create an index and upload documents:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -113,22 +132,30 @@ Azure AI Search integrates with various tools to enhance your search capabilitie
     dotnet run ./AzureSearch.cs
     ```
 
+    The .NET sample below uses `DefaultAzureCredential`, which can use your Azure CLI sign-in from `az login` during local development.
+
 2. Here's the .NET code of `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()

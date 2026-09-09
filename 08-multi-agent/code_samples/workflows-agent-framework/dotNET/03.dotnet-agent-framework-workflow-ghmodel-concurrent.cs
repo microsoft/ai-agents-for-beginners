@@ -13,10 +13,7 @@ using Azure.Identity;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
-using OpenAI.Chat;
 using DotNetEnv;
-using System.Text;
 
 // Load environment variables from .env file
 Env.Load("../../../.env");
@@ -37,9 +34,9 @@ const string PlanAgentName = "Plan-Agent";
 const string PlanAgentInstructions = "You are my travel planner, working with me to create a detailed travel plan based on the researcher's findings.";
 
 // Create AI agents for concurrent workflow
-AIAgent researcherAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent researcherAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: ResearcherAgentName, instructions: ResearcherAgentInstructions);
-AIAgent plannerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
+AIAgent plannerAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: PlanAgentName, instructions: PlanAgentInstructions);
 
 // Create custom executor instances
@@ -96,9 +93,10 @@ public class ConcurrentStartExecutor() : Executor<string>("ConcurrentStartExecut
 /// This implements the "Fan-In" pattern where multiple parallel results are merged into one output.
 /// </summary>
 [YieldsOutput(typeof(string))]
-public class ConcurrentAggregationExecutor() : Executor<List<ChatMessage>>("ConcurrentAggregationExecutor")
+public class ConcurrentAggregationExecutor() : Executor<ChatMessage>("ConcurrentAggregationExecutor")
 {
     private readonly List<ChatMessage> _messages = [];
+    private readonly object _lock = new();
 
     /// <summary>
     /// Handles incoming messages from the agents and aggregates their responses.
@@ -106,20 +104,24 @@ public class ConcurrentAggregationExecutor() : Executor<List<ChatMessage>>("Conc
     /// <param name="message">The message from the agent</param>
     /// <param name="context">Workflow context for accessing workflow services and adding events</param>
     /// <returns>A task representing the asynchronous operation</returns>
-    public ValueTask HandleAsync(ChatMessage message, IWorkflowContext context)
-    {
-        this._messages.AddRange(message);
-    }
 
-    protected override ValueTask OnMessageDeliveryFinishedAsync(IWorkflowContext context, CancellationToken cancellationToken = default)
+    public override async ValueTask HandleAsync(ChatMessage message, IWorkflowContext context, CancellationToken cancellationToken = default)
     {
-        StringBuilder resultBuilder = new();
-        foreach (ChatMessage m in this._messages)
+        string? formattedMessages = null;
+
+        lock (this._lock)
         {
-            var formattedMessages = string.Join(Environment.NewLine, this._messages.Select(m => $"{m.AuthorName}: {m.Text}"));
-            return context.YieldOutputAsync(formattedMessages);
+            this._messages.Add(message);
+
+            if (this._messages.Count == 2)
+            {
+                formattedMessages = string.Join(Environment.NewLine, this._messages.Select(m => $"{m.AuthorName}: {m.Text}"));
+            }
         }
 
-        return ValueTask.CompletedTask;
+        if (formattedMessages is not null)
+        {
+            await context.YieldOutputAsync(formattedMessages);
+        }
     }
 }

@@ -104,11 +104,11 @@ AIエージェントシステムの構築には様々な考え方があります
 
 ## 前のレッスン
 
-[エージェントフレームワークの探求](../02-explore-agentic-frameworks/README.md)
+[AIエージェントフレームワークを探る](../02-explore-agentic-frameworks/README.md)
 
 ## 次のレッスン
 
-[ツール活用設計パターン](../04-tool-use/README.md)
+[ツール使用デザインパターン](../04-tool-use/README.md)
 
 ---
 

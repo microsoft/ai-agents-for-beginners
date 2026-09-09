@@ -327,7 +327,7 @@ LLMによって動的に生成されるSQLに関する一般的な懸念事項�
 
 ## 前のレッスン
 
-[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+[AIエージェント設計の原則](../03-agentic-design-patterns/README.md)
 
 ## 次のレッスン
 

@@ -3,71 +3,78 @@ name: testing-course-samples
 ---
 # کورس کے نمونوں کی جانچ
 
-تصدیق کریں کہ اسباق کے نوٹ بکس اور کوڈ کے نمونے ایک فعال
-Microsoft Foundry / Azure OpenAI سیٹ اپ کے خلاف چل رہے ہیں۔ ریپو میں ایک رنر شامل ہے
+اس بات کی تصدیق کریں کہ سبق کے نوٹ بکس اور کوڈ کے نمونے کسی زندہ
+Microsoft Foundry / Azure OpenAI سیٹ اپ کے خلاف چلتے ہیں۔ ریپو میں ایک رنر شامل ہے
 [`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) جو
-ہر پائتھن نوٹ بک کو ہیڈلیس طریقے سے چلاتا ہے اور PASS/FAIL ماتریس پرنٹ کرتا ہے۔
+ہر پائتھن نوٹ بک کو بغیر ہیڈ کے چلتا ہے اور PASS/FAIL میٹرکس پرنٹ کرتا ہے۔
 
 ## کب استعمال کریں
 - "اپنی Azure سبسکرپشن کے خلاف تمام نوٹ بکس / نمونوں کی تصدیق کریں۔"
-- "پیکجز کو اپ گریڈ کرنے یا ماڈلز میں تبدیلی کے بعد کورس کا سمورک ٹیسٹ کریں۔"
-- "کون سے سبق اب بھی زندہ چل رہے ہیں یا ناکام ہو رہے ہیں؟"
+- "پیکجز کو اپ گریڈ کرنے یا ماڈلز کو تبدیل کرنے کے بعد کورس کا سمُوک ٹیسٹ کریں۔"
+- "کون سے سبق ابھی زندہ چلتے ہوئے پاس یا فیل ہو رہے ہیں؟"
 
-AI Smoke Test GitHub ایکشن کے لئے اسے **استعمال نہ کریں** (جو *تعینات شدہ*
-ہوسٹ کیے گئے ایجنٹس کی تصدیق کرتا ہے — دیکھیں [`tests/README.md`](../../../tests/README.md))۔ یہ مہارت
-نوٹ بکس کو مقامی طور پر چلاتی ہے۔
+اسے AI Smoke Test GitHub ایکشن کے لیے **استعمال نہ کریں** (جو *تعینات* کردہ
+ہوسٹ کیے ہوئے ایجنٹس کی تصدیق کرتا ہے — ملاحظہ کریں [`tests/README.md`](../../../tests/README.md))۔ یہ اسکل
+نوٹ بکس کو مقامی طور پر چلاتا ہے۔
 
-## ضروریات (پہلے چیک کریں)
+## لازمی تقاضے (پہلے چیک کریں)
 1. **Python 3.12+** کورس کی dependencies کے ساتھ: `python -m pip install -r requirements.txt`
-   اور ایگزیکیوٹر کے لئے: `python -m pip install nbconvert ipykernel`۔
-2. رپو کے روٹ پر **`.env`** فائل (نقل کریں [`.env.example`](../../../../../.env.example) سے) جس میں کم از کم شامل ہوں:
-   - `AZURE_AI_PROJECT_ENDPOINT` — Foundry پروجیکٹ اینڈ پوائنٹ
+   اور ایکزیکیوٹر: `python -m pip install nbconvert ipykernel`.
+2. **ریپو کی جڑ میں `.env`** (ناک کاپی سے [`.env.example`](../../../../../.env.example)) کم از کم درج ذیل کے ساتھ:
+   - `AZURE_AI_PROJECT_ENDPOINT` — Foundry پروجیکٹ اینڈپوائنٹ
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — ایک غیر متروک تعیناتی (مثلاً `gpt-4.1-mini`)
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — ایک غیر منسوخ ڈپلائمنٹ (مثلاً `gpt-5-mini`)
    - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) اور `AZURE_OPENAI_DEPLOYMENT`
-     ان اسباق کے لئے جو براہ راست Azure OpenAI کو کال کرتے ہیں (سبق 06, 02-azure-openai, 14 handoff/human-loop)۔
-3. **`az login`** مکمل ہو چکا ہو — نمونے `AzureCliCredential` (Entra ID, keyless) کے ساتھ تصدیق کرتے ہیں۔
-4. ماڈل کی تعیناتی موجود ہے یہ تصدیق کریں:
-   `az cognitiveservices account deployment list -g <rg> -n <account> -o table`۔
+     ان اسباق کے لیے جو Azure OpenAI کو براہِ راست کال کرتے ہیں (سبق 06، 02-azure-openai، 14 ہینڈ آف/ہیومن لوپ)۔
+3. **`az login`** مکمل کیا ہوا — نمونے `AzureCliCredential` کے ساتھ مستند ہوتے ہیں (Entra ID، کی لیس)۔
+4. ماڈل ڈپلائمنٹ کی موجودگی کی تصدیق کریں:
+   `az cognitiveservices account deployment list -g <rg> -n <account> -o table`.
 
 ## تصدیق چلانا
 ```powershell
-# تمام پائتھن نوٹ بکس (.NET، .venv، site-packages، translations، skill assets کو چھوڑ کر)
+# تمام پائتھن نوٹ بکس (.NET، .venv، site-packages، ترجمے، مہارت اثاثے چھوڑ دیے گئے ہیں)
 pwsh scripts/validate-notebooks.ps1
 
-# ایک واحد سبق، ہر سیل کے لیے زیادہ طویل ٹائم آؤٹ کے ساتھ
+# ایک واحد سبق، ہر سیل کے لیے زیادہ طویل وقت معطلی کے ساتھ
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# صرف فہرست بنائیں کہ کیا چلے گا (کوئی عملدرآمد نہیں)
+# صرف دکھائیں کہ کیا چلایا جائے گا (کوئی عمل درآمد نہیں)
 pwsh scripts/validate-notebooks.ps1 -List
 
-# واضح مفسر (اگر `python` PATH پر نہیں ہے، مثلاً Windows Store الیاس)
+# واضح مترجم (اگر `python` PATH میں نہیں ہے، مثلاً ونڈوز اسٹور عرفی نام)
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-اسکرپٹ چلائی گئی کاپیاں، فی نوٹ بک لاگز، اور `results.json` کو لکھتا ہے
-`$env:TEMP\aiab-nbval` میں اور نقصانات کی تعداد کے ساتھ باہر نکلتا ہے۔
+سکرپٹ چلائی ہوئی کاپیاں، فی نوٹ بک کی لاگ فائلیں، اور `results.json` میں لکھتا ہے
+`$env:TEMP\aiab-nbval` پر اور ناکامیوں کی تعداد کے ساتھ خارج ہو جاتا ہے۔
+
+عارضی ناکامیاں (مشترکہ سبسکرپشن HTTP 429 ریٹ لمٹس، کبھی کبھار
+`AzureCliCredential` ٹوکن میں خرابی، یا ٹائم آؤٹ) خود بخود دوبارہ کوشش کی جاتی ہیں
+(`-Retries`، ڈیفالٹ 2، `-RetryDelaySeconds` تاخیر کے ساتھ، ڈیفالٹ 20)۔ اگر
+ماڈل ڈپلائمنٹ باقاعدگی سے 429 دکھا رہی ہو، تو سبسکرپشن کے GlobalStandard
+TPM کوٹا چیک کریں (`az cognitiveservices usage list -l <region>`) — ایک واحد
+ڈپلائمنٹ کی صلاحیت بڑھانا اس وقت مدد نہیں کرتا جب *سبسکرپشن* کوٹا ختم ہو چکا ہو۔
 
 ## نتائج کی تشریح
-- `PASS` — نوٹ بک بغیر کسی سیل کی غلطی کے مکمل چل گئی۔
-- `FAIL` — پہلی `*Error` / `*Exception` لائن دکھائی جاتی ہے؛ مکمل ٹریس بیک کے لیے
-  آؤٹ پٹ ڈائریکٹری میں مطابقت رکھنے والا `log_*.txt` کھولیں۔
-- ایک نوٹ بک کی ناکامی `-Timeout` (فی سیل) سے محدود ہوتی ہے، لہٰذا رکا ہوا
-  human-in-the-loop سیل `StdinNotImplementedError` کے طور پر ظاہر ہوتا ہے بجائے رکے رہنے کے۔
+- `PASS` — نوٹ بک بغیر کسی سیل کی خرابی کے مکمل طور پر چل گئی۔
+- `FAIL` — پہلی `*Error` / `*Exception` لائن دکھائی گئی؛ مکمل ٹریس بیک کے لیے
+  متعلقہ `log_*.txt` کو آؤٹ پٹ ڈائرکٹری میں کھولیں۔
+- ایک نوٹ بک کی ناکامی `-Timeout` (فی سیل) سے محدود ہوتی ہے، اس لیے اگر
+  ہیومن-ان-دی-لوپ سیل ہینگ ہو جائے تو وہ `StdinNotImplementedError` کے طور پر ظاہر ہوتا ہے بجائے اس کے کہ ہینگ ہو۔
 
-## اسباق جن کو اضافی وسائل کی ضرورت ہے (ان کے بغیر ناکام ہونے کی توقع ہے)
+## ایسے اسباق جنہیں اضافی وسائل کی ضرورت ہوتی ہے (ان کے بغیر ناکام ہونے کی توقع)
 | سبق | اضافی ضرورت |
 |--------|-------------------|
-| 05 Agentic RAG | Azure AI سرچ (`AZURE_SEARCH_SERVICE_ENDPOINT`, key) — ایک ان میموری بیک اپ راستہ موجود ہے |
+| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, کی) — ایک ان میموری بیک اپ راستہ بھی موجود ہے |
 | 11 MCP / GitHub | GitHub MCP سرور + PAT |
-| 13 میموری (cognee) | `cognee` ماڈل فراہم کنندہ کے ساتھ ترتیب دیا گیا |
-| 15 browser-use | Playwright براؤزرز انسٹال کیے گئے (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 local agent | Foundry Local رن ٹائم + ڈاؤن لوڈ شدہ Qwen ماڈل (آلے پر، بغیر کلاؤڈ) |
-| `*-dotnet-*` نوٹ بکس | .NET Interactive کرنل (ڈیفالٹ میں شامل نہیں؛ استعمال کریں `-IncludeDotnet`) |
+| 13 memory (cognee) | `cognee` ایک ماڈل فراہم کنندہ کے ساتھ ترتیب دیا گیا ہے |
+| 15 browser-use | Playwright براؤزر انسٹال کیے گئے (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
+| 17 local agent | Foundry لوکل رن ٹائم + ایک ڈاؤن لوڈ شدہ Qwen ماڈل (ڈیوائس پر، کوئی کلاؤڈ نہیں) |
+| `*-dotnet-*` نوٹ بکس | .NET Interactive کرنل (ڈیفالٹ میں مستثنیٰ؛ استعمال کریں `-IncludeDotnet`) |
 
-## رپورٹنگ
-سبق کے مطابق گروپ بندی کی گئی PASS/FAIL ٹیبل کے طور پر خلاصہ کریں۔ حقیقی ریگریشنز
-(کوڈ/کنفیگریشن کی خرابیوں کی درستگی) کو ماحول کے خلا (مثلاً Search/Foundry Local/PAT کی کمی) سے الگ کریں،
-اور ہر حقیقی ناکامی کے لیے ناکام `log_*.txt` کا حوالہ دیں۔
+## رپورٹنگ واپس
+سبق کے حساب سے گروپ کی گئی PASS/FAIL ٹیبل کے طور پر خلاصہ کریں۔ حقیقی ریگریشنز
+(کوڈ/کنفیگریشن کی خرابیوں کی اصلاح کے لیے) ماحول کے خلاؤں (مفقود سرچ/Foundry لوکل/PAT)
+سے الگ کریں، اور ہر حقیقی ناکامی کے لیے `log_*.txt` کو حوالہ دیں۔
 
 ---
 

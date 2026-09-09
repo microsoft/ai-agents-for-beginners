@@ -404,11 +404,11 @@ Microsoft Agent Framework は `FoundryChatClient` と Azure アイデンティ�
 
 ## 前回のレッスン
 
-[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+[AIエージェントとエージェントのユースケースの紹介](../01-intro-to-ai-agents/README.md)
 
 ## 次のレッスン
 
-[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+[AIエージェント設計の原則](../03-agentic-design-patterns/README.md)
 
 ---
 

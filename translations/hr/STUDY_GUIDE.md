@@ -96,7 +96,6 @@ vokabular koji će vam trebati za ostatak tečaja.
 | [03 - Agentni dizajnerski obrasci](./03-agentic-design-patterns/README.md) | Uobičajeni obrasci za dizajn ponašanja agenta. | Nacrtajte korisnički put prije nego što napišete kod. |
 | [04 - Korištenje alata](./04-tool-use/README.md) | Kako agenti pozivaju alate za dohvat podataka ili poduzimanje akcija. | Definirajte jedan alat koji bi vaš demo agent trebao. |
 | [05 - Agentni RAG](./05-agentic-rag/README.md) | Kako dohvat uspostavlja temelje agentovim odgovorima u dokumentima ili podacima. | Odlučite koji izvor znanja bi vaš demo trebao pretraživati. |
-
 | [06 - Pouzdani agenti](./06-building-trustworthy-agents/README.md) | Kako dodati zaštitne mjere, nadzor i sigurnije ponašanje. | Dodajte jedno pravilo kada agent treba prvo pitati korisnika. |
 | [07 - Dizajn planiranja](./07-planning-design/README.md) | Kako agenti razlažu veće ciljeve na manje korake. | Napišite plan u tri koraka za vaš zahtjev za demonstraciju. |
 | [08 - Dizajn više agenata](./08-multi-agent/README.md) | Kada raspodijeliti posao među specijaliziranim agentima. | Odlučite treba li vašoj demonstraciji jedan agent ili nekoliko. |

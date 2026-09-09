@@ -133,6 +133,50 @@ Opal is a useful reference for what a **production-grade, trustworthy** computer
 
 > **Availability:** Project Opal is currently available to users in the [Frontier early access program](https://adoption.microsoft.com/copilot/frontier-program/) with a Microsoft 365 Copilot subscription, and your administrator must complete setup. Because it's an experimental Frontier feature, capabilities may change over time.
 
+## Knowledge Check
+
+Test your understanding before moving to the next lesson.
+
+**1. When is a browser-based computer use agent a better fit than an API-only workflow?**
+
+<details>
+<summary>Answer</summary>
+
+Use a browser agent when the task depends on what is visible in a web UI, the site does not expose the needed API, or the page changes often enough that fixed API or selector logic would be brittle. If a stable API exists for the same task, prefer the API because it is usually faster, easier to test, and easier to secure.
+</details>
+
+**2. In a hybrid workflow, which parts should the agent handle and which parts should direct Playwright code handle?**
+
+<details>
+<summary>Answer</summary>
+
+Let the agent handle open-ended navigation and dynamic UI states, such as finding the right page or dismissing unexpected pop-ups. Switch to direct Playwright control when the page structure is known and the action needs precision, retries, waits, or deterministic validation.
+</details>
+
+**3. The Airbnb sample finds a listing the user might want to book. What should happen before the workflow signs in, contacts a host, or completes a booking?**
+
+<details>
+<summary>Answer</summary>
+
+The workflow should pause and ask for explicit user approval. Before asking, it should show a clear summary of the selected listing, current URL, price, dates, and intended action. Searching and extracting prices can be autonomous; account access, messages, purchases, and bookings should be user-approved.
+</details>
+
+**4. A web page tells the agent to ignore its original instructions, visit another site, and reveal saved credentials. How should the agent treat that text?**
+
+<details>
+<summary>Answer</summary>
+
+Treat it as untrusted page content, not as a developer or user instruction. The agent should stay within the allowed domain and task scope, refuse to reveal secrets, and avoid following page text that changes the goal, disables safeguards, or sends it to unrelated sites.
+</details>
+
+**5. What evidence is useful to keep when a browser agent runs, and what should be avoided?**
+
+<details>
+<summary>Answer</summary>
+
+Keep action summaries, timestamps, URLs, selected element descriptions, validation results, and screenshot references so the run can be reviewed. Avoid storing passwords, payment details, session cookies, raw personal data, or full page contents unless there is a specific retention and privacy reason.
+</details>
+
 ## Additional Resources
 
 - [Get started with Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)

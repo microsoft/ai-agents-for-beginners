@@ -1,73 +1,85 @@
 ---
 name: testing-course-samples
+description: Koristite kada se zatraži validacija, testiranje, smoke-test ili pokretanje
+  bilježnica i primjera koda tečaja protiv aktivne Microsoft Foundry / Azure OpenAI
+  konfiguracije. Obuhvaća postavljanje okruženja (.env, az login, pakete), pokretač
+  scripts/validate-notebooks.ps1, tumačenje PASS/FAIL rezultata i koje lekcije zahtijevaju
+  dodatne resurse (Azure AI Search, GitHub MCP, Foundry Local, Playwright).
 ---
-# Testiranje primjera tečaja
+# Testiranje Primjera Tečaja
 
-Provjerite rade li bilježnice lekcija i primjeri koda uz aktivno
-Microsoft Foundry / Azure OpenAI okruženje. Repo dolazi s izvršiteljem na
+Provjerite rade li bilježnice lekcija i primjeri koda u stvarnoj
+Microsoft Foundry / Azure OpenAI postavci. Repozitorij sadrži pokretač u
 [`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) koji
-izvodi svaku Python bilježnicu bez sučelja i ispisuje PASS/FAIL matricu.
+izvršava svaku Python bilježnicu bez glave i ispisuje PASS/FAIL matricu.
 
 ## Kada koristiti
-- "Provjeriti sve bilježnice / primjere uz moju Azure pretplatu."
-- "Brzi test tečaja nakon nadogradnje paketa ili promjene modela."
-- "Koje lekcije i dalje prolaze / padaju uživo?"
+- "Provjerite sve bilježnice / primjere u odnosu na moju Azure pretplatu."
+- "Provedite osnovni test tečaja nakon nadogradnje paketa ili promjene modela."
+- "Koje lekcije još uvijek prolaze / ne uspijevaju uživo?"
 
-**Ne** koristite ovo za AI Smoke Test GitHub akciju (koja provjerava *deployane* 
-hostirane agente — vidi [`tests/README.md`](../../../tests/README.md)). Ova vještina
+**Nemojte** koristiti ovo za AI Smoke Test GitHub Akciju (koja provjerava *postavljene*
+hostirane agente — pogledajte [`tests/README.md`](../../../tests/README.md)). Ova vještina
 izvršava bilježnice lokalno.
 
-## Preduvjeti (prvo provjerite)
+## Preduvjeti (provjerite prvo)
 1. **Python 3.12+** s ovisnostima tečaja: `python -m pip install -r requirements.txt`
-   plus izvršitelj: `python -m pip install nbconvert ipykernel`.
-2. **`.env` u korijenu repozitorija** (kopirati iz [`.env.example`](../../../../../.env.example)) s najmanje:
-   - `AZURE_AI_PROJECT_ENDPOINT` — foundry projektna krajnja točka
+   plus izvršiteljem: `python -m pip install nbconvert ipykernel`.
+2. **`.env` u korijenu repozitorija** (kopirajte iz [`.env.example`](../../../../../.env.example)) s barem:
+   - `AZURE_AI_PROJECT_ENDPOINT` — Foundry endpoint projekta
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — aktivno postavljena verzija (npr. `gpt-4.1-mini`)
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — ne-deprecirana implementacija (npr. `gpt-5-mini`)
    - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) i `AZURE_OPENAI_DEPLOYMENT`
-     za lekcije koje koriste Azure OpenAI direktno (Lekcija 06, 02-azure-openai, 14 handoff/human-loop).
-3. **`az login`** izvršen — primjeri se autentificiraju s `AzureCliCredential` (Entra ID, bez ključa).
-4. Provjerite postoji li konfiguracija modela:
+     za lekcije koje izravno pozivaju Azure OpenAI (Lekcija 06, 02-azure-openai, 14 handoff/human-loop).
+3. **`az login`** dovršen — primjeri autentificiraju se s `AzureCliCredential` (Entra ID, bez ključa).
+4. Provjerite postoji li implementacija modela:
    `az cognitiveservices account deployment list -g <rg> -n <account> -o table`.
 
-## Izvršavanje provjere
+## Pokretanje validacije
 ```powershell
-# Sve Python bilježnice (izostavlja .NET, .venv, site-packages, prijevode, vještine resurse)
+# Sve Python bilježnice (preskače .NET, .venv, site-packages, prijevode, vještine)
 pwsh scripts/validate-notebooks.ps1
 
-# Jedna lekcija, s dužim timeout-om po ćeliji
+# Jedna lekcija, s duljim vremenom čekanja po ćeliji
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# Samo navedi što bi se pokrenulo (bez izvršavanja)
+# Samo navedi što bi se izvršilo (bez izvođenja)
 pwsh scripts/validate-notebooks.ps1 -List
 
-# Izričiti interpretator (ako `python` nije u PATH-u, npr. Windows Store alias)
+# Izričiti interpreter (ako `python` nije u PATH-u, npr. Windows Store alias)
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-Skripta zapisuje izvršene kopije, zapisnike po bilježnicama i `results.json` u
-`$env:TEMP\aiab-nbval` te se zaustavlja s brojem neuspjeha.
+Skripta zapisuje izvršene kopije, dnevnike po bilježnici, i `results.json` u
+`$env:TEMP\aiab-nbval` i izlazi s brojem neuspjeha.
+
+Privremene greške (ograničenja HTTP 429 na zajedničkoj pretplati, povremeni
+problem s `AzureCliCredential` tokenom ili timeout) automatski se ponavljaju
+(`-Retries`, zadano 2, s `-RetryDelaySeconds` odgodom, zadano 20). Ako
+implementacija modela redovito daje 429, provjerite GlobalStandard
+TPM kvotu pretplate (`az cognitiveservices usage list -l <region>`) — povećanje kapaciteta
+pojedinačne implementacije ne pomaže ako je *pretplatnička* kvota iscrpljena.
 
 ## Tumačenje rezultata
-- `PASS` — bilježnica je izvršena u cijelosti bez pogreške u ćeliji.
-- `FAIL` — prikazuje se prva `*Error` / `*Exception` linija; otvorite odgovarajući
-  `log_*.txt` u izlaznom direktoriju za puni traceback.
-- Neuspjeh jedne bilježnice ograničen je s `-Timeout` (po ćeliji), pa se zaglavljivanje
-  human-in-the-loop ćelije prikazuje kao `StdinNotImplementedError` umjesto da se blokira.
+- `PASS` — bilježnica je izvršena od početka do kraja bez pogreške ćelije.
+- `FAIL` — prikazana je prva linija `*Error` / `*Exception`; otvorite odgovarajući
+  `log_*.txt` u izlaznom direktoriju za puni trag pogreške.
+- Neuspjeh pojedine bilježnice ograničen je s `-Timeout` (po ćeliji), pa se ćelija
+  koja čeka na angažman čovjeka prikazuje kao `StdinNotImplementedError` umjesto da visi.
 
-## Lekcije koje zahtijevaju dodatne resurse (očekivano je da bez njih padnu)
+## Lekcije koje trebaju dodatne resurse (očekivano neuspješne bez njih)
 | Lekcija | Dodatni zahtjev |
 |--------|-------------------|
-| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, ključ) — ima fallback put u memoriji |
-| 11 MCP / GitHub | GitHub MCP server + PAT |
-| 13 memorija (cognee) | `cognee` konfiguriran s pružateljem modela |
+| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, ključ) — ima alternativni put u memoriji |
+| 11 MCP / GitHub | GitHub MCP poslužitelj + PAT |
+| 13 memory (cognee) | `cognee` konfiguriran s pružateljem modela |
 | 15 browser-use | Instalirani Playwright preglednici (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 lokalni agent | Foundry Local runtime + skinuti Qwen model (lokalno na uređaju, bez clouda) |
+| 17 lokalni agent | Foundry Local runtime + preuzeti Qwen model (na uređaju, bez oblaka) |
 | `*-dotnet-*` bilježnice | .NET Interactive kernel (isključeno prema zadanim postavkama; koristi `-IncludeDotnet`) |
 
 ## Izvještavanje nazad
-Sažmite kao PASS/FAIL tablicu grupiranu po lekciji. Razdvojite prave regresije
-(bugove u kodu/konfiguraciji za popravak) od nedostataka u okruženju (nedostaje Search/Foundry Local/PAT),
-i navedite neuspjele `log_*.txt` zapise za svaki stvarni neuspjeh.
+Sažmite kao PASS/FAIL tablicu grupiranu po lekciji. Odvojite stvarne regresije
+(programske/konfiguracijske greške za popravak) od nedostataka u okruženju (nedostaje Search/Foundry Local/PAT),
+i navedite neuspješne `log_*.txt` za svaki stvarni neuspjeh.
 
 ---
 

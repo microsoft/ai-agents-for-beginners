@@ -2,40 +2,40 @@
 
 ## 📋 Õpieesmärgid
 
-See märkmik demonstreerib ettevõtte tasemel tööriistade integreerimise mustreid, kasutades Microsoft Agent Frameworki .NET-is koos Azure OpenAI-ga (Responses API). Sa õpid looma keerukaid agente mitme spetsialiseeritud tööriistaga, kasutades C# tugevat tüübistamist ja .NET-i ettevõtte funktsioone.
+See märkmik demonstreerib ettevõtte taseme tööriistade integreerimise mustreid, kasutades Microsoft Agent Frameworki .NET-is koos Azure OpenAI-ga (Responses API). Õpid ehitama keerukaid agente mitme spetsialiseerunud tööriistaga, kasutades C# tugevat tüübi kontrolli ja .NET ettevõtte funktsioone.
 
-### Täiustatud tööriista võimed, mida sa valdama õpid
+### Täiustatud tööriistavõimed, mida sa omandad
 
-- 🔧 **Mitme tööriista arhitektuur**: agentide loomine mitme spetsialiseeritud võimega
-- 🎯 **Tüübikindel tööriista täitmine**: C# kompileerimisajal valideerimise kasutamine
-- 📊 **Ettevõtte tööriistade mustrid**: tootmiskindel tööriistade disain ja veahaldus
-- 🔗 **Tööriistade kombineerimine**: tööriistade ühendamine keerukate äriprotsesside jaoks
+- 🔧 **Mitme tööriista arhitektuur**: Agentide loomine mitme spetsialiseerunud võimega
+- 🎯 **Tüübikindel tööriistade täideviimine**: C# kompileerimisaegne valideerimine
+- 📊 **Ettevõtte tööriistade mustrid**: Tootmiskõlblik tööriistade disain ja veahaldus
+- 🔗 **Tööriistade koostamine**: Tööriistade kombineerimine keerukate äriprotsesside jaoks
 
 ## 🎯 .NET tööriista arhitektuuri eelised
 
-### Ettevõtte taseme tööriista omadused
+### Ettevõtte tööriistade omadused
 
-- **Kompileerimisaja valideerimine**: tugev tüübistus tagab tööriista parameetrite õigsuse
-- **Sõltuvuste süstimine**: IoC konteinri integratsioon tööriistade haldamiseks
-- **Async/Await mustrid**: mittetakistav tööriistade täitmine koos korrektse ressursihaldusega
-- **Struktureeritud logimine**: sisse ehitatud logimisintegratsioon tööriistade täitmise jälgimiseks
+- **Kompileerimisaegne valideerimine**: Tugev tüübi kontroll tagab tööriista parameetrite korrektsuse
+- **Sõltuvuste süstimine**: IoC konteineri integratsioon tööriistade haldamiseks
+- **Async/Await mustrid**: Mittetõkestav tööriistade täideviimine koos puhta ressursihaldusega
+- **Struktureeritud logimine**: Sisseehitatud logimise integratsioon tööriista täideviimise jälgimiseks
 
-### Tootmiskindlad mustrid
+### Tootmiskõlblikud mustrid
 
-- **Erandite haldus**: põhjalik veahaldus tüübipõhiste eranditega
-- **Ressursside haldus**: korrektsed vabastamismustrid ja mäluhaldus
-- **Jõudluse jälgimine**: sisse ehitatud mõõdikud ja jõudlusloendurid
-- **Konfiguratsiooni haldus**: tüübikindel konfiguratsioon koos valideerimisega
+- **Erandite käsitsemine**: Kõikehõlmav veahaldus tüübitud eranditega
+- **Ressursside haldamine**: Õiged vabanemise mustrid ja mälu haldus
+- **Jõudluse jälgimine**: Sisseehitatud mõõdikud ja jõudluse loendurid
+- **Konfiguratsiooni haldamine**: Tüübikindel konfiguratsioon koos valideerimisega
 
 ## 🔧 Tehniline arhitektuur
 
-### Põhilised .NET tööriista komponendid
+### Core .NET tööriistade komponendid
 
-- **Microsoft.Extensions.AI**: ühtne tööriista abstraktsioonikiht
-- **Microsoft.Agents.AI**: ettevõtte tasemel tööriistade orkestreerimine
-- **Azure OpenAI (Responses API)**: kõrge jõudlusega API klient ühenduste haldusega
+- **Microsoft.Extensions.AI**: Ühtne tööriistade abstraktsioonikiht
+- **Microsoft.Agents.AI**: Ettevõtte taseme tööriistade orkestreerimine
+- **Azure OpenAI (Responses API)**: Kõrge jõudlusega API klient ühenduste haldusega
 
-### Tööriista täitmise torujuhe
+### Tööriistade täideviimise torujuhtme
 
 ```mermaid
 graph LR
@@ -50,34 +50,34 @@ graph LR
     G --> H[Vastus]
 ```
 
-## 🛠️ Tööriista kategooriad ja mustrid
+## 🛠️ Tööriistakategooriad ja mustrid
 
 ### 1. **Andmetöötluse tööriistad**
 
-- **Sisendi valideerimine**: tugev tüübistus koos andmemääratluste anotatsioonidega
-- **Muutmisoperatsioonid**: tüübikindel andmete teisendus ja vormindamine
-- **Ärilogika**: domeenispetsiifilised arvutus- ja analüüsitööriistad
-- **Väljundi vormindamine**: struktureeritud vastuse genereerimine
+- **Sisendi valideerimine**: Tugev tüübi kontroll koos andmete märgistustega
+- **Transformatsioonitoimingud**: Tüübikindel andmete teisendus ja vormindus
+- **Ärilogika**: Domeenispetsiifiline arvutus ja analüüs
+- **Väljundi vormindus**: Struktureeritud vastuse genereerimine
 
-### 2. **Integratsiooni tööriistad**
+### 2. **Integratsioonitööriistad**
 
-- **API ühendajad**: RESTful teenuste integreerimine HttpClientiga
-- **Andmebaasi tööriistad**: Entity Framework integratsioon andmete ligipääsuks
-- **Faili operatsioonid**: turvalised failisüsteemi toimingud valideerimisega
-- **Välised teenused**: kolmandate osapoolte teenuste integreerimise mustrid
+- **API ühendajad**: REST-teenuste integratsioon HttpClientiga
+- **Andmebaasi tööriistad**: Entity Frameworki integratsioon andmete pärimiseks
+- **Failioperatsioonid**: Turvalised failisüsteemi toimingud koos valideerimisega
+- **Välised teenused**: Kolmanda osapoole teenuste integratsioonimustrid
 
 ### 3. **Abitööriistad**
 
-- **Tekstitöötlus**: stringi manipuleerimise ja vormindamise utiliidid
-- **Kuupäeva/aja operatsioonid**: kultuuritundlik kuupäeva/-aja arvutus
-- **Matemaatilised tööriistad**: täpsed arvutused ja statistilised operatsioonid
-- **Valideerimister tööriistad**: ärireeglite valideerimine ja andmete kontroll
+- **Tekstitöötlus**: Stringi manipuleerimise ja vormindamise utiliidid
+- **Kuupäeva/kellaaja toimingud**: Kultuuriteadlikud kuupäeva/kellaaja arvutused
+- **Matemaatilised tööriistad**: Täpsuslikud arvutused ja statistilised toimingud
+- **Valideerimistööriistad**: Ärieeskirjade valideerimine ja andmete kontroll
 
-Valmis ehitama ettevõtte tasemel agente võimsate, tüübikindlate tööriistavõimetega .NET-is? Kujundame nüüd mõned professionaalsed lahendused! 🏢⚡
+Oled valmis ehitama ettevõtte taseme agente võimsate, tüübikindlate tööriistavõimetega .NET-is? Alustame professionaalse taseme lahenduste arhitektuuriga! 🏢⚡
 
-## 🚀 Alustamine
+## 🚀 Algus
 
-### Eeltingimused
+### Nõuded
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
 - [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudeli juurutusega
@@ -88,22 +88,22 @@ Valmis ehitama ettevõtte tasemel agente võimsate, tüübikindlate tööriistav
 ```bash
 # zsh/bash
 export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
-export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
-# Seejärel logige sisse, et AzureCliCredential saaks hankida tokeni
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni hankida
 az login
 ```
 
 ```powershell
 # PowerShell
 $env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
-# Seejärel logi sisse, et AzureCliCredential saaks tokeni kätte
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
 az login
 ```
 
 ### Näidiskood
 
-Selle koodi näite käivitamiseks,
+Koodi näite käivitamiseks,
 
 ```bash
 # zsh/bash
@@ -117,7 +117,7 @@ Või kasutades dotnet CLI-d:
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Vaata täielikku koodi failist [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
+Täieliku koodi leiad failist [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -168,7 +168,7 @@ static string GetRandomDestination()
 // Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
 var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 

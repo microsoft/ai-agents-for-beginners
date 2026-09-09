@@ -284,7 +284,7 @@ Foundry Localは<strong>OpenAI互換のHTTPエンドポイント</strong>を公�
 
 そして、このレビュアーに対して<strong>クラウドに移すものとローカルに残すもの</strong>について短い段落を書き、その理由も述べてください。評価されるのは、ローカルコンポーネントが正しく連結されているかどうかと、ハイブリッド推論が適切かどうかです — モデルの質ではありません。
 
-## 要約
+## まとめ
 
 このレッスンでは、完全に自身のマシン上で動作するエージェントを構築しました：
 
@@ -307,11 +307,11 @@ Foundry Localは<strong>OpenAI互換のHTTPエンドポイント</strong>を公�
 
 ## 前のレッスン
 
-[Deploying Scalable Agents](../16-deploying-scalable-agents/README.md)
+[スケーラブルなエージェントのデプロイ](../16-deploying-scalable-agents/README.md)
 
 ## 次のレッスン
 
-[Securing AI Agents](../18-securing-ai-agents/README.md)
+[AIエージェントのセキュリティ確保](../18-securing-ai-agents/README.md)
 
 ---
 

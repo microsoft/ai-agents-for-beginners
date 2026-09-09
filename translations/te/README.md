@@ -103,7 +103,6 @@
 | నమ్మదగిన AI ఏజెంట్ల నిర్మాణం                | [లింక్](./06-building-trustworthy-agents/README.md) | [వీడియో](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ప్రణాళిక డిజైన్ నమూనా                      | [లింక్](./07-planning-design/README.md)             | [వీడియో](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | బహుఏజెంట్ డిజైన్ నమూనా                     | [లింక్](./08-multi-agent/README.md)                 | [వీడియో](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | మెటాకాగ్నిషన్ డిజైన్ ప్యాటర్న్                 | [లింక్](./09-metacognition/README.md)               | [వీడియో](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ఉత్పత్తిలో AI ఏజెంట్లు                      | [లింక్](./10-ai-agents-production/README.md)        | [వీడియో](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ఏజెంటిక్ ప్రోటోకాళ్ల ఉపయోగించడం (MCP, A2A మరియు NLWeb) | [లింక్](./11-agentic-protocols/README.md)           | [వీడియో](https://youtu.be/X-Dh9R3Opn8)                                 | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

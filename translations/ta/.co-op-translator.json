@@ -288,8 +288,8 @@
     "language_code": "ta"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md": {
-    "original_hash": "034158688d0a45aae06dcbb21b0da5ae",
-    "translation_date": "2025-11-11T13:02:39+00:00",
+    "original_hash": "59ddc5c179262f9e776d7f38c6e4a805",
+    "translation_date": "2026-07-22T13:50:20+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md",
     "language_code": "ta"
   },
@@ -312,8 +312,8 @@
     "language_code": "ta"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md": {
-    "original_hash": "2b1977881a2740b2a745944d411c0689",
-    "translation_date": "2026-07-17T21:02:21+00:00",
+    "original_hash": "294d3005de3b16fb38dc5188f89533ca",
+    "translation_date": "2026-08-18T10:07:42+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md",
     "language_code": "ta"
   },
@@ -540,8 +540,8 @@
     "language_code": "ta"
   },
   "15-browser-use/README.md": {
-    "original_hash": "a504ebba09994852386f7866b73693d9",
-    "translation_date": "2026-07-14T05:02:21+00:00",
+    "original_hash": "1090ec69eba0425ac9afc15b0b534034",
+    "translation_date": "2026-08-18T10:06:41+00:00",
     "source_file": "15-browser-use/README.md",
     "language_code": "ta"
   },
@@ -624,8 +624,8 @@
     "language_code": "ta"
   },
   "STUDY_GUIDE.md": {
-    "original_hash": "6ffadd425cc87f6a2ce4ed2100a6d80b",
-    "translation_date": "2026-03-07T15:49:07+00:00",
+    "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
+    "translation_date": "2026-07-22T13:49:30+00:00",
     "source_file": "STUDY_GUIDE.md",
     "language_code": "ta"
   },
@@ -636,28 +636,6 @@
     "language_code": "ta"
   },
   "__translation_failures__": {
-    "STUDY_GUIDE.md": {
-      "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
-      "source_file": "STUDY_GUIDE.md",
-      "language_code": "ta",
-      "failure_date": "2026-07-17T20:50:26+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.1.2 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    },
-    "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md": {
-      "original_hash": "59ddc5c179262f9e776d7f38c6e4a805",
-      "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md",
-      "language_code": "ta",
-      "failure_date": "2026-07-17T21:01:34+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1 of '01.dotnet-agent-framework-workflow-ghmodel-basic.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    },
     "tests/README.md": {
       "original_hash": "77b62539af9ac18820506113aee355f5",
       "source_file": "tests/README.md",

@@ -103,7 +103,6 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 | 信頼できるAIエージェントの構築                  | [リンク](./06-building-trustworthy-agents/README.md) | [ビデオ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 計画設計パターン                               | [リンク](./07-planning-design/README.md)            | [ビデオ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | マルチエージェント設計パターン                 | [リンク](./08-multi-agent/README.md)                 | [ビデオ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-
 | メタ認知デザインパターン                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 本番環境におけるAIエージェント                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | エージェンシックプロトコルの使用（MCP、A2A、NLWeb） | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
