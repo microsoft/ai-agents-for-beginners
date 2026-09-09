@@ -55,7 +55,7 @@ Hay soporte multi-idioma para este curso. Ve a nuestros [idiomas disponibles aqu
 
 Si esta es tu primera vez construyendo con modelos de IA generativa, revisa nuestro curso [IA Generativa para Principiantes](https://aka.ms/genai-beginners), que incluye 21 lecciones sobre cómo construir con GenAI.
 
-No olvides [estrellar (🌟) este repositorio](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) y [bifurcar este repositorio](https://github.com/microsoft/ai-agents-for-beginners/fork) para ejecutar el código.
+No olvides [destacar (🌟) este repositorio](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) y [bifurcar este repositorio](https://github.com/microsoft/ai-agents-for-beginners/fork) para ejecutar el código.
 
 ### Conoce a otros aprendices, resuelve tus dudas
 
