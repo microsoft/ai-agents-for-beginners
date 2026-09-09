@@ -14,33 +14,50 @@ extra pre-hash before signing.
 
 ## Verifying the samples
 
-The notebook walks through verification in four sections. To verify these fixtures
-directly without running through the notebook narrative:
+In `18-signed-receipts.ipynb`, run Setup and Sections 1 through 3 first.
+Section 3 defines `verify_chain`; Sections 1 and 2 alone are not enough.
+Then run the following block in a new cell, with the notebook's working directory
+set to `18-securing-ai-agents/code_samples`. The fixture paths below are relative
+to that directory.
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
+
 # This fixture key is pinned by the verifier, outside the receipt under test.
 FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
 print(
     f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
 )  # True
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
 print(
     f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
 )  # False
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Checking the example without Jupyter
+
+From the repository root, install the lesson dependencies and run:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+These tests execute the notebook's Python examples and the exact README block
+above. They also check that tampering and unpinned keys are rejected by the
+verifiers. The tests skip the notebook's `%pip` setup cell because dependencies
+are installed separately. They do not change the notebook or fixtures.
 
 ## How these were generated
 
