@@ -96,7 +96,6 @@ Patarimas: jei esate naujokas agentų srityje, nepraleiskite pamokų 01-06. Jose
 | [03 - Agentų dizaino šablonai](./03-agentic-design-patterns/README.md) | Įprasti šablonai agentų elgesiui kurti. | Nubrėžkite naudotojo kelionę prieš rašydami kodą. |
 | [04 - Įrankių naudojimas](./04-tool-use/README.md) | Kaip agentai kreipiasi į įrankius, kad gautų duomenis ar imtųsi veiksmų. | Apibrėžkite vieną įrankį, kurio reikėtų jūsų demonstracijos agentui. |
 | [05 - Agentinis RAG](./05-agentic-rag/README.md) | Kaip paieška pagrindžia agentų atsakymus dokumentais ar duomenimis. | Nuspręskite, kokio žinių šaltinio turėtų ieškoti jūsų demonstracija. |
-
 | [06 - Patikimi agentai](./06-building-trustworthy-agents/README.md) | Kaip pridėti apsaugas, priežiūrą ir saugesnį elgesį. | Pridėkite vieną taisyklę, kada agentas turėtų pirmiausia paklausti naudotojo. |
 | [07 - Planavimo dizainas](./07-planning-design/README.md) | Kaip agentai padalina didesnius tikslus į mažesnius veiksmus. | Parašykite trijų žingsnių planą savo demonstraciniam užklausai. |
 | [08 - Daugagentinis dizainas](./08-multi-agent/README.md) | Kada paskirstyti darbą specializuotiems agentams. | Nuspręskite, ar jūsų demonstracijai reikia vieno agente, ar kelių. |

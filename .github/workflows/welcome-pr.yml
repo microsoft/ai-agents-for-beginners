@@ -5,13 +5,13 @@ on:
     types: [opened]
 permissions:
   contents: read
-  pull-requests: write
+  issues: write
 jobs:
   asses-pull-request:
     runs-on: ubuntu-latest
     steps:
       - name: Add Label and thanks comment to Pull request
-        uses: actions/github-script@v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const issueAuthor = context.payload.sender.login
@@ -29,7 +29,7 @@ jobs:
             })
       - name: Auto-assign issue
         continue-on-error: true
-        uses: pozil/auto-assign-issue@v2
+        uses: pozil/auto-assign-issue@7bf9d82c77d45976224660b873fc83e60576c5aa # v2
         with:
           repo-token:  ${{ secrets.GITHUB_TOKEN }}
           assignees: koreyspace

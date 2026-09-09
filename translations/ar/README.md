@@ -103,7 +103,6 @@
 | بناء وكلاء ذكاء اصطناعي موثوقين                 | [رابط](./06-building-trustworthy-agents/README.md)  | [فيديو](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)    |
 | نمط تصميم التخطيط                             | [رابط](./07-planning-design/README.md)              | [فيديو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)    |
 | نمط تصميم متعدد الوكلاء                        | [رابط](./08-multi-agent/README.md)                   | [فيديو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)    |
-
 | نمط تصميم التفكير فوق المعرفي                 | [رابط](./09-metacognition/README.md)               | [فيديو](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | وكلاء الذكاء الاصطناعي في الإنتاج                      | [رابط](./10-ai-agents-production/README.md)        | [فيديو](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | استخدام بروتوكولات الوكلاء (MCP، A2A و NLWeb) | [رابط](./11-agentic-protocols/README.md)           | [فيديو](https://youtu.be/X-Dh9R3Opn8)                                 | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

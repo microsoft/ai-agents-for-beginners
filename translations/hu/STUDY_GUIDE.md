@@ -82,7 +82,6 @@ Teljes egészében végigcsinálhatod a kurzust sorrendben, vagy kiválaszthatod
 | Értsd meg a többügynökös rendszereket | 08 | 07, 09, 11 |
 | Készülj fel az ügynökök éles bevetésére | 06, 10 | 12, 13, 16, 18 |
 | Telepítsd és skálázd az ügynököket Foundry-n | 10, 16 | 06, 13, 18 |
-
 | Fedezd fel a protokollokat és böngésző automatizálást | 11, 15 | 10, 18 |
 
 
@@ -108,7 +107,6 @@ szükséges szókincset a kurzus többi részéhez.
 | [14 - Microsoft Agent Framework](./14-microsoft-agent-framework/README.md) | Framework-specifikus építőelemek ügynökökhöz és munkafolyamatokhoz, valamint LangChain/LangGraph ügynökök hosztolása Microsoft Foundry-n. | Térképezd fel a demód lépéseit a framework fogalmakra. |
 | [15 - Számítógép Használó Ügynökök](./15-browser-use/README.md) | Hogyan lépnek interakcióba az ügynökök böngésző vagy UI felületekkel, valós példákkal, mint a Microsoft Project Opal. | Válassz egy böngészési feladatot, amihez még mindig szükség van felhasználói jóváhagyásra. |
 | [16 - Skálázható Ügynökök Telepítése](./16-deploying-scalable-agents/README.md) | Hogyan viszünk egy ügynököt prototípusról skálázható, megfigyelhető éles telepítésbe Microsoft Foundry-n (hosztolt ügynökök, modell irányítás, gyorsítótárazás, értékelő kapuk, füst tesztek). | Sorold fel azokat az éles üzemmel kapcsolatos kérdéseket, amikre demódnak még szüksége van: hosztolás, irányítás, költség, értékelés. |
-
 | [18 - AI Ügynökök Biztonsága](./18-securing-ai-agents/README.md) | Hogyan tegyük az ügynök tevékenységeket auditálhatóvá és hamisításbiztossá. | Döntsd el, mely műveletek legyenek naplózva vagy bizonylatoltak a demódban. |
 
 ## Az Éles Ügynökök Validálása Füst Tesztekkel

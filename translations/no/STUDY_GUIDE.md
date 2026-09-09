@@ -95,7 +95,6 @@ vokabularet du trenger for resten av kurset.
 | [03 - Agentiske designmønstre](./03-agentic-design-patterns/README.md) | Vanlige mønstre for å designe agentoppførsel. | Skissér brukerreisen før du skriver kode. |
 | [04 - Bruk av verktøy](./04-tool-use/README.md) | Hvordan agenter kaller verktøy for å hente data eller utføre handlinger. | Definer ett verktøy agentdemoen din ville trengt. |
 | [05 - Agentisk RAG](./05-agentic-rag/README.md) | Hvordan innhenting fundamenterer agentsvar i dokumenter eller data. | Bestem hvilken kunnskapskilde demoen din bør søke i. |
-
 | [06 - Pålitelige agenter](./06-building-trustworthy-agents/README.md) | Hvordan legge til sikkerhetsmekanismer, tilsyn og tryggere oppførsel. | Legg til en regel for når agenten skal spørre brukeren først. |
 | [07 - Planleggingsdesign](./07-planning-design/README.md) | Hvordan agenter deler opp større mål i mindre steg. | Skriv en tre-trinns plan for demoforespørselen din. |
 | [08 - Design for flere agenter](./08-multi-agent/README.md) | Når man bør fordele arbeid på tvers av spesialiserte agenter. | Bestem om demoen din trenger én agent eller flere. |

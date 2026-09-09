@@ -82,10 +82,8 @@ Kursun tamamını sırasıyla alabilir veya yapmak istediğinize göre bir yol s
 | Ajanların ne olduğunu anlamak | 01, 02, 03 | 04, 05, 06 |
 | Araç kullanan ajan inşa etmek | 04 | 05, 07, 14 |
 | RAG tabanlı ajan yapmak | 05 | 04, 06, 12 |
-
 | Çok ajanlı sistemleri anlamak | 08 | 07, 09, 11 |
 | Ajanları üretime hazırlamak | 06, 10 | 12, 13, 16, 18 |
-
 | Yerel / çevrimdışı ajanlar inşa etmek | 17 | 04, 05, 11 |
 
 
@@ -108,9 +106,7 @@ için gerekli kelime dağarcığını sağlar.
 | [10 - Üretimde AI Ajanları](./10-ai-agents-production/README.md) | Bir ajanın demo aşamasından üretim aşamasına geçmesindeki değişiklikler. | İzleyeceğiniz şeyleri listeleyin: kalite, maliyet, gecikme, hatalar. |
 | [11 - Ajanik Protokoller](./11-agentic-protocols/README.md) | Protokollerin ajanları araçlar ve diğer ajanlara bağlaması. | Entegrasyonu basitleştirecek standart protokolü belirleyin. |
 | [12 - Bağlam Mühendisliği](./12-context-engineering/README.md) | Bağlamın seçilmesi, kesilmesi, izole edilmesi ve yönetilmesi. | İstek içine ne konmalı ve ne dışarda bırakılmalı karar verin. |
-
 | [14 - Microsoft Agent Framework](./14-microsoft-agent-framework/README.md) | Ajanlar ve iş akışları için çerçeveye özgü yapı taşları, Microsoft Foundry'de LangChain/LangGraph ajanlarının barındırılması. | Demo adımlarınızı çerçeve kavramlarına eşleyin. |
-
 | [16 - Ölçeklenebilir Ajanların Dağıtımı](./16-deploying-scalable-agents/README.md) | Bir ajanın prototipten ölçeklenebilir, izlenebilir üretim dağıtımına Microsoft Foundry üzerinde geçişi (barındırılan ajanlar, model yönlendirme, önbellekleme, değerlendirme kapıları, duman testleri). | Demo için hala gereken üretim kaygılarını listeleyin: barındırma, yönlendirme, maliyet, değerlendirme. |
 | [17 - Yerel AI Ajanları Oluşturma](./17-creating-local-ai-agents/README.md) | Foundry Local ve Qwen kullanarak tamamen makinanızda çalışan yerel ajanlar inşa etmek (yerel araçlar, yerel RAG, yerel MCP). | Demodaki hangi kısımların gizli kalması ve yerelde çalışması gerektiğine karar verin. |
 | [18 - AI Ajanlarını Güvence Altına Alma](./18-securing-ai-agents/README.md) | Ajan eylemlerini daha denetlenebilir ve değişiklik tespitine açık yapmak. | Demoda hangi eylemlerin kaydedilmesi veya makbuzlandırılması gerektiğine karar verin. |

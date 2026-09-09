@@ -1,143 +1,187 @@
-# Izgradnja agenata za korištenje računala (CUA)
+# Izrada agenata za korištenje računala (CUA)
 
-Agenti za korištenje računala mogu komunicirati s web stranicama na isti način kao i osoba: otvaranjem preglednika, pregledavanjem stranice i poduzimanjem najbolje sljedeće akcije na temelju onoga što vide. U ovoj lekciji izgradit ćete agenta za automatizaciju preglednika koji traži na Airbnbu, izvlači strukturirane podatke o oglasima i identificira najjeftiniji smještaj u Stockholmu.
+Agenti za korištenje računala mogu komunicirati s web stranicama na isti način kao i osoba: otvaranjem preglednika, pregledavanjem stranice i poduzimanjem najboljeg sljedećeg koraka prema onome što vide. U ovoj lekciji izradit ćete agenta za automatizaciju preglednika koji pretražuje Airbnb, izvlači strukturirane podatke o ponudama i identificira najjeftiniji boravak u Stockholmu.
 
-Lekcija kombinira Browser-Use za navigaciju vođenu umjetnom inteligencijom, Playwright i Chrome DevTools Protocol (CDP) za upravljanje preglednikom, Azure OpenAI za rezoniranje s podrškom vida te Pydantic za strukturirano izvlačenje.
+Lekcija kombinira Browser-Use za navigaciju vođenu AI, Playwright i Chrome DevTools Protocol (CDP) za kontrolu preglednika, Azure OpenAI za zaključivanje omogućeno vizijom i Pydantic za strukturirano izvlačenje podataka.
 
 ## Uvod
 
-Ova lekcija će obuhvatiti:
+Ova lekcija pokriva:
 
-- Razumijevanje kada su agenti za korištenje računala prikladniji od same API automatizacije
-- Kombiniranje Browser-Use s Playwrightom i CDP za pouzdano upravljanje životnim ciklusom preglednika
-- Korištenje Azure OpenAI vida i strukturiranog Pydantic izlaza za izvlačenje podataka o oglasima sa dinamičnih web stranica
-- Odlučivanje kada koristiti agent-prvi, actor-prvi ili hibridni tijek rada za automatizaciju preglednika
+- Razumijevanje kada su agenti za korištenje računala bolji od isključive automatizacije putem API-ja
+- Kombiniranje Browser-Use s Playwrightom i CDP-om za pouzdano upravljanje životnim ciklusom preglednika
+- Korištenje Azure OpenAI vizije i strukturiranog Pydantic izlaza za izvlačenje podataka o ponudama s dinamičnih web stranica
+- Odlučivanje kada koristiti pristup vođen agentom, izvođačem ili hibridni tijek rada automatizacije preglednika
 
 ## Ciljevi učenja
 
 Nakon završetka ove lekcije znat ćete kako:
 
 - Konfigurirati Browser-Use s Azure OpenAI i Playwrightom
-- Izgraditi tijek rada za automatizaciju preglednika koji navigira pravom web stranicom i rukuje dinamičkim elementima korisničkog sučelja
+- Izraditi tijek rada automatizacije preglednika koji navigira stvarnom web stranicom i upravlja dinamičkim UI elementima
 - Izvući tipizirane rezultate iz vidljivog sadržaja stranice i pretvoriti ih u poslovnu logiku
-- Odabrati između agent i actor obrazaca na temelju predvidivosti zadatka preglednika
+- Izabrati između obrazaca agenta i izvođača na temelju predvidljivosti zadatka u pregledniku
 
 ## Primjer koda
 
-Ova lekcija uključuje jedan tutorial u bilježnici:
+Ova lekcija uključuje jedan tutorial u notebooku:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Pokreće Chrome sesiju preko CDP-a, pretražuje Airbnb za oglase u Stockholmu, izdvaja cijene koristeći Browser-Use vid, i vraća najjeftiniju opciju kao strukturirane podatke.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Pokreće Chrome sesiju preko CDP-a, pretražuje Airbnb za ponude u Stockholmu, izvlači cijene uz pomoć Browser-Use vizije i vraća najjeftiniju opciju kao strukturirane podatke.
 
 ## Preduvjeti
 
 - Python 3.12+
-- Konfigurirani Azure OpenAI deployment u vašem okruženju
-- Lokalno instalirani Chrome ili Chromium
+- Konfigurirana Azure OpenAI implementacija u vašem okruženju
+- Chrome ili Chromium instaliran lokalno
 - Instalirane Playwright ovisnosti
-- Osnovno poznavanje asinhronog Python-a
+- Osnovno poznavanje async Pythona
 
 ## Postavljanje
 
-Instalirajte pakete korištene u bilježnici:
+Instalirajte pakete koje koristi notebook:
 
 ```bash
 pip install browser_use playwright python-dotenv
 playwright install chromium
 ```
 
-Postavite Azure OpenAI varijable okruženja koje bilježnica koristi:
+Postavite Azure OpenAI varijable okruženja koje koristi notebook:
 
 ```bash
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Opcionalno: zadana vrijednost je najnovija verzija API-ja ako je izostavljeno
+# Opcionalno: ako se izostavi, koristi se zadnja verzija API-ja
 AZURE_OPENAI_API_VERSION=...
 ```
 
 ## Pregled arhitekture
 
-Bilježnica demonstrira hibridni tijek rada automatizacije preglednika:
+Notebook prikazuje hibridni tijek automatizacije preglednika:
 
-1. Chrome se pokreće s omogućenim CDP-om kako bi Playwright i Browser-Use dijelili istu sesiju preglednika.
-2. Agent Browser-Use upravlja zadacima otvorene navigacije poput otvaranja Airbnba, zatvaranja iskačućih prozora i pretraživanja Stockholma.
-3. Aktivna stranica se pregledava pomoću strukturirane Pydantic sheme za izvlačenje naslova oglasa, cijena po noći, ocjena i URL-ova.
-4. Python logika uspoređuje izvučene oglase i ističe najjeftiniji rezultat.
+1. Chrome se pokreće s omogućenim CDP-om kako bi Playwright i Browser-Use mogli dijeliti istu sesiju preglednika.
+2. Agent Browser-Use upravlja otvorenim zadacima navigacije kao što su otvaranje Airbnb-a, zatvaranje iskačućih prozora i pretraživanje Stockholma.
+3. Aktivna stranica se pregledava uz pomoć strukturirane Pydantic sheme za izvlačenje naslova ponuda, noćnih cijena, ocjena i URL-ova.
+4. Python logika uspoređuje izdvojene ponude i ističe najjeftiniji rezultat.
 
-Ovaj pristup zadržava fleksibilno rezoniranje temeljeno na viđenom koje Browser-Use dobro radi, dok vam istovremeno daje determinističku kontrolu nad preglednikom kad vam zatreba.
+Ovaj pristup zadržava fleksibilno zaključivanje temeljeno na viziji po kojem je Browser-Use dobar, a istovremeno pruža determinističku kontrolu preglednika kad je to potrebno.
 
-## Ključne spoznaje i najbolje prakse
+## Glavne spoznaje i najbolje prakse
 
-### Kada koristiti agenta u odnosu na glumca (actor)
+### Kada koristiti agenta, a kada izvođača
 
-| Scenarij | Koristi agenta | Koristi glumca |
-|----------|-----------|-----------|
-| Dinamični rasporedi | Da, AI se može prilagoditi promjenama stranice | Ne, lomljivi selektori mogu prestati raditi |
-| Poznata struktura | Ne, agent je sporiji od izravne kontrole | Da, brzo i precizno |
+| Scenarij | Koristite agenta | Koristite izvođača |
+|----------|-----------------|------------------|
+| Dinamični rasporedi | Da, AI se može prilagoditi promjenama stranice | Ne, lomljivi selektori mogu zakazati |
+| Poznata struktura | Ne, agent je sporiji od direktne kontrole | Da, brz i precizan |
 | Pronalaženje elemenata | Da, prirodni jezik dobro funkcionira | Ne, potrebni su točni selektori |
-| Kontrola vremena | Ne, manje predvidivo | Da, potpuna kontrola nad čekanjima i pokušajima |
-| Složeni tijekovi rada | Da, rukuje neočekivanim stanjima sučelja | Ne, zahtijeva eksplicitno grananje |
+| Kontrola vremena | Ne, manje je predvidivo | Da, potpuna kontrola čekanja i ponavljanja |
+| Kompleksni tijekovi rada | Da, rukuje neočekivanim stanjima UI | Ne, zahtijeva eksplicitno grananje |
 
-### Najbolje prakse za Browser-Use
+### Najbolje prakse Browser-Use-a
 
-1. Započnite s agentom za istraživanje i dinamičnu navigaciju.
+1. Počnite s agentom za istraživanje i dinamičku navigaciju.
 2. Prebacite se na izravnu kontrolu stranice kada interakcija postane predvidiva.
-3. Koristite modele za strukturirani izlaz kako bi izvlačeni podaci bili verificirani i tipizirani.
-4. Dodajte kašnjenja strateški nakon akcija koje pokreću vidljive promjene u sučelju.
-5. Snimajte zaslone tijekom iteracija kako bi se kvarovi lakše dijagnosticirali.
-6. Očekujte promjene na web stranicama i dizajnirajte rezervne strategije za iskačuće prozore i pomake u rasporedu.
-7. Kombinirajte agent i actor obrasce za dobivanje fleksibilnosti i preciznosti.
+3. Koristite strukturirane modele izlaza da bi izdvojeni podaci bili validirani i tipizirani.
+4. Strategijski dodajte odgode nakon radnji koje pokreću vidljive promjene sučelja.
+5. Snimajte zaslonske slike tijekom iteracija kako bi otklanjanje pogrešaka bilo lakše.
+6. Očekujte promjene web stranica i dizajnirajte rezervne strategije za iskačuće prozore i pomake u rasporedu.
+7. Kombinirajte obrasce agenta i izvođača za dobivanje fleksibilnosti i preciznosti.
 
 ### Sigurnosne mjere za agente preglednika
 
-Agenti preglednika rade na živim web stranicama, pa im trebaju stroža ograničenja od skripte koja samo poziva poznati API. Prije nego što prijeđete s demo bilježnice na stvarni tijek rada, definirajte kontrole oko toga što agent može vidjeti, kliknuti i poslati.
+Agenti preglednika rade na živim web stranicama, stoga im trebaju stroža ograničenja nego skripti koje samo pozivaju poznati API. Prije prelaska s demonstracije u notebooku na stvarni tijek rada, definirajte kontrole oko onoga što agent može vidjeti, kliknuti i poslati.
 
-1. **Ograničite pregledno okruženje.** Pokrenite agenta u posvećenom profilu preglednika ili pješčaniku i ograničite ga na domene potrebne za zadatak.
-2. **Odvojite promatranje od akcije.** Neka agent prvo pretražuje, čita i izvlači podatke; zahtijevajte eksplicitni korak odobrenja prije nego što šalje obrasce, poruke, rezervacije putovanja, kupnje, briše zapise ili mijenja postavke računa.
-3. **Držite tajne izvan upita i zapisa.** Ne stavljajte lozinke, podatke o plaćanju, kolačiće sesije ili sirove osobne podatke u kontekst modela. Neka korisnik preuzme autentifikaciju i ukloni osjetljiva polja iz dnevnika.
-4. **Tretirajte sadržaj stranice kao nepouzdani ulaz.** Web stranica može sadržavati upute namijenjene agentu, a ne korisniku. Agent bi trebao ignorirati tekst stranice koji traži promjenu cilja, otkrivanje podataka, onemogućavanje zaštita ili posjet nepovezanim stranicama.
-5. **Koristite determinističke provjere oko rizičnih koraka.** Provjerite trenutnu URL adresu, naslov stranice, odabrani element, cijenu, primatelja i sažetak akcije kodom prije nego što tražite od korisnika da odobri završni korak.
-6. **Postavite proračune i uvjete zaustavljanja.** Ograničite broj akcija, pokušaja, kartica i minuta koje agent može koristiti. Zaustavite se kada je stanje stranice nejasno umjesto da nastavite klikati.
-7. **Snimate korisne dokaze, ne sve.** Čuvajte sažetke radnji, vremenske oznake, URL-ove, opise odabranih elemenata i reference zaslona kako bi se kvarovi mogli pregledati bez pohrane nepotrebnog osjetljivog sadržaja stranice.
+1. **Ograničite pregledničko okruženje.** Pokrenite agenta u namjenskom profilu preglednika ili sandboxu i ograničite domene potrebne zadatku.
+2. **Odvojite promatranje od akcije.** Dopustite agentu da prvo pretražuje, čita i izvlači podatke; zahtijevajte eksplicitnu potvrdu prije slanja obrazaca, slanja poruka, rezervacija, kupnji, brisanja zapisa ili promjene postavki računa.
+3. **Čuvajte tajne izvan upita i zapisa.** Nemojte stavljati lozinke, podatke o plaćanju, kolačiće sesije ili sirove osobne podatke u kontekst modela. Neka korisnik preuzme autentikaciju i ukloni osjetljiva polja iz zapisa.
+4. **Tretirajte sadržaj stranice kao nepouzdani unos.** Web stranica može sadržavati upute namijenjene agentu, a ne korisniku. Agent bi trebao ignorirati tekst koji traži da promijeni cilj, otkrije podatke, onemogući mjere zaštite ili posjeti nesrodne stranice.
+5. **Koristite determinističke provjere oko rizičnih koraka.** Provjerite trenutni URL, naslov stranice, odabrani element, cijenu, primatelja i sažetak radnje pomoću koda prije traženja od korisnika da odobri završni korak.
+6. **Postavite limite i uvjete zaustavljanja.** Ograničite broj radnji, ponavljanja, tabova i minuta koje agent može koristiti. Zaustavite se kada je stanje stranice nejasno umjesto da nastavite klikati.
+7. **Bilježite korisne dokaze, ne sve.** Čuvajte sažetke radnji, vremenske oznake, URL-ove, opise odabranih elemenata i reference na snimke zaslona kako bi se pogreške mogle pregledati bez pohrane nepotrebnog osjetljivog sadržaja stranice.
 
-U primjeru Airbnba, sigurna zadana opcija je pretraživanje oglasa i izvlačenje cijena. Prijava, kontaktiranje domaćina ili završavanje rezervacije trebali bi biti zasebna radnja odobrena od korisnika.
+U Airbnb primjeru, siguran zadani izbor je pretraživanje ponuda i izvlačenje cijena. Prijava, kontaktiranje domaćina ili dovršavanje rezervacije trebaju biti odvojene radnje koje potvrđuje korisnik.
 
-### Primjene u stvarnom svijetu
+### Primjena u stvarnom svijetu
 
 - Rezervacija putovanja i praćenje cijena
-- Usporedba cijena e-trgovine i provjere dostupnosti
-- Strukturirano izvlačenje sa dinamičnih web stranica
-- Testiranje i provjera korisničkog sučelja s obzirom na vid
-- Praćenje web stranica i upozorenja
-- Inteligentno popunjavanje obrazaca u višestupanjskim procesima
+- Usporedba cijena i provjera dostupnosti u e-trgovini
+- Strukturirano izvlačenje s dinamičnih web stranica
+- Testiranje i verifikacija korisničkog sučelja osviještenog o vidu
+- Praćenje web stranica i slanje upozorenja
+- Inteligentno popunjavanje obrazaca kroz višestepene tijekove
 
-## Primjer iz stvarnog svijeta: Microsoft Project Opal
+## Stvarni primjer: Microsoft Project Opal
 
-Agent koji gradite u ovoj lekciji mali je, lokalni primjerak **agenta za korištenje računala (CUA)** — programa koji pokreće preglednik na način kao osoba. Microsoft donosi ovu istu ideju u poslovne svrhe s **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, mogućnošću u Microsoft 365 Copilot.
+Agent koji izrađujete u ovoj lekciji je mala, lokalna verzija **agenta za korištenje računala (CUA)** — programa koji upravlja preglednikom kao osoba. Microsoft ovu istu ideju donosi u poduzeća s **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, mogućnošću u Microsoft 365 Copilot.
 
-Projekt Opal radi tako da opišete zadatak, a agent radi u vaše ime koristeći **korištenje računala na sigurnom Windows 365 Cloud PC-u**, djelujući preko pregledničkih aplikacija, web stranica i podataka vaše organizacije. Radi **asinhrono u pozadini**, a možete usmjeravati rad ili preuzeti kontrolu u bilo kojem trenutku. Primjeri poslova uključuju:
+S Project Opalom opisujete zadatak, a agent radi za vas koristeći **korištenje računala na sigurnom Windows 365 Cloud PC-u**, radeći preko pregledničkih aplikacija, stranica i podataka vaše organizacije. Radi **asinkrono u pozadini**, a vi možete voditi rad ili preuzeti kontrolu u bilo kojem trenutku. Primjeri poslova uključuju:
 
 - Upravljanje zahtjevima za članstvo u sigurnosnim grupama
-- Prikupljanje i provjere dokaza za nadzor usklađenosti
-- Rukovanje IT incidentima (ažuriranje statusa tiketa, dodjela vlasnika, zatvaranje duplikata)
-- Kompilacija podataka u Excelu u financijski završni dokument
+- Prikupljanje i validaciju dokaza za reviziju usklađenosti
+- Rješavanje IT incidenata (ažuriranje statusa ticket-a, dodjeljivanje vlasnika, zatvaranje duplikata)
+- Sastavljanje Excel podataka u financijski izvještaj
 
-Opal je koristan primjer kako izgleda **agent za korištenje računala u produkciji, kojem se može vjerovati** — i potvrđuje koncepte iz ranijih lekcija:
+Opal je koristan primjer kako izgleda **produkcijski, pouzdan** agent za korištenje računala — i potvrđuje koncepte iz ranijih lekcija:
 
 | Koncept u ovom tečaju | Kako ga Project Opal primjenjuje |
 |------------------------|-----------------------------|
-| **Čovjek u petlji** (Lekcija 06) | Opal se zaustavlja za prijavu, osjetljive podatke ili nejasne upute i nikad ne unosi lozinke niti šalje obrasce bez eksplicitne potvrde. Možete *preuzeti kontrolu* i *vratiti kontrolu* usred zadatka. |
-| **Pouzdani i sigurni agenti** (Lekcije 06 & 18) | Radi u izoliranom Windows 365 Cloud PC-u, prema zadanim postavkama je samo preglednik (drugi pristupi računalu blokirani, provodi se putem Intunea), koristi *vaš* identitet pa pristupa samo onome za što ste ovlašteni, i bilježi svaku akciju radi revizije. |
-| **Planiranje i metakognicija** (Lekcije 07 & 09) | Opal prvo generira plan za posao, zatim nadzire vlastito rezoniranje na svakom koraku i zaustavlja se ako otkrije sumnjive aktivnosti. |
-| **Ponovno upotrebljive sposobnosti / alati** (Lekcija 04) | **Vještine** vam omogućuju da pišete upute za ponovljive zadatke (uvoz iz `.md` datoteke ili stvaranje unutar Opala) i koristite ih u različitim razgovorima. |
+| **Čovjek u petlji** (Lekcija 06) | Opal se zaustavlja za prijavu, osjetljive podatke ili dvosmislene upute i nikada ne unosi lozinke niti šalje obrasce bez eksplicitne potvrde. Možete *preuzeti kontrolu* i *vratiti kontrolu* usred zadatka. |
+| **Pouzdani i sigurni agenti** (Lekcije 06 & 18) | Radi u izoliranom Windows 365 Cloud PC-u, po zadanim postavkama samo preglednik (drugi pristupi računalu blokirani, provedeno putem Intunea), koristi *vaš* identitet tako da pristupa samo onome za što ste ovlašteni i bilježi svaku akciju radi revizije. |
+| **Planiranje i metakognicija** (Lekcije 07 & 09) | Opal prvo generira plan za posao, zatim nadzire vlastito zaključivanje u svakom koraku i zaustavlja se ako detektira sumnjive aktivnosti. |
+| **Ponovno upotrebljive sposobnosti / alati** (Lekcija 04) | **Vještine** vam omogućuju pisanje uputa za ponovljive zadatke (uvozeni iz `.md` datoteke ili izrađeni u Opalu) i njihovu ponovnu upotrebu kroz razgovore. |
 
-> **Dostupnost:** Project Opal trenutno je dostupan korisnicima u [Frontier programu ranog pristupa](https://adoption.microsoft.com/copilot/frontier-program/) s Microsoft 365 Copilot pretplatom, a vaš administrator mora izvršiti postavljanje. Budući da je eksperimentalna značajka Frontiera, mogućnosti se mogu mijenjati tijekom vremena.
+> **Dostupnost:** Project Opal je trenutno dostupan korisnicima u [Frontier programu ranog pristupa](https://adoption.microsoft.com/copilot/frontier-program/) uz pretplatu na Microsoft 365 Copilot, a vaš administrator mora završiti postavljanje. Budući da je eksperimentalna Frontier značajka, mogućnosti se mogu mijenjati s vremenom.
+
+## Provjera znanja
+
+Provjerite svoje razumijevanje prije prelaska na sljedeću lekciju.
+
+**1. Kada je agent za korištenje preglednika bolji izbor od tijeka rada koji koristi samo API?**
+
+<details>
+<summary>Odgovor</summary>
+
+Koristite agenta preglednika kad zadatak ovisi o onome što je vidljivo u web korisničkom sučelju, ako stranica ne izlaže potreban API ili ako se stranica često mijenja toliko da bi fiksna API ili selektorska logika bila nestabilna. Ako postoji stabilan API za isti zadatak, preferirajte API jer je obično brži, lakši za testiranje i sigurniji.
+</details>
+
+**2. Koje dijelove tijeka rada u hibridnom modelu treba upravljati agent, a koje izravni Playwright kod?**
+
+<details>
+<summary>Odgovor</summary>
+
+Dopustite agentu da upravlja otvorenom navigacijom i dinamičkim UI stanjima, kao što je pronalazak prave stranice ili zatvaranje neočekivanih iskačućih prozora. Prebacite se na izravnu kontrolu Playwrighta kada je struktura stranice poznata i akcija zahtijeva preciznost, ponavljanja, čekanja ili determinističku validaciju.
+</details>
+
+**3. Airbnb primjer pronalazi ponudu koju korisnik možda želi rezervirati. Što treba dogoditi prije nego što tijek rada izvrši prijavu, kontaktira domaćina ili dovrši rezervaciju?**
+
+<details>
+<summary>Odgovor</summary>
+
+Tijek rada treba stati i zatražiti eksplicitnu korisničku suglasnost. Prije zahtjeva treba prikazati jasan sažetak odabrane ponude, trenutnog URL-a, cijene, datuma i namjeravane radnje. Pretraživanje i izvlačenje cijena može biti autonomno; pristup računu, poruke, kupnje i rezervacije trebaju biti odobreni od strane korisnika.
+</details>
+
+**4. Web stranica agentu nalaže da ignorira svoje izvorne upute, posjeti drugu stranicu i otkrije spremljene vjerodajnice. Kako bi agent trebao tretirati taj tekst?**
+
+<details>
+<summary>Odgovor</summary>
+
+Tretirajte ga kao nepouzdani sadržaj stranice, a ne kao uputu programera ili korisnika. Agent bi trebao ostati unutar dopuštene domene i opsega zadatka, odbiti otkrivanje tajni i izbjegavati slijediti tekst koji mijenja cilj, onemogućuje zaštitne mjere ili ga šalje na nesrodne stranice.
+</details>
+
+**5. Koji su korisni dokazi za pohranu tijekom rada agenta preglednika, a što treba izbjegavati?**
+
+<details>
+<summary>Odgovor</summary>
+
+Čuvajte sažetke radnji, vremenske oznake, URL-ove, opise odabranih elemenata, rezultate validacije i reference na snimke zaslona kako bi se rad mogao pregledati. Izbjegavajte pohranu lozinki, podataka o plaćanju, kolačića sesije, sirovih osobnih podataka ili punog sadržaja stranice osim ako postoji specifičan razlog za zadržavanje i privatnost.
+</details>
 
 ## Dodatni resursi
 
 - [Početak rada s Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
-- [Browser-Use Playwright integracijski predložak](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Browser-Use parametri djelatnika i izvlačenje sadržaja](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Predložak integracije Browser-Use Playwright](https://docs.browser-use.com/examples/templates/playwright-integration)
+- [Parametri izvođača i izvlačenje sadržaja u Browser-Use](https://docs.browser-use.com/customize/actor/all-parameters)
 - [Postavljanje tečaja](../00-course-setup/README.md)
 
 ## Prethodna lekcija

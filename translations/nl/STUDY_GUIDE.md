@@ -95,7 +95,6 @@ woordenschat die je nodig zult hebben voor de rest van de cursus.
 | [03 - Agentic Ontwerppatronen](./03-agentic-design-patterns/README.md) | Veelvoorkomende patronen voor het ontwerpen van agentgedrag. | Schets de gebruikersreis voordat je code schrijft. |
 | [04 - Toolgebruik](./04-tool-use/README.md) | Hoe agenten tools aanroepen om data te krijgen of actie te ondernemen. | Definieer één tool die jouw demo-agent nodig zou hebben. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Hoe retrieval agentantwoorden bij documenten of data verankert. | Bepaal welke kennisbron jouw demo zou moeten doorzoeken. |
-
 | [06 - Vertrouwde Agenten](./06-building-trustworthy-agents/README.md) | Hoe je vangrails, toezicht en veiliger gedrag toevoegt. | Voeg een regel toe over wanneer de agent eerst de gebruiker moet vragen. |
 | [07 - Ontwerp van Planning](./07-planning-design/README.md) | Hoe agenten grotere doelen opdelen in kleinere stappen. | Schrijf een plan in drie stappen voor je demo-aanvraag. |
 | [08 - Ontwerp van Multi-Agenten](./08-multi-agent/README.md) | Wanneer werk verdeeld wordt over gespecialiseerde agenten. | Bepaal of je demo één agent of meerdere nodig heeft. |

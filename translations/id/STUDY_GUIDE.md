@@ -96,7 +96,6 @@ kosa kata yang Anda perlukan untuk sisa kursus.
 | [03 - Agentic Design Patterns](./03-agentic-design-patterns/README.md) | Pola umum untuk merancang perilaku agen. | Rancang perjalanan pengguna sebelum menulis kode. |
 | [04 - Tool Use](./04-tool-use/README.md) | Bagaimana agen memanggil alat untuk mendapatkan data atau mengambil tindakan. | Definisikan satu alat yang akan diperlukan agen demo Anda. |
 | [05 - Agentic RAG](./05-agentic-rag/README.md) | Bagaimana retrieval mendasari jawaban agen pada dokumen atau data. | Putuskan sumber pengetahuan apa yang harus dicari demo Anda. |
-
 | [06 - Agen Terpercaya](./06-building-trustworthy-agents/README.md) | Cara menambahkan pembatas, pengawasan, dan perilaku yang lebih aman. | Tambahkan satu aturan kapan agen harus menanyakan pengguna terlebih dahulu. |
 | [07 - Desain Perencanaan](./07-planning-design/README.md) | Cara agen memecah tujuan besar menjadi langkah-langkah kecil. | Tulis rencana tiga langkah untuk permintaan demo Anda. |
 | [08 - Desain Multi-Agen](./08-multi-agent/README.md) | Kapan membagi pekerjaan ke agen yang terspesialisasi. | Tentukan apakah demo Anda membutuhkan satu agen atau beberapa. |

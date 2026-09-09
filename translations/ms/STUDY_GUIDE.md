@@ -95,7 +95,6 @@ perbendaharaan kata yang anda perlukan untuk baki kursus.
 | [03 - Corak Rekabentuk Ejenik](./03-agentic-design-patterns/README.md) | Corak biasa untuk mereka bentuk tingkah laku ejen. | Lukis perjalanan pengguna sebelum menulis kod. |
 | [04 - Penggunaan Alat](./04-tool-use/README.md) | Bagaimana ejen memanggil alat untuk mendapatkan data atau mengambil tindakan. | Tetapkan satu alat yang diperlukan oleh ejen demo anda. |
 | [05 - RAG Ejenik](./05-agentic-rag/README.md) | Bagaimana pengambilan maklumat mendasari jawapan ejen dalam dokumen atau data. | Tentukan sumber pengetahuan yang harus dicari oleh demo anda. |
-
 | [06 - Ejen Boleh Dipercayai](./06-building-trustworthy-agents/README.md) | Cara untuk menambah pagar pengawal, pengawasan, dan tingkah laku yang lebih selamat. | Tambah satu peraturan untuk bila ejen harus bertanya kepada pengguna terlebih dahulu. |
 | [07 - Reka Bentuk Perancangan](./07-planning-design/README.md) | Bagaimana ejen memecahkan matlamat yang lebih besar kepada langkah-langkah yang lebih kecil. | Tulis pelan tiga langkah untuk permintaan demo anda. |
 | [08 - Reka Bentuk Multi-Ejen](./08-multi-agent/README.md) | Bila untuk membahagikan kerja kepada ejen yang pakar khusus. | Tentukan sama ada demo anda memerlukan satu ejen atau beberapa ejen. |
