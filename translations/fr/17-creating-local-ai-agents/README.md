@@ -1,74 +1,74 @@
 # Création d'agents IA locaux avec Microsoft Foundry Local et Qwen
 
-![Créer des agents IA locaux](../../../translated_images/fr/lesson-17-thumbnail.f86434c595a408fc.webp)
+![Création d'agents IA locaux](../../../translated_images/fr/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-La leçon précédente a étendu les agents *vers le haut* dans le cloud. Celle-ci les ramène *vers le bas* sur une seule machine. À la fin, vous aurez un assistant ingénieur opérationnel qui raisonne, appelle des outils, lit vos fichiers, et recherche dans votre documentation — **sans une seule requête d'inférence dans le cloud.**
+La leçon précédente a étendu les agents *vers le haut* dans le cloud. Celle-ci les ramène *vers le bas* sur une seule machine. À la fin, vous aurez un assistant d'ingénierie fonctionnel qui raisonne, appelle des outils, lit vos fichiers et recherche dans votre documentation — **sans aucune requête d'inférence dans le cloud.**
 
 Pourquoi voudriez-vous cela ? Trois raisons qui reviennent constamment dans le travail d'ingénierie réel :
 
-- **Confidentialité.** Le code et les documents ne quittent jamais la machine. Aucune invite, aucun extrait, aucune donnée client ne traverse la frontière réseau.
-- **Coût.** L'inférence locale ne génère aucune facture par token. Vous pouvez itérer toute la journée pour le prix de l'électricité.
+- **Confidentialité.** Le code et les documents ne quittent jamais la machine. Aucune invite, aucun extrait, aucune donnée client ne traverse la frontière du réseau.
+- **Coût.** L'inférence locale ne génère pas de facturation par token. Vous pouvez itérer toute la journée au prix de l'électricité.
 - **Hors ligne.** Dans un avion, dans une installation sécurisée ou lors d'une panne, l'agent fonctionne toujours.
 
-Le compromis est que vous échangez un modèle cloud de pointe contre un **Petit Modèle de Langage (SLM)** fonctionnant sur votre CPU, GPU ou NPU. Cette leçon porte sur la construction d'agents qui sont *bons* dans cette contrainte plutôt que de faire comme si elle n'existait pas.
+Le compromis est que vous échangez un modèle cloud de pointe contre un **Petit Modèle de Langage (SLM)** qui tourne sur votre CPU, GPU ou NPU. Cette leçon porte sur la construction d'agents qui sont *bons* dans cette contrainte plutôt que de faire comme si elle n'existait pas.
 
 ## Introduction
 
 Cette leçon couvrira :
 
-- **Petits Modèles de Langage (SLM)** — ce qu'ils sont, où ils excellent et où ils sont moins performants.
-- **Microsoft Foundry Local** — un runtime qui télécharge et sert les modèles localement via une **API compatible OpenAI**.
-- **Modèles Qwen d'appel de fonctions** — des SLM formés pour produire des appels d'outils fiables, ce qui rend les *agents* locaux (et pas seulement le chat local) possibles.
-- **Outils locaux, RAG local et MCP local** — apportant des capacités à l'agent sans le cloud.
-- **Modèles hybrides** — quand garder les choses locales et quand solliciter le cloud.
+- **Petits Modèles de Langage (SLM)** — ce qu'ils sont, où ils excellent et où ils ne le font pas.
+- **Microsoft Foundry Local** — un runtime qui télécharge et sert des modèles sur l'appareil via une **API compatible OpenAI**.
+- **Modèles Qwen à appel de fonction** — des SLM qui produisent de manière fiable des appels d'outil, ce qui rend possibles les agents locaux (pas seulement le chat local).
+- **Outils locaux, RAG local et MCP local** — donnant des capacités à l'agent sans le cloud.
+- **Schémas hybrides** — quand garder les choses locales et quand utiliser le cloud.
 
 ## Objectifs d'apprentissage
 
 Après avoir terminé cette leçon, vous saurez comment :
 
-- Expliquer les compromis des SLM et choisir des cas d’usage appropriés pour un agent local.
-- Servir un modèle Qwen localement avec Foundry Local et s'y connecter via le point de terminaison compatible OpenAI.
-- Construire un agent appelant des outils fonctionnant entièrement sur votre poste de travail.
-- Ajouter un RAG local sur vos propres documents en utilisant une base de vecteurs locale (Chroma).
-- Connecter l'agent à un serveur MCP local et raisonner sur des architectures hybrides local/cloud.
+- Expliquer les compromis des SLM et choisir les cas d'utilisation appropriés pour les agents locaux.
+- Servir un modèle Qwen localement avec Foundry Local et s’y connecter via le point de terminaison compatible OpenAI.
+- Construire un agent appelant des outils qui fonctionne entièrement sur votre poste de travail.
+- Ajouter un RAG local sur vos propres documents à l’aide d’une base vectorielle locale (Chroma).
+- Connecter l'agent à un serveur MCP local et raisonner sur des conceptions hybrides local/cloud.
 
 ## Prérequis
 
-Cette leçon suppose que vous avez complété les leçons précédentes et que vous êtes à l'aise avec :
+Cette leçon suppose que vous avez complété les leçons précédentes et êtes à l’aise avec :
 
-- [Utilisation d'outils](../04-tool-use/README.md) (Leçon 4) et [RAG agentique](../05-agentic-rag/README.md) (Leçon 5).
+- [Utilisation d'outils](../04-tool-use/README.md) (Leçon 4) et [Agentic RAG](../05-agentic-rag/README.md) (Leçon 5).
 - [Protocoles agentiques / MCP](../11-agentic-protocols/README.md) (Leçon 11).
 - Le [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Leçon 14).
 
-Vous aurez également besoin de :
+Vous aurez aussi besoin de :
 
-- Un poste de travail de développeur. **8 Go de RAM est un minimum réaliste** ; 16 Go et plus est confortable. Une GPU ou NPU aide, mais n’est pas obligatoire.
-- **Microsoft Foundry Local** installé (voir section d’installation ci-dessous).
-- Python 3.12+ et les packages du dépôt [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai`, et `chromadb` pour cette leçon.
+- Un poste de travail pour développeur. **8 Go de RAM est un minimum réaliste** ; 16 Go+ est confortable. Un GPU ou NPU est utile mais pas obligatoire.
+- **Microsoft Foundry Local** installé (voir la section installation ci-dessous).
+- Python 3.12+ et les paquets dans le dépôt [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai`, et `chromadb` pour cette leçon.
 
-## Petits Modèles de Langage : L'outil adapté pour le travail local
+## Petits Modèles de Langage : L’outil adapté pour le travail local
 
-Un modèle de pointe dans le cloud possède des centaines de milliards de paramètres et un centre de données derrière lui. Un SLM a quelques milliards de paramètres et doit tenir dans la RAM de votre ordinateur portable. Cette différence fixe des attentes claires.
+Un modèle cloud de pointe a des centaines de milliards de paramètres et un centre de données derrière. Un SLM a quelques milliards de paramètres et doit tenir dans la RAM de votre ordinateur portable. Cette différence fixe des attentes claires.
 
-**Les SLM excellent dans :**
+**Les SLM excellent pour :**
 
-- Les tâches structurées et bornées — classification, extraction, résumé d’un document connu.
-- **Appel d'outils** — décider quelle fonction appeler et avec quels arguments.
-- Itération rapide, économique et privée sur vos propres données.
+- Tâches structurées et délimitées — classification, extraction, résumé d'un document connu.
+- **Appel d’outils** — décider quelle fonction appeler et avec quels arguments.
+- Itération rapide, peu coûteuse, et privée sur vos propres données.
 
-**Les SLM sont moins bons dans :**
+**Les SLM sont moins performants pour :**
 
-- Raisonnement ouvert et multi-sauts sur un contexte large.
-- Connaissance générale étendue (ils en ont vu moins et oublient plus).
+- Raisonnement ouvert, à plusieurs étapes, sur un contexte large.
+- Connaissances générales étendues (ils ont vu moins et oublient plus).
 
-La stratégie gagnante pour les agents locaux est donc : **laisser le SLM orchestrer, et laisser les outils faire le travail lourd.** Le modèle n’a pas besoin de *connaître* votre base de code — il doit savoir quand appeler `read_file` et `search_docs`. Cela exploite directement les forces d’un SLM.
+La stratégie gagnante pour les agents locaux est donc : **laissez le SLM orchestrer, et laissez les outils faire le gros du travail.** Le modèle n’a pas besoin de *connaître* votre base de code — il doit savoir quand appeler `read_file` et `search_docs`. Cela correspond directement aux forces des SLM.
 
 ```mermaid
 flowchart LR
-    U[Développeur] --> A[Agent SLM Local]
-    A -->|décide quel outil| T1[read_file]
-    A -->|décide quel outil| T2[search_docs RAG]
-    A -->|décide quel outil| T3[analyze_code]
+    U[Développeur] --> A[Agent SLM local]
+    A -->|décide quel outil| T1[lire_fichier]
+    A -->|décide quel outil| T2[recherche_docs RAG]
+    A -->|décide quel outil| T3[analyser_code]
     T1 --> A
     T2 --> A
     T3 --> A
@@ -77,31 +77,31 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** est un runtime léger qui télécharge, gère et sert les modèles entièrement sur votre machine. Sa fonction la plus importante pour nous est qu’il expose un **point de terminaison HTTP compatible OpenAI** — ce qui signifie que le SDK OpenAI et le client OpenAI du Microsoft Agent Framework fonctionnent avec lui en ne changeant que le `base_url`. Tout ce que vous avez appris sur la construction d’agents se transpose directement ; seul le point de terminaison change, du cloud vers `localhost`.
+**Microsoft Foundry Local** est un runtime léger qui télécharge, gère et sert les modèles entièrement sur votre machine. Sa caractéristique la plus importante pour nous est qu’il expose un **point de terminaison HTTP compatible OpenAI** — ce qui signifie que le SDK OpenAI et le client OpenAI du Microsoft Agent Framework fonctionnent avec lui en ne changeant que le `base_url`. Tout ce que vous avez appris sur la création d’agents se transfère directement ; seul le point de terminaison passe du cloud à `localhost`.
 
-Foundry Local choisit également automatiquement la meilleure version d’un modèle pour votre matériel — une version CPU, CUDA/GPU ou NPU — vous n’avez pas à optimiser manuellement par machine.
+Foundry Local choisit aussi automatiquement la meilleure version d’un modèle pour votre matériel — une version CPU, CUDA/GPU, ou NPU — vous n’avez donc pas à l’optimiser à la main pour chaque machine.
 
 ### Installation
 
-Installez Foundry Local (voir la [documentation](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) pour votre OS), puis confirmez que cela fonctionne :
+Installez Foundry Local (voir la [documentation](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) pour votre système d’exploitation), puis vérifiez son bon fonctionnement :
 
 ```bash
 # Installer (exemple ; suivez la documentation pour votre plateforme)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
-# Téléchargez et exécutez un modèle Qwen, puis démarrez le service local
+# Télécharger et exécuter un modèle Qwen, puis démarrer le service local
 foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Une fois le service en marche, vous avez un point de terminaison local compatible OpenAI (généralement `http://localhost:PORT/v1`). Le notebook utilise le `foundry-local-sdk` pour découvrir automatiquement le point de terminaison, vous n’avez donc pas besoin de coder en dur le port.
+Une fois le service lancé, vous avez un point de terminaison local compatible OpenAI (généralement `http://localhost:PORT/v1`). Le notebook utilise `foundry-local-sdk` pour découvrir automatiquement ce point de terminaison, vous n’avez donc pas besoin de coder en dur le port.
 
-## Appels de fonctions Qwen : pourquoi c’est important
+## Appel de fonction Qwen : pourquoi c’est important
 
-Un agent n’est un agent que s’il peut appeler des outils. Beaucoup de SLM peuvent discuter mais produisent des appels d’outil peu fiables ou mal formés. Les modèles **Qwen** sont entraînés pour l’appel de fonctions et émettent systématiquement des structures d’appels d’outils bien formées — ce qui transforme un modèle de chat local en *agent* local.
+Un agent n’est agent que s’il peut appeler des outils. Beaucoup de SLM peuvent chater mais produisent des appels d’outils peu fiables ou mal formés. Les modèles **Qwen** sont entraînés pour l’appel de fonction et émettent constamment des structures d’appel d’outil bien formées — ce qui transforme un modèle de chat local en un *agent* local.
 
-Le flux est la boucle standard d’appel d’outils que vous connaissez déjà, juste en local :
+Le flux est la boucle standard d’appel d’outil que vous connaissez déjà, juste exécutée sur l’appareil :
 
 ```mermaid
 sequenceDiagram
@@ -118,67 +118,67 @@ sequenceDiagram
 
 ## RAG local
 
-La recherche documentaire est là où les agents locaux gagnent leur place. Au lieu d’espérer que le SLM ait mémorisé les docs de votre framework, vous intégrez ces docs dans une **base vectorielle locale** et laissez l’agent récupérer les passages pertinents à la demande.
+La recherche dans la documentation est le domaine où les agents locaux justifient leur utilité. Au lieu d’espérer que le SLM ait mémorisé la doc de votre framework, vous intégrez cette doc dans une **base vectorielle locale** et laissez l’agent récupérer les morceaux pertinents à la demande.
 
-Nous utilisons **Chroma**, un magasin de vecteurs embarqué qui fonctionne en processus sans serveur à gérer. La chaîne est entièrement locale : modèle d’intégration local → vecteurs locaux → récupération locale → SLM local.
+Nous utilisons **Chroma**, un magasin vectoriel embarqué qui tourne en processus sans serveur à gérer. La chaîne est entièrement locale : modèle d’embedding local → vecteurs locaux → récupération locale → SLM local.
 
 ```mermaid
 flowchart TB
-    D[Vos docs / code] --> E[Modèle d'incorporation local]
+    D[Vos docs / code] --> E[Modèle d'intégration local]
     E --> V[(Base de vecteurs Chroma - sur disque)]
-    Q[Requête d'agent] --> QE[Incorporer la requête localement]
+    Q[Requête agent] --> QE[Intégrer la requête localement]
     QE --> V
-    V -->|morceaux top-k| A[Agent Qwen]
+    V -->|meilleurs chunks k| A[Agent Qwen]
     A --> Ans[Réponse fondée]
 ```
 
-C’est le même modèle Agentic RAG de la leçon 5 — la seule différence est que chaque composant s’exécute sur votre machine.
+C’est le même schéma Agentic RAG que dans la Leçon 5 — la seule différence est que tous les composants tournent sur votre machine.
 
 ## Serveurs MCP locaux
 
-[MCP](../11-agentic-protocols/README.md) est un transport, pas un service cloud. Un serveur MCP peut tourner comme un processus local sur `stdio`, exposant des outils à votre agent via le protocole standard. Cela vous permet de réutiliser l’écosystème croissant de serveurs MCP — accès au système de fichiers, opérations git, requêtes base de données — entièrement hors ligne.
+[MCP](../11-agentic-protocols/README.md) est un protocole de transport, pas un service cloud. Un serveur MCP peut tourner en local comme processus sur `stdio`, exposant des outils à votre agent via ce protocole standard. Cela vous permet de réutiliser l’écosystème croissant des serveurs MCP — accès fichiers, opérations git, requêtes base de données — entièrement hors ligne.
 
-La posture de sécurité est différente du cloud, mais pas absente : un serveur MCP local s’exécute toujours avec les permissions de votre utilisateur, donc limitez ce qu’il peut toucher (un répertoire projet, pas votre dossier personnel complet) et traitez ses sorties comme des entrées à valider.
+La posture de sécurité diffère du cloud, mais n’est pas absente : un serveur MCP local tourne toujours avec les permissions de votre utilisateur, donc limitez son accès (par exemple un dossier projet, pas tout votre dossier personnel) et traitez ses sorties comme des entrées à valider.
 
-## Modèles hybrides cloud et local
+## Schémas hybrides cloud et local
 
-Priorité au local ne veut pas dire uniquement local. Les systèmes matures routent selon la sensibilité et la difficulté :
+Local d’abord ne signifie pas local uniquement. Les systèmes matures routent selon la sensibilité et la difficulté :
 
-| Situation | Où ça s’exécute |
+| Situation | Où ça tourne |
 | --- | --- |
 | Code / données sensibles, ou hors ligne | **SLM local** |
-| Tâche simple et limitée | **SLM local** (économique, rapide) |
-| Raisonnement multi-sauts dur sur données non sensibles | **Modèle cloud** |
-| Tout, en cas de panne | **SLM local** (dégradation élégante) |
+| Tâche simple et délimitée | **SLM local** (pas cher, rapide) |
+| Raisonnement multi-étape complexe sur données non sensibles | **Modèle cloud** |
+| Tout, en cas de panne | **SLM local** (dégradation progressive) |
 
-Cela reflète l’idée de **routage de modèle** de la leçon 16 — sauf qu’un des « modèles » est maintenant votre propre machine. Un design robuste bascule en local si le cloud est indisponible, de sorte que l’agent dégrade la qualité plutôt que de planter.
+Cela reflète l'idée de **routage des modèles** de la Leçon 16 — sauf qu’un des « modèles » est maintenant votre propre machine. Une conception robuste bascule sur le local quand le cloud est indisponible, ainsi la qualité de l’agent se dégrade doucement plutôt que de tomber en panne.
 
 ```mermaid
 flowchart LR
-    Q[Demande] --> S{Sensible ou hors ligne ?}
+    Q[Requête] --> S{Sensible ou hors ligne ?}
     S -->|oui| L[SLM local]
     S -->|non| C{Besoin d’un raisonnement approfondi ?}
     C -->|non| L
-    C -->|oui| Cloud[Modèle en cloud]
+    C -->|oui| Cloud[Modèle cloud]
     L --> Out[Réponse]
     Cloud --> Out
 ```
 
-## Atelier pratique : un assistant ingénieur local
+## Atelier pratique : un assistant d’ingénierie local
 
-Ouvrez [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) et travaillez dessus. Vous construirez un **assistant ingénieur local** qui fonctionne entièrement sur votre poste de travail et peut :
+Ouvrez [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) et suivez-le pas à pas. Vous construirez un **assistant d’ingénierie local** qui fonctionne entièrement sur votre poste de travail et peut :
 
 1. **Appeler des outils** — via l’appel de fonction Qwen avec Foundry Local.
-2. **Effectuer des opérations sur les fichiers locaux** — lister et lire les fichiers dans un répertoire projet.
-3. **Analyser le code** — fournir des métriques basiques sur un fichier source.
-4. **Rechercher dans la documentation** — RAG local sur un dossier docs avec Chroma.
-5. **Utiliser MCP** — se connecter à un serveur MCP local (avec une saute élégante si aucun n’est configuré).
+2. **Effectuer des opérations sur fichiers locales** — lister et lire des fichiers dans un dossier projet.
+3. **Analyser du code** — rapporter des métriques basiques sur un fichier source.
+4. **Chercher dans la documentation** — RAG local sur un dossier doc avec Chroma.
+5. **Utiliser MCP** — se connecter à un serveur MCP local (avec une omission gracieuse si aucun n’est configuré).
 
-Aucune inférence cloud n’est utilisée à aucun moment.
+Aucune inférence cloud n'est utilisée à aucun moment.
 
 ### Parcours guidé
 
-L’assistant se connecte à Foundry Local via le point de terminaison compatible OpenAI, donc le code de l’agent ressemble presque à celui des leçons cloud — seul le client change :
+L’assistant se connecte à Foundry Local via le point de terminaison compatible OpenAI, donc le code agent ressemble presque exactement à celui des leçons cloud — seul le client change :
 
 ```python
 from foundry_local import FoundryLocalManager
@@ -200,58 +200,58 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Notez la vérification du bac à sable — même en local, un outil qui lit des chemins arbitraires est un risque. Le notebook limite chaque outil à une racine de projet unique.
+Notez la vérification sandbox — même en local, un outil qui lit des chemins arbitraires est un risque. Le notebook limite chaque outil à une racine de projet unique.
 
 ## Vérification des connaissances
 
-Testez votre compréhension avant de passer à l’exercice.
+Testez votre compréhension avant de passer à l'exercice.
 
-**1. Donnez deux raisons concrètes d’exécuter un agent localement plutôt que dans le cloud.**
+**1. Donnez deux raisons concrètes pour exécuter un agent localement plutôt que dans le cloud.**
 
 <details>
 <summary>Réponse</summary>
 
-Deux parmi : **confidentialité** (le code et les données ne quittent pas la machine), **coût** (pas de facture d’inférence par token), et **capacité hors ligne** (fonctionne sans réseau — dans un avion, une installation sécurisée, ou lors d’une panne). Les contraintes réglementaires/compliantes qui interdisent d’envoyer les données hors de l’appareil sont un moteur commun de la raison confidentialité.
+N’importe lesquelles de ces deux : **confidentialité** (code et données ne quittent jamais la machine), **coût** (pas de facturation par token d'inférence), et **capacité hors ligne** (fonctionne sans réseau — en avion, dans une installation sécurisée, ou lors d'une panne). Les contraintes réglementaires/compliantes qui interdisent d’envoyer des données hors de l’appareil motivent souvent la confidentialité.
 </details>
 
-**2. Quelle est la répartition recommandée du travail entre un SLM et ses outils dans un agent local, et pourquoi ?**
+**2. Quelle est la division du travail recommandée entre un SLM et ses outils dans un agent local, et pourquoi ?**
 
 <details>
 <summary>Réponse</summary>
 
-Laissez le SLM **orchestrer** (décider quel outil appeler et avec quels arguments) et laissez les **outils faire le travail lourd** (lire les fichiers, récupérer les docs, calculer les résultats). Les SLM sont forts dans les décisions bornées comme la sélection d’outils mais plus faibles en connaissances étendues et en raisonnement multi-sauts longs, donc s’appuyer sur les outils joue sur leurs forces.
+Laissez le SLM **orchestrer** (décider quel outil appeler et avec quels arguments) et laissez les **outils faire le gros du travail** (lecture des fichiers, récupération des docs, calcul des résultats). Les SLM sont forts pour des décisions limitées comme le choix des outils mais faibles pour la connaissance générale large et le raisonnement multi-étapes long, donc reposer sur les outils joue sur leurs forces.
 </details>
 
-**3. Qu’est-ce qui rend possible la réutilisation du code d’agent cloud avec Foundry Local ?**
+**3. Qu’est-ce qui permet de réutiliser le code d’agents cloud avec Foundry Local ?**
 
 <details>
 <summary>Réponse</summary>
 
-Foundry Local expose un **point de terminaison HTTP compatible OpenAI**. Le SDK OpenAI et le client OpenAI du Agent Framework fonctionnent avec lui en ne changeant que le `base_url` (et en utilisant une clé API fictive locale). Tout le reste dans le code de l’agent reste identique.
+Foundry Local expose un **point de terminaison HTTP compatible OpenAI**. Le SDK OpenAI et le client OpenAI du Framework Agent fonctionnent avec lui en ne changeant que le `base_url` (et en utilisant une clé API locale factice). Tout le reste dans le code agent reste identique.
 </details>
 
-**4. Pourquoi utilisons-nous spécifiquement un modèle Qwen d’appel de fonctions plutôt qu’un SLM quelconque ?**
+**4. Pourquoi utilisons-nous spécifiquement un modèle Qwen d’appel de fonction plutôt qu’un autre SLM ?**
 
 <details>
 <summary>Réponse</summary>
 
-Parce qu’un agent doit produire des **appels d’outils** fiables et bien formés. De nombreux SLM peuvent chatter mais émettent des structures d’appels d’outils mal formées ou incohérentes. Les modèles Qwen sont entraînés pour l’appel de fonctions et produisent des appels d’outils cohérents, ce qui transforme un modèle de chat local en un agent local fonctionnel.
+Parce qu’un agent doit produire des **appels d’outil** fiables et bien formés. Beaucoup de SLM peuvent chatter mais émettent des structures d’appel d’outil mal formées ou incohérentes. Les modèles Qwen sont entraînés pour l’appel de fonction et produisent des appels cohérents, ce qui transforme un modèle de chat local en un agent local fonctionnel.
 </details>
 
-**5. Dans la chaîne RAG locale, quels composants s’exécutent sur la machine ?**
+**5. Dans la chaîne RAG locale, quels composants tournent sur la machine ?**
 
 <details>
 <summary>Réponse</summary>
 
-Tous : le modèle d’intégration, la base de vecteurs (Chroma, sur disque), l’étape de récupération, et le SLM. Les documents sont intégrés localement, stockés localement, récupérés localement, et traités par un modèle local — aucun composant ne communique avec le cloud.
+Tous : le modèle d’embedding, la base vectorielle (Chroma, sur disque), l’étape de récupération, et le SLM. Les documents sont embarqués localement, stockés localement, récupérés localement, et traités par un modèle local — aucun composant ne touche le cloud.
 </details>
 
-**6. Un serveur MCP local tourne sur votre machine. Est-il automatiquement sûr ? Quelle précaution devez-vous encore prendre ?**
+**6. Un serveur MCP local tourne sur votre machine. Cela le rend-il automatiquement sûr ? Quelle précaution devez-vous quand même prendre ?**
 
 <details>
 <summary>Réponse</summary>
 
-Non. Un serveur MCP local s’exécute avec les permissions de votre utilisateur, donc il peut accéder à tout ce que vous pouvez. Limitez-le à ce dont il a besoin (par exemple, un seul répertoire projet au lieu de tout votre dossier personnel) et traitez ses sorties comme des entrées à valider avant de les utiliser.
+Non. Un serveur MCP local tourne avec les permissions de votre utilisateur, donc il peut accéder à tout ce que vous pouvez. Limitez-le à ce dont il a besoin (par exemple, un seul dossier projet au lieu de tout votre dossier personnel) et traitez ses sorties comme des entrées à valider avant d’agir.
 </details>
 
 **7. Décrivez une règle de routage hybride sensée incluant un modèle local.**
@@ -259,55 +259,55 @@ Non. Un serveur MCP local s’exécute avec les permissions de votre utilisateur
 <details>
 <summary>Réponse</summary>
 
-Orientez les requêtes sensibles ou hors ligne vers le SLM local ; orientez les tâches simples et bornées vers le SLM local pour la vitesse et le coût ; orientez les raisonnements multi-sauts difficiles sur données non sensibles vers un modèle cloud ; et basculez sur le SLM local si le cloud est indisponible afin que l’agent dégrade élégamment au lieu de planter. C’est le routage de modèle (Leçon 16) avec la machine locale comme un des modèles.
+Orientez les requêtes sensibles ou hors ligne vers le SLM local ; orientez les tâches simples et délimitées vers le SLM local pour la rapidité et le coût ; orientez le raisonnement multi-étapes complexe sur données non sensibles vers un modèle cloud ; et basculez sur le SLM local si le cloud est indisponible afin que l’agent se dégrade avec grâce au lieu d’échouer. C’est le routage des modèles (Leçon 16) avec la machine locale comme l’un des modèles.
 </details>
 
-**8. Quelle est la quantité réaliste minimale de RAM pour exécuter l’agent local de cette leçon, et qu’apporte plus de RAM ?**
+**8. Quelle est une quantité réaliste de RAM minimale pour faire tourner l’agent local de cette leçon, et qu’est-ce que plus de RAM vous apporte ?**
 
 <details>
 <summary>Réponse</summary>
 
-Environ **8 Go** est un minimum réaliste ; 16 Go et plus est confortable. Plus de RAM vous permet d’exécuter des modèles plus grands et plus performants et de conserver plus de contexte en mémoire. Une GPU ou NPU accélère l’inférence mais n’est pas requise — Foundry Local sélectionne une version CPU s’il n’y a pas d’accélérateur disponible.
+Environ **8 Go** est un minimum réaliste ; 16 Go+ est confortable. Plus de RAM vous permet d’exécuter des modèles plus grands et plus performants et de garder plus de contexte en mémoire. Un GPU ou NPU accélère l’inférence mais n’est pas obligatoire — Foundry Local choisit une version CPU quand aucun accélérateur n’est disponible.
 </details>
 
 ## Exercice
 
-Étendez l’assistant ingénieur local en un **relecteur de documentation local** pour un petit projet de votre choix (utilisez un des dossiers de leçons de ce dépôt si vous voulez).
+Étendez l’assistant d’ingénierie local en un **relecteur de documentation local** pour un petit projet de votre choix (vous pouvez utiliser un des dossiers de leçon de ce dépôt si vous le souhaitez).
 
 Votre soumission doit :
 
 1. **Indexer un vrai dossier docs/code** dans Chroma (au moins cinq fichiers).
-2. **Ajouter un outil `find_todos`** qui analyse le projet pour les commentaires `TODO`/`FIXME` et les retourne avec fichier et numéro de ligne — en conservant la même vérification bac à sable que `read_file`.
+2. **Ajouter un outil `find_todos`** qui scanne le projet à la recherche des commentaires `TODO`/`FIXME` et les renvoie avec fichier et numéro de ligne — en conservant la même vérification sandbox que `read_file`.
 
-3. **Posez trois questions à l’agent** qui l’obligent à combiner des outils : une question purement RAG, une qui nécessite de lire un fichier spécifique, et une qui exige de trouver des TODO.
+3. **Posez trois questions à l'agent** qui l'obligent à combiner des outils : une question purement RAG, une qui nécessite de lire un fichier spécifique, et une qui exige de trouver des TODO.
 4. **Mesurez-le** : chronométrez chacune des trois réponses et notez-les dans une cellule markdown. Commentez si la latence est acceptable pour votre flux de travail prévu.
 
-Ensuite, écrivez un court paragraphe sur **ce que vous déplaceriez vers le cloud et ce que vous garderiez localement** pour cet évaluateur, et pourquoi. Vous êtes évalué sur la bonne connexion des composants locaux et sur la cohérence de votre raisonnement hybride — pas sur la qualité du modèle.
+Ensuite, rédigez un court paragraphe sur **ce que vous déplaceriez vers le cloud et ce que vous garderiez en local** pour ce réviseur, et pourquoi. Votre évaluation portera sur la bonne interconnexion des composants locaux et sur la solidité de votre raisonnement hybride — pas sur la qualité du modèle.
 
 ## Résumé
 
 Dans cette leçon, vous avez construit un agent qui fonctionne entièrement sur votre propre machine :
 
-- Les **SLMs** échangent l’étendue contre la confidentialité, le coût et le fonctionnement hors ligne — et excellent lorsqu’ils **orchestrent des outils** plutôt que de porter eux-mêmes toutes les connaissances.
-- **Foundry Local** sert des modèles en local derrière un **point de terminaison compatible OpenAI**, si bien que votre code d’agent cloud se transfère en changeant une seule ligne.
-- Les **modèles Qwen avec appels de fonction** rendent possible un appel fiable d’outils locaux — et donc des *agents* locaux.
-- Le **RAG local** (Chroma) et le **MCP local** donnent à l’agent ses capacités sans quitter la machine.
-- Les **modèles hybrides** vous permettent de router selon la sensibilité et la difficulté, avec local comme solution de repli élégante.
+- Les **SLMs** troquent la largeur de domaine pour la confidentialité, le coût et le fonctionnement hors ligne — et excellent lorsqu'ils **orchestrent des outils** plutôt que de porter eux-mêmes toute la connaissance.
+- **Foundry Local** sert des modèles sur l'appareil via un **point de terminaison compatible OpenAI**, de sorte que votre code d'agent cloud se transfère avec un changement d'une ligne.
+- Les **modèles Qwen à appels de fonction** permettent un appel local fiable d'outils — et donc des *agents* locaux.
+- Le **RAG local** (Chroma) et le **MCP local** donnent à l'agent la capacité sans quitter la machine.
+- Les **modèles hybrides** vous permettent de router selon la sensibilité et la difficulté, avec le local comme solution de secours élégante.
 
-Cela complète l’arc de déploiement : la Leçon 16 a développé les agents dans Microsoft Foundry, et cette leçon les a réduits sur une seule station de travail. La prochaine leçon porte sur la sécurisation des agents déployés.
+Cela complète l'arc de déploiement : la Leçon 16 a étendu les agents dans Microsoft Foundry, cette leçon les a réduits à une seule station de travail. La leçon suivante porte sur la sécurisation des agents déployés.
 
 ## Ressources supplémentaires
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Documentation Microsoft Foundry Local</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Documentation Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Documentation des appels de fonction Qwen</a>
-- <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Documentation sur les appels de fonction Qwen</a>
+- <a href="https://modelcontextprotocol.io/" target="_blank">Modèle Contextuel de Protocole (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Base de données vectorielle Chroma</a>
 
 ## Leçon précédente
 
-[Déployer des agents évolutifs](../16-deploying-scalable-agents/README.md)
+[Déploiement d'agents évolutifs](../16-deploying-scalable-agents/README.md)
 
 ## Leçon suivante
 

@@ -71,7 +71,7 @@ The code examples in these exercises utilize Microsoft Agent Framework with Micr
 
 This course uses the following AI Agent frameworks and services from Microsoft:
 
-- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/agent-framework/overview/)
 - [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
 Some code samples also support alternative OpenAI-compatible providers such as [MiniMax](https://platform.minimaxi.com/), which offers large-context models (up to 204K tokens). See the [Course Setup](./00-course-setup/README.md) for configuration details.
@@ -103,6 +103,7 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 | Building Trustworthy AI Agents               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Planning Design Pattern                      | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Multi-Agent Design Pattern                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+
 | Metacognition Design Pattern                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Agents in Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Using Agentic Protocols (MCP, A2A and NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
