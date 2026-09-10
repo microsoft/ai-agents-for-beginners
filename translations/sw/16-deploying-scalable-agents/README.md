@@ -1,155 +1,155 @@
-# Kuweka Wakala Zinazoweza Kupanuliwa na Microsoft Foundry
+# Kutumia Wakala Wanaoweza Kupanuka na Microsoft Foundry
 
-![Kuweka Wakala Zinazoweza Kupanuliwa](../../../translated_images/sw/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Kutumia Wakala Wanaoweza Kupanuka](../../../translated_images/sw/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Hadi hatua hii katika kozi umetengeneza makala za mawakala zinazotumia kompyuta yako kibao, ndani ya daftari, zinazoendeshwa na `az login` na baadhi ya vigezo vya mazingira. Hiyo ndio njia sahihi ya kujifunza. Sio njia sahihi ya kuendesha wakala ambaye maelfu ya wateja wanategemea saa 3 asubuhi.
+Hadi hatua hii katika kozi, umejenga mawakala wanaotumia kompyuta yako kibao, ndani ya daftari (notebook), wakiongozwa na `az login` na vigezo vya mazingira vichache. Hiyo ndiyo njia sahihi kabisa ya kujifunza. Siyo njia sahihi ya kuendesha wakala wa mteja elfu nyingi anategemea saa 3 asubuhi.
 
-Somo hili linahusu pengo kati ya "inavyofanya kazi kwenye kompyuta yangu" na "inavyofanya kazi, kwa kuaminika na kwa gharama nafuu, katika uzalishaji." Tunafunga pengo hilo kutumia **Microsoft Foundry** na **Huduma ya Wakala ya Microsoft Foundry**, na tunafanya hivyo kwa kuunda wakala halisi wa msaada kwa wateja ambaye ana zana, utafutaji, kumbukumbu, tathmini, na ufuatiliaji.
+Somo hili linahusu pengo kati ya "inafanya kazi kwenye mashine yangu" na "inafanya kazi, kwa kuaminika na kwa gharama nafuu, katika uzalishaji." Tunafunga pengo hilo kwa kutumia **Microsoft Foundry** na **Huduma ya Wakala wa Microsoft Foundry**, na tunafanya hivyo kwa kujenga wakala halisi wa msaada wa wateja anaaye na zana, upokeaji, kumbukumbu, tathmini, na ufuatiliaji.
 
 ## Utangulizi
 
 Somo hili litashughulikia:
 
-- Tofauti kati ya **wakala mfano** na **wakala aliyewekwa**, na kwa nini mabadiliko ni hasa kuhusu kila kitu *karibu* na mfano.
-- **Mitindo ya kuweka makala** kwa mawakala: mwenyeji wa mteja, mwenyeji wa huduma (Mawakala Wenyeji), na utaratibu wa mtiririko wa kazi.
-- **Mzunguko wa maisha wa wakala** kwenye Microsoft Foundry — tengeneza, toleo, weka, tathmini, tathmini, tembeza.
-- **Mikutano ya kupanua**: njia ya mfano, kuweka kumbukumbu, mfululizo, na muundo usio na hali.
-- **Ufuatiliaji** kwa OpenTelemetry na ufuatiliaji wa Foundry.
-- **Uboreshaji wa gharama** kupitia uteuzi wa mfano, njia, na milango ya tathmini.
-- **Mambo ya biashara**: usimamizi, idhini ya binadamu, na kuendesha seva za MCP kwa usalama katika uzalishaji.
+- Tofauti kati ya **wakala wa mfano (prototype)** na **wakala aliyeachiliwa (deployed agent)**, na kwa nini mabadiliko haya ni zaidi kuhusu kila kitu kinachozunguka *mfano*.
+- **Mifumo ya usambazaji** kwa mawakala: mteja mwenyeji, huduma mwenyeji (Hosted Agents), na utekelezaji wa mchakato wa kazi.
+- **Mzunguko wa maisha wa wakala** kwenye Microsoft Foundry — tengeneza, toa toleo, sambaza, tathmini, tazama, chukua hatua.
+- **Mikakati ya kupanua**: usambazaji wa mfano, kuhifadhi kwenye zamani, ufanisi wa kazi nyingi sambamba, na muundo usio na hali.
+- **Ufuatiliaji** kwa kutumia OpenTelemetry na ufuatiliaji wa Foundry.
+- **Uboreshaji wa gharama** kupitia uchaguzi wa mfano, usambazaji, na milango ya tathmini.
+- **Masuala ya shirika**: udhibiti, idhini ya binadamu, na kuendesha seva za MCP kwa usalama katika uzalishaji.
 
 ## Malengo ya Kujifunza
 
 Baada ya kumaliza somo hili, utajua jinsi ya:
 
-- Kuchagua njia sahihi ya kuweka kazi kwa mzigo wa kazi wa wakala fulani.
-- Kuongeza wakala kwenye Huduma ya Wakala ya Microsoft Foundry ili iwe na toleo, isimhamiwe, na iweze kuonekana.
-- Kuweka zana za ufuatiliaji na kuunganisha mtiririko wa tathmini unaotendeka kabla ya kila toleo.
-- Kutumia njia za mfano na kuweka kumbukumbu ili kudhibiti ucheleweshaji na gharama kwa kiwango kikubwa.
-- Kuongeza mlango wa ruhusa ya binadamu kwa vitendo vya hatari kubwa na kuunganisha seva ya MCP kwa njia salama ya uzalishaji.
+- Kuchagua mfumo sahihi wa usambazaji kwa mzigo kazi wa wakala fulani.
+- Kusambaza wakala kwa Huduma ya Wakala wa Microsoft Foundry ili uasilishe matoleo, udhibiti, na ufuatiliaji.
+- Kufunga kielelezo kwa wakala kwa ajili ya ufuatiliaji na kuunganisha mchakato wa tathmini unaofanyika kabla ya kutolewa kila mara.
+- Kutumia usambazaji na kuhifadhi kwa zamani kudhibiti ucheleweshaji na gharama katika kiwango kikubwa.
+- Kuongeza mlango wa idhini ya binadamu kwa vitendo vyenye hatari kubwa na kuunganisha seva ya MCP kwa njia salama ya uzalishaji.
 
-## Masharti ya Awali
+## Mahitaji Kabla ya Kuanzia
 
-Somo hili linadhani umehitimisha masomo ya awali na umeeleweka kwa:
+Somo hili linadhani umefanya masomo ya awali na uko na uelewa kuhusu:
 
-- Kujenga mawakala kwa kutumia [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Somo 14).
-- [Matumizi ya Zana](../04-tool-use/README.md) (Somo 4) na [Agentic RAG](../05-agentic-rag/README.md) (Somo 5).
-- [Kumbukumbu ya Wakala](../13-agent-memory/README.md) (Somo 13) na [Itifaki za Wakala / MCP](../11-agentic-protocols/README.md) (Somo 11).
-- [Ufuatiliaji na Tathmini](../10-ai-agents-production/README.md) (Somo 10) — somo hili linajengea moja kwa moja.
+- Kujenga mawakala kwa kutumia [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Somo la 14).
+- [Matumizi ya Zana](../04-tool-use/README.md) (Somo la 4) na [Agentic RAG](../05-agentic-rag/README.md) (Somo la 5).
+- [Kumbukumbu ya Wakala](../13-agent-memory/README.md) (Somo la 13) na [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Somo la 11).
+- [Ufuatiliaji na Tathmini](../10-ai-agents-production/README.md) (Somo la 10) — somo hili linaendelea moja kwa moja juu yake.
 
 Pia utahitaji:
 
-- **Usajili wa Azure** na **mradi wa Microsoft Foundry** wenye angalau mfano mmoja wa mazungumzo uliowekwa.
-- CLI ya **Azure** iliyothibitishwa (`az login`).
-- Python 3.12+ na vifurushi vilivyopo kwenye faili la kuhifadhi [`requirements.txt`](../../../requirements.txt).
+- **Usajili wa Azure** na **mradi wa Microsoft Foundry** uliokoa angalau mfano mmoja wa mazungumzo uliotolewa.
+- Microsoft Azure CLI yenye uthibitishaji (`az login`).
+- Python 3.12+ na mafaili ya maktaba yaliyo kwenye hifadhidata [`requirements.txt`](../../../requirements.txt).
 
-## Kutoka Mfano hadi Uzalishaji: Nini Kinabadilika Kwanza
+## Kutoka Katika Mfano Hadi Uzalishaji: Mabadiliko Halisi
 
-Wakala mfano na wakala wa uzalishaji wanashiriki mzunguko wa msingi — kufikiri, kuitisha zana, kujibu. Kinachobadilika ni kila kitu kilicho karibu na mzunguko huo. Mfano inaweza kuwa asilimia 20% ya wakala wa uzalishaji; asilimia 80% ni mfupa wa uendeshaji.
+Wakala wa mfano na wakala wa uzalishaji wanashiriki miganhu kuu — kufikiri, kuitisha zana, kujibu. Kinachobadilika ni kila kitu kilichozunguka mzunguko huo. Mfano ni takriban 20% ya wakala wa uzalishaji; asilimia 80 ni mwili wa uendeshaji.
 
-| Mambo | Mfano | Uzalishaji |
+| Hitilafu | Mfano | Uzalishaji |
 | --- | --- | --- |
-| **Ukaribishaji** | Hufanya kazi ndani ya daftari lako | Hufanya kazi kama huduma yenyeji, ina toleo na inasambazwa |
-| **Utambulisho** | Tokeni yako ya `az login` | Utambulisho uliodhibitiwa na RBAC inayozingatia mazingira |
-| **Hali** | Kwenye kumbukumbu, hupotea baada ya kuanzisha tena | Imehamishwa (hifadhi ya minyororo, huduma ya kumbukumbu) |
-| **Kushindwa** | Unaona kipindi cha hitilafu | Jaribu tena, kurudi nyuma, barua za kosa, tahadhari |
-| **Gharama** | "Ni senti chache" | Inafuatiliwa kwa kila ombi, inapangwa njia, inahifadhiwa, ina bajeti |
-| **Ubora** | Unatazama matokeo kwa jicho | Inathaminiwa kwa moja kwa moja kabla ya kila toleo |
-| **Uaminifu** | Unathibitisha kila kitendo | Sera + binadamu katika mzunguko kwa vitendo vyenye hatari |
+| **Ukaribu (Hosting)** | Inakwenda kwenye daftari lako | Inakwenda kama huduma ya mwenyeji, ina matoleo na inatolewa kidogo kidogo |
+| **Utambulisho** | Tokeni yako ya `az login` | Utambulisho uliodhibitiwa na RBAC iliyopangwa |
+| **Hali** | Kumbukumbu ndani ya kumbukumbu ya programu, hupotea baada ya kuanzishwa upya | Hifadhiwa nje (hifadhi za thread, huduma za kumbukumbu) |
+| **Kushindwa** | Unaona kurudi nyuma kwa makosa | Jaribu tena, njia mbadala, barua ya kufa, onyo |
+| **Gharama** | "Ni senti chache" | Inafuatiliwa kwa kila ombi, inachangiliwa, kuhifadhiwa kwenye bajeti |
+| **Ubora** | Unaangalia matokeo | Inapimwa moja kwa moja kabla ya kutolewa |
+| **Imani** | Unaruhusu kila kitendo | Sera + binadamu katika mzunguko kwa vitendo vyenye hatari |
 
-Kumbuka jedwali hili. Kila sehemu hapa chini inalingana na mstari mmoja wa meza hii.
+Hifadhi jedwali hili akilini. Kila sehemu iliyopo chini inaendana na moja ya safu hizi.
 
-## Mitindo ya Uwekaji wa Wakala
+## Mifumo ya Usambazaji wa Wakala
 
-Kuna mitindo mitatu utakayotumia, mara nyingi kwa mchanganyiko.
+Kuna mifumo mitatu utakayotumia, mara nyingi kwa pamoja.
 
 ### 1. Mawakala Wenyeji wa Mteja
 
-Kitu cha wakala kiko ndani ya mchakato wa programu yako. Msimbo wako unaita msambazaji wa mfano moja kwa moja; mzunguko wa kufikiri unakimbia katika huduma yako. Hii ndio somo lolote lililopita lililofanya.
+Kitu cha wakala kiko ndani ya mchakato wa programu yako. Nambari yako inatuma ombi moja kwa moja kwa mlengo wa mfano; mzunguko wa kufikiri unafanywa katika huduma yako. Hii ndio kila somo lililopita lililofanya.
 
-- **Tumia wakati** unahitaji udhibiti kamili wa mzunguko, middleware maalum, au unachoma wakala ndani ya backend iliyopo.
-- **Hasara**: unajitawala wewe mwenyewe katika upanuzi, hali, na ustahimilivu.
+- **Tumia hili wakati** unahitaji udhibiti kamili juu ya mzunguko, katikati ya programu maalum, au unajumuisha wakala ndani ya backend iliyopo.
+- **Kizuizi**: unamiliki utendaji wa kupanua, hali, na ustahimilivu mwenyewe.
 
-### 2. Mawakala Wenyeji (Huduma ya Wakala ya Foundry)
+### 2. Mawakala Wenyeji (Huduma ya Wakala Foundry)
 
-Wakala hurekebishwa kama *rasilimali* katika Microsoft Foundry. Foundry inakuja na mzunguko wa kufikiri, huhifadhi minyororo, hutekeleza usalama wa maudhui na RBAC, na huweka wakala wazi katika lango la Foundry. Programu yako inakuwa mteja mwembamba anayetengeneza minyororo na kusoma majibu.
+Wakala huandikishwa kama rasilimali kwenye Microsoft Foundry. Foundry inakumbuka mzunguko wa kufikiri, huhifadhi threads, inatekeleza miongozo ya usalama wa maudhui na RBAC, na huufanya wakala kuonekana kwenye lango la Foundry. Programu yako huwa mteja mwembamba anayetoa threads na kusoma majibu.
 
-- **Tumia wakati** unataka uimara, ufuatiliaji uliomo ndani, usimamizi, na eneo dogo la uendeshaji.
-- **Hasara**: udhibiti mdogo wa kiwango cha chini kwa kubadilishana na runtime iliyosimamiwa.
+- **Tumia hili wakati** unataka uimara, ufuatiliaji uliojengewa ndani, udhibiti, na eneo dogo la uendeshaji.
+- **Kizuizi**: udhibiti mdogo wa chini wa kiwango kwa kubadilishana na mazingira ya runtime yanayosimamiwa.
 
-### 3. Mtiririko wa Kazi wa Wakala
+### 3. Mchakato wa Kazi wa Wakala
 
-Mawakala wengi (na zana) huundwa kuwa grafu yenye mtiririko wa udhibiti ulio wazi — hatua mfululizo, matawi, nodi za idhini ya binadamu, na alama za kudumu zinazoweza kusimamishwa na kuanzishwa tena. Hii ni kipengele cha Microsoft Agent Framework **Mtiririko wa Kazi** kinachotumika kwenye kiwango cha uwekaji.
+Mawakala wengi (na zana) huunganishwa katika grafu yenye mchakato wa kudhibiti wazi — hatua mlianziliano, matawi, nodi za idhini ya binadamu, na sehemu za kumbukumbu zinazoweza kusitisha na kuendelea. Hii ni uwezo wa Microsoft Agent Framework **Workflows** unaotumika kwa kiwango cha usambazaji.
 
-- **Tumia wakati** kazi moja inahusisha mawakala maalum kadhaa au inahitaji hatua ya idhini katikati.
-- **Hasara**: sehemu nyingi zinazohamishika; inahitaji ufuatiliaji wa kiwango cha upangaji.
+- **Tumia hili wakati** kazi moja inahusisha mawakala maalum kadhaa au inahitaji hatua ya idhini katikati.
+- **Kizuizi**: sehemu nyingi zinazoelea; zinahitaji ufuatiliaji wa ngazi ya utaratibu.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Iliko Hifadhiwa na Mteja]
+    subgraph P1[Mteja Aliyeshikwa]
         A1[Mchakato wa Programu Yako] --> M1[Mtoa Mfano]
     end
-    subgraph P2[Wakili Aliyohifadhiwa]
-        A2[Mteja Mwembamba] --> F2[Huduma ya Wakili wa Foundry]
-        F2 --> M2[Mfano + Zana + Hifadhi ya Mfululizo]
+    subgraph P2[Wakala Aliyeshikwa]
+        A2[Mteja Mwembamba] --> F2[Huduma ya Wakala wa Foundry]
+        F2 --> M2[Mfano + Vifaa + Hifadhi ya Thread]
     end
-    subgraph P3[Mtiririko wa Kazi wa Wakili]
-        A3[Mpangaji] --> S1[Wakili wa Triage]
-        S1 --> S2[Wakili wa Suluhisho]
-        S2 --> H[Nodii ya Idhini ya Binadamu]
-        H --> S3[Wakili wa Hatua]
+    subgraph P3[Mwendo wa Kazi wa Wakala]
+        A3[Mratibu] --> S1[Wakala wa Kupanga Kwanza]
+        S1 --> S2[Wakala wa Kutatua]
+        S2 --> H[Kidude cha Uidhinishaji wa Binadamu]
+        H --> S3[Wakala wa Hatua]
     end
 ```
 
 ## Mzunguko wa Maisha wa Wakala kwenye Microsoft Foundry
 
-Kuweka wakala sio `push` mara moja tu. Ni mzunguko, na inaonekana kama mzunguko wa toleo la programu kwa sababu hiyo ndilo haswa jinsi ilivyo.
+Kusambaza wakala si *push* ya mara moja. Ni mzunguko, na inaonekana sana kama mzunguko wa kutolewa kwa programu maana hiyo ndio hasa.
 
 ```mermaid
 flowchart LR
     Create[Unda / Mwandishi] --> Version[Toleo]
     Version --> Evaluate[Tathmini bila mtandao]
-    Evaluate -->|pita lango| Deploy[Sambaza mwenyeji]
-    Evaluate -->|shindikana lango| Create
-    Deploy --> Observe[Chunguza mtandaoni]
-    Observe --> Improve[Kusanya kushindwa]
+    Evaluate -->|pita lango| Deploy[Weka mwenyeji]
+    Evaluate -->|shindwa lango| Create
+    Deploy --> Observe[Angalia mtandaoni]
+    Observe --> Improve[Kusanya matatizo]
     Improve --> Create
-    Deploy --> Retire[Punguza toleo la zamani]
+    Deploy --> Retire[Piga retirement toleo la zamani]
 ```
 
-Wazo kuu, lililoletwa kutoka [Somo la 10](../10-ai-agents-production/README.md): **tathmini ya nje ya mtandao ni mlango, sio jambo la mawazo tu.** Toleo jipya la wakala halipelekwi isipokuwa litafikia vizingiti vya tathmini. Ufuatiliaji wa mtandaoni basi unarejesha makosa ya dunia halisi kwenye seti yako ya majaribio ya nje ya mtandao. Huo ndio mzunguko mzima.
+Wazo kuu, lililotokana na [Somo la 10](../10-ai-agents-production/README.md): **tathmini isiyokuwa mtandaoni ni mlango, si mawazo ya ziada.** Toeneo jipya halitolewi hadi litakapovuka viwango vya tathmini. Ufuatiliaji mtandaoni huhamisha makosa halisi kwenye seti ya majaribio isiyo mtandaoni. Huyo ni mzunguko mzima.
 
 ## Mikakati ya Kupanua
 
-Kupanua wakala ni tofauti na kupanua API isiyo na hali ya mtandao wa wavuti, kwa sababu kila ombi linaweza kusababisha miito ya mfano na zana ghali. Mbinu nne zinafanya mzigo mkubwa.
+Kupanua wakala ni tofauti na kupanua API isiyo na hali, kwa sababu kila ombi linaweza kusababisha miito mingi ya mfano na zana za gharama kubwa. Mbinu nne zinabeba mzigo mkubwa zaidi.
 
-**Usimamizi wa ombi usio na hali.** Usihifadhi hali ya mtumiaji binafsi ndani ya kumbukumbu za mchakato wako. Hifadhi minyororo ya mazungumzo kwenye hifadhi ya minyororo ya Foundry au huduma ya kumbukumbu ili mfano wowote uweze kushughulikia ombi lolote. Hii ndio inakuwezesha kupanua kwa usawa — ongeza mifano, hakuna vikao vya kubana.
+**Usimamizi wa maombi isiyo na hali.** Usihifadhi hali ya mtumiaji katika kumbukumbu ya mchakato wako. Hifadhi mazungumzo kwenye hifadhi ya thread ya Foundry au huduma ya kumbukumbu ili mfano wowote uweze kushughulikia ombi lolote. Hii ndio inayokuwezesha kupanua kwa wima — ongeza mfano, hakuna vikao vilivyofungwa.
 
-**Kuongoza mfano.** Sio kila ombi linahitaji mfano wako mwenye uwezo mkubwa (na gharama kubwa). Elekeza maombi rahisi — utofautishaji wa nia, majibu mafupi ya ukweli — kwa mfano mdogo, haraka, na uhifadhi mfano mkubwa kwa kufikiri halisi. **Model Router** ya Foundry inaweza kufanya hili kwa ajili yako, au unaweza kutekeleza kitambulisho cha mwanga mwenyewe. Utajenga toleo la DIY katika maabara.
+**Usambazaji wa mfano.** Siyo kila ombi linahitaji mfano wako wenye uwezo mkubwa (na gharama kubwa). Tuma maombi rahisi — utambuzi wa nia, majibu mafupi ya ukweli — kwa mfano mdogo na haraka, na uhifadhi mfano mkubwa kwa sababu ya kufikiri kweli. **Model Router** ya Foundry inaweza kufanya hili kwako, au unaweza kutekeleza mkeni mwepesi mwenyewe. Utajenga toleo la DIY maabara.
 
-**Kuweka majibu kwenye kumbukumbu.** Maswali mengi ya msaada ni karibu nakala ("jinsi ya kuweka upya nenosiri langu?"). Hifadhi majibu ya maswali ya kawaida na uyahudumie bila kuhitaji kuhitaji mfano kabisa. Hata viwango vya wastani vya kufikia kumbukumbu hupunguza gharama na ucheleweshaji kwa maana.
+**Kuweka majibu kwenye cache.** Maswali mengi ya msaada ni karibu nakala ("ninawezaje kuweka upya nenosiri langu?"). Hifadhi majibu ya maswali yanayojirudia mara nyingi na uwasilishe bila kugonga mfano kabisa. Hata kiwango kidogo cha hits kwenye cache hupunguza gharama na ucheleweshaji kwa maana.
 
-**Mfululizo na shinikizo la nyuma.** Watoa mfano wana mipaka ya viwango. Ziba mfululizo wako, tumia jaribio upya na kuongezeka kwa mvutano, na shindwa kwa heshima (jibu la queued "tuko kwenye hili" ni bora kuliko kosa la 500).
+**Ufanisi wa kazi nyingi na kuzuia msukumo.** Watoa huduma wa mfano wana mipaka ya mzunguko wa maombi. Punguza idadi ya maombi yanayoshughulikiwa kwa wakati mmoja, tumia jaribio tena zenye mbadala za mwinuko, na shindwa kwa hila (jibu la queued "tuko nayo" ni bora kuliko kosa la 500).
 
 ```mermaid
 flowchart LR
-    Q[Swali la mtumiaji] --> C{Je, cache imepatikana?}
-    C -->|ndiyo| R[Rudisha jibu lililohifadhiwa]
-    C -->|hapana| Router{Ugumu?}
-    Router -->|rahisi| SLM[Mfano mdogo]
-    Router -->|mgumu| LLM[Mfano mkubwa]
+    Q[Uchunguzi wa mtumiaji] --> C{Je, cache imepatikana?}
+    C -->|Ndiyo| R[Rudisha jibu lililohifadhiwa]
+    C -->|Hapana| Router{Ugumu?}
+    Router -->|Rahisi| SLM[Mfano mdogo]
+    Router -->|Changamano| LLM[Mfano mkubwa]
     SLM --> Out[Jibu]
     LLM --> Out
-    Out --> Store[Cache + ufuatiliaji]
+    Out --> Store[Cache + njia]
 ```
 
-## Ufuatiliaji katika Uzalishaji
+## Ufuatiliaji Katika Uzalishaji
 
-Huwezi kuendesha kile usichokiona. Kama ilivyofunikwa katika Somo la 10, Microsoft Agent Framework hutoa **OpenTelemetry** utaalamu moja kwa moja — kila wito wa mfano, mwitikio wa zana, na hatua ya upangaji huwa sehemu ya picha. Katika uzalishaji unaongoza picha hizo kwa Microsoft Foundry (au backend yoyote inayoungwa mkono na OTel) ili uweze:
+Huwezi kuendesha unavyojua, na huwezi kujua usiposoma. Kama ilivyoripotiwa kwenye Somo la 10, Mfumo wa Wakala wa Microsoft hutuma **OpenTelemetry** kwa kawaida — kila wito wa mfano, miito ya zana, na hatua za utaratibu huwa ni muda. Katika uzalishaji unasafirisha vipindi hivyo kwenda Microsoft Foundry (au hosti yoyote inayoungwa mkono OTel) ili uweze:
 
-- Kufuatilia malalamiko moja kwa moja ya mteja kutoka mwanzo hadi mwisho kwa kila wito wa mfano na zana.
-- Kuangalia ucheleweshaji wa p50/p95 na gharama kwa kila ombi kwa muda.
-- Kutoa tahadhari juu ya kuongezeka kwa viwango vya makosa na tofauti za gharama kabla ya watumiaji wako (au timu yako ya fedha) kuona.
+- Fuata malalamiko la mteja mmoja kutoka mwanzo hadi mwisho kupitia kila wito wa mfano na zana.
+- Angalia ucheleweshaji wa p50/p95 na gharama kwa kila ombi kwa muda.
+- Taarifu juu ya mlipuko wa makosa na mabadiliko ya gharama kabla ya watumiaji wako (au timu yako ya fedha) kuona.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,74 +159,74 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # utekelezaji wa wakala unafuatiliwa kiotomatiki ndani ya kipindi hiki
+    # utekelezaji wa wakala unafuatiliwa moja kwa moja ndani ya kipindi hiki
 ```
 
-Sifa kama `customer.tier` na `routed.model` ndizo zinazofanya kuta za picha kuwa maswali yanayojibiwa ("je, wateja wa biashara wanaelekezwa kwa mfano mdogo sana mara nyingi?").
+Sifa kama `customer.tier` na `routed.model` ndizo zinazotafsiri mgawanyiko wa vipindi kuwa maswali yanayojibiwa ("je, wateja wa shirika wanatumwa mara nyingi kwenye mfano mdogo?").
 
 ## Uboreshaji wa Gharama
 
-Gharama katika mawakala wa uzalishaji inatawaliwa na tokens. Vifunguo vitatu, kwa mpangilio wa athari:
+Gharama katika mawakala wa uzalishaji hutawaliwa na tokeni. Zinaweza kudhibitiwa kwa njia tatu, kwa mpangilio wa athari:
 
-1. **Kuwa na mfano unaofaa.** Mfano mdogo unaopita mlango wako wa tathmini karibu daima ni nafuu kuliko mkubwa pia unaopita. Tumia tathmini kuthibitisha mfano mdogo unatosha badala ya kuchagua mfano mkubwa kwa tahadhari.
-2. **Elekeza kwa ugumu.** Kama ilivyo hapo juu — linda gharama za mfano mkubwa kwa maombi yanayohitaji kufikiri kwa mfano mkubwa.
-3. **Hifadhi kwa nguvu.** Wito wa mfano wa bei nafuu ni ule usiowahi kufanya.
+1. **Pima mfano kwa saizi sahihi.** Mfano mdogo unaopita mlango wa tathmini kawaida huwa nafuu zaidi kuliko mfano mkubwa pia unaopita. Tumia tathmini kuonyesha *mfano mdogo ni mzuri* badala ya kutumia mfano mkubwa kwa tahadhari.
+2. **Tuma kulingana na ugumu.** Kama hapo juu — lipa bei ya mfano mkubwa kwa maombi yanayohitaji mfano mkubwa kuzingatia.
+3. **Hifadhi kwa ukali.** Wito wa mfano wa bei nafuu ni ule usiofanywa kamwe.
 
-Milango ya tathmini na udhibiti wa gharama ni nidhamu sawa inayotazamwa kutoka mwelekeo miwili: tathmini inakuambia *kifundo cha ubora*, njia na kuweka kumbukumbu zinakusogeza karibu na *gharama* ya msingi huo iwezekanavyo.
+Milango ya tathmini na udhibiti wa gharama ni maadili sawa yanayoangaliwa kwa pembe mbili: tathmini inakuambia *katika kiwango cha ubora*, usambazaji na kuhifadhi vinakusalia karibu na *gharama* ya kiwango hicho.
 
-## Mambo ya Biashara katika Uwekaji
+## Masuala ya Kupelekwa Kwa Mazingira ya Shirika
 
-**Usimamizi.** Mawakala Wenyeji waletewa maeneo ya RBAC, usalama wa maudhui, na kumbukumbu za ukaguzi za Foundry. Mpa kila wakala utambulisho unaosimamiwa uliyo na njia ndogo inayohitajika — ufikiaji wa kusoma tu kwa hifadhi ya maarifa, ufikiaji wa kanda kwa API ya tiketi, hakuna zaidi.
+**Udhibiti.** Mawakala wenyeji wanarithi RBAC, usalama wa maudhui, na ufuatiliaji wa audit wa Foundry. Mpe kila wakala utambulisho ulio na mipaka midogo tu inayohitajika — ufikivu wa kusoma kwenye hifadhidata, ufikivu wa API ya tiketi, hakuna zaidi.
 
-**Binadamu katika mzunguko.** Vitendo vingine ni muhimu mno kufanya moja kwa moja — kutoa marejesho, kufuta akaunti, kuhamisha kwa timu ya sheria. Microsoft Agent Framework inaunga mkono zana za **inazohitaji idhini**: wakala hupendekeza kitendo, utekelezaji unasimamishwa, binadamu anathibitisha au kukataa, na mtiririko wa kazi unaendelea. Uliiona dhahiri katika [Somo 6](../06-building-trustworthy-agents/README.md); hapa unaweka.
+**Binadamu katika mzunguko.** Vitendo vingine ni muhimu mno kuamilishwa moja kwa moja — kutoa marejesho, kufuta akaunti, kupeleka kwa timu ya sheria. Mfumo wa Wakala wa Microsoft unaunga mkono zana zinazoomba **idhini**: wakala hupendekeza kitendo, utekelezaji unasitishwa, binadamu anaruhusu au anakataa, na mchakato unaendelea. Uliona mfano wake katika [Somo la 6](../06-building-trustworthy-agents/README.md); hapa unautumia.
 
-**MCP katika uzalishaji.** [MCP](../11-agentic-protocols/README.md) inaruhusu wakala wako kutumia zana za nje kupitia kiolesura cha kawaida. Katika uzalishaji, chukulia seva yoyote ya MCP kama mpaka usio na kuaminika: weka toleo la seva, iendeshe na utambulisho wa kanda, hakikisha matokeo yake, na usiichulishe siri. Seva ya MCP ni tegemezi, na tegemezi hupata marekebisho, ukaguzi, na mipaka ya viwango.
+**MCP katika uzalishaji.** [MCP](../11-agentic-protocols/README.md) huruhusu wakala wako kutumia zana za nje kupitia kiolesura cha kitaalamu. Katika utendaji, chukuliana na kila seva ya MCP kama mpaka usioaminika: futilia toleo la seva, endesha na utambulisho ulio na mipaka, thibitisha matokeo yake, na usiwape siri. Seva ya MCP ni tegemezi, na tegemezi hupatiwa viraka, kufanyiwa ukaguzi, na mipaka ya mzunguko.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Miundo ya Maendeleo]
+    subgraph Dev[Miundombinu ya Maendeleo]
         D1[Daftari] --> D2[Mfumo wa Wakala]
         D2 --> D3[Mtoa Mfano]
-        D2 --> D4[Vyombo vya ndani]
+        D2 --> D4[Vifaa vya Mahali]
     end
-    subgraph Deploy[Miundo ya Uwasilishaji]
+    subgraph Deploy[Miundombinu ya Utekelezaji]
         E1[Mlolongo wa CI] --> E2[Mlango wa Tathmini]
-        E2 -->|pita| E3[Huduma ya Wakala ya Foundry]
-        E3 --> E4[Wakala mwenye toleo lililotangazwa]
+        E2 -->|pita| E3[Huduma ya Wakala wa Foundry]
+        E3 --> E4[Wakala mwenye toleo lililohifadhiwa]
     end
-    subgraph Run[Muundo wa Muda wa Uendeshaji]
-        F1[Programu ya mteja] --> F2[Wakala aliyeandaliwa]
-        F2 --> F3[Kituo cha Mfano]
+    subgraph Run[Miundombinu ya Kukimbia]
+        F1[App ya mteja] --> F2[Wakala aliyohifadhiwa]
+        F2 --> F3[Kiolezo cha Mfano]
         F2 --> F4[Azure AI Search RAG]
         F2 --> F5[Huduma ya Kumbukumbu]
-        F2 --> F6[Vyombo vya MCP]
+        F2 --> F6[Vifaa vya MCP]
         F2 --> F7[OTel -> Ufuatiliaji wa Foundry]
-        F2 --> F8[Idhini ya binadamu]
+        F2 --> F8[Idhini ya Binadamu]
     end
 ```
 
-Mchoro huo tatu — maendeleo, kuweka, wakati wa kuendesha — ni wakala mmoja katika hatua tatu za maisha yake. Maabara inayofuata itakuongoza unavyomjenga.
+Michoro hiyo mitatu — maendeleo, usambazaji, runtime — ni wakala yule yule katika hatua tatu za maisha yake. maabara inayofuata itakuongoza jinsi ya kuijenga.
 
 ## Maabara ya Vitendo: Wakala wa Msaada wa Wateja Tayari kwa Uzalishaji
 
-Fungua [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) na fanya kazi yake kutoka mwanzo hadi mwisho. Utaunganisha **wakala wa msaada wa wateja wa Contoso** na kila jambo la uzalishaji limeunganishwa:
+Fungua [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) na ifanyie kazi kutoka mwanzo hadi mwisho. Utajenga **wakala wa msaada wa wateja wa Contoso** yenye kila hitilafu za uzalishaji zilizounganishwa:
 
 1. **Kuitisha zana** — angalia hali ya oda na fungua tiketi za msaada.
-2. **RAG** — jibu maswali ya sera kutoka kwenye hifadhi ya maarifa (Azure AI Search, na mbadala wa kumbukumbu ya ndani ili daftari lifanye kazi bila rasilimali ya Search).
+2. **RAG** — jibu maswali ya sera kutoka kwenye hifadhidata ya maarifa (Azure AI Search, na kengele ya kumbukumbu ya ndani ili daftari lifanye kazi bila rasilimali ya Search).
 3. **Kumbukumbu** — kumbuka mteja katika mizunguko ya mazungumzo.
-4. **Kuongoza mfano** — kitambulisho cha ugumu kinaelekeza kila ombi kwa mfano mdogo au mkubwa.
-5. **Kuweka majibu kwenye kumbukumbu** — maswali yanayorudiwa huhudumiwa kutoka kumbukumbu.
-6. **Idhini ya binadamu** — marejesho yaliyo juu ya kikomo yasimamishe mchakato kwa idhini ya binadamu.
-7. **Mtiririko wa tathmini** — seti ndogo ya majaribio ya nje ya mtandao hupima wakala na kufanya kama mlango wa toleo.
-8. **Ufuatiliaji** — ufuatiliaji wa OpenTelemetry karibu na kila ombi.
+4. **Usambazaji wa mfano** — mtoaji wa ugumu hutuma kila ombi kwa mfano mdogo au mkubwa.
+5. **Kuhifadhi majibu** — maswali yanayojirudia hurudishwa kutoka katika cache.
+6. **Idhini ya binadamu** — marejesho yaliyoko juu ya kikomo husubiri idhini ya binadamu.
+7. **Mchakato wa tathmini** — seti ndogo ya majaribio isiyohitaji mtandao hupima wakala na kuwa mlango wa kutolewa.
+8. **Ufuatiliaji** — ufuatiliaji wa OpenTelemetry kwa kila ombi.
 
-### Mwongozo
+### Maelekezo
 
-Daftari limepangwa hivyo kila jambo la uzalishaji ni sehemu huru yenyeweza kuendeshwa. Msingi wake ni msimamizi wa ombi wa njia na kumbukumbu:
+Daftari limepangwa kwa kila hitilafu ya uzalishaji kuwa sehemu huru inayoweza kuendesha. Msingi wake ni msimamizi wa maombi yenye usambazaji-zaidi-kuhifadhi:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Hudumia kutoka kwenye cache tunapoweza.
+    # 1. Hudumia kutoka kwa cache tunapoweza.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
@@ -234,18 +234,18 @@ async def handle_support_request(query: str, customer_id: str) -> str:
     # 2. Pitia kwa ugumu ili kudhibiti gharama.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Endesha wakala ndani ya eneo la kufuatilia kwa uangalifu.
+    # 3. Endesha wakala ndani ya eneo la ufuatiliaji kwa ajili ya uangalizi.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Hifadhi kwenye cache na rudisha.
+    # 4. Hifadhi na rudisha.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Mlango wa tathmini unaolinda toleo unaonekana hivi:
+Mlango wa tathmini unaolinda kutolewa unaonekana hivi:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # tuma tu ikiwa lango linafaa
+    return pass_rate >= threshold  # tengeneza tu ikiwa lango litapita
 ```
 
-Soma kila mstari — daftari linahifadhi vitu vya msingi kwa ukubwa mdogo ili hakuna kitu kifikie nyuma ya wito wa fremu.
+Soma kila mstari — daftari linahifadhi mifumo midogo kwa makusudi ili hakuna kitu kifiche nyuma ya wito wa mfumo.
 
-## Kuhakiki Wakala Aliyewekwa kwa Majaribio ya Moshi
+## Kuhakiki Wakala Aliye Sambazwa kwa Majaribio ya Punguza Hatari (Smoke Tests)
 
-Mlango wa tathmini hapo juu unafanyika *nje ya mtandao* dhidi ya kitu cha wakala wako. Mara wakala anapowekwa kama Wakala Mwenyeji, unahitaji ukaguzi mwingine wa gharama nafuu zaidi: **je, sehemu ya kuweka ni kujibu kweli?**
+Mlango wa tathmini hapo juu hufanya kazi *isipokuwa mtandaoni* dhidi ya kitu cha wakala wako. Mara wakala anapowekwa kama Wakala Mwenyeji, unahitaji ukaguzi mwingine, hata rahisi zaidi: **je, sehemu iliyo sambazwa inajibu kweli?**
 
-Kuweka "kwa mafanikio" kunathibitisha tu kuwa bodi ya udhibiti ilikubali ufafanuzi — hakuthibitishi wakala anajibu. Kutokuwepo kwa tegemezi, njia mbaya ya mfano, au muunganisho uliokufa unaweza kuacha uwekaji wa kijani usilorejeshe chochote. **Jaribio la moshi** linakamata hilo kwa sekunde, kila kuweka, bila gharama ya tathmini kamili.
+Kusambaza "kwa mafanikio" kunathibitisha kwamba mfumo wa udhibiti umekubali maelezo — si kuthibitisha wakala anajibu. Kutanakili tegemezi, usambazaji mbaya wa mfano, au muunganisho uliotia muda ukifika kunaweza kusababisha usambazaji wenye rangi ya kijani asiotoe chochote. **Jaribio la punguza hatari (smoke test)** linakuta hilo ndani ya sekunde, kila mara unaposambaza, bila gharama ya tathmini kamili.
 
-Hifadhi hii inaleta mtiririko wa jaribio la moshi tayari kutumika uliojengwa kwa Njia ya [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub:
+Hifadhidata hii inaleta bomba la jaribio la punguza hatari tayari kutumia lililojengwa kwenye Kitendo cha GitHub cha [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
 
-- **Katalogi** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) ina maelekezo na masharti kwa wakala wa msaada wa Contoso (majibu ya sera zilizo thibitishwa, utaftaji wa oda, kubaki katika mada, na mfululizo wa mazungumzo ya mizunguko mingi). Katalogi kwa mawakala wa masomo mengine zipo karibu nayo — angalia [`tests/README.md`](../tests/README.md).
-- **Mtiririko wa kazi** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) inaingia kwa Azure OIDC na POSTs kila maelekezo kwenye sehemu ya Majibu ya wakala, na kufeli kazi yoyote ikikosea katika masharti.
+- **Katalogi** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) ina ombi na uthibitisho kwa wakala msaada wa Contoso (majibu ya sera yaliyothibitishwa, kuangalia oda, kubaki kwenye mada, na kuendeleza kipindi cha mazungumzo). Catalog za mawakala kutoka masomo mengine zipo pamoja na hii — angalia [`tests/README.md`](../tests/README.md).
+- **Mchakato wa kazi** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) huingia kwa Azure OIDC na hutuma POST kila ombi kwa sehemu ya majibu ya wakala, na kushindwa kama uthibitisho wowote unakosa.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -282,120 +282,120 @@ Hifadhi hii inaleta mtiririko wa jaribio la moshi tayari kutumika uliojengwa kwa
 ```
 
 
-Endesha kutoka kwenye kichupo cha **Actions** mara tu wakala wako anapowekwa, ukitoa endpoint ya mradi wa Foundry na jina la wakala. Kitambulisho cha kidemokrasia kinahitaji jukumu la **Azure AI User** katika muktadha wa mradi wa Foundry. Fikiria tabaka kama piramidi: majaribio ya moshi (yanafikika na kuyajibu?) yanaendeshwa kila mara kupelekwa, tathmini za nje ya mtandao (za kutosha kupeleka?) zinaendeshwa kabla ya kupandishwa hadhi, na tathmini za mtandao (inaendaje katika mazingira halisi?) zinaendeshwa mara kwa mara.
+Endesha kutoka kwenye kichupo cha **Actions** mara tu wakala wako anapowekwa, ukitoa kiunganishi cha mradi wa Foundry na jina la wakala. Kitambulisho kilichounganishwa kinahitaji jukumu la **Azure AI User** katika upeo wa mradi wa Foundry. Fikiria tabaka kama piramidi: vipimo vya moshi (vifikike na vinajibu?) vinaendeshwa kila kuweka, tathmini ya mtandaoni (ni nzuri vya kutosha kusafirisha?) hufanyika kabla ya kukuza, na tathmini ya mtandao (inafanya vipi katika mazingira halisi?) hufanyika kwa mfululizo.
 
-## Ukaguzi wa Maarifa
+## Kagua Maarifa
 
-Jaribu uelewa wako kabla ya kuhamia kwenye kazi.
+Jaribu uelewa wako kabla ya kuendelea na kazi.
 
-**1. Takriban wakala wa uzalishaji una kiasi gani cha "mfano," na sehemu nyingine ni nini?**
+**1. Kiasi gani kwa takriban cha wakala wa uzalishaji ni "mfano," na ni nini kingine?**
 
 <details>
 <summary>Jibu</summary>
 
-Mfano ni asilimia ndogo ya mfumo — mara nyingi inatajwa kuwa takriban 20%. Sehemu nyingine ni mifupa ya uendeshaji: kuhifadhi na kusimamia matoleo, utambulisho na RBAC, hali iliyotolewa nje, kushughulikia mabaya, kufuatilia gharama, tathmini, na udhibiti wa mwanadamu ndani ya mzunguko. Kuenda kwenye uzalishaji ni zaidi kuhusu kujenga kila kitu *kuhusu* mzunguko wa hoja.
+Mfano ni sehemu ndogo ya mfumo — mara nyingi inatajwa kuwa karibu asilimia 20%. Sehemu nyingine ni mifupa ya uendeshaji: kuhudumia na kuweka toleo, utambulisho na RBAC, hali iliyotengwa, utunzaji wa kushindwa, ufuatiliaji wa gharama, tathmini, na udhibiti wa binadamu ndani ya mzunguko. Kuenda katika uzalishaji ni hasa kuhusu kujenga kila kitu *kuzunguka* mzunguko wa kufikiri.
 </details>
 
-**2. Ungechagua lini Wakala Aliyehifadhiwa kwa mwenyeji kuliko wakala anayeendeshwa na mteja?**
+**2. Utachagua Wakala Anayehudumiwa (Hosted Agent) badala ya wakala anayehudumiwa na mteja lini?**
 
 <details>
 <summary>Jibu</summary>
 
-Unapotaka mazingira ya utekelezaji yaliyosimamiwa yenye uimara uliojengewa ndani (threadi zinazodumu na zinaweza kuendelea), uwezo wa kuangalia, usalama wa maudhui, na RBAC, na uko tayari kubadilisha udhibiti mdogo wa mzunguko wa hoja kwa eneo dogo zaidi la uendeshaji. Wakala aliyehifadhiwa na mteja ni bora wakati unahitaji udhibiti kamili juu ya mzunguko au unapojumuisha wakala katika backend iliyopo.
+Ukitaka mazingira ya kuendesha yaliyo simamiwa yenye uimara wa kujengwa ndani (mishale inayodumu na inaweza kuendelea), ufuatiliaji, usalama wa maudhui, na RBAC, na uko tayari kubadilisha udhibiti mdogo wa mzunguko wa kufikiri kwa eneo dogo la uendeshaji. Kilihudumiwa na mteja kinapendelewa unapotaka udhibiti kamili juu ya mzunguko au unapoingiza wakala kwenye backend iliyopo.
 </details>
 
-**3. Kwa nini wakala anayeweza kupanuka lazima awe hawezi kuhifadhi hali (stateless) kwenye kumbukumbu ya mchakato wake?**
+**3. Kwanini wakala anayeweza kupanuka lazima awe hauna hali (stateless) katika kumbukumbu ya mchakato wake?**
 
 <details>
 <summary>Jibu</summary>
 
-Ili mfano wowote uweze kushughulikia ombi lolote, hili ndilo linaloruhusu upanuzi wa wima (horizontal scaling) bila vipindi ambavyo vinabana (sticky sessions). Hali ya mazungumzo kwa mtumiaji huwekwa nje kwa kuhifadhi thread au huduma ya kumbukumbu. Ikiwa hali ingekaa kwenye kumbukumbu ya mchakato, ungeipoteza wakati wa kuanzisha tena na usingeweza kugawanya mzigo kwa uhuru.
+Ili mfano wowote uendeleze ombi lolote, ambalo ndilo linaoruhusu upanuzi wima bila vikao vinavyoshikamana. Hali ya mazungumzo kwa mtumiaji mmoja huhifadhiwa nje katika duka la mishale au huduma ya kumbukumbu. Ikiwa hali ingeishi katika kumbukumbu ya mchakato, ungeipoteza wakati wa kuanza upya na hungeweza kusambaza mzigo kwa uhuru.
 </details>
 
-**4. Nguvu gani ya kuongoza mfano (model routing) hutatua, na inahusishwaje na tathmini?**
+**4. Tatizo gani husuluhishwa na upangaji wa mifano, na linahusianaje na tathmini?**
 
 <details>
 <summary>Jibu</summary>
 
-Kuongoza kunaelekeza maombi rahisi kwa mfano mdogo, wa bei nafuu na wa haraka na kuhifadhi mfano mkubwa kwa hoja halisi, kudhibiti ucheleweshaji na gharama. Inahusiana na tathmini kwa sababu tathmini ndiyo *inadhibitisha* kwamba mfano mdogo ni wa kutosha kwa daraja la maombi — kuongoza bila tathmini ni kufikiria tu.
+Upangaji hutuma maombi rahisi kwa mfano mdogo, wa bei nafuu, na wa haraka na kuweka mfano mkubwa kwa ajili ya kufikiri halisi, kudhibiti ucheleweshaji na gharama. Linahusiana na tathmini kwa sababu tathmini ndio *inaonyesha* kuwa mfano mdogo ni mzuri vya kutosha kwa darasa la maombi — upangaji bila tathmini ni kubahatisha.
 </details>
 
-**5. Ni nini "mlango wa tathmini" na unaekea wapi katika mzunguko wa maisha?**
+**5. Ni nini "mlango wa tathmini" na upo wapi katika mzunguko wa maisha?**
 
 <details>
 <summary>Jibu</summary>
 
-Mlango wa tathmini hufanya mtihani wa nje wa offline dhidi ya toleo jipya la wakala na kuzuia kupelekwa isipokuwa kiwango cha kupita kinavuka kikomo fulani. Unakaa kati ya "toleo" na "kupelekwa" katika mzunguko wa maisha, na kuifanya ubora kuwa sharti la awali la kutolewa badala ya kitu unachokagua baada ya kusafirisha.
+Mlango wa tathmini hufanya seti ya vipimo ya mtandaoni dhidi ya toleo jipya la wakala na kuzuia uenezaji isipohitimu kiwango cha kupitisha. Upatikana kati ya "toleo" na "kueneza" katika mzunguko wa maisha, kufanya ubora kuwa sharti la kabla ya kutolewa badala ya kitu unachosahau baada ya usafirishaji.
 </details>
 
-**6. Kwa nini seva ya MCP inapaswa kutendewa kama mpaka usioaminika katika uzalishaji?**
+**6. Kwanini seva ya MCP inapaswa kutazamwa kama mipaka isiyoheshimiwa katika uzalishaji?**
 
 <details>
 <summary>Jibu</summary>
 
-Kwa sababu ni utegemezi wa nje ambao wakala wako huuita. Unapaswa kuweka toleo lake mahususi, kulitumia kwa kitambulisho chenye muktadha maalum, kuthibitisha matokeo yake, kuweka kikomo cha mara kwa mara, na usiwafichue siri kamwe — nidhamu ileile unayoitumia kwa utegemezi wowote wa mtu wa tatu. Matokeo yake huingia katika hoja za wakala wako, hivyo kuamini bila kuthibitisha ni hatari ya usalama.
+Kwa sababu ni utegemezi wa nje ambao wakala wako huuita. Unapaswa kuweka toleo lake, kuendesha na utambulisho ulio na upeo, kuthibitisha matokeo yake, kuweka kikomo cha idadi, na usiiseme siri zake — nidhamu ile ile unayotumia kwa utegemezi wowote wa mtu wa tatu. Matokeo yake huingia kwenye mzunguko wa kufikiri wa wakala wako, hivyo kuamini bila kuthibitisha ni hatari ya usalama.
 </details>
 
-**7. Mabadiliko gani moja kwa moja mara nyingi huathiri zaidi gharama ya wakala wa uzalishaji, na kwa nini?**
+**7. Mabadiliko gani moja kawaida huwa na athari kubwa zaidi kwa gharama za wakala wa uzalishaji, na kwanini?**
 
 <details>
 <summary>Jibu</summary>
 
-Kupanua mfano kwa ukubwa unaofaa — kutumia mfano mdogo zaidi unaopita mlango wako wa tathmini. Gharama hutawaliwa na tokeni, na mfano mdogo unaokidhi kiwango cha ubora mara nyingi ni ghali kidogo kuliko mkubwa. Kuweka kumbukumbu za muda na kuongoza kisha hupunguza gharama zaidi, lakini kuchagua mfano mzazi sahihi kuna athari kubwa zaidi ya ngazi ya kwanza.
+Kuweka mfano kwa ukubwa unaofaa — kutumia mfano mdogo zaidi bado unaopitisha mlango wa tathmini. Gharama inaongozwa na alama (tokens), na mfano mdogo unaokidhi kiwango cha ubora kwa kawaida huwa nafuu zaidi kuliko mkubwa. Kuweka akiba na upangaji basi hupunguza gharama zaidi, lakini kuchagua mfano wa msingi sahihi kuna athari kuu ya daraja la kwanza.
 </details>
 
-**8. Je, sifa za spani kama `customer.tier` na `routed.model` zina jukumu gani katika ufuatiliaji?**
+**8. Sifa za span kama `customer.tier` na `routed.model` huchangia vipi katika ufuatiliaji?**
 
 <details>
 <summary>Jibu</summary>
 
-Zinageuza nyaraka ghafi kuwa maswali ya kibiashara yanayoweza kujibiwa. Bila sifa unakuwa na kuta ya spani; nazo unauwezo wa kuuliza "je, wateja wa mashirika wanapelekwa kwa mfano mdogo mara nyingi sana?" au "mfano gani hushughulikia maombi yetu ya polepole zaidi?" Sifa ni jinsi unavyotenganisha telemetry kwa vipimo vinavyohusu uendeshaji wako.
+Zinageuza vichunguzi ghafi kuwa maswali ya biashara yenye majibu. Bila sifa unakuwa na kuta za spans; nazo hukuwezesha kuuliza "je wateja wa biashara wanapelekwa kwa mfano mdogo mara nyingi sana?" au "mfano gani hushughulikia maombi yetu polepole zaidi?" Sifa ndizo jinsi unavyokatakata telemetry kwa vipimo vinavyojaliwa na shughuli yako.
 </details>
 
 ## Kazi
 
-Chukua wakala wa msaada wa wateja kutoka lab na uimarishe kwa hali maalum: **wakala wa msaada wa bili kwa kampuni ya SaaS.**
+Chukua wakala wa msaada kwa wateja kutoka maabara na ugande kwa hali maalum: **wakala wa msaada wa malipo kwa kampuni ya SaaS.**
 
-Usambazaji wako unapaswa:
+Omba lako lifanye yafuatayo:
 
-1. **Badilisha zana** kwa zana zinazohusiana na bili: `get_subscription_status`, `get_invoice`, na `issue_credit` (mikopo zaidi ya $50 inahitaji idhini ya binadamu).
-2. **Ongeza nyaraka tatu RAG** zinazohusu sera ya kurejesha pesa ya kampuni, mzunguko wa bili, na sera ya kufuta.
-3. **Panua seti ya tathmini** hadi kesi nane angalau, ikijumuisha angalau mbili ambazo *zinapaswa* kusababisha njia ya idhini ya binadamu, na thibitisha mlango wako wa tathmini unapita au kushindwa kwa usahihi.
-4. **Ongeza ripoti moja ya gharama**: baada ya kuendesha maswali kumi mchanganyiko kupitia wakala, chapisha ngapi zilienda kwa mfano mdogo, ngapi kwa mfano mkubwa, na ngapi zilihudumiwa kutoka kwa kumbukumbu ya muda.
+1. **Badilisha zana** kwa zile zinazohusiana na malipo: `get_subscription_status`, `get_invoice`, na `issue_credit` (mikopo zaidi ya $50 inahitaji idhini ya binadamu).
+2. **Ongeza hati tatu za RAG** zinazohusu sera ya kurejesha fedha ya kampuni, mzunguko wa malipo, na sera ya kughairi.
+3. **Panua seti ya tathmini** hadi kesi nane angalau, zikiwemo mbili zinazopaswa *kusababisha* njia ya idhini ya binadamu, na thibitisha mlango wa tathmini unapita au kushindwa ipasavyo.
+4. **Ongeza ripoti moja ya gharama**: baada ya kuendesha maswali kumi mchanganyiko kupitia wakala, chapisha ni ngapi zilienda kwa mfano mdogo, ngapi kwa mfano mkubwa, na ngapi zilihudumiwa kutoka kwa akiba.
 
-Andika aya fupi (katika seli ya markdown) ikielezea kanuni gani ya kuongoza mfano uliyochagua na jinsi unavyothibitisha na trafiki halisi. Hakuna jibu moja sahihi — unakaguliwa kama masuala ya uzalishaji yameunganishwa kwa usahihi.
+Andika aya fupi (katika seli ya markdown) ikielezea ni sheria gani ya upangaji wa mfano uliyochagua na ungebainisha vipi kwa trafiki halisi. Hakuna jibu moja sahihi — unakaguliwa kama masuala ya uzalishaji yameunganishwa kwa muktadha mzuri.
 
 ## Muhtasari
 
-Katika somo hili umehamisha wakala kutoka toleo la jaribio hadi uzalishaji kwa Microsoft Foundry:
+Katika somo hili ulisogeza wakala kutoka mfano hadi uzalishaji na Microsoft Foundry:
 
-- Kurasimu hadi uzalishaji ni zaidi kuhusu **mifupa ya uendeshaji** kuzunguka mfano — kuhifadhi, utambulisho, hali, kushughulikia matatizo, gharama, ubora, na kuaminika.
-- Umejifunza mifumo mitatu ya **kupelekwa** — iliyo hifadhiwa na mteja, Wakala Aliyehifadhiwa, na Mifumo ya Kazi za Wakala — na lini kila moja inafaa.
-- Umefuatilia **mzunguko wa maisha wa wakala**, ambapo tathmini za nje ya mtandao **hufanya kama mlango wa kutolewa** na ufuatiliaji wa mtandao hurudisha matatizo kwenye seti ya mtihani.
-- Umetumia **mikakati ya kupanua** — muundo usio na hali, kuongoza mfano, kuweka kumbukumbu za muda, na msongamano wa mipaka — na kuziunganisha na **uimarishaji wa gharama**.
-- Umeunganishwa katika **udhibiti wa mashirika**: RBAC, idhini ya mwanadamu katika mzunguko, na usalama wa MCP katika uzalishaji.
-- Umejenga wakala wa msaada wa wateja aliye tayari kwa uzalishaji anayehusisha wasiwasi haya yote katika msimbo wa kuendesha.
+- Kuruka kwenda uzalishaji ni hasa kuhusu **mfupa wa uendeshaji** kuzunguka mfano — kuhudumia, utambulisho, hali, utunzaji wa kushindwa, gharama, ubora, na imani.
+- Ulijifunza mifumo mitatu ya **uwekaji** — kilihudimiwa na mteja, Wakala Waliohudumiwa, na Midirisha ya Wakala — na ni lini kila moja inafaa.
+- Ulitembea katika **mzunguko wa maisha wa wakala**, ambapo tathmini isiyo mtandaoni **hutumika kama mlango wa kuachilia** na ufuatiliaji wa mtandao hurudisha kushindwa kwenye seti ya vipimo.
+- Umetumia **mikakati ya kupanua** — muundo usio na hali, upangaji wa mfano, kuhifadhi kwenye akiba, na upunguzaji wa sambamba uliowekwa mipaka — na kuviunganisha na **uongeza wa gharama**.
+- Umeingiza **vidhibiti vya biashara**: RBAC, idhini ya binadamu ndani ya mzunguko, na mchanganyiko wa MCP salama uzalishaji.
+- Umejenga **wakala wa msaada kwa wateja yu tayari kwa uzalishaji** unaounganisha kila moja ya masuala haya katika msimbo unaoweza kuendeshwa.
 
-Somo lijalo linaelekea kinyume: badala ya kupanua mawakala hadi wingu, utaweka chini kwenye mashine ya mendeleaji mmoja na kuendesha kikamilifu kwa karibu.
+Somo lijalo linachukua safari kinyume: badala ya kupanua mawakala hadi wingu, utaileta *chini* kwenye mashine ya mwanajumla mmoja na kuendesha moja kwa moja ndani yake.
 
 ## Rasilimali Zaidi
 
-- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Hati za Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Nyaraka za Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Muhtasari wa Huduma ya Wakala wa Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Mfumo wa Wakala wa Microsoft</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Kuongoza Mfano katika Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Mpangaji Mfano katika Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
-- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
-- <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
+- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">Kitendo cha AI Smoke Test GitHub</a>
+- <a href="https://modelcontextprotocol.io/" target="_blank">Itifaki ya Muktadha wa Mfano (MCP)</a>
 
-## Somo Lililopita
+## Somo la Awali
 
-[Kujenga Mawakala wa Matumizi ya Kompyuta (CUA)](../15-browser-use/README.md)
+[Kujenga Wakala wa Matumizi ya Kompyuta (CUA)](../15-browser-use/README.md)
 
-## Somo Lijalo
+## Somo Linalofuata
 
-[Kuumba Mawakala wa AI Wananchi](../17-creating-local-ai-agents/README.md)
+[Kuunda Mawakali wa AI wa Ndani](../17-creating-local-ai-agents/README.md)
 
 ---
 
