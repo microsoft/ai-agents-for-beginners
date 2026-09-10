@@ -1,92 +1,92 @@
-# Tworzenie lokalnych agentów AI za pomocą Microsoft Foundry Local i Qwen
+# Tworzenie lokalnych agentów AI z użyciem Microsoft Foundry Local i Qwen
 
 ![Tworzenie lokalnych agentów AI](../../../translated_images/pl/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Poprzednia lekcja skalowała agentów *do góry* w chmurze. Ta przenosi ich *w dół* na pojedynczą maszynę. Na koniec będziesz mieć działającego asystenta inżynierskiego, który rozumuje, wywołuje narzędzia, czyta twoje pliki i przeszukuje twoją dokumentację — **bez żadnego wywołania inferencji w chmurze.**
+Poprzednia lekcja przeniosła agentów *do chmury*. Ta zabiera ich *na jeden komputer*. Pod koniec będziesz mieć działającego asystenta inżynieryjnego, który rozumuje, wywołuje narzędzia, czyta twoje pliki i wyszukuje w dokumentacji — **bez ani jednego wywołania inferencji w chmurze.**
 
-Dlaczego miałbyś tego chcieć? Trzy powody, które nieustannie pojawiają się w rzeczywistej pracy inżynierskiej:
+Dlaczego miałbyś tego chcieć? Trzy powody, które często pojawiają się podczas realnej pracy inżynieryjnej:
 
-- **Prywatność.** Kod i dokumenty nigdy nie opuszczają maszyny. Ani podpowiedź, ani fragment, ani dane klienta nie przekraczają granicy sieciowej.
-- **Koszt.** Lokalna inferencja nie ma opłat za token. Możesz iterować cały dzień za cenę energii elektrycznej.
-- **Tryb offline.** W samolocie, w bezpiecznym obiekcie albo podczas awarii agent nadal działa.
+- **Prywatność.** Kod i dokumenty nigdy nie opuszczają maszyny. Żaden prompt, fragment kodu czy dane klienta nie przekraczają granicy sieci.
+- **Koszt.** Lokalna inferencja nie generuje faktury za tokeny. Możesz iterować cały dzień za cenę prądu.
+- **Tryb offline.** Na samolocie, w zabezpieczonym obiekcie lub podczas awarii agent nadal działa.
 
-Jednak wymiana modelu frontier w chmurze na **Small Language Model (SLM)** działający na twoim CPU, GPU lub NPU oznacza ograniczenia. Ta lekcja opowiada o tworzeniu agentów, którzy są *dobrzy* w tych ograniczeniach, zamiast udawać, że ich nie ma.
+Minusem jest to, że zamieniasz model chmurowy klasy frontowej na **Mały Model Językowy (SLM)** działający na Twoim CPU, GPU lub NPU. Ta lekcja skupia się na budowaniu agentów, którzy są *dobrzy* w tych ograniczeniach, zamiast udawać, że ich nie ma.
 
 ## Wprowadzenie
 
 Ta lekcja obejmie:
 
-- **Small Language Models (SLM)** — czym są, gdzie się sprawdzają, a gdzie nie.
-- **Microsoft Foundry Local** — środowisko uruchomieniowe, które pobiera i udostępnia modele na urządzeniu przez **API kompatybilne z OpenAI**.
-- **Modele Qwen do wywoływania funkcji** — SLM, które niezawodnie generują wywołania narzędzi, co umożliwia lokalnych *agentów* (nie tylko lokalny chat).
-- **Lokalne narzędzia, lokalny RAG i lokalny MCP** — dające agentowi możliwości bez chmury.
-- **Wzorce hybrydowe** — kiedy trzymać się lokalnego środowiska, a kiedy sięgać do chmury.
+- **Małe Modele Językowe (SLM)** — czym są, gdzie błyszczą, a gdzie zawodzą.
+- **Microsoft Foundry Local** — środowisko uruchomieniowe, które pobiera i udostępnia modele lokalnie przez **API zgodne z OpenAI**.
+- **Modele wywołujące funkcje Qwen** — SLM-y, które wiarygodnie generują wywołania narzędzi, co czyni lokalne *agentów* możliwymi (nie tylko chat).
+- **Lokalne narzędzia, lokalny RAG i lokalne MCP** — dając agentowi możliwości bez chmury.
+- **Wzorce hybrydowe** — kiedy trzymać się lokalnego, a kiedy sięgnąć po chmurę.
 
 ## Cele nauki
 
-Po zakończeniu tej lekcji będziesz potrafił:
+Po ukończeniu tej lekcji będziesz potrafił:
 
 - Wyjaśnić kompromisy SLM i wybrać odpowiednie przypadki użycia lokalnych agentów.
-- Obsłużyć model Qwen lokalnie z Foundry Local i połączyć się z nim przez punkt końcowy kompatybilny z OpenAI.
-- Zbudować agenta wywołującego narzędzia, działającego całkowicie na twoim komputerze.
-- Dodać lokalny RAG na własnych dokumentach z użyciem lokalnej bazy wektorowej (Chroma).
-- Połączyć agenta z lokalnym serwerem MCP i rozważyć hybrydowe projektowanie lokalne/chmurowe.
+- Uruchomić model Qwen lokalnie za pomocą Foundry Local i połączyć się z nim przez endpoint kompatybilny z OpenAI.
+- Zbudować agenta wywołującego narzędzia działającego całkowicie na Twojej stacji roboczej.
+- Dodać lokalny RAG na swoich dokumentach przy użyciu lokalnej bazy wektorowej (Chroma).
+- Połączyć agenta z lokalnym serwerem MCP i rozważać hybrydowe projekty lokalno/chmurowe.
 
 ## Wymagania wstępne
 
-Ta lekcja zakłada, że ukończyłeś wcześniejsze lekcje i znasz się na:
+Ta lekcja zakłada, że ukończyłeś wcześniejsze lekcje i czujesz się swobodnie z:
 
-- [Korzystaniu z narzędzi](../04-tool-use/README.md) (Lekcja 4) i [Agentic RAG](../05-agentic-rag/README.md) (Lekcja 5).
-- [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lekcja 11).
+- [Używaniem narzędzi](../04-tool-use/README.md) (Lekcja 4) i [Agentic RAG](../05-agentic-rag/README.md) (Lekcja 5).
+- [Protokołami Agentic / MCP](../11-agentic-protocols/README.md) (Lekcja 11).
 - [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcja 14).
 
 Potrzebujesz też:
 
-- Stanowisko deweloperskie. **8 GB RAM to realistyczne minimum**; 16 GB i więcej jest wygodne. Pomaga GPU lub NPU, ale nie jest wymagane.
-- Zainstalowany **Microsoft Foundry Local** (patrz sekcja instalacji poniżej).
-- Python 3.12+ oraz pakiety z repozytorium [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` i `chromadb` na tę lekcję.
+- Stacji roboczej dla dewelopera. **8 GB RAM to realistyczne minimum**; 16 GB+ zapewnia komfort. GPU lub NPU pomagają, ale nie są wymagane.
+- Zainstalowanego **Microsoft Foundry Local** (zobacz sekcję instalacji poniżej).
+- Pythona 3.12+ i pakietów z repozytorium [`requirements.txt`](../../../requirements.txt), oraz `foundry-local-sdk`, `openai` i `chromadb` do tej lekcji.
 
-## Small Language Models: odpowiednie narzędzie do pracy lokalnej
+## Małe Modele Językowe: odpowiednie narzędzie do pracy lokalnej
 
-Model frontier w chmurze ma setki miliardów parametrów i zaplecze w postaci centrum danych. SLM ma kilka miliardów parametrów i musi zmieścić się w pamięci RAM twojego laptopa. Ta różnica nakłada wyraźne oczekiwania.
+Model chmurowy klasy frontowej ma setki miliardów parametrów i za nim stoi centrum danych. SLM ma kilka miliardów parametrów i musi zmieścić się w pamięci RAM laptopa. Ta różnica ustawia jasne oczekiwania.
 
-**SLM dobrze radzą sobie z:**
+**SLMy dobrze radzą sobie z:**
 
-- Zadaniami strukturalnymi i ograniczonymi — klasyfikacją, ekstrakcją, streszczaniem znanych dokumentów.
+- Zadaniami strukturalnymi i ograniczonymi — klasyfikacja, ekstrakcja, streszczenie znanego dokumentu.
 - **Wywoływaniem narzędzi** — decydowaniem, którą funkcję wywołać i z jakimi argumentami.
-- Szybką, tanią i prywatną iteracją na własnych danych.
+- Szybką, tanią, prywatną iteracją na własnych danych.
 
-**SLM mają słabszą stronę w:**
+**SLMy gorzej radzą sobie z:**
 
-- Nieograniczone rozumowanie wieloetapowe na dużym kontekście.
-- Szeroką wiedzę o świecie (wiedzą mniej i szybciej zapominają).
+- Otwartymi, wieloetapowymi rozumowaniami na dużym kontekście.
+- Szeroką wiedzą o świecie (wiedziały mniej i szybciej zapominają).
 
-Dlatego zwycięską strategią dla lokalnych agentów jest: **pozwól SLM orkiestruje, a narzędziom robić ciężką robotę.** Model nie musi *znać* twojego kodu — musi wiedzieć, kiedy wywołać `read_file` i `search_docs`. To idealnie gra do mocnych stron SLM.
+Zwycięska strategia dla lokalnych agentów to: **niech SLM orkiestruje, a narzędzia niech wykonują ciężką pracę.** Model nie musi *znać* Twojej bazy kodu — musi wiedzieć, kiedy wywołać `read_file` i `search_docs`. To trafia dokładnie w mocne strony SLM.
 
 ```mermaid
 flowchart LR
-    U[Programista] --> A[Lokalny agent SLM]
+    U[Deweloper] --> A[Lokalny Agent SLM]
     A -->|decyduje, które narzędzie| T1[czytaj_plik]
     A -->|decyduje, które narzędzie| T2[przeszukaj_dokumenty RAG]
     A -->|decyduje, które narzędzie| T3[analizuj_kod]
     T1 --> A
     T2 --> A
     T3 --> A
-    A --> R[Odpowiedź, w pełni na urządzeniu]
+    A --> R[Odpowiedź, całkowicie na urządzeniu]
 ```
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** to lekkie środowisko uruchomieniowe, które pobiera, zarządza i obsługuje modele całkowicie na twojej maszynie. Najważniejszą cechą dla nas jest to, że udostępnia **HTTP endpoint kompatybilny z OpenAI** — co oznacza, że SDK OpenAI i klient OpenAI z Microsoft Agent Framework działają z nim po prostu zmieniając `base_url`. Wszystko, czego nauczyłeś się o budowie agentów, przenosi się bezpośrednio; tylko punkt końcowy zmienia się z chmury na `localhost`.
+**Microsoft Foundry Local** to lekkie środowisko uruchomieniowe, które pobiera, zarządza i udostępnia modele całkowicie na Twoim komputerze. Najważniejszą funkcją dla nas jest udostępnianie **HTTP endpointa kompatybilnego z OpenAI** — co oznacza, że SDK OpenAI oraz klient OpenAI w Microsoft Agent Framework działają z nim tylko przez zmianę `base_url`. Wszystko, czego się nauczyłeś o budowaniu agentów, przenosi się bezpośrednio; zmienia się tylko endpoint z chmury na `localhost`.
 
-Foundry Local dodatkowo automatycznie wybiera najlepszą wersję modelu dla twojego sprzętu — build CPU, CUDA/GPU lub NPU — więc nie musisz optymalizować ręcznie na każdej maszynie.
+Foundry Local automatycznie wybiera najlepszą wersję modelu dla Twojego sprzętu — wersję na CPU, CUDA/GPU lub NPU — więc nie musisz ręcznie optymalizować dla każdej maszyny.
 
 ### Instalacja
 
-Zainstaluj Foundry Local (zobacz [dokumentację](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) dla swojego systemu operacyjnego), a potem sprawdź, czy działa:
+Zainstaluj Foundry Local (zobacz [dokumentację](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) dla twojego systemu operacyjnego), następnie potwierdź, że działa:
 
 ```bash
-# Zainstaluj (przykład; postępuj zgodnie z dokumentacją dla swojej platformy)
+# Instalacja (przykład; postępuj zgodnie z dokumentacją dla swojej platformy)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
@@ -95,13 +95,13 @@ foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Po uruchomieniu usługi masz lokalny punkt końcowy kompatybilny z OpenAI (zwykle `http://localhost:PORT/v1`). Notebook używa `foundry-local-sdk` do automatycznego wykrywania punktu końcowego, więc nie musisz na sztywno wpisywać portu.
+Po uruchomieniu serwisu masz lokalny endpoint kompatybilny z OpenAI (zwykle `http://localhost:PORT/v1`). Notatnik używa `foundry-local-sdk` do automatycznego wykrywania endpointa, więc nie musisz ręcznie wpisywać portu.
 
 ## Wywoływanie funkcji Qwen: dlaczego to ważne
 
-Agent jest agentem tylko wtedy, gdy może wywoływać narzędzia. Wiele SLM potrafi prowadzić rozmowę, ale generują zawodną, źle sformatowaną strukturę wywołań narzędzi. Modele **Qwen** są trenowane do wywoływania funkcji i konsekwentnie emitują prawidłowo sformatowane wywołania — co dokładnie przekształca lokalny model czatu w lokalnego *agenta*.
+Agent jest agentem tylko wtedy, gdy może wywoływać narzędzia. Wiele SLM-ów potrafi prowadzić chat, ale wytwarza niewiarygodne, źle sformułowane wywołania narzędzi. Modele **Qwen** są trenowane do wywoływania funkcji i konsekwentnie emitują poprawne struktury wywołań narzędzi — to właśnie zamienia lokalny model chatowy w lokalnego *agenta*.
 
-Przepływ to standardowa pętla wywoływania narzędzi, którą już znasz, tyle że działająca lokalnie:
+Przepływ to standardowa pętla wywoływania narzędzi, którą już znasz, tylko działa lokalnie:
 
 ```mermaid
 sequenceDiagram
@@ -118,9 +118,9 @@ sequenceDiagram
 
 ## Lokalny RAG
 
-Przeszukiwanie dokumentacji to miejsce, gdzie lokalni agenci naprawdę się sprawdzają. Zamiast liczyć, że SLM zapamiętał dokumentację twojego frameworka, osadzasz te dokumenty w **lokalnej bazie wektorowej** i pozwalasz agentowi pobierać odpowiednie fragmenty na żądanie.
+Wyszukiwanie w dokumentacji to miejsce, gdzie lokalni agenci uzasadniają swoją obecność. Zamiast liczyć, że SLM zapamiętał dokumentację twojego frameworka, wkładasz te dokumenty do **lokalnej bazy wektorowej** i pozwalasz agentowi pobierać odpowiednie fragmenty na żądanie.
 
-Używamy **Chromy**, wbudowanego magazynu wektorów działającego lokalnie, bez konieczności zarządzania serwerem. Pipeline jest całkowicie lokalny: lokalny model do osadzania → lokalne wektory → lokalne pobieranie → lokalny SLM.
+Używamy **Chroma**, osadzonego magazynu wektorów działającego w procesie, bez potrzeby serwera do zarządzania. Cały pipeline jest lokalny: lokalny model osadzający → lokalne wektory → lokalne wyszukiwanie → lokalny SLM.
 
 ```mermaid
 flowchart TB
@@ -129,29 +129,29 @@ flowchart TB
     Q[Zapytanie agenta] --> QE[Osadź zapytanie lokalnie]
     QE --> V
     V -->|najlepsze k fragmentów| A[Agent Qwen]
-    A --> Ans[Uzasadniona odpowiedź]
+    A --> Ans[Odpowiedź oparta na faktach]
 ```
 
-To ten sam wzorzec Agentic RAG z Lekcji 5 — jedyna zmiana to fakt, że każdy komponent działa na twojej maszynie.
+To ten sam wzorzec Agentic RAG z Lekcji 5 — jedyna zmiana jest taka, że każdy komponent działa na Twoim komputerze.
 
 ## Lokalne serwery MCP
 
-[MCP](../11-agentic-protocols/README.md) to transport, a nie usługa w chmurze. Serwer MCP może działać jako lokalny proces na `stdio`, udostępniając narzędzia agentowi przez standardowy protokół. Pozwala to korzystać z rosnącego ekosystemu serwerów MCP — dostęp do systemu plików, operacje git, zapytania do bazy danych — całkowicie offline.
+[MCP](../11-agentic-protocols/README.md) to transport, nie usługa chmurowa. Serwer MCP może działać jako lokalny proces na `stdio`, udostępniając narzędzia agentowi przez standardowy protokół. Pozwala to na ponowne użycie rozwijającego się ekosystemu serwerów MCP — dostęp do systemu plików, operacje git, zapytania do bazy danych — całkowicie offline.
 
-Poziom bezpieczeństwa różni się od chmury, ale nie jest zerowy: lokalny serwer MCP działa z uprawnieniami twojego użytkownika, więc ogranicz, do czego ma dostęp (np. katalog projektu zamiast całego katalogu domowego) i traktuj jego dane wyjściowe jako dane wejściowe do weryfikacji.
+Pozycja bezpieczeństwa różni się od chmury, ale nie jest jej brakiem: lokalny serwer MCP działa z uprawnieniami Twojego użytkownika, więc ogranicz co może dotykać (katalog projektu, nie cały katalog domowy) i traktuj jego wyjścia jako dane do weryfikacji.
 
-## Hybrydowe wzorce chmura-i-lokalne
+## Hybrydowe wzorce chmura-i-lokalnie
 
-Lokalność nie oznacza tylko lokalności. Dojrzałe systemy kierują ruch według wrażliwości i trudności:
+Lokalność pierwsza nie oznacza tylko lokalności. Dojrzałe systemy kierują ruch wg wrażliwości i trudności:
 
 | Sytuacja | Gdzie działa |
 | --- | --- |
-| Wrażliwy kod / dane, albo offline | **Lokalny SLM** |
+| Wrażliwy kod/dane lub tryb offline | **Lokalny SLM** |
 | Proste, ograniczone zadanie | **Lokalny SLM** (tani, szybki) |
-| Trudne wieloetapowe rozumowanie na niewrażliwych danych | **Model chmurowy** |
-| Wszystko, podczas awarii | **Lokalny SLM** (łagodne pogorszenie jakości) |
+| Trudne, wieloetapowe rozumowanie na danych niewrażliwych | **Model chmurowy** |
+| Wszystko podczas awarii | **Lokalny SLM** (łagodne obniżenie jakości) |
 
-To odzwierciedla ideę **sterowania modelem** z Lekcji 16 — z tą różnicą, że jednym z "modeli" jest teraz twoja własna maszyna. Solidny projekt przełącza na lokalny model, jeśli chmura stanie się niedostępna, więc agent nie przestaje działać, tylko pogarsza się stopniowo.
+To odzwierciedla koncepcję **kierowania modelem** z Lekcji 16 — z tą różnicą, że jednym z „modeli” jest teraz Twój własny komputer. Solidny projekt przewiduje fallback do lokalnego, gdy chmura jest niedostępna, więc agent obniża jakość, zamiast całkowicie zawieść.
 
 ```mermaid
 flowchart LR
@@ -164,21 +164,21 @@ flowchart LR
     Cloud --> Out
 ```
 
-## Ćwiczenie praktyczne: lokalny asystent inżynierski
+## Praktyczne ćwiczenie: Lokalny asystent inżynieryjny
 
-Otwórz [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) i przejdź przez niego. Zbudujesz **lokalnego asystenta inżynierskiego**, który działa całkowicie na twoim stanowisku i potrafi:
+Otwórz [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) i przejdź przez niego krok po kroku. Zbudujesz **lokalnego asystenta inżynieryjnego** działającego całkowicie na Twojej stacji roboczej, który potrafi:
 
 1. **Wywoływać narzędzia** — przez wywoływanie funkcji Qwen przez Foundry Local.
-2. **Wykonywać lokalne operacje na plikach** — wypisać i czytać pliki w katalogu projektu.
+2. **Wykonywać operacje na plikach lokalnych** — listować i czytać pliki w katalogu projektu.
 3. **Analizować kod** — raportować podstawowe metryki pliku źródłowego.
-4. **Przeszukiwać dokumentację** — lokalny RAG na folderze dokumentacji z Chroma.
-5. **Korzystać z MCP** — łączyć się z lokalnym serwerem MCP (z łagodnym pominięciem, jeśli nie jest skonfigurowany).
+4. **Przeszukiwać dokumentację** — lokalny RAG na folderze dokumentacji z Chromą.
+5. **Używać MCP** — łączyć się z lokalnym serwerem MCP (z przyjaznym pominięciem, jeśli nie jest skonfigurowany).
 
-W żadnym momencie nie korzysta się z inferencji w chmurze.
+Ani razu nie korzysta z inferencji w chmurze.
 
-### Przejście krok po kroku
+### Prześledzenie
 
-Asystent łączy się z Foundry Local przez punkt końcowy kompatybilny z OpenAI, więc kod agenta wygląda niemal identycznie jak w lekcjach o chmurze — zmienia się tylko klient:
+Asystent łączy się z Foundry Local przez endpoint kompatybilny z OpenAI, więc kod agenta wygląda niemal identycznie jak w lekcjach chmurowych — zmienia się tylko klient:
 
 ```python
 from foundry_local import FoundryLocalManager
@@ -189,7 +189,7 @@ manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
 client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key jest lokalnym symbolem zastępczym
 ```
 
-Narzędzia to zwykłe funkcje Pythona ograniczone do folderu projektu:
+Narzędzia to zwykłe funkcje Pythona ograniczone do katalogu projektu:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,26 +200,26 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Zauważ sprawdzenie sandboxa — nawet lokalnie narzędzie czytające dowolne ścieżki to zagrożenie. Notebook trzyma każdy tool ograniczony do jednego folderu projektu.
+Zwróć uwagę na sprawdzenie sandboxa — nawet lokalnie narzędzie czytające dowolne ścieżki stanowi ryzyko. Notatnik utrzymuje każde narzędzie ograniczone do jednego katalogu projektu.
 
 ## Sprawdzenie wiedzy
 
 Sprawdź swoje zrozumienie przed przejściem do zadania.
 
-**1. Podaj dwa konkretne powody, by uruchomić agenta lokalnie zamiast w chmurze.**
+**1. Podaj dwa konkretne powody, by uruchamiać agenta lokalnie, a nie w chmurze.**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Dowolne dwa: **prywatność** (kod i dane nigdy nie opuszczają maszyny), **koszt** (brak opłat za tokenową inferencję), oraz **tryb offline** (działa bez sieci — w samolocie, w bezpiecznym obiekcie lub podczas awarii). Ograniczenia regulacyjne/zgodnościowe zabraniające przesyłania danych poza urządzenie często napędzają powód prywatności.
+Dowolne dwa z: **prywatność** (kod i dane nigdy nie opuszczają maszyny), **koszt** (brak opłat za token) i **działanie offline** (działa bez sieci — na samolocie, w bezpiecznym obiekcie lub podczas awarii). Ograniczenia regulacyjne/zgodności, zakazujące wysyłania danych poza urządzenie, to częsty powód dla prywatności.
 </details>
 
-**2. Jaki jest zalecany podział pracy między SLM a narzędziami w lokalnym agencie i dlaczego?**
+**2. Jaki jest zalecany podział pracy między SLM a jego narzędziami w lokalnym agencie i dlaczego?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Pozwól SLM **orkiestrować** (decydować, które narzędzie wywołać i z jakimi argumentami), a **narzędziom wykonać ciężką pracę** (czytanie plików, pobieranie dokumentów, obliczenia). SLM dobrze radzą sobie z ograniczonymi decyzjami, np. wyborem narzędzia, ale gorzej z szeroką wiedzą i długim rozumowaniem wieloetapowym, więc poleganie na narzędziach gra do ich mocnych stron.
+Niech SLM **orkiestruje** (decyduje, które narzędzie wywołać i z jakimi argumentami), a **narzędzia wykonują ciężką pracę** (czytanie plików, pobieranie dokumentów, obliczanie wyników). SLMy dobrze radzą sobie z ograniczonymi decyzjami jak wybór narzędzi, ale słabiej z szeroką wiedzą i długim rozumowaniem wieloetapowym, więc wsparcie narzędziami to ich mocna strona.
 </details>
 
 **3. Co umożliwia ponowne użycie kodu agenta chmurowego z Foundry Local?**
@@ -227,7 +227,7 @@ Pozwól SLM **orkiestrować** (decydować, które narzędzie wywołać i z jakim
 <details>
 <summary>Odpowiedź</summary>
 
-Foundry Local udostępnia **HTTP endpoint kompatybilny z OpenAI**. SDK OpenAI i klient OpenAI z Agent Framework działają z nim, zmieniając tylko `base_url` (i używając lokalnego klucza API placeholder). Wszystko inne w kodzie agenta pozostaje takie samo.
+Foundry Local udostępnia **endpoint HTTP kompatybilny z OpenAI**. SDK OpenAI i klient OpenAI w Agent Framework działają z nim po zmianie tylko `base_url` (używając lokalnego klucza API zastępczego). Reszta kodu agenta pozostaje bez zmian.
 </details>
 
 **4. Dlaczego używamy konkretnego modelu Qwen do wywoływania funkcji, a nie dowolnego SLM?**
@@ -235,72 +235,72 @@ Foundry Local udostępnia **HTTP endpoint kompatybilny z OpenAI**. SDK OpenAI i 
 <details>
 <summary>Odpowiedź</summary>
 
-Ponieważ agent musi generować wiarygodne, dobrze sformułowane **wywołania narzędzi**. Wiele SLM potrafi rozmawiać, ale generuje niepoprawne lub niespójne struktury wywołań narzędzi. Modele Qwen są trenowane do wywoływania funkcji i emitują spójne wywołania, co dokładnie zamienia lokalny model czatu w działającego lokalnego agenta.
+Bo agent musi wytwarzać wiarygodne, poprawnie sformatowane **wywołania narzędzi**. Wiele SLM potrafi rozmawiać, ale wytwarza źle zbudowane lub niespójne struktury wywołań. Modele Qwen są trenowane do wywoływania funkcji i produkują spójne wywołania narzędzi, co zamienia lokalny model chatowy w działającego lokalnego agenta.
 </details>
 
-**5. Które komponenty w pipeline lokalnego RAG działają na maszynie?**
+**5. Które elementy pipeline'u lokalnego RAG działają na komputerze?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Wszystkie: model do osadzania, baza wektorowa (Chroma, na dysku), krok pobierania oraz SLM. Dokumenty są osadzane lokalnie, przechowywane lokalnie, pobierane lokalnie i rozumowane przez lokalny model — żaden komponent nie korzysta z chmury.
+Wszystkie: model osadzający, baza wektorowa (Chroma, na dysku), krok wyszukiwania i SLM. Dokumenty są osadzane lokalnie, przechowywane lokalnie, pobierane lokalnie i analizowane przez lokalny model — żadna część nie dotyka chmury.
 </details>
 
-**6. Lokalny serwer MCP działa na twojej maszynie. Czy to od razu czyni go bezpiecznym? Jakie środki ostrożności powinieneś zastosować?**
+**6. Lokalny serwer MCP działa na Twoim komputerze. Czy to automatycznie oznacza, że jest bezpieczny? Jaką ostrożność nadal powinieneś zachować?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Nie. Lokalny serwer MCP działa z uprawnieniami twojego użytkownika, więc ma dostęp do wszystkiego, do czego masz dostęp ty. Ogranicz jego dostęp do tego, co potrzebuje (np. katalog projektu, a nie cały katalog domowy) i traktuj jego wyjścia jako dane wejściowe do walidacji przed podjęciem na ich podstawie działań.
+Nie. Lokalny serwer MCP działa z uprawnieniami Twojego użytkownika, więc może uzyskać dostęp do wszystkiego, do czego Ty masz dostęp. Ogranicz go do tego, co potrzebuje (np. jednokatalog projektu zamiast całego katalogu domowego) i traktuj jego wyjścia jako dane do weryfikacji przed dalszym wykorzystaniem.
 </details>
 
-**7. Opisz sensowne zasady hybrydowego sterowania modelem uwzględniające model lokalny.**
+**7. Opisz sensowną hybrydową regułę kierowania (routing), która uwzględnia model lokalny.**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Kieruj wrażliwe lub offline zapytania do lokalnego SLM; proste zadania ograniczone do lokalnego SLM dla szybkości i kosztu; trudne, wieloetapowe rozumowanie na danych niewrażliwych do modelu chmurowego; a jeśli chmura jest niedostępna, przełącz się z powrotem na lokalny SLM, aby agent łagodnie pogarszał jakość zamiast się wyłączać. To sterowanie modelem (Lekcja 16) z lokalną maszyną jako jednym z modeli.
+Kieruj wrażliwe lub offline żądania do lokalnego SLM; proste, ograniczone zadania do lokalnego SLM dla szybkości i kosztu; trudne, wieloetapowe rozumowanie na danych niewrażliwych do modelu chmurowego; a gdy chmura jest niedostępna, przełącz się na lokalnego SLM, żeby agent obniżył jakość łagodnie, zamiast zawieść. To jest kierowanie modelem (lekcja 16) z lokalnym komputerem jako jednym z modeli.
 </details>
 
-**8. Jaka jest realistyczna minimalna ilość RAM do uruchomienia lokalnego agenta w tej lekcji i co daje więcej RAM?**
+**8. Jaka jest realistyczna minimalna ilość RAM do uruchomienia lokalnego agenta z tej lekcji, a co daje więcej RAM?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Około **8 GB** to realistyczne minimum; 16 GB+ to komfort. Więcej RAM pozwala uruchomić większe, bardziej zdolne modele i utrzymać więcej kontekstu w pamięci. GPU lub NPU przyspiesza inferencję, ale nie jest wymagane — Foundry Local wybiera build CPU, gdy nie ma przyspieszacza.
+Około **8 GB** to realistyczne minimum; 16 GB+ to komfort. Więcej RAM pozwala uruchamiać większe, bardziej zdolne modele i mieć więcej kontekstu w pamięci. GPU lub NPU przyspiesza inferencję, ale nie jest wymagany — Foundry Local wybiera wersję CPU, gdy brak akceleratora.
 </details>
 
 ## Zadanie
 
-Rozszerz lokalnego asystenta inżynierskiego do **lokalnego recenzenta dokumentacji** dla małego wybranego przez siebie projektu (możesz użyć jednego z folderów lekcji z tego repozytorium).
+Rozszerz lokalnego asystenta inżynieryjnego do **lokalnego recenzenta dokumentacji** dla małego projektu według własnego wyboru (możesz użyć jednego z folderów lekcji z tego repozytorium).
 
-Twoje rozwiązanie powinno:
+Twoje zgłoszenie powinno:
 
-1. **Zindeksować rzeczywisty folder z dokumentacją/kodem** do Chromy (co najmniej pięć plików).
-2. **Dodać narzędzie `find_todos`** skanujące projekt pod kątem komentarzy `TODO`/`FIXME` i zwracające je z podaniem pliku i numeru linii — zachowując tę samą kontrolę sandboxa co `read_file`.
+1. **Zindeksować prawdziwy folder z dokumentacją/kodem** w Chromie (co najmniej pięć plików).
+2. **Dodać narzędzie `find_todos`**, które skanuje projekt pod kątem komentarzy `TODO`/`FIXME` i zwraca je wraz z nazwą pliku i numerem linii — zachowując to samo sprawdzenie sandbox jak `read_file`.
 
 3. **Zadaj agentowi trzy pytania**, które zmuszą go do łączenia narzędzi: jedno czysto RAG, jedno wymagające przeczytania konkretnego pliku oraz jedno wymagające znalezienia TODO.
-4. **Zmierz to**: zmierz czas każdej z trzech odpowiedzi i zanotuj go w komórce markdown. Skomentuj, czy opóźnienie jest akceptowalne dla twojego zamierzonego workflow.
+4. **Zmierz to**: zmierz czas każdej z trzech odpowiedzi i zanotuj go w komórce markdown. Skomentuj, czy opóźnienie jest akceptowalne dla twojego planowanego przepływu pracy.
 
-Następnie napisz krótki akapit o **tym, co przeniósłbyś do chmury, a co zostawił lokalnie** dla tego recenzenta i dlaczego. Ocena będzie dotyczyć tego, czy lokalne komponenty są poprawnie połączone oraz czy twoje hybrydowe rozumowanie jest poprawne — a nie jakości modelu.
+Następnie napisz krótki akapit o tym, **co przeniósłbyś do chmury, a co pozostawił lokalnie** dla tego recenzenta i dlaczego. Oceniane jest, czy lokalne komponenty są poprawnie połączone i czy twoje hybrydowe rozumowanie jest prawidłowe — a nie jakość modelu.
 
 ## Podsumowanie
 
-W tej lekcji zbudowałeś agenta, który działa w całości na twoim własnym komputerze:
+W tej lekcji zbudowałeś agenta, który działa całkowicie na twoim własnym komputerze:
 
-- **SLMy** poświęcają szerokość na rzecz prywatności, kosztów i pracy offline — i błyszczą, gdy **orkiestrują narzędzia**, zamiast przenosić całą wiedzę w sobie.
-- **Foundry Local** udostępnia modele na urządzeniu za pomocą **punktu końcowego kompatybilnego z OpenAI**, więc twój kod agenta w chmurze przenosi się jedną linijką zmiany.
-- **Modele wywołujące funkcje Qwen** umożliwiają niezawodne lokalne wywoływanie narzędzi — a przez to lokalnych *agentów*.
-- **Lokalny RAG** (Chroma) i **lokalny MCP** dają agentowi możliwości bez opuszczania maszyny.
-- **Hybrydowe wzorce** pozwalają na kierowanie zapytań według poufności i trudności, z lokalnym jako eleganckim zapasem.
+- **SLMy** wymieniają zakres na prywatność, koszt i działanie offline — i błyszczą, gdy **orkiestrują narzędzia**, a nie niosą całą wiedzę samodzielnie.
+- **Foundry Local** obsługuje modele na urządzeniu za pomocą **zakończenia kompatybilnego z OpenAI**, dzięki czemu twój kod agenta chmurowego przenosi się jednym wierszem zmiany.
+- **Modele wywołujące funkcje Qwen** umożliwiają niezawodne lokalne wywoływanie narzędzi — a zatem lokalnych *agentów*.
+- **Lokalny RAG** (Chroma) i **lokalny MCP** dają agentowi możliwości bez wychodzenia z maszyny.
+- **Wzorce hybrydowe** pozwalają kierować według wrażliwości i trudności, z lokalnym rozwiązaniem awaryjnym.
 
-To zamyka łuk wdrożenia: Lekcja 16 skalowała agentów do Microsoft Foundry, a ta lekcja je zeskalowała na pojedynczą stację roboczą. Następna lekcja poświęcona jest utrzymaniu bezpieczeństwa wdrożonych agentów.
+To kończy łuk wdrożeniowy: Lekcja 16 rozszerzyła agentów do Microsoft Foundry, a ta lekcja zmniejszyła ich skalę do pojedynczej stacji roboczej. Następna lekcja dotyczy utrzymania bezpieczeństwa wdrożonych agentów.
 
-## Dodatkowe zasoby
+## Dodatkowe materiały
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Dokumentacja Microsoft Foundry Local</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentacja Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Dokumentacja wywoływania funkcji Qwen</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Baza wektorowa Chroma</a>
