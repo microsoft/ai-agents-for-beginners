@@ -167,8 +167,10 @@ def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
     return base64.urlsafe_b64decode(s + padding)
 
-def verify_receipt(receipt: dict) -> bool:
-    # The signature is a structured object: {"alg", "sig", "public_key"}.
+def verify_receipt(receipt: dict, trusted_public_key: str) -> bool:
+    # trusted_public_key is the issuer's key, obtained from somewhere other
+    # than this receipt. Never use receipt["signature"]["public_key"] here:
+    # see "What Receipts Prove (and What They Do Not)" below.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
@@ -179,22 +181,25 @@ def verify_receipt(receipt: dict) -> bool:
     canonical_bytes = canonicalize(payload)
 
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
+        verify_key = signing.VerifyKey(b64url_decode(trusted_public_key))
         verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
         return True
     except BadSignatureError:
         return False
 ```
 
-This function takes a receipt and returns `True` if the signature is valid, `False` otherwise. No network call, no service dependency, no trust required in any third party.
+This function takes a receipt and the issuer's public key, and returns `True` if the signature is valid, `False` otherwise. No network call and no verification service: once you hold the issuer's key, verification is entirely local and offline. What it does still require is that key, obtained from somewhere other than the receipt itself.
 
 To see tampering detection in action, the notebook walks through:
 
 1. Producing a valid receipt and confirming it verifies.
 2. Modifying one byte of the `tool_args_hash` field.
 3. Re-running verification and seeing it fail.
+4. Tampering again, but this time re-signing with a key the attacker generated and embedding that key in the receipt.
 
-This is the practical demonstration that receipts are tamper-evident: any modification, however small, breaks the signature.
+Step 4 is the one worth sitting with. That receipt is internally consistent: its signature is genuine for its contents and for the key it carries, so it verifies against the key inside it. It fails only when checked against the issuer's real key. Steps 2 and 3 catch an attacker who did not bother to re-sign; step 4 catches the one who did.
+
+This is the practical demonstration that receipts are tamper-evident: any modification breaks the signature, provided you verify against a key the attacker did not supply.
 
 ## Chaining Receipts for Multi-Step Agents
 
@@ -241,6 +246,8 @@ This is the most important section of this lesson. Receipts are powerful but the
 2. **Policy compliance**: that the policy referenced in `policy_id` was actually evaluated, or that it would have permitted this action if checked. The receipt records what was claimed, not what was enforced.
 3. **Identity beyond the key**: the receipt says "this key signed this content." It does not say "this human authorized this." Connecting a key to a person or organization requires separate identity infrastructure (a directory, a public key registry, etc.).
 4. **Truthfulness of inputs**: if the agent receives a manipulated prompt and acts on it, the receipt records the action faithfully. Receipts are downstream of input validation, not a substitute for it.
+
+**The key in the receipt is not the key you verify with.** This follows from point 3, and it is the one place where the distinction has to change your code rather than your understanding. The `public_key` in the sample above is there so the example is self-contained. A verifier must never trust it. Anyone can take a receipt, alter it, sign it with a key they generated, and embed that key; the result verifies perfectly against itself. That is fixture `04_resigned_receipt.json` in `sample_receipts/`, and it is why `verify_receipt` above takes the key as an argument instead of reading it out of the receipt. Obtain the issuer's key independently, from the JWK Set in the Production Checklist below or another anchor you pinned in advance, and verify against that. A signature checked with a key that arrived in the same envelope proves only that the envelope is self-consistent.
 
 This boundary matters for two reasons:
 
