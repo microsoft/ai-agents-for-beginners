@@ -1,210 +1,210 @@
-# Membina Sistem Komunikasi Ejen-ke-Ejen dengan MCP
+# Membangun Sistem Komunikasi Ejen-ke-Ejen dengan MCP
 
-> Ringkasan - Bolehkah Anda Membina Komunikasi Ejen2Ejen dengan MCP? Ya!
+> TL;DR - Bolehkah Anda Membina Komunikasi Ejen2Ejen pada MCP? Ya!
 
-MCP telah berkembang jauh melampaui matlamat asalnya iaitu "menyediakan konteks kepada LLMs". Dengan penambahbaikan terkini termasuk [aliran boleh disambung semula](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), dan notifikasi ([kemajuan](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) dan [sumber](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP kini menyediakan asas yang kukuh untuk membina sistem komunikasi ejen-ke-ejen yang kompleks.
+MCP telah berkembang dengan ketara melebihi matlamat asalnya iaitu "menyediakan konteks kepada LLM". Dengan penambahbaikan terkini termasuk [aliran boleh disambung semula](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elisitasi](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [pensampelan](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), dan notifikasi ([kemajuan](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) dan [sumber](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP kini menyediakan asas yang kukuh untuk membina sistem komunikasi ejen-ke-ejen yang kompleks.
 
-## Salah Faham Mengenai Ejen/Alat
+## Kekeliruan Ejen/Alat
 
-Apabila lebih ramai pembangun meneroka alat dengan tingkah laku ejen (beroperasi untuk tempoh yang panjang, mungkin memerlukan input tambahan semasa pelaksanaan, dll.), salah faham yang biasa adalah bahawa MCP tidak sesuai kerana contoh awal primitif alatnya memberi tumpuan kepada corak permintaan-tindak balas yang mudah.
+Apabila lebih ramai pembangun meneroka alat dengan tingkah laku ejenik (berjalan untuk tempoh yang lama, mungkin memerlukan input tambahan semasa pelaksanaan, dsb.), satu kekeliruan biasa ialah bahawa MCP tidak sesuai terutamanya kerana contoh awal alatnya yang primitif memberi tumpuan kepada corak permintaan-respons yang mudah.
 
-Persepsi ini sudah ketinggalan zaman. Spesifikasi MCP telah dipertingkatkan dengan ketara dalam beberapa bulan kebelakangan ini dengan keupayaan yang menutup jurang untuk membina tingkah laku ejen yang beroperasi untuk tempoh yang panjang:
+Persepsi ini sudah lapuk. Spesifikasi MCP telah dipertingkatkan dengan ketara selama beberapa bulan lalu dengan keupayaan yang merapatkan jurang untuk membina tingkah laku ejenik yang berterusan lama:
 
-- **Penstriman & Hasil Sebahagian**: Kemas kini kemajuan masa nyata semasa pelaksanaan
-- **Boleh Disambung Semula**: Pelanggan boleh menyambung semula dan meneruskan selepas terputus
-- **Ketahanan**: Hasil bertahan selepas pelayan dimulakan semula (contohnya, melalui pautan sumber)
-- **Multi-pusingan**: Input interaktif semasa pelaksanaan melalui elicitation dan sampling
+- **Aliran & Keputusan Sebahagian**: Kemas kini kemajuan masa nyata semasa pelaksanaan
+- **Boleh Disambung Semula**: Pelanggan boleh bersambung semula dan meneruskan selepas terputus sambungan
+- **Ketahanan**: Keputusan kekal walaupun pelayan dimulakan semula (contoh, melalui pautan sumber)
+- **Berbilang Giliran**: Input interaktif semasa pelaksanaan melalui elisitasi dan pensampelan
 
-Ciri-ciri ini boleh digabungkan untuk membolehkan aplikasi ejen dan multi-ejen yang kompleks, semuanya dikerahkan pada protokol MCP.
+Ciri-ciri ini boleh digabungkan untuk membolehkan aplikasi ejenik dan pelbagai ejen yang kompleks, semuanya dipasang pada protokol MCP.
 
-Sebagai rujukan, kita akan merujuk kepada ejen sebagai "alat" yang tersedia pada pelayan MCP. Ini membayangkan kewujudan aplikasi hos yang melaksanakan pelanggan MCP yang mewujudkan sesi dengan pelayan MCP dan boleh memanggil ejen.
+Untuk rujukan, kita akan merujuk ejen sebagai "alat" yang tersedia pada pelayan MCP. Ini bermakna terdapat aplikasi hos yang melaksanakan klien MCP yang mewujudkan sesi dengan pelayan MCP dan boleh memanggil ejen itu.
 
-## Apa yang Menjadikan Alat MCP "Agentic"?
+## Apa yang Membuat Alat MCP "Ejenik"?
 
-Sebelum menyelami pelaksanaan, mari kita tetapkan keupayaan infrastruktur yang diperlukan untuk menyokong ejen yang beroperasi untuk tempoh yang panjang.
+Sebelum menyelami pelaksanaan, mari kita tetapkan keupayaan infrastruktur yang diperlukan untuk menyokong ejen yang beroperasi lama.
 
-> Kami akan mentakrifkan ejen sebagai entiti yang boleh beroperasi secara autonomi untuk tempoh yang panjang, mampu menangani tugas kompleks yang mungkin memerlukan interaksi atau penyesuaian berbilang berdasarkan maklum balas masa nyata.
+> Kami akan mentakrifkan ejen sebagai entiti yang boleh beroperasi secara autonomi dalam tempoh yang panjang, mampu mengendalikan tugas yang kompleks yang mungkin memerlukan pelbagai interaksi atau pelarasan berdasarkan maklum balas masa nyata.
 
-### 1. Penstriman & Hasil Sebahagian
+### 1. Aliran & Keputusan Sebahagian
 
-Corak permintaan-tindak balas tradisional tidak berfungsi untuk tugas yang beroperasi untuk tempoh yang panjang. Ejen perlu menyediakan:
+Corak permintaan-respons tradisional tidak sesuai untuk tugas yang berjalan lama. Ejen perlu menyediakan:
 
 - Kemas kini kemajuan masa nyata
-- Hasil perantaraan
+- Keputusan perantaraan
 
-**Sokongan MCP**: Notifikasi kemas kini sumber membolehkan penstriman hasil sebahagian, walaupun ini memerlukan reka bentuk yang teliti untuk mengelakkan konflik dengan model permintaan/tindak balas 1:1 JSON-RPC.
+**Sokongan MCP**: Notifikasi kemas kini sumber membolehkan aliran keputusan sebahagian, walaupun ini memerlukan reka bentuk yang teliti untuk mengelakkan konflik dengan model permintaan/respons 1:1 JSON-RPC.
 
-| Ciri                      | Kes Penggunaan                                                                                                                                                                       | Sokongan MCP                                                                               |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Kemas Kini Kemajuan Masa Nyata | Pengguna meminta tugas migrasi kod. Ejen menstrim kemajuan: "10% - Menganalisis kebergantungan... 25% - Menukar fail TypeScript... 50% - Mengemas kini import..."          | ✅ Notifikasi kemajuan                                                                     |
-| Hasil Sebahagian          | Tugas "Hasilkan buku" menstrim hasil sebahagian, contohnya, 1) Garis besar arka cerita, 2) Senarai bab, 3) Setiap bab apabila siap. Hos boleh memeriksa, membatalkan, atau mengarahkan semula pada mana-mana peringkat. | ✅ Notifikasi boleh "diperluaskan" untuk memasukkan hasil sebahagian lihat cadangan pada PR 383, 776 |
+| Ciri                     | Kes Penggunaan                                                                                                                                                            | Sokongan MCP                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Kemas Kini Kemajuan Masa Nyata | Pengguna meminta tugas migrasi kod. Ejen menyalurkan kemajuan: "10% - Menganalisis kebergantungan... 25% - Menukar fail TypeScript... 50% - Mengemas kini import..."        | ✅ Notifikasi kemajuan                                                                    |
+| Keputusan Sebahagian     | Tugas "Menghasilkan buku" menyalurkan keputusan sebahagian, contohnya, 1) Garis besar lengkung cerita, 2) Senarai bab, 3) Setiap bab yang selesai. Hos boleh memeriksa, membatalkan, atau mengalih arah pada bila-bila masa. | ✅ Notifikasi boleh "diperluas" untuk memasukkan keputusan sebahagian lihat cadangan pada PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Rajah 1:</strong> Rajah ini menggambarkan bagaimana ejen MCP menstrim kemas kini kemajuan masa nyata dan hasil sebahagian kepada aplikasi hos semasa tugas yang beroperasi untuk tempoh yang panjang, membolehkan pengguna memantau pelaksanaan secara masa nyata.
+<strong>Rajah 1:</strong> Rajah ini menerangkan bagaimana ejen MCP menyalurkan kemas kini kemajuan masa nyata dan keputusan sebahagian ke aplikasi hos semasa tugas yang berjalan lama, membolehkan pengguna memantau pelaksanaan secara langsung.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(Klien MCP)
+    participant Server as Pelayan MCP<br/>(Alat Ejen)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Mula tugasan panjang
+    Host->>Server: Panggil agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Kemas kini Kemajuan
+        Server-->>Host: Kemajuan + keputusan separa
+        Host-->>User: Kemas kini strim
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Keputusan akhir
+    Host-->>User: Selesai
 ```
 
 ### 2. Boleh Disambung Semula
 
-Ejen mesti menangani gangguan rangkaian dengan baik:
+Ejen mesti mengendalikan gangguan rangkaian dengan lancar:
 
-- Menyambung semula selepas terputus (pelanggan)
-- Meneruskan dari tempat ia berhenti (penghantaran semula mesej)
+- Bersambung semula selepas terputus sambungan (klien)
+- Meneruskan dari tempat terakhir dihentikan (penghantaran semula mesej)
 
-**Sokongan MCP**: Pengangkutan StreamableHTTP MCP hari ini menyokong penyambungan semula sesi dan penghantaran semula mesej dengan ID sesi dan ID acara terakhir. Nota penting di sini ialah pelayan mesti melaksanakan EventStore yang membolehkan ulangan acara semasa penyambungan semula pelanggan.  
-Perlu diingat bahawa terdapat cadangan komuniti (PR #975) yang meneroka aliran boleh disambung semula yang bebas pengangkutan.
+**Sokongan MCP**: Pengangkutan MCP StreamableHTTP hari ini menyokong penyambungan semula sesi dan penghantaran semula mesej dengan ID sesi dan ID acara terakhir. Nota penting di sini ialah pelayan mesti melaksanakan EventStore yang membolehkan main balik acara apabila klien menyambung semula.
+Perhatikan bahawa terdapat cadangan komuniti (PR #975) yang meneroka aliran boleh disambung semula tanpa mengira pengangkutan.
 
-| Ciri          | Kes Penggunaan                                                                                                                                                   | Sokongan MCP                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Boleh Disambung Semula | Pelanggan terputus semasa tugas yang beroperasi untuk tempoh yang panjang. Apabila disambung semula, sesi disambung semula dengan acara yang terlepas dimainkan semula, meneruskan dengan lancar dari tempat ia berhenti. | ✅ Pengangkutan StreamableHTTP dengan ID sesi, ulangan acara, dan EventStore |
+| Ciri        | Kes Penggunaan                                                                                                                            | Sokongan MCP                                                              |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Boleh Disambung Semula | Klien terputus semasa tugas berjalan lama. Setelah bersambung semula, sesi diteruskan dengan acara terlepas dimainkan semula, diteruskan lancar dari tempat ia berhenti. | ✅ Pengangkutan StreamableHTTP dengan ID sesi, main balik acara, dan EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Rajah 2:</strong> Rajah ini menunjukkan bagaimana pengangkutan StreamableHTTP MCP dan stor acara membolehkan penyambungan semula sesi yang lancar: jika pelanggan terputus, ia boleh menyambung semula dan memainkan semula acara yang terlepas, meneruskan tugas tanpa kehilangan kemajuan.
+<strong>Rajah 2:</strong> Rajah ini menunjukkan bagaimana pengangkutan StreamableHTTP MCP dan stor acara membolehkan penyambungan sesi yang lancar: jika klien terputus, ia boleh bersambung semula dan memainkan balik acara terlepas, meneruskan tugas tanpa kehilangan kemajuan.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Host App<br/>(Pelanggan MCP)
+    participant Server as Pelayan MCP<br/>(Alat Ejen)
+    participant Store as Simpanan Acara
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Mulakan tugas
+    Host->>Server: Panggil alat [sesi: abc123]
+    Server->>Store: Simpan acara
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Sambungan hilang
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Sambung semula [sesi: abc123]
+    Store-->>Server: Main semula acara
+    Server-->>Host: Kejar dan teruskan
+    Host-->>User: ✅ Selesai
 ```
 
 ### 3. Ketahanan
 
-Ejen yang beroperasi untuk tempoh yang panjang memerlukan keadaan yang berterusan:
+Ejen yang berjalan lama memerlukan keadaan yang berterusan:
 
-- Hasil bertahan selepas pelayan dimulakan semula
-- Status boleh diperoleh di luar jalur
-- Penjejakan kemajuan merentas sesi
+- Keputusan kekal selepas pelayan dimulakan semula
+- Status dapat diperoleh melalui saluran lain
+- Penjejakan kemajuan merentasi sesi
 
-**Sokongan MCP**: MCP kini menyokong jenis pulangan pautan Sumber untuk panggilan alat. Hari ini, corak yang mungkin adalah untuk mereka bentuk alat yang mencipta sumber dan segera mengembalikan pautan sumber. Alat boleh terus menangani tugas di latar belakang dan mengemas kini sumber. Sebaliknya, pelanggan boleh memilih untuk meninjau keadaan sumber ini untuk mendapatkan hasil sebahagian atau penuh (berdasarkan apa yang dikemas kini oleh pelayan) atau melanggan sumber untuk notifikasi kemas kini.
+**Sokongan MCP**: MCP kini menyokong jenis pulangan pautan Sumber untuk panggilan alat. Hari ini, corak yang mungkin adalah mereka bentuk alat yang mencipta sumber dan segera memulangkan pautan sumber. Alat boleh terus menangani tugas tersebut di latar belakang dan mengemas kini sumber itu. Sebaliknya, klien boleh memilih untuk mengundi keadaan sumber ini untuk mendapatkan keputusan sebahagian atau penuh (berdasarkan kemas kini sumber yang disediakan pelayan) atau melanggan sumber tersebut untuk notifikasi kemas kini.
 
-Satu batasan di sini ialah meninjau sumber atau melanggan kemas kini boleh menggunakan sumber dengan implikasi pada skala. Terdapat cadangan komuniti terbuka (termasuk #992) yang meneroka kemungkinan termasuk webhook atau pencetus yang boleh dipanggil oleh pelayan untuk memberitahu aplikasi hos/pelanggan tentang kemas kini.
+Satu kekangan di sini ialah pengundian sumber atau melanggan kemas kini boleh menggunakan sumber yang besar dengan implikasi pada skala. Terdapat cadangan komuniti terbuka (termasuk #992) yang meneroka kemungkinan memasukkan webhooks atau pencetus yang pelayan boleh panggil untuk memberitahu klien/aplikasi hos tentang kemas kini.
 
-| Ciri        | Kes Penggunaan                                                                                                                                        | Sokongan MCP                                                        |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Ketahanan   | Pelayan terhenti semasa tugas migrasi data. Hasil dan kemajuan bertahan selepas dimulakan semula, pelanggan boleh memeriksa status dan meneruskan dari sumber yang berterusan. | ✅ Pautan sumber dengan storan berterusan dan notifikasi status |
+| Ciri      | Kes Penggunaan                                                                                                                           | Sokongan MCP                                                      |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Ketahanan | Pelayan terhempas semasa tugas migrasi data. Keputusan dan kemajuan kekal selepas dimulakan semula, klien boleh semak status dan teruskan dari sumber yang berterusan. | ✅ Pautan sumber dengan storan berterusan dan notifikasi status   |
 
-Hari ini, corak biasa adalah untuk mereka bentuk alat yang mencipta sumber dan segera mengembalikan pautan sumber. Alat boleh menangani tugas di latar belakang, mengeluarkan notifikasi sumber yang berfungsi sebagai kemas kini kemajuan atau termasuk hasil sebahagian, dan mengemas kini kandungan dalam sumber mengikut keperluan.
+Hari ini, corak biasa adalah mereka bentuk alat yang mencipta sumber dan segera memulangkan pautan sumber. Alat boleh di latar belakang menangani tugas, mengeluarkan notifikasi sumber yang berfungsi sebagai kemas kini kemajuan atau memasukkan keputusan sebahagian, dan mengemas kini kandungan dalam sumber mengikut keperluan.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Rajah 3:</strong> Rajah ini menunjukkan bagaimana ejen MCP menggunakan sumber yang berterusan dan notifikasi status untuk memastikan bahawa tugas yang beroperasi untuk tempoh yang panjang bertahan selepas pelayan dimulakan semula, membolehkan pelanggan memeriksa kemajuan dan mendapatkan hasil walaupun selepas kegagalan.
+<strong>Rajah 3:</strong> Rajah ini menunjukkan bagaimana ejen MCP menggunakan sumber yang berterusan dan notifikasi status untuk memastikan tugas yang berjalan lama bertahan selepas pelayan dimulakan semula, membolehkan klien memeriksa kemajuan dan mendapatkan keputusan walaupun selepas kegagalan.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Apl Hos<br/>(Klien MCP)
+    participant Server as Pelayan MCP<br/>(Alat Ejen)
+    participant DB as Penyimpanan Kekal
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Mulakan tugasan
+    Host->>Server: Panggil alat
+    Server->>DB: Cipta sumber + kemaskini
+    Server-->>Host: 🔗 Pautan sumber
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Mulakan semula pelayan
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Periksa status
+    Host->>Server: Dapatkan sumber
+    Server->>DB: Muatkan keadaan
+    Server-->>Host: Kemajuan semasa
+    Server->>DB: Lengkap + notis
+    Host-->>User: ✅ Lengkap
 ```
 
-### 4. Interaksi Multi-Pusingan
+### 4. Interaksi Berbilang Giliran
 
 Ejen sering memerlukan input tambahan semasa pelaksanaan:
 
 - Penjelasan atau kelulusan manusia
 - Bantuan AI untuk keputusan kompleks
-- Penyesuaian parameter dinamik
+- Pelarasan parameter dinamik
 
-**Sokongan MCP**: Disokong sepenuhnya melalui sampling (untuk input AI) dan elicitation (untuk input manusia).
+**Sokongan MCP**: Disokong sepenuhnya melalui pensampelan (untuk input AI) dan elisitasi (untuk input manusia).
 
-| Ciri                     | Kes Penggunaan                                                                                                                                     | Sokongan MCP                                           |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Interaksi Multi-Pusingan | Ejen tempahan perjalanan meminta pengesahan harga daripada pengguna, kemudian meminta AI untuk meringkaskan data perjalanan sebelum menyelesaikan transaksi tempahan. | ✅ Elicitation untuk input manusia, sampling untuk input AI |
+| Ciri                   | Kes Penggunaan                                                                                                                                         | Sokongan MCP                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| Interaksi Berbilang Giliran | Ejen tempahan perjalanan meminta pengesahan harga daripada pengguna, kemudian meminta AI untuk meringkaskan data perjalanan sebelum melengkapkan transaksi tempahan. | ✅ Elisitasi untuk input manusia, pensampelan untuk input AI |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Rajah 4:</strong> Rajah ini menggambarkan bagaimana ejen MCP boleh secara interaktif meminta input manusia atau bantuan AI semasa pelaksanaan, menyokong aliran kerja kompleks dan multi-pusingan seperti pengesahan dan pembuatan keputusan dinamik.
+<strong>Rajah 4:</strong> Rajah ini menggambarkan bagaimana ejen MCP boleh secara interaktif memperoleh input manusia atau meminta bantuan AI semasa pelaksanaan, menyokong aliran kerja berbilang giliran yang kompleks seperti pengesahan dan membuat keputusan dinamik.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Apl Hos<br/>(Klien MCP)
+    participant Server as Pelayan MCP<br/>(Alat Ejen)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Tempah penerbangan
+    Host->>Server: Panggil ejen_perjalanan
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Pengumpulan maklumat: "Sahkan $500?"
+    Note over Host: Panggilan balik pengumpulan maklumat (jika tersedia)
+    Host->>User: 💰 Sahkan harga?
+    User->>Host: "Ya"
+    Host->>Server: Disahkan
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Pensampelan: "Ringkaskan data"
+    Note over Host: Panggilan balik AI (jika tersedia)
+    Host->>Server: Laporan ringkas
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Penerbangan ditempah
 ```
 
-## Melaksanakan Ejen yang Beroperasi untuk Tempoh yang Panjang pada MCP - Gambaran Kod
+## Melaksanakan Ejen Berjalan Lama pada MCP - Gambaran Kod
 
-Sebagai sebahagian daripada artikel ini, kami menyediakan [repositori kod](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) yang mengandungi pelaksanaan lengkap ejen yang beroperasi untuk tempoh yang panjang menggunakan SDK Python MCP dengan pengangkutan StreamableHTTP untuk penyambungan semula sesi dan penghantaran semula mesej. Pelaksanaan ini menunjukkan bagaimana keupayaan MCP boleh digabungkan untuk membolehkan tingkah laku seperti ejen yang canggih.
+Sebagai sebahagian daripada artikel ini, kami menyediakan [repo kod](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) yang mengandungi pelaksanaan lengkap ejen berjalan lama menggunakan MCP Python SDK dengan pengangkutan StreamableHTTP untuk penyambungan semula sesi dan penghantaran mesej semula. Pelaksanaan ini menunjukkan bagaimana keupayaan MCP boleh digabungkan untuk membolehkan tingkah laku seperti ejen yang canggih.
 
-Secara khusus, kami melaksanakan pelayan dengan dua alat ejen utama:
+Secara khusus, kami melaksanakan pelayan dengan dua alat utama ejen:
 
-- **Ejen Perjalanan** - Mensimulasikan perkhidmatan tempahan perjalanan dengan pengesahan harga melalui elicitation
-- **Ejen Penyelidikan** - Melaksanakan tugas penyelidikan dengan ringkasan yang dibantu AI melalui sampling
+- **Ejen Perjalanan** - Mensimulasikan perkhidmatan tempahan perjalanan dengan pengesahan harga melalui elisitasi
+- **Ejen Penyelidikan** - Melaksanakan tugas penyelidikan dengan ringkasan dibantu AI melalui pensampelan
 
-Kedua-dua ejen menunjukkan kemas kini kemajuan masa nyata, pengesahan interaktif, dan keupayaan penyambungan semula sesi penuh.
+Kedua-dua ejen ini menunjukkan kemas kini kemajuan masa nyata, pengesahan interaktif, dan keupayaan penyambungan semula sesi sepenuhnya.
 
-### Konsep Pelaksanaan Utama
+### Konsep Utama Pelaksanaan
 
-Bahagian berikut menunjukkan pelaksanaan ejen di sisi pelayan dan pengendalian hos di sisi pelanggan untuk setiap keupayaan:
+Bahagian berikut menunjukkan pelaksanaan ejen sisi pelayan dan pengendalian hos sisi klien untuk setiap keupayaan:
 
-#### Penstriman & Kemas Kini Kemajuan - Status Tugas Masa Nyata
+#### Aliran & Kemas Kini Kemajuan - Status Tugas Masa Nyata
 
-Penstriman membolehkan ejen menyediakan kemas kini kemajuan masa nyata semasa tugas yang beroperasi untuk tempoh yang panjang, memastikan pengguna dimaklumkan tentang status tugas dan hasil perantaraan.
+Aliran membolehkan ejen menyediakan kemas kini kemajuan masa nyata semasa tugas yang berjalan lama, memastikan pengguna dimaklumkan mengenai status tugas dan hasil perantaraan.
 
 **Pelaksanaan Pelayan (ejen menghantar notifikasi kemajuan):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Dari server/server.py - Ejen pelancongan menghantar kemas kini kemajuan
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Mensimulasikan kerja
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternatif: Log mesej untuk kemas kini langkah demi langkah yang terperinci
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Pelaksanaan Pelanggan (hos menerima kemas kini kemajuan):**
+**Pelaksanaan Klien (hos menerima kemas kini kemajuan):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Dari client/client.py - Pelanggan mengendalikan notifikasi masa nyata
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Daftar pengendali mesej semasa membuat sesi
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - Meminta Input Pengguna
+#### Elisitasi - Meminta Input Pengguna
 
-Elicitation membolehkan ejen meminta input pengguna semasa pelaksanaan. Ini penting untuk pengesahan, penjelasan, atau kelulusan semasa tugas yang beroperasi untuk tempoh yang panjang.
+Elisitasi membolehkan ejen meminta input pengguna semasa pelaksanaan. Ini penting untuk pengesahan, penjelasan, atau kelulusan semasa tugas yang berjalan lama.
 
 **Pelaksanaan Pelayan (ejen meminta pengesahan):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Dari server/server.py - Ejen pelancongan meminta pengesahan harga
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Teruskan dengan tempahan
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Batalkan tempahan
     booking_cancelled = True
 ```
 
-**Pelaksanaan Pelanggan (hos menyediakan panggilan balik elicitation):**
+**Pelaksanaan Klien (hos menyediakan panggilan balas elisitasi):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Dari client/client.py - Pengendalian klien permintaan elicitation
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Daftarkan panggilan balik semasa membuat sesi
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - Meminta Bantuan AI
+#### Pensampelan - Meminta Bantuan AI
 
-Sampling membolehkan ejen meminta bantuan LLM untuk keputusan kompleks atau penjanaan kandungan semasa pelaksanaan. Ini membolehkan aliran kerja hibrid manusia-AI.
+Pensampelan membolehkan ejen meminta bantuan LLM untuk keputusan kompleks atau penjanaan kandungan semasa pelaksanaan. Ini membolehkan aliran kerja hibrid manusia-AI.
 
 **Pelaksanaan Pelayan (ejen meminta bantuan AI):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Dari server/server.py - Ejen penyelidikan meminta ringkasan AI
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Pelaksanaan Pelanggan (hos menyediakan panggilan balik sampling):**
+**Pelaksanaan Klien (hos menyediakan panggilan balas pensampelan):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Dari client/client.py - Pengendalian permintaan pensampelan oleh klien
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Dalam aplikasi sebenar, ini boleh memanggil API LLM
+    # Untuk tujuan demo, kami menyediakan respons tiruan
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Daftarkan callback semasa membuat sesi
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Boleh Disambung Semula - Kesinambungan Sesi Merentas Gangguan
+#### Boleh Disambung Semula - Kesinambungan Sesi Merentasi Putus Sambungan
 
-Boleh disambung semula memastikan bahawa tugas ejen yang beroperasi untuk tempoh yang panjang boleh bertahan daripada gangguan pelanggan dan diteruskan dengan lancar semasa penyambungan semula. Ini dilaksanakan melalui stor acara dan token penyambungan semula.
+Boleh disambung semula memastikan bahawa tugas ejen yang berjalan lama boleh bertahan daripada putus sambungan klien dan diteruskan dengan lancar selepas penyambungan semula. Ini dilaksanakan melalui stor acara dan token penyambungan semula.
 
 **Pelaksanaan Stor Acara (pelayan menyimpan keadaan sesi):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Dari server/event_store.py - Simpanan acara memori mudah
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Main semula hanya acara kemudian dari aliran asal sesi.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Dari server/server.py - Menyerahkan simpanan acara kepada pengurus sesi
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Cipta pengurus sesi dengan simpanan acara untuk penyambungan semula
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Simpanan acara membolehkan penyambungan semula sesi
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Penggunaan: Mulakan dengan simpanan acara
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Metadata Pelanggan dengan Token Penyambungan Semula (pelanggan menyambung semula menggunakan keadaan yang disimpan):**
+**Metadata Klien dengan Token Penyambungan Semula (klien menyambung semula menggunakan keadaan disimpan):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Dari client/client.py - Sambungan semula klien dengan metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Gunakan token sambungan semula sedia ada untuk meneruskan di tempat kita berhenti
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Buat panggilan balik untuk menyimpan token sambungan semula apabila diterima
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Hantar permintaan dengan metadata sambungan semula
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,9 +437,9 @@ result = await session.send_request(
 )
 ```
 
-Aplikasi hos mengekalkan ID sesi dan token penyambungan semula secara tempatan, membolehkannya menyambung semula ke sesi sedia ada tanpa kehilangan kemajuan atau keadaan.
+Aplikasi hos menyimpan ID sesi dan token penyambungan semula secara tempatan, membolehkan ia untuk menyambung semula ke sesi sedia ada tanpa kehilangan kemajuan atau keadaan.
 
-### Organisasi Kod
+### Pengurusan Kod
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
 <strong>Rajah 5:</strong> Seni bina sistem ejen berasaskan MCP
@@ -432,14 +447,14 @@ Aplikasi hos mengekalkan ID sesi dan token penyambungan semula secara tempatan, 
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Pengguna]) -->|"Tugas"| Host["Hos<br/>(Pelanggan MCP)"]
+    Host -->|senaraikan alat| Server[Pelayan MCP]
+    Server -->|Mendedahkan| AgentsTools[Ejen sebagai Alat]
+    AgentsTools -->|Tugas| AgentA[Ejen Perjalanan]
+    AgentsTools -->|Tugas| AgentB[Ejen Penyelidikan]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Memantau| StateUpdates[Kemajuan & Kemas Kini Keadaan]
+    Server -->|Menerbitkan| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,66 +463,68 @@ graph LR
 
 **Fail Utama:**
 
-- **`server/server.py`** - Pelayan MCP yang boleh disambung semula dengan ejen perjalanan dan penyelidikan yang menunjukkan elicitation, sampling, dan kemas kini kemajuan
-- **`client/client.py`** - Aplikasi hos interaktif dengan sokongan penyambungan semula, pengendali panggilan balik, dan pengurusan token
+- **`server/server.py`** - Pelayan MCP boleh disambung semula dengan ejen perjalanan dan penyelidikan yang menunjukkan elisitasi, pensampelan, dan kemas kini kemajuan
+- **`client/client.py`** - Aplikasi hos interaktif dengan sokongan penyambungan semula, pengendali panggilan balas, dan pengurusan token
 - **`server/event_store.py`** - Pelaksanaan stor acara yang membolehkan penyambungan semula sesi dan penghantaran semula mesej
 
-## Memperluaskan kepada Komunikasi Multi-Ejen pada MCP
+## Meluaskan ke Komunikasi Pelbagai Ejen pada MCP
 
-Pelaksanaan di atas boleh diperluaskan kepada sistem multi-ejen dengan meningkatkan kecerdasan dan skop aplikasi hos:
+Pelaksanaan di atas boleh diperluas kepada sistem berbilang ejen dengan meningkatkan kebijaksanaan dan skop aplikasi hos:
 
-- **Pecahan Tugas Pintar**: Hos menganalisis permintaan pengguna yang kompleks dan memecahkannya kepada subtugas untuk ejen khusus yang berbeza
-- **Penyelarasan Pelbagai Pelayan**: Hos mengekalkan sambungan kepada pelbagai pelayan MCP, masing-masing mendedahkan keupayaan ejen yang berbeza
-- **Pengurusan Keadaan Tugas**: Hos menjejaki kemajuan merentas pelbagai tugas ejen serentak, mengendalikan kebergantungan dan penjujukan
-- **Ketahanan & Percubaan Semula**: Hos menguruskan kegagalan, melaksanakan logik percubaan semula, dan mengarahkan semula tugas apabila ejen tidak tersedia
-- **Sintesis Hasil**: Hos menggabungkan output daripada pelbagai ejen menjadi hasil akhir yang koheren
+- **Perincian Tugas Pintar**: Hos menganalisa permintaan kompleks pengguna dan memecahkannya kepada sub-tugas untuk ejen khusus yang berbeza
+- **Penyelarasan Berbilang Pelayan**: Hos mengekalkan sambungan kepada pelbagai pelayan MCP, masing-masing mendedahkan keupayaan ejen yang berlainan
+- **Pengurusan Keadaan Tugas**: Hos menjejaki kemajuan merentasi pelbagai tugas ejen yang serentak, mengendalikan kebergantungan dan penyusunan
+- **Ketahanan & Cubaan Semula**: Hos mengurus kegagalan, melaksanakan logik cuba semula, dan mengalih tugas apabila ejen menjadi tidak tersedia
+- **Sintesis Keputusan**: Hos menggabungkan output daripada pelbagai ejen menjadi keputusan akhir yang koheren
 
-Hos berkembang daripada pelanggan yang mudah kepada pengatur cerdas, menyelaraskan keupayaan ejen yang diedarkan sambil mengekalkan asas protokol MCP yang sama.
+Hos berubah dari klien mudah kepada pengaturcaraan pintar, menyelaraskan keupayaan ejen teragih sambil mengekalkan asas protokol MCP yang sama.
 
 ## Kesimpulan
 
-Keupayaan MCP yang dipertingkatkan - notifikasi sumber, elicitation/sampling, aliran boleh disambung semula, dan sumber yang berterusan - membolehkan interaksi ejen-ke-ejen yang kompleks sambil mengekalkan kesederhanaan protokol.
+Keupayaan MCP yang dipertingkatkan - notifikasi sumber, elisitasi/pensampelan, aliran boleh disambung semula, dan sumber berterusan - membolehkan interaksi ejen-ke-ejen yang kompleks sambil mengekalkan kesederhanaan protokol.
 
 ## Memulakan
 
-Sedia untuk membina sistem ejen2ejen anda sendiri? Ikuti langkah-langkah ini:
+Bersedia untuk membina sistem agent2agent anda sendiri? Ikuti langkah ini:
 
 ### 1. Jalankan Demo
 
 ```bash
-# Start the server with event store for resumption
+# Mulakan pelayan dengan event store untuk penyambungan semula
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Dalam terminal lain, jalankan klien interaktif
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Perintah yang tersedia dalam mod interaktif:**
+**Arahan tersedia dalam mod interaktif:**
 
-- `travel_agent` - Tempah perjalanan dengan pengesahan harga melalui elicitation
-- `research_agent` - Penyelidikan topik dengan ringkasan yang dibantu AI melalui sampling
-- `list` - Tunjukkan semua alat yang tersedia
+- `travel_agent` - Tempah perjalanan dengan pengesahan harga melalui elisitasi
+- `research_agent` - Penyelidikan topik dengan ringkasan dibantu AI melalui pensampelan
+- `list` - Papar semua alat tersedia
 - `clean-tokens` - Kosongkan token penyambungan semula
-- `help` - Tunjukkan bantuan perintah terperinci
-- `quit` - Keluar dari pelanggan
+- `help` - Papar bantuan arahan terperinci
+- `quit` - Keluar klien
 
 ### 2. Uji Keupayaan Penyambungan Semula
 
-- Mulakan ejen yang beroperasi untuk tempoh yang panjang (contohnya, `travel_agent`)
-- Ganggu pelanggan semasa pelaksanaan (Ctrl+C)
-- Mulakan semula pelanggan - ia akan secara automatik menyambung semula dari tempat ia berhenti
+- Mulakan ejen berjalan lama (contohnya, `travel_agent`)
+- Ganggu klien semasa pelaksanaan (Ctrl+C)
+- Mulakan semula klien - ia akan secara automatik menyambung semula dari tempat ia berhenti
 
-### 3. Teroka dan Perluaskan
+### 3. Teroka dan Luaskan
 
-- **Teroka contoh**: Lihat [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Terokai contoh**: Semak [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
 - **Sertai komuniti**: Sertai perbincangan MCP di GitHub
-- **Bereksperimen**: Mulakan dengan tugas yang beroperasi untuk tempoh yang panjang yang mudah dan secara beransur-ansur tambahkan penstriman, penyambungan semula, dan penyelarasan multi-ejen
+- **Eksperimen**: Mulakan dengan tugas berjalan lama yang mudah dan secara beransur-ansur tambah aliran, kemampuan boleh disambung semula, dan penyelarasan berbilang ejen
 
-Ini menunjukkan bagaimana MCP membolehkan tingkah laku ejen pintar sambil mengekalkan kesederhanaan berasaskan alat.
+Ini menunjukkan bagaimana MCP memungkinkan tingkah laku ejen pintar sambil mengekalkan kesederhanaan berasaskan alat.
 
-Secara keseluruhan, spesifikasi protokol MCP berkembang dengan pesat; pembaca digalakkan untuk menyemak laman web dokumentasi rasmi untuk kemas kini terkini - https://modelcontextprotocol.io/introduction
+Secara keseluruhannya, spesifikasi protokol MCP sedang berkembang dengan pantas; pembaca digalakkan untuk menyemak laman web dokumentasi rasmi untuk kemas kini terkini - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk memastikan ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat yang kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
