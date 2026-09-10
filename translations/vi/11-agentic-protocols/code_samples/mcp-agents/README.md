@@ -1,210 +1,210 @@
-# Xây dựng Hệ thống Giao tiếp Giữa Các Tác nhân với MCP
+# Xây dựng Hệ thống Giao tiếp Tác nhân với Tác nhân bằng MCP
 
-> Tóm tắt - Có thể xây dựng giao tiếp giữa các tác nhân trên MCP không? Có thể!
+> Tóm tắt - Bạn có thể xây dựng giao tiếp Agent2Agent trên MCP không? Có thể!
 
-MCP đã phát triển vượt xa mục tiêu ban đầu là "cung cấp ngữ cảnh cho LLMs". Với các cải tiến gần đây bao gồm [luồng có thể tiếp tục](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [khai thác thông tin](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [lấy mẫu](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), và thông báo ([tiến độ](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) và [tài nguyên](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP hiện cung cấp nền tảng mạnh mẽ để xây dựng các hệ thống giao tiếp phức tạp giữa các tác nhân.
+MCP đã phát triển vượt xa mục tiêu ban đầu của nó là "cung cấp ngữ cảnh cho LLM". Với những cải tiến gần đây bao gồm [luồng có thể tiếp tục](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [gợi ý](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [lấy mẫu](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), và thông báo ([tiến trình](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) và [tài nguyên](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP hiện cung cấp một nền tảng vững chắc để xây dựng các hệ thống giao tiếp phức tạp giữa các tác nhân.
 
-## Hiểu lầm về Tác nhân/Công cụ
+## Nhận thức Sai lầm về Tác nhân/Công cụ
 
-Khi ngày càng nhiều nhà phát triển khám phá các công cụ với hành vi tác nhân (chạy trong thời gian dài, có thể yêu cầu thêm đầu vào trong quá trình thực thi, v.v.), một hiểu lầm phổ biến là MCP không phù hợp, chủ yếu vì các ví dụ ban đầu về công cụ của nó tập trung vào các mẫu yêu cầu-phản hồi đơn giản.
+Khi nhiều nhà phát triển khám phá các công cụ với hành vi tác nhân (chạy trong thời gian dài, có thể yêu cầu đầu vào bổ sung giữa chừng, v.v.), một nhận thức phổ biến là MCP không phù hợp chủ yếu vì các ví dụ ban đầu về công cụ của nó tập trung vào các mẫu yêu cầu-phản hồi đơn giản.
 
-Quan điểm này đã lỗi thời. Đặc tả MCP đã được cải tiến đáng kể trong vài tháng qua với các khả năng thu hẹp khoảng cách để xây dựng hành vi tác nhân chạy lâu dài:
+Quan điểm này đã lỗi thời. Đặc tả MCP đã được cải tiến đáng kể trong vài tháng qua với các khả năng lấp đầy khoảng trống để xây dựng hành vi tác nhân chạy lâu dài:
 
-- **Luồng & Kết quả Từng phần**: Cập nhật tiến độ theo thời gian thực trong quá trình thực thi
-- **Khả năng tiếp tục**: Khách hàng có thể kết nối lại và tiếp tục sau khi bị ngắt kết nối
-- **Độ bền**: Kết quả tồn tại sau khi máy chủ khởi động lại (ví dụ: thông qua liên kết tài nguyên)
-- **Nhiều lượt**: Đầu vào tương tác trong quá trình thực thi thông qua khai thác thông tin và lấy mẫu
+- **Phát trực tuyến & Kết quả phần**: Cập nhật tiến trình theo thời gian thực trong khi thực thi
+- **Khả năng tiếp tục**: Khách hàng có thể kết nối lại và tiếp tục sau khi mất kết nối
+- **Độ bền**: Kết quả tồn tại qua các lần khởi động lại máy chủ (ví dụ, qua các liên kết tài nguyên)
+- **Đa lượt**: Nhập tương tác giữa chừng qua gợi ý và lấy mẫu
 
-Các tính năng này có thể được kết hợp để cho phép các ứng dụng tác nhân phức tạp và đa tác nhân, tất cả đều được triển khai trên giao thức MCP.
+Các tính năng này có thể được kết hợp để cho phép các ứng dụng tác nhân phức tạp và đa tác nhân, tất cả được triển khai trên giao thức MCP.
 
-Để tham khảo, chúng ta sẽ gọi một tác nhân là "công cụ" có sẵn trên máy chủ MCP. Điều này ngụ ý sự tồn tại của một ứng dụng chủ thực hiện một khách hàng MCP, thiết lập phiên với máy chủ MCP và có thể gọi tác nhân.
+Để tham khảo, chúng ta sẽ gọi một tác nhân là một "công cụ" có sẵn trên máy chủ MCP. Điều này ngụ ý tồn tại một ứng dụng chủ mà triển khai một khách hàng MCP thiết lập một phiên với máy chủ MCP và có thể gọi tác nhân đó.
 
-## Điều gì làm cho một Công cụ MCP trở thành "Tác nhân"?
+## Điều gì làm cho Công cụ MCP trở nên "Tác nhân"?
 
-Trước khi đi vào triển khai, hãy xác định các khả năng hạ tầng cần thiết để hỗ trợ các tác nhân chạy lâu dài.
+Trước khi đi sâu vào triển khai, hãy xác định những khả năng hạ tầng cần thiết để hỗ trợ các tác nhân chạy lâu dài.
 
-> Chúng ta sẽ định nghĩa một tác nhân là một thực thể có thể hoạt động tự động trong thời gian dài, có khả năng xử lý các nhiệm vụ phức tạp có thể yêu cầu nhiều tương tác hoặc điều chỉnh dựa trên phản hồi theo thời gian thực.
+> Chúng ta sẽ định nghĩa một tác nhân là một thực thể có thể hoạt động tự chủ trong khoảng thời gian dài, có khả năng xử lý các nhiệm vụ phức tạp có thể cần nhiều tương tác hoặc điều chỉnh dựa trên phản hồi thời gian thực.
 
-### 1. Luồng & Kết quả Từng phần
+### 1. Phát trực tuyến & Kết quả phần
 
-Các mẫu yêu cầu-phản hồi truyền thống không phù hợp với các nhiệm vụ chạy lâu dài. Các tác nhân cần cung cấp:
+Các mẫu yêu cầu-phản hồi truyền thống không hiệu quả cho các nhiệm vụ chạy lâu dài. Các tác nhân cần cung cấp:
 
-- Cập nhật tiến độ theo thời gian thực
+- Cập nhật tiến trình theo thời gian thực
 - Kết quả trung gian
 
-**Hỗ trợ MCP**: Thông báo cập nhật tài nguyên cho phép luồng kết quả từng phần, mặc dù điều này yêu cầu thiết kế cẩn thận để tránh xung đột với mô hình yêu cầu/phản hồi 1:1 của JSON-RPC.
+**Hỗ trợ MCP**: Thông báo cập nhật tài nguyên cho phép phát trực tuyến kết quả phần, mặc dù điều này đòi hỏi thiết kế cẩn thận để tránh xung đột với mô hình yêu cầu/phản hồi 1:1 của JSON-RPC.
 
-| Tính năng                  | Trường hợp sử dụng                                                                                                                                                                       | Hỗ trợ MCP                                                                                  |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Cập nhật Tiến độ Theo Thời gian thực | Người dùng yêu cầu nhiệm vụ di chuyển mã. Tác nhân truyền tiến độ: "10% - Đang phân tích phụ thuộc... 25% - Đang chuyển đổi tệp TypeScript... 50% - Đang cập nhật các nhập khẩu..."          | ✅ Thông báo tiến độ                                                                       |
-| Kết quả Từng phần          | Nhiệm vụ "Tạo một cuốn sách" truyền kết quả từng phần, ví dụ: 1) Dàn ý cốt truyện, 2) Danh sách chương, 3) Mỗi chương khi hoàn thành. Ứng dụng chủ có thể kiểm tra, hủy hoặc chuyển hướng ở bất kỳ giai đoạn nào. | ✅ Thông báo có thể được "mở rộng" để bao gồm kết quả từng phần, xem các đề xuất trên PR 383, 776 |
+| Tính năng                 | Trường hợp sử dụng                                                                                                                                                | Hỗ trợ MCP                                                                                 |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Cập nhật tiến trình thời gian thực | Người dùng yêu cầu nhiệm vụ di cư mã nguồn. Tác nhân phát trực tuyến tiến trình: "10% - Phân tích phụ thuộc... 25% - Chuyển đổi file TypeScript... 50% - Cập nhật import..." | ✅ Thông báo tiến trình                                                                     |
+| Kết quả phần             | Nhiệm vụ "Tạo một cuốn sách" phát trực tuyến kết quả phần, ví dụ: 1) Phác thảo cốt truyện, 2) Danh sách chương, 3) Mỗi chương khi hoàn thành. Chủ có thể kiểm tra, hủy hoặc chuyển hướng bất kỳ lúc nào. | ✅ Thông báo có thể "mở rộng" để bao gồm kết quả phần xem các đề xuất trong PR 383, 776       |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Hình 1:</strong> Sơ đồ này minh họa cách một tác nhân MCP truyền cập nhật tiến độ theo thời gian thực và kết quả từng phần cho ứng dụng chủ trong quá trình thực hiện nhiệm vụ lâu dài, cho phép người dùng theo dõi tiến trình trong thời gian thực.
+<strong>Hình 1:</strong> Sơ đồ này minh họa cách một tác nhân MCP phát trực tuyến cập nhật tiến trình thời gian thực và kết quả phần cho ứng dụng chủ trong quá trình thực hiện nhiệm vụ dài hạn, cho phép người dùng theo dõi tiến trình thực hiện ngay lập tức.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Ứng dụng máy chủ<br/>(Khách hàng MCP)
+    participant Server as Máy chủ MCP<br/>(Công cụ tác nhân)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Bắt đầu nhiệm vụ dài
+    Host->>Server: Gọi agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Cập nhật tiến độ
+        Server-->>Host: Tiến độ + kết quả một phần
+        Host-->>User: Cập nhật luồng
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Kết quả cuối cùng
+    Host-->>User: Hoàn thành
 ```
 
-### 2. Khả năng tiếp tục
+### 2. Khả năng Tiếp tục
 
-Các tác nhân phải xử lý gián đoạn mạng một cách linh hoạt:
+Các tác nhân phải xử lý gián đoạn mạng một cách mượt mà:
 
 - Kết nối lại sau khi (khách hàng) bị ngắt kết nối
-- Tiếp tục từ nơi đã dừng lại (gửi lại tin nhắn)
+- Tiếp tục từ nơi đã dừng lại (phân phối lại thông điệp)
 
-**Hỗ trợ MCP**: Giao thức StreamableHTTP của MCP hiện hỗ trợ tiếp tục phiên và gửi lại tin nhắn với ID phiên và ID sự kiện cuối cùng. Lưu ý quan trọng ở đây là máy chủ phải triển khai một EventStore cho phép phát lại sự kiện khi khách hàng kết nối lại.  
-Lưu ý rằng có một đề xuất cộng đồng (PR #975) khám phá luồng có thể tiếp tục không phụ thuộc vào giao thức.
+**Hỗ trợ MCP**: Giao thức StreamableHTTP của MCP hiện nay hỗ trợ tiếp tục phiên và phân phối lại thông điệp với ID phiên và ID sự kiện cuối cùng. Lưu ý quan trọng là máy chủ phải triển khai một Kho Sự kiện cho phép phát lại sự kiện khi khách hàng kết nối lại.  
+Lưu ý rằng có một đề xuất cộng đồng (PR #975) đang khám phá luồng có thể tiếp tục độc lập với giao thức truyền tải.
 
-| Tính năng      | Trường hợp sử dụng                                                                                                                                                   | Hỗ trợ MCP                                                                |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Khả năng tiếp tục | Khách hàng bị ngắt kết nối trong nhiệm vụ lâu dài. Khi kết nối lại, phiên tiếp tục với các sự kiện bị bỏ lỡ được phát lại, tiếp tục liền mạch từ nơi đã dừng lại. | ✅ Giao thức StreamableHTTP với ID phiên, phát lại sự kiện, và EventStore |
+| Tính năng       | Trường hợp sử dụng                                                                                                                                           | Hỗ trợ MCP                                                               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| Khả năng Tiếp tục | Khách hàng bị ngắt kết nối trong khi thực hiện tác vụ dài. Khi kết nối lại, phiên được tiếp tục với các sự kiện bị bỏ lỡ được phát lại, tiếp tục liền mạch từ nơi đã dừng. | ✅ Giao thức StreamableHTTP với ID phiên, phát lại sự kiện và Kho Sự kiện |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Hình 2:</strong> Sơ đồ này cho thấy cách giao thức StreamableHTTP của MCP và kho sự kiện cho phép tiếp tục phiên liền mạch: nếu khách hàng bị ngắt kết nối, họ có thể kết nối lại và phát lại các sự kiện bị bỏ lỡ, tiếp tục nhiệm vụ mà không mất tiến độ.
+<strong>Hình 2:</strong> Sơ đồ này cho thấy cách giao thức StreamableHTTP của MCP và kho sự kiện cho phép tiếp tục phiên mượt mà: nếu khách hàng ngắt kết nối, nó có thể kết nối lại và phát lại các sự kiện bị bỏ lỡ, tiếp tục tác vụ mà không mất tiến trình.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Ứng dụng chủ<br/>(Khách hàng MCP)
+    participant Server as Máy chủ MCP<br/>(Công cụ đại lý)
+    participant Store as Kho sự kiện
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Bắt đầu nhiệm vụ
+    Host->>Server: Gọi công cụ [phiên: abc123]
+    Server->>Store: Lưu sự kiện
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Mất kết nối
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Kết nối lại [phiên: abc123]
+    Store-->>Server: Phát lại sự kiện
+    Server-->>Host: Bắt kịp + tiếp tục
+    Host-->>User: ✅ Hoàn thành
 ```
 
 ### 3. Độ bền
 
-Các tác nhân chạy lâu dài cần trạng thái bền vững:
+Các tác nhân chạy lâu dài cần trạng thái tồn tại:
 
-- Kết quả tồn tại sau khi máy chủ khởi động lại
-- Trạng thái có thể được truy xuất ngoài băng
-- Theo dõi tiến độ qua các phiên
+- Kết quả tồn tại qua các lần khởi động lại máy chủ
+- Trạng thái có thể được truy xuất ngoài băng thông (out-of-band)
+- Theo dõi tiến trình qua các phiên
 
-**Hỗ trợ MCP**: MCP hiện hỗ trợ kiểu trả về liên kết tài nguyên cho các cuộc gọi công cụ. Hiện tại, một mẫu khả thi là thiết kế một công cụ tạo tài nguyên và ngay lập tức trả về liên kết tài nguyên. Công cụ có thể tiếp tục xử lý nhiệm vụ trong nền và cập nhật tài nguyên. Ngược lại, khách hàng có thể chọn kiểm tra trạng thái của tài nguyên này để nhận kết quả từng phần hoặc đầy đủ (dựa trên các cập nhật tài nguyên mà máy chủ cung cấp) hoặc đăng ký tài nguyên để nhận thông báo cập nhật.
+**Hỗ trợ MCP**: MCP hiện hỗ trợ kiểu trả về liên kết tài nguyên cho các cuộc gọi công cụ. Hiện nay, một mẫu phổ biến là thiết kế công cụ tạo một tài nguyên và trả về ngay một liên kết tài nguyên. Công cụ có thể tiếp tục xử lý tác vụ ở nền và cập nhật tài nguyên. Khách hàng có thể chọn truy vấn trạng thái tài nguyên để nhận kết quả phần hoặc đầy đủ (dựa trên các cập nhật tài nguyên mà máy chủ cung cấp) hoặc đăng ký nhận thông báo cập nhật từ tài nguyên.
 
-Một hạn chế ở đây là việc kiểm tra tài nguyên hoặc đăng ký nhận cập nhật có thể tiêu tốn tài nguyên với các tác động ở quy mô lớn. Có một đề xuất cộng đồng mở (bao gồm #992) khám phá khả năng bao gồm webhook hoặc trình kích hoạt mà máy chủ có thể gọi để thông báo cho ứng dụng khách/chủ về các cập nhật.
+Một hạn chế ở đây là việc truy vấn tài nguyên hoặc đăng ký nhận cập nhật có thể tiêu tốn tài nguyên với các tác động ở quy mô lớn. Có một đề xuất cộng đồng mở (bao gồm #992) khám phá khả năng bao gồm webhook hoặc trigger mà máy chủ có thể gọi để thông báo cho khách hàng/ứng dụng chủ về các cập nhật.
 
-| Tính năng    | Trường hợp sử dụng                                                                                                                                        | Hỗ trợ MCP                                                        |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Độ bền       | Máy chủ gặp sự cố trong nhiệm vụ di chuyển dữ liệu. Kết quả và tiến độ tồn tại sau khi khởi động lại, khách hàng có thể kiểm tra trạng thái và tiếp tục từ tài nguyên bền vững. | ✅ Liên kết tài nguyên với lưu trữ bền vững và thông báo trạng thái |
+| Tính năng  | Trường hợp sử dụng                                                                                                                               | Hỗ trợ MCP                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Độ bền     | Máy chủ bị sự cố trong quá trình di cư dữ liệu. Kết quả và tiến trình tồn tại qua lần khởi động lại, khách hàng có thể kiểm tra trạng thái và tiếp tục từ tài nguyên tồn tại. | ✅ Liên kết tài nguyên với lưu trữ bền và thông báo trạng thái     |
 
-Hiện tại, một mẫu phổ biến là thiết kế một công cụ tạo tài nguyên và ngay lập tức trả về liên kết tài nguyên. Công cụ có thể xử lý nhiệm vụ trong nền, phát hành thông báo tài nguyên như các cập nhật tiến độ hoặc bao gồm kết quả từng phần, và cập nhật nội dung trong tài nguyên khi cần.
+Hiện nay, một mẫu phổ biến là thiết kế công cụ tạo tài nguyên và trả về ngay liên kết tài nguyên. Công cụ có thể ở nền giải quyết tác vụ, phát đi thông báo tài nguyên làm cập nhật tiến trình hoặc bao gồm kết quả phần, và cập nhật nội dung trong tài nguyên khi cần.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Hình 3:</strong> Sơ đồ này minh họa cách các tác nhân MCP sử dụng tài nguyên bền vững và thông báo trạng thái để đảm bảo rằng các nhiệm vụ lâu dài tồn tại sau khi máy chủ khởi động lại, cho phép khách hàng kiểm tra tiến độ và truy xuất kết quả ngay cả sau khi gặp sự cố.
+<strong>Hình 3:</strong> Sơ đồ này minh họa cách các tác nhân MCP sử dụng tài nguyên tồn tại và thông báo trạng thái để đảm bảo các tác vụ chạy dài tồn tại qua các lần khởi động lại máy chủ, cho phép khách hàng kiểm tra tiến trình và lấy kết quả ngay cả sau khi có sự cố.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Ứng dụng chủ<br/>(Khách hàng MCP)
+    participant Server as Máy chủ MCP<br/>(Công cụ đại lý)
+    participant DB as Lưu trữ lâu dài
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Bắt đầu nhiệm vụ
+    Host->>Server: Gọi công cụ
+    Server->>DB: Tạo tài nguyên + cập nhật
+    Server-->>Host: 🔗 Liên kết tài nguyên
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Khởi động lại máy chủ
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Kiểm tra trạng thái
+    Host->>Server: Lấy tài nguyên
+    Server->>DB: Tải trạng thái
+    Server-->>Host: Tiến trình hiện tại
+    Server->>DB: Hoàn thành + thông báo
+    Host-->>User: ✅ Hoàn tất
 ```
 
-### 4. Tương tác Nhiều lượt
+### 4. Tương Tác Đa Lượt
 
-Các tác nhân thường cần thêm đầu vào trong quá trình thực thi:
+Các tác nhân thường cần đầu vào bổ sung giữa chừng:
 
-- Làm rõ hoặc phê duyệt từ con người
+- Làm rõ hoặc phê duyệt của con người
 - Hỗ trợ AI cho các quyết định phức tạp
 - Điều chỉnh tham số động
 
-**Hỗ trợ MCP**: Được hỗ trợ đầy đủ thông qua lấy mẫu (cho đầu vào AI) và khai thác thông tin (cho đầu vào con người).
+**Hỗ trợ MCP**: Được hỗ trợ đầy đủ qua lấy mẫu (để lấy đầu vào AI) và gợi ý (để lấy đầu vào con người).
 
-| Tính năng                 | Trường hợp sử dụng                                                                                                                                     | Hỗ trợ MCP                                           |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| Tương tác Nhiều lượt      | Tác nhân đặt vé du lịch yêu cầu xác nhận giá từ người dùng, sau đó yêu cầu AI tóm tắt dữ liệu du lịch trước khi hoàn tất giao dịch đặt vé.             | ✅ Khai thác thông tin cho đầu vào con người, lấy mẫu cho đầu vào AI |
+| Tính năng              | Trường hợp sử dụng                                                                                                                        | Hỗ trợ MCP                                             |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Tương tác đa lượt      | Đại lý đặt chuyến du lịch yêu cầu xác nhận giá từ người dùng, rồi yêu cầu AI tóm tắt dữ liệu du lịch trước khi hoàn tất giao dịch đặt chỗ. | ✅ Gợi ý cho đầu vào con người, lấy mẫu cho đầu vào AI  |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Hình 4:</strong> Sơ đồ này mô tả cách các tác nhân MCP có thể tương tác để khai thác đầu vào từ con người hoặc yêu cầu hỗ trợ AI trong quá trình thực thi, hỗ trợ các quy trình làm việc phức tạp, nhiều lượt như xác nhận và ra quyết định động.
+<strong>Hình 4:</strong> Sơ đồ này mô tả cách các tác nhân MCP có thể tương tác để gợi ý đầu vào con người hoặc yêu cầu hỗ trợ AI giữa chừng, hỗ trợ các quy trình làm việc đa lượt phức tạp như xác nhận và ra quyết định động.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Ứng dụng chính<br/>(Khách MCP)
+    participant Server as Máy chủ MCP<br/>(Công cụ đại lý)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Đặt vé máy bay
+    Host->>Server: Gọi đại lý du lịch
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Khai thác: "Xác nhận $500?"
+    Note over Host: Phản hồi khai thác (nếu có)
+    Host->>User: 💰 Xác nhận giá?
+    User->>Host: "Có"
+    Host->>Server: Đã xác nhận
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Lấy mẫu: "Tóm tắt dữ liệu"
+    Note over Host: Phản hồi AI (nếu có)
+    Host->>Server: Báo cáo tóm tắt
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Vé máy bay đã được đặt
 ```
 
-## Triển khai Tác nhân Chạy lâu dài trên MCP - Tổng quan về Mã
+## Triển khai Tác nhân Chạy dài trên MCP - Tổng quan mã nguồn
 
-Trong bài viết này, chúng tôi cung cấp một [kho mã](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) chứa triển khai đầy đủ các tác nhân chạy lâu dài sử dụng MCP Python SDK với giao thức StreamableHTTP để tiếp tục phiên và gửi lại tin nhắn. Triển khai này minh họa cách các khả năng của MCP có thể được kết hợp để cho phép các hành vi giống như tác nhân tinh vi.
+Trong bài viết này, chúng tôi cung cấp một [kho mã nguồn](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) chứa triển khai đầy đủ các tác nhân chạy dài sử dụng SDK Python MCP với giao thức StreamableHTTP cho tiếp tục phiên và phân phối lại thông điệp. Triển khai này minh họa cách các khả năng MCP được kết hợp để tạo ra hành vi giống tác nhân tinh vi.
 
 Cụ thể, chúng tôi triển khai một máy chủ với hai công cụ tác nhân chính:
 
-- **Tác nhân Du lịch** - Mô phỏng dịch vụ đặt vé du lịch với xác nhận giá thông qua khai thác thông tin
-- **Tác nhân Nghiên cứu** - Thực hiện các nhiệm vụ nghiên cứu với tóm tắt hỗ trợ AI thông qua lấy mẫu
+- **Đại lý Du lịch** - Mô phỏng dịch vụ đặt chuyến du lịch với xác nhận giá thông qua gợi ý
+- **Đại lý Nghiên cứu** - Thực hiện các tác vụ nghiên cứu với tóm tắt hỗ trợ AI qua lấy mẫu
 
-Cả hai tác nhân đều minh họa cập nhật tiến độ theo thời gian thực, xác nhận tương tác, và khả năng tiếp tục phiên đầy đủ.
+Cả hai tác nhân đều trình diễn cập nhật tiến trình thời gian thực, xác nhận tương tác, và khả năng tiếp tục phiên đầy đủ.
 
-### Các Khái niệm Triển khai Chính
+### Các Khái niệm triển khai chính
 
-Các phần sau đây hiển thị triển khai tác nhân phía máy chủ và xử lý ứng dụng chủ phía khách hàng cho từng khả năng:
+Các phần dưới đây trình bày triển khai tác nhân phía máy chủ và xử lý ở phía ứng dụng chủ cho từng khả năng:
 
-#### Luồng & Cập nhật Tiến độ - Trạng thái Nhiệm vụ Theo thời gian thực
+#### Phát trực tuyến & Cập nhật tiến trình - Trạng thái tác vụ theo thời gian thực
 
-Luồng cho phép các tác nhân cung cấp cập nhật tiến độ theo thời gian thực trong các nhiệm vụ lâu dài, giữ cho người dùng được thông báo về trạng thái nhiệm vụ và kết quả trung gian.
+Phát trực tuyến cho phép các tác nhân cung cấp cập nhật tiến trình theo thời gian thực trong khi thực hiện các tác vụ dài, giúp người dùng nắm bắt trạng thái và kết quả trung gian.
 
-**Triển khai Máy chủ (tác nhân gửi thông báo tiến độ):**
+**Triển khai máy chủ (tác nhân gửi thông báo tiến trình):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Từ server/server.py - Đại lý du lịch gửi cập nhật tiến trình
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Mô phỏng công việc
 
-# Alternative: Log messages for detailed step-by-step updates
+# Thay thế: Ghi nhật ký thông báo để cập nhật chi tiết từng bước
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Triển khai Khách hàng (ứng dụng chủ nhận cập nhật tiến độ):**
+**Triển khai khách hàng (ứng dụng chủ nhận cập nhật tiến trình):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Từ client/client.py - Khách hàng xử lý thông báo thời gian thực
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Đăng ký trình xử lý tin nhắn khi tạo phiên làm việc
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Khai thác thông tin - Yêu cầu Đầu vào Người dùng
+#### Gợi ý - Yêu cầu đầu vào người dùng
 
-Khai thác thông tin cho phép các tác nhân yêu cầu đầu vào từ người dùng trong quá trình thực thi. Điều này rất cần thiết cho các xác nhận, làm rõ, hoặc phê duyệt trong các nhiệm vụ lâu dài.
+Gợi ý cho phép tác nhân yêu cầu đầu vào người dùng giữa chừng thực thi. Điều này cần thiết cho xác nhận, làm rõ, hoặc phê duyệt trong các tác vụ chạy dài.
 
-**Triển khai Máy chủ (tác nhân yêu cầu xác nhận):**
+**Triển khai máy chủ (tác nhân yêu cầu xác nhận):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Từ server/server.py - Đại lý du lịch yêu cầu xác nhận giá
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Tiếp tục với đặt chỗ
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Hủy đặt chỗ
     booking_cancelled = True
 ```
 
-**Triển khai Khách hàng (ứng dụng chủ cung cấp callback khai thác thông tin):**
+**Triển khai khách hàng (ứng dụng chủ cung cấp callback gợi ý):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Từ client/client.py - Xử lý các yêu cầu khám phá của khách hàng
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Đăng ký callback khi tạo phiên làm việc
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Lấy mẫu - Yêu cầu Hỗ trợ AI
+#### Lấy mẫu - Yêu cầu hỗ trợ AI
 
-Lấy mẫu cho phép các tác nhân yêu cầu hỗ trợ LLM cho các quyết định phức tạp hoặc tạo nội dung trong quá trình thực thi. Điều này cho phép các quy trình làm việc kết hợp giữa con người và AI.
+Lấy mẫu cho phép tác nhân yêu cầu trợ giúp từ mô hình ngôn ngữ lớn cho các quyết định phức tạp hoặc tạo nội dung trong lúc thực thi. Điều này cho phép các quy trình làm việc kết hợp giữa con người và AI.
 
-**Triển khai Máy chủ (tác nhân yêu cầu hỗ trợ AI):**
+**Triển khai máy chủ (tác nhân yêu cầu hỗ trợ AI):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Từ server/server.py - Tác nhân nghiên cứu yêu cầu tóm tắt AI
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Triển khai Khách hàng (ứng dụng chủ cung cấp callback lấy mẫu):**
+**Triển khai khách hàng (ứng dụng chủ cung cấp callback lấy mẫu):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Từ client/client.py - Xử lý yêu cầu lấy mẫu từ client
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Trong ứng dụng thực tế, điều này có thể gọi API LLM
+    # Cho mục đích demo, chúng tôi cung cấp phản hồi giả lập
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Đăng ký callback khi tạo phiên làm việc
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Khả năng tiếp tục - Liên tục Phiên Qua Các Gián đoạn
+#### Khả năng Tiếp tục - Duy trì phiên qua các kết nối lại
 
-Khả năng tiếp tục đảm bảo rằng các nhiệm vụ tác nhân lâu dài có thể tồn tại qua các gián đoạn kết nối khách hàng và tiếp tục liền mạch khi kết nối lại. Điều này được triển khai thông qua kho sự kiện và token tiếp tục.
+Khả năng tiếp tục đảm bảo các tác vụ tác nhân chạy lâu dài có thể vượt qua các lần ngắt kết nối của khách hàng và tiếp tục liền mạch khi kết nối lại. Điều này được thực hiện qua kho sự kiện và token tiếp tục.
 
 **Triển khai Kho Sự kiện (máy chủ giữ trạng thái phiên):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Từ server/event_store.py - Kho sự kiện đơn giản trong bộ nhớ
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Chỉ phát lại các sự kiện sau từ luồng gốc của phiên.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Từ server/server.py - Truyền kho sự kiện cho quản lý phiên
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Tạo quản lý phiên với kho sự kiện để tiếp tục
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Kho sự kiện cho phép tiếp tục phiên
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Sử dụng: Khởi tạo với kho sự kiện
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Metadata Khách hàng với Token Tiếp tục (khách hàng kết nối lại sử dụng trạng thái đã lưu):**
+**Metadata khách hàng với token tiếp tục (khách hàng kết nối lại sử dụng trạng thái lưu):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Từ client/client.py - Khách hàng tiếp tục với siêu dữ liệu
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Sử dụng token tiếp tục hiện có để tiếp tục từ chỗ đã dừng
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Tạo hàm gọi lại để lưu token tiếp tục khi nhận được
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Gửi yêu cầu kèm theo siêu dữ liệu tiếp tục
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,9 +437,9 @@ result = await session.send_request(
 )
 ```
 
-Ứng dụng chủ duy trì ID phiên và token tiếp tục cục bộ, cho phép nó kết nối lại với các phiên hiện có mà không mất tiến độ hoặc trạng thái.
+Ứng dụng chủ duy trì ID phiên và token tiếp tục tại chỗ, giúp nó kết nối lại các phiên hiện có mà không mất tiến trình hay trạng thái.
 
-### Tổ chức Mã
+### Tổ chức mã nguồn
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
 <strong>Hình 5:</strong> Kiến trúc hệ thống tác nhân dựa trên MCP
@@ -432,82 +447,84 @@ result = await session.send_request(
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Người dùng]) -->|"Nhiệm vụ"| Host["Máy chủ<br/>(Khách MCP)"]
+    Host -->|liệt kê công cụ| Server[Máy chủ MCP]
+    Server -->|Cung cấp| AgentsTools[Đại lý như Công cụ]
+    AgentsTools -->|Nhiệm vụ| AgentA[Đại lý Du lịch]
+    AgentsTools -->|Nhiệm vụ| AgentB[Đại lý Nghiên cứu]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Giám sát| StateUpdates[Tiến trình & Cập nhật trạng thái]
+    Server -->|Xuất bản| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
     class Host,Server,StateUpdates core;
 ```
 
-**Các Tệp Chính:**
+**Các tập tin chính:**
 
-- **`server/server.py`** - Máy chủ MCP có thể tiếp tục với các tác nhân du lịch và nghiên cứu minh họa khai thác thông tin, lấy mẫu, và cập nhật tiến độ
-- **`client/client.py`** - Ứng dụng chủ tương tác với hỗ trợ tiếp tục, trình xử lý callback, và quản lý token
-- **`server/event_store.py`** - Triển khai kho sự kiện cho phép tiếp tục phiên và gửi lại tin nhắn
+- **`server/server.py`** - Máy chủ MCP có thể tiếp tục cho các tác nhân du lịch và nghiên cứu trình diễn gợi ý, lấy mẫu, và cập nhật tiến trình
+- **`client/client.py`** - Ứng dụng chủ tương tác với hỗ trợ tiếp tục phiên, các trình xử lý callback, và quản lý token
+- **`server/event_store.py`** - Triển khai kho sự kiện cho phép tiếp tục phiên và phân phối lại thông điệp
 
-## Mở rộng sang Giao tiếp Đa Tác nhân trên MCP
+## Mở rộng đến Giao tiếp Đa Tác nhân trên MCP
 
-Triển khai trên có thể được mở rộng sang các hệ thống đa tác nhân bằng cách nâng cao trí thông minh và phạm vi của ứng dụng chủ:
+Triển khai trên có thể mở rộng cho các hệ thống đa tác nhân bằng cách nâng cao trí thông minh và phạm vi của ứng dụng chủ:
 
-- **Phân tích Nhiệm vụ Thông minh**: Ứng dụng chủ phân tích các yêu cầu phức tạp của người dùng và chia chúng thành các nhiệm vụ con cho các tác nhân chuyên biệt khác nhau
-- **Phối hợp Đa Máy chủ**: Ứng dụng chủ duy trì kết nối với nhiều máy chủ MCP, mỗi máy chủ cung cấp các khả năng tác nhân khác nhau
-- **Quản lý Trạng thái Nhiệm vụ**: Ứng dụng chủ theo dõi tiến độ qua nhiều nhiệm vụ tác nhân đồng thời, xử lý các phụ thuộc và trình tự
-- **Khả năng phục hồi & Thử lại**: Ứng dụng chủ quản lý các lỗi, triển khai logic thử lại, và chuyển hướng nhiệm vụ khi các tác nhân không khả dụng
-- **Tổng hợp Kết quả**: Ứng dụng chủ kết hợp các đầu ra từ nhiều tác nhân thành kết quả cuối cùng mạch lạc
+- **Phân rã Nhiệm vụ Thông minh**: Ứng dụng chủ phân tích các yêu cầu phức tạp của người dùng và chia nhỏ thành các tác vụ phụ cho các tác nhân chuyên biệt khác nhau
+- **Phối hợp Đa máy chủ**: Ứng dụng chủ duy trì kết nối tới nhiều máy chủ MCP, mỗi máy chủ cung cấp các khả năng tác nhân khác nhau
+- **Quản lý Trạng thái Nhiệm vụ**: Ứng dụng chủ theo dõi tiến trình qua nhiều tác vụ tác nhân đồng thời, xử lý phụ thuộc và thứ tự thực hiện
+- **Khả năng chống chịu & Thử lại**: Ứng dụng chủ quản lý các lỗi, thực hiện logic thử lại, và định tuyến lại nhiệm vụ khi các tác nhân không khả dụng
+- **Tổng hợp Kết quả**: Ứng dụng chủ kết hợp đầu ra từ nhiều tác nhân thành kết quả cuối cùng hợp lý
 
-Ứng dụng chủ phát triển từ một khách hàng đơn giản thành một nhà điều phối thông minh, phối hợp các khả năng tác nhân phân tán trong khi duy trì nền tảng giao thức MCP.
+Ứng dụng chủ tiến hóa từ một khách hàng đơn giản thành một trình điều phối thông minh, phối hợp các khả năng tác nhân phân tán trong khi vẫn duy trì nền tảng giao thức MCP.
 
 ## Kết luận
 
-Các khả năng nâng cao của MCP - thông báo tài nguyên, khai thác thông tin/lấy mẫu, luồng có thể tiếp tục, và tài nguyên bền vững - cho phép các tương tác phức tạp giữa các tác nhân trong khi vẫn duy trì sự đơn giản của giao thức.
+Các khả năng được cải tiến của MCP - thông báo tài nguyên, gợi ý/lấy mẫu, luồng có thể tiếp tục, và tài nguyên tồn tại - cho phép các tương tác phức tạp giữa các tác nhân trong khi giữ sự đơn giản của giao thức.
 
 ## Bắt đầu
 
-Sẵn sàng xây dựng hệ thống giao tiếp giữa các tác nhân của riêng bạn? Thực hiện các bước sau:
+Sẵn sàng xây dựng hệ thống agent2agent của riêng bạn? Hãy làm theo các bước sau:
 
-### 1. Chạy Demo
+### 1. Chạy bản demo
 
 ```bash
-# Start the server with event store for resumption
+# Khởi động máy chủ với kho sự kiện để tiếp tục
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Trong một terminal khác, chạy client tương tác
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Các lệnh có sẵn trong chế độ tương tác:**
+**Các lệnh có sẵn ở chế độ tương tác:**
 
-- `travel_agent` - Đặt vé du lịch với xác nhận giá thông qua khai thác thông tin
-- `research_agent` - Nghiên cứu chủ đề với tóm tắt hỗ trợ AI thông qua lấy mẫu
-- `list` - Hiển thị tất cả các công cụ có sẵn
+- `travel_agent` - Đặt chuyến du lịch với xác nhận giá qua gợi ý
+- `research_agent` - Nghiên cứu chủ đề với tóm tắt hỗ trợ AI qua lấy mẫu
+- `list` - Hiển thị tất cả công cụ có sẵn
 - `clean-tokens` - Xóa token tiếp tục
-- `help` - Hiển thị trợ giúp chi tiết lệnh
-- `quit` - Thoát ứng dụng khách
+- `help` - Hiển thị trợ giúp lệnh chi tiết
+- `quit` - Thoát khỏi khách hàng
 
-### 2. Kiểm tra Khả năng Tiếp tục
+### 2. Kiểm tra khả năng tiếp tục
 
-- Bắt đầu một tác nhân chạy lâu dài (ví dụ: `travel_agent`)
-- Ngắt ứng dụng khách trong quá trình thực thi (Ctrl+C)
-- Khởi động lại ứng dụng khách - nó sẽ tự động tiếp tục từ nơi đã dừng lại
+- Bắt đầu một tác nhân chạy dài (ví dụ `travel_agent`)
+- Gián đoạn khách hàng trong khi thực thi (Ctrl+C)
+- Khởi động lại khách hàng - tự động tiếp tục từ nơi đã dừng lại
 
 ### 3. Khám phá và Mở rộng
 
-- **Khám phá các ví dụ**: Xem [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Khám phá ví dụ**: Xem ví dụ trong [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
 - **Tham gia cộng đồng**: Tham gia thảo luận MCP trên GitHub
-- **Thử nghiệm**: Bắt đầu với một nhiệm vụ chạy lâu dài đơn giản và dần dần thêm luồng, khả năng tiếp tục, và phối hợp đa tác nhân
+- **Thử nghiệm**: Bắt đầu với nhiệm vụ chạy dài đơn giản và dần thêm phát trực tuyến, khả năng tiếp tục, và phối hợp đa tác nhân
 
-Điều này minh họa cách MCP cho phép các hành vi tác nhân thông minh trong khi vẫn duy trì sự đơn giản dựa trên công cụ.
+Điều này cho thấy MCP cho phép các hành vi tác nhân thông minh mà vẫn giữ được sự đơn giản dựa trên công cụ.
 
-Nhìn chung, đặc tả giao thức MCP đang phát triển nhanh chóng; người đọc được khuyến khích xem trang web tài liệu chính thức để cập nhật mới nhất -
+Tổng thể, đặc tả giao thức MCP đang phát triển nhanh chóng; độc giả được khuyến khích xem trang tài liệu chính thức để cập nhật mới nhất - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với các thông tin quan trọng, khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

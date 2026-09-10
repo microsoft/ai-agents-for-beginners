@@ -1,78 +1,80 @@
 ---
 name: testing-course-samples
-description: השתמש כאשר מתבקשים לבדוק תוקף, לבצע בדיקת פונקציונליות בסיסית, או להריץ
-  את המחברת ודוגמאות הקוד של הקורס נגד תצורת Microsoft Foundry / Azure OpenAI חיה.
-  כולל הגדרת סביבה (.env, az login, חבילות), הרצת הסקריפט scripts/validate-notebooks.ps1,
-  פירוש תוצאות PASS/FAIL, ואילו שיעורים דורשים משאבים נוספים (Azure AI Search, GitHub
-  MCP, Foundry Local, Playwright).
 ---
 # בדיקת דוגמאות הקורס
 
-אמתו שהמחברות והדוגמאות של השיעור רצות נגד הגדרת
-Microsoft Foundry / Azure OpenAI חיה. המאגר כולל ראנר ב-
-[`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) שמבצע
-הפעלה שקטה של כל מחברת פייתון ומדפיס מטריצת PASS/FAIL.
+אמת שהמחברות של השיעור ודוגמאות הקוד רצות מול התקנה חיה של
+Microsoft Foundry / Azure OpenAI. המאגר כולל ראנר ב
+[`scripts/validate-notebooks.ps1`](../../../../../scripts/validate-notebooks.ps1) שמריץ
+כל מחברת פייתון בצורה אוטונומית ומדפיס מטריצת PASS/FAIL.
 
 ## מתי להשתמש
-- "אמת את כל המחברות / הדוגמאות מול מנוי Azure שלי."
-- "בצע בדיקת תפקוד ראשונית בקורס לאחר שדרוג חבילות או שינוי דגמים."
-- "אילו שיעורים עדיין עוברים / נכשלים בזמן אמת?"
+- "אמת את כל המחברות / הדוגמאות מול המנוי שלי ב-Azure."
+- "הרץ בדיקת סמוק לקורס לאחר שדרוג חבילות או שינוי מודלים."
+- "אילו שיעורים עדיין עוברים / נכשלים בלייב?"
 
-אל תשתמשו בזה עבור GitHub Action של AI Smoke Test (שמאמת סוכנים *מופעלים* —
-ראו [`tests/README.md`](../../../tests/README.md)). מיומנות זו
+אל תשתמש ב**זאת** עבור פעולת ה-GitHub AI Smoke Test (שמאמתת *סוכנים מתפרסים*
+— ראה [`tests/README.md`](../../../tests/README.md)). מיומנות זו
 מריצה את המחברות באופן מקומי.
 
-## דרישות מוקדמות (בדקו קודם)
+## דרישות קדם (בדוק קודם)
 1. **Python 3.12+** עם התלויות של הקורס: `python -m pip install -r requirements.txt`
-   בנוסף המפעיל: `python -m pip install nbconvert ipykernel`.
-2. **`.env` בשורש המאגר** (העתק מ-[`.env.example`](../../../../../.env.example)) עם לפחות:
+   בנוסף למריץ: `python -m pip install nbconvert ipykernel`.
+2. **`.env` בשורש המאגר** (העתק מקובץ [`.env.example`](../../../../../.env.example)) עם לפחות:
    - `AZURE_AI_PROJECT_ENDPOINT` — נקודת קצה של פרויקט Foundry
      (`https://<account>.services.ai.azure.com/api/projects/<project>`)
-   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — פריסת מודל שאינה מיושנת (למשל `gpt-4.1-mini`)
-   - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) ו- `AZURE_OPENAI_DEPLOYMENT`
-     לשיעורים שקוראים ישירות ל-Azure OpenAI (שיעור 06, 02-azure-openai, 14 handoff/human-loop).
-3. **התחברות `az login`** הושלמה — דוגמאות מאמתות עם `AzureCliCredential` (Entra ID, ללא מפתח).
-4. אמתו שקיים פריסת המודל:
+   - `AZURE_AI_MODEL_DEPLOYMENT_NAME` — פריסה שאינה מיושנת (למשל `gpt-5-mini`)
+   - `AZURE_OPENAI_ENDPOINT` (`https://<account>.openai.azure.com`) ו-`AZURE_OPENAI_DEPLOYMENT`
+     עבור שיעורים שקוראים ל-Azure OpenAI ישירות (שיעור 06, 02-azure-openai, 14 handoff/human-loop).
+3. סיום **`az login`** — הדוגמאות מאימותות עם `AzureCliCredential` (Entra ID, ללא מפתח).
+4. אמת שקיימת פריסת מודל:
    `az cognitiveservices account deployment list -g <rg> -n <account> -o table`.
 
 ## הרצת האימות
 ```powershell
-# כל פנקסי הפייתון (מדלג על .NET, .venv, site-packages, תרגומים, נכסי מיומנות)
+# כל פנקסי הפייתון (דלג על .NET, .venv, site-packages, תרגומים, נכסי מיומנות)
 pwsh scripts/validate-notebooks.ps1
 
-# שיעור יחיד, עם זמן קצוב ארוך יותר לכל תא
+# שיעור אחד, עם זמן המתנה ארוך יותר לכל תא
 pwsh scripts/validate-notebooks.ps1 -Filter '08-*' -Timeout 600
 
-# רק לרשום מה ירוץ (ללא ביצוע)
+# רק רשום מה ירוץ (ללא ביצוע)
 pwsh scripts/validate-notebooks.ps1 -List
 
-# מפרש מוצהר (אם `python` לא נמצא ב-PATH, לדוגמה קיצור חנות ווינדוס)
+# מפרש מפורש (אם `python` לא נמצא ב-PATH, למשל כינוי מ-Windows Store)
 pwsh scripts/validate-notebooks.ps1 -Python "C:/path/to/python.exe"
 ```
-הסקריפט כותב עותקים מוקצים, לוגים לכל מחברת ו- `results.json` אל
-`$env:TEMP\aiab-nbval` ויוצא עם מספר הכשלים.
+התסריט כותב עותקים מבוצעים, לוגים לכל מחברת, ו-`results.json` ל-
+`$env:TEMP\aiab-nbval` ויוצא עם מספר הכשלונות.
+
+כשלונות חולפים (הגבלות HTTP בקצב לשיתוף מנוי, תקלה זמנית ב-token של
+`AzureCliCredential`, או תזמון שעבר) ייתבטאו בניסיון חוזר אוטומטי
+(`-Retries`, ברירת מחדל 2, עם `-RetryDelaySeconds` להשהיה, ברירת מחדל 20). אם
+פריסת מודל דומה מראה 429 לעיתים קרובות, בדוק את מכסת TPM ברמת GlobalStandard למנוי
+(`az cognitiveservices usage list -l <region>`) — הגדלת קיבולת פריסה בודדת לא מסייעת כאשר
+המכסה של *המנוי* נוצלה עד תום.
 
 ## פירוש התוצאות
-- `PASS` — המחברת רצה מקצה לקצה ללא שגיאת תא.
-- `FAIL` — מוצגת שורת השגיאה/חריגה הראשונה `*Error` / `*Exception`; פתח את הקובץ המתאים
-  `log_*.txt` בתיקיית הפלט לקבלת המעקב המלא.
-- כישלון של מחברת אחת מוגבל על ידי הגבלה של `-Timeout` (לכל תא), כך שתא תלוי
-  עם התערבות אדם יופיע כ- `StdinNotImplementedError` במקום להיתקע.
+- `PASS` — המחברת רצה מתחילתו ועד סופו ללא שגיאת תא.
+- `FAIL` — מוצגת שורת ה`*Error` / `*Exception` הראשונה; פתח את
+  הקובץ `log_*.txt` המתאים בספריית הפלט כדי לראות את המעקב המלא.
+- כשלון במחברת יחידה מוגבל לפי `-Timeout` (לכל תא), כך שתא עם תלות בבני אדם
+  יופיע כ`StdinNotImplementedError` במקום להיתקע.
 
-## שיעורים שדורשים משאבים נוספים (צפויים להיכשל בלעדיהם)
+## שיעורים שדורשים משאבים נוספים (צפויים לכשלון בלעדיהם)
 | שיעור | דרישה נוספת |
 |--------|-------------------|
-| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, מפתח) — כולל דרך תחזית בזיכרון |
+| 05 Agentic RAG | Azure AI Search (`AZURE_SEARCH_SERVICE_ENDPOINT`, key) — כולל מסלול מילוט בזיכרון פנימי |
 | 11 MCP / GitHub | שרת MCP של GitHub + PAT |
-| 13 memory (cognee) | `cognee` מוגדר עם ספק מודל |
-| 15 browser-use | דפדפני Playwright מותקנים (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
-| 17 local agent | Foundry Local runtime + מודל Qwen שהורד (במכשיר, ללא ענן) |
-| מחברות `*-dotnet-*` | ליבת .NET Interactive (מוחרג כברירת מחדל; השתמש ב- `-IncludeDotnet`) |
+| 13 memory (cognee) | `cognee` מוגדר עם ספק מודלים |
+| 15 browser-use | דפדפנים של Playwright מותקנים (`playwright install`) + `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` |
+| 17 local agent | Foundry Local runtime + מודל Qwen שהורד (על המכשיר, ללא ענן) |
+| מחברות `*-dotnet-*` | ליבת .NET Interactive (מוסתרות כברירת מחדל; השתמש ב`-IncludeDotnet`) |
 
 ## דיווח חזרה
-סכם בטבלת PASS/FAIL מקובצת לפי שיעור. הפרד בין נסיגות אמתיות
-(באגים בקוד/הגדרות לתיקון) לבין פערי סביבה (חסר חיפוש / Foundry Local / PAT),
-וציין את ה- `log_*.txt` הכושלים עבור כל כשל אמיתי.
+סכם בטבלה של PASS/FAIL מקובצת לפי שיעור. הפרד רגרסיות אמיתיות
+(באגי קוד/קונפיג לתיקון) מפערי סביבה (חסרונות ב-Search/Foundry Local/PAT),
+וציין את קובצי ה-`log_*.txt` שנכשלו עבור כל כשלון אמיתי.
 
 ---
 

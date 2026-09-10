@@ -1,73 +1,73 @@
-# Helyi Mesterséges Intelligencia Ügynökök Létrehozása a Microsoft Foundry Local és Qwen Használatával
+# Helyi MI-ügynökök létrehozása a Microsoft Foundry Local és a Qwen segítségével
 
-![Helyi Mesterséges Intelligencia Ügynökök Létrehozása](../../../translated_images/hu/lesson-17-thumbnail.f86434c595a408fc.webp)
+![Helyi MI-ügynökök létrehozása](../../../translated_images/hu/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Az előző leckében az ügynököket a felhőbe *skáláztuk fel*. Ez a lecke viszont *lehoz* őket egyetlen gépre. A végére egy működő mérnöki asszisztensed lesz, amely gondolkodik, eszközöket hív meg, olvassa a fájljaidat, és keres a dokumentációdban — **egyetlen felhőalapú lekérdezés nélkül.**
+Az előző lecke az ügynököket a felhőbe *nagyította fel*. Ez lehozta őket egyetlen gépre. A végére lesz egy működő mérnöki asszisztensed, amely érvel, eszközöket hív, olvassa a fájljaidat, és keres a dokumentációdban — **egyetlen felhőalapú lekérés nélkül.**
 
-Miért akarnád ezt? Három ok, ami folyamatosan felmerül a valódi mérnöki munkában:
+Miért akarhatod ezt? Három gyakran felmerülő ok a valódi mérnöki munkában:
 
-- **Adatvédelem.** A kód és a dokumentumok soha nem hagyják el a gépet. Egyetlen bemenet, szövegrészlet vagy ügyféladat sem lépi át a hálózati határt.
-- **Költség.** A helyi lekérdezésnek nincs tokenenkénti díja. Egész nap iterálhatsz az áram áráért cserébe.
-- **Offline működés.** Repülőn, egy biztonságos létesítményben vagy áramszünet alatt az ügynök továbbra is működik.
+- **Adatvédelem.** A kód és a dokumentumok soha nem hagyják el a gépet. Sem parancs, sem kivonat, sem ügyféladat nem lépi át a hálózati határt.
+- **Költség.** A helyi lekérdezésnek nincs tokenalapú díja. Egész nap iterálhatsz csak az áram árát fizetve.
+- **Offline.** Repülőn, biztonságos létesítményben vagy áramszünet esetén az ügynök még mindig működik.
 
-A kompromisszum az, hogy a legmodernebb felhőmodellt egy **Kis Nyelvi Modellre (SLM)** cseréled, amely a CPU-don, GPU-don vagy NPU-don fut. Ez a lecke arról szól, hogyan építsünk ügynököket, amelyek ebben a korlátban *jók*, nem pedig arról, hogy eljátsszuk, mintha ez a korlát nem létezne.
+A buktató, hogy egy élvonalbeli felhőmodellt cserélsz le egy **Kis Nyelvű Modellre (SLM)**, amely a CPU-don, GPU-don vagy NPU-don fut. Ez a lecke arról szól, hogyan lehet jó ügynököket építeni ezen korlátokon belül, ahelyett, hogy azt tennénk, mintha a korlát nem létezne.
 
 ## Bevezetés
 
-Ez a lecke az alábbiakat fedi le:
+Ez a lecke az alábbiakról szól:
 
-- **Kis Nyelvi Modellek (SLM-ek)** — mik ők, hol jeleskednek, és hol nem.
-- **Microsoft Foundry Local** — egy futtatókörnyezet, amely helyben tölti le és szolgálja ki a modelleket egy **OpenAI-kompatibilis API-n** keresztül.
-- **Qwen függvényhívó modellek** — SLM-ek, amelyek megbízhatóan generálnak eszközhívásokat, ami lehetővé teszi a helyi *ügynökök* működését (nem csak helyi chat).
-- **Helyi eszközök, helyi RAG és helyi MCP** — azaz képességek biztosítása az ügynöknek a felhő nélkül.
-- **Hibrid minták** — mikor érdemes helyben tartani a folyamatokat, és mikor nyúljunk a felhőhöz.
+- **Kis Nyelvű Modellek (SLM-ek)** — mik ők, hol jók, és hol nem.
+- **Microsoft Foundry Local** — egy futtatókörnyezet, amely a modelleket eszközönként tölti le és szolgál ki egy **OpenAI-kompatibilis API** segítségével.
+- **Qwen funkcióhívó modellek** — SLM-ek, amelyek megbízhatóan produkálnak eszközhívásokat, ami lehetővé teszi a helyi *ügynököket* (nem csak helyi csevegést).
+- **Helyi eszközök, helyi RAG és helyi MCP** — az ügynök képességeit felhő nélkül biztosítva.
+- **Hibrid minták** — mikor tartsd helyben, mikor nyúlj a felhőhöz.
 
 ## Tanulási célok
 
-A lecke elvégzése után tudni fogod, hogyan:
+A lecke végére tudni fogod, hogyan kell:
 
-- Magyarázd az SLM-ek kompromisszumait, és válassz megfelelő helyi ügynök használati eseteket.
-- Szolgálj ki egy Qwen modellt helyben a Foundry Local segítségével, és csatlakozz hozzá az OpenAI-kompatibilis végponton keresztül.
-- Építs egy eszköz-hívó ügynököt, amely teljes egészében a számítógépeden fut.
-- Adj hozzá helyi RAG-et a saját dokumentumaid fölé helyi vektor adatbázissal (Chroma).
-- Kapcsold össze az ügynököt egy helyi MCP szerverrel, és gondolkodj el a hibrid helyi/felhő alapú tervezéseken.
+- Megmagyarázni az SLM-ek kompromisszumait és kiválasztani a megfelelő helyi ügynök eseteket.
+- Helyben kiszolgálni egy Qwen modellt a Foundry Local segítségével, az OpenAI-kompatibilis végponton keresztül kapcsolódva.
+- Egy teljes egészében a munkaállomásodon futó eszközhívó ügynököt építeni.
+- Helyi RAG-et hozzáadni saját dokumentumaid fölött helyi vektorbázis (Chroma) használatával.
+- Az ügynököt helyi MCP szerverhez kapcsolni és gondolkodni a hibrid helyi/felhő megoldásokról.
 
 ## Előfeltételek
 
-Ez a lecke feltételezi, hogy az előző leckéket elvégezted, és kényelmesen mozogsz:
+Ez a lecke feltételezi, hogy az előző leckéket elvégezted és kényelmes vagy:
 
 - [Eszközhasználat](../04-tool-use/README.md) (4. lecke) és [Ügynöki RAG](../05-agentic-rag/README.md) (5. lecke).
 - [Ügynöki Protokollok / MCP](../11-agentic-protocols/README.md) (11. lecke).
-- A [Microsoft Ügynökkeretrendszer](../14-microsoft-agent-framework/README.md) (14. lecke).
+- A [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (14. lecke).
 
-Szükséged lesz még:
+Emellett szükséged lesz:
 
-- Egy fejlesztői munkaállomás. **8 GB RAM a reális minimum**; a 16 GB+ kényelmes. Egy GPU vagy NPU segít, de nem kötelező.
-- **Microsoft Foundry Local** telepítve (lásd az alábbi telepítési részt).
-- Python 3.12+ és a `requirements.txt` fájlban szereplő csomagok, plusz a `foundry-local-sdk`, `openai` és a `chromadb` ehhez a leckéhez.
+- Fejlesztői munkaállomás. **8 GB RAM reális minimum; 16 GB+ kényelmes.** GPU vagy NPU segít, de nem kötelező.
+- **Microsoft Foundry Local** telepítve (lásd az alábbi beállítási részt).
+- Python 3.12+ és a tároló [`requirements.txt`](../../../requirements.txt) fájljában lévő csomagok, plusz `foundry-local-sdk`, `openai`, és `chromadb` ehhez a leckéhez.
 
-## Kis Nyelvi Modellek: a megfelelő eszköz helyi munkához
+## Kis Nyelvű Modellek: A megfelelő eszköz helyi munkához
 
-Egy legmodernebb felhőmodellnek több száz milliárd paramétere és egy adatközpontja van mögötte. Egy SLM néhány milliárd paraméterrel rendelkezik, és el kell férnie a laptopod RAM-jában. Ez a különbség világos elvárásokat állít.
+Egy élvonalbeli felhőmodell több száz milliárd paraméterrel és adatközponttal rendelkezik mögötte. Egy SLM néhány milliárd paraméterű és bele kell férnie a laptopod RAM-jába. Ez a különbség világos elvárásokat állít.
 
-**Az SLM-ek jól teljesítenek:**
+**Az SLM-ek jók:**
 
-- Strukturált, korlátozott feladatokban — osztályozás, kivonatolás, összefoglalás ismert dokumentumokból.
-- **Eszközhívásban** — eldönteni, melyik függvényt hívjuk meg és milyen paraméterekkel.
+- Strukturált, jól körülhatárolt feladatok — osztályozás, kivonatolás, összegzés ismert dokumentumról.
+- **Eszközhívás** — eldönteni, melyik funkciót hívjuk meg és milyen argumentumokkal.
 - Gyors, olcsó, privát iteráció a saját adataidon.
 
-**Az SLM-ek gyengébbek:**
+**Az SLM-ek gyengék:**
 
-- Nyílt végű, többlépcsős gondolkodásban nagy kontextusban.
-- Átfogó világismeretben (kevesebbet láttak, és többet felejtenek).
+- Nyitott végű, többlépéses érvelés nagy kontextusban.
+- Átfogó világismeret (kevesebbet láttak, és többet felejtenek).
 
-A helyi ügynökök nyerő stratégiája tehát: **az SLM legyen az irányító, az eszközök végezzék a nehéz munkát.** A modellnek nem kell ismernie a kódodat — elég tudni, mikor kell meghívni a `read_file` és a `search_docs` függvényeket. Ez pontosan az SLM erősségeire játszik rá.
+A helyi ügynökök nyerő stratégiája ezért: **az SLM irányítson, az eszközök végezzék a nehéz munkát.** A modellnek nem kell *ismernie* a kódbázisod — tudnia kell, mikor hívja a `read_file` és `search_docs` funkciókat. Ez közvetlenül az SLM erejére játszik.
 
 ```mermaid
 flowchart LR
     U[Fejlesztő] --> A[Helyi SLM Ügynök]
     A -->|eldönti, melyik eszköz| T1[fájl_olvasás]
-    A -->|eldönti, melyik eszköz| T2[dokumentumkeresés RAG]
+    A -->|eldönti, melyik eszköz| T2[dokumentumok_keresése RAG]
     A -->|eldönti, melyik eszköz| T3[kód_elemzés]
     T1 --> A
     T2 --> A
@@ -77,16 +77,16 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-A **Microsoft Foundry Local** egy könnyű futtatókörnyezet, amely letölti, kezeli és teljes egészében a gépeden szolgálja ki a modelleket. Számunkra a legfontosabb tulajdonsága, hogy egy **OpenAI-kompatibilis HTTP végponttal** rendelkezik — vagyis az OpenAI SDK és a Microsoft Agent Framework OpenAI kliense ugyanúgy használható, csak a `base_url` paramétert kell átállítani. Minden, amit az ügynöképítésről tudsz, közvetlenül átültethető; csak a végpont változik felhőről `localhost`-ra.
+A **Microsoft Foundry Local** egy könnyű futtatókörnyezet, amely a modelleket teljesen a gépeden tölti le, kezeli és szolgáltatja. Számunkra a legfontosabb jellemzője, hogy egy **OpenAI-kompatibilis HTTP végpontot** tesz elérhetővé — ami azt jelenti, hogy az OpenAI SDK és a Microsoft Agent Framework OpenAI kliens csak a `base_url` megváltoztatásával képes vele működni. Amit az ügynökök építéséről tanultál, az mind átvihető; csak a végpont költözik a felhőből a `localhost`-ra.
 
-A Foundry Local automatikusan kiválasztja az adott hardverhez legjobb modellverziót — CPU, CUDA/GPU vagy NPU build — így nem kell egyes gépekhez manuálisan optimalizálnod.
+A Foundry Local automatikusan kiválasztja a legjobb buildet a hardveredhez — CPU-s, CUDA/GPU-s vagy NPU-s buildet — így nem kell kézzel optimalizálnod gépenként.
 
-### Telepítés
+### Beállítás
 
-Telepítsd a Foundry Local-t (lásd az [operációs rendszeredhez tartozó dokumentációt](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)), majd ellenőrizd, hogy működik:
+Telepítsd a Foundry Local-t (lásd az adott operációs rendszerre szóló [dokumentációt](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)), majd ellenőrizd, hogy működik:
 
 ```bash
-# Telepítés (példa; kövesd a platformodhoz tartozó dokumentációt)
+# Telepítés (példa; kövesd a dokumentációt a platformodra vonatkozóan)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
@@ -95,13 +95,13 @@ foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Ha a szolgáltatás fut, akkor helyi, OpenAI-kompatibilis végponttal rendelkezel (általában `http://localhost:PORT/v1`). A jegyzetfüzet automatikusan felfedezi a végpontot a `foundry-local-sdk` használatával, így nem kell keménykódolni a portot.
+Ha a szolgáltatás fut, már van egy helyi, OpenAI-kompatibilis végpontod (általában `http://localhost:PORT/v1`). A jegyzetfüzet a `foundry-local-sdk` segítségével automatikusan felfedezi a végpontot, így nem kell keménykódolnod a portot.
 
-## Qwen Függvényhívás: Miért Fontos
+## Qwen funkcióhívás: Miért fontos ez
 
-Ügynök csak az lehet, amelyik képes eszközöket hívni. Sok SLM tud beszélgetni, de megbízhatatlan, rosszul formált eszköz-hívásokat generál. A **Qwen** modelleket kifejezetten függvényhívásra tanították, így következetesen képesek jól formált eszköz-hívásokat generálni — ez teszi lehetővé, hogy egy helyi chat modellből valódi helyi *ügynök* váljon.
+Ügynök csak akkor ügynök, ha képes eszközöket hívni. Sok SLM tud csevegni, de megbízhatatlan, hibás eszközhívásokat produkál. A **Qwen** modelleket funkcióhívásra képezik, és következetesen jól formázott eszközhívási struktúrákat bocsátanak ki — ez az, ami egy helyi csevegőmodellt helyi *ügynökké* alakít.
 
-A folyamat a már ismert szokásos eszközhívó ciklus, csak helyben fut:
+A folyamat az ismert eszközhívó ciklus, csak eszközön fut:
 
 ```mermaid
 sequenceDiagram
@@ -112,84 +112,84 @@ sequenceDiagram
     A->>A: Döntés: hívja a read_file-t
     A->>T: read_file("auth.py")
     T-->>A: fájl tartalma
-    A->>A: Érvelés a tartalom alapján
+    A->>A: Elemzés a tartalom alapján
     A-->>U: Magyarázat
 ```
 
 ## Helyi RAG
 
-A dokumentáció keresés az a terület, ahol a helyi ügynökök igazán hasznosak tudnak lenni. Ahelyett, hogy az SLM-re bíznád magad, hogy megjegyezze a keretrendszered dokumentációját, beágyazod azokat egy **helyi vektor adatbázisba** és az ügynök a releváns részeket igény szerint lekéri.
+A dokumentációkeresés az a terület, ahol a helyi ügynökök megtartják hasznosságukat. Ahelyett, hogy reménykednénk, hogy az SLM megjegyezte a keretrendszer dokumentációját, beágyazzuk azokat egy **helyi vektorbázisba**, és az ügynök igény szerint előhívja a releváns részeket.
 
-A **Chroma** egy beágyazott vektor-tár, amely az alkalmazásfolyamat részeként fut, kezelő szerver nélkül. A feldolgozási lánc teljes egészében helyi: helyi beágyazó modell → helyi vektorok → helyi lekérés → helyi SLM.
+A **Chroma**-t használjuk, ami egy beágyazott vektorraktár, amely folyamatban fut, nincs szükség külön szerverre. A folyamat teljesen helyi: helyi beágyazó modell → helyi vektorok → helyi keresés → helyi SLM.
 
 ```mermaid
 flowchart TB
-    D[Az ön dokumentumai / kódja] --> E[Helyi beágyazási modell]
+    D[Az ön dokumentációja / kódja] --> E[Helyi beágyazási modell]
     E --> V[(Chroma vektor adatbázis - lemezen)]
     Q[Ügynök lekérdezés] --> QE[Lekérdezés helyi beágyazása]
     QE --> V
-    V -->|legjobb k darab szakasz| A[Qwen ügynök]
-    A --> Ans[Megrögzött válasz]
+    V -->|legjobb k darab rész| A[Qwen ügynök]
+    A --> Ans[Megalapozott válasz]
 ```
 
-Ez ugyanaz az Ügynöki RAG minta, mint az 5. leckében — az egyetlen különbség, hogy minden komponens a gépeden fut.
+Ez ugyanaz az Ügynöki RAG minta, mint az 5. leckében — az egyetlen változás, hogy minden komponens a gépeden fut.
 
-## Helyi MCP Szerverek
+## Helyi MCP szerverek
 
-Az [MCP](../11-agentic-protocols/README.md) egy szállítási protokoll, nem egy felhőszolgáltatás. Egy MCP szerver helyi folyamatként futhat `stdio`-n, így eszközöket tesz elérhetővé az ügynöködnek a szabványos protokoll szerint. Ez lehetővé teszi az MCP szerverek egyre bővülő ökoszisztémájának offline újrahasznosítását — fájlkezelés, git műveletek, adatbázis lekérdezések.
+Az [MCP](../11-agentic-protocols/README.md) egy szállítóprotoko, nem felhőszolgáltatás. Egy MCP szerver helyi folyamatként futhat `stdio`-n, és az ügynököd számára elérhetővé teszi az eszközöket a szabványos protokollon keresztül. Így újrahasznosíthatod az egyre növekvő MCP szerverek ökoszisztémáját — fájlrendszer-hozzáférés, git műveletek, adatbázis lekérdezések — teljes offline módban.
 
-A biztonsági modell különbözik a felhőtől, de nem hiányzik: egy helyi MCP szerver a felhasználói jogosultságaiddal fut, így korlátozd, hogy mire férhet hozzá (pl. egy projekt könyvtár, nem az egész felhasználói könyvtárad), és a kimenetet mindig vedd be bemenetként, amit validálsz.
+A biztonsági állásfoglalás eltér a felhőtől, de nem hiányzik: egy helyi MCP szerver ugyanazzal a felhasználói jogosultsággal fut, mint te, ezért korlátozd, mit érhet el (például egy projektkönyvtárt, nem az egész otthoni mappádat), és az outputokat bemenetként kezeld, amiket ellenőrizni kell.
 
-## Hibrid Felhő és Helyi Minták
+## Hibrid felhő- és helyi minták
 
-A helyi első nem jelenti azt, hogy csak helyi. Az érett rendszerek érzékenység és nehézség alapján választanak útvonalat:
+A helyi első nem jelenti azt, hogy csak helyi. Az érett rendszerek szenzitivitás és nehézség szerint irányítanak:
 
 | Helyzet | Hol fut |
 | --- | --- |
-| Érzékeny kód/adat vagy offline állapot | **Helyi SLM** |
-| Egyszerű, korlátozott feladat | **Helyi SLM** (olcsó, gyors) |
-| Nehéz, többlépéses következtetés nem érzékeny adatokon | **Felhő modell** |
-| Minden, áramszünet alatt | **Helyi SLM** (kegyes degradáció) |
+| Érzékeny kód / adat, vagy offline | **Helyi SLM** |
+| Egyszerű, körülhatárolt feladat | **Helyi SLM** (olcsó, gyors) |
+| Nehéz, többlépcsős érvelés nem érzékeny adatán | **Felhőmodell** |
+| Minden, áramszünet idején | **Helyi SLM** (kíméletes degradáció) |
 
-Ez megfelel a 16. leckében bemutatott **modell-útválasztás** ötletnek — csak az egyik "modell" most a saját géped. Egy robosztus tervezés helyiben fut, ha a felhő nem elérhető, így az ügynök minőségileg lassan romlik, ahelyett hogy teljesen leállna.
+Ez tükrözi a 16. leckében bemutatott **modellirányítás** ötletét — csakhogy az egyik "modell" most a saját géped. Egy robusztus tervezés visszautal a helyire, ha a felhő nem elérhető, így az ügynök minőségben romlik, de nem bukik el hirtelen.
 
 ```mermaid
 flowchart LR
     Q[Kérés] --> S{Érzékeny vagy offline?}
     S -->|igen| L[Helyi SLM]
-    S -->|nem| C{Mély gondolkodást igényel?}
+    S -->|nem| C{Mély érvelést igényel?}
     C -->|nem| L
-    C -->|igen| Cloud[Felhő modell]
+    C -->|igen| Cloud[Felhőmodell]
     L --> Out[Válasz]
     Cloud --> Out
 ```
 
-## Gyakorlati Labor: Egy Helyi Mérnöki Asszisztens
+## Gyakorlati labor: Helyi mérnöki asszisztens
 
-Nyisd meg a [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) fájlt, és dolgozd végig. Egy teljes egészében a gépeden futó **helyi mérnöki asszisztenst** építesz, amely képes:
+Nyisd meg a [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) fájlt és dolgozz végig rajta. Egy teljes egészében munkaállomáson futó **helyi mérnöki asszisztenst** építesz, amely képes:
 
-1. **Eszközöket hívni** — Qwen függvényhívás révén a Foundry Local-on keresztül.
-2. **Helyi fájlműveleteket végezni** — listázni és olvasni fájlokat egy projekt könyvtárban.
+1. **Eszközöket hívni** — Qwen funkcióhívással a Foundry Local-on keresztül.
+2. **Helyi fájlműveleteket végezni** — listázni és olvasni a projekt könyvtár fájljait.
 3. **Kódot elemezni** — alapvető metrikákat jelenteni egy forrásfájlon.
-4. **Dokumentációban keresni** — helyi RAG egy dokumentum könyvtáron Chroma segítségével.
-5. **MCP-t használni** — kapcsolódni egy helyi MCP szerverhez (ha nincs konfigurálva, finoman átugorja).
+4. **Dokumentációt keresni** — helyi RAG egy dokumentumkönyvtáron Chroma segítségével.
+5. **MCP-t használni** — kapcsolódni egy helyi MCP szerverhez (kíméletes kihagyással, ha nincs beállítva).
 
-Egyetlen felhő alapú lekérdezés sem történik.
+Egyetlen ponton sem használunk felhőbeli lekérést.
 
 ### Áttekintés
 
-Az asszisztens az OpenAI-kompatibilis végponton keresztül csatlakozik a Foundry Local-hoz, így az ügynök kódja majdnem megegyezik a felhő leckékével — csak az ügyfél változik:
+Az asszisztens az OpenAI-kompatibilis végponton keresztül kapcsolódik a Foundry Local-hoz, így az ügynöki kód szinte megegyezik a felhős leckékével — csak az ügyfél változik:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# A Foundry Local felfedezi/letölti a modellt, és biztosít egy helyi végetpontot.
+# A Foundry Local felfedezi/letölti a modellt, és helyi végpontot biztosít számunkra.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # az api_key egy helyi helyőrző
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # az api_key egy helyi helykitöltő
 ```
 
-Az eszközök egyszerű Python függvények, amelyek egy adott projekt könyvtárra vannak korlátozva:
+Az eszközök egyszerű Python funkciók, amelyek egy projekthez vannak kötve:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,108 +200,108 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Figyeld meg a sandbox ellenőrzést — még helyben is egy olyan eszköz, amely tetszőleges útvonalakat olvas, biztonsági kockázat. A jegyzetfüzet minden eszközt egyetlen projekt gyökérkönyvtárra korlátoz.
+Figyeld meg a sandbox ellenőrzést — még helyben is egy tetszőleges útvonalat olvasó eszköz kockázatos. A jegyzetfüzet minden eszközt egyetlen projekt gyökeréhez köt.
 
 ## Tudásellenőrzés
 
-Teszteld a megértésed, mielőtt továbbmennél a feladathoz.
+Teszteld a megértésed, mielőtt megcsinálod a feladatot.
 
-**1. Adj két konkrét indokot arra, hogy miért érdemes az ügynököt helyben futtatni a felhő helyett.**
+**1. Mondj két konkrét okot, miért futtassunk egy ügynököt helyben a felhő helyett.**
 
 <details>
 <summary>Válasz</summary>
 
-Bármely kettő a következőkből: **adatvédelem** (a kód és az adatok soha nem hagyják el a gépet), **költség** (nincs tokenenkénti lekérdezési számla), valamint **offline működés** (működik hálózat nélkül — repülőn, biztonságos létesítményben vagy áramszünet idején). A szabályozási vagy megfelelőségi korlátozások, amelyek tiltják az adatküldést az eszközön kívülre, gyakori oka az adatvédelmi oknak.
+Bármely kettő az alábbiak közül: **adatvédelem** (kód és adat soha nem hagyja el a gépet), **költség** (nincs tokenek szerinti számlázás), és **offline képesség** (hálózat nélkül fut — repülőn, biztonságos helyen vagy áramszünetben). A szabályozási és megfelelőségi korlátozások, amelyek tiltják az adatok eszközön kívüli küldését, gyakori indok az adatvédelem mellett.
 </details>
 
-**2. Mi az ajánlott munkamegosztás egy SLM és az eszközei között egy helyi ügynökben, és miért?**
+**2. Milyen munkamegosztást ajánl az SLM és az eszközei között egy helyi ügynöknél, és miért?**
 
 <details>
 <summary>Válasz</summary>
 
-Hagyd, hogy az SLM **irányítson** (döntsön, melyik eszközt hívja meg és milyen paraméterekkel), és hagyd, hogy az **eszközök végezzék a nehéz munkát** (fájlok olvasása, dokumentumok lekérése, eredmények számítása). Az SLM-ek erősek a korlátozott döntésekben, mint az eszközválasztás, de gyengébbek a széles körű tudásban és a hosszú, többlépcsős következtetésben, ezért az eszközök használata a legmegfelelőbb taktika.
+Az SLM **legyen az irányító** (dönti el, melyik eszközt hívja és milyen argumentumokkal), az **eszközök végezzék a nehéz munkát** (fájlok olvasása, dokumentumok előhívása, eredmények számítása). Az SLM-ek erősek a körülhatárolt döntésekben, mint az eszközválasztás, de gyengébbek az átfogó ismeretben és a hosszú, többlépcsős érvelésben, ezért az eszközökre támaszkodás működik a legjobban.
 </details>
 
-**3. Mi teszi lehetővé, hogy a felhő ügynök kódot újra tudd használni a Foundry Local-lal?**
+**3. Mi teszi lehetővé, hogy a felhőügynöki kódot újrahasznosítsuk a Foundry Local-lal?**
 
 <details>
 <summary>Válasz</summary>
 
-A Foundry Local egy **OpenAI-kompatibilis HTTP végpontot** tár fel. Az OpenAI SDK és az Agent Framework OpenAI kliense úgy működik vele, hogy csak a `base_url`-t változtatjuk meg (és helyi helyettesítő API kulcsot használunk). Minden más az ügynök kódban változatlan marad.
+A Foundry Local egy **OpenAI-kompatibilis HTTP végpontot** tesz elérhetővé. Az OpenAI SDK és az Agent Framework OpenAI kliens csak a `base_url`-t változtatja meg (és helyi helyettesítő API kulcsot használ). Az ügynöki kód minden más része változatlan marad.
 </details>
 
-**4. Miért használunk kifejezetten Qwen függvényhívó modellt bármely SLM helyett?**
+**4. Miért használunk kifejezetten Qwen funkcióhívó modellt bármilyen SLM helyett?**
 
 <details>
 <summary>Válasz</summary>
 
-Mert egy ügynöknek megbízható, jól formált **eszköz-hívásokat** kell generálnia. Sok SLM képes csevegni, de hibás vagy következetlen eszköz-hívás szerkezeteket produkál. A Qwen modelleket függvényhívásra képezték, így következetes eszköz-hívásokat produkálnak, ami egy helyi chat modellt valódi helyi ügynökké alakít.
+Mert egy ügynöknek megbízható, jól formázott **eszközhívásokat** kell produkálnia. Sok SLM tud csevegni, de hibás vagy következetlen eszközhívási struktúrákat bocsát ki. A Qwen modelleket funkcióhívásra képezik, és következetes eszközhívásokat termelnek, ami egy helyi csevegőmodellt működő helyi ügynökké tesz.
 </details>
 
-**5. A helyi RAG feldolgozási lánc mely komponensei futnak a gépen?**
+**5. A helyi RAG folyamatban mely komponensek futnak a gépen?**
 
 <details>
 <summary>Válasz</summary>
 
-Mindegyik: a beágyazó modell, a vektor adatbázis (Chroma, lemezen), a lekérési lépés, és az SLM. A dokumentumokat helyben ágyazzák be, helyben tárolják, helyben lekérik, és egy helyi modell elemzi — egyik komponens sem érint felhőt.
+Mindegyik: a beágyazó modell, a vektorbázis (Chroma, lemezen), a lekérdező lépés és az SLM. A dokumentumokat helyben ágyazzák be, helyben tárolják, helyben kérdezik le, és helyi modell érvel fölöttük — egyik komponens sem érint felhőt.
 </details>
 
-**6. Egy helyi MCP szerver a gépeden fut. Ez automatikusan biztonságossá teszi? Milyen óvintézkedést kell még tenni?**
+**6. Egy helyi MCP szerver a gépeden fut. Ez automatikusan biztonságossá teszi? Milyen óvintézkedést kell még megtenned?**
 
 <details>
 <summary>Válasz</summary>
 
-Nem. Egy helyi MCP szerver a felhasználó jogosultságaival fut, vagyis hozzáfér mindahhoz, amihez te is. Korlátozd arra, amire szüksége van (például egy projekt könyvtára, ne az egész felhasználói könyvtárad), és mindig validáld a kimeneteket bemenetként, mielőtt valamire használnád őket.
+Nem. A helyi MCP szerver ugyanazzal a felhasználói jogosultsággal fut, mint te, tehát hozzáférhet bármihez, amihez te is. Korlátozd azt, hogy mit érinthet (például egyetlen projektkönyvtárat, nem az egész otthoni mappát), és az eredményeket bemenetként kezeld, amelyeket ellenőrizni kell, mielőtt tovább használnád őket.
 </details>
 
-**7. Ismertess egy ésszerű hibrid útválasztási szabályt, amely tartalmaz egy helyi modellt.**
+**7. Írj le egy ésszerű hibrid útválasztási szabályt, amely tartalmaz egy helyi modellt is.**
 
 <details>
 <summary>Válasz</summary>
 
-Az érzékeny vagy offline kéréseket a helyi SLM-hez irányítsuk; az egyszerű, korlátolt feladatokat a helyi SLM-hez sebesség és költség miatt; a nehéz, többlépcsős következtetést nem érzékeny adatokon felhő modellhez; és ha a felhő nem elérhető, visszatérünk a helyi SLM-hez, hogy az ügynök kegyesen romoljon ahelyett, hogy teljesen leállna. Ez a modell-útválasztás (16. lecke), amelyben a helyi gép az egyik modell.
+Irányítsd az érzékeny vagy offline kéréseket a helyi SLM-hez; az egyszerű, körülhatárolt feladatokat gyorsaság és költség miatt szintén a helyi SLM-hez; a nehéz, többlépcsős érvelést nem érzékeny adatokon a felhőmodellhez; és ha a felhő nem elérhető, térj vissza a helyi SLM-hez, hogy az ügynök kíméletesen degradáljon, ne hibázzon meg. Ez a modellirányítás (16. lecke) azzal a különbséggel, hogy a helyi gép az egyik modell.
 </details>
 
-**8. Milyen reális minimum RAM-méret ajánlott a helyi ügynök futtatásához ebben a leckében, és mit nyersz a több RAM-mal?**
+**8. Milyen reális minimum RAM-igény van a helyi ügynök futtatásához ebben a leckében, és mit ad több RAM?**
 
 <details>
 <summary>Válasz</summary>
 
-Kb. **8 GB** a reális minimum; 16 GB+ kényelmes. Több RAM lehetővé teszi nagyobb, képzettebb modellek futtatását és több kontextus megtartását a memóriában. GPU vagy NPU gyorsítja a lekérdezést, de nem kötelező — a Foundry Local CPU buildet választ, ha nincs gyorsító.
+Körülbelül **8 GB** a reális minimum; 16 GB+ kényelmes. Több RAM lehetővé teszi nagyobb, képzettebb modellek futtatását és több kontextus megőrzését a memóriában. GPU vagy NPU gyorsítja a lekérdezést, de nem szükséges — a Foundry Local CPU-s buildet választ, ha nincs gyorsító.
 </details>
 
 ## Feladat
 
-Bővítsd ki a helyi mérnöki asszisztenst egy **helyi dokumentáció-áttekintővé** egy általad választott kis projekthez (ha szeretnéd, használhatod ennek a tárnak valamelyik lecke mappáját).
+Bővítsd a helyi mérnöki asszisztenst egy **helyi dokumentációellenőrzővé** egy általad választott kisebb projekthez (ha akarod, a tároló leckekönyvtáraiból is választhatsz).
 
-A beküldésed legyen képes:
+A beküldésed tartalmazza:
 
-1. **Valódi dokumentációs/kód könyvtár indexelése** Chromába (legalább öt fájl).
-2. **`find_todos` eszköz hozzáadása**, amely átvizsgálja a projektet `TODO`/`FIXME` kommentek után, és visszaadja azokat fájl és sorszám szerint — megtartva a `read_file`-hez hasonló sandbox ellenőrzést.
+1. **Valódi dokumentációs/kódfájlkönyvtár indexelését** Chromába (legalább öt fájl).
+2. **`find_todos` eszköz hozzáadását**, amely átnézi a projektet `TODO`/`FIXME` megjegyzések után, és visszaadja őket fájl- és sorazonosítóval — azonos sandbox ellenőrzéssel, mint a `read_file`.
 
-3. **Tegyél fel az ágensnek három olyan kérdést**, amelyek arra kényszerítik, hogy kombinálja az eszközöket: legyen egy tiszta RAG kérdés, egy, amely egy adott fájl olvasását igényli, és egy, amely TODO-k megtalálását igényli.
-4. **Mérd meg**: időzd le a három válasz mindegyikét, és jegyezd fel őket egy markdown cellában. Írd meg, hogy a késleltetés elfogadható-e a tervezett munkafolyamatodhoz.
+3. **Tegy fel az ügynöknek három kérdést**, amelyek arra kényszerítik, hogy kombinálja az eszközöket: egy tiszta RAG kérdést, egyet, amely egy adott fájl elolvasását igényli, és egyet, amely TODO-k megtalálását követeli meg.
+4. **Mérd meg**: időzítsd a három válasz mindegyikét, és jegyezd fel egy markdown cellában. Írd meg, hogy a válaszadási késleltetés elfogadható-e a tervezett munkafolyamatodhoz.
 
-Ezután írj egy rövid bekezdést arról, **mit tennél fel a felhőbe, és mit tartanál helyben** ennél a véleményezőnél, és miért. Az értékelés során az számít, hogy a helyi összetevők megfelelően össze vannak-e kapcsolva, és hogy a hibrid érvelésed logikus-e — nem a modell minősége.
+Ezután írj egy rövid bekezdést arról, hogy **mit helyeznél át a felhőbe és mit tartanál meg helyben** ennél az értékelőnél, és miért. Az értékelés során azt nézik, hogy a helyi komponensek helyesen vannak-e összekötve, és hogy hibrid érvelésed helyes-e — nem a modell minőségét.
 
-## Összegzés
+## Összefoglaló
 
-Ebben a leckében egy teljes egészében a saját gépeden futó ágenst építettél:
+Ebben a leckében létrehoztál egy ügynököt, amely teljes egészében a saját gépeden fut:
 
-- A **SLM-ek** a szélességet cserélik adatvédelemre, költségre és offline működésre — és akkor brillíroznak, amikor **eszközöket rendeznek össze**, ahelyett, hogy minden tudást magukban hordoznának.
-- A **Foundry Local** a modelleket eszközön szolgálja ki egy **OpenAI-kompatibilis végponton**, így a felhőügynök kódod egy soros változtatással átvihető.
-- A **Qwen függvényhívó modellek** megbízható helyi eszközhívást — és ezáltal helyi *ügynököket* — tesznek lehetővé.
-- A **helyi RAG** (Chroma) és **helyi MCP** képességgel ruházza fel az ügynököt anélkül, hogy elhagyná a gépet.
-- A **hibrid minták** lehetővé teszik, hogy érzékenység és nehézség szerint irányíts, a helyi komponensek pedig sima visszaesési pontként szolgálnak.
+- A **SLM-ek** a szélességet cserélik adatvédelmi, költség- és offline működési előnyökre — és akkor működnek igazán jól, ha **eszközöket koordinálnak** ahelyett, hogy az összes tudást maguk hordoznák.
+- A **Foundry Local** az eszközön szolgál ki modelleket egy **OpenAI-kompatibilis végponton keresztül**, így a felhőügynököd kódja egy soros változtatással átvihető.
+- A **Qwen függvényhívó modellek** megbízható helyi eszközhasználatot — és így helyi *ügynököket* — tesznek lehetővé.
+- A **helyi RAG** (Chroma) és a **helyi MCP** képességet ad az ügynöknek anélkül, hogy elhagyná a gépet.
+- A **hibrid minták** lehetővé teszik az érzékenység és nehézség szerinti irányítást, a helyi végpont pedig elegáns tartalékmegoldásként szolgál.
 
-Ezzel befejeződik a telepítési ív: a 16. lecke a skálázható ügynököket vitte be a Microsoft Foundry-ba, ez a lecke pedig leszállította őket egyetlen munkaállomásra. A következő lecke a telepített ügynökök biztonságossá tételével foglalkozik.
+Ezzel teljes a telepítési ív: a 16. lecke az ügynököket skálázta Microsoft Foundry-ba, ez a lecke pedig egyetlen munkaállomásra szállítja vissza őket. A következő lecke a telepített ügynökök biztonságossá tételére fókuszál.
 
 ## További források
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local dokumentáció</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentáció</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen függvényhívás dokumentáció</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen függvényhívó dokumentáció</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma vektor adatbázis</a>
 
@@ -311,7 +311,7 @@ Ezzel befejeződik a telepítési ív: a 16. lecke a skálázható ügynököket
 
 ## Következő lecke
 
-[AI Ügynökök biztonságossá tétele](../18-securing-ai-agents/README.md)
+[AI ügynökök biztonságossá tétele](../18-securing-ai-agents/README.md)
 
 ---
 

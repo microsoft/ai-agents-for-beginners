@@ -1,30 +1,34 @@
-# Eksempel på kvitteringsmaler
+# Eksempel på kvitterings-fixtures
 
 Tre forhåndsgenererte kvitteringsfiler for inspeksjon uten å kjøre notatboken.
 
 | Fil | Hva det er |
 |---|---|
-| `01_valid_receipt.json` | En gyldig signert kvittering for et `lookup_flights` verktøys kall. Verifisering gir True. |
-| `02_tampered_receipt.json` | Den samme kvitteringen med ett felt endret etter signering. Verifisering gir False. |
-| `03_chain_three_receipts.json` | En kjede med tre gyldige kvitteringer (search, hold, book) med `previous_receipt_hash` som kobler hver til den forrige. |
+| `01_valid_receipt.json` | En gyldig signert kvittering for et `lookup_flights` verktøys kall. Verifisering returnerer True. |
+| `02_tampered_receipt.json` | Samme kvittering med ett felt endret etter signering. Verifisering returnerer False. |
+| `03_chain_three_receipts.json` | En kjede av tre gyldige kvitteringer (søk, hold, bestill) med `previous_receipt_hash` som lenker hver til den forrige. |
 
-## Verifisering av eksemplene
+Fixture-ene signerer belastningens kanoniske JCS-byter direkte med Ed25519.
+SHA-256 brukes fortsatt for innholdsdigest og kvitteringskjede-lenker, ikke som en
+ekstra forhåndshashing før signering.
 
-Notatboken går gjennom verifisering i fire seksjoner. For å verifisere disse malene
-direkte uten å kjøre gjennom notatbokfortellingen:
+## Verifisere eksemplene
+
+Notatboken gjennomgår verifisering i fire seksjoner. For å verifisere disse fixture-ene
+direkte uten å følge notatbokens fortelling:
 
 ```python
 import json
 from pathlib import Path
 
-# Forutsetter at du har fullført importene og hjelpefunksjonene
-# fra seksjonene 1 og 2 i 18-signed-receipts.ipynb.
+# Antar at du har fullført importene og hjelpefunksjonene
+# fra seksjonene 1 og 2 av 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Sant
+print(f"Valid receipt: {verify_receipt(valid)}")        # Sann
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Usant
+print(f"Tampered receipt: {verify_receipt(tampered)}")  # Usann
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain):
@@ -33,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Hvordan disse ble generert
 
-Malene bruker samme kodebane som notatboken, med én fast signeringsnøkkel
-og faste tidsstempler for byte-reproduserbarhet. For å gjenskape:
+Fixture-ene bruker samme kodevei som notatboken, med én fast signeringsnøkkel
+og faste tidsstempler for byte-reproduserbarhet. For å regenerere:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skriptet ligger i `generate_fixtures.py` i denne katalogen.)
+(Skriptet finnes i `generate_fixtures.py` i denne katalogen.)
 
-## Hva studenter lærer ved å inspisere rå JSON
+## Hva studenter lærer av å inspisere rå JSON
 
-Å lese det råe kvitteringsformatet bygger intuisjon som cellene i notatboken
-ikke alltid gir. Studenter som skummer JSON-en legger ofte merke til:
+Lesing av det råe kvitteringsformatet bygger opp intuisjonen som cellene i notatboken
+ikke alltid gir. Studenter som skumleser JSON legger ofte merke til:
 
-1. Signaturen er en ugjennomsiktig base64url-streng, men alle andre felt er vanlig,
+1. Signaturen er en ugjennomsiktig base64url-streng, men hvert annet felt er vanlig
    lesbar JSON. Signaturen krypterer ikke innholdet; den bekrefter det.
-2. `public_key` er innebygd i kvitteringen. En revisor trenger ikke noe annet
+2. `public_key` er innebygd i kvitteringen. En revisor trenger ingenting annet
    for å verifisere (med forbehold om å stole på at nøkkelen faktisk tilhører den påståtte
    utstederen; se leksjonens README om identitetsinfrastruktur).
-3. Å endre ett enkelt tegn i hvilket som helst felt, og så sammenligne denne filen med
-   `02_tampered_receipt.json`, gjør mekanismen på bytenivå konkret.
+3. Å endre ett enkelt tegn i et hvilket som helst felt og så sammenligne denne fila med
+   `02_tampered_receipt.json` gjør mekanismen på bytenivå konkret.
 
 ---
 

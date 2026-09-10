@@ -1,73 +1,73 @@
-# Kohalike tehisintellekti agentide loomine Microsoft Foundry Locali ja Qweniga
+# Kohalike tehisintellekti agentide loomine Microsoft Foundry Locali ja Qweni abil
 
 ![Kohalike tehisintellekti agentide loomine](../../../translated_images/et/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Eelmine õppetund laiendas agente *pilve*. See toob nad *alla* ühele masinale. Lõpuks on sul töötav inseneriabiline, mis põhjendab, kutsub tööriistu, loeb faile ja otsib dokumentatsiooni — **ilma ühegi pilvepõhise ennustuseta**.
+Eelmine õppetund laiendas agente *pilves*. See õpetus toob need *alla* ühele masinale. Lõpuks on sul töökorras inseneriabi, mis mõtleb, kasutab tööriistu, loeb su faile ja otsib dokumentatsiooni — **ilma ühegi pilvepõhise järelduse päringuta.**
 
-Miks seda tahaksid? Kolm põhjust, mis päriselus inseneritöös sageli esinevad:
+Miks seda soovida? On kolm põhjust, mis reaalses inseneritöös pidevalt ette tulevad:
 
-- **Privaatsus.** Kood ja dokumendid ei lahku kunagi masinast. Ei päringut, ei lõiku ega kliendiandmeid ei edastata võrgust üle.
-- **Kulu.** Kohalik ennustus ei maksa tokeni kohta midagi. Võid terve päeva iteratsioone teha üksnes elektri hinna eest.
-- **Võrguühenduseta.** Lennukis, turvalises rajatises või katkestuse ajal töötab agent veelgi.
+- **Privaatsus.** Kood ja dokumendid ei lahku kunagi masinast. Ühtki käsku, lõiku ega kliendiandmeid ei saadeta võrgupiiri taha.
+- **Maksumus.** Kohalik järeldus ei tekita mingeid tasusid märke kohta. Võid kogu päev katsetada vaid elektri hinna eest.
+- **Võrguvabadus.** Lennukis, turvatsoonis või voolukatkestuse ajal agent ikkagi töötab.
 
-Konks on selles, et sa vahetad tipptasemel pilvemudeli **väikese keelemudeli (SLM)** vastu, mis jookseb CPU, GPU või NPU peal. See õppetund räägib, kuidas ehitada agente, kes selles piirangus *tõhusad* on, mitte teeselda, et piirangut pole.
+Kinni on see, et sa vahetad tipptasemel pilvemudeli välja **väikese keelemudeli (SLM)** vastu, mis jookseb su protsessoril, graafikakaardil või närvivõtmel. See õppetund räägib, kuidas ehitada agente, kes on *head* selle piirangu sees, mitte ette kujutada, et piirangut ei eksisteeri.
 
 ## Sissejuhatus
 
-See õppetund hõlmab:
+See õppetund käsitleb:
 
-- **Väikesed keelemudelid (SLMid)** — mis need on, kus nad paistavad ja kus mitte.
-- **Microsoft Foundry Local** — käitusaeg, mis alla laadib ja pakub mudeleid otse seadmes **OpenAI-ga ühilduva API kaudu**.
-- **Qweni funktsioonikõne mudelid** — SLMid, mis usaldusväärselt genereerivad tööriistakõnesid, mis võimaldab kohalikke *agente* (mitte ainult kohalikku vestlust).
-- **Kohalikud tööriistad, kohalik RAG ja kohalik MCP** — võimaldades agentidel toimida ilma pilveta.
-- **Hübriidmustrid** — millal hoida asjad kohalikud ja millal suunata pilve.
+- **Väikesed keelemudelid (SLMid)** — mis need on, kus nad on head ja kus mitte.
+- **Microsoft Foundry Local** — jooksuaeg, mis laadib ja teenindab mudeleid seadmel läbi **OpenAI-ühilduva API**.
+- **Qweni funktsioonikutsumise mudelid** — SLMid, mis kindlalt toodavad tööriistakutseid, mis muudab kohalikud *agentid* (mitte lihtsalt kohtlused) võimalikuks.
+- **Kohalikud tööriistad, kohalik RAG ja kohalik MCP** — andes agendile võimekuse ilma pilvita.
+- **Hübriid-mustrid** — millal hoida asjad kohalikud ja millal pöörduda pilve poole.
 
 ## Õpieesmärgid
 
-Selle tunni läbimisel oskad:
+Pärast selle õppetunni läbimist oskad:
 
-- Selgitada SLMide kompromisse ja valida sobilikud kohaliku agendi kasutusjuhtumid.
-- Käivitada Qwen mudel kohaliku Foundry Locali peal ja ühendada see OpenAI-ga ühilduva lõpp-punktiga.
-- Ehitada tööriistakõnega agent, mis jookseb täielikult sinu töölaual.
-- Lisada kohalik RAG oma dokumentidele, kasutades kohalikku vektorandmebaasi (Chroma).
-- Ühendada agent kohalikku MCP serverisse ja mõelda hübriidsetele kohaliku/pilve lahendustele.
+- Selgitada SLMide kompromisse ja valida sobivad kohalikud kasutusjuhtumid.
+- Pakku Qwen mudeli kohapeal Foundry Localiga ja ühendada sellega OpenAI-ühilduva lõpp-punkti kaudu.
+- Ehitada tööriistakutseid kasutav agent, mis jookseb täielikult su töökohal.
+- Lisada kohaliku vektordokumendi baasi (Chroma) abil kohalik RAG oma dokumentide jaoks.
+- Ühenduda agendiga kohaliku MCP serveri kaudu ja mõtiskleda hübriidse kohaliku/pilvelahenduse üle.
 
-## Eeldused
+## Eeltingimused
 
-Eeldame, et oled läbinud varasemad õppetunnid ja tunnevad mugavalt:
+Eeldame, et oled läbinud varasemad õppetunnid ja oskad:
 
-- [Tööriistade kasutamine](../04-tool-use/README.md) (tund 4) ja [Agentic RAG](../05-agentic-rag/README.md) (tund 5).
-- [Agentic protokollid / MCP](../11-agentic-protocols/README.md) (tund 11).
-- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (tund 14).
+- [Tööriistade kasutamine](../04-tool-use/README.md) (õppetund 4) ja [Agentne RAG](../05-agentic-rag/README.md) (õppetund 5).
+- [Agentlikud protokollid / MCP](../11-agentic-protocols/README.md) (õppetund 11).
+- [Microsofti agendiraamistik](../14-microsoft-agent-framework/README.md) (õppetund 14).
 
-Vajad ka:
+Vajalik on ka:
 
-- Töölaua arvutit. **8 GB RAM on realistlik miinimum**, 16 GB+ mugav. GPU või NPU on abiks, kuid mitte kohustuslik.
-- Paigaldatud **Microsoft Foundry Local** (vt allpool seadistamise osa).
-- Python 3.12+ ja paketid kataloogis `requirements.txt`, lisaks `foundry-local-sdk`, `openai` ja `chromadb` selleks õppetunniks.
+- Arendaja töökohamasin. **8 GB RAM on realistlik miinimum**; 16 GB+ on mugav. GPU või NPU aitab, aga pole kohustuslik.
+- **Microsoft Foundry Local** installeeritud (vt allpool paigaldusjuhendit).
+- Python 3.12+ ja reposti [`requirements.txt`](../../../requirements.txt) paketid ning lisaks `foundry-local-sdk`, `openai` ja `chromadb` selle õppetunni jaoks.
 
-## Väikesed keelemudelid: õige vahend kohaliku töö jaoks
+## Väikesed keelemudelid: õige tööriist kohaliku töö jaoks
 
-Tipptasemel pilvemudelil on sadu miljardeid parameetreid ja andmekeskus selle taga. SLM-il on paar miljardit parameetrit ja see peab mahutuma sinu sülearvuti mälu sisse. See erinevus seab selged ootused.
+Tipptasemel pilvemudelil on sadu miljardeid parameetreid ja taga andmekeskus. Väikesel keelemudelil on paar miljardit parameetrit ja see peab mahtuma sinu sülearvuti mällu. See vahe seab selged ootused.
 
-**SLMid sobivad hästi:**
+**SLMid on head:**
 
-- Struktureeritud, piiratud ülesandeks — klassifikatsioon, ekstraktsioon, kokkuvõtte tegemine tuntud dokumendist.
-- **Tööriistade kutsumine** — otsustamine, millist funktsiooni kutsuda ja milliste argumentidega.
-- Kiire, odav ja privaatne iteratsioon sinu enda andmetel.
+- Struktureeritud ja piiritletud ülesannetes — klassifitseerimine, info eraldus, kokkuvõtete tegemine tuntud dokumendist.
+- **Tööriistakutse tegemine** — otsustada, millist funktsiooni kutsuda ja milliste argumentidega.
+- Kiire, odav, privaatne kordamine oma andmetega.
 
 **SLMid on nõrgemad:**
 
-- Avatud, mitmehüppelised põhjendused suure konteksti juures.
-- Lai maailmateadmus (nad on vähem näinud ja rohkem unustavad).
+- Avatud lõimestatusega, mitmetasandiline mõtlemine üle suure konteksti.
+- Lai maailmateadmine (näha on vähem ja unustatakse rohkem).
 
-Kohalike agentide võidustrateegia on: **laske SLM-il orkestreerida ja tööriistadel teha rasket tööd.** Mudelil ei pea olema sinu koodi **tundmist** — sellest piisab, kui ta teab, millal kutsuda `read_file` ja `search_docs`. See mängib SLM-i tugevustele otse vastu.
+Seega on kohalike agentide võidustrateegia: **las SLM koordineerib ja tööriistad teevad raske töö.** Mudelil ei pea olema *teadmist* sinu koodibaasist — ta peab teadma, millal kutsuda `read_file` ja `search_docs`. See mängib täpselt SLMi tugevuste kasuks.
 
 ```mermaid
 flowchart LR
-    U[Arendaja] --> A[Kohalik SLM agent]
+    U[Arendaja] --> A[Kohalik SLM-agent]
     A -->|otsustab, millist tööriista kasutada| T1[loe_faili]
-    A -->|otsustab, millist tööriista kasutada| T2[otsi_dokumente RAG]
+    A -->|otsustab, millist tööriista kasutada| T2[otsi_dokumendid RAG]
     A -->|otsustab, millist tööriista kasutada| T3[analüüsi_koodi]
     T1 --> A
     T2 --> A
@@ -77,119 +77,119 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** on kergekaaluline runtime, mis laadib alla, haldab ja pakub mudeleid täielikult su masinas. Oluline omadus on see, et ta pakub **OpenAI-ga ühilduvat HTTP-lõpp-punkti** — mis tähendab, et OpenAI SDK ja Microsoft Agent Frameworki OpenAI klient töötavad selle peal lihtsalt, vahetades `base_url`-i. Kõik, mida agentide ehitamise kohta õpetati, kandub otse üle; ainus erinevus on, et lõpp-punkt liigub pilvest `localhost`i.
+**Microsoft Foundry Local** on kergekaaluline jooksuaeg, mis laadib, haldab ja teenindab mudeleid täielikult su masinal. Meie jaoks on tähtsaim omadus, et see pakub **OpenAI-ühilduvat HTTP lõpp-punkti** — mis tähendab, et OpenAI SDK ja Microsoft Agent Frameworki OpenAI klient töötavad selle vastu vaid muutes `base_url`. Kõik agentide loomise teadmised on otse rakendatavad; ainult lõpp-punkt nihkub pilvest `localhost`i.
 
-Foundry Local valib mudelist su arvuti jaoks parima versiooni automaatselt — kas CPU-versiooni, CUDA/GPU-versiooni või NPU-versiooni — nii et sul ei ole vaja iga masinat eraldi optimeerida.
+Foundry Local valib automaatselt sobivaima mudeli ehituse sinu riistvarale — kas CPU, CUDA/GPU või NPU — nii ei pea sa iga masina jaoks käsitsi optimeerima.
 
-### Seadistamine
+### Paigaldus
 
-Paigalda Foundry Local (vaata [dokumentatsiooni](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) oma OS-ile) ja kontrolli, et see töötab:
+Paigalda Foundry Local (vt [dokumentatsiooni](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) oma operatsioonisüsteemi kohta), seejärel kinnita, et töötab:
 
 ```bash
-# Installi (näiteks; järgi oma platvormi dokumentatsiooni)
+# Paigalda (näiteks; järgi oma platvormi juhiseid)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
-# Laadi alla ja käivita Qwen mudel, seejärel alusta kohalikku teenust
+# Laadi alla ja käivita Qweni mudel, seejärel alusta lokaalteenust
 foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Kui teenus jookseb, on sul kohalik OpenAI-ga ühilduv lõpp-punkt (tavaliselt `http://localhost:PORT/v1`). Sülearvutuses kasutatakse `foundry-local-sdk` lõpp-punkti automaatseks leidmiseks, nii et pole vaja porti kõvakodeerida.
+Kui teenus töötab, on sul olemas kohalik OpenAI-ühilduv lõpp-punkt (tavaliselt `http://localhost:PORT/v1`). Märkmik kasutab `foundry-local-sdk` automaatseks lõpp-punkti avastamiseks, nii et porti ei pea käsitsi kodeerima.
 
-## Qweni funktsioonikõne: miks see oluline on
+## Qweni funktsioonikutsumine: miks see oluline on
 
-Agent on alles agent, kui ta suudab tööriistu kutsuda. Paljud SLMid saavad vestelda, kuid annavad ebausaldusväärseid ja vigaseid tööriistakõnesid. **Qwen** mudelid on treenitud funktsioonikõneks ja sünnitavad korrapäraselt hästi vormistatud tööriistakõnestruktuure — just see teeb kohalikust vestlusmudelist kohaliku *agendi*.
+Agent on agent ainult siis, kui ta oskab tööriistu kutsuda. Paljud SLMid oskavad suhelda, kuid toodavad ebausaldusväärseid ja valesti vormistatud tööriistakutseid. **Qwen** mudelid on koolitatud funktsioonikutsumiseks ja toodavad järjekindlalt õigesti vormistatud tööriistakutseid — mis teeb kohalikust vestlusmudelist tõelise *agendi*.
 
-Protsess on tavaline tööriistakõne tsükkel, mida sa juba tead, lihtsalt kohapeal jooksutatud:
+Töövoog on juba teada-tuntud tööriistakutseloop, lihtsalt jooksutatakse otse seadmel:
 
 ```mermaid
 sequenceDiagram
     participant U as Kasutaja
-    participant A as Qwen Agendi (kohalik)
-    participant T as Kohalik Tööriist
+    participant A as Qwen Agent (kohalik)
+    participant T as Kohalik tööriist
     U->>A: "Mida teeb auth.py?"
     A->>A: Otsusta: kutsu read_file
     A->>T: read_file("auth.py")
     T-->>A: faili sisu
-    A->>A: Sisu põhjal mõtiskle
+    A->>A: Sisu üle mõtisklema
     A-->>U: Selgitus
 ```
 
 ## Kohalik RAG
 
-Dokumentatsiooni otsing on koht, kus kohalikud agendid tõeliselt väärtust loovad. Selle asemel, et loota, et SLM on sinu raamatu dokumendid meelde jätnud, paigutad dokumendid **kohalikku vektorandmebaasi** ja lubad agendil päringul vajalikke lõike tuua.
+Dokumentatsiooni otsing on koht, kus kohalikud agentid ennast tõestavad. Selle asemel, et loota SLMi mälu peale, sulandad need dokumendid kohalikku **vektorandmebaasi** ja lased agendil vajadusel sobivad tükid üles otsida.
 
-Kasutame **Chroma**-d, manustatud vektoripoed, mis töötab protsessis ja mille jaoks serverit ei ole. Töövoog on täielikult kohalik: kohalik sisestusmudel → kohalikud vektorid → kohalik otsing → kohalik SLM.
+Kasutame **Chromat**, sisseehitatud vektorpoodi, mis jookseb protsessis ega vaja serverit. Taim on täiesti kohalik: kohalik embeding mudel → kohalikud vektorid → kohalik otsing → kohalik SLM.
 
 ```mermaid
 flowchart TB
     D[Teie dokumendid / kood] --> E[Kohalik manustamismudel]
-    E --> V[(Chroma vektorandmebaas - kettal)]
-    Q[Agendi päring] --> QE[Manusta päring kohapeal]
+    E --> V[(Chroma vektori andmebaas - kettal)]
+    Q[Agendi päring] --> QE[Manusta päring kohalikult]
     QE --> V
-    V -->|top-k tükid| A[Qweni agent]
-    A --> Ans[Põhineb vastusel]
+    V -->|parimad-k tükid| A[Qweni agent]
+    A --> Ans[Põhjuslik vastus]
 ```
 
-See on sama Agentic RAG muster nagu õppetunnis 5 — ainus erinevus, et kõiki komponente jookseb sinu masinas.
+See on sama Agentic RAG-muster nagu õppetund 5 — ainus erinevus on see, et kõik komponendid jooksevad su masinal.
 
 ## Kohalikud MCP serverid
 
-[MCP](../11-agentic-protocols/README.md) on transpordikiht, mitte pilveteenus. MCP server võib jookseda lokaalse protsessina `stdio`-l, pakkudes tööriistu agendile üle tavaprotokolli. See laseb kasutada kasvavat MCP serverite ökosüsteemi — failisüsteemi ligipääsu, git operatsioone, andmebaasi päringuid — täiesti võrguühenduseta.
+[MCP](../11-agentic-protocols/README.md) on transpordikiht, mitte pilveteenus. MCP server võib jooksutada kohaliku protsessina `stdio`l, pakkudes tööriistu su agendile standardprotokolli kaudu. See võimaldab taaskasutada kasvavat MCP serverite ökosüsteemi — failisüsteemi ligipääs, git-operatsioonid, andmebaasipäringud — täiesti võrguvabalt.
 
-Turvapoliitika on pilvest erinev, kuid pole puuduv: kohalik MCP server jookseb sinu kasutajaõigustes, nii et piira, mida see võib puudutada (näiteks projekti kataloog, mitte kogu kodukataloog) ja kohtu tema väljundite usaldusväärsust enne nende kasutamist.
+Turvalisus on erinev pilvest, aga mitte puuduv: kohalik MCP server jookseb su kasutaja õigustega, seega piira, mida ta võib puudutada (nt projekti kaust, mitte kogu kodukaust) ja käsitle selle väljundeid sisenditena, mida vajadusel valideerida.
 
-## Hübriidpilve ja kohaliku mustrid
+## Hübriidsed pilve- ja kohalikud mustrid
 
-Kohalik esimene ei tähenda ainult kohalikku. Küpsed süsteemid marsruutivad tundlikuse ja keerukuse järgi:
+Esmalt kohalik pole sama, mis ainult kohalik. Küpsed süsteemid marsruutivad tundlikkuse ja keerukuse alusel:
 
 | Situatsioon | Kus jookseb |
 | --- | --- |
-| Tundlik kood / andmed või võrguühenduseta | **Kohalik SLM** |
-| Lihtne, piiratud ülesanne | **Kohalik SLM** (odav, kiire) |
-| Raske mitmehüppelise põhjendusega mitte-tundlikel andmetel | **Pilvemudel** |
-| Kõik katkestuse ajal | **Kohalik SLM** (peenhäälestatud degradeerumine) |
+| Tundlik kood/andmed või võrguvaba | **Kohalik SLM** |
+| Lihtne, piiritletud ülesanne | **Kohalik SLM** (odav, kiire) |
+| Raske mitmetasandiline mõtlemine mitte-tundlikel andmetel | **Pilvemudel** |
+| Kõik, katkestuse ajal | **Kohalik SLM** (läbimõeldud degradeerumine) |
 
-See peegeldab õppetunni 16 **mudelite marsruutimise** mõtteviisi — ainult et üks «mudelitest» oled nüüd sa ise. Tugev disain lülitab pilvest kohaliku peale, kui pilv pole saadaval, nii et agent degradeerub kvaliteedis, mitte ei ebaõnnestu täielikult.
+See peegeldab **mudeleid marsruutimise** ideed õppetundist 16 — ainult et üks „mudelitest“ on nüüd sinu enda masin. Vastupidav disain lülitub pilve puudumisel automaatselt kohalikule, nii et agent halveneb kvaliteedis, mitte ei vea alt.
 
 ```mermaid
 flowchart LR
     Q[Päring] --> S{Tundlik või võrguühenduseta?}
     S -->|jah| L[Kohalik SLM]
-    S -->|ei| C{Kas on vaja põhjalikku arutlust?}
+    S -->|ei| C{Vajab sügavat mõtlemist?}
     C -->|ei| L
     C -->|jah| Cloud[Pilvemudel]
     L --> Out[Vastus]
     Cloud --> Out
 ```
 
-## Praktikum: Kohalik inseneriabiline
+## Praktiline ülesanne: Kohalik inseneriabimees
 
-Ava [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) ja tööta läbi. Ehita **kohalik inseneriabiline**, mis töötab ainult su töölaual ja saab:
+Ava [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) ja tööta sellega. Ehita **kohalik inseneriabimees**, mis jookseb su töökohal ja suudab:
 
-1. **Kutsuda tööriistu** — Qweni funktsioonide kaudu Foundry Locali abil.
-2. **Käidelda kohalikke failioperatsioone** — projektikataloogis failide nimekiri ja lugemine.
-3. **Analüüsida koodi** — katta põhistatistika lähtefaili kohta.
-4. **Otsida dokumentatsioonist** — kohalik RAG dokumendikaustadel Chromaga.
-5. **Kasutada MCP-d** — ühendada kohaliku MCP serveriga (juhul kui mitte, jätta graatsiliselt vahele).
+1. **Kutsuda tööriistu** — Qweni funktsioonikutsumise kaudu Foundry Localiga.
+2. **Teha kohalikke failitöid** — listida ja lugeda faile projekti kaustast.
+3. **Analüüsida koodi** — anda lihtsad mõõdikud lähtefailist.
+4. **Otsida dokumentatsioonist** — kohalik RAG dokumentide kaustas Chromat kasutades.
+5. **Kasutada MCPd** — ühendada kohaliku MCP serveriga (kerge vahelejätmisega, kui pole konfigureeritud).
 
-Ükski pilve ennustus pole kasutusel.
+Ühtegi pilvepõhist järeldust ei tehta.
 
-### Ülevaade
+### Läbikäik
 
-Abiühendus toimub Foundry Locali OpenAI-ga ühilduva lõpp-punkti kaudu, nii et agendi kood näeb pilveõppetundidest praktiliselt ühesugune välja — ainult klient muutub:
+Assistendil on ühendus Foundry Localiga OpenAI-ühilduva lõpp-punkti kaudu, nii et agendi kood näeb peaaegu pilveteemaliste õppetundide moodi välja — ainult klient vahetub:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local avastab/alla laadib mudeli ja annab meile kohaliku lõpp-punkti.
+# Foundry Local leiab/laadib mudeli alla ja annab meile kohaliku lõpp-punkti.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key on kohalik kohatäide
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key on kohalik kohthoidja
 ```
 
-Tööriistad on tavalised Python funktsioonid, mis on piiritletud konkreetse projekti kataloogiga:
+Tööriistad on tavapärased Pythoni funktsioonid, mis piiritletud projekti kaustaga:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,118 +200,118 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Pöörake tähelepanu liivakasti kontrollile — isegi kohapeal on tööriist, mis loeb suvalisi radu, riskantne. Märkmik hoiab iga tööriista ühe projekti juurkaustaga piiritletuna.
+Märka liivakasti-kontrolli — isegi kohapeal on tööriist, mis loeb suvalisi teid, risk. Märkmik hoiab iga tööriista piiratuna ühele projekti juurele.
 
 ## Teadmiste kontroll
 
-Testi oma arusaamist enne ülesande juurde asumist.
+Testi oma arusaamist enne ülesande lahendamist.
 
-**1. Too kaks konkreetset põhjust, miks agent jooksutada kohapeal, mitte pilves.**
+**1. Too kaks konkreetset põhjust, miks agent tööle panna kohapeal, mitte pilves.**
 
 <details>
 <summary>Vastus</summary>
 
-Kaks järgmist: **privaatsus** (kood ja andmed ei lahku masinast), **kulu** (ei ole tokenipõhist arvestust), ja **võrguühenduseta töövõime** (käib võrguta — lennukis, turvalises ruumis või katkestuse ajal). Õigus- ja regulatiivsed piirangud, mis keelavad andmed seadmest välja saata, on tavaline privaatsusmotiiv.
+Kõik kaks järgnevatest: **privaatsus** (kood ja andmed ei lahku masinast), **kulud** (ei maksa märgi kohta järelduse eest) ja **võrguvabadus** (töötab ilma võrguühenduseta — lennukis, turvatsoonis või voolukatkestuse ajal). Regulatiivsed ja vastavusnõuded, mis keelavad andmeid seadmeväliselt saatmast, on tihti privaatsuse põhjuseks.
 </details>
 
-**2. Milline on soovitatav tööjaotus SLM-i ja tööriistade vahel kohalikus agendis ning miks?**
+**2. Kuidas on SLM ja selle tööriistade tööjaotus kohaliku agendi puhul ning miks?**
 
 <details>
 <summary>Vastus</summary>
 
-Lase SLM-il **orkestreerida** (otsustada, millist tööriista kutsuda ja milliste argumentidega) ning lase **tööriistadel teha raske töö** (failide lugemine, dokumentide otsimine, arvutuste tegemine). SLMid on tugevad piiratud otsustes nagu tööriista valik, kuid nõrgemad laias maailmateadmises ja pikkade mitmehüppeliste põhjuslustega, seega tugineda tööriistadele mängib nende tugevustele vastu.
+Lase SLMil **koordineerida** (otsustada, mida ja kuidas kutsuda) ning lase **tööriistadel teha raske töö** (failide lugemine, dokumentide otsimine, arvutamine). SLMid on head piiritletud otsustes (nt tööriista valik) aga nõrgemad laiema teadmisruumi ja pika mitmeastmelise mõtlemisega, seega tugineda tööriistadele on nende tugevus.
 </details>
 
-**3. Mis võimaldab taaskasutada pilve-agendi koodi Foundry Localiga?**
+**3. Miks on võimalik taaskasutada pilveagentide koodi Foundry Localiga?**
 
 <details>
 <summary>Vastus</summary>
 
-Foundry Local pakub **OpenAI-ga ühilduvat HTTP-lõpp-punkti**. OpenAI SDK ja Agent Frameworki OpenAI klient töötavad selle vastu vaid `base_url`-i muutes (kasutades kohalikku kohatäite API võtit). Kõik muu agendi koodis jääb samaks.
+Foundry Local pakub **OpenAI-ühilduvat HTTP lõpp-punkti**. OpenAI SDK ja agendiraamistiku OpenAI klient töötavad selle vastu ainult muutes `base_url` (kasutades kohalikku asendust API võtmele). Kõik muu agentkoodis jääb samaks.
 </details>
 
-**4. Miks kasutame spetsiaalselt Qwen funktsioonikõne mudelit, mitte suvalist SLM-i?**
+**4. Miks kasutame just Qweni funktsioonikutsumist, mitte suvalist SLMi?**
 
 <details>
 <summary>Vastus</summary>
 
-Sest agent peab tooma usaldusväärseid, korrektselt vormistatud **tööriistakõnesid**. Paljud SLMid saavad ülevahelda, kuid esitavad vigaseid või ebajärjekindlaid tööriistakõnestruktuure. Qwen mudelid on spetsiaalselt funktsioonikõneks koolitatud ja sünnitavad järjekindlaid kõnesid, mis muudab kohalikust vestlusmudelist töökorras kohaliku agendi.
+Sest agent peab tootma usaldusväärseid ja hästi vormistatud **tööriistakutseid**. Paljud SLMid oskavad vestelda, aga toodavad valevormis või ebajärjekindlaid tööriistakutseid. Qweni mudelid on koolitatud funktsioonikutsumiseks ja toodavad järjekindlaid tööriistakutseid, mis teeb kohalikust vestlussüsteemist toimiva agendi.
 </details>
 
-**5. Millised komponendid jooksevad masina peal kohaliku RAG töövoos?**
+**5. Millised komponendid jooksevad masinal kohaliku RAG pipelinis?**
 
 <details>
 <summary>Vastus</summary>
 
-Kõik: sisestusmudel, vektorandmebaas (Chroma ketastel), otsingufaas ja SLM. Dokumendid sisestatakse kohapeal, salvestatakse kohapeal, tuuakse kohapeal ja neid põhjendatakse kohalikus mudelis — miski ei puutu pilve.
+Kõik: embeding-mudel, vektordata baas (Chroma kettal), otsinguetapp ja SLM. Dokumendid embedditakse kohapeal, salvestatakse kohapeal, leitakse kohapeal ja SLM paneb neile mõtlema — ükski komponent ei puutu pilve.
 </details>
 
-**6. Kohalik MCP server jookseb su masinas. Kas see teeb selle automaatselt turvaliseks? Millist ettevaatusabinõu peaksid siiski järgima?**
+**6. Kohalik MCP server töötab su masinal. Kas see teeb selle automaatselt turvaliseks? Milliseid ettevaatusabinõusid peaksid siiski kasutama?**
 
 <details>
 <summary>Vastus</summary>
 
-Ei. Kohalik MCP server töötab sinu kasutajaõigustes, seega pääseb ligi kõigile, mida sina suudad. Piira ta kasutusala vajalikule (nt ühele projekti kaustale, mitte kogu kodukataloogile) ja käitu tema väljunditega nagu sisenditega, et neid enne valideerida.
+Ei. Kohalik MCP server töötab su kasutaja õigustes, nii et pääseb ligi kõikjale, kuhu sinu kasutaja pääseb. Piira teda vaid sellele, mida ta vajab (nt ühele projekti kaustale, mitte tervele kodukaustale) ja käsitle selle väljundeid nagu sisendeid, mida enne kasutamist peaks valideerima.
 </details>
 
-**7. Kirjelda mõistlikku hübriidset marsruutimispõhimõtet, millesse kuulub ka kohalik mudel.**
+**7. Kirjelda mõistlikku hübriidset marsruutimise reeglit, mis hõlmab lokaalset mudelit.**
 
 <details>
 <summary>Vastus</summary>
 
-Suuna tundlikud või võrguühenduse puudumisega päringud kohalikku SLM-i; suuna lihtsad piiratud ülesanded kohalikku SLM-i kiiruse ja kulu tõttu; suuna rasked mitmehüppelised põhjendused mitte-tundlike andmete puhul pilvemudelisse; ja kasuta kohalikku SLM-i kui pilv ei ole saadaval, nii et agent degradeerub graatsiliselt, mitte ei ebaõnnestu. See on mudelite marsruutimine (tund 16), kus üks mudelitest oled sina ise.
+Saada tundlikud või võrguvabad päringud kohalikule SLMile; saada lihtsad ja piiritletud ülesanded kohalikule SLMile kiiruse ja maksumuse tõttu; saada keerukas mitmesammuline mõtlemine mitte-tundlikel andmetel pilvemudelile; ja lülitu pilve puudumisel tagasi kohalikule SLMile nii, et agent degradeerub sujuvalt, mitte ei vea alt. See on mudelite marsruutimine (õppetund 16) kus ühe mudelina on sinu masin.
 </details>
 
-**8. Milline on realistlik miinimummälu (RAM) kohalikule agendile selles tunnis, ja mida enam mälu võimaldab?**
+**8. Mis on selle õppetunni kohaliku agendi jooksutamiseks realistlik miinimum RAM maht ja mida rohkem RAMi annab?**
 
 <details>
 <summary>Vastus</summary>
 
-Umbes **8 GB** on realistlik miinimum; 16 GB+ on mugav. Rohkem mälu võimaldab jooksutada suuremaid, võimekamaid mudeleid ja hoida rohkem konteksti mälus. GPU või NPU kiirendavad ennustust, kuid pole kohustuslikud — Foundry Local valib CPU-versiooni, kui kiirendajat pole.
+Ligikaudu **8 GB** on realistlik miinimum; 16 GB+ on mugav. Rohkem RAMi võimaldab jooksutada suuremaid ja võimekamaid mudeleid ning hoida rohkem konteksti mälus. GPU või NPU kiirendab järeldust, aga pole kohustuslik — Foundry Local valib CPU ehituse, kui kiirendajat pole.
 </details>
 
 ## Ülesanne
 
-Arenda kohalik inseneriabiline edasi **kohalikuks dokumentatsiooni ülevaatajaks** väikse projekti jaoks, mida soovid (kasuta selle repositooriumi mõnda õppetunni kausta kui soovid).
+Laienda kohaliku inseneriabi rakendus **kohalikuks dokumentatsiooni vaatlejaks** väikese valitud projekti jaoks (kasuta soovi korral mõnda selle reposti õppetundide kaustadest).
 
 Sinu lahendus peaks:
 
-1. **Indekseerima reaalse dokumendi/koodi kausta** Chroma abil (vähemalt viis faili).
-2. **Lisa `find_todos` tööriist**, mis otsib projektist `TODO`/`FIXME` kommentaare ja tagastab need koos faili ja reanumbriga — hoides sama liivakasti kontrolli nagu `read_file`.
+1. **Indekseerima reaalse dokumendi/koodi kausta** Chromasse (vähemalt viis faili).
+2. **Lisama `find_todos` tööriista**, mis skaneerib projekti `TODO`/`FIXME` kommentaaride leidmiseks ja tagastab need koos faili ja rea numbriga — säilitades sama liivakasti kontrolli nagu `read_file`.
 
-3. **Esitage agendile kolm küsimust**, mis sunnivad seda tööriistu kombineerima: üks puhas RAG-küsimus, üks, mis nõuab konkreetse faili lugemist, ja üks, mis nõuab TODO-de leidmist.
-4. **Mõõtke aeg**: ajastage iga kolme vastuse jaoks aeg ja märkige see märkmerakenduse lahtrisse. Kommenteerige, kas latentsus on teie kavandatud töövoo jaoks aktsepteeritav.
+3. **Esitage agendile kolm küsimust**, mis sunnivad seda tööriistu kombineerima: üks puhas RAG-küsimus, üks, mis nõuab konkreetse faili lugemist, ja üks, mis nõuab TODOde leidmist.
+4. **Mõõtke see**: aeglustage iga kolme vastuse aeg ja märkige see markdown-rakku. Kommenteerige, kas latentsus on teie planeeritud töövoo jaoks aktsepteeritav.
 
-Seejärel kirjutage lühike lõik selle kohta, **mida te pilve viiksite ja mida kohapeal hoiaksite** selleks ülevaatajale ning miks. Teid hinnatakse selle järgi, kas lokaalsed komponendid on õigesti omavahel ühitatud ja kas teie hübriidne mõtlemine on loogiline — mitte mudeli kvaliteedi järgi.
+Kirjutage seejärel lühike lõik **mida te pilve viiksite ja mida hoiaksite lokaalselt** selle hindaja jaoks ning miks. Teid hinnatakse selle järgi, kas lokaalsed komponendid on õigesti omavahel ühendatud ja kas teie hübriidne mõtlemine on põhjendatud — mitte mudeli kvaliteedi järgi.
 
 ## Kokkuvõte
 
-Selles tunnis ehitasite agendi, mis töötab täielikult teie enda masinas:
+Selles õppetükis ehitasite agendi, mis töötab täielikult teie enda masinal:
 
-- **SLMid** vahetavad ulatuse privaatsuse, hinna ja võrguühenduseta töö vastu — ja säravad siis, kui nad **koordineerivad tööriistu** selle asemel, et kogu teadmine ise omada.
-- **Foundry Local** teenindab mudeleid seadmes OpenAI-ga ühilduva lõpp-punkti taga, nii et teie pilveagentide kood kandub üle ühe reaga.
-- **Qweni funktsioonikutsed** võimaldavad usaldusväärset kohaliku tööriista kasutamist — ja seega ka kohalikke *agente*.
-- **Local RAG** (Chroma) ja **kohalik MCP** annavad agendile võimekuse ilma masinast lahkumata.
-- **Hübriidmustrid** võimaldavad suunata tundlikkuse ja raskusastme järgi, kus kohalik on viisaka tagavaravariandina.
+- **SLM-id** vahetavad laiaulatuslikkuse privaatsuse, hinna ja võrguühenduseta töö eest — ja paistavad silma, kui nad **orkestreerivad tööriistu** selle asemel, et kogu teadmist endas kanda.
+- **Foundry Local** teenindab mudeleid seadmes OpenAI-ga ühilduva lõpp-punkti taga, nii et teie pilveagendi kood kandub üle ühe reaga.
+- **Qwen funktsioonikutsumise mudelid** võimaldavad usaldusväärset kohaliku tööriista kutsumist — ja seega kohalikke *agente*.
+- **Lokaalne RAG** (Chroma) ja **lokaalne MCP** annavad agendile võimekuse ilma masina juurest lahkumata.
+- **Hübriidmudelid** lasevad marsruutida tundlikkuse ja raskusastme järgi, kus lokaalne on peen langusvariant.
 
-See lõpetab juurutuskäigu: õppetund 16 skaleeris agendid Microsoft Foundry-sse ja see õppetund vähendas nad üheks töölauaks. Järgmine õppetund keskendub juba juurutatud agentide turvalisuse hoidmisele.
+Sellega lõpeb juurutuse ring: Õppetund 16 skaleeris agendid Microsoft Foundrysse ja see õppetund skaleeris neid ühele tööjaamale. Järgmine õppetund keskendub juurutatud agentide turvalisusele.
 
-## Lisaressursid
+## Täiendavad ressursid
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local dokumentatsioon</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentatsioon</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen funktsioonikutsedokumentatsioon</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qweni funktsioonikutsumise dokumentatsioon</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
-- <a href="https://docs.trychroma.com/" target="_blank">Chroma vektandmebaas</a>
+- <a href="https://docs.trychroma.com/" target="_blank">Chroma vektorandmebaas</a>
 
 ## Eelmine õppetund
 
-[Skaalautuvate agentide juurutamine](../16-deploying-scalable-agents/README.md)
+[Skaleeritavate agentide juurutamine](../16-deploying-scalable-agents/README.md)
 
 ## Järgmine õppetund
 
-[AI-agentide turvamine](../18-securing-ai-agents/README.md)
+[AI agentide turvamine](../18-securing-ai-agents/README.md)
 
 ---
 

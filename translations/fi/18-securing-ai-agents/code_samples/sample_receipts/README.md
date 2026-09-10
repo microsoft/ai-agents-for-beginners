@@ -1,24 +1,28 @@
-# Esimerkkikuitti-fixtuurit
+# Esimerkkikuittien esimerkit
 
-Kolme ennalta luotua kuittitiedostoa tarkastelua varten ilman, että notebookia tarvitsee ajaa.
+Kolme valmiiksi luotua kuittitiedostoa tarkastelua varten ilman, että tarvitsee ajaa muistikirjaa.
 
-| Tiedosto | Mikä se on |
+| Tiedosto | Mitä se on |
 |---|---|
-| `01_valid_receipt.json` | Kelvollinen allekirjoitettu kuitti `lookup_flights`-työkalukutsulle. Varmistus palauttaa True. |
-| `02_tampered_receipt.json` | Sama kuitti, jossa yksi kenttä on muutettu allekirjoituksen jälkeen. Varmistus palauttaa False. |
-| `03_chain_three_receipts.json` | Kolmen kelvollisen kuitin ketju (haku, varaaminen, varmistus), jossa `previous_receipt_hash` linkittää kukin edelliseen. |
+| `01_valid_receipt.json` | Voimassa oleva allekirjoitettu kuitti `lookup_flights`-työkalukutsulle. Varmennus palauttaa True. |
+| `02_tampered_receipt.json` | Sama kuitti muokatulla yhdellä kentällä allekirjoituksen jälkeen. Varmennus palauttaa False. |
+| `03_chain_three_receipts.json` | Kolmen kelvollisen kuitin ketju (haku, varaus, varaa) jossa `previous_receipt_hash` linkittää ne toisiinsa. |
 
-## Näytteiden varmentaminen
+Esimerkeissä allekirjoitetaan suoraan hyötykuorman kanoniset JCS-tavut Ed25519:llä.
+SHA-256:tä käytetään edelleen sisällön tiivisteissä ja kuittiketjun linkeissä, ei
+ylimääräisenä esitiivisteenä ennen allekirjoitusta.
 
-Notebook käy varmistuksen läpi neljässä osassa. Todistaakseen nämä fixtuurit suoraan
-ilman notebook-kertomusta:
+## Esimerkkien varmennus
+
+Muistikirja esittelee varmentamisen neljässä osassa. Näiden esimerkkien
+suora varmentaminen ilman muistikirjan ajamista:
 
 ```python
 import json
 from pathlib import Path
 
 # Oletetaan, että olet suorittanut tuonnit ja apufunktiot
-# kohdista 1 ja 2 tiedostossa 18-signed-receipts.ipynb.
+# kohdista 1 ja 2 tiedostosta 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Tosi
@@ -31,24 +35,29 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Miten nämä on luotu
+## Näin ne on luotu
 
-Fixtuurit käyttävät samaa koodipolkua kuin notebook, yhdellä kiinteällä allekirjoitusavaimella
-ja kiinteillä aikaleimoilla tavutasovarmistettavuuden takaamiseksi. Uudelleen luomiseksi:
+Esimerkeissä käytetään samaa koodireittiä kuin muistikirjassa, yhdellä kiinteällä allekirjoitusavaimella
+ja kiinteillä ajoituksilla tavutasolla toistettavuuden varmistamiseksi. Uudelleenluomiseen:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripti löytyy `generate_fixtures.py`-tiedostosta tässä hakemistossa.)
+(Skripti löytyy tästä kansiosta nimellä `generate_fixtures.py`.)
 
-## Mitä opiskelijat oppivat raakan JSONin tutkimisesta
+## Mitä opiskelijat oppivat lukemalla raakaa JSON-muotoa
 
-Raakamuotoisen kuitin lukeminen rakentaa intuitiota, mitä notebookin solut eivät aina anna. Opiskelijat, jotka silmäilevät JSONia, usein huomaavat:
+Raakatilan lukeminen muodostaa intuitiota, jota muistikirjan solut eivät aina tarjoa. 
+Opiskelijat, jotka selaavat JSON:ia, huomaavat usein:
 
-1. Allekirjoitus on suljettu base64url-merkkijono, mutta kaikki muut kentät ovat selkeästi luettavaa JSONia. Allekirjoitus ei salaa sisältöä; se todistaa sen.
-2. `public_key` on upotettu kuittiin. Tarkastajan ei tarvitse muuta varmistaakseen (edellyttäen että avain todella kuuluu väitetyille julkaisijalle; katso tunnistusinfrastruktuuria koskeva oppitunnin README).
-3. Yhden merkin muuttaminen missä tahansa kentässä ja tämän tiedoston vertaaminen `02_tampered_receipt.json`-tiedostoon tekee tavutason mekanismin konkreettiseksi.
+1. Allekirjoitus on läpinäkymätön base64url-merkkijono, mutta kaikki muut kentät ovat selkeästi
+   luettavaa JSON:ia. Allekirjoitus ei salaa sisältöä; se todentaa sen.
+2. `public_key` sisältyy kuittiin. Tarkastajan ei tarvitse mitään muuta
+   varmistaakseen (edellyttäen, että avain todella kuuluu väitetyille
+   myöntäjälle; katso oppitunnin README identiteettirakenteista).
+3. Yhden merkin muuttaminen missä tahansa kentässä ja sitten tämän tiedoston vertaaminen
+   tiedostoon `02_tampered_receipt.json` tekee tavutason mekanismin konkreettiseksi.
 
 ---
 
