@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service adalah gabungan lancar perkhidmatan dan SDK yang
 
 ---
 
-## Nama Acara: Ejen AI + Aspire
+## Nama Acara: Ejen AI + .NET Aspire
 
 ## Penerangan
 
-Dalam sesi ini kami akan berkongsi beberapa perkembangan paling menarik di platform .NET berkaitan Ejen. Terokai status terkini .NET, termasuk ciri-ciri dan penambahbaikan baru. Terokai keupayaan AI Agent yang berkuasa. Dan kami akan membuat beberapa pengkodan langsung dengan Ejen dan Aspire.
+Dalam sesi ini kami akan berkongsi beberapa perkembangan paling menarik di platform .NET berkaitan Ejen. Terokai status terkini .NET, termasuk ciri-ciri dan penambahbaikan baru. Terokai keupayaan AI Agent yang berkuasa. Dan kami akan membuat beberapa pengkodan langsung dengan Ejen dan .NET Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>

@@ -162,11 +162,11 @@ Microsoft Foundry Agent Service yra sklandus paslaugos ir SDK derinys, kuris sup
 
 ---
 
-## Renginio pavadinimas: DI agentai + Aspire
+## Renginio pavadinimas: DI agentai + .NET Aspire
 
 ## Aprašymas
 
-Šios sesijos metu pasidalinsime įdomiausiais .NET platformos pasiekimais agentų srityje. Sužinosite dabartinę .NET būklę, įskaitant naujas funkcijas ir patobulinimus. Išnagrinėsime galingas DI agentų galimybes. Taip pat atliksime gyvą kodavimą su agentais ir Aspire.
+Šios sesijos metu pasidalinsime įdomiausiais .NET platformos pasiekimais agentų srityje. Sužinosite dabartinę .NET būklę, įskaitant naujas funkcijas ir patobulinimus. Išnagrinėsime galingas DI agentų galimybes. Taip pat atliksime gyvą kodavimą su agentais ir .NET Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
