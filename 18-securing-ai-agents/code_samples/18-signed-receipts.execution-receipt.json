@@ -1,0 +1,68 @@
+{
+  "assertions": {
+    "downstream_chain_link_break_detected": true,
+    "fixture_readme_executed_from_notebook_directory": true,
+    "fixture_tampered_receipt_rejected": true,
+    "fixture_three_receipt_chain_valid": true,
+    "fixture_valid_receipt_accepted": true,
+    "prehashed_signature_rejected": true,
+    "receipted_tool_three_calls": true,
+    "tampered_middle_receipt_rejected": true,
+    "tampered_receipt_rejected": true,
+    "three_receipt_chain_valid": true,
+    "unpinned_key_rejected_by_both_verifiers": true,
+    "valid_receipt_accepted": true
+  },
+  "attestation_boundary": "Repository record of a local notebook run, not an independent attestation.",
+  "cells": {
+    "code_total": 14,
+    "errors": 0,
+    "executed": 14
+  },
+  "execution_output_committed": false,
+  "finished_at_utc": "2026-09-10T00:00:18.656634Z",
+  "implementation": "CPython",
+  "notebook": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
+  "packages": {
+    "PyNaCl": "1.6.2",
+    "ipykernel": "7.3.0",
+    "jcs": "0.2.1",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "python": "3.12.13",
+  "regression_tests": {
+    "command": "python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v",
+    "count": 8,
+    "errors": 0,
+    "failures": 0,
+    "working_directory": "repository root"
+  },
+  "reproduction": {
+    "execute": "jupyter execute 18-signed-receipts.ipynb --output=18-signed-receipts.executed.ipynb --timeout=600 --kernel_name=python3",
+    "executor": "nbclient.NotebookClient.execute",
+    "install": "python3 -m pip install nbclient==0.11.0 nbformat==5.11.1 ipykernel==7.3.0 pynacl==1.6.2 jcs==0.2.1",
+    "timeout_seconds": 600,
+    "working_directory": "18-securing-ai-agents/code_samples"
+  },
+  "result": "PASS",
+  "schema": "notebook-execution-receipt/v1",
+  "source_commit": "bf9c04d2e423038e1abbf35c66f06e6f905fdf39",
+  "source_git_blob": "44ed7492080ef5c47376d0ce0fd7829cb8ae27ff",
+  "source_notebook_outputs": 11,
+  "source_sha256": "03641e76a8ea49df2aa85ed88f2da27222ec46e0c604226903a57d2c89a4b56d",
+  "started_at_utc": "2026-09-10T00:00:14.791452Z",
+  "tested_source_sha256": {
+    "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": "03641e76a8ea49df2aa85ed88f2da27222ec46e0c604226903a57d2c89a4b56d",
+    "18-securing-ai-agents/code_samples/requirements.txt": "e2984d30f9bad3fefb0a8a056edfab7d0d8536f76fc2fc76f87f8c0afee12866",
+    "18-securing-ai-agents/code_samples/sample_receipts/01_valid_receipt.json": "4cfda83f309da0a2280e7cd0a736beab7052ea7ed2e1d5af379b8fb7c01417df",
+    "18-securing-ai-agents/code_samples/sample_receipts/02_tampered_receipt.json": "192f8655d300fee55e6adc981ee2092b42638f2af65ed28fcc69409b48601fd8",
+    "18-securing-ai-agents/code_samples/sample_receipts/03_chain_three_receipts.json": "128e7dec669d1539bb6894a7bb019c393da6f29622276e00df88bbc0ee61dcfb",
+    "18-securing-ai-agents/code_samples/sample_receipts/README.md": "60a3abc3424e90e0f654dc329d6348b577d77060200c73306da681813e167d01",
+    "18-securing-ai-agents/code_samples/test_signed_receipts.py": "10eecd6034171ade1aecd5ad870a5871ccb86c0946fe8ce95cf86f0dfa995ef7"
+  },
+  "validation_cells": {
+    "errors": 0,
+    "executed": 1
+  }
+}
