@@ -1,64 +1,64 @@
-# コース設定
+# コースセットアップ
 
 ## はじめに
 
 このレッスンでは、このコースのコードサンプルの実行方法について説明します。
 
-## 他の学習者と参加し、サポートを受ける
+## 他の学習者に参加して助けを得る
 
-リポジトリのクローンを始める前に、[AI Agents For Beginners Discord チャンネル](https://aka.ms/ai-agents/discord) に参加して、セットアップの支援やコースに関する質問、または他の学習者との交流を得てください。
+リポジトリをクローンする前に、セットアップのサポート、コースに関する質問、または他の学習者との交流のために、[AI Agents For Beginners Discordチャンネル](https://aka.ms/ai-agents/discord)に参加してください。
 
 ## このリポジトリをクローンまたはフォークする
 
-まず、GitHubリポジトリをクローンまたはフォークしてください。これによりコース教材の自分専用のバージョンができ、コードの実行、テスト、調整が可能になります！
+まず、GitHubリポジトリをクローンまたはフォークしてください。これにより、コース教材の自分のバージョンが作成され、コードを実行、テスト、調整できます！
 
-<a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">リポジトリをフォークする</a>リンクをクリックすることで行えます。
+これは<a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">リポジトリをフォーク</a>するリンクをクリックして行えます。
 
-以下のリンクに、あなた自身のフォークされたコースバージョンが表示されているはずです：
+次のリンクにあなたのフォークしたコースのバージョンができているはずです：
 
-![Forked Repo](../../../translated_images/ja/forked-repo.33f27ca1901baa6a.webp)
+![フォークしたリポジトリ](../../../translated_images/ja/forked-repo.33f27ca1901baa6a.webp)
 
-### 浅いクローン（ワークショップ / Codespaces推奨）
+### 浅いクローン（ワークショップ / Codespacesに推奨）
 
-  >フルのリポジトリは履歴全てとファイルの全てをダウンロードすると大きく（約3GB）なります。ワークショップ参加のみ、または特定のレッスンフォルダだけ必要な場合、浅いクローン（またはスパースクローン）により履歴を縮小したりblobをスキップして大部分のダウンロードを回避できます。
+  >履歴とすべてのファイルを完全にダウンロードすると、リポジトリ全体は大きくなる場合があります（約3 GB）。ワークショップへの参加のみや、一部のレッスンフォルダだけが必要な場合は、浅いクローン（またはスパースクローン）でかなり小さくダウンロードできます。
 
-#### 速い浅いクローン — 最小履歴、すべてのファイル
+#### クイック浅いクローン — 最小限の履歴、すべてのファイル
 
-以下のコマンド内の `<your-username>` は、あなたのフォークURL（またはアップストリームURL）に置き換えてください。
+下記のコマンドで`<your-username>`をあなたのフォークURL（またはアップストリームURL）に置き換えてください。
 
-最新のコミット履歴のみをクローンする方法（ダウンロードが小さい）：
+最新のコミット履歴のみをクローンするには：
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-特定のブランチをクローンする方法：
+特定のブランチをクローンするには：
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### 部分的（スパース）クローン — 最小blob＋選択フォルダのみ
+#### 部分的な（スパース）クローン — 最小限のblob + 選択したフォルダのみ
 
-これは部分クローンとスパースチェックアウトを使用します（Git 2.25+ が必要、部分クローン対応のモダンなGit推奨）：
+これは部分クローンとスパースチェックアウトを使用します（Git 2.25以上が必要で、部分クローンをサポートする最新のGitが推奨されます）：
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
 リポジトリフォルダに移動：
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-その後、必要なフォルダを指定します（以下は2つのフォルダの例）：
+次に、必要なフォルダを指定します（以下の例は2つのフォルダを表示）：
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-クローンしファイルを確認したら、ファイルだけが必要でスペースを解放したい場合（Git履歴不要の場合）、リポジトリのメタデータを削除してください（💀不可逆 — Git機能はすべて使えなくなります：コミット、プル、プッシュ、履歴閲覧不可）。
+クローンしてファイル確認後、ファイルのみが必要で容量を開放したい場合（git履歴は不要）は、リポジトリのメタデータを削除してください（💀元に戻せません — Git機能はすべて失われます）：
 
 ```bash
 # zsh/bash
@@ -70,41 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### GitHub Codespaces の使用（ローカルでの大容量ダウンロード回避推奨）
+#### GitHub Codespacesの利用（ローカルの大きなダウンロードを避けるため推奨）
 
-- このリポジトリで新しいCodespaceを [GitHub UI](https://github.com/codespaces) から作成します。  
+- [GitHub UI](https://github.com/codespaces)からこのリポジトリの新しいCodespaceを作成します。  
 
-- 新たに作成されたCodespaceのターミナルで、上記の浅い/スパースクローンコマンドのいずれかを実行し、必要なレッスンフォルダだけをCodespaceのワークスペースに取り込みます。
-- オプション：Codespaces内でクローン後、.git を削除して追加のスペースを回収可能（前述の削除コマンド参照）。
-- 注意：Codespacesでリポジトリを直接開く方法（クローン不要）もありますが、Codespacesはdevcontainer環境を構築するため、必要以上のリソースが割り当てられることがあります。新規Codespace内で浅いコピーをクローンすることでディスク使用量の制御が可能です。
+- 新しく作成したCodespaceのターミナルで、上記の浅い/スパースクローンコマンドのいずれかを実行し、必要なレッスンフォルダのみをCodespaceワークスペースに持ってきます。
+- オプション：Codespaces内でクローン後に.gitを削除すると追加の容量を確保できます（削除コマンドは上記参照）。
+- 注：リポジトリを直接Codespacesで開く場合（追加クローンなし）、Codespacesはdevcontainer環境を構築し、多くの場合必要以上のプロビジョニングが行われます。
 
 #### ヒント
 
-- 編集/コミットしたい場合は、常にクローンURLを自分のフォークに置き換えてください。
-- 後で履歴やファイルがもっと必要になった場合は、それらをフェッチしたり、スパースチェックアウトでフォルダ追加が可能です。
+- 編集/コミットしたい場合は、クローンURLを必ず自分のフォークに置き換えてください。
+- 後でさらに履歴やファイルが必要になった場合は、それらをフェッチするか、スパースチェックアウトで追加フォルダを含めるように調整可能です。
 
 ## コードの実行
 
-このコースでは、AIエージェント構築の実践経験を積むために実行可能な一連のJupyter Notebookを提供しています。
+このコースでは、AIエージェントの構築を体験できる一連のJupyterノートブックを提供しています。
 
-コードサンプルは **Microsoft Agent Framework (MAF)** と `FoundryChatClient` を使用し、**Microsoft Foundry Agent Service V2**（Responses API）に<strong>Microsoft Foundry</strong>経由で接続します。
+コードサンプルでは、`FoundryChatClient`を使用した<strong>Microsoft Agent Framework (MAF)</strong>を用い、<strong>Microsoft Foundry</strong>を通じて<strong>Microsoft Foundry Agent Service V2</strong>（Responses API）に接続します。
 
-すべてのPythonノートブックは `*-python-agent-framework.ipynb` と名付けられています。
+すべてのPythonノートブックは`*-python-agent-framework.ipynb`というラベルが付いています。
 
-## 必要条件
+## 要件
 
 - Python 3.12以上
-  - <strong>注意</strong>: Python3.12がインストールされていない場合は必ずインストールしてください。その後、python3.12を使いvenvを作成し、requirements.txtから正しいバージョンをインストールするようにしてください。
+  - <strong>注意</strong>：Python3.12がインストールされていない場合は必ずインストールしてください。requirements.txtの正しいバージョンをインストールするために、python3.12で仮想環境を作成してください。
   
     >例
 
-    Python venvディレクトリを作成：
+    Python仮想環境ディレクトリを作成：
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
-    次にvenv環境を以下でアクティベート：
+    次に仮想環境を有効化：
 
     ```bash
     # zsh/bash
@@ -116,80 +116,80 @@ Remove-Item -Recurse -Force .git
     venv\Scripts\activate
     ```
 
-- .NET 10以上：.NETを使用するサンプルコードには [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 以上をインストールしてください。その後インストール済みの.NET SDKバージョンを確認します：
+- .NET 10以上：.NETを使用するサンプルコードの場合、[.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)以上をインストールし、インストール済みの.NET SDKバージョンを確認してください。
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — 認証に必要です。[aka.ms/installazurecli](https://aka.ms/installazurecli)からインストールしてください。
-- **Azureサブスクリプション** — Microsoft FoundryとMicrosoft Foundry Agent Serviceへのアクセスに必要です。
-- **Microsoft Foundryプロジェクト** — モデルをデプロイしたプロジェクト（例: `gpt-5-mini`）が必要です。以下の[ステップ1](#ステップ-1-microsoft-foundry-プロジェクトを作成する)を参照してください。
+- **Azure CLI** — 認証に必要。 [aka.ms/installazurecli](https://aka.ms/installazurecli)からインストールしてください。
+- **Azureサブスクリプション** — Microsoft Foundry と Microsoft Foundry Agent Serviceへのアクセスのために必要です。
+- **Microsoft Foundry プロジェクト** — デプロイ済みモデル (例：`gpt-5-mini`) を持つプロジェクト。以下の[ステップ1](#ステップ-1-microsoft-foundryプロジェクトを作成する)を参照してください。
 
-このリポジトリのルートに、必要なPythonパッケージをすべて含む `requirements.txt` ファイルが含まれています。
+このリポジトリのルートにはコードサンプルを実行するのに必要なPythonパッケージをすべて記載した`requirements.txt`ファイルがあります。
 
 リポジトリのルートで次のコマンドを実行してインストールできます：
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-競合や問題を避けるために、Pythonの仮想環境を作成することを推奨します。
+コンフリクトや問題を避けるため、Pythonの仮想環境を作成することを推奨します。
 
-## VSCode のセットアップ
+## VSCodeのセットアップ
 
-VSCodeで正しいPythonバージョンを使用しているか確認してください。
+VSCodeで正しいPythonバージョンを使用していることを確認してください。
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Microsoft Foundry と Microsoft Foundry Agent Service のセットアップ
+## Microsoft FoundryとMicrosoft Foundry Agent Serviceのセットアップ
 
-### ステップ 1: Microsoft Foundry プロジェクトを作成する
+### ステップ 1: Microsoft Foundryプロジェクトを作成する
 
-ノートブックを実行するには、Microsoft Foundry の **hub** とデプロイ済みモデルを含む **project** が必要です。
+ノートブックを実行するには、Microsoft Foundryの<strong>ハブ</strong>と、デプロイされたモデルを持つ<strong>プロジェクト</strong>が必要です。
 
-1. [ai.azure.com](https://ai.azure.com) にアクセスして、Azureアカウントでサインインします。
-2. **hub** を作成（または既存のものを使用）。詳細は：[Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources) を参照。
-3. hub内で **project** を作成します。
-4. **Models + Endpoints** → **Deploy model** からモデル（例：`gpt-5-mini`）をデプロイします。
+1. [ai.azure.com](https://ai.azure.com) にアクセスし、Azureアカウントでサインインします。
+2. <strong>ハブ</strong>を作成するか（既存のものを使用）、[ハブリソースの概要](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)をご参照ください。
+3. ハブ内で<strong>プロジェクト</strong>を作成します。
+4. **Models + Endpoints** → <strong>モデルをデプロイ</strong>からモデル（例：`gpt-5-mini`）をデプロイします。
 
 ### ステップ 2: プロジェクトのエンドポイントとモデルデプロイ名を取得する
 
-Microsoft Foundry ポータルのプロジェクトから：
+Microsoft Foundryポータルのプロジェクトから：
 
-- **Project Endpoint** — <strong>Overview</strong>ページに行き、エンドポイントURLをコピーします。
+- <strong>プロジェクトエンドポイント</strong> — **Overview** ページに行き、エンドポイントURLをコピーします。
 
-![Project Connection String](../../../translated_images/ja/project-endpoint.8cf04c9975bbfbf1.webp)
+![プロジェクト接続文字列](../../../translated_images/ja/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Model Deployment Name** — **Models + Endpoints** に進み、デプロイ済みモデルを選択し、**Deployment name**（例：`gpt-5-mini`）をメモします。
+- <strong>モデルデプロイ名</strong> — **Models + Endpoints** に移動して、デプロイ済みモデルを選択し、**Deployment name**（例：`gpt-5-mini`）を記録します。
 
-### ステップ 3: `az login` で Azure にサインインする
+### ステップ 3: `az login` でAzureにサインインする
 
-すべてのノートブックは認証に **`AzureCliCredential`** を使用します — APIキーは不要です。このためAzure CLIでサインインしている必要があります。
+ほとんどのノートブックは `azure-identity` パッケージの `AzureCliCredential` または `DefaultAzureCredential` で Azure CLI のサインイン状態（`az login`）を使用して認証します。これによりAPIキーは不要です。一部のレッスンやオプション統合はAPIキーを使用しますので、各レッスンの前提条件で追加の環境変数を確認してください。Azure CLIへのサインインが必要です。
 
-1. **Azure CLIをインストール**（まだであれば）：[aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. **Azure CLIが未インストールの場合はインストール**：[aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-2. <strong>サインイン</strong>を実行：
+2. 次を実行し<strong>サインイン</strong>：
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
     ブラウザがないリモート/Codespace環境の場合：
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
-3. プロンプトがあれば<strong>サブスクリプションを選択</strong> — Foundryプロジェクトがあるものを選びます。
+3. プロンプトが表示されたら<strong>サブスクリプションを選択</strong> — Foundryプロジェクトが含まれるものを選んでください。
 
-4. <strong>サインイン確認</strong>：
+4. サインイン済みを<strong>確認</strong>：
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **なぜ `az login` を使うのか？** ノートブックは `azure-identity` パッケージの `AzureCliCredential` で認証します。これはAzure CLIセッションが認証情報を提供し、`.env` にAPIキーやシークレットを含める必要がないためで、[セキュリティベストプラクティス](https://learn.microsoft.com/azure/developer/ai/keyless-connections)でもあります。
+> **なぜ`az login`？** ノートブックは `azure-identity` の `AzureCliCredential`（または`DefaultAzureCredential`）を使って認証します。これにより`.env` ファイルにAPIキーやシークレットが不要になり、Azure CLIセッションが資格情報を提供します。これは[セキュリティのベストプラクティス](https://learn.microsoft.com/azure/developer/ai/keyless-connections)です。
 
 ### ステップ 4: `.env` ファイルを作成する
 
@@ -205,72 +205,110 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-`.env` を開いて以下の2つの値を入力します：
+`.env` を開き、次の2つの値を記入してください：
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
 AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
-| 変数名 | 取得場所 |
-|--------|----------|
-| `AZURE_AI_PROJECT_ENDPOINT` | Foundryポータル → あなたのプロジェクト → <strong>Overview</strong>ページ |
+| 変数 | 場所 |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundryポータル → プロジェクト → **Overview** ページ |
 | `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundryポータル → **Models + Endpoints** → デプロイ済みモデル名 |
 
-これでほとんどのレッスンは準備完了です！ノートブックは `az login` セッションから自動的に認証されます。
+これでほとんどのレッスンは準備完了です！ノートブックは自動的に `az login` セッションで認証します。
 
-### ステップ 5: Python依存関係をインストールする
+### ステップ 5: Python依存関係のインストール
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-先に作成した仮想環境内で実行することを推奨します。
+先ほど作成した仮想環境内で実行することを推奨します。
 
-## レッスン5（Agentic RAG）の追加セットアップ
+## オプションセットアップ：Azure AI Search（レッスン5と16）
 
-レッスン5は **Azure AI Search** を用いたリトリーバル強化生成を使います。このレッスンを実行する場合は以下の変数を `.env` に追加してください：
+レッスン5（Agentic RAG）とレッスン16のノートブックは、<strong>インメモリのナレッジベース</strong>でそのまま実行可能で、追加のAzureリソースは不要です。実際の<strong>Azure AI Search</strong>インデックスでバックアップしたい場合、<strong>レッスン16ノートブックは現在キー認証を使用</strong>しており、`AZURE_SEARCH_SERVICE_ENDPOINT`と`AZURE_SEARCH_API_KEY`の両方が設定された時だけインメモリ検索からAzure AI Searchに切り替わります。そのため実際のインデックスで実行するには管理キーも設定する必要があります。本コースの他の部分で使用されている`az login`フローに準拠した推奨のキーなし認証のMicrosoft Entra ID (RBAC)は、本番コードでは推奨されます。
 
-| 変数名 | 取得場所 |
-|--------|----------|
-| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azureポータル → あなたの **Azure AI Search** リソース → **Overview** → URL |
-| `AZURE_SEARCH_API_KEY` | Azureポータル → あなたの **Azure AI Search** リソース → <strong>設定</strong> → <strong>キー</strong> → プライマリアドミンキー |
+以下のRBAC手順はセットアップガイドサンプルと自身のコードに適用されますが、レッスン16ノートブックでキーなし認証を有効にするものではありません。レッスン16は引き続きエンドポイントと管理キーの両方を必要とします。
 
-## Azure OpenAI に直接呼び出すレッスン（6と8）の追加セットアップ
+1. 検索サービスで<strong>ロールベースアクセスを有効</strong>にします：
 
-レッスン6と8の一部ノートブックはMicrosoft Foundryを経由せず、**Azure OpenAI**（**Responses API**）を直接呼び出します。これらは以前GitHub Modelsを使っていましたが、それは非推奨（2026年7月に廃止予定）でResponses APIをサポートしていません。このサンプルを動かす場合は以下の変数を `.env` に追加してください：
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
 
-| 変数名 | 取得場所 |
-|--------|----------|
-| `AZURE_OPENAI_ENDPOINT` | Azureポータル → あなたの **Azure OpenAI** リソース → **Keys and Endpoint** → エンドポイント (例: `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | Responses API対応モデルの名前（例：`gpt-5-mini`） |
-| `AZURE_OPENAI_API_KEY` | オプション — `az login` / Entra ID以外のキー認証を使う場合のみ |
+2. 必要なロールを自分に<strong>割り当てる</strong>（インデックスの作成/ロードおよびクエリ）：
 
-> Responses APIは安定版の `/openai/v1/` エンドポイントを使用し、`api-version`は不要です。`az login` でサインインし、キー不要のEntra ID認証を利用してください。
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
 
-## 代替プロバイダー: MiniMax (OpenAI互換)
+3. `.env` ファイルにエンドポイントを追加します：
 
-[MiniMax](https://platform.minimaxi.com/) は大規模コンテキストモデル（最大204Kトークン）をOpenAI互換APIで提供します。Microsoft Agent Frameworkの `OpenAIChatClient` は任意のOpenAI互換エンドポイントで動作するため、MiniMaxはAzure OpenAIやOpenAIの代替として使えます。
+| 変数 | 場所 |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azureポータル → **Azure AI Search** リソース → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | レッスン16ノートブックでAzure AI Searchをキー認証で使用するために必要。Azureポータル → <strong>設定</strong> → <strong>キー</strong> → プライマリ管理キー |
 
-以下の変数を `.env` に追加してください：
+> **なぜキーなし？** 管理キーは検索サービスに対する完全な書き込みアクセスを許可し、`.env`ファイルを通じて漏洩する恐れがあります。RBACでは代わりに `az login` のIDが使われます。これが本コースノートブックのキーなしEntra IDパターン（`AzureCliCredential` / `DefaultAzureCredential`を介す）と一致します。[ロールを使ったAzure AI Searchへの接続](https://learn.microsoft.com/azure/search/search-security-rbac)を参照してください。
 
-| 変数名 | 取得場所 |
-|--------|----------|
-| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → APIキー |
-| `MINIMAX_BASE_URL` | `https://api.minimax.io/v1` を使用（デフォルト値） |
+[Azure AI Searchセットアップガイド](./AzureSearch.md)にPythonや.NETでの完全なインデックス作成サンプルが掲載されています。
+
+## Azure OpenAIを直接呼び出すレッスン向け追加セットアップ（レッスン6と8）
+
+レッスン6と8の一部ノートブックは、Microsoft Foundryプロジェクトを経由せず<strong>Azure OpenAI</strong>を直接（<strong>Responses API</strong>を使って）呼び出します。これらのサンプルは旧GitHub Modelsを使用していましたが廃止され、Responses APIをサポートしていません。`.env`に次の変数を追加してください：
+
+| 変数 | 場所 |
+|----------|-----------------|
+| `AZURE_OPENAI_ENDPOINT` | Azureポータル → **Azure OpenAI** リソース → <strong>キーとエンドポイント</strong> → エンドポイント (例：`https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | Responses APIをサポートするデプロイ済みモデル名（例：`gpt-5-mini`） |
+| `AZURE_OPENAI_API_KEY` | 任意 — `az login` / Entra ID以外のキー認証を使う場合のみ必要 |
+
+> Responses APIは安定版の`/openai/v1/`エンドポイントを使用するため、`api-version`は不要です。キーなしのEntra ID認証には`az login`でサインインしてください。
+
+## 代替プロバイダー：MiniMax（OpenAI互換）
+
+[MiniMax](https://platform.minimaxi.com/)は、最大204Kトークンの長大コンテキスト対応モデルをOpenAI互換APIで提供します。Microsoft Agent Frameworkの`OpenAIChatClient`は任意のOpenAI互換エンドポイントで動作するため、`OpenAIChatClient`を使うレッスンはMiniMaxを代替としてそのまま利用可能です。
+
+`.env` に以下の変数を追加してください：
+
+| 変数 | 場所 |
+|----------|-----------------|
+| `MINIMAX_API_KEY` | [MiniMaxプラットフォーム](https://platform.minimaxi.com/) → APIキー |
+| `MINIMAX_BASE_URL` | `https://api.minimax.io/v1`（デフォルト値）を使用 |
 | `MINIMAX_MODEL_ID` | 使用するモデル名（例：`MiniMax-M3`） |
 
-<strong>モデル例</strong>：`MiniMax-M3`（推奨）、`MiniMax-M2.7`、`MiniMax-M2.7-highspeed`（高速応答）。モデル名や利用可能性は変動し、アカウントや地域によってアクセス制限がある場合があります。最新情報は [MiniMax Platform](https://platform.minimaxi.com/) をご確認ください。`MiniMax-M3` にアクセスできない場合は、アクセスできるモデル（例：`MiniMax-M2.7`）を設定してください。
+<strong>モデル例</strong>：`MiniMax-M3`（推奨）、`MiniMax-M2.7`、`MiniMax-M2.7-highspeed`（高速応答）。モデル名と提供状況は時々変わることがあります。また、モデルへのアクセスはアカウントに依存します。
 
-`OpenAIChatClient` を使用するコードサンプル（例：レッスン14ホテル予約ワークフロー）は、`MINIMAX_API_KEY` が設定されていると自動的にMiniMax設定を検出し使用します。
+`OpenAIChatClient`を使用するコードサンプル（例：レッスン14のホテル予約ワークフロー）は、`MINIMAX_API_KEY`が設定されていると自動的にMiniMax設定を検出して利用します。
 
-## 代替プロバイダー: Foundry Local (モデルをオンデバイスで実行)
 
-[Foundry Local](https://foundrylocal.ai) は言語モデルを完全に自身のマシン上でダウンロード、管理、提供する軽量ランタイムで、OpenAI互換APIを通じて動作します。クラウド不要、Azureサブスクリプション不要、APIキーも不要です。オフライン開発、クラウドコストを抑えた実験や、データのオンデバイス保持に最適です。
+## 代替プロバイダー: Novita AI（OpenAI互換）
 
-Microsoft Agent Frameworkの `OpenAIChatClient` は任意のOpenAI互換エンドポイントで動作するため、Foundry Local はAzure OpenAIのローカル代替としてそのまま使えます。
+[Novita AI](https://novita.ai/llm-api) は、オープンソースおよび最先端のLLM（DeepSeek、Llama、Qwenなど）向けのOpenAI互換APIを提供しています。Microsoft Agent Frameworkの `OpenAIChatClient` はあらゆるOpenAI互換のエンドポイントで動作するため、Novita AIをAzure OpenAIやOpenAIの代替としてそのまま利用できます。
 
-**1. Foundry Localをインストール**
+これらの変数を `.env` ファイルに追加してください：
+
+| 変数 | 入手場所 |
+|----------|-----------------|
+| `NOVITA_API_KEY` | [Novita AI ダッシュボード](https://novita.ai/settings/key-management) → API Keys |
+| `NOVITA_BASE_URL` | `https://api.novita.ai/openai/v1` を使う（デフォルト値） |
+| `NOVITA_MODEL_ID` | 使用するモデル名（例：`moonshotai/kimi-k3`） |
+
+<strong>例モデル</strong>: `moonshotai/kimi-k3`, `zai-org/glm-5.2`, `deepseek/deepseek-v4-flash-0731`。Novita AIは他にも多くのオープンソースモデルファミリー（Llama、Qwen、GLMなど）をホストしています — 利用可能なモデルとモデルIDの一覧は[Novita AIモデルライブラリ](https://novita.ai/llm-api)で確認できます。
+
+現状のサンプルは `NOVITA_*` 変数を自動で使用しません。Novita AIを使うには、実行中のサンプルの `OpenAIChatClient` 構築時にこれらの値を明示的に渡してください。
+
+## 代替プロバイダー: Foundry Local（モデルをローカル実行）
+
+[Foundry Local](https://foundrylocal.ai) は軽量なランタイムで、言語モデルを<strong>完全に自分のマシン上で</strong>ダウンロード、管理、提供し、OpenAI互換API経由で利用できます — クラウド不要です。
+
+Microsoft Agent Frameworkの `OpenAIChatClient` はどのOpenAI互換エンドポイントとも動くため、Foundry LocalはAzure OpenAIのローカル代替としてそのまま使えます。
+
+**1. Foundry Local をインストール**
 
 ```bash
 # ウィンドウズ
@@ -280,30 +318,30 @@ winget install Microsoft.FoundryLocal
 brew install foundrylocal
 ```
 
-**2. モデルをダウンロードして実行**（ローカルサービスも起動されます）：
+**2. モデルをダウンロード・実行**（これでローカルサービスも起動します）：
 
 ```bash
-foundry model list          # 利用可能なモデルを参照してください
+foundry model list          # 利用可能なモデルを見る
 foundry model run phi-4-mini
 ```
 
-**3. ローカルエンドポイントを検出するPython SDKをインストール**：
+**3. ローカルエンドポイントを発見するためのPython SDKをインストール：**
 
 ```bash
 pip install foundry-local-sdk
 ```
 
-**4. Microsoft Agent Framework にローカルモデルを指定する：**
+**4. Microsoft Agent Frameworkをローカルのモデルに向ける：**
 
 ```python
 from foundry_local import FoundryLocalManager
 from agent_framework.openai import OpenAIChatClient
 
-# 必要に応じてモデルをダウンロードしローカルで提供し、その後エンドポイント/ポートを検出します。
+# 必要に応じてモデルをダウンロードし、ローカルで提供してから、エンドポイント/ポートを検出します。
 manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
-    base_url=manager.endpoint,      # 例: http://localhost:<port>/v1
+    base_url=manager.endpoint,      # 例： http://localhost:<port>/v1
     api_key=manager.api_key,        # Foundry Localでは常に「not-required」です。
     model_id=manager.get_model_info("phi-4-mini").id,
 )
@@ -314,39 +352,38 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **注意:** Foundry Local はOpenAI互換の **Chat Completions** エンドポイントを提供します。ローカル開発やオフライン利用に適しています。ステートフル会話や深いツールオーケストレーション、エージェント型開発に必要な完全な **Responses API** 機能セットは、Azure OpenAI または Microsoft Foundry プロジェクトを使用してください。最新モデルカタログやプラットフォーム対応は [Foundry Localドキュメント](https://foundrylocal.ai) を参照。
+> **補足:** Foundry LocalはOpenAI互換の<strong>Chat Completions</strong>エンドポイントを公開しています。ローカル開発やオフライン用途に使えます。完全な<strong>Responses API</strong>機能セット（状態管理会話など）はAzure OpenAIやMicrosoft Foundryプロジェクトをご利用ください。
 
-## レッスン8（Bing Grounding Workflow）の追加セットアップ
+## レッスン8の追加セットアップ（Bing Groundingワークフロー）
 
+レッスン8の条件付きワークフローノートブックはMicrosoft Foundry経由の<strong>Bing grounding</strong>を使っています。そのサンプルを実行する場合は、以下の変数を `.env` ファイルに追加してください：
 
-レッスン8の条件付きワークフローノートブックは、Microsoft Foundry経由の<strong>Bingグラウンディング</strong>を使用しています。このサンプルを実行する予定がある場合は、この変数を`.env`ファイルに追加してください：
-
-| 変数 | 場所 |
+| 変数 | 入手場所 |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | Microsoft Foundryポータル → あなたのプロジェクト → <strong>管理</strong> → <strong>接続済みリソース</strong> → あなたのBing接続 → 接続IDをコピー |
+| `BING_CONNECTION_ID` | Microsoft Foundryポータル → あなたのプロジェクト → <strong>管理</strong> → <strong>接続リソース</strong> → あなたのBing接続 → 接続IDをコピー |
 
 ## トラブルシューティング
 
 ### macOSでのSSL証明書検証エラー
 
-macOSで以下のようなエラーが発生する場合：
+macOS上で次のようなエラーが出る場合：
 
 ```plaintext
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-これはmacOSのPythonの既知の問題で、システムのSSL証明書が自動的に信頼されないためです。以下の解決策を順に試してください：
+これはmacOSのPythonでシステムSSL証明書が自動的に信頼されない既知の問題です。以下の順で解決策を試してください：
 
-**オプション1: Pythonの証明書インストールスクリプトを実行する（推奨）**
+**オプション1: PythonのInstall Certificatesスクリプトを実行（推奨）**
 
 ```bash
-# インストールされているPythonのバージョン（例：3.12または3.13）に3.XXを置き換えてください:
+# インストールされているPythonのバージョン（例: 3.12 または 3.13）に3.XXを置き換えてください。
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**オプション2: ノートブックで `connection_verify=False` を使用する（GitHub Modelsノートブック専用）**
+**オプション2: ノートブックで `connection_verify=False` を使う（GitHub Modelsノートブック限定）**
 
-レッスン6ノートブック（`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`）にはコメントアウトされた回避策が既に含まれています。クライアント作成時に`connection_verify=False`のコメントアウトを外してください：
+レッスン6のノートブック（`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`）には既にコメントアウトされた回避策が含まれています。証明書エラーがでたら `connection_verify=False` のコメントアウトを外してください：
 
 ```python
 client = ChatCompletionsClient(
@@ -356,30 +393,30 @@ client = ChatCompletionsClient(
 )
 ```
 
-> **⚠️ 警告:** SSL検証を無効にすること（`connection_verify=False`）は証明書検証をスキップするためセキュリティが低下します。これは開発環境での一時的な回避策としてのみ使用し、本番環境では決して使用しないでください。
+> **⚠️ 警告:** SSL検証を無効化する（`connection_verify=False`）と証明書検証をスキップするためセキュリティが低下します。これは開発環境での一時的回避策としてのみ使い、本番環境では絶対に使用しないでください。
 
-**オプション3: `truststore`をインストールして使用する**
+**オプション3: `truststore` をインストールして使用**
 
 ```bash
 pip install truststore
 ```
 
-その後、ネットワークコールを行う前にノートブックやスクリプトの先頭に以下を追加してください：
+その後、ネットワーク呼び出しの前にノートブックやスクリプトの冒頭に以下を追加してください：
 
 ```python
 import truststore
 truststore.inject_into_ssl()
 ```
 
-## 行き詰まったら？
+## 行き詰まった？
 
-このセットアップの実行に問題がある場合は、<a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a>に参加するか、<a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">Issueを作成</a>してください。
+もしセットアップで問題があれば、<a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a>に参加するか、<a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">Issueを作成</a>してください。
 
 ## 次のレッスン
 
-このコースのコードを実行する準備が整いました。AIエージェントの世界についてさらに学んでいきましょう！
+これでコースのコードを実行する準備が整いました。AIエージェントの世界をさらに学んでください！ 
 
-[AIエージェントとエージェントのユースケースの紹介](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 ---
 

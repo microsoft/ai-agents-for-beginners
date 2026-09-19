@@ -1,16 +1,21 @@
-# Vzorčni prejemniki
+# Vzorčne datoteke potrdil
 
-Tri vnaprej ustvarjene datoteke s prejemniki za pregled brez zagona zvezka.
+Tri vnaprej ustvarjene datoteke potrdil za pregled brez zagona zvezka.
 
-| Datoteka | Kaj je to |
+| Datoteka | Kaj je |
 |---|---|
-| `01_valid_receipt.json` | Veljaven podpisan prejemnik za klic orodja `lookup_flights`. Preverjanje vrne True. |
-| `02_tampered_receipt.json` | Enak prejemnik z enim spremenjenim poljem po podpisu. Preverjanje vrne False. |
-| `03_chain_three_receipts.json` | Veriga treh veljavnih prejemnikov (iskanje, rezervacija, potrdi) s `previous_receipt_hash`, ki vsak povezuje s predhodnim. |
+| `01_valid_receipt.json` | Veljavno podpisano potrdilo za klic orodja `lookup_flights`. Preverjanje vrne True. |
+| `02_tampered_receipt.json` | Enako potrdilo s spremenjeno eno polje po podpisu. Preverjanje vrne False. |
+| `03_chain_three_receipts.json` | Veriga treh veljavnih potrdil (iskanje, rezerviranje, potrjevanje) z `previous_receipt_hash`, ki povezuje vsak s prejšnjim. |
+
+Vzorci neposredno podpisujejo canonical JCS bajte vsebine z Ed25519.
+SHA-256 se še vedno uporablja za izvlečke vsebine in zveze v verigi potrdil, ne kot
+dodaten pre-izvleček pred podpisom.
 
 ## Preverjanje vzorcev
 
-Zvezek vodi skozi preverjanje v štirih delih. Če želite te vnaprej ustvarjene datoteke preveriti neposredno brez zagona zgodbe v zvezku:
+Zvezek vodi skozi preverjanje v štirih poglavjih. Za neposredno preverjanje teh vzorcev
+brez zagona zvezka:
 
 ```python
 import json
@@ -32,8 +37,8 @@ for r in verify_chain(chain):
 
 ## Kako so bili ustvarjeni
 
-Vzorce ustvarja enaka koda kot zvezek, z eno fiksno podpisno ključno
-in fiksnimi časovnimi žigi za enako ponovljivost bajtov. Za ponovno ustvarjanje:
+Vzorci uporabljajo enako kodo kot zvezek, z enim fiksnim podpisnim ključem
+in fiksnimi časovnimi žigi za ponovljivost bajtov. Za ustvarjanje:
 
 ```bash
 python3 generate_fixtures.py
@@ -41,18 +46,18 @@ python3 generate_fixtures.py
 
 (Skripta je v `generate_fixtures.py` v tem imeniku.)
 
-## Kaj se študenti naučijo s pregledovanjem surove JSON
+## Kaj se študentje naučijo z ogledom surovega JSON-a
 
-Branje surove oblike prejemnika gradi intuicijo, ki je celice v zvezku
-ne nudijo vedno. Študentje, ki hitro pregledajo JSON, pogosto opazijo:
+Branje surovega formata potrdil gradi intuicijo, ki jo celice zvezka
+včasih ne nudijo. Študentje, ki pobrskajo po JSON-u, pogosto opazijo:
 
-1. Podpis je neprozoren niz base64url, vendar je vsak drug podatek v preprostem
-   berljivem JSON formatu. Podpis ne šifrira vsebine; potrjuje jo.
-2. `public_key` je vključen v prejemniku. Revizor ne potrebuje ničesar drugega
-   za preverjanje (ob predpostavki zaupanja, da ključ dejansko pripada trditvenemu
-   izdajatelju; glej README lekcije o identitetni infrastrukturi).
-3. Sprememba enega znaka v katerem koli polju in nato primerjava te datoteke z
-   `02_tampered_receipt.json` naredi mehanizem na nivoju bajtov otipljiv.
+1. Podpis je neprozoren niz base64url, toda vsako drugo polje je preprost
+   berljiv JSON. Podpis ne šifrira vsebine; le potrjuje njeno pristnost.
+2. `public_key` je vgrajen v potrdilo. Revizor ne potrebuje ničesar drugega
+   za preverjanje (pogonjen le s predpostavko, da ključ dejansko pripada trditvi
+   izdajatelja; glej README lekcije o identitetni infrastrukturi).
+3. Sprememba enega samega znaka poljubnega polja in nato primerjava te datoteke z
+   `02_tampered_receipt.json` naredi mehanizem na ravni bajtov bolj otipljiv.
 
 ---
 

@@ -1,16 +1,21 @@
-# Ukázkové příklady účtenek
+# Ukázkové fixture účtenek
 
-Tři předgenerované soubory účtenek k nahlédnutí bez spuštění notebooku.
+Tři předvygenerované soubory účtenek k nahlédnutí bez spouštění notebooku.
 
 | Soubor | Co to je |
 |---|---|
 | `01_valid_receipt.json` | Platná podepsaná účtenka pro volání nástroje `lookup_flights`. Ověření vrací True. |
-| `02_tampered_receipt.json` | Ta samá účtenka s jedním polem pozměněným po podpisu. Ověření vrací False. |
-| `03_chain_three_receipts.json` | Řetězec tří platných účtenek (vyhledání, rezervace, potvrzení) s `previous_receipt_hash` propojujícím každou s předchozí. |
+| `02_tampered_receipt.json` | Stejná účtenka s jedním polem změněným po podpisu. Ověření vrací False. |
+| `03_chain_three_receipts.json` | Řetězec tří platných účtenek (vyhledání, držení, rezervace) s `previous_receipt_hash` propojujícím každou s předchozí. |
+
+Fixture přímo podepisují kanonické JCS bajty payloadu pomocí Ed25519.
+SHA-256 zůstává v použití pro obsahové digesty a odkazy v řetězci účtenek, nikoli jako
+dodatečný předhash před podpisem.
 
 ## Ověření vzorků
 
-Notebook prochází ověřování ve čtyřech sekcích. K ověření těchto vzorků přímo bez procházení textu notebooku:
+Notebook provádí ověření ve čtyřech částech. Chcete-li tyto fixture ověřit
+přímo bez procházení vyprávění notebooku:
 
 ```python
 import json
@@ -30,28 +35,29 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Jak byly tyto vytvořeny
+## Jak byly generovány
 
-Vzorky používají stejnou cestu kódu jako notebook, s jedním pevným klíčem pro podpis
-a pevnými časovými razítky kvůli reprodukovatelnosti na úrovni bytů. K opětovnému vygenerování:
+Fixture používají stejnou cestu kódu jako notebook, s jedním pevným podpisovým klíčem
+a pevnými časovými značkami pro byte-reprodukčnost. Pro opětovné generování:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript je v souboru `generate_fixtures.py` v tomto adresáři.)
+(Skript je v `generate_fixtures.py` v tomto adresáři.)
 
-## Co se studenti naučí prohlížením surového JSONu
+## Co studenti získají prohlížením čistého JSON
 
-Čtení surového formátu účtenky buduje intuitivní pochopení, které buňky v notebooku
-nezaručeně neposkytují. Studenti, kteří prohlíží JSON, často zaznamenají:
+Čtení surového formátu účtenky buduje intuici, kterou buňky v notebooku
+ne vždy poskytují. Studenti, kteří si JSON projdou, často zaznamenají:
 
-1. Podpis je neprůhledný base64url řetězec, ale každé jiné pole je běžný čitelný JSON. Podpis nešifruje obsah; potvrzuje jej.
+1. Podpis je neprůhledný base64url řetězec, ale každé jiné pole je obyčejný
+   čitelný JSON. Podpis nešifruje obsah; stvrzuje ho.
 2. `public_key` je vložen v účtence. Auditor nepotřebuje nic dalšího
-   k ověření (s výhradou důvěry, že klíč skutečně patří nárokovanému
-   vydavateli; viz lekce README o infrastruktuře identity).
-3. Úprava jediného znaku v jakémkoli poli a následné porovnání tohoto souboru s
-   `02_tampered_receipt.json` přibližuje mechanismus na úrovni bytů.
+   k ověření (s výhradou důvěry, že klíč skutečně patří deklarovanému
+   vydavateli; viz README lekce o infrastruktuře identity).
+3. Změna jediného znaku v libovolném poli a následné srovnání tohoto souboru s
+   `02_tampered_receipt.json` činí mechanismus na úrovni bajtů konkrétním. 
 
 ---
 

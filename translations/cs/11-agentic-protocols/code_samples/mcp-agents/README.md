@@ -1,210 +1,210 @@
-# Budování systémů komunikace mezi agenty pomocí MCP
+# Budování systémů pro komunikaci agent-agent pomocí MCP
 
-> Shrnutí - Můžete vytvořit komunikaci Agent2Agent na MCP? Ano!
+> TL;DR - Lze postavit komunikaci Agent2Agent na MCP? Ano!
 
-MCP se výrazně vyvinul nad rámec svého původního cíle „poskytovat kontext LLM“. Díky nedávným vylepšením, jako jsou [obnovitelné streamy](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [vyžádání](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) a notifikace ([pokrok](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) a [zdroje](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP nyní poskytuje robustní základ pro budování komplexních systémů komunikace mezi agenty.
+MCP se vyvinul výrazně dál za svůj původní cíl „poskytovat kontext pro LLM“. S nedávnými vylepšeními včetně [obnovitelných streamů](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [vyžádání vstupu](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [vzorkování](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) a notifikací ([progres](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) a [zdroje](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), nyní MCP poskytuje robustní základ pro stavbu komplexních systémů komunikace agent-agent.
 
-## Omyl ohledně agentů/nástrojů
+## Záměna pojmů agent/nástroj
 
-Jak stále více vývojářů zkoumá nástroje s agentickým chováním (dlouhodobý běh, potřeba dodatečných vstupů během provádění atd.), vzniká běžný omyl, že MCP není vhodný, zejména kvůli tomu, že rané příklady jeho primitivních nástrojů se zaměřovaly na jednoduché vzory požadavek-odpověď.
+Jak více vývojářů zkoumá nástroje s agentními vlastnostmi (běh dlouhou dobu, může vyžadovat dodatečný vstup během provádění atd.), častým omylem je, že MCP není vhodný, protože rané příklady jeho primitivních nástrojů se zaměřovaly na jednoduché vzory požadavek-odpověď.
 
-Toto vnímání je zastaralé. Specifikace MCP byla v posledních měsících výrazně vylepšena o funkce, které uzavírají mezeru pro budování dlouhodobého agentického chování:
+Tento pohled je zastaralý. Specifikace MCP byla během posledních měsíců výrazně rozšířena o schopnosti, které uzavírají mezeru pro budování dlouhodobě běžících agentních behaviorálních modelů:
 
-- **Streamování a částečné výsledky**: Aktualizace pokroku v reálném čase během provádění
+- **Streamování & Částečné výsledky**: Aktualizace průběhu v reálném čase během provádění
 - **Obnovitelnost**: Klienti se mohou znovu připojit a pokračovat po odpojení
-- **Trvanlivost**: Výsledky přežijí restart serveru (např. prostřednictvím odkazů na zdroje)
-- **Vícekolové interakce**: Interaktivní vstupy během provádění prostřednictvím vyžádání a sampling
+- **Trvanlivost**: Výsledky přežijí restart serveru (např. pomocí odkazů na zdroje)
+- **Vícekrokové**: Interaktivní vstup během provádění přes vyžádání a vzorkování
 
-Tyto funkce lze kombinovat k umožnění komplexních agentických a multi-agentních aplikací, vše nasazené na protokolu MCP.
+Tyto funkce lze kombinovat pro umožnění složitých agentních a multiagentních aplikací, vše nasazené na protokol MCP.
 
-Pro referenci budeme označovat agenta jako „nástroj“, který je dostupný na serveru MCP. To předpokládá existenci hostitelské aplikace, která implementuje klienta MCP, jenž navazuje relaci se serverem MCP a může volat agenta.
+Pro přehled budeme označovat agenta jako „nástroj“, který je dostupný na MCP serveru. To předpokládá existenci hostitelské aplikace, která implementuje MCP klienta, který naváže relaci s MCP serverem a může volat agenta.
 
-## Co dělá nástroj MCP „agentickým“?
+## Co dělá MCP nástroj „agentním“?
 
-Než se pustíme do implementace, pojďme si ujasnit, jaké infrastrukturní schopnosti jsou potřebné k podpoře dlouhodobých agentů.
+Než se pustíme do implementace, pojďme stanovit, jaké infrastrukturní schopnosti jsou potřeba k podpoře dlouhodobě běžících agentů.
 
-> Definujeme agenta jako entitu, která může autonomně fungovat po delší dobu, schopnou zvládat složité úkoly, které mohou vyžadovat více interakcí nebo úprav na základě zpětné vazby v reálném čase.
+> Definujeme agenta jako entitu, která může autonomně pracovat po delší časové období, schopnou zvládat složité úkoly, které mohou vyžadovat vícenásobné interakce nebo úpravy na základě zpětné vazby v reálném čase.
 
-### 1. Streamování a částečné výsledky
+### 1. Streamování & Částečné výsledky
 
-Tradiční vzory požadavek-odpověď nefungují pro dlouhodobé úkoly. Agenti potřebují poskytovat:
+Tradiční vzory požadavek-odpověď nefungují pro dlouhodobé úkoly. Agenti musí poskytovat:
 
-- Aktualizace pokroku v reálném čase
-- Mezičlánkové výsledky
+- Aktualizace průběhu v reálném čase
+- Mezitímní výsledky
 
-**Podpora MCP**: Notifikace o aktualizaci zdrojů umožňují streamování částečných výsledků, i když to vyžaduje pečlivý návrh, aby se předešlo konfliktům s modelem 1:1 požadavek/odpověď JSON-RPC.
+**Podpora v MCP**: Notifikace o aktualizaci zdroje umožňují streamování částečných výsledků, přičemž je potřeba pečlivě navrhnout, aby se zabránilo konfliktům s model 1:1 požadavek/odpověď JSON-RPC.
 
-| Funkce                    | Případ použití                                                                                                                                                                       | Podpora MCP                                                                                |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Aktualizace pokroku v reálném čase | Uživatel požádá o úkol migrace kódu. Agent streamuje pokrok: „10 % - Analýza závislostí... 25 % - Konverze souborů TypeScript... 50 % - Aktualizace importů...“          | ✅ Notifikace o pokroku                                                                  |
-| Částečné výsledky            | Úkol „Vytvořit knihu“ streamuje částečné výsledky, např. 1) Náčrt dějové linie, 2) Seznam kapitol, 3) Každou kapitolu po dokončení. Hostitel může kontrolovat, zrušit nebo přesměrovat v jakékoli fázi. | ✅ Notifikace lze „rozšířit“ o částečné výsledky, viz návrhy na PR 383, 776 |
+| Funkce                   | Použití                                                                                                                                                                      | Podpora v MCP                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Aktualizace průběhu v reálném čase | Uživatelský požadavek na migraci kódu, agent streamuje průběh: „10 % - analyzování závislostí… 25 % - převod TypeScript souborů… 50 % - aktualizace importů…“               | ✅ Notifikace o průběhu                                                                   |
+| Částečné výsledky       | Úkol „vygeneruj knihu“ streamuje částečné výsledky, např. 1) nástin děje, 2) seznam kapitol, 3) jednotlivé kapitoly dle dokončení. Host může kdykoli kontrolovat, zrušit či změnit směr. | ✅ Notifikace lze „rozšířit“ o částečné výsledky viz návrhy v PR 383, 776                  |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Obrázek 1:</strong> Tento diagram ilustruje, jak agent MCP streamuje aktualizace pokroku v reálném čase a částečné výsledky do hostitelské aplikace během dlouhodobého úkolu, což uživateli umožňuje sledovat provádění v reálném čase.
+<strong>Obrázek 1:</strong> Tento diagram znázorňuje, jak MCP agent streamuje aktualizace průběhu v reálném čase a částečné výsledky do hostitelské aplikace během dlouhodobého úkolu, což uživateli umožňuje sledovat provádění v reálném čase.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Hostitelská aplikace<br/>(MCP klient)
+    participant Server as MCP server<br/>(Agent nástroj)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Spustit dlouhý úkol
+    Host->>Server: Zavolat agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Aktualizace průběhu
+        Server-->>Host: Průběh + částečné výsledky
+        Host-->>User: Přenos aktualizací
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Konečný výsledek
+    Host-->>User: Dokončeno
 ```
 
 ### 2. Obnovitelnost
 
-Agenti musí zvládat přerušení sítě bez problémů:
+Agenti musí zvládat přerušení sítě elegantně:
 
-- Znovu se připojit po odpojení klienta
-- Pokračovat tam, kde skončili (opětovné doručení zpráv)
+- Znovu se připojit po (klientském) odpojení
+- Pokračovat tam, kde skončili (opakováním zpráv)
 
-**Podpora MCP**: Transport StreamableHTTP MCP dnes podporuje obnovení relace a opětovné doručení zpráv pomocí ID relace a ID poslední události. Důležitá poznámka zde je, že server musí implementovat EventStore, který umožňuje přehrávání událostí při opětovném připojení klienta.  
-Poznámka: Existuje komunitní návrh (PR #975), který zkoumá transportně nezávislé obnovitelné streamy.
+**Podpora v MCP**: MCP přenos StreamableHTTP dnes podporuje obnovení relace a opakované doručení zpráv pomocí ID relace a posledních ID událostí. Důležité je, že server musí implementovat EventStore, který umožní přehrávání událostí po znovupřipojení klienta.  
+Upozorňujeme, že existuje komunitní návrh (PR #975), který zkoumá přenosně-agnostické obnovitelné streamy.
 
-| Funkce      | Případ použití                                                                                                                                                   | Podpora MCP                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Obnovitelnost | Klient se odpojí během dlouhodobého úkolu. Po opětovném připojení relace pokračuje s přehráním zmeškaných událostí, pokračuje bez problémů tam, kde skončila. | ✅ Transport StreamableHTTP s ID relace, přehráním událostí a EventStore |
+| Funkce       | Použití                                                                                                                                                | Podpora v MCP                                                          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Obnovitelnost| Klient se odpojí během dlouhodobého úkolu. Po znovupřipojení relace pokračuje s přehráním zmeškaných událostí a bez přerušení navazuje tam, kde skončil. | ✅ StreamableHTTP s ID relace, přehráváním událostí a EventStore       |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Obrázek 2:</strong> Tento diagram ukazuje, jak transport StreamableHTTP MCP a EventStore umožňují bezproblémové obnovení relace: pokud se klient odpojí, může se znovu připojit a přehrát zmeškané události, pokračovat v úkolu bez ztráty pokroku.
+<strong>Obrázek 2:</strong> Tento diagram ukazuje, jak MCP přenos StreamableHTTP a event store umožňují plynulé obnovení relace: pokud se klient odpojí, může se znovu připojit, přehrát zmeškané události a pokračovat v úkolu bez ztráty průběhu.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Hostitelská aplikace<br/>(MCP klient)
+    participant Server as MCP server<br/>(Nástroj agenta)
+    participant Store as Úložiště událostí
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Spustit úlohu
+    Host->>Server: Zavolat nástroj [sezení: abc123]
+    Server->>Store: Uložit události
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Ztráta spojení
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Znovu připojit [sezení: abc123]
+    Store-->>Server: Přehrát události
+    Server-->>Host: Dojít + pokračovat
+    Host-->>User: ✅ Dokončeno
 ```
 
 ### 3. Trvanlivost
 
-Dlouhodobí agenti potřebují trvalý stav:
+Dlouhodobě běžící agenti potřebují perzistentní stav:
 
 - Výsledky přežijí restart serveru
-- Stav lze získat mimo relaci
-- Sledování pokroku napříč relacemi
+- Stav lze získat i mimo přímou interakci
+- Sledování průběhu napříč relacemi
 
-**Podpora MCP**: MCP nyní podporuje návratový typ Resource link pro volání nástrojů. Dnes je možný vzor navrhnout nástroj, který vytvoří zdroj a okamžitě vrátí odkaz na zdroj. Nástroj může pokračovat v řešení úkolu na pozadí a aktualizovat zdroj. Klient může na oplátku zvolit dotazování na stav tohoto zdroje, aby získal částečné nebo úplné výsledky (na základě toho, jaké aktualizace zdrojů server poskytuje) nebo se přihlásit k odběru zdroje pro aktualizace.
+**Podpora v MCP**: MCP nyní podporuje návratový typ Resource link pro volání nástrojů. Dnes je běžný vzor navrhnout nástroj, který vytvoří zdroj a okamžitě vrátí odkaz na zdroj. Nástroj může později pokračovat v práci na úkolu na pozadí a aktualizovat zdroj. Klient může následně zvolit polling stavu zdroje pro získání částečných nebo úplných výsledků (na základě toho, jaké aktualizace zdroje server poskytuje) nebo se přihlásit k odběru notifikací o zdroji.
 
-Jedním omezením zde je, že dotazování na zdroje nebo přihlášení k odběru aktualizací může spotřebovávat zdroje s dopady na škálování. Existuje otevřený komunitní návrh (včetně #992), který zkoumá možnost zahrnutí webhooků nebo triggerů, které server může volat, aby upozornil klienta/hostitelskou aplikaci na aktualizace.
+Jedno omezení je, že polling zdrojů nebo odběr aktualizací může spotřebovávat prostředky s důsledky v rozsahu. Existuje otevřený komunitní návrh (včetně #992), který zkoumá možnost zahrnutí webhooků nebo triggerů, které by server mohl volat pro oznámení klientovi/hostitelské aplikaci o aktualizacích.
 
-| Funkce    | Případ použití                                                                                                                                        | Podpora MCP                                                        |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Trvanlivost | Server havaruje během úkolu migrace dat. Výsledky a pokrok přežijí restart, klient může zkontrolovat stav a pokračovat z trvalého zdroje. | ✅ Odkazy na zdroje s trvalým úložištěm a notifikacemi o stavu |
+| Funkce    | Použití                                                                                                                                           | Podpora v MCP                                                     |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Trvanlivost| Server havaruje během úkolu migrace dat. Výsledky a průběh přežijí restart, klient může získat stav a pokračovat z perzistentního zdroje.           | ✅ Odkazy na zdroje s perzistentním uložištěm a notifikacemi stavu |
 
-Dnes je běžný vzor navrhnout nástroj, který vytvoří zdroj a okamžitě vrátí odkaz na zdroj. Nástroj může na pozadí řešit úkol, vydávat notifikace o zdrojích, které slouží jako aktualizace pokroku nebo zahrnují částečné výsledky, a podle potřeby aktualizovat obsah ve zdroji.
+Dnes je běžný vzor navrhnout nástroj, který vytvoří zdroj a ihned vrátí odkaz na něj. Nástroj může na pozadí řešit úkol, vydávat notifikace o zdroji jako aktualizace průběhu nebo obsahovat částečné výsledky a podle potřeby aktualizovat obsah zdroje.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Obrázek 3:</strong> Tento diagram demonstruje, jak agenti MCP používají trvalé zdroje a notifikace o stavu k zajištění, že dlouhodobé úkoly přežijí restart serveru, což klientům umožňuje kontrolovat pokrok a získávat výsledky i po selhání.
+<strong>Obrázek 3:</strong> Tento diagram ukazuje, jak MCP agenti využívají perzistentní zdroje a notifikace stavu, aby zajistili, že dlouhodobé úkoly přežijí restart serveru, což umožňuje klientům kontrolovat průběh a získávat výsledky i po výpadcích.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Hostitelská aplikace<br/>(MCP klient)
+    participant Server as MCP server<br/>(Nástroj agenta)
+    participant DB as Perzistentní úložiště
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Spustit úlohu
+    Host->>Server: Zavolat nástroj
+    Server->>DB: Vytvořit zdroj + aktualizace
+    Server-->>Host: 🔗 Odkaz na zdroj
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Restart serveru
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Zkontrolovat stav
+    Host->>Server: Získat zdroj
+    Server->>DB: Načíst stav
+    Server-->>Host: Aktuální pokrok
+    Server->>DB: Dokončit + upozornit
+    Host-->>User: ✅ Dokončeno
 ```
 
-### 4. Vícekolové interakce
+### 4. Vícekrokové interakce
 
-Agenti často potřebují dodatečné vstupy během provádění:
+Agenti často během běhu potřebují dodatečný vstup:
 
 - Lidské upřesnění nebo schválení
 - AI asistence pro složitá rozhodnutí
 - Dynamické nastavení parametrů
 
-**Podpora MCP**: Plně podporováno prostřednictvím sampling (pro AI vstupy) a vyžádání (pro lidské vstupy).
+**Podpora v MCP**: Plně podporováno přes vzorkování (pro AI vstup) a vyžádání (pro lidský vstup).
 
-| Funkce                 | Případ použití                                                                                                                                     | Podpora MCP                                           |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Vícekolové interakce | Agent pro rezervaci cest požádá uživatele o potvrzení ceny, poté požádá AI o shrnutí cestovních dat před dokončením transakce rezervace. | ✅ Vyžádání pro lidské vstupy, sampling pro AI vstupy |
+| Funkce                | Použití                                                                                                                                       | Podpora v MCP                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Vícekrokové interakce | Agent pro rezervaci cest vyžaduje potvrzení ceny od uživatele, pak požádá AI o shrnutí dat o cestě před dokončením rezervace.               | ✅ Vyžádání pro lidský vstup, vzorkování pro AI vstup |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Obrázek 4:</strong> Tento diagram ukazuje, jak agenti MCP mohou interaktivně vyžádat lidské vstupy nebo požádat o AI asistenci během provádění, podporující složité, vícekolové pracovní postupy, jako jsou potvrzení a dynamické rozhodování.
+<strong>Obrázek 4:</strong> Tento diagram znázorňuje, jak mohou MCP agenti interaktivně vyžadovat lidský vstup nebo požádat o AI asistenci během provádění, podporující složité vícekrokové pracovní toky, jako jsou potvrzení a dynamické rozhodování.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Hostitelská aplikace<br/>(MCP klient)
+    participant Server as MCP server<br/>(Nástroj agenta)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Rezervovat let
+    Host->>Server: Zavolat cestovní_agent
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Zjišťování: "Potvrdit 500 $?"
+    Note over Host: Zpětné volání zjišťování (je-li k dispozici)
+    Host->>User: 💰 Potvrdit cenu?
+    User->>Host: "Ano"
+    Host->>Server: Potvrzeno
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Vzorkování: "Shrnout data"
+    Note over Host: AI zpětné volání (je-li k dispozici)
+    Host->>Server: Shrnutí zprávy
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Let rezervován
 ```
 
-## Implementace dlouhodobých agentů na MCP - Přehled kódu
+## Implementace dlouhodobě běžících agentů na MCP - přehled kódu
 
-V rámci tohoto článku poskytujeme [repozitář kódu](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), který obsahuje kompletní implementaci dlouhodobých agentů pomocí MCP Python SDK s transportem StreamableHTTP pro obnovení relace a opětovné doručení zpráv. Implementace demonstruje, jak lze schopnosti MCP kombinovat k umožnění sofistikovaného agentického chování.
+Jako součást tohoto článku poskytujeme [repozitář kódu](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), který obsahuje kompletní implementaci dlouhodobě běžících agentů pomocí MCP Python SDK s přenosem StreamableHTTP pro obnovu relace a opakované doručení zpráv. Implementace ukazuje, jak lze schopnosti MCP kombinovat k umožnění sofistikovaných agentních chování.
 
-Konkrétně implementujeme server se dvěma hlavními nástroji agentů:
+Konkrétně implementujeme server se dvěma hlavními agentními nástroji:
 
-- **Cestovní agent** - Simuluje službu rezervace cest s potvrzením ceny prostřednictvím vyžádání
-- **Výzkumný agent** - Provádí výzkumné úkoly s AI asistovanými shrnutími prostřednictvím sampling
+- **Cestovní agent** - Simuluje službu pro rezervaci cest s potvrzením ceny pomocí vyžádání
+- **Výzkumný agent** - Provádí výzkumné úkoly s AI-pomocí pomocí vzorkování shrnutí
 
-Oba agenti demonstrují aktualizace pokroku v reálném čase, interaktivní potvrzení a plné schopnosti obnovení relace.
+Oba agenti demonstrují aktualizace průběhu v reálném čase, interaktivní potvrzení a plnou schopnost obnovení relace.
 
 ### Klíčové koncepty implementace
 
-Následující sekce ukazují implementaci agenta na straně serveru a hostitelské aplikace na straně klienta pro každou schopnost:
+Následující sekce ukazují implementaci agenta na straně serveru a zpracování na straně hostitele pro každou schopnost:
 
-#### Streamování a aktualizace pokroku - Stav úkolu v reálném čase
+#### Streamování & Aktualizace průběhu - Stav úkolu v reálném čase
 
-Streamování umožňuje agentům poskytovat aktualizace pokroku v reálném čase během dlouhodobých úkolů, udržovat uživatele informované o stavu úkolu a mezičlánkových výsledcích.
+Streamování umožňuje agentům poskytovat aktualizace průběhu v reálném čase během dlouhodobých úkolů, informujíc uživatele o stavu a mezivýsledcích.
 
-**Implementace na serveru (agent odesílá notifikace o pokroku):**
+**Implementace serveru (agent posílá notifikace o průběhu):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Z server/server.py - Cestovní agent posílající aktualizace pokroku
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Simulovat práci
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternativa: Pro podrobné aktualizace krok za krokem zaznamenávejte zprávy
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Implementace na klientovi (hostitel přijímá aktualizace pokroku):**
+**Implementace klienta (hostitel přijímá aktualizace průběhu):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Z client/client.py - Klient zpracovávající notifikace v reálném čase
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registrovat obsluhu zpráv při vytváření relace
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Vyžádání - Požadování vstupu uživatele
+#### Vyžádání - Požadavek na vstup uživatele
 
-Vyžádání umožňuje agentům požadovat vstup uživatele během provádění. To je zásadní pro potvrzení, upřesnění nebo schválení během dlouhodobých úkolů.
+Vyžádání umožňuje agentům požadovat vstup uživatele během provádění. To je nezbytné pro potvrzení, upřesnění či schválení během dlouhodobých úkolů.
 
-**Implementace na serveru (agent požaduje potvrzení):**
+**Implementace serveru (agent žádá o potvrzení):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Z server/server.py - Cestovní agent žádá o potvrzení ceny
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Pokračovat s rezervací
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Zrušit rezervaci
     booking_cancelled = True
 ```
 
-**Implementace na klientovi (hostitel poskytuje callback pro vyžádání):**
+**Implementace klienta (hostitel poskytuje callback pro vyžádání):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Z klienta/client.py - Zpracování požadavků na vyvolání klienta
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Zaregistrujte zpětné volání při vytváření relace
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - Požadování AI asistence
+#### Vzorkování - Požadavek AI asistence
 
-Sampling umožňuje agentům požadovat asistenci LLM pro složitá rozhodnutí nebo generování obsahu během provádění. To umožňuje hybridní pracovní postupy člověk-AI.
+Vzorkování dovoluje agentům požádat LLM o pomoc při složitých rozhodnutích nebo generování obsahu během běhu. To umožňuje hybridní workflow člověk-AI.
 
-**Implementace na serveru (agent požaduje AI asistenci):**
+**Implementace serveru (agent žádá AI asistenci):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Z server/server.py - Výzkumný agent žádající o souhrn AI
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Implementace na klientovi (hostitel poskytuje callback pro sampling):**
+**Implementace klienta (hostitel poskytuje callback pro vzorkování):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Ze souboru client/client.py - Zpracování požadavků na vzorkování klienta
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # V reálné aplikaci by to mohlo volat API LLM
+    # Pro demonstrační účely poskytujeme simulovanou odpověď
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Zaregistrujte zpětné volání při vytváření relace
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Obnovitelnost - Kontinuita relace při odpojení
+#### Obnovitelnost - Kontinuita relace přes odpojení
 
-Obnovitelnost zajišťuje, že dlouhodobé úkoly agentů mohou přežít odpojení klienta a pokračovat bez problémů po opětovném připojení. To je implementováno prostřednictvím úložiště událostí a tokenů pro obnovení.
+Obnovitelnost zajišťuje, že dlouhodobé agentní úkoly přežijí odpojení klienta a plynule pokračují po znovupřipojení. Je implementována pomocí event store a tokenů pro obnovení.
 
-**Implementace úložiště událostí (server uchovává stav relace):**
+**Implementace event store (server uchovává stav relace):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Ze server/event_store.py - Jednoduchý událostní úložiště v paměti
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,25 +367,40 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Přehrávejte pouze pozdější události z původního proudu relace.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Ze server/server.py - Předání událostního úložiště správci relace
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Vytvořte správce relace s událostním úložištěm pro pokračování
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Událostní úložiště umožňuje pokračování relace
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Použití: Inicializujte s událostním úložištěm
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
@@ -393,14 +408,14 @@ app = create_server_app(event_store)
 **Metadata klienta s tokenem pro obnovení (klient se znovu připojuje pomocí uloženého stavu):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Z client/client.py - Pokračování klienta s metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Použijte existující pokračovací token k pokračování tam, kde jsme skončili
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Vytvořte zpětné volání pro uložení pokračovacího tokenu po jeho obdržení
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Odeslat požadavek s metadaty pokračování
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,24 +437,24 @@ result = await session.send_request(
 )
 ```
 
-Hostitelská aplikace uchovává ID relace a tokeny pro obnovení lokálně, což jí umožňuje znovu se připojit k existujícím relacím bez ztráty pokroku nebo stavu.
+Hostitelská aplikace si uchovává ID relací a tokeny pro obnovení lokálně, což jí umožňuje znovu se připojit k existujícím relacím bez ztráty průběhu či stavu.
 
 ### Organizace kódu
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Obrázek 5:</strong> Architektura systému agentů založeného na MCP
+<strong>Obrázek 5:</strong> Architektura systému agentů založených na MCP
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Uživatel]) -->|"Úkol"| Host["Hostitel<br/>(MCP klient)"]
+    Host -->|vyjmenuj nástroje| Server[MCP server]
+    Server -->|Zpřístupňuje| AgentsTools[Agenty jako nástroje]
+    AgentsTools -->|Úkol| AgentA[Cestovní agent]
+    AgentsTools -->|Úkol| AgentB[Výzkumný agent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Sleduje| StateUpdates[Pokrok a aktualizace stavu]
+    Server -->|Publikuje| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,55 +463,68 @@ graph LR
 
 **Klíčové soubory:**
 
-- **`server/server.py`** - Resumovatelný MCP server s cestovními a výzkumnými agenty, kteří demonstrují vyžádání, sampling a aktualizace pokroku
+- **`server/server.py`** - Obnovitelný MCP server s cestovním a výzkumným agentem demonstrující vyžádání, vzorkování a aktualizace průběhu
 - **`client/client.py`** - Interaktivní hostitelská aplikace s podporou obnovení, callback handlery a správou tokenů
-- **`server/event_store.py`** - Implementace úložiště událostí umožňující obnovení relace a opětovné doručení zpráv
+- **`server/event_store.py`** - Implementace event store umožňující obnovení relace a opakované doručení zpráv
 
-## Rozšíření na komunikaci mezi více agenty na MCP
+## Rozšíření na multi-agentní komunikaci na MCP
 
-Výše uvedenou implementaci lze rozšířit na systémy více agentů vylepšením inteligence a rozsahu hostitelské aplikace:
+Výše uvedenou implementaci lze rozšířit na multi-agentní systémy zvýšením inteligence a rozsahu hostitelské aplikace:
 
-- **Inteligentní rozklad úkolů**: Hostitel analyzuje složité požadavky uživatele a rozděluje je na dílčí úkoly pro různé specializované agenty
-- **Koordinace více serverů**: Hostitel udržuje připojení k více serverům MCP, z nichž každý poskytuje různé schopnosti agentů
-- **Správa stavu úkolů**: Hostitel sleduje pokrok napříč více současnými úkoly agentů, řeší závislosti a sekvencování
-- **Odolnost a opakování**: Hostitel spravuje selhání, implementuje logiku opakování a přesměrovává úkoly, když se agenti stanou nedostupnými
-- **Syntéza výsledků**: Hostitel kombinuje výstupy od více agentů do koherentních konečných výsledků
+- **Inteligentní dekompozice úkolů**: Hostitel analyzuje složité uživatelské požadavky a rozkládá je na podúkoly pro různé specializované agenty
+- **Koordinace více serverů**: Hostitel udržuje připojení k více MCP serverům, z nichž každý nabízí různé agentní schopnosti
+- **Správa stavu úkolu**: Hostitel sleduje průběh napříč více současnými agentními úkoly, řeší závislosti a pořadí
+- **Odolnost & Opakování pokusů**: Hostitel spravuje selhání, implementuje logiku opakování a přesměrovává úkoly, když agenti nejsou dostupní
+- **Syntéza výsledků**: Hostitel kombinuje výstupy z více agentů do koherentních finálních výsledků
 
-Hostitel se vyvíjí z jednoduchého klienta na inteligentního orchestrátora, koordinujícího distribuované schopnosti agentů při zachování stejného základu protokolu MCP.
+Hostitel se vyvíjí z jednoduchého klienta na inteligentního orchestrátora, který koordinuje distribuované agentní schopnosti při zachování stejného základního protokolu MCP.
 
 ## Závěr
 
-Vylepšené schopnosti MCP - notifikace o zdrojích, vyžádání/sampling, obnovitelné streamy a trvalé zdroje - umožňují komplexní interakce mezi agenty při zachování jednoduchosti protokolu.
+Vylepšené schopnosti MCP – notifikace zdrojů, vyžádání/vzorkování, obnovitelné streamy a perzistentní zdroje – umožňují komplexní interakce agent-agent při zachování jednoduchosti protokolu.
 
 ## Začínáme
 
-Připraveni vytvořit vlastní systém Agent2Agent? Postupujte podle těchto kroků:
+Připraven stavět svůj vlastní agent2agent systém? Postupujte podle těchto kroků:
 
 ### 1. Spusťte demo
 
 ```bash
-# Start the server with event store for resumption
+# Spusťte server s úložištěm událostí pro obnovení
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# V jiném terminálu spusťte interaktivního klienta
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
 **Dostupné příkazy v interaktivním režimu:**
 
-- `travel_agent` - Rezervace cest s potvrzením ceny prostřednictvím vyžádání
-- `research_agent` - Výzkum témat s AI asistovanými shrnutími prostřednictvím sampling
+- `travel_agent` - Rezervujte cestu s potvrzením ceny pomocí vyžádání
+- `research_agent` - Výzkumné téma s AI-podporou shrnutí pomocí vzorkování
 - `list` - Zobrazit všechny dostupné nástroje
-- `clean-tokens` - Vymazat tokeny pro obnovení
-- `help` - Zobrazit podrobnou nápovědu k příkazům
+- `clean-tokens` - Vyčistit tokeny pro obnovení
+- `help` - Zobrazit podrobnou nápovědu příkazů
 - `quit` - Ukončit klienta
 
 ### 2. Otestujte schopnosti obnovení
 
 - Spusťte dlouhodobého agenta (např. `travel_agent`)
-- Přerušte klienta během prov
+- Přerušte klienta během běhu (Ctrl+C)
+- Restartujte klienta – automaticky pokračuje tam, kde skončil
+
+### 3. Objevujte a rozšiřujte
+
+- **Prozkoumejte příklady**: Podívejte se na tento [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Připojte se ke komunitě**: Zapojte se do diskusí o MCP na GitHubu
+- **Experimentujte**: Začněte s jednoduchým dlouhodobým úkolem a postupně přidejte streamování, obnovitelnost a multi-agentní koordinaci
+
+Toto demonstruje, jak MCP umožňuje inteligentní agentní chování při zachování jednoduchosti založené na nástrojích.
+
+Celkově se specifikace protokolu MCP rychle vyvíjí; čtenáře se doporučuje sledovat oficiální web dokumentace pro nejnovější aktualizace – https://modelcontextprotocol.io/introduction
 
 ---
 
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,16 +1,21 @@
-# Voorbeeld Bon Fixtures
+# Voorbeeld Bon Bestanden
 
-Drie vooraf gegenereerde bonbestanden voor inspectie zonder de notebook uit te voeren.
+Drie vooraf gegenereerde bonbestanden voor inspectie zonder het notebook uit te voeren.
 
 | Bestand | Wat het is |
 |---|---|
-| `01_valid_receipt.json` | Een geldige ondertekende bon voor een `lookup_flights` toolaanroep. Verificatie geeft True terug. |
-| `02_tampered_receipt.json` | Dezelfde bon met één veld gewijzigd na ondertekening. Verificatie geeft False terug. |
-| `03_chain_three_receipts.json` | Een keten van drie geldige bonnen (zoeken, reserveren, boeken) met `previous_receipt_hash` die elke bon aan de vorige koppelt. |
+| `01_valid_receipt.json` | Een geldige ondertekende bon voor een `lookup_flights` tool-aanroep. Verificatie geeft True terug. |
+| `02_tampered_receipt.json` | Dezelfde bon met één veld aangepast na ondertekening. Verificatie geeft False terug. |
+| `03_chain_three_receipts.json` | Een keten van drie geldige bonnen (zoeken, reserveren, boeken) met `previous_receipt_hash` die elk aan de voorgaande koppelt. |
 
-## De voorbeelden verifiëren
+De fixtures ondertekenen de payloads canonical JCS-bytes direct met Ed25519.
+SHA-256 wordt nog steeds gebruikt voor inhoudsdigesten en bonketenlinks, niet als een
+extra pre-hash vóór het ondertekenen.
 
-De notebook doorloopt verificatie in vier secties. Om deze fixtures direct te verifiëren zonder door de notebook tekst te gaan:
+## Verifiëren van de voorbeelden
+
+Het notebook behandelt verificatie in vier secties. Om deze fixtures direct te verifiëren zonder
+de notebook-verhaal te doorlopen:
 
 ```python
 import json
@@ -32,7 +37,7 @@ for r in verify_chain(chain):
 
 ## Hoe deze zijn gegenereerd
 
-De fixtures gebruiken dezelfde codepad als de notebook, met één vaste ondertekeningssleutel
+De fixtures gebruiken hetzelfde codepad als het notebook, met één vaste ondertekeningssleutel
 en vaste tijdstempels voor byte-reproduceerbaarheid. Om opnieuw te genereren:
 
 ```bash
@@ -41,13 +46,18 @@ python3 generate_fixtures.py
 
 (Script bevindt zich in `generate_fixtures.py` in deze map.)
 
-## Wat studenten leren door het inspecteren van ruwe JSON
+## Wat studenten leren door het bekijken van ruwe JSON
 
-Het lezen van het ruwe bonformaat bouwt intuïtie op die de cellen in de notebook niet altijd bieden. Studenten die de JSON snel doorlezen merken vaak:
+Het lezen van het ruwe bonformaat bouwt intuïtie op die de cellen van het notebook niet altijd bieden.
+Studenten die door de JSON bladeren, merken vaak:
 
-1. De handtekening is een ondoorzichtige base64url-string, maar elk ander veld is gewone leesbare JSON. De handtekening versleutelt de inhoud niet; het getuigt ervan.
-2. De `public_key` is ingebed in de bon. Een controleur heeft verder niets nodig om te verifiëren (mits vertrouwd wordt dat de sleutel daadwerkelijk van de opgegeven uitgever is; zie de les README over identiteitsinfrastructuur).
-3. Het wijzigen van één enkel teken in een veld en daarna dit bestand vergelijken met `02_tampered_receipt.json` maakt het Byte-niveau mechanisme concreet.
+1. De handtekening is een ondoorzichtige base64url-string, maar elk ander veld is eenvoudige
+   leesbare JSON. De handtekening versleutelt de inhoud niet; het verklaart er slechts iets over.
+2. De `public_key` is ingebed in de bon. Een auditor heeft verder niets nodig
+   om te verifiëren (mits het vertrouwen dat de sleutel daadwerkelijk toebehoort aan de geclaimde
+   uitgevende partij; zie de les README over identiteitsinfrastructuur).
+3. Het aanpassen van een enkel teken in elk veld, en daarna dit bestand opnieuw vergelijken met
+   `02_tampered_receipt.json`, maakt het mechanisme op byte-niveau concreet.
 
 ---
 

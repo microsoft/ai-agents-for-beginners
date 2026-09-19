@@ -1,183 +1,183 @@
-# חקר מסגרת Microsoft Agent  
+# חקירת מסגרת Microsoft Agent  
 
-![Agent Framework](../../../translated_images/he/lesson-14-thumbnail.90df0065b9d234ee.webp)
+![Agent Framework](../../../translated_images/he/lesson-14-thumbnail.90df0065b9d234ee.webp)  
 
-### הקדמה  
+### מבוא  
 
 שיעור זה יכסה:  
 
 - הבנת מסגרת Microsoft Agent: תכונות מפתח וערך  
 - חקר המושגים המרכזיים של מסגרת Microsoft Agent  
-- דפוסי MAF מתקדמים: זרימות עבודה, middleware וזיכרון  
+- דפוסי MAF מתקדמים: Workflows, Middleware וזיכרון  
 
-## מטרות הלמידה  
+## יעדי למידה  
 
-לאחר סיום שיעור זה, תדע כיצד:  
+לאחר סיום שיעור זה, תדעו כיצד:  
 
 - לבנות סוכני AI מוכנים לייצור באמצעות מסגרת Microsoft Agent  
-- ליישם את התכונות המרכזיות של מסגרת Microsoft Agent למקרי שימוש סוכניים שלך  
-- להשתמש בדפוסים מתקדמים הכוללים זרימות עבודה, middleware ותצפית  
+- להחיל את התכונות המרכזיות של מסגרת Microsoft Agent על מקרים שימושיים סוכנתיים שלכם  
+- להשתמש בדפוסים מתקדמים כולל workflows, middleware, ותצפית  
 
 ## דוגמאות קוד  
 
-דוגמאות קוד ל-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) נמצאות במאגר זה תחת הקבצים `xx-python-agent-framework` ו- `xx-dotnet-agent-framework`.  
+דוגמאות קוד עבור [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) נמצאות במאגר זה תחת הקבצים `xx-python-agent-framework` ו- `xx-dotnet-agent-framework`.  
 
 ## הבנת מסגרת Microsoft Agent  
 
-![Framework Intro](../../../translated_images/he/framework-intro.077af16617cf130c.webp)
+![Framework Intro](../../../translated_images/he/framework-intro.077af16617cf130c.webp)  
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) היא מסגרת מאוחדת של מיקרוסופט לבניית סוכני AI. היא מציעה גמישות להתמודדות עם מגוון רחב של מקרי שימוש סוכניים שנראים הן בייצור והן בסביבות מחקר, כולל:  
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) היא מסגרת מאוחדת של מיקרוסופט לבניית סוכני AI. היא מציעה גמישות לטיפול במגוון רחב של מקרים שימושיים סוכנתיים הנצפים הן בסביבות ייצור והן במחקר, כולל:  
 
-- **תזמור סוכנים רציף** בתרחישים בהם דרושות זרימות עבודה שלב-אחר-שלב.  
-- **תזמור מקביל** בתרחישים בהם סוכנים צריכים להשלים משימות בו-זמנית.  
-- **תזמור שיחה קבוצתית** בתרחישים בהם סוכנים יכולים לשתף פעולה יחד על משימה אחת.  
-- **תזמור מסירת משימות** בתרחישים בהם הסוכנים מעבירים את המשימה זה לזה כאשר המשימות המשניות הושלמו.  
-- **תזמור מגנטי** בתרחישים בהם סוכן מנהל יוצר ומעדכן רשימת משימות ומנהל את התיאום בין סוכנים משניים להשלמת המשימה.  
+- **אורקסטרציה סדרתית** בתרחישים שבהם נדרשים Workflows שלב אחר שלב.  
+- **אורקסטרציה מקבילית** בתרחישים שבהם סוכנים צריכים להשלים משימות בו זמנית.  
+- **אורקסטרציית שיחת קבוצה** בתרחישים שבהם סוכנים יכולים לשתף פעולה יחד על משימה אחת.  
+- **אורקסטרציית handoff** בתרחישים שבהם סוכנים מעבירים את המשימה זה לזה כשהמשימות המשניות המוקצות הושלמו.  
+- **אורקסטרציה מגנטית** בתרחישים שבהם סוכן מנהל יוצר ומעדכן רשימת משימות ומטפל בתיאום של סוכנים משניים להשלמת המשימה.  
 
-לצורך אספקת סוכני AI בייצור, למסגרת MAF כלולים גם תכונות עבור:  
+כדי לספק סוכני AI בייצור, ל-MAF גם יש תכונות לכלול עבור:  
 
-- **תצפית** באמצעות OpenTelemetry כאשר כל פעולה של סוכן ה-AI, כולל קריאת כלים, שלבי תזמור, זרמי הסקה ומעקב ביצועים דרך לוחות בקרה של Microsoft Foundry.  
-- **אבטחה** על ידי אירוח סוכנים באופן מקומי ב-Microsoft Foundry הכולל בקרות אבטחה כגון גישה מבוססת תפקיד, טיפול בנתונים פרטיים ובטיחות תוכן מובנית.  
-- **עמידות** מכיוון ששרשורי סוכנים וזרימות עבודה יכולים להפסיק, להמשיך ולהתאושש מטעויות מה שמאפשר תהליכים ארוכים יותר.  
-- **בקרה** כיוון שזרימות עבודה של human-in-the-loop נתמכות כאשר משימות מסומנות ככאלו שדורשות אישור אדם.  
+- **תצפית** באמצעות שימוש ב-OpenTelemetry שבה כל פעולה של סוכן ה-AI כולל קריאת כלי, שלבי אורקסטרציה, זרמי נימוק ומעקב ביצועים דרך דשבורדים של Microsoft Foundry.  
+- **אבטחה** על ידי אירוח סוכנים בצורה מקומית ב-Microsoft Foundry הכולל בקרים כמו גישה מבוססת תפקיד, טיפול בנתונים פרטיים ובטיחות תוכן מובנית.  
+- **עמידות** כפי ששרשורי סוכן ו-Workflows יכולים להשהות, להמשיך ולהתאושש מטעויות, מה שמאפשר תהליכים ארוכי טווח.  
+- **שליטה** תומך ב- workflows בהם יש מעורבות אדם שבהן משימות מסומנות ככאלה שדורשות אישור אנושי.  
 
-מסגרת Microsoft Agent גם מתמקדת באינטרופרביליות על ידי:  
+מסגרת Microsoft Agent מתמקדת גם באינטרופרביליות על ידי:  
 
-- **א-עננית** - סוכנים יכולים לפעול במכולות, באתר ומעל מספר עננים שונים.  
-- **א-ספקית** - סוכנים יכולים להיווצר באמצעות SDK מועדף כולל Azure OpenAI ו-OpenAI.  
-- **שילוב תקנים פתוחים** - סוכנים יכולים להשתמש בפרוטוקולים כגון Agent-to-Agent (A2A) ו-Model Context Protocol (MCP) לגילוי ושימוש בסוכנים וכלים אחרים.  
-- **תוספים ומחברים** - ניתן לבצע חיבורים לשירותי נתונים וזיכרון כגון Microsoft Fabric, SharePoint, Pinecone ו-Qdrant.  
+- **היותה בלתי תלויה בענן** - סוכנים יכולים לפעול במכולות, מקומי ועל פני עננים שונים.  
+- **היותה בלתי תלויה בספק** - סוכנים יכולים להיווצר באמצעות ה-SDK המועדף עליך כולל Azure OpenAI ו-OpenAI  
+- **שילוב תקנים פתוחים** - סוכנים יכולים להשתמש בפרוטוקולים כגון Agent-to-Agent(A2A) ו-Model Context Protocol (MCP) כדי לגלות ולהשתמש בסוכנים וכלים אחרים.  
+- **תוספים וחיבורים** - ניתן ליצור חיבורים לשירותי נתונים וזיכרון כמו Microsoft Fabric, SharePoint, Pinecone ו-Qdrant.  
 
-בואו נבחן כיצד תכונות אלו מיושמות על חלק מהמושגים המרכזיים של מסגרת Microsoft Agent.  
+בואו נסתכל כיצד תכונות אלה מיושמות בכמה מהמושגים המרכזיים של מסגרת Microsoft Agent.  
 
-## מושגים מרכזיים של מסגרת Microsoft Agent  
+## מושגי יסוד של מסגרת Microsoft Agent  
 
 ### סוכנים  
 
-![Agent Framework](../../../translated_images/he/agent-components.410a06daf87b4fef.webp)
+![Agent Framework](../../../translated_images/he/agent-components.410a06daf87b4fef.webp)  
 
 **יצירת סוכנים**  
 
-יצירת סוכן מתבצעת על ידי הגדרת שירות ההסקה (LLM Provider),  
-קבוצת הוראות שעל סוכן ה-AI לעקוב אחריהן, ושם מותאם (`name`):  
+יצירת סוכן נעשית על ידי הגדרת שירות המסקנה (ספק LLM),  
+סט של הוראות שעל סוכן ה-AI לעקוב אחריהן, ושם שהוקצה ל-`name`:  
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
-
-לעיל נעשה שימוש ב-`Azure OpenAI` אך סוכנים יכולים להיווצר באמצעות מגוון שירותים כולל `Microsoft Foundry Agent Service`:  
+  
+הקוד לעיל משתמש ב-`Azure OpenAI` אך סוכנים יכולים להיווצר באמצעות מגוון שירותים כולל `Microsoft Foundry Agent Service`:  
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
-
-ממשקי API של OpenAI `Responses`, `ChatCompletion`  
+  
+APIs של OpenAI `Responses`, `ChatCompletion`  
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
 ```
-
+  
 ```python
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
-
-או [MiniMax](https://platform.minimaxi.com/), המספק API תואם OpenAI עם חלונות הקשר גדולים (עד 204K טוקנים):  
+  
+או [MiniMax](https://platform.minimaxi.com/), המציע API תואם OpenAI עם חלונות הקשר גדולים (עד 204K טוקנים):  
 
 ```python
 agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
-
-או סוכנים מרוחקים באמצעות פרוטוקול A2A:  
+  
+או סוכנים מרוחקים המשתמשים בפרוטוקול A2A:  
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
 ```
-
+  
 **הרצת סוכנים**  
 
-סוכנים מורצים באמצעות המתודות `.run` או `.run_stream` לקבלת תגובות לא-מזרימות או מזרימות.  
+סוכנים מופעלים באמצעות שיטות `.run` או `.run_stream` לתגובות לא סטרימינג או סטרימינג.  
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
 print(result.text)
 ```
-
+  
 ```python
 async for update in agent.run_stream("What are the good places to visit in Amsterdam?"):
     if update.text:
         print(update.text, end="", flush=True)
 
 ```
+  
+ניתן גם לכלול רשימת אפשרויות לכל הרצה כדי להתאים פרמטרים כגון `max_tokens` בהם הסוכן משתמש, `tools` שהסוכן יכול לקרוא להם, ואפילו את `model` עצמו המשמש את הסוכן.  
 
-להרצת כל סוכן יכולה להיות גם אפשרות להתאים פרמטרים כגון `max_tokens` בו משתמש הסוכן, `tools` שהסוכן יכול לקרוא להם, ואפילו ה-`model` המשמש את הסוכן עצמו.  
-
-זה שימושי במקרים בהם נדרשים דגמים וכלים ספציפיים להשלמת משימת המשתמש.  
+זה שימושי במקרים שבהם נדרשים דגמים או כלים ספציפיים להשלמת משימת המשתמש.  
 
 **כלים**  
 
-כלים יכולים להיות מוגדרים גם בעת הגדרת הסוכן:  
+כלים יכולים להיות מוגדרים הן בעת הגדרת הסוכן:  
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
 
 
-# כאשר יוצרים סוכן צ'אט ישירות
+# כאשר יוצרים ChatAgent ישירות
 
 agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
 
 ```
-
+  
 וגם בעת הרצת הסוכן:  
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # כלי המסופק רק להרצה זו )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # כלי שסופק רק להרצה זו )
 ```
-
+  
 **שרשורי סוכן**  
 
-שרשורי סוכן משמשים לניהול שיחות מרובות סבבים. שרשורים יכולים להיווצר על ידי:  
+שרשורי סוכן משמשים לטיפול בשיחות רב-סיבוביות. שרשורים יכולים להיווצר על ידי:  
 
 - שימוש ב-`get_new_thread()` שמאפשר לשמור את השרשור לאורך זמן  
-- יצירת שרשור אוטומטית בעת הרצת סוכן, כאשר השרשור קיים רק במהלך ההרצה הנוכחית.  
+- יצירת שרשור אוטומטית במהלך הרצת סוכן, שבו השרשור קיים רק במהלך ההרצה הנוכחית.  
 
 ליצירת שרשור, הקוד נראה כך:  
 
 ```python
-# צור תהליך חדש.
-thread = agent.get_new_thread() # הפעל את הסוכן עם התהליך.
+# צור נושא חדש.
+thread = agent.get_new_thread() # הפעל את הסוכן עם הנושא.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
-
-לאחר מכן ניתן לסריאליזציה של השרשור לאחסון לשימוש מאוחר יותר:  
+  
+ניתן גם לסדרל את השרשור לאחסון לשימוש מאוחר יותר:  
 
 ```python
-# צור נושא חדש.
+# צור אשכול חדש.
 thread = agent.get_new_thread() 
 
-# הפעל את הסוכן עם הנושא.
+# הפעל את הסוכן עם האשכול.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# סדר את הנושא לאחסון.
+# סדר את האשכול לאחסון.
 
 serialized_thread = await thread.serialize() 
 
-# המרת מצב הנושא לאחר טעינה מהאחסון.
+# דה-סדר את מצב האשכול לאחר הטעינה מהאחסון.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
-
+  
 **Middleware של סוכן**  
 
-סוכנים מתקשרים עם כלים ו-LLMs להשלמת משימות משתמש. בתרחישים מסוימים, אנו רוצים לבצע או לעקוב בין האינטראקציות הללו. Middleware של סוכן מאפשר זאת על ידי:  
+סוכנים מתקשרים עם כלים ו-LLMs להשלים משימות של המשתמש. בתרחישים מסוימים, אנו רוצים לבצע או לעקוב בין האינטראקציות האלה. ה-Middleware של הסוכן מאפשר לנו לעשות זאת באמצעות:  
 
-*Middleware פונקציונלי*  
+*Middleware של פונקציה*  
 
-Middleware זה מאפשר לבצע פעולה בין הסוכן לפונקציה/כלי שהוא קורא לו. דוגמה לשימוש היא ביצוע רישום יומן במהלך קריאת פונקציה.  
+Middleware זה מאפשר לנו לבצע פעולה בין הסוכן ופונקציה/כלי שהוא יקרא לה. דוגמה לשימוש כזה היא כאשר רוצים לבצע רישום קריאה לפונקציה.  
 
-בקוד למטה, `next` מגדיר אם יש לקרוא ל-middleware הבא או לפונקציה עצמה.  
+בקוד למטה `next` מגדיר אם יש לקרוא ל-middleware הבא או לפונקציה עצמה.  
 
 ```python
 async def logging_function_middleware(
@@ -188,18 +188,18 @@ async def logging_function_middleware(
     # עיבוד מקדים: רישום לפני ביצוע הפונקציה
     print(f"[Function] Calling {context.function.name}")
 
-    # המשך למידלוור הבא או לביצוע הפונקציה
+    # המשך למידלוואר הבא או לביצוע הפונקציה
     await next(context)
 
-    # עיבוד לאחר ביצוע: רישום אחרי ביצוע הפונקציה
+    # עיבוד שלאחר מכן: רישום אחרי ביצוע הפונקציה
     print(f"[Function] {context.function.name} completed")
 ```
+  
+*Middleware של שיחה*  
 
-*Middleware שיחתית*  
+Middleware זה מאפשר לנו לבצע או לרשום פעולה בין הסוכן לבין הבקשות שבין ה-LLM.  
 
-Middleware זה מאפשר לבצע או לרשום פעולה בין הסוכן לבין הבקשות בין ה-LLM.  
-
-זה כולל מידע חשוב כגון ההודעות (`messages`) שנשלחות לשירות ה-AI.  
+זה מכיל מידע חשוב כגון `messages` שנשלחות לשירות ה-AI.  
 
 ```python
 async def logging_chat_middleware(
@@ -207,34 +207,34 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # עיבוד מקדים: רישום לפני קריאה ל-AI
+    # עיבוד מקדים: רישום לפני קריאת בינה מלאכותית
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # המשך למידלוור או שירות AI הבא
+    # המשך למידלוור הבא או שירות הבינה המלאכותית
     await next(context)
 
-    # עיבוד לאחר מעשה: רישום לאחר תגובת AI
+    # עיבוד לאחר מכן: רישום אחרי תגובת הבינה המלאכותית
     print("[Chat] AI response received")
 
 ```
-
+  
 **זיכרון סוכן**  
 
-כפי שכוסה בשיעור `Agentic Memory`, הזיכרון הוא אלמנט חשוב לאפשר לסוכן לפעול בהקשרים שונים. ל-MAF יש כמה סוגי זיכרונות:  
+כפי שנלמד בשיעור `Agentic Memory`, זיכרון הוא אלמנט חשוב לאפשר לסוכן לפעול בהקשרים שונים. ל-MAF יש כמה סוגי זיכרון שונים:  
 
 *אחסון בזיכרון*  
 
-זהו הזיכרון המאוחסן בשרשורים במהלך זמן ריצה של האפליקציה.  
+זהו הזיכרון המאוחסן בשרשורים במהלך זמן ריצת האפליקציה.  
 
 ```python
-# צור נושא חדש.
-thread = agent.get_new_thread() # הפעל את הסוכן עם הנושא.
+# צור אגף חדש.
+thread = agent.get_new_thread() # הרץ את הסוכן עם האגף.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
-
+  
 *הודעות מתמשכות*  
 
-זיכרון זה משמש לאחסון היסטוריית שיחות במגוון סשנים. הוא מוגדר באמצעות `chat_message_store_factory`:  
+זיכרון זה משמש לאחסון היסטוריית שיחות בין סשנים שונים. הוא מוגדר באמצעות ה-`chat_message_store_factory`:  
 
 ```python
 from agent_framework import ChatMessageStore
@@ -250,15 +250,15 @@ agent = ChatAgent(
 )
 
 ```
-
+  
 *זיכרון דינמי*  
 
-זיכרון זה מתווסף להקשר לפני הרצת הסוכנים. זיכרונות אלו ניתנים לאחסון בשירותים חיצוניים כגון mem0:  
+זיכרון זה מתווסף להקשר לפני הרצת הסוכנים. זיכרונות אלה יכולים להיאגר בשירותים חיצוניים כגון mem0:  
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# שימוש ב-Mem0 עבור יכולות זיכרון מתקדמות
+# שימוש ב-Mem0 ליכולות זיכרון מתקדמות
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -272,10 +272,10 @@ agent = ChatAgent(
 )
 
 ```
-
+  
 **תצפית על סוכן**  
 
-תצפית חשובה לבניית מערכות סוכניות אמינות וניתנות לתחזוקה. MAF משתלב עם OpenTelemetry כדי לספק מעקב ומדדים לתצפית טובה יותר.  
+תצפית חשובה לבניית מערכות סוכנים אמינות וניתנות לתחזוקה. MAF משתלב עם OpenTelemetry כדי לספק מעקבים ומדדים לתצפית טובה יותר.  
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -288,24 +288,24 @@ with tracer.start_as_current_span("my_custom_span"):
 counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
 ```
+  
+### Workflows  
 
-### זרימות עבודה  
+ל-MAF יש workflows שהן שלבים מוגדרים מראש להשלמת משימה וכוללות סוכני AI כמרכיבים באותם שלבים.  
 
-MAF מציעה זרימות עבודה המהוות שלבים מוגדרים מראש להשלמת משימה וכוללות סוכני AI כמרכיבים באותם שלבים.  
+Workflows מורכבות ממרכיבים שונים המאפשרים זרימת שליטה טובה יותר. Workflows מאפשרות גם **אורקסטרציה של סוכנים מרובים** ו-**קביעת נקודות ביקורת** לשמירת מצבי Workflow.  
 
-זרימות עבודה מורכבות ממרכיבים שונים המאפשרים זרימת בקרה טובה יותר. זרימות עבודה מאפשרות גם **תזמור מרובה-סוכנים** ו-**שמירת נקודות בדיקה** לשמירת מצבי הזרימה.  
-
-המרכיבים המרכזיים של זרימת עבודה הם:  
+המרכיבים העיקריים של workflow הם:  
 
 **מבצעים**  
 
-מבצעים מקבלים הודעות קלט, מבצעים את המשימות שהוקצו להם, ואז מייצרים הודעת פלט. זה מקדם את זרימת העבודה לקראת השלמת המשימה הרחבה יותר. מבצעים יכולים להיות סוכן AI או לוגיקה מותאמת אישית.  
+מבצעים מקבלים הודעות קלט, מבצעים את המשימות שהוקצו להם, ואז מפיקים הודעת פלט. זה מזיז את הworkflow קדימה לקראת השלמת המשימה הגדולה. המבצעים יכולים להיות סוכן AI או לוגיקה מותאמת אישית.  
 
-**קצוות**  
+**קשתות**  
 
-קצוות משמשים להגדרת זרימת ההודעות בזרימת עבודה. אלה יכולים להיות:  
+קשתות משמשות להגדיר את זרימת ההודעות ב-workflow. אלה יכולות להיות:  
 
-*קצוות ישירים* - חיבורים פשוטים אחד-על-אחד בין מבצעים:  
+*קשתות ישירות* - חיבורים פשוטים אחד על אחד בין מבצעים:  
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -315,68 +315,68 @@ builder.add_edge(source_executor, target_executor)
 builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
+  
+*קשתות מותנות* - מופעלות לאחר שמתקיים תנאי מסוים. לדוגמה, כאשר חדרי מלון אינם זמינים, מבצע יכול להציע אפשרויות אחרות.  
 
-*קצוות מותנים* - מופעלים לאחר שמתקיים תנאי מסוים. לדוגמה, כשחדרי מלון אינם זמינים, מבצע יכול להציע אפשרויות אחרות.  
+*קשתות switch-case* - מנתבות הודעות למבצעים שונים בהתאם לתנאים שהוגדרו. לדוגמה, אם ללקוח הנסיעות יש גישה מועדפת, המשימות שלו ינוהלו דרך workflow אחר.  
 
-*קצוות מקרה החלפה* - מנתבים הודעות למבצעים שונים על בסיס תנאים מוגדרים. לדוגמה, אם ללקוח נסיעות יש גישה מועדפת, משימותיו יטופלו דרך זרימת עבודה אחרת.  
+*קשתות פאן-אאוט* - שולחות הודעה אחת לריבוי יעדים.  
 
-*קצוות פיצול* - שולחים הודעה אחת למספר יעדים.  
-
-*קצוות איסוף* - אוספים מספר הודעות ממבצעים שונים ושולחים ליעד אחד.  
+*קשתות פאן-אין* - אוספות הודעות מרובות ממבצעים שונים ושולחות ליעד אחד.  
 
 **אירועים**  
 
-לצורך תצפית טובה יותר על זרימות עבודה, MAF מציעה אירועים מובנים לביצוע כולל:  
+כדי לספק תצפית טובה יותר ל-workflows, MAF מציעה אירועים מובנים לביצוע כולל:  
 
-- `WorkflowStartedEvent`  - התחלת ביצוע הזרימה  
-- `WorkflowOutputEvent` - הזרימה מפיקה פלט  
-- `WorkflowErrorEvent` - זרימת עבודה נתקלת בשגיאה  
-- `ExecutorInvokeEvent`  - מבצע מתחיל עיבוד  
-- `ExecutorCompleteEvent`  -  מבצע מסיים עיבוד  
-- `RequestInfoEvent` - מתבצעת בקשה  
+- `WorkflowStartedEvent` - התחלת ביצוע workflow  
+- `WorkflowOutputEvent` - ה-Workflow מפיק פלט  
+- `WorkflowErrorEvent` - ה-Workflow נתקל בשגיאה  
+- `ExecutorInvokeEvent` - המבצע מתחיל לעבד  
+- `ExecutorCompleteEvent` - המבצע מסיים לעבד  
+- `RequestInfoEvent` - בקשה הונפקה  
 
 ## דפוסי MAF מתקדמים  
 
-הקטעים למעלה מכסים את המושגים המרכזיים של מסגרת Microsoft Agent. כשאתה בונה סוכנים מורכבים יותר, הנה כמה דפוסים מתקדמים לשקול:  
+הסעיפים שלמעלה מכסים את המושגים המרכזיים של מסגרת Microsoft Agent. ככל שתבנו סוכנים מורכבים יותר, הנה כמה דפוסים מתקדמים שיש לקחת בחשבון:  
 
-- **קומפוזיציית middleware**: שרשרת של מספר מטפלי middleware (רישום, אימות, הגבלת קצב) באמצעות middleware פונקציונלי ושיחתית לשליטה מדויקת בהתנהגות הסוכן.  
-- **שמירת נקודות בדיקה בזרימות עבודה**: שימוש באירועים וסריאליזציה בזרימות עבודה לשמירה והמשך תהליכים סוכניים ארוכי טווח.  
-- **בחירת כלים דינמית**: שילוב RAG מעל תיאורי כלים עם הרשמת הכלים של MAF להצגת כלים רלוונטיים בלבד לשאילתא.  
-- **מסירת משימות מרובת סוכנים**: שימוש בקצוות זרימת עבודה וניתוב מותנה לתזמור מסירות בין סוכנים מיוחדים.  
+- **קומפוזיציית Middleware**: שרשור מספר מטפלי middleware (רישום, אימות, הגבלת קצב) באמצעות middleware של פונקציה ושיחה לשליטה עדינה בהתנהגות הסוכן.  
+- **נקודות ביקורת ב-Workflow**: שימוש באירועי Workflow וסידור כדי לשמור ולהמשיך תהליכים ארוכי טווח של סוכנים.  
+- **בחירת כלי דינמית**: שילוב RAG על תיאורי כלי עם רישום הכלים של MAF כדי להציג רק כלים רלוונטיים לכל שאילתה.  
+- **העברת סוכנים מרובת משתתפים**: שימוש בקשתות Workflow וניתוב מותנה לאורקסטרציה של העברות בין סוכנים מומחים.  
 
 ## אירוח סוכני LangChain / LangGraph ב-Microsoft Foundry  
 
-מסגרת Microsoft Agent היא **רב-פלטפורמית** — אינך מוגבל לסוכנים שנכתבו עם MAF. אם כבר יש לך סוכן שבנוי עם **LangChain** או **LangGraph**, תוכל להריץ אותו כסוכן **מארח ב-Microsoft Foundry** כך ש-Foundry תנהל את זמן הריצה, הסשנים, הסקיילינג, הזהות ונקודות הקצה של הפרוטוקול עבורך, בעוד שהלוגיקה של הסוכן שלך נשארת ב-LangGraph.  
+מסגרת Microsoft Agent היא **אינטרופרבילית במסגרת** — אינך מוגבל לסוכנים שנכתבו עם MAF. אם כבר יש לך סוכן שנבנה עם **LangChain** או **LangGraph**, ניתן להפעילו כסוכן **מארח ב-Microsoft Foundry** כך ש-Foundry תנהל את סביבות הריצה, הסשנים, האיזון, הזהות ונקודות הקצה של הפרוטוקול עבורך, בעוד שהלוגיקה של הסוכן נשארת ב-LangGraph.  
 
-זה נעשה עם החבילה `langchain_azure_ai.agents.hosting`, החשופה גרף LangGraph מותאם-קומפילציה מעל אותן פרוטוקולים בהם משתמשים סוכנים מאוחסנים ב-Foundry.  
+זה נעשה עם החבילה `langchain_azure_ai.agents.hosting`, הפותחת גרף קומפילציית LangGraph על פני אותם פרוטוקולים שסוכני Foundry משתמשים בהם.  
 
 **1. התקן את התוסף לאירוח:**  
 
 ```bash
 pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
-
-תוסף ה-`hosting` מתקין את ספריות הפרוטוקול Foundry: `azure-ai-agentserver-responses` (נקודת הקצה התואמת OpenAI `/responses`) ו-`azure-ai-agentserver-invocations` (נקודת הקצה הגנרית `/invocations`).  
+  
+התוסף `hosting` מתקין את ספריות פרוטוקול Foundry: `azure-ai-agentserver-responses` (נקודת הקצה `/responses` התואמת ל-OpenAI) ו-`azure-ai-agentserver-invocations` (נקודת הקצה הכללית `/invocations`).  
 
 **2. בחר פרוטוקול אירוח:**  
 
-| פרוטוקול | מחלקת מארח | נקודת קצה | שימוש בעת |
-|----------|-----------|----------|----------|
-| **Responses** | `ResponsesHostServer` | `/responses` | רוצים צ'אט תואם OpenAI, מזרימה, היסטוריית תגובות ושרשרי שיחה — ברירת המחדל המומלצת לסוכנים שיחותיים. |
-| **Invocations** | `InvocationsHostServer` | `/invocations` | צריך צורת JSON מותאמת אישית, נקודת קצה בסגנון webhook, או עיבוד לא שיחותי. |
+| פרוטוקול | מחלקת מארח | נקודת קצה | שימוש כאשר |  
+|----------|-----------|----------|----------|  
+| **Responses** | `ResponsesHostServer` | `/responses` | ברצונך לצ'אט תואם OpenAI, סטרימינג, היסטוריית תגובות ושרשור שיחות — ברירת המחדל המומלצת לסוכנים שיחותיים. |  
+| **Invocations** | `InvocationsHostServer` | `/invocations` | אתה צריך צורת JSON מותאמת אישית, נקודת קצה בסגנון webhook או עיבוד לא שיחתי. |  
 
-כיוון ש-**Responses API הוא ה-API הראשי לפיתוח סגנון סוכן ב-Foundry**, מומלץ להתחיל עם `ResponsesHostServer` לרוב הסוכנים.  
+מאחר ש-**Responses API הוא ה-API העיקרי לפיתוח בסגנון סוכן ב-Foundry**, התחל עם `ResponsesHostServer` עבור רוב הסוכנים.  
 
-**3. הגדר משתני סביבה** (`az login` קודם כדי ש-`DefaultAzureCredential` יוכל לאמת):  
+**3. הגדר משתני סביבה** (`az login` קודם כדי ש-`DefaultAzureCredential` תוכל לאמת):  
 
 ```bash
 export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
 export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
+  
+כשסוכן יפעל מאוחר יותר כסוכן מארח ב-Foundry, הפלטפורמה תזריק אוטומטית את `FOUNDRY_PROJECT_ENDPOINT`.  
 
-כאשר הסוכן ירוץ מאוחר יותר כסוכן מאוחסן ב-Foundry, הפלטפורמה תזריק אוטומטית את `FOUNDRY_PROJECT_ENDPOINT`.  
-
-**4. חשוף סוכן LangGraph על פרוטוקול Responses:**  
+**4. חשוף סוכן LangGraph באמצעות פרוטוקול Responses:**  
 
 ```python
 import os
@@ -398,7 +398,7 @@ def build_chat_model() -> ChatOpenAI:
     openai_client = project.get_openai_client()
     token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
 
-    # ChatOpenAI כאן פונה לנקודת הקצה התואמת ל-OpenAI (Responses) של פרויקט Foundry.
+    # ChatOpenAI כאן ממקדת את נקודת הקצה התואמת ל-OpenAI (תשובות) של פרויקט Foundry.
     return ChatOpenAI(
         model=deployment,
         base_url=str(openai_client.base_url),
@@ -415,24 +415,24 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+  
+הרץ אותו מקומית עם `python main.py`, ואז שלח בקשת Responses ל- `http://localhost:8088/responses`.  
 
-הרץ אותו באופן מקומי עם `python main.py`, ואז שלח בקשת Responses ל-`http://localhost:8088/responses`.  
+**התנהגויות עיקריות:**  
 
-**התנהגויות מרכזיות:**  
+- **שיחות**: לקוחות ממשיכים שיחה על ידי העברת `previous_response_id` או מזהה `conversation`. אם הגרף שלך קומפייל עם בודק LangGraph, Foundry מקשרת את מצב השיחה לנקודת הביקורת (השתמש בבודק עמיד לייצור; `MemorySaver` מתאים לבדיקות מקומיות).  
+- **אדם בלולאה**: אם הגרף שלך משתמש ב-LangGraph `interrupt()`, `ResponsesHostServer` מציג את ההפסקה התלויה כפריט `function_call` / `mcp_approval_request` ב-Responses, ולקוחות ממשיכים עם `function_call_output` / `mcp_approval_response` תואם.  
+- **פריסה ב-Foundry**: השתמש ב-CLI למפתח Azure — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (מקומי, דורש Docker), ואז `azd provision` ו- `azd deploy`. פריסת סוכן מארח דורשת את התפקיד **Foundry Project Manager**.  
 
-- **שיחות**: לקוחות ממשיכים שיחה על ידי העברת `previous_response_id` או מזהה `conversation`. אם הגרף שלך מקומפל עם LangGraph checkpointer, Foundry מקשרת את מצב השיחה לנקודת הבדיקה (יש להשתמש בנקודת בדיקה עמידה בייצור; `MemorySaver` מספק למבחן מקומי).  
-- **Human-in-the-loop**: אם הגרף שלך משתמש בפונקציית LangGraph `interrupt()`, `ResponsesHostServer` מציג את ההפסקה הממתינה כאובייקט `function_call` / `mcp_approval_request` ב-Responses, והלקוחות ממשיכים עם `function_call_output` / `mcp_approval_response` תואמים.  
-- **פריסה ב-Foundry**: השתמש ב-Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (מקומי, דורש Docker), ואז `azd provision` ו-`azd deploy`. פריסת סוכן מאוחסן דורשת את התפקיד **Foundry Project Manager**.  
-
-גרסה רצה של דוגמה זו קיימת ב-[code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). למדריך המלא (פרוטוקול Invocations, סכמה מותאמת אישית לבקשות ופתרון תקלות), ראה [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).  
+גרסה ניתנת להרצה של דוגמה זו קיימת ב-[code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). לקבלת ההדרכה המלאה (פרוטוקול Invocations, סכימות בקשה מותאמות אישית ופתרון תקלות) ראה [אירוח סוכני LangGraph כסוכנים מאוחסנים ב-Foundry](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).  
 
 ## דוגמאות קוד  
 
-דוגמאות קוד למסגרת Microsoft Agent נמצאות במאגר זה תחת הקבצים `xx-python-agent-framework` ו- `xx-dotnet-agent-framework`.  
+דוגמאות קוד עבור מסגרת Microsoft Agent זמינות במאגר זה תחת הקבצים `xx-python-agent-framework` ו-`xx-dotnet-agent-framework`.  
 
-## שאלות נוספות על מסגרת Microsoft Agent?  
+## יש לכם שאלות נוספות על מסגרת Microsoft Agent?  
 
-הצטרף ל-[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) כדי להיפגש עם לומדים אחרים, להשתתף בשעות משרד ולקבל תשובות לשאלותיך על סוכני AI.  
+הצטרפו ל-[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) כדי להיפגש עם לומדים אחרים, להשתתף בשעות משרדים ולקבל תשובות לשאלות על סוכני ה-AI שלכם.  
 ## שיעור קודם  
 
 [זיכרון לסוכני AI](../13-agent-memory/README.md)  

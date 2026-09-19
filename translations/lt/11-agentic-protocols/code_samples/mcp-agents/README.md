@@ -1,46 +1,46 @@
-# Kuriame agentų tarpusavio komunikacijos sistemas su MCP
+# Agentų tarpusavio komunikacijos sistemų kūrimas su MCP
 
-> TL;DR - Ar galima sukurti Agent2Agent komunikaciją su MCP? Taip!
+> TL;DR - Ar galima sukurti Agent2Agent komunikaciją naudojant MCP? Taip!
 
-MCP stipriai patobulėjo nuo pirminės „konteksto LLM’ams“ teikimo funkcijos. Naujausi patobulinimai, įskaitant [nutraukiamą srautą](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [inputo prašymą](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [mėginių ėmimą](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ir pranešimus ([progreso](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ir [išteklių](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), dabar MCP suteikia tvirtą pagrindą kurti sudėtingas agentų tarpusavio komunikacijos sistemas.
+MCP smarkiai patobulėjo nuo pirminio tikslo „pateikti kontekstą LLM“. Pastarieji patobulinimai, įskaitant [pertraukiamus srautus](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [išgavimą](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [pavyzdžių ėmimą](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ir pranešimus ([progreso](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ir [išteklių](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP dabar suteikia tvirtą pagrindą kurti sudėtingas agentų tarpusavio komunikacijos sistemas.
 
-## Netinkamas agento/įrankio suvokimas
+## Agentų/instrumentų klaidingas supratimas
 
-Kai vis daugiau kūrėjų tyrinėja įrankius su agentiniais elgesiais (veikia ilgą laiką, gali prireikti papildomo įvesties vykdymo metu ir pan.), plačiai paplitęs klaidingas įsitikinimas, kad MCP netinkamas, nes ankstyvieji įrankių pavyzdžiai buvo primityvūs ir orientuoti į paprastus užklausos-atsakymo modelius.
+Daugiau kūrėjų tiria agentinius įrankius (kurie veikia ilgai, gali reikėti papildomo įvesties vykdymo metu ir pan.), dažnai manoma, kad MCP netinka, nes ankstyvieji įrankių pavyzdžiai buvo paprasti užklausos-atsakymo modeliai.
 
-Šis požiūris yra pasenęs. MCP specifikacija per pastaruosius kelis mėnesius buvo smarkiai patobulinta ir dabar turi galimybių, kurios užpildo spragas ilgai veikiančių agentinių elgsenų kūrimui:
+Šis požiūris pasenęs. Per pastaruosius mėnesius MCP specifikacija smarkiai patobulinta funkcijomis, kurios užpildo spragą ilgalaikiams agentiniams veiksmams:
 
-- **Srautiniai ir daliniai rezultatai**: realaus laiko progreso atnaujinimai vykdymo metu
-- **Nutraukimo galimybė**: klientai gali prisijungti iš naujo ir tęsti po atjungimo
-- **Ištvermingumas**: rezultatai išlieka net serveriui perkraunant (pvz., per išteklių nuorodas)
-- **Daugiakartis įsikišimas**: interaktyvi įvestis vykdymo metu, per elicitation ir sampling
+- **Srautinimas ir dalinės rezultatų dalys**: Realiojo laiko pažangos atnaujinimai vykdymo metu
+- **Pertraukiamumas**: Klientai gali prisijungti iš naujo ir tęsti po atjungimo
+- **Patvarumas**: Rezultatai išlieka po serverio perkrovimo (pvz., naudojant išteklių nuorodas)
+- **Daugiapaskutiniai pokalbiai**: Interaktyvi įvestis vykdymo metu per išgavimą ir pavyzdžių ėmimą
 
-Šios funkcijos gali būti derinamos, kad būtų sukurtos sudėtingos agentinės ir daugiagentės programos, visas jas diegiant MCP protokolu.
+Šios funkcijos gali būti derinamos, leidžiant sudėtingas agentų ir daugiagentines programas, visos veikiančios MCP protokole.
 
-Nuorodai naudosime agentą kaip „įrankį“, kuris yra MCP serveryje. Tai reiškia, kad egzistuoja pagrindinė programa, kuri įgyvendina MCP klientą, užmezganti seansą su MCP serveriu ir gali kvieti agentą.
+Nuorodai, agentas bus vadinamas „įrankiu“, prieinamu MCP serveryje. Tai reiškia, kad yra host aplikacija, kuri įdiegia MCP klientą, užmezga sesiją su MCP serveriu ir gali kviesti agentą.
 
 ## Kas daro MCP įrankį „agentiniu“?
 
-Prieš pradedant diegimą, nustatykime, kokių infrastruktūros galimybių reikia ilgai veikiančių agentų palaikymui.
+Prieš įgyvendinimą, nustatykime kokių infrastruktūros galimybių reikia ilgalaikiams agentams palaikyti.
 
-> Agentu apibrėžiame vienetą, galintį veikti autonomiškai ilgas valandas, gebantį spręsti sudėtingas užduotis, kurios gali reikalauti kelių sąveikų arba koregavimų, remiantis realaus laiko grįžtamuoju ryšiu.
+> Agentą apibrėšime kaip subjekto vienetą, kuris gali autonomiškai veikti ilgesnį laiką, spręsdamas sudėtingas užduotis, kurios gali reikalauti daugelio sąveikų arba koregavimų pagal realiojo laiko grįžtamąjį ryšį.
 
-### 1. Srautinis perdavimas ir daliniai rezultatai
+### 1. Srautinimas ir dalinės rezultatų dalys
 
-Tradiciniai užklausos-atsakymo modeliai netinka ilgai trunkančioms užduotims. Agentai turi teikti:
+Tradiciniai užklausos-atsakymo modeliai netinka ilgalaikėms užduotims. Agentai turi pateikti:
 
-- realaus laiko progreso atnaujinimus
-- tarpiniai rezultatai
+- Realiojo laiko pažangos atnaujinimus
+- Tarpinius rezultatus
 
-**MCP palaikymas**: Išteklių atnaujinimo pranešimai leidžia srautinį dalinių rezultatų perdavimą, nors reikia kruopštaus dizaino, kad nekiltų konfliktų su JSON-RPC 1:1 užklausos/atsakymo modeliu.
+**MCP palaikymas**: Išteklių atnaujinimų pranešimai leidžia transliuoti dalinius rezultatus, tačiau tai reikalauja atsargaus dizaino, kad nebūtų pažeista JSON-RPC 1:1 užklausa/atsakymo schema.
 
-| Funkcija                   | Panaudojimo pavyzdys                                                                                                                                                           | MCP palaikymas                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Realiojo laiko progreso    | Vartotojas užsako kodo migracijos užduotį. Agentas srautu siunčia progresą: „10% - analizuoja priklausomybes... 25% - konvertuoja TypeScript failus... 50% - atnaujina importus...“ | ✅ Progreso pranešimai                                                                      |
-| Daliniai rezultatai        | „Sukurk knygą“ užduotis siunčia dalinius rezultatus, pvz., 1) siužeto santrauka, 2) skyrių sąrašas, 3) kiekvienas skyrius užbaigtas. Pagrindas gali tikrinti, atšaukti ar nukreipti bet kada. | ✅ Pranešimai gali būti „išplėsti“ ir apimti dalinius rezultatus, žr. pasiūlymus PR 383, 776  |
+| Funkcija                  | Naudojimo atvejis                                                                                                                                                             | MCP palaikymas                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Realiojo laiko pažanga    | Vartotojas prašo įvykdyti kodo bazės migracijos užduotį. Agentas transliuoja pažangą: „10% - analizuojamos priklausomybės... 25% - konvertuojami TypeScript failai... 50% - atnaujinami importai...“ | ✅ Progreso pranešimai                                                                     |
+| Daliniai rezultatai       | Užduotis „Sugeneruoti knygą“ transliuoja dalinius rezultatus, pvz., 1) Siužeto santrauka, 2) skyrių sąrašas, 3) kiekvienas skyrius kaip baigtas. Hostas gali bet kada peržiūrėti, atšaukti ar nukreipti. | ✅ Pranešimus galima „išplėsti“ įtraukiant dalinius rezultatus, žr. pasiūlymus PR 383, 776    |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>1 pav.: </strong> Šis diagramas pavaizduoja, kaip MCP agentas srautu siunčia realaus laiko progreso atnaujinimus ir dalinius rezultatus pagrindinei programai ilgai veikiančios užduoties metu, leidžiant vartotojui stebėti vykdymą realiuoju laiku.
+<strong>1 pav.: </strong> Šis diagramas iliustruoja, kaip MCP agentas srautu perduoda realiojo laiko pažangos atnaujinimus ir dalinius rezultatus į host aplikaciją vykdant ilgalaikę užduotį, leidžiant vartotojui stebėti vykdymą realiu laiku.
 </div>
 
 ```mermaid
@@ -50,40 +50,40 @@ sequenceDiagram
     participant Server as MCP serveris<br/>(Agentų įrankis)
 
     User->>Host: Pradėti ilgą užduotį
-    Host->>Server: Iškviesti agent_tool()
+    Host->>Server: Iškvieti agent_tool()
 
-    loop Progreso atnaujinimai
-        Server-->>Host: Progresas + dalinės rezultatų dalys
-        Host-->>User: Srautiniai atnaujinimai
+    loop Vykdymo pažanga
+        Server-->>Host: Pažanga + daliniai rezultatai
+        Host-->>User: Srautinių atnaujinimų gavimas
     end
 
     Server-->>Host: ✅ Galutinis rezultatas
     Host-->>User: Baigta
 ```
 
-### 2. Nutraukimo galimybė
+### 2. Pertraukiamumas
 
-Agentai turi tvarkyti tinklo sutrikimus tvarkingai:
+Agentai privalo tvarkyti tinklo trukdžius sklandžiai:
 
 - Prisijungti iš naujo po (kliento) atjungimo
-- Tęsti nuo likimo taško (žinučių perdavimas iš naujo)
+- Tęsti nuo paskutinio taško (pranešimų perdavimas iš naujo)
 
-**MCP palaikymas**: MCP StreamableHTTP transportas šiandien palaiko sesijos atnaujinimą ir žinučių perdavimą iš naujo su sesijos ID ir paskutinio įvykio ID. Svarbu pažymėti, kad serveris turi įgyvendinti įvykių saugyklą (EventStore), kuri leidžia leisti įvykius iš naujo, kai klientas prisijungia.  
-Atkreipkite dėmesį, kad yra bendruomenės pasiūlymas (PR #975), tyrinėjantis transporto nepriklausomas nutraukiamas srautas.
+**MCP palaikymas**: MCP StreamableHTTP transportas šiuo metu palaiko sesijos atnaujinimą ir pranešimų perdavimą naudojant sesijos ID ir paskutinio įvykio ID. Svarbu, kad serveris turi įgyvendinti EventStore, leidžiantį įvykių atkūrimą prisijungus iš naujo.  
+Atkreipkite dėmesį, kad yra bendruomenės pasiūlymas (PR #975), nagrinėjantis transporto nepriklausomų pertraukiamų srautų galimybę.
 
-| Funkcija       | Panaudojimo pavyzdys                                                                                                                                                   | MCP palaikymas                                                          |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Nutraukimo galimybė | Klientas atjungiamas vykdant ilgą užduotį. Prisijungus iš naujo, sesija atnaujinama, praleisti įvykiai atkuriami, tęsiama sklandžiai nuo paskutinio taško.             | ✅ StreamableHTTP transportas su sesijos ID, įvykių atkūrimu ir EventStore |
+| Funkcija        | Naudojimo atvejis                                                                                                                                                     | MCP palaikymas                                                             |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Pertraukiamumas | Klientas atjungiamas vykdant ilgalaikę užduotį. Prisijungus iš naujo, sesija tęsiasi su prarastų įvykių atkūrimu, toliau vykdoma be prarasto progreso.                  | ✅ StreamableHTTP transportas su sesijos ID, įvykių atkūrimu ir EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>2 pav.:</strong> Šis diagramas rodo, kaip MCP StreamableHTTP transportas ir įvykių saugykla leidžia sklandų sesijos atnaujinimą: jei klientas atjungiamas, jis gali prisijungti iš naujo ir atkurti praleistus įvykius, tęsiant užduotį neprarandant progreso.
+<strong>2 pav.: </strong> Šis diagramas rodo, kaip MCP StreamableHTTP transportas ir įvykių saugykla leidžia sklandžiai atnaujinti sesiją: kai klientas nutraukia ryšį, jis gali prisijungti iš naujo ir atkurti prarastus įvykius, tęsiant užduotį be praradimų.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Host as Pagrindinė programa<br/>(MCP klientas)
-    participant Server as MCP serveris<br/>(Agentas)
+    participant Server as MCP serveris<br/>(Agentų įrankis)
     participant Store as Įvykių saugykla
 
     User->>Host: Pradėti užduotį
@@ -93,71 +93,71 @@ sequenceDiagram
     Note over Host,Server: 💥 Ryšys prarastas
 
     Host->>Server: Prisijungti iš naujo [sesija: abc123]
-    Store-->>Server: Peržiūrėti įvykius
+    Store-->>Server: Atkurti įvykius
     Server-->>Host: Pasivyti + tęsti
-    Host-->>User: ✅ Atlikta
+    Host-->>User: ✅ Užbaigta
 ```
 
-### 3. Ištvermingumas
+### 3. Patvarumas
 
-Ilgai veikiančiams agentams reikia nuolatinės būseno:
+Ilgalaikiai agentai reikalauja nuolatinės būsenos:
 
-- Rezultatai išlieka serveriui perkrovus
-- Statusą galima gauti nepriklausomai
-- Progreso sekimas per kelis seansus
+- Rezultatai išlieka po serverio perkrovimų
+- Būsena gali būti patikrinama atskirai
+- Pažangos sekimas per kelias sesijas
 
-**MCP palaikymas**: Dabar MCP palaiko išteklių nuorodos grąžinimo tipą įrankių kvietimams. Šiandien įprasta praktika – sukurti įrankį, kuris sukuria išteklių ir tuoj pat grąžina jo nuorodą. Įrankis gali toliau spręsti užduotį fone ir atnaujinti išteklių. Klientas gali pasirinkti tikrinti šio išteklių būseną, gauti dalinius arba galutinius rezultatus (priklausomai nuo serverio siunčiamų atnaujinimų) arba prenumeruoti išteklių naujienas.
+**MCP palaikymas**: MCP dabar palaiko Išteklių nuorodų grąžinimo tipą įrankių kvietimuose. Šiuo metu įprasta sukurti įrankį, kuris sukuria išteklių ir iškart grąžina nuorodą į jį. Įrankis gali tol toliau dirbti užduotį fone ir atnaujinti išteklių. Klientas gali rinktis apklausti šį išteklių dėl būsenos arba prenumeruoti atnaujinimų pranešimus.
 
-Viena problema yra ta, kad išteklių tikrinimas arba naujienų prenumeravimas gali vartoti resursus su mastelio padariniais. Yra atviras bendruomenės pasiūlymas (įskaitant #992), nagrinėjantis galimybes įtraukti webhook'us ar trigerius, kuriuos serveris galėtų kviesti pranešdamas klientui/pagrindinei programai apie atnaujinimus.
+Vienas apribojimas yra tas, kad resursų apklausa arba prenumeravimas gali vartoti išteklius, turinčius pasekmių mastelyje. Yra atviras bendruomenės pasiūlymas (#992), nagrinėjantis galimybę įtraukti webhooks arba trigerius, kuriuos serveris galėtų kviesti informuodamas klientą/hostą apie atnaujinimus.
 
-| Funkcija  | Panaudojimo pavyzdys                                                                                                                                    | MCP palaikymas                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Ištvermingumas | Serveris sugenda vykdant duomenų migraciją. Rezultatai ir progresas išlieka po perkrovimo, klientas gali tikrinti statusą ir tęsti iš išlaikytos būsenos. | ✅ Išteklių nuorodos su nuolatiniu saugojimu ir statuso pranešimais |
+| Funkcija    | Naudojimo atvejis                                                                                                                              | MCP palaikymas                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Patvarumas | Serveris sugenda duomenų migracijos užduoties metu. Rezultatai ir pažanga išlieka perkrovus, klientas gali patikrinti būseną ir tęsti naudodamas išteklių. | ✅ Išteklių nuorodos su nuolatiniu saugojimu ir būsenos pranešimais |
 
-Šiandien dažnas modelis yra sukurti įrankį, kuris sukuria išteklių ir tuoj pat grąžina jo nuorodą. Įrankis fone tęsia užduotį, siunčia išteklių pranešimus kaip progreso atnaujinimus ar dalinius rezultatus ir atnaujina išteklių turinį pagal poreikį.
+Šiandien įprasta, kad įrankis sukurtų išteklių ir iš karto grąžintų jo nuorodą. Įrankis fone dirba užduotį, siunčia išteklių pranešimus, kurie atlieka pažangos atnaujinimų arba dalinių rezultatų funkcijas, ir atnaujina ištekliaus turinį pagal poreikį.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>3 pav.: </strong> Šiame diagramoje demonstruojama, kaip MCP agentai naudoja nuolatinius išteklius ir statuso pranešimus, kad užtikrintų, jog ilgai trunkančios užduotys išlieka ir po serverio perkrovimo, leidžiant klientams tikrinti progresą ir gauti rezultatus net ir po gedimų.
+<strong>3 pav.: </strong> Šis diagramas demonstruoja, kaip MCP agentai naudoja nuolatinius išteklius ir būsenos pranešimus, kad ilgalaikės užduotys išliktų po serverio perkrovimų, leidžiant klientams patikrinti pažangą ir gauti rezultatus net po nesėkmių.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host programėlė<br/>(MCP klientas)
+    participant Host as Pagrindinė programa<br/>(MCP klientas)
     participant Server as MCP serveris<br/>(Agentų įrankis)
-    participant DB as Nuolatinė saugykla
+    participant DB as Nuolatinė atmintis
 
     User->>Host: Pradėti užduotį
     Host->>Server: Iškviesti įrankį
-    Server->>DB: Kurti išteklius + naujinimai
-    Server-->>Host: 🔗 Išteklio nuoroda
+    Server->>DB: Kurti išteklius + atnaujinimai
+    Server-->>Host: 🔗 Išteklių nuoroda
 
-    Note over Server: 💥 Serverio perkrovimas
+    Note over Server: 💥 Serverio paleidimas iš naujo
 
     User->>Host: Patikrinti būseną
     Host->>Server: Gauti išteklius
     Server->>DB: Įkelti būseną
-    Server-->>Host: Dabartinis progresas
-    Server->>DB: Užbaigti + pranešti
-    Host-->>User: ✅ Įvykdyta
+    Server-->>Host: Esamas pažangumas
+    Server->>DB: Baigti + pranešti
+    Host-->>User: ✅ Užbaigta
 ```
 
-### 4. Daugiakartis sąveikavimas
+### 4. Daugiapaskutiniai pokalbiai
 
-Agentams dažnai reikia papildomos įvesties vykdymo metu:
+Agentai dažnai reikalauja papildomos įvesties vykdymo metu:
 
-- Žmogiško paaiškinimo arba patvirtinimo
-- Dirbtinio intelekto pagalbos sudėtingiems sprendimams
-- Dinaminio parametro koregavimo
+- Žmogaus aiškinimas arba patvirtinimas
+- Dirbtinio intelekto pagalba sudėtingiems sprendimams
+- Dinamiškas kintamųjų parametrai reguliavimas
 
-**MCP palaikymas**: pilnai palaikomas per sampling (AI įvestis) ir elicitation (žmogiška įvestis).
+**MCP palaikymas**: Visiškai palaikoma naudojant pavyzdžių ėmimą (AI įvestyje) ir išgavimą (žmogaus įvestyje).
 
-| Funkcija               | Panaudojimo pavyzdys                                                                                                                                    | MCP palaikymas                                               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Daugiakartis įsikišimas | Kelionių agentas prašo vartotojo patvirtinti kainą, tada prašo AI suvesti kelionių duomenis prieš užbaigiant rezervaciją.                              | ✅ Elicitation žmogiškai įvestiai, sampling AI įvestiai      |
+| Funkcija                | Naudojimo atvejis                                                                                                                                           | MCP palaikymas                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Daugiapaskutiniai pokalbiai | Kelionių agentas prašo vartotojo patvirtinti kainą, tada prašo AI apibendrinti kelionių duomenis prieš užbaigiant užsakymą.                                    | ✅ Išgavimas žmogaus įvesties, pavyzdžių ėmimas AI įvesties|
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>4 pav.:</strong> Šis diagramas vaizduoja, kaip MCP agentai gali interaktyviai prašyti žmogiškos įvesties arba AI pagalbos vykdymo metu, palaikydami sudėtingus, daugiakartius darbo srautus, tokius kaip patvirtinimai ir dinaminiai sprendimai.
+<strong>4 pav.: </strong> Ši schema vaizduoja, kaip MCP agentai gali interaktyviai išgauti žmogaus įvestį arba prašyti AI pagalbos vykdymo metu, palaikydami sudėtingus, daugiapaskutinius darbo srautus, tokius kaip patvirtinimai ir dinamiški sprendimai.
 </div>
 
 ```mermaid
@@ -169,39 +169,39 @@ sequenceDiagram
     User->>Host: Užsisakyti skrydį
     Host->>Server: Skambinti kelionių agentui
 
-    Server->>Host: Išaiškinimas: "Patvirtinti $500?"
-    Note over Host: Išaiškinimo atgalinis kvietimas (jei yra)
+    Server->>Host: Išsiaiškinimas: „Patvirtinti 500 $?“
+    Note over Host: Išsiaiškinimo atgalinis skambutis (jei yra)
     Host->>User: 💰 Patvirtinti kainą?
-    User->>Host: "Taip"
+    User->>Host: „Taip“
     Host->>Server: Patvirtinta
 
-    Server->>Host: Pavyzdžiavimas: "Apibendrinti duomenis"
-    Note over Host: DI atgalinis kvietimas (jei yra)
+    Server->>Host: Imties ėmimas: „Apibendrinti duomenis“
+    Note over Host: DI atgalinis skambutis (jei yra)
     Host->>Server: Ataskaitos santrauka
 
     Server->>Host: ✅ Skrydis užsakytas
 ```
 
-## Ilgai veikiančių agentų diegimas MCP - kodo apžvalga
+## Ilgalaikių agentų įgyvendinimas MCP - kodo apžvalga
 
-Šio straipsnio dalyje pateikiame [kodo saugyklą](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), kur yra pilna ilgai veikiančių agentų diegimo su MCP Python SDK pavyzdžių, naudojant StreamableHTTP transportą sesijos nutraukimo atkūrimui ir žinučių perdavimui iš naujo. Diegimas demonstruoja, kaip MCP funkcijos gali būti derinamos, kad būtų sukurtas sudėtingas agentinis elgesys.
+Šiame straipsnyje pateikiame [kodo saugyklą](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), kuriame yra pilnas ilgalaikių agentų įgyvendinimas naudojant MCP Python SDK su StreamableHTTP transportu sesijos atnaujinimui ir pranešimų perdavimui. Įgyvendinimas demonstruoja, kaip MCP galimybes galima sujungti sudėtingiems agentiniams veiksmams.
 
-Konkretus pavyzdys – serveris su dviem pagrindiniais agentų įrankiais:
+Konkrečiai, įgyvendiname serverį su dviem pagrindiniais agentų įrankiais:
 
-- **Kelionių agentas** - simuliuoja kelionių užsakymo paslaugą su kainos patvirtinimu per elicitation
-- **Tyrimų agentas** - atlieka tyrimų užduotis su AI pagalba summarizuojant sampling metu
+- **Kelionių agentas** – Simuliuoja kelionių rezervavimo paslaugą su kainos patvirtinimu išgavimu
+- **Tyrimų agentas** – Atlieka tyrimų užduotis su AI padedamomis santraukomis per pavyzdžių ėmimą
 
-Abu agentai demonstruoja realaus laiko progreso atnaujinimus, interaktyvius patvirtinimus ir pilną sesijos atnaujinimo galimybę.
+Abu agentai demonstruoja realiojo laiko pažangos atnaujinimus, interaktyvius patvirtinimus ir pilną sesijos atnaujinimo galimybes.
 
-### Pagrindinės diegimo sąvokos
+### Pagrindinės įgyvendinimo koncepcijos
 
-Toliau pateikti skyriai rodo serverio pusės agentų diegimą ir kliento pusės pagrindinės programos valdymą kiekvienai funkcijai:
+Toliau pateikiamos serverio pusės agento įgyvendinimo ir kliento pusės apdorojimo galimybės:
 
-#### Srautas ir progreso atnaujinimai - realaus laiko užduoties būsena
+#### Srautinimas ir pažangos atnaujinimai - realiojo laiko užduoties būsena
 
-Srautas leidžia agentams teikti realaus laiko progreso atnaujinimus vykdant ilgai trunkančias užduotis, informuojant vartotojus apie užduoties būseną ir tarpinį rezultatą.
+Srautinimas leidžia agentams pateikti realiojo laiko pažangos atnaujinimus vykdant ilgalaikes užduotis, informuojant vartotojus apie užduoties būseną ir tarpinius rezultatus.
 
-**Serverio diegimas (agentas siunčia progreso pranešimus):**
+**Serverio įgyvendinimas (agentas siunčia progreso pranešimus):**
 
 ```python
 # Iš server/server.py - Kelionių agentas siunčia pažangos atnaujinimus
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Dirbtinis darbo atvaizdavimas
+    await anyio.sleep(2)  # Simuliuoti darbą
 
-# Alternatyva: Įrašyti žinutes išsamiai žingsnis po žingsnio atnaujinimams
+# Alternatyva: Registruoti pranešimus detaliems žingsnis po žingsnio atnaujinimams
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Kliento diegimas (pagrindinė programa gauna progreso atnaujinimus):**
+**Kliento įgyvendinimas (hostas gauna progreso atnaujinimus):**
 
 ```python
-# Iš client/client.py - Kliento realaus laiko pranešimų apdorojimas
+# Iš client/client.py - Klientas, tvarkantis realaus laiko pranešimus
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,18 +236,18 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Užregistruoti žinutės apdorotoją kuriant sesiją
+# Užregistruoti pranešimų apdorotoją, kai kuriama sesija
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - vartotojo įvesties prašymas
+#### Išgavimas - vartotojo įvesties prašymas
 
-Elicitation leidžia agentams paprašyti vartotojo įvesties vykdymo metu. Tai svarbu patvirtinimams, paaiškinimams ar patvirtinimams ilgai trunkančių užduočių procese.
+Išgavimas leidžia agentams prašyti vartotojo įvesties vykdymo metu. Tai būtina patvirtinimams, paaiškinimams ar patvirtinimams per ilgalaikes užduotis.
 
-**Serverio diegimas (agentas prašo patvirtinimo):**
+**Serverio įgyvendinimas (agentas prašo patvirtinimo):**
 
 ```python
 # Iš server/server.py - Kelionių agentas prašo kainos patvirtinimo
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Tęsti rezervavimą
+    # Tęsti rezervaciją
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Atšaukti rezervavimą
+    # Atšaukti rezervaciją
     booking_cancelled = True
 ```
 
-**Kliento diegimas (pagrindinė programa suteikia elicitation callback):**
+**Kliento įgyvendinimas (hostas teikia išgavimų atgalinį kvietimą):**
 
 ```python
-# Iš client/client.py - Kliento užklausų prašymų tvarkymas
+# Iš client/client.py - Kliento užklausų apdorojimas
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,18 +286,18 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Užregistruoti atgalinio kvietimo funkciją kuriant sesiją
+# Užregistruoti atgalinį kvietimą kuriant sesiją
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - AI pagalbos prašymas
+#### Pavyzdžių ėmimas - AI pagalbos prašymas
 
-Sampling leidžia agentams kreiptis į LLM dėl sudėtingų sprendimų ar turinio generavimo vykdymo metu. Tai palaiko hibridinius žmogiško-AI darbų srautus.
+Pavyzdžių ėmimas leidžia agentams prašyti LLM pagalbos sudėtingiems sprendimams ar turinio generavimui vykdymo metu. Tai leidžia hibridinius žmogaus ir AI darbo srautus.
 
-**Serverio diegimas (agentas prašo AI pagalbos):**
+**Serverio įgyvendinimas (agentas prašo AI pagalbos):**
 
 ```python
 # Iš server/server.py - Tyrimų agentas prašo AI santraukos
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Kliento diegimas (pagrindinė programa suteikia sampling callback):**
+**Kliento įgyvendinimas (hostas teikia pavyzdžių ėmimo atgalinį kvietimą):**
 
 ```python
-# Iš client/client.py - Kliento užklausų dėl mėginių tvarkymas
+# Iš client/client.py - Kliento užklausų apdorojimas dėl mėginių ėmimo
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # Realiame taikyme tai galėtų iškviesti LLM API
-    # Demonstravimo tikslais pateikiame imituotą atsakymą
+    # Tikroje programoje tai galėtų iškviesti LLM API
+    # Demonstraciniais tikslais pateikiame imitacinį atsakymą
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Užregistruokite atgalinį kvietimą kuriant sesiją
+# Užregistruoti atgalinio kvietimo funkciją kuriant sesiją
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Nutraukimo galimybė - sesijos tęstinumas po atjungimų
+#### Pertraukiamumas - sesijos tęstinumas po atjungimų
 
-Nutraukimo galimybė užtikrina, kad ilgai trunkančios agentų užduotys gali išgyventi kliento atjungimus ir sklandžiai tęstis prisijungus iš naujo. Tai įgyvendinama per įvykių saugyklas ir tęstinumo žetonus.
+Pertraukiamumas užtikrina, kad ilgalaikės agentų užduotys gali išlikti net praradus ryšį ir toliau sklandžiai tęstis prisijungus iš naujo. Tai įgyvendinama per įvykių saugyklas ir atnaujinimo žetonus.
 
-**Įvykių saugyklos diegimas (serveris saugo sesijos būseną):**
+**Įvykių saugyklos įgyvendinimas (serveris saugo sesijos būseną):**
 
 ```python
-# Iš server/event_store.py - Paprasta įvykių saugykla atmintyje
+# Iš server/event_store.py - Paprasta atmintyje veikianti įvykių saugykla
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,15 +367,30 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Rasti įvykius po paskutinio žinomo įvykio ir juos paleisti iš naujo
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Peržaiskite tik vėlesnius įvykius iš sesijos pradinio srauto.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# Iš server/server.py - Perduodama įvykių saugykla sesijų tvarkytojui
+        return stream_id
+
+# Iš server/server.py - Įvykių saugyklos perdavimas sesijos valdytojui
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Sukurti sesijų tvarkytuvą su įvykių saugykla tęsimui
+    # Sukurkite sesijos valdytoją su įvykių saugykla tęsimui
     session_manager = StreamableHTTPSessionManager(
         app=server,
         event_store=event_store,  # Įvykių saugykla leidžia tęsti sesiją
@@ -385,22 +400,22 @@ def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Naudojimas: Inicijuoti su įvykių saugykla
+# Naudojimas: Inicijuokite su įvykių saugykla
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Kliento metaduomenys su tęstinumo žetonu (klientas prisijungia iš naujo naudodamas saugotą būseną):**
+**Kliento meta duomenys su atnaujinimo žetonu (klientas jungiasi iš naujo naudodamas saugomą būseną):**
 
 ```python
-# Iš client/client.py - Kliento atnaujinimas su metaduomenimis
+# Iš client/client.py - Kliento tęsinys su metaduomenimis
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Naudokite esamą atnaujinimo žetoną tęsti nuo ten, kur baigėme
+    # Naudokite esamą tęsinio žetoną, kad tęstumėte nuo ten, kur baigėme
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Sukurkite atgalinį kvietimą (callback) atnaujinimo žetonui išsaugoti gavus
+    # Sukurkite atgalinį kvietimą, kad išsaugotumėte tęsinio žetoną, kai jis gaunamas
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Siųsti užklausą su atnaujinimo metaduomenimis
+# Siųskite užklausą su tęsinio metaduomenimis
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,23 +437,23 @@ result = await session.send_request(
 )
 ```
 
-Pagrindinė programa laiko sesijos ID ir tęstinumo žetonus lokaliai, leidžiant jai prisijungti prie esamų sesijų neprarandant progreso ar būsenos.
+Host aplikacija vietoje laiko sesijų ID ir atnaujinimo žetonus, leidžiančius prijungti prie esamų sesijų neprarandant progreso ar būsenos.
 
 ### Kodo organizacija
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>5 pav.:</strong> MCP pagrindu sukurta agentų sistemos architektūra
+<strong>5 pav.: </strong> MCP pagrindu veikianti agentų sistemos architektūra
 </div>
 
 ```mermaid
 graph LR
-    User([Vartotojas]) -->|"Užduotis"| Host["Serveris<br/>(MCP Klientas)"]
-    Host -->|įrankių sąrašas| Server[MCP Serveris]
-    Server -->|Atveria| AgentsTools[Agentus kaip įrankius]
+    User([Vartotojas]) -->|"Užduotis"| Host["Šeimininkas<br/>(MCP klientas)"]
+    Host -->|įrankių sąrašas| Server[MCP serveris]
+    Server -->|Eksponuoja| AgentsTools[Agentus kaip įrankius]
     AgentsTools -->|Užduotis| AgentA[Kelionių agentas]
     AgentsTools -->|Užduotis| AgentB[Tyrimų agentas]
 
-    Host -->|Stebi| StateUpdates[Pažangą ir būsenos atnaujinimus]
+    Host -->|Stebi| StateUpdates[Progreso ir būsenos atnaujinimus]
     Server -->|Skelbia| StateUpdates
 
     class User user;
@@ -448,64 +463,64 @@ graph LR
 
 **Svarbūs failai:**
 
-- **`server/server.py`** - Nutraukiamas MCP serveris su kelionių ir tyrimų agentais, demonstruojantis elicitation, sampling ir progreso atnaujinimus
-- **`client/client.py`** - Interaktyvi pagrindinė programa su tęstinumo palaikymu, callback tvarkyklėmis ir žetonų valdymu
-- **`server/event_store.py`** - Įvykių saugyklos diegimas, leidžiantis sesijos atnaujinimą ir žinučių perdavimą iš naujo
+- **`server/server.py`** - Pertraukiamas MCP serveris su kelionių ir tyrimų agentais, demonstruojančiais išgavimą, pavyzdžių ėmimą ir pažangos atnaujinimus
+- **`client/client.py`** - Interaktyvi host aplikacija su sesijos atnaujinimo palaikymu, atgalinių kvietimų apdorojimu ir žetonų valdymu
+- **`server/event_store.py`** - Įvykių saugyklos įgyvendinimas, leidžiantis sesijos atnaujinimą ir pranešimų perdavimą
 
-## Plėtojimas į daugiagentinę komunikaciją MCP
+## Plečiant iki daugiagentinės komunikacijos su MCP
 
-Aukščiau pateiktą diegimą galima plėtoti daugiagentinėms sistemoms, stiprinant pagrindinės programos intelektą ir apimtį:
+Aukščiau pateiktą įgyvendinimą galima išplėsti į daugiagentines sistemas praplėčiant host aplikacijos intelektą ir aprėptį:
 
-- **Inteligentiška užduočių skaidymas**: pagrindinė programa analizuoja sudėtingus vartotojo prašymus ir skaido juos į potaskius skirtingiems specializuotiems agentams
-- **Daugelio serverių koordinavimas**: pagrindinė programa palaiko ryšius su keliais MCP serveriais, kiekvienas iš jų atveria skirtingas agentų galimybes
-- **Užduoties būsenos valdymas**: pagrindinė programa seka progresą per kelias vienu metu vykstančias agentų užduotis, tvarko priklausomybes ir seką
-- **Atsparumas ir pakartojimai**: pagrindinė programa valdo gedimus, įgyvendina pakartotinio bandymo logiką ir nukreipia užduotis, kai agentai tampa nepasiekiami
-- **Rezultatų sintezė**: pagrindinė programa kombinuoja kelių agentų rezultatus į nuoseklius galutinius rezultatus
+- **Išmanus užduočių skaidymas**: Hostas analizuoja kompleksiškas vartotojo užklausas ir išskaido jas į potaskius skirtingiems specializuotiems agentams
+- **Daugių serverių koordinacija**: Hostas palaiko ryšius su keliomis MCP serverių instancijomis, kiekvienas atskleidžia skirtingas agentų galimybes
+- **Užduočių būsenos valdymas**: Hostas seka pažangą per kelių agentų užduotis, tvarkydamas priklausomybes ir seką
+- **Atsparumas ir pakartotinis bandymas**: Hostas tvarko gedimus, įgyvendina bandymų logiką ir peradresuoja užduotis nepasiekiamiems agentams
+- **Rezultatų sintezė**: Hostas apjungia kelių agentų išvestis į nuoseklius galutinius rezultatus
 
-Pagrindinė programa vystosi iš paprasto kliento į intelektualų organizatorių, koordinuojantį paskelbtas agentų galimybes, tačiau išlaikant MCP protokolo pagrindą.
+Hostas vystosi nuo paprasto kliento į intelektualų organizatorių, koordinuojantį išskirstytas agentų galimybes, tuo pat metu išlaikant MCP protokolo pagrindą.
 
-## Išvados
+## Išvada
 
-MCP patobulintos funkcijos - išteklių pranešimai, elicitation/sampling, nutraukiami srautai ir nuolatiniai ištekliai - leidžia sudėtingas agentų tarpusavio sąveikas išlaikant paprastą protokolą.
+MCP patobulintos galimybės – išteklių pranešimai, išgavimas/pavyzdžių ėmimas, pertraukiami srautai ir nuolatiniai ištekliai – leidžia sudėtingas agentų tarpusavio sąveikas išlaikant paprastą protokolą.
 
 ## Pradžia
 
-Norite sukurti savo agent2agent sistemą? Sekite šiuos žingsnius:
+Pasiruošę kurti savo agent2agent sistemą? Vykdykite šiuos veiksmus:
 
-### 1. Paleiskite demonstraciją
+### 1. Paleiskite demonstracinę versiją
 
 ```bash
-# Paleiskite serverį su įvykių saugykla atnaujinimui
+# Paleiskite serverį su įvykių saugykla tęsimui
 python -m server.server --port 8006
 
-# Kitoje terminalo langelyje paleiskite interaktyvų klientą
+# Kitame terminale paleiskite interaktyvų klientą
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Galimi komandos interaktyviame režime:**
+**Galimi komandų pasirinkimai interaktyviame režime:**
 
-- `travel_agent` - užsisakykite kelionę su kainos patvirtinimu per elicitation
-- `research_agent` - tyrinėkite temas su AI pagalba per sampling
-- `list` - parodyti visus turimus įrankius
-- `clean-tokens` - išvalyti tęstinumo žetonus
-- `help` - parodyti išsamią komandos pagalbą
-- `quit` - išeiti iš kliento
+- `travel_agent` – Rezervuoti keliones su kainos patvirtinimu per išgavimą
+- `research_agent` – Tyrinėti temas su AI pagalba santraukoms per pavyzdžių ėmimą
+- `list` – Rodyti visas galimas priemones
+- `clean-tokens` – Išvalyti sesijos atnaujinimo žetonus
+- `help` – Rodyti detalų komandų pagalbos meniu
+- `quit` – Išeiti iš kliento
 
-### 2. Išbandykite tęstinumo galimybes
+### 2. Išbandykite sesijos atnaujinimo galimybes
 
 - Pradėkite ilgai veikiančią agento užduotį (pvz., `travel_agent`)
 - Nutraukite klientą vykdymo metu (Ctrl+C)
-- Iš naujo paleiskite klientą - jis automatiškai tęsis nuo paskutinio taško
+- Paleiskite klientą iš naujo - jis automatiškai atnaujins vykdymą nuo paskutinės būsenos
 
 ### 3. Tyrinėkite ir plėtokite
 
-- **Tyrinėkite pavyzdžius**: Peržiūrėkite šią [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Prisijunkite prie bendruomenės**: Dalyvaukite MCP diskusijose GitHub'e
-- **Eksperimentuokite**: Pradėkite nuo paprastos ilgai trunkančios užduoties ir palaipsniui pridėkite srautinį perdavimą, nutraukiamumą ir daugiagentę koordinaciją
+- **Tyrinėkite pavyzdžius**: Peržiūrėkite [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Prisijunkite prie bendruomenės**: Dalyvaukite MCP diskusijose GitHub
+- **Eksperimentuokite**: Pradėkite nuo paprastos ilgalaikės užduoties ir palaipsniui pridėkite srautinimą, pertraukiamumą ir daugiagentinę koordinaciją
 
-Tai demonstruoja, kaip MCP leidžia intelektualų agentų elgesį, išlaikant įrankiais pagrįstą paprastumą.
+Tai demonstruoja, kaip MCP leidžia įgyvendinti išmanų agentų elgesį išlaikant įrankių paprastumą.
 
-MCP protokolo specifikacija sparčiai tobulėja; rekomenduojame peržiūrėti oficialią dokumentacijos svetainę naujausioms atnaujinimų versijoms - https://modelcontextprotocol.io/introduction
+Apskritai MCP protokolo specifikacija sparčiai vystosi; skaitytojams rekomenduojama peržiūrėti oficialią dokumentacijos svetainę naujausioms naujienoms – https://modelcontextprotocol.io/introduction
 
 ---
 

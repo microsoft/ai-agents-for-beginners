@@ -452,7 +452,6 @@ O-सीरीज मॉडल Responses API पर माइग्रेट क
 
 | Chat Completions (o-सीरीज) | Responses API | नोट्स |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | उच्च सेट करें (4096+) — तर्क टोकन सीमा के खिलाफ गिनते हैं |
 | `reasoning_effort` | `reasoning.effort` | यदि मौजूद हो तो यथावत रखें (कम/मध्यम/उच्च) |
 | `temperature` | हटा दें या `1` सेट करें | O-सीरीज़ केवल `1` स्वीकार करती है |

@@ -2,66 +2,66 @@
 
 ![Vytváranie lokálnych AI agentov](../../../translated_images/sk/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Predchádzajúca lekcia škálovala agentov *dole* do cloudu. Táto ich prináša *hore* na jedno zariadenie. Na konci budete mať fungujúceho inžinierskeho asistenta, ktorý rozumuje, volá nástroje, číta vaše súbory a vyhľadáva vo vašej dokumentácii — **bez jediného volania do cloudu na inferenciu.**
+Predchádzajúca lekcia škálovala agentov *hore* do cloudu. Táto ich prináša *dole* na jeden stroj. Na konci budete mať fungujúceho inžinierskeho asistenta, ktorý rozmýšľa, volá nástroje, číta vaše súbory a vyhľadáva vo vašej dokumentácii — **bez jedinej cloudovej inferenčnej požiadavky.**
 
-Prečo by ste to chceli? Tri dôvody, ktoré sa často objavujú v skutočnej inžinierskej práci:
+Prečo by ste to chceli? Tri dôvody, ktoré sa neustále objavujú v reálnej inžinierskej práci:
 
-- **Súkromie.** Kód a dokumenty nikdy neopustia zariadenie. Žiadny prompt, žiadny úryvok, žiadne zákaznícke dáta neprechádzajú cez sieťovú hranicu.
-- **Náklady.** Lokálna inferencia nemá žiadny poplatok za token. Môžete iterovať celý deň za cenu elektriny.
-- **Offline.** Na lietadle, v bezpečnej oblasti alebo počas výpadku agent stále funguje.
+- **Súkromie.** Kód a dokumenty nikdy neopúšťajú stroj. Žiadny prompt, žiadny snippet, žiadne zákaznícke dáta neprechádzajú cez sieťovú hranicu.
+- **Náklady.** Lokálny inference nemá žiadnu fakturáciu za tokeny. Môžete iterovať celý deň za cenu elektriny.
+- **Offline.** V lietadle, v bezpečnom zariadení alebo počas výpadku agent stále funguje.
 
-Podmienkou je, že vymieňate frontier cloudový model za **malý jazykový model (SLM)** bežiaci na vašom CPU, GPU alebo NPU. Táto lekcia je o budovaní agentov, ktorí sú *dobrí* v rámci týchto obmedzení, namiesto predstierania, že obmedzenia neexistujú.
+Háčik je v tom, že vymieňate špičkový cloudový model za **Malý jazykový model (SLM)** bežiaci na vašom CPU, GPU alebo NPU. Táto lekcia je o budovaní agentov, ktorí sú *dobrí* v rámci tohto obmedzenia, namiesto predstierania, že toto obmedzenie neexistuje.
 
 ## Úvod
 
-Táto lekcia pokrýva:
+Táto lekcia pokryje:
 
-- **Malé jazykové modely (SLM)** — čo sú zač, kde vynikajú a kde nie.
-- **Microsoft Foundry Local** — runtime, ktorý sťahuje a obsluhuje modely lokálne cez **API kompatibilné s OpenAI**.
-- **Qwen modely na volanie funkcií** — SLM, ktoré spoľahlivo generujú volania nástrojov, čo umožňuje lokálnym *agentom* (nielen chatom) fungovať.
-- **Lokálne nástroje, lokálny RAG a lokálne MCP** — umožnenie schopností agenta bez cloudu.
-- **Hybridné vzory** — kedy zanechať veci lokálne a kedy siahnuť do cloudu.
+- **Malé jazykové modely (SLM)** — čo sú, kde vynikajú a kde nie.
+- **Microsoft Foundry Local** — runtime, ktorý sťahuje a poskytuje modely na zariadení cez **OpenAI-kompatibilné API**.
+- **Qwen modely pre volanie funkcií** — SLM, ktoré spoľahlivo generujú volania nástrojov, čo umožňuje lokálnych *agentov* (nielen lokálny chat).
+- **Lokálne nástroje, lokálny RAG a lokálny MCP** — dodávajú schopnosti agentovi bez cloudu.
+- **Hybridné vzory** — kedy zostať lokálny a kedy siahnuť do cloudu.
 
-## Výukové ciele
+## Ciele učenia
 
 Po dokončení tejto lekcie budete vedieť:
 
-- Vysvetliť kompromisy SLM a vybrať vhodné prípady použitia lokálnych agentov.
-- Lokálne nasadiť Qwen model pomocou Foundry Local a pripojiť sa k nemu cez API kompatibilné s OpenAI.
-- Vybudovať agenta volajúceho nástroje, ktorý beží úplne na vašom pracovisku.
-- Pridať lokálny RAG nad vlastnými dokumentmi použitím lokálnej vektorovej databázy (Chroma).
-- Pripojiť agenta k lokálnemu MCP serveru a rozumieť hybridným lokálnym/cloudovým návrhom.
+- Vysvetliť kompromisy SLM a vybrať vhodné použitia lokálnych agentov.
+- Poskytnúť Qwen model lokálne s Foundry Local a pripojiť sa k nemu cez OpenAI-kompatibilný endpoint.
+- Postaviť agenta volajúceho nástroje, ktorý pracuje výhradne na vašom pracovnom stanici.
+- Pridať lokálny RAG nad vlastnými dokumentmi pomocou lokálnej vektorovej databázy (Chroma).
+- Pripojiť agenta na lokálny MCP server a rozmýšľať o hybridných lokálnych/cloudových návrhoch.
 
 ## Predpoklady
 
-Táto lekcia predpokladá, že ste dokončili predchádzajúce lekcie a ste oboznámení s:
+Táto lekcia predpokladá, že ste absolvovali predchádzajúce lekcie a ste pohodlní s:
 
-- [Použitie nástrojov](../04-tool-use/README.md) (lekcia 4) a [Agentic RAG](../05-agentic-rag/README.md) (lekcia 5).
-- [Agentic Protokoly / MCP](../11-agentic-protocols/README.md) (lekcia 11).
-- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (lekcia 14).
+- [Použitie nástrojov](../04-tool-use/README.md) (Lekcia 4) a [Agentic RAG](../05-agentic-rag/README.md) (Lekcia 5).
+- [Agentic Protokoly / MCP](../11-agentic-protocols/README.md) (Lekcia 11).
+- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcia 14).
 
-Tiež budete potrebovať:
+Budete tiež potrebovať:
 
-- Vývojársku pracovnú stanicu. **8 GB RAM je realistický minimál**, 16 GB+ je komfortné. GPU alebo NPU pomáha, ale nie je povinné.
-- Nainštalovaný **Microsoft Foundry Local** (pozrite si časť inštalácie nižšie).
-- Python 3.12+ a balíčky z repozitára [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` a `chromadb` pre túto lekciu.
+- Vývojársku pracovnú stanicu. **8 GB RAM je realistické minimum**; 16 GB a viac je pohodlné. GPU alebo NPU pomáhajú, ale nie sú povinné.
+- **Microsoft Foundry Local** nainštalovaný (pozri sekciu nastavenia nižšie).
+- Python 3.12+ a balíčky v repozitári [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` a `chromadb` pre túto lekciu.
 
-## Malé jazykové modely: správny nástroj pre lokálnu prácu
+## Malé jazykové modely: Správny nástroj pre lokálnu prácu
 
-Frontier cloudový model má stovky miliárd parametrov a dátové centrum za sebou. SLM má pár miliárd parametrov a musí sa zmestiť do RAM vášho laptopu. Tento rozdiel nastavuje jasné očakávania.
+Špičkový cloudový model má stovky miliárd parametrov a dátové centrum za sebou. SLM má pár miliárd parametrov a musí sa zmestiť do RAM vášho notebooku. Tento rozdiel nastavuje jasné očakávania.
 
-**SLMy sú dobré v:**
+**SLM sú dobré v:**
 
-- Štruktúrovaných, ohraničených úlohách — klasifikácia, extrakcia, sumarizácia známeho dokumentu.
-- **Volanie nástrojov** — rozhodovanie, ktorú funkciu volať a s akými argumentmi.
+- Štruktúrovaných, ohraničených úlohách — klasifikácia, extrakcia, zhrnutie známeho dokumentu.
+- **Volaní nástrojov** — rozhodovanie, ktorú funkciu zavolať a s akými argumentmi.
 - Rýchlej, lacnej, súkromnej iterácii na vlastných dátach.
 
-**SLMy sú slabšie v:**
+**SLM sú slabšie v:**
 
-- Otvorených, viacnásobných deduktívnych krokoch na veľkom kontekte.
-- Širokej všeobecnej znalosti sveta (videli menej a viac zabúdajú).
+- Otvorenom, viacstupňovom uvažovaní cez veľký kontext.
+- Širokých vedomostiach o svete (videli menej a viac zabúdajú).
 
-Víťazná stratégia pre lokálnych agentov je teda: **nechajte SLM orchestráciu a ťažké úlohy prenechajte nástrojom.** Model nemusí *poznať* váš kód — musí vedieť, kedy volať `read_file` a `search_docs`. To priamo využíva silné stránky SLM.
+Víťazná stratégia pre lokálnych agentov je teda: **nechajte SLM orchestrovať a nechajte nástroje robiť ťažkú prácu.** Model nemusí *poznať* váš kód; musí vedieť, kedy volať `read_file` a `search_docs`. To priamo hrá do silných stránok SLM.
 
 ```mermaid
 flowchart LR
@@ -77,16 +77,16 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** je ľahký runtime, ktorý sťahuje, spravuje a obsluhuje modely úplne lokálne na vašom zariadení. Jeho najdôležitejšou funkciou pre nás je, že vystavuje **HTTP endpoint kompatibilný s OpenAI** — čo znamená, že OpenAI SDK a klient OpenAI v Microsoft Agent Framework fungujú s ním zmenou len `base_url`. Všetko, čo ste sa naučili o tvorbe agentov, sa prenáša priamo; len endpoint sa presúva z cloudu na `localhost`.
+**Microsoft Foundry Local** je ľahký runtime, ktorý sťahuje, spravuje a poskytuje modely výhradne na vašom stroji. Jeho najdôležitejšou vlastnosťou pre nás je, že sprístupňuje **OpenAI-kompatibilný HTTP endpoint** — čo znamená, že OpenAI SDK a klient Microsoft Agent Frameworku pre OpenAI s ním pracujú len so zmenou `base_url`. Všetko, čo ste sa naučili o budovaní agentov, sa prenáša priamo; mení sa iba endpoint z cloudového na `localhost`.
 
-Foundry Local tiež automaticky vyberie najvhodnejšiu verziu modelu pre váš hardvér — zostavu pre CPU, CUDA/GPU alebo NPU — takže nemusíte ručne optimalizovať pre každé zariadenie.
+Foundry Local tiež automaticky vyberie najlepší build modelu pre váš hardvér — CPU build, CUDA/GPU build alebo NPU build — takže nemusíte manuálne optimalizovať pre každý stroj.
 
-### Inštalácia
+### Nastavenie
 
-Nainštalujte Foundry Local (pozrite si [dokumentáciu](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) pre váš OS) a potom overte jeho funkčnosť:
+Nainštalujte Foundry Local (pozrite si [dokumentáciu](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) pre váš OS), potom potvrďte, že funguje:
 
 ```bash
-# Inštalovať (napríklad; postupujte podľa dokumentácie pre vašu platformu)
+# Inštalujte (napríklad; riaďte sa dokumentáciou pre vašu platformu)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
@@ -95,63 +95,63 @@ foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Keď je služba spustená, máte lokálny endpoint kompatibilný s OpenAI (typicky `http://localhost:PORT/v1`). Notebook používa `foundry-local-sdk` na automatické zistenie endpointu, takže nemusíte manuálne zadávať port.
+Keď služba beží, máte lokálny OpenAI-kompatibilný endpoint (typicky `http://localhost:PORT/v1`). Notebok používa `foundry-local-sdk` na automatické zistenie endpointu, takže nemusíte tvrdoko kódovať port.
 
-## Qwen volanie funkcií: prečo je to dôležité
+## Qwen volanie funkcií: Prečo je dôležité
 
-Agent je agent iba vtedy, ak môže volať nástroje. Mnoho SLM dokáže chatovať, ale produkuje nespoľahlivé, chybné volania nástrojov. **Qwen** modely sú trénované na volanie funkcií a konzistentne generujú správne štruktúry volaní nástrojov — čo presne robí lokálny chat model lokálnym *agentom*.
+Agent je agentom iba vtedy, ak dokáže volať nástroje. Mnohé SLM vedia chatovať, ale generujú nespoľahlivé, nesprávne volania nástrojov. **Qwen** modely sú trénované pre volanie funkcií a konzistentne generujú správne štruktúry volaní nástrojov — presne to premieňa lokálny chat model na lokálneho *agenta*.
 
-Priebeh je štandardný nástrojový cyklus, ktorý už poznáte, len beží lokálne:
+Priebeh je štandardná slučka volania nástrojov, ktorú už poznáte, len beží na zariadení:
 
 ```mermaid
 sequenceDiagram
     participant U as Používateľ
-    participant A as Qwen Agent (lokálny)
+    participant A as Agent Qwen (lokálny)
     participant T as Lokálny nástroj
-    U->>A: „Čo robí auth.py?“
-    A->>A: Rozhodni: zavolať read_file
+    U->>A: "Čo robí auth.py?"
+    A->>A: Rozhodnúť: zavolať read_file
     A->>T: read_file("auth.py")
     T-->>A: obsah súboru
-    A->>A: Analyzuj obsah
+    A->>A: Uvažovať nad obsahom
     A-->>U: Vysvetlenie
 ```
 
 ## Lokálny RAG
 
-Vyhľadávanie v dokumentácii je miesto, kde lokálni agenti dokazujú svoju hodnotu. Namiesto toho, aby ste dúfali, že SLM si zapamätal dokumentáciu vášho rámca, vložíte ju do **lokálnej vektorovej databázy** a necháte agenta vybrať relevantné časti na požiadanie.
+Vyhľadávanie v dokumentácii je miesto, kde lokálni agenti ukazujú svoju hodnotu. Namiesto spoliehania sa na to, že SLM si zapamätal dokumentáciu vášho frameworku, vložíte tieto dokumenty do **lokálnej vektorovej databázy** a necháte agenta vyhľadávať relevantné časti na požiadanie.
 
-Používame **Chroma**, vstavnú vektorovú databázu, ktorá beží v procese bez potreby servera. Rúrka je úplne lokálna: lokálny model na vkladanie → lokálne vektory → lokálne vyhľadávanie → lokálny SLM.
+Používame **Chroma**, zabudovanú vektorovú databázu, ktorá beží v rámci procesu bez správy servera. Potrubie je úplne lokálne: lokálny embedding model → lokálne vektory → lokálne vyhľadávanie → lokálny SLM.
 
 ```mermaid
 flowchart TB
-    D[Vaše dokumenty / kód] --> E[Lokálny model vkladania]
+    D[Vaše dokumenty / kód] --> E[Lokálny embedding model]
     E --> V[(Chroma vektorová databáza - na disku)]
     Q[Dotaz agenta] --> QE[Lokálne vložiť dotaz]
     QE --> V
-    V -->|top-k časti| A[Agent Qwen]
-    A --> Ans[Podložená odpoveď]
+    V -->|top-k útržky| A[Qwen agent]
+    A --> Ans[Zakotvená odpoveď]
 ```
 
-Toto je rovnaký vzor Agentic RAG z Lekcie 5 — jediná zmena je, že všetky komponenty bežia na vašom zariadení.
+Toto je ten istý vzor Agentic RAG z Lekcie 5 — jediná zmena je, že každá súčasť beží na vašom stroji.
 
 ## Lokálne MCP servery
 
-[MCP](../11-agentic-protocols/README.md) je transport, nie cloudová služba. MCP server môže bežať ako lokálny proces na `stdio`, vystavujúc nástroje agentovi podľa štandardného protokolu. To vám umožňuje opätovne používať rastúci ekosystém MCP serverov — prístup k súborovému systému, git operácie, databázové dopyty — úplne offline.
+[MCP](../11-agentic-protocols/README.md) je transport, nie cloudová služba. MCP server môže bežať ako lokálny proces na `stdio`, sprístupňujúc nástroje agentovi cez štandardný protokol. To umožňuje znovuvyužitie rastúcej ekosystému MCP serverov — prístup k súborovému systému, git operácie, dopyty do databázy — výhradne offline.
 
-Bezpečnostný prístup je odlišný od cloudu, ale nie absentný: lokálny MCP server beží s právami vášho používateľa, preto mu obmedzte prístup (napríklad na adresár projektu, nie celý domovský priečinok) a považujte jeho výstupy za vstupy na overenie.
+Bezpečnostná pozícia je iná ako v cloude, ale nie absentná: lokálny MCP server stále beží s oprávneniami vášho používateľa, preto ohraničte jeho dosah (napríklad na adresár projektu, nie na celý domovský adresár) a považujte jeho výstupy za vstupy, ktoré je potrebné overiť.
 
 ## Hybridné cloudové a lokálne vzory
 
-Lokálny prístup neznamená iba lokálny. Zrelé systémy smerujú podľa citlivosti a náročnosti:
+Lokálne prioritné neznamená len lokálne. Zrelé systémy smerujú podľa citlivosti a náročnosti:
 
 | Situácia | Kde beží |
 | --- | --- |
-| Citlivý kód / dáta alebo offline | **Lokálny SLM** |
+| Citlivý kód / dáta, alebo offline | **Lokálny SLM** |
 | Jednoduchá, ohraničená úloha | **Lokálny SLM** (lacný, rýchly) |
-| Náročné viackrokové dedukcie na necitlivých dátach | **Cloud model** |
-| Všetko počas výpadku | **Lokálny SLM** (pohotové zníženie kvality) |
+| Náročné viacstupňové uvažovanie o necitlivých dátach | **Cloudový model** |
+| Všetko počas výpadku | **Lokálny SLM** (jemné degradovanie) |
 
-Toto odzrkadľuje myšlienku **smerovania modelov** z Lekcie 16 — okrem toho, že jeden z „modelov“ je teraz vaše zariadenie. Robustný návrh sa v prípade nedostupnosti cloudu vráti k lokálnemu modelu, takže agent znižuje kvalitu namiesto úplnej poruchy.
+Toto odráža myšlienku **modelového smerovania** z Lekcie 16 — s tým rozdielom, že jeden z „modelov“ je teraz váš vlastný stroj. Robustný dizajn sa vracia k lokálnemu modelu, keď cloud nie je dostupný, takže agent degraduje kvalitu namiesto úplného zlyhania.
 
 ```mermaid
 flowchart LR
@@ -159,37 +159,37 @@ flowchart LR
     S -->|áno| L[Lokálny SLM]
     S -->|nie| C{Vyžaduje hlboké uvažovanie?}
     C -->|nie| L
-    C -->|áno| Cloud[Model v cloude]
+    C -->|áno| Cloud[Cloudový model]
     L --> Out[Odpoveď]
     Cloud --> Out
 ```
 
-## Praktická časť: Lokálny inžiniersky asistent
+## Praktická cvičenie: Lokálny inžiniersky asistent
 
-Otvorte [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) a prejdite si ju. Postavíte **lokálneho inžinierskeho asistenta**, ktorý beží úplne na vašom zariadení a dokáže:
+Otvorte [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) a prejdite si ho. Postavíte **lokálneho inžinierskeho asistenta**, ktorý beží výhradne na vašom pracovnom stanici a môže:
 
-1. **Volanie nástrojov** — cez Qwen volanie funkcií cez Foundry Local.
-2. **Práca so súbormi lokálne** — vypísať a prečítať súbory v adresári projektu.
-3. **Analýza kódu** — hlásiť základné metriky zdrojového súboru.
-4. **Vyhľadávanie v dokumentácii** — lokálny RAG nad priečinkom s dokumentáciou pomocou Chroma.
-5. **Použitie MCP** — pripojiť sa k lokálnemu MCP serveru (s jemným vynechaním, ak nie je nakonfigurovaný).
+1. **Volá nástroje** — cez Qwen volanie funkcií cez Foundry Local.
+2. **Vykonáva lokálne operácie so súbormi** — zoznamuje a číta súbory v adresári projektu.
+3. **Analyzuje kód** — hlási základné metriky o zdrojovom súbore.
+4. **Vyhľadáva v dokumentácii** — lokálny RAG nad priečinkom s dokumentáciou pomocou Chromy.
+5. **Používa MCP** — pripojí sa na lokálny MCP server (s jemným preskočením ak nie je konfigurovaný).
 
-V žiadnom okamihu sa nevyužíva cloudová inferencia.
+Žiadna cloudová inference sa nikde nepoužíva.
 
-### Prechádzka
+### Prechod krok za krokom
 
-Asistent sa pripojí k Foundry Local cez endpoint kompatibilný s OpenAI, takže kód agenta vyzerá takmer rovnako ako v cloudových lekciách — mení sa iba klient:
+Asistent sa pripája k Foundry Local cez OpenAI-kompatibilný endpoint, takže kód agenta vyzerá takmer rovnako ako v cloudových lekciách — mení sa iba klient:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local nájde/stiahne model a poskytne nám lokálny endpoint.
+# Foundry Local objavuje/stiahne model a poskytuje nám lokálny koncový bod.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key je lokálny zástupný symbol
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key je lokálna zástupná hodnota
 ```
 
-Nástroje sú bežné Python funkcie obmedzené na adresár projektu:
+Nástroje sú obyčajné Python funkcie ohraničené na adresár projektu:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,18 +200,18 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Všimnite si kontrolu pieskoviska — aj lokálne je nástroj, ktorý číta ľubovoľné cesty, zraniteľnosťou. Notebook udržiava všetky nástroje obmedzené na jeden koreňový priečinok projektu.
+Pozor na kontrolu sandboxu — aj lokálne je nástroj, ktorý číta ľubovoľné cesty, rizikom. Notebok udržiava každý nástroj ohraničený na jeden koreň projektu.
 
-## Kontrola vedomostí
+## Overenie vedomostí
 
-Otestujte svoje pochopenie predtým, než prejdete na zadanie.
+Otestujte svoje porozumenie pred prechodom na zadanie.
 
 **1. Uveďte dva konkrétne dôvody, prečo spustiť agenta lokálne namiesto v cloude.**
 
 <details>
 <summary>Odpoveď</summary>
 
-Ktorékoľvek dva z: **súkromie** (kód a dáta nikdy neopustia zariadenie), **náklady** (žiadny poplatok za token pri inferencii) a **offline schopnosť** (funguje bez siete — v lietadle, v bezpečnej oblasti alebo pri výpadku). Regulačné a súladové obmedzenia často vyžadujú, aby sa dáta nevysielali mimo zariadenia, čo je bežný dôvod súkromia.
+Ktorékoľvek dva z: **súkromie** (kód a dáta nikdy neopúšťajú zariadenie), **náklady** (žiadna fakturácia za tokeny), a **offline schopnosť** (funguje bez siete — v lietadle, v zabezpečenom zariadení alebo počas výpadku). Regulačné / súladové obmedzenia zakazujúce odosielanie dát mimo zariadenia sú častým dôvodom pre súkromie.
 </details>
 
 **2. Aké je odporúčané rozdelenie práce medzi SLM a jeho nástrojmi v lokálnom agentovi a prečo?**
@@ -219,95 +219,95 @@ Ktorékoľvek dva z: **súkromie** (kód a dáta nikdy neopustia zariadenie), **
 <details>
 <summary>Odpoveď</summary>
 
-Nechajte SLM **orchestráciu** (rozhodovať, ktorý nástroj volať a s akými argumentmi) a nechajte **nástroje robiť ťažkú prácu** (čítanie súborov, vyhľadávanie dokumentov, výpočty výsledkov). SLM sú silné v ohraničených rozhodnutiach ako výber nástroja, ale slabšie vo všeobecných znalostiach a dlhých viackrokových dedukciách, preto použitie nástrojov podporuje ich silné stránky.
+Nechajte SLM **orchestrovať** (rozhodovať, ktorý nástroj volať a s akými argumentmi) a nechajte **nástroje robiť ťažkú prácu** (čítanie súborov, vyhľadávanie dokumentov, výpočty výsledkov). SLM sú silné v ohraničených rozhodnutiach ako výber nástroja, ale slabšie v širokých vedomostiach a dlhom viacstupňovom uvažovaní, preto spoliehanie sa na nástroje hrá do ich silných stránok.
 </details>
 
-**3. Čo umožňuje opätovné použitie cloudového agent kódu s Foundry Local?**
+**3. Čo umožňuje znovuvyužiť cloudový kód agenta s Foundry Local?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Foundry Local vystavuje **HTTP endpoint kompatibilný s OpenAI**. OpenAI SDK a OpenAI klient z Agent Framework s ním spolupracujú zmenou len `base_url` (a použitím lokálneho dočasného API kľúča). Všetko ostatné v kóde agenta zostáva rovnaké.
+Foundry Local sprístupňuje **OpenAI-kompatibilný HTTP endpoint**. OpenAI SDK a OpenAI klient Agent Frameworku s ním pracujú len so zmenou `base_url` (a s použitím lokálneho placeholder API kľúča). Všetko ostatné v kóde agenta zostáva rovnaké.
 </details>
 
-**4. Prečo špeciálne používame Qwen model na volanie funkcií namiesto hocijakého SLM?**
+**4. Prečo teda špecificky používame Qwen model pre volanie funkcií namiesto hocijakého SLM?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Pretože agent musí produkovať spoľahlivé, správne **volania nástrojov**. Mnoho SLM vie chatovať, ale generuje nesprávne alebo nekonzistentné štruktúry volaní nástrojov. Qwen modely sú trénované na volanie funkcií a generujú konzistentné volania nástrojov, čo robí z lokálneho chat modelu fungujúceho lokálneho agenta.
+Pretože agent musí produkovať spoľahlivé, dobre formátované **volania nástrojov**. Mnohé SLM vedia chatovať, ale emitujú nesprávne alebo nekonzistentné štruktúry volania nástrojov. Qwen modely sú trénované pre volanie funkcií a produkujú konzistentné volania nástrojov, čo premieňa lokálny chat model na fungujúceho lokálneho agenta.
 </details>
 
-**5. Ktoré komponenty v lokálnom RAG pipeline bežia na zariadení?**
+**5. Ktoré komponenty bežia na stroji v lokálnom RAG potrubí?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Všetky: model na vkladanie, vektorová databáza (Chroma, uložená na disku), krok vyhľadávania a SLM. Dokumenty sa vkladajú lokálne, ukladajú lokálne, vyhľadávajú lokálne a spracovávajú lokálnym modelom — žiadny komponent sa nedotýka cloudu.
+Všetky: embedding model, vektorová databáza (Chroma, na disku), vyhľadávací krok a SLM. Dokumenty sa vkladajú lokálne, ukladajú lokálne, vyhľadávajú lokálne a spracovávajú lokálnym modelom — žiadna súčasť sa nedotýka cloudu.
 </details>
 
-**6. Lokálny MCP server beží na vašom zariadení. Znamená to automaticky, že je bezpečný? Aké opatrenia by ste mali urobiť?**
+**6. Lokálny MCP server beží na vašom stroji. Znamená to automaticky, že je bezpečný? Aké opatrenie by ste mali stále dodržiavať?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Nie. Lokálny MCP server beží s oprávneniami vášho používateľa, takže má prístup k čomukoľvek, ku čomu máte prístup vy. Obmedzte ho na to, čo potrebuje (napríklad na jeden projektový adresár namiesto celého domovského priečinka) a považujte jeho výstupy za vstupy na overenie skôr, než na ne reagujete.
+Nie. Lokálny MCP server beží s oprávneniami vášho používateľa, takže môže pristupovať k čomukoľvek, ku čomu máte prístup vy. Ohradte ho na to, čo potrebuje (napríklad adresár projektu namiesto celého domovského adresára) a považujte jeho výstupy za vstupy, ktoré treba validovať pred ich použitím.
 </details>
 
-**7. Popíšte rozumné pravidlo hybridného smerovania, ktoré zahŕňa lokálny model.**
+**7. Opíšte rozumné pravidlo hybridného smerovania, ktoré zahŕňa lokálny model.**
 
 <details>
 <summary>Odpoveď</summary>
 
-Smerujte citlivé alebo offline požiadavky na lokálny SLM; jednoduché ohraničené úlohy nasmerujte na lokálny SLM kvôli rýchlosti a nákladom; náročné viackrokové dedukcie na necitlivých dátach nechajte na cloudový model; a pri nedostupnosti cloudu sa vráťte k lokálnemu SLM, aby agent plynulo znižoval kvalitu namiesto zlyhania. Toto je smerovanie modelov (lekcia 16) s vaším zariadením ako jedným z modelov.
+Smerujte citlivé alebo offline požiadavky na lokálny SLM; jednoduché ohraničené úlohy smerujte na lokálny SLM kvôli rýchlosti a nákladom; náročné viacstupňové uvažovanie o necitlivých dátach na cloudový model; a v prípade nedostupnosti cloudu sa vráťte k lokálnemu SLM, aby agent degradoval jemne namiesto zlyhania. Toto je modelové smerovanie (Lekcia 16) so súčasťou lokálneho stroja ako jedným z modelov.
 </details>
 
-**8. Aká je realistická minimálna hodnota RAM pre spustenie lokálneho agenta v tejto lekcii a čo získate s väčšou RAM?**
+**8. Aký je realistický minimálny RAM údaj pre spustenie lokálneho agenta v tejto lekcii a čo vám dáva viac RAM?**
 
 <details>
 <summary>Odpoveď</summary>
 
-Okolo **8 GB** je realistický minimál; 16 GB+ je komfortné. Viac RAM umožňuje používať väčšie a schopnejšie modely a uchovávať viac kontextu v pamäti. GPU alebo NPU zrýchľuje inferenciu, ale nie je povinné — Foundry Local vyberá verziu pre CPU, keď nie je k dispozícii akcelerátor.
+Okolo **8 GB** je realistické minimum; 16 GB a viac je pohodlné. Viac RAM umožňuje spustiť väčšie, schopnejšie modely a udržať v pamäti viac kontextu. GPU alebo NPU zrýchľujú inferenciu, ale nie sú povinné — Foundry Local vyberie CPU build, keď nie je k dispozícii žiaden akcelerátor.
 </details>
 
 ## Zadanie
 
-Rozšírte lokálneho inžinierskeho asistenta do **lokálneho recenzenta dokumentácie** pre malý projekt podľa vašej voľby (ak chcete, použite niektorý z priečinkov lekcií tohto repozitára).
+Rozšírte lokálneho inžinierskeho asistenta o **lokálneho kontrolóra dokumentácie** pre malý projekt podľa vlastného výberu (môžete použiť jeden z priečinkov lekcií v tomto repozitári).
 
-Vaša odovzdávka by mala:
+Vaša odovzdaná práca by mala:
 
-1. **Indexovať skutočný priečinok s dokumentáciou/kódom** do Chromy (aspoň päť súborov).
-2. **Pridať nástroj `find_todos`**, ktorý prehľadá projekt a vráti komentáre `TODO`/`FIXME` spolu s názvom súboru a číslom riadku — s rovnakou kontrolou pieskoviska ako `read_file`.
+1. **Indexovať skutočný dokumentačný/kódový priečinok** do Chromy (aspoň päť súborov).
+2. **Pridať nástroj `find_todos`** ktorý prehľadá projekt kvôli komentárom `TODO`/`FIXME` a vráti ich spolu so súborom a číslom riadku — s rovnakou kontrolou sandboxu ako `read_file`.
 
-3. **Pýtajte sa agenta tri otázky**, ktoré ho prinútia kombinovať nástroje: jednu čistú RAG otázku, jednu, ktorá vyžaduje čítanie konkrétneho súboru, a jednu, ktorá vyžaduje nájdenie TODO.
-4. **Zmerajte to**: zaznamenajte čas každej z troch odpovedí v markdown bunke. Komentujte, či je latencia prijateľná pre váš zamýšľaný pracovný postup.
+3. **Opýtajte sa agenta tri otázky**, ktoré ho prinútia kombinovať nástroje: jednu čistú RAG otázku, jednu vyžadujúcu čítanie konkrétneho súboru a jednu, ktorá vyžaduje hľadanie TODO.
+4. **Zmerajte to**: zaznamenajte čas každej z troch odpovedí v markdown bunke. Zhodnoťte, či je latencia prijateľná pre váš zamýšľaný pracovný tok.
 
-Potom napíšte krátky odsek o tom, **čo by ste presunuli do cloudu a čo by ste ponechali lokálne** pre tohto recenzenta a prečo. Hodnotí sa, či sú lokálne komponenty správne prepojené a či je vaša hybridná úvaha správna — nie kvalita modelu.
+Potom napíšte krátky odstavec o **tom, čo by ste presunuli do cloudu a čo by ste nechali lokálne** pre tohto recenzenta a prečo. Hodnotí sa, či sú lokálne komponenty správne prepojené a či je vaše hybridné uvažovanie správne — nie kvalita modelu.
 
 ## Zhrnutie
 
 V tejto lekcii ste vytvorili agenta, ktorý beží úplne na vašom vlastnom zariadení:
 
-- **SLM** sa obetuje šírka záberu kvôli súkromiu, nákladom a offline prevádzke — a vynikajú, keď **orchestruju nástroje** namiesto toho, aby niesli všetky vedomosti sami.
-- **Foundry Local** poskytuje modely na zariadení za **OpenAI-kompatibilným endpointom**, takže váš kód pre cloudového agenta sa prevezme jednoradkovou zmenou.
-- **Qwen modely s volaním funkcií** umožňujú spoľahlivé lokálne volanie nástrojov — a teda lokálnych *agentov*.
-- **Lokálny RAG** (Chroma) a **lokálny MCP** dávajú agentovi schopnosť bez opustenia zariadenia.
-- **Hybridné vzory** umožňujú smerovať podľa citlivosti a náročnosti, kde lokálne je elegantnou náhradou.
+- **SLM** obetujú šírku záberu za súkromie, náklady a offline prevádzku — a vynikajú, keď **orchestruja nástroje** namiesto toho, aby mali všetky vedomosti sami.
+- **Foundry Local** poskytuje modely na zariadení za **OpenAI-kompatibilným endpointom**, takže váš cloudový kód agenta sa prenáša zmenou jedného riadku.
+- **Qwen modely s volaním funkcií** umožňujú spoľahlivé lokálne volanie nástrojov — a teda aj lokálnych *agentov*.
+- **Lokálny RAG** (Chroma) a **lokálny MCP** dávajú agentovi schopnosti bez opustenia zariadenia.
+- **Hybridné vzory** vám umožňujú smerovať podľa citlivosti a náročnosti, kde lokálne slúži ako elegantný záložný plán.
 
-Týmto sa dokončuje implementačná cesta: Lekcia 16 rozširovala agentov do Microsoft Foundry, a táto lekcia ich zmenšila na jedno pracovné stanovište. Nasledujúca lekcia sa zameriava na zabezpečenie nasadených agentov.
+Toto uzatvára nasadzovací oblúk: Lekcia 16 škálovala agentov do Microsoft Foundry a táto lekcia ich zmenšila na jedno pracovisko. Nasledujúca lekcia sa venuje zabezpečeniu nasadených agentov.
 
 ## Dodatočné zdroje
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Dokumentácia Microsoft Foundry Local</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentácia Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Dokumentácia Qwen volania funkcií</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Dokumentácia Qwen funkčného volania</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma vektorová databáza</a>
 
 ## Predchádzajúca lekcia
 
-[Nasadenie rozšíriteľných agentov](../16-deploying-scalable-agents/README.md)
+[Nasadzovanie škálovateľných agentov](../16-deploying-scalable-agents/README.md)
 
 ## Nasledujúca lekcia
 

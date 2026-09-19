@@ -2,63 +2,63 @@
 
 ## مقدمة
 
-ستغطي هذه الدرس كيفية تشغيل عينات الكود لهذه الدورة.
+ستغطي هذه الدرس كيفية تشغيل عينات الأكواد لهذه الدورة.
 
 ## انضم إلى المتعلمين الآخرين واحصل على المساعدة
 
-قبل أن تبدأ في استنساخ المستودع الخاص بك، انضم إلى [قناة Discord لوكلاء الذكاء الاصطناعي للمبتدئين](https://aka.ms/ai-agents/discord) للحصول على أي مساعدة في الإعداد، أو أي أسئلة حول الدورة، أو للتواصل مع متعلمين آخرين.
+قبل أن تبدأ في استنساخ المستودع الخاص بك، انضم إلى [قناة Discord لوكلاء الذكاء الاصطناعي للمبتدئين](https://aka.ms/ai-agents/discord) للحصول على أي مساعدة في الإعداد، أو لأي أسئلة حول الدورة، أو للتواصل مع متعلمين آخرين.
 
-## استنساخ أو عمل فورك لهذا المستودع
+## استنسخ أو افرد هذا المستودع
 
-للبدء، يرجى استنساخ أو عمل فورك لمستودع GitHub. سيجعل هذا نسختك الخاصة من مواد الدورة لتتمكن من تشغيلها، اختبارها، وتعديل الكود!
+للبدء، يرجى استنساخ أو تفريع مستودع GitHub. سيتيح لك هذا إنشاء نسختك الخاصة من مواد الدورة لتتمكن من تشغيل الأكواد واختبارها وتعديلها!
 
-يمكن القيام بذلك بالنقر على الرابط لـ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">عمل فورك للمستودع</a>
+يمكن القيام بذلك بالنقر على الرابط لـ <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">تفريع المستودع</a>
 
-يجب أن يكون لديك الآن نسختك الخاصة المفروكة من هذه الدورة في الرابط التالي:
+يجب أن يكون لديك الآن نسختك المفروعة الخاصة من هذه الدورة في الرابط التالي:
 
 ![Forked Repo](../../../translated_images/ar/forked-repo.33f27ca1901baa6a.webp)
 
-### استنساخ سطحي (موصى به للورشة / بيئات Codespaces)
+### استنساخ سطحي (موصى به للورشة / مساحات الأكواد)
 
-  >المستودع الكامل يمكن أن يكون كبيرًا (~3 جيجابايت) عند تحميل التاريخ الكامل وجميع الملفات. إذا كنت تحضر الورشة فقط أو تحتاج فقط إلى بعض مجلدات الدروس، فإن الاستنساخ السطحي (أو الاستنساخ الجزئي) يتجنب معظم هذا التحميل عن طريق تقصير التاريخ و/أو تخطي البيانات الكبيرة.
+  >يمكن أن يكون المستودع الكامل كبيرًا (~3 جيجابايت) عند تنزيل التاريخ الكامل وجميع الملفات. إذا كنت تحضر الورشة فقط أو تحتاج فقط إلى بعض مجلدات الدروس، فإن الاستنساخ السطحي (أو الاستنساخ الجزئي) ينزل حجمًا أقل بكثير.
 
-#### استنساخ سطحي سريع — تاريخ محدود، جميع الملفات
+#### استنساخ سطحي سريع — أدنى تاريخ، جميع الملفات
 
-استبدل `<your-username>` في الأوامر أدناه بعنوان URL لفورك الخاص بك (أو عنوان URL الأصلي إذا فضلت).
+استبدل `<your-username>` في الأوامر أدناه برابط التفريع الخاص بك (أو بالرابط الأصلي upstream إذا فضلت).
 
-لاستنساخ تاريخ الالتزام الأخير فقط (تحميل صغير):
+لاستنساخ تاريخ الالتزام الأخير فقط (تنزيل صغير):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
 لاستنساخ فرع محدد:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### استنساخ جزئي (متفرق) — حزم صغيرة + مجلدات مختارة فقط
+#### استنساخ جزئي (مشتت) — أقل حجم بيانات + فقط المجلدات المحددة
 
-هذا يستخدم الاستنساخ الجزئي و sparse-checkout (يتطلب Git 2.25+ ويفضل استخدام Git حديث مع دعم للاستنساخ الجزئي):
+يستخدم هذا الاستنساخ الجزئي وتقنية sparse-checkout (يتطلب Git 2.25+ ويوصى باستخدام Git حديث يدعم الاستنساخ الجزئي):
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-ادخل إلى مجلد المستودع:
+انتقل إلى مجلد المستودع:
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-ثم حدد المجلدات التي تريدها (المثال أدناه يظهر مجلدين):
+ثم حدد أي المجلدات تريدها (المثال أدناه يظهر مجلدين):
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-بعد الاستنساخ والتحقق من الملفات، إذا كنت تحتاج فقط للملفات وترغب في تحرير مساحة (بدون تاريخ Git)، يرجى حذف بيانات المستودع (💀 لا يمكن التراجع — ستفقد كل وظائف Git: لا التزامات، لا سحب، لا دفعات، ولا وصول للتاريخ).
+بعد الاستنساخ والتحقق من الملفات، إذا كنت بحاجة فقط للملفات وترغب في تحرير مساحة (بدون تاريخ Git)، يرجى حذف بيانات تعريف المستودع (💀 لا يمكن التراجع عنه — ستفقد جميع وظائف Git):
 
 ```bash
 # زش/باش
@@ -70,44 +70,44 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### استخدام GitHub Codespaces (موصى به لتجنب التحميلات الكبيرة محليًا)
+#### استخدام GitHub Codespaces (موصى به لتجنب التنزيلات المحلية الكبيرة)
 
-- أنشئ فضاء تعليمات برمجية جديد لهذا المستودع عبر [واجهة GitHub](https://github.com/codespaces).  
+- قم بإنشاء مساحة أكواد جديدة لهذا المستودع عبر [واجهة GitHub](https://github.com/codespaces).  
 
-- في الطرفية داخل فضاء التعليمات البرمجية الجديد، نفذ أحد أوامر الاستنساخ السطحي/المتفرق أعلاه لجلب مجلدات الدروس التي تحتاجها فقط إلى مساحة عمل فضاء التعليمات البرمجية.
-- اختياري: بعد الاستنساخ داخل Codespaces، قم بإزالة .git لاسترجاع مساحة إضافية (انظر أوامر الحذف أعلاه).
-- ملاحظة: إذا فضلت فتح المستودع مباشرة في Codespaces (بدون استنساخ إضافي)، كن على علم أن Codespaces سيبني بيئة devcontainer وقد يزود أكثر مما تحتاج. استنساخ نسخة سطحية داخل Codespace جديد يمنحك تحكمًا أكبر في استخدام القرص.
+- في الطرفية لمساحة الأكواد الجديدة، نفذ أحد أوامر الاستنساخ السطحي/الجزئي أعلاه لجلب مجلدات الدروس التي تحتاجها فقط إلى مساحة العمل في Codespaces.
+- اختياري: بعد الاستنساخ داخل Codespaces، يمكن إزالة .git لاستعادة مساحة إضافية (انظر أوامر الإزالة أعلاه).
+- ملاحظة: إذا فضلت فتح المستودع مباشرة في Codespaces (بدون استنساخ إضافي)، كن على علم بأن Codespaces سيقوم بإنشاء بيئة devcontainer وقد يوفر أكثر مما تحتاج.
 
 #### نصائح
 
-- استبدل دائمًا عنوان URL للاستنساخ بفورك الخاص بك إذا أردت التعديل/الالتزام.
-- إذا احتجت لاحقًا إلى مزيد من التاريخ أو الملفات، يمكنك جلبها أو ضبط sparse-checkout لتضمين مجلدات إضافية.
+- استبدل دائمًا رابط الاستنساخ برابط التفريع الخاص بك إذا أردت التحرير/الإضافة.
+- إذا احتجت لاحقًا إلى المزيد من التاريخ أو الملفات، يمكنك جلبها أو تعديل sparse-checkout لتضمين مجلدات إضافية.
 
 ## تشغيل الكود
 
-تقدم هذه الدورة سلسلة من دفاتر Jupyter التي يمكنك تشغيلها للحصول على تجربة عملية في بناء وكلاء الذكاء الاصطناعي.
+تقدم هذه الدورة سلسلة من دفاتر Jupyter التي يمكنك تشغيلها للحصول على خبرة عملية في بناء وكلاء الذكاء الاصطناعي.
 
-تستخدم عينات الكود **إطار عمل الوكيل من مايكروسوفت (MAF)** مع `FoundryChatClient`، الذي يتصل بـ **خدمة وكلاء Microsoft Foundry V2** (واجهة برمجة تطبيقات الاستجابات) من خلال **Microsoft Foundry**.
+تستخدم عينات الكود **إطار عمل Microsoft Agent Framework (MAF)** مع `FoundryChatClient`، الذي يتصل بـ **خدمة Microsoft Foundry Agent V2** (واجهة API للردود) عبر **Microsoft Foundry**.
 
-جميع دفاتر بايثون معنونة بـ `*-python-agent-framework.ipynb`.
+جميع دفاتر Python معنونة بـ `*-python-agent-framework.ipynb`.
 
 ## المتطلبات
 
-- بايثون 3.12+
-  - **ملاحظة**: إذا لم يكن لديك بايثون 3.12 مثبتًا، تأكد من تثبيته. ثم أنشئ بيئة افتراضية باستخدام python3.12 لضمان تثبيت الإصدارات الصحيحة من ملف requirements.txt.
+- Python 3.12+
+  - **ملاحظة**: إذا لم يكن لديك Python3.12 مثبتًا، تأكد من تثبيته. ثم أنشئ بيئة venv باستخدام python3.12 لضمان تثبيت الإصدارات الصحيحة من ملف requirements.txt.
   
     >مثال
 
-    أنشئ دليل البيئة الافتراضية لبايثون:
+    أنشئ مجلد بيئة Python الافتراضية:
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
     ثم فعّل بيئة venv لـ:
 
     ```bash
-    # زد شل/باش
+    # زد شيل / باش
     source venv/bin/activate
     ```
   
@@ -116,87 +116,87 @@ Remove-Item -Recurse -Force .git
     venv\Scripts\activate
     ```
 
-- .NET 10+: بالنسبة لأكواد الأمثلة التي تستخدم .NET، تأكد من تثبيت [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث. ثم تحقق من إصدار SDK المثبت لديك:
+- .NET 10+: بالنسبة لأكواد الأمثلة التي تستخدم .NET، تأكد من تثبيت [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث. ثم تحقق من إصدار .NET SDK المثبت:
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — مطلوب للمصادقة. قم بالتثبيت من [aka.ms/installazurecli](https://aka.ms/installazurecli).
-- **اشتراك Azure** — للوصول إلى Microsoft Foundry وخدمة وكلاء Microsoft Foundry.
-- **مشروع Microsoft Foundry** — مشروع به نموذج نشر (مثل `gpt-5-mini`). راجع [الخطوة 1](#الخطوة-1-إنشاء-مشروع-microsoft-foundry) أدناه.
+- **واجهة Azure CLI** — مطلوبة للمصادقة. قم بالتثبيت من [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **اشتراك Azure** — للوصول إلى Microsoft Foundry وخدمة Microsoft Foundry Agent.
+- **مشروع Microsoft Foundry** — مشروع يحتوي على نموذج منشور (مثل `gpt-5-mini`). انظر [الخطوة 1](#الخطوة-1-إنشاء-مشروع-microsoft-foundry) أدناه.
 
-لقد أدرجنا ملف `requirements.txt` في جذر هذا المستودع يحتوي على جميع الحزم المطلوبة لبايثون لتشغيل عينات الكود.
+قمنا بتضمين ملف `requirements.txt` في جذر هذا المستودع يحتوي على جميع حزم Python المطلوبة لتشغيل عينات الأكواد.
 
-يمكنك تثبيتها بتنفيذ الأمر التالي في الطرفية في جذر المستودع:
+يمكنك تثبيتها عن طريق تشغيل الأمر التالي في الطرفية في جذر المستودع:
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-نوصي بإنشاء بيئة بايثون افتراضية لتجنب أي تعارضات ومشاكل.
+نوصي بإنشاء بيئة افتراضية Python لتجنب أي تعارضات ومشاكل.
 
 ## إعداد VSCode
 
-تأكد من أنك تستخدم الإصدار الصحيح من بايثون في VSCode.
+تأكد من أنك تستخدم الإصدار الصحيح من Python في VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## إعداد Microsoft Foundry وخدمة وكلاء Microsoft Foundry
+## إعداد Microsoft Foundry وخدمة Microsoft Foundry Agent
 
 ### الخطوة 1: إنشاء مشروع Microsoft Foundry
 
-تحتاج إلى **مركز** ومشروع في Microsoft Foundry مع نموذج منشور لتشغيل دفاتر Jupyter.
+تحتاج إلى **Hub** و**مشروع** في Microsoft Foundry مع نموذج منشور لتشغيل دفاتر Jupyter.
 
 1. اذهب إلى [ai.azure.com](https://ai.azure.com) وقم بتسجيل الدخول بحساب Azure الخاص بك.
-2. أنشئ **مركزًا** (أو استخدم مركزًا موجودًا). انظر: [نظرة عامة على موارد المركز](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
-3. داخل المركز، أنشئ **مشروعًا**.
-4. انشر نموذجًا (مثل `gpt-5-mini`) من **النماذج + النقاط النهائية** → **نشر نموذج**.
+2. أنشئ **Hub** (أو استخدم واحدًا موجودًا). انظر: [نظرة عامة على موارد Hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. داخل الـ Hub، أنشئ **مشروعًا**.
+4. انشر نموذجًا (مثل `gpt-5-mini`) من **Models + Endpoints** → **Deploy model**.
 
 ### الخطوة 2: استرجاع نقطة نهاية المشروع واسم نشر النموذج
 
 من مشروعك في بوابة Microsoft Foundry:
 
-- **نقطة نهاية المشروع** — اذهب إلى صفحة **نظرة عامة** ونسخ عنوان URL لنقطة النهاية.
+- **نقطة نهاية المشروع** — اذهب إلى صفحة **نظرة عامة** وانسخ رابط نقطة النهاية.
 
 ![Project Connection String](../../../translated_images/ar/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **اسم نشر النموذج** — اذهب إلى **النماذج + النقاط النهائية**، اختر النموذج المنشور، ودوّن **اسم النشر** (مثل `gpt-5-mini`).
+- **اسم نشر النموذج** — اذهب إلى **Models + Endpoints**، اختر النموذج المنشور، ودوّن **اسم النشر** (مثلاً `gpt-5-mini`).
 
 ### الخطوة 3: تسجيل الدخول إلى Azure باستخدام `az login`
 
-تستخدم جميع دفاتر Jupyter مصادقة **`AzureCliCredential`** — لا حاجة لإدارة مفاتيح API. يتطلب هذا تسجيل الدخول عبر Azure CLI.
+معظم دفاتر Jupyter تقوم بالمصادقة عبر **تسجيل الدخول إلى Azure CLI** — باستخدام `AzureCliCredential` أو `DefaultAzureCredential` (كلاهما يأخذ جلسة `az login` الخاصة بك) من حزمة `azure-identity` — لذا لا تحتاج إلى مفاتيح API. تستخدم بعض الدروس والدمجات الاختيارية مفاتيح API؛ تحقق من متطلبات كل درس لأي متغيرات بيئية إضافية. يتطلب هذا أن تكون مسجلاً الدخول عبر Azure CLI.
 
-1. **ثبت Azure CLI** إذا لم يكن مثبتًا: [aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. **ثبت Azure CLI** إذا لم تكن قد فعلت ذلك: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-2. **قم بتسجيل الدخول** بتنفيذ:
+2. **سجل الدخول** بتشغيل:
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
-    أو إذا كنت في بيئة بعيدة/ Codespace بدون متصفح:
+    أو إذا كنت في بيئة بعيدة/مساحة أكواد بدون متصفح:
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
-3. **اختر اشتراكك** إذا طُلب منك — اختر الذي يحتوي على مشروع Foundry الخاص بك.
+3. **اختر اشتراكك** إذا طُلب منك — اختر الاشتراك الذي يحتوي على مشروع Foundry الخاص بك.
 
-4. **تحقق** من أنك مسجل الدخول:
+4. **تحقق** من تسجيل دخولك:
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **لماذا `az login`؟** دفاتر Jupyter تستخدم `AzureCliCredential` من حزمة `azure-identity` للمصادقة. هذا يعني أن جلسة Azure CLI تزود بيانات الاعتماد — لا مفاتيح API أو أسرار في ملف `.env` الخاص بك. هذه هي [أفضل ممارسات الأمان](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+> **لماذا `az login`؟** تستخدم دفاتر Jupyter المصادقة باستخدام `AzureCliCredential` (أو `DefaultAzureCredential`، التي تلتقط أيضًا تسجيل دخول Azure CLI الخاص بك) من حزمة `azure-identity`. هذا يعني أن جلسة Azure CLI الخاصة بك توفر بيانات الاعتماد — لا مفاتيح أو أسرار API في ملف `.env`. هذه [أفضل ممارسة أمانية](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
 ### الخطوة 4: إنشاء ملف `.env` الخاص بك
 
 انسخ ملف المثال:
 
 ```bash
-# زد شيل/باش
+# زي شل/باش
 cp .env.example .env
 ```
 
@@ -205,72 +205,110 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-افتح `.env` واملأ هذين المتغيرين:
+افتح `.env` واملأ هذين القيمتين:
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
 AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
-| متغير | مكان إيجاده |
+| المتغير | مكان العثور عليه |
 |----------|-----------------|
 | `AZURE_AI_PROJECT_ENDPOINT` | بوابة Foundry → مشروعك → صفحة **نظرة عامة** |
-| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | بوابة Foundry → **النماذج + النقاط النهائية** → اسم النموذج المنشور الخاص بك |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | بوابة Foundry → **Models + Endpoints** → اسم النموذج المنشور |
 
-هذا كل شيء لمعظم الدروس! ستتم المصادقة تلقائيًا عبر جلسة `az login` الخاصة بك.
+هذا كل شيء لمعظم الدروس! ستقوم دفاتر Jupyter بالمصادقة تلقائيًا عبر جلسة `az login` الخاصة بك.
 
-### الخطوة 5: تثبيت تبعيات بايثون
+### الخطوة 5: تثبيت تبعيات Python
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
 نوصي بتشغيل هذا داخل البيئة الافتراضية التي أنشأتها سابقًا.
 
-## إعداد إضافي للدرس 5 (Agentic RAG)
+## إعداد اختياري: بحث Azure AI (الدروس 5 و16)
 
-يستخدم الدرس 5 **Azure AI Search** للتوليد المعزز بالاسترجاع. إذا كنت تخطط لتشغيل هذا الدرس، أضف هذه المتغيرات إلى ملف `.env`:
+يعمل دفتر Lesson 5 (Agentic RAG) ودفتر Lesson 16 بشكل افتراضي مع **قاعدة معرفة في الذاكرة** — لا حاجة لموارد Azure إضافية. إذا كنت ترغب في دعمهما بفهرس حقيقي لـ **Azure AI Search**، لاحظ أن دفتر Lesson 16 يستخدم حاليًا المصادقة بالمفتاح: يتحول من بحث الذاكرة إلى Azure AI Search فقط عندما يتم تعيين **كل من** `AZURE_SEARCH_SERVICE_ENDPOINT` **و** `AZURE_SEARCH_API_KEY`، وإلا يبقى على البحث في الذاكرة — لذا لتشغيله ضد فهرس حقيقي يجب تعيين مفتاح المسؤول أيضًا. المصادقة بدون مفتاح باستخدام Microsoft Entra ID (RBAC) هي الطريقة الموصى بها لكود الإنتاج الخاص بك، متوافقة مع تدفق `az login` المستخدم في كل مكان آخر في هذه الدورة.
 
-| متغير | مكان إيجاده |
+تنطبق خطوات RBAC التالية على عينات دليل الإعداد والشفرة الخاصة بك. لا تمكّن المصادقة بدون مفتاح في دفتر Lesson 16؛ يحتاج Lesson 16 إلى كل من نقطة النهاية ومفتاح المسؤول لاستخدام Azure AI Search.
+
+1. **فعّل الوصول المستند إلى الدور** على خدمة البحث الخاصة بك:
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. **قم بتعيين الأدوار المطلوبة لنفسك** (إنشاء/تحميل الفهارس والاستعلام):
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. **أضف نقطة النهاية** إلى ملف `.env` الخاص بك:
+
+| المتغير | مكان العثور عليه |
 |----------|-----------------|
 | `AZURE_SEARCH_SERVICE_ENDPOINT` | بوابة Azure → مورد **Azure AI Search** الخاص بك → **نظرة عامة** → URL |
-| `AZURE_SEARCH_API_KEY` | بوابة Azure → مورد **Azure AI Search** → **الإعدادات** → **المفاتيح** → المفتاح الإداري الأساسي |
+| `AZURE_SEARCH_API_KEY` | مطلوب (مع نقطة النهاية) لتمكين Azure AI Search في دفتر Lesson 16، الذي يستخدم المصادقة بالمفتاح. بوابة Azure → **الإعدادات** → **المفاتيح** → مفتاح المسؤول الأساسي |
 
-## إعداد إضافي للدروس التي تستدعي Azure OpenAI مباشرة (الدروس 6 و 8)
+> **لماذا بدون مفتاح؟** تمنح مفاتيح المسؤول حق الكتابة الكامل على خدمة البحث وقد تتسرب عبر ملفات `.env`. باستخدام RBAC، يتم استخدام هوية `az login` الخاصة بك بدلاً من ذلك — نفس نمط Entra ID بدون مفتاح الذي تستخدمه دفاتر الدورة (عبر `AzureCliCredential` / `DefaultAzureCredential`). انظر [الاتصال بـ Azure AI Search باستخدام الأدوار](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-بعض دفاتر Jupyter في الدروس 6 و 8 تستدعي **Azure OpenAI** مباشرة (باستخدام **واجهة Responses API**) بدلاً من الذهاب عبر مشروع Microsoft Foundry. كانت هذه العينات تستخدم سابقًا نماذج GitHub، والتي تم إيقاف دعمها (تُوقف بحلول يوليو 2026) ولا تدعم Responses API. إذا كنت تخطط لتشغيل تلك العينات، أضف هذه المتغيرات إلى ملف `.env`:
+راجع [دليل إعداد Azure AI Search](./AzureSearch.md) لنماذج كاملة لإنشاء الفهارس بـ Python و .NET.
 
-| متغير | مكان إيجاده |
+## إعداد إضافي للدروس التي تستدعي Azure OpenAI مباشرة (الدروس 6 و8)
+
+تستدعي بعض دفاتر الدروس 6 و8 **Azure OpenAI** مباشرة (باستخدام **واجهة Responses API**) بدلاً من المرور عبر مشروع Microsoft Foundry. كانت هذه العينات تستخدم سابقًا نماذج GitHub، التي تم إيقافها ولا تدعم Responses API. أضف هذه المتغيرات إلى ملف `.env` الخاص بك:
+
+| المتغير | مكان العثور عليه |
 |----------|-----------------|
-| `AZURE_OPENAI_ENDPOINT` | بوابة Azure → مورد **Azure OpenAI** الخاص بك → **المفاتيح ونقطة النهاية** → نقطة النهاية (مثلاً `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | اسم النموذج المنشور الخاص بك (مثلاً `gpt-5-mini`) الذي يدعم Responses API |
-| `AZURE_OPENAI_API_KEY` | اختياري — فقط إذا كنت تستخدم المصادقة بمفتاح بدلاً من `az login` / Entra ID |
+| `AZURE_OPENAI_ENDPOINT` | بوابة Azure → مورد **Azure OpenAI** الخاص بك → **المفاتيح ونقطة النهاية** → نقطة النهاية (مثال `https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | اسم النموذج المنشور (مثلاً `gpt-5-mini`) الذي يدعم Responses API |
+| `AZURE_OPENAI_API_KEY` | اختياري — فقط إذا كنت تستخدم المصادقة بالمفتاح بدلاً من `az login` / Entra ID |
 
-> تستخدم Responses API نقطة النهاية المستقرة `/openai/v1/`، لذلك لا يلزم `api-version`. سجّل الدخول باستخدام `az login` لاستخدام مصادقة Entra ID بدون مفتاح.
+> تستخدم Responses API نقطة نهاية `/openai/v1/` المستقرة، لذلك لا توجد حاجة لـ `api-version`. قم بتسجيل الدخول باستخدام `az login` لاستخدام مصادقة Entra ID بدون مفتاح.
 
 ## موفر بديل: MiniMax (متوافق مع OpenAI)
 
-يوفر [MiniMax](https://platform.minimaxi.com/) نماذج سياق كبير (حتى 204K رمز) من خلال API متوافق مع OpenAI. بما أن `OpenAIChatClient` في إطار Microsoft Agent Framework يعمل مع أي نقطة نهاية متوافقة مع OpenAI، يمكنك استخدام MiniMax كبديل جاهز لـ Azure OpenAI أو OpenAI.
+توفر [MiniMax](https://platform.minimaxi.com/) نماذج ذات سياق كبير (حتى 204K توكن) من خلال API متوافق مع OpenAI. نظرًا لأن `OpenAIChatClient` في Microsoft Agent Framework يعمل مع أي نقطة نهاية متوافقة مع OpenAI، يمكنك استخدام MiniMax كبديل مباشر للدروس التي تستخدم `OpenAIChatClient`.
 
 أضف هذه المتغيرات إلى ملف `.env` الخاص بك:
 
-| متغير | مكان إيجاده |
+| المتغير | مكان العثور عليه |
 |----------|-----------------|
 | `MINIMAX_API_KEY` | منصة [MiniMax](https://platform.minimaxi.com/) → مفاتيح API |
 | `MINIMAX_BASE_URL` | استخدم `https://api.minimax.io/v1` (القيمة الافتراضية) |
 | `MINIMAX_MODEL_ID` | اسم النموذج لاستخدامه (مثلاً `MiniMax-M3`) |
 
-**نماذج مثال**: `MiniMax-M3` (موصى به)، `MiniMax-M2.7`، `MiniMax-M2.7-highspeed` (استجابات أسرع). قد تتغير أسماء النماذج وتوفرها مع الزمن، وقد يعتمد الوصول إلى نموذج معين على حسابك أو منطقتك — تحقق من منصة [MiniMax](https://platform.minimaxi.com/) للقائمة الحالية. إذا لم يكن `MiniMax-M3` متاحًا لحسابك، قم بضبط `MINIMAX_MODEL_ID` إلى نموذج لديك صلاحية الوصول إليه (مثلًا `MiniMax-M2.7`).
+**نماذج مثال**: `MiniMax-M3` (موصى به)، `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (استجابات أسرع). أسماء النماذج والتوفر يمكن أن تتغير مع الوقت، وقد يعتمد الوصول إلى نموذج معين على حسابك.
 
-ستكتشف عينات الكود التي تستخدم `OpenAIChatClient` (مثل سير عمل حجز الفندق في الدرس 14) تلقائيًا وتستخدم تكوين MiniMax عند تعيين `MINIMAX_API_KEY`.
+ستكتشف عينات الكود التي تستخدم `OpenAIChatClient` (مثل سير عمل حجز الفنادق في الدرس 14) تلقائيًا وتستخدم إعداد MiniMax الخاص بك عند تعيين `MINIMAX_API_KEY`.
 
-## موفر بديل: Foundry Local (تشغيل النماذج على الجهاز)
 
-[Foundry Local](https://foundrylocal.ai) هو وقت تشغيل خفيف الوزن يقوم بتنزيل، إدارة، وخدمة نماذج اللغة **كليًا على جهازك الخاص** من خلال واجهة برمجة التطبيقات المتوافقة مع OpenAI — بدون سحابة، بدون اشتراك في Azure، وبدون مفاتيح API. إنه خيار رائع للتطوير دون اتصال، والتجربة دون تكبد تكاليف السحابة، أو الحفاظ على البيانات على الجهاز.
+## مزود بديل: Novita AI (متوافق مع OpenAI)
 
-ونظرًا لأن `OpenAIChatClient` في إطار Microsoft Agent Framework يعمل مع أي نهاية متوافقة مع OpenAI، فإن Foundry Local هو بديل محلي جاهز لـ Azure OpenAI.
+يوفر [Novita AI](https://novita.ai/llm-api) واجهة برمجة تطبيقات متوافقة مع OpenAI للنماذج اللغوية الكبيرة مفتوحة المصدر والحديثة (DeepSeek، Llama، Qwen، والمزيد). نظرًا لأن `OpenAIChatClient` في Microsoft Agent Framework يعمل مع أي نقطة نهاية متوافقة مع OpenAI، يمكنك استخدام Novita AI كبديل مباشر لـ Azure OpenAI أو OpenAI.
 
-**1. تثبيت Foundry Local**
+أضف هذه المتغيرات إلى ملف `.env` الخاص بك:
+
+| المتغير | مكان العثور عليه |
+|----------|-----------------|
+| `NOVITA_API_KEY` | [لوحة تحكم Novita AI](https://novita.ai/settings/key-management) → مفاتيح API |
+| `NOVITA_BASE_URL` | استخدم `https://api.novita.ai/openai/v1` (القيمة الافتراضية) |
+| `NOVITA_MODEL_ID` | اسم النموذج الذي تريد استخدامه (مثل `moonshotai/kimi-k3`) |
+
+**نماذج أمثلة**: `moonshotai/kimi-k3`، `zai-org/glm-5.2`، `deepseek/deepseek-v4-flash-0731`. يستضيف Novita AI أيضًا العديد من عائلات النماذج مفتوحة المصدر الأخرى (Llama, Qwen, GLM، والمزيد) — تحقق من [مكتبة نماذج Novita AI](https://novita.ai/llm-api) للاطلاع على القائمة الحالية للنماذج المتاحة ومعرفات النماذج الخاصة بها.
+
+العينات الحالية لا تستخدم متغيرات `NOVITA_*` تلقائيًا. لاستخدام Novita AI، مرر هذه القيم صراحة عند إنشاء `OpenAIChatClient` في العينة التي تستديرها.
+
+## مزود بديل: Foundry Local (تشغيل النماذج على الجهاز)
+
+[Foundry Local](https://foundrylocal.ai) هو بيئة تشغيل خفيفة تقوم بتنزيل وإدارة وتقديم نماذج اللغة **كليًا على جهازك الخاص** عبر واجهة برمجة تطبيقات متوافقة مع OpenAI — بدون الحاجة للسحابة.
+
+نظرًا لأن `OpenAIChatClient` في Microsoft Agent Framework يعمل مع أي نقطة نهاية متوافقة مع OpenAI، فإن Foundry Local هو بديل محلي مباشر لـ Azure OpenAI.
+
+**1. قم بتثبيت Foundry Local**
 
 ```bash
 # ويندوز
@@ -280,26 +318,26 @@ winget install Microsoft.FoundryLocal
 brew install foundrylocal
 ```
 
-**2. تنزيل وتشغيل نموذج** (هذا يبدأ الخدمة المحلية أيضًا):
+**2. قم بتنزيل وتشغيل نموذج** (سيتم أيضًا بدء الخدمة المحلية):
 
 ```bash
 foundry model list          # عرض النماذج المتاحة
 foundry model run phi-4-mini
 ```
 
-**3. تثبيت SDK لبايثون** المستخدم لاكتشاف نقطة النهاية المحلية:
+**3. قم بتثبيت SDK لبايثون** المستخدم لاكتشاف نقطة النهاية المحلية:
 
 ```bash
 pip install foundry-local-sdk
 ```
 
-**4. وجه إطار Microsoft Agent Framework إلى نموذجك المحلي:**
+**4. وجه Microsoft Agent Framework إلى النموذج المحلي الخاص بك:**
 
 ```python
 from foundry_local import FoundryLocalManager
 from agent_framework.openai import OpenAIChatClient
 
-# يقوم بتنزيل النموذج (إذا لزم الأمر) ويخدمه محليًا، ثم يكتشف نقطة النهاية/المنفذ.
+# يقوم بتنزيل النموذج (إذا لزم الأمر) وتشغيله محليًا، ثم يكتشف نقطة النهاية/المنفذ.
 manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
@@ -314,20 +352,19 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **ملاحظة:** تعرض Foundry Local نقطة نهاية **إكمال المحادثة** متوافقة مع OpenAI. استخدمها للتطوير المحلي والسيناريوهات بدون اتصال. للحصول على كامل ميزات **Responses API** (المحادثات ذات الحالة، تنظيم الأدوات العميق، والتطوير بأسلوب الوكيل)، وجه إلى **Azure OpenAI** أو مشروع **Microsoft Foundry** كما هو موضح في الدروس. راجع [وثائق Foundry Local](https://foundrylocal.ai) لكاتالوج النماذج الحالي ودعم المنصة.
+> **ملاحظة:** يقوم Foundry Local بالكشف عن نقطة نهاية **مكالمات الدردشة** المتوافقة مع OpenAI. استخدمها للتطوير المحلي والسيناريوهات دون اتصال. للحصول على مجموعة ميزات **API الردود** الكاملة (المحادثات ذات الحالة، إلخ)، استخدم Azure OpenAI أو مشروع Microsoft Foundry.
 
-## إعداد إضافي للدرس 8 (سير عمل تعزيز Bing)
+## إعداد إضافي للدرس 8 (تدفق عمل ربط بينغ)
 
-
-يستخدم دفتر سير العمل الشرطي في الدرس 8 **تكامل Bing** عبر Microsoft Foundry. إذا كنت تخطط لتشغيل هذا النموذج، أضف هذا المتغير إلى ملف `.env` الخاص بك:
+يستخدم دفتر التدفق المشروط في الدرس 8 **ربط بينغ** عبر Microsoft Foundry. إذا كنت تخطط لتشغيل تلك العينة، أضف هذا المتغير إلى ملف `.env` الخاص بك:
 
 | المتغير | مكان العثور عليه |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | بوابة Microsoft Foundry → مشروعك → **الإدارة** → **الموارد المتصلة** → اتصال Bing الخاص بك → انسخ معرف الاتصال |
+| `BING_CONNECTION_ID` | بوابة Microsoft Foundry → مشروعك → **الإدارة** → **الموارد المتصلة** → اتصال بينغ الخاص بك → انسخ معرف الاتصال |
 
-## استكشاف الأخطاء وإصلاحها
+## استكشاف المشكلات وإصلاحها
 
-### أخطاء التحقق من شهادة SSL على macOS
+### أخطاء تحقق شهادة SSL على macOS
 
 إذا كنت تستخدم macOS وواجهت خطأ مثل:
 
@@ -335,18 +372,18 @@ agent = chat_client.as_agent(
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-هذه مشكلة معروفة في Python على macOS حيث لا يتم الوثوق تلقائيًا بشهادات SSL للنظام. جرّب الحلول التالية بالترتيب:
+هذه مشكلة معروفة في بايثون على macOS حيث لا تُعتمد شهادات SSL للنظام تلقائيًا. جرب الحلول التالية وفقًا للترتيب:
 
-**الخيار 1: تشغيل سكريبت تثبيت شهادات Python (مستحسن)**
+**الخيار 1: تشغيل سكريبت تثبيت الشهادات الخاص ببايثون (موصى به)**
 
 ```bash
 # استبدل 3.XX بإصدار بايثون المثبت لديك (مثلاً، 3.12 أو 3.13):
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**الخيار 2: استخدام `connection_verify=False` في دفتر ملاحظاتك (لفهارس GitHub Models فقط)**
+**الخيار 2: استخدم `connection_verify=False` في دفتر الملاحظات (لدفاتر ملاحظات GitHub Models فقط)**
 
-في دفتر الملاحظات الخاص بالدرس 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`)، تم تضمين حل بديل معلق بالفعل. قم بإلغاء تعليق `connection_verify=False` عند إنشاء العميل:
+في دفتر ملاحظات الدرس 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`)، هناك حل بديل معلق مسبقًا. قم بإزالة التعليق عن `connection_verify=False` عند حدوث أخطاء في الشهادة:
 
 ```python
 client = ChatCompletionsClient(
@@ -356,7 +393,7 @@ client = ChatCompletionsClient(
 )
 ```
 
-> **⚠️ تحذير:** تعطيل التحقق من SSL (`connection_verify=False`) يقلل من الأمان بتخطي التحقق من الشهادة. استخدم هذا كحل مؤقت فقط في بيئات التطوير، وليس في الإنتاج.
+> **⚠️ تحذير:** تعطيل التحقق من SSL (`connection_verify=False`) يقلل من الأمان بتخطي التحقق من الشهادة. استخدم هذا فقط كحل مؤقت في بيئات التطوير. لا تستخدمه أبدًا في الإنتاج.
 
 **الخيار 3: تثبيت واستخدام `truststore`**
 
@@ -364,7 +401,7 @@ client = ChatCompletionsClient(
 pip install truststore
 ```
 
-ثم أضف ما يلي في أعلى دفتر ملاحظاتك أو سكريبتك قبل إجراء أي اتصالات شبكية:
+ثم أضف التالي إلى أعلى دفتر الملاحظات أو السكريبت قبل إجراء أي طلبات شبكة:
 
 ```python
 import truststore
@@ -373,13 +410,13 @@ truststore.inject_into_ssl()
 
 ## عالق في مكان ما؟
 
-إذا واجهت أي مشاكل في تشغيل هذا الإعداد، انضم إلى <a href="https://discord.gg/kzRShWzttr" target="_blank">ديسكورد مجتمع Azure AI</a> أو <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">أنشئ تقرير مشكلة</a>.
+إذا واجهت أي مشكلات في تشغيل هذا الإعداد، انضم إلى <a href="https://discord.gg/kzRShWzttr" target="_blank">خادم Discord لمجتمع Azure AI</a> أو <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">أنشئ مشكلة (issue)</a>.
 
 ## الدرس التالي
 
-أنت الآن جاهز لتشغيل كود هذا الدورة. نتمنى لك تعلمًا سعيدًا وأكثر عن عالم وكلاء الذكاء الاصطناعي! 
+أنت الآن جاهز لتشغيل الشيفرة الخاصة بهذا المساق. استمتع بالتعلم عن عالم وكلاء الذكاء الاصطناعي! 
 
-[مقدمة إلى وكلاء الذكاء الاصطناعي وحالات استخدام الوكلاء](../01-intro-to-ai-agents/README.md)
+[مقدمة في وكلاء الذكاء الاصطناعي وحالات استخدامها](../01-intro-to-ai-agents/README.md)
 
 ---
 

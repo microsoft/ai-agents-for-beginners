@@ -1,186 +1,186 @@
-# Bruke agentprotokoller (MCP, A2A og NLWeb)
+# Bruke Agentiske Protokoller (MCP, A2A og NLWeb)
 
 [![Agentic Protocols](../../../translated_images/no/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klikk på bildet over for å se video av denne leksjonen)_
 
-Etter hvert som bruken av AI-agenter øker, øker også behovet for protokoller som sikrer standardisering, sikkerhet og støtter åpen innovasjon. I denne leksjonen vil vi dekke 3 protokoller som tar sikte på å møte dette behovet - Model Context Protocol (MCP), Agent to Agent (A2A) og Natural Language Web (NLWeb).
+Etter hvert som bruken av AI-agenter vokser, øker også behovet for protokoller som sikrer standardisering, sikkerhet og støtter åpen innovasjon. I denne leksjonen vil vi dekke 3 protokoller som søker å møte dette behovet - Model Context Protocol (MCP), Agent to Agent (A2A) og Natural Language Web (NLWeb).
 
 ## Introduksjon
 
 I denne leksjonen vil vi dekke:
 
-• Hvordan **MCP** lar AI-agenter få tilgang til eksterne verktøy og data for å utføre brukeroppgaver.
+• Hvordan **MCP** lar AI-agenter få tilgang til eksterne verktøy og data for å fullføre brukeres oppgaver.
 
 • Hvordan **A2A** muliggjør kommunikasjon og samarbeid mellom forskjellige AI-agenter.
 
-• Hvordan **NLWeb** bringer naturlige språkgrensesnitt til enhver nettside, slik at AI-agenter kan oppdage og interagere med innholdet.
+• Hvordan **NLWeb** bringer naturlige språkgrensesnitt til ethvert nettsted og gjør det mulig for AI-agenter å oppdage og samhandle med innholdet.
 
 ## Læringsmål
 
-• **Identifisere** kjerneformålet og fordelene med MCP, A2A og NLWeb i konteksten av AI-agenter.
+• **Identifisere** hovedformålet og fordelene med MCP, A2A og NLWeb i konteksten av AI-agenter.
 
-• **Forklare** hvordan hver protokoll legger til rette for kommunikasjon og interaksjon mellom LLM-er, verktøy og andre agenter.
+• **Forklare** hvordan hver protokoll muliggjør kommunikasjon og interaksjon mellom LLMs, verktøy og andre agenter.
 
 • **Gjenkjenne** de distinkte rollene hver protokoll spiller i bygging av komplekse agentiske systemer.
 
 ## Model Context Protocol
 
-**Model Context Protocol (MCP)** er en åpen standard som gir en standardisert måte for applikasjoner å gi kontekst og verktøy til LLM-er. Dette muliggjør en "universell adapter" til forskjellige datakilder og verktøy som AI-agenter kan koble seg til på en konsekvent måte.
+**Model Context Protocol (MCP)** er en åpen standard som gir en standardisert måte for applikasjoner å tilby kontekst og verktøy til LLMs. Dette muliggjør en "universal adapter" til forskjellige datakilder og verktøy som AI-agenter kan koble seg til på en konsistent måte.
 
-La oss se på komponentene i MCP, fordelene sammenlignet med direkte API-bruk og et eksempel på hvordan AI-agenter kan bruke en MCP-server.
+La oss se på komponentene i MCP, fordelene sammenlignet med direkte API-bruk, og et eksempel på hvordan AI-agenter kan bruke en MCP-server.
 
-### MCPs kjernekomponenter
+### MCP-kjernekomponenter
 
-MCP opererer på en **klient-server-arkitektur**, og kjernekomponentene er:
+MCP opererer på en **klient-server-arkitektur** og kjernekomponentene er:
 
-• **Hosts** er LLM-applikasjoner (for eksempel en kodeeditor som VSCode) som starter tilkoblingene til en MCP-server.
+• **Verter** er LLM-applikasjoner (for eksempel en kodeeditor som VSCode) som starter forbindelsene til en MCP-server.
 
-• **Clients** er komponenter innenfor host-applikasjonen som opprettholder en-til-en-tilkoblinger med servere.
+• **Klienter** er komponenter innen vertsapplikasjonen som opprettholder en-til-en forbindelser med servere.
 
-• **Servers** er lettvektsprogrammer som eksponerer spesifikke funksjoner.
+• **Servere** er lette programmer som eksponerer spesifikke kapasiteter.
 
-Inkludert i protokollen er tre kjerneelementer som er funksjonene til en MCP-server:
+Inkludert i protokollen er tre kjerneprimitiver som er kapabilitetene til en MCP-server:
 
-• **Verktøy**: Disse er diskrete handlinger eller funksjoner en AI-agent kan kalle for å utføre en handling. For eksempel kan en værtjeneste eksponere et "hent vær"-verktøy, eller en e-handelsserver kan tilby et "kjøp produkt"-verktøy. MCP-servere annonserer hvert verktøys navn, beskrivelse og input/output-skjema i sine funksjonsoppføringer.
+• **Verktøy**: Dette er diskrete handlinger eller funksjoner en AI-agent kan kalle for å utføre en handling. For eksempel kan en værtjeneste eksponere et verktøy kalt "hent vær", eller en e-handelsserver kan eksponere et verktøy kalt "kjøp produkt". MCP-servere annonserer hvert verktøys navn, beskrivelse, og input/output-skjema i sine kapabilitetslister.
 
-• **Ressurser**: Dette er lese-only dataelementer eller dokumenter som en MCP-server kan tilby, og klienter kan hente dem ved behov. Eksempler inkluderer filinnhold, databaseregistre eller loggfiler. Ressursene kan være tekst (som kode eller JSON) eller binære (som bilder eller PDF-er).
+• **Ressurser**: Dette er lesbare dataelementer eller dokumenter som en MCP-server kan tilby, og klienter kan hente dem på forespørsel. Eksempler inkluderer filinnhold, databaseoppføringer eller loggfiler. Ressurser kan være tekst (som kode eller JSON) eller binær (som bilder eller PDFer).
 
-• **Prompter**: Dette er forhåndsdefinerte maler som gir foreslåtte prompter, som gjør det mulig med mer komplekse arbeidsflyter.
+• **Prompter**: Dette er forhåndsdefinerte maler som gir foreslåtte prompter, og tillater mer komplekse arbeidsflyter.
 
 ### Fordeler med MCP
 
 MCP tilbyr betydelige fordeler for AI-agenter:
 
-• **Dynamisk verktøyoppdagelse**: Agenter kan dynamisk motta en liste over tilgjengelige verktøy fra en server sammen med beskrivelser av hva de gjør. Dette står i kontrast til tradisjonelle API-er som ofte krever statisk koding for integrasjoner, noe som betyr at enhver endring i API krever kodeoppdateringer. MCP tilbyr en "integrer én gang"-tilnærming som fører til større tilpasningsdyktighet.
+• **Dynamisk verktøyoppdagelse**: Agenter kan dynamisk motta en liste over tilgjengelige verktøy fra en server sammen med beskrivelser av hva de gjør. Dette står i kontrast til tradisjonelle API-er, som ofte krever statisk koding for integrasjoner, noe som betyr at enhver API-endring krever kodeoppdateringer. MCP tilbyr en "integrer én gang"-tilnærming, noe som gir større tilpasningsevne.
 
-• **Interoperabilitet på tvers av LLM-er**: MCP fungerer på tvers av forskjellige LLM-er, og gir fleksibilitet til å bytte kjernemodeller for å vurdere bedre ytelse.
+• **Interoperabilitet på tvers av LLMs**: MCP fungerer på tvers av forskjellige LLMs, og gir fleksibilitet til å bytte hovedmodeller for å evaluere bedre ytelse.
 
-• **Standardisert sikkerhet**: MCP inkluderer en standard autentiseringsmetode, noe som forbedrer skalerbarheten når man legger til tilgang til flere MCP-servere. Dette er enklere enn å håndtere forskjellige nøkler og autentiseringstyper for ulike tradisjonelle API-er.
+• **Standardisert sikkerhet**: MCP inkluderer en standard autentiseringsmetode, som forbedrer skalerbarhet ved å legge til tilgang til flere MCP-servere. Dette er enklere enn å håndtere forskjellige nøkler og autentiseringstyper for ulike tradisjonelle API-er.
 
 ### MCP-eksempel
 
 ![MCP Diagram](../../../translated_images/no/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Tenk deg at en bruker ønsker å bestille en flyreise ved hjelp av en AI-assistent som drives av MCP.
+Tenk deg at en bruker ønsker å bestille en flyreise ved hjelp av en AI-assistent drevet av MCP.
 
-1. **Tilkobling**: AI-assistenten (MCP-klienten) kobler seg til en MCP-server levert av et flyselskap.
+1. **Tilkobling**: AI-assistenten (MCP-klienten) kobler til en MCP-server levert av et flyselskap.
 
-2. **Verktøyoppdagelse**: Klienten spør flyselskapets MCP-server: "Hvilke verktøy har dere tilgjengelig?" Serveren svarer med verktøy som "søk flyreiser" og "bestill flyreiser".
+2. **Verktøyoppdagelse**: Klienten spør flyselskapets MCP-server: "Hvilke verktøy har dere tilgjengelig?" Serveren svarer med verktøy som "søk fly" og "bestill fly".
 
-3. **Verktøypåkalling**: Du ber deretter AI-assistenten: "Vennligst søk etter en flyreise fra Portland til Honolulu." AI-assistenten, ved hjelp av sin LLM, identifiserer at den må kalle på "søk flyreiser"-verktøyet og sender de relevante parametrene (avreisested, destinasjon) til MCP-serveren.
+3. **Verktøykalling**: Du ber AI-assistenten: "Vennligst søk etter en flyreise fra Portland til Honolulu." AI-assistenten, ved hjelp av sin LLM, identifiserer at den må kalle "søk fly"-verktøyet og sender relevante parametere (avreisested, destinasjon) til MCP-serveren.
 
-4. **Utførelse og svar**: MCP-serveren, som fungerer som en omslagspakke, gjør det faktiske kallet til flyselskapets interne bestillings-API. Den mottar deretter flyinformasjonen (f.eks. JSON-data) og sender den tilbake til AI-assistenten.
+4. **Utførelse og svar**: MCP-serveren, som fungerer som en wrapper, foretar selve anropet til flyselskapets interne bestillings-API. Den mottar deretter flyinformasjonen (f.eks. JSON-data) og sender den tilbake til AI-assistenten.
 
-5. **Videre interaksjon**: AI-assistenten presenterer flyvalgene. Når du har valgt en flyreise, kan assistenten påkalle "bestill flyreise"-verktøyet på samme MCP-server og fullføre bestillingen.
+5. **Videre interaksjon**: AI-assistenten presenterer flyalternativene. Når du velger en flyreise, kan assistenten kalle "bestill fly"-verktøyet på samme MCP-server og fullføre bestillingen.
 
 ## Agent-til-Agent Protokoll (A2A)
 
-Mens MCP fokuserer på å koble LLM-er til verktøy, tar **Agent-til-Agent (A2A)-protokollen** det et steg videre ved å muliggjøre kommunikasjon og samarbeid mellom forskjellige AI-agenter. A2A kobler AI-agenter på tvers av forskjellige organisasjoner, miljøer og teknologistakker for å utføre en delt oppgave.
+Mens MCP fokuserer på å koble LLMs til verktøy, tar **Agent-til-Agent (A2A) protokollen** det et steg videre ved å muliggjøre kommunikasjon og samarbeid mellom forskjellige AI-agenter. A2A kobler AI-agenter på tvers av organisasjoner, miljøer og teknologistakker for å fullføre en felles oppgave.
 
-Vi skal se på komponentene og fordelene ved A2A, sammen med et eksempel på hvordan det kan anvendes i vår reiseapplikasjon.
+Vi skal undersøke komponentene og fordelene med A2A, sammen med et eksempel på hvordan det kan brukes i vår reiseapplikasjon.
 
-### A2As kjernekomponenter
+### A2A kjernekomponenter
 
-A2A fokuserer på å muliggjøre kommunikasjon mellom agenter og få dem til å arbeide sammen for å fullføre en deloppgave for brukeren. Hver komponent i protokollen bidrar til dette:
+A2A fokuserer på å muliggjøre kommunikasjon mellom agenter og få dem til å samarbeide for å fullføre en underoppgave for brukeren. Hver komponent av protokollen bidrar til dette:
 
 #### Agentkort
 
 På samme måte som en MCP-server deler en liste over verktøy, har et Agentkort:
-- Navnet til agenten.
-- En **beskrivelse av de generelle oppgavene** den utfører.
-- En **liste over spesifikke ferdigheter** med beskrivelser som hjelper andre agenter (eller til og med menneskelige brukere) å forstå når og hvorfor de vil kalle på den agenten.
-- Den **nåværende Endepunkt-URL-en** til agenten
-- Agentens **versjon** og **funksjoner** som strømming av svar og push-varsler.
+- Navnet på agenten.
+- En **beskrivelse av de generelle oppgavene** den fullfører.
+- En **liste over spesifikke ferdigheter** med beskrivelser for å hjelpe andre agenter (eller til og med menneskelige brukere) å forstå når og hvorfor de vil ringe til den agenten.
+- Den **gjeldende endepunkt-URL-en** til agenten
+- **Versjonen** og **kapasiteter** til agenten, som streaming-responser og push-varsler.
 
 #### Agentutfører
 
-Agentutføreren er ansvarlig for å **overføre konteksten av brukerchatten til den eksterne agenten**; den eksterne agenten trenger dette for å forstå oppgaven som skal fullføres. I en A2A-server bruker en agent sin egen store språkmodell (LLM) for å analysere innkommende forespørsler og utføre oppgaver ved hjelp av sine egne interne verktøy.
+Agentutføreren er ansvarlig for **å sende konteksten av brukerchatten til den eksterne agenten**, den eksterne agenten trenger dette for å forstå oppgaven som skal fullføres. I en A2A-server bruker en agent sin egen store språkmodell (LLM) for å tolke innkommende forespørsler og utføre oppgaver ved hjelp av sine interne verktøy.
 
 #### Artefakt
 
-Når en ekstern agent har fullført den forespurte oppgaven, blir produktet av arbeidet opprettet som et artefakt. Et artefakt **inneholder resultatet av agentens arbeid**, en **beskrivelse av hva som ble fullført**, og **tekstkonteksten** som sendes gjennom protokollen. Etter at artefakten er sendt, lukkes forbindelsen med den eksterne agenten til den trengs igjen.
+Når en ekstern agent har fullført den forespurte oppgaven, opprettes produktet av arbeidet som et artefakt. Et artefakt **inneholder resultatet av agentens arbeid**, en **beskrivelse av hva som ble fullført**, og **tekstkonteksten** som sendes gjennom protokollen. Etter at artefakten er sendt, lukkes forbindelsen med den eksterne agenten til den trengs igjen.
 
 #### Hendelseskø
 
-Denne komponenten brukes for **håndtering av oppdateringer og overføring av meldinger**. Den er spesielt viktig i produksjon for agentiske systemer for å forhindre at forbindelsen mellom agenter lukkes før en oppgave er fullført, spesielt når oppgavefullføringstider kan ta lengre tid.
+Denne komponenten brukes for **å håndtere oppdateringer og sende meldinger**. Den er spesielt viktig i produksjon for agentiske systemer for å forhindre at forbindelsen mellom agenter lukkes før en oppgave er fullført, spesielt når oppgavens fullføring kan ta lengre tid.
 
 ### Fordeler med A2A
 
-• **Forbedret samarbeid**: Den gjør det mulig for agenter fra forskjellige leverandører og plattformer å samhandle, dele kontekst og samarbeide, og legger til rette for sømløs automatisering på tvers av tradisjonelt atskilte systemer.
+• **Forbedret samarbeid**: Den gjør det mulig for agenter fra forskjellige leverandører og plattformer å samhandle, dele kontekst og samarbeide, noe som muliggjør sømløs automatisering på tvers av tradisjonelt frakoblede systemer.
 
-• **Fleksibilitet i modellvalg**: Hver A2A-agent kan bestemme hvilken LLM den bruker for å betjene sine forespørsler, noe som tillater optimaliserte eller finjusterte modeller per agent, i motsetning til en enkelt LLM-tilkobling i enkelte MCP-scenarier.
+• **Fleksibel modellvalg**: Hver A2A-agent kan bestemme hvilken LLM den bruker for å betjene sine forespørsler, noe som tillater optimaliserte eller finjusterte modeller per agent, i motsetning til en enkelt LLM-tilkobling i noen MCP-scenarier.
 
-• **Innebygd autentisering**: Autentisering er integrert direkte i A2A-protokollen, og gir en robust sikkerhetsramme for agentinteraksjoner.
+• **Innbygget autentisering**: Autentisering er integrert direkte i A2A-protokollen, og gir et robust sikkerhetsrammeverk for agentinteraksjoner.
 
 ### A2A-eksempel
 
 ![A2A Diagram](../../../translated_images/no/A2A-Diagram.8666928d648acc26.webp)
 
-La oss utvide vårt scenarios for reisebestilling, men denne gangen bruker vi A2A.
+La oss utvide vårt reisebestillingsscenario, men denne gangen bruker vi A2A.
 
-1. **Brukerforespørsel til multi-agent**: En bruker interagerer med en "Reiseagent" A2A-klient/agent, kanskje ved å si: "Vennligst bestill en hel tur til Honolulu for neste uke, inkludert fly, hotell og leiebil".
+1. **Brukerforespørsel til Multi-Agent**: En bruker interagerer med en "Reiseagent" A2A-klient/agent, kanskje ved å si, "Vennligst bestill en hel tur til Honolulu neste uke, inkludert fly, hotell og leiebil".
 
-2. **Orkestrering av Reiseagenten**: Reiseagenten mottar denne komplekse forespørselen. Den bruker sin LLM til å resonnere om oppgaven og avgjøre at den må samhandle med andre spesialiserte agenter.
+2. **Orkestrering av Reiseagent**: Reiseagenten mottar denne komplekse forespørselen. Den bruker sin LLM til å resonnere rundt oppgaven og avgjør at den må interagere med andre spesialiserte agenter.
 
-3. **Inter-agent kommunikasjon**: Reiseagenten bruker deretter A2A-protokollen til å koble seg til underordnede agenter, som en "Flyselskap Agent", en "Hotell Agent" og en "Leiebil Agent" som er opprettet av forskjellige selskaper.
+3. **Kommunikasjon mellom agenter**: Reiseagenten bruker deretter A2A-protokollen for å koble til nedstrøms agenter, som en "Flyselskapagent," en "Hotellagent" og en "Leiebilagent" som er opprettet av forskjellige selskaper.
 
-4. **Delegert oppgaveutførelse**: Reiseagenten sender spesifikke oppgaver til disse spesialiserte agentene (f.eks. "Finn flyreiser til Honolulu", "Bestill hotell", "Lei bil"). Hver av disse spesialiserte agentene, som kjører sine egne LLM-er og bruker sine egne verktøy (som selv kan være MCP-servere), utfører sin spesifikke del av bestillingen.
+4. **Delegert oppgaveutførelse**: Reiseagenten sender spesifikke oppgaver til disse spesialiserte agentene (f.eks. "Finn fly til Honolulu," "Bestill hotell," "Leie bil"). Hver av disse spesialiserte agentene, som kjører sine egne LLMs og bruker sine egne verktøy (som kan være MCP-servere), utfører sin spesifikke del av bestillingen.
 
-5. **Konsolidert svar**: Når alle underordnede agenter har fullført sine oppgaver, samler Reiseagenten resultatene (flydetaljer, hotellbekreftelse, leiebilbestilling) og sender et omfattende, chat-lignende svar tilbake til brukeren.
+5. **Konsolidert respons**: Når alle nedstrøms agentene er ferdige med sine oppgaver, samler Reiseagenten resultatene (flydetaljer, hotellbekreftelse, leiebilbestilling) og sender et omfattende, chat-lignende svar tilbake til brukeren.
 
 ## Natural Language Web (NLWeb)
 
-Nettsider har lenge vært hovedmetoden for brukere å få tilgang til informasjon og data på internett.
+Nettsteder har lenge vært hovedmåten for brukere å få tilgang til informasjon og data på internett.
 
-La oss se på de forskjellige komponentene i NLWeb, fordelene med NLWeb og et eksempel på hvordan vår NLWeb fungerer ved å se på vår reiseapplikasjon.
+La oss se på de ulike komponentene i NLWeb, fordelene med NLWeb og et eksempel på hvordan vårt NLWeb fungerer ved å se på vår reiseapplikasjon.
 
 ### Komponenter i NLWeb
 
-- **NLWeb-applikasjon (kjerne servicemotor)**: Systemet som behandler naturlige språkspørsmål. Det kobler sammen de ulike delene av plattformen for å lage svar. Du kan tenke på det som **motoren som driver naturlige språkfunksjoner** på en nettside.
+- **NLWeb-applikasjon (kjerne tjenestekode)**: Systemet som behandler spørsmål på naturlig språk. Det kobler sammen de ulike delene av plattformen for å skape svar. Du kan tenke på det som **motoren som driver de naturlige språkfunksjonene** til en nettside.
 
-- **NLWeb-protokoll**: Dette er et **grunnleggende sett med regler for naturlig språkinteraksjon** med en nettside. Den sender tilbake svar i JSON-format (ofte med Schema.org). Formålet er å lage et enkelt grunnlag for "AI-nettet", på samme måte som HTML gjorde det mulig å dele dokumenter på nett.
+- **NLWeb-protokoll**: Dette er et **grunnleggende sett med regler for naturlig språksinteraksjon** med et nettsted. Den sender tilbake svar i JSON-format (ofte ved bruk av Schema.org). Hensikten er å skape et enkelt fundament for “AI-nettet,” på samme måte som HTML gjorde det mulig å dele dokumenter online.
 
-- **MCP-server (Model Context Protocol Endepunkt)**: Hver NLWeb-oppsett fungerer også som en **MCP-server**. Dette betyr at den kan **dele verktøy (som en "ask"-metode) og data** med andre AI-systemer. I praksis gjør dette nettsidens innhold og evner brukbare for AI-agenter, og lar siden bli en del av det bredere "agentøkosystemet".
+- **MCP-server (Model Context Protocol-endepunkt)**: Hver NLWeb-oppsett fungerer også som en **MCP-server**. Det betyr at den kan **dele verktøy (som en “ask”-metode) og data** med andre AI-systemer. I praksis gjør dette nettstedets innhold og evner brukbare for AI-agenter, slik at siden blir en del av det bredere "agent-økosystemet".
 
-- **Embeddingsmodeller**: Disse modellene brukes til å **konvertere nettsideinnhold til numeriske representasjoner kalt vektorer** (embeddings). Disse vektorene fanger betydning på en måte som datamaskiner kan sammenligne og søke i. De lagres i en spesiell database, og brukere kan velge hvilken embeddingsmodell de ønsker å bruke.
+- **Innebyggingsmodeller**: Disse modellene brukes til å **konvertere nettstedets innhold til numeriske representasjoner kalt vektorer** (innebygginger). Disse vektorene fanger mening på en måte som datamaskiner kan sammenligne og søke i. De lagres i en spesiell database, og brukere kan velge hvilken innebyggingsmodell de vil bruke.
 
-- **Vektordatabase (gjenfinningsmekanisme)**: Denne databasen **lagrer embeddings av nettsideinnholdet**. Når noen stiller et spørsmål, sjekker NLWeb vektordatabasen for raskt å finne den mest relevante informasjonen. Den gir en rask liste over mulige svar rangert etter likhet. NLWeb fungerer med forskjellige vektorlager-systemer som Qdrant, Snowflake, Milvus, Azure AI Search og Elasticsearch.
+- **Vektordatabase (oppslagsmekanisme)**: Denne databasen **lagrer innebyggingene av nettstedets innhold**. Når noen stiller et spørsmål, sjekker NLWeb vektordatabasen for raskt å finne den mest relevante informasjonen. Den gir en rask liste med mulige svar, rangert etter likhet. NLWeb fungerer med forskjellige vektorlager systemer som Qdrant, Snowflake, Milvus, Azure AI Search og Elasticsearch.
 
-### NLWeb som eksempel
+### NLWeb ved eksempel
 
 ![NLWeb](../../../translated_images/no/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Tenk på vår nettside for reisebestilling igjen, men denne gangen drevet av NLWeb.
+Tenk igjen på vårt reisebestillingsnettsted, men denne gangen er det drevet av NLWeb.
 
-1. **Datainnsamling**: Reise-nettstedets eksisterende produktkataloger (f.eks. flyoppføringer, hotellbeskrivelser, turpakker) formateres med Schema.org eller lastes inn via RSS-feeder. NLWebs verktøy inntar disse strukturerte dataene, lager embeddings og lagrer dem i en lokal eller ekstern vektordatabase.
+1. **Dataopptak**: Reise-nettstedets eksisterende produktkataloger (f.eks. flyoppføringer, hotellbeskrivelser, turpakker) formateres ved bruk av Schema.org eller lastes inn via RSS-feeder. NLWebs verktøy behandler disse strukturerte dataene, lager innebygginger og lagrer dem i en lokal eller fjern vektordatabase.
 
-2. **Spørsmål i naturlig språk (menneske)**: En bruker besøker nettsiden og, i stedet for å navigere i menyer, skriver inn i et chattegrensesnitt: "Finn et barnevennlig hotell i Honolulu med basseng for neste uke".
+2. **Naturlig språkspørring (menneske)**: En bruker besøker nettstedet og, i stedet for å navigere i menyer, skriver inn i et chattergrensesnitt: "Finn meg et familievennlig hotell i Honolulu med basseng for neste uke".
 
-3. **NLWeb-behandling**: NLWeb-applikasjonen mottar denne forespørselen. Den sender forespørselen til en LLM for forståelse og søker samtidig i sin vektordatabase etter relevante hotelloppføringer.
+3. **NLWeb-behandling**: NLWeb-applikasjonen mottar denne forespørselen. Den sender spørringen til en LLM for forståelse og søker samtidig i sin vektordatabase etter relevante hotelloppføringer.
 
-4. **Nøyaktige resultater**: LLM-en hjelper til med å tolke søkeresultatene fra databasen, identifisere de beste treffene basert på kriteriene "barnevennlig," "basseng," og "Honolulu," og formaterer deretter et svar på naturlig språk. Viktig er at svaret refererer til faktiske hoteller fra nettsidens katalog, og unngår oppdiktet informasjon.
+4. **Nøyaktige resultater**: LLM hjelper til med å tolke søkeresultatene fra databasen, identifisere de beste treffene basert på kriteriene "familievennlig," "basseng," og "Honolulu," og formaterer så et svar på naturlig språk. Viktigst er at svaret refererer til faktiske hoteller fra nettstedets katalog, og unngår oppdiktet informasjon.
 
-5. **AI-agentinteraksjon**: Fordi NLWeb fungerer som en MCP-server, kan en ekstern AI-reiseagent også koble seg til denne nettsidens NLWeb-instans. AI-agenten kan da bruke `ask` MCP-metoden for å spørre nettsiden direkte: `ask("Er det noen veganske restauranter i Honolulu-området anbefalt av hotellet?")`. NLWeb-instansen vil behandle dette, med bruk av sin database over restaurantinformasjon (hvis lastet inn), og returnere et strukturert JSON-svar.
+5. **AI-agentinteraksjon**: Fordi NLWeb fungerer som en MCP-server, kan en ekstern AI-reiseagent også koble seg til dette nettstedets NLWeb-instans. AI-agenten kan så bruke MCP-metoden `ask` for å spørre nettstedet direkte: `ask("Finnes det noen veganvennlige restauranter i Honolulu-området anbefalt av hotellet?")`. NLWeb-instansen vil behandle dette, bruke sin database over restaurantinformasjon (om den er lastet inn), og returnere et strukturert JSON-svar.
 
-### Flere spørsmål om MCP/A2A/NLWeb?
+### Har du flere spørsmål om MCP/A2A/NLWeb?
 
 Bli med i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for å møte andre lærende, delta på kontortimer og få svar på dine spørsmål om AI-agenter.
 
 ## Ressurser
 
-- [MCP for nybegynnere](https://aka.ms/mcp-for-beginners)  
-- [MCP Dokumentasjon](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
+- [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)
+- [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
 
-## Forrige leksjon
+## Forrige Leksjon
 
 [AI-agenter i produksjon](../10-ai-agents-production/README.md)
 
-## Neste leksjon
+## Neste Leksjon
 
-[Kontekstengineering for AI-agenter](../12-context-engineering/README.md)
+[Context Engineering for AI Agents](../12-context-engineering/README.md)
 
 ---
 
