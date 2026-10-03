@@ -153,19 +153,16 @@ class PersistentEventStore(EventStore):
         logger.info(f"Replaying events after {last_event_id}")
 
         # Fetch events in thread pool
-        events_data = await asyncio.to_thread(self._fetch_events_sync, last_event_id)
+        replay_data = await asyncio.to_thread(self._fetch_events_sync, last_event_id)
 
-        if events_data is None:
+        if replay_data is None:
             logger.warning(f"Could not resume stream from event {last_event_id}")
             return None
 
-        stream_id = None
+        stream_id, events_data = replay_data
         replayed_count = 0
 
-        for event_id, row_stream_id, message_json in events_data:
-            if stream_id is None:
-                stream_id = row_stream_id
-
+        for event_id, _, message_json in events_data:
             try:
                 message = self._adapter.validate_json(message_json)
                 await send_callback(EventMessage(message, event_id))
@@ -176,7 +173,9 @@ class PersistentEventStore(EventStore):
         logger.info(f"Replayed {replayed_count} events for stream {stream_id}")
         return stream_id
 
-    def _fetch_events_sync(self, last_event_id: EventId) -> list[tuple[EventId, StreamId, str]] | None:
+    def _fetch_events_sync(
+        self, last_event_id: EventId
+    ) -> tuple[StreamId, list[tuple[EventId, StreamId, str]]] | None:
         try:
             target_id = int(last_event_id)
         except (ValueError, TypeError):
@@ -201,8 +200,8 @@ class PersistentEventStore(EventStore):
             (target_id, stream_id)
         )
 
-        # Convert rows to list of (str_id, stream_id, msg_json)
-        return [(str(row[0]), row[1], row[2]) for row in cursor.fetchall()]
+        # Preserve the stream ID even when there are no later events to replay.
+        return stream_id, [(str(row[0]), row[1], row[2]) for row in cursor.fetchall()]
 
     def get_event_count(self) -> int:
         """Get the total number of stored events."""
