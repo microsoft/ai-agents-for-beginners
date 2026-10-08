@@ -1421,6 +1421,50 @@ This is a simple form of metacognition where the system is capable of adjusting 
 
 Metacognition is a powerful tool that can significantly enhance the capabilities of AI agents. By incorporating metacognitive processes, you can design agents that are more intelligent, adaptable, and efficient. Use the additional resources to further explore the fascinating world of metacognition in AI agents.
 
+## Knowledge Check
+
+Test your understanding before moving to the next lesson.
+
+**1. What separates true metacognition from an agent that simply fixes a bad answer?**
+
+<details>
+<summary>Answer</summary>
+
+A metacognitive agent reasons about how it decided, not just about what it decided. When it finds a mistake, it changes its decision-making strategy and not only the final recommendation. For example, if users keep saying a trip is "too crowded", the agent should remove the crowded attractions and also question its habit of ranking attractions by popularity.
+</details>
+
+**2. In the Travel Agent example, how does the agent use experience and self-reflection?**
+
+<details>
+<summary>Answer</summary>
+
+It reviews user feedback to see which recommendations landed and adjusts future suggestions, adapts to what it has learned about the user (for example, avoiding popular spots at peak hours for someone who dislikes crowds), and corrects past errors (for example, checking availability more carefully after recommending a hotel that was fully booked).
+</details>
+
+**3. What is the difference between using RAG as a prompting technique and using it as a tool?**
+
+<details>
+<summary>Answer</summary>
+
+As a prompting technique, you write the prompts or queries that drive retrieval for each query. This gives you more control but takes more effort to craft and tune. As a tool, RAG is built into the agent's architecture and handles retrieval and generation automatically, which is easier to integrate and more efficient at scale.
+</details>
+
+**4. What are the three parts of the Corrective RAG approach?**
+
+<details>
+<summary>Answer</summary>
+
+A prompting technique that guides the agent to retrieve relevant information, a tool that evaluates the relevance of what was retrieved and generates accurate responses, and an evaluation step that keeps assessing the agent's performance and adjusts it to improve accuracy and efficiency.
+</details>
+
+**5. In the hotel example, how does the agent show metacognition?**
+
+<details>
+<summary>Answer</summary>
+
+It first picks a hotel using the "cheapest" strategy. It then reflects on that choice using user feedback, and if the hotel's quality was too low, it reconsiders its reasoning. Finally it recommends again using "highest_quality" instead of "cheapest". The agent adjusts how it decides, not only the one result it returned.
+</details>
+
 ### Got More Questions about the Metacognition Design Pattern?
 
 Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
