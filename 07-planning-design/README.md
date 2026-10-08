@@ -262,6 +262,42 @@ For more comprehensive planning do checkout Magnetic One <a href="https://www.mi
 
 In this article we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents you can include other patterns like reflection, summarizer, and round robin chat to further customize.
 
+## Knowledge Check
+
+Test your understanding before moving to the next lesson.
+
+**1. Why break a goal like "Generate a 3-day travel itinerary" into subtasks instead of handing it to one agent as-is?**
+
+<details>
+<summary>Answer</summary>
+
+A broad goal is hard to act on in a single step. Splitting it into goal-oriented subtasks (flights, hotels, car rental, personalization) lets dedicated agents or processes handle each piece, and a coordinating agent can then compile the results into one itinerary. It also makes the plan easy to extend later, for example by adding a food or local activities agent.
+</details>
+
+**2. Why does the planner return structured output such as JSON instead of free text?**
+
+<details>
+<summary>Answer</summary>
+
+Downstream agents and services can parse structured output more easily than free text, so the plan can be acted on directly. In the lesson's sample, each subtask has an `assigned_agent` value that you can use to route the work.
+</details>
+
+**3. After the planner produces a plan with several subtasks, how does it route the work?**
+
+<details>
+<summary>Answer</summary>
+
+The planner checks its agent registry, which lists the available agents and the tools they offer. With a single subtask, it sends the message straight to one dedicated agent. With several, it coordinates through a group chat manager so the agents can collaborate. Finally, it summarizes the generated plan for the user.
+</details>
+
+**4. When does a plan need to be revisited, and what does the planner need in order to do it?**
+
+<details>
+<summary>Answer</summary>
+
+Re-plan when the result of one subtask changes what the next one should be, such as an unexpected data format during flight booking, or when the user gives feedback, such as preferring an earlier flight. The sample passes the user history and the current plan back to the planner so it can re-plan, in some cases only partially.
+</details>
+
 ## Additional Resources
 
 Magentic One - A Generalist multi-agent system for solving complex tasks and has achieved impressive results on multiple challenging agentic benchmarks. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. In this implementation the orchestrator creates task specific plans and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
