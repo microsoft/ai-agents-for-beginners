@@ -1,5 +1,5 @@
 """
-Generate the three sample receipt fixtures in this directory.
+Generate the sample receipt fixtures in this directory.
 
 Uses a fixed Ed25519 signing key and a fixed timestamp so the output is
 byte-reproducible. Run this from the repo root or from within this folder.
@@ -8,6 +8,7 @@ Output:
   01_valid_receipt.json
   02_tampered_receipt.json
   03_chain_three_receipts.json
+  04_resigned_receipt.json
 """
 import copy
 import hashlib
@@ -21,6 +22,11 @@ from jcs import canonicalize
 
 # Fixed key for byte-reproducible fixtures. NEVER reuse in production.
 FIXED_SK_HEX = "9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae7f60"
+
+# A second, unrelated key standing in for an attacker. Used only to build
+# fixture 04, which is a forgery that verifies against the key inside it.
+ATTACKER_SK_HEX = "4ccd089b28ff96da9db6c346ec114e0f5b8a319f35aba624da8cf6ed4fb8a6fb"
+
 FIXED_TS = "2026-04-25T14:30:00Z"
 
 
@@ -130,7 +136,19 @@ def main():
         json.dumps([r0, r1, r2], indent=2) + "\n"
     )
 
-    print(f"Wrote three fixtures to {here}")
+    # Fixture 4: tamper, then re-sign with an attacker's own key and embed
+    # that key in the receipt. This is internally consistent: it verifies
+    # against the key it carries. It is caught only by verifying against the
+    # issuer's key obtained from somewhere other than the receipt.
+    attacker_sk = signing.SigningKey(bytes.fromhex(ATTACKER_SK_HEX))
+    forged_payload = {k: v for k, v in valid.items() if k != "signature"}
+    forged_payload["policy_id"] = "contoso-travel-policy-PERMISSIVE"
+    forged = sign_receipt(forged_payload, attacker_sk, attacker_sk.verify_key)
+    (here / "04_resigned_receipt.json").write_text(
+        json.dumps(forged, indent=2) + "\n"
+    )
+
+    print(f"Wrote four fixtures to {here}")
 
 
 if __name__ == "__main__":
