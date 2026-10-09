@@ -1,17 +1,21 @@
 # Esempi di Ricevute
 
-Tre file di ricevute pre-generate per ispezione senza eseguire il notebook.
+Tre file di ricevute pre-generate per l'ispezione senza eseguire il notebook.
 
-| File | Cosa contiene |
+| File | Cosa è |
 |---|---|
 | `01_valid_receipt.json` | Una ricevuta firmata valida per una chiamata allo strumento `lookup_flights`. La verifica restituisce True. |
 | `02_tampered_receipt.json` | La stessa ricevuta con un campo modificato dopo la firma. La verifica restituisce False. |
-| `03_chain_three_receipts.json` | Una catena di tre ricevute valide (search, hold, book) con `previous_receipt_hash` che collega ciascuna alla precedente. |
+| `03_chain_three_receipts.json` | Una catena di tre ricevute valide (ricerca, prenotazione in attesa, prenotazione) con `previous_receipt_hash` che collega ciascuna alla precedente. |
+
+Gli esempi firmano direttamente i byte canonici JCS del payload con Ed25519.
+SHA-256 rimane in uso per i digest dei contenuti e i collegamenti della catena di ricevute, non come un
+pre-hash extra prima della firma.
 
 ## Verifica degli esempi
 
-Il notebook guida la verifica in quattro sezioni. Per verificare direttamente questi esempi
-senza seguire la narrazione del notebook:
+Il notebook guida attraverso la verifica in quattro sezioni. Per verificare questi esempi
+direttamente senza seguire la narrazione del notebook:
 
 ```python
 import json
@@ -31,10 +35,10 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Come sono state generate
+## Come sono stati generati
 
 Gli esempi usano lo stesso percorso di codice del notebook, con una chiave di firma fissa
-e timestamp fissi per la riproducibilità byte-per-byte. Per rigenerare:
+e timestamp fissi per la riproducibilità dei byte. Per rigenerarli:
 
 ```bash
 python3 generate_fixtures.py
@@ -42,16 +46,17 @@ python3 generate_fixtures.py
 
 (Lo script si trova in `generate_fixtures.py` in questa directory.)
 
-## Cosa imparano gli studenti dall’ispezione del JSON grezzo
+## Cosa imparano gli studenti ispezionando il JSON grezzo
 
-Leggere il formato grezzo della ricevuta costruisce l’intuizione che le celle del notebook
-non sempre forniscono. Gli studenti che scorrono il JSON notano spesso:
+Leggere il formato grezzo della ricevuta costruisce un'intuizione che le celle nel notebook
+non sempre forniscono. Gli studenti che sfogliano il JSON notano spesso:
 
 1. La firma è una stringa opaca base64url, ma ogni altro campo è JSON leggibile
-   normalmente. La firma non cripta il contenuto; lo attesta.
+   in chiaro. La firma non cripta il contenuto; lo attesta.
 2. La `public_key` è incorporata nella ricevuta. Un revisore non ha bisogno di altro
-   per verificare (a condizione di fidarsi che la chiave appartenga effettivamente all’emittente dichiarato; vedere il README della lezione sull’infrastruttura di identità).
-3. Modificare un singolo carattere di qualsiasi campo, quindi ricomparare questo file con
+   per verificare (soggetto alla fiducia che la chiave appartenga effettivamente
+   all'emittente dichiarato; vedere il README della lezione sull'infrastruttura d'identità).
+3. Modificare un solo carattere di qualsiasi campo, poi confrontare di nuovo questo file con
    `02_tampered_receipt.json`, rende concreto il meccanismo a livello di byte.
 
 ---

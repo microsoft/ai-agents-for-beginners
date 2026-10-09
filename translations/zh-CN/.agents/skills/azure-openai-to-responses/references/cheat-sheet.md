@@ -453,7 +453,6 @@ O 系列模型迁移到 Responses API 时有独特的参数限制。
 
 | Chat Completions（o 系列） | Responses API | 备注 |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | 设置高值（4096+）—推理令牌计入限制 |
 | `reasoning_effort` | `reasoning.effort` | 若存在，保持不变（low/medium/high） |
 | `temperature` | 删除或设置为 `1` | O系列只接受 `1` |

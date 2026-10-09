@@ -453,7 +453,6 @@ O serijos modeliai turi unikalius parametrų apribojimus pereinant prie Response
 
 | Chat Completions (o serija) | Responses API | Pastabos |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | Nustatyti aukštą (4096+) — samprotavimo žetonai atskaitomi limitui |
 | `reasoning_effort` | `reasoning.effort` | Palikti kaip yra, jei yra (low/medium/high) |
 | `temperature` | Pašalinti arba nustatyti į `1` | Tik O-serija priima `1` |

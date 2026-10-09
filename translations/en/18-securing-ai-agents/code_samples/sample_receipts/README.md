@@ -8,6 +8,10 @@ Three pre-generated receipt files for inspection without running the notebook.
 | `02_tampered_receipt.json` | The same receipt with one field modified after signing. Verification returns False. |
 | `03_chain_three_receipts.json` | A chain of three valid receipts (search, hold, book) with `previous_receipt_hash` linking each to the prior one. |
 
+The fixtures sign the payload's canonical JCS bytes directly with Ed25519.
+SHA-256 remains in use for content digests and receipt-chain links, not as an
+extra pre-hash before signing.
+
 ## Verifying the samples
 
 The notebook walks through verification in four sections. To verify these fixtures
