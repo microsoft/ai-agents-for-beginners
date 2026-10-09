@@ -6,59 +6,59 @@ Bu derste, bu kursun kod örneklerinin nasıl çalıştırılacağı ele alınac
 
 ## Diğer Öğrenenlere Katılın ve Yardım Alın
 
-Depo çoğaltmaya başlamadan önce, kurulumla ilgili herhangi bir yardım almak, kurs hakkında sorular sormak veya diğer öğrenenlerle bağlantı kurmak için [AI Agents For Beginners Discord kanalına](https://aka.ms/ai-agents/discord) katılın.
+Depoyu klonlamaya başlamadan önce, kurulumda yardım almak, kursla ilgili sorularınızı sormak veya diğer öğrenenlerle bağlantı kurmak için [AI Agents For Beginners Discord kanalı](https://aka.ms/ai-agents/discord) katılın.
 
-## Bu Depoyu Çoğaltın veya Çatal Yapın
+## Bu Depoyu Klonlayın veya Forklayın
 
-Başlamak için, lütfen GitHub deposunu çoğaltın veya çatal yapın. Bu, kodu çalıştırıp test edebilmeniz ve ayar yapabilmeniz için kurs materyalinin kendi versiyonunuzu oluşturmanızı sağlar!
+Başlamak için lütfen GitHub Deposunu klonlayın veya forklayın. Bu, kodu çalıştırıp test edebilmeniz ve değiştirebilmeniz için kurs materyalinin kendi versiyonunuzu oluşturur!
 
-Bu, <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">depo için çatal yap</a> bağlantısına tıklayarak yapılabilir.
+Bu, <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">deposu forklamak</a> için bağlantıya tıklayarak yapılabilir.
 
-Şimdi bu kursun kendi çatal yapmış versiyonuna aşağıdaki linkten ulaşmalısınız:
+Artık bu kursun aşağıdaki linkte kendi forklanmış versiyonuna sahip olmalısınız:
 
-![Çatal Yapılmış Depo](../../../translated_images/tr/forked-repo.33f27ca1901baa6a.webp)
+![Forklanmış Repo](../../../translated_images/tr/forked-repo.33f27ca1901baa6a.webp)
 
-### Yüzeysel Çoğaltma (atölye / Codespaces için önerilir)
+### Yüzeysel Klonlama (atölye çalışması / Codespaces için önerilir)
 
-  >Tüm depo tam geçmişi ve dosyaları indirildiğinde büyük olabilir (~3 GB). Sadece atölyeye katılacaksanız veya yalnızca birkaç ders klasörüne ihtiyacınız varsa, yüzeysel çoğaltma (veya seyrek çoğaltma), geçmişi kısaltarak ve/veya blob'ları atlayarak çoğu indirimi önler.
+  > Tam depo geçmişi ve tüm dosyaları indirirken tam depo büyük olabilir (~3 GB). Sadece atölyeye katılıyorsanız veya sadece birkaç ders klasörüne ihtiyacınız varsa, yüzeysel klonlama (veya seyrek klonlama) çok daha az indirir.
 
-#### Hızlı yüzeysel çoğaltma — minimal geçmiş, tüm dosyalar
+#### Hızlı yüzeysel klonlama — minimal geçmiş, tüm dosyalar
 
-Aşağıdaki komutlarda `<your-username>` yerini kendi çatal URL'nizle (veya tercihinize göre üst depo URL'siyle) değiştirin.
+Aşağıdaki komutlarda `<your-username>` yerini kendi fork URL'nizle (veya tercihiniz upstream URL ile) değiştirin.
 
-Sadece en son commit geçmişini çoğaltmak için (küçük indirme):
+Sadece en son commit geçmişini klonlamak için (küçük indirme):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Belirli bir dalı çoğaltmak için:
+Belirli bir şubeyi klonlamak için:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Kısmi (seyrek) çoğaltma — minimal blob + sadece seçilen klasörler
+#### Kısmi (seyrek) klonlama — minimal blob + sadece seçilmiş klasörler
 
-Bu, kısmi çoğaltma ve seyrek-çekme kullanır (Git 2.25+ gerektirir ve kısmi çoğaltma destekli modern Git önerilir):
+Bu, kısmi klonlama ve seyrek-checkout kullanır (Git 2.25+ gerektirir ve kısmi klonlama desteği olan modern Git önerilir):
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Depo klasörüne geçin:
+Depo klasörüne gidin:
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-Daha sonra hangi klasörlere ihtiyacınız olduğunu belirtin (aşağıdaki örnekte iki klasör gösterilmiştir):
+Sonra istediğiniz klasörleri belirtin (aşağıdaki örnek iki klasör gösterir):
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Çoğaltma ve dosyaları doğruladıktan sonra, sadece dosyalara ihtiyacınız varsa ve yer açmak istiyorsanız (git geçmişi olmadan), repo meta verilerini silin (💀geri alınamaz — tüm Git işlevlerini kaybedersiniz: commit, pull, push veya geçmiş erişimi yok).
+Klonladıktan ve dosyaları doğruladıktan sonra, sadece dosyalara ihtiyacınız var ve alan açmak istiyorsanız (git geçmişi olmadan), depo meta verilerini silin (💀geri döndürülemez — tüm Git işlevselliğini kaybedersiniz):
 
 ```bash
 # zsh/bash
@@ -70,37 +70,37 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### GitHub Codespaces Kullanımı (yerel büyük indirmelerden kaçınmak için önerilir)
+#### GitHub Codespaces Kullanımı (yerel büyük indirmeleri önlemek için önerilir)
 
-- Bu repoya yeni bir Codespace oluşturun [GitHub UI](https://github.com/codespaces) üzerinden.  
+- Bu depo için [GitHub UI](https://github.com/codespaces) üzerinden yeni bir Codespace oluşturun.  
 
-- Yeni oluşturulan Codespace terminalinde, yukarıdaki yüzeysel/seyreklik çoğaltma komutlarından birini çalıştırarak sadece ihtiyacınız olan ders klasörlerini Codespace çalışma alanına getirin.
-- Opsiyonel: Codespaces içinde çoğaltıldıktan sonra, ekstra alan kazanmak için .git dosyasını kaldırabilirsiniz (yukarıdaki kaldırma komutlarına bakın).
-- Not: Depoyu doğrudan Codespaces içinde açmayı tercih ederseniz (ek çoğaltma olmadan), Codespaces geliştirme konteyner ortamını oluşturacak ve ihtiyacınızdan daha fazlasını sağlayabilir. Yeni bir Codespace içinde yüzeysel kopya çoğaltmak disk kullanımı üzerinde daha fazla kontrol sağlar.
+- Yeni oluşturulan Codespace terminalinde yukarıdaki yüzeysel/seyrek klonlama komutlarından birini çalıştırarak ihtiyaç duyduğunuz ders klasörlerini Codespace çalışma alanına getirin.
+- İsteğe bağlı: Codespaces içinde klonladıktan sonra, ekstra alan açmak için .git klasörünü kaldırabilirsiniz (yukarıdaki kaldırma komutlarına bakın).
+- Not: Depoyu doğrudan Codespaces'de açmayı tercih ederseniz (ekstra klonlama olmadan), Codespaces geliştirme konteyner ortamını kurar ve yine de ihtiyacınızdan fazla kaynak sağlayabilir.
 
 #### İpuçları
 
-- Düzenleme/commit yapmak istiyorsanız, çoğaltma URL'sini her zaman kendi çatalınızla değiştirin.
-- Daha sonra daha fazla geçmiş veya dosyaya ihtiyacınız olursa, onları getirerek veya seyrek-çekme ayarını değiştirerek daha fazla klasör dahil edebilirsiniz.
+- Düzenlama/commit yapmak istiyorsanız, klon URL'sini her zaman forkunuzla değiştirin.
+- Daha sonra daha fazla geçmiş veya dosya ihtiyacınız olursa, onları alabilir veya sparse-checkout ayarlarını ek klasörleri dahil edecek şekilde değiştirebilirsiniz.
 
 ## Kodu Çalıştırma
 
-Bu kurs, AI Agentlar oluşturma konusunda pratik deneyim kazanmanız için çalıştırabileceğiniz bir dizi Jupyter Notebook sunmaktadır.
+Bu kurs, AI Ajanları oluşturmak için pratik yapabileceğiniz bir dizi Jupyter Defteri sunar.
 
-Kod örnekleri, **Microsoft Agent Framework (MAF)** kullanmakta ve `FoundryChatClient` ile **Microsoft Foundry Agent Service V2** (Yanıtlar API'si) üzerinden **Microsoft Foundry** ile bağlantı kurmaktadır.
+Kod örnekleri, **Microsoft Agent Framework (MAF)** ile `FoundryChatClient` kullanır; bu, **Microsoft Foundry** aracılığıyla **Microsoft Foundry Agent Service V2** (Responses API) ile bağlantı kurar.
 
-Tüm Python notebokları `*-python-agent-framework.ipynb` olarak etiketlenmiştir.
+Tüm Python defterleri `*-python-agent-framework.ipynb` olarak etiketlenmiştir.
 
 ## Gereksinimler
 
 - Python 3.12+
-  - **NOT:** Python3.12 yüklü değilse, yüklediğinizden emin olun. Daha sonra, requirements.txt dosyasından doğru sürümlerin yüklendiğine emin olmak için venv'inizi python3.12 kullanarak oluşturun.
+  - **NOT**: Python3.12 yüklü değilse, yüklediğinizden emin olun. Ardından requirements.txt dosyasından doğru sürümlerin yüklenmesi için python3.12 ile sanal ortam (venv) oluşturun.
   
     >Örnek
 
     Python venv dizini oluşturun:
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
@@ -116,82 +116,82 @@ Tüm Python notebokları `*-python-agent-framework.ipynb` olarak etiketlenmişti
     venv\Scripts\activate
     ```
 
-- .NET 10+: .NET kullanan örnek kodlar için, [.NET 10 SDK'sı](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yenisini yüklediğinizden emin olun. Ardından kurulu .NET SDK sürümünüzü kontrol edin:
+- .NET 10+: .NET kullanan örnekler için, [.NET 10 SDK'sını](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yenisini yüklediğinizden emin olun. Ardından kurulu .NET SDK sürümünüzü kontrol edin:
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
 - **Azure CLI** — Kimlik doğrulama için gereklidir. [aka.ms/installazurecli](https://aka.ms/installazurecli) adresinden yükleyin.
 - **Azure Aboneliği** — Microsoft Foundry ve Microsoft Foundry Agent Service erişimi için.
-- **Microsoft Foundry Projesi** — Dağıtılmış bir modeli (örneğin `gpt-5-mini`) olan bir proje. Aşağıdaki [1. Adım](#1-adım-bir-microsoft-foundry-projesi-oluşturun) bakınız.
+- **Microsoft Foundry Projesi** — Dağıtılmış bir modele sahip proje (örneğin, `gpt-5-mini`). Aşağıdaki [Adım 1](#adım-1-bir-microsoft-foundry-projesi-oluşturun) bölümüne bakın.
 
-Bu depoda, kod örneklerini çalıştırmak için gerekli tüm Python paketlerini içeren bir `requirements.txt` dosyası bulunmaktadır.
+Bu depo kökünde kod örneklerini çalıştırmak için gereken tüm Python paketlerini içeren bir `requirements.txt` dosyası bulunmaktadır.
 
-Bunları, terminalinizde deponun kök dizininde aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
+Bunları depo kökünde terminalinizde aşağıdaki komutu çalıştırarak kurabilirsiniz:
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-Herhangi bir çakışmayı ve sorunu önlemek için bir Python sanal ortamı (virtual environment) oluşturmanızı öneririz.
+Herhangi bir çakışma veya sorun yaşamamak için bir Python sanal ortamı oluşturmanızı öneririz.
 
 ## VSCode Kurulumu
 
-VSCode'da doğru Python sürümünü kullandığınızdan emin olun.
+VSCode içinde doğru Python sürümünü kullandığınızdan emin olun.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
 ## Microsoft Foundry ve Microsoft Foundry Agent Service Kurulumu
 
-### 1. Adım: Bir Microsoft Foundry Projesi Oluşturun
+### Adım 1: Bir Microsoft Foundry Projesi Oluşturun
 
-Notebokları çalıştırmak için dağıtılmış bir modele sahip Microsoft Foundry **hub** ve **projesine** ihtiyacınız var.
+Defterleri çalıştırmak için dağıtılmış bir modele sahip Microsoft Foundry **hub** ve **projesine** ihtiyacınız var.
 
-1. [ai.azure.com](https://ai.azure.com) adresine gidin ve Azure hesabınızla oturum açın.
-2. Bir **hub** oluşturun (veya mevcut biri kullanın). Bkz: [Hub kaynakları genel bakış](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+1. [ai.azure.com](https://ai.azure.com) sitesine gidin ve Azure hesabınızla oturum açın.
+2. Bir **hub** oluşturun (ya da mevcut birini kullanın). Bakınız: [Hub kaynakları genel bakış](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
 3. Hub içinde bir **proje** oluşturun.
-4. **Modeller + Uç Noktalar** → **Model dağıt** kısmından bir model (örneğin `gpt-5-mini`) dağıtın.
+4. **Models + Endpoints** → **Model dağıt** bölümünden bir model (örneğin, `gpt-5-mini`) dağıtın.
 
-### 2. Adım: Proje Uç Noktası ve Model Dağıtım Adı Alın
+### Adım 2: Proje Uç Noktanızı ve Model Dağıtım Adını Alın
 
 Microsoft Foundry portalındaki projenizden:
 
 - **Proje Uç Noktası** — **Genel Bakış** sayfasına gidin ve uç nokta URL'sini kopyalayın.
 
-![Proje Bağlantı Dizesi](../../../translated_images/tr/project-endpoint.8cf04c9975bbfbf1.webp)
+![Proje Bağlantı Dizisi](../../../translated_images/tr/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Model Dağıtım Adı** — **Modeller + Uç Noktalar** kısmına gidin, dağıtılmış modelinizi seçin ve **Dağıtım adı**nı not alın (örneğin `gpt-5-mini`).
+- **Model Dağıtım Adı** — **Models + Endpoints** bölümüne gidin, dağıttığınız modeli seçin ve **Dağıtım adı**nı not edin (örneğin, `gpt-5-mini`).
 
-### 3. Adım: `az login` ile Azure'a Giriş Yapın
+### Adım 3: `az login` ile Azure'a Giriş Yapın
 
-Tüm noteboklar, kimlik doğrulama için **`AzureCliCredential`** kullanır — API anahtarı yönetimi gerektirmez. Bunun için Azure CLI ile oturum açmanız gerekir.
+Çoğu defter, `azure-identity` paketinden `AzureCliCredential` veya `DefaultAzureCredential` kullanarak **Azure CLI oturumu** ile kimlik doğrular — bu yüzden API anahtarı gerektirmezler. Bazı dersler ve isteğe bağlı entegrasyonlar API anahtarı kullanır; ilave ortam değişkenlerini kontrol etmek için her dersin önkoşullarını inceleyin. Bu, Azure CLI ile oturum açmanızı gerektirir.
 
-1. Daha önce yapmadıysanız **Azure CLI Yükleyin**: [aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. Eğer yüklü değilse, **Azure CLI'yı yükleyin**: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-2. Şu komutla **oturum açın**:
+2. **Oturum açmak için** şu komutu çalıştırın:
 
-    ```bash|powershell
+    ```bash
     az login
     ```
 
-    Ya da tarayıcı olmadan uzak/Codespace ortamındaysanız:
+    Veya tarayıcı olmadan uzak/Codespace ortamındaysanız:
 
-    ```bash|powershell
+    ```bash
     az login --use-device-code
     ```
 
 3. İstenirse **aboneliğinizi seçin** — Foundry projenizi içeren aboneliği tercih edin.
 
-4. Oturumunuzun açıldığını **doğrulayın**:
+4. **Oturumunuzun açık olduğunu doğrulayın:**
 
-    ```bash|powershell
+    ```bash
     az account show
     ```
 
-> **Neden `az login`?** Noteboklar, `azure-identity` paketinden `AzureCliCredential` kullanarak kimlik doğrulama yapar. Bu, Azure CLI oturumunuzun kimlik bilgilerini sağladığı anlamına gelir — `.env` dosyanızda API anahtarı veya gizli anahtar yoktur. Bu bir [güvenlik en iyi uygulamasıdır](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+> **Neden `az login`?** Defterler, `azure-identity` paketinden `AzureCliCredential` (veya `DefaultAzureCredential`, aynı zamanda Azure CLI oturumunuzu alır) kullanarak doğrulama yapar. Bu, Azure CLI oturumu kimlik bilgilerini sağlar — `.env` dosyanızda API anahtarı veya gizli bilgi bulunmaz. Bu bir [güvenlik en iyi uygulamasıdır](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-### 4. Adım: `.env` Dosyanızı Oluşturun
+### Adım 4: `.env` Dosyanızı Oluşturun
 
 Örnek dosyayı kopyalayın:
 
@@ -205,7 +205,7 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-`.env` dosyasını açıp bu iki değeri doldurun:
+`.env` dosyasını açın ve şu iki değeri doldurun:
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
@@ -215,62 +215,100 @@ AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 | Değişken | Nerede bulunur |
 |----------|-----------------|
 | `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → projeniz → **Genel Bakış** sayfası |
-| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Modeller + Uç Noktalar** → dağıtılmış modelinizin adı |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → dağıtılan modelinizin adı |
 
-Çoğu ders için bu kadar! Noteboklar, `az login` oturumunuzla otomatik olarak kimlik doğrulaması yapacaktır.
+Çoğu ders için bu kadar! Defterler `az login` oturumunuz üzerinden otomatik olarak kimlik doğrulaması yapar.
 
-### 5. Adım: Python Bağımlılıklarını Yükleyin
+### Adım 5: Python Bağımlılıklarını Yükleyin
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-Daha önce oluşturduğunuz sanal ortam içinde çalıştırmanızı öneririz.
+Bunu önceden oluşturduğunuz sanal ortam içinde çalıştırmanızı öneririz.
 
-## Ders 5 için Ek Kurulum (Agentic RAG)
+## İsteğe Bağlı Kurulum: Azure AI Search (5 ve 16. Dersler)
 
-Ders 5, getirme destekli üretim için **Azure AI Search** kullanır. Bu dersi çalıştırmayı planlıyorsanız `.env` dosyanıza bu değişkenleri ekleyin:
+5. (Agentic RAG) ve 16. ders defterleri, ek bir Azure kaynağı gerektirmeyen bir **bellek içi bilgi tabanı** ile kutudan çıkar. Gerçek bir **Azure AI Search** indeksi ile desteklemek isterseniz, **16. ders defteri şu anda anahtarlı kimlik doğrulama kullanır**: Bellek içi aramadan Azure AI Search'e ancak **hem** `AZURE_SEARCH_SERVICE_ENDPOINT` **hem de** `AZURE_SEARCH_API_KEY` ayarlandığında geçer, aksi takdirde bellekte kalır — gerçek bir indekste çalıştırmak için yönetici anahtarını da ayarlamanız gerekir. Keyless kimlik doğrulama Microsoft Entra ID (RBAC) ile önerilen yoldur, bu kursun diğer yerlerinde kullanılan `az login` akışına uygundur.
+
+Aşağıdaki RBAC adımları, kurulum kılavuzu örnekleri ve kendi kodunuz için geçerlidir. 16. ders defterinde anahtarsız kimlik doğrulamayı etkinleştirmez; 16. ders hala Azure AI Search kullanmak için hem uç noktayı hem de yönetici anahtarını gerektirir.
+
+1. Arama hizmetinizde **rol tabanlı erişimi etkinleştirin**:
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. Kendinize gerekli rolleri atayın (indeks oluşturmak ve sorgulamak için):
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. Uç noktayı `.env` dosyanıza ekleyin:
 
 | Değişken | Nerede bulunur |
 |----------|-----------------|
 | `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → **Azure AI Search** kaynağınız → **Genel Bakış** → URL |
-| `AZURE_SEARCH_API_KEY` | Azure portal → **Azure AI Search** kaynağınız → **Ayarlar** → **Anahtarlar** → birincil yönetici anahtarı |
+| `AZURE_SEARCH_API_KEY` | Ders 16 defterinde anahtarlı kimlik doğrulamayı etkinleştirmek (ve uç nokta ile birlikte gerekli). Azure portal → **Ayarlar** → **Anahtarlar** → birincil yönetici anahtarı |
 
-## Azure OpenAI'yi Doğrudan Çağıran Dersler için Ek Kurulum (Ders 6 ve 8)
+> **Neden anahtarsız?** Yönetici anahtarları arama hizmetinize tam yazma erişimi verir ve `.env` dosyalarında sızabilir. RBAC ile bunun yerine `az login` kimliği kullanılır — kurs defterlerinde kullanılan aynı anahtarsız Entra ID modeli (`AzureCliCredential` / `DefaultAzureCredential`). Bakınız [Rollerle Azure AI Search'e bağlanma](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-Ders 6 ve 8'deki bazı noteboklar, doğrudan **Azure OpenAI**yı (Yanıtlar API'sini kullanarak) çağırır ve Microsoft Foundry projesinden geçmez. Bu örnekler önceden GitHub Modellerini kullandı, ancak bu kullanım sonlandırılmıştır (Temmuz 2026'da emekli olacak) ve Yanıtlar API'sini desteklemez. Bu örnekleri çalıştırmayı planlıyorsanız `.env` dosyanıza şu değişkenleri ekleyin:
+Python ve .NET'te tam indeks oluşturma örnekleri için [Azure AI Search kurulum kılavuzuna](./AzureSearch.md) bakın.
+
+## Doğrudan Azure OpenAI Çağıran Dersler için Ek Kurulum (6 ve 8. Dersler)
+
+6 ve 8. derslerdeki bazı defterler, Microsoft Foundry projesi yerine **Azure OpenAI**'yi doğrudan (Responses API kullanarak) çağırır. Bu örnekler önceki GitHub Models kullanıyordu, bu yöntem eski ve Responses API'yi desteklemiyor. `.env` dosyanıza şu değişkenleri ekleyin:
 
 | Değişken | Nerede bulunur |
 |----------|-----------------|
-| `AZURE_OPENAI_ENDPOINT` | Azure portal → **Azure OpenAI** kaynağınız → **Anahtarlar ve Uç Nokta** → Uç Nokta (ör. `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | Yanıtlar API'sini destekleyen dağıtılmış modelinizin adı (ör. `gpt-5-mini`) |
-| `AZURE_OPENAI_API_KEY` | Opsiyonel — `az login` / Entra ID yerine anahtar tabanlı kimlik doğrulaması kullanıyorsanız |
+| `AZURE_OPENAI_ENDPOINT` | Azure portal → **Azure OpenAI** kaynağınız → **Anahtarlar ve Uç Nokta** → Uç Nokta (örn. `https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | Responses API'yi destekleyen dağıtılmış model adı (örn. `gpt-5-mini`) |
+| `AZURE_OPENAI_API_KEY` | İsteğe bağlı — anahtarlı kimlik doğrulama kullanıyorsanız `az login` / Entra ID yerine |
 
-> Yanıtlar API, kararlı `/openai/v1/` uç noktasını kullanır, bu yüzden `api-version` gerekmez. Anahtarsız Entra ID kimlik doğrulaması için `az login` ile oturum açın.
+> Responses API stabil `/openai/v1/` uç noktasını kullanır, bu yüzden `api-version` gerekmez. Anahtarsız Entra ID kimlik doğrulaması için `az login` ile giriş yapın.
 
-## Alternatif Sağlayıcı: MiniMax (OpenAI Uyumlu)
+## Alternatif Sağlayıcı: MiniMax (OpenAI Uyumluluğu)
 
-[MiniMax](https://platform.minimaxi.com/) OpenAI uyumlu API üzerinden büyük bağlam modelleri sağlar (204K token'a kadar). Microsoft Agent Framework'ün `OpenAIChatClient` bileşeni herhangi bir OpenAI uyumlu uç noktada çalıştığı için MiniMax'ı Azure OpenAI veya OpenAI yerine kullanabilirsiniz.
+[MiniMax](https://platform.minimaxi.com/) büyük-kapsamlı modeller (204K token'a kadar) OpenAI uyumlu API ile sağlar. Microsoft Agent Framework'ün `OpenAIChatClient`'ı her OpenAI uyumlu uç nokta ile çalıştığından, MiniMax'i `OpenAIChatClient` kullanan dersler için drop-in alternatif olarak kullanabilirsiniz.
 
 `.env` dosyanıza şu değişkenleri ekleyin:
 
 | Değişken | Nerede bulunur |
 |----------|-----------------|
-| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Anahtarları |
-| `MINIMAX_BASE_URL` | `https://api.minimax.io/v1` olarak kullanın (varsayılan değer) |
-| `MINIMAX_MODEL_ID` | Kullanılacak model adı (ör. `MiniMax-M3`) |
+| `MINIMAX_API_KEY` | [MiniMax Platformu](https://platform.minimaxi.com/) → API Anahtarları |
+| `MINIMAX_BASE_URL` | `https://api.minimax.io/v1` kullanın (varsayılan değer) |
+| `MINIMAX_MODEL_ID` | Kullanılacak model adı (örn., `MiniMax-M3`) |
 
-**Örnek modeller**: `MiniMax-M3` (önerilen), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (daha hızlı yanıtlar). Model adları ve mevcutluğu zamanla değişebilir ve belirli modellere erişim hesabınız veya bölgenize bağlı olabilir — güncel liste için [MiniMax Platform](https://platform.minimaxi.com/) kontrol edin. Eğer `MiniMax-M3` hesabınıza açık değilse, erişiminiz olan bir modeli `MINIMAX_MODEL_ID` olarak ayarlayın (örneğin `MiniMax-M2.7`).
+**Örnek modeller**: `MiniMax-M3` (önerilir), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (daha hızlı yanıt). Model isimleri ve erişimi zamanla değişebilir, kişisel hesabınıza bağlıdır.
 
-`OpenAIChatClient` kullanan kod örnekleri (örneğin, Ders 14 otel rezervasyon iş akışı) `MINIMAX_API_KEY` ayarlandığında otomatik olarak MiniMax yapılandırmanızı algılar ve kullanır.
+`OpenAIChatClient` kullanan kod örnekleri (örn. Ders 14 otel rezervasyon akışı) `MINIMAX_API_KEY` ayarlandığında MiniMax yapılandırmanızı otomatik algılar ve kullanır.
 
-## Alternatif Sağlayıcı: Foundry Local (Modelleri Cihazda Çalıştır)
 
-[Foundry Local](https://foundrylocal.ai), dil modellerini **tamamen kendi makinenizde** indirip yöneten, OpenAI uyumlu bir API ile servis eden hafif bir çalışma zamanı ortamıdır — bulut, Azure aboneliği veya API anahtarı gerekmez. Çevrimdışı geliştirme, bulut maliyetlerine maruz kalmadan deneme yapma ya da verileri cihazda tutmak için mükemmel bir seçenektir.
+## Alternatif Sağlayıcı: Novita AI (OpenAI-Uyumlu)
 
-Microsoft Agent Framework'ün `OpenAIChatClient` bileşeninin herhangi bir OpenAI uyumlu uç noktada çalıştığı için Foundry Local, Azure OpenAI için bir yerel alternatif olarak kullanılabilir.
+[Novita AI](https://novita.ai/llm-api), açık kaynaklı ve öncü LLM'ler (DeepSeek, Llama, Qwen ve daha fazlası) için OpenAI uyumlu bir API sağlar. Microsoft Agent Framework'ün `OpenAIChatClient`'ı herhangi bir OpenAI uyumlu uç noktasıyla çalıştığı için, Novita AI'yı Azure OpenAI veya OpenAI'a alternatif olarak kullanabilirsiniz.
 
-**1. Foundry Local Kurulumu**
+Bu değişkenleri `.env` dosyanıza ekleyin:
+
+| Değişken | Nerede bulunur |
+|----------|-----------------|
+| `NOVITA_API_KEY` | [Novita AI Kontrol Paneli](https://novita.ai/settings/key-management) → API Anahtarları |
+| `NOVITA_BASE_URL` | `https://api.novita.ai/openai/v1` kullanın (varsayılan değer) |
+| `NOVITA_MODEL_ID` | Kullanılacak model adı (ör. `moonshotai/kimi-k3`) |
+
+**Örnek modeller**: `moonshotai/kimi-k3`, `zai-org/glm-5.2`, `deepseek/deepseek-v4-flash-0731`. Novita AI ayrıca birçok başka açık kaynak model ailesine (Llama, Qwen, GLM ve daha fazlası) ev sahipliği yapar — mevcut modellerin ve model kimliklerinin güncel listesi için [Novita AI model kütüphanesi](https://novita.ai/llm-api) sayfasını kontrol edin.
+
+Mevcut örnekler otomatik olarak `NOVITA_*` değişkenlerini kullanmaz. Novita AI'yı kullanmak için, çalıştırdığınız örnekte `OpenAIChatClient` yapılandırılırken bu değerleri açıkça geçin.
+
+## Alternatif Sağlayıcı: Foundry Local (Modelleri Cihazda Çalıştırma)
+
+[Foundry Local](https://foundrylocal.ai), dil modellerini **tamamen kendi bilgisayarınızda** indiren, yöneten ve OpenAI uyumlu bir API aracılığıyla sunan hafif bir çalışma zamanıdır — bulut gerektirmez.
+
+Microsoft Agent Framework'ün `OpenAIChatClient`'ı herhangi bir OpenAI uyumlu uç noktasıyla çalıştığı için, Foundry Local yerel ve tak-çalıştır alternatif olarak Azure OpenAI'ın yerine geçer.
+
+**1. Foundry Local'ı kurun**
 
 ```bash
 # Windows
@@ -280,14 +318,14 @@ winget install Microsoft.FoundryLocal
 brew install foundrylocal
 ```
 
-**2. Bir model indirip çalıştırın** (bu aynı zamanda yerel servisi başlatır):
+**2. Bir modeli indirip çalıştırın** (bu aynı zamanda yerel servisi başlatır):
 
 ```bash
-foundry model list          # mevcut modelleri görüntüle
+foundry model list          # mevcut modelleri gör
 foundry model run phi-4-mini
 ```
 
-**3. Yerel uç noktayı keşfetmek için kullanılan Python SDK'sını yükleyin:**
+**3. Yerel uç noktayı keşfetmek için Python SDK'sını kurun:**
 
 ```bash
 pip install foundry-local-sdk
@@ -304,7 +342,7 @@ manager = FoundryLocalManager("phi-4-mini")
 
 chat_client = OpenAIChatClient(
     base_url=manager.endpoint,      # örn. http://localhost:<port>/v1
-    api_key=manager.api_key,        # Foundry Local için her zaman "not-required"
+    api_key=manager.api_key,        # Foundry Local için her zaman "gerekli değil"
     model_id=manager.get_model_info("phi-4-mini").id,
 )
 
@@ -314,39 +352,38 @@ agent = chat_client.as_agent(
 )
 ```
 
-> **Not:** Foundry Local, OpenAI uyumlu **Chat Tamamlama** uç noktası sunar. Yerel geliştirme ve çevrimdışı senaryolar için kullanın. Tam **Yanıtlar API** özellik seti (durumsal konular, derin araç orkestrasyonu ve ajan tarzı geliştirme) için aşağıdaki derslerde gösterildiği gibi **Azure OpenAI** veya **Microsoft Foundry** projesini hedefleyin. Güncel model kataloğu ve platform desteği için [Foundry Local dokümantasyonuna](https://foundrylocal.ai) bakın.
+> **Not:** Foundry Local OpenAI uyumlu bir **Chat Completions** uç noktası sunar. Yerel geliştirme ve çevrimdışı senaryolar için kullanın. Tam **Responses API** özellik seti (durumlu konuşmalar vb.) için Azure OpenAI veya bir Microsoft Foundry projesini kullanın.
 
-## Ders 8 için Ek Kurulum (Bing Grounding İş Akışı)
+## Ders 8 İçin Ek Kurulum (Bing Grounding İş Akışı)
 
-
-Ders 8’deki koşullu iş akışı not defteri, Microsoft Foundry üzerinden **Bing temel alma** kullanır. Bu örneği çalıştırmayı planlıyorsanız, bu değişkeni `.env` dosyanıza ekleyin:
+Ders 8'deki koşullu iş akışı defteri, Microsoft Foundry aracılığıyla **Bing grounding** kullanır. Bu örneği çalıştırmayı planlıyorsanız, `.env` dosyanıza şu değişkeni ekleyin:
 
 | Değişken | Nerede bulunur |
 |----------|-----------------|
-| `BING_CONNECTION_ID` | Microsoft Foundry portalı → projeniz → **Yönetim** → **Bağlı kaynaklar** → Bing bağlantınız → bağlantı kimliğini kopyalayın |
+| `BING_CONNECTION_ID` | Microsoft Foundry portalı → projeniz → **Yönetim** → **Bağlantılı kaynaklar** → Bing bağlantınız → bağlantı kimliğini kopyalayın |
 
 ## Sorun Giderme
 
-### macOS’ta SSL Sertifika Doğrulama Hataları
+### macOS Üzerinde SSL Sertifika Doğrulama Hataları
 
-macOS kullanıyorsanız ve şu tür bir hata alıyorsanız:
+Eğer macOS kullanıyorsanız ve şöyle bir hata alıyorsanız:
 
 ```plaintext
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-Bu, macOS’te Python ile bilinen bir sorundur; sistem SSL sertifikalarına otomatik olarak güvenilmez. Aşağıdaki çözümleri sırayla deneyin:
+Bu, sistem SSL sertifikalarının otomatik olarak güvenilmediği macOS üzerindeki Python ile bilinen bir sorun. Aşağıdaki çözümleri sırasıyla deneyin:
 
-**Seçenek 1: Python'un Install Certificates betiğini çalıştırın (önerilir)**
+**Seçenek 1: Python'un Sertifika Kurulum betiğini çalıştırın (önerilen)**
 
 ```bash
 # Yüklü Python sürümünüzle 3.XX'i değiştirin (örneğin, 3.12 veya 3.13):
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**Seçenek 2: Not defterinizde `connection_verify=False` kullanın (yalnızca GitHub Models not defterleri için)**
+**Seçenek 2: Not defterinizde `connection_verify=False` kullanın (yalnızca GitHub Modelleri not defterleri için)**
 
-Ders 6 not defterinde (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), yorum satırı olarak bir geçici çözüm zaten mevcut. İstemci oluştururken `connection_verify=False` yorumunu kaldırın:
+Ders 6 not defterinde (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) zaten yorum satırı halinde bir çözüm bulunmaktadır. Sertifika hatası aldığınızda `connection_verify=False` ifadesinin yorumunu kaldırın:
 
 ```python
 client = ChatCompletionsClient(
@@ -356,7 +393,7 @@ client = ChatCompletionsClient(
 )
 ```
 
-> **⚠️ Uyarı:** SSL doğrulamasını devre dışı bırakmak (`connection_verify=False`) sertifika doğrulamasını atlayarak güvenliği azaltır. Bunu yalnızca geliştirme ortamlarında geçici bir çözüm olarak kullanın, üretimde asla kullanmayın.
+> **⚠️ Uyarı:** SSL doğrulamasını devre dışı bırakmak (`connection_verify=False`), sertifika doğrulamasını atlayarak güvenliği azaltır. Bunu yalnızca geliştirme ortamlarında geçici çözüm olarak kullanın. Üretimde asla kullanmayın.
 
 **Seçenek 3: `truststore` kurun ve kullanın**
 
@@ -364,22 +401,22 @@ client = ChatCompletionsClient(
 pip install truststore
 ```
 
-Ardından, not defterinizin veya betiğinizin en üstüne, herhangi bir ağ çağrısı yapmadan önce şunu ekleyin:
+Ardından, ağ çağrısı yapmadan önce defterinizin ya da betiğinizin en üstüne aşağıdakini ekleyin:
 
 ```python
 import truststore
 truststore.inject_into_ssl()
 ```
 
-## Bir Yerde Takıldınız mı?
+## Bir Yerde Takıldınız Mı?
 
-Bu kurulumu çalıştırırken herhangi bir sorun yaşarsanız, <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> adresine katılın veya <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">bir sorun oluşturun</a>.
+Bu kurulumu çalıştırmakta sorun yaşarsanız, <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Topluluk Discord</a> kanalımıza katılabilir veya <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">bir sorun oluşturabilirsiniz</a>.
 
 ## Sonraki Ders
 
-Bu kursun kodunu çalıştırmaya artık hazırsınız. AI Ajanlar dünyası hakkında daha fazla öğrenmenin tadını çıkarın!
+Bu kursun kodunu çalıştırmaya hazırsınız. AI Ajanlar dünyası hakkında daha fazla öğrenirken bol şanslar!
 
-[AI Ajanlara ve Ajan Kullanım Alanlarına Giriş](../01-intro-to-ai-agents/README.md)
+[AI Ajanlarına ve Ajan Kullanım Senaryolarına Giriş](../01-intro-to-ai-agents/README.md)
 
 ---
 

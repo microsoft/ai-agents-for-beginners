@@ -452,7 +452,6 @@ Modely řady O mají unikátní omezení parametrů při migraci na Responses AP
 
 | Chat Completions (řada o) | Responses API | Poznámky |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | Nastavte vysoko (4096+) — počítání tokenů pro odvozování se započítává do limitu |
 | `reasoning_effort` | `reasoning.effort` | Zachovejte stávající hodnotu, pokud je přítomna (low/medium/high) |
 | `temperature` | Odstraňte nebo nastavte na `1` | Séria O přijímá pouze `1` |

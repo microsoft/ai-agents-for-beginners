@@ -1,89 +1,108 @@
-# Azure AI Search Setup Guide
+# Azure AI Search စတက်အပ်လုပ်နည်းလမ်းညွှန်
 
-ဤလမ်းညွှန်သည် Azure portal ကို အသုံးပြု၍ Azure AI Search ကို စတင်တပ်ဆင်ရန် ကူညီပေးပါမည်။ Azure AI Search service ကို ဖန်တီးပြီး ဖွဲ့စည်းရန် အောက်ပါအဆင့်များကို လိုက်နာပါ။
+ဒီလမ်းညွှန်က Azure ပေါ်တယ်ကို အသုံးပြုပြီး Azure AI Search ကို စတက်အပ်လုပ်နည်းကို အကူအညီပေးပါလိမ့်မယ်။ အောက်ပါအဆင့်များကို လိုက်နာပြီး သင့် Azure AI Search ၀န်ဆောင်မှုကို ဖန်တီးပြီး ပြင်ဆင်ပါ။
 
-## မလိုအပ်မဖြစ်လိုအပ်သောအရာများ
+## မလိုအပ်ခင် ပြင်ဆင်ရန်များ
 
-စတင်မလုပ်မီ အောက်ပါအရာများရှိကြောင်း သေချာပါစေ-
+စတင်မလုပ်မီ အောက်ပါအရာများရှိမှသာပါ။
 
-- Azure subscription တစ်ခု။ သင်တွင် Azure subscription မရှိပါက [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) တွင် အခမဲ့အကောင့် ဖန်တီးနိုင်ပါသည်။
+- Azure subscription တစ်ခု။ Azure subscription မရှိသေးပါက [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) တွင် အခမဲ့အကောင့် တစ်ခု ဖန်တီးနိုင်ပါသည်။
 
-## အဆင့် ၁: Azure Storage Account တစ်ခု ဖန်တီးပါ
+## အဆင့် ၁: Azure Storage အကောင့် ဖန်တီးခြင်း
 
-1. [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) လမ်းညွှန်ကို လိုက်နာပြီး Azure Storage Account အသစ်တစ်ခု ဖန်တီးပါ။
-   **NOTE**: Storage Account အမျိုးအစားသည် Standard General Purpose V2 ဖြစ်ကြောင်း သေချာပါစေ။
+1. ဒီညွှန်ကြားချက်အတိုင်း လုပ်ဆောင်ပြီး [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) မှာ အသစ် Azure Storage အကောင့် ဖန်တီးပါ။
+   **NOTE**: Storage Account အမျိုးအစားကို Standard General Purpose V2 ဖြစ်စေရန် သေချာပါစေ။
 
-## အဆင့် ၂: Azure AI Search Service တစ်ခု ဖန်တီးပါ
+## အဆင့် ၂: Azure AI Search ၀န်ဆောင်မှု ဖန်တီးခြင်း
 
-1. [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691) တွင် လက်မှတ်ထိုးဝင်ပါ။
-2. ဘယ်ဘက် navigation pane တွင် **Create a resource** ကို နှိပ်ပါ။
-3. ရှာဖွေမှု box တွင် "Azure AI Search" ဟု ရိုက်ထည့်ပြီး ရလဒ်များထဲမှ **Azure AI Search** ကို ရွေးပါ။
+1. [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691) မှာ စာရင်းဝင်ပါ။
+2. ဘယ်ဖက် navigation ဖက်မှာ **Create a resource** ကို နှိပ်ပါ။
+3. ရှာဖွေခြင်းမိုးကြီးမှာ "Azure AI Search" ဟုပုံစံရိုက်ထည့်ပြီး ရလဒ်စာရင်းမှ **Azure AI Search** ကို ရွေးချယ်ပါ။
 4. **Create** ခလုတ်ကို နှိပ်ပါ။
-5. **Basics** tab တွင် အောက်ပါအချက်အလက်များကို ဖြည့်ပါ-
+5. **Basics** တက်ဘ်အတွင်း အောက်ပါအချက်အလက်များကို ဖြည့်စွက်ပါ။
    - **Subscription**: သင့် Azure subscription ကို ရွေးပါ။
-   - **Resource group**: Resource group အသစ်တစ်ခု ဖန်တီးပါ သို့မဟုတ် ရှိပြီးသားကို ရွေးပါ။
-   - **Resource name**: သင့် search service အတွက် ထူးခြားသောနာမည်တစ်ခု ထည့်ပါ။
-   - **Region**: သင့်အသုံးပြုသူများအနီးဆုံးရှိဒေသကို ရွေးပါ။
-   - **Pricing tier**: သင့်လိုအပ်ချက်များနှင့် ကိုက်ညီသော pricing tier ကို ရွေးပါ။ စမ်းသပ်ရန် Free tier ဖြင့် စတင်နိုင်ပါသည်။
+   - **Resource group**: အသစ် Resource group တစ်ခု ဖန်တီးရန် သို့မဟုတ် ရှိပြီးသား ရွေးချယ်ပါ။
+   - **Resource name**: သင့် search ၀န်ဆောင်မှုအတွက် ထူးခြားသောနာမည် ရိုက်ထည့်ပါ။
+   - **Region**: သင့်အသုံးပြုသူများနီးပါးတည့်ရာ ဒေသကို ရွေးပါ။
+   - **Pricing tier**: သင့်လိုအပ်ချက်နှင့် ကိုက်ညီသော စျေးနှုန်းအဆင့်ကို ရွေးပါ။ စမ်းသပ်ရန် Free tier နဲ့ စတင်နိုင်ပါသည်။
 6. **Review + create** ကို နှိပ်ပါ။
-7. အချက်အလက်များကို ပြန်လည်သုံးသပ်ပြီး **Create** ကို နှိပ်၍ search service ကို ဖန်တီးပါ။
+7. အဆင်ပြေအောင် ပြုပြင်ပြီး **Create** ကို နှိပ်ကာ search ၀န်ဆောင်မှု ဖန်တီးပါ။
 
-## အဆင့် ၃: Azure AI Search ကို စတင်အသုံးပြုပါ
+## အဆင့် ၃: Azure AI Search စတင်အသုံးပြုခြင်း
 
-1. Deployment ပြီးဆုံးသောအခါ Azure portal တွင် သင့် search service သို့ သွားပါ။
-2. Search service overview pane တွင် URL ကို ကူးယူပါ။ ၎င်းသည် `https://<service-name>.search.windows.net` အတိုင်း ဖြစ်ရမည်။
-3. Settings > Keys pane တွင် query key ကို ကူးယူပါ။
-4. [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) စာမျက်နှာရှိ အဆင့်များကို လိုက်နာ၍ index ဖန်တီးပါ၊ data upload လုပ်ပါ၊ search query တစ်ခု ပြုလုပ်ပါ။
+1. တပ်ဆင်ပြီးဆုံးသည်နှင့် သင့် search ၀န်ဆောင်မှုပေါ်သို့ သွားပါ။
+2. Search ၀န်ဆောင်မှု အနှစ်ချုပ် မျက်နှာပြင်တွင် URL ကို ကူးယူပါ။ `https://<service-name>.search.windows.net` သို့မဟုတ် ထိုသို့ပုံစံရှိပါမည်။
+3. **(အကြံပြု)** Microsoft Entra ID (RBAC) ဖြင့် keyless access ကို အောက်ပါ အဆင့် ၄ မှာ ဖော်ပြသည့်အတိုင်း ဖွင့်ပါ — key မလိုပါ။ ဒီလမ်းညွှန်အတွက် ဥပမာများသည် index များ ဖန်တီး/တိုးမြှင့်ခြင်းနှင့် စာရွက်စာတမ်းများ အပ်လုပ္ခြင်းကို လုပ်သည်။ ၎င်းအတွက် **Search Service Contributor** နှင့် **Search Index Data Contributor** အခန်းကဏ္ဍများ လိုအပ်သည် (သို့မဟုတ် key-based authentication အတွက်, **primary admin key** သာ အဆင်ပြေပြီး query key မလိုပါ။) RBAC မသုံးနိုင်ရင်ဘဲ **Settings > Keys** ဖောက်ရှာပြီး **primary admin key** ကို ကူးယူပါ။
+4. [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) စာမျက်နှာမှ အဆင့်များကို လိုက်နာကာ index ဖန်တီးခြင်း၊ data အပ်လုပ္ခြင်း၊ နှင့် ရှာဖွေရေးလုပ်ဆောင်ပါ။
 
-## အဆင့် ၄: Azure AI Search Tools ကို အသုံးပြုပါ
+## အဆင့် ၄: Azure AI Search ကိရိယာများ အသုံးပြုခြင်း
 
-Azure AI Search သည် သင့် search စွမ်းရည်များကို တိုးတက်စေရန် အမျိုးမျိုးသော tools များနှင့် ပေါင်းစပ်ထားသည်။ Advanced configurations နှင့် operations များအတွက် Azure CLI, Python SDK, .NET SDK နှင့် အခြား tools များကို အသုံးပြုနိုင်ပါသည်။
+Azure AI Search သည် သင့်ရှာဖွေမှု စွမ်းဆောင်ရည်အား ပိုမိုကောင်းမွန်အောင် အမျိုးမျိုးသောကိရိယာများနှင့် ပေါင်းစပ် အသုံးပြုနိုင်သည်။ Azure CLI၊ Python SDK၊ .NET SDK နှင့် အခြားကိရိယာများကို အဆင့်မြင့်ချိန်ညှိမှုနှင့် လုပ်ဆောင်ချက်များအတွက် အသုံးပြုနိုင်သည်။
 
-### Azure CLI ကို အသုံးပြုခြင်း
+### Azure CLI အသုံးပြုခြင်း
 
-1. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) လမ်းညွှန်ကို လိုက်နာ၍ Azure CLI ကို install လုပ်ပါ။
-2. အောက်ပါ command ကို အသုံးပြု၍ Azure CLI တွင် လက်မှတ်ထိုးဝင်ပါ-
+1. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) ပြဿနာများကိုလိုက်နာပြီး Azure CLI ကို ဒေါင်းလုဒ်လုပ်ပါ။
+2. Azure CLI သို့ အောက်ပါ command ဖြင့် စာရင်းဝင်ပါ။
 
    ```bash
    az login
    ```
+3. **(အကြံပြု) Microsoft Entra ID (RBAC) ဖြင့် keyless access ဖွင့်ပါ:**
 
-3. Azure AI Search instance အတွက် endpoint နှင့် API key ကို environment variables တွင် သိမ်းဆည်းပါ။
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show တွင် "endpoint" နယ်ပယ်မရှိပါ; URL ကို ဝန်ဆောင်မှုအမည်မှ တည်ဆောက်ပါ။
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    ```
+
+    RBAC ဖွင့်ထားပါက Python နှင့် .NET SDK ဥပမာများသည် `DefaultAzureCredential` ဖြင့် authentication ပြုလုပ်သည်၊ ၎င်းသည် သင့်ရဲ့ `az login` စာရင်းဝင် အစီအစဉ်ကို local ဖွံ့ဖြိုးမှုတွင် အသုံးပြုသည် --- admin key မလိုအပ်ပါ။ ကြည့်ရှုရန် [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac)။
+
+4. **(Fallback) Key-based authentication** — RBAC မသုံးနိုင်သည့်အခါ admin key ကိုလည်းသိမ်းဆည်းပါ။
+
+#### Azure AI Search instance အတွက် endpoint နှင့် API key တို့ကို environment variables တွင် သိမ်းဆည်းရန်။
 
     ```bash
     # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show တွင် "endpoint" field မရှိပါ; service name မှ URL ဖန်တီးပါ။
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
     ```powershell
     # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show တွင် "endpoint" field မရှိပါ; service name မှ URL ဖန်တီးပါ။
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
-### Python SDK ကို အသုံးပြုခြင်း
+### Python SDK အသုံးပြုခြင်း
 
-1. Azure Cognitive Search client library for Python ကို install လုပ်ပါ-
+1. Azure Cognitive Search client library နှင့် Azure Identity ကို Python အတွက် 설치ပါ:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. အောက်ပါ Python code ကို အသုံးပြု၍ index ဖန်တီးပြီး documents upload လုပ်ပါ-
+2. ဤ Python ကုဒ်ကို အသုံးပြုပြီး index ဖန်တီးခြင်းနှင့် စာရွက်စာတမ်းများ အပ်လုပ္နိုင်သည်။
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (အကြံပြုသည်): သင်၏ `az login` ကို Entra ID RBAC မှတဆင့် အသုံးပြုသည်။
+    # "Search Service Contributor" နှင့် "Search Index Data Contributor" အခန်းကဏ္ဍများလိုအပ်သည်။
+    credential = DefaultAzureCredential()
+    # နောက်ထပ်လမ်းစဉ် (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -105,30 +124,38 @@ Azure AI Search သည် သင့် search စွမ်းရည်မျာ�
     search_client.upload_documents(documents)
     ```
 
-### .NET SDK ကို အသုံးပြုခြင်း
+### .NET SDK အသုံးပြုခြင်း
 
-1. အောက်ပါ command ကို run လုပ်၍ index ဖန်တီးပြီး documents upload လုပ်ပါ-
+1. အောက်ပါ command ဖြင့် index ဖန်တီးခြင်းနှင့် စာရွက်စာတမ်းများ အပ်လုပ္ပါ:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-2. `AzureSearch.cs` ၏ .NET code ကို အောက်ပါအတိုင်း ဖြစ်ပါသည်-
+    အောက်ပါ .NET ဥပမာသည် `DefaultAzureCredential` ကို အသုံးပြုသည်၊ ၎င်းသည် သင့် Azure CLI မှ `az login` ဖွင့်ထားသောစာရင်းဝင်မှုကို local ဖွံ့ဖြိုးမှုတွင် အသုံးပြုနိုင်သည်။
+
+2. ဒီမှာ `AzureSearch.cs` .NET ကုဒ် ပါသည်:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -154,19 +181,21 @@ Azure AI Search သည် သင့် search စွမ်းရည်မျာ�
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-အသေးစိတ်အချက်အလက်များအတွက် အောက်ပါ documentation ကို ရည်ညွှန်းပါ-
+အချက်အလက်ပိုမို အသေးစိတ်များအတွက် အောက်ပါစာရွက်စာတမ်းများကို ကြည့်ပါ။
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
 - [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
-## နိဂုံး
+## နိဂုံးချုပ်
 
-သင်သည် Azure portal ကို အသုံးပြု၍ Azure AI Search ကို အောင်မြင်စွာ တပ်ဆင်ပြီး tools များနှင့် ပေါင်းစပ်ထားပါပြီ။ Azure AI Search ၏ အဆင့်မြင့် features များနှင့် စွမ်းရည်များကို ရှာဖွေပြီး သင့် search solutions ကို တိုးတက်စေရန် အခွင့်အရေးရှိပါသည်။
+သင်သည် Azure ပေါ်တယ်ကို အသုံးပြု၍ Azure AI Search ကို အောင်မြင်စွာ စတက်အပ်လုပ်ပြီး ကိရိယာများနှင့်ပေါင်းစပ်အသုံးပြုမှုများ ပြုလုပ်နိုင်ပါပြီ။ ယခုတွင် Azure AI Search ၏ အဆင့်မြင့် လုပ်ဆောင်ချက်များနှင့် စွမ်းရည်များကို ပိုမိုလေ့လာပြီး ရှာဖွေရေး ဖြေရှင်းချက်များ မြှင့်တင်နိုင်ပါပြီ။
 
-ထပ်မံအကူအညီလိုအပ်ပါက [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) သို့ သွားပါ။
+ထပ်မံ အကူအညီလိုပါက [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) သို့ သွားရောက်ကြည့်ရှုပါ။
 
 ---
 
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မတိကျမှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရားရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်များကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

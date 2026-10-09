@@ -452,7 +452,6 @@ Modely O-series majú špecifické parametrové obmedzenia pri migrácii na Resp
 
 | Chat Completions (o-series) | Responses API | Poznámky |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | Nastavte vysokú hodnotu (4096+) — počet tokenov odôvodnenia sa počíta do limitu |
 | `reasoning_effort` | `reasoning.effort` | Ak je prítomné, ponechajte tak (low/medium/high) |
 | `temperature` | Odstrániť alebo nastaviť na `1` | O-séria akceptuje iba `1` |

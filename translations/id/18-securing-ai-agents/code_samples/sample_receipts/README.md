@@ -1,16 +1,20 @@
-# Sample Receipt Fixtures
+# Contoh Fixtures Struk
 
-Tiga file struk yang telah dibuat sebelumnya untuk pemeriksaan tanpa menjalankan notebook.
+Tiga file struk yang sudah dibuat sebelumnya untuk pemeriksaan tanpa menjalankan notebook.
 
-| File | Apa isinya |
+| File | Apa itu |
 |---|---|
-| `01_valid_receipt.json` | Struk yang sudah ditandatangani dan valid untuk panggilan alat `lookup_flights`. Verifikasi menghasilkan True. |
-| `02_tampered_receipt.json` | Struk yang sama dengan satu kolom diubah setelah penandatanganan. Verifikasi menghasilkan False. |
-| `03_chain_three_receipts.json` | Rangkaian tiga struk yang valid (search, hold, book) dengan `previous_receipt_hash` yang menghubungkan setiap struk ke yang sebelumnya. |
+| `01_valid_receipt.json` | Struk yang valid dan ditandatangani untuk panggilan alat `lookup_flights`. Verifikasi mengembalikan True. |
+| `02_tampered_receipt.json` | Struk yang sama dengan satu kolom diubah setelah penandatanganan. Verifikasi mengembalikan False. |
+| `03_chain_three_receipts.json` | Rangkaian tiga struk valid (search, hold, book) dengan `previous_receipt_hash` yang menghubungkan setiap struk ke yang sebelumnya. |
+
+Fixtures ini menandatangani byte JCS kanonik payload secara langsung dengan Ed25519.
+SHA-256 tetap digunakan untuk digest konten dan link rantai struk, bukan sebagai
+pre-hash tambahan sebelum penandatanganan.
 
 ## Memverifikasi contoh
 
-Notebook membahas verifikasi dalam empat bagian. Untuk memverifikasi fixtures ini
+Notebook membahas verifikasi dalam empat bagian. Untuk memverifikasi fixture ini
 langsung tanpa menjalankan narasi notebook:
 
 ```python
@@ -33,24 +37,27 @@ for r in verify_chain(chain):
 
 ## Cara pembuatan ini
 
-Fixtures menggunakan jalur kode yang sama seperti notebook, dengan satu kunci penandatanganan tetap
-dan cap waktu tetap agar byte-nya dapat direproduksi. Untuk membuat ulang:
+Fixtures menggunakan jalur kode yang sama dengan notebook, dengan satu kunci tanda tangan tetap
+dan cap waktu tetap untuk reproduksi byte. Untuk membuat ulang:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skrip berada di `generate_fixtures.py` dalam direktori ini.)
+(Script ada di `generate_fixtures.py` di direktori ini.)
 
 ## Apa yang dipelajari siswa dari memeriksa JSON mentah
 
-Membaca format struk mentah membangun intuisi yang tidak selalu diberikan oleh sel di notebook. Siswa yang melihat sekilas JSON sering memperhatikan:
+Membaca format struk mentah membangun intuisi yang tidak selalu tersedia di sel notebook.
+Siswa yang membaca sekilas JSON sering memperhatikan:
 
-1. Tanda tangan adalah string base64url yang tidak transparan, tetapi setiap kolom lain adalah JSON biasa yang dapat dibaca. Tanda tangan tidak mengenkripsi isi; ia menyatakan keasliannya.
-2. `public_key` disisipkan di dalam struk. Auditor tidak memerlukan hal lain
-   untuk memverifikasi (tergantung pada kepercayaan bahwa kunci itu benar milik penerbit yang diklaim; lihat README pelajaran tentang infrastruktur identitas).
-3. Memodifikasi satu karakter pada kolom manapun, lalu membandingkan file ini dengan
-   `02_tampered_receipt.json`, membuat mekanisme pada tingkat byte menjadi konkrit.
+1. Tanda tangan adalah string base64url yang tidak transparan, tetapi setiap kolom lain adalah JSON yang
+   dapat dibaca biasa. Tanda tangan tidak mengenkripsi konten; itu membuktikannya.
+2. `public_key` disisipkan di dalam struk. Auditor tidak memerlukan apa pun selain itu
+   untuk memverifikasi (tergantung pada kepercayaan bahwa kunci benar-benar milik
+   penerbit yang diklaim; lihat README pelajaran tentang infrastruktur identitas).
+3. Mengubah satu karakter dari kolom apa pun, lalu membandingkan ulang file ini dengan
+   `02_tampered_receipt.json`, membuat mekanisme tingkat byte menjadi konkrit.
 
 ---
 

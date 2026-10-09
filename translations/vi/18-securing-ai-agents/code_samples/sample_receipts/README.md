@@ -1,23 +1,28 @@
-# Mẫu Phiếu Thu Tiền
+# Các mẫu Biên nhận
 
-Ba tệp phiếu thu đã được tạo sẵn để kiểm tra mà không cần chạy notebook.
+Ba tệp biên nhận được tạo sẵn để kiểm tra mà không cần chạy sổ tay.
 
-| Tệp | Là gì |
+| Tệp | Đây là gì |
 |---|---|
-| `01_valid_receipt.json` | Một phiếu thu có chữ ký hợp lệ cho lần gọi công cụ `lookup_flights`. Việc xác minh trả về True. |
-| `02_tampered_receipt.json` | Cùng một phiếu thu với một trường bị sửa đổi sau khi ký. Việc xác minh trả về False. |
-| `03_chain_three_receipts.json` | Một chuỗi ba phiếu thu hợp lệ (tìm kiếm, giữ chỗ, đặt chỗ) với `previous_receipt_hash` liên kết mỗi phiếu với phiếu trước đó. |
+| `01_valid_receipt.json` | Một biên nhận hợp lệ đã được ký cho một lần gọi công cụ `lookup_flights`. Việc xác minh trả về True. |
+| `02_tampered_receipt.json` | Cùng một biên nhận với một trường bị chỉnh sửa sau khi ký. Việc xác minh trả về False. |
+| `03_chain_three_receipts.json` | Một chuỗi ba biên nhận hợp lệ (tìm kiếm, giữ chỗ, đặt chỗ) với `previous_receipt_hash` liên kết mỗi biên nhận với biên nhận trước đó. |
 
-## Xác minh các mẫu này
+Các mẫu ký trực tiếp các byte JCS chuẩn của payload với Ed25519.
+SHA-256 vẫn được sử dụng cho các bản tóm tắt nội dung và các liên kết chuỗi biên nhận, không như một
+bước tiền băm bổ sung trước khi ký.
 
-Notebook hướng dẫn qua việc xác minh trong bốn phần. Để xác minh các mẫu này trực tiếp mà không cần chạy qua nội dung của notebook:
+## Xác minh các mẫu
+
+Sổ tay hướng dẫn xác minh qua bốn phần. Để kiểm tra các mẫu này
+trực tiếp mà không cần qua phần giải thích của sổ tay:
 
 ```python
 import json
 from pathlib import Path
 
 # Giả sử bạn đã hoàn thành việc nhập khẩu và các hàm trợ giúp
-# từ phần 1 và 2 của 18-signed-receipts.ipynb.
+# từ các phần 1 và 2 của 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Đúng
@@ -32,25 +37,27 @@ for r in verify_chain(chain):
 
 ## Cách các mẫu này được tạo ra
 
-Các mẫu sử dụng cùng một đường dẫn mã như notebook, với một khóa ký cố định
-và các dấu thời gian cố định để tái tạo byte chính xác. Để tạo lại:
+Các mẫu sử dụng cùng đoạn mã với sổ tay, với một khóa ký cố định
+và dấu thời gian cố định để tái tạo byte. Để tạo lại:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script nằm ở `generate_fixtures.py` trong thư mục này.)
+(Kịch bản nằm ở `generate_fixtures.py` trong thư mục này.)
 
-## Những gì học sinh học được từ việc xem xét JSON thô
+## Những gì sinh viên học được khi kiểm tra JSON thô
 
-Đọc định dạng phiếu thu thô xây dựng trực giác mà các ô trong notebook
-không phải lúc nào cũng cung cấp. Học sinh khi lướt qua JSON thường nhận thấy:
+Đọc định dạng biên nhận thô giúp xây dựng trực giác mà các ô trong sổ tay
+không phải lúc nào cũng cung cấp. Sinh viên thường nhận thấy khi lướt qua JSON:
 
-1. Chữ ký là một chuỗi base64url mờ đục, nhưng mọi trường khác đều là JSON dễ đọc thông thường. Chữ ký không mã hóa nội dung; nó chứng nhận nội dung đó.
-2. `public_key` được nhúng trong phiếu thu. Một kiểm toán viên không cần gì thêm
-   để xác minh (tùy thuộc vào việc tin cậy rằng khóa thực sự thuộc về người phát hành được tuyên bố; xem README bài học về hạ tầng danh tính).
-3. Thay đổi một ký tự duy nhất của bất kỳ trường nào, sau đó so sánh lại tệp này với
-   `02_tampered_receipt.json`, làm cơ chế mức byte trở nên rõ ràng.
+1. Chữ ký là một chuỗi base64url khó hiểu, nhưng mọi trường khác đều là JSON dễ đọc
+   bình thường. Chữ ký không mã hóa nội dung; nó chỉ xác nhận nội dung đó.
+2. `public_key` được nhúng trong biên nhận. Một kiểm toán viên không cần gì thêm
+   để xác minh (miễn là tin tưởng rằng khóa thực sự thuộc về người phát hành được khẳng định;
+   xem README bài học về hạ tầng nhận dạng).
+3. Thay đổi một ký tự bất kỳ trong bất cứ trường nào, rồi so sánh lại tệp này với
+   `02_tampered_receipt.json`, làm rõ cơ chế ở cấp byte.
 
 ---
 
