@@ -301,6 +301,22 @@ Add these variables to your `.env` file:
 
 The current samples do not automatically consume `NOVITA_*` variables. To use Novita AI, pass these values explicitly when constructing `OpenAIChatClient` in the sample you are running.
 
+## Alternative Provider: Cheaper Inference (OpenAI-Compatible)
+
+[Cheaper Inference](https://cheaperinference.com) is an OpenAI-compatible LLM gateway for models from several labs (GPT, Claude, Gemini, and more). Each model costs 15–60% less than the list price of its lab. `OpenAIChatClient` works with any OpenAI-compatible endpoint, so you can use Cheaper Inference instead of Azure OpenAI or OpenAI.
+
+Add these variables to your `.env` file:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `CHEAPER_INFERENCE_API_KEY` | [Cheaper Inference sign-up](https://cheaperinference.com/signup) → API key (starts with `ci_live_`) |
+| `CHEAPER_INFERENCE_BASE_URL` | Use `https://api.cheaperinference.com/v1` (default value) |
+| `CHEAPER_INFERENCE_MODEL_ID` | Model name to use (e.g., `gpt-5.4-mini`) |
+
+**Example models**: `gpt-5.4-mini`, `gpt-5.4`, `claude-sonnet-5`, `gemini-3.1-pro`. The [model list](https://cheaperinference.com/#models) and [docs](https://cheaperinference.com/docs) show all model IDs.
+
+The samples do not read `CHEAPER_INFERENCE_*` variables. Pass these values to `OpenAIChatClient` in your sample.
+
 ## Alternative Provider: Foundry Local (Run Models On-Device)
 
 [Foundry Local](https://foundrylocal.ai) is a lightweight runtime that downloads, manages, and serves language models **entirely on your own machine** through an OpenAI-compatible API — no cloud required.
