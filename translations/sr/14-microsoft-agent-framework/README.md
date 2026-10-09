@@ -6,49 +6,49 @@
 
 Ова лекција ће обухватити:
 
-- Разумевање Microsoft Agent Framework-а: Кључне карактеристике и вредности  
+- Разумевање Microsoft Agent Framework-а: Кључне карактеристике и вредност  
 - Истраживање кључних концепата Microsoft Agent Framework-а
-- Напредни MAF обрасци: Радни процеси, Middleware и меморија
+- Напредни МАФ обрасци: Радни токови, посредници и меморија
 
 ## Циљеви учења
 
 Након завршетка ове лекције, знаћете како да:
 
 - Креирате AI агенте спремне за производњу користећи Microsoft Agent Framework
-- Примените основне карактеристике Microsoft Agent Framework-а на ваше случаи употребе агената
-- Користите напредне обрасце укључујући радне процесе, middleware и посматрање
+- Примените основне карактеристике Microsoft Agent Framework-а на ваше агентске случајеве употребе
+- Користите напредне обрасце укључујући радне токове, посреднике и посматрање
 
 ## Примери кода 
 
-Примери кода за [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) се налазе у овом репозиторијуму под датотекама `xx-python-agent-framework` и `xx-dotnet-agent-framework`.
+Примери кода за [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) могу се пронаћи у овом репозиторијуму у датотекама `xx-python-agent-framework` и `xx-dotnet-agent-framework`.
 
 ## Разумевање Microsoft Agent Framework-а
 
 ![Framework Intro](../../../translated_images/sr/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) је јединствени оквир компаније Microsoft за креирање AI агената. Он нуди флексибилност за решавање широког спектра случајева употребе агената, како у производном окружењу, тако и у истраживачким срединама, укључујући:
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) је Microsoft-ов јединствени оквир за изградњу AI агената. Пружа флексибилност да се реше разни агентски случајеви употребе који се виде у производним и истраживачким окружењима укључујући:
 
-- **Секвенцијална оркестрација агената** у сценаријима где су потребни корак по корак радни процеси.
-- **Паралелна оркестрација** у сценаријима где агенти треба да истовремено изврше задатке.
+- **Секвенцијална оркестрација агената** у сценаријима где су потребни радни токови корак-по-корак.
+- **Паралелна оркестрација** у сценаријима где агенти треба да заврше задатке у исто време.
 - **Оркестрација групног ћаскања** у сценаријима где агенти могу заједно сарађивати на једном задатку.
-- **Оркестрација преноса задатака** у сценаријима где агенти предају задатак један другом како се подзадаци завршавају.
-- **Магнетска оркестрација** у сценаријима где агент менаџер креира и мења листу задатака и координише под-агенте да заврше задатак.
+- **Оркестрација преноса задатка** у сценаријима где агенти један другом предају задатак како се подзадатци завршавају.
+- **Магнетна оркестрација** у сценаријима где менаџер агент креира и мења листу задатака и управља координацијом подагената да заврше задатак.
 
-За испоруку AI агената у производњи, MAF такође укључује карактеристике за:
+За испоруку AI агената у производњи, MAF такође укључује могућности за:
 
-- **Посматрање** кроз коришћење OpenTelemetry-а где свака активност AI агента укључујући позив алата, кораке оркестрације, токове резоновања и праћење перформанси преко Microsoft Foundry панела.
-- **Безбедност** тако што се агенти хостују нативно на Microsoft Foundry платформи која укључује безбедносне контроле као што су приступ заснован на улогама, руковање приватним подацима и уграђена заштита садржаја.
-- **Издржљивост** јер се Agent процеси и радни токови могу паузирати, наставити и опоравити од грешака, што омогућава дуготрајне процесе.
-- **Контрола** јер су подржани радни процеси са људским учесником у петљи где се задаци означавају као захтевајући људску сагласност.
+- **Посматрање** преко коришћења OpenTelemetry где свака акција AI агента укључујући позиве алата, кораке оркестрације, токове разматрања и праћење перформанси преко Microsoft Foundry контролних табли.
+- **Безбедност** домаћином агената директно на Microsoft Foundry што укључује безбедносне контроле као што су приступ заснован на улогама, руковање приватним подацима и уграђена безбедност садржаја.
+- **Издржљивост** јер се агентске нити и радни токови могу паузирати, наставити и опоравити од грешака што омогућава дуготрајне процесе.
+- **Контролу** јер су подржани људски циклуси где се задаци означавају као они који захтевају људско одобрење.
 
-Microsoft Agent Framework је такође фокусиран на интероперабилност кроз:
+Microsoft Agent Framework је такође усмерен на интероперабилност кроз:
 
-- **Облачно неутралан** - Агенти могу да раде у контејнерима, локално или кроз више различитих облака.
-- **Провајдер-неутралан** - Агенти могу бити креирани путем вашег омиљеног SDK-а укључујући Azure OpenAI и OpenAI.
-- **Интеграцију отворених стандарда** - Агенти могу користити протоколе попут Agent-to-Agent (A2A) и Model Context Protocol (MCP) да открију и користе друге агенте и алате.
-- **Плугинe и конектори** - Повезивања могу бити направљена ка сервисима за податке и меморију као што су Microsoft Fabric, SharePoint, Pinecone и Qdrant.
+- **Бити облачно-агностичан** - Агенти могу радити у контејнерима, локално и на више различитих облака.
+- **Бити провајдер-агностичан** - Агенти се могу креирати преко вашег омиљеног SDK укључујући Azure OpenAI и OpenAI
+- **Интеграцију отворених стандарда** - Агенти могу користити протоколе као што су Agent-to-Agent (A2A) и Model Context Protocol (MCP) за откривање и коришћење других агената и алата.
+- **Плугинова и конектора** - Могуће су везе ка сервисима података и меморије као што су Microsoft Fabric, SharePoint, Pinecone и Qdrant.
 
-Погледајмо како се ове функције примењују на неке од основних концепата Microsoft Agent Framework-а.
+Погледајмо како се ове карактеристике примењују на неке од кључних концепата Microsoft Agent Framework-а.
 
 ## Кључни концепти Microsoft Agent Framework-а
 
@@ -56,16 +56,17 @@ Microsoft Agent Framework је такође фокусиран на интеро
 
 ![Agent Framework](../../../translated_images/sr/agent-components.410a06daf87b4fef.webp)
 
+
 **Креирање агената**
 
-Креирање агената се врши дефинисањем inference сервиса (LLM провајдера),
-сета упутстава које AI агент следи, и додељеног `name`:
+Креирање агената се врши дефинисањем инференцијске услуге (ЛЛМ провајдер), скупа упутстава која АИ агент треба да прати, и додељеним `име`:
+
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Горе се користи `Azure OpenAI` али агенти могу бити креирани коришћењем различитих сервиса укључујући и `Microsoft Foundry Agent Service`:
+Горње је коришћење `Azure OpenAI`, али агенти се могу креирати уз помоћ различитих услуга укључујући `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -81,13 +82,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-или [MiniMax](https://platform.minimaxi.com/), који пружа OpenAI-компатибилан API са великим контекст прозорима (до 204K токена):
+или [MiniMax](https://platform.minimaxi.com/), који пружа OpenAI-компатибилан API са великим контекстним прозорима (до 204К токена):
 
 ```python
 agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-или удаљени агенти користећи A2A протокол:
+или удаљени агенти који користе A2A протокол:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -95,7 +96,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Покретање агената**
 
-Агенти се покрећу користећи `.run` или `.run_stream` методе за одговарајуће не-стриминг или стриминг одговоре.
+Агенти се покрећу помоћу метода `.run` или `.run_stream` за одговарајуће не-стриминг или стриминг одговоре.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -109,54 +110,54 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Сваки покретач агента може имати и опције за прилагођавање параметара као што су `max_tokens` које агент користи, `tools` које агент може да позове, па чак и сам `model` који агент користи.
+Свако покретање агента такође може имати опције за прилагођавање параметара као што су `max_tokens` које агент користи, `tools` које агент може да позове, па чак и сам `model` који се користи за агента.
 
-Ово је корисно у случајевима када су потребни специфични модели или алати за извршење корисничког задатка.
+Ово је корисно у случајевима када су специфични модели или алати потребни за извршење задатка корисника.
 
-**Алати**
+**Алатке**
 
-Алати се могу дефинисати и приликом дефинисања агента:
+Алатке се могу дефинисати и приликом дефинисања агента:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
 
 
-# Када директно креирате ChatAgent
+# Када се ChatAgent директно креира
 
 agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
 
 ```
 
-као и приликом покретања агента:
+и такође приликом покретања агента:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Алат обезбеђен само за ово извршавање )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Алат пружен само за ово покретање )
 ```
 
-**Agent Threads**
+**Теме агената**
 
-Agent Thread-ови се користе за руковање вишекратним разговорима. Thread-ови могу бити креирани на два начина:
+Теме агената се користе за руковање вишекратним дијалозима. Теме се могу креирати на следеће начине:
 
-- Коришћењем `get_new_thread()` што омогућава чување thread-а током времена
-- Аутоматским креирањем thread-а приликом покретања агента који траје само током тог покретања.
+- Коришћењем `get_new_thread()` што омогућава да се тема чува током времена
+- Аутоматским креирањем теме приликом покретања агента и да тема траје само током текућег покретања.
 
-Код за креирање thread-а изгледа овако:
+За креирање теме, код изгледа овако:
 
 ```python
-# Креирај нови нит.
-thread = agent.get_new_thread() # Покрени агента са нити.
+# Креирајте нови нити.
+thread = agent.get_new_thread() # Покрените агента са нитима.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Након тога, thread се може серијализовати за каснију употребу:
+Затим можете серијализовати тему да бисте је сачували за каснију употребу:
 
 ```python
 # Креирајте нови нит.
 thread = agent.get_new_thread() 
 
-# Покрените агента са нитима.
+# Покрените агента са нити.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
@@ -169,15 +170,15 @@ serialized_thread = await thread.serialize()
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
-**Agent Middleware**
+**Мидлвер агената**
 
-Агенти интерактују са алатима и LLM-овима да би извршили корисничке задатке. У одређеним сценаријима желимо да извршимо или пратимо радње између тих интеракција. Agent middleware нам то омогућава кроз:
+Агенти комуницирају са алатима и ЛЛМ-овима да би извршили задатке корисника. У одређеним сценаријима желимо да извршимо или пратимо нешто у интеракцијама између ових елемената. Мидлвер агената нам омогућава да то урадимо кроз:
 
-*Функцијски middleware*
+*Функциони мидлвер*
 
-Овај middleware нам омогућава да извршимо акцију између агента и функције/алата које позива. Пример употребе је када желите да забележите позив функције.
+Овај мидлвер нам дозвољава да извршимо радњу између агента и функције/алата који ће агент позивати. Пример када би ово било корисно је ако желите да водите евиденцију о позиву функције.
 
-У примеру испод `next` дефинише да ли треба позвати следећи middleware или стварну функцију.
+У једном коду испод, `next` одређује да ли ће следећи мидлвер или сама функција бити позвани.
 
 ```python
 async def logging_function_middleware(
@@ -185,21 +186,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Предобрада: Запис пре извршавања функције
+    # Пре-обрада: Логовање пре извршења функције
     print(f"[Function] Calling {context.function.name}")
 
-    # Настави на следећи међупроцес или извршавање функције
+    # Настави на следећи middleware или извршење функције
     await next(context)
 
-    # Постобрада: Запис после извршавања функције
+    # Пост-обрада: Логовање након извршења функције
     print(f"[Function] {context.function.name} completed")
 ```
 
-*Chat middleware*
+*Чат мидлвер*
 
-Овај middleware дозвољава извршавање или логовање између агента и захтева ка LLM.
+Овај мидлвер нам дозвољава да извршимо или евидентирамо радњу између агента и захтева према ЛЛМ.
 
-Ово садржи важне информације као што су `messages` који се шаљу AI сервису.
+Ово садржи важне информације као што су `messages` који се шаљу AI услузи.
 
 ```python
 async def logging_chat_middleware(
@@ -207,39 +208,39 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Претходна обрада: Лог пре позива AI
+    # Предобрада: Логовање пре позива вештачке интелигенције
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Настави на следећи middleware или AI сервис
+    # Наставите на следећи посреднички слој или услугу вештачке интелигенције
     await next(context)
 
-    # Накнадна обрада: Лог након одговора AI
+    # Постобрада: Логовање након одговора вештачке интелигенције
     print("[Chat] AI response received")
 
 ```
 
-**Agent Memory**
+**Меморија агената**
 
-Као што је објашњено у лекцији `Agentic Memory`, меморија је важан елемент који омогућава агенту да ради у различитим контекстима. MAF нуди више типова меморије:
+Као што је објашњено у лекцији о `Agentic Memory`, меморија је важан елемент који омогућава агенту да ради у различитим контекстима. MAF нуди неколико врста меморија:
 
-*Упамћена меморија (In-Memory Storage)*
+*Меморија у меморији (In-Memory Storage)*
 
-Ово је меморија која се чува у thread-овима током рада апликације.
+Ово је меморија која се чува у темама током извршавања апликације.
 
 ```python
 # Креирајте нови нит.
-thread = agent.get_new_thread() # Покрените агента са нитју.
+thread = agent.get_new_thread() # Покрените агента са нити.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
-*Перзистентне поруке*
+*Персистентне поруке*
 
-Ова меморија се користи за чување историје разговора између различитих сесија. Дефинише се помоћу `chat_message_store_factory`:
+Ова меморија се користи за чување историје разговора преко различитих сесија. Дефинише се помоћу `chat_message_store_factory`:
 
 ```python
 from agent_framework import ChatMessageStore
 
-# Креирајте прилагођену продавницу порука
+# Креирај прилагођену продавницу порука
 def create_message_store():
     return ChatMessageStore()
 
@@ -253,12 +254,13 @@ agent = ChatAgent(
 
 *Динамичка меморија*
 
-Ова меморија се додaje у контекст пре покретања агената. Могу се чувати у екстерним сервисима као што је mem0:
+
+Ова меморија се додаје у контекст пре покретања агената. Ове меморије могу бити смештене у спољне сервисе као што је mem0:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Користећи Mem0 за напредне могућности меморије
+# Коришћење Mem0 за напредне могућности меморије
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -273,9 +275,9 @@ agent = ChatAgent(
 
 ```
 
-**Agent Посматрање (Observability)**
+**Посматрање агента**
 
-Посматрање је битно за изградњу поузданих и одрживих агентских система. MAF се интегрише са OpenTelemetry-ом да обезбеди праћење и мерење за боље посматрање.
+Посматрање је важно за изградњу поузданих и одрживих агентских система. MAF се интегрише са OpenTelemetry како би обезбедио трасисање и метре за боље посматрање.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -289,23 +291,23 @@ counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
 ```
 
-### Радни процеси (Workflows)
+### Радни токови
 
-MAF нуди радне процесе који представљају унапред дефинисане кораке за извршење задатка и укључују AI агенте као компоненте тих корака.
+MAF нуди радне токове који су унапред дефинисане кораке за завршетак задатка и укључују AI агенте као компоненте у тим корацима.
 
-Радни процеси су састављени од различитих компоненти које омогућавају бољу контролу тока. Радни процеси такође омогућавају **оркестрацију више агената** и **чување стања** за наставак радног процеса.
+Радни токови се састоје од различитих компоненти које омогућавају бољу контролу тока. Радни токови такође омогућавају **оркестрацију више агената** и **checkpointing** за чување стања радног тока.
 
-Основне компоненте радног процеса су:
+Кључне компоненте радног тока су:
 
-**Извршиоци (Executors)**
+**Извршиоци**
 
-Извршиоци примају улазне поруке, обављају додељене задатке, и производе излазне поруке. Ово помера радни процес ка завршетку већег задатка. Извршиоци могу бити AI агент или прилагођена логика.
+Извршиоци примају улазне поруке, извршавају додељене задатке и затим производе излазну поруку. Ово помера радни ток напред ка завршетку већег задатка. Извршиоци могу бити AI агент или прилагођена логика.
 
-**Ивице (Edges)**
+**Ивице**
 
-Ивице се користе за дефинисање тока порука у радном процесу. Оне могу бити:
+Ивице се користе за дефинисање тока порука у радном току. Оне могу бити:
 
-*Директне ивице* - Једноставне један-на-један везе између извршилаца:
+*Директне ивице* - Једноставне везе један-на-један између извршилаца:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -318,63 +320,63 @@ workflow = builder.build()
 
 *Условне ивице* - Активирају се након испуњења одређеног услова. На пример, када собе у хотелу нису доступне, извршилац може предложити друге опције.
 
-*Switch-case ивице* - Усмеравју поруке различитим извршицима на основу дефинисаних услова. На пример, ако путник има приоритетан приступ, њихови задаци ће бити обрађени кроз други радни процес.
+*Switch-case ивице* - Умаршира поруке ка различитим извршиоцима на основу дефинисаних услова. На пример, ако корисник путовања има приоритетни приступ, њихови задаци ће се обрађивати преко другог радног тока.
 
-*Fan-out ивице* - Шаљу једну поруку више одредишта.
+*Fan-out ивице* - Шаљу једну поруку више циљевима.
 
-*Fan-in ивице* - Прикупљају више порука од различитих извршилаца и шаљу једном одредишту.
+*Fan-in ивице* - Прикупљају више порука од различитих извршилаца и шаљу једном циљу.
 
-**Догађаји (Events)**
+**Догађаји**
 
-Да би се обезбедило боље посматрање у радним процесима, MAF нуди уграђене догађаје за извршење укључујући:
+Да би пружио боље посматрање радних токова, MAF нуди уграђене догађаје за извршење, укључујући:
 
-- `WorkflowStartedEvent`  - Покретање извршења радног процеса
-- `WorkflowOutputEvent` - Радни процес генерише излаз
-- `WorkflowErrorEvent` - Радни процес сретне грешку
-- `ExecutorInvokeEvent`  - Извршилац почиње са обрадом
-- `ExecutorCompleteEvent`  - Извршилац завршава обраду
-- `RequestInfoEvent` - Захтев је послат
+- `WorkflowStartedEvent`  - Започиње извршење радног тока
+- `WorkflowOutputEvent` - Радни ток производи излаз
+- `WorkflowErrorEvent` - Радни ток наилази на грешку
+- `ExecutorInvokeEvent`  - Извршилац почиње обраду
+- `ExecutorCompleteEvent`  -  Извршилац завршава обраду
+- `RequestInfoEvent` - Издаје се захтев
 
-## Напредни обрасци MAF-а
+## Напредни обрасци MAF
 
-Горње секције обухватају кључне концепте Microsoft Agent Framework-а. Како правите сложеније агенте, ево неких напредних образаца које треба размотрити:
+Горње секције покривају кључне појмове Microsoft Agent Framework. Како правите комплексније агенте, ево неких напредних образаца које треба размотрити:
 
-- **Композиција Middleware-а**: Повежите више middleware обрадјивача (логовање, аутентификација, ограничење брзине) користећи функцијски и chat middleware за фину контролу понашања агента.
-- **Чување стања радног процеса**: Користите догађаје радног процеса и серијализацију да сачувате и наставите дуготрајне агентске процесе.
-- **Динамички избор алата**: Комбинујте RAG преко описа алата са регистрацијом алата у MAF-у да бисте представили само релевантне алате по упиту.
-- **Пренос између више агената**: Користите ивице радног процеса и условно усмеравње да оркестрирате пренос задатака између специјализованих агената.
+- **Композиција middleware-а**: Повежите више middleware handlere (логовање, аутентификација, ограничење бројчане стопе) користећи функције и chat middleware за прецизну контролу понашања агента.
+- **Checkpointing радног тока**: Користите догађаје радног тока и серијализацију за чување и наставак дугорочних процеса агента.
+- **Динамичан избор алата**: Комбинујте RAG преко описа алата са MAF регистрацијом алата како бисте приказали само релевантне алате по упиту.
+- **Пренос између више агената**: Користите ивице радног тока и условно усмеравање за оркестрацију преноса између специјализованих агената.
 
-## Хостовање LangChain / LangGraph агената на Microsoft Foundry-у
+## Хостовање LangChain / LangGraph агената на Microsoft Foundry
 
-Microsoft Agent Framework је **интероперабилан са другим оквирима** — нисте ограничени на агенте написане уз MAF. Ако већ имате агента креираног са **LangChain** или **LangGraph**, можете га покренути као **агента хостованог на Microsoft Foundry** тако да Foundry управља извршењем, сесијама, скалабилношћу, идентитетом и протоколским крајњим тачкама, док ваша логика агента остаје у LangGraph-у.
+Microsoft Agent Framework је **framework-interoperable** — нисте ограничени на агенте написане са MAF. Ако већ имате агента изграђеног са **LangChain** или **LangGraph**, можете га покренути као **Microsoft Foundry hostованог агента** тако да Foundry управља покретањем, сесијама, скалирањем, идентитетом и крајњим тачкама протокола, док ваша агенцијска логика остаје у LangGraph.
 
-Ово се постиже преко пакета `langchain_azure_ai.agents.hosting`, који излаже компајлирани LangGraph граф преко истих протокола које користе Foundry хостовани агенти.
+Ово се постиже помоћу `langchain_azure_ai.agents.hosting` пакета, који изложи састављен LangGraph граф преко истих протокола који користе Foundry hostовани агенти.
 
-**1. Инсталирајте hosting екстра:**
+**1. Инсталирајте hosting extra:**
 
 ```bash
 pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
 
-`hosting` екстра инсталира Foundry протоколске библиотеке: `azure-ai-agentserver-responses` (OpenAI-компатибилна `/responses` крајња тачка) и `azure-ai-agentserver-invocations` (општа `/invocations` крајња тачка).
+`hosting` extra инсталира Foundry protocol библиотеке: `azure-ai-agentserver-responses` (OpenAI-компатибилна `/responses` крајња тачка) и `azure-ai-agentserver-invocations` (генеричка `/invocations` крајња тачка).
 
-**2. Изаберите hosting протокол:**
+**2. Изаберите хостинг протокол:**
 
-| Протокол | Host класа | Крајња тачка | Користи се када |
-|----------|------------|-------------|-----------------|
-| **Responses** | `ResponsesHostServer` | `/responses` | Желите OpenAI-компатибилан чат, стриминг, историју одговора и везе разговора — препоручено подразумевано за конверзационе агенте. |
-| **Invocations** | `InvocationsHostServer` | `/invocations` | Потребан вам је прилагођени JSON формат, вебхук стил крајња тачка или не-конверзацијска обрада. |
+| Протокол | Хост класа | Крајња тачка | Користи када |
+|----------|------------|-------------|--------------|
+| **Responses** | `ResponsesHostServer` | `/responses` | Желите OpenAI-компатибилни чат, стриминг, историју одговора и нитовање разговора — препоручени подразумевани за разговорне агенте. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Потребан вам је прилагођени JSON формат, webhook-стил крајња тачка или неразговорна обрада. |
 
-Пошто је **Responses API главни API за развој агената у Foundry-у**, почните са `ResponsesHostServer` за већину агената.
+Због тога што је **Responses API примарни API за агентски развој у Foundry**, започните са `ResponsesHostServer` за већину агената.
 
-**3. Конфигуришите окружење** (прво `az login` да `DefaultAzureCredential` може да аутентификује):
+**3. Конфигуришите променљиве окружења** (`az login` прво да би `DefaultAzureCredential` могао да аутентификује):
 
 ```bash
 export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
 export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
 
-Када агент касније ради као хостовани агент у Foundry-у, платформа аутоматски инјектује `FOUNDRY_PROJECT_ENDPOINT`.
+Када агент касније ради као hostovani агент у Foundry, платформа аутоматски убацује `FOUNDRY_PROJECT_ENDPOINT`.
 
 **4. Изложите LangGraph агента преко Responses протокола:**
 
@@ -398,7 +400,7 @@ def build_chat_model() -> ChatOpenAI:
     openai_client = project.get_openai_client()
     token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
 
-    # ChatOpenAI овде циља на OpenAI-компатибилни (Responses) крајњи пут Foundry пројекта.
+    # ChatOpenAI овде циља OpenAI-компатибилну (Responses) крајњу тачку Foundry пројекта.
     return ChatOpenAI(
         model=deployment,
         base_url=str(openai_client.base_url),
@@ -420,26 +422,27 @@ if __name__ == "__main__":
 
 **Кључна понашања:**
 
-- **Разговори**: Клијенти настављају разговор прослеђујући `previous_response_id` или `conversation` ID. Ако је ваш граф компајлиран са LangGraph checkpoint-ом, Foundry повезује стање разговора са checkpoint-ом (користите трајни checkpoint у производњи; `MemorySaver` је добар за локално тестирање).
-- **Људска контрола ("Human-in-the-loop")**: Ако ваш граф користи LangGraph `interrupt()`, `ResponsesHostServer` приказује очекивани interrupt као Responses `function_call` / `mcp_approval_request` ставку, а клијенти настављају са одговарајућим `function_call_output` / `mcp_approval_response`.
-- **Деплој на Foundry**: Користите Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (локално, захтева Docker), затим `azd provision` и `azd deploy`. Deploy хостованих агената захтева улогу **Foundry Project Manager**.
+- **Разговори**: Клијенти настављају разговор прослеђивањем `previous_response_id` или `conversation` ID-ја. Ако је ваш граф састављен са LangGraph checkpoint-ом, Foundry везује стање разговора за checkpoint (користите трајни checkpoint у продукцији; `MemorySaver` је добар за локално тестирање).
+- **Човек у петљи**: Ако ваш граф користи LangGraph `interrupt()`, `ResponsesHostServer` приказује предстојеће прекиде као Responses `function_call` / `mcp_approval_request` ставке, а клијенти настављају са одговарајућим `function_call_output` / `mcp_approval_response`.
+- **Деплој на Foundry**: Користите Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (локално, захтева Docker), затим `azd provision` и `azd deploy`. Деплој hostovanih агената захтева улогу **Foundry Project Manager**.
 
-Радна верзија овог примера налази се у [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). За комплетан водич (Invocations протокол, прилагођени обрасци захтева и решавање проблема), погледајте [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+Извршна верзија овог примера налази се у [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). За комплетан водич (Invocations протокол, прилагођене схеме захтева и решавање проблема), погледајте [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
 
 ## Примери кода 
 
-Примери кода за Microsoft Agent Framework могу се пронаћи у овом репозиторијуму под датотекама `xx-python-agent-framework` и `xx-dotnet-agent-framework`.
+Примере кода за Microsoft Agent Framework можете пронаћи у овом репозиторијуму у фајловима `xx-python-agent-framework` и `xx-dotnet-agent-framework`.
 
-## Имате још питања о Microsoft Agent Framework-у?
+## Имате још питања о Microsoft Agent Framework?
 
-Придружите се [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) да упознате друге ученике, посетите office hours и добијете одговоре на питања о AI агентима.
+Придружите се [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) да се упознате са другим учесницима, присуствујете канцеларијским часовима и добијете одговоре на питања везана за AI агенте.
 ## Претходна лекција
 
 [Memory for AI Agents](../13-agent-memory/README.md)
 
 ## Следећа лекција
 
-[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
+
+[Прављење агената за коришћење рачунара (CUA)](../15-browser-use/README.md)
 
 ---
 

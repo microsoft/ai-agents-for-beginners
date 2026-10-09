@@ -1,17 +1,21 @@
-# Uzorci priznatnica
+# Primjeri računa
 
-Tri unaprijed generirane datoteke priznatnica za pregled bez pokretanja bilježnice.
+Tri unaprijed generirane datoteke računa za pregled bez pokretanja bilježnice.
 
 | Datoteka | Što je to |
 |---|---|
-| `01_valid_receipt.json` | Valjana potpisana priznatnica za poziv alata `lookup_flights`. Verifikacija vraća True. |
-| `02_tampered_receipt.json` | Ista priznatnica s jednim poljem izmijenjenim nakon potpisivanja. Verifikacija vraća False. |
-| `03_chain_three_receipts.json` | Lanac od tri valjane priznatnice (pretraživanje, zadržavanje, rezervacija) s `previous_receipt_hash` koji povezuje svaki s prethodnim. |
+| `01_valid_receipt.json` | Važeći potpisani račun za poziv alata `lookup_flights`. Verifikacija vraća True. |
+| `02_tampered_receipt.json` | Isti račun s jednom izmijenjenom stavkom nakon potpisivanja. Verifikacija vraća False. |
+| `03_chain_three_receipts.json` | Lanac od tri važeća računa (pretraživanje, rezervacija, potvrda) s `previous_receipt_hash` koji povezuje svaki s prethodnim. |
 
-## Verifikacija uzoraka
+Primjeri izravno potpisuju kanonske JCS bajtove tereta s Ed25519.
+SHA-256 se i dalje koristi za sažetke sadržaja i veze lanca računa, ne kao
+dodatni pred-hash prije potpisivanja.
 
-Bilježnica prolazi kroz verifikaciju u četiri dijela. Za izravnu verifikaciju ovih uzoraka
-bez prolaska kroz naraciju bilježnice:
+## Verifikacija primjera
+
+Bilježnica prolazi kroz verifikaciju u četiri dijela. Za izravnu provjeru ovih primjera
+bez prolaska kroz narativ bilježnice:
 
 ```python
 import json
@@ -21,7 +25,7 @@ from pathlib import Path
 # iz odjeljaka 1 i 2 datoteke 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Istina
+print(f"Valid receipt: {verify_receipt(valid)}")        # Točno
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
 print(f"Tampered receipt: {verify_receipt(tampered)}")  # Netočno
@@ -31,29 +35,29 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Kako su ove priznatnice generirane
+## Kako su generirani
 
-Uzorci koriste isti kodni put kao bilježnica, s jednim fiksnim ključem za potpisivanje
-i fiksnim vremenskim oznakama za reproducibilnost u bajtovima. Za ponovnu generaciju:
+Primjeri koriste isti kodni put kao bilježnica, s jednim fiksnim ključem za potpis
+i fiksnim vremenskim oznakama radi ponovljivosti bajtova. Za ponovnu generaciju:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripta je u `generate_fixtures.py` u ovom direktoriju.)
+(Skripta se nalazi u `generate_fixtures.py` u ovom direktoriju.)
 
-## Što studenti uče pregledavanjem sirovog JSON-a
+## Što studenti nauče pregledom sirovog JSON-a
 
-Čitanje sirovog formata priznatnica gradi intuiciju koju ćelije u bilježnici
-ne uvijek pružaju. Studenti koji površno pregledavaju JSON često primijete:
+Čitanje sirovog formata računa gradi intuitivno razumijevanje koje stanice u bilježnici
+ne uvijek pružaju. Studenti koji brzo pregledaju JSON često primijete:
 
-1. Potpis je neproziran base64url niz, ali svaki drugi podatak je običan,
+1. Potpis je neprozirni base64url niz, ali svaki drugi element je običan
    čitljiv JSON. Potpis ne šifrira sadržaj; on ga potvrđuje.
-2. `public_key` je ugrađen u priznatnicu. Revizor ne treba ništa drugo
-   za verifikaciju (uz pretpostavku da je ključ stvarno u vlasništvu navedenog
-   izdavatelja; vidi README lekcije o infrastrukturi identiteta).
-3. Izmjena jednog znaka u bilo kojem polju, a zatim usporedba ove datoteke s
-   `02_tampered_receipt.json`, čini mehanizam na razini bajtova konkretnim.
+2. `public_key` je ugrađen u račun. Revizor ne treba ništa drugo
+   za verifikaciju (pod uvjetom da vjeruje da ključ stvarno pripada navedenom
+   izdavaču; vidi README lekcije o infrastrukturi identiteta).
+3. Promjena jednog znaka bilo kojeg polja, a zatim usporedba s
+   `02_tampered_receipt.json`, čini mehanizam na razini bajtova opipljivim.
 
 ---
 

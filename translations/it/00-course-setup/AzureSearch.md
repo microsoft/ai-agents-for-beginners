@@ -1,6 +1,6 @@
-# Guida alla configurazione di Azure AI Search
+# Guida alla Configurazione di Azure AI Search
 
-Questa guida ti aiuterà a configurare Azure AI Search utilizzando il portale di Azure. Segui i passaggi qui sotto per creare e configurare il tuo servizio Azure AI Search.
+Questa guida ti aiuterà a configurare Azure AI Search utilizzando il portale di Azure. Segui i passaggi seguenti per creare e configurare il tuo servizio Azure AI Search.
 
 ## Prerequisiti
 
@@ -8,82 +8,101 @@ Prima di iniziare, assicurati di avere quanto segue:
 
 - Un abbonamento Azure. Se non hai un abbonamento Azure, puoi creare un account gratuito su [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Passaggio 1: Creare un account di archiviazione Azure
+## Passaggio 1: Creare un Account di Archiviazione Azure
 
-1. Segui queste istruzioni, [Creare un account di archiviazione Azure](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), per creare un nuovo account di archiviazione Azure.
+1. Segui questa istruzione, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), per creare un nuovo account di archiviazione Azure.
    **NOTA**: Assicurati che il tipo di account di archiviazione sia Standard General Purpose V2.
 
-## Passaggio 2: Creare un servizio Azure AI Search
+## Passaggio 2: Creare un Servizio Azure AI Search
 
 1. Accedi al [portale di Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Nel pannello di navigazione a sinistra, clicca su **Crea una risorsa**.
+2. Nel riquadro di navigazione a sinistra, clicca su **Crea una risorsa**.
 3. Nella casella di ricerca, digita "Azure AI Search" e seleziona **Azure AI Search** dall'elenco dei risultati.
 4. Clicca sul pulsante **Crea**.
-5. Nella scheda **Informazioni di base**, fornisci le seguenti informazioni:
+5. Nella scheda **Basi**, fornisci le seguenti informazioni:
    - **Abbonamento**: Seleziona il tuo abbonamento Azure.
-   - **Gruppo di risorse**: Crea un nuovo gruppo di risorse o selezionane uno esistente.
+   - **Gruppo di risorse**: Crea un nuovo gruppo di risorse o seleziona uno esistente.
    - **Nome risorsa**: Inserisci un nome univoco per il tuo servizio di ricerca.
-   - **Regione**: Seleziona la regione più vicina ai tuoi utenti.
-   - **Livello di prezzo**: Scegli un livello di prezzo che soddisfi le tue esigenze. Puoi iniziare con il livello gratuito per i test.
+   - **Area geografica**: Seleziona la regione più vicina ai tuoi utenti.
+   - **Piano tariffario**: Scegli un piano tariffario che soddisfi le tue esigenze. Puoi iniziare con il piano Free per i test.
 6. Clicca su **Rivedi + crea**.
 7. Rivedi le impostazioni e clicca su **Crea** per creare il servizio di ricerca.
 
 ## Passaggio 3: Iniziare con Azure AI Search
 
-1. Una volta completata la distribuzione, vai al tuo servizio di ricerca nel portale di Azure.
-2. Nel pannello di panoramica del servizio di ricerca, copia l'URL. Dovrebbe essere simile a `https://<service-name>.search.windows.net`.
-3. Nel pannello Impostazioni > Chiavi, copia la chiave di query.
-4. Segui i passaggi nella pagina [Guida rapida](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) per creare un indice, caricare dati ed eseguire una query di ricerca.
+1. Una volta completata la distribuzione, vai al tuo servizio di ricerca nel portale Azure.
+2. Nel riquadro panoramica del servizio di ricerca, copia l'URL. Dovrebbe essere simile a `https://<service-name>.search.windows.net`.
+3. **(Consigliato)** Abilita l'accesso senza chiave con Microsoft Entra ID (RBAC) come mostrato nel Passaggio 4 qui sotto — senza chiave necessaria. Gli esempi in questa guida creano/aggiornano indici e caricano documenti, operazioni che richiedono i ruoli **Search Service Contributor** e **Search Index Data Contributor** (oppure, per l'autenticazione basata su chiave, la **chiave amministratore primaria** — non la chiave di query). Solo se non puoi usare RBAC, apri il riquadro **Impostazioni > Chiavi** e copia la **chiave amministratore primaria**.
+4. Segui i passaggi nella pagina della [Guida rapida](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) per creare un indice, caricare dati ed eseguire una ricerca.
 
-## Passaggio 4: Utilizzare gli strumenti di Azure AI Search
+## Passaggio 4: Usare gli Strumenti di Azure AI Search
 
-Azure AI Search si integra con vari strumenti per migliorare le tue capacità di ricerca. Puoi utilizzare Azure CLI, Python SDK, .NET SDK e altri strumenti per configurazioni e operazioni avanzate.
+Azure AI Search si integra con vari strumenti per migliorare le capacità di ricerca. Puoi utilizzare Azure CLI, SDK Python, SDK .NET e altri strumenti per configurazioni e operazioni avanzate.
 
-### Utilizzo di Azure CLI
+### Uso di Azure CLI
 
-1. Installa Azure CLI seguendo le istruzioni su [Installare Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Accedi ad Azure CLI utilizzando il comando:
+1. Installa Azure CLI seguendo le istruzioni su [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Accedi ad Azure CLI usando il comando:
 
    ```bash
    az login
    ```
+3. **(Consigliato) Abilita l'accesso senza chiave con Microsoft Entra ID (RBAC):**
 
-3. Memorizza sia l'endpoint che la chiave API per l'istanza di Azure AI Search nelle variabili di ambiente.
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show non ha il campo "endpoint"; costruisci l'URL dal nome del servizio.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    ```
+
+    Con RBAC abilitato, gli esempi di SDK Python e .NET di seguito si autenticano con `DefaultAzureCredential`, che usa la tua sessione `az login` durante lo sviluppo locale — nessuna chiave amministratore necessaria. Vedi [Connettersi ad Azure AI Search usando i ruoli](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+4. **(Alternativa) Autenticazione basata su chiave** — solo se non puoi usare RBAC, memorizza anche la chiave amministratore:
+
+#### Memorizza sia l'endpoint che la chiave API per l'istanza Azure AI Search nelle variabili d'ambiente.
 
     ```bash
     # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show non ha il campo "endpoint"; costruisci l'URL dal nome del servizio.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
     ```powershell
     # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    # az search service show non ha il campo "endpoint"; costruisci l'URL dal nome del servizio.
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
     ```
 
-### Utilizzo di Python SDK
+### Uso dell'SDK Python
 
-1. Installa la libreria client Azure Cognitive Search per Python:
+1. Installa la libreria client Azure Cognitive Search e Azure Identity per Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. Utilizza il seguente codice Python per creare un indice e caricare documenti:
+2. Usa il codice Python seguente per creare un indice e caricare documenti:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Senza chiave (consigliato): utilizza la tua identità `az login` tramite Entra ID RBAC.
+    # Richiede i ruoli "Search Service Contributor" e "Search Index Data Contributor".
+    credential = DefaultAzureCredential()
+    # Ripiego (autenticazione basata sulla chiave):
+    # da azure.core.credentials importa AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -105,30 +124,38 @@ Azure AI Search si integra con vari strumenti per migliorare le tue capacità di
     search_client.upload_documents(documents)
     ```
 
-### Utilizzo di .NET SDK
+### Uso dell'SDK .NET
 
-1. Esegui il seguente comando per creare un indice e caricare documenti:
+1. Esegui il comando seguente per creare un indice e caricare documenti:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
+    L'esempio .NET di seguito usa `DefaultAzureCredential`, che può utilizzare l'accesso Azure CLI da `az login` durante lo sviluppo locale.
+
 2. Ecco il codice .NET di `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -154,19 +181,21 @@ Azure AI Search si integra con vari strumenti per migliorare le tue capacità di
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Per ulteriori informazioni dettagliate, consulta la seguente documentazione:
+Per informazioni più dettagliate, consulta la seguente documentazione:
 
 - [Creare un servizio Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Iniziare con Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Strumenti di Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Strumenti Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Conclusione
 
-Hai configurato con successo Azure AI Search utilizzando il portale di Azure e gli strumenti integrati. Ora puoi esplorare funzionalità e capacità avanzate di Azure AI Search per migliorare le tue soluzioni di ricerca.
+Hai configurato con successo Azure AI Search utilizzando il portale di Azure e gli strumenti integrati. Ora puoi esplorare funzioni e capacità più avanzate di Azure AI Search per migliorare le tue soluzioni di ricerca.
 
 Per ulteriore assistenza, visita la [documentazione di Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
-**Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa dovrebbe essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire la precisione, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un essere umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
