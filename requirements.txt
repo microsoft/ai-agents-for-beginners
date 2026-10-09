@@ -18,7 +18,7 @@ agent-framework-openai~=1.10.0
 a2a-sdk
 
 # Model Context Protocol
-mcp[cli]
+mcp[cli]<2
 
 # OpenAI - Responses API requires >=1.108.1
 openai>=1.108.1
