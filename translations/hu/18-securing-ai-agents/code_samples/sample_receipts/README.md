@@ -1,22 +1,27 @@
-# Minta blokkok nyugtákhoz
+# Minta Nyugta Fixture-ök
 
-Három előre legenerált nyugta fájl ellenőrzéshez a jegyzetfüzet futtatása nélkül.
+Három előre legenerált nyugta fájl ellenőrzéshez anélkül, hogy a jegyzetfüzetet futtatnánk.
 
-| Fájl | Mi ez? |
+| Fájl | Mi ez |
 |---|---|
-| `01_valid_receipt.json` | Egy érvényes aláírt nyugta a `lookup_flights` eszköz híváshoz. Az ellenőrzés True értéket ad vissza. |
-| `02_tampered_receipt.json` | Ugyanaz a nyugta, egy mező módosítása után aláíráskor. Az ellenőrzés False-t ad vissza. |
-| `03_chain_three_receipts.json` | Három érvényes nyugta láncolata (keresés, foglalás, könyvelés), melyek `previous_receipt_hash`-szal egymáshoz vannak kötve. |
+| `01_valid_receipt.json` | Egy érvényes, aláírt nyugta egy `lookup_flights` eszközhíváshoz. Az ellenőrzés True értéket ad vissza. |
+| `02_tampered_receipt.json` | Ugyanaz a nyugta, egy mező módosítva az aláírás után. Az ellenőrzés False értéket ad vissza. |
+| `03_chain_three_receipts.json` | Három érvényes nyugta láncolata (keresés, foglalás, könyvelés), ahol a `previous_receipt_hash` mindegyiket az előzőhöz köti. |
 
-## A minták ellenőrzése
+A fixture-ök közvetlenül az Ed25519-gyel írják alá a teherként használt kanonikus JCS bájtokat.
+A SHA-256 továbbra is a tartalom hash-éhez és a nyugta lánc hivatkozásokhoz használatos, nem
+pedig előkezelő hash-ként az aláírás előtt.
 
-A jegyzetfüzet négy részben vezeti végig az ellenőrzést. Ha azokat a blokkokat közvetlenül szeretnénk ellenőrizni a jegyzetfüzet magyarázatának futtatása nélkül:
+## Minták ellenőrzése
+
+A jegyzetfüzet négy szekcióban vezeti végig az ellenőrzést. Ezeket a fixture-öket közvetlenül,
+a jegyzetfüzet futtatása nélkül is ellenőrizhetjük:
 
 ```python
 import json
 from pathlib import Path
 
-# Feltételezi, hogy befejezte az importokat és segédfunkciókat
+# Feltételezi, hogy befejezted az importokat és segédfunkciókat
 # az 18-signed-receipts.ipynb 1. és 2. szakaszából.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
@@ -32,22 +37,27 @@ for r in verify_chain(chain):
 
 ## Hogyan készültek ezek
 
-A minták ugyanazon a kódúton haladnak, mint a jegyzetfüzet, egy fix aláírási kulccsal
-és fix időbélyegekkel a bájt-reprodukálhatóságért. A regeneráláshoz:
+A fixture-ök ugyanazt a kódutat használják, mint a jegyzetfüzet, egy fix aláíró kulccsal
+és fix időbélyegekkel a bájt szintű reprodukálhatóság érdekében. Újrageneráláshoz:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(A szkript a `generate_fixtures.py` ebben a könyvtárban.)
+(A szkript a `generate_fixtures.py` fájlban található ebben a könyvtárban.)
 
-## Mit tanulnak a diákok az alap JSON átnézéséből
+## Mit tanulnak a hallgatók a nyers JSON átvizsgálásából
 
-Az alap nyugta formátum olvasása segíti az intuíció kiépítését, amit a jegyzetfüzet cellái nem mindig adnak meg. A JSON-t átnéző diákok gyakran észreveszik:
+A nyers nyugta formátum olvasása olyan intuíciót épít, amit a jegyzetfüzet cellái nem mindig nyújtanak.
+A JSON-t csak átfutó hallgatók gyakran észreveszik:
 
-1. Az aláírás egy átlátszatlan base64url karakterlánc, de a többi mező sima, olvasható JSON. Az aláírás nem titkosítja a tartalmat; csak igazolja azt.
-2. A `public_key` be van ágyazva a nyugtába. Egy ellenőrnek nincs szüksége másra az ellenőrzéshez (feltéve, hogy megbízik abban, hogy a kulcs valóban a kijelölt kibocsátóhoz tartozik; lásd a tananyag README-jét az identitás-infrastruktúráról).
-3. Egyetlen karakter módosítása bármelyik mezőben, majd a fájl újraösszehasonlítása a `02_tampered_receipt.json`-nel, kézzelfoghatóvá teszi a bájtszintű mechanizmust.
+1. Az aláírás egy átlátszatlan base64url karakterlánc, de minden más mező egyszerű,
+   olvasható JSON. Az aláírás nem titkosítja a tartalmat; hanem tanúsítja azt.
+2. A `public_key` be vannak ágyazva a nyugtába. Egy ellenőrzőnek semmi mást nem kell tudnia
+   az ellenőrzéshez (feltéve, hogy bízik abban, hogy a kulcs valóban a
+   megnevezett kibocsátóé; lásd a lecke README-jét az identitás infrastruktúráról).
+3. Bármely mező egyetlen karakterének módosítása, majd ennek az állománynak az
+   összehasonlítása a `02_tampered_receipt.json`-el szemléletesen mutatja a bájt szintű mechanizmust.
 
 ---
 

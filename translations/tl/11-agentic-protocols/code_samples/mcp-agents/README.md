@@ -1,208 +1,210 @@
-# Paggawa ng Mga Sistema ng Komunikasyon ng Agent-to-Agent gamit ang MCP
+# Pagtatayo ng Mga Sistema ng Komunikasyon ng Ahente-sa-Ahente gamit ang MCP
 
-> TL;DR - Maaari Ka Bang Gumawa ng Komunikasyon ng Agent2Agent sa MCP? Oo!
+> TL;DR - Maaari Ka Bang Gumawa ng Agent2Agent Communication sa MCP? Oo!
 
-Ang MCP ay malaki na ang inunlad mula sa orihinal nitong layunin na "magbigay ng konteksto sa LLMs". Sa mga kamakailang pagpapahusay tulad ng [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), at mga notipikasyon ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) at [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), ang MCP ay nagbibigay na ngayon ng matibay na pundasyon para sa paggawa ng mga komplikadong sistema ng komunikasyon ng agent-to-agent.
+Malaki na ang pag-unlad ng MCP mula sa orihinal nitong layunin na "magbigay ng konteksto sa LLMs". Sa mga kamakailang pagpapahusay kabilang ang [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), at mga notification ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) at [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), ang MCP ngayon ay nagbibigay ng matibay na pundasyon para sa pagtatayo ng masalimuot na mga sistema ng komunikasyon ng ahente-sa-ahente.
 
-## Ang Maling Akala Tungkol sa Agent/Tool
+## Ang Maling Pananaw Tungkol sa Ahente/Kagamitan
 
-Habang mas maraming developer ang nag-eeksperimento sa mga tool na may agentic na pag-uugali (tumatakbo nang matagal, maaaring mangailangan ng karagdagang input habang nasa proseso, atbp.), isang karaniwang maling akala ay hindi angkop ang MCP, lalo na dahil ang mga maagang halimbawa ng tools primitive nito ay nakatuon sa simpleng request-response na mga pattern.
+Habang mas maraming mga developer ang sumusubok sa mga kagamitan na may mga katangian ng ahente (tumakbo nang matagal, maaaring mangailangan ng karagdagang input habang tumatakbo, atbp.), isang karaniwang maling paniniwala na hindi angkop ang MCP dahil sa mga unang halimbawa na ang mga kagamitan ay nakatuon lamang sa simpleng request-response na mga pattern.
 
-Lipas na ang pananaw na ito. Ang MCP specification ay malaki na ang inunlad nitong mga nakaraang buwan na may mga kakayahang nagtatanggal ng agwat para sa paggawa ng mga long-running agentic na pag-uugali:
+Luma na ang pananaw na ito. Ang espesipikasyon ng MCP ay malaki na ang na-update sa nakalipas na mga buwan na may mga kakayahan na nagpapatigil sa agwat para sa pagtatayo ng mga ahenteng tumatakbo nang matagal:
 
-- **Streaming at Partial Results**: Mga real-time na update sa progreso habang nasa proseso
-- **Resumability**: Maaaring magpatuloy ang mga kliyente pagkatapos ng disconnection
-- **Durability**: Ang mga resulta ay nananatili kahit mag-restart ang server (hal., gamit ang mga resource link)
-- **Multi-turn**: Interactive na input habang nasa proseso gamit ang elicitation at sampling
+- **Streaming at Bahagyang Mga Resulta**: Real-time na mga update ng progreso habang tumatakbo
+- **Resumability**: Maaaring muling kumonekta ang mga kliyente at magpatuloy pagkatapos ng pagkakahiwalay
+- **Durability**: Nananatili ang mga resulta kahit may restart ang server (hal. sa pamamagitan ng mga link na resource)
+- **Multi-turn**: Interactive na input habang tumatakbo sa pamamagitan ng elicitation at sampling
 
-Ang mga kakayahang ito ay maaaring pagsama-samahin upang paganahin ang mga komplikadong agentic at multi-agent na aplikasyon, lahat ay naka-deploy sa MCP protocol.
+Maaaring pagsamahin ang mga tampok na ito upang payagan ang masalimuot na mga aplikasyon na ahente o multi-agent, lahat ay nakabase sa MCP protocol.
 
-Bilang sanggunian, tatawagin natin ang isang agent bilang isang "tool" na available sa isang MCP server. Ipinapahiwatig nito ang pagkakaroon ng isang host application na nagpapatupad ng isang MCP client na nagtatatag ng session sa MCP server at maaaring tumawag sa agent.
+Para sa sanggunian, tatawagin nating "tool" ang isang ahente na available sa isang MCP server. Nangangahulugan ito ng pagkakaroon ng host application na nagpapatupad ng MCP client na nagtatatag ng session sa MCP server at maaaring tumawag sa ahente.
 
-## Ano ang Nagpapagawa sa Isang MCP Tool na "Agentic"?
+## Ano ang Ginagawa ng MCP Tool na "Agentic"?
 
-Bago sumabak sa implementasyon, tukuyin muna natin kung anong mga kakayahan sa imprastruktura ang kinakailangan upang suportahan ang mga long-running agent.
+Bago pumasok sa implementasyon, itakda natin kung anong mga kakayahan sa imprastruktura ang kailangan para suportahan ang mga ahenteng tumatakbo nang matagal.
 
-> Ang isang agent ay ating ituturing bilang isang entity na kayang gumana nang autonomously sa mahabang panahon, may kakayahang humawak ng mga komplikadong gawain na maaaring mangailangan ng maraming interaksyon o pagsasaayos batay sa real-time na feedback.
+> Ituturing natin ang ahente bilang isang entidad na maaaring kumilos nang autonomous sa mahabang panahon, kaya nitong hawakan ang mga komplikadong gawain na maaaring mangailangan ng maraming pakikipag-ugnayan o pagsasaayos batay sa real-time na feedback.
 
-### 1. Streaming at Partial Results
+### 1. Streaming at Bahagyang Mga Resulta
 
-Hindi gumagana ang tradisyunal na request-response na mga pattern para sa mga long-running na gawain. Kailangang magbigay ang mga agent ng:
+Hindi epektibo ang tradisyunal na mga pattern ng request-response para sa mga long-running na gawain. Kailangan ng mga ahente na magbigay ng:
 
-- Mga real-time na update sa progreso
-- Mga intermediate na resulta
+- Real-time na mga update ng progreso
+- Mga panandaliang resulta
 
-**Suporta ng MCP**: Ang mga resource update notification ay nagbibigay-daan sa streaming ng partial results, bagamat nangangailangan ito ng maingat na disenyo upang maiwasan ang mga conflict sa 1:1 request/response model ng JSON-RPC.
+**Suporta ng MCP**: Pinapayagan ng mga notification ng pag-update ng resource ang streaming ng bahagyang mga resulta, ngunit nangangailangan ito ng maingat na disenyo upang maiwasan ang mga salungatan sa modelo ng JSON-RPC na 1:1 na request/response.
 
-| Tampok                     | Gamit                                                                                                                                                                       | Suporta ng MCP                                                                          |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Real-time Progress Updates | Humihiling ang user ng isang codebase migration task. Ang agent ay nag-i-stream ng progreso: "10% - Sinusuri ang dependencies... 25% - Kinukonvert ang mga TypeScript file..." | ✅ Progress notifications                                                              |
-| Partial Results            | Ang "Generate a book" task ay nag-i-stream ng partial results, hal., 1) Balangkas ng kwento, 2) Listahan ng mga kabanata, 3) Bawat kabanata habang natatapos.               | ✅ Ang mga notification ay maaaring "palawakin" upang isama ang partial results         |
+| Tampok                    | Kaso ng Paggamit                                                                                                                                                                | Suporta ng MCP                                                                            |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Real-time Progress Updates | Humihiling ang user ng gawain sa paglipat ng codebase. Nagsi-stream ang ahente ng progreso: "10% - Sinusuri ang mga dependencies... 25% - Kinokopya ang mga TypeScript files... 50% - Ina-update ang mga imports..." | ✅ Mga notification ng progreso                                                           |
+| Partial Results            | "Mag-generate ng libro" na gawain ay nag-stream ng bahagyang mga resulta, hal. 1) Balangkas ng kwento, 2) Listahan ng mga kabanata, 3) Bawat kabanata kapag tapos na. Maaaring tignan, kanselahin, o baguhin ng host anumang oras. | ✅ Maaaring "palawakin" ang mga notification upang isama ang bahagyang mga resulta, tingnan ang mga panukala sa PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figure 1:</strong> Ang diagram na ito ay nagpapakita kung paano nag-i-stream ang isang MCP agent ng mga real-time na update sa progreso at partial results sa host application habang nasa long-running na gawain, na nagbibigay-daan sa user na subaybayan ang proseso sa real time.
+<strong>Larawan 1:</strong> Ipinapakita ng diagram na ito kung paano nagsi-stream ang MCP agent ng mga real-time na update ng progreso at bahagyang mga resulta sa host application habang tumatakbo ang mahaba-habang gawain, na nagbibigay-daan sa user na subaybayan ang pagtakbo sa real time.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(Kliyente ng MCP)
+    participant Server as MCP Server<br/>(Kagamitan ng Ahente)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Simulan ang mahabang gawain
+    Host->>Server: Tawagin ang agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Mga Update sa Progreso
+        Server-->>Host: Progreso + bahagyang mga resulta
+        Host-->>User: I-stream ang mga update
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Panghuling resulta
+    Host-->>User: Kumpleto
 ```
 
 ### 2. Resumability
 
-Kailangang kayanin ng mga agent ang mga network interruption nang maayos:
+Kailangan ng mga ahente na harapin nang maayos ang mga pagkaantala sa network:
 
-- Mag-reconnect pagkatapos ng (client) disconnection
-- Magpatuloy mula sa huling estado (message redelivery)
+- Muling kumonekta pagkatapos ng pagkahiwalay ng kliyente
+- Magpatuloy mula sa huling natapos (muling paghahatid ng mensahe)
 
-**Suporta ng MCP**: Ang MCP StreamableHTTP transport ay sumusuporta ngayon sa session resumption at message redelivery gamit ang session IDs at last event IDs. Mahalagang tandaan na kailangang magpatupad ang server ng isang EventStore na nagbibigay-daan sa event replays kapag nag-reconnect ang client.  
-Mayroon ding community proposal (PR #975) na nag-eeksplora ng transport-agnostic resumable streams.
+**Suporta ng MCP**: Sinusuportahan ngayon ng MCP StreamableHTTP transport ang session resumption at message redelivery gamit ang mga session ID at huling event ID. Mahalaga na ang server ay dapat magpatupad ng EventStore na nagpapahintulot ng event replays kapag muling kumokonekta ang client.  
+Tandaan na may panukalang pang-komunidad (PR #975) na sumusuri sa transport-agnostic na resumable streams.
 
-| Tampok       | Gamit                                                                                                                                                   | Suporta ng MCP                                                                |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Resumability | Ang client ay nadidisconnect habang nasa long-running na gawain. Kapag nag-reconnect, ang session ay nagpapatuloy na may replay ng mga na-miss na event. | ✅ StreamableHTTP transport na may session IDs, event replay, at EventStore    |
+| Tampok      | Kaso ng Paggamit                                                                                                                                            | Suporta ng MCP                                                          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Resumability | Naka-disconnect ang kliyente sa kalagitnaan ng mahaba-habang gawain. Sa muling pagkonekta, nagpapatuloy ang session na may mga na-miss na event na nire-replay, na tuloy-tuloy na nagpapatuloy mula sa huling punto. | ✅ StreamableHTTP transport na may session IDs, event replay, at EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figure 2:</strong> Ang diagram na ito ay nagpapakita kung paano nagbibigay-daan ang StreamableHTTP transport at event store ng MCP sa seamless session resumption: kung madidisconnect ang client, maaari itong mag-reconnect at i-replay ang mga na-miss na event, na nagpapatuloy sa gawain nang walang pagkawala ng progreso.
+<strong>Larawan 2:</strong> Ipinapakita ng diagram na ito kung paano pinapayagan ng StreamableHTTP transport at event store ng MCP ang seamless session resumption: kung magdi-disconnect ang kliyente, maaari itong muling kumonekta at ire-replay ang mga na-miss na event, nagpapatuloy ang gawain nang hindi nawawala ang progreso.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Host App<br/>(Kliyente ng MCP)
+    participant Server as Server ng MCP<br/>(Kagamitan ng Ahente)
+    participant Store as Tindahan ng Kaganapan
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Simulan ang gawain
+    Host->>Server: Tawagan ang kagamitan [sesyon: abc123]
+    Server->>Store: I-save ang mga kaganapan
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Nawalang koneksyon
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Muling kumonekta [sesyon: abc123]
+    Store-->>Server: I-play muli ang mga kaganapan
+    Server-->>Host: Habulin + magpatuloy
+    Host-->>User: ✅ Kumpleto
 ```
 
 ### 3. Durability
 
-Kailangang mayroong persistent state ang mga long-running agent:
+Kailangan ng mga mahaba-habang ahente ang persistenteng estado:
 
-- Ang mga resulta ay nananatili kahit mag-restart ang server
-- Maaaring makuha ang status kahit hindi konektado
-- Pagsubaybay sa progreso sa iba't ibang session
+- Nananatili ang mga resulta kahit magkaroon ng restart ang server
+- Maaaring kunin ang status nang hiwalay
+- Pagsubaybay ng progreso sa iba't ibang session
 
-**Suporta ng MCP**: Sinusuportahan na ngayon ng MCP ang Resource link return type para sa mga tool call. Sa kasalukuyan, isang posibleng pattern ay ang magdisenyo ng tool na lumilikha ng resource at agad na nagbabalik ng resource link. Ang tool ay maaaring magpatuloy sa pagproseso ng gawain sa background at i-update ang resource. Sa kabilang banda, maaaring piliin ng client na i-poll ang estado ng resource upang makuha ang partial o full results (batay sa kung anong mga resource update ang ibinibigay ng server) o mag-subscribe sa resource para sa mga update notification.
+**Suporta ng MCP**: Sinusuportahan na ngayon ng MCP ang Resource link na uri ng return para sa tawag sa tool. Ngayon, isang posibleng pattern ay magdisenyo ng tool na lumilikha ng resource at agad na nagbabalik ng resource link. Maaari pang ipagpatuloy ng tool ang gawain sa background at i-update ang resource. Sa kabilang banda, maaaring piliin ng kliyente na i-poll ang estado ng resource para makuha ang bahagyang o kompletong resulta (batay sa mga update na ibinibigay ng server) o mag-subscribe para sa mga notification ng update.
 
-Isang limitasyon dito ay ang pag-poll ng mga resource o pag-subscribe para sa mga update ay maaaring kumonsumo ng mga resource na may implikasyon sa scale. Mayroong bukas na community proposal (kabilang ang #992) na nag-eeksplora ng posibilidad ng pagsasama ng webhooks o triggers na maaaring tawagan ng server upang i-notify ang client/host application ng mga update.
+Isang limitasyon dito ay ang pag-poll sa mga resource o pag-subscribe para sa mga update ay maaaring kumonsumo ng mga resource na may epekto sa malawakang paggamit. May bukas na panukalang pang-komunidad (kasama ang #992) na sumusuri sa posibilidad ng pagsasama ng mga webhook o trigger na maaaring tawagan ng server upang ipaalam sa client/host application ang mga update.
 
-| Tampok     | Gamit                                                                                                                                         | Suporta ng MCP                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Durability | Ang server ay nagka-crash habang nasa data migration task. Ang mga resulta at progreso ay nananatili kahit mag-restart, maaaring tingnan ng client ang status at magpatuloy. | ✅ Resource links na may persistent storage at status notifications    |
+| Tampok    | Kaso ng Paggamit                                                                                                                                  | Suporta ng MCP                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Durability | Nag-crash ang server habang ginagawa ang data migration task. Nanatili ang mga resulta at progreso pagkatapos ng restart, maaaring tingnan ng client ang status at magpatuloy mula sa persistent na resource. | ✅ Resource links na may persistent storage at status notifications |
+
+Ngayon, isang karaniwang pattern ay magdisenyo ng tool na lumilikha ng resource at agad na nagbabalik ng resource link. Maaari patuloy na pagtrabahuan ng tool sa background ang gawain, magbigay ng mga notification ng resource na nagsisilbing mga update ng progreso o isama ang bahagyang mga resulta, at i-update ang nilalaman ng resource kung kinakailangan.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figure 3:</strong> Ang diagram na ito ay nagpapakita kung paano ginagamit ng mga MCP agent ang mga persistent resource at status notification upang matiyak na ang mga long-running na gawain ay nananatili kahit mag-restart ang server, na nagbibigay-daan sa mga client na subaybayan ang progreso at makuha ang mga resulta kahit pagkatapos ng mga pagkabigo.
+<strong>Larawan 3:</strong> Ipinakikita ng diagram na ito kung paano ginagamit ng mga MCP agent ang mga persistent na resource at mga notification ng status upang matiyak na ang mga mahaba-habang gawain ay nananatili kahit may restart ng server, na nagpapahintulot sa mga kliyente na tingnan ang progreso at kunin ang mga resulta kahit matapos ang mga pagkabigo.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(Kliyente ng MCP)
+    participant Server as MCP Server<br/>(Kagamitan ng Ahente)
     participant DB as Persistent Storage
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Simulan ang gawain
+    Host->>Server: Tawagan ang kagamitan
+    Server->>DB: Lumikha ng mapagkukunan + mga update
+    Server-->>Host: 🔗 Link ng mapagkukunan
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Muling simulan ang server
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Suriin ang kalagayan
+    Host->>Server: Kuhanin ang mapagkukunan
+    Server->>DB: I-load ang estado
+    Server-->>Host: Kasalukuyang progreso
+    Server->>DB: Kumpleto + ipaalam
+    Host-->>User: ✅ Kumpleto
 ```
 
 ### 4. Multi-Turn Interactions
 
-Kadalasan, kailangan ng mga agent ng karagdagang input habang nasa proseso:
+Kalimitang kailangan ng mga ahente ang karagdagang input habang tumatakbo:
 
 - Paglilinaw o pag-apruba mula sa tao
 - Tulong mula sa AI para sa mga komplikadong desisyon
-- Dynamic na pagsasaayos ng mga parameter
+- Dinamikong pagsasaayos ng mga parametro
 
-**Suporta ng MCP**: Ganap na sinusuportahan gamit ang sampling (para sa AI input) at elicitation (para sa human input).
+**Suporta ng MCP**: Ganap na sinusuportahan sa pamamagitan ng sampling (para sa input ng AI) at elicitation (para sa input ng tao).
 
-| Tampok                 | Gamit                                                                                                                                     | Suporta ng MCP                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Multi-Turn Interactions | Ang travel booking agent ay humihiling ng kumpirmasyon ng presyo mula sa user, pagkatapos ay humihiling sa AI na ibuod ang travel data bago tapusin ang booking. | ✅ Elicitation para sa human input, sampling para sa AI input |
+| Tampok                  | Kaso ng Paggamit                                                                                                                                     | Suporta ng MCP                                            |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Multi-Turn Interactions | Ang travel booking agent ay humihiling ng kumpirmasyon ng presyo mula sa user, pagkatapos ay humihingi ng AI na ibuod ang data ng paglalakbay bago tapusin ang booking transaction. | ✅ Elicitation para sa input ng tao, sampling para sa input ng AI |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figure 4:</strong> Ang diagram na ito ay nagpapakita kung paano maaaring mag-interact ang mga MCP agent upang humiling ng human input o AI assistance habang nasa proseso, na sumusuporta sa mga komplikado at multi-turn na workflow tulad ng mga kumpirmasyon at dynamic na paggawa ng desisyon.
+<strong>Larawan 4:</strong> Ipinapakita ng diagram na ito kung paano maaaring interactive na humiling ang mga MCP agent ng input mula sa tao o humingi ng tulong mula sa AI habang tumatakbo, na sumusuporta sa mga komplikadong workflow na multi-turn tulad ng mga kumpirmasyon at dinamikong paggawa ng desisyon.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(Kliyente ng MCP)
+    participant Server as MCP Server<br/>(Kagamitan ng Ahente)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Mag-book ng flight
+    Host->>Server: Tawagan ang travel_agent
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Elicitation: "Kumpirmahin ang $500?"
+    Note over Host: Elicitation callback (kung available)
+    Host->>User: 💰 Kumpirmahin ang presyo?
+    User->>Host: "Oo"
+    Host->>Server: Nakumpirma
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Sampling: "Ibuod ang data"
+    Note over Host: AI callback (kung available)
+    Host->>Server: Ulat ng buod
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Flight na na-book
 ```
 
-## Pagpapatupad ng Long-Running Agents sa MCP - Pangkalahatang-ideya ng Code
+## Pagpapatupad ng Mga Mahabang Tumakbong Ahente sa MCP - Pangkalahatang Tanaw ng Code
 
-Bilang bahagi ng artikulong ito, nagbibigay kami ng isang [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) na naglalaman ng kumpletong implementasyon ng long-running agents gamit ang MCP Python SDK na may StreamableHTTP transport para sa session resumption at message redelivery. Ang implementasyon ay nagpapakita kung paano maaaring pagsama-samahin ang mga kakayahan ng MCP upang paganahin ang mga sopistikadong agent-like na pag-uugali.
+Bilang bahagi ng artikulong ito, nagbibigay kami ng isang [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) na naglalaman ng kumpletong implementasyon ng mga mahaba-habang tumakbong ahente gamit ang MCP Python SDK na may StreamableHTTP transport para sa session resumption at message redelivery. Ipinapakita ng implementasyon kung paano maaaring pagsamahin ang mga kakayahan ng MCP upang magpayagan ng masalimuot na pag-uugali na parang ahente.
 
-Partikular, nagpatupad kami ng server na may dalawang pangunahing agent tools:
+Partikular, nagpapatupad kami ng server na may dalawang pangunahing tool na ahente:
 
-- **Travel Agent** - Nag-simulate ng travel booking service na may kumpirmasyon ng presyo gamit ang elicitation
-- **Research Agent** - Gumagawa ng mga research task na may AI-assisted summaries gamit ang sampling
+- **Travel Agent** - Nagsasagawa ng simulasyon ng serbisyo sa pag-book ng biyahe na may kumpirmasyon ng presyo gamit ang elicitation
+- **Research Agent** - Nagsasagawa ng mga gawain sa pananaliksik na may AI-assisted summaries gamit ang sampling
 
-Ang parehong agent ay nagpapakita ng mga real-time na update sa progreso, interactive na kumpirmasyon, at buong kakayahan sa session resumption.
+Parehong ipinapakita ng mga ahenteng ito ang mga real-time na update ng progreso, mga interactive na kumpirmasyon, at mga ganap na kakayahan sa session resumption.
 
 ### Mga Pangunahing Konsepto sa Implementasyon
 
-Ang mga sumusunod na seksyon ay nagpapakita ng implementasyon ng agent sa server-side at host handling sa client-side para sa bawat kakayahan:
+Ipinapakita ng mga sumusunod na seksyon ang implementasyon ng ahente sa server-side at ang paghawak ng host sa client-side para sa bawat kakayahan:
 
-#### Streaming at Progress Updates - Real-time na Status ng Gawain
+#### Streaming at Mga Update ng Progreso - Real-time na Katayuan ng Gawain
 
-Ang streaming ay nagbibigay-daan sa mga agent na magbigay ng mga real-time na update sa progreso habang nasa long-running na gawain, na nagpapanatili sa user na may kaalaman sa estado ng gawain at mga intermediate na resulta.
+Pinapayagan ng streaming ang mga ahente na magbigay ng mga real-time na update ng progreso habang tumatakbo ang mga mahahabang gawain, na nagpapanatili sa mga user na may kaalaman sa katayuan ng gawain at mga panandaliang resulta.
 
-**Implementasyon sa Server (nagpapadala ng progress notifications ang agent):**
+**Implementasyon ng Server (nagpapadala ng mga notification ng progreso ang ahente):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Mula sa server/server.py - Ahente ng paglalakbay na nagpapadala ng mga update sa progreso
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -211,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Gawin ang trabaho nang ipinalalagay
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternatibo: I-log ang mga mensahe para sa detalyadong hakbang-hakbang na mga update
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -222,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Implementasyon sa Client (tumatanggap ng progress updates ang host):**
+**Implementasyon ng Client (tumanggap ang host ng mga update ng progreso):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Mula sa client/client.py - Kliyenteng humahawak ng real-time na mga abiso
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -234,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Magrehistro ng tagapangasiwa ng mensahe kapag lumilikha ng sesyon
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - Paghingi ng Input mula sa User
+#### Elicitation - Humihiling ng Input ng User
 
-Ang elicitation ay nagbibigay-daan sa mga agent na humiling ng input mula sa user habang nasa proseso. Mahalagang ito para sa mga kumpirmasyon, paglilinaw, o pag-apruba sa mga long-running na gawain.
+Pinapayagan ng elicitation ang mga ahente na humiling ng input ng user habang tumatakbo. Mahalaga ito para sa mga kumpirmasyon, paglilinaw, o pag-apruba sa mga mahahabang gawain.
 
-**Implementasyon sa Server (humihiling ng kumpirmasyon ang agent):**
+**Implementasyon ng Server (ang ahente ay humihiling ng kumpirmasyon):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Mula sa server/server.py - Ahente ng paglalakbay na humihiling ng kumpirmasyon ng presyo
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -256,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Magpatuloy sa pag-book
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # I-cancel ang booking
     booking_cancelled = True
 ```
 
-**Implementasyon sa Client (nagbibigay ng elicitation callback ang host):**
+**Implementasyon ng Client (nagbibigay ang host ng elicitation callback):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Mula sa client/client.py - Paghawak ng kliyente sa mga kahilingan ng elicitation
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -284,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Irehistro ang callback kapag lumilikha ng session
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - Paghingi ng Tulong mula sa AI
+#### Sampling - Humihiling ng Tulong mula sa AI
 
-Ang sampling ay nagbibigay-daan sa mga agent na humiling ng tulong mula sa LLM para sa mga komplikadong desisyon o content generation habang nasa proseso. Pinapagana nito ang hybrid na human-AI workflows.
+Pinapayagan ng sampling ang mga ahente na humiling ng tulong mula sa LLM para sa mga komplikadong desisyon o pagbuo ng nilalaman habang tumatakbo. Nagpapahintulot ito ng hybrid na workflow ng tao at AI.
 
-**Implementasyon sa Server (humihiling ng tulong mula sa AI ang agent):**
+**Implementasyon ng Server (ang ahente ay humihiling ng tulong mula sa AI):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Mula sa server/server.py - Ahente ng pananaliksik na humihiling ng buod mula sa AI
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -316,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Implementasyon sa Client (nagbibigay ng sampling callback ang host):**
+**Implementasyon ng Client (nagbibigay ang host ng sampling callback):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Mula sa client/client.py - Pag-handle ng client ng mga kahilingan sa sampling
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Sa isang totoong aplikasyon, ito ay maaaring tumawag sa isang LLM API
+    # Para sa layunin ng demonstrasyon, nagbibigay kami ng isang mock na tugon
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -335,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Irehistro ang callback kapag gumagawa ng session
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -343,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Resumability - Pagpapatuloy ng Session sa Kabila ng Mga Disconnection
+#### Resumability - Patuloy na Session Sa Kabila ng mga Pagkawala ng Koneksyon
 
-Ang resumability ay tinitiyak na ang mga long-running na gawain ng agent ay maaaring magpatuloy kahit madisconnect ang client at seamless na magpatuloy kapag nag-reconnect. Ito ay ipinatutupad sa pamamagitan ng event stores at resumption tokens.
+Tinitiyak ng resumability na ang mga mahahabang gawain ng ahente ay makakaligtas sa mga pagka-disconnect ng client at maipagpapatuloy nang tuluy-tuloy kapag muling nakonekta. Ipinapatupad ito sa pamamagitan ng event stores at mga resumption token.
 
-**Implementasyon ng Event Store (ang server ay nagtatago ng session state):**
+**Implementasyon ng Event Store (hawak ng server ang session na estado):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Mula sa server/event_store.py - Simpleng in-memory na imbakan ng mga pangyayari
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -365,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # I-replay lamang ang mga kaganapang nangyari matapos sa orihinal na stream ng sesyon.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Mula sa server/server.py - Ipinapasa ang imbakan ng pangyayari sa tagapamahala ng sesyon
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Gumawa ng tagapamahala ng sesyon gamit ang imbakan ng pangyayari para sa pagpapatuloy
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Pinapagana ng imbakan ng pangyayari ang pagpapatuloy ng sesyon
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Paggamit: I-initialize gamit ang imbakan ng pangyayari
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Client Metadata na may Resumption Token (ang client ay nagre-reconnect gamit ang naka-store na estado):**
+**Metadata ng Client na may Resumption Token (muling kumonekta ang client gamit ang nakaimbak na estado):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Mula sa client/client.py - Pagpapatuloy ng kliyente gamit ang metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Gamitin ang umiiral na token ng pagpapatuloy upang ipagpatuloy kung saan tayo huminto
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Gumawa ng callback upang i-save ang token ng pagpapatuloy kapag natanggap
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -407,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Magpadala ng kahilingan gamit ang metadata ng pagpapatuloy
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -420,92 +437,94 @@ result = await session.send_request(
 )
 ```
 
-Ang host application ay nagtatago ng session IDs at resumption tokens nang lokal, na nagbibigay-daan dito na mag-reconnect sa mga umiiral na session nang hindi nawawala ang progreso o estado.
+Pinapanatili ng host application ang mga session ID at mga resumption token nang lokal, na nagpapahintulot dito na muling kumonekta sa mga umiiral na session nang hindi nawawala ang progreso o estado.
 
 ### Organisasyon ng Code
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figure 5:</strong> Arkitektura ng sistema ng agent na nakabatay sa MCP
+<strong>Larawan 5:</strong> Arkitektura ng sistema ng ahente na nakabase sa MCP
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Gumagamit]) -->|"Gawain"| Host["Host<br/>(MCP Kliyente)"]
+    Host -->|listahan ng mga gamit| Server[MCP Server]
+    Server -->|Inilalantad| AgentsTools[Mga Ahente bilang mga Gamit]
+    AgentsTools -->|Gawain| AgentA[Ahente sa Paglalakbay]
+    AgentsTools -->|Gawain| AgentB[Ahente sa Pananaliksik]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Binabantayan| StateUpdates[Mga Pag-unlad at Mga Update sa Estado]
+    Server -->|Ipinapahayag| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
     class Host,Server,StateUpdates core;
 ```
 
-**Mga Pangunahing File:**
+**Pangunahing Mga File:**
 
-- **`server/server.py`** - Resumable MCP server na may travel at research agents na nagpapakita ng elicitation, sampling, at progress updates
-- **`client/client.py`** - Interactive na host application na may suporta sa resumption, callback handlers, at token management
-- **`server/event_store.py`** - Implementasyon ng event store na nagbibigay-daan sa session resumption at message redelivery
+- **`server/server.py`** - Resumable MCP server na may travel at research agents na naglalaman ng elicitation, sampling, at mga update ng progreso
+- **`client/client.py`** - Interactive na host application na may suporta sa resumption, mga callback handler, at pamamahala ng token
+- **`server/event_store.py`** - Implementasyon ng event store na nagpapahintulot ng session resumption at message redelivery
 
-## Pagpapalawak sa Multi-Agent na Komunikasyon sa MCP
+## Pagpapalawak sa Multi-Agent Communication sa MCP
 
-Ang implementasyon sa itaas ay maaaring palawakin sa mga multi-agent na sistema sa pamamagitan ng pagpapahusay sa katalinuhan at saklaw ng host application:
+Maaaring palawakin ang nasa itaas na implementasyon sa mga multi-agent system sa pamamagitan ng pagpapahusay sa katalinuhan at lawak ng host application:
 
-- **Intelligent Task Decomposition**: Sinusuri ng host ang mga komplikadong kahilingan ng user at hinahati ang mga ito sa mga subtask para sa iba't ibang specialized agents
-- **Multi-Server Coordination**: Pinapanatili ng host ang koneksyon sa maraming MCP servers, bawat isa ay nag-e-expose ng iba't ibang kakayahan ng agent
-- **Task State Management**: Sinusubaybayan ng host ang progreso sa maraming sabay-sabay na gawain ng agent, hinahawakan ang mga dependency at sequencing
-- **Resilience & Retries**: Pinamamahalaan ng host ang mga pagkabigo, nagpapatupad ng retry logic, at nire-reroute ang mga gawain kapag naging hindi available ang mga agent
-- **Result Synthesis**: Pinagsasama-sama ng host ang mga output mula sa maraming agent upang makabuo ng isang malinaw na panghuling resulta
+- **Intelligent Task Decomposition**: Sinusuri ng host ang mga komplikadong hiling ng user at hinahati ito sa mga subtask para sa iba’t ibang specialized agents
+- **Multi-Server Coordination**: Pinapanatili ng host ang koneksyon sa maraming MCP server, bawat isa ay may iba't ibang kakayahan ng agent
+- **Task State Management**: Sinusubaybayan ng host ang progreso sa maraming kasabay na agent task, pinangangasiwaan ang mga dependencies at sequencing
+- **Resilience at Pag-uulit**: Pinamamahalaan ng host ang mga pagkabigo, nagpapatupad ng retry logic, at nire-reroute ang mga gawain kapag hindi available ang mga ahente
+- **Result Synthesis**: Pinagsasama ng host ang mga output mula sa maraming ahente upang makabuo ng magkakaugnay na panghuling resulta
 
-Ang host ay nag-e-evolve mula sa pagiging simpleng client patungo sa pagiging isang intelligent orchestrator, na nagko-coordinate ng mga distributed agent capabilities habang pinapanatili ang parehong pundasyon ng MCP protocol.
+Ang host ay umuunlad mula sa simpleng kliyente tungo sa isang matalinong tagapamahala, na nakikipag-coordinate sa mga distributed na kakayahan ng ahente habang pinapanatili ang parehong pundasyon ng MCP protocol.
 
 ## Konklusyon
 
-Ang mga pinahusay na kakayahan ng MCP - resource notifications, elicitation/sampling, resumable streams, at persistent resources - ay nagbibigay-daan sa mga komplikadong interaksyon ng agent-to-agent habang pinapanatili ang pagiging simple ng protocol.
+Ang mga pinahusay na kakayahan ng MCP - mga notification ng resource, elicitation/sampling, resumable streams, at persistent resources - ay nagpapahintulot ng masalimuot na pakikipag-ugnayan ng ahente-sa-ahente habang pinapanatili ang pagiging simple ng protocol.
 
 ## Pagsisimula
 
-Handa ka na bang gumawa ng sarili mong agent2agent system? Sundin ang mga hakbang na ito:
+Handa ka nang gumawa ng sarili mong agent2agent system? Sundin ang mga hakbang na ito:
 
 ### 1. Patakbuhin ang Demo
 
 ```bash
-# Start the server with event store for resumption
+# Simulan ang server na may event store para sa pagpapatuloy
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Sa isa pang terminal, patakbuhin ang interactive client
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Mga Available na Command sa Interactive Mode:**
+**Mga magagamit na utos sa interactive na mode:**
 
-- `travel_agent` - Mag-book ng travel na may kumpirmasyon ng presyo gamit ang elicitation
-- `research_agent` - Mag-research ng mga paksa na may AI-assisted summaries gamit ang sampling
+- `travel_agent` - Mag-book ng biyahe na may kumpirmasyon ng presyo gamit ang elicitation
+- `research_agent` - Magsagawa ng pananaliksik na may AI-assisted summaries gamit ang sampling
 - `list` - Ipakita ang lahat ng available na tools
-- `clean-tokens` - I-clear ang mga resumption token
-- `help` - Ipakita ang detalyadong tulong sa command
+- `clean-tokens` - Alisin ang mga resumption token
+- `help` - Ipakita ang detalyadong tulong sa utos
 - `quit` - Lumabas sa client
 
-### 2. Subukan ang Resumption Capabilities
+### 2. Subukan ang Mga Kakayahan sa Resumption
 
-- Simulan ang isang long-running agent (hal., `travel_agent`)
-- I-interrupt ang client habang nasa proseso (Ctrl+C)
-- I-restart ang client - awtomatiko nitong ipagpapatuloy mula sa huling estado
+- Magsimula ng mahaba-habang tumakbong ahente (hal. `travel_agent`)
+- Putulin ang client habang tumatakbo (Ctrl+C)
+- I-restart ang client - awtomatiko itong magpapatuloy mula sa huling hinto
 
-### 3. Mag-eksperimento at Magpalawak
+### 3. Tuklasin at Palawakin pa
 
-- **Eksplorahin ang mga halimbawa**: Tingnan ang [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Sumali sa komunidad**: Makilahok sa mga talakayan tungkol sa MCP sa GitHub
-- **Mag-eksperimento**: Magsimula sa isang simpleng long-running na gawain at unti-unting idagdag ang streaming, resumability, at multi-agent coordination
+- **Suriin ang mga halimbawa**: Tingnan ang [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Sumali sa komunidad**: Makilahok sa mga talakayan ng MCP sa GitHub
+- **Magsimula**: Magsimula sa isang simpleng mahaba-habang gawain at unti-unting idagdag ang streaming, resumability, at multi-agent na koordinasyon
 
-Ipinapakita nito kung paano pinapagana ng MCP ang mga intelligent na pag-uugali ng agent habang pinapanatili ang pagiging simple ng tool-based na disenyo.
+Ipinapakita nito kung paano pinapayagan ng MCP ang matalinong pag-uugali ng agent habang pinapanatili ang pagiging simple ng tool-based.
 
-Sa kabuuan, ang MCP protocol spec ay mabilis na umuunlad; hinihikayat ang mambabasa na suriin ang opisyal na website ng dokumentasyon para sa pinakabagong mga update - https://modelcontextprotocol.io/introduction
+Sa kabuuan, mabilis ang pag-unlad ng MCP protocol spec; hinihikayat ang mambabasa na suriin ang opisyal na website ng dokumentasyon para sa pinakabagong mga update - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Pagtatanggi**:
+Ang dokumentong ito ay isinalin gamit ang serbisyo ng AI translation na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't nagsusumikap kami para sa katumpakan, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang maling pagkakaintindi o maling interpretasyon na nagmula sa paggamit ng pagsasaling ito.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,17 +1,21 @@
-# Beispielbeleg Fixtures
+# Beispielquittungs-Fixtures
 
-Drei vorab generierte Belegdateien zur Inspektion ohne Ausführung des Notebooks.
+Drei vorerzeugte Quittungsdateien zur Inspektion, ohne das Notebook auszuführen.
 
 | Datei | Was es ist |
 |---|---|
-| `01_valid_receipt.json` | Ein gültiger signierter Beleg für einen `lookup_flights` Toolaufruf. Die Verifikation ergibt True. |
-| `02_tampered_receipt.json` | Derselbe Beleg mit einem Feld, das nach der Signierung geändert wurde. Die Verifikation ergibt False. |
-| `03_chain_three_receipts.json` | Eine Kette von drei gültigen Belegen (Suche, Reservierung, Buchung) mit `previous_receipt_hash`, die jeden mit dem vorherigen verbindet. |
+| `01_valid_receipt.json` | Eine gültige signierte Quittung für einen `lookup_flights`-Werkzeugaufruf. Die Verifikation ergibt True. |
+| `02_tampered_receipt.json` | Dieselbe Quittung mit einem nach der Signierung veränderten Feld. Die Verifikation ergibt False. |
+| `03_chain_three_receipts.json` | Eine Kette von drei gültigen Quittungen (Suche, Halten, Buchen) mit `previous_receipt_hash`, das jede mit der vorherigen verknüpft. |
+
+Die Fixtures signieren direkt die kanonischen JCS-Bytes der Nutzlast mit Ed25519.
+SHA-256 wird weiterhin für Inhalts-Hashes und Quittungsketten-Links verwendet, nicht als
+zusätzlicher Vorhash vor der Signierung.
 
 ## Verifikation der Beispiele
 
 Das Notebook führt die Verifikation in vier Abschnitten durch. Um diese Fixtures
-direkt zu verifizieren, ohne das Notebook-Szenario durchzugehen:
+direkt zu verifizieren, ohne die Notebook-Erklärungen durchzugehen:
 
 ```python
 import json
@@ -33,27 +37,27 @@ for r in verify_chain(chain):
 
 ## Wie diese erzeugt wurden
 
-Die Fixtures verwenden denselben Codepfad wie das Notebook, mit einem festen Signierschlüssel
-und festen Zeitstempeln für byte-reproduzierbarkeit. Zur Neuerzeugung:
+Die Fixtures verwenden denselben Codepfad wie das Notebook, mit einem festen Signaturschlüssel
+und festen Zeitstempeln für reproduzierbare Bytes. Zum Neuerzeugen:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Das Skript befindet sich in `generate_fixtures.py` in diesem Verzeichnis.)
+(Das Skript befindet sich in diesem Verzeichnis unter `generate_fixtures.py`.)
 
-## Was Studierende beim Betrachten des rohen JSON lernen
+## Was Studierende beim Inspizieren rohen JSON lernen
 
-Das Lesen des rohen Belegformats baut Intuition auf, die die Zellen im Notebook
+Das Lesen des rohen Quittungsformats baut eine Intuition auf, die die Zellen im Notebook
 nicht immer vermitteln. Studierende, die das JSON überfliegen, bemerken oft:
 
-1. Die Signatur ist ein undurchschaubarer base64url-String, aber jedes andere Feld ist einfach
+1. Die Signatur ist ein undurchsichtiger base64url-String, aber jedes andere Feld ist reines
    lesbares JSON. Die Signatur verschlüsselt den Inhalt nicht; sie bestätigt ihn.
-2. Der `public_key` ist im Beleg eingebettet. Ein Prüfer benötigt nichts Anderes
-   zur Verifikation (vorausgesetzt, er vertraut darauf, dass der Schlüssel tatsächlich zum angegebenen
-   Aussteller gehört; siehe die README der Lektion zur Identitätsinfrastruktur).
-3. Wird ein einzelnes Zeichen eines Feldes verändert und diese Datei dann mit
-   `02_tampered_receipt.json` verglichen, macht das den Mechanismus auf Byte-Ebene anschaulich.
+2. Der `public_key` ist in der Quittung eingebettet. Ein Prüfer benötigt nichts Weiteres
+   zur Verifikation (vorausgesetzt, er vertraut darauf, dass der Schlüssel tatsächlich dem angegebenen
+   Aussteller gehört; siehe die Lektion-README zur Identitätsinfrastruktur).
+3. Das Ändern eines einzelnen Zeichens in einem Feld und anschließendes Vergleichen mit
+   `02_tampered_receipt.json` macht den Mechanismus auf Byte-Ebene anschaulich.
 
 ---
 

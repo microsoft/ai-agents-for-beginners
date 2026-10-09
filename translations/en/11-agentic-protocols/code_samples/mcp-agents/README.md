@@ -1,38 +1,38 @@
 # Building Agent-to-Agent Communication Systems with MCP
 
-> TL;DR - Can you build Agent2Agent communication on MCP? Yes!
+> TL;DR - Can You Build Agent2Agent Communication on MCP? Yes!
 
-MCP has grown far beyond its initial purpose of "providing context to LLMs." With recent advancements like [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), and notifications ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) and [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP now offers a solid foundation for building sophisticated agent-to-agent communication systems.
+MCP has evolved significantly beyond its original goal of "providing context to LLMs". With recent enhancements including [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), and notifications ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) and [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP now provides a robust foundation for building complex agent-to-agent communication systems.
 
 ## The Agent/Tool Misconception
 
-As developers explore tools with agent-like behaviors (long-running tasks, requiring additional input mid-execution, etc.), a common misconception is that MCP is unsuitable because its early examples focused on simple request-response patterns.
+As more developers explore tools with agentic behaviors (run for long periods, may require additional input mid-execution, etc.), a common misconception is that MCP is unsuitable primarily because early examples of its tools primitive focused on simple request-response patterns.
 
-This view is outdated. The MCP specification has been significantly enhanced in recent months, closing the gap for building long-running agentic behavior:
+This perception is outdated. The MCP specification has been significantly enhanced over the past few months with capabilities that close the gap for building long-running agentic behavior:
 
 - **Streaming & Partial Results**: Real-time progress updates during execution
 - **Resumability**: Clients can reconnect and continue after disconnection
-- **Durability**: Results persist even after server restarts (e.g., via resource links)
-- **Multi-turn**: Interactive input mid-execution through elicitation and sampling
+- **Durability**: Results survive server restarts (e.g., via resource links)
+- **Multi-turn**: Interactive input mid-execution via elicitation and sampling
 
-These features can be combined to enable complex agentic and multi-agent applications, all built on the MCP protocol.
+These features can be composed to enable complex agentic and multi-agent applications, all deployed on the MCP protocol.
 
-For clarity, we will refer to an agent as a "tool" available on an MCP server. This assumes the presence of a host application that implements an MCP client, establishes a session with the MCP server, and interacts with the agent.
+For reference, we will refer to an agent as a "tool" that is available on an MCP server. This implies the existence of a host application which implements an MCP client that establishes a session with the MCP server and can call the agent.
 
 ## What Makes an MCP Tool "Agentic"?
 
-Before diving into implementation, let’s define the infrastructure capabilities required to support long-running agents.
+Before diving into implementation, let's establish what infrastructure capabilities are needed to support long-running agents.
 
-> We define an agent as an entity capable of operating autonomously over extended periods, handling complex tasks that may require multiple interactions or adjustments based on real-time feedback.
+> We will define an agent as an entity that can operate autonomously over extended periods, capable of handling complex tasks that may require multiple interactions or adjustments based on real-time feedback.
 
 ### 1. Streaming & Partial Results
 
-Traditional request-response patterns are insufficient for long-running tasks. Agents need to provide:
+Traditional request-response patterns don't work for long-running tasks. Agents need to provide:
 
 - Real-time progress updates
 - Intermediate results
 
-**MCP Support**: Resource update notifications enable streaming partial results, though careful design is needed to avoid conflicts with JSON-RPC's 1:1 request/response model.
+**MCP Support**: Resource update notifications enable streaming partial results, though this requires careful design to avoid conflicts with JSON-RPC's 1:1 request/response model.
 
 | Feature                    | Use Case                                                                                                                                                                       | MCP Support                                                                                |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -68,8 +68,8 @@ Agents must handle network interruptions gracefully:
 - Reconnect after (client) disconnection
 - Continue from where they left off (message redelivery)
 
-**MCP Support**: MCP StreamableHTTP transport supports session resumption and message redelivery using session IDs and last event IDs. The server must implement an EventStore to enable event replays on client reconnection.  
-There is also a community proposal (PR #975) exploring transport-agnostic resumable streams.
+**MCP Support**: MCP StreamableHTTP transport today supports session resumption and message redelivery with session IDs and last event IDs. The important note here is that the server must implement an EventStore that enables event replays on client reconnection.  
+Note that there is a community proposal (PR #975) that explores transport-agnostic resumable streams.
 
 | Feature      | Use Case                                                                                                                                                   | MCP Support                                                                |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -106,13 +106,15 @@ Long-running agents need persistent state:
 - Status can be retrieved out-of-band
 - Progress tracking across sessions
 
-**MCP Support**: MCP supports a Resource link return type for tool calls. A common pattern is to design a tool that creates a resource and immediately returns a resource link. The tool continues the task in the background, updating the resource. The client can poll the resource for partial or full results or subscribe to updates.
+**MCP Support**: MCP now supports a Resource link return type for tool calls. Today, a possible pattern is to design a tool that creates a resource and immediately returns a resource link. The tool can continue to address the task in the background and update the resource. In turn, the client can choose to poll the state of this resource to get partial or full results (based on what resource updates the server provides) or subscribe to the resource for update notifications.
 
-One limitation is that polling resources or subscribing for updates can consume resources at scale. A community proposal (including #992) explores adding webhooks or triggers for server-initiated client notifications.
+One limitation here is that polling resources or subscribing for updates can consume resources with implications at scale. There is an open community proposal (including #992) exploring the possibility of including webhooks or triggers that the server can call to notify the client/host application of updates.
 
 | Feature    | Use Case                                                                                                                                        | MCP Support                                                        |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | Durability | Server crashes during data migration task. Results and progress survive restart, client can check status and continue from persistent resource. | ✅ Resource links with persistent storage and status notifications |
+
+Today, a common pattern is to design a tool that creates a resource and immediately returns a resource link. The tool can in the background address the task, issue resource notifications that serve as progress updates or include partial results, and update the content in the resource as needed.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
 <strong>Figure 3:</strong> This diagram demonstrates how MCP agents use persistent resources and status notifications to ensure that long-running tasks survive server restarts, allowing clients to check progress and retrieve results even after failures.
@@ -182,22 +184,22 @@ sequenceDiagram
 
 ## Implementing Long-Running Agents on MCP - Code Overview
 
-This article includes a [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) with a complete implementation of long-running agents using the MCP Python SDK and StreamableHTTP transport. The implementation demonstrates how MCP capabilities can be combined to enable sophisticated agent-like behaviors.
+As part of this article, we provide a [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) that contains a complete implementation of long-running agents using the MCP Python SDK with StreamableHTTP transport for session resumption and message redelivery. The implementation demonstrates how MCP capabilities can be composed to enable sophisticated agent-like behaviors.
 
-Specifically, the server implements two primary agent tools:
+Specifically, we implement a server with two primary agent tools:
 
 - **Travel Agent** - Simulates a travel booking service with price confirmation via elicitation
 - **Research Agent** - Performs research tasks with AI-assisted summaries via sampling
 
-Both agents showcase real-time progress updates, interactive confirmations, and full session resumption capabilities.
+Both agents demonstrate real-time progress updates, interactive confirmations, and full session resumption capabilities.
 
 ### Key Implementation Concepts
 
-The following sections outline server-side agent implementation and client-side host handling for each capability:
+The following sections show server-side agent implementation and client-side host handling for each capability:
 
 #### Streaming & Progress Updates - Real-time Task Status
 
-Streaming allows agents to provide real-time progress updates during long-running tasks, keeping users informed of task status and intermediate results.
+Streaming enables agents to provide real-time progress updates during long-running tasks, keeping users informed of task status and intermediate results.
 
 **Server Implementation (agent sends progress notifications):**
 
@@ -365,9 +367,24 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Replay only later events from the session's original stream.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
+
+        return stream_id
 
 # From server/server.py - Passing event store to session manager
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
@@ -507,5 +524,7 @@ Overall, the MCP protocol spec is evolving rapidly; the reader is encouraged to 
 
 ---
 
-**Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

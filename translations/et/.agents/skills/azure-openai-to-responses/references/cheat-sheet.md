@@ -452,7 +452,6 @@ O-seeria mudelitel on unikaalsed parameetri piirangud vastuste API-le migratsioo
 
 | Chat Completions (o-seeria) | Vastuste API | Märkused |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | Määra kõrgeks (4096+) — järeldamise tokenid loevad limiiti vastu |
 | `reasoning_effort` | `reasoning.effort` | Hoia olemasolevana (low/medium/high) |
 | `temperature` | Eemalda või määra `1` | O-seeria aktsepteerib ainult `1` |

@@ -1,56 +1,56 @@
-# Kujenga Mifumo ya Mawasiliano ya Mwakala kwa Mwakala kwa MCP
+# Kujenga Mifumo ya Mawasiliano ya Wakala kwa Wakala kutumia MCP
 
-> TL;DR - Je, Unaweza Kujenga Mawasiliano ya Agent2Agent kwa MCP? Ndiyo!
+> TL;DR - Je, Unaweza Kujenga Mawasiliano ya Agent2Agent kwenye MCP? Ndiyo!
 
-MCP imeendelea kwa kiasi kikubwa zaidi ya lengo lake la awali la "kutoa muktadha kwa LLMs". Kwa maboresho ya hivi karibuni ikijumuisha [mito inayoweza kuendelea](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [kuchochea](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [kuchanganya](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), na arifa ([maendeleo](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) na [rasilimali](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP sasa inatoa msingi thabiti wa kujenga mifumo tata ya mawasiliano ya mwakala kwa mwakala.
+MCP imeendelea sana zaidi ya lengo lake la awali la "kutoa muktadha kwa LLMs". Kwa maboresho ya hivi karibuni ikiwa ni pamoja na [mitiririko inayoweza kuendelea](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [ulazaji](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [uchanganuzi](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), na taarifa ([maendeleo](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) na [rasilimali](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP sasa hutoa msingi imara wa kujenga mifumo tata ya mawasiliano ya wakala kwa wakala.
 
-## Kuelewa Kosa Kuhusu Mwakala/Vifaa
+## Dhana Potofu ya Wakala/Vifaa
 
-Wakati wa waendelezaji wengi wanapochunguza zana zenye tabia za uwakala (kufanya kazi kwa kipindi kirefu, inaweza kuhitaji maoni zaidi katikati ya utekelezaji, n.k.), dhana inayokaribiana ni kwamba MCP haifai hasa kwa sababu mifano ya awali ya zana zake za msingi ilizingatia mifumo rahisi ya ombi-jibu.
+Wakati wa waendelezaji wengi wanapochunguza zana zenye tabia za wakala (kuzidi muda mrefu, huenda zikahitaji maingilio zaidi katikati ya utekelezaji, n.k.), dhana potofu ya kawaida ni kwamba MCP haifai hasa kwa sababu mifano ya awali ya zana zake ilizingatia mifumo rahisi ya ombi-jawabisho.
 
-Mtazamo huu ni wa zamani. Maelezo ya MCP yameboreshwa sana katika miezi michache iliyopita na uwezo ambao unafunika pengo la kujenga tabia za mwakala zinazofanya kazi kwa muda mrefu:
+Mtazamo huu umepita. Maelezo ya MCP yameboreshwa sana katika miezi michache iliyopita kwa uwezo ambao unaondoa pengo la kujenga tabia ya wakala inayodumu kwa muda mrefu:
 
-- **Utoaji wa Mito & Matokeo Sehemu**: Arifa za maendeleo kwa wakati halisi wakati wa utekelezaji
-- **Uwezo wa Kuendelea**: Wateja wanaweza kuunganishwa tena na kuendelea baada ya kupoteza muunganisho
-- **Uthabiti**: Matokeo hayapotei hata baada ya kuanzishwa upya kwa seva (kwa mfano, kupitia viungo vya rasilimali)
-- **Mzunguko wa Mwingine**: Ingizo la mwingiliano katikati ya utekelezaji kupitia kuchochea na kuchanganya
+- **Utoaji wa Matiririko & Matokeo Sehemu**: Taarifa za maendeleo ya wakati halisi wakati wa utekelezaji
+- **Uwezo wa Kuendelezwa**: Wateja wanaweza kuunganishwa tena na kuendelea baada ya kutengana
+- **Uhimili**: Matokeo hutunzwa hata baada ya kuanzishwa upya kwa seva (mfano, kupitia viungo vya rasilimali)
+- **Mzunguko wa Nyingi**: Uingizaji wa maingilio ya mwingiliano katikati ya utekelezaji kupitia ulazaji na uchanganuzi
 
-Vipengele hivi vinaweza kuchanganywa kuweza kuanzisha programu tata za mwakala na wa wakala wengi, zote zikitumia itifaki ya MCP.
+Vipengele hivi vinaweza kuunganishwa kuwezesha programu ngumu za wakala na wakala wengi, zote zikitumia itifaki ya MCP.
 
-Kwa marejeleo, tutarejelea mwakala kama "kifaa" kinachopatikana kwenye seva ya MCP. Hii inaashiria kuwepo kwa programu mwenyeji inayotekeleza mteja wa MCP ambaye huanzisha kikao na seva ya MCP na anaweza kuita mwakala.
+Kwa marejeleo, tutamuita wakala "kifaa" kinachopatikana kwenye seva ya MCP. Hii ina maana ya kuwepo kwa programu mwenyeji inayotekeleza mteja wa MCP anayezindua kikao na seva ya MCP na anaweza kuita wakala.
 
-## Nini Kinafanya Kifaa cha MCP "Kiwakala"?
+## Nini Hufanya Kifaa cha MCP Kuwa "Mwakala"?
 
-Kabla ya kuingia kwenye utekelezaji, hebu tuthibitishe ni uwezo gani wa miundombinu unahitajika kusaidia mawakala wanaofanya kazi kwa muda mrefu.
+Kabla ya kuingia katika utekelezaji, wacha tutae uwezo wa miundombinu unaohitajika kuunga mkono mawakala wanaodumu kwa muda mrefu.
 
-> Tutataja mwakala kama chombo kinachoweza kufanya kazi kwa kujitegemea kwa vipindi virefu, kinachoweza kushughulikia kazi ngumu ambazo zinaweza kuhitaji mwingiliano mingi au marekebisho kwa mujibu wa mrejesho wa wakati halisi.
+> Tutataja wakala kama kiumbe kinachoweza kufanya kazi kwa uhuru kwa vipindi virefu, chenye uwezo wa kushughulikia kazi ngumu zinazoweza kuhitaji mwingiliano au marekebisho kulingana na maoni ya wakati halisi.
 
-### 1. Utoaji wa Mito & Matokeo Sehemu
+### 1. Utoaji wa Matiririko & Matokeo Sehemu
 
-Mifumo ya kawaida ya ombi-jibu haifanyi kazi kwa kazi zinazochukua muda mrefu. Mawakala wanahitaji kutoa:
+Mifumo ya kawaida ya ombi-jawabu haifanyi kazi kwa kazi zinazomilikiwa kwa muda mrefu. Wakala wanahitaji kutoa:
 
-- Arifa za maendeleo kwa wakati halisi
+- Taarifa za maendeleo ya wakati halisi
 - Matokeo ya kati
 
-**Msaada wa MCP**: Arifa za masasisho ya rasilimali zinaruhusu utoaji wa matokeo sehemu kwa njia ya mito, ingawa hii inahitaji muundo makini ili kuepuka migongano na mfano wa ombi/jibu wa JSON-RPC wa 1:1.
+**Msaada wa MCP**: Taarifa za masasisho ya rasilimali zinawezesha utoaji wa matokeo ya sehemu kwa mtiririko, ingawa hii inahitaji muundo makini ili kuepuka migongano na modeli ya ombi/jawabu ya JSON-RPC 1:1.
 
-| Kipengele                  | Kesi ya Matumizi                                                                                                                                                             | Msaada wa MCP                                                                             |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Arifa za Maendeleo kwa Wakati Halisi | Mtumiaji anaomba kazi ya kuhama msimbo. Mwakala hutoa maendeleo kwa kupeleka: "10% - Kuchambua utegemezi... 25% - Kubadilisha faili za TypeScript... 50% - Kusasisha uingizaji..." | ✅ Arifa za maendeleo                                                                     |
-| Matokeo Sehemu             | Kazi ya "Tengeneza kitabu" hutoa matokeo sehemu, kama vile 1) Muhtasari wa hadithi, 2) Orodha ya sura, 3) Kila sura imekamilika. Mwenyeji anaweza kuchunguza, kufuta, au kuelekeza kwa hatua yoyote. | ✅ Arifa zinaweza "kuongezwa" kushiriki matokeo sehemu angalia mapendekezo kwenye PR 383, 776 |
+| Kipengele                  | Matumizi                                                                                                                                                                      | Msaada wa MCP                                                                             |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Taarifa za Maendeleo ya Wakati Halisi | Mtumiaji anaomba kazi ya uhamishaji wa msimbo wa programu. Wakala anatiririsha maendeleo: "10% - Kuchambua utegemezi... 25% - Kubadilisha faili za TypeScript... 50% - Kusasisha uingizaji..." | ✅ Taarifa za maendeleo                                                                     |
+| Matokeo Sehemu            | Kazi ya "Tengeneza kitabu" inatiririsha matokeo ya sehemu, mfano, 1) Muhtasari wa hadithi, 2) Orodha ya sura, 3) Kila sura ikimalizika. Mwenyeji anaweza kuchunguza, kufuta, au kuelekeza tena katika hatua yoyote. | ✅ Taarifa zinaweza "kuongezwa" kujumuisha matokeo ya sehemu angalia mapendekezo kwenye PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Mchoro 1:</strong> Kielelezo hiki kinaonyesha jinsi mwakala wa MCP hutuma arifa za maendeleo kwa wakati halisi na matokeo sehemu kwa programu mwenyeji wakati wa kazi inayochukua muda mrefu, kuruhusu mtumiaji kufuatilia utekelezaji kwa wakati halisi.
+<strong>Mchoro 1:</strong> Mchoro huu unaonyesha jinsi wakala wa MCP anavyotiririsha taarifa za maendeleo ya wakati halisi na matokeo ya sehemu kwa programu mwenyeji wakati wa kazi inayochukua muda mrefu, kuwezesha mtumiaji kufuatilia utekelezaji kwa wakati halisi.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Programu Mwenyezaji<br/>(MCP Mteja)
-    participant Server as Server ya MCP<br/>(Zana ya Wakala)
+    participant Host as Programu mwenyeji<br/>(Mteja MCP)
+    participant Server as Server MCP<br/>(Chombo cha Wakala)
 
     User->>Host: Anzisha kazi ndefu
-    Host->>Server: Wito agent_tool()
+    Host->>Server: Piga agent_tool()
 
     loop Sasisho za maendeleo
         Server-->>Host: Maendeleo + matokeo ya sehemu
@@ -58,106 +58,106 @@ sequenceDiagram
     end
 
     Server-->>Host: ✅ Matokeo ya mwisho
-    Host-->>User: Imekamilika
+    Host-->>User: Maliza
 ```
 
-### 2. Uwezo wa Kuendelea
+### 2. Uwezo wa Kuendelezwa
 
-Mawakala lazima washughulikie ukatizo wa mtandao kwa h utanifu:
+Wakala wanapaswa kushughulikia kukatika kwa mtandao kwa hila:
 
-- Kuungana tena baada ya (mteja) kupoteza muunganisho
-- Kuendelea kutoka walipoishia (kurudisha ujumbe)
+- Kuunganishwa tena baada ya kutenganishwa (mtekoji)
+- Kuendelea kutoka walipoacha (kuratibishwa upya kwa ujumbe)
 
-**Msaada wa MCP**: Usafirishaji wa MCP StreamableHTTP leo unaunga mkono kuendelea kwa kikao na kurudisha ujumbe kwa vitambulisho vya kikao na vitambulisho vya tukio la mwisho. Kumbuka hapa ni kwamba seva lazima itekeleze Mgahawa wa Matukio (EventStore) unaowezesha kuchezwa upya kwa matukio wakati mteja anapounganishwa tena.  
-Kumbuka kuna pendekezo la jamii (PR #975) linalochunguza utoaji wa mito inayoweza kuendelea isiyobebewa na usafirishaji maalum.
+**Msaada wa MCP**: Usafiri wa MCP StreamableHTTP leo unaunga mkono kuendelea kwa kikao na kuratibishwa upya kwa ujumbe kwa kutumia vitambulisho vya kikao na matukio ya mwisho. Kumbuka hapa ni kwamba seva lazima itekeleze EventStore inayowezesha kurudisha matukio wakati mteja anapounganishwa tena.  
+Kumbuka kwamba kuna pendekezo la jamii (PR #975) linalochunguza mitiririko inayoweza kuendelezwa isiyojali usafiri.
 
-| Kipengele      | Kesi ya Matumizi                                                                                                                                             | Msaada wa MCP                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| Uwezo wa Kuendelea | Mteja anatoka wakati wa kazi inayochukua muda mrefu. Baada ya kuungana tena, kikao kinaendelea na matukio yaliyokosekana yanachezwa tena, kuendelea bila matatizo kutoka walipoishia. | ✅ Usafirishaji wa StreamableHTTP na vitambulisho vya kikao, kucheza upya matukio na EventStore |
+| Kipengele      | Matumizi                                                                                                                                                   | Msaada wa MCP                                                               |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Uendelezaji   | Mteja anatenganishwa wakati wa kazi inayochukua muda mrefu. Anapounganishwa tena, kikao kinaendelea na matukio yaliyokosa kurudishwa, inaendelea bila mshono kutoka walipoacha. | ✅ Usafiri wa StreamableHTTP na vitambulisho vya kikao, kurudisha matukio, na EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Mchoro 2:</strong> Mchoro huu unaonyesha jinsi usafirishaji wa MCP StreamableHTTP na mgahawa wa matukio unavyowawezesha kuendelea kwa kikao bila usumbufu: ikiwa mteja atakatika muunganisho, anaweza kuungana tena na kucheza matukio yaliyokosekana, kuendeleza kazi bila kupoteza maendeleo.
+<strong>Mchoro 2:</strong> Mchoro huu unaonyesha jinsi usafiri wa MCP StreamableHTTP na hifadhi ya matukio vinavyowezesha kuendelezwa kwa kikao bila shida: ikiwa mteja anakatika, anaweza kuunganishwa tena na kurudisha matukio yaliyokosa, kuendelea na kazi bila kupoteza maendeleo.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Programu Mshirika<br/>(MCP Mteja)
-    participant Server as MCP Seva<br/>(Zana ya Wakala)
+    participant Host as App mwenyeji<br/>(Mteja wa MCP)
+    participant Server as Seva ya MCP<br/>(Chombo cha Wakala)
     participant Store as Hifadhi ya Matukio
 
-    User->>Host: Anza kazi
-    Host->>Server: Piga simu zana [kikao: abc123]
+    User->>Host: Anzisha kazi
+    Host->>Server: Piga simu chombo [kipindi: abc123]
     Server->>Store: Hifadhi matukio
 
-    Note over Host,Server: 💥 Muunganisho umevunjika
+    Note over Host,Server: 💥 Muunganisho umepotea
 
-    Host->>Server: Unganisha tena [kikao: abc123]
+    Host->>Server: Unganisha tena [kipindi: abc123]
     Store-->>Server: Rudia matukio
-    Server-->>Host: Fikia & endelea
+    Server-->>Host: Fikia + endelea
     Host-->>User: ✅ Imekamilika
 ```
 
-### 3. Uthabiti
+### 3. Uhimili
 
-Mawakala wanaochukua muda mrefu wanahitaji hali ya kudumu:
+Wakala wanaodumu kwa muda mrefu wanahitaji hali ya kudumu:
 
-- Matokeo huishi hata baada ya seva kuanzishwa upya
-- Hali inaweza kupatikana kwa njia tofauti
-- Ufuatiliaji wa maendeleo kati ya vikao
+- Matokeo hudumu hata baada ya kuanzishwa upya kwa seva
+- Hali inaweza kupatikana bila kuingilia kazi kuu
+- Kufuatilia maendeleo katika vikao vingi
 
-**Msaada wa MCP**: MCP sasa inasaidia aina ya kuzua kiungo cha Rasilimali kwa simu za zana. Leo, mfumo unaoweza kufuatiliwa ni kubuni zana inayotengeneza rasilimali na mara moja kurudisha kiungo cha rasilimali. Zana inaweza kuendelea kushughulikia kazi hiyo kwa baadae na kusasisha rasilimali. Mteja anaweza kuchagua kuvutia hali ya rasilimali hii kupata matokeo sehemu au kamili (kulingana na masasisho ya rasilimali seva hutoa) au kujiandikisha kwa rasilimali kwa arifa za masasisho.
+**Msaada wa MCP**: MCP sasa unaunga mkono aina ya marejeleo ya rasilimali kwa simu za zana. Leo, mtindo wa kawaida ni kubuni kifaa kinachotengeneza rasilimali na mara moja kurudisha kiungo cha rasilimali. Kifaa kinaweza kuendelea kushughulikia kazi kwa nyuma na kusasisha rasilimali. Kwa upande mwingine, mteja anaweza kuchagua kuangalia hali ya rasilimali hii kupata matokeo ya sehemu au kamili (kulingana na masasisho ya rasilimali yanayotolewa na seva) au kujiandikisha kwa rasilimali kwa taarifa za masasisho.
 
-Kizuizi kimoja hapa ni kwamba kuvutia rasilimali au kujisajili kwa masasisho kunaweza kutumia rasilimali na kuleta athari kwa wingi. Kuna pendekezo la jamii lililopo (pamoja na #992) linachunguza uwezekano wa kujumuisha webhooks au vichocheo ambavyo seva inaweza kuita kutoa arifa kwa mteja/programu mwenyeji kuhusu masasisho.
+Kizuizi kimoja hapa ni kwamba kuangalia mara kwa mara rasilimali au kujiandikisha kwa masasisho kunaweza kutumia rasilimali na kuleta athari kwa wingi. Kuna pendekezo la jamii linaloendelea (likijumuisha #992) linalochunguza uwezekano wa kujumuisha webhooks au vichocheo ambavyo seva inaweza kuita kuwajulisha mteja/programu mwenyeji kuhusu masasisho.
 
-| Kipengele    | Kesi ya Matumizi                                                                                                                                    | Msaada wa MCP                                                      |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Uthabiti   | Seva inashindwa wakati wa kazi ya kuhama data. Matokeo na maendeleo hayapo, mteja anaweza kuangalia hali na kuendelea kutoka kwa rasilimali thabiti. | ✅ Viungo vya rasilimali vyenye uhifadhi thabiti na arifa za hali    |
+| Kipengele    | Matumizi                                                                                                                                        | Msaada wa MCP                                                        |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Uhimili     | Seva inadondoka wakati wa kazi ya uhamishaji data. Matokeo na maendeleo hudumu baada ya kuanzishwa upya, mteja anaweza kuangalia hali na kuendelea kutumia rasilimali ya kudumu. | ✅ Viungo vya rasilimali vyenye uhifadhi wa kudumu na taarifa za hali |
 
-Leo, mfumo wa kawaida ni kutengeneza zana inayotengeneza rasilimali na mara moja kurudisha kiungo cha rasilimali. Zana inaweza katika nyuma kushughulikia kazi, kutoa arifa za rasilimali zinazoonyesha maendeleo au kujumuisha matokeo sehemu, na kusasisha yaliyomo katika rasilimali kama inavyohitajika.
+Leo, mtindo wa kawaida ni kubuni kifaa kinachotengeneza rasilimali na mara moja kurudisha kiungo cha rasilimali. Kifaa kinaweza kushughulikia kazi kwa nyuma, kutoa taarifa za rasilimali kama masasisho ya maendeleo au kujumuisha matokeo ya sehemu, na kusasisha maudhui ya rasilimali inapohitajika.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Mchoro 3:</strong> Mchoro huu unaonyesha jinsi mawakala wa MCP wanavyotumia rasilimali thabiti na arifa za hali kuhakikisha kwamba kazi zinazochukua muda mrefu zinaishi hata baada ya seva kuanzishwa upya, kuruhusu wateja kuangalia maendeleo na kupata matokeo hata baada ya kushindwa.
+<strong>Mchoro 3:</strong> Mchoro huu unaonyesha jinsi mawakala wa MCP wanavyotumia rasilimali za kudumu na taarifa za hali kuhakikisha kazi za muda mrefu hudumu hata baada ya kuanzishwa upya kwa seva, kuruhusu wateja kuangalia maendeleo na kupata matokeo hata baada ya makosa.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Programu Mpaniaji<br/>(MCP Mteja)
-    participant Server as MCP Server<br/>(Chombo cha Wakala)
-    participant DB as Hifadhi ya Kudumu
+    participant Host as Programu Mwenyeji<br/>(Mteja wa MCP)
+    participant Server as Seva ya MCP<br/>(Zana ya Wakala)
+    participant DB as Uhifadhi Endelevu
 
     User->>Host: Anza kazi
-    Host->>Server: Piga simu chombo
+    Host->>Server: Piga simu zana
     Server->>DB: Unda rasilimali + masasisho
     Server-->>Host: 🔗 Kiungo cha rasilimali
 
-    Note over Server: 💥 Anzisha upya seva
+    Note over Server: 💥 Anzisha seva upya
 
     User->>Host: Angalia hali
     Host->>Server: Pata rasilimali
     Server->>DB: Pakia hali
     Server-->>Host: Maendeleo ya sasa
-    Server->>DB: Kamilisha + taarifa
+    Server->>DB: Maliza + tuma arifa
     Host-->>User: ✅ Imekamilika
 ```
 
-### 4. Mwingiliano wa Mzunguko Mwingi
+### 4. Mwingiliano wa Mzunguko Nyingi
 
-Mawakala mara nyingi wanahitaji maoni zaidi katikati ya utekelezaji:
+Wakala mara nyingi wanahitaji maingilio zaidi katikati ya utekelezaji:
 
 - Ufafanuzi au idhini ya binadamu
 - Msaada wa AI kwa maamuzi magumu
-- Marekebisho ya vigezo kwa mabadiliko
+- Marekebisho ya vigezo kwa nguvu
 
-**Msaada wa MCP**: Umeungwa mkono kikamilifu kupitia kuchanganya (kwa maoni ya AI) na kuchochea (kwa maoni ya binadamu).
+**Msaada wa MCP**: Unaungwa mkono kabisa kupitia uchanganuzi (kwa maingilio ya AI) na ulazaji (kwa maingilio ya binadamu).
 
-| Kipengele                 | Kesi ya Matumizi                                                                                                                                 | Msaada wa MCP                                           |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| Mwingiliano wa Mzunguko Mwingi | Mwakala wa kuhifadhi safari anaomba uthibitisho wa bei kutoka kwa mtumiaji, kisha anaomba AI ifupishe data za safari kabla ya kukamilisha muamala wa kuhifadhi. | ✅ Kuchochea kwa maoni ya binadamu, kuchanganya kwa maoni ya AI |
+| Kipengele                | Matumizi                                                                                                                                | Msaada wa MCP                                           |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Mwingiliano wa Mzunguko Nyingi | Wakala wa uhifadhi wa safari anaomba uthibitisho wa bei kutoka kwa mtumiaji, halafu anaomba AI ifupishe data za safari kabla ya kukamilisha muamala wa kuhifadhi. | ✅ Ulazaji kwa maingilio ya binadamu, uchanganuzi kwa maingilio ya AI |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Mchoro 4:</strong> Mchoro huu unaonyesha jinsi mawakala wa MCP wanavyoweza kuanzisha mwingiliano wa kuchochea maoni ya binadamu au kuomba msaada wa AI katikati ya utekelezaji, kuunga mkono mtiririko wa kazi tata wa mzunguko mwingi kama uthibitisho na maamuzi ya mabadiliko.
+<strong>Mchoro 4:</strong> Mchoro huu unaonyesha jinsi mawakala wa MCP wanavyoweza kuomba maingilio ya binadamu au msaada wa AI kwa mwingiliano katikati ya utekelezaji, kusaidia mitiririko tata ya mizunguko mingi kama uthibitisho na maamuzi ya nguvu.
 </div>
 
 ```mermaid
@@ -166,45 +166,45 @@ sequenceDiagram
     participant Host as Programu Mwenyeji<br/>(Mteja MCP)
     participant Server as Seva ya MCP<br/>(Chombo cha Wakala)
 
-    User->>Host: Kunyakua tiketi ya ndege
-    Host->>Server: Piga simu kwa wakala_wa_safari
+    User->>Host: Hifadhi ndege
+    Host->>Server: Piga simu kwa wakala_safiri
 
-    Server->>Host: Kutoa maelezo: "Thibitisha $500?"
-    Note over Host: Rudia maelezo (ikiwa inapatikana)
+    Server->>Host: Kuomba taarifa: "Thibitisha $500?"
+    Note over Host: Mwito wa arifa (kama upo)
     Host->>User: 💰 Thibitisha bei?
     User->>Host: "Ndiyo"
     Host->>Server: Imethibitishwa
 
-    Server->>Host: Uchambuzi: "Fupisha data"
-    Note over Host: Rudia AI (ikiwa inapatikana)
+    Server->>Host: Sampuli: "Fupisha data"
+    Note over Host: Mwito wa AI (kama upo)
     Host->>Server: Ripoti muhtasari
 
-    Server->>Host: ✅ Tiketi ya ndege imethibitishwa
+    Server->>Host: ✅ Ndege imetakiwa akili
 ```
 
-## Kuanzisha Mawakala Wanaochukua Muda Mrefu kwenye MCP - Muhtasari wa Msimbo
+## Utekelezaji wa Wakala Wanaodumu kwa Muda Mrefu Juu ya MCP - Muhtasari wa Msimbo
 
-Kama sehemu ya makala hii, tunatoa [hifadhi ya msimbo](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) ambayo ina utekelezaji kamili wa mawakala wanaochukua muda mrefu kwa kutumia MCP Python SDK na usafirishaji wa StreamableHTTP kwa kuendelea kwa kikao na kurudisha ujumbe. Utekelezaji unaonyesha jinsi uwezo wa MCP unavyoweza kuchanganywa ili kuwezesha tabia za kisasa za mwakala.
+Kama sehemu ya makala hii, tunatoa [ghala la msimbo](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) linaloonyesha utekelezaji kamili wa mawakala wanaodumu kwa muda mrefu kwa kutumia MCP Python SDK na usafiri wa StreamableHTTP kwa kuendelea kwa kikao na kuratibishwa upya kwa ujumbe. Utekelezaji unaonyesha jinsi uwezo wa MCP unaweza kuunganishwa kuwezesha tabia changamano za wakala.
 
-Hasa, tunaweka seva yenye zana mbili kuu za mwakala:
+Hasa, tunatekeleza seva yenye zana mbili kuu za wakala:
 
-- **Mwakala wa Safari** - Anasimulia huduma ya kuhifadhi safari na uthibitisho wa bei kupitia kuchochea
-- **Mwakala wa Utafiti** - Hufanya kazi za utafiti kwa muhtasari unaosaidiwa na AI kupitia kuchanganya
+- **Wakala wa Safari** - Anasimulia huduma ya kuhifadhi safari na uthibitisho wa bei kupitia ulazaji
+- **Wakala wa Utafiti** - Hufanya kazi za utafiti na muhtasari wa msaada wa AI kupitia uchanganuzi
 
-Mawakala wote yanathibitisha arifa za maendeleo kwa wakati halisi, uthibitisho wa mwingiliano, na uwezo kamili wa kuendelea kwa kikao.
+Wakala wote wawili wanaonyesha taarifa za maendeleo ya wakati halisi, uthibitisho wa mwingiliano, na uwezo kamili wa kuendelea kwa kikao.
 
 ### Misingi Muhimu ya Utekelezaji
 
-Sehemu zifuatazo zinaonyesha utekelezaji wa mwakala upande wa seva na usimamizi wa mwenyeji upande wa mteja kwa kila uwezo:
+Sehemu zifuatazo zinaonyesha utekelezaji wa wakala upande wa seva na usimamizi wa mwenyeji upande wa mteja kwa kila uwezo:
 
-#### Utoaji wa Mito & Arifa za Maendeleo - Hali ya Kazi kwa Wakati Halisi
+#### Utoaji wa Matiririko & Taarifa za Maendeleo - Hali ya Kazi ya Wakati Halisi
 
-Utoaji wa mito unawawezesha mawakala kutoa arifa za maendeleo kwa wakati halisi wakati wa kazi zinazochukua muda mrefu, kuwajulisha watumiaji kuhusu hali ya kazi na matokeo ya kati.
+Utoaji wa matiririko unawawezesha mawakala kutoa taarifa za maendeleo ya wakati halisi wakati wa kazi zinazochukua muda mrefu, kuwajulisha watumiaji kuhusu hali ya kazi na matokeo ya kati.
 
-**Utekelezaji wa Seva (mwakala hutuma arifa za maendeleo):**
+**Utekelezaji wa Seva (wakala anatumia taarifa za maendeleo):**
 
 ```python
-# Kutoka server/server.py - Wakala wa usafiri akituma masasisho ya maendeleo
+# Kutoka server/server.py - Wakala wa usafiri akituma taarifa za maendeleo
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -215,7 +215,7 @@ for i, step in enumerate(steps):
     )
     await anyio.sleep(2)  # Kuiga kazi
 
-# Mbadala: Andika ujumbe kwa kina wa masasisho ya hatua kwa hatua
+# Mbadala: Andika ujumbe kwa taarifa za hatua kwa hatua kwa undani zaidi
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Utekelezaji wa Mteja (mwenyeji anapokea arifa za maendeleo):**
+**Utekelezaji wa Mteja (mwenyeji anapokea taarifa za maendeleo):**
 
 ```python
-# Kutoka client/client.py - Mteja anashughulikia arifa za wakati halisi
+# Kutoka client/client.py - Mteja anayeendesha arifa za wakati halisi
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Sajili mshughulikiaji wa ujumbe wakati wa kuanzisha kikao
+# Sajili mshughulikiaji wa ujumbe wakati wa kuunda kikao
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Kuchochea - Kutoa Maoni kutoka kwa Mtumiaji
+#### Ulazaji - Kuomba Maingilio kutoka kwa Mtumiaji
 
-Kuchochea kunawawezesha mawakala kuomba maoni ya mtumiaji katikati ya utekelezaji. Hii ni muhimu kwa uthibitisho, ufafanuzi, au idhini wakati wa kazi zinazochukua muda mrefu.
+Ulazaji unamuwezesha wakala kuomba maingilio ya mtumiaji katikati ya utekelezaji. Hii ni muhimu kwa uthibitisho, ufafanuzi, au idhini wakati wa kazi zinazochukua muda mrefu.
 
-**Utekelezaji wa Seva (mwakala anaomba uthibitisho):**
+**Utekelezaji wa Seva (wakala anaomba uthibitisho):**
 
 ```python
-# Kutoka kwa server/server.py - Wakala wa kusafiri akiomba uthibitisho wa bei
+# Kutoka server/server.py - Wakala wa usafiri akiomba uthibitisho wa bei
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -261,14 +261,14 @@ if elicit_result and elicit_result.action == "accept":
     # Endelea na uhifadhi
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Katiza uhifadhi
+    # Ghairi uhifadhi
     booking_cancelled = True
 ```
 
-**Utekelezaji wa Mteja (mwenyeji anatoa majibu ya kuchochea):**
+**Utekelezaji wa Mteja (mwenyeji anatoa kijitoa cha ulazaji):**
 
 ```python
-# Kutoka client/client.py - Kushughulikia maombi ya uhamasishaji wa mteja
+# Kutoka client/client.py - Kushughulikia maombi ya uelekezi wa mteja
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,18 +286,18 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Sajili mwito wa kurudi unapoanzisha kikao
+# Sajili callback unapotengeneza kikao
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Kuchanganya - Kuomba Msaada wa AI
+#### Uchanganuzi - Kuomba Msaada wa AI
 
-Kuchanganya kunawawezesha mawakala kuomba msaada wa LLM kwa maamuzi magumu au kizazi cha maudhui wakati wa utekelezaji. Hii inawezesha mtiririko mseto wa binadamu-AI.
+Uchanganuzi unawawezesha mawakala kuomba msaada kutoka kwa AI kwa maamuzi magumu au uzalishaji wa maudhui wakati wa utekelezaji. Hii inawezesha mitiririko mseto ya binadamu-AI.
 
-**Utekelezaji wa Seva (mwakala anaomba msaada wa AI):**
+**Utekelezaji wa Seva (wakala anaomba msaada wa AI):**
 
 ```python
 # Kutoka server/server.py - Wakala wa utafiti akiomba muhtasari wa AI
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Utekelezaji wa Mteja (mwenyeji anatoa majibu ya kuchanganya):**
+**Utekelezaji wa Mteja (mwenyeji anatoa kijitoa cha uchanganuzi):**
 
 ```python
-# Kutoka client/client.py - Usimamizi wa mteja wa maombi ya sampuli
+# Kutoka kwa client/client.py - Mteja anashughulikia maombi ya sampuli
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
     # Katika programu halisi, hii inaweza kuita API ya LLM
-    # Kwa madhumuni ya maonyesho, tunatoa jibu bandia
+    # Kwa madhumuni ya maonyesho, tunatoa jibu la bandia
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Sajili callback unapotengeneza kikao
+# Sajili callback wakati wa kuunda kikao
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Uwezo wa Kuendelea - Kuendelezwa kwa Kikao Hata Baada ya Kutengwa
+#### Uendelezaji - Kuendelea kwa Kikao Hata Baada ya Kutenganishwa
 
-Uwezo wa kuendelea huhakikisha kwamba kazi za mawakala zinazochukua muda mrefu zinaweza kuishi hata baada ya kupoteza muunganisho wa mteja na kuendelea bila utata wakati wa kuunganishwa tena. Hii inateketezwa kupitia maghala ya matukio na vitambulisho vya kuendelea.
+Uendelezaji unahakikisha kwamba kazi za wakala zinazochukua muda mrefu zinaweza kupona matatizo ya kutenganishwa kwa mteja na kuendelea bila kitu kupotea baada ya kuunganishwa tena. Hii inatekelezwa kupitia hifadhi za matukio na tokens za kuendelezwa.
 
-**Utekelezaji wa Ghala la Matukio (seva huhifadhi hali ya kikao):**
+**Utekelezaji wa Hifadhi ya Matukio (seva inahifadhi hali ya kikao):**
 
 ```python
-# Kutoka server/event_store.py - Hifadhi rahisi ya matukio ya kumbukumbu ya ndani
+# Kutoka server/event_store.py - Hifadhi rahisi ya matukio katika kumbukumbu
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Tafuta matukio baada ya tukio la mwisho lililojulikana na uchezeshwe tena
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Rudia matukio ya baadaye tu kutoka kwenye mto wa awali wa kikao.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# Kutoka server/server.py - Kupitisha hifadhi ya matukio kwa meneja wa kikao
+        return stream_id
+
+# Kutoka server/server.py - Kupitisha hifadhi ya matukio kwa msimamizi wa kikao
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Unda meneja wa kikao na hifadhi ya matukio kwa ajili ya kuendelea
+    # Unda msimamizi wa kikao unaotumia hifadhi ya matukio kwa ajili ya kuendelea na kikao
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Hifadhi ya matukio inaruhusu kuendelea kwa kikao
+        event_store=event_store,  # Hifadhi ya matukio inaruhusu kuendelea na kikao
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Matumizi: Anzisha na hifadhi ya matukio
+# Matumizi: Anzisha kwa kutumia hifadhi ya matukio
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Metadata ya Mteja na Tokeni ya Kuendelea (mteja aungane tena kwa kutumia hali iliyohifadhiwa):**
+**Metadata ya Mteja na Token ya Kuendelezwa (mteja aunganishwa tena kwa kutumia hali iliyohifadhiwa):**
 
 ```python
-# Kutoka client/client.py - Kuendelea kwa mteja kwa metadata
+# Kutoka client/client.py - Kuendelea kwa mteja na metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Tumia tokeni ya kuendelea iliyopo kuendelea mahali tulipomaliza
+    # Tumia tokeni ya kuendelea iliyopo kuendelea kutoka tulipoisha
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Tengeneza callback kuhifadhi tokeni ya kuendelea inapopokelewa
+    # Unda callback kuhifadhi tokeni ya kuendelea inaporipotiwa
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Tuma ombi lenye metadata ya kuendelea
+# Tuma ombi na metadata ya kuendelea
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,23 +437,23 @@ result = await session.send_request(
 )
 ```
 
-Programu mwenyeji huhifadhi vitambulisho vya kikao na tokeni za kuendelea ndani, kuruhusu kuunganishwa tena kwenye vikao vilivyopo bila kupoteza maendeleo au hali.
+Programu mwenyeji inatunza vitambulisho vya kikao na tokens za kuendelezwa kama vitu vya ndani, ikiruhusu kuunganishwa tena kwa vikao vilivyo hai bila kupoteza maendeleo au hali.
 
 ### Muundo wa Msimbo
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Mchoro 5:</strong> Muundo wa mfumo wa mwakala unaotegemea MCP
+<strong>Mchoro 5:</strong> Usanifu wa mfumo wa wakala unaotegemea MCP
 </div>
 
 ```mermaid
 graph LR
-    User([Mtumiaji]) -->|"Kazi"| Host[" mwenyeji<br/>(MCP Mteja)"]
+    User([Mtumiaji]) -->|"Kazi"| Host["Mwenyeji<br/>(MCP Mteja)"]
     Host -->|orodha ya zana| Server[MCP Seva]
-    Server -->|Inaonyesha| AgentsTools[Wajumbe kama Zana]
+    Server -->|Inaonyesha| AgentsTools[Wakala kama Zana]
     AgentsTools -->|Kazi| AgentA[Wakala wa Safari]
     AgentsTools -->|Kazi| AgentB[Wakala wa Utafiti]
 
-    Host -->|Inafuatilia| StateUpdates[Maendeleo & Sasisho la Hali]
+    Host -->|Hufuatilia| StateUpdates[Maendeleo & Sasisho za Hali]
     Server -->|Huchapisha| StateUpdates
 
     class User user;
@@ -448,29 +463,29 @@ graph LR
 
 **Faili Muhimu:**
 
-- **`server/server.py`** - Seva ya MCP inayoweza kuendelea na mawakala wa safari na utafiti wanaothibitisha kuchochea, kuchanganya, na arifa za maendeleo
-- **`client/client.py`** - Programu ya mwenyeji yenye mwingiliano na msaada wa kuendelea, wasimamizi wa mwito, na usimamizi wa tokeni
-- **`server/event_store.py`** - Utekelezaji wa ghala la matukio unaoruhusu kuendelea kwa kikao na kurudisha ujumbe
+- **`server/server.py`** - Seva ya MCP inayoweza kuendelezwa na mawakala wa safari na utafiti wanaoonyesha ulazaji, uchanganuzi, na taarifa za maendeleo
+- **`client/client.py`** - Programu mwenyeji yenye mwingiliano na msaada wa kuendelezwa kwa kikao, mashughuri ya kijitoa, na usimamizi wa tokens
+- **`server/event_store.py`** - Utekelezaji wa hifadhi ya matukio unaowezesha kuendelezwa kwa kikao na kuratibishwa upya kwa ujumbe
 
-## Kuongeza Mawasiliano ya Wakala Wengi kwenye MCP
+## Kupanua kwa Mawasiliano ya Wakala Wengi kwenye MCP
 
-Utekelezaji ulio hapo juu unaweza kupanuliwa kwa mifumo ya mawakala wengi kwa kuboresha akili na upeo wa programu mwenyeji:
+Utekelezaji uliotajwa unaweza kupanuliwa kwa mifumo ya mawakala wengi kwa kuboresha akili na wigo wa programu mwenyeji:
 
-- **Ugawaji wa Kazi wa Kihirisi**: Mwenyeji anaangalia maombi magumu ya mtumiaji na kuyagawanya katika kazi ndogo kwa mawakala maalum tofauti
-- **Uratibu wa Seva Nyingi**: Mwenyeji huhifadhi muunganisho na seva nyingi za MCP, kila moja ikionyesha uwezo tofauti wa mwakala
-- **Usimamizi wa Hali ya Kazi**: Mwenyeji hufuatilia maendeleo kwenye kazi nyingi zinazoendeshwa kwa wakati mmoja, kushughulikia utegemezi na upangaji wa mfuatano
-- **Ustahimilivu & Jaribio Upya**: Mwenyeji hushughulikia kushindwa, kutekeleza mantiki ya jaribio tena, na kuelekeza upya kazi wakati mawakala hawapatikani
-- **Muundo wa Matokeo**: Mwenyeji huunganisha matokeo kutoka kwa mawakala wengi ili kupata matokeo kamili ya mwisho
+- **Ugawaji wa Kazi kwa Akili**: Mwenyeji anachambua maombi magumu na kuyaiga kuwa kazi ndogo ndogo kwa mawakala mbalimbali maalum
+- **Uongozi wa Seva Nyingi**: Mwenyeji anatunza muunganisho kwa seva nyingi za MCP, kila moja ikiwasilisha uwezo tofauti wa wakala
+- **Usimamizi wa Hali ya Kazi**: Mwenyeji anafuatilia maendeleo katika kazi za wakala wengi zinazoendelea kwa wakati mmoja, akishughulikia utegemezi na mfululizo
+- **Uvumilivu na Jaribio Jipya**: Mwenyeji anasimamia kushindwa, kutekeleza mantiki ya jaribio jipya, na kupeleka tena kazi pale mawakala wanapokosa kupatikana
+- **Muunganiko wa Matokeo**: Mwenyeji anakusanya mazao kutoka kwa mawakala wengi na kuyakusanya kuwa matokeo ya mwisho yaliyoeleweka
 
-Mwenyeji hubadilika kutoka mteja rahisi hadi mratibu mzuri wa akili, akirudisha nyuma uwezo wa mawakala waliogawanyika huku akidumisha msingi ule ule wa itifaki ya MCP.
+Mwenyeji hubadilika kutoka mteja rahisi hadi mpangiliaji mwerevu, akiratibu uwezo wa wakala waliogeuzwa wakati wote akidumisha msingi huo huo wa itifaki ya MCP.
 
 ## Hitimisho
 
-Uwezo ulioboreshwa wa MCP - arifa za rasilimali, kuchochea/kuchanganya, mito inayoweza kuendelea, na rasilimali thabiti - unaruhusu mwingiliano tata wa mwakala kwa mwakala huku ukidumisha urahisi wa itifaki.
+Uwezo ulioboreshwa wa MCP - taarifa za rasilimali, ulazaji/uchanganuzi, mitiririko inayoweza kuendelezwa, na rasilimali za kudumu - vinawezesha mwingiliano tata wa wakala kwa wakala huku vikidumisha urahisi wa itifaki.
 
-## Anza Leo
+## Kuanzisha
 
-Tayari kwa kujenga mfumo wako wa agent2agent? Fuata hatua hizi:
+Tayari kuanza kujenga mfumo wako wa agent2agent? Fuata hatua hizi:
 
 ### 1. Endesha Onyesho
 
@@ -478,34 +493,34 @@ Tayari kwa kujenga mfumo wako wa agent2agent? Fuata hatua hizi:
 # Anzisha seva na hifadhi ya matukio kwa ajili ya kuendelea
 python -m server.server --port 8006
 
-# Katika terminali nyingine, endesha mteja wa kuingiliana
+# Katika terminali nyingine, endesha mteja wa mwingiliano
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Amri zinapatikana katika modi ya mwingiliano:**
+**Amri zilizopatikana katika hali ya mwingiliano:**
 
-- `travel_agent` - Hifadhi safari na uthibitisho wa bei kupitia kuchochea
-- `research_agent` - Fanya utafiti na muhtasari unaosaidiwa na AI kupitia kuchanganya
-- `list` - Onyesha zana zote zinazopatikana
-- `clean-tokens` - Futa tokeni za kuendelea
-- `help` - Onyesha msaada wa kina wa amri
-- `quit` - Toka kwenye mteja
+- `travel_agent` - Kagua usafiri na uthibitisho wa bei kupitia ulazaji
+- `research_agent` - Fanya tafiti na muhtasari wa msaada wa AI kupitia uchanganuzi
+- `list` - Onyesha zana zote zilizopo
+- `clean-tokens` - Futa tokens za kuendelezwa
+- `help` - Onyesha msaada wa amri kwa undani
+- `quit` - Toka kwa mteja
 
-### 2. Jaribu Uwezo wa Kuendelea
+### 2. Jaribu Uwezo wa Kuendelezwa
 
-- Anza mwakala anayechukua muda mrefu (mfano, `travel_agent`)
-- Zuia mteja wakati wa utekelezaji (Ctrl+C)
-- Anzisha tena mteja - ataendelea moja kwa moja kutoka walipoishia
+- Anza wakala anayefanya kazi kwa muda mrefu (mfano, `travel_agent`)
+- Katiza mteja wakati wa utekelezaji (Ctrl+C)
+- Washa upya mteja - utaendelea moja kwa moja kutoka pa ulipoacha
 
 ### 3. Chunguza na Panua
 
 - **Chunguza mifano**: Angalia hii [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Jiunge na jamii**: Shiriki katika mijadala ya MCP kwenye GitHub
-- **Jaribu**: Anza na kazi rahisi inayochukua muda mrefu na ongeza taratibu mito, uimara, na uratibu wa mawakala wengi
+- **Jiunge na jamii**: Shiriki mijadala ya MCP kwenye GitHub
+- **Jaribu**: Anza na kazi rahisi inayochukua muda mrefu kisha ongeza polepole kufuatilia matiririko, kuendelezwa, na uratibu wa mawakala wengi
 
-Hii inaonyesha jinsi MCP inavyorahisisha tabia za mwakala wenye akili huku ikidumisha urahisi wa zana.
+Hii inaonyesha jinsi MCP inavyowezesha tabia za wakala werevu huku ikidumisha urahisi wa zana
 
-Kwa ujumla, maelezo ya itifaki ya MCP yanazidi kuboresha kwa kasi; msomaji anahimizwa kupitia tovuti rasmi ya nyaraka kwa masasisho ya hivi karibuni - https://modelcontextprotocol.io/introduction
+Kwa ujumla, itifaki ya MCP inaendelea kwa haraka; msomaji anahimizwa kupitia tovuti rasmi ya hati kwa masasisho ya hivi karibuni - https://modelcontextprotocol.io/introduction
 
 ---
 
