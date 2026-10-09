@@ -1,46 +1,46 @@
 # Ügynök-ügynök közötti kommunikációs rendszerek építése MCP-vel
 
-> TL;DR - Felépíthetsz ügynök2ügynök kommunikációt MCP-vel? Igen!
+> Röviden - Építhetsz ügynök2ügynök kommunikációt MCP-n? Igen!
 
-Az MCP jelentősen fejlődött eredeti "LLM-ek kontextusának biztosítása" célján túl. A legújabb fejlesztések között szerepelnek az [újraindítható streamelés](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [kiváltás](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [mintavétel](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) és értesítések ([folyamatban](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) és [erőforrások](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) támogatása, így az MCP most erős alapot nyújt összetett ügynök-ügynök kommunikációs rendszerek építéséhez.
+Az MCP jelentősen továbbfejlődött az eredeti céljánál, amely a "kontekstus biztosítása az LLM-ek számára" volt. A legújabb fejlesztések közé tartozik a [folytatható streamek](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [felszólítás](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [mintavételezés](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) és értesítések ([előrehaladás](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) és [erőforrások](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) támogatásával, így az MCP most egy robusztus alapot nyújt komplex ügynök-ügynök kommunikációs rendszerek építéséhez.
 
-## Az Ügynök/Eszköz félreértése
+## Az ügynök/eszköz félreértése
 
-Ahogy egyre több fejlesztő fedez fel ügynöki viselkedésű eszközöket (hosszan futó feladatok, futás közbeni további input igénye stb.), egy gyakori tévhit, hogy az MCP nem alkalmas, mivel korai példái az eszközeinek primitív egyszerű kérés-válasz mintákra fókuszáltak.
+Egyre több fejlesztő tanulmányoz olyan eszközöket, amelyek ügynöki viselkedést mutatnak (hosszú ideig futnak, végrehajtás közben további inputot kérhetnek stb.), és egy gyakori tévhit, hogy az MCP alkalmatlan, mert a kezdeti példák eszközei primitíven egyszerű kérés-válasz mintákra fókuszáltak.
 
-Ez a nézet elavult. Az MCP specifikációja az elmúlt hónapokban jelentősen bővült olyan képességekkel, amelyek áthidalják a különbséget a hosszú ideig futó ügynöki viselkedés építéséhez:
+Ez az észlelés elavult. Az MCP specifikációt az elmúlt hónapokban jelentősen fejlesztették, olyan képességekkel, amelyek áthidalják a rést hosszú távon futó ügynöki viselkedések támogatásához:
 
-- **Streamelés és Részleges eredmények**: Valós idejű előrehaladási frissítések a végrehajtás alatt
-- **Újraindíthatóság**: A kliensek képesek újracsatlakozni és folytatni a megszakítás után
-- **Tartósság**: Az eredmények túlélnek szerver újraindításokat (pl. erőforrás linkeken keresztül)
-- **Többszörös kör**: Interaktív input a végrehajtás közben kiváltás és mintavétel segítségével
+- **Streaming és részleges eredmények**: valós idejű előrehaladás-frissítések a végrehajtás során
+- **Folytathatóság**: az ügyfelek újracsatlakozhatnak és folytathatják megszakítás után
+- **Tartósság**: az eredmények túlélnek szerver újraindításokat (pl. erőforrás hivatkozások által)
+- **Többszörös fordulók**: interaktív bemenet végrehajtás közben felszólítás és mintavételezés segítségével
 
-Ezek a funkciók kombinálhatók, hogy összetett ügynöki és multi-ügynöki alkalmazásokat tegyenek lehetővé, mind az MCP protokollon futtatva.
+Ezek a funkciók kombinálhatók komplex ügynöki és több ügynökös alkalmazások lehetővé tételéhez, mind az MCP protokollra építve.
 
-Hivatkozásként egy ügynököt „eszköznek” nevezünk, amely elérhető egy MCP szerveren. Ez feltételezi egy hoszt alkalmazás létezését, amely MCP kliens implementációval rendelkezik, amely munkamenetet létesít az MCP szerverrel és hívni tudja az ügynököt.
+Hivatkozásként az ügynököt "eszközként" fogjuk nevezni, amely elérhető egy MCP szerveren. Ez azt feltételezi, hogy létezik egy host alkalmazás, amely MCP klienst valósít meg, amely munkamenetet hoz létre az MCP szerverrel, és hívni tudja az ügynököt.
 
 ## Mi tesz egy MCP eszközt „ügynökké”?
 
-Az implementációba való belemélyedés előtt tisztázzuk, milyen infrastruktúra képességekre van szükség a hosszú távon futó ügynökök támogatásához.
+Mielőtt az implementációba merülnénk, tisztázzuk, milyen infrastruktúra képességek szükségesek a hosszú távon futó ügynökök támogatásához.
 
-> Az ügynököt olyan entitásnak definiáljuk, amely autonóm módon képes működni hosszabb ideig, komplex feladatok kezelésére, amelyek több interakciót vagy valós idejű visszacsatoláson alapuló módosítást igényelhetnek.
+> Ügynöknek tekintjük azt a lényt, amely autonóm módon képes hosszabb ideig működni, komplex feladatokat kezelve, amelyek több interakciót vagy valós idejű visszacsatolás szerinti igazítást igényelhetnek.
 
-### 1. Streamelés és Részleges eredmények
+### 1. Streaming és részleges eredmények
 
-A hagyományos kérés-válasz minták nem alkalmasak hosszú futású feladatokra. Az ügynököknek biztosítaniuk kell:
+A hagyományos kérés-válasz minták nem működnek hosszú távú feladatok esetén. Az ügynököknek biztosítaniuk kell:
 
-- Valós idejű előrehaladási frissítéseket
-- Köztes eredményeket
+- Valós idejű előrehaladás-frissítéseket
+- Közbenső eredményeket
 
-**MCP támogatás**: Az erőforrás frissítési értesítések lehetővé teszik a részleges eredmények streamelését, bár ez gondos tervezést igényel, hogy elkerüljük az ütközést a JSON-RPC 1:1 kérés/válasz modelljével.
+**MCP támogatás**: Az erőforrás frissítési értesítések lehetővé teszik a részleges eredmények streamingjét, bár ez alapos tervezést igényel a JSON-RPC 1:1 kérés/válasz modelljének ütközéseinek elkerülésére.
 
-| Funkció                   | Használati eset                                                                                                                                                           | MCP támogatás                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| Valós idejű előrehaladás  | A felhasználó kódalap migrációs feladatot kér. Az ügynök streameli az előrehaladást: "10% - Függőségek elemzése... 25% - TypeScript fájlok konvertálása... 50% - Importok frissítése..." | ✅ Előrehaladási értesítések                                                              |
-| Részleges eredmények      | „Könyv generálás” feladat részleges eredményeket streamel, pl. 1) Történeti ív vázlat, 2) Fejezetlista, 3) Minden fejezet kész állapotban. A hoszt bármikor ellenőrizheti, megszakíthatja vagy átirányíthatja. | ✅ Az értesítések „kiterjeszthetők” részleges eredményekre, lásd a PR 383, 776 javaslatokat   |
+| Funkció                   | Használati eset                                                                                                                                                             | MCP támogatás                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Valós idejű előrehaladás  | A felhasználó egy kódbázis migrációs feladatot kér. Az ügynök folyamatosan jelzi az előrehaladást: "10% - Függőségek elemzése... 25% - TypeScript fájlok átalakítása... 50% - Import frissítés..." | ✅ Előrehaladási értesítések                                                              |
+| Részleges eredmények      | "Könyv generálása" feladat részleges eredményeket streamel, pl. 1) Történetszál vázlat, 2) Fejezetlista, 3) Minden elkészült fejezet. A host bármikor megnézheti, megszakíthatja vagy átirányíthatja. | ✅ Az értesítések „kiterjeszthetők” részleges eredményekkel, lásd PR 383, 776 javaslatokat    |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>1. ábra:</strong> Ez az ábra azt szemlélteti, hogyan streameli egy MCP ügynök a valós idejű előrehaladási értesítéseket és részleges eredményeket a hoszt alkalmazásnak egy hosszú futású feladat során, lehetővé téve a felhasználónak a végrehajtás valós idejű nyomon követését.
+<strong>1. ábra:</strong> Ez az ábra bemutatja, hogyan továbbít egy MCP ügynök valós idejű előrehaladási frissítéseket és részleges eredményeket a host alkalmazásnak egy hosszú távon futó feladat során, lehetővé téve a felhasználónak a végrehajtás valós idejű nyomon követését.
 </div>
 
 ```mermaid
@@ -52,50 +52,50 @@ sequenceDiagram
     User->>Host: Hosszú feladat indítása
     Host->>Server: agent_tool() hívása
 
-    loop Előrehaladási frissítések
-        Server-->>Host: Előrehaladás + részleges eredmények
-        Host-->>User: Frissítések folyamatos közlése
+    loop Haladásfrissítések
+        Server-->>Host: Haladás + részleges eredmények
+        Host-->>User: Frissítések közvetítése
     end
 
     Server-->>Host: ✅ Végleges eredmény
     Host-->>User: Befejezés
 ```
 
-### 2. Újraindíthatóság
+### 2. Folytathatóság
 
-Az ügynököknek elegánsan kell kezelniük a hálózati megszakításokat:
+Az ügynököknek udvariasan kezelniük kell a hálózati megszakításokat:
 
-- Újracsatlakozás a (kliens) kapcsolatszakadás után
-- Folytatás onnan, ahol abbahagyták (üzenet újraküldés)
+- Újracsatlakozás (ügyfél) bontás után
+- Folytatás ott, ahol abbahagyták (üzenet újrakézbesítés)
 
-**MCP támogatás**: Az MCP StreamableHTTP szállítás jelenleg támogatja a munkamenet újraindítást és az üzenet újraküldést munkamenet-azonosítókkal és utolsó esemény azonosítókkal. Fontos megjegyezni, hogy a szervernek implementálnia kell egy eseménytárolót (EventStore), amely lehetővé teszi az események lejátszását kliens újracsatlakozáskor.  
-Megjegyzendő, hogy van egy közösségi javaslat (PR #975), amely a szállításfüggetlen újraindítható streameket vizsgálja.
+**MCP támogatás**: Az MCP StreamableHTTP transport ma támogatja a munkamenet folytatást és az üzenet újrakézbesítést munkamenet azonosítókkal és utolsó esemény azonosítókkal. Fontos megjegyezni, hogy a szervernek meg kell valósítania egy EventStore-t, amely lehetővé teszi az események újrajátszását az ügyfél újracsatlakozásakor.  
+Érdemes megemlíteni, hogy létezik egy közösségi javaslat (PR #975), amely a transzport-független folytatható streameket vizsgálja.
 
-| Funkció       | Használati eset                                                                                                                                                | MCP támogatás                                                               |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Újraindíthatóság | A kliens megszakítja a kapcsolatot hosszú futású feladat közben. Újracsatlakozáskor a munkamenet folytatódik, a kihagyott eseményeket lejátssza, zökkenőmentesen folytatva az abbahagyott helytől. | ✅ StreamableHTTP szállítás munkamenet-azonosítókkal, eseménylejátszással és eseménytárolóval |
+| Funkció      | Használati eset                                                                                                                                        | MCP támogatás                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Folytathatóság | Az ügyfél megszakad a hosszú futású feladat során. Újracsatlakozáskor a munkamenet folytatódik, a kihagyott eseményeket újrajátsszák, zökkenőmentesen folytatva az előző állapotot. | ✅ StreamableHTTP szállító munkamenet azonosítókkal, esemény újrajátszással és EventStore-val |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>2. ábra:</strong> Ez az ábra bemutatja, hogyan teszi lehetővé az MCP StreamableHTTP szállítása és az eseménytároló a zökkenőmentes munkamenet folytatást: ha a kliens megszakad, újracsatlakozhat és lejátssza a kihagyott eseményeket, folytatva a feladatot az előrehaladás elvesztése nélkül.
+<strong>2. ábra:</strong> Ez az ábra bemutatja, hogyan teszi lehetővé az MCP StreamableHTTP szállító és az eseménytár a zökkenőmentes munkamenet folytatást: ha az ügyfél megszakad, újracsatlakozhat és újrajátszhatja a kihagyott eseményeket, folytatva a feladatot az előző állapotból.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Host as Host alkalmazás<br/>(MCP kliens)
-    participant Server as MCP kiszolgáló<br/>(Ügynök eszköz)
+    participant Server as MCP szerver<br/>(Ügynök eszköz)
     participant Store as Eseménytár
 
     User->>Host: Feladat indítása
     Host->>Server: Eszköz hívása [munkamenet: abc123]
     Server->>Store: Események mentése
 
-    Note over Host,Server: 💥 Kapcsolat megszakadt
+    Note over Host,Server: 💥 Kapcsolat elveszett
 
-    Host->>Server: Újracsatlakozás [munkamenet: abc123]
-    Store-->>Server: Események újrajátszása
-    Server-->>Host: Beérkezés + folytatás
-    Host-->>User: ✅ Befejezve
+    Host->>Server: Újrakapcsolódás [munkamenet: abc123]
+    Store-->>Server: Események lejátszása újra
+    Server-->>Host: Utolérés + folytatás
+    Host-->>User: ✅ Befejezés
 ```
 
 ### 3. Tartósság
@@ -103,36 +103,36 @@ sequenceDiagram
 A hosszú futású ügynököknek tartós állapotra van szükségük:
 
 - Az eredmények túlélnek szerver újraindításokat
-- Az állapot kívülről lekérdezhető
-- Az előrehaladás követése munkamenetek között
+- Az állapot sávon kívül lekérdezhető
+- Előrehaladás nyomon követése több munkameneten keresztül
 
-**MCP támogatás**: Az MCP már támogatja az erőforrás link visszatérési típust az eszköz hívások esetén. Jelenleg a gyakori minta olyan eszköz tervezése, amely létrehoz egy erőforrást és azonnal visszaad egy erőforrás linket. Az eszköz a háttérben folytathatja a feladat kezelését és frissítheti az erőforrást, míg a kliens választhat, hogy lekérdezi az erőforrás állapotát részleges vagy teljes eredményekért (attól függően, milyen erőforrás frissítéseket küld a szerver), vagy feliratkozik az erőforrásra az értesítésekhez.
+**MCP támogatás**: Az MCP most támogatja az erőforrás hivatkozás visszatérési típust eszköz hívásokban. Jelenleg a lehetséges minta az, hogy olyan eszközt tervezünk, amely létrehoz egy erőforrást és azonnal visszaad egy erőforrás hivatkozást. Az eszköz a háttérben tovább dolgozhat a feladaton és frissítheti az erőforrást. Az ügyfél pedig dönthet úgy, hogy lekérdezi az erőforrás állapotát részleges vagy teljes eredményekért (attól függően, hogy a szerver milyen erőforrás frissítéseket ad), vagy feliratkozik az erőforrás értesítéseire.
 
-Egy korlát, hogy az erőforrások lekérdezése vagy frissítésekre való feliratkozás erőforrásokat használhat, ami nagy léptékben problémás lehet. Van egy nyílt közösségi javaslat (beleértve a #992-t), amely vizsgálja annak lehetőségét, hogy webhookokat vagy triggerek tegyenek lehetővé, amelyeket a szerver hívhat a kliens/házigazda alkalmazás frissítésekkel való értesítésére.
+Egy korlátozás, hogy az erőforrások polizása vagy frissítésekre való feliratkozás erőforrásokat fogyaszthat nagy skálán. Van egy nyílt közösségi javaslat (közte a #992), amely webhooks vagy trigger-ek hozzáadásának lehetőségét vizsgálja, amelyeket a szerver hívhat meg a kliens/host alkalmazás értesítésére.
 
-| Funkció    | Használati eset                                                                                                                                 | MCP támogatás                                                         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| Tartósság  | A szerver összeomlik adat migrációs feladat közben. Az eredmények és előrehaladás túlélnek újraindítást, a kliens ellenőrizheti az állapotot és folytathatja a tartós erőforrásból. | ✅ Erőforrás linkek tartós tárolással és állapot értesítésekkel       |
+| Funkció    | Használati eset                                                                                                                                         | MCP támogatás                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Tartósság  | A szerver összeomlik adat-migráció közben. Az eredmények és az előrehaladás túlél minden újraindítást, az ügyfél lekérdezheti az állapotot és folytathatja a tárolt erőforrásból. | ✅ Erőforrás linkek tartós tárolással és állapot értesítésekkel   |
 
-Napjainkban elterjedt minta, hogy olyan eszközt terveznek, amely létrehoz egy erőforrást és azonnal visszaad egy erőforrás linket. Az eszköz a háttérben foglalkozhat a feladattal, erőforrás értesítéseket adhat ki, amelyek előrehaladási frissítésként vagy részleges eredményként szolgálnak, és szükség szerint frissítheti az erőforrás tartalmát.
+Jelenleg egy általános megoldás az, hogy az eszköz létrehoz egy erőforrást, és azonnal visszaad az erőforrás linket. Az eszköz a háttérben feldolgozza a feladatot, erőforrás értesítéseket küld, amelyek az előrehaladást vagy részleges eredményeket közvetítik, és szükség szerint frissíti az erőforrás tartalmát.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>3. ábra:</strong> Ez az ábra bemutatja, hogyan használják az MCP ügynökök a tartós erőforrásokat és állapot értesítéseket, hogy biztosítsák, a hosszú futású feladatok túléljék a szerver újraindításokat, lehetővé téve a kliensek számára az előrehaladás ellenőrzését és az eredmények lekérését hibák után is.
+<strong>3. ábra:</strong> Ez az ábra szemlélteti, hogy az MCP ügynökök hogyan használják a tartós erőforrásokat és állapot értesítéseket annak biztosítására, hogy a hosszú távon futó feladatok túléljék a szerver újraindításokat, így az ügyfelek megtekinthetik az előrehaladást és lekérhetik az eredményeket akár kiesés után is.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Host as Host alkalmazás<br/>(MCP kliens)
-    participant Server as MCP szerver<br/>(Agent eszköz)
-    participant DB as Perzisztens tárolás
+    participant Server as MCP szerver<br/>(Ügynök eszköz)
+    participant DB as Tartós tárolás
 
     User->>Host: Feladat indítása
     Host->>Server: Eszköz hívása
     Server->>DB: Erőforrás létrehozása + frissítések
-    Server-->>Host: 🔗 Erőforrás hivatkozás
+    Server-->>Host: 🔗 Erőforrás link
 
-    Note over Server: 💥 Szerver újraindítása
+    Note over Server: 💥 Szerver újraindítás
 
     User->>Host: Állapot ellenőrzése
     Host->>Server: Erőforrás lekérése
@@ -142,69 +142,69 @@ sequenceDiagram
     Host-->>User: ✅ Befejezve
 ```
 
-### 4. Többszörös Körű Interakciók
+### 4. Többszörös Fordulós Interakciók
 
-Az ügynökök gyakran igényelnek további inputot a végrehajtás közben:
+Az ügynököknek gyakran szükségük van további bemenetre a végrehajtás közben:
 
 - Emberi tisztázás vagy jóváhagyás
 - AI segítség összetett döntésekhez
-- Dinamikus paraméter módosítás
+- Dinamikus paraméterállítás
 
-**MCP támogatás**: Teljes körűen támogatott mintavétel (AI inputhoz) és kiváltás (emberi inputhoz) révén.
+**MCP támogatás**: Teljes mértékben támogatott mintavételezés (AI bemenethez) és felszólítás (emberi bemenethez) által.
 
-| Funkció                  | Használati eset                                                                                                                                    | MCP támogatás                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Többszörös körű interakció | Egy utazásszervező ügynök ár megerősítést kér a felhasználótól, majd AI-t kér az utazási adatok összefoglalására, mielőtt befejezné a foglalást.    | ✅ Kiváltás emberi inputhoz, mintavétel AI inputhoz        |
+| Funkció                 | Használati eset                                                                                                                                    | MCP támogatás                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Többszörös fordulók     | Utazási foglaló ügynök ár megerősítést kér a felhasználótól, majd AI-től kéri az utazási adatok összefoglalását a foglalás befejezése előtt.        | ✅ Felszólítás emberi bemenethez, mintavételezés AI bemenethez |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>4. ábra:</strong> Ez az ábra azt mutatja be, hogyan képesek az MCP ügynökök interaktívan emberi inputot kiváltani vagy AI segítséget kérni a végrehajtás közben, támogatva összetett, többszörös körös munkafolyamatokat, mint a megerősítések és dinamikus döntések.
+<strong>4. ábra:</strong> Ez az ábra bemutatja, hogyan kérhetnek az MCP ügynökök interaktív módon emberi bemenetet vagy AI segítséget végrehajtás közben, támogatva komplex, többszörös fordulós munkafolyamatokat, mint a megerősítések és dinamikus döntéshozatal.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host Alkalmazás<br/>(MCP Kliens)
-    participant Server as MCP Szerver<br/>(Ügynök Eszköz)
+    participant Host as Gazda alkalmazás<br/>(MCP kliens)
+    participant Server as MCP szerver<br/>(Ügynök eszköz)
 
-    User->>Host: Repülőjegy foglalás
-    Host->>Server: Hívás travel_agent
+    User->>Host: Repülőjegy foglalása
+    Host->>Server: Utazási_ügynök hívása
 
     Server->>Host: Kiváltás: "Megerősíti az 500$-t?"
-    Note over Host: Kiváltás visszahívása (ha elérhető)
-    Host->>User: 💰 Árat megerősíti?
+    Note over Host: Kiváltási visszahívás (ha elérhető)
+    Host->>User: 💰 Ár megerősítése?
     User->>Host: "Igen"
     Host->>Server: Megerősítve
 
-    Server->>Host: Mintavételezés: "Összegzés az adatokból"
-    Note over Host: AI visszahívása (ha elérhető)
-    Host->>Server: Jelentés összegzése
+    Server->>Host: Mintavételezés: "Adatok összefoglalása"
+    Note over Host: MI visszahívás (ha elérhető)
+    Host->>Server: Jelentés összefoglaló
 
     Server->>Host: ✅ Repülőjegy lefoglalva
 ```
 
-## Hosszú futású ügynökök MCP-n való implementálása - Kód áttekintés
+## Hosszú Távon Futó Ügynökök Implementálása MCP-n - Kód Áttekintés
 
-E cikk részeként egy [kód tárat](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) biztosítunk, amely a MCP Python SDK használatával valósít meg hosszú futású ügynököket StreamableHTTP szállítással, munkamenet folytatással és üzenet újraküldéssel. Az implementáció bemutatja, hogyan komponálhatók össze az MCP képességek kifinomult ügynökszerű viselkedések engedélyezésére.
+A cikk részeként biztosítunk egy [kódtárat](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), amely egy teljes implementációt tartalmaz hosszú futású ügynökökről az MCP Python SDK-val és StreamableHTTP szállítóval a munkamenet folytatására és üzenet újrakézbesítésre. Az implementáció bemutatja, hogyan lehet az MCP képességeket összekapcsolni kifinomult ügynökszerű viselkedések megvalósításához.
 
-Konkrétan két fő ügynök eszközt valósítunk meg a szerveren:
+Kifejezetten két fő ügynöki eszközt valósítunk meg a szerveren:
 
-- **Utazási ügynök** - Utazásfoglalási szolgáltatás szimulációja ár megerősítéssel kiváltáson keresztül
-- **Kutatási ügynök** - Kutatási feladatokat végez AI-vezérelt összefoglalókkal mintavételen keresztül
+- **Utazási ügynök** - Utazási foglalás szolgáltatás ár megerősítéssel felszólítás útján
+- **Kutatási ügynök** - Kutatási feladatok AI segített összefoglalókkal mintavételezés segítségével
 
-Mindkét ügynök valós idejű előrehaladási értesítéseket, interaktív megerősítéseket és teljes munkamenet folytatási képességeket demonstrál.
+Mindkét ügynök bemutat valós idejű előrehaladási frissítéseket, interaktív megerősítéseket és teljes munkamenet folytatási képességeket.
 
-### Kulcsimplementációs koncepciók
+### Kulcs Implementációs Fogalmak
 
-A következő szakaszok bemutatják a szerver oldali ügynök implementációt és a kliens oldali hoszt feldolgozást minden képesség esetén:
+Az alábbi szakaszokban bemutatjuk a szerveroldali ügynök implementációt és a kliensoldali host kezelést minden képességhez:
 
-#### Streamelés és előrehaladási frissítések - Valós idejű feladatállapot
+#### Streaming és előrehaladás-frissítések - valós idejű feladat állapot
 
-A streamelés lehetővé teszi az ügynökök számára, hogy valós idejű előrehaladási értesítéseket szolgáltassanak hosszú futású feladatok során, tájékoztatva a felhasználót a feladat állapotáról és köztes eredményekről.
+A streaming lehetővé teszi az ügynökök számára, hogy valós idejű előrehaladási frissítéseket nyújtsanak hosszú futású feladatok közben, tájékoztatva a felhasználót az állapotról és köztes eredményekről.
 
-**Szerverimplementáció (ügynök előrehaladási értesítéseket küld):**
+**Szerver implementáció (ügynök előrehaladási értesítéseket küld):**
 
 ```python
-# A server/server.py-ból - Utazási ügynök, amely előrehaladási frissítéseket küld
+# A szerver/server.py fájlból - Utazási ügynök, aki előrehaladási frissítéseket küld
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -215,7 +215,7 @@ for i, step in enumerate(steps):
     )
     await anyio.sleep(2)  # Munka szimulálása
 
-# Alternatíva: Naplóüzenetek részletes lépésről lépésre történő frissítésekhez
+# Alternatíva: Üzenetek naplózása részletes lépésenkénti frissítésekhez
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Kliens implementáció (hoszt fogadja az előrehaladási frissítéseket):**
+**Kliens implementáció (host fogad előrehaladási frissítéseket):**
 
 ```python
-# A client/client.py fájlból - Valós idejű értesítések kezelésére szolgáló kliens
+# A client/client.py fájlból - Ügyfél, amely valós idejű értesítéseket kezel
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Üzenetkezelő regisztrálása munkamenet létrehozásakor
+# Üzenetkezelő regisztrálása a munkamenet létrehozásakor
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Kiváltás - Felhasználói input kérése
+#### Felszólítás - felhasználói bemenet kérése
 
-A kiváltás lehetővé teszi, hogy az ügynökök futás közben kérjenek felhasználói inputot. Ez elengedhetetlen a megerősítésekhez, tisztázásokhoz vagy jóváhagyásokhoz hosszú futású feladatok során.
+A felszólítás lehetővé teszi az ügynökök számára, hogy végrehajtás közben kérjenek felhasználói bemenetet. Ez elengedhetetlen jóváhagyásokhoz, pontosításokhoz vagy megerősítésekhez hosszú futású feladatok alatt.
 
 **Szerver implementáció (ügynök megerősítést kér):**
 
 ```python
-# A server/server.py-ból - Utazási ügynök árajánlat megerősítés kérése
+# A server/server.py-ból - Utazási ügynök árajánlat megerősítését kéri
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Folytassa a foglalást
+    # Folytatás a foglalással
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Törölje a foglalást
+    # A foglalás törlése
     booking_cancelled = True
 ```
 
-**Kliens implementáció (hoszt biztosítja a kiváltási visszahívást):**
+**Kliens implementáció (host biztosít felszólítás visszahívót):**
 
 ```python
-# A client/client.py - kliens kezeli az elhangzott kéréseket
+# A client/client.py fájlból - Kliens kezelése a kikérési kérésekhez
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -293,14 +293,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Mintavétel - AI segítség kérése
+#### Mintavételezés - AI segítség kérése
 
-A mintavétel lehetővé teszi az ügynökök számára, hogy AI támogatást kérjenek összetett döntésekhez vagy tartalom generáláshoz a végrehajtás alatt. Ez hibrid ember-AI munkafolyamatokat tesz lehetővé.
+A mintavételezés lehetővé teszi az ügynököknek, hogy LLM segítséget kérjenek összetett döntésekhez vagy tartalom generáláshoz végrehajtás közben. Ez hibrid ember-AI munkafolyamatokat tesz lehetővé.
 
 **Szerver implementáció (ügynök AI segítséget kér):**
 
 ```python
-# A szerver/server.py fájlból - Kutatóügynök AI összefoglalót kér
+# A server/server.py-ból - Kutató ügynök AI összefoglalót kérve
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,15 +318,15 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Kliens implementáció (hoszt biztosítja a mintavételi visszahívást):**
+**Kliens implementáció (host biztosít mintavételezési visszahívót):**
 
 ```python
-# A client/client.py fájlból - Ügyfél által kezelt mintavételezési kérések
+# A client/client.py fájlból - Ügyfél kérések mintavételezésének kezelése
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # Egy valódi alkalmazásban ez egy LLM API hívását jelentené
+    # Egy valós alkalmazásban ez hívhatna egy LLM API-t
     # Bemutató célokra egy hamis választ biztosítunk
     mock_response = "Based on current research, MCP has evolved significantly..."
 
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Újraindíthatóság - Munkamenet folytonosság megszakítások után
+#### Folytathatóság - munkamenet folytonosság megszakítások után
 
-Az újraindíthatóság biztosítja, hogy a hosszú futású ügynök feladatok túléljék a kliens megszakadását és zökkenőmentesen folytatódjanak az újracsatlakozás után. Ez eseménytárolókkal és folytató tokenekkel valósul meg.
+A folytathatóság biztosítja, hogy a hosszú futású ügynök feladatok túlélhessék az ügyfél kapcsolat bontását, és zökkenőmentesen folytatódjanak újracsatlakozáskor. Ez eseménytár és folytatási tokenek segítségével valósul meg.
 
-**Eseménytároló implementáció (szerver tartja a munkamenet állapotát):**
+**Eseménytár implementáció (szerver tartja a munkamenet állapotát):**
 
 ```python
-# A server/event_store.py-ból - Egyszerű memóriában tárolt eseménytár
+# A server/event_store.py-ből - Egyszerű memóriában tárolt esemény-adattár
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,11 +367,26 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Keresd meg az eseményeket az utolsó ismert esemény után, és játsszad vissza őket
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Csak a munkamenet eredeti adatfolyamának későbbi eseményeit játssza újra.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# A server/server.py-ból - Eseménytár továbbítása a munkamenet-kezelőnek
+        return stream_id
+
+# A server/server.py-ből - Eseménytár átadása a munkamenet-kezelőnek
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
@@ -390,17 +405,17 @@ event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Kliens metaadat folytató tokennel (a kliens az eltárolt állapotot használva újracsatlakozik):**
+**Kliens metaadat folytatási tokennel (ügyfél tárolt állapottal csatlakozik újra):**
 
 ```python
 # A client/client.py fájlból - Ügyfél folytatása metaadatokkal
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Használja a meglévő folytatási tokent a megszakítás helyéről való folytatáshoz
+    # Használja a meglévő folytatási tokent a megszakítás helyén való folytatáshoz
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Hozzon létre visszahívást a folytatási token fogadásakor történő mentéshez
+    # Hozzon létre visszahívást a folytatási token fogadásakor való mentéséhez
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -422,23 +437,23 @@ result = await session.send_request(
 )
 ```
 
-A hoszt alkalmazás helyileg tartja a munkamenet azonosítókat és folytató tokeneket, lehetővé téve a meglévő munkamenetekhez való újracsatlakozást az előrehaladás vagy állapotvesztés nélkül.
+A host alkalmazás helyben megtartja a munkamenet azonosítókat és folytatási tokeneket, lehetővé téve a meglévő munkamenetekhez való újracsatlakozást az előrehaladás vagy állapot elvesztése nélkül.
 
-### Kód szervezése
+### Kód szervezés
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>5. ábra:</strong> MCP-alapú ügynök rendszerarchitektúra
+<strong>5. ábra:</strong> MCP alapú ügynök rendszer architektúra
 </div>
 
 ```mermaid
 graph LR
-    User([Felhasználó]) -->|"Feladat"| Host["Kiszolgáló<br/>(MCP Ügyfél)"]
-    Host -->|eszközök listázása| Server[MCP Szerver]
-    Server -->|Kiteszi| AgentsTools[Ügynökök eszközként]
-    AgentsTools -->|Feladat| AgentA[Utazási Ügynök]
-    AgentsTools -->|Feladat| AgentB[Kutatási Ügynök]
+    User([Felhasználó]) -->|"Feladat"| Host["Szállító<br/>(MCP kliens)"]
+    Host -->|eszközök listázása| Server[MCP szerver]
+    Server -->|Kiteszi| AgentsTools[Ügynököket eszközként]
+    AgentsTools -->|Feladat| AgentA[Utazási ügynök]
+    AgentsTools -->|Feladat| AgentB[Kutatási ügynök]
 
-    Host -->|Figyeli| StateUpdates[Haladás és Állapotfrissítések]
+    Host -->|Figyeli| StateUpdates[Előrehaladási és állapotfrissítések]
     Server -->|Közzéteszi| StateUpdates
 
     class User user;
@@ -446,66 +461,66 @@ graph LR
     class Host,Server,StateUpdates core;
 ```
 
-**Kulcsfájlok:**
+**Kulcs fájlok:**
 
-- **`server/server.py`** - Újraindítható MCP szerver utazási és kutatási ügynökökkel, amelyek bemutatják a kiváltást, mintavételt és előrehaladási frissítéseket
-- **`client/client.py`** - Interaktív hoszt alkalmazás folytatási támogatással, visszahívás kezelőkkel és token kezelésével
-- **`server/event_store.py`** - Eseménytároló implementáció, amely lehetővé teszi a munkamenet folytatást és az üzenet újraküldést
+- **`server/server.py`** - Folytatható MCP szerver utazási és kutatási ügynökökkel, amelyek bemutatják a felszólítást, mintavételezést és előrehaladás-frissítéseket
+- **`client/client.py`** - Interaktív host alkalmazás folytatástámogatással, visszahívó kezelőkkel és token menedzsmenttel
+- **`server/event_store.py`** - Eseménytár implementáció munkamenet folytatás és üzenet újrakézbesítés engedélyezésére
 
-## Kiterjesztés multi-ügynök kommunikációra MCP-n
+## Kiterjesztés több-ügynök közötti kommunikációra MCP-n
 
-A fenti implementáció kiterjeszthető multi-ügynök rendszerekre a hoszt alkalmazás intelligenciájának és hatókörének bővítésével:
+A fenti implementáció kiterjeszthető több ügynökös rendszerekre a host alkalmazás intelligenciájának és hatókörének bővítésével:
 
-- **Intelligens feladat dekompozíció**: A hoszt elemzi a komplex felhasználói kéréseket és részekre bontja azokat különböző specializált ügynökök számára
-- **Több szerver koordináció**: A hoszt kapcsolatot tart több MCP szerverrel, amelyek eltérő ügynök képességeket kínálnak
-- **Feladat állapotkezelés**: A hoszt követi a haladást több párhuzamos ügynök feladaton át, kezeli a függőségeket és sorrendiséget
-- **Rugalmasság és újrapróbálkozások**: A hoszt kezeli a hibákat, végrehajt újrapróbálkozási logikát és átirányítja a feladatokat, ha az ügynökök nem elérhetőek
-- **Eredmény szintézis**: A hoszt több ügynök outputját koherens végső eredménnyé egyesíti
+- **Intelligens feladatbontás**: A host komplex felhasználói kéréseket elemez és lebontja őket különböző specializált ügynökök részfeladataira
+- **Több szerveres koordináció**: A host fenntart kapcsolatokat több MCP szerverrel, amelyek különböző ügynöki képességeket kínálnak
+- **Feladat állapot kezelése**: A host nyomon követi az előrehaladást több egyidejű ügynöki feladat között, kezelve függőségeket és sorrendet
+- **Ellenálló képesség és újrapróbálkozások**: A host kezeli a hibákat, újrapróbálkozási logikát valósít meg, és feladatokat irányít át, amikor az ügynökök nem elérhetőek
+- **Eredmény Szintézis**: A host több ügynök kimeneteit koherens végleges eredménnyé egyesíti
 
-A hoszt egy egyszerű kliensből intelligens koordinátorrá fejlődik, amely elosztott ügynök képességeket koordinál miközben megőrzi ugyanazt az MCP protokoll alapot.
+A host egyszerű kliensből intelligens koordinátorrá válik, elosztott ügynöki képességeket összehangolva ugyanazon MCP protokoll alapokra építve.
 
 ## Összegzés
 
-Az MCP bővített képességei - erőforrás értesítések, kiváltás/mintavétel, újraindítható streamek és tartós erőforrások - lehetővé teszik az összetett ügynök-ügynök interakciókat miközben megőrzik a protokoll egyszerűségét.
+Az MCP fejlett képességei - erőforrás értesítések, felszólítás/mintavételezés, folytatható streamek és tartós erőforrások - lehetővé teszik komplex ügynök-ügynök interakciókat miközben megőrzik a protokoll egyszerűségét.
 
-## Első lépések
+## Kezdés
 
-Készen állsz a saját ügynök2ügynök rendszered fejlesztésére? Kövesd ezeket a lépéseket:
+Készen állsz a saját agent2agent rendszered építésére? Kövesd ezeket a lépéseket:
 
 ### 1. Futtasd a demót
 
 ```bash
-# Indítsa el a szervert eseménytárral a folytatáshoz
+# Indítsa el a szervert eseménytárolóval a folytatáshoz
 python -m server.server --port 8006
 
 # Egy másik terminálban futtassa az interaktív klienst
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Elérhető parancsok interaktív módban:**
+**Interaktív módban elérhető parancsok:**
 
-- `travel_agent` - Utazás foglalása ár megerősítéssel kiváltáson keresztül
-- `research_agent` - Kutatási témák AI által támogatott összefoglalókkal mintavételen keresztül
-- `list` - Minden elérhető eszköz megjelenítése
-- `clean-tokens` - Folytató tokenek törlése
-- `help` - Részletes parancssegítség megjelenítése
+- `travel_agent` - Utazás foglalása ár megerősítéssel felszólítás által
+- `research_agent` - Kutatási témák AI segített összefoglalókkal mintavételezés révén
+- `list` - Elérhető eszközök listázása
+- `clean-tokens` - Folytatási tokenek törlése
+- `help` - Részletes parancs súgó megjelenítése
 - `quit` - Kilépés a kliensből
 
-### 2. Teszteld a folytatási képességeket
+### 2. Teszteld a folytathatóságot
 
 - Indíts el egy hosszú futású ügynököt (pl. `travel_agent`)
-- Megszakítsd a klienst a végrehajtás közben (Ctrl+C)
+- Megszakítsd a klienst futás közben (Ctrl+C)
 - Indítsd újra a klienst - automatikusan folytatja onnan, ahol abbahagyta
 
 ### 3. Fedezd fel és bővítsd
 
-- **Fedezd fel a példákat**: Nézd meg ezt a [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Csatlakozz a közösséghez**: Vegyél részt MCP beszélgetésekben GitHub-on
-- **Kísérletezz**: Kezdj egyszerű hosszú futású feladattal, és fokozatosan adj hozzá streamelést, újraindíthatóságot és multi-ügynök koordinációt
+- **Fedezd fel a példákat**: Nézd meg ezt a [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) projektet
+- **Csatlakozz a közösséghez**: Vegyél részt az MCP GitHub vitákban
+- **Kísérletezz**: Kezdd egy egyszerű hosszú távon futó feladattal, majd fokozatosan adj hozzá streaminget, folytathatóságot és több ügynökös koordinációt
 
-Ez bemutatja, hogyan teszi lehetővé az MCP az intelligens ügynök viselkedéseket miközben megőrzi az eszköz-alapú egyszerűséget.
+Ez bemutatja, hogyan teszi lehetővé az MCP az intelligens ügynöki viselkedést miközben megőrzi az eszköz alapú egyszerűséget.
 
-Összefoglalva, az MCP protokoll specifikáció gyorsan fejlődik; az olvasót bátorítjuk, hogy tekintse át a hivatalos dokumentációs weboldalt a legfrissebb frissítésekért - https://modelcontextprotocol.io/introduction
+Összességében az MCP protokoll specifikáció gyorsan fejlődik; az olvasót arra bátorítjuk, hogy tekintse át a hivatalos dokumentációs weboldalt a legfrissebb frissítésekért - https://modelcontextprotocol.io/introduction
 
 ---
 

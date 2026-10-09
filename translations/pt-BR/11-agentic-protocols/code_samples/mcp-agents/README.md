@@ -1,210 +1,210 @@
-# Construindo Sistemas de Comunicação entre Agentes com MCP
+# Construindo Sistemas de Comunicação Agente-para-Agente com MCP
 
-> Resumo - É possível construir comunicação entre agentes usando MCP? Sim!
+> TL;DR - Você pode construir comunicação Agent2Agent no MCP? Sim!
 
-O MCP evoluiu significativamente além de seu objetivo original de "fornecer contexto para LLMs". Com aprimoramentos recentes, incluindo [fluxos recomeçáveis](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [eliciação](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [amostragem](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) e notificações ([progresso](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) e [recursos](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), o MCP agora oferece uma base robusta para construir sistemas complexos de comunicação entre agentes.
+O MCP evoluiu significativamente além de seu objetivo original de "fornecer contexto para LLMs". Com aprimoramentos recentes, incluindo [streams retomáveis](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitação](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [amostragem](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) e notificações ([progresso](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) e [recursos](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), o MCP agora fornece uma base robusta para construir sistemas complexos de comunicação agente-para-agente.
 
-## O Equívoco sobre Agentes/Ferramentas
+## O Equívoco sobre Agente/Ferramenta
 
-À medida que mais desenvolvedores exploram ferramentas com comportamentos de agentes (executam por longos períodos, podem exigir entrada adicional durante a execução, etc.), um equívoco comum é que o MCP é inadequado, principalmente porque os primeiros exemplos de sua primitiva de ferramentas focavam em padrões simples de solicitação-resposta.
+À medida que mais desenvolvedores exploram ferramentas com comportamentos agenticos (executam por longos períodos, podem exigir entradas adicionais durante a execução, etc.), um equívoco comum é que o MCP é inadequado, principalmente porque exemplos iniciais de ferramentas primitivas focaram em padrões simples de requisição-resposta.
 
-Essa percepção está desatualizada. A especificação do MCP foi significativamente aprimorada nos últimos meses com capacidades que preenchem a lacuna para construir comportamentos de agentes de longa duração:
+Essa percepção está desatualizada. A especificação MCP foi significativamente aprimorada nos últimos meses com capacidades que fecham a lacuna para construir comportamentos agenticos de longa duração:
 
 - **Streaming e Resultados Parciais**: Atualizações de progresso em tempo real durante a execução
-- **Recomeçabilidade**: Clientes podem se reconectar e continuar após desconexões
-- **Durabilidade**: Resultados sobrevivem a reinicializações do servidor (por exemplo, via links de recursos)
-- **Interações de Múltiplas Rodadas**: Entrada interativa durante a execução via eliciação e amostragem
+- **Retomabilidade**: Clientes podem reconectar e continuar após desconexão
+- **Durabilidade**: Resultados sobrevivem a reinícios do servidor (por exemplo, via links de recurso)
+- **Multi-turno**: Entrada interativa no meio da execução por meio de elicitação e amostragem
 
-Esses recursos podem ser combinados para habilitar aplicações complexas de agentes e multiagentes, todas implantadas no protocolo MCP.
+Esses recursos podem ser combinados para possibilitar aplicações agenticas e multiagentes complexas, todas implantadas no protocolo MCP.
 
-Para referência, nos referiremos a um agente como uma "ferramenta" disponível em um servidor MCP. Isso implica na existência de um aplicativo host que implementa um cliente MCP que estabelece uma sessão com o servidor MCP e pode chamar o agente.
+Para referência, chamaremos um agente de "ferramenta" disponível em um servidor MCP. Isso implica a existência de uma aplicação host que implementa um cliente MCP, estabelece uma sessão com o servidor MCP e pode invocar o agente.
 
-## O que Torna uma Ferramenta MCP "Agente"?
+## O que Torna uma Ferramenta MCP "Agentica"?
 
-Antes de mergulhar na implementação, vamos estabelecer quais capacidades de infraestrutura são necessárias para suportar agentes de longa duração.
+Antes de mergulhar na implementação, vamos estabelecer quais capacidades de infraestrutura são necessárias para apoiar agentes de longa duração.
 
-> Definiremos um agente como uma entidade capaz de operar autonomamente por períodos prolongados, capaz de lidar com tarefas complexas que podem exigir múltiplas interações ou ajustes com base em feedback em tempo real.
+> Definiremos um agente como uma entidade que pode operar autonomamente por períodos prolongados, capaz de lidar com tarefas complexas que podem requerer múltiplas interações ou ajustes baseados em feedback em tempo real.
 
 ### 1. Streaming e Resultados Parciais
 
-Padrões tradicionais de solicitação-resposta não funcionam para tarefas de longa duração. Agentes precisam fornecer:
+Padrões tradicionais de requisição-resposta não funcionam para tarefas longas. Agentes precisam fornecer:
 
 - Atualizações de progresso em tempo real
 - Resultados intermediários
 
-**Suporte MCP**: Notificações de atualização de recursos permitem o streaming de resultados parciais, embora isso exija um design cuidadoso para evitar conflitos com o modelo 1:1 de solicitação/resposta do JSON-RPC.
+**Suporte MCP**: Notificações de atualização de recurso permitem a transmissão de resultados parciais, embora isso exija um design cuidadoso para evitar conflitos com o modelo 1:1 de requisição/resposta do JSON-RPC.
 
-| Recurso                     | Caso de Uso                                                                                                                                                                       | Suporte MCP                                                                                |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Atualizações de Progresso em Tempo Real | Usuário solicita uma tarefa de migração de base de código. O agente transmite o progresso: "10% - Analisando dependências... 25% - Convertendo arquivos TypeScript... 50% - Atualizando imports..."          | ✅ Notificações de progresso                                                                  |
-| Resultados Parciais         | Tarefa "Gerar um livro" transmite resultados parciais, como: 1) Esboço do arco da história, 2) Lista de capítulos, 3) Cada capítulo conforme concluído. O host pode inspecionar, cancelar ou redirecionar em qualquer estágio. | ✅ Notificações podem ser "estendidas" para incluir resultados parciais, veja propostas nos PRs 383, 776 |
+| Recurso                   | Caso de Uso                                                                                                                                                              | Suporte MCP                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Atualizações de Progresso | Usuário solicita uma tarefa de migração de base de código. O agente transmite progresso: "10% - Analisando dependências... 25% - Convertendo arquivos TypeScript... 50% - Atualizando importações..."          | ✅ Notificações de progresso                                                               |
+| Resultados Parciais       | Tarefa "Gerar um livro" transmite resultados parciais, por exemplo, 1) Esboço do arco da história, 2) Lista de capítulos, 3) Cada capítulo conforme concluído. O host pode inspecionar, cancelar ou redirecionar em qualquer etapa. | ✅ Notificações podem ser "estendidas" para incluir resultados parciais - veja propostas nos PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figura 1:</strong> Este diagrama ilustra como um agente MCP transmite atualizações de progresso em tempo real e resultados parciais para o aplicativo host durante uma tarefa de longa duração, permitindo que o usuário monitore a execução em tempo real.
+<strong>Figura 1:</strong> Este diagrama ilustra como um agente MCP transmite atualizações de progresso em tempo real e resultados parciais para a aplicação host durante uma tarefa de longa duração, permitindo que o usuário monitore a execução em tempo real.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Aplicativo Host<br/>(Cliente MCP)
+    participant Server as Servidor MCP<br/>(Ferramenta Agent)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Iniciar tarefa longa
+    Host->>Server: Chamar agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Atualizações de progresso
+        Server-->>Host: Progresso + resultados parciais
+        Host-->>User: Atualizações em fluxo
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Resultado final
+    Host-->>User: Completo
 ```
 
-### 2. Recomeçabilidade
+### 2. Retomabilidade
 
-Agentes devem lidar com interrupções de rede de forma eficiente:
+Agentes devem lidar graciosamente com interrupções de rede:
 
-- Reconectar após desconexão (do cliente)
-- Continuar de onde pararam (reentrega de mensagens)
+- Reconectar após desconexão (cliente)
+- Continuar de onde pararam (reenvio de mensagem)
 
-**Suporte MCP**: O transporte StreamableHTTP do MCP atualmente suporta retomada de sessão e reentrega de mensagens com IDs de sessão e IDs de último evento. O ponto importante aqui é que o servidor deve implementar um EventStore que permita replays de eventos na reconexão do cliente.  
-Observe que há uma proposta da comunidade (PR #975) que explora fluxos recomeçáveis independentes de transporte.
+**Suporte MCP**: Hoje, o transporte StreamableHTTP do MCP suporta retomada de sessão e reenvio de mensagens com IDs de sessão e IDs do último evento. A nota importante aqui é que o servidor deve implementar um EventStore que possibilite repetição de eventos na reconexão do cliente.  
+Observe que há uma proposta comunitária (PR #975) que explora streams retomáveis independentes do transporte.
 
-| Recurso         | Caso de Uso                                                                                                                                                   | Suporte MCP                                                                |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Recomeçabilidade | Cliente desconecta durante uma tarefa de longa duração. Após reconexão, a sessão é retomada com eventos perdidos reproduzidos, continuando sem interrupções. | ✅ Transporte StreamableHTTP com IDs de sessão, replay de eventos e EventStore |
+| Recurso      | Caso de Uso                                                                                                                                               | Suporte MCP                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Retomabilidade | Cliente desconecta durante uma tarefa longa. Ao reconectar, a sessão é retomada com eventos perdidos reproduzidos, continuando sem interrupções de onde parou. | ✅ Transporte StreamableHTTP com IDs de sessão, reprodução de eventos e EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figura 2:</strong> Este diagrama mostra como o transporte StreamableHTTP do MCP e o EventStore permitem retomada de sessão sem interrupções: se o cliente desconectar, ele pode se reconectar e reproduzir eventos perdidos, continuando a tarefa sem perda de progresso.
+<strong>Figura 2:</strong> Este diagrama mostra como o transporte StreamableHTTP do MCP e o armazenamento de eventos permitem a retomada de sessão sem interrupções: se o cliente desconectar, pode reconectar e reproduzir eventos perdidos, continuando a tarefa sem perda de progresso.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as App Host<br/>(Cliente MCP)
+    participant Server as Servidor MCP<br/>(Ferramenta do Agente)
+    participant Store as Armazenamento de Eventos
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Iniciar tarefa
+    Host->>Server: Chamar ferramenta [sessão: abc123]
+    Server->>Store: Salvar eventos
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Conexão perdida
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Reconectar [sessão: abc123]
+    Store-->>Server: Reaplicar eventos
+    Server-->>Host: Atualizar + continuar
+    Host-->>User: ✅ Concluído
 ```
 
 ### 3. Durabilidade
 
 Agentes de longa duração precisam de estado persistente:
 
-- Resultados sobrevivem a reinicializações do servidor
-- Status pode ser recuperado fora da banda
+- Resultados sobrevivem a reinícios do servidor
+- Estado pode ser recuperado fora de banda
 - Rastreamento de progresso entre sessões
 
-**Suporte MCP**: O MCP agora suporta um tipo de retorno de link de recurso para chamadas de ferramentas. Hoje, um padrão possível é projetar uma ferramenta que cria um recurso e retorna imediatamente um link de recurso. A ferramenta pode continuar a tratar a tarefa em segundo plano e atualizar o recurso. Por sua vez, o cliente pode optar por consultar o estado desse recurso para obter resultados parciais ou completos (com base nas atualizações de recursos que o servidor fornece) ou assinar o recurso para notificações de atualização.
+**Suporte MCP**: O MCP agora suporta um tipo de retorno de link de recurso para chamadas de ferramentas. Hoje, um padrão possível é projetar uma ferramenta que cria um recurso e retorna imediatamente um link para o recurso. A ferramenta pode continuar a tratar a tarefa em segundo plano e atualizar o recurso. Por sua vez, o cliente pode optar por consultar o estado desse recurso para obter resultados parciais ou completos (com base nas atualizações de recurso fornecidas pelo servidor) ou assinar o recurso para notificações de atualização.
 
-Uma limitação aqui é que consultar recursos ou assinar atualizações pode consumir recursos com implicações em escala. Há uma proposta aberta da comunidade (incluindo #992) explorando a possibilidade de incluir webhooks ou gatilhos que o servidor pode chamar para notificar o cliente/aplicativo host sobre atualizações.
+Uma limitação aqui é que consultar recursos ou assinar atualizações pode consumir recursos com implicações em larga escala. Há uma proposta comunitária aberta (incluindo a #992) explorando a possibilidade de incluir webhooks ou triggers que o servidor pode chamar para notificar o cliente/aplicação host sobre atualizações.
 
-| Recurso      | Caso de Uso                                                                                                                                        | Suporte MCP                                                        |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Durabilidade | Servidor falha durante uma tarefa de migração de dados. Resultados e progresso sobrevivem à reinicialização, cliente pode verificar status e continuar a partir do recurso persistente. | ✅ Links de recursos com armazenamento persistente e notificações de status |
+| Recurso    | Caso de Uso                                                                                                                                      | Suporte MCP                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Durabilidade | Servidor trava durante tarefa de migração de dados. Resultados e progresso sobrevivem ao reinício, cliente pode verificar estado e continuar a partir do recurso persistente. | ✅ Links de recurso com armazenamento persistente e notificações de status |
 
-Hoje, um padrão comum é projetar uma ferramenta que cria um recurso e retorna imediatamente um link de recurso. A ferramenta pode, em segundo plano, tratar a tarefa, emitir notificações de recursos que servem como atualizações de progresso ou incluir resultados parciais, e atualizar o conteúdo no recurso conforme necessário.
+Hoje, um padrão comum é projetar uma ferramenta que cria um recurso e retorna imediatamente um link de recurso. A ferramenta pode, em segundo plano, tratar a tarefa, emitir notificações de recurso que servem como atualizações de progresso ou incluir resultados parciais, e atualizar o conteúdo no recurso conforme necessário.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figura 3:</strong> Este diagrama demonstra como agentes MCP usam recursos persistentes e notificações de status para garantir que tarefas de longa duração sobrevivam a reinicializações do servidor, permitindo que clientes verifiquem o progresso e recuperem resultados mesmo após falhas.
+<strong>Figura 3:</strong> Este diagrama demonstra como agentes MCP usam recursos persistentes e notificações de status para assegurar que tarefas longas sobrevivam reinícios do servidor, permitindo que clientes verifiquem o progresso e recuperem resultados mesmo após falhas.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as App Hospedeiro<br/>(Cliente MCP)
+    participant Server as Servidor MCP<br/>(Ferramenta de Agente)
+    participant DB as Armazenamento Persistente
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Iniciar tarefa
+    Host->>Server: Chamar ferramenta
+    Server->>DB: Criar recurso + atualizações
+    Server-->>Host: 🔗 Link do recurso
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Reinício do servidor
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Verificar status
+    Host->>Server: Obter recurso
+    Server->>DB: Carregar estado
+    Server-->>Host: Progresso atual
+    Server->>DB: Completar + notificar
+    Host-->>User: ✅ Concluído
 ```
 
-### 4. Interações de Múltiplas Rodadas
+### 4. Interações Multi-Turno
 
-Agentes frequentemente precisam de entrada adicional durante a execução:
+Agentes frequentemente precisam de entradas adicionais durante a execução:
 
 - Esclarecimento ou aprovação humana
 - Assistência de IA para decisões complexas
 - Ajuste dinâmico de parâmetros
 
-**Suporte MCP**: Totalmente suportado via amostragem (para entrada de IA) e eliciação (para entrada humana).
+**Suporte MCP**: Totalmente suportado via amostragem (para entrada de IA) e elicitação (para entrada humana).
 
-| Recurso                 | Caso de Uso                                                                                                                                     | Suporte MCP                                           |
+| Recurso                 | Caso de Uso                                                                                                                                      | Suporte MCP                                           |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Interações de Múltiplas Rodadas | Agente de reserva de viagens solicita confirmação de preço ao usuário, depois pede à IA para resumir dados de viagem antes de concluir a transação de reserva. | ✅ Eliciação para entrada humana, amostragem para entrada de IA |
+| Interações Multi-Turno   | Agente de reserva de viagem solicita confirmação de preço ao usuário, depois pede para IA resumir dados de viagem antes de completar a reserva. | ✅ Elicitação para entrada humana, amostragem para entrada de IA |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figura 4:</strong> Este diagrama mostra como agentes MCP podem solicitar interativamente entrada humana ou assistência de IA durante a execução, suportando fluxos de trabalho complexos e de múltiplas rodadas, como confirmações e tomada de decisões dinâmicas.
+<strong>Figura 4:</strong> Este diagrama mostra como agentes MCP podem interativamente elicitar entrada humana ou solicitar assistência de IA durante a execução, suportando fluxos multi-turno complexos como confirmações e decisões dinâmicas.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Aplicativo Host<br/>(Cliente MCP)
+    participant Server as Servidor MCP<br/>(Ferramenta do Agente)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Reservar voo
+    Host->>Server: Chamar agente_de_viagem
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Elucidação: "Confirmar $500?"
+    Note over Host: Retorno da elucidação (se disponível)
+    Host->>User: 💰 Confirmar preço?
+    User->>Host: "Sim"
+    Host->>Server: Confirmado
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Amostragem: "Resumir dados"
+    Note over Host: Retorno da IA (se disponível)
+    Host->>Server: Resumo do relatório
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Voo reservado
 ```
 
 ## Implementando Agentes de Longa Duração no MCP - Visão Geral do Código
 
-Como parte deste artigo, fornecemos um [repositório de código](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) que contém uma implementação completa de agentes de longa duração usando o SDK Python do MCP com transporte StreamableHTTP para retomada de sessão e reentrega de mensagens. A implementação demonstra como as capacidades do MCP podem ser combinadas para habilitar comportamentos sofisticados de agentes.
+Como parte deste artigo, fornecemos um [repositório de código](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) que contém uma implementação completa de agentes de longa duração usando o SDK MCP para Python com transporte StreamableHTTP para retomada de sessão e reenvio de mensagens. A implementação demonstra como as capacidades MCP podem ser combinadas para permitir comportamentos sofisticados semelhantes a agentes.
 
-Especificamente, implementamos um servidor com duas ferramentas principais de agentes:
+Especificamente, implementamos um servidor com duas ferramentas principais de agente:
 
-- **Agente de Viagens** - Simula um serviço de reserva de viagens com confirmação de preço via eliciação
-- **Agente de Pesquisa** - Realiza tarefas de pesquisa com resumos assistidos por IA via amostragem
+- **Agente de Viagem** - Simula um serviço de reserva de viagens com confirmação de preço via elicitação
+- **Agente de Pesquisa** - Executa tarefas de pesquisa com resumos assistidos por IA via amostragem
 
 Ambos os agentes demonstram atualizações de progresso em tempo real, confirmações interativas e capacidades completas de retomada de sessão.
 
-### Conceitos Principais de Implementação
+### Conceitos Chave da Implementação
 
-As seções a seguir mostram a implementação do lado do servidor para agentes e o tratamento do lado do cliente para cada capacidade:
+As seções seguintes mostram a implementação do agente no lado servidor e o tratamento pelo host cliente para cada capacidade:
 
-#### Streaming e Atualizações de Progresso - Status de Tarefa em Tempo Real
+#### Streaming & Atualizações de Progresso - Status de Tarefa em Tempo Real
 
-O streaming permite que agentes forneçam atualizações de progresso em tempo real durante tarefas de longa duração, mantendo os usuários informados sobre o status da tarefa e resultados intermediários.
+Streaming permite que agentes forneçam atualizações de progresso em tempo real durante tarefas de longa duração, mantendo os usuários informados do estado da tarefa e resultados intermediários.
 
-**Implementação do Servidor (agente envia notificações de progresso):**
+**Implementação no Servidor (agente envia notificações de progresso):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Do servidor/server.py - Agente de viagem enviando atualizações de progresso
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Simular trabalho
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternativa: Registrar mensagens para atualizações detalhadas passo a passo
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Implementação do Cliente (host recebe atualizações de progresso):**
+**Implementação no Cliente (host recebe atualizações de progresso):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Do client/client.py - Cliente lidando com notificações em tempo real
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registrar manipulador de mensagens ao criar sessão
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Eliciação - Solicitando Entrada do Usuário
+#### Elicitação - Solicitando Entrada do Usuário
 
-A eliciação permite que agentes solicitem entrada do usuário durante a execução. Isso é essencial para confirmações, esclarecimentos ou aprovações durante tarefas de longa duração.
+Elicitação permite que agentes solicitem entrada do usuário no meio da execução. Isso é essencial para confirmações, esclarecimentos ou aprovações durante tarefas longas.
 
-**Implementação do Servidor (agente solicita confirmação):**
+**Implementação no Servidor (agente solicita confirmação):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Do servidor/server.py - Agente de viagens solicitando confirmação de preço
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Continuar com a reserva
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Cancelar a reserva
     booking_cancelled = True
 ```
 
-**Implementação do Cliente (host fornece callback de eliciação):**
+**Implementação no Cliente (host fornece callback de elicitação):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Do client/client.py - Manipulação de requisições de elicitação pelo cliente
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,7 +286,7 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Registrar o callback ao criar a sessão
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
@@ -295,12 +295,12 @@ async with ClientSession(
 
 #### Amostragem - Solicitando Assistência de IA
 
-A amostragem permite que agentes solicitem assistência de LLM para decisões complexas ou geração de conteúdo durante a execução. Isso habilita fluxos de trabalho híbridos humano-IA.
+Amostragem permite que agentes solicitem assistência do LLM para decisões complexas ou geração de conteúdo durante a execução. Isso habilita fluxos híbridos humano-IA.
 
-**Implementação do Servidor (agente solicita assistência de IA):**
+**Implementação no Servidor (agente solicita assistência de IA):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# De server/server.py - Agente de pesquisa solicitando resumo de IA
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Implementação do Cliente (host fornece callback de amostragem):**
+**Implementação no Cliente (host fornece callback de amostragem):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# De client/client.py - Cliente lidando com solicitações de amostragem
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Em uma aplicação real, isso poderia chamar uma API de LLM
+    # Para fins de demonstração, fornecemos uma resposta simulada
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Registrar o callback ao criar a sessão
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Recomeçabilidade - Continuidade de Sessão em Caso de Desconexões
+#### Retomabilidade - Continuidade de Sessão Através de Desconexões
 
-A recomeçabilidade garante que tarefas de agentes de longa duração possam sobreviver a desconexões do cliente e continuar sem interrupções na reconexão. Isso é implementado por meio de armazenamento de eventos e tokens de retomada.
+Retomabilidade garante que tarefas de agentes longos possam sobreviver a desconexões do cliente e continuar sem interrupções após reconexão. Isso é implementado via armazenamento de eventos e tokens de retomada.
 
 **Implementação do Event Store (servidor mantém estado da sessão):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# De server/event_store.py - Armazenamento de evento simples em memória
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,25 +367,40 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Reproduzir apenas eventos posteriores do fluxo original da sessão.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# De server/server.py - Passando armazenamento de evento para o gerenciador de sessão
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Criar gerenciador de sessão com armazenamento de evento para retomada
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Armazenamento de evento permite retomada de sessão
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Uso: Inicializar com armazenamento de evento
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
@@ -393,14 +408,14 @@ app = create_server_app(event_store)
 **Metadados do Cliente com Token de Retomada (cliente reconecta usando estado armazenado):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# De client/client.py - Retomada do cliente com metadados
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Use o token de retomada existente para continuar de onde paramos
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Crie uma callback para salvar o token de retomada quando recebido
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Enviar solicitação com metadados de retomada
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,7 +437,7 @@ result = await session.send_request(
 )
 ```
 
-O aplicativo host mantém IDs de sessão e tokens de retomada localmente, permitindo que ele se reconecte a sessões existentes sem perder progresso ou estado.
+A aplicação host mantém localmente IDs de sessão e tokens de retomada, permitindo que reconecte a sessões existentes sem perda de progresso ou estado.
 
 ### Organização do Código
 
@@ -432,82 +447,84 @@ O aplicativo host mantém IDs de sessão e tokens de retomada localmente, permit
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Usuário]) -->|"Tarefa"| Host["Host<br/>(Cliente MCP)"]
+    Host -->|listar ferramentas| Server[Servidor MCP]
+    Server -->|Expondo| AgentsTools[Agentes como Ferramentas]
+    AgentsTools -->|Tarefa| AgentA[Agente de Viagem]
+    AgentsTools -->|Tarefa| AgentB[Agente de Pesquisa]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Monitora| StateUpdates[Progresso & Atualizações de Estado]
+    Server -->|Publica| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
     class Host,Server,StateUpdates core;
 ```
 
-**Arquivos Principais:**
+**Arquivos Chave:**
 
-- **`server/server.py`** - Servidor MCP recomeçável com agentes de viagens e pesquisa que demonstram eliciação, amostragem e atualizações de progresso
-- **`client/client.py`** - Aplicativo host interativo com suporte a retomada, manipuladores de callback e gerenciamento de tokens
-- **`server/event_store.py`** - Implementação de Event Store que habilita retomada de sessão e reentrega de mensagens
+- **`server/server.py`** - Servidor MCP retomável com agentes de viagem e pesquisa que demonstram elicitação, amostragem e atualizações de progresso
+- **`client/client.py`** - Aplicação host interativa com suporte a retomada, manipuladores de callbacks e gerenciamento de tokens
+- **`server/event_store.py`** - Implementação do armazenamento de eventos que possibilita retomada de sessão e reenvio de mensagens
 
-## Expandindo para Comunicação Multiagente no MCP
+## Extensão para Comunicação Multiagente no MCP
 
-A implementação acima pode ser expandida para sistemas multiagentes aprimorando a inteligência e o escopo do aplicativo host:
+A implementação acima pode ser estendida para sistemas multiagente ampliando a inteligência e escopo da aplicação host:
 
-- **Decomposição Inteligente de Tarefas**: Host analisa solicitações complexas do usuário e as divide em subtarefas para diferentes agentes especializados
-- **Coordenação Multi-Servidor**: Host mantém conexões com múltiplos servidores MCP, cada um expondo diferentes capacidades de agentes
-- **Gerenciamento de Estado de Tarefas**: Host rastreia progresso entre múltiplas tarefas de agentes concorrentes, lidando com dependências e sequenciamento
-- **Resiliência e Repetições**: Host gerencia falhas, implementa lógica de repetição e redireciona tarefas quando agentes ficam indisponíveis
+- **Decomposição Inteligente de Tarefas**: Host analisa solicitações de usuário complexas e as divide em subtarefas para agentes especializados diferentes
+- **Coordenação Multi-Servidor**: Host mantém conexões com múltiplos servidores MCP, cada um oferecendo diferentes capacidades de agentes
+- **Gerenciamento de Estado de Tarefa**: Host rastreia o progresso de várias tarefas de agentes concorrentes, lidando com dependências e sequenciamento
+- **Resiliência e Repetições**: Host gerencia falhas, implementa lógica de tentativa e redireciona tarefas quando agentes ficam indisponíveis
 - **Síntese de Resultados**: Host combina saídas de múltiplos agentes em resultados finais coerentes
 
 O host evolui de um cliente simples para um orquestrador inteligente, coordenando capacidades distribuídas de agentes enquanto mantém a mesma base do protocolo MCP.
 
 ## Conclusão
 
-As capacidades aprimoradas do MCP - notificações de recursos, eliciação/amostragem, fluxos recomeçáveis e recursos persistentes - habilitam interações complexas entre agentes enquanto mantêm a simplicidade do protocolo.
+As capacidades aprimoradas do MCP - notificações de recursos, elicitação/amostragem, streams retomáveis e recursos persistentes - habilitam interações complexas agente-para-agente mantendo a simplicidade do protocolo.
 
 ## Começando
 
-Pronto para construir seu próprio sistema de comunicação entre agentes? Siga estes passos:
+Pronto para construir seu próprio sistema agent2agent? Siga estes passos:
 
 ### 1. Execute a Demonstração
 
 ```bash
-# Start the server with event store for resumption
+# Inicie o servidor com armazenamento de eventos para retomada
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Em outro terminal, execute o cliente interativo
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
 **Comandos disponíveis no modo interativo:**
 
-- `travel_agent` - Reserve viagens com confirmação de preço via eliciação
-- `research_agent` - Pesquise tópicos com resumos assistidos por IA via amostragem
-- `list` - Mostre todas as ferramentas disponíveis
-- `clean-tokens` - Limpe tokens de retomada
-- `help` - Mostre ajuda detalhada sobre comandos
-- `quit` - Saia do cliente
+- `travel_agent` - Reservar viagem com confirmação de preço via elicitação
+- `research_agent` - Pesquisar temas com resumos assistidos por IA via amostragem
+- `list` - Mostrar todas as ferramentas disponíveis
+- `clean-tokens` - Limpar tokens de retomada
+- `help` - Mostrar ajuda detalhada dos comandos
+- `quit` - Sair do cliente
 
 ### 2. Teste as Capacidades de Retomada
 
-- Inicie um agente de longa duração (por exemplo, `travel_agent`)
+- Inicie um agente de longa duração (ex: `travel_agent`)
 - Interrompa o cliente durante a execução (Ctrl+C)
-- Reinicie o cliente - ele retomará automaticamente de onde parou
+- Reinicie o cliente - ele automaticamente retomará de onde parou
 
 ### 3. Explore e Expanda
 
 - **Explore os exemplos**: Confira este [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Participe da comunidade**: Participe das discussões sobre MCP no GitHub
-- **Experimente**: Comece com uma tarefa simples de longa duração e adicione gradualmente streaming, recomeçabilidade e coordenação multiagente
+- **Participe da comunidade**: Participe das discussões MCP no GitHub
+- **Experimente**: Comece com uma tarefa simples de longa duração e gradualmente adicione streaming, retomabilidade e coordenação multiagente
 
-Isso demonstra como o MCP habilita comportamentos inteligentes de agentes enquanto mantém a simplicidade baseada em ferramentas.
+Isso demonstra como o MCP habilita comportamentos inteligentes de agente enquanto mantém a simplicidade baseada em ferramentas.
 
-No geral, a especificação do protocolo MCP está evoluindo rapidamente; o leitor é encorajado a revisar o site oficial de documentação para as atualizações mais recentes - https://modelcontextprotocol.io/introduction
+No geral, a especificação do protocolo MCP está evoluindo rapidamente; o leitor é incentivado a revisar o site oficial da documentação para as atualizações mais recentes - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte oficial. Para informações críticas, recomenda-se a tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações equivocadas decorrentes do uso desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Aviso Legal**:
+Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, por favor, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

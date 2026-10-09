@@ -1,36 +1,36 @@
-# Di way to Create Local AI Agents Using Microsoft Foundry Local and Qwen
+# How To Create Local AI Agents Wit Microsoft Foundry Local and Qwen
 
 ![Creating Local AI Agents](../../../translated_images/pcm/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Di lesson wey come before dis one increase agents go *up* inside cloud. Dis one go bring dem *down* for one machine only. By di time you finish, you go get working engineering assistant wey fit reason, call tools, read your files, and search your documentation — **no need to make one single cloud inference call.**
+Di previous lesson scale all di agents *up* go cloud. Dis one dey bring dem *down* go single machine. By di time you finish, you go get one working engineering assistant wey go reason, call tools, read your files, and search your documentation — **without make one single cloud inference call.**
 
-Why you go wan do like dis? Three reasons wey dem always show for real engineering work:
+Why you go want am? Three reasons wey dey come up anyhow for real engineering work:
 
-- **Privacy.** Code and documents no ever comot from di machine. No prompt, no snippet, no customer data dey waka pass di network boundary.
-- **Cost.** Local inference no get per-token bill. You fit test am all day for price wey na electric cost be dat.
-- **Offline.** For plane, for secured place, or when network down, di agent still dey work.
+- **Privacy.** Di code and documents no go comot from di machine. No prompt, no snippet, no customer data no go cross di network boundary.
+- **Cost.** Local inference no get per-token charge. You fit dey try all day for just di price of electricity.
+- **Offline.** For plane, for secure place, or during power outage, di agent still go work.
 
-Di wahala be say you dey trade frontier cloud model for **Small Language Model (SLM)** wey dey run for your CPU, GPU, or NPU. Dis lesson na about how to build agents wey *good* for dat kain limitation, no be like say di limitation no dey.
+Di problem be say you dey exchange one frontier cloud model for **Small Language Model (SLM)** wey dey run on your CPU, GPU, or NPU. Dis lesson na about to build agents wey go *good* inside dat kind limit instead of to pretend say di limit no dey.
 
 ## Introduction
 
-Dis lesson go talk about:
+Dis lesson go cover:
 
-- **Small Language Models (SLMs)** — wetin dem be, where dem sabi work well, and where dem no too sabi.
-- **Microsoft Foundry Local** — runtime wey go download and serve models for device through **OpenAI-compatible API**.
-- **Qwen function-calling models** — SLMs wey fit produce tools calls well well, na wetin fit make local *agents* possible (no na only local chat).
-- **Local tools, local RAG, and local MCP** — to give agent power without cloud.
-- **Hybrid patterns** — when to keep things local and when to use cloud.
+- **Small Language Models (SLMs)** — wetin dem be, where dem good, and where dem no good.
+- **Microsoft Foundry Local** — one runtime wey dey download and serve models for inside your device through **OpenAI-compatible API**.
+- **Qwen function-calling models** — SLMs wey sabi produce tool calls well well, na wetin make local *agents* (no be only local chat) possible.
+- **Local tools, local RAG, and local MCP** — give agent ability without cloud.
+- **Hybrid patterns** — when to keep tins local and when to use cloud.
 
 ## Learning Goals
 
 After you finish dis lesson, you go sabi how to:
 
-- Talk di trade-offs of SLMs and choose correct local-agent use cases.
-- Serve one Qwen model locally with Foundry Local and connect to am through OpenAI-compatible endpoint.
-- Build tool-calling agent wey dey run completely for your workstation.
-- Add local RAG on top your own documents using local vector database (Chroma).
-- Connect agent to local MCP server and reason about hybrid local/cloud design.
+- Explain di trade-offs of SLMs and choose correct local-agent cases.
+- Serve Qwen model locally wit Foundry Local and connect am via OpenAI-compatible endpoint.
+- Build tool-calling agent wey dey run fully on your workstation.
+- Add local RAG over your own documents using local vector database (Chroma).
+- Connect agent to local MCP server and reason about hybrid local/cloud designs.
 
 ## Prerequisites
 
@@ -38,77 +38,77 @@ Dis lesson assume say you don finish di earlier lessons and you sabi:
 
 - [Tool Use](../04-tool-use/README.md) (Lesson 4) and [Agentic RAG](../05-agentic-rag/README.md) (Lesson 5).
 - [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lesson 11).
-- Di [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lesson 14).
+- The [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lesson 14).
 
 You go also need:
 
-- Developer workstation. **8 GB RAM na minimum wey make sense**; 16 GB+ na beta. GPU or NPU dey help but no be must.
-- **Microsoft Foundry Local** install finish (check di setup section below).
-- Python 3.12+ and di packages for di repo [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai`, and `chromadb` for dis lesson.
+- Developer workstation. **8 GB RAM na minimum wey make sense**; 16 GB+ better. GPU or NPU go help but e no be must.
+- **Microsoft Foundry Local** installed (check setup section below).
+- Python 3.12+ and packages for this repo [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai`, and `chromadb`.
 
-## Small Language Models: Wetin Good For Local Work
+## Small Language Models: Di Correct Tool for Local Work
 
-Frontier cloud model get hundreds billions parameters and big data centre behind am. SLM get small small billions parameters and e for fit for laptop RAM. Dis difference dey set clear expectation.
+One frontier cloud model get hundreds of billions parameters and e get one big data centre behind am. SLM get small billion parameters and e for fit your laptop RAM. Dis difference dey set correct expectation.
 
 **SLMs good for:**
 
-- Structured, bounded task — classification, extraction, summarisation of known document.
-- **Tool calling** — to sabi which function to call and wetin to call am with.
-- Fast, cheap, private iteration on your own data.
+- Structured, bounded tasks — classification, extraction, summarisation of known document.
+- **Tool calling** — sabi which function to call and with which arguments.
+- Quick, cheap, private iteration on your own data.
 
-**SLMs weak for:**
+**SLMs no too strong for:**
 
-- Open-ended, multi-hop reasoning across big context.
-- Broad world knowledge (dem never see plenty, and dem dey forget more).
+- Open-ended, multi-hop reasoning for big context.
+- Broad world knowledge (dem no sabi plenty, and dem dey forget more).
 
-Best strategy for local agents be say: **make SLM dey orchestrate, and make tools do heavy work.** Model no need to *know* your codebase — e need to sabi when to call `read_file` and `search_docs`. Na wetin SLM dey good for.
+Di best way for local agents na: **make SLM dey control, tools dey carry heavy work.** Di model no need to *know* your codebase — e need sabi when to call `read_file` and `search_docs`. Na wetin SLM good for.
 
 ```mermaid
 flowchart LR
     U[Developer] --> A[Local SLM Agent]
-    A -->|dey decide which tool| T1[read_file]
-    A -->|dey decide which tool| T2[search_docs RAG]
-    A -->|dey decide which tool| T3[analyze_code]
+    A -->|dey choose which tool| T1[read_file]
+    A -->|dey choose which tool| T2[search_docs RAG]
+    A -->|dey choose which tool| T3[analyze_code]
     T1 --> A
     T2 --> A
     T3 --> A
-    A --> R[Answer, all na for device]
+    A --> R[Answer, fully on-device]
 ```
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** na light runtime wey go download, manage, and serve models fully on your machine. Wetin dey important for us be say e dey expose **OpenAI-compatible HTTP endpoint** — so OpenAI SDK and Microsoft Agent Framework's OpenAI client fit work with am by just changing `base_url`. Everything wey you learn about building agents fit transfer; only endpoint go change from cloud to `localhost`.
+**Microsoft Foundry Local** na lightweight runtime wey dey download, manage, and serve models fully on your machine. Wetin important for us na say e get **OpenAI-compatible HTTP endpoint** — dat one mean OpenAI SDK and Microsoft Agent Framework's OpenAI client fit work for am by just changing `base_url`. Wetin you don learn on how to build agents, e fit work same way; na only di endpoint go move from cloud go `localhost`.
 
-Foundry Local dey pick best model build for your hardware automatically — CPU build, CUDA/GPU build, or NPU build — so you no go need to hand-optimize per machine.
+Foundry Local go select di best build of model for your hardware automatically — CPU build, CUDA/GPU build, or NPU build — no need to hand-optimize for each machine.
 
 ### Setup
 
-Install Foundry Local (check di [documentation](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) for your OS), then check say e dey work:
+Install Foundry Local (check [documentation](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) for your OS), then confirm say e dey work:
 
 ```bash
-# Install (example; follow the docs for your platform)
+# Install (for example; follow di docs for your platform)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
-# Download and run Qwen model, den start the local service
+# Download an run one Qwen model, den start di local service
 foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Once service start, you get local OpenAI-compatible endpoint (usually `http://localhost:PORT/v1`). Notebook dey use `foundry-local-sdk` to find endpoint automatically, so you no need to hard-code port.
+Once di service dey run you get local OpenAI-compatible endpoint (normally `http://localhost:PORT/v1`). Di notebook dey use `foundry-local-sdk` to find di endpoint automatically, so you no need hard-code di port.
 
-## Qwen Function Calling: Why E Important
+## Qwen Function Calling: Why E Dey Important
 
-Agent na agent if e fit call tools. Plenty SLM fit chat but dem dey produce wahala, bad tool call. **Qwen** models train for function calling and e dey produce well-formed tool-call structure steady — na wetin go turn local chat model to local *agent*.
+Agent na agent only if e fit call tools. Plenti SLMs fit chat but dem no fit produce reliable, correct tool calls. **Qwen** models train to do function calling well and dem dey produce correct tool call structures steady — na wetin turn local chat model to local *agent*.
 
-Di workflow na di normal tool-calling loop wey you sabi, just say e dey run on-device:
+Di flow na di normal tool-calling loop wey you sabi, but e dey run for inside device:
 
 ```mermaid
 sequenceDiagram
     participant U as User
     participant A as Qwen Agent (local)
     participant T as Local Tool
-    U->>A: "Wetyn auth.py dey do?"
+    U->>A: "Wetín auth.py dey do?"
     A->>A: Decide: call read_file
     A->>T: read_file("auth.py")
     T-->>A: file contents
@@ -118,46 +118,46 @@ sequenceDiagram
 
 ## Local RAG
 
-Documentation search na wetin local agents dey use shine. Instead of hoping say SLM remember your framework docs, you go embed those docs inside **local vector database** and make agent fit find correct chunks anytime e need am.
+Documentation search na where local agents show their work. Instead of hope say di SLM don memorize your framework docs, you go embed docs for **local vector database** and make agent retrieve correct parts anytime e need am.
 
-We dey use **Chroma**, embedded vector store wey run for process without server. Di whole pipeline na local: local embedding model → local vectors → local retrieval → local SLM.
+We dey use **Chroma**, one embedded vector store wey dey run inside process with no server. Di pipeline na local: local embedding model → local vectors → local retrieval → local SLM.
 
 ```mermaid
 flowchart TB
     D[Your docs / code] --> E[Local embedding model]
-    E --> V[(Chroma vector DB - for disk)]
-    Q[Agent question] --> QE[Embed question for local]
+    E --> V[(Chroma vector DB - on disk)]
+    Q[Agent query] --> QE[Embed query locally]
     QE --> V
-    V -->|top-k pieces| A[Qwen agent]
+    V -->|top-k chunks| A[Qwen agent]
     A --> Ans[Grounded answer]
 ```
 
-Dis na di same Agentic RAG pattern from Lesson 5 — only change be say all components dey run for your machine.
+Dis na di same Agentic RAG pattern from Lesson 5 — only difference na say every part dey run on your machine.
 
 ## Local MCP Servers
 
-[MCP](../11-agentic-protocols/README.md) na transport no be cloud service. MCP server fit run as local process on `stdio`, make tools open to your agent using standard protocol. Dis one make you fit reuse growing MCP server ecosystem — filesystem access, git operations, database queries — all offline.
+[MCP](../11-agentic-protocols/README.md) no be cloud service, na transport. MCP server fit run as local process on `stdio`, expose tools to your agent with standard protocol. E make you fit reuse di plenti MCP servers — filesystem access, git operations, database queries — fully offline.
 
-Security stance different from cloud but still dey: local MCP server dey run with your user permissions, so limit wetin e fit touch (like one project directory no be your whole home folder) and treat outputs as inputs to validate.
+Security no be like cloud, but e no mean say e no get security: local MCP server dey run with your user permission, so limit wetin e fit touch (for example, only project directory, no be your whole home folder) and always check outputs before make use.
 
 ## Hybrid Cloud-and-Local Patterns
 
-Local-first no mean say na only local. Mature system dey route by sensitivity and difficulty:
+Local first no mean na only local. Mature systems go select path based on sensitivity and difficulty:
 
 | Situation | Where e go run |
 | --- | --- |
 | Sensitive code/data or offline | **Local SLM** |
 | Simple, bounded task | **Local SLM** (cheap, fast) |
 | Hard multi-hop reasoning on non-sensitive data | **Cloud model** |
-| Everything, during outage | **Local SLM** (graceful degradation) |
+| Everything during outage | **Local SLM** (graceful degradation) |
 
-Dis one resemble di **model routing** idea from Lesson 16 — except now one of di "models" na your own machine. Good design dey fallback to local when cloud no dey, so agent dey reduce in quality, no fail completely.
+Dis dey similar to **model routing** idea from Lesson 16 — only difference na one of di "models" na your own machine. Good design go fallback to local when cloud no dey, so agent no go fail but e go just reduce quality small.
 
 ```mermaid
 flowchart LR
     Q[Request] --> S{Sensitive or offline?}
     S -->|yes| L[Local SLM]
-    S -->|no| C{Need deep reason?}
+    S -->|no| C{Need deep tink?}
     C -->|no| L
     C -->|yes| Cloud[Cloud model]
     L --> Out[Response]
@@ -166,30 +166,30 @@ flowchart LR
 
 ## Hands-On Lab: Local Engineering Assistant
 
-Open [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) and work through am. You go build **local engineering assistant** wey go run completely on your workstation and fit:
+Open [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) and follow am. You go build **local engineering assistant** wey go run fully on your workstation and e fit:
 
-1. **Call tools** — via Qwen function call through Foundry Local.
-2. **Do local file operations** — list and read files for project directory.
-3. **Analyse code** — report basic metrics for source file.
-4. **Search documentation** — local RAG on docs folder with Chroma.
-5. **Use MCP** — connect to local MCP server (go skip gracefully if none dey configured).
+1. **Call tools** — via Qwen function calling through Foundry Local.
+2. **Perform local file operations** — list and read project directory files.
+3. **Analyse code** — report basic metrics on source file.
+4. **Search documentation** — local RAG over docs folder with Chroma.
+5. **Use MCP** — connect to local MCP server (skip gracefully if no server configured).
 
-No cloud inference dey used at all.
+No cloud inference dey anywhere.
 
 ### Walkthrough
 
-Agent go connect to Foundry Local using OpenAI-compatible endpoint, so agent code look almost the same as cloud lessons — only client change:
+Agent connect to Foundry Local via OpenAI-compatible endpoint, so di agent code close to cloud lesson code — na client part change:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local dey find/download di model and e give us one local endpoint.
+# Foundry Local sabi/find di model and e give us local endpoint.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
 client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key na local placeholder.
 ```
 
-Tools na normal Python functions scoped to project directory:
+Tools na normal Python functions wey scoped to project directory:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,107 +200,107 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Note sandy sandbox check — even locally, tool wey go read any path fit cause wahala. Notebook keep tools scoped to one project root.
+Remember sandbox check — even for local, tool wey read random path fit cause wahala. Di notebook keep every tool scoped to one project root.
 
 ## Knowledge Check
 
-Test yourself before you move to assignment.
+Test yourself before you go to assignment.
 
-**1. Give two concrete reasons to run agent locally insted for cloud.**
+**1. Give me two real reasons to run agent locally instead of for cloud.**
 
 <details>
 <summary>Answer</summary>
 
-Any two of: **privacy** (code and data no ever leave machine), **cost** (no per-token inference bill), and **offline capability** (e fit work without network — for plane, for secure place, or during outage). Regulatory/compliance wey no allow sending data off-device na big reason for privacy.
+Any two: **privacy** (code and data no comot machine), **cost** (no charge per-token), and **offline** (work with no network — for plane, for secure place, or during outage). Regulatory rules wey forbid sending data outside device dey push privacy reason.
 </details>
 
-**2. Wetin di recommended division of work between SLM and e tools for local agent be, and why?**
+**2. How dem recommend to divide work between SLM and tools for local agent, and why?**
 
 <details>
 <summary>Answer</summary>
 
-Make SLM **orchestrate** (decide which tool to call and wetin to use as argument) and make **tools do heavy lifting** (read files, retrieve docs, compute results). SLM strong for bounded decisions like tool choice but weak for broad knowledge and long multi-hop reason, so depend on tools na im make am strong.
+Make SLM **orchestrate** (decide tool to call with which args) and tools do **heavy lifting** (read files, find docs, compute). SLM strong for bounded decision like tool selection but weak for broad knowledge and long reasoning. Leaning on tools na plus for dem.
 </details>
 
-**3. Wetin make am possible to reuse cloud agent code with Foundry Local?**
+**3. Wetin make you fit reuse cloud agent code with Foundry Local?**
 
 <details>
 <summary>Answer</summary>
 
-Foundry Local dey expose **OpenAI-compatible HTTP endpoint**. OpenAI SDK and Agent Framework OpenAI client fit work with am just by changing `base_url` (using local placeholder API key). All other agent code no change.
+Foundry Local get **OpenAI-compatible HTTP endpoint**. OpenAI SDK and Agent Framework client fit work with am by only changing `base_url` (plus local API key). Everything else remain di same.
 </details>
 
-**4. Why we use Qwen function-calling model and no just any other SLM?**
+**4. Why you choose Qwen function-calling model and no any SLM?**
 
 <details>
 <summary>Answer</summary>
 
-Because agent must produce reliable, well-formed **tool calls**. Plenty SLMs fit chat but dem go produce malformed or inconsistent tool calls. Qwen models dey train for function calling, e dey produce consistent tool calls, na wetin turn local chat model to working local agent.
+Because agent must produce reliable, well-formed **tool calls**. Many SLMs fit chat but dem produce bad or inconsistent tool calls. Qwen models train for function calling and produce steady tool calls, na wetin turn local chat model to real local agent.
 </details>
 
-**5. For local RAG pipeline, which components dey run for machine?**
+**5. For local RAG pipeline, which parts run for machine?**
 
 <details>
 <summary>Answer</summary>
 
-All of dem: embedding model, vector database (Chroma, on disk), retrieval step, and SLM. Documents embed locally, store locally, retrieve locally, reason locally — no part touch cloud.
+All of dem: embedding model, vector database (Chroma on disk), retrieval step, and SLM. Documents embed locally, store locally, retrieve locally, reason locally — no cloud touch anything.
 </details>
 
-**6. Local MCP server dey run on your machine. That one make am automatically safe? Wetin you still fit do?**
+**6. Local MCP server dey run for your machine. E mean say e automatic safe? Wetin you still go do to stay safe?**
 
 <details>
 <summary>Answer</summary>
 
-No. Local MCP server dey run with your user permissions, so e fit reach anything wey you fit reach. Limit wetin e fit do (like one project directory no be everywhere for your home folder) and treat all e produce as inputs to check before you use am.
+No. Local MCP server dey run with your user permission, so e fit touch anything you fit touch. Limit am to wetin e needs (like one project folder instead of whole home folder) and always test outputs before use.
 </details>
 
-**7. Talk how sensible hybrid routing rule wey get local model go be.**
+**7. Talk one correct hybrid routing rule wey include local model?**
 
 <details>
 <summary>Answer</summary>
 
-Send sensitive or offline requests go local SLM; send simple bounded task go local SLM for speed and cost; send hard multi-hop reasoning for non-sensitive data go cloud model; fallback to local SLM if cloud no dey make agent degrade gracefully no fail. Na di model routing (Lesson 16) but one model be your own machine.
+Route sensitive/offline requests go local SLM; simple bounded tasks go local SLM for speed and cost; hard multi-hop reasoning for non-sensitive data go cloud model; fallback to local SLM if cloud no dey so agent no fail but reduce quality. Na model routing (Lesson 16) wit local machine as one of di models.
 </details>
 
-**8. Wetin realistic minimum RAM e need to run local agent for dis lesson? Wetin more RAM fit help you do?**
+**8. Na how many minimum RAM wey dey realistic to run local agent for dis lesson, and wetin more RAM fit give you?**
 
 <details>
 <summary>Answer</summary>
 
-About **8 GB** na minimum; 16 GB+ beta. More RAM fit make you run bigger, better models and keep more context memory. GPU or NPU fit speed inference but no mandatory — Foundry Local go choose CPU build if no accelerator dey.
+Around **8 GB** minimum realistic; 16 GB+ comfortable. More RAM fit run bigger, better models and keep more context inside memory. GPU or NPU fit speed inference but e no be must — Foundry Local go pick CPU build if no accelerator dey.
 </details>
 
 ## Assignment
 
-Extend your local engineering assistant to become **local documentation reviewer** for small project of your choice (you fit use one of dis repo lesson folders).
+Extend local engineering assistant to be **local documentation reviewer** for small project wey you choose (fit use one of dis repo lesson folders).
 
-Your task suppose be:
+Your submission suppose:
 
-1. **Index real docs/code folder** inside Chroma (make sure at least five files).
-2. **Add `find_todos` tool** wey go scan project for `TODO`/`FIXME` comments and return dem with file and line number — keep same sandbox check as `read_file`.
+1. **Index real docs/code folder** into Chroma (at least five files).
+2. **Add `find_todos` tool** wey go scan project for `TODO`/`FIXME` comments and return dem with file and line number — also keep sandbox check same as `read_file`.
 
-3. **Ask di agent tri kwestin** wey go make am kombin tool dem: one pure RAG kwestin, one wey go need to read spesifik file, and one wey go need find TODOs.
-4. **Tok am time**: time each of di tri ansa dem and note dem down inside markdown cell. Talk if di latency dey okay for di workflow wey you wan use am.
+3. **Ask di agent three questions** wey go make am join tools: one pure RAG question, one wey need to read one specific file, plus one wey need to find TODOs.
+4. **Measure am**: time each of di three answers dem and write dem down for one markdown cell. Talk whether di latency dey okay for di workflow wey you wan use.
 
-Den write small paragraph on **wetin you go put for cloud and wetin you go keep local** for dis reviewer, and why. Di way dem go check you na if di local components dey connect well together and if your hybrid reasoning correct — no be di quality of di model dem.
+Den write one short paragraph about **wetin you go move go cloud and wetin you go keep local** for dis reviewer, plus why. Dem go check if di local parts tie together well and if your hybrid reasoning correct — no be about model quality.
 
 ## Summary
 
-For dis lesson you build agent wey go run full inside your own machine:
+For dis lesson you build one agent wey dey run fully for your own machine:
 
-- **SLMs** dey trade wide knowledge for privacy, cost, and offline operation — and dem dey shine when dem **orchestrate tools** instead make dem carry all knowledge by themselves.
-- **Foundry Local** dey serve models inside device behind **OpenAI-compatible endpoint**, so your cloud agent code fit move with only one line change.
-- **Qwen function-calling models** make local tool calling wey you fit trust — and so local *agents* — possible.
-- **Local RAG** (Chroma) and **local MCP** dey give agent power without make am comot machine.
-- **Hybrid patterns** dey allow you to route by sensibility and difficulty, with local as better fallback.
+- **SLMs** dey trade wide reach for privacy, cost, plus offline work — and dem dey shine when dem **orchestrate tools** instead of carry all di knowledge their self.
+- **Foundry Local** dey serve models for device inside one **OpenAI-compatible endpoint**, so your cloud agent code fit transfer with only one-line change.
+- **Qwen function-calling models** dey make local tool calling sure — and as a result local *agents* — possible.
+- **Local RAG** (Chroma) plus **local MCP** dey give di agent power without to leave di machine.
+- **Hybrid patterns** dey let you route based on sensitivity and difficulty, with local as one correct fallback.
 
-Dis one dey finish deployment chapter: Lesson 16 scale agents up inside Microsoft Foundry, and dis lesson scale dem down to one single workstation. Di next lesson go talk about how to keep deployed agents secure.
+Dis one complete di deployment journey: Lesson 16 scale agents up go Microsoft Foundry, and dis lesson scale am down for one single workstation. Di next lesson go show how to keep deployed agents safe.
 
 ## Additional Resources
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local documentation</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry documentation</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen function calling documentation</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma vector database</a>

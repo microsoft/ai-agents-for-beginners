@@ -453,7 +453,6 @@ O-Serie-Modelle haben bei der Migration zur Responses API einzigartige Parameter
 
 | Chat Completions (O-Serie) | Responses API | Anmerkungen |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | Setze hoch (4096+) — Begründungs-Token zählen zum Limit |
 | `reasoning_effort` | `reasoning.effort` | Bei Vorhandensein unverändert lassen (niedrig/mittel/hoch) |
 | `temperature` | Entfernen oder auf `1` setzen | O-Serie akzeptiert nur `1` |

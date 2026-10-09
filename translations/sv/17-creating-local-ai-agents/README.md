@@ -1,74 +1,74 @@
-# Skapa Lokala AI-agenter med Microsoft Foundry Local och Qwen
+# Skapa Lokala AI-Agenter med Microsoft Foundry Local och Qwen
 
-![Skapa Lokala AI-agenter](../../../translated_images/sv/lesson-17-thumbnail.f86434c595a408fc.webp)
+![Skapa Lokala AI-Agenter](../../../translated_images/sv/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Den föregående lektionen skalerade agenter *upp* till molnet. Den här tar dem *ner* till en enda maskin. I slutet kommer du att ha en fungerande ingenjörsassistent som resonerar, anropar verktyg, läser dina filer och söker i din dokumentation — **utan ett enda molninferensanrop.**
+Föregående lektion skalade upp agenter till molnet. Den här tar dem ner till en enskild maskin. I slutet kommer du att ha en fungerande ingenjörsassistent som resonerar, anropar verktyg, läser dina filer och söker i din dokumentation — **utan ett enda molninferens-anrop.**
 
-Varför skulle du vilja det? Tre anledningar som ständigt dyker upp i verkligt ingenjörsarbete:
+Varför skulle du vilja det? Tre skäl som ständigt dyker upp i verkligt ingenjörsarbete:
 
-- **Sekretess.** Koden och dokumenten lämnar aldrig maskinen. Inga promptar, inga kodsnuttar, inga kunddata korsar nätverksgränsen.
-- **Kostnad.** Lokal inferens har ingen kostnad per token. Du kan iterera hela dagen till priset av elektricitet.
-- **Offline.** På ett plan, i en säker anläggning eller under ett avbrott, fungerar agenten fortfarande.
+- **Integritet.** Koden och dokumenten lämnar aldrig maskinen. Ingen prompt, inget utdrag, inga kunddata korsar nätverksgränsen.
+- **Kostnad.** Lokal inferens har ingen debitering per token. Du kan iterera hela dagen till priset av el.
+- **Offline.** På ett flygplan, i en säker anläggning eller vid ett avbrott fungerar agenten fortfarande.
 
-Nackdelen är att du byter ut en topprankad molnmodell mot en **Small Language Model (SLM)** som körs på din CPU, GPU eller NPU. Den här lektionen handlar om att bygga agenter som är *bra* inom denna begränsning snarare än att låtsas att begränsningen inte finns.
+Fångsten är att du byter ut en framkantens molnmodell mot en **Small Language Model (SLM)** som körs på din CPU, GPU eller NPU. Den här lektionen handlar om att bygga agenter som är *bra* inom denna begränsning istället för att låtsas som att begränsningen inte finns.
 
 ## Introduktion
 
 Den här lektionen kommer att täcka:
 
-- **Small Language Models (SLM)** — vad de är, var de utmärker sig och var de inte gör det.
-- **Microsoft Foundry Local** — en runtime som laddar ner och serverar modeller på enheten via ett **OpenAI-kompatibelt API**.
-- **Qwen-funktionsanropande modeller** — SLM som pålitligt producerar verktygsanrop, vilket är vad som gör lokala *agenter* (inte bara lokal chatt) möjliga.
+- **Small Language Models (SLMs)** — vad de är, var de skiner och var de inte gör det.
+- **Microsoft Foundry Local** — en runtime som laddar ner och tillhandahåller modeller på enheten via ett **OpenAI-kompatibelt API**.
+- **Qwen funktionsanropsmodeller** — SLM:er som pålitligt producerar verktygsanrop, vilket är vad som gör lokala *agenter* (inte bara lokal chatt) möjliga.
 - **Lokala verktyg, lokal RAG och lokal MCP** — ger agenten kapacitet utan molnet.
-- **Hybrida mönster** — när saker ska hållas lokala och när man ska nå ut till molnet.
+- **Hybridmönster** — när man ska hålla saker lokalt och när man ska använda molnet.
 
 ## Lärandemål
 
-Efter att ha genomfört denna lektion kommer du att kunna:
+Efter att ha genomfört den här lektionen kommer du att kunna:
 
-- Förklara kompromisserna med SLM och välja lämpliga användningsfall för lokala agenter.
-- Servera en Qwen-modell lokalt med Foundry Local och ansluta till den via det OpenAI-kompatibla slutpunkten.
-- Bygga en verktygsanropande agent som helt körs på din arbetsstation.
-- Lägg till lokal RAG över dina egna dokument med en lokal vektordatabas (Chroma).
-- Anslut agenten till en lokal MCP-server och resonera om hybrida lokal/moln-designs.
+- Förklara avvägningarna med SLM:er och välja lämpliga användningsfall för lokala agenter.
+- Tillhandahålla en Qwen-modell lokalt med Foundry Local och ansluta till den via det OpenAI-kompatibla slutpunkten.
+- Bygga en verktygsanropande agent som körs helt på din arbetsstation.
+- Lägga till lokal RAG över dina egna dokument med hjälp av en lokal vektordatabas (Chroma).
+- Ansluta agenten till en lokal MCP-server och resonera om hybrida lokala/molnbaserade designer.
 
-## Förkunskapskrav
+## Förkunskaper
 
-Den här lektionen förutsätter att du har genomfört tidigare lektioner och är bekväm med:
+Den här lektionen förutsätter att du har slutfört tidigare lektioner och är bekväm med:
 
 - [Verktygsanvändning](../04-tool-use/README.md) (Lektion 4) och [Agentic RAG](../05-agentic-rag/README.md) (Lektion 5).
-- [Agentiska Protokoll / MCP](../11-agentic-protocols/README.md) (Lektion 11).
+- [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lektion 11).
 - [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lektion 14).
 
 Du behöver också:
 
 - En utvecklararbetsstation. **8 GB RAM är en realistisk minimum**; 16 GB+ är bekvämt. En GPU eller NPU hjälper men krävs inte.
-- **Microsoft Foundry Local** installerad (se installationsavsnittet nedan).
-- Python 3.12+ och paketen i förvaret [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` och `chromadb` för denna lektion.
+- **Microsoft Foundry Local** installerat (se installationsavsnittet nedan).
+- Python 3.12+ och paketen i repositoryt [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` och `chromadb` för denna lektion.
 
-## Small Language Models: Rätt verktyg för lokalt arbete
+## Small Language Models: Det rätta verktyget för lokal arbetsbelastning
 
-En topprankad molnmodell har hundratals miljarder parametrar och ett datacenter bakom sig. En SLM har några få miljarder parametrar och måste rymmas i din laptops RAM. Den skillnaden sätter tydliga förväntningar.
+En framkantens molnmodell har hundratals miljarder parametrar och ett datacenter bakom sig. En SLM har några miljarder parametrar och måste rymmas i din laptopens RAM. Den skillnaden sätter tydliga förväntningar.
 
-**SLM är bra på:**
+**SLM:er är bra på:**
 
 - Strukturerade, avgränsade uppgifter — klassificering, extraktion, sammanfattning av ett känt dokument.
-- **Verktygsanrop** — besluta vilket funktion som ska anropas och med vilka argument.
+- **Verktygsanrop** — att avgöra vilken funktion som ska anropas och med vilka argument.
 - Snabb, billig, privat iteration på dina egna data.
 
-**SLM är svagare på:**
+**SLM:er är svagare på:**
 
-- Öppen, flerstegsresonemang över stor kontext.
-- Brett världskunskap (de har sett mindre och glömmer mer).
+- Öppna, flerstegsresonemang över stor kontext.
+- Bred världskunskap (de har sett mindre och glömmer mer).
 
-Den vinnande strategin för lokala agenter är alltså: **låt SLM orkestrera och låt verktyg göra tyngre lyft.** Modellen behöver inte *känna till* din kodbas — den behöver veta när den ska anropa `read_file` och `search_docs`. Det spelar direkt på en SLM:s styrkor.
+Den vinnande strategin för lokala agenter är därför: **låt SLM:en orkestrera, och låt verktygen ta det tunga jobbet.** Modellen behöver inte *känna till* din kodbas — den behöver veta när den ska anropa `read_file` och `search_docs`. Det spelar direkt till en SLM:s styrkor.
 
 ```mermaid
 flowchart LR
     U[Utvecklare] --> A[Lokal SLM-agent]
-    A -->|bestämmer vilket verktyg| T1[läs_fil]
-    A -->|bestämmer vilket verktyg| T2[sök_dokument RAG]
-    A -->|bestämmer vilket verktyg| T3[analysera_kod]
+    A -->|bestämmer vilket verktyg| T1[read_file]
+    A -->|bestämmer vilket verktyg| T2[search_docs RAG]
+    A -->|bestämmer vilket verktyg| T3[analyze_code]
     T1 --> A
     T2 --> A
     T3 --> A
@@ -77,13 +77,13 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** är en lättviktig runtime som laddar ner, hanterar och serverar modeller helt på din maskin. Dess viktigaste funktion för oss är att den exponerar en **OpenAI-kompatibel HTTP-slutpunkt** — vilket betyder att OpenAI SDK och Microsoft Agent Frameworks OpenAI-klient fungerar med den med bara en ändring av `base_url`. Allt du lärt dig om att bygga agenter överförs direkt; bara slutpunkten flyttas från molnet till `localhost`.
+**Microsoft Foundry Local** är en lättviktsruntime som laddar ner, hanterar och tillhandahåller modeller helt på din maskin. Dess viktigaste funktion för oss är att den exponerar en **OpenAI-kompatibel HTTP-slutpunkt** — vilket betyder att OpenAI SDK och Microsoft Agent Frameworks OpenAI-klient fungerar mot den med enbart en ändring av `base_url`. Allt du lärt dig om att bygga agenter överförs direkt; bara slutpunkten flyttas från molnet till `localhost`.
 
-Foundry Local väljer också automatiskt den bästa bygget för en modell för din hårdvara — en CPU-build, en CUDA/GPU-build eller en NPU-build — så du behöver inte optimera manuellt per maskin.
+Foundry Local väljer också automatiskt den bästa byggnaden av en modell för din hårdvara — en CPU-byggnad, en CUDA/GPU-byggnad eller en NPU-byggnad — så du slipper optimera för varje maskin manuellt.
 
 ### Installation
 
-Installera Foundry Local (se [dokumentationen](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) för ditt OS), och kontrollera sedan att det fungerar:
+Installera Foundry Local (se [dokumentationen](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) för ditt OS), och bekräfta att det fungerar:
 
 ```bash
 # Installera (exempel; följ dokumentationen för din plattform)
@@ -99,80 +99,80 @@ När tjänsten körs har du en lokal, OpenAI-kompatibel slutpunkt (vanligtvis `h
 
 ## Qwen Funktionsanrop: Varför det är viktigt
 
-En agent är bara en agent om den kan anropa verktyg. Många SLM kan chatta men producerar opålitliga, felaktigt formade verktygsanrop. **Qwen**-modeller tränas för funktionsanrop och genererar konsekvent välformade verktygsanropsstrukturer — vilket är precis vad som gör en lokal chattmodell till en lokal *agent*.
+En agent är bara en agent om den kan anropa verktyg. Många SLM:er kan chatta men producerar opålitliga, felaktigt formade verktygsanrop. **Qwen**-modeller tränas för funktionsanrop och genererar konsekvent välformade verktygsanropsstrukturer — vilket är exakt vad som omvandlar en lokal chattmodell till en lokal *agent*.
 
-Flödet är den standardiserade verktygsanropsloopen du redan känner till, men körs på enheten:
+Flödet är den vanliga verktygsanrops-loopen som du redan känner till, bara att den körs på enheten:
 
 ```mermaid
 sequenceDiagram
     participant U as Användare
-    participant A as Qwen-Agent (lokal)
-    participant T as Lokalt verktyg
+    participant A as Qwen-agent (lokal)
+    participant T as Lokal verktyg
     U->>A: "Vad gör auth.py?"
-    A->>A: Bestäm: anropa read_file
+    A->>A: Besluta: kalla read_file
     A->>T: read_file("auth.py")
     T-->>A: filinnehåll
-    A->>A: Resonerar över innehåll
+    A->>A: Resonera över innehållet
     A-->>U: Förklaring
 ```
 
 ## Lokal RAG
 
-Dokumentationssökning är där lokala agenter verkligen gör skillnad. Istället för att hoppas att SLM memorerat din ramverksdokumentation bäddar du in dessa dokument i en **lokal vektordatabas** och låter agenten hämta relevanta delar vid behov.
+Dokumentationssökning är där lokala agenter gör nytta. Istället för att hoppas att SLM:en memorerat ditt ramverks dokumentation, bäddar du in dessa dokument i en **lokal vektordatabas** och låter agenten hämta relevanta delar vid behov.
 
-Vi använder **Chroma**, en inbäddad vektordatabas som körs i processen utan någon server att hantera. Pipeline är helt lokal: lokal inbäddningsmodell → lokala vektorer → lokal hämtning → lokal SLM.
+Vi använder **Chroma**, en inbäddad vektorbutik som körs i processen utan någon server att hantera. Pipen är helt lokal: lokal inbäddningsmodell → lokala vektorer → lokal hämtning → lokal SLM.
 
 ```mermaid
 flowchart TB
     D[Dina dokument / kod] --> E[Lokal inbäddningsmodell]
-    E --> V[(Chroma vektor DB - på disk)]
+    E --> V[(Chroma vektordatabas - på disk)]
     Q[Agentfråga] --> QE[Bädda in fråga lokalt]
     QE --> V
-    V -->|top-k segment| A[Qwen agent]
+    V -->|topp-k delar| A[Qwen-agent]
     A --> Ans[Grundat svar]
 ```
 
-Detta är samma Agentic RAG-mönster från Lektion 5 — enda skillnaden är att varje komponent körs på din maskin.
+Detta är samma Agentic RAG-mönster som i Lektion 5 — enda skillnaden är att varje komponent körs på din maskin.
 
-## Lokala MCP-servrar
+## Lokala MCP-Servrar
 
-[MCP](../11-agentic-protocols/README.md) är en transport, inte en molntjänst. En MCP-server kan köras som en lokal process på `stdio`, vilket exponerar verktyg till din agent över standardprotokollet. Detta låter dig återanvända det växande ekosystemet av MCP-servrar — filsystemåtkomst, git-operationer, databasfrågor — helt offline.
+[MCP](../11-agentic-protocols/README.md) är en transport, inte en molntjänst. En MCP-server kan köras som en lokal process på `stdio` och tillhandahåller verktyg för din agent via standardprotokollet. Detta låter dig återanvända det växande ekosystemet av MCP-servrar — filsystemstillgång, git-operationer, databasfrågor — helt offline.
 
-Säkerhetsinställningen skiljer sig från molnet, men är inte frånvarande: en lokal MCP-server körs fortfarande med dina användarbehörigheter, så begränsa vad den kan röra vid (en projektkatalog, inte hela din hemkatalog) och behandla dess utdata som indata för validering.
+Säkerhetsläget skiljer sig från molnet, men är inte obefintligt: en lokal MCP-server körs fortfarande med dina användarbehörigheter, så begränsa vad den kan komma åt (en projektkatalog, inte hela din hemmamapp) och behandla dess utdata som indata att validera.
 
-## Hybrida Moln- och Lokala Mönster
+## Hybridmönster för moln och lokal användning
 
-Lokalt först betyder inte bara lokalt. Mogna system styr baserat på känslighet och svårighetsgrad:
+Lokal-först betyder inte lokal-endast. Mogna system dirigerar efter känslighet och svårighetsgrad:
 
 | Situation | Var det körs |
 | --- | --- |
 | Känslig kod / data, eller offline | **Lokal SLM** |
-| Enkel, avgränsad uppgift | **Lokal SLM** (billigt, snabbt) |
-| Svårt flerstegsresonemang på icke-känslig data | **Molnmodell** |
-| Allt under ett avbrott | **Lokal SLM** (graciell degradering) |
+| Enkel, avgränsad uppgift | **Lokal SLM** (billig, snabb) |
+| Svårt flerstegsresonemang på icke-känsliga data | **Molnmodell** |
+| Allt vid ett avbrott | **Lokal SLM** (graciös degradering) |
 
-Detta speglar idén om **modellriktning** från Lektion 16 — förutom att en av "modellerna" nu är din egen maskin. En robust design faller tillbaka på lokal när molnet inte är tillgängligt, så agenten degraderas i kvalitet istället för att helt misslyckas.
+Detta speglar idén med **modellruttning** från Lektion 16 — förutom att en av "modellerna" nu är din egen maskin. En robust design faller tillbaka på lokal när molnet inte är tillgängligt, så agenten försämras i kvalitet istället för att helt sluta fungera.
 
 ```mermaid
 flowchart LR
     Q[Begäran] --> S{Känslig eller offline?}
     S -->|ja| L[Lokal SLM]
-    S -->|nej| C{Behöver djup resonemang?}
+    S -->|nej| C{Kräver djup resonemang?}
     C -->|nej| L
     C -->|ja| Cloud[Molnmodell]
     L --> Out[Svar]
     Cloud --> Out
 ```
 
-## Praktisk Laboration: En Lokal Ingenjörsassistent
+## Praktisk övning: En lokal ingenjörsassistent
 
-Öppna [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) och arbeta igenom den. Du kommer att bygga en **lokal ingenjörsassistent** som körs helt på din arbetsstation och kan:
+Öppna [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) och gå igenom den. Du kommer att bygga en **lokal ingenjörsassistent** som körs helt på din arbetsstation och kan:
 
 1. **Anropa verktyg** — via Qwen funktionsanrop genom Foundry Local.
-2. **Utföra lokala filoperationer** — lista och läsa filer i en projektmapp.
-3. **Analysera kod** — rapportera grundläggande mått på en källkodfil.
-4. **Söka dokumentation** — lokal RAG över en dokumentationsmapp med Chroma.
-5. **Använda MCP** — anslut till en lokal MCP-server (med en graciös bortprioritering om ingen är konfigurerad).
+2. **Utföra lokala filoperationer** — lista och läsa filer i en projektkatalog.
+3. **Analysera kod** — rapportera grundläggande mått på en källfil.
+4. **Söka dokumentation** — lokal RAG över en dokumentmapp med Chroma.
+5. **Använda MCP** — ansluta till en lokal MCP-server (med en graciös förbigång om ingen är konfigurerad).
 
 Ingen molninferens används vid något tillfälle.
 
@@ -184,12 +184,12 @@ Assistenten ansluter till Foundry Local via den OpenAI-kompatibla slutpunkten, s
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local upptäcker/laddar ner modellen och ger oss en lokal slutpunkt.
+# Foundry Local upptäcker/nedladdar modellen och ger oss en lokal slutpunkt.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
 client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key är en lokal platshållare
 ```
 
-Verktygen är vanliga Python-funktioner som begränsas till en projektmapp:
+Verktygen är vanliga Python-funktioner som är begränsade till en projektkatalog:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,18 +200,18 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Notera sandboxkontrollen — även lokalt är ett verktyg som läser godtyckliga sökvägar en risk. Notebooken håller varje verktyg begränsat till en projektrot.
+Notera sandbox-kontrollen — även lokalt är ett verktyg som läser godtyckliga sökvägar en risk. Notebooken håller varje verktyg begränsat till en enda projektrot.
 
 ## Kunskapskontroll
 
 Testa din förståelse innan du går vidare till uppgiften.
 
-**1. Ge två konkreta anledningar till att köra en agent lokalt istället för i molnet.**
+**1. Ge två konkreta skäl att köra en agent lokalt istället för i molnet.**
 
 <details>
 <summary>Svar</summary>
 
-Vilka två som helst av: **sekretess** (kod och data lämnar aldrig maskinen), **kostnad** (ingen kostnad per token), och **offline-förmåga** (fungerar utan nätverk — på ett plan, i en säker anläggning eller under ett avbrott). Regulatoriska/efterlevnadsbegränsningar som förbjuder att skicka data utanför enheten är en vanlig drivkraft för sekretessskälet.
+Några två av: **integritet** (kod och data lämnar aldrig maskinen), **kostnad** (ingen debitering per token inferens), och **offlinekapacitet** (fungerar utan nätverk — på ett flygplan, i en säker anläggning eller vid ett avbrott). Regulatoriska/efterlevnadskrav som förbjuder att skicka data utanför enheten är en vanlig drivkraft för integritetsskäl.
 </details>
 
 **2. Vad är den rekommenderade arbetsfördelningen mellan en SLM och dess verktyg i en lokal agent, och varför?**
@@ -219,88 +219,88 @@ Vilka två som helst av: **sekretess** (kod och data lämnar aldrig maskinen), *
 <details>
 <summary>Svar</summary>
 
-Låt SLM **orkestrera** (avgöra vilket verktyg som ska anropas och med vilka argument) och låt **verktygen göra det tunga arbetet** (läsa filer, hämta dokument, beräkna resultat). SLM är starka på avgränsade beslut som verktygsval men svaga på bred kunskap och långt flerstegsresonemang, så att luta sig mot verktyg spelar på deras styrkor.
+Låt SLM:en **orkestrera** (avgöra vilket verktyg som ska anropas och med vilka argument) och låt **verktygen göra det tunga arbetet** (läsa filer, hämta dokument, beräkna resultat). SLM:er är starka på avgränsade beslut som verktygsval men svagare på bred kunskap och långflerstegsresonemang, så att luta sig mot verktyg spelar till deras styrkor.
 </details>
 
-**3. Vad gör det möjligt att återanvända molnagenter med Foundry Local?**
+**3. Vad gör det möjligt att återanvända moln-agentkod med Foundry Local?**
 
 <details>
 <summary>Svar</summary>
 
-Foundry Local exponerar en **OpenAI-kompatibel HTTP-slutpunkt**. OpenAI SDK och Agent Frameworks OpenAI-klient fungerar mot den genom att bara ändra `base_url` (och använda en lokal platshållar-API-nyckel). Allt annat i agentkoden förblir samma.
+Foundry Local exponerar en **OpenAI-kompatibel HTTP-slutpunkt**. OpenAI SDK och Agent Frameworks OpenAI-klient fungerar mot den genom att bara ändra `base_url` (och använda en lokal platshållar-API-nyckel). Allt annat i agentkoden förblir detsamma.
 </details>
 
-**4. Varför använder vi specifikt en Qwen funktionsanropsmodell snarare än vilken SLM som helst?**
+**4. Varför använder vi specifikt en Qwen funktionsanropsmodell snarare än någon SLM?**
 
 <details>
 <summary>Svar</summary>
 
-För att en agent måste producera pålitliga, välformade **verktygsanrop**. Många SLM kan chatta men genererar felaktiga eller inkonsekventa strukturer för verktygsanrop. Qwen-modeller är tränade för funktionsanrop och producerar konsekventa verktygsanrop, vilket förvandlar en lokal chattmodell till en fungerande lokal agent.
+Eftersom en agent måste producera pålitliga, välformade **verktygsanrop**. Många SLM:er kan chatta men genererar felaktiga eller inkonsekventa verktygsanropsstrukturer. Qwen-modeller tränas för funktionsanrop och producerar konsekventa verktygsanrop, vilket är vad som omvandlar en lokal chattmodell till en fungerande lokal agent.
 </details>
 
-**5. Vilka komponenter körs på maskinen i den lokala RAG-pipelinen?**
+**5. I den lokala RAG-pipen, vilka komponenter körs på maskinen?**
 
 <details>
 <summary>Svar</summary>
 
-Alla: inbäddningsmodellen, vektordatabasen (Chroma, på disk), hämtningsteget och SLM. Dokument bäddas in lokalt, lagras lokalt, hämtas lokalt och resonerar med en lokal modell — ingen komponent rör molnet.
+Alla: inbäddningsmodellen, vektordatabasen (Chroma, på disk), hämtsteget och SLM:en. Dokument bäddas in lokalt, lagras lokalt, hämtas lokalt och resonerar över av en lokal modell — ingen komponent rör molnet.
 </details>
 
-**6. En lokal MCP-server körs på din maskin. Gör det den automatiskt säker? Vilken försiktighetsåtgärd bör du ändå vidta?**
+**6. En lokal MCP-server körs på din maskin. Gör det den automatiskt säker? Vilka försiktighetsåtgärder bör du fortfarande vidta?**
 
 <details>
 <summary>Svar</summary>
 
-Nej. En lokal MCP-server körs med dina användarbehörigheter, så den kan röra vid allt du kan. Begränsa den till vad den behöver (till exempel en enskild projektmapp snarare än hela din hemkatalog) och behandla dess utdata som indata som ska valideras innan du agerar på dem.
+Nej. En lokal MCP-server körs med dina användarbehörigheter, så den kan nå allt du kan nå. Begränsa den till vad den behöver (t.ex. en enskild projektkatalog snarare än hela din hemmamapp) och behandla dess utdata som indata att validera innan du agerar på dem.
 </details>
 
-**7. Beskriv en rimlig hybridriktregel som inkluderar en lokal modell.**
+**7. Beskriv en rimlig hybridrutteringsregel som inkluderar en lokal modell.**
 
 <details>
 <summary>Svar</summary>
 
-Rikt känsliga eller offline-förfrågningar till lokal SLM; rikt enkla, avgränsade uppgifter till lokal SLM för snabbhet och kostnad; rikta svåra flerstegsresonemang på icke-känslig data till en molnmodell; och falla tillbaka på lokal SLM om molnet inte är tillgängligt så agenten degraderas graciöst istället för att misslyckas. Detta är modellriktning (Lektion 16) med den lokala maskinen som en av modellerna.
+Dirigera känsliga eller offline-förfrågningar till den lokala SLM:en; dirigera enkla, avgränsade uppgifter till den lokala SLM:en för snabbhet och kostnad; dirigera svårt flerstegsresonemang på icke-känsliga data till en molnmodell; och fall tillbaka på den lokala SLM:en om molnet är otillgängligt så agenten försvagas graciöst istället för att misslyckas. Detta är modellruttning (Lektion 16) med den lokala maskinen som en av modellerna.
 </details>
 
-**8. Vad är en realistisk miniminivå av RAM för att köra den lokala agenten i denna lektion, och vad köper du med mer RAM?**
+**8. Vad är en realistisk minimum RAM-mängd för att köra den lokala agenten i denna lektion, och vad får du mer RAM?**
 
 <details>
 <summary>Svar</summary>
 
-Runt **8 GB** är en realistisk minimum; 16 GB+ är bekvämt. Mer RAM låter dig köra större, mer kapabla modeller och hålla mer kontext i minnet. En GPU eller NPU snabbar upp inferens men krävs inte — Foundry Local väljer en CPU-build när ingen accelerator är tillgänglig.
+Runt **8 GB** är en realistisk minimum; 16 GB+ är bekvämt. Mer RAM låter dig köra större, mer kapabla modeller och hålla mer kontext i minnet. En GPU eller NPU snabbar upp inferens men är inte nödvändigt — Foundry Local väljer en CPU-byggnad när ingen accelerator finns tillgänglig.
 </details>
 
 ## Uppgift
 
-Utöka den lokala ingenjörsassistenten till en **lokal dokumentationsgranskare** för ett litet projekt du väljer (använd gärna någon av lektionens mappar i detta repot).
+Utöka den lokala ingenjörsassistenten till en **lokal dokumentationsgranskare** för ett litet projekt du väljer (använd gärna någon av lektionernas mappar i det här repot).
 
 Din inlämning ska:
 
-1. **Indexera en riktig dokumentations-/kodmapp** i Chroma (minst fem filer).
-2. **Lägga till ett `find_todos`-verktyg** som skannar projektet efter `TODO`/`FIXME`-kommentarer och returnerar dem med fil och radnummer — med samma sandbox-kontroll som `read_file`.
+1. **Indexera en verklig dokumentations-/kodmapp** i Chroma (minst fem filer).
+2. **Lägga till ett `find_todos`-verktyg** som skannar projektet efter `TODO`/`FIXME`-kommentarer och returnerar dem med filnamn och radnummer — med samma sandbox-kontroll som `read_file`.
 
 3. **Ställ tre frågor till agenten** som tvingar den att kombinera verktyg: en ren RAG-fråga, en som kräver att läsa en specifik fil, och en som kräver att hitta TODOs.
-4. **Mät det**: tidtag varje av de tre svaren och notera dem i en markdown-cell. Kommentera om latensen är acceptabel för din tänkta arbetsflöde.
+4. **Mät den**: tidsätt varje av de tre svaren och notera dem i en markdown-cell. Kommentera om latensen är acceptabel för din avsedda arbetsflöde.
 
-Skriv sedan ett kort stycke om **vad du skulle flytta till molnet och vad du skulle behålla lokalt** för denna granskare, och varför. Du bedöms på om de lokala komponenterna är korrekt kopplade tillsammans och om din hybrida resonemang är sund — inte på modellkvaliteten.
+Skriv sedan ett kort stycke om **vad du skulle flytta till molnet och vad du skulle behålla lokalt** för denna granskare, och varför. Du bedöms på om de lokala komponenterna är korrekt kopplade och om din hybrida resonemang är sund — inte på modellens kvalitet.
 
 ## Sammanfattning
 
-I denna lektion byggde du en agent som körs helt på din egen maskin:
+I denna lektion byggde du en agent som körs helt på din egen dator:
 
-- **SLMs** byter bredd mot integritet, kostnad och offlinefunktion — och utmärker sig när de **orkestrerar verktyg** snarare än att bära all kunskap själva.
-- **Foundry Local** tjänstgör modeller på enheten bakom en **OpenAI-kompatibel endpoint**, så din molnagentkod överförs med en ändring på en rad.
-- **Qwen funktionsanroppsmodeller** möjliggör pålitliga lokala verktygsanrop — och därmed lokala *agenter*.
+- **SLMs** byter bredd mot integritet, kostnad och offlinefunktion — och glänser när de **orkestrerar verktyg** istället för att bära all kunskap själva.
+- **Foundry Local** serverar modeller på enheten bakom en **OpenAI-kompatibel endpoint**, så din molnagentkod överförs med en enda radändring.
+- **Qwen funktionsanropsmodeller** gör pålitliga lokala verktygsanrop — och därmed lokala *agenter* — möjliga.
 - **Lokal RAG** (Chroma) och **lokal MCP** ger agenten kapacitet utan att lämna maskinen.
-- **Hybrida mönster** låter dig routa efter känslighet och svårighetsgrad, med lokal som en smidig reservlösning.
+- **Hybridmönster** låter dig dirigera efter känslighet och svårighet, med lokalt som en smidig reservlösning.
 
-Detta slutför distributionsbågen: Lektion 16 skalade upp agenter i Microsoft Foundry, och denna lektion skalade ned dem till en enskild arbetsstation. Nästa lektion handlar om att hålla distribuerade agenter säkra.
+Detta avslutar distributionsbågen: Lektion 16 skalade upp agenter till Microsoft Foundry, och denna lektion skalade ner dem till en enda arbetsstation. Nästa lektion handlar om att hålla distribuerade agenter säkra.
 
 ## Ytterligare resurser
 
-- <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local dokumentation</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentation</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Microsoft Foundry Local-dokumentation</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry-dokumentation</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
 - <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Qwen funktionsanropsdokumentation</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma vektordatabas</a>
