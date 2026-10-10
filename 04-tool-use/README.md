@@ -319,7 +319,7 @@ Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to m
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework Overview</a>
-- <a href="https://github.com/Continuum-AI-Corp/OrcaPromptVault" target="_blank">OrcaPromptVault</a> — tool-call schemas and system prompts captured from shipped coding agents, stored as JSON, so you can read how production agents actually declare their tools rather than only the examples in this lesson
+- <a href="https://github.com/Continuum-AI-Corp/OrcaPromptVault" target="_blank">OrcaPromptVault</a> — tool-call schemas of shipped coding agents, stored as dated JSON and recorded off the wire, each with the command that reproduces the recording — a look at how a production agent declares its tools
 
 ## Smoke-Testing This Agent (Optional)
 
