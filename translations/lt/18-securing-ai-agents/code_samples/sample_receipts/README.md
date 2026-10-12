@@ -1,53 +1,63 @@
-# Pavyzdinės kvitų bylos
+# Pavyzdinės kvitų fixtūros
 
-Trys iš anksto sugeneruoti kvito failai patikrinimui be užrašų knygelės paleidimo.
+Trys iš anksto sugeneruoti kvitų failai peržiūrai be užrašų knygelės vykdymo.
 
 | Failas | Kas tai yra |
 |---|---|
-| `01_valid_receipt.json` | Teisingas pasirašytas kvitas `lookup_flights` įrankio kvietimui. Patikrinimas grąžina True. |
-| `02_tampered_receipt.json` | Tas pats kvitas, kuriame po pasirašymo pakeistas vienas laukas. Patikrinimas grąžina False. |
-| `03_chain_three_receipts.json` | Trijų galiojančių kvitų grandinė (paieška, rezervacija, užsakymas) su `previous_receipt_hash`, jungiančiu kiekvieną su ankstesniu. |
+| `01_valid_receipt.json` | Galiojantis pasirašytas kvitas `lookup_flights` įrankio skambučiui. Patikrinimas grąžina True. |
+| `02_tampered_receipt.json` | Tas pats kvitas su vienu lauku pakeistu po pasirašymo. Patikrinimas grąžina False. |
+| `03_chain_three_receipts.json` | Trys galiojantys kvitai grandinėje (paieška, rezervavimas, užsakymas) su `previous_receipt_hash`, susiedami kiekvieną su ankstesniu. |
 
-## Pavyzdžių tikrinimas
+Fixtūros pasirašo apkrovos kanoniniais JCS baitais tiesiogiai su Ed25519.
+SHA-256 vis dar naudojamas turinio santrumpoms ir kvitų grandinės nuorodoms, o ne kaip
+papildomas išankstinis maišas prieš pasirašymą.
 
-Užrašų knyga žingsnis po žingsnio paaiškina tikrinimą keturiose dalyse. Norint tiesiogiai patikrinti šiuos pavyzdžius be užrašų knygos pasakojimo:
+## Pavyzdžių patikra
+
+Užrašų knyga peržiūri patikrą keturiose dalyse. Norint patikrinti šias fixtūras
+tiesiogiai be užrašų knygos vykdymo:
 
 ```python
 import json
 from pathlib import Path
 
-# Daroma prielaida, kad importai ir pagalbinės funkcijos jau atliktos
-# iš 18-signed-receipts.ipynb 1 ir 2 skyrių.
+# Tarkime, kad jūs užbaigėte importavimus ir pagalbines funkcijas
+# iš 1 ir 2 skirsnių failo 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
 print(f"Valid receipt: {verify_receipt(valid)}")        # Tiesa
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Klaidinga
+print(f"Tampered receipt: {verify_receipt(tampered)}")  # Melas
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Kaip jie buvo sugeneruoti
+## Kaip šios buvo sugeneruotos
 
-Šie pavyzdžiai naudoja tą pačią kodo eigą kaip užrašų knyga, tik su viena fiksuota pasirašymo raktu
-ir fiksuotais laiko žymėmis, užtikrinant baitų atkuriamumą. Norint sugeneruoti iš naujo:
+Fixtūros naudoja tą pačią kodo eilutę kaip užrašų knyga, su viena fiksuota pasirašymo raktą
+ir fiksuotais laiko ženklais baitų atkuriamumui. Norint sugeneruoti iš naujo:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skriptas yra `generate_fixtures.py` šiame kataloge.)
+(Scenarijus yra `generate_fixtures.py` šiame kataloge.)
 
-## Ko studentai išmoksta nagrinėdami neapdorotą JSON
+## Ką studentai sužino nagrinėdami neapdorotą JSON
 
-Skaitant neapdorotą kvito formatą, kyla intuicija, kurios užrašų knygos ląstelės ne visada suteikia. Studentai, kurie peržiūri JSON, dažnai pastebi:
+Skaitant neapdorotą kvito formatą vystosi intuicija, kurios ląstelės užrašų knygoje
+ne visada pateikia. Studentai, kurie greitai peržiūri JSON, dažnai pastebi:
 
-1. Parašas yra nepralaidus base64url eilutė, tačiau visi kiti laukai yra aiškiai skaitomas JSON. Parašas nešifruoja turinio; jis patvirtina turinį.
-2. `public_key` yra įterptas kvite. Auditorius nieko kito nereikia patikrinimui (atsižvelgiant į pasitikėjimą, kad raktas iš tikrųjų priklauso tvirtinamajam leidėjui; žr. pamokos README apie tapatybės infrastruktūrą).
-3. Pakeitus vieną simbolį bet kuriame lauke ir palyginus šį failą su `02_tampered_receipt.json`, baitų lygio mechanizmas tampa aiškus ir konkrečiai suvokiamas.
+1. Parašas yra neaiškus base64url eilutė, bet kiekvienas kitas laukas yra paprastas
+   skaitomas JSON. Parašas nekoduoja turinio; jis liudija jo tikrumą.
+2. `public_key` yra įterptas į kvitą. Auditorius nieko daugiau
+   nereikia patikrinti (tik jei tiki, kad raktas iš tiesų priklauso tvirtinamu
+   leidėju; žr. pamokos README apie tapatybės infrastruktūrą).
+3. Vieno simbolio bet kuriame lauke pakeitimas, o paskui failo palyginimas su
+   `02_tampered_receipt.json`, paverčia baitų lygio mechanizmą akivaizdžiu.
 
 ---
 
