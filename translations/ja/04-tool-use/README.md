@@ -331,7 +331,7 @@ LLMによって動的に生成されるSQLに関する一般的な懸念事項�
 
 ## 次のレッスン
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[エージェントRAG](../05-agentic-rag/README.md)
 
 ---
 
