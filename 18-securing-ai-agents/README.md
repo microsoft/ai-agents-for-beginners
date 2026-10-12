@@ -220,7 +220,7 @@ Each receipt records the hash of the receipt before it. To remove receipt 2 sile
 - Modify receipt 3's `previous_receipt_hash` field (breaks receipt 3's signature), OR
 - Forge a new signature on a modified receipt 3 (requires the agent's private key).
 
-If the private key is in a hardware key vault and you publish the public key with each receipt, neither attack is feasible without detection.
+If the private key is in a hardware key vault and verifiers check every receipt against the issuer's public key, obtained independently (a published JWK Set or a pinned config value), neither attack is feasible without detection. Publishing the key inside each receipt is not enough: an attacker can re-sign with their own key and embed that one instead, which is fixture `04_resigned_receipt.json`.
 
 The notebook walks through:
 
@@ -317,7 +317,7 @@ Two reasons. First, the receipt may need to be archived or transmitted in enviro
 <details>
 <summary>Answer</summary>
 
-Every receipt that came after the deleted one. Their `previous_receipt_hash` fields no longer match the actual chain (because the receipt they referenced no longer exists, or the chain now points to a different predecessor). To hide the deletion, the attacker would have to re-sign every later receipt, which requires the private key.
+Every receipt that came after the deleted one. Their `previous_receipt_hash` fields no longer match the actual chain (because the receipt they referenced no longer exists, or the chain now points to a different predecessor). To hide the deletion, the attacker would have to re-sign every later receipt, which requires the issuer's private key. A re-signature with any other key fails when checked against the issuer's key.
 </details>
 
 **5. A receipt verifies cleanly. Does that prove the agent's action was correct, sound, or compliant with policy?**

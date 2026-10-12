@@ -25,12 +25,12 @@ from pathlib import Path
 # Assumes you have completed the imports and helper functions
 # from sections 1 and 2 of 18-signed-receipts.ipynb.
 
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-
-# The issuer's key. In a real deployment you would fetch this from the
-# issuer's JWK Set, not from a receipt. Here fixture 01 is the trust anchor.
-ISSUER_KEY = valid["signature"]["public_key"]
-
 print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
