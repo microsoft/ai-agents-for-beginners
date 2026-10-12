@@ -65,7 +65,7 @@ Azure AI 検索は様々なツールと統合して検索機能を強化しま�
 
    * **zsh / bash**
      ```bash
-     # az search service show has no "endpoint" field; build the URL from the service name.
+     # az search service show に "endpoint" フィールドはないため、サービス名から URL を構築します。
      export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
      export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
      ```
