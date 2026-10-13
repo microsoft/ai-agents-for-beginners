@@ -72,9 +72,9 @@ Azure AI 検索は様々なツールと統合して検索機能を強化しま�
 
    * **PowerShell**
      ```powershell
-     # az search service show has no "endpoint" field; build the URL from the service name.
-     \$env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-     \(env:AZURE_SEARCH_API_KEY =\)(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     # az search service show に "endpoint" フィールドはないのでサービス名から URL を構築します。
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
      ```
 
 ### Python SDK の使用
