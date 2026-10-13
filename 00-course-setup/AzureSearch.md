@@ -73,8 +73,8 @@ Azure AI Search integrates with various tools to enhance your search capabilitie
    * **PowerShell**
      ```powershell
      # az search service show has no "endpoint" field; build the URL from the service name.
-     \$env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-     \(env:AZURE_SEARCH_API_KEY =\)(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
      ```
 
 ### Using Python SDK
