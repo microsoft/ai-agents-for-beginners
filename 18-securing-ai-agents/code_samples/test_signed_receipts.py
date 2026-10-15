@@ -120,6 +120,87 @@ class SignedReceiptTests(unittest.TestCase):
         results = self.examples["verify_chain"](receipts, self.examples["TRUSTED_PUBLIC_KEYS"])
         self.assertTrue(all(result["overall_valid"] for result in results))
 
+    def malformed_receipts(self):
+        yield from (None, [], "receipt", 42)
+        for value in (None, [], "signature", 42, {}):
+            yield {**self.valid, "signature": value}
+        for field in ("public_key", "sig"):
+            for value in (None, [], {}, 42, "%%%%", "AAAA", self.valid["signature"][field] + "%%%%"):
+                yield {**self.valid, "signature": {**self.valid["signature"], field: value}}
+        yield {**self.valid, "not_json": float("nan")}
+
+    def test_malformed_receipts_fail_closed(self):
+        for receipt in self.malformed_receipts():
+            with self.subTest(receipt=receipt):
+                self.assertFalse(self.examples["verify_receipt"](receipt, self.trusted_keys))
+
+    def test_malformed_chain_entries_fail_closed(self):
+        for receipt in self.malformed_receipts():
+            with self.subTest(receipt=receipt):
+                results = self.examples["verify_chain"]([receipt, self.chain[1]], self.trusted_keys)
+                self.assertEqual(len(results), 2)
+                self.assertFalse(results[0]["overall_valid"])
+        for field in ("sequence", "previous_receipt_hash", "tool_name"):
+            receipt = {k: v for k, v in self.valid.items() if k != field}
+            self.assertFalse(self.examples["verify_chain"]([receipt], self.trusted_keys)[0]["overall_valid"])
+
+    def test_main_readme_verifier_fails_closed(self):
+        readme = (SAMPLES.parent / "README.md").read_text(encoding="utf-8")
+        blocks = re.findall(r"^```python\n(.*?)^```", readme, re.M | re.S)
+        source = next(block for block in blocks if "def verify_receipt(" in block)
+        namespace = {}
+        exec(compile(source, "README.md:verify_receipt", "exec"), namespace)
+        self.assertTrue(namespace["verify_receipt"](self.valid, self.trusted_keys))
+        for receipt in self.malformed_receipts():
+            with self.subTest(receipt=receipt):
+                self.assertFalse(namespace["verify_receipt"](receipt, self.trusted_keys))
+
+    def test_requirements_are_ascii_and_cp949_readable(self):
+        contents = (SAMPLES / "requirements.txt").read_bytes()
+        self.assertEqual(contents.decode("ascii"), contents.decode("cp949"))
+
+
+class HumanApprovalReceiptTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        notebook = json.loads((SAMPLES / "human-authorization-receipts.ipynb").read_text(encoding="utf-8"))
+        cls.examples = {}
+        cls.output_pairs = []
+        for index, cell in enumerate(notebook["cells"]):
+            if cell["cell_type"] == "code":
+                output = io.StringIO()
+                with contextlib.redirect_stdout(output):
+                    exec(compile("".join(cell["source"]), f"human-notebook:{index}", "exec"), cls.examples)
+                saved = "".join("".join(item.get("text", [])) for item in cell.get("outputs", []))
+                cls.output_pairs.append((output.getvalue(), saved))
+
+    def test_saved_outputs_match_read_only_verification(self):
+        for actual, saved in self.output_pairs:
+            self.assertEqual(actual, saved)
+
+    def test_verification_is_repeatable_not_execution_or_consumption(self):
+        ns = self.examples
+        args = (ns["action"], ns["approval"], ns["receipt"], "2026-07-08T15:04:07Z")
+        self.assertTrue(ns["verify_chain"](*args)[0])
+        self.assertTrue(ns["verify_chain"](*args)[0])
+        self.assertNotIn("execute", ns)
+        self.assertNotIn("_consumed", ns)
+        self.assertEqual(ns["receipt"]["outcome"], "claimed_performed")
+
+    def test_malformed_key_hints_and_signatures_fail_closed(self):
+        ns = self.examples
+        for field in ("key_id", "sig"):
+            for value in (None, [], {}, 42, "%%%%", "AAAA"):
+                receipt = copy.deepcopy(ns["approval"])
+                receipt["signature"][field] = value
+                with self.subTest(field=field, value=value):
+                    self.assertFalse(ns["verify_envelope"](receipt, "human.approval.v1", ns["APPROVER_KEYS"])[0])
+
+    def test_substitution_and_expired_approval_remain_refused(self):
+        ns = self.examples
+        self.assertFalse(ns["verify_chain"](ns["action_b"], ns["approval"], ns["receipt"], ns["NOW"])[0])
+        self.assertFalse(ns["verify_chain"](ns["action"], ns["approval"], ns["receipt"], "2026-07-08T16:00:00Z")[0])
+
 
 if __name__ == "__main__":
     unittest.main()

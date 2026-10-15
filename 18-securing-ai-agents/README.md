@@ -164,34 +164,34 @@ Verification is the inverse operation:
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
 def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
     # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
+        return False
     sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
         return False
-
-    # Reconstruct the payload that was actually signed (everything except signature).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
-    # An inline key proves only self-consistency. Trust is configured out of band.
-    public_key = sig_obj.get("public_key")
-    if public_key not in trusted_public_keys:
-        return False
-
     try:
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
         verify_key = signing.VerifyKey(b64url_decode(public_key))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
@@ -267,11 +267,11 @@ This boundary matters for two reasons:
 
 A common mistake is to assume that "we have receipts" means "we are governed." It does not. Receipts are a foundation. Governance is the system you build on top.
 
-## Proving a Human Approved the Exact Action
+## Binding an Approver's Signature to the Exact Action
 
-Item 3 above is worth its own section: an action receipt says "this key signed this content," never "a human authorized this." For high-risk actions (refunds, deletions, wire transfers), governance frameworks increasingly require exactly that missing statement, and it is producible with the same primitives you already built in this lesson.
+Item 3 above is worth its own section: an action receipt says "this key signed this content," never "a human authorized this." For high-risk actions (refunds, deletions, wire transfers), a separate approver signature can bind the exact action. Connecting that key to a human and checking human presence remain separate responsibilities.
 
-The follow-on notebook `code_samples/human-authorization-receipts.ipynb` adds a second receipt kind, `human.approval.v1`, in the same envelope shape as the lesson's receipts (a typed payload signed by Ed25519 over its canonical JCS bytes, with the `signature` object outside the signed bytes). A named approver signs the **full canonical action and its digest** before execution; the agent's action receipt carries the **same action digest** and a `parent_approval_ref`, the `receipt_hash` of the approval, the same convention as `previous_receipt_hash` in the chain you built above. One `verify_chain` walks both artifacts under **separate pinned key registries** (approver keys vs agent keys), so the code path is shared but the authorities never are.
+The follow-on notebook `code_samples/human-authorization-receipts.ipynb` adds a second receipt kind, `human.approval.v1`, in the same envelope shape as the lesson's receipts (a typed payload signed by Ed25519 over its canonical JCS bytes, with the `signature` object outside the signed bytes). An approver key signs the **full canonical action and its digest**; an agent key signs a claim carrying the **same action digest** and a `parent_approval_ref`, the `receipt_hash` of the approval, the same convention as `previous_receipt_hash` in the chain you built above. One `verify_chain` walks both artifacts under **separate pinned key registries** (approver keys vs agent keys), so the code path is shared but the authorities never are.
 
 The property this buys, stated carefully: *the pinned approver key signed this exact
 action, and the agent key later signed a statement carrying the same action digest.*
@@ -280,11 +280,11 @@ control execution, the exact approval must also be reserved and consumed once at
 actual executor boundary; unknown provider outcomes must remain unknown rather than be
 blindly retried. The notebook's refusal fixtures test the receipt-chain layer:
 
-- the classic set: tampering, confused deputy, replay, forged keys on either side, malformed input;
-- **stale authority**: a signature that still verifies, refused anyway because the policy version moved, the approver key was rotated out of the pinned registry, or the approval expired before execution;
+- tampering, confused deputy, forged keys on either side, and malformed input;
+- **stale authority**: a signature that still verifies, refused anyway because the policy version moved, the approver key was rotated out of the pinned registry, or the approval expired before the supplied verification time;
 - **digest substitution**: a validly signed action receipt pointing at a *real* approval that binds a *different* canonical action.
 
-Each failure refuses with a distinct reason, so an auditor reading a refusal can tell whether authority went stale or the claimed action changed. The rule the notebook teaches: a signed approval is not execution authority by itself. It becomes an input to authority only when a relying party validates the signer and policy, binds the exact action, and consumes it at the executor boundary. The human-approval receipt is an educational composition defined by this lesson, not a receipt type defined by `draft-farley-acta-signed-receipts`.
+Each failure refuses with a distinct reason, so an auditor reading a refusal can tell whether authority went stale or the claimed action changed. Verification is read-only and repeatable: it does not consume the approval or invoke a provider. A separate executor needs durable, atomic replay protection and explicit success, failure, and indeterminate outcomes. The human-approval receipt is an educational composition defined by this lesson, not a receipt type defined by `draft-farley-acta-signed-receipts`.
 
 ## Production References
 

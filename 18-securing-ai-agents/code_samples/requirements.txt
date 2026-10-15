@@ -1,4 +1,4 @@
-# Lesson 18 — Securing AI Agents with Cryptographic Receipts
+# Lesson 18 - Securing AI Agents with Cryptographic Receipts
 #
 # These three packages are sufficient for the entire lesson.
 # All have permissive licenses (Apache-2.0 / MIT / BSD).
