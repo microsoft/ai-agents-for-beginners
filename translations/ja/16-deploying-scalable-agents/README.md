@@ -391,11 +391,11 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
 
 ## 前のレッスン
 
-[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
+[コンピューター利用エージェント（CUA）の構築](../15-browser-use/README.md)
 
 ## 次のレッスン
 
-[Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
+[ローカルAIエージェントの作成](../17-creating-local-ai-agents/README.md)
 
 ---
 
