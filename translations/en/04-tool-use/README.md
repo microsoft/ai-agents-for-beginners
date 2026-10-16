@@ -1,6 +1,6 @@
 [![How to Design Good AI Agents](../../../translated_images/en/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Click the image above to watch the video for this lesson)_
+> _(Click the image above to view video of this lesson)_
 
 # Tool Use Design Pattern
 
@@ -233,10 +233,37 @@ provider = FoundryChatClient(
     credential=AzureCliCredential(),
 )
 
-# Create an agent and run it with the tool
+# Create an agent and run with the tool
 agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
+
+#### Tools from an MCP server
+
+Tools do not have to be functions in your own code. A server that speaks the Model Context Protocol (MCP, covered in [Lesson 11](../11-agentic-protocols/README.md)) publishes its tools together with their schemas, and the framework can load them the same way it serializes a decorated function. `MCPStreamableHTTPTool` connects to such a server over HTTP, reads the tool schemas, and offers them to the model next to any local tools.
+
+The example below uses the web search server hosted by <a href="https://keenable.ai" target="_blank">Keenable</a>. It is free to use without an account or API key (requests are rate limited per IP), so the only credentials you need are the ones for your model. As with any remote tool, the queries the model writes are sent to that server.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
+    )
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
+```
+
+The server publishes two tools, `search_web_pages` and `fetch_page_content`. When a question needs current information, the model calls `search_web_pages`, gets back titles, URLs and text snippets, and writes its answer from them, the same loop as in the `get_current_time` example above.
   
 ### Microsoft Foundry Agent Service
 
@@ -319,7 +346,6 @@ Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to m
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework Overview</a>
-
 
 ## Smoke-Testing This Agent (Optional)
 
