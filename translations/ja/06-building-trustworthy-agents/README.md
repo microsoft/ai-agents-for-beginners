@@ -210,11 +210,11 @@ else:
 
 ## 前のレッスン
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agentic RAG（エージェンティックRAG）](../05-agentic-rag/README.md)
 
 ## 次のレッスン
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[計画デザインパターン](../07-planning-design/README.md)
 
 ---
 
