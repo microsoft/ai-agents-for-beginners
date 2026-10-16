@@ -83,7 +83,7 @@ A minimal receipt looks like this:
 
 Three properties are doing the work:
 
-1. **The signature**. The receipt is signed by the agent's gateway using an Ed25519 private key. Anyone with the corresponding public key can verify the signature offline. Tampering with any field invalidates the signature.
+1. **The signature**. The receipt is signed by the agent's gateway using an Ed25519 private key. Anyone with the corresponding public key can verify the signature offline. Tampering with any signed field, meaning anything outside the `signature` object, invalidates the signature.
 
 2. **Canonical encoding**. Before signing, the receipt is serialized using JSON Canonicalization Scheme (JCS, RFC 8785). This ensures that two implementations producing the same logical receipt produce byte-identical output. Without canonicalization, different JSON serializers would produce different signatures for the same content.
 
@@ -171,24 +171,32 @@ def verify_receipt(receipt: dict, trusted_public_key: str) -> bool:
     # trusted_public_key is the issuer's key, obtained from somewhere other
     # than this receipt. Never use receipt["signature"]["public_key"] here:
     # see "What Receipts Prove (and What They Do Not)" below.
+    # Fails closed: anything malformed returns False instead of raising.
+    if not isinstance(receipt, dict) or not isinstance(trusted_public_key, str):
+        return False
     sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
+    sig_b64 = sig_obj.get("sig")
+    if not isinstance(sig_b64, str):
         return False
 
-    # Reconstruct the payload that was actually signed (everything except signature).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
     try:
+        # Reconstruct the payload that was actually signed (everything except signature).
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
         verify_key = signing.VerifyKey(b64url_decode(trusted_public_key))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        verify_key.verify(canonical_bytes, b64url_decode(sig_b64))
         return True
     except BadSignatureError:
         return False
+    except Exception:
+        # An undecodable key or signature, or a payload that cannot be
+        # canonicalized: fail closed rather than raise.
+        return False
 ```
 
-This function takes a receipt and the issuer's public key, and returns `True` if the signature is valid, `False` otherwise. No network call and no verification service: once you hold the issuer's key, verification is entirely local and offline. What it does still require is that key, obtained from somewhere other than the receipt itself.
+This function takes a receipt and the issuer's public key, and returns `True` if the signature is valid and `False` otherwise, including when the input is malformed. No network call and no verification service: once you hold the issuer's key, verification is entirely local and offline. What it does still require is that key, obtained from somewhere other than the receipt itself.
 
 To see tampering detection in action, the notebook walks through:
 
@@ -199,7 +207,7 @@ To see tampering detection in action, the notebook walks through:
 
 Step 4 is the one worth sitting with. That receipt is internally consistent: its signature is genuine for its contents and for the key it carries, so it verifies against the key inside it. It fails only when checked against the issuer's real key. Steps 2 and 3 catch an attacker who did not bother to re-sign; step 4 catches the one who did.
 
-This is the practical demonstration that receipts are tamper-evident: any modification breaks the signature, provided you verify against a key the attacker did not supply.
+This is the practical demonstration that receipts are tamper-evident: any change to a signed field breaks the signature, provided you verify against a key the attacker did not supply. The `signature` object itself is outside the signed bytes, which is why the key you verify against has to come from somewhere other than the receipt.
 
 ## Chaining Receipts for Multi-Step Agents
 
@@ -301,7 +309,7 @@ Yes. Ed25519 verification requires only the public key and the signed bytes. No 
 <details>
 <summary>Answer</summary>
 
-Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any field changes those bytes, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
+Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any payload field changes those bytes, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
 </details>
 
 **3. Why does the receipt include a `tool_args_hash` and `result_hash` rather than the raw arguments and result?**

@@ -60,6 +60,15 @@ python3 generate_fixtures.py
 
 (Script is at `generate_fixtures.py` in this directory.)
 
+`../test_signed_receipts.py` checks all of this automatically: it runs the
+notebook's code, verifies these four fixtures with the notebook's
+`verify_receipt` and `verify_chain`, and confirms that regenerating the
+fixtures gives identical bytes. From `code_samples`:
+
+```bash
+python -m unittest test_signed_receipts
+```
+
 ## What students learn from inspecting raw JSON
 
 Reading the raw receipt format builds intuition that the cells in the notebook
@@ -74,5 +83,6 @@ do not always provide. Students who skim the JSON often notice:
    own key, so it verifies against the key it carries. The embedded key
    tells you the file is internally consistent. Only a key obtained
    elsewhere tells you who issued it.
-3. Modifying a single character of any field, then re-comparing this file with
-   `02_tampered_receipt.json`, makes the byte-level mechanism concrete.
+3. Modifying a single character of any field outside `signature`, then
+   re-comparing this file with `02_tampered_receipt.json`, makes the
+   byte-level mechanism concrete.
