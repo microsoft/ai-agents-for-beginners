@@ -453,7 +453,6 @@ O-시리즈 모델은 Responses API로 마이그레이션 시 고유한 매개�
 
 | Chat Completions (o-시리즈) | Responses API | 참고 사항 |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | 높게 설정 (4096 이상) — 추론 토큰이 제한에 포함됨 |
 | `reasoning_effort` | `reasoning.effort` | 존재하면 그대로 유지 (low/medium/high) |
 | `temperature` | 제거하거나 `1`로 설정 | O-series는 `1`만 허용 |

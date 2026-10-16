@@ -2,91 +2,91 @@
 
 ![Ustvarjanje lokalnih AI agentov](../../../translated_images/sl/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Prejšnja lekcija je agente *razširila* v oblak. Ta pa jih prinese *dol* na en računalnik. Do konca boste imeli delujočega inženirskega asistenta, ki razmišlja, kliče orodja, bere vaše datoteke in išče v vaši dokumentaciji — **brez enega samega klica v oblaku.**
+Prejšnja lekcija je razširila agente *v* oblak. Ta jih prinaša *dol* na eno napravo. Na koncu boste imeli delujočega inženirskega pomočnika, ki razmišlja, kliče orodja, bere vaše datoteke in išče po vaši dokumentaciji — **brez niti enega klica v oblaku za sklepanje.**
 
-Zakaj bi to želeli? Trije razlogi, ki se pogosto pojavljajo v resničnem inženiringu:
+Zakaj bi to želeli? Tri razlogi, ki se pogosto pojavljajo pri dejanskem inženirskem delu:
 
-- **Zasebnost.** Koda in dokumenti ne zapustijo naprave. Noben poziv, noben odlomek, nobeni podatki stranke ne prečkajo omrežne meje.
-- **Stroški.** Lokalno sklepanje ni vezano na stroške na žeton. Lahko iterirate ves dan za ceno elektrike.
-- **Brez povezave.** Na letalu, v varni ustanovi ali med izpadom, agent še vedno deluje.
+- **Zasebnost.** Koda in dokumenti nikoli ne zapustijo naprave. Noben poziv, noben izvleček, nobeni podatki stranke ne prečkajo omrežne meje.
+- **Stroški.** Lokalno sklepanje ne zaračunava na token. Lahko iterirate ves dan za ceno električne energije.
+- **Brez povezave.** Na letalu, v varnem objektu ali med izpadom delovanja agent še vedno deluje.
 
-Pomanjkljivost je, da zamenjate napreden oblačni model za **Majhen jezikovni model (SLM)**, ki teče na vaši CPU, GPU ali NPU. Ta lekcija govori o gradnji agentov, ki so *dober* znotraj teh omejitev, namesto da bi se pretvarjali, da omejitev ni.
+Omejitev je, da zamenjate najnaprednejši oblačni model za **Majhen jezikovni model (SLM)**, ki teče na vašem CPU, GPU ali NPU. Ta lekcija govori o gradnji agentov, ki so *dobri* v okviru te omejitve, namesto da bi se pretvarjali, da omejitve ni.
 
 ## Uvod
 
 Ta lekcija bo zajemala:
 
-- **Majhne jezikovne modele (SLM)** — kaj so, kje izstopajo in kje ne.
-- **Microsoft Foundry Local** — runtime, ki prenese in postreže modele lokalno preko **OpenAI združljivega API-ja**.
-- **Qwen modele za klicanje funkcij** — SLM, ki zanesljivo izdelujejo klice orodjem, kar omogoča lokalne *agente* (ne le lokalni klepet).
-- **Lokalna orodja, lokalni RAG in lokalni MCP** — ki agentu omogočijo delovanje brez oblaka.
-- **Hibridni vzorci** — kdaj obdržati stvari lokalno in kdaj poseči po oblaku.
+- **Majhne jezikovne modele (SLM)** — kaj so, kje uspevajo in kje ne.
+- **Microsoft Foundry Local** — runtime, ki prenese in postreže modele na napravi prek **API-ja, združljivega z OpenAI**.
+- **Qwen modele za klicanje funkcij** — SLM-je, ki zanesljivo ustvarjajo klice orodjem, kar omogoča lokalne *agente* (ne le lokalni klepet).
+- **Lokalna orodja, lokalni RAG in lokalni MCP** — opremljanje agenta z zmogljivostmi brez oblaka.
+- **Hibridni vzorci** — kdaj obdržati stvari lokalne in kdaj poseči po oblaku.
 
 ## Cilji učenja
 
-Po končani tej lekciji boste znali:
+Po zaključku te lekcije boste znali:
 
-- Pojasniti kompromise SLM-ov in izbrati primerne primere uporabe lokalnih agentov.
-- Postreči Qwen model lokalno z Foundry Local in se nanj povezati preko OpenAI združljive točke.
-- Zgraditi agenta za klic orodij, ki teče popolnoma na vaši delovni postaji.
-- Dodati lokalni RAG preko lastnih dokumentov z lokalno vektorsko bazo podatkov (Chroma).
-- Povezati agenta z lokalnim MCP strežnikom in razmisliti o hibridnih lokalnih/oblačnih zasnovah.
+- Razložiti kompromise SLM-jev in izbrati ustrezne primere uporabe lokalnih agentov.
+- Lokalno postreči Qwen model z Foundry Local in se nanj povezati prek OpenAI-kompatibilne točke.
+- Zgraditi agent, ki kliče orodja in teče v celoti na vaši delovni postaji.
+- Dodati lokalni RAG nad vašimi dokumenti z lokalno vektorsko bazo (Chroma).
+- Povezati agenta z lokalnim MCP strežnikom in razmišljati o hibridnih lokalnih/oblačnih dizajnih.
 
 ## Predpogoji
 
-Ta lekcija predvideva, da ste opravili prejšnje lekcije in ste vešči:
+Ta lekcija predvideva, da ste opravili predhodne lekcije in se dobro znajdete pri:
 
 - [Uporaba orodij](../04-tool-use/README.md) (Lekcija 4) in [Agentic RAG](../05-agentic-rag/README.md) (Lekcija 5).
 - [Agentni protokoli / MCP](../11-agentic-protocols/README.md) (Lekcija 11).
 - [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcija 14).
 
-Prav tako boste potrebovali:
+Prav tako potrebujete:
 
-- Delovno postajo za razvijalce. **8 GB RAM-a je realistična minimum**; 16 GB+ je udobno. GPU ali NPU pomaga, a ni nujno.
-- **Microsoft Foundry Local** nameščen (glejte spodnji razdelek za nastavitev).
-- Python 3.12+ in pakete v repozitoriju [`requirements.txt`](../../../requirements.txt), plus `foundry-local-sdk`, `openai` in `chromadb` za to lekcijo.
+- Razvojno delovno postajo. **8 GB RAM je realistični minimum**; 16 GB+ je udobno. GPU ali NPU pomagata, a nista nujna.
+- Instaliran **Microsoft Foundry Local** (glej spodnji odsek za namestitev).
+- Python 3.12+ in pakete v repozitoriju [`requirements.txt`](../../../requirements.txt), skupaj z `foundry-local-sdk`, `openai` in `chromadb` za to lekcijo.
 
 ## Majhni jezikovni modeli: Pravo orodje za lokalno delo
 
-Napreden oblačni model ima sto milijard parametrov in podatkovni center za sabo. SLM ima nekaj milijard parametrov in mora stati v RAM-u vašega prenosnika. Ta razlika postavlja jasna pričakovanja.
+Najnaprednejši oblačni model ima na stotine milijard parametrov in za sabo data center. SLM ima nekaj milijard parametrov in mora stati v RAM vašega prenosnika. Ta razlika postavi jasna pričakovanja.
 
-**SLM-i so dobri pri:**
+**SLM-ji so dobri pri:**
 
-- Strukturiranih, omejenih opravilih — klasifikacija, ekstrakcija, povzemanje poznanega dokumenta.
-- **Klicanju orodij** — odločanju, katero funkcijo klicati in s kakšnimi argumenti.
-- Hitrih, poceni in zasebnih iteracijah na lastnih podatkih.
+- Strukturiranih, omejenih nalogah — razvrščanje, izvleček, povzemanje znanega dokumenta.
+- **Klicanju orodij** — odločanje, katero funkcijo poklicati in s katerimi argumenti.
+- Hitrih, poceni in zasebnih iteracijah nad vašimi lastnimi podatki.
 
-**SLM-i so šibkejši pri:**
+**SLM-ji so šibkejši pri:**
 
-- Odprtih, večstopenjskih zaključkih preko velikega konteksta.
-- Širokem svetovnem znanju (videli so manj stvari in pozabijo več).
+- Odprtih, večslojnih sklepih po velikem kontekstu.
+- Splošnem znanju o svetu (videli so manj, pozabljajo več).
 
-Zmagovalna strategija za lokalne agente je torej: **naj SLM usklajuje, naj orodja opravljajo težje delo.** Model ne potrebuje, da *pozna* vašo kodo — potrebuje vedeti, kdaj poklicati `read_file` in `search_docs`. To neposredno izkorišča prednosti SLM.
+Zmagovalna strategija za lokalne agente je torej: **naj SLM orkestrira, orodja pa naj opravijo težko delo.** Model ne potrebuje, da bi *poznal* vašo kodo — mora vedeti, kdaj poklicati `read_file` in `search_docs`. To je neposredna prednost SLM-ja.
 
 ```mermaid
 flowchart LR
-    U[Razvijalec] --> A[Lokalni SLM agent]
-    A -->|odloča, katero orodje| T1[read_file]
-    A -->|odloča, katero orodje| T2[search_docs RAG]
-    A -->|odloča, katero orodje| T3[analyze_code]
+    U[Razvijalec] --> A[Lokalni SLM Agent]
+    A -->|odloči, orodje katerega| T1[preberi_datoteko]
+    A -->|odloči, orodje katerega| T2[išči_dokumente RAG]
+    A -->|odloči, orodje katerega| T3[analiziraj_kodo]
     T1 --> A
     T2 --> A
     T3 --> A
-    A --> R[Odgovor, popolnoma na napravi]
+    A --> R[Odgovor, popolnoma na napravah]
 ```
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** je lahkoten runtime, ki prenese, upravlja in postreže modele popolnoma na vašem računalniku. Najpomembnejša funkcija za nas je, da izpostavlja **OpenAI združljivo HTTP točko** — to pomeni, da OpenAI SDK in Microsoft Agent Framework-ov OpenAI odjemalec delujeta proti njej samo z zamenjavo `base_url`. Vse, kar ste se naučili o gradnji agentov, lahko neposredno uporabite; le točka se premakne iz oblaka na `localhost`.
+**Microsoft Foundry Local** je lahkoten runtime, ki na vaši napravi prenese, upravlja in postreže modele. Njegova najpomembnejša lastnost za nas je, da izpostavlja **OpenAI-kompatibilno HTTP točko** — kar pomeni, da OpenAI SDK in OpenAI klient Microsoft Agent Frameworka delujeta nanj le z zamenjavo `base_url`. Vse, kar ste se naučili o gradnji agentov, se prenese neposredno; samo točka se premakne iz oblaka na `localhost`.
 
-Foundry Local tudi samodejno izbere najboljšo verzijo modela za vašo strojno opremo — CPU build, CUDA/GPU build ali NPU build — tako da vam ni treba ročno optimizirati za vsako napravo.
+Foundry Local tudi samodejno izbere najboljšo verzijo modela za vašo strojno opremo — CPU verzijo, CUDA/GPU ali NPU — tako da ne optimizirate ročno za vsako napravo.
 
 ### Namestitev
 
-Namestite Foundry Local (glejte [dokumentacijo](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) za vaš OS), nato preverite, ali deluje:
+Namestite Foundry Local (glej [dokumentacijo](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) za svoj OS) in nato preverite, da deluje:
 
 ```bash
-# Namestite (primer; sledite dokumentaciji za vašo platformo)
+# Namestite (na primer; sledite dokumentaciji za vašo platformo)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
@@ -95,101 +95,101 @@ foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Ko storitev teče, imate lokalno, OpenAI združljivo točko (običajno `http://localhost:PORT/v1`). Zvezek uporablja `foundry-local-sdk`, da samodejno odkrije točko, zato vam ni treba ročno določati vrat.
+Ko je storitev zagnana, imate lokalno, OpenAI-kompatibilno točko (običajno `http://localhost:PORT/v1`). Zvezek uporablja `foundry-local-sdk`, da samodejno odkrije točko, zato vam ni treba trdo kodirati vrat.
 
-## Qwen klic funkcij: zakaj je pomembno
+## Qwen klicanje funkcij: Zakaj je pomembno
 
-Agent je agent le, če lahko kliče orodja. Veliko SLM lahko klepeta, a izdeluje nezanesljive, nepravilne klice orodij. **Qwen** modeli so usposobljeni za klic funkcij in dosledno proizvajajo pravilno oblikovane strukture klicev orodij — kar je tisto, kar lokalni klepetalni model spremeni v lokalnega *agenta*.
+Agent je agent le, če lahko kliče orodja. Veliko SLM-jev lahko klepeta, a proizvede nezanesljive, napačne klice orodij. **Qwen** modeli so trenirani za klicanje funkcij in dosledno sproducirajo pravilne strukture klicev orodij — kar je natanko tisto, kar spremeni lokalni klepet v lokalnega *agenta*.
 
-Potek je standardni cikel klicev orodij, ki ga že poznate, le da teče lokalno:
+Tok je standardni krog klicanja orodij, ki ga že poznate, le da teče neposredno na napravi:
 
 ```mermaid
 sequenceDiagram
     participant U as Uporabnik
-    participant A as Qwen Agent (lokalno)
-    participant T as Lokalno orodje
+    participant A as Agent Qwen (lokalno)
+    participant T as Lokalno Orodje
     U->>A: "Kaj počne auth.py?"
     A->>A: Odloči: pokliči read_file
     A->>T: read_file("auth.py")
     T-->>A: vsebina datoteke
-    A->>A: Razmislek o vsebini
-    A-->>U: Pojasnilo
+    A->>A: Razmisli o vsebini
+    A-->>U: Razlaga
 ```
 
 ## Lokalni RAG
 
-Iskanje v dokumentaciji je področje, kjer lokalni agenti pokažejo svojo vrednost. Namesto da upamo, da je SLM zapomnil dokumentacijo vašega ogrodja, te dokumente vstavimo v **lokalno vektorsko bazo podatkov** in agentu omogočimo, da po potrebi poišče ustrezne dele.
+Iskanje po dokumentaciji je področje, kjer lokalni agenti upravičijo svojo uporabo. Namesto da bi upali, da je SLM memoriziral dokumentacijo vašega okvira, to dokumentacijo vdelate v **lokalno vektorsko bazo** in agentu omogočite, da po potrebi pridobi ustrezne koščke.
 
-Uporabljamo **Chroma**, vgrajeno vektorsko skladišče, ki deluje v istem procesu brez strežnika za upravljanje. Celotna cev je popolnoma lokalna: lokalni vstavitveni model → lokalni vektorji → lokalno iskanje → lokalni SLM.
+Uporabljamo **Chroma**, vgrajeni vektorski shrambo, ki teče v procesu brez strežnika za upravljanje. Celotna poteka je lokalna: lokalni vdelani model → lokalni vektorji → lokalno pridobivanje → lokalni SLM.
 
 ```mermaid
 flowchart TB
-    D[Vaša dokumentacija / koda] --> E[Lokalni model vdelave]
-    E --> V[(Chroma vektorska zbirka - na disku)]
-    Q[Poizvedba agenta] --> QE[Vdelaj poizvedbo lokalno]
+    D[Vaši dokumenti / koda] --> E[Lokalni model za vdelavo]
+    E --> V[(Chroma vektorska baza podatkov - na disku)]
+    Q[Povpraševanje agenta] --> QE[Lokalna vdelava povpraševanja]
     QE --> V
-    V -->|top-k koščkov| A[Qwen agent]
+    V -->|najboljše-k kose| A[Qwen agent]
     A --> Ans[Utemeljen odgovor]
 ```
 
-To je isti vzorec Agentic RAG iz Lekcije 5 — edina sprememba je, da vsak del teče na vaši napravi.
+To je isti vzorec Agentic RAG iz Lekcije 5 — edina sprememba je, da vse komponente tečejo na vaši napravi.
 
 ## Lokalni MCP strežniki
 
-[MCP](../11-agentic-protocols/README.md) je transport, ne oblačna storitev. MCP strežnik lahko teče kot lokalni proces na `stdio`, kar orodjem omogoča povezavo z agentom preko standardnega protokola. S tem lahko ponovno uporabite rastoči ekosistem MCP strežnikov — dostop do datotečnega sistema, operacije git, poizvedbe baz podatkov — popolnoma brez povezave.
+[MCP](../11-agentic-protocols/README.md) je transport, ne oblačna storitev. MCP strežnik lahko teče kot lokalni proces na `stdio`, kjer agentu preko standardnega protokola izpostavi orodja. To vam omogoča ponovno uporabo rastočega ekosistema MCP strežnikov — dostop do datotečnega sistema, git operacij, poizvedb v podatkovnih bazah — povsem brez povezave.
 
-Varnostni položaj je drugačen kot v oblaku, a ni odsoten: lokalni MCP strežnik še vedno teče z dovoljenji vašega uporabnika, zato omejite njegov dostop (na projektno mapo, ne celotno domačo mapo) in rezultate ravnajte kot vhodne podatke za validacijo.
+Varnostni položaj je drugačen od oblaka, a ni odsoten: lokalni MCP strežnik še vedno teče z vašimi uporabniškimi dovoljenji, zato omejite, kaj lahko dostopa (npr. projektna mapa, ne vaša celotna domača mapa) in ravnajte z njegovimi izhodi kot z vhodom za preverjanje.
 
-## Hibridni oblaki in lokalni vzorci
+## Hibridni vzorci oblaka in lokalnega
 
-Lokalno najprej ne pomeni samo lokalno. Zrele rešitve usmerjajo tok glede na občutljivost in zahtevnost:
+Lokalno-prvo ne pomeni samo lokalno. Zreli sistemi usmerjajo glede na občutljivost in težavnost:
 
 | Situacija | Kje teče |
 | --- | --- |
-| Občutljiva koda/podatki ali brez povezave | **Lokalni SLM** |
-| Preprosto, omejeno opravilo | **Lokalni SLM** (poceni, hitro) |
-| Zahtevna večstopenjska odločitev o neobčutljivih podatkih | **Oblačni model** |
-| Vse med izpadom | **Lokalni SLM** (prijazno degradiranje) |
+| Občutljiva koda / podatki ali brez povezave | **Lokalni SLM** |
+| Preprosta, omejena naloga | **Lokalni SLM** (cenovno ugodno, hitro) |
+| Težko večstopenjsko sklepanja na neobčutljivih podatkih | **Oblačni model** |
+| Vse, med izpadom | **Lokalni SLM** (prijazno poslabšanje) |
 
-To ponavlja idejo **usmerjanja modelov** iz Lekcije 16 — razen da je ena izmed "modelov" zdaj vaš lasten računalnik. Robustna zasnova se v oblak ne poveže, ko ni na voljo, tako da agent izgublja na kakovosti namesto, da povsem odpove.
+To odraža zamisel **usmerjanja modelov** iz Lekcije 16 — razen da je zdaj ena izmed "modelov" vaša naprava. Robustna zasnova se v primeru nedosegljivega oblaka zanaša na lokalno, tako da agent postopoma poslabša kakovost, namesto da povsem odpove.
 
 ```mermaid
 flowchart LR
     Q[Zahteva] --> S{Občutljivo ali brez povezave?}
-    S -->|ja| L[Lokalni SLM]
-    S -->|ne| C{Zahteva globoko razmišljanje?}
+    S -->|da| L[Lokalni SLM]
+    S -->|ne| C{Potrebuje globoko razmišljanje?}
     C -->|ne| L
-    C -->|ja| Cloud[Model v oblaku]
-    L --> Out[Odgovor]
+    C -->|da| Cloud[Model v oblaku]
+    L --> Out[Odziv]
     Cloud --> Out
 ```
 
-## Praktična vaja: Lokalen inženirski asistent
+## Praktična vaja: lokalni inženirski pomočnik
 
-Odprite [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) in ga preglejte. Zgradili boste **lokalnega inženirskega asistenta**, ki teče popolnoma na vaši delovni postaji in lahko:
+Odprite [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) in ga preglejte. Zgradili boste **lokalnega inženirskega pomočnika**, ki teče v celoti na vaši delovni postaji in lahko:
 
-1. **Kliče orodja** — preko Qwen klicanja funkcij skozi Foundry Local.
-2. **Izvaja lokalne operacije z datotekami** — našteje in bere datoteke v projektni mapi.
-3. **Analizira kodo** — poroča osnovne metrike o izvorni datoteki.
-4. **Išče v dokumentaciji** — lokalni RAG preko mape z dokumenti s pomočjo Chroma.
-5. **Uporablja MCP** — poveže se z lokalnim MCP strežnikom (z nežnim preskakovanjem, če ni konfiguriran).
+1. **Kliče orodja** — prek Qwen klicanja funkcij preko Foundry Local.
+2. **Izvaja lokalne operacije z datotekami** — navaja in bere datoteke v projektni mapi.
+3. **Analizira kodo** — poroča o osnovnih metrikah na izvorni datoteki.
+4. **Išče v dokumentaciji** — lokalni RAG preko mape z dokumenti s Chromo.
+5. **Uporablja MCP** — poveže se z lokalnim MCP strežnikom (z učtljivim preskokom, če ni konfiguriran).
 
-V nobenem trenutku ne uporabi oblačnega sklepanja.
+Nikjer se ne uporablja sklepanje v oblaku.
 
-### Pregled
+### Vodnik po korakih
 
-Asistent se poveže s Foundry Local preko OpenAI združljive točke, tako da je koda agenta skoraj enaka kot pri oblačnih lekcijah — spremeni se le odjemalec:
+Pomočnik se poveže z Foundry Local prek OpenAI-kompatibilne točke, zato je koda agenta skoraj enaka kot v oblačnih lekcijah — spremeni se le odjemalec:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local odkrije/prekine model in nam da lokalno končno točko.
+# Foundry Local odkrije/prenese model in nam zagotovi lokalno končno točko.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key je lokalni nadomestni znak
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key je lokalni nadomestni simbol
 ```
 
-Orodja so običajne Python funkcije omejene na projektno mapo:
+Orodja so običajne Python funkcije, omejene na projektno mapo:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,114 +200,114 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Opazite preverjanje peskovnika — tudi lokalno je orodje, ki bere poljubne poti, tveganje. Zvezek omeji vsa orodja na eno samo korensko mapo projekta.
+Opozorite na preverjanje peskovnika — tudi lokalno je orodje, ki bere poljubne poti, tveganje. Zvezek omeji vsako orodje na eno projektno korenino.
 
 ## Preverjanje znanja
 
-Preizkusite svoje razumevanje, preden nadaljujete z nalogo.
+Preizkusite svoje razumevanje pred nadaljevanjem k nalogi.
 
-**1. Navedite dva konkretna razloga, zakaj bi agenta zagnali lokalno namesto v oblaku.**
+**1. Navedite dva konkretna razloga, zakaj pognati agenta lokalno namesto v oblaku.**
 
 <details>
 <summary>Odgovor</summary>
 
-Katera koli dva od: **zasebnost** (koda in podatki ne zapustijo naprave), **stroški** (ni računa na žeton za sklepanje), in **delovanje brez povezave** (deluje brez omrežja — na letalu, v varni ustanovi ali med izpadom). Regulatorne omejitve, ki prepovedujejo pošiljanje podatkov iz naprave, so pogost vzrok zasebnosti.
+Katera koli dva iz: **zasebnost** (koda in podatki nikoli ne zapustijo naprave), **stroški** (ni stroška na token sklepanja) in **delovanje brez povezave** (deluje brez omrežja — na letalu, v varnem objektu ali med izpadom). Regulativne omejitve, ki prepovedujejo pošiljanje podatkov iz naprave, so pogost vzrok za zasebnost.
 </details>
 
-**2. Kakšna je priporočena delitev dela med SLM in njegovimi orodji v lokalnem agentu in zakaj?**
+**2. Kakšna je priporočena delitev dela med SLM in orodji v lokalnem agentu in zakaj?**
 
 <details>
 <summary>Odgovor</summary>
 
-Naj SLM **usklajuje** (odloči, katero orodje klicati in s kakšnimi argumenti), orodjem pa dovolite **težka opravila** (branje datotek, pridobivanje dokumentov, računanje rezultatov). SLM so močni pri omejenih odločitvah, kot je izbira orodja, a šibkejši pri širšem znanju in dolgem večstopenjskem sklepanju, zato zanašanje na orodja izkorišča njihove prednosti.
+Naj SLM **orkestrira** (odloči, katero orodje poklicati in s katerimi argumenti), orodja pa naj **opravljajo težko delo** (branje datotek, iskanje dokumentov, računanje rezultatov). SLM-je odlikujejo omejene odločitve, kot je izbira orodja, a so šibki v širšem znanju in dolgih večstopenjskih sklepih, zato je opiranje na orodja njihova prednost.
 </details>
 
-**3. Kaj omogoča ponovno uporabo kode agenta iz oblaka s Foundry Local?**
+**3. Kaj omogoča ponovno uporabo kode oblačnega agenta z Foundry Local?**
 
 <details>
 <summary>Odgovor</summary>
 
-Foundry Local izpostavlja **OpenAI združljivo HTTP točko**. OpenAI SDK in Agent Framework-ov OpenAI odjemalec delujeta proti njej z zamenjavo samo `base_url` (in uporabo lokalnega API ključa kot nadomestnega znaka). Vse drugo o kodi agenta ostane enako.
+Foundry Local izpostavlja **OpenAI-kompatibilno HTTP točko**. OpenAI SDK in OpenAI klient Agent Frameworka delujeta nanj z zamenjavo le `base_url` (in uporabo lokalnega nadomestnega API ključa). Vse ostalo pri kodi agenta ostane enako.
 </details>
 
-**4. Zakaj prav posebej uporabljamo Qwen model za klic funkcij namesto kateregakoli SLM?**
+**4. Zakaj posebej uporabljamo Qwen model za klicanje funkcij namesto kateregakoli SLM-ja?**
 
 <details>
 <summary>Odgovor</summary>
 
-Ker mora agent proizvajati zanesljive, pravilno oblikovane **klice orodij**. Veliko SLM lahko klepeta, a oddaja nepravilne ali nezanesljive strukture klicev orodij. Qwen modeli so usposobljeni za klic funkcij in dosledno ustvarjajo klice orodij, kar lokalni klepetalni model spremeni v delujočega lokalnega agenta.
+Ker agent mora proizvesti zanesljive, pravilno oblikovane **klice orodij**. Veliko SLM-jev lahko klepeta, a oddajajo napačne ali neustrezne strukture klicev orodij. Qwen modeli so trenirani za klicanje funkcij in dosledno proizvajajo klice orodij, kar lokalni klepet spremeni v delujočega lokalnega agenta.
 </details>
 
-**5. Kateri sestavni deli v lokalni RAG cevovodu tečejo na napravi?**
+**5. Katere komponente tečejo na napravi v lokalnem RAG-pijplajnu?**
 
 <details>
 <summary>Odgovor</summary>
 
-Vsi: model vstavitve, vektorska baza podatkov (Chroma, na disku), korak iskanja in SLM. Dokumenti so lokalno vstavljeni, lokalno shranjeni, lokalno pridobljeni in lokalno obdelani — noben sestavni del ne uporablja oblaka.
+Vse: vdelani model, vektorska baza (Chroma, na disku), korak iskanja in SLM. Dokumenti so lokalno vdelani, lokalno shranjeni, lokalno pridobljeni in lokalni model jih obdeluje — nobena komponenta ne dostopajo do oblaka.
 </details>
 
-**6. Lokalni MCP strežnik teče na vašem računalniku. Ali to pomeni, da je avtomatično varen? Katero previdnost morate še vedno upoštevati?**
+**6. Lokalni MCP strežnik teče na vaši napravi. Ali je to avtomatično varno? Kaj morate še vedno upoštevati?**
 
 <details>
 <summary>Odgovor</summary>
 
-Ne. Lokalni MCP strežnik teče z dovoljenji vašega uporabnika, zato lahko dostopa do vsega, kar lahko vi. Omejite ga na tisto, kar potrebuje (na primer eno samo projektno mapo in ne celotno domačo) in rezultate obravnavajte kot vhodne podatke, ki jih pred uporabo validirajte.
+Ne. Lokalni MCP strežnik teče z dovoljenji vašega uporabnika, zato lahko dostopa do vsega, kar vi lahko. Omejite ga na tisto, kar potrebuje (npr. samo eno projektno mapo, ne celotne domače mape) in z njegovimi izhodi ravnajte kot z vhodnimi podatki, ki jih morate preveriti, preden ukrepate.
 </details>
 
-**7. Opišite smiselno hibridno pravilo usmerjanja, ki vključuje lokalni model.**
+**7. Opisite smiselno hibridno pravilo usmerjanja, ki vključuje lokalni model.**
 
 <details>
 <summary>Odgovor</summary>
 
-Usmerite občutljive ali brez-povezave zahteve lokalnemu SLM; usmerite preprosta omejena opravila lokalnemu SLM za hitrost in nizke stroške; zahtevno večstopenjsko sklepanje o neobčutljivih podatkih usmerite k oblačnemu modelu; in v primeru nedostopnosti oblaka preklopite na lokalni SLM, da agent prijazno degradira namesto popolne napake. To je usmerjanje modelov (Lekcija 16) z lokalnim računalnikom kot enim izmed modelov.
+Usmerjajte občutljive ali zahteve brez povezave na lokalni SLM; preproste omejene naloge naj tečejo na lokalnem SLM-ju zaradi hitrosti in stroškov; zahtevno večstopenjsko sklepanje na neobčutljivih podatkih na oblačni model; in uporabite lokalni SLM, če oblak ni dosegljiv, da agent prijazno poslabša kakovost namesto povsem odpove. To je usmerjanje modelov (Lekcija 16) z lokalno napravo kot enim izmed modelov.
 </details>
 
-**8. Kakšen je realističen minimalni RAM za zagon lokalnega agenta v tej lekciji in kaj dobite z več RAM-a?**
+**8. Kakšna je realistična minimalna količina RAM-a za poganjanje lokalnega agenta v tej lekciji in kaj dobite z več RAM-a?**
 
 <details>
 <summary>Odgovor</summary>
 
-Približno **8 GB** je realističen minimum; 16 GB+ je udobno. Več RAM-a omogoča uporabo večjih, zmogljivejših modelov in shranjevanje več konteksta v spomin. GPU ali NPU pospešuje sklepanje, a ni nujno — Foundry Local izbere CPU verzijo, če ni pospeševalca.
+Približno **8 GB** je realistični minimum; 16 GB+ je udobno. Več RAM-a omogoča poganjanje večjih, zmogljivejših modelov in hranjenje več konteksta v spominu. GPU ali NPU pospešujeta sklepanje, a nista nujna — Foundry Local izbere CPU verzijo, če ni na voljo pospeševalnika.
 </details>
 
 ## Naloga
 
-Razširite lokalnega inženirskega asistenta v **lokalnega recenzenta dokumentacije** za majhen projekt po vaši izbiri (lahko uporabite eno izmed lekcijskih map tega repozitorija).
+Razširite lokalnega inženirskega pomočnika v **lokalnega recenzenta dokumentacije** za manjši projekt po vaši izbiri (lahko uporabite eno iz lekcijskih map tega repozitorija).
 
-Vaša oddaja naj:
+Vaša rešitev naj:
 
-1. **Indeksira pravo mapo dokumentov/kode** v Chromo (vsaj pet datotek).
-2. **Doda orodje `find_todos`**, ki pregleda projekt za komentarje `TODO`/`FIXME` in jih vrne skupaj z imenom datoteke in številko vrstice — ob uporabi istega preverjanja peskovnika kot `read_file`.
+1. **Indeksira resnično mapo z dokumentacijo/kodo** v Chromo (vsaj pet datotek).
+2. **Doda orodje `find_todos`**, ki preišče projekt za komentarje `TODO`/`FIXME` in jih vrne z datoteko in številko vrstice — ob uporabi istega preverjanja peskovnika kot `read_file`.
 
-3. **Vprašajte agenta tri vprašanja**, ki ga prisilijo, da združi orodja: eno čisto RAG vprašanje, eno, ki zahteva branje določenega datotek, in eno, ki zahteva iskanje TODO-jev.
-4. **Izmerite ga**: zabeležite čas za vsak od treh odgovorov v markdown celico. Kommentirajte, ali je zakasnitev sprejemljiva za vaš namenjeni potek dela.
+3. **Postavite agentu tri vprašanja**, ki ga prisilijo k združevanju orodij: eno čisto RAG vprašanje, eno, ki zahteva branje določene datoteke, in eno, ki zahteva iskanje TODOjev.
+4. **Izmerite ga**: merite čas vsakega od treh odgovorov in jih zapišite v markdown celico. Komentirajte, ali je zakasnitev sprejemljiva za vaš predvideni delovni proces.
 
-Nato napišite kratek odstavek o tem, **kaj bi premaknili v oblak in kaj bi obdržali lokalno** za tega recenzenta, in zakaj. Ocenjuje se, ali so lokalne komponente pravilno povezane in ali je vaše hibridno razmišljanje pravilno — ne pa kakovost modela.
+Nato napišite kratek odstavek o **tem, kaj bi premaknili v oblak in kaj bi obdržali lokalno** za tega pregledovalca, in zakaj. Ovrednoteni boste glede na to, ali so lokalne komponente pravilno povezane in ali je vaše hibridno razmišljanje smiselno — ne glede na kakovost modela.
 
 ## Povzetek
 
-V tej lekciji ste zgradili agenta, ki deluje v celoti na vašem lastnem računalniku:
+V tej lekciji ste zgradili agenta, ki teče povsem na vašem lastnem računalniku:
 
-- **SLM-i** zamenjajo širino z zasebnostjo, stroški in delovanjem brez povezave — in izstopajo, ko **orkestrirajo orodja** namesto, da bi imeli vse znanje sami.
-- **Foundry Local** služi modele na napravi znotraj **OpenAI združljivega končnega mesta**, tako da se vaša koda oblaka za agente prenese z eno vrstico spremembe.
-- **Qwen modeli za klic funkcij** omogočajo zanesljivo lokalno klicanje orodij — in s tem lokalne *agente*.
-- **Lokalni RAG** (Chroma) in **lokalni MCP** agentu omogočata funkcionalnost brez zapuščanja naprave.
-- **Hibridni vzorci** vam omogočajo usmerjanje glede na občutljivost in zahtevnost, z lokalnim kot elegantnim rezervnim načinom.
+- **SLMs** zamenjajo širino z zasebnostjo, stroški in delovanjem brez povezave — in izstopajo, ko **orkestrirajo orodja** namesto da bi nosili vse znanje sami.
+- **Foundry Local** streže modele na napravi za **OpenAI-kompatibilno končno točko**, tako da se vaša koda oblačnega agenta prenese z eno vrstico spremembe.
+- **Qwen modeli za klic funkcij** omogočajo zanesljiv lokalni klic orodij — in s tem lokalne *agente*.
+- **Lokalni RAG** (Chroma) in **lokalni MCP** dajejo agentu zmogljivost, ne da bi zapustil računalnik.
+- **Hibridni vzorci** vam omogočajo usmerjanje glede na občutljivost in zahtevnost, pri čemer je lokalno prijazen padec nazaj.
 
-To zaključi razvojno zgodbo: Lekcija 16 je razširila agente v Microsoft Foundry, ta lekcija pa jih je skrčila na en sam delovni postajo. Naslednja lekcija se posveča varnosti nameščenih agentov.
+S tem je zaključen razpon uvajanja: lekcija 16 je razširila agente v Microsoft Foundry, in ta lekcija jih je skrčila na eno delovno postajo. Naslednja lekcija se osredotoča na zagotavljanje varnosti nameščenih agentov.
 
 ## Dodatni viri
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Dokumentacija Microsoft Foundry Local</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentacija Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Dokumentacija za klic funkcij Qwen</a>
-- <a href="https://modelcontextprotocol.io/" target="_blank">Protokol konteksta modela (MCP)</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Dokumentacija klicev funkcij Qwen</a>
+- <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Chroma vektorska baza podatkov</a>
 
 ## Prejšnja lekcija
 
-[Nameščanje razširljivih agentov](../16-deploying-scalable-agents/README.md)
+[Uvajanje razširljivih agentov](../16-deploying-scalable-agents/README.md)
 
 ## Naslednja lekcija
 

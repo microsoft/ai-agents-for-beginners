@@ -1,64 +1,64 @@
 # Bygge Agent-til-Agent Kommunikasjonssystemer med MCP
 
-> Kort fortalt - Kan du bygge Agent2Agent-kommunikasjon på MCP? Ja!
+> TL;DR - Kan du bygge Agent2Agent-kommunikasjon på MCP? Ja!
 
-MCP har utviklet seg betydelig utover sitt opprinnelige mål om "å gi kontekst til LLM-er". Med nylige forbedringer som [gjenopptakbare strømmer](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [innhenting](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) og varsler ([fremdrift](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) og [ressurser](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), gir MCP nå et solid grunnlag for å bygge komplekse agent-til-agent kommunikasjonsystemer.
+MCP har utviklet seg betydelig utover sitt opprinnelige mål om "å gi kontekst til LLM-er". Med nylige forbedringer som inkluderer [gjenopptakbare strømmer](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitering](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), og varsler ([progresjon](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) og [ressurser](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), gir MCP nå et robust grunnlag for å bygge komplekse agent-til-agent kommunikasjonssystemer.
 
-## Misforståelsen om Agenter/Verktøy
+## Agent/Verktøy Misforståelsen
 
-Etter hvert som flere utviklere utforsker verktøy med agentlignende oppførsel (kjører over lengre tid, kan kreve ekstra input underveis, osv.), er en vanlig misforståelse at MCP er uegnet, hovedsakelig fordi tidlige eksempler på verktøy i MCP fokuserte på enkle forespørsel-svar-mønstre.
+Ettersom flere utviklere utforsker verktøy med agentiske atferder (kjører i lange perioder, kan kreve tilleggsinput midt i kjøringen, osv.), er en vanlig misforståelse at MCP er uegnet, hovedsakelig fordi tidlige eksempler på verktøy var primitive og fokuserte på enkle forespørsels-respons-mønstre.
 
-Denne oppfatningen er utdatert. MCP-spesifikasjonen har blitt betydelig forbedret de siste månedene med funksjoner som lukker gapet for å bygge langvarig agentlignende oppførsel:
+Denne oppfatningen er utdatert. MCP-spesifikasjonen er blitt betydelig forbedret de siste månedene med funksjonaliteter som lukker gapet for å bygge langvarig agentisk atferd:
 
-- **Streaming og delvise resultater**: Oppdateringer i sanntid under utførelse
+- **Streaming & Delvise Resultater**: Sanntids oppdateringer under kjøring
 - **Gjenopptakbarhet**: Klienter kan koble til igjen og fortsette etter frakobling
-- **Holdbarhet**: Resultater overlever serveromstarter (f.eks. via ressurslenker)
-- **Flere omganger**: Interaktiv input underveis via innhenting og sampling
+- **Holdbarhet**: Resultater overlever serveromstart (f.eks. via ressurslenker)
+- **Flere runder**: Interaktiv input midt i kjøringen via elicitering og sampling
 
-Disse funksjonene kan kombineres for å muliggjøre komplekse agent- og multi-agent-applikasjoner, alt distribuert på MCP-protokollen.
+Disse funksjonene kan kombineres for å muliggjøre komplekse agentiske og multi-agent applikasjoner, alle distribuert på MCP-protokollen.
 
-For referanse vil vi referere til en agent som et "verktøy" som er tilgjengelig på en MCP-server. Dette innebærer eksistensen av en vertsapplikasjon som implementerer en MCP-klient som oppretter en sesjon med MCP-serveren og kan kalle agenten.
+For referanse vil vi omtale en agent som et "verktøy" som er tilgjengelig på en MCP-server. Dette forutsetter en vertsapplikasjon som implementerer en MCP-klient som etablerer en økt med MCP-serveren og kan kalle agenten.
 
-## Hva Gjør et MCP-Verktøy "Agentlignende"?
+## Hva Gjør et MCP-verktøy "Agentisk"?
 
-Før vi dykker inn i implementeringen, la oss etablere hvilke infrastrukturfunksjoner som trengs for å støtte langvarige agenter.
+Før vi går inn i implementasjonen, la oss fastslå hvilke infrastrukturelle kapabiliteter som trengs for å støtte langvarige agenter.
 
-> Vi definerer en agent som en enhet som kan operere autonomt over lengre perioder, i stand til å håndtere komplekse oppgaver som kan kreve flere interaksjoner eller justeringer basert på sanntids tilbakemeldinger.
+> Vi definerer en agent som en enhet som kan operere autonomt over utvidede perioder, i stand til å håndtere komplekse oppgaver som kan kreve flere interaksjoner eller justeringer basert på sanntids tilbakemelding.
 
-### 1. Streaming og delvise resultater
+### 1. Streaming & Delvise Resultater
 
-Tradisjonelle forespørsel-svar-mønstre fungerer ikke for langvarige oppgaver. Agenter må kunne gi:
+Tradisjonelle forespørsels-respons mønstre fungerer ikke for langvarige oppgaver. Agenter må tilby:
 
-- Oppdateringer i sanntid om fremdrift
-- Delvise resultater
+- Sanntids oppdateringer om progresjon
+- Delvise resultater underveis
 
-**MCP-støtte**: Ressursoppdateringsvarsler muliggjør streaming av delvise resultater, selv om dette krever nøye design for å unngå konflikter med JSON-RPCs 1:1 forespørsel/svar-modell.
+**MCP-støtte**: Varsler om ressursoppdateringer muliggjør streaming av delvise resultater, men dette krever nøye design for å unngå konflikter med JSON-RPCs 1:1 forespørsel/response-modell.
 
-| Funksjon                  | Brukstilfelle                                                                                                                                                                       | MCP-støtte                                                                                 |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Oppdateringer i sanntid   | Bruker ber om en kodebase-migreringsoppgave. Agenten streamer fremdrift: "10% - Analyserer avhengigheter... 25% - Konverterer TypeScript-filer... 50% - Oppdaterer imports..."      | ✅ Fremdriftsvarsler                                                                       |
-| Delvise resultater        | Oppgaven "Generer en bok" streamer delvise resultater, f.eks. 1) Historiebueoversikt, 2) Kapittelliste, 3) Hvert kapittel etter hvert som det er ferdig. Vert kan inspisere, avbryte eller omdirigere på ethvert stadium. | ✅ Varsler kan "utvides" til å inkludere delvise resultater, se forslag på PR 383, 776      |
+| Funksjon                   | Brukstilfelle                                                                                                                               | MCP-støtte                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Sanntids oppdateringer    | Bruker ber agenten om kodebase-migreringsoppgave. Agenten streamer fremdrift: "10 % - Analyserer avhengigheter... 25 % - Konverterer TypeScript-filer... 50 % - Oppdaterer imports..." | ✅ Progresjonsvarsler                                                                   |
+| Delvise resultater         | "Generer en bok" oppgave streamer delresultater, f.eks. 1) Historiebue-outline, 2) Kapitel-liste, 3) Hvert kapittel etter hvert som det fullføres. Vert kan inspisere, avbryte eller omdirigere når som helst. | ✅ Varsler kan "utvides" til å inkludere delresulter, se forslag på PR 383, 776           |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figur 1:</strong> Dette diagrammet illustrerer hvordan en MCP-agent streamer sanntidsoppdateringer og delvise resultater til vertsapplikasjonen under en langvarig oppgave, slik at brukeren kan overvåke utførelsen i sanntid.
+<strong>Figur 1:</strong> Dette diagrammet illustrerer hvordan en MCP-agent streamer sanntids fremdriftsoppdateringer og delvise resultater til vertsapplikasjonen under en langvarig oppgave, noe som gjør det mulig for brukeren å overvåke utførelsen i sanntid.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Vert App<br/>(MCP Klient)
+    participant Server as MCP Server<br/>(Agent Verktøy)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Start lang oppgave
+    Host->>Server: Kall agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Fremdriftsoppdateringer
+        Server-->>Host: Fremdrift + delvise resultater
+        Host-->>User: Strømoppdateringer
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Endelig resultat
+    Host-->>User: Fullfør
 ```
 
 ### 2. Gjenopptakbarhet
@@ -66,36 +66,36 @@ sequenceDiagram
 Agenter må håndtere nettverksavbrudd på en smidig måte:
 
 - Koble til igjen etter (klient) frakobling
-- Fortsette der de slapp (meldingslevering på nytt)
+- Fortsette der de slapp (melding-gjenvinning)
 
-**MCP-støtte**: MCP StreamableHTTP-transport støtter i dag sesjonsgjenopptakelse og meldingslevering på nytt med sesjons-ID-er og siste hendelses-ID-er. Det viktige her er at serveren må implementere en EventStore som muliggjør avspilling av hendelser ved klientens tilkobling på nytt.  
-Merk at det finnes et samfunnsforslag (PR #975) som utforsker transportagnostiske gjenopptakbare strømmer.
+**MCP-støtte**: MCPs StreamableHTTP-transport støtter i dag gjenopptak av økt og melding-gjenvinning med session IDs og siste event-IDer. Viktig å merke seg er at serveren må implementere et EventStore som muliggjør event-replay ved klient-gjenforbindelse.  
+Merk at det finnes et fellesskapsforslag (PR #975) som utforsker transport-agnostiske gjenopptakbare strømmer.
 
-| Funksjon      | Brukstilfelle                                                                                                                                                   | MCP-støtte                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Gjenopptakbarhet | Klient kobler fra under en langvarig oppgave. Ved tilkobling på nytt gjenopptas sesjonen med avspilte hendelser, og fortsetter sømløst der den slapp.          | ✅ StreamableHTTP-transport med sesjons-ID-er, hendelsesavspilling og EventStore |
+| Funksjon     | Brukstilfelle                                                                                                                                          | MCP-støtte                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| Gjenopptakbarhet | Klienten kobler fra under en langvarig oppgave. Ved gjenforbindelse fortsetter økten med gjengitte savnede hendelser, og fortsetter sømløst der den slapp. | ✅ StreamableHTTP-transport med session IDs, event-replay og EventStore     |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figur 2:</strong> Dette diagrammet viser hvordan MCPs StreamableHTTP-transport og EventStore muliggjør sømløs sesjonsgjenopptakelse: hvis klienten kobler fra, kan den koble til igjen og spille av tapte hendelser, og fortsette oppgaven uten tap av fremdrift.
+<strong>Figur 2:</strong> Dette diagrammet viser hvordan MCPs StreamableHTTP-transport og event store muliggjør sømløs gjenopptakelse av økter: hvis klienten kobler fra, kan den koble til igjen og gjenta savnede hendelser, og fortsette oppgaven uten tap av fremgang.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Vert App<br/>(MCP-klient)
+    participant Server as MCP Server<br/>(Agentverktøy)
+    participant Store as Hendelseslager
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Start oppgave
+    Host->>Server: Kall verktøy [økt: abc123]
+    Server->>Store: Lagre hendelser
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Tapt forbindelse
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Koble til på nytt [økt: abc123]
+    Store-->>Server: Spill av hendelser
+    Server-->>Host: Ta igjen + fortsett
+    Host-->>User: ✅ Fullført
 ```
 
 ### 3. Holdbarhet
@@ -103,108 +103,108 @@ sequenceDiagram
 Langvarige agenter trenger vedvarende tilstand:
 
 - Resultater overlever serveromstarter
-- Status kan hentes utenfor bånd
-- Fremdriftssporing på tvers av sesjoner
+- Status kan hentes uavhengig av bånd
+- Progresjonssporing over økter
 
-**MCP-støtte**: MCP støtter nå en Ressurslenke-returtype for verktøykall. I dag er et mulig mønster å designe et verktøy som oppretter en ressurs og umiddelbart returnerer en ressurslenke. Verktøyet kan fortsette å håndtere oppgaven i bakgrunnen og oppdatere ressursen. Klienten kan på sin side velge å hente statusen til denne ressursen for å få delvise eller fullstendige resultater (basert på hvilke ressursoppdateringer serveren gir) eller abonnere på ressursen for oppdateringsvarsler.
+**MCP-støtte**: MCP støtter nå en ressurslenketilbake-type for verktøy-kall. En vanlig mønster i dag er å designe et verktøy som oppretter en ressurs og umiddelbart returnerer en ressurslenke. Verktøyet kan i bakgrunnen fortsette å ta seg av oppgaven og oppdatere ressursen. Klienten kan så velge å poll'e tilstanden til denne ressursen for å få delvise eller fullstendige resultater (basert på hvilke ressursoppdateringer serveren gir) eller abonnere på ressursen for oppdateringsvarsler.
 
-En begrensning her er at polling av ressurser eller abonnement på oppdateringer kan bruke ressurser med implikasjoner i stor skala. Det finnes et åpent samfunnsforslag (inkludert #992) som utforsker muligheten for å inkludere webhooks eller triggere som serveren kan bruke til å varsle klienten/vertsapplikasjonen om oppdateringer.
+En begrensning her er at polling av ressurser eller abonnement på oppdateringer kan forbruke ressurser med konsekvenser i stor skala. Det finnes et åpent fellesskapsforslag (inkludert #992) som utforsker muligheten for å inkludere webhooks eller triggere som serveren kan kalle for å varsle klient/vertsapplikasjon om oppdateringer.
 
-| Funksjon    | Brukstilfelle                                                                                                                                        | MCP-støtte                                                        |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Holdbarhet  | Server krasjer under en datamigreringsoppgave. Resultater og fremdrift overlever omstart, klient kan sjekke status og fortsette fra vedvarende ressurs. | ✅ Ressurslenker med vedvarende lagring og statusvarsler           |
+| Funksjon   | Brukstilfelle                                                                                                                                   | MCP-støtte                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Holdbarhet | Serveren krasjer under en data-migreringsoppgave. Resultater og fremdrift overlever omstart, klient kan sjekke status og fortsette fra persistent ressurs. | ✅ Ressurslenker med vedvarende lagring og statusvarsler          |
 
-I dag er et vanlig mønster å designe et verktøy som oppretter en ressurs og umiddelbart returnerer en ressurslenke. Verktøyet kan i bakgrunnen håndtere oppgaven, sende ressursvarsler som fungerer som fremdriftsoppdateringer eller inkluderer delvise resultater, og oppdatere innholdet i ressursen etter behov.
+I dag er et vanlig mønster å designe et verktøy som oppretter en ressurs og umiddelbart returnerer en ressurslenke. Verktøyet kan i bakgrunnen ta hånd om oppgaven, sende ressursvarsler som fungerer som fremdriftsoppdateringer eller inkluderer delvise resultater, og oppdatere innholdet i ressursen etter behov.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figur 3:</strong> Dette diagrammet demonstrerer hvordan MCP-agenter bruker vedvarende ressurser og statusvarsler for å sikre at langvarige oppgaver overlever serveromstarter, slik at klienter kan sjekke fremdrift og hente resultater selv etter feil.
+<strong>Figur 3:</strong> Dette diagrammet viser hvordan MCP-agenter bruker vedvarende ressurser og statusvarsler for å sikre at langvarige oppgaver overlever serveromstarter, slik at klienter kan sjekke fremdrift og hente resultater selv etter feil.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Vert App<br/>(MCP-klient)
+    participant Server as MCP Server<br/>(Agentverktøy)
+    participant DB as Vedvarende lagring
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Start oppgave
+    Host->>Server: Kall verktøy
+    Server->>DB: Opprett ressurs + oppdateringer
+    Server-->>Host: 🔗 Ressurslenke
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Server omstart
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Sjekk status
+    Host->>Server: Hent ressurs
+    Server->>DB: Last inn tilstand
+    Server-->>Host: Nåværende fremdrift
+    Server->>DB: Fullfør + varsle
+    Host-->>User: ✅ Fullført
 ```
 
-### 4. Flere omganger
+### 4. Multi-Runde Interaksjoner
 
-Agenter trenger ofte ekstra input underveis:
+Agenter trenger ofte tilleggsinput midt i kjøringen:
 
-- Menneskelig avklaring eller godkjenning
-- AI-hjelp for komplekse beslutninger
-- Dynamisk parameterjustering
+- Menneskelig klargjøring eller godkjenning
+- AI-assistanse for komplekse beslutninger
+- Dynamisk justering av parametere
 
-**MCP-støtte**: Fullt støttet via sampling (for AI-input) og innhenting (for menneskelig input).
+**MCP-støtte**: Fullt støttet via sampling (for AI-input) og elicitering (for menneskelig input).
 
-| Funksjon                 | Brukstilfelle                                                                                                                                     | MCP-støtte                                           |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| Flere omganger           | Reisebestillingsagent ber om prisbekreftelse fra bruker, og ber deretter AI om å oppsummere reisedata før bestillingen fullføres.                 | ✅ Innhenting for menneskelig input, sampling for AI-input |
+| Funksjon              | Brukstilfelle                                                                                                                                    | MCP-støtte                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Multi-Runde Interaksjoner | Reisebestillingsagent ber om prisbekreftelse fra bruker, deretter ber AI om å oppsummere reisedata før bestillingen fullføres.                      | ✅ Elicitering for menneskelig input, sampling for AI-input |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figur 4:</strong> Dette diagrammet viser hvordan MCP-agenter interaktivt kan hente menneskelig input eller be om AI-hjelp underveis, og støtte komplekse, fleromgangs arbeidsflyter som bekreftelser og dynamisk beslutningstaking.
+<strong>Figur 4:</strong> Dette diagrammet viser hvordan MCP-agenter interaktivt kan elicitere menneskelig input eller be om AI-assistanse midtkjøring, og støtte komplekse, multi-runde arbeidsflyter som bekreftelser og dynamisk beslutningstaking.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Vertapp<br/>(MCP-klient)
+    participant Server as MCP-server<br/>(Agentverktøy)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Bestill flyreise
+    Host->>Server: Ring reise_agent
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Innhenting: "Bekreft $500?"
+    Note over Host: Tilbakekalling for innhenting (hvis tilgjengelig)
+    Host->>User: 💰 Bekrefte pris?
+    User->>Host: "Ja"
+    Host->>Server: Bekreftet
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Prøvetaking: "Oppsummer data"
+    Note over Host: AI-tilbakekalling (hvis tilgjengelig)
+    Host->>Server: Rapportoppsummering
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Fly bestilt
 ```
 
 ## Implementering av Langvarige Agenter på MCP - Kodeoversikt
 
-Som en del av denne artikkelen gir vi et [kodearkiv](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) som inneholder en komplett implementering av langvarige agenter ved bruk av MCP Python SDK med StreamableHTTP-transport for sesjonsgjenopptakelse og meldingslevering på nytt. Implementeringen demonstrerer hvordan MCP-funksjoner kan kombineres for å muliggjøre sofistikerte agentlignende oppførsel.
+Som del av denne artikkelen tilbyr vi et [kode-repositorium](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) som inneholder en komplett implementasjon av langvarige agenter ved bruk av MCP Python SDK med StreamableHTTP-transport for øktgjenopptakelse og melding-gjenvinning. Implementasjonen demonstrerer hvordan MCP-funksjoner kan kombineres for å aktivere sofistikerte agent-lignende atferder.
 
-Spesielt implementerer vi en server med to primære agentverktøy:
+Vi implementerer spesielt en server med to primære agentverktøy:
 
-- **Reiseagent** - Simulerer en reisebestillingstjeneste med prisbekreftelse via innhenting
+- **Reiseagent** - Simulerer en reisebestillingstjeneste med prisbekreftelse via elicitering
 - **Forskningsagent** - Utfører forskningsoppgaver med AI-assisterte oppsummeringer via sampling
 
-Begge agentene demonstrerer sanntids fremdriftsoppdateringer, interaktive bekreftelser og full sesjonsgjenopptakelseskapabilitet.
+Begge agenter demonstrerer sanntids fremdriftsoppdateringer, interaktive bekreftelser, og full støtte for øktgjenopptakelse.
 
-### Nøkkelkonsepter i Implementeringen
+### Nøkkelkonsepter i Implementasjonen
 
-Følgende seksjoner viser server-side agentimplementering og klient-side vertshåndtering for hver funksjon:
+Følgende seksjoner viser server-side agentimplementasjon og klient-side håndtering for hver kapabilitet:
 
-#### Streaming og Fremdriftsoppdateringer - Sanntidsstatus for Oppgaver
+#### Streaming & Fremdriftsoppdateringer - Sanntid Status på Oppgave
 
-Streaming gjør det mulig for agenter å gi sanntids fremdriftsoppdateringer under langvarige oppgaver, slik at brukerne holdes informert om oppgavestatus og delvise resultater.
+Streaming gjør det mulig for agenter å gi sanntids fremdriftsoppdateringer under langvarige oppgaver, og holder brukere informert om status og delresultater.
 
-**Serverimplementering (agent sender fremdriftsvarsler):**
+**Serverimplementasjon (agent sender fremdriftsvarsler):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Fra server/server.py - Reisebyrå som sender fremdriftsoppdateringer
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Simuler arbeid
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternativ: Loggmeldinger for detaljerte trinnvise oppdateringer
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Klientimplementering (vert mottar fremdriftsoppdateringer):**
+**Klientimplementasjon (vert mottar fremdriftsoppdateringer):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Fra client/client.py - Klient som håndterer sanntidsvarsler
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registrer meldingsbehandler ved opprettelse av økt
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Innhenting - Be om Brukerinput
+#### Elicitering - Be om Brukerinput
 
-Innhenting gjør det mulig for agenter å be om brukerinput underveis. Dette er essensielt for bekreftelser, avklaringer eller godkjenninger under langvarige oppgaver.
+Elicitering gjør det mulig for agenter å be om brukerinput midtkjøring. Dette er essensielt for bekreftelser, avklaringer eller godkjenninger under langvarige oppgaver.
 
-**Serverimplementering (agent ber om bekreftelse):**
+**Serverimplementasjon (agent ber om bekreftelse):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Fra server/server.py - Reisebyrå som ber om prisbekreftelse
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Fortsett med bestillingen
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Avbryt bestillingen
     booking_cancelled = True
 ```
 
-**Klientimplementering (vert gir innhentingscallback):**
+**Klientimplementasjon (vert leverer eliciterings-callback):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Fra client/client.py - Klientbehandling av eliciteringsforespørsler
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Registrer callback når økten opprettes
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - Be om AI-hjelp
+#### Sampling - Be om AI-assistanse
 
-Sampling lar agenter be om LLM-hjelp for komplekse beslutninger eller innholdsgenerering under utførelse. Dette muliggjør hybride menneske-AI arbeidsflyter.
+Sampling lar agenter be om LLM-assistanse for komplekse beslutninger eller innholdsgenerering under kjøring. Dette muliggjør hybride menneske-AI arbeidsflyter.
 
-**Serverimplementering (agent ber om AI-hjelp):**
+**Serverimplementasjon (agent ber om AI-assistanse):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Fra server/server.py - Forskningsagent som ber om AI-sammendrag
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Klientimplementering (vert gir samplingcallback):**
+**Klientimplementasjon (vert leverer sampling-callback):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Fra client/client.py - Klienthåndtering av prøveuttaksforespørsler
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # I en ekte applikasjon kunne dette kalt en LLM API
+    # For demonstrasjonsformål gir vi et mock-svar
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Registrer tilbakeringingen ved opprettelse av økten
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Gjenopptakbarhet - Kontinuitet i Sesjoner ved Frakoblinger
+#### Gjenopptakbarhet - Øktkontinuitet over frakoblinger
 
-Gjenopptakbarhet sikrer at langvarige agentoppgaver kan overleve klientfrakoblinger og fortsette sømløst ved tilkobling på nytt. Dette implementeres gjennom EventStore og gjenopptakelsestokens.
+Gjenopptakbarhet sikrer at langvarige agentoppgaver kan overleve klientfrakoblinger og fortsette sømløst ved gjenforbindelse. Dette implementeres gjennom event store og gjenopptakings-tokener.
 
-**EventStore-implementering (server holder sesjonsstatus):**
+**Event Store implementasjon (server lagrer økt-tilstand):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Fra server/event_store.py - Enkel hendelseslager i minnet
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Spill bare av senere hendelser fra sesjonens originale strøm.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Fra server/server.py - Overfører hendelseslager til sesjonsbehandler
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Opprett sesjonsbehandler med hendelseslager for gjenopptakelse
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Hendelseslager muliggjør gjenopptakelse av sesjon
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Bruk: Initialiser med hendelseslager
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Klientmetadata med gjenopptakelsestoken (klient kobler til igjen med lagret status):**
+**Klientmetadata med gjenopptakings-token (klient kobler til igjen med lagret tilstand):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Fra client/client.py - Klient gjenopptakelse med metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Bruk eksisterende gjenopptaks-token for å fortsette der vi slapp
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Lag en callback for å lagre gjenopptaks-token når det mottas
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Send forespørsel med gjenopptaksmetadata
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,24 +437,24 @@ result = await session.send_request(
 )
 ```
 
-Vertsapplikasjonen opprettholder sesjons-ID-er og gjenopptakelsestokens lokalt, slik at den kan koble til eksisterende sesjoner uten å miste fremdrift eller status.
+Vertsapplikasjonen vedlikeholder session IDs og gjenopptakings-tokener lokalt, som gjør det mulig å koble til eksisterende økter uten tap av fremdrift eller tilstand.
 
 ### Kodeorganisering
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figur 5:</strong> MCP-basert agentsystemarkitektur
+<strong>Figur 5:</strong> MCP-basert agent-systemarkitektur
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Bruker]) -->|"Oppgave"| Host["Vert<br/>(MCP-klient)"]
+    Host -->|list opp verktøy| Server[MCP Server]
+    Server -->|Eksponerer| AgentsTools[Agenter som verktøy]
+    AgentsTools -->|Oppgave| AgentA[Reiseagent]
+    AgentsTools -->|Oppgave| AgentB[Forskningsagent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Overvåker| StateUpdates[Fremdrift og statusoppdateringer]
+    Server -->|Publiserer| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,66 +463,68 @@ graph LR
 
 **Nøkkelfiler:**
 
-- **`server/server.py`** - Gjenopptakbar MCP-server med reise- og forskningsagenter som demonstrerer innhenting, sampling og fremdriftsoppdateringer
-- **`client/client.py`** - Interaktiv vertsapplikasjon med gjenopptakelsesstøtte, callback-håndterere og tokenhåndtering
-- **`server/event_store.py`** - EventStore-implementering som muliggjør sesjonsgjenopptakelse og meldingslevering på nytt
+- **`server/server.py`** - Gjenopptakbar MCP-server med reise- og forskningsagenter som demonstrerer elicitering, sampling og fremdriftsoppdateringer
+- **`client/client.py`** - Interaktiv vertsapplikasjon med gjenopptakstøtte, callback-handlere og token-håndtering
+- **`server/event_store.py`** - Event store-implementasjon som muliggjør øktgjenopptakelse og melding-gjenvinning
 
 ## Utvidelse til Multi-Agent Kommunikasjon på MCP
 
-Implementeringen ovenfor kan utvides til multi-agent systemer ved å forbedre vertsapplikasjonens intelligens og omfang:
+Implementasjonen over kan utvides til multi-agent systemer ved å forbedre vertsapplikasjonens intelligens og omfang:
 
-- **Intelligent Oppgavedekomponering**: Vert analyserer komplekse brukerforespørsler og bryter dem ned i deloppgaver for ulike spesialiserte agenter
-- **Koordinering av Flere Servere**: Vert opprettholder tilkoblinger til flere MCP-servere, hver med ulike agentkapabiliteter
+- **Intelligent Oppgavedekomponering**: Vert analyserer komplekse brukerforespørsler og deler dem opp i deloppgaver for forskjellige spesialiserte agenter
+- **Multi-Server Koordinering**: Vert opprettholder tilkoblinger til flere MCP-servere, hver med forskjellig agentkapabilitet
 - **Oppgavestatushåndtering**: Vert sporer fremdrift på tvers av flere samtidige agentoppgaver, håndterer avhengigheter og sekvensering
-- **Robusthet og Gjentakelser**: Vert håndterer feil, implementerer gjentakelseslogikk og omdirigerer oppgaver når agenter blir utilgjengelige
-- **Resultatsyntese**: Vert kombinerer utdata fra flere agenter til sammenhengende sluttresultater
+- **Robusthet & Gjentakelser**: Vert håndterer feil, implementerer gjentakelseslogikk og omdirigerer oppgaver når agenter blir utilgjengelige
+- **Resultatsyntese**: Vert kombinerer utdata fra flere agenter til koherente endelige resultater
 
-Verten utvikler seg fra en enkel klient til en intelligent orkestrator som koordinerer distribuerte agentkapabiliteter, samtidig som den opprettholder samme MCP-protokollgrunnlag.
+Vert utvikler seg fra en enkel klient til en intelligent orkestrator som koordinerer distribuerte agentkapabiliteter samtidig som den opprettholder samme MCP-protokollgrunnlag.
 
 ## Konklusjon
 
-MCPs forbedrede funksjoner - ressursvarsler, innhenting/sampling, gjenopptakbare strømmer og vedvarende ressurser - muliggjør komplekse agent-til-agent interaksjoner samtidig som protokollen forblir enkel.
+MCPs forbedrede kapabiliteter - ressursvarsler, elicitering/sampling, gjenopptakbare strømmer, og vedvarende ressurser - muliggjør komplekse agent-til-agent interaksjoner samtidig som protokollens enkelhet opprettholdes.
 
-## Kom i Gang
+## Komme i gang
 
-Klar til å bygge ditt eget agent2agent-system? Følg disse trinnene:
+Klar til å bygge ditt eget agent2agent-system? Følg disse stegene:
 
 ### 1. Kjør Demoen
 
 ```bash
-# Start the server with event store for resumption
+# Start serveren med hendelseslager for gjenopptakelse
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# I et annet terminalvindu, kjør den interaktive klienten
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
 **Tilgjengelige kommandoer i interaktiv modus:**
 
-- `travel_agent` - Bestill reise med prisbekreftelse via innhenting
-- `research_agent` - Forskningsoppgaver med AI-assisterte oppsummeringer via sampling
+- `travel_agent` - Bestill reise med prisbekreftelse via elicitering
+- `research_agent` - Forskning på temaer med AI-assisterte oppsummeringer via sampling
 - `list` - Vis alle tilgjengelige verktøy
-- `clean-tokens` - Fjern gjenopptakelsestokens
-- `help` - Vis detaljert kommandohjelp
+- `clean-tokens` - Tøm gjenopptakings-tokener
+- `help` - Vis detaljert kommando-hjelp
 - `quit` - Avslutt klienten
 
-### 2. Test Gjenopptakelseskapabiliteter
+### 2. Test Gjenopptakingsmuligheter
 
 - Start en langvarig agent (f.eks. `travel_agent`)
 - Avbryt klienten under utførelse (Ctrl+C)
-- Start klienten på nytt - den vil automatisk gjenoppta der den slapp
+- Start klienten på nytt - den fortsetter automatisk fra der den slapp
 
 ### 3. Utforsk og Utvid
 
-- **Utforsk eksemplene**: Sjekk ut dette [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Utforsk eksemplene**: Sjekk ut denne [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
 - **Bli med i fellesskapet**: Delta i MCP-diskusjoner på GitHub
-- **Eksperimenter**: Start med en enkel langvarig oppgave og legg gradvis til streaming, gjenopptakbarhet og multi-agent koordinering
+- **Eksperimenter**: Start med en enkel langvarig oppgave og bygg gradvis på streaming, gjenopptakbarhet og multi-agent koordinering
 
-Dette demonstrerer hvordan MCP muliggjør intelligente agentoppførsel samtidig som det opprettholder enkelheten til verktøybaserte systemer.
+Dette demonstrerer hvordan MCP muliggjør intelligente agentatferder samtidig som verktøybasert enkelhet opprettholdes.
 
-Alt i alt utvikler MCP-protokollspesifikasjonen seg raskt; leseren oppfordres til å gjennomgå den offisielle dokumentasjonsnettstedet for de nyeste oppdateringene - https://modelcontextprotocol.io/introduction
+Alt i alt utvikler MCP-protokollspesifikasjonen seg raskt; leseren oppfordres til å sjekke den offisielle dokumentasjonsnettsiden for de nyeste oppdateringene - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
