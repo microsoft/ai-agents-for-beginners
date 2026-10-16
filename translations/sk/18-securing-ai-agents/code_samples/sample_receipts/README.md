@@ -1,17 +1,21 @@
-# Ukážkové fixtures príjmov
+# Ukážkové fixture bloky príjmov
 
-Tri predvygenerované súbory príjmov na kontrolu bez spustenia notebooku.
+Tri predvygenerované súbory príjmov na kontrolu bez spúšťania notebooku.
 
 | Súbor | Čo to je |
 |---|---|
 | `01_valid_receipt.json` | Platný podpísaný príjem pre volanie nástroja `lookup_flights`. Overenie vracia True. |
-| `02_tampered_receipt.json` | Ten istý príjem s jedným po podpise zmeneným poľom. Overenie vracia False. |
-| `03_chain_three_receipts.json` | Reťazec troch platných príjmov (vyhľadávanie, držanie, rezervovanie) s `previous_receipt_hash`, ktorý každý spája s predchádzajúcim. |
+| `02_tampered_receipt.json` | Rovnaký príjem s jedným po podpise zmeneným poľom. Overenie vracia False. |
+| `03_chain_three_receipts.json` | Reťaz troch platných príjmov (vyhľadanie, rezervácia, potvrdenie) so `previous_receipt_hash` spájajúcim každý s predchádzajúcim. |
+
+Fixture bloky priamo podpisujú kanonické JCS bajty nákladu pomocou Ed25519.
+SHA-256 sa naďalej používa pre digesty obsahu a odkazy v reťazi príjmov, nie ako
+dodatočné pred-podpisové hashovanie.
 
 ## Overenie ukážok
 
-Notebook prechádza overením v štyroch častiach. Ak chcete overiť tieto fixtures
-priamo bez prechádzania cez text notebooku:
+Notebook vedie overovanie v štyroch častiach. Ak chcete overiť tieto fixture bloky
+priamo bez prechádzania textom notebooku:
 
 ```python
 import json
@@ -31,10 +35,10 @@ for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Ako boli tieto vygenerované
+## Ako boli vygenerované
 
-Fixtures používajú rovnakú cestu kódu ako notebook, s jedným pevne daným kľúčom na podpisovanie
-a fixnými časovými značkami pre bitovo reprodukovateľný výsledok. Pre regenerovanie:
+Fixture bloky používajú rovnakú cestu kódu ako notebook, s jedným fixným podpisovým kľúčom
+a fixnými časovými pečiatkami pre opakovateľnosť bajtov. Na opätovné vygenerovanie:
 
 ```bash
 python3 generate_fixtures.py
@@ -42,18 +46,18 @@ python3 generate_fixtures.py
 
 (Skript je v `generate_fixtures.py` v tomto adresári.)
 
-## Čo sa študenti naučia z kontroly surového JSONu
+## Čo sa študenti naučia z prehliadania surového JSON
 
-Čítanie surového formátu príjmu buduje intuíciu, ktorú bunky v notebooku
-nie vždy zabezpečujú. Študenti, ktorí si ľahko prehliadnu JSON, často všimnú:
+Čítanie formátu surového príjmu buduje intuíciu, ktorú bunky v notebooku
+vždy neposkytujú. Študenti, ktorí prebehnú JSON, často zistia:
 
 1. Podpis je nepriehľadný base64url reťazec, ale každé iné pole je obyčajný
    čitateľný JSON. Podpis nešifruje obsah; potvrdzuje ho.
-2. `public_key` je vložený v príjme. Auditujúci nepotrebuje nič iné
-   na overenie (s výhradou dôvery, že kľúč skutočne patrí tvrdenému
-   vystavovateľovi; pozri lekciu v README o identitnej infraštruktúre).
-3. Zmena jediného znaku v ktoromkoľvek poli, a následné porovnanie tohto súboru s
-   `02_tampered_receipt.json`, robí mechanizmus na úrovni bajtov konkrétnym.
+2. `public_key` je vložený v príjme. Auditor nepotrebuje nič iné
+   na overenie (za predpokladu, že dôveruje, že kľúč naozaj patrí deklarovanému
+   vydávateľovi; pozri text lekcie o infraštruktúre identity).
+3. Zmena jediného znaku v akomkoľvek poli a následné porovnanie tohto súboru s
+   `02_tampered_receipt.json` robí mechanizmus na úrovni bajtov konkrétnym. 
 
 ---
 

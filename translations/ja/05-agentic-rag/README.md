@@ -2,7 +2,7 @@
 
 > _(このレッスンのビデオを見るには上の画像をクリックしてください)_
 
-# Agentic RAG
+# Agentic RAG（エージェンティックRAG）
 
 このレッスンでは、エージェント型Retrieval-Augmented Generation (Agentic RAG) について包括的に解説します。これは、大規模言語モデル（LLM）が外部情報を取得しつつ、自律的に次の行動を計画する新しいAIのパラダイムです。静的な検索して読取るだけのパターンとは異なり、Agentic RAGはツールや関数呼び出し、構造化された出力を挟みながら、LLMを繰り返し呼び出すループを含みます。システムは結果を評価し、クエリを洗練し、必要に応じて追加ツールを呼び出し、満足のいく解決策が得られるまでこのサイクルを継続します。
 
@@ -140,7 +140,7 @@ Agentic RAGは複雑かつデータ集約的なタスクに対するAIシステ�
 
 ## このエージェントのスモークテスト（任意）
 
-[Lesson 16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだ後、このレッスンの`TravelRAGAgent`の回答が知識ベースに基づいているかを確認するスモークテストが[`tests/lesson-05-smoke-tests.json`](../../../tests/lesson-05-smoke-tests.json)で行えます。実行方法は[`tests/README.md`](../tests/README.md)を参照してください。
+[レッスン16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだ後、このレッスンの`TravelRAGAgent`の回答が知識ベースに基づいているかを確認するスモークテストが[`tests/lesson-05-smoke-tests.json`](../../../tests/lesson-05-smoke-tests.json)で行えます。実行方法は[`tests/README.md`](../tests/README.md)を参照してください。
 
 ## 前のレッスン
 

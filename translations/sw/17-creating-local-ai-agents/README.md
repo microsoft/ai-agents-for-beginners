@@ -1,74 +1,74 @@
-# Kuunda Maajenti wa AI wa Ndani kwa Kutumia Microsoft Foundry Local na Qwen
+# Kuunda Maajenti wa AI wa Ndani Kutumia Microsoft Foundry Local na Qwen
 
 ![Kuunda Maajenti wa AI wa Ndani](../../../translated_images/sw/lesson-17-thumbnail.f86434c595a408fc.webp)
 
-Somo lililopita lilipanua maajenti *hadi* kwenye wingu. Hili linaelekeza maajenti hao *chini* kwenye kompyuta moja. Mwishoni utakuwa na msaidizi wa uhandisi anayefanya kazi anayeweza kufikiria, kuitisha zana, kusoma faili zako, na kutafuta nyaraka zako — **bila kuita moja ya maamuzi ya wingu.**
+Somo lililopita lilipanua maajenti hadi *wingu*. Hili linawaweka *chini* kwenye mashine moja. Mwisho utakuwa na msaidizi wa uhandisi anayefanya kazi anayefikiria, anaita zana, husoma faili zako, na kutafuta nyaraka zako — **bila wito hata mmoja wa inference kwenye wingu.**
 
-Kwa nini ungependa hivyo? Sababu tatu zinazojitokeza mara kwa mara katika kazi halisi za uhandisi:
+Kwa nini ungependa hilo? Sababu tatu zinazoibuka mara kwa mara katika kazi halisi za uhandisi:
 
-- **Faragha.** Msimbo na nyaraka haziondoki kwenye kompyuta. Hakuna agizo, hakuna kipande, hakuna data ya mteja inayovuka mpaka wa mtandao.
-- **Gharama.** Uamuzi wa ndani haina bili kwa tokeni. Unaweza kurudia mchakato siku nzima kwa gharama ya umeme tu.
-- **Bila Mtandao.** Kwenye ndege, katika eneo salama, au wakati wa tatizo la mtandao, maajenti bado hufanya kazi.
+- **Faragha.** Msimbo na nyaraka hazitoki kabisa kwenye mashine. Hakuna ombi, hakuna kipande, hakuna data ya mteja inayovuka mpaka wa mtandao.
+- **Gharama.** Inference ya ndani haina gharama kwa kila tokeni. Unaweza kurudia kazi siku nzima kwa bei ya umeme tu.
+- **Kutokuwa mtandaoni.** Katika ndege, katika kituo salama, au wakati wa hitilafu, ajenti bado hufanya kazi.
 
-Changamoto ni kwamba unabadilisha mfano wa wingu wa kisasa kwa **Mfano Mdogo wa Lugha (SLM)** unaotumia CPU, GPU, au NPU yako. Somo hili ni kuhusu kujenga maajenti ambayo ni *mazuri* ndani ya kikomo hicho badala ya kudanganya kama kikomo hicho hakipo.
+Jambo la kuchukua ni kwamba unabadilisha mfano wa wingu wa kiwango cha juu kwa **Mfano Mdogo wa Lugha (SLM)** unaoendesha kwenye CPU, GPU, au NPU yako. Somo hili linaangazia kujenga maajenti ambao ni *wazuri* ndani ya kikomo hicho badala ya kudanganya kuwa kikomo hakipo.
 
 ## Utangulizi
 
-Somo hili litajumuisha:
+Somo hili litashughulikia:
 
-- **Modeli Ndogo za Lugha (SLMs)** — ni nini, wapi zinafanikiwa, na wapi hazifanyi kazi vizuri.
-- **Microsoft Foundry Local** — mfumo unaopakua na kuhudumia modeli kwenye kifaa kupitia **API inayolingana na OpenAI**.
-- **Modeli za Qwen zinazopigia simu za kazi** — SLMs zinazotoa simu za zana kwa uaminifu, jambo linalowezesha maajenti wa ndani (siyo tu mazungumzo ya ndani).
-- **Zana za ndani, RAG ya ndani, na MCP ya ndani** — kutoa uwezo kwa maajenti bila kutumia wingu.
-- **Mifumo mseto** — lini kuweka mambo ndani na lini kufikia wingu.
+- **Mifano Midogo ya Lugha (SLMs)** — ni nini, wanapong’ara wapi, na wapi hawafanyi vizuri.
+- **Microsoft Foundry Local** — runtime inayopakua na kuhudumia mifano kifaa ndani kupitia **API inayolingana na OpenAI**.
+- **Mifano ya kuitwa kazi ya Qwen** — SLMs zinazotoa wito wa zana kwa uhakika, jambo linalorahisisha maajenti wa ndani (si tu mazungumzo ya ndani).
+- **Zana za ndani, RAG ya ndani, na MCP ya ndani** — kutoa uwezo kwa ajenti bila wingu.
+- **Mifumo mchanganyiko** — wakati wa kuweka mambo ndani na wakati wa kufikia wingu.
 
 ## Malengo ya Kujifunza
 
 Baada ya kumaliza somo hili, utajua jinsi ya:
 
-- Eleza mabadilishano ya SLMs na chagua matumizi sahihi ya maajenti wa ndani.
-- Hudumia mfano wa Qwen ndani kwa kutumia Foundry Local na kuungana kupitia endpoint inayolingana na OpenAI.
-- Tengeneza msaidizi anayeita zana kwenda kufanya kazi zote kwenye kompyuta yako.
-- Ongeza RAG ya ndani juu ya nyaraka zako mwenyewe kwa kutumia hifadhidata ya vektor za ndani (Chroma).
-- Unganisha maajenti kwenye seva ya MCP ya ndani na ufikiri juu ya miundo mseto ya ndani/wingu.
+- Eleza faida na hasara za SLM na chagua matumizi yanayofaa ya maajenti wa ndani.
+- Hudumia mfano wa Qwen kwa ndani kwa kutumia Foundry Local na uunganishwe kupitia kiunganishi kinacholingana na OpenAI.
+- Jenga ajenti wa kuitwa zana anayefanya kazi kabisa kwenye eneo lako la kazi.
+- Ongeza RAG ya ndani juu ya nyaraka zako mwenyewe kwa kutumia hifadhidata ya vector za ndani (Chroma).
+- Unganisha ajenti na seva ya MCP ya ndani na fanya mantiki juu ya miundo mchanganyiko ya ndani/wingu.
 
-## Mahitaji ya Awali
+## Masharti ya Awali
 
-Somo hili linadhani umeamaliza masomo ya awali na umezoea:
+Somo hili linadhani umemaliza masomo ya awali na unajua:
 
 - [Matumizi ya Zana](../04-tool-use/README.md) (Somo 4) na [Agentic RAG](../05-agentic-rag/README.md) (Somo 5).
 - [Itifaki za Agentic / MCP](../11-agentic-protocols/README.md) (Somo 11).
-- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Somo 14).
+- [Mfumo wa Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Somo 14).
 
 Pia utahitaji:
 
-- Kifaa cha mtengenezaji. **8 GB RAM ni chini kabisa halali**; 16 GB+ inafaa vizuri. GPU au NPU husaidia lakini si sharti.
-- **Microsoft Foundry Local** imewekwa (angalia sehemu ya usanidi hapa chini).
-- Python 3.12+ na vifurushi vilivyokoa kwenye repository [`requirements.txt`](../../../requirements.txt), pamoja na `foundry-local-sdk`, `openai`, na `chromadb` kwa somo hili.
+- Kituo cha mtaalamu wa maendeleo. **RAM ya GB 8 ni chini kabisa inayowezekana**; GB 16+ ni ya starehe. GPU au NPU ni msaada lakini si lazima.
+- **Microsoft Foundry Local** imewekwa (angalia sehemu ya usaidizi hapa chini).
+- Python 3.12+ na vifurushi vilivyomo kwenye hifadhidata [`requirements.txt`](../../../requirements.txt), pamoja na `foundry-local-sdk`, `openai`, na `chromadb` kwa somo hili.
 
-## Modeling Ndogo za Lugha: Zana Sahihi kwa Kazi ya Ndani
+## Mifano Midogo ya Lugha: Zana Sahihi kwa Kazi ya Ndani
 
-Mfano wa wingu wa kisasa una mabilioni ya parameters na kituo cha data nyuma yake. SLM ina mabilioni machache ya parameters na lazima ifanye kazi kwenye RAM ya kompyuta ya mkononi. Tofauti hiyo inaweka matarajio wazi.
+Mfano mkubwa wa wingu una parameta mamia ya bilioni na kituo cha data nyuma yake. SLM ina parameta chache bilioni na inapaswa kuendeshwa kwenye RAM ya kompyuta yako ya kubebeka. Tofauti hiyo huweka matarajio wazi.
 
 **SLMs ni nzuri kwa:**
 
-- Kazi zilizo na muundo, zilizopangiliwa — upangaji, uchimbaji, muhtasari wa hati inayojulikana.
-- **Kuitisha zana** — kuamua ni kazi gani ya kuita na na hoja gani.
-- Kurudia kwa haraka, gharama nafuu, na kwa faragha juu ya data yako mwenyewe.
+- Kazi zilizo wazi na zilizopangwa — ushy分類i, uchukuzi, muhtasari wa hati inayojulikana.
+- **Kuitwa kwa zana** — kuamua ni kazi gani kuitwa na kwa hoja gani.
+- Kurudia haraka, kwa gharama ndogo, kwa faragha kwenye data yako mwenyewe.
 
-**SLMs ni dhaifu katika:**
+**SLMs ni dhaifu kwa:**
 
-- Kufikiria kwa hatua nyingi zisizo na kikomo juu ya muktadha mkubwa.
-- Maarifa pana ya dunia (wameona kidogo, na husahau zaidi).
+- Mantiki isiyo na kikomo, hatua nyingi mbili au zaidi katika muktadha mkubwa.
+- Maarifa mapana ya dunia (wameona kidogo na kusahau zaidi).
 
-Mkakati bora kwa maajenti wa ndani ni: **ruhu SLM ipange mpango, na zana zifanye kazi nzito.** Mfano hauhitaji *kujua* msimbo wako — unahitaji kujua lini kuita `read_file` na `search_docs`. Hii inaonyesha nguvu za SLM moja kwa moja.
+Mkakati wa kushinda kwa maajenti wa ndani ni: **uwaache SLM kuratibu, na ziache zana zikamilishe kazi kubwa.** Mfano hauhitaji *kujua* msimbo wako — unahitaji kujua wakati wa kuita `read_file` na `search_docs`. Hii inalingana na nguvu za SLM.
 
 ```mermaid
 flowchart LR
     U[Mtaalamu wa Maendeleo] --> A[Wakala wa SLM wa Mitaa]
-    A -->|huamua chombo gani| T1[soma_faili]
-    A -->|huamua chombo gani| T2[tafuta_nakala RAG]
-    A -->|huamua chombo gani| T3[chambua_msimbo]
+    A -->|anaamua chombo gani| T1[soma_faili]
+    A -->|anaamua chombo gani| T2[tafuta_hati RAG]
+    A -->|anaamua chombo gani| T3[chambua_msimbo]
     T1 --> A
     T2 --> A
     T3 --> A
@@ -77,119 +77,119 @@ flowchart LR
 
 ## Microsoft Foundry Local
 
-**Microsoft Foundry Local** ni runtime nyepesi inayopakua, kudhibiti, na kuhudumia modeli zote kwenye kompyuta yako. Kipengele chake muhimu zaidi kwetu ni kwamba kinaonyesha **endpoint ya HTTP inayolingana na OpenAI** — ambayo inamaanisha SDK ya OpenAI na mteja wa Microsoft Agent Framework hufanya kazi nayo kwa kubadilisha tu `base_url`. Kila kitu ulichojifunza kuhusu kujenga maajenti kinahamisha moja kwa moja; endpoint tu inahamia kutoka wingu hadi `localhost`.
+**Microsoft Foundry Local** ni runtime nyepesi inayopakua, kusimamia, na kuhudumia mifano kabisa kwenye mashine yako. Kipengele chake muhimu kwetu ni kwamba huweka wazi **kiunganishi cha HTTP kinacholingana na OpenAI** — maana yake ni SDK ya OpenAI na wateja wa Microsoft Agent Framework wanaweza kuifanya kazi kwa kubadilisha tu `base_url`. Kila kitu ulichojifunza kuhusu kujenga maajenti kinaelekezwa moja kwa moja; kiunganishi tu ndicho kinachobadilika kutoka wingu hadi `localhost`.
 
-Foundry Local pia huchagua toleo bora la mfano kwa vifaa vyako moja kwa moja — toleo la CPU, toleo la CUDA/GPU, au toleo la NPU — hivyo huna haja ya kuboresha kwa mikono kwa kila kompyuta.
+Foundry Local pia huchagua ujenzi bora wa mfano kwa vifaa vyako moja kwa moja — ujenzi wa CPU, ujenzi wa CUDA/GPU, au ujenzi wa NPU — kwa hiyo huna haja ya kuboresha kila mashine kwa mkono.
 
-### Usanidi
+### Mipangilio
 
-Sakinisha Foundry Local (angalia [nyaraka](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) kwa mfumo wako wa uendeshaji), kisha thibitisha inafanya kazi:
+Sakinisha Foundry Local (angaliza [nyaraka](https://learn.microsoft.com/azure/ai-foundry/foundry-local/) kwa OS yako), kisha thibitisha inafanya kazi:
 
 ```bash
 # Sakinisha (mfano; fuata nyaraka za jukwaa lako)
 winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
-# Pakua na endesha mfano wa Qwen, kisha anzisha huduma ya ndani
+# Pakua na endesha mfano wa Qwen, kisha anza huduma ya hapa hapa
 foundry model run qwen2.5-7b-instruct
 foundry service status
 ```
 
-Mara huduma inapokuwa hai, una endpoint ya ndani inayolingana na OpenAI (kawaida `http://localhost:PORT/v1`). Daftari la maelezo hutumia `foundry-local-sdk` kugundua endpoint moja kwa moja, hivyo hautaji kuweka nambari ngumu ya bandari.
+Mara huduma inaendesha unapata kiunganishi cha ndani kinacholingana na OpenAI (kawaida `http://localhost:PORT/v1`). Daftari la maelezo linatumia `foundry-local-sdk` kugundua kiunganishi moja kwa moja, kwa hiyo hutalazimika kuandika nambari ya bandari kikaboni.
 
-## Kuitisha Kazi za Qwen: Kwa Nini Ni Muhimu
+## Qwen Kuitwa kwa Kazi: Kwa Nini Ni Muhimu
 
-Msaidizi ni msaidizi tu kama anaweza kuitisha zana. SLM nyingi zinaweza kuzungumza lakini hutengeneza simu za zana zisizoaminika, zenye muundo mbaya. **Qwen** modeli zafundishwa kuitisha kazi na hutolewa kwa miundo ya simu za zana zilizoeleweka kila wakati — ambayo ni hasa kinachofanya mfano wa mazungumzo wa ndani kuwa *msaidizi wa ndani*.
+Ajenti ni ajenti tu ikiwa anaweza kuitwa zana. SLM nyingi zinaweza kuzungumza lakini kutoa wito wa zana usioaminika na wenye muundo mbaya. Mifano ya **Qwen** imetengenezwa kwa kuitwa kazi na kutoa muundo mzuri wa wito wa zana mara kwa mara — ndiyo hasa inavyoifanya mfano wa mazungumzo wa ndani kuwa *ajenti* wa ndani.
 
-Mzunguko ni kama wa kawaida wa kuitisha zana uliyojua, unaofanya kazi kwenye kifaa:
+Mzunguko ni wa kawaida wa kuweka wito wa zana unayojua, tu ukifanyika kifaa ndani:
 
 ```mermaid
 sequenceDiagram
     participant U as Mtumiaji
-    participant A as Wakala wa Qwen (mtaa)
+    participant A as Wakala wa Qwen (mitaa)
     participant T as Zana ya Mtaa
     U->>A: "auth.py hufanya nini?"
     A->>A: Amua: piga read_file
     A->>T: read_file("auth.py")
     T-->>A: maudhui ya faili
-    A->>A: Fikiria kuhusu maudhui
+    A->>A: Fikiria juu ya maudhui
     A-->>U: Maelezo
 ```
 
 ## RAG ya Ndani
 
-Utafutaji wa nyaraka ndio mahali ambapo maajenti wa ndani hupata thamani yao. Badala ya kutegemea SLM kuhubiri nyaraka za mfumo wako, unajumuisha nyaraka hizo kwenye **hifadhidata ya vektor ya ndani** na unampa msaidizi uwezo wa kutafuta vipande vinavyohitajika wakati wowote.
+Utafutaji nyaraka ndio sehemu maajenti wa ndani hupata thamani yao. Badala ya kutegemea SLM kukumbuka nyaraka za mfumo wako, unaweka nyaraka hizo kwenye **hifadhidata ya vector ya ndani** na kumruhusu ajenti kurudisha sehemu husika anapohitaji.
 
-Tunatumia **Chroma**, hifadhidata iliyojumuishwa ya vektor inayoendesha ndani bila seva ya kusimamia. Mlolongo ni wa ndani kabisa: mfano wa kuingiza ndani → vekta za ndani → upatikanaji wa ndani → SLM wa ndani.
+Tunatumia **Chroma**, duka la vector lililo ndani linaloendesha kwa pamoja bila seva ya kusimamia. Mchoro mzima ni wa ndani kabisa: mfano wa embedding wa ndani → vector za ndani → upataji wa ndani → SLM ya ndani.
 
 ```mermaid
 flowchart TB
-    D[Hati / msimbo wako] --> E[Mfano wa uingizaji wa eneo]
-    E --> V[(DB ya vector ya Chroma - kwenye diski)]
-    Q[Swali la wakala] --> QE[Ingiza swali kwa karibu]
+    D[Nyaraka / msimbo wako] --> E[Mfano wa ufungaji wa ndani]
+    E --> V[(Chroma vector DB - kwenye diski)]
+    Q[Swali la wakala] --> QE[Weka swali ndani ya mfumo]
     QE --> V
-    V -->|vipande vya juu-k| A[Wakala wa Qwen]
-    A --> Ans[Jibu lililo thabiti]
+    V -->|vipande bora-k| A[Wakala wa Qwen]
+    A --> Ans[Jibu lililo thibitishwa]
 ```
 
-Hii ni muundo sawa wa Agentic RAG kutoka Somo 5 — mabadiliko pekee ni kwamba kila sehemu inaendesha kwenye kompyuta yako.
+Hii ni mfano sawa wa Agentic RAG kutoka Somo 5 — mabadiliko pekee ni kwamba kila kipengele kinaendesha kwenye mashine yako.
 
 ## Seva za MCP za Ndani
 
-[MCP](../11-agentic-protocols/README.md) ni usafirishaji, si huduma ya wingu. Seva ya MCP inaweza kuendesha kama mchakato wa ndani kwa `stdio`, ikionesha zana kwa msaidizi wako kupitia itifaki ya kawaida. Hii inakuwezesha kutumia upya mfumo unaokua wa seva za MCP — upatikanaji wa faili, shughuli za git, maswali ya hifadhidata — zote bila mtandao.
+[MCP](../11-agentic-protocols/README.md) ni usafirishaji, si huduma ya wingu. Seva ya MCP inaweza kuendesha kama mchakato wa ndani kwenye `stdio`, ikionyesha zana kwa ajenti yako kupitia itifaki ya kawaida. Hii inakuwezesha kutumia mifumo inayokua ya seva za MCP — upatikanaji wa mfumo wa faili, operesheni za git, kuulizia hifadhidata — kabisa bila mtandao.
 
-Usalama ni tofauti na wingu, lakini sio hana kabisa: seva ya MCP ya ndani bado inaendesha kwa ruhusa za mtumiaji wako, kwa hivyo weka mipaka ya kile inaweza kugusa (kabrasha la mradi, si folda yako yote ya nyumbani) na chukulia matokeo yake kama ingizo la kuthibitisha.
+Hali ya usalama ni tofauti na wingu, lakini haiko mbali: seva ya MCP ya ndani bado inaendesha na ruhusa za mtumiaji wako, kwa hiyo fikia kile inaweza kugusa (direktori ya mradi, sio folda yako yote nyumbani) na chukua mazao yake kama ingizo la kuangalia kabla ya kutenda.
 
-## Miundo Mseto ya Wingu na Ndani
+## Mifumo Mchanganyiko ya Wingu na Ndani
 
-Kwanza ndani haimaanishi tu ndani. Mifumo imara hupeleka kazi kulingana na unyeti na ugumu:
+Kwanza ni kwa ndani si kwamba ni kwa ndani tu. Mifumo imara huandaa kulingana na hali na ugumu:
 
-| Hali | Mahali inayoendeshwa |
+| Hali | Wapi inaendesha |
 | --- | --- |
-| Kanuni/data nyeti, au bila mtandao | **SLM ya Ndani** |
-| Kazi rahisi, zilizopangwa | **SLM ya Ndani** (ghali nafuu, haraka) |
-| Kufikiri kwa hatua nyingi katika data isiyo nyeti | **Mfano wa Wingu** |
-| Yote, wakati wa tatizo | **SLM ya Ndani** (upungufu wa heshima) |
+| Msimbo / data nyeti, au kutokuwa mtandaoni | **SLM ya Ndani** |
+| Kazi rahisi na iliyojumlishwa | **SLM ya Ndani** (gharama nafuu, haraka) |
+| Mantiki ngumu ya hatua nyingi kwenye data isiyo nyeti | **Mfano wa Wingu** |
+| Kila kitu, wakati hitilafu | **SLM ya Ndani** (kuharibika kwa heshima) |
 
-Hii inalingana na wazo la **kupelekwa kwa modeli** kutoka Somo 16 — isipokuwa moja ya "modeli" ni kompyuta yako mwenyewe. Ubunifu thabiti hurudi kwa ndani wakati wingu likipatikana, hivyo msaidizi hupungua kwa heshima badala ya kushindwa kabisa.
+Hii inafanana na wazo la **uuratibu wa mfano** kutoka Somo 16 — isipokuwa mmoja wa "mifano" sasa ni mashine yako. Muundo thabiti huhama ndani inaposhindwa wingu, kwa hiyo ajenti hupungua ubora badala ya kushindwa kabisa.
 
 ```mermaid
 flowchart LR
-    Q[Ombi] --> S{Ni nyeti au hauko mtandaoni?}
-    S -->|ndiyo| L[SLM ya ndani]
-    S -->|hapana| C{Inahitaji uelewa wa kina?}
+    Q[Ombi] --> S{Nyeti au nje ya mtandao?}
+    S -->|ndiyo| L[SLM ya Mtaa]
+    S -->|hapana| C{Inahitaji mantiki ya kina?}
     C -->|hapana| L
-    C -->|ndiyo| Cloud[Mfano wa wingu]
+    C -->|ndiyo| Cloud[Mfano wa Wingu]
     L --> Out[Jibu]
     Cloud --> Out
 ```
 
 ## Maabara ya Vitendo: Msaidizi wa Uhandisi wa Ndani
 
-Fungua [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) na fanya kazi nayo. Utajenga **msaidizi wa uhandisi wa ndani** anayeendesha kazi zote kwenye kompyuta yako na anaweza:
+Fungua [`code_samples/17-local-agent-foundry-local.ipynb`](./code_samples/17-local-agent-foundry-local.ipynb) na ifanyie kazi. Utajenga **msaidizi wa uhandisi wa ndani** anayefanya kazi kabisa kwenye eneo lako la kazi na anaweza:
 
-1. **Kuitisha zana** — kupitia kuitisha kazi za Qwen kupitia Foundry Local.
-2. **Kutenda operesheni za faili za ndani** — orodha na soma faili kwenye kabrasha la mradi.
-3. **Kuchambua msimbo** — ripoti takwimu za msingi kwenye faili chanzo.
-4. **Kutafuta nyaraka** — RAG ya ndani juu ya folda ya nyaraka kwa kutumia Chroma.
-5. **Kutumia MCP** — ungana na seva ya MCP ya ndani (na ruka kwa heshima ikiwa hakuna imewekwa).
+1. **Kuita zana** — kupitia kuitwa kwa kazi ya Qwen kupitia Foundry Local.
+2. **Kuendesha operesheni za faili za ndani** — orodha na usome faili katika direktori ya mradi.
+3. **Chambua msimbo** — ripoti vipimo vya msingi kwenye faili ya chanzo.
+4. **Tafuta nyaraka** — RAG ya ndani juu ya folda ya nyaraka na Chroma.
+5. **Tumia MCP** — ungana na seva ya MCP ya ndani (na kuruka kwa heshima ikiwa hakuna iliyosanidiwa).
 
-Hakuna uamuzi wowote wa wingu unaotumiwa wakati wowote.
+Hakuna inference ya wingu inayotumika wakati wowote.
 
 ### Mwongozo
 
-Msaidizi unaunganishwa na Foundry Local kupitia endpoint inayolingana na OpenAI, hivyo msimbo wa maajenti unaonekana karibu sawa na masomo ya wingu — mteja tu hubadilika:
+Msaidizi huungana na Foundry Local kupitia kiunganishi kinacholingana na OpenAI, kwa hiyo msimbo wa ajenti unaonekana karibu sawa na somo la wingu — mteja tu anabadilika:
 
 ```python
 from foundry_local import FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local hugundua/hupakua mfano na hutupatia sehemu ya kuingilia ya ndani.
+# Foundry Local hugundua/hupakua mfano na hutupa nukta ya mwisho ya ndani.
 manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key ni kielekezi cha ndani
+client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key ni nafasi ya msingi ya ndani
 ```
 
-Zana ni kazi za kawaida za Python zilizo na uwezo wa kufikia kabrasha la mradi:
+Zana ni kazi za kawaida za Python zilizo na wigo wa direktori ya mradi:
 
 ```python
 def read_file(path: str) -> str:
@@ -200,118 +200,118 @@ def read_file(path: str) -> str:
     return full.read_text(encoding=\"utf-8\")
 ```
 
-Angalia ukaguzi wa sandbox — hata ndani, zana inayosoma njia zisizojulikana ni hatari. Daftari linaweka kila zana kuwa na mipaka ya mzizi wa mradi mmoja.
+Kumbuka ukaguzi wa sandbox — hata ndani, zana inayosoma njia za faili yoyote ni hatari. Daftari linahakikisha kila zana ina wigo wa mzizi wa mradi mmoja.
 
 ## Mtihani wa Maarifa
 
-Jaribu uelewa wako kabla ya kuendelea na kazi.
+Jaribu kuelewa kabla ya kuendelea na kazi.
 
-**1. Toa sababu mbili halisi za kuendesha msaidizi kwa ndani badala ya kwenye wingu.**
+**1. Toa sababu mbili halisi za kuendesha ajenti kwa ndani badala ya wingu.**
 
 <details>
 <summary>Jibu</summary>
 
-Chochote kati ya: **faragha** (msimbo na data hazitoki kwenye kompyuta), **gharama** (hakuna bili ya tokeni kwa uamuzi), na **uwezo wa kufanya kazi bila mtandao** (hufanya kazi bila mtandao — kwenye ndege, katika eneo salama, au wakati wa kukatika mtandao). Vizingiti vya kanuni/vilivyo wazi vinavyozuia kutuma data nje ya kifaa ni sababu ya kawaida ya faragha.
+Yoyote mbili kati ya: **faragha** (msimbo na data hazitoki kwenye mashine), **gharama** (hakuna bili kwa kila tokeni ya inference), na **uwezo wa kutokuwa mtandaoni** (hufanya kazi bila mtandao — ndani ya ndege, kituo salama, au wakati wa hitilafu). Vizingiti vya udhibiti/viongozaji vinavyozuia kutuma data nje ya kifaa ni sababu ya kawaida ya faragha.
 </details>
 
-**2. Gawanya kazi kati ya SLM na zana zake kwa maajenti wa ndani kwa nini?**
+**2. Mgawanyo wa kazi unaopendekezwa kati ya SLM na zana zake katika ajenti wa ndani ni ule gani, na kwa nini?**
 
 <details>
 <summary>Jibu</summary>
 
-Ruhusu SLM ** kupanga** (kuamua zana gani ya kuitisha na hoja gani) na ruhusu **zana zifanye kazi kubwa** (kusoma faili, kupata nyaraka, kukokotoa matokeo). SLMs ni imara kwa maamuzi yaliyowekwa kama uteuzi wa zana lakini dhaifu kwa maarifa pana na njia nyingi za kufikiria za kina, hivyo kuitegemea zana kunatoa nguvu zake.
+Acha SLM **iratibu** (amua zana gani kuitwa na na hoja gani) na acha **zana zitendee kazi ngumu** (kusoma faili, kupata nyaraka, kuhesabu matokeo). SLM ni imara katika maamuzi yaliyofungwa kama uteuzi wa zana lakini dhaifu katika maarifa mapana na mantiki kwa hatua nyingi, kwa hiyo kutegemea zana ni kutumia nguvu zao.
 </details>
 
-**3. Ni nini kinachowezesha kutumia tena msimbo wa maajenti wa wingu kwa Foundry Local?**
+**3. Nini kinachowezesha kutumia upya msimbo wa ajenti wa wingu na Foundry Local?**
 
 <details>
 <summary>Jibu</summary>
 
-Foundry Local inaonyesha **endpoint ya HTTP inayolingana na OpenAI**. SDK ya OpenAI na mteja wa Agent Framework hufanya kazi dhidi yake kwa kubadilisha tu `base_url` (na kutumia API key ya ndani). Kila kitu kingine katika msimbo wa maajenti hubaki kama ilivyo.
+Foundry Local inaweka wazi **kiunganishi cha HTTP kinacholingana na OpenAI**. SDK ya OpenAI na mteja wa Agent Framework wa OpenAI hufanya kazi kwa kubadilisha `base_url` tu (na kutumia API key ya ndani ya kielekezi). Kila kitu kingine kuhusu msimbo wa ajenti hubaki sawa.
 </details>
 
-**4. Kwa nini tunatumia mfano wa kuitisha kazi wa Qwen badala ya SLM yoyote?**
+**4. Kwa nini tunatumia mfano wa kuitwa kazi wa Qwen badala ya SLM yoyote?**
 
 <details>
 <summary>Jibu</summary>
 
-Kwa sababu msaidizi lazima atoe simu za zana zenye uaminifu na muundo mzuri. SLM nyingi zinaweza kuzungumza lakini hutoa miundo mbaya au isiyoendana ya simu za zana. Modeli za Qwen zafundishwa kuitisha kazi na kutoa simu za zana zenye mshikamano, jambo linalofanya mfano wa mazungumzo wa ndani kuwa msaidizi wa ndani.
+Kwa sababu ajenti lazima azalishaji wito wa zana unaoaminika na ulio na muundo mzuri. SLM nyingi zinaweza kuzungumza lakini hutoa wito za zana zisizo sahihi au zenye mpangilio mbaya. Mifano ya Qwen imetengenezwa kwa kuitwa kazi na hutoa wito vya zana vinavyolingana, jambo linaloifanya mfano wa mazungumzo wa ndani kuwa ajenti wa ndani anayefanya kazi.
 </details>
 
-**5. Katika mlolongo wa RAG ya ndani, ni vipengele gani vinaendesha kwenye kompyuta?**
+**5. Katika pipeline ya RAG ya ndani, ni vipengele gani vinaendesha kwenye mashine?**
 
 <details>
 <summary>Jibu</summary>
 
-Vyote: mfano wa kuingiza ndani, hifadhidata ya vekta (Chroma, kwenye diski), hatua ya kupata, na SLM. Nyaraka zimeingizwa ndani, kuhifadhiwa ndani, kupatikana ndani, na kufikiriwa na mfano wa ndani — hakuna sehemu inayogusa wingu.
+Vyote: mfano wa embedding, hifadhidata ya vector (Chroma, kwenye diski), hatua ya upataji, na SLM. Nyaraka zimewekwa ndani, kuhifadhiwa ndani, kupatikana ndani, na kufikiriwa na mfano wa ndani — hakuna kipengele kinachogusa wingu.
 </details>
 
-**6. Seva ya MCP ya ndani inaendesha kwenye kompyuta yako. Je, inafanya iwe salama moja kwa moja? Ni tahadhari gani bado unapaswa kuchukua?**
+**6. Seva ya MCP ya ndani inaendesha kwenye mashine yako. Je, hiyo inafanya ipatikane salama kiotomatiki? Ni tahadhari gani bado unapaswa kuchukua?**
 
 <details>
 <summary>Jibu</summary>
 
-Hapana. Seva ya MCP ya ndani inaendesha kwa ruhusa za mtumiaji wako, hivyo inaweza kugusa chochote unachoweza. Iweke kwenye mipaka ya kile inachohitaji (kwa mfano, kabrasha la mradi mmoja badala ya folda yako yote ya nyumbani) na chukulia matokeo yake kama ingizo la kuthibitisha kabla ya kuchukua hatua.
+Hapana. Seva ya MCP ya ndani inaendesha kwa ruhusa za mtumiaji wako, kwa hiyo inaweza kugusa chochote unachoweza. Iweke katika wigo wa kile inachohitaji (kwa mfano, direktori moja ya mradi badala ya folda yako yote nyumbani) na chukulia mazao yake kama ingizo za kuangalia kabla ya kuchukua hatua.
 </details>
 
-**7. Eleza kanuni nzuri ya kupitisha kazi mseto inayojumuisha mfano wa ndani.**
+**7. Eleza kanuni ya usafirishaji mchanganyiko inayojumuisha mfano wa ndani.**
 
 <details>
 <summary>Jibu</summary>
 
-Pitia maombi nyeti au yasiyo na mtandao kwa SLM ya ndani; pitishe kazi rahisi kwa SLM ya ndani kwa haraka na gharama nafuu; pitishe fikra ngumu nyingi za hatua kwenye data isiyo nyeti kwa mfano wa wingu; na rudia kwa SLM ya ndani ikiwa wingu halipatikani ili msaidizi apunguze kwa heshima badala ya kushindwa. Hii ni kupitisha kazi kwa modeli (Somo 16) na kompyuta ya ndani kama mojawapo ya modeli.
+Peleka maombi nyeti au yasiyo mtandaoni kwa SLM ya ndani; peleka kazi rahisi zilizopangwa kwa SLM ya ndani kwa kasi na gharama; peleka mantiki ngumu ya hatua nyingi juu ya data isiyo nyeti kwa mfano wa wingu; na rudi kwa SLM ya ndani ikiwa wingu halipatikani kwa hiyo ajenti hupungua kwa heshima badala ya kushindwa. Hii ni uuratibu wa mfano (Somo 16) na mashine ya ndani kama moja ya mifano.
 </details>
 
-**8. Ni kiasi gani cha chini cha kweli cha RAM kinachohitajika kuendesha msaidizi wa ndani katika somo hili, na RAM zaidi inakuuzaje?**
+**8. Ni kiasi gani cha chini cha RAM kinachofaa kwa kuendesha ajenti wa ndani katika somo hili, na RAM zaidi inakupa nini?**
 
 <details>
 <summary>Jibu</summary>
 
-Karibu **8 GB** ni chini kabisa halali; 16 GB+ inafaa vizuri. RAM zaidi inakuwezesha kuendesha modeli kubwa, zenye uwezo zaidi na kuhifadhi muktadha zaidi akilini. GPU au NPU huwaharakisha uamuzi lakini si muhimu — Foundry Local huchagua toleo la CPU wakati hakuna kiinua nguvu kinachopatikana.
+Karibu **GB 8** ni chini kabisa inayowezekana; GB 16+ ni ya starehe. RAM zaidi inakuwezesha kuendesha mifano mikubwa, yenye uwezo zaidi na kuhifadhi muktadha zaidi kwa kumbukumbu. GPU au NPU huchochea inference lakini si lazima — Foundry Local huchagua ujenzi wa CPU wakati hakuna kiimarishaji.
 </details>
 
 ## Kazi
 
-Panua msaidizi wa uhandisi wa ndani hadi **mchanganuzi wa nyaraka wa ndani** kwa mradi mdogo wa uchaguzi wako (tumia moja ya folda za somo katika repozitori hii kama unavyotaka).
+Panua msaidizi wa uhandisi wa ndani kuwa **mkaguzi wa nyaraka za ndani** kwa mradi mdogo wa chaguo lako (tumia moja ya folda za somo za repo hii kama unataka).
 
-Kitoo chako kinafaa:
+Uwasilishaji wako unapaswa:
 
-1. **Andika faharasa ya kabrasha halisi la nyaraka/msimbo** kwenye Chroma (angalau faili tano).
-2. **Ongeza zana ya `find_todos`** inayotafuta maoni ya `TODO`/`FIXME` kwenye mradi na kuyarudisha pamoja na faili na nambari ya mstari — ukiweka ukaguzi sawa wa sandbox kama `read_file`.
+1. **Orodha muhtasari wa hakiki / codex** halisi katika Chroma (angalau faili tano).
+2. **Ongeza zana ya `find_todos`** inayosaka maelezo ya `TODO`/`FIXME` katika mradi na kuyarudisha pamoja na safu ya faili na nambari ya mstari — ukihifadhi ukaguzi huo wa sandbox kama ilivyo `read_file`.
 
-3. **Muulize wakala maswali matatu** yanayomlazimisha kuunganisha zana: suala moja la RAG halisi, moja linalohitaji kusoma faili mahususi, na moja linalohitaji kupata TODOs.
-4. **Pima**: pima muda wa majibu matatu na uandike katika seli ya markdown. Toa maoni kama ucheleweshaji ni sawa kwa mtiririko wa kazi uliokusudiwa.
+3. **Muulize wakala maswali matatu** yanayomlazimisha kuunganisha zana: swali moja safi la RAG, moja linalohitaji kusoma faili maalum, na moja linalohitaji kutafuta TODOs.
+4. **Pima**: pima kila jibu kati ya matatu na uandike kwenye seli ya markdown. Toa maoni kama ucheleweshaji ni wa kuvumilika kwa mtiririko wako wa kazi uliokusudiwa.
 
-Kisha andika aya fupi kuhusu **ambacho utakigeuza kuwa wingu na ambacho utaweka mahali hapa kwa hakiki hii, na kwanini**. Utapimwa jinsi vipengele vya mahali hapa vinavyounganishwa ipasavyo na kama hoja yako ya mseto ni thabiti — si ubora wa mfano.
+Kisha andika aya fupi kuhusu **nini ungehamisha kwenda wingu na nini ungebaki eneo la karibu** kwa mkaguzi huyu, na kwanini. Utapimwa kama vipengele vya eneo la karibu vimeunganishwa vizuri na kama uamuzi wako mchanganyiko ni mzuri — si ubora wa mfano.
 
 ## Muhtasari
 
-Katika somo hili uliunda wakala anayekimbia kabisa kwenye mashine yako mwenyewe:
+Katika somo hili ulijenga wakala anayeendesha kikamilifu kwenye mashine yako mwenyewe:
 
-- **SLMs** hubadilisha upana kwa faragha, gharama, na utendaji wa offline — na huangaza wanapokuwa **waandaji wa zana** badala ya kubeba maarifa yote wenyewe.
-- **Foundry Local** huhudumia modeli kwenye kifaa nyuma ya **muhuri wa OpenAI-uliokubalika**, hivyo msimbo wako wa wakala wa wingu huhamishwa kwa mabadiliko wa mstari mmoja.
-- **Modeli za kitoaji cha kazi za Qwen** hufanya wito wa zana wa ndani uwe thabiti — na kwa hivyo *wala wakala* wa ndani uwezekane.
-- **RAG ya ndani** (Chroma) na **MCP wa ndani** hutoa uwezo wa wakala bila kuondoka mashineni.
-- **Misheni ya mseto** huruhusu uelekezaji kwa msisitizo na ugumu, ukiwa na mahali hapa kama chaguo la kurejea kwa heshima.
+- **SLMs** hubadilisha upana kwa faragha, gharama, na utendaji wa offline — na hutoa ubora wanapokuwa **wakisambaza zana** badala ya kubeba maarifa yote wenyewe.
+- **Foundry Local** huhudumia mifano kwenye kifaa nyuma ya **sehemu ya mwisho inayolingana na OpenAI**, hivyo msimbo wako wa wakala wa wingu hubadilika kwa mabadiliko ya mstari mmoja.
+- **Mifano ya kupiga simu ya kazi ya Qwen** hufanya kazi ya kumuita zana eneo la karibu kuwa ya kuaminika — na hivyo kuwezesha *makala* ya eneo la karibu.
+- **RAG ya eneo la karibu** (Chroma) na **MCP ya eneo la karibu** hutoa uwezo kwa wakala bila kuondoka kwenye mashine.
+- **Mifumo mchanganyiko** hukuruhusu kupitisha kwa hisia na ugumu, na eneo la karibu kama mbadala mzuri.
 
-Hii inakamilisha mzunguko wa uanzishaji: Somo la 16 liliongezea wakala hadi Microsoft Foundry, na somo hili linapunguza hadi kwenye terminal moja. Somo lijalo linahusu usalama wa wakala waliowezeshwa.
+Hii inakamilisha mzunguko wa utekelezaji: Somo la 16 liliinua wakala hadi Microsoft Foundry, na somo hili liliwapunguzia kwenye workstation moja. Somo lifuatalo linahusu jinsi ya kuzuia wakala waliotekelezwa.
 
 ## Rasilimali Zaidi
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/foundry-local/" target="_blank">Nyaraka za Microsoft Foundry Local</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Nyaraka za Microsoft Foundry</a>
-- <a href="https://aka.ms/ai-agents-beginners/agent-framework" target="_blank">Mfumo wa Wakala wa Microsoft</a>
-- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Nyaraka za Qwen kwa wito wa kazi</a>
-- <a href="https://modelcontextprotocol.io/" target="_blank">Itifaki ya Muktadha wa Mifano (MCP)</a>
+- <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Mfumo wa Wakala wa Microsoft</a>
+- <a href="https://qwen.readthedocs.io/en/latest/framework/function_call.html" target="_blank">Nyaraka za kupiga simu ya kazi za Qwen</a>
+- <a href="https://modelcontextprotocol.io/" target="_blank">Itifaki ya Muktadha wa Mfano (MCP)</a>
 - <a href="https://docs.trychroma.com/" target="_blank">Hifadhidata ya vekta ya Chroma</a>
 
-## Somo Lililopita
+## Somo lililopita
 
-[Kutumia Wakala Wanaoweza Kuwekwa Kwenye Kiwango Kikubwa](../16-deploying-scalable-agents/README.md)
+[Kuweka Wakala Wanaoweza Kupandishwa](../16-deploying-scalable-agents/README.md)
 
-## Somo Linalofuata
+## Somo lijalo
 
-[Kuweka Wakala wa AI Salama](../18-securing-ai-agents/README.md)
+[Kuhifadhi Wakala wa AI](../18-securing-ai-agents/README.md)
 
 ---
 

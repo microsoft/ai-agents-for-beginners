@@ -453,7 +453,6 @@ print(response2.output_text)
 
 | Chat Completions (o-series) | Responses API | หมายเหตุ |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | ตั้งค่าสูง (4096+) — โทเคนการให้เหตุผลถูกนับรวมในการจำกัด |
 | `reasoning_effort` | `reasoning.effort` | เก็บไว้ตามเดิมถ้ามี (ต่ำ/กลาง/สูง) |
 | `temperature` | ลบหรือกำหนดเป็น `1` | O-series รองรับเฉพาะ `1` |
