@@ -1,154 +1,154 @@
-# Menerapkan Agen Skala Besar dengan Microsoft Foundry
+# Mendeploy Agen Skala Besar dengan Microsoft Foundry
 
-![Menerapkan Agen Skala Besar](../../../translated_images/id/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Mendeploy Agen Skala Besar](../../../translated_images/id/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Sampai titik ini dalam kursus, Anda telah membangun agen yang berjalan di laptop Anda, di dalam notebook, dijalankan dengan `az login` dan sejumlah variabel lingkungan. Itu adalah cara yang tepat untuk belajar. Itu bukan cara yang tepat untuk menjalankan agen yang diandalkan ribuan pelanggan pada pukul 3 pagi.
+Hingga titik ini dalam kursus, Anda telah membangun agen yang berjalan di laptop Anda, di dalam notebook, digerakkan oleh `az login` dan beberapa variabel lingkungan. Itu adalah cara yang tepat untuk belajar. Namun itu bukan cara yang tepat untuk menjalankan agen yang ribuan pelanggan andalkan pada jam 3 pagi.
 
-Pelajaran ini membahas kesenjangan antara "berfungsi di mesin saya" dan "berfungsi, dengan andal dan terjangkau, di produksi." Kita menutup kesenjangan itu menggunakan **Microsoft Foundry** dan **Microsoft Foundry Agent Service**, dan kita melakukannya dengan membangun agen dukungan pelanggan nyata yang memiliki alat, pengambilan, memori, evaluasi, dan pemantauan.
+Pelajaran ini tentang kesenjangan antara "berfungsi di mesin saya" dan "berfungsi, dengan andal dan terjangkau, dalam produksi." Kami menutup kesenjangan itu menggunakan **Microsoft Foundry** dan **Microsoft Foundry Agent Service**, dan kami melakukannya dengan membangun agen dukungan pelanggan nyata yang memiliki alat, pengambilan, memori, evaluasi, dan pemantauan.
 
-## Pendahuluan
+## Pengantar
 
 Pelajaran ini akan membahas:
 
-- Perbedaan antara **agen prototipe** dan **agen yang diterapkan**, dan mengapa transisi ini sebagian besar tentang segala sesuatu *di sekitar* model.
-- **Pola penerapan** untuk agen: di-host oleh klien, di-host oleh layanan (Hosted Agents), dan diorkestrasi oleh alur kerja.
-- **Siklus hidup agen** di Microsoft Foundry — buat, versi, terapkan, evaluasi, amati, pensiunkan.
-- **Strategi penskalaan**: perutean model, caching, konkurensi, dan desain tanpa status.
+- Perbedaan antara **agen prototipe** dan **agen yang terdeploy**, dan mengapa transisi ini sebagian besar tentang segala hal *di sekeliling* model.
+- **Pola deployment** untuk agen: di-host oleh klien, di-host layanan (Hosted Agents), dan terorkestrasi dalam alur kerja.
+- **Siklus hidup agen** di Microsoft Foundry — buat, versi, deploy, evaluasi, amati, pensiunkan.
+- **Strategi skala**: routing model, caching, konkurensi, dan desain tanpa status.
 - **Observabilitas** dengan OpenTelemetry dan pelacakan Foundry.
-- **Optimasi biaya** melalui seleksi model, perutean, dan gerbang evaluasi.
-- **Pertimbangan perusahaan**: tata kelola, persetujuan manusia, dan menjalankan server MCP dengan aman di produksi.
+- **Optimasi biaya** melalui pemilihan model, routing, dan gerbang evaluasi.
+- **Pertimbangan perusahaan**: tata kelola, persetujuan manusia, dan menjalankan server MCP dengan aman dalam produksi.
 
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan pelajaran ini, Anda akan tahu cara:
 
-- Memilih pola penerapan yang tepat untuk beban kerja agen tertentu.
-- Menerapkan agen ke Microsoft Foundry Agent Service sehingga versi, tata kelola, dan observabilitasnya terjaga.
-- Menginstrumentasikan agen untuk pelacakan dan menghubungkan pipeline evaluasi yang berjalan sebelum setiap rilis.
-- Menerapkan perutean model dan caching untuk menjaga latensi dan biaya tetap terkendali dalam skala besar.
-- Menambahkan gerbang persetujuan manusia untuk tindakan berisiko tinggi dan mengintegrasikan server MCP secara aman di produksi.
+- Memilih pola deployment yang tepat untuk beban kerja agen tertentu.
+- Mendeploy agen ke Microsoft Foundry Agent Service sehingga agen tersebut memiliki versi, diawasi tata kelolanya, dan dapat diamati.
+- Menginstrumentasi agen untuk pelacakan dan menghubungkan pipeline evaluasi yang berjalan sebelum setiap rilis.
+- Menerapkan routing dan caching model agar latency dan biaya tetap terkendali dalam skala besar.
+- Menambahkan gerbang persetujuan manusia untuk tindakan dengan risiko tinggi dan mengintegrasikan server MCP dengan cara yang aman untuk produksi.
 
 ## Prasyarat
 
-Pelajaran ini mengasumsikan Anda sudah menyelesaikan pelajaran-pelajaran sebelumnya dan nyaman dengan:
+Pelajaran ini mengasumsikan Anda telah menyelesaikan pelajaran sebelumnya dan nyaman dengan:
 
 - Membangun agen dengan [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Pelajaran 14).
 - [Penggunaan Alat](../04-tool-use/README.md) (Pelajaran 4) dan [Agentic RAG](../05-agentic-rag/README.md) (Pelajaran 5).
-- [Memori Agen](../13-agent-memory/README.md) (Pelajaran 13) dan [Protokol Agentic / MCP](../11-agentic-protocols/README.md) (Pelajaran 11).
-- [Observabilitas dan Evaluasi](../10-ai-agents-production/README.md) (Pelajaran 10) — pelajaran ini membangun langsung atasnya.
+- [Memori Agen](../13-agent-memory/README.md) (Pelajaran 13) dan [Protokol Agentik / MCP](../11-agentic-protocols/README.md) (Pelajaran 11).
+- [Observabilitas dan Evaluasi](../10-ai-agents-production/README.md) (Pelajaran 10) — pelajaran ini membangun langsung dari situ.
 
-Anda juga akan membutuhkan:
+Anda juga akan memerlukan:
 
-- **Langganan Azure** dan **proyek Microsoft Foundry** dengan setidaknya satu model chat yang diterapkan.
+- **Langganan Azure** dan **proyek Microsoft Foundry** dengan setidaknya satu model chat yang sudah dideploy.
 - **Azure CLI** yang sudah diautentikasi (`az login`).
-- Python 3.12+ dan paket dalam repositori [`requirements.txt`](../../../requirements.txt).
+- Python 3.12+ dan paket-paket di repositori [`requirements.txt`](../../../requirements.txt).
 
-## Dari Prototipe ke Produksi: Apa Sebenarnya yang Berubah
+## Dari Prototipe ke Produksi: Apa yang Sebenarnya Berubah
 
-Agen prototipe dan agen produksi berbagi loop inti yang sama — berpikir, memanggil alat, merespons. Yang berubah adalah segala sesuatu yang membungkus loop itu. Model mungkin hanya 20% dari agen produksi; 80% lainnya adalah kerangka operasionalnya.
+Agen prototipe dan agen produksi berbagi loop inti yang sama — berpikir, memanggil alat, merespon. Yang berubah adalah segala sesuatu yang membungkus loop itu. Model hanya sekitar 20% dari agen produksi; 80% lainnya adalah kerangka operasional.
 
 | Perhatian | Prototipe | Produksi |
 | --- | --- | --- |
-| **Hosting** | Berjalan di notebook Anda | Berjalan sebagai layanan yang di-host, versi, dan diluncurkan |
-| **Identitas** | Token `az login` Anda | Identitas terkelola dengan RBAC yang dibatasi |
-| **Status** | Dalam memori, hilang saat restart | Disimpan secara eksternal (penyimpanan thread, layanan memori) |
-| **Gagal** | Anda melihat traceback | Coba ulang, fallback, dead-letter, peringatan |
+| **Hosting** | Berjalan di notebook Anda | Berjalan sebagai layanan yang dihost, diberi versi dan diluncurkan |
+| **Identitas** | Token `az login` Anda | Identitas terkelola dengan RBAC cakupan |
+| **Status** | Dalam memori, hilang saat restart | Tersimpan di luar (penyimpanan thread, layanan memori) |
+| **Kegagalan** | Anda melihat traceback | Retry, fallback, dead-letter, peringatan |
 | **Biaya** | "Hanya beberapa sen" | Dilacak per permintaan, diarahkan, di-cache, dianggarkan |
-| **Kualitas** | Anda memeriksa hasil | Dievaluasi secara otomatis sebelum setiap rilis |
-| **Kepercayaan** | Anda menyetujui setiap tindakan | Kebijakan + manusia dalam lingkaran untuk tindakan berisiko |
+| **Kualitas** | Anda menilai output secara langsung | Dievaluasi secara otomatis sebelum setiap rilis |
+| **Kepercayaan** | Anda menyetujui setiap tindakan | Kebijakan + human-in-the-loop untuk tindakan berisiko |
 
 Ingat tabel ini. Setiap bagian di bawah ini terkait dengan salah satu baris ini.
 
-## Pola Penerapan Agen
+## Pola Deployment Agen
 
-Ada tiga pola yang akan Anda gunakan, sering kali secara kombinasi.
+Ada tiga pola yang akan Anda gunakan, seringkali dalam kombinasi.
 
-### 1. Agen yang Dihosting oleh Klien
+### 1. Agen yang Di-host oleh Klien
 
-Objek agen hidup di dalam proses aplikasi *Anda*. Kode Anda memanggil penyedia model secara langsung; loop penalaran berjalan di layanan Anda. Inilah yang dilakukan setiap pelajaran sebelumnya.
+Objek agen berada di dalam proses aplikasi *Anda*. Kode Anda memanggil penyedia model secara langsung; loop penalaran berjalan di layanan Anda. Ini adalah apa yang dilakukan di setiap pelajaran sebelumnya.
 
 - **Gunakan saat** Anda membutuhkan kontrol penuh atas loop, middleware khusus, atau Anda menyematkan agen di backend yang sudah ada.
-- **Kompromi**: Anda mengelola penskalaan, status, dan ketahanan sendiri.
+- **Pertukaran**: Anda mengelola skala, status, dan ketangguhan sendiri.
 
-### 2. Agen yang Dihosting (Foundry Agent Service)
+### 2. Agen yang Di-host (Foundry Agent Service)
 
-Agen *didaftrkan sebagai sumber daya* di Microsoft Foundry. Foundry meng-host loop penalaran, menyimpan thread, menegakkan keamanan konten dan RBAC, serta membuat agen terlihat di portal Foundry. Aplikasi Anda menjadi klien tipis yang membuat thread dan membaca respons.
+Agen *terdaftar sebagai sumber daya* di Microsoft Foundry. Foundry meng-host loop penalaran, menyimpan thread, menegakkan keamanan konten dan RBAC, serta membuat agen terlihat di portal Foundry. Aplikasi Anda menjadi klien ringan yang membuat thread dan membaca respons.
 
 - **Gunakan saat** Anda menginginkan daya tahan, observabilitas bawaan, tata kelola, dan permukaan operasional yang lebih sedikit.
-- **Kompromi**: kontrol tingkat rendah yang lebih sedikit untuk runtime yang dikelola.
+- **Pertukaran**: kontrol tingkat rendah yang lebih sedikit sebagai imbalan untuk runtime terkelola.
 
 ### 3. Alur Kerja Agen
 
-Beberapa agen (dan alat) disusun menjadi grafik dengan alur kontrol eksplisit — langkah berurutan, cabang, node persetujuan manusia, dan titik pemeriksaan tahan lama yang dapat berhenti dan dilanjutkan. Ini adalah kemampuan **Workflows** Microsoft Agent Framework yang diterapkan dalam skala penerapan.
+Beberapa agen (dan alat) disusun menjadi grafik dengan alur kontrol eksplisit — langkah berurutan, percabangan, node persetujuan manusia, dan checkpoint tahan lama yang bisa dijeda dan dilanjutkan. Ini adalah kemampuan **Workflows** Microsoft Agent Framework yang diterapkan pada skala deployment.
 
-- **Gunakan saat** satu tugas melibatkan beberapa agen khusus atau memerlukan langkah persetujuan di tengah.
-- **Kompromi**: lebih banyak bagian bergerak; memerlukan observabilitas tingkat orkestrasi.
+- **Gunakan saat** satu tugas mencakup beberapa agen khusus atau membutuhkan langkah persetujuan di tengah.
+- **Pertukaran**: lebih banyak bagian yang bergerak; membutuhkan observabilitas tingkat orkestrasi.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Berbasis Klien]
-        A1[Proses Aplikasi Anda] --> M1[Penyedia Model]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Agen Yang Di-host]
-        A2[Klien Tipis] --> F2[Layanan Agen Foundry]
-        F2 --> M2[Model + Alat + Penyimpanan Thread]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Alur Kerja Agen]
-        A3[Pengatur Orkestra] --> S1[Agen Triage]
-        S1 --> S2[Agen Penyelesai]
-        S2 --> H[Node Persetujuan Manusia]
-        H --> S3[Agen Aksi]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
 ## Siklus Hidup Agen di Microsoft Foundry
 
-Menerapkan agen bukanlah `push` sekali waktu. Itu adalah sebuah loop, dan sangat mirip dengan siklus rilis perangkat lunak karena memang itu yang terjadi.
+Mendeploy agen bukanlah satu kali `push`. Ini adalah sebuah loop, dan sangat mirip dengan siklus rilis perangkat lunak karena memang itu terjadi.
 
 ```mermaid
 flowchart LR
-    Create[Buat / Penulis] --> Version[Versi]
-    Version --> Evaluate[Evaluasi offline]
-    Evaluate -->|melewati gate| Deploy[Terapkan yang dihosting]
-    Evaluate -->|gagal gate| Create
-    Deploy --> Observe[Amati online]
-    Observe --> Improve[Kumpulkan kegagalan]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Pensiunkan versi lama]
+    Deploy --> Retire[Retire old version]
 ```
 
-Ide utama, diambil dari [Pelajaran 10](../10-ai-agents-production/README.md): **evaluasi offline adalah gerbang, bukan pemikiran setelahnya.** Versi agen baru tidak dikirim kecuali melewati ambang evaluasi Anda. Observabilitas online selanjutnya mengirimkan kegagalan dunia nyata kembali ke set tes offline Anda. Itulah seluruh loop-nya.
+Ide utama, yang diambil dari [Pelajaran 10](../10-ai-agents-production/README.md): **evaluasi offline adalah gerbang, bukan pikiran setelahnya.** Versi agen baru tidak akan dirilis jika tidak lulus ambang evaluasi Anda. Observasi online kemudian memberikan kegagalan dunia nyata kembali ke set pengujian offline Anda. Itu adalah seluruh loop.
 
-## Strategi Penskalaan
+## Strategi Skala
 
-Menskala agen berbeda dengan menskala API web tanpa status, karena setiap permintaan dapat memicu banyak panggilan model dan alat yang mahal. Empat teknik memikul sebagian besar beban.
+Meningkatkan skala agen berbeda dengan meningkatkan skala API web tanpa status, karena setiap permintaan bisa memicu banyak panggilan model dan alat yang mahal. Empat teknik membawa sebagian besar beban.
 
-**Penanganan permintaan tanpa status.** Jangan simpan status per pengguna dalam memori proses Anda. Simpan thread percakapan di penyimpanan thread Foundry atau layanan memori agar instance mana pun dapat menangani permintaan apa pun. Ini memungkinkan penskalaan horizontal — tambah instance, tanpa sesi yang melekat.
+**Penanganan permintaan tanpa status.** Jangan simpan status per pengguna dalam memori proses Anda. Simpan percakapan dalam penyimpanan thread Foundry atau layanan memori sehingga instance mana pun dapat menangani permintaan apa pun. Ini yang memungkinkan Anda melakukan scale horizontal — menambah instance, tanpa sesi lengket.
 
-**Perutean model.** Tidak setiap permintaan membutuhkan model paling mumpuni (dan paling mahal) Anda. Rute permintaan sederhana — klasifikasi maksud, jawaban fakta singkat — ke model kecil yang cepat, dan simpan model besar untuk penalaran sejati. **Model Router** Foundry bisa melakukan ini untuk Anda, atau Anda bisa membuat klasifikator ringan sendiri. Anda akan membangun versi DIY di lab.
+**Routing model.** Tidak semua permintaan membutuhkan model paling mampu (dan paling mahal) Anda. Arahkan permintaan sederhana — klasifikasi niat, jawaban faktual singkat — ke model kecil dan cepat, dan simpan model besar untuk penalaran sebenarnya. **Model Router** Foundry bisa melakukan ini untuk Anda, atau Anda dapat mengimplementasikan pengklasifikator ringan sendiri. Anda akan membangun versi DIY di lab.
 
-**Caching respons.** Banyak pertanyaan dukungan hampir duplikat ("bagaimana saya mereset kata sandi?"). Cache jawaban untuk pertanyaan umum dan sajikan tanpa harus memanggil model. Bahkan tingkat cache hit yang sederhana secara signifikan mengurangi biaya dan latensi.
+**Caching respons.** Banyak pertanyaan dukungan hampir duplikat ("bagaimana cara mereset password saya?"). Cache jawaban untuk pertanyaan umum dan sajikan tanpa memanggil model sama sekali. Bahkan tingkat cache hit yang sederhana secara signifikan mengurangi biaya dan latensi.
 
-**Konkurensi dan tekanan balik.** Penyedia model memiliki batas kecepatan. Batasi konkurensi Anda, gunakan coba ulang dengan jeda eksponensial, dan gagal dengan anggun (respons antrean "kami sedang mengatasinya" lebih baik daripada 500).
+**Konkurensi dan tekanan balik.** Penyedia model memiliki batasan laju. Batasi konkurensi Anda, gunakan retry dengan backoff eksponensial, dan gagal dengan anggun (respons "kami sedang mengerjakannya" yang antri lebih baik daripada error 500).
 
 ```mermaid
 flowchart LR
-    Q[Kueri pengguna] --> C{Apakah cache terpakai?}
-    C -->|ya| R[Kembalikan jawaban yang di-cache]
-    C -->|tidak| Router{Kompleksitas?}
-    Router -->|sederhana| SLM[Model kecil]
-    Router -->|kompleks| LLM[Model besar]
-    SLM --> Out[Respon]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
-    Out --> Store[Cache + jejak]
+    Out --> Store[Cache + trace]
 ```
 
-## Observabilitas di Produksi
+## Observabilitas dalam Produksi
 
-Anda tidak dapat mengoperasikan sesuatu yang tidak bisa Anda lihat. Seperti dibahas di Pelajaran 10, Microsoft Agent Framework mengeluarkan jejak **OpenTelemetry** secara native — setiap panggilan model, pemanggilan alat, dan langkah orkestrasi menjadi span. Di produksi Anda mengekspor span ini ke Microsoft Foundry (atau backend kompatibel OTel mana pun) sehingga Anda dapat:
+Anda tidak bisa mengoperasikan sesuatu yang tidak bisa Anda lihat. Seperti yang dibahas di Pelajaran 10, Microsoft Agent Framework mengeluarkan jejak **OpenTelemetry** secara native — setiap panggilan model, invokasi alat, dan langkah orkestrasi menjadi sebuah span. Dalam produksi Anda mengirimkan span tersebut ke Microsoft Foundry (atau backend kompatibel OTel lain) sehingga Anda bisa:
 
-- Melacak satu keluhan pelanggan secara menyeluruh di setiap panggilan model dan alat.
-- Memantau latensi p50/p95 dan biaya per permintaan dari waktu ke waktu.
+- Melacak keluhan pelanggan tunggal dari awal sampai akhir melalui setiap panggilan model dan alat.
+- Mengamati latency p50/p95 dan biaya per permintaan seiring waktu.
 - Memberi peringatan pada lonjakan tingkat kesalahan dan anomali biaya sebelum pengguna Anda (atau tim keuangan Anda) menyadarinya.
 
 ```python
@@ -159,88 +159,88 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # eksekusi agen dilacak secara otomatis di dalam rentang ini
+    # agent execution is traced automatically inside this span
 ```
 
 Atribut seperti `customer.tier` dan `routed.model` adalah apa yang mengubah tumpukan jejak menjadi pertanyaan yang bisa dijawab ("apakah pelanggan perusahaan terlalu sering diarahkan ke model kecil?").
 
 ## Optimasi Biaya
 
-Biaya dalam agen produksi didominasi oleh token. Tiga tuas, berdasarkan dampak:
+Biaya dalam agen produksi didominasi oleh token. Ada tiga tuas, menurut urutan dampak:
 
-1. **Ukuran model yang tepat.** Model kecil yang melewati gerbang evaluasi hampir selalu lebih murah daripada model besar yang juga lulus. Gunakan evaluasi untuk *membuktikan* model kecil cukup baik daripada default ke model terbesar karena kehati-hatian.
-2. **Rute berdasarkan kompleksitas.** Seperti di atas — bayar harga model besar hanya untuk permintaan yang memerlukan penalaran model besar.
-3. **Cache secara agresif.** Panggilan model termurah adalah yang tidak pernah Anda lakukan.
+1. **Ukuran model yang tepat.** Model kecil yang lolos gerbang evaluasi Anda hampir selalu lebih murah daripada model besar yang juga lolos. Gunakan evaluasi untuk *membuktikan* model kecil sudah cukup baik daripada memilih model terbesar tanpa pertimbangan.
+2. **Routing berdasarkan kompleksitas.** Seperti di atas — bayar harga model besar hanya untuk permintaan yang benar-benar butuh penalaran model besar.
+3. **Caching agresif.** Panggilan model termurah adalah yang tidak pernah Anda lakukan.
 
-Gerbang evaluasi dan kontrol biaya adalah disiplin yang sama dilihat dari dua sudut: evaluasi memberi tahu Anda *lantai kualitas*, perutean dan caching menjaga Anda sedekat mungkin dengan *biaya* lantai itu.
+Gerbang evaluasi dan kontrol biaya adalah disiplin yang sama dilihat dari dua sudut: evaluasi memberi tahu *lantai kualitas*, routing dan caching menjaga Anda sedekat mungkin dengan *biaya* lantai itu.
 
-## Pertimbangan Penerapan di Perusahaan
+## Pertimbangan Deployment Perusahaan
 
-**Tata kelola.** Hosted Agents mewarisi RBAC, keamanan konten, dan pencatatan audit Foundry. Berikan setiap agen identitas terkelola dengan hak paling sedikit yang dibutuhkan — akses hanya baca ke basis pengetahuan, akses terbatas ke API tiket, tidak lebih.
+**Tata Kelola.** Hosted Agents mewarisi RBAC, keamanan konten, dan pencatatan audit Foundry. Berikan setiap agen identitas terkelola dengan hak akses paling rendah yang dibutuhkan — akses baca-saja ke basis pengetahuan, akses terbatas API tiket, tidak lebih dari itu.
 
-**Manusia dalam lingkaran.** Beberapa tindakan terlalu penting untuk diotomatisasi langsung — mengeluarkan pengembalian dana, menghapus akun, meningkat ke tim hukum. Microsoft Agent Framework mendukung alat dengan **persetujuan diperlukan**: agen mengusulkan tindakan, eksekusi berhenti, manusia menyetujui atau menolak, dan alur kerja dilanjutkan. Anda sudah melihat primitif ini di [Pelajaran 6](../06-building-trustworthy-agents/README.md); di sini Anda menerapkannya.
+**Human-in-the-loop.** Beberapa tindakan terlalu penting untuk diotomasi langsung — mengeluarkan pengembalian dana, menghapus akun, eskalasi ke tim hukum. Microsoft Agent Framework mendukung alat **memerlukan persetujuan**: agen mengusulkan tindakan, eksekusi dijeda, manusia menyetujui atau menolak, dan alur kerja dilanjutkan. Anda sudah melihat primitif ini di [Pelajaran 6](../06-building-trustworthy-agents/README.md); di sini Anda mendeploynya.
 
-**MCP di produksi.** [MCP](../11-agentic-protocols/README.md) memungkinkan agen Anda menggunakan alat eksternal melalui antarmuka standar. Di produksi, anggap setiap server MCP sebagai batas yang tidak dipercaya: tetapkan versi server, jalankan dengan identitas terbatas, validasi hasilnya, dan jangan pernah mengekspos rahasia kepadanya. Server MCP adalah ketergantungan, dan ketergantungan diperbaiki, diaudit, dan dibatasi.
+**MCP dalam produksi.** [MCP](../11-agentic-protocols/README.md) membiarkan agen Anda menggunakan alat eksternal lewat antarmuka standar. Dalam produksi, perlakukan setiap server MCP sebagai batas yang tidak dipercaya: kunci versi server, jalankan dengan identitas yang dibatasi, validasi output-nya, dan jangan pernah berikan rahasia kepadanya. Server MCP adalah dependensi, dan dependensi harus di-patch, diaudit, dan dibatasi laju.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Arsitektur Pengembangan]
-        D1[Buku Catatan] --> D2[Kerangka Agen]
-        D2 --> D3[Penyedia Model]
-        D2 --> D4[Alat lokal]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Arsitektur Penyebaran]
-        E1[Jalur CI] --> E2[Gerbang evaluasi]
-        E2 -->|lulus| E3[Layanan Agen Foundry]
-        E3 --> E4[Agen yang dihosting versi]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Arsitektur Runtime]
-        F1[Aplikasi klien] --> F2[Agen yang dihosting]
-        F2 --> F3[Router Model]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Layanan memori]
-        F2 --> F6[Alat MCP]
-        F2 --> F7[OTel -> Pelacakan Foundry]
-        F2 --> F8[Persetujuan manusia]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-Ketiga diagram itu — pengembangan, penerapan, runtime — adalah agen yang sama pada tiga tahap kehidupannya. Lab berikutnya akan membimbing Anda membangunnya.
+Ketiga diagram itu — pengembangan, deployment, runtime — adalah agen yang sama dalam tiga tahap kehidupan. Lab berikutnya akan memandu Anda membangunnya.
 
 ## Lab Praktik: Agen Dukungan Pelanggan Siap Produksi
 
-Buka [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) dan kerjakan hingga selesai. Anda akan merakit **agen dukungan pelanggan Contoso** dengan setiap perhatian produksi yang terintegrasi:
+Buka [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) dan kerjakan sampai selesai. Anda akan merakit agen **dukungan pelanggan Contoso** dengan semua perhatian produksi terjamin:
 
-1. **Pemanggilan alat** — melihat status pesanan dan membuka tiket dukungan.
-2. **RAG** — menjawab pertanyaan kebijakan dari basis pengetahuan (Azure AI Search, dengan fallback dalam memori agar notebook berjalan tanpa sumber daya Search).
-3. **Memori** — mengingat pelanggan di seluruh putaran percakapan.
-4. **Perutean model** — klasifikator kompleksitas mengarahkan setiap permintaan ke model kecil atau besar.
+1. **Pemanggilan alat** — mencari status pesanan dan membuka tiket dukungan.
+2. **RAG** — menjawab pertanyaan kebijakan dari basis pengetahuan (Azure AI Search, dengan fallback di memori agar notebook bisa berjalan tanpa sumber daya Search).
+3. **Memori** — mengingat pelanggan sepanjang percakapan.
+4. **Routing model** — pengklasifikasian kompleksitas mengarahkan setiap permintaan ke model kecil atau besar.
 5. **Caching respons** — pertanyaan berulang disajikan dari cache.
-6. **Persetujuan manusia** — pengembalian dana di atas ambang batas berhenti menunggu persetujuan manusia.
-7. **Pipeline evaluasi** — set tes offline kecil menilai agen dan berfungsi sebagai gerbang rilis.
-8. **Observabilitas** — pelacakan OpenTelemetry di sekitar setiap permintaan.
+6. **Persetujuan manusia** — pengembalian dana di atas ambang tertentu menunggu tanda tangan manusia.
+7. **Pipeline evaluasi** — set tes offline kecil menilai agen dan menjadi gerbang rilis.
+8. **Observabilitas** — pelacakan OpenTelemetry di setiap permintaan.
 
-### Panduan
+### Panduan Langkah
 
-Notebook diatur agar setiap perhatian produksi adalah bagian yang mandiri dan dapat dijalankan. Inti dari itu adalah penangan permintaan routing-plus-caching:
+Notebook diorganisasi sehingga setiap perhatian produksi adalah bagian yang berdiri sendiri dan bisa dijalankan. Intinya adalah penangan permintaan routing-plus-caching:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Layani dari cache ketika kita bisa.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Rute berdasarkan kompleksitas untuk mengontrol biaya.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Jalankan agen di dalam span jejak untuk observabilitas.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Cache dan kembalikan.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # hanya deploy jika gerbang lulus
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Baca setiap baris — notebook sengaja menjaga primitif kecil agar tidak ada yang tersembunyi di balik panggilan framework.
+Baca setiap baris — notebook membuat primitif sengaja kecil agar tidak ada yang tersembunyi di balik pemanggilan framework.
 
-## Memvalidasi Agen yang Diterapkan dengan Smoke Test
+## Memvalidasi Agen yang Terdeploy dengan Smoke Test
 
-Gerbang evaluasi di atas berjalan *offline* terhadap objek agen Anda. Setelah agen diterapkan sebagai Hosted Agent, Anda memerlukan cek lain yang lebih murah: **apakah endpoint yang diterapkan benar-benar menjawab?**
+Gerbang evaluasi di atas dijalankan *offline* terhadap objek agen Anda. Setelah agen di-deploy sebagai Hosted Agent, Anda membutuhkan pengecekan tambahan yang lebih murah: **apakah endpoint deployed benar-benar merespons?**
 
-Menerapkan "dengan sukses" hanya membuktikan control plane menerima definisi — itu tidak membuktikan agen merespons. Ketergantungan yang hilang, perutean model yang buruk, atau koneksi yang kedaluwarsa bisa meninggalkan penerapan hijau yang tidak mengembalikan apa pun. **Smoke test** menangkap itu dalam hitungan detik, pada setiap penerapan, tanpa biaya evaluasi penuh.
+Mendeploy "berhasil" hanya membuktikan bahwa control plane menerima definisi — itu tidak membuktikan agen merespons. Dependensi yang hilang, routing model yang buruk, atau koneksi kadaluarsa bisa meninggalkan deployment hijau yang tidak mengembalikan apa-apa. **Smoke test** menangkap itu dalam hitungan detik, setiap deploy, tanpa biaya evaluasi penuh.
 
-Repositori ini menyediakan pipeline smoke-test siap pakai yang dibangun dengan GitHub Action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
+Repositori ini menyediakan pipeline smoke test siap pakai yang dibangun di atas GitHub Action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
 
-- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) berisi prompt dan asersi untuk agen dukungan Contoso (jawaban kebijakan berbasis sumber, pencarian pesanan, tetap pada topik, dan kontinuitas thread multi-putaran). Katalog untuk agen pelajaran lain ada berdampingan — lihat [`tests/README.md`](../tests/README.md).
-- **Alur Kerja** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) login dengan Azure OIDC dan mengirim setiap prompt ke endpoint Responses agen, gagal jika ada asersi yang tidak terpenuhi.
+- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) berisi prompt dan penegasan untuk agen dukungan Contoso (jawaban kebijakan berpijak, pencarian pesanan, tetap pada topik, dan kontinuitas thread multi-putaran). Katalog untuk agen pelajaran lain ada bersama di sebelahnya — lihat [`tests/README.md`](../tests/README.md).
+- **Alur kerja** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) login dengan Azure OIDC dan POST setiap prompt ke endpoint Responses agen, gagal jika ada penegasan yang tidak sesuai.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,43 +281,42 @@ Repositori ini menyediakan pipeline smoke-test siap pakai yang dibangun dengan G
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
-Jalankan dari tab **Actions** setelah agen Anda dikerahkan, dengan memberikan endpoint proyek Foundry Anda dan nama agen. Identitas federasi membutuhkan peran **Azure AI User** pada ruang lingkup proyek Foundry. Pikirkan lapisan-lapisan seperti sebuah piramida: tes asap (dapat dijangkau dan merespons?) dijalankan pada setiap penyebaran, evaluasi offline (cukup baik untuk dikirim?) dijalankan sebelum promosi, dan evaluasi online (bagaimana kinerjanya di lapangan?) dijalankan secara terus menerus.
+Jalankan dari tab **Actions** setelah agen Anda dikerahkan, dengan menyuplai endpoint proyek Foundry dan nama agen Anda. Identitas federasi memerlukan peran **Azure AI User** pada cakupan proyek Foundry. Pikirkan lapisan-lapisan seperti sebuah piramida: tes asap (apakah dapat dijangkau dan merespons?) dijalankan pada setiap penyebaran, evaluasi offline (cukup baik untuk dikirim?) dijalankan sebelum promosi, dan evaluasi online (bagaimana performanya di lapangan?) berjalan secara terus-menerus.
 
 ## Pemeriksaan Pengetahuan
 
 Uji pemahaman Anda sebelum melanjutkan ke tugas.
 
-**1. Sekitar berapa banyak dari agen produksi yang merupakan "model," dan apa sisanya?**
+**1. Kira-kira berapa proporsi agen produksi yang merupakan "model", dan apa sisanya?**
 
 <details>
 <summary>Jawaban</summary>
 
-Model adalah minoritas dari sistem — sering disebut sekitar 20%. Sisanya adalah kerangka operasional: hosting dan versioning, identitas dan RBAC, state yang dieksternalisasi, penanganan kegagalan, pelacakan biaya, evaluasi, dan kontrol human-in-the-loop. Berpindah ke produksi sebagian besar tentang membangun segala sesuatu *di sekitar* loop penalaran.
+Model adalah sebagian kecil dari sistem — sering disebut sekitar 20%. Sisanya adalah kerangka operasional: hosting dan versioning, identitas dan RBAC, status yang dieksternalisi, penanganan kegagalan, pelacakan biaya, evaluasi, dan kontrol human-in-the-loop. Pindah ke produksi sebagian besar tentang membangun segala sesuatu *di sekitar* siklus penalaran.
 </details>
 
-**2. Kapan Anda memilih Hosted Agent dibandingkan agen yang dihosting oleh klien?**
+**2. Kapan Anda memilih Hosted Agent dibandingkan agen yang di-host oleh klien?**
 
 <details>
 <summary>Jawaban</summary>
 
-Ketika Anda menginginkan runtime yang dikelola dengan daya tahan bawaan (thread yang bertahan dan dapat dilanjutkan), observabilitas, keamanan konten, dan RBAC, dan Anda bersedia menukar sebagian kontrol tingkat rendah atas loop penalaran dengan area operasional yang lebih kecil. Agen yang dihosting klien lebih disukai ketika Anda memerlukan kontrol penuh atas loop atau menanamkan agen tersebut dalam backend yang sudah ada.
+Saat Anda menginginkan runtime terkelola dengan daya tahan bawaan (thread yang bertahan dan bisa dilanjutkan), observabilitas, keamanan konten, dan RBAC, serta Anda bersedia mengorbankan sedikit kontrol tingkat rendah pada siklus penalaran demi area operasional yang lebih sedikit. Agen yang di-host oleh klien lebih disukai ketika Anda membutuhkan kontrol penuh atas siklus atau menyisipkan agen dalam backend yang sudah ada.
 </details>
 
-**3. Mengapa agen yang dapat diskalakan harus bersifat stateless dalam memori prosesnya sendiri?**
+**3. Mengapa agen yang skalabel harus tanpa status di memori prosesnya sendiri?**
 
 <details>
 <summary>Jawaban</summary>
 
-Agar setiap instance dapat menangani permintaan apa pun, yang memungkinkan penskalaan horizontal tanpa sesi lengket. State percakapan per pengguna dieksternalisasi ke penyimpanan thread atau layanan memori. Jika state berada di memori proses, Anda akan kehilangannya saat restart dan tidak bisa mendistribusikan beban secara bebas.
+Agar setiap instance dapat menangani permintaan apa pun, yang memungkinkan penskalaan horizontal tanpa sesi yang melekat. Status percakapan per pengguna dieksternalisi ke penyimpanan thread atau layanan memori. Jika status disimpan di memori proses, Anda akan kehilangannya saat restart dan tidak dapat mendistribusikan beban secara bebas.
 </details>
 
-**4. Masalah apa yang diselesaikan oleh model routing, dan bagaimana kaitannya dengan evaluasi?**
+**4. Masalah apa yang diselesaikan oleh perutean model, dan bagaimana kaitannya dengan evaluasi?**
 
 <details>
 <summary>Jawaban</summary>
 
-Routing mengirim permintaan sederhana ke model kecil, murah, dan cepat dan mengalokasikan model besar untuk penalaran asli, mengontrol baik latensi maupun biaya. Ini berkaitan dengan evaluasi karena evaluasi adalah apa yang *membuktikan* model kecil itu cukup baik untuk kelas permintaan tertentu — routing tanpa evaluasi hanyalah tebakan.
+Perutean mengirimkan permintaan sederhana ke model kecil, murah, dan cepat dan menyisihkan model besar untuk penalaran sesungguhnya, mengendalikan latensi dan biaya. Ini berkaitan dengan evaluasi karena evaluasi adalah yang *membuktikan* bahwa model kecil cukup baik untuk kelas permintaan tertentu — perutean tanpa evaluasi adalah menebak.
 </details>
 
 **5. Apa itu "evaluation gate" dan di mana posisinya dalam siklus hidup?**
@@ -325,15 +324,15 @@ Routing mengirim permintaan sederhana ke model kecil, murah, dan cepat dan menga
 <details>
 <summary>Jawaban</summary>
 
-Evaluation gate menjalankan serangkaian tes offline terhadap versi agen baru dan memblokir penyebaran kecuali tingkat kelulusannya melewati ambang batas. Ini berada di antara "version" dan "deploy" dalam siklus hidup, menjadikan kualitas sebagai prasyarat untuk rilis alih-alih sesuatu yang diperiksa setelah pengiriman.
+Evaluation gate menjalankan tes offline terhadap versi agen baru dan memblokir penyebaran kecuali tingkat kelulusan melewati ambang batas. Ini berada di antara "versi" dan "penyebaran" dalam siklus hidup, menjadikan kualitas sebagai prasyarat untuk rilis, bukan sesuatu yang diperiksa setelah pengiriman.
 </details>
 
-**6. Mengapa server MCP harus diperlakukan sebagai batas yang tidak terpercaya dalam produksi?**
+**6. Mengapa server MCP harus diperlakukan sebagai batas yang tidak dipercaya dalam produksi?**
 
 <details>
 <summary>Jawaban</summary>
 
-Karena itu adalah ketergantungan eksternal yang dipanggil oleh agen Anda. Anda harus menetapkan versinya, menjalankannya dengan identitas terbatasi, memvalidasi outputnya, membatasi tingkatnya, dan tidak pernah mengungkapkan rahasia kepadanya — disiplin yang sama seperti yang Anda lakukan pada setiap ketergantungan pihak ketiga. Outputnya mengalir ke dalam penalaran agen Anda, jadi kepercayaan tanpa validasi adalah risiko keamanan.
+Karena itu merupakan ketergantungan eksternal yang dipanggil agen Anda. Anda harus menetapkan versinya, menjalankannya dengan identitas terbatas, memvalidasi outputnya, membatasi laju, dan tidak pernah mengekspos rahasia kepadanya — disiplin yang sama yang diterapkan pada ketergantungan pihak ketiga manapun. Outputnya mengalir ke penalaran agen Anda, jadi kepercayaan yang tidak tervalidasi adalah risiko keamanan.
 </details>
 
 **7. Perubahan tunggal apa yang biasanya memiliki dampak terbesar pada biaya agen produksi, dan mengapa?**
@@ -341,7 +340,7 @@ Karena itu adalah ketergantungan eksternal yang dipanggil oleh agen Anda. Anda h
 <details>
 <summary>Jawaban</summary>
 
-Menyesuaikan ukuran model — menggunakan model terkecil yang masih melewati evaluation gate Anda. Biaya didominasi oleh token, dan model yang lebih kecil yang memenuhi standar kualitas hampir selalu lebih murah daripada model yang lebih besar. Caching dan routing kemudian mengurangi biaya lebih jauh, tetapi memilih model dasar yang tepat memiliki efek terbesar tingkat pertama.
+Menyesuaikan ukuran model — menggunakan model terkecil yang masih melewati evaluation gate Anda. Biaya didominasi oleh token, dan model yang lebih kecil yang memenuhi standar kualitas hampir selalu lebih murah dibanding yang lebih besar. Caching dan perutean selanjutnya mengurangi biaya lebih jauh, tetapi memilih model dasar yang tepat memiliki efek utama orde pertama terbesar.
 </details>
 
 **8. Peran apa yang dimainkan atribut span seperti `customer.tier` dan `routed.model` dalam observabilitas?**
@@ -349,41 +348,41 @@ Menyesuaikan ukuran model — menggunakan model terkecil yang masih melewati eva
 <details>
 <summary>Jawaban</summary>
 
-Mereka mengubah jejak mentah menjadi pertanyaan bisnis yang bisa dijawab. Tanpa atribut Anda memiliki dinding spans; dengan atribut Anda bisa bertanya "apakah pelanggan perusahaan terlalu sering diarahkan ke model kecil?" atau "model mana yang menangani permintaan kami yang paling lambat?" Atribut adalah cara Anda memotong telemetri berdasarkan dimensi yang penting bagi operasi Anda.
+Mereka mengubah jejak mentah menjadi pertanyaan bisnis yang bisa dijawab. Tanpa atribut Anda hanya memiliki tembok span; dengan atribut Anda bisa bertanya "apakah pelanggan enterprise terlalu sering diarahkan ke model kecil?" atau "model mana yang menangani permintaan paling lambat kita?" Atribut adalah cara Anda mengiris telemetri berdasarkan dimensi yang penting untuk operasi Anda.
 </details>
 
 ## Tugas
 
-Ambil agen dukungan pelanggan dari lab dan perkuat untuk skenario tertentu: **agen dukungan tagihan berlangganan untuk perusahaan SaaS.**
+Ambil agen dukungan pelanggan dari lab dan perkuat untuk skenario tertentu: **agen dukungan penagihan langganan untuk perusahaan SaaS.**
 
-Kiriman Anda harus:
+Pengiriman Anda harus:
 
-1. **Ganti alat-alat** dengan alat yang relevan untuk tagihan: `get_subscription_status`, `get_invoice`, dan `issue_credit` (kredit di atas $50 memerlukan persetujuan manusia).
-2. **Tambahkan tiga dokumen RAG** yang mencakup kebijakan pengembalian dana perusahaan, siklus penagihan, dan kebijakan pembatalan.
-3. **Perluas set evaluasi** menjadi minimal delapan kasus, termasuk setidaknya dua yang *harus* memicu jalur persetujuan manusia, dan konfirmasi evaluation gate Anda lolos atau gagal dengan benar.
-4. **Tambahkan satu laporan biaya**: setelah menjalankan sepuluh kueri campuran melalui agen, cetak berapa banyak yang menuju model kecil, berapa banyak ke model besar, dan berapa banyak yang dilayani dari cache.
+1. **Ganti alat-alatnya** dengan yang relevan untuk penagihan: `get_subscription_status`, `get_invoice`, dan `issue_credit` (kredit di atas $50 memerlukan persetujuan manusia).
+2. **Tambahkan tiga dokumen RAG** yang mencakup kebijakan pengembalian uang perusahaan, siklus penagihan, dan kebijakan pembatalan.
+3. **Perluas set evaluasi** menjadi setidaknya delapan kasus, termasuk setidaknya dua yang *harus* memicu jalur persetujuan manusia, dan pastikan evaluation gate Anda benar melewati atau gagal.
+4. **Tambahkan satu laporan biaya**: setelah menjalankan sepuluh kueri campuran melalui agen, cetak berapa banyak yang menggunakan model kecil, berapa banyak ke model besar, dan berapa banyak yang dilayani dari cache.
 
-Tulis paragraf singkat (dalam sel markdown) yang menjelaskan aturan model-routing mana yang Anda pilih dan bagaimana Anda akan memvalidasinya dengan lalu lintas nyata. Tidak ada jawaban tunggal yang benar — Anda dinilai berdasarkan apakah perhatian produksi dirangkai secara koheren.
+Tulislah paragraf pendek (dalam sel markdown) yang menjelaskan aturan perutean model mana yang Anda pilih dan bagaimana Anda akan memvalidasinya dengan lalu lintas nyata. Tidak ada jawaban tunggal yang benar — Anda akan dinilai apakah kekhawatiran produksi disatukan dengan koheren.
 
 ## Ringkasan
 
 Dalam pelajaran ini Anda memindahkan agen dari prototipe ke produksi dengan Microsoft Foundry:
 
-- Lompatan ke produksi sebagian besar tentang **kerangka operasional** di sekitar model — hosting, identitas, state, penanganan kegagalan, biaya, kualitas, dan kepercayaan.
-- Anda mempelajari tiga **pola penyebaran** — client-hosted, Hosted Agents, dan Agent Workflows — dan kapan masing-masing sesuai.
-- Anda mengikuti **siklus hidup agen**, di mana evaluasi offline **berperan sebagai gerbang rilis** dan observabilitas online memberi umpan balik kegagalan ke set tes.
-- Anda menerapkan **strategi penskalaan** — desain stateless, model routing, caching, dan concurrency terbatas — dan menghubungkannya ke **optimasi biaya**.
-- Anda menghubungkan **kontrol enterprise**: RBAC, persetujuan human-in-the-loop, dan integrasi MCP yang aman untuk produksi.
-- Anda membangun **agen dukungan pelanggan siap produksi** yang menggabungkan seluruh perhatian ini dalam kode yang dapat dijalankan.
+- Lompatan ke produksi sebagian besar tentang **kerangka operasional** di sekitar model — hosting, identitas, status, penanganan kegagalan, biaya, kualitas, dan kepercayaan.
+- Anda mempelajari tiga **pola penyebaran** — agen host-klien, Hosted Agents, dan Agent Workflows — dan kapan masing-masing sesuai.
+- Anda menelusuri **siklus hidup agen**, di mana evaluasi offline **bertindak sebagai gerbang rilis** dan observabilitas online mengalirkan kegagalan kembali ke set tes.
+- Anda menerapkan **strategi penskalaan** — desain tanpa status, perutean model, caching, dan batasan konkurensi — dan menghubungkannya dengan **optimisasi biaya**.
+- Anda memasang **kontrol enterprise**: RBAC, persetujuan human-in-the-loop, dan integrasi MCP yang aman untuk produksi.
+- Anda membangun **agen dukungan pelanggan siap produksi** yang mengikat setiap kekhawatiran ini dalam kode yang dapat dijalankan.
 
-Pelajaran berikutnya mengambil perjalanan sebaliknya: alih-alih menskalakan agen ke cloud, Anda akan membawanya *turun* ke satu mesin pengembang dan menjalankannya sepenuhnya secara lokal.
+Pelajaran berikutnya mengambil perjalanan berlawanan: alih-alih meningkatkan agen ke cloud, Anda akan membawanya *turun* ke mesin pengembang tunggal dan menjalankannya sepenuhnya secara lokal.
 
 ## Sumber Daya Tambahan
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentasi Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Tinjauan Layanan Agen Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Ikhtisar Layanan Agen Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router di Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router di Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
@@ -391,7 +390,7 @@ Pelajaran berikutnya mengambil perjalanan sebaliknya: alih-alih menskalakan agen
 
 ## Pelajaran Sebelumnya
 
-[Membangun Agent Penggunaan Komputer (CUA)](../15-browser-use/README.md)
+[Membangun Agen Pengguna Komputer (CUA)](../15-browser-use/README.md)
 
 ## Pelajaran Berikutnya
 
