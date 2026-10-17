@@ -135,7 +135,7 @@ LLMとはプロンプトを通じてやりとりします。エージェント�
 
 ## このエージェントのスモークテスト（任意）
 
-[Lesson 16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだら、このレッスンの `TravelAgent` のデプロイ後に素早く状態をチェックできる、既製のカタログ [`tests/lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json) を追加できます。実行方法は [`tests/README.md`](../tests/README.md) を参照してください。
+[レッスン16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだら、このレッスンの `TravelAgent` のデプロイ後に素早く状態をチェックできる、既製のカタログ [`tests/lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json) を追加できます。実行方法は [`tests/README.md`](../../../tests/README.md) を参照してください。
 
 ---
 

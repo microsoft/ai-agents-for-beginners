@@ -11,7 +11,7 @@ import logging
 import sqlite3
 from typing import Optional
 
-from pydantic import TypeAdapter
+from pydantic import TypeAdapter, ValidationError
 
 from mcp.server.streamable_http import (
     EventCallback,
@@ -168,10 +168,13 @@ class PersistentEventStore(EventStore):
 
             try:
                 message = self._adapter.validate_json(message_json)
-                await send_callback(EventMessage(message, event_id))
-                replayed_count += 1
-            except Exception as e:
+            except ValidationError as e:
                 logger.error(f"Failed to deserialize event {event_id}: {e}")
+                continue
+
+            # Delivery failures must reach the transport rather than being skipped.
+            await send_callback(EventMessage(message, event_id))
+            replayed_count += 1
 
         logger.info(f"Replayed {replayed_count} events for stream {stream_id}")
         return stream_id
