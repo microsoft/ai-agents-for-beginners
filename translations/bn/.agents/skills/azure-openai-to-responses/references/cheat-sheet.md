@@ -453,7 +453,6 @@ O-সিরিজ মডেলগুলির Responses API তে মাইগ�
 
 | Chat Completions (o-সিরিজ) | Responses API | মন্তব্য |
 |---|---|---|
-
 | `max_completion_tokens` | `max_output_tokens` | উচ্চ সেট করুন (4096+) — যুক্তি টোকেন সীমার বিরুদ্ধে গণনা করে |
 | `reasoning_effort` | `reasoning.effort` | উপস্থিত থাকলে যেমন আছে রাখুন (কম/মধ্যম/উচ্চ) |
 | `temperature` | মুছে ফেলুন বা `1` এ সেট করুন | ও-সিরিজ শুধুমাত্র `1` গ্রহণ করে |

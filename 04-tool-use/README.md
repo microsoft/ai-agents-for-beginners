@@ -237,6 +237,33 @@ provider = FoundryChatClient(
 agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
+
+#### Tools from an MCP server
+
+Tools do not have to be functions in your own code. A server that speaks the Model Context Protocol (MCP, covered in [Lesson 11](../11-agentic-protocols/README.md)) publishes its tools together with their schemas, and the framework can load them the same way it serializes a decorated function. `MCPStreamableHTTPTool` connects to such a server over HTTP, reads the tool schemas, and offers them to the model next to any local tools.
+
+The example below uses the web search server hosted by <a href="https://keenable.ai" target="_blank">Keenable</a>. It is free to use without an account or API key (requests are rate limited per IP), so the only credentials you need are the ones for your model. As with any remote tool, the queries the model writes are sent to that server.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
+    )
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
+```
+
+The server publishes two tools, `search_web_pages` and `fetch_page_content`. When a question needs current information, the model calls `search_web_pages`, gets back titles, URLs and text snippets, and writes its answer from them, the same loop as in the `get_current_time` example above.
   
 ### Microsoft Foundry Agent Service
 

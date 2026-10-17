@@ -1,210 +1,210 @@
-# Agentidevaheline kommunikatsioonisüsteemide loomine MCP-ga
+# Agendi-agendi suhtlussüsteemide loomine MCP abil
 
-> TL;DR - Kas MCP-ga saab luua agentidevahelist kommunikatsiooni? Jah!
+> Kokkuvõte - Kas saate luua Agent2Agent suhtluse MCP-l? Jah!
 
-MCP on oluliselt arenenud oma algsest eesmärgist "pakkuda konteksti LLM-idele". Viimaste täiustuste, nagu [jätkatavad vood](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [küsitlus](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [proovivõtmine](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ja teavitused ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ja [ressursid](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP pakub nüüd tugevat alust keerukate agentidevaheliste kommunikatsioonisüsteemide loomiseks.
+MCP on oluliselt arenenud võrreldes selle algse eesmärgiga „pakkuda konteksti LLM-idele“. Hiljutiste täiustuste hulka kuuluvad [jätkusuutlikud vood](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [väljakutsumine](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [valim](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ja teavitused ([edusammud](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ning [ressursid](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), mis võimaldavad MCP-l nüüd pakkuda tugevat alust keerukate agentidevaheliste suhtlussüsteemide loomiseks.
 
-## Agent/tööriista eksiarvamus
+## Agent-/tööriista väärarusaam
 
-Kui üha rohkem arendajaid uurib agentlikke käitumisi omavaid tööriistu (pikad töötsüklid, vajadus täiendava sisendi järele täitmise ajal jne), on levinud eksiarvamus, et MCP ei sobi, peamiselt seetõttu, et selle tööriistade primitiiv keskendus varajastes näidetes lihtsatele päring-vastus mustritele.
+Kuna üha rohkem arendajaid uurib tööriistu, millel on agentlikud käitumised (pikk kestus, võib vajada täiendavat sisendit täitmise keskel jne), on levinud eksiarvamus, et MCP pole sobiv, peamiselt seetõttu, et varasemad näited MCP tööriistade kohta keskendusid lihtsatele päringut-vastuse mustritele.
 
-See arusaam on aegunud. MCP spetsifikatsiooni on viimastel kuudel oluliselt täiustatud, et täita lünki pikaajalise agentliku käitumise loomisel:
+See arusaam on aegunud. MCP spetsifikatsiooni on viimastel kuudel oluliselt täiustatud võimetega, mis vähendavad lõhet pikaajaliste agentsete käitumiste loomiseks:
 
-- **Voogedastus ja osalised tulemused**: Reaalajas edenemise uuendused täitmise ajal
-- **Jätkatavus**: Kliendid saavad pärast ühenduse katkemist uuesti ühenduda ja jätkata
-- **Püsivus**: Tulemused säilivad serveri taaskäivitamisel (nt ressursilinkide kaudu)
-- **Mitme pöördega**: Interaktiivne sisend täitmise ajal küsitluse ja proovivõtmise kaudu
+- **Voogesitus & osalised tulemused**: Reaalajas edenemise uuendused täitmise ajal
+- **Jätkusuutlikkus**: Kliendid saavad ühendust uuesti luua ja jätkata pärast katkestust
+- **Püsivus**: Tulemused säilivad serveri taaskäivituste korral (nt ressursilingi kaudu)
+- **Mitme ringi suhtlus**: Interaktiivne sisend täitmise keskel väljakutsumise ja valimi abil
 
-Neid funktsioone saab kombineerida, et võimaldada keerukaid agentlikke ja mitme agendi rakendusi, mis kõik on MCP protokollil põhinevad.
+Neid funktsioone saab kombineerida keerukate agentide ja mitme agendi rakenduste loomiseks, kõik MCP protokollil baseeruvad.
 
-Viidates, nimetame agenti "tööriistaks", mis on saadaval MCP serveris. See eeldab hostrakenduse olemasolu, mis rakendab MCP klienti, loob sessiooni MCP serveriga ja saab agenti kutsuda.
+Viitena kasutame agenti kui „tööriista“, mis on saadaval MCP serveris. See tähendab, et eksisteerib hostrakendus, mis rakendab MCP klienti, mis loob seansi MCP serveriga ja saab agenti kutsuda.
 
-## Mis teeb MCP tööriista "agentlikuks"?
+## Mis teeb MCP tööriista „agentseks“?
 
-Enne rakendusse süvenemist määratleme, milliseid infrastruktuuri võimalusi on vaja pikaajaliste agentide toetamiseks.
+Enne rakendusse sukeldumist vaatleme, milliseid infrastruktuurivõimeid on vaja pikaajaliste agentide toetamiseks.
 
-> Määratleme agendi kui üksuse, mis suudab autonoomselt tegutseda pikema aja jooksul, olles võimeline käsitlema keerukaid ülesandeid, mis võivad vajada mitut interaktsiooni või kohandusi reaalajas tagasiside põhjal.
+> Defineerime agendi kui üksuse, mis suudab iseseisvalt tegutseda pikema aja jooksul, hallates keerukaid ülesandeid, mis võivad vajada mitut suhtlust või kohandamist reaalajas tagasiside põhjal.
 
-### 1. Voogedastus ja osalised tulemused
+### 1. Voogesitus & osalised tulemused
 
-Traditsioonilised päring-vastus mustrid ei tööta pikaajaliste ülesannete puhul. Agendid peavad pakkuma:
+Traditsioonilised päringut-vastuse mustrid ei sobi pikaajalistele ülesannetele. Agendid peavad pakkuma:
 
 - Reaalajas edenemise uuendusi
-- Vahetulemusi
+- Vahepealseid tulemusi
 
-**MCP tugi**: Ressursi uuenduste teavitused võimaldavad voogedastada osalisi tulemusi, kuigi see nõuab hoolikat disaini, et vältida konflikte JSON-RPC 1:1 päring/vastus mudeliga.
+**MCP tugi**: Ressursi uuenduste teavitused võimaldavad osalisi tulemusi voogesitada, kuid see nõuab hoolikat disaini, et vältida konflikte JSON-RPC 1:1 päring-vastuse mudeliga.
 
-| Funktsioon                 | Kasutusjuht                                                                                                                                                                       | MCP tugi                                                                                   |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Reaalajas edenemise uuendused | Kasutaja taotleb koodibaasi migratsiooni ülesannet. Agent voogedastab edenemist: "10% - Analüüsib sõltuvusi... 25% - Konverteerib TypeScripti faile... 50% - Uuendab impordid..." | ✅ Edenemise teavitused                                                                    |
-| Osalised tulemused         | "Raamatu loomise" ülesanne voogedastab osalisi tulemusi, nt 1) Loo kaare ülevaade, 2) Peatükkide loetelu, 3) Iga peatükk, kui see valmib. Host saab igal etapil kontrollida, tühistada või suunata. | ✅ Teavitusi saab "laiendada", et lisada osalisi tulemusi, vt PR 383, 776 ettepanekuid      |
+| Funktsioon                 | Kasutusjuhtum                                                                                   | MCP tugi                                                                                 |
+| --------------------------| ------------------------------------------------------------------------------------------------| ----------------------------------------------------------------------------------------- |
+| Reaalajas edenemise uuendused | Kasutaja algatab koodibaasi migreerimise ülesande. Agent voogesitab edenemist: „10% - sõltuvuste analüüs... 25% - TypeScript failide konverteerimine... 50% - importide uuendus...“ | ✅ Edenemise teavitused                                                                   |
+| Osalised tulemused          | „Raamatu genereerimise“ ülesanne voogesitab osalisi tulemusi, nt 1) loo kaare kokkuvõte, 2) peatükkide loend, 3) iga peatükk valmimisel. Host saab igal hetkel vaadata, tühistada või suunata. | ✅ Teavitused saab „laiendada“ osalistele tulemustele, vt ettepanekuid PR 383, 776        |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Joonis 1:</strong> Diagramm illustreerib, kuidas MCP agent voogedastab reaalajas edenemise uuendusi ja osalisi tulemusi hostrakendusele pikaajalise ülesande täitmise ajal, võimaldades kasutajal jälgida täitmist reaalajas.
+<strong>Joonis 1:</strong> See diagramm näitab, kuidas MCP agent voogesitab reaalajas edenemise uuendusi ja osalisi tulemusi hostrakendusele pikaajalise ülesande käigus, võimaldades kasutajal jälgida täitmist reaalajas.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Hosti rakendus<br/>(MCP klient)
+    participant Server as MCP server<br/>(Agenttööriist)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Alusta pikka ülesannet
+    Host->>Server: Kutsu agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Edenemise uuendused
+        Server-->>Host: Edenemine + osalised tulemused
+        Host-->>User: Voogedasta uuendused
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Lõplik tulemus
+    Host-->>User: Valmis
 ```
 
-### 2. Jätkatavus
+### 2. Jätkusuutlikkus
 
-Agendid peavad võrgukatkestusi sujuvalt käsitlema:
+Agendid peavad haldama võrgu katkestusi sujuvalt:
 
 - Ühenduse taastamine pärast (kliendi) katkestust
-- Jätkamine sealt, kus pooleli jäi (sõnumite uuesti edastamine)
+- Jätkamine kohast, kus pooleli jäi (sõnumite uuesti edastamine)
 
-**MCP tugi**: MCP StreamableHTTP transport toetab täna sessiooni jätkamist ja sõnumite uuesti edastamist sessiooni ID-de ja viimaste sündmuste ID-dega. Oluline on märkida, et server peab rakendama EventStore'i, mis võimaldab sündmuste taasesitust kliendi uuesti ühendamisel.  
-Märkus: kogukonna ettepanek (PR #975) uurib transpordist sõltumatute jätkatavate voogude võimalust.
+**MCP tugi**: MCP StreamableHTTP transpordith tänapäeval toetab seansi jätkamist ja sõnumite uuesti edastamist seansi ID-de ja viimase sündmuse ID-de abil. Oluline on märkida, et server peab rakendama EventStore'i, mis võimaldab sündmuste taasesitamist kliendi ühenduse taastamisel.
+Märkige, et kogukonna ettepanek (PR #975) uurib transpordist sõltumatute jätkusuutlike voogude võimalust.
 
-| Funktsioon      | Kasutusjuht                                                                                                                                                   | MCP tugi                                                                 |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Jätkatavus      | Klient katkestab pikaajalise ülesande täitmise ajal. Ühenduse taastamisel jätkub sessioon vahelejäänud sündmuste taasesitusega, jätkates sujuvalt sealt, kus pooleli jäi. | ✅ StreamableHTTP transport sessiooni ID-de, sündmuste taasesituse ja EventStore'iga |
+| Funktsioon    | Kasutusjuhtum                                                                                                     | MCP tugi                                                                    |
+| ------------ | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Jätkusuutlikkus | Klient katkestab pikaajalise ülesande ajal. Ühenduse taastamisel jätkub seanss vahele jäänud sündmuste taasesitamisega ilma katkestusteta. | ✅ StreamableHTTP transport koos seansi ID-de, sündmuste taasesituse ja EventStore'iga |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Joonis 2:</strong> Diagramm näitab, kuidas MCP StreamableHTTP transport ja sündmuste salvestus võimaldavad sujuvat sessiooni jätkamist: kui klient katkestab, saab ta uuesti ühenduda ja taasesitada vahelejäänud sündmused, jätkates ülesannet ilma edenemist kaotamata.
+<strong>Joonis 2:</strong> See diagramm näitab, kuidas MCP StreamableHTTP transport ja sündmuste pood võimaldavad sujuvat seansi jätkamist: kui klient kaotab ühenduse, saab ta uuesti ühendada ja vahele jäänud sündmusi taasesitada, jätkates ülesannet edenemiseta.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Host rakendus<br/>(MCP klient)
+    participant Server as MCP server<br/>(Agent tööriist)
+    participant Store as Sündmuste hoidla
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Alusta ülesannet
+    Host->>Server: Kutsu tööriist [seanss: abc123]
+    Server->>Store: Salvesta sündmused
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Ühendus katkestatud
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Ühenda uuesti [seanss: abc123]
+    Store-->>Server: Taas mängi sündmused
+    Server-->>Host: Sisse jõuda + jätkata
+    Host-->>User: ✅ Lõpetatud
 ```
 
 ### 3. Püsivus
 
-Pikaajalised agendid vajavad püsivat olekut:
+Pikaajaliste agentide jaoks on vaja püsivat olekut:
 
-- Tulemused säilivad serveri taaskäivitamisel
-- Staatust saab hankida väljaspool sessiooni
-- Edenemise jälgimine sessioonide vahel
+- Tulemused säilivad serveri taaskäivitustest
+- Seisundi saab hankida väljaspool voogu
+- Edenemisel jälgimine seansside lõikes
 
-**MCP tugi**: MCP toetab nüüd tööriistakõnede jaoks ressursilinkide tagastamise tüüpi. Tänapäeval on võimalik muster kujundada tööriist, mis loob ressursi ja tagastab kohe ressursilinki. Tööriist saab taustal jätkata ülesande täitmist ja ressursi uuendamist. Klient saab omakorda valida ressursi oleku küsitlemise, et saada osalisi või täielikke tulemusi (sõltuvalt sellest, milliseid ressursi uuendusi server pakub) või tellida ressursi uuenduste teavitusi.
+**MCP tugi**: MCP toetab nüüd ressursi lingi tagastustüüpi tööriista kutsetes. Tavaline muster on kujundada tööriist, mis loob ressursi ja tagastab kohe ressursilingi. Tööriist võib taustal ülesannet jätkata ja ressursi värskendada. Klient saab valida, kas pidevalt ressurssi kontrollida, et saada osalisi või täielikke tulemusi (sõltuvalt sellest, milliseid ressursi uuendusi server pakub), või tellida ressursi uuenduste teavitusi.
 
-Siin on üks piirang, et ressursside küsitlemine või uuenduste tellimine võib ressursse tarbida, millel on mõju mastaapsuse korral. Kogukonna ettepanek (sh #992) uurib võimalust lisada veebikonksud või päästikud, mida server saab kasutada kliendi/hostrakenduse teavitamiseks uuendustest.
+Üks piirang on see, et ressursside pööramine või uuenduste tellimine võib kulutada ressursse ning suurtel mahtudel mõjutada jõudlust. Avatud kogukonna ettepanek (sealhulgas #992) uurib võimalust lisada webhook’e või trigerid, millele server saab helistada, et klienti/hostrakendust uuendustest teavitada.
 
-| Funktsioon    | Kasutusjuht                                                                                                                                        | MCP tugi                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Püsivus       | Server jookseb kokku andmete migratsiooni ülesande ajal. Tulemused ja edenemine säilivad taaskäivitamisel, klient saab staatust kontrollida ja jätkata püsivast ressursist. | ✅ Ressursilingid püsiva salvestuse ja staatuse teavitustega     |
+| Funktsioon  | Kasutusjuhtum                                                                                                      | MCP tugi                                                        |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Püsivus    | Server jookseb kokku andmete migreerimise ajal. Tulemused ja edenemine säilivad taaskäivituse korral, klient saab kontrollida olekut ja jätkata püsiva ressursi alusel. | ✅ Ressursilingid püsiva salvestuse ja oleku teavitustega       |
 
-Tänapäeval on levinud muster kujundada tööriist, mis loob ressursi ja tagastab kohe ressursilinki. Tööriist saab taustal ülesannet täita, väljastada ressursi teavitusi, mis toimivad edenemise uuendustena või sisaldavad osalisi tulemusi, ja vajadusel ressursi sisu uuendada.
+Tänapäeval on tavaline muster kujundada tööriist, mis loob ressursi ja tagastab kohe ressursilingi. Tööriist võib taustal ülesannet täita, saata ressursiteavitusi, mis toimivad edenemise uuendustena või sisaldavad osalisi tulemusi, ning vajadusel ressursi sisu uuendada.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Joonis 3:</strong> Diagramm näitab, kuidas MCP agendid kasutavad püsivaid ressursse ja staatuse teavitusi, et tagada pikaajaliste ülesannete säilimine serveri taaskäivitamisel, võimaldades klientidel edenemist kontrollida ja tulemusi hankida isegi pärast tõrkeid.
+<strong>Joonis 3:</strong> See diagramm demonstreerib, kuidas MCP agendid kasutavad püsivaid ressursse ja oleku teavitusi, et tagada pikaajaliste ülesannete säilimine serveri taaskäivitustest, võimaldades klientidel jälgida edenemist ja tulemusi ka vigade korral.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Hosti rakendus<br/>(MCP klient)
+    participant Server as MCP server<br/>(Agent tööriist)
+    participant DB as Püsiv salvestus
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Alusta ülesannet
+    Host->>Server: Kutsu tööriista
+    Server->>DB: Loo ressurss + uuendused
+    Server-->>Host: 🔗 Ressursi link
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Serveri taaskäivitamine
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Kontrolli olekut
+    Host->>Server: Hangi ressurss
+    Server->>DB: Laadi olek
+    Server-->>Host: Praegune edenemine
+    Server->>DB: Valmis + teavita
+    Host-->>User: ✅ Valmis
 ```
 
-### 4. Mitme pöördega interaktsioonid
+### 4. Mitme-ringilised suhtlused
 
-Agendid vajavad sageli täiendavat sisendit täitmise ajal:
+Agendid vajavad tihti täiendavat sisendit täitmise keskel:
 
-- Inimese selgitus või kinnitus
-- AI abi keerukate otsuste jaoks
+- Inimese selgitus või heakskiit
+- AI tugi keeruliste otsuste jaoks
 - Dünaamiline parameetrite kohandamine
 
-**MCP tugi**: Täielikult toetatud proovivõtmise (AI sisendi jaoks) ja küsitluse (inimese sisendi jaoks) kaudu.
+**MCP tugi**: Täielikult toetatud valimi (AI sisend) ja väljakutsumise (inimese sisend) abil.
 
-| Funktsioon                 | Kasutusjuht                                                                                                                                     | MCP tugi                                           |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Mitme pöördega interaktsioonid | Reisibroneerimise agent küsib kasutajalt hinnakinnitust, seejärel palub AI-l reisiteavet kokku võtta enne broneerimistehingu lõpetamist. | ✅ Küsitlus inimese sisendi jaoks, proovivõtmine AI sisendi jaoks |
+| Funktsioon               | Kasutusjuhtum                                                                 | MCP tugi                                                   |
+| ------------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Mitme-ringilised suhtlused | Reisibroneerimise agent küsib kasutajalt hinna kinnitust, seejärel palub AI-l reisiandmeid kokku võtta enne broneeringu lõpetamist. | ✅ Elicitation inimeste sisendi jaoks, sampling AI sisendi jaoks |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Joonis 4:</strong> Diagramm näitab, kuidas MCP agendid saavad interaktiivselt küsida inimese sisendit või paluda AI abi täitmise ajal, toetades keerukaid mitme pöördega töövooge, nagu kinnitused ja dünaamiline otsuste tegemine.
+<strong>Joonis 4:</strong> See diagramm näitab, kuidas MCP agendid saavad interaktiivselt esitada inimese sisendi ettepanekuid või paluda AI abi täitmise keskel, toetades keerukaid mitme ringi töövooge nagu kinnitused ja dünaamilised otsused.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(MCP klient)
+    participant Server as MCP Server<br/>(Agent tööriist)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Broneeri lend
+    Host->>Server: Kutsu reisibüroo
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Küsitlemine: "Kinnita 500 $?"
+    Note over Host: Küsitlemise tagasikutsumine (kui saadaval)
+    Host->>User: 💰 Kinnita hind?
+    User->>Host: "Jah"
+    Host->>Server: Kinnitatud
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Valim: "Kokkuvõtte andmed"
+    Note over Host: AI tagasikutsumine (kui saadaval)
+    Host->>Server: Aruande kokkuvõte
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Lennupilet broneeritud
 ```
 
-## Pikaajaliste agentide rakendamine MCP-s - koodi ülevaade
+## Pikaajaliste agentide rakendamine MCP-l – koodi ülevaade
 
-Selle artikli osana pakume [koodirepositooriumi](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), mis sisaldab täielikku rakendust pikaajaliste agentide jaoks, kasutades MCP Python SDK-d StreamableHTTP transporti sessiooni jätkamise ja sõnumite uuesti edastamise jaoks. Rakendus demonstreerib, kuidas MCP võimalusi saab kombineerida, et võimaldada keerukaid agentlikke käitumisi.
+Selles artiklis pakume [koodirepositooriumi](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), mis sisaldab täielikku pikaajaliste agentide rakendust, kasutades MCP Python SDK-d koos StreamableHTTP transpordiga seansi jätkamiseks ja sõnumite uuesti edastamiseks. Rakendus näitab, kuidas MCP võimeid kombineerida keerukate agentide käitumise saavutamiseks.
 
-Eelkõige rakendame serverit kahe peamise agenditööriistaga:
+Konkreetsemalt rakendame serveri kahe peamise agenditööriistaga:
 
-- **Reisiagent** - Simuleerib reisibroneerimisteenust hinnakinnitusega küsitluse kaudu
-- **Uurimisagent** - Teostab uurimisülesandeid AI-abiga kokkuvõtete kaudu proovivõtmise teel
+- **Reisiagent** - Simuleerib reisibroneerimisteenust hinna kinnitusega väljakutsumise kaudu
+- **Uurimisagent** - Teostab uurimistöid AI-toega kokkuvõtete abil valimi kaudu
 
-Mõlemad agendid demonstreerivad reaalajas edenemise uuendusi, interaktiivseid kinnitusi ja täielikku sessiooni jätkamise võimekust.
+Mõlemad agendid demonstreerivad reaalajas edenemise uuendusi, interaktiivseid kinnitusi ja täielikku seansi jätkamise võimekust.
 
-### Olulised rakenduskontseptsioonid
+### Peamised rakendamise kontseptsioonid
 
-Järgmised jaotised näitavad serveripoolset agendi rakendust ja kliendipoolset hosti käsitlemist iga funktsiooni jaoks:
+Järgmistes sektsioonides näidatakse serveripoolset agendi rakendust ja kliendipoolset hosti käitlemist iga võime jaoks:
 
-#### Voogedastus ja edenemise uuendused - reaalajas ülesande staatus
+#### Voogesitus & edenemise uuendused – reaalajas ülesande staatus
 
-Voogedastus võimaldab agentidel pakkuda reaalajas edenemise uuendusi pikaajaliste ülesannete täitmise ajal, hoides kasutajaid kursis ülesande staatuse ja vahetulemustega.
+Voogesitus võimaldab agentidel pakkuda reaalajas edenemise uuendusi pikaajaliste ülesannete ajal, hoides kasutajaid kursis ülesande oleku ja vahepealsete tulemustega.
 
 **Serveri rakendus (agent saadab edenemise teavitusi):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Serverist/server.py - Reisibüroo edusammude uuenduste saatmine
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Töötlemise simuleerimine
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternatiiv: Logi sõnumid üksikasjalike samm-sammuliste uuenduste jaoks
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Kliendi rakendus (host võtab edenemise uuendusi vastu):**
+**Kliendi rakendus (host võtab vastu edenemise uuendusi):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Failist client/client.py - Reaalajas teadete käsitleja
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registreeri sõnumikäsitleja sessiooni loomisel
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Küsitlus - Kasutaja sisendi küsimine
+#### Väljakutsumine – kasutaja sisendi pärimine
 
-Küsitlus võimaldab agentidel küsida kasutaja sisendit täitmise ajal. See on oluline kinnituste, selgituste või heakskiitude jaoks pikaajaliste ülesannete ajal.
+Väljakutsumine võimaldab agentidel küsida kasutajalt sisendit täitmise keskel. See on oluline kinnituste, täpsustuste või heakskiitude jaoks pikaajaliste ülesannete ajal.
 
 **Serveri rakendus (agent küsib kinnitust):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Serverist/server.py - Reisibüroo küsib hinna kinnitus
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Jätka broneeringuga
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Tühista broneering
     booking_cancelled = True
 ```
 
-**Kliendi rakendus (host pakub küsitluse tagasiside funktsiooni):**
+**Kliendi rakendus (host pakub väljakutsumise tagasisidet):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Kliendist/client.py - Kliendi käsitlemine päringute esitamist
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Registreeri tagasikutsumine seansi loomisel
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Proovivõtmine - AI abi küsimine
+#### Valim – AI abi pärimine
 
-Proovivõtmine võimaldab agentidel küsida LLM abi keerukate otsuste või sisu loomise jaoks täitmise ajal. See võimaldab hübriidseid inimese-AI töövooge.
+Valim võimaldab agentidel küsida LLM abi keerukate otsuste või sisuloomise jaoks täitmise ajal. See toetab hübriidset inim-AI töövoogu.
 
 **Serveri rakendus (agent küsib AI abi):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Serverist/server.py - Uurimisagent taotleb tehisintellekti kokkuvõtet
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Kliendi rakendus (host pakub proovivõtmise tagasiside funktsiooni):**
+**Kliendi rakendus (host pakub valimi tagasisidet):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Failist client/client.py - Kliendi päringute töötlemine proovide võtmiseks
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Tõsises rakenduses võiks see kutsuda LLM API-d
+    # Demo eesmärgil pakume näidiskommentaari vastust
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Registreeri tagasikutsumine seansi loomisel
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Jätkatavus - Sessiooni järjepidevus katkestuste korral
+#### Jätkusuutlikkus – seansi järjepidevus katkestustest üle
 
-Jätkatavus tagab, et pikaajalised agendi ülesanded suudavad üle elada kliendi katkestused ja jätkata sujuvalt uuesti ühendamisel. See rakendatakse sündmuste salvestuse ja jätkamistokenite kaudu.
+Jätkusuutlikkus tagab, et pikaajalised agendi ülesanded ületavad kliendi katkestused ja jätkuvad katkematult ühenduse taastamisel. Seda rakendatakse sündmustepoodide ja jätkustükkidega.
 
-**Sündmuste salvestuse rakendus (server hoiab sessiooni olekut):**
+**Sündmuste poe rakendus (server hoiab seansi olekut):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Failist server/event_store.py - Lihtne mälupõhine sündmuste salvesti
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Taasesita ainult hilisemaid sündmusi sessiooni algsest voost.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Failist server/server.py - Sündmuste salvesti edasiandmine sessioonihaldurile
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Loo sessioonihaldur koos sündmuste salvestiga jätkamiseks
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Sündmuste salvesti võimaldab sessiooni jätkamist
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Kasutus: Algata sündmuste salvestiga
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Kliendi metaandmed jätkamistokeniga (klient ühendub uuesti salvestatud oleku abil):**
+**Kliendi metaandmed jätkustükiga (kliendi uuesti ühendamine salvestatud oleku alusel):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Kliendist client/client.py - Kliendi jätkamine metainformatsiooniga
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Kasuta olemasolevat jätkamistokenit, et jätkata sealt, kus pooleli jäi
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Loo tagasikutsumine, et salvestada jätkamistoken vastuvõtmisel
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Saada päring jätkamise metainformatsiooniga
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,88 +437,94 @@ result = await session.send_request(
 )
 ```
 
-Hostrakendus hoiab sessiooni ID-d ja jätkamistokenid lokaalselt, võimaldades tal uuesti ühenduda olemasolevate sessioonidega ilma edenemist või olekut kaotamata.
+Hostrakendus hoiab lokaalselt seansi ID-sid ja jätkustükke, võimaldades sellel olemasolevatesse seanssidesse uuesti ühendada kaotamata edenemist ega olekut.
 
-### Koodi organiseerimine
+### Koodi korraldus
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Joonis 5:</strong> MCP-põhise agendisüsteemi arhitektuur
+<strong>Joonis 5:</strong> MCP-põhine agendisüsteemi arhitektuur
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Kasutaja]) -->|"Ülesanne"| Host["Host<br/>(MCP klient)"]
+    Host -->|tööriistade nimekiri| Server[MCP server]
+    Server -->|Avaldab| AgentsTools[Agendid tööriistadena]
+    AgentsTools -->|Ülesanne| AgentA[Reisibüroo agent]
+    AgentsTools -->|Ülesanne| AgentB[Uurimisagent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Jälgib| StateUpdates[edenemist ja oleku uuendusi]
+    Server -->|Avaldab| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
     class Host,Server,StateUpdates core;
 ```
 
-**Olulised failid:**
+**Peamised failid:**
 
-- **`server/server.py`** - Jätkatav MCP server reisi- ja uurimisagentidega, mis demonstreerivad küsitlust, proovivõtmist ja edenemise uuendusi
-- **`client/client.py`** - Interaktiivne hostrakendus jätkamise toega, tagasiside funktsioonidega ja tokenite haldusega
-- **`server/event_store.py`** - Sündmuste salvestuse rakendus, mis võimaldab sessiooni jätkamist ja sõnumite uuesti edastamist
+- **`server/server.py`** - Jätkusuutlik MCP server koos reisija ja uurimisagentidega, mis demonstreerivad väljakutsumist, valimit ning edenemise uuendusi
+- **`client/client.py`** - Interaktiivne hostrakendus jätkusuutlikkuse, tagasisidekäsitlejate ja võtmete haldamisega
+- **`server/event_store.py`** - Sündmuste poe rakendus, mis võimaldab seansi jätkamist ja sõnumite uuesti edastamist
 
-## MCP mitme agendi kommunikatsiooni laiendamine
+## Laiendamine mitme agendi suhtluseks MCP-l
 
-Ülaltoodud rakendust saab laiendada mitme agendi süsteemideks, suurendades hostrakenduse intelligentsust ja ulatust:
+Ülaltoodud rakendust saab laiendada mitme agendi süsteemideks, täiustades hostrakenduse intelligentsust ja ulatust:
 
-- **Intelligentne ülesannete jaotamine**: Host analüüsib keerukaid kasutajapäringuid ja jagab need alamülesanneteks erinevatele spetsialiseeritud agentidele
-- **Mitme serveri koordineerimine**: Host hoiab ühendusi mitme MCP serveriga, millest igaüks pakub erinevaid agendivõimekusi
-- **Ülesande oleku haldamine**: Host jälgib edenemist mitme samaaegse agendi ülesande vahel, käsitledes sõltuvusi ja järjestust
-- **Tõrketaluvus ja korduskatsed**: Host haldab tõrkeid, rakendab kordusloogikat ja suunab ülesandeid ümber, kui agendid muutuvad kättesaamatuks
-- **Tulemuste süntees**: Host ühendab mitme agendi väljundid ühtseks lõpptulemuseks
+- **Intelligentne ülesannete decompositsioon**: Host analüüsib keerukaid kasutajapäringuid ja jagab need alamülesanneteks erinevatele spetsialiseerunud agentidele
+- **Mitme serveri koordinatsioon**: Host hoiab ühendusi mitme MCP serveriga, millest igaüks pakub erinevaid agenti võimeid
+- **Ülesannete oleku haldamine**: Host jälgib edenemist mitme samaaegse agendi ülesande puhul, käsitledes sõltuvusi ja järjestusi
+- **Vastupidavus & korduskatsetused**: Host haldab rikkeid, rakendab korduskatsete loogikat ja suunab ülesandeid ümber, kui agendid muutuvad kättesaamatuks
+- **Tulemuste süntees**: Host ühendab mitmelt agendilt saadud väljundid koherentseteks lõpptulemusteks
 
-Host areneb lihtsast kliendist intelligentseks orkestreerijaks, koordineerides hajutatud agendivõimekusi, säilitades samal ajal MCP protokolli aluse.
+Host areneb lihtsast kliendist intelligentsuseks koordineerijaks, mis korraldab hajutatud agenti võimeid, hoides samal ajal MCP protokolli aluspõhja.
 
 ## Kokkuvõte
 
-MCP täiustatud võimalused - ressursi teavitused, küsitlus/proovivõtmine, jätkatavad vood ja püsivad ressursid - võimaldavad keerukaid agentidevahelisi interaktsioone, säilitades samal ajal protokolli lihtsuse.
+MCP täiustatud võimekused - ressursiteavitused, väljakutsumine/valim, jätkusuutlikud vood ja püsivad ressursid - võimaldavad keerukaid agentidevahelisi interaktsioone, samas hoides protokolli lihtsust.
 
 ## Alustamine
 
-Valmis looma oma agentidevahelist süsteemi? Järgi neid samme:
+Kas olete valmis ehitama oma agent2agent süsteemi? Järgige neid samme:
 
-### 1. Käivita demo
+### 1. Käivitage demo
 
 ```bash
-# Start the server with event store for resumption
+# Käivita server sündmustehoidla taasalustamiseks
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Teises terminalis käivita interaktiivne klient
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
 **Interaktiivses režiimis saadaval olevad käsud:**
 
-- `travel_agent` - Broneeri reis hinnakinnitusega küsitluse kaudu
-- `research_agent` - Uuri teemasid AI-abiga kokkuvõtete kaudu proovivõtmise teel
+- `travel_agent` - Broneeri reis koos hinna kinnitusega väljakutsumise kaudu
+- `research_agent` - Uuri teemasid AI toe ja valimi kaudu koostatud kokkuvõtetega
 - `list` - Näita kõiki saadaolevaid tööriistu
-- `clean-tokens` - Kustuta jätkamistokenid
+- `clean-tokens` - Kustuta jätkustükid
 - `help` - Näita üksikasjalikku käsuabi
 - `quit` - Välju kliendist
 
-### 2. Testi jätkamise võimekust
+### 2. Testi jätkusuutlikkuse võimekust
 
 - Käivita pikaajaline agent (nt `travel_agent`)
 - Katkesta klient täitmise ajal (Ctrl+C)
-- Taaskäivita klient - see jätkab automaatselt sealt, kus pooleli jäi
+- Taaskäivita klient – see jätkab automaatselt kohast, kus pooleli jäi
 
 ### 3. Uuri ja laienda
 
-- **Uuri näiteid**: Vaata [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Liitu kogukonnaga**: Osale MCP ar
-Üldiselt areneb MCP protokolli spetsifikatsioon kiiresti; lugejal soovitatakse tutvuda ametliku dokumentatsiooni veebisaidiga, et saada kõige värskemaid uuendusi - https://modelcontextprotocol.io/introduction
+- **Uuri näiteid**: Vaata seda [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Liitu kogukonnaga**: Osale MCP aruteludes GitHubis
+- **Katseta**: Alusta lihtsa pikaajalise ülesandega ja lisa järk-järgult voogesitus, jätkusuutlikkus ja mitme agendi koordineerimine
+
+See näitab, kuidas MCP võimaldab intelligentseid agentide käitumisi, hoides samas tööriistade lihtsust.
+
+Üldiselt areneb MCP protokolli spetsifikatsioon kiiresti; lugejat julgustatakse tutvuma ametliku dokumentatsiooniveebiga viimaste uuenduste saamiseks – https://modelcontextprotocol.io/introduction
 
 ---
 
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

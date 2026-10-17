@@ -323,7 +323,7 @@ LLMによって動的に生成されるSQLに関する一般的な懸念事項�
 
 ## このエージェントのスモークテスト（オプション）
 
-[Lesson 16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだ後、このレッスンの`TravelToolAgent`がまだツールを呼び出し回答しているかを[`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json)でスモークテストできます。実行方法は[`tests/README.md`](../tests/README.md)を参照してください。
+[レッスン16](../16-deploying-scalable-agents/README.md)でエージェントのデプロイ方法を学んだ後、このレッスンの`TravelToolAgent`がまだツールを呼び出し回答しているかを[`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json)でスモークテストできます。実行方法は[`tests/README.md`](../tests/README.md)を参照してください。
 
 ## 前のレッスン
 
@@ -331,7 +331,7 @@ LLMによって動的に生成されるSQLに関する一般的な懸念事項�
 
 ## 次のレッスン
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agentic RAG（エージェンティックRAG）](../05-agentic-rag/README.md)
 
 ---
 
