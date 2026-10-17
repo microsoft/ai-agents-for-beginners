@@ -1,155 +1,155 @@
-# Implementatie van schaalbare agents met Microsoft Foundry
+# Schaalbare Agents Implementeren met Microsoft Foundry
 
-![Implementatie van schaalbare agents](../../../translated_images/nl/lesson-16-thumbnail.d78cace536bc5d50.webp)
+![Schaalbare Agents Implementeren](../../../translated_images/nl/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Tot nu toe in de cursus heb je agents gebouwd die draaien op je laptop, binnen een notebook, aangestuurd door `az login` en een handvol omgevingsvariabelen. Dat is precies de juiste manier om te leren. Het is niet de juiste manier om een agent te laten draaien waar duizenden klanten om 3 uur 's nachts op vertrouwen.
+Tot nu toe in de cursus heb je agents gebouwd die op je laptop draaien, binnen een notebook, aangestuurd door `az login` en een handvol omgevingsvariabelen. Dat is precies de juiste manier om te leren. Het is niet de juiste manier om een agent te draaien waar duizenden klanten om 3 uur ’s nachts van afhankelijk zijn.
 
-Deze les gaat over de kloof tussen "het werkt op mijn machine" en "het werkt betrouwbaar en betaalbaar in productie." We overbruggen die kloof met behulp van **Microsoft Foundry** en de **Microsoft Foundry Agent Service**, en we doen dat door een echte klantenondersteuningsagent te bouwen die beschikt over tools, ophalen, geheugen, evaluatie en monitoring.
+Deze les gaat over de kloof tussen "het werkt op mijn machine" en "het werkt betrouwbaar en betaalbaar in productie." We overbruggen die kloof met **Microsoft Foundry** en de **Microsoft Foundry Agent Service**, door een echte klantenservice-agent te bouwen die beschikt over tools, ophalen, geheugen, evaluatie, en monitoring.
 
 ## Introductie
 
 Deze les behandelt:
 
-- Het verschil tussen een **prototype agent** en een **geïmplementeerde agent**, en waarom de overgang vooral gaat over alles *rondom* het model.
+- Het verschil tussen een **prototype-agent** en een **geïmplementeerde agent**, en waarom de overgang vooral gaat over alles *rondom* het model.
 - **Implementatiepatronen** voor agents: client-gehost, service-gehost (Hosted Agents), en workflow-georkestreerd.
-- De **agent levenscyclus** op Microsoft Foundry — aanmaken, versioneren, implementeren, evalueren, observeren, uitfaseren.
-- **Schaalstrategieën**: modelroutering, caching, gelijktijdigheid en stateless ontwerp.
+- De **levenscyclus van een agent** op Microsoft Foundry — aanmaken, versioneren, implementeren, evalueren, observeren, uitfaseren.
+- **Schaalstrategieën**: modelroutering, caching, gelijktijdigheid, en stateless ontwerp.
 - **Observeerbaarheid** met OpenTelemetry en Foundry tracing.
-- **Kostenoptimalisatie** via modelselectie, routering en evaluatiepoorten.
-- **Enterprise overwegingen**: governance, menselijke goedkeuring, en het veilig draaien van MCP-servers in productie.
+- **Kostenoptimalisatie** via modelkeuze, routering, en evaluatiepoorten.
+- **Overwegingen voor ondernemingen**: governance, menselijke goedkeuring, en het veilig draaien van MCP-servers in productie.
 
 ## Leerdoelen
 
 Na het voltooien van deze les weet je hoe je:
 
-- Het juiste implementatiepatroon kiest voor een bepaalde agent workload.
-- Een agent implementeert op de Microsoft Foundry Agent Service zodat deze genummerd, beheerd en observeerbaar is.
-- Een agent instrumenteert voor tracing en een evaluatiepipeline koppelt die vóór elke release draait.
-- Modelroutering en caching toepast om latentie en kosten onder controle te houden op schaal.
-- Een menselijke goedkeuringspoort toevoegt voor risicovolle acties en een MCP-server op een productie-veilige manier integreert.
+- Het juiste implementatiepatroon kiest voor een gegeven agent workload.
+- Een agent implementeert naar de Microsoft Foundry Agent Service zodat deze versioneerd, beheerd, en observeerbaar is.
+- Een agent instrumenteert voor tracing en een evaluatiepipeline opzet die voor elke release draait.
+- Modelroutering en caching toepast om latentie en kosten op schaal onder controle te houden.
+- Een menselijke goedkeuringspoort toevoegt voor risicovolle acties en een MCP-server op een productieveilige manier integreert.
 
 ## Vereisten
 
-Deze les gaat ervan uit dat je eerdere lessen hebt afgerond en vertrouwd bent met:
+Deze les gaat ervan uit dat je de eerdere lessen voltooid hebt en vertrouwd bent met:
 
-- Het bouwen van agents met het [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Les 14).
+- Agents bouwen met het [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Les 14).
 - [Toolgebruik](../04-tool-use/README.md) (Les 4) en [Agentic RAG](../05-agentic-rag/README.md) (Les 5).
-- [Agent geheugen](../13-agent-memory/README.md) (Les 13) en [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Les 11).
-- [Observeerbaarheid en evaluatie](../10-ai-agents-production/README.md) (Les 10) — deze les bouwt hier direct op voort.
+- [Agentgeheugen](../13-agent-memory/README.md) (Les 13) en [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Les 11).
+- [Observeerbaarheid en Evaluatie](../10-ai-agents-production/README.md) (Les 10) — deze les bouwt hier rechtstreeks op voort.
 
 Je hebt ook nodig:
 
 - Een **Azure-abonnement** en een **Microsoft Foundry-project** met ten minste één geïmplementeerd chatmodel.
-- De **Azure CLI** is geauthenticeerd (`az login`).
+- De **Azure CLI** ingelogd (`az login`).
 - Python 3.12+ en de pakketten in de repository [`requirements.txt`](../../../requirements.txt).
 
-## Van prototype naar productie: wat verandert er eigenlijk
+## Van Prototype naar Productie: Wat Verandert Er Eigenlijk
 
-Een prototype agent en een productie-agent delen dezelfde kernlus — redeneer, roep tools aan, reageer. Wat verandert is alles dat om die lus heen zit. Het model is misschien 20% van een productie-agent; de overige 80% is het operationele skelet.
+Een prototype-agent en een productie-agent delen dezelfde kernlus — redeneren, tools aanroepen, reageren. Wat verandert is alles wat die lus omringt. Het model is misschien 20% van een productie-agent; de overige 80% is het operationele skelet.
 
-| Aandachtspunt | Prototype | Productie |
+| Aspect | Prototype | Productie |
 | --- | --- | --- |
 | **Hosting** | Draait in je notebook | Draait als een gehoste service, versioneerd en uitgerold |
-| **Identiteit** | Je `az login` token | Beheerde identiteit met afgebakende RBAC |
-| **Status** | In het geheugen, verloren bij herstart | Uitgelokaliseerd (thread store, geheugenservice) |
-| **Foutafhandeling** | Je ziet de traceback | Herhalingen, fallback, dead-letter, waarschuwingen |
-| **Kosten** | "Het kost een paar cent" | Bijgehouden per verzoek, gerouteerd, gecached, begroot |
-| **Kwaliteit** | Je bekijkt de output visueel | Automatisch geëvalueerd vóór elke release |
-| **Vertrouwen** | Je keurt elke actie goed | Beleid + menselijke-in-de-lus voor risicovolle acties |
+| **Identiteit** | Je `az login` token | Beheerde identiteit met gerichte RBAC |
+| **Status** | In-memory, verloren bij herstart | Geëxternaliseerd (thread store, geheugenservice) |
+| **Falen** | Je ziet de traceback | Retries, fallbacks, dead-letter, alerts |
+| **Kosten** | "Het zijn een paar centen" | Per verzoek bijgehouden, gerouteerd, gecached, begroot |
+| **Kwaliteit** | Je beoordeelt de output visueel | Automatisch geëvalueerd voor elke release |
+| **Vertrouwen** | Jij keurt elke actie goed | Beleid + mens-in-de-lus voor risicovolle acties |
 
-Houd deze tabel in gedachten. Elke hieronder genoemde sectie correspondeert met een van deze rijen.
+Houd deze tabel in gedachten. Elke sectie hieronder correspondeert met één van deze rijen.
 
-## Agent implementatiepatronen
+## Agent Implementatiepatronen
 
 Er zijn drie patronen die je zult gebruiken, vaak in combinatie.
 
 ### 1. Client-gehoste Agents
 
-Het agent-object draait binnen *jouw* applicatieproces. Je code roept de modelprovider direct aan; de redeneerlus draait in je service. Dit is wat elke vorige les heeft gedaan.
+Het agentobject leeft binnen *jouw* applicatieproces. Je code roept de modelprovider direct aan; de redeneerlus draait in je service. Dit is wat elke vorige les heeft gedaan.
 
-- **Gebruik dit wanneer** je volledige controle over de lus nodig hebt, aangepaste middleware of als je de agent in een bestaande backend insluit.
-- **Nadeel**: je bent zelf verantwoordelijk voor schaalbaarheid, status en veerkracht.
+- **Gebruik het wanneer** je volledige controle over de lus nodig hebt, aangepaste middleware, of je embedt de agent binnen een bestaande backend.
+- **Nadeel**: je bent zelf verantwoordelijk voor schaalbaarheid, status, en veerkracht.
 
 ### 2. Gehoste Agents (Foundry Agent Service)
 
-De agent is *geregistreerd als een resource* in Microsoft Foundry. Foundry host de redeneerlus, slaat threads op, handhaaft contentveiligheid en RBAC, en maakt de agent zichtbaar in de Foundry-portal. Je app wordt een dunne client die threads aanmaakt en antwoorden leest.
+De agent is *geregistreerd als een resource* in Microsoft Foundry. Foundry host de redeneerlus, slaat threads op, handhaaft contentveiligheid en RBAC, en maakt de agent zichtbaar in de Foundry-portal. Je app wordt een dunne client die threads aanmaakt en reacties leest.
 
-- **Gebruik dit wanneer** je duurzaamheid, ingebouwde observeerbaarheid, governance en minder operationele complexiteit wilt.
-- **Nadeel**: minder controle op laag niveau in ruil voor een beheerde runtime.
+- **Gebruik het wanneer** je duurzaamheid, ingebouwde observeerbaarheid, governance, en minder operationele oppervlakte wilt.
+- **Nadeel**: minder laag-niveau controle in ruil voor een beheerde runtime.
 
 ### 3. Agent Workflows
 
-Meerdere agents (en tools) worden samengesteld in een graaf met expliciete controleflow — sequentiële stappen, vertakkingen, nodes voor menselijke goedkeuring en duurzame checkpoints die pauzeren en hervatten mogelijk maken. Dit is de Microsoft Agent Framework **Workflows**-functionaliteit toegepast op implementatieschaal.
+Meerdere agents (en tools) worden samengesteld in een graaf met expliciete controleflow — sequentiële stappen, vertakkingen, menselijke goedkeuringspunten, en duurzame checkpoints die kunnen pauzeren en hervatten. Dit is de Microsoft Agent Framework **Workflows**-functionaliteit toegepast op implementatieschalen.
 
-- **Gebruik dit wanneer** een enkele taak meerdere gespecialiseerde agents omvat of een goedkeuringsstap in het midden vereist.
-- **Nadeel**: meer bewegende onderdelen; vereist observatie op orkestratieniveau.
+- **Gebruik het wanneer** een enkele taak meerdere gespecialiseerde agents beslaat of een goedkeuringsstap in het midden vereist.
+- **Nadeel**: meer bewegende delen; vereist observeerbaarheid op orkestratieniveau.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Client-gehost]
-        A1[Jouw app-proces] --> M1[Modelleverancier]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Gehoste agent]
-        A2[Dunne client] --> F2[Foundry-agentdienst]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
         F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Agentworkflow]
-        A3[Orkestrator] --> S1[Triage-agent]
-        S1 --> S2[Oplos-agent]
-        S2 --> H[Menselijke goedkeuringsknooppunt]
-        H --> S3[Actie-agent]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
-## De agent levenscyclus op Microsoft Foundry
+## De Levenscyclus van een Agent op Microsoft Foundry
 
-Het implementeren van een agent is geen eenmalige `push`. Het is een lus, en het lijkt erg op een software releasecyclus want dat is het ook.
+Een agent implementeren is geen eenmalige `push`. Het is een lus, en het lijkt sterk op een software releasecyclus omdat het dat ook is.
 
 ```mermaid
 flowchart LR
-    Create[Maken / Auteur] --> Version[Versie]
-    Version --> Evaluate[Offline evalueren]
-    Evaluate -->|gate doorgaan| Deploy[Gehost implementeren]
-    Evaluate -->|gate niet doorstaan| Create
-    Deploy --> Observe[Online observeren]
-    Observe --> Improve[Fouten verzamelen]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Oude versie uitfaseren]
+    Deploy --> Retire[Retire old version]
 ```
 
-Het sleutelidee, overgenomen van [Les 10](../10-ai-agents-production/README.md): **offline evaluatie is een poort, geen bijzaak.** Een nieuwe agentversie gaat pas uit als deze aan je evaluatiedrempels voldoet. Online observeerbaarheid voedt daarna echte fouten terug in je offline testset. Dat is de hele lus.
+Het sleutelidee, overgenomen uit [Les 10](../10-ai-agents-production/README.md): **offline evaluatie is een poort, geen bijzaak.** Een nieuwe agentversie wordt niet vrijgegeven tenzij deze je evaluatiedrempels haalt. Online observeerbaarheid voedt vervolgens echte mislukkingen terug in je offline testset. Dat is de complete lus.
 
-## Schaalsstrategieën
+## Schaalstrategieën
 
-Het schalen van een agent is anders dan het schalen van een stateless web API, omdat elk verzoek meerdere dure model- en tool-aanroepen kan triggeren. Vier technieken dragen het grootste deel van de last.
+Het schalen van een agent verschilt van het schalen van een stateless web-API, omdat elk verzoek meerdere dure model- en toolaanroepen kan triggeren. Vier technieken nemen het grootste deel van de last voor hun rekening.
 
-**Stateless verzoekafhandeling.** Bewaar geen per-gebruiker status in je procesgeheugen. Bewaar conversatiedraden in de Foundry thread store of een geheugenservice zodat elke instantie elk verzoek kan afhandelen. Dit maakt horizontaal schalen mogelijk — voeg instanties toe, geen sticky sessions.
+**Stateless verzoekafhandeling.** Bewaar geen per-gebruiker-status in het processgeheugen. Bewaar conversatiedraden in de Foundry thread store of een geheugenservice, zodat elke instantie elk verzoek kan afhandelen. Dit stelt je in staat horizontaal te schalen — extra instanties toevoegen, geen plakkerige sessies.
 
-**Modelroutering.** Niet elk verzoek vereist je meest capabele (en duurste) model. Route eenvoudige verzoeken — intentclassificatie, korte feitelijke antwoorden — naar een klein, snel model, en reserveer het grote model voor echte redenering. Foundry's **Model Router** kan dit voor je doen, of je kunt zelf een lichte classifier implementeren. Je bouwt de doe-het-zelf versie in de lab.
+**Modelroutering.** Niet elk verzoek vereist je meest capabele (en duurste) model. Routeer eenvoudige verzoeken — intentclassificatie, korte feitelijke antwoorden — naar een klein, snel model, en reserveer het grote model voor echte redenering. Foundry’s **Model Router** kan dit voor je doen, of je implementeert zelf een lichtgewicht classifier. Je bouwt de doe-het-zelf versie in het lab.
 
-**Response caching.** Veel ondersteuningsvragen zijn bijna-dubbelen ("hoe reset ik mijn wachtwoord?"). Cache antwoorden op veelgestelde vragen en serveer ze zonder het model te raadplegen. Zelfs een bescheiden cache-hitpercentage verlaagt kosten en latentie aanzienlijk.
+**Responscaching.** Veel ondersteuningsvragen lijken sterk op elkaar ("hoe reset ik mijn wachtwoord?"). Cache antwoorden op veelgestelde vragen en serveer ze zonder het model aan te spreken. Zelfs een bescheiden cache-hitpercentage verlaagt de kosten en latentie aanzienlijk.
 
-**Gelijktijdigheid en backpressure.** Modelproviders hebben snelheidslimieten. Beperk je gelijktijdigheid, gebruik herhalingen met exponentiële backoff en faal gracieus (een in de wachtrij geplaatste "we zijn ermee bezig"-reactie is beter dan een 500-fout).
+**Gelijktijdigheid en backpressure.** Modelproviders hanteren snelheidslimieten. Begrens je gelijktijdigheid, gebruik retries met exponentiële backoff, en faal gracieus (een in de wachtrij geplaatste "we zijn ermee bezig" respons is beter dan een 500).
 
 ```mermaid
 flowchart LR
-    Q[Gebruikersvraag] --> C{Cache-treffer?}
-    C -->|ja| R[Gegevens uit cache retourneren]
-    C -->|nee| Router{Complexiteit?}
-    Router -->|eenvoudig| SLM[Klein model]
-    Router -->|complex| LLM[Groot model]
-    SLM --> Out[Antwoord]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
     Out --> Store[Cache + trace]
 ```
 
-## Observeerbaarheid in productie
+## Observeerbaarheid in Productie
 
-Je kunt niet beheren wat je niet kunt zien. Zoals behandeld in Les 10, zendt het Microsoft Agent Framework **OpenTelemetry** traces native uit — elke modelaanroep, tool-aanroep en orkestratiestap wordt een span. In productie exporteer je die spans naar Microsoft Foundry (of een andere OTel-compatibele backend) zodat je kunt:
+Je kunt niet wat je niet kunt zien draaien. Zoals behandeld in Les 10, genereert het Microsoft Agent Framework native **OpenTelemetry** traces — elke modelaanroep, toolaanroep, en orkestratiestap wordt een span. In productie exporteer je die spans naar Microsoft Foundry (of elke OTel-compatibele backend) zodat je kunt:
 
-- Een enkele klantklacht end-to-end traceren over elke model- en toolaanroep.
-- p50/p95 latentie en kosten per verzoek in de tijd volgen.
-- Waarschuwen bij foutpercentagepieken en kostenafwijkingen voordat je gebruikers (of je financiële team) het merken.
+- Een enkele klantklacht van begin tot eind volgen over elke model- en toolaanroep.
+- De p50/p95 latentie en kosten per verzoek in de tijd volgen.
+- Waarschuwingen krijgen bij foutpercentagespieken en kostenafwijkingen voordat je gebruikers (of je financiële team) het merken.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,88 +159,88 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # agentuitvoering wordt automatisch gevolgd binnen deze span
+    # agent execution is traced automatically inside this span
 ```
 
-Attributen zoals `customer.tier` en `routed.model` veranderen een muur van traces in beantwoordbare vragen ("worden zakelijke klanten te vaak naar het kleine model gerouteerd?").
+Attributen als `customer.tier` en `routed.model` zijn wat een muur van traces omzet in beantwoordbare vragen ("worden enterpriseklanten te vaak naar het kleine model gerouteerd?").
 
 ## Kostenoptimalisatie
 
-Kosten bij productie-agents worden vooral bepaald door tokens. Drie hefbomen, gerangschikt op impact:
+Kosten in productieagents worden gedomineerd door tokens. Drie hefbomen, in volgorde van impact:
 
-1. **Het model passend maken.** Een klein model dat door je evaluatiepoort komt, is bijna altijd goedkoper dan een groot model dat ook doorkomt. Gebruik evaluatie om te *bewijzen* dat het kleine model goed genoeg is in plaats van standaard voor het grootste model te kiezen uit voorzorg.
-2. **Routering op complexiteit.** Zoals hierboven — betaal alleen de prijs van het grote model voor verzoeken die echt redenering met het grote model nodig hebben.
-3. **Aggressief cachen.** De goedkoopste modelaanroep is degene die je nooit doet.
+1. **Kies het juiste modelformaat.** Een klein model dat je evaluatiepoort passeert is bijna altijd goedkoper dan een groot model dat dat ook doet. Gebruik evaluatie om te *bewijzen* dat het kleine model goed genoeg is in plaats van standaard voorzichtig voor het grootste model te kiezen.
+2. **Routeer op complexiteit.** Zoals hierboven — betaal grote-modellengelden alleen voor verzoeken die grote-modellenredenering nodig hebben.
+3. **Cache agressief.** De goedkoopste modelaanroep is die je nooit hoeft te maken.
 
-Evaluatiepoorten en kostenbeheersing zijn hetzelfde vakgebied bekeken vanuit twee kanten: evaluatie geeft je de *kwaliteitsbodem*, routering en caching houden je zo dicht mogelijk bij die bodem qua *kosten*.
+Evaluatiepoorten en kostenbeheersing zijn dieselde discipline vanuit twee invalshoeken bekeken: evaluatie vertelt je de *kwaliteitsbodem*, routering en caching houden je zo dicht mogelijk bij de *kost* van die bodem.
 
-## Enterprise-implementatieoverwegingen
+## Overwegingen bij Enterprise-Implementaties
 
-**Governance.** Gehoste Agents erven Foundry's RBAC, contentveiligheid en audit logging. Geef elke agent een beheerde identiteit met de minste rechten die nodig zijn — lees-only toegang tot de kennisbank, afgebakende toegang tot de ticket-API, en niets meer.
+**Governance.** Gehoste Agents erven Foundry’s RBAC, contentveiligheid, en auditlogging. Geef elke agent een beheerde identiteit met de minste rechten die nodig zijn — alleen-lezen toegang tot de kennisbank, gerichte toegang tot de ticketing-API, niets meer.
 
-**Mens-in-de-lus.** Sommige acties zijn te ingrijpend om volledig te automatiseren — een terugbetaling uitvoeren, een account verwijderen, escaleren naar een juridisch team. Het Microsoft Agent Framework ondersteunt **tools die goedkeuring vereisen**: de agent stelt de actie voor, de uitvoering pauzeert, een mens keurt goed of wijst af, en de workflow gaat verder. Je zag dit primitief al in [Les 6](../06-building-trustworthy-agents/README.md); hier implementeer je het.
+**Mens-in-de-lus.** Sommige acties zijn te ingrijpend om direct te automatiseren — een terugbetaling doen, een account verwijderen, escaleren naar een juridische afdeling. Het Microsoft Agent Framework ondersteunt **goedkeuringsvereiste** tools: de agent stelt de actie voor, uitvoering pauzeert, een mens keurt goed of wijst af, en de workflow gaat verder. Je zag deze primitief al in [Les 6](../06-building-trustworthy-agents/README.md); hier implementeer je het.
 
-**MCP in productie.** [MCP](../11-agentic-protocols/README.md) laat je agent externe tools gebruiken via een standaardinterface. Behandel in productie elke MCP-server als een niet-vertrouwde grens: pin de serverversie, draai deze met een afgebakende identiteit, valideer de outputs, en geef nooit geheimen bloot aan de server. Een MCP-server is een afhankelijkheid, en afhankelijkheden moeten gepatcht, gecontroleerd en rate-limited worden.
+**MCP in productie.** [MCP](../11-agentic-protocols/README.md) laat je agent externe tools gebruiken via een standaardsinterface. Behandel elke MCP-server in productie als een onbetrouwbare grens: pin de serverversie, draai met een gerichte identiteit, valideer de output, en geef nooit geheimen prijs. Een MCP-server is een afhankelijkheid, en afhankelijkheden worden gepatcht, gecontroleerd, en gelimiteerd.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Ontwikkelingsarchitectuur]
-        D1[Notitieboek] --> D2[Agent Framework]
-        D2 --> D3[Modelprovider]
-        D2 --> D4[Lokale tools]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Implementatiearchitectuur]
-        E1[CI-pijplijn] --> E2[Evaluatiepoort]
-        E2 -->|geslaagd| E3[Foundry Agent Service]
-        E3 --> E4[Gepubliceerd versie-agent]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Runtime Architectuur]
-        F1[Klantapp] --> F2[Gehoste agent]
-        F2 --> F3[Modelrouter]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Geheugendienst]
-        F2 --> F6[MCP-tools]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
         F2 --> F7[OTel -> Foundry tracing]
-        F2 --> F8[Menselijke goedkeuring]
+        F2 --> F8[Human approval]
     end
 ```
 
-Die drie diagrammen — ontwikkeling, implementatie, runtime — zijn dezelfde agent in drie fasen van zijn leven. De volgende lab leidt je door het bouwen ervan.
+Die drie diagrammen — ontwikkeling, implementatie, runtime — zijn dezelfde agent in drie levensfasen. Het volgende lab loodst je door het bouwen ervan.
 
-## Praktische lab: Een productieklare klantenondersteuningsagent
+## Hands-on Lab: Een Productieklaar Klantenservice-Agent
 
-Open [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) en doorloop deze van begin tot eind. Je assembleert een **Contoso klantenondersteuningsagent** met alle productiezorg erin:
+Open [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) en werk het volledig door. Je assembleert een **Contoso klantenservice-agent** met elke productiezorg doorgevoerd:
 
-1. **Tool aanroepen** — orderstatus opzoeken en supporttickets openen.
-2. **RAG** — beleidsvragen beantwoorden uit een kennisbank (Azure AI Search, met een in-memory fallback zodat de notebook draait zonder een Search-resource).
-3. **Geheugen** — de klant onthouden over meerdere gespreksturns.
-4. **Modelroutering** — een complexiteitsclassificator routet elk verzoek naar een klein of groot model.
-5. **Response caching** — herhaalde vragen worden uit de cache bediend.
-6. **Menselijke goedkeuring** — terugbetalingen boven een drempel pauzeren voor handtekening door een mens.
-7. **Evaluatiepipeline** — een kleine offline testset scoret de agent en fungeert als releasepoort.
+1. **Tools aanroepen** — orderstatus opzoeken en supporttickets openen.
+2. **RAG** — beleidsvragen beantwoorden uit een kennisbank (Azure AI Search, met een fallback in het geheugen zodat het notebook draait zonder Search resource).
+3. **Geheugen** — de klant onthouden over meerdere conversatierondes.
+4. **Modelroutering** — een complexiteitsclassificator routeert elk verzoek naar een klein of groot model.
+5. **Responscaching** — herhaalde vragen worden uit de cache bediend.
+6. **Menselijke goedkeuring** — terugbetalingen boven een drempel pauzeren voor handtekening.
+7. **Evaluatiepipeline** — een kleine offline testset scoort de agent en fungeert als releasepoort.
 8. **Observeerbaarheid** — OpenTelemetry tracing rond elk verzoek.
 
-### Stapsgewijze uitleg
+### Walkthrough
 
-De notebook is zo georganiseerd dat elke productiezorg een zelfstandige, uitvoerbare sectie is. De kern is de routering-plus-caching verzoekhandler:
+Het notebook is zo georganiseerd dat elke productiezorg een zelfstandige, uitvoerbare sectie is. Het hartstuk is de request handler met routering-plus-caching:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Serveren vanuit de cache wanneer mogelijk.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Routeren op complexiteit om de kosten te beheersen.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Voer de agent uit binnen een trace-spanne voor observeerbaarheid.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Cache en retourneer.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # alleen uitrollen als de poort slaagt
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Lees elke regel — de notebook houdt de primitieve bewust klein zodat niets verborgen is achter een framework-aanroep.
+Lees elke regel — het notebook houdt de primitieve functies bewust klein zodat niets verstopt zit achter een framework-aanroep.
 
-## Een geïmplementeerde agent valideren met smoke tests
+## Validatie van een Geïmplementeerde Agent met Smoke Tests
 
-De evaluatiepoort hierboven draait *offline* tegen je agent-object. Zodra de agent als Hosted Agent is geïmplementeerd, heb je nog één goedkopere check nodig: **antwoordt de geïmplementeerde endpoint daadwerkelijk?**
+De evaluatiepoort hierboven werkt *offline* tegen jouw agentobject. Zodra de agent geïmplementeerd is als een Hosted Agent, heb je nog een extra, nog goedkopere check nodig: **beantwoordt de geïmplementeerde endpoint ook werkelijk?**
 
-Een "geslaagde" implementatie bewijst alleen dat de control plane de definitie accepteert — het bewijst niet dat de agent reageert. Een ontbrekende afhankelijkheid, een slechte modelroutering of een verlopen verbinding kan leiden tot een groene implementatie die niets teruggeeft. Een **smoke test** vangt dat binnen enkele seconden, bij elke implementatie, zonder de kosten van een volledige evaluatie.
+"Succesvol" implementeren bewijst alleen dat de control plane de definitie accepteerde — het bewijst niet dat de agent reageert. Een ontbrekende afhankelijkheid, een slechte modelroutering, of een verlopen verbinding kunnen een groene implementatie achterlaten die niets retourneert. Een **smoke test** vangt dat in seconden, bij elke implementatie, zonder de kosten van een volledige evaluatie.
 
-Deze repository levert een kant-en-klare smoke-test pipeline, gebaseerd op de [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
+Deze repository levert een kant-en-klare smoke-test pipeline gebaseerd op de [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
 
-- **Catalogus** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) bevat prompts en asserties voor de Contoso support agent (gebaseerde beleidsantwoorden, een orderopzoeking, thematrouw, en multi-turn thread continuïteit). Catalogi voor andere lessen staan ernaast — zie [`tests/README.md`](../tests/README.md).
-- **Workflow** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) logt in met Azure OIDC en stuurt elke prompt per POST naar de Responses endpoint van de agent, waarbij de taak faalt bij elke assertie die niet klopt.
+- **Catalogus** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) bevat prompts en asserties voor de Contoso support agent (gegronde beleidsantwoorden, een orderopzoeking, thematisch relevant blijven, en multi-turn continuïteit in threads). Catalogi voor agents van andere lessen staan erbij — zie [`tests/README.md`](../tests/README.md).
+- **Workflow** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) logt in met Azure OIDC en stuurt elke prompt via POST naar de Responses endpoint van de agent, waarbij de job faalt bij elke gemiste assertie.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,43 +281,42 @@ Deze repository levert een kant-en-klare smoke-test pipeline, gebaseerd op de [A
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
-Voer het uit vanaf het **Actions**-tabblad zodra je agent is ingezet, waarbij je je Foundry-projectendpoint en agentnaam meegeeft. De federatieve identiteit heeft de rol **Azure AI User** nodig binnen de scope van het Foundry-project. Zie de lagen als een piramide: smoke tests (bereikbaar en reagerend?) worden bij elke uitrol uitgevoerd, offline evaluatie (goed genoeg om te verzenden?) vóór promotie, en online evaluatie (hoe doet het het in de praktijk?) draait continu.
+Voer het uit vanaf het **tabblad Acties** zodra je agent is ingezet, waarbij je je Foundry-projectendpoint en agentnaam opgeeft. De gefedereerde identiteit heeft de rol **Azure AI User** nodig binnen het Foundry-project. Zie de lagen als een piramide: rooktests (bereikbaar en reagerend?) worden bij elke uitrol uitgevoerd, offline evaluatie (goed genoeg om te leveren?) wordt voor promotie uitgevoerd, en online evaluatie (hoe presteert het in de praktijk?) loopt continu.
 
 ## Kenniscontrole
 
-Test je begrip voordat je naar de opdracht gaat.
+Test je begrip voordat je doorgaat naar de opdracht.
 
-**1. Hoeveel van een productie-agent is ruwweg "het model" en wat is de rest?**
+**1. Ongeveer hoeveel van een productie-agent is "het model," en wat is de rest?**
 
 <details>
 <summary>Antwoord</summary>
 
-Het model is een minderheid van het systeem — vaak rond de 20%. De rest is het operationele skelet: hosting en versiebeheer, identiteit en RBAC, extern beheer van status, foutafhandeling, kostenmonitoring, evaluatie en menselijke tussenkomst. Productie halen gaat vooral over het bouwen van alles *rondom* de redeneerlus.
+Het model is een minderheid van het systeem — vaak genoemd rond 20%. De rest is het operationele skelet: hosting en versiebeheer, identiteit en RBAC, externaliseerde status, foutafhandeling, kostenregistratie, evaluatie en human-in-the-loop controles. Overgaan naar productie gaat vooral over het bouwen van alles *rondom* de redeneerlus.
 </details>
 
-**2. Wanneer kies je voor een Hosted Agent boven een client-hosted agent?**
+**2. Wanneer zou je kiezen voor een Hosted Agent boven een client-hosted agent?**
 
 <details>
 <summary>Antwoord</summary>
 
-Wanneer je een beheerde runtime wilt met ingebouwde duurzaamheid (threads die blijven bestaan en kunnen worden hervat), observeerbaarheid, inhoudsveiligheid, en RBAC, en je bereid bent iets minder lage-level controle over de redeneerlus te accepteren voor minder operationeel oppervlak. Client-hosted is beter als je volledige controle over de lus nodig hebt of de agent in een bestaande backend integreert.
+Wanneer je een beheerde runtime wilt met ingebouwde duurzaamheid (threads die blijven bestaan en kunnen hervatten), observeerbaarheid, inhoudsveiligheid en RBAC, en je bereid bent wat fijnmazige controle over de redeneerlus in te leveren voor minder operationeel oppervlak. Client-hosted is aan te bevelen als je volledige controle over de lus nodig hebt of de agent in een bestaande backend inbouwt.
 </details>
 
-**3. Waarom moet een schaalbare agent stateless zijn in het eigen process geheugen?**
+**3. Waarom moet een schaalbare agent stateless zijn in zijn eigen process-geheugen?**
 
 <details>
 <summary>Antwoord</summary>
 
-Zodat elke instantie elke aanvraag kan verwerken, wat horizontale schaalbaarheid zonder sticky sessions mogelijk maakt. De gespreksstatus per gebruiker wordt extern beheerd via een thread store of geheugenservice. Als status in process geheugen zou leven, verlies je die bij herstart en kun je de load niet vrij verdelen.
+Zodat elke instantie elke aanvraag kan afhandelen, wat horizontale schaalbaarheid zonder sticky sessions mogelijk maakt. De gesprekstoestand per gebruiker wordt geëxternaliseerd naar een thread store of geheugenservice. Als status in het process-geheugen zou leven, zou je deze bij herstart kwijtraken en kon je de lading niet vrij verdelen.
 </details>
 
-**4. Welk probleem lost modelrouting op, en hoe hangt dat samen met evaluatie?**
+**4. Welk probleem lost modelrouting op, en hoe relateert dat aan evaluatie?**
 
 <details>
 <summary>Antwoord</summary>
 
-Routing stuurt eenvoudige requests naar een klein, goedkoop, snel model en reserveert het grote model voor echte redenering, zo wordt zowel latentie als kost beheerst. Het hangt samen met evaluatie omdat evaluatie aantoont dat het kleine model goed genoeg is voor een bepaalde klasse aanvragen — routing zonder evaluatie is speculatie.
+Routing stuurt eenvoudige verzoeken naar een klein, goedkoop en snel model en reserveert het grote model voor echte redenering, waardoor zowel latentie als kosten worden beheerst. Het is gerelateerd aan evaluatie omdat evaluatie bewijst dat het kleine model goed genoeg is voor een klasse verzoeken — routing zonder evaluatie is gokken.
 </details>
 
 **5. Wat is een "evaluatiepoort" en waar zit die in de levenscyclus?**
@@ -325,75 +324,75 @@ Routing stuurt eenvoudige requests naar een klein, goedkoop, snel model en reser
 <details>
 <summary>Antwoord</summary>
 
-Een evaluatiepoort runt een offline testset tegen een nieuwe agentversie en blokkeert uitrol tenzij de slaagfrequentie een drempel passeert. Hij zit tussen "versie" en "uitrol" in de levenscyclus, waardoor kwaliteit een voorwaarde is voor release in plaats van iets dat je na verzending controleert.
+Een evaluatiepoort voert een offline testset uit tegen een nieuwe agentversie en blokkeert uitrol tenzij het slagingspercentage een drempel overschrijdt. Het zit tussen "versie" en "uitrol" in de levenscyclus, waardoor kwaliteit een voorwaarde voor release wordt in plaats van iets wat je pas na uitbrengen controleert.
 </details>
 
-**6. Waarom moet een MCP-server in productie als een niet-vertrouwde grens worden behandeld?**
+**6. Waarom moet een MCP-server als een niet-vertrouwde grens worden behandeld in productie?**
 
 <details>
 <summary>Antwoord</summary>
 
-Omdat het een externe afhankelijkheid is waar je agent naartoe oproept. Je moet de versie vastpinnen, het met een gescopeerde identiteit draaien, de output valideren, het rate-limitten en nooit geheimen onthullen — dezelfde discipline als elke derde-partij afhankelijkheid. De output beïnvloedt de redenatie van je agent, ongeteste vertrouwen is een beveiligingsrisico.
+Omdat het een externe afhankelijkheid is die je agent aanroept. Je moet de versie vastpinnen, deze draaien met een beperkte identiteit, de outputs valideren, rate-limiten en nooit geheimen aan blootstellen — dezelfde discipline als bij elke derde-partij afhankelijkheid. De outputs beïnvloeden de redenering van je agent, dus ongetoetst vertrouwen vormt een beveiligingsrisico.
 </details>
 
-**7. Welke enkele wijziging heeft doorgaans de grootste impact op de kosten van een productieagent, en waarom?**
+**7. Welke enkele wijziging heeft gewoonlijk de grootste impact op de kosten van een productie-agent, en waarom?**
 
 <details>
 <summary>Antwoord</summary>
 
-Het juist dimensioneren van het model — gebruik het kleinste model dat nog steeds je evaluatiepoort passeert. Kosten worden gedomineerd door tokens, en een kleiner model dat aan de kwaliteitsnorm voldoet is bijna altijd goedkoper dan een groter. Caching en routing verlagen de kosten verder, maar het kiezen van het juiste basismodel heeft het grootste eerste-orde effect.
+Het juist dimensioneren van het model — het kleinste model gebruiken dat nog door je evaluatiepoort komt. Kosten worden voornamelijk bepaald door tokens, en een kleiner model dat aan de kwaliteitsnorm voldoet is bijna altijd goedkoper dan een groter model. Caching en routing verlagen de kosten verder, maar het kiezen van het juiste basismodel heeft het grootste effect op de eerste orde.
 </details>
 
-**8. Welke rol spelen span-attributen zoals `customer.tier` en `routed.model` bij observeerbaarheid?**
+**8. Welke rol spelen span-attributen zoals `customer.tier` en `routed.model` in observeerbaarheid?**
 
 <details>
 <summary>Antwoord</summary>
 
-Ze veranderen ruwe traces in beantwoordbare bedrijfsvragen. Zonder attributen heb je een stapel spans; met attributen kun je vragen als “worden enterprise klanten te vaak naar het kleine model gestuurd?” of “welk model verwerkt onze traagste queries?” Attributen zijn hoe je telemetrie snijdt langs dimensies die voor jouw operatie belangrijk zijn.
+Ze veranderen ruwe traces in beantwoorde zakelijke vragen. Zonder attributen heb je een muur van spans; met deze kun je vragen stellen als "worden zakelijke klanten te vaak naar het kleine model gestuurd?" of "welk model behandelt onze langzaamste aanvragen?" Attributen zijn hoe je telemetrie snijdt op dimensies die belangrijk zijn voor je operatie.
 </details>
 
 ## Opdracht
 
-Neem de klantenservice-agent uit de lab en versterk deze voor een specifiek scenario: **een abonnement-factureringsondersteuningsagent voor een SaaS-bedrijf.**
+Neem de klantenservice-agent uit het lab en versterk deze voor een specifiek scenario: **een abonnementfactureringsondersteuningsagent voor een SaaS-bedrijf.**
 
-Je inzending moet:
+Je inzending moet bevatten:
 
-1. **Vervang de tools** door factureringsrelevante tools: `get_subscription_status`, `get_invoice`, en `issue_credit` (credits boven $50 vereisen menselijke goedkeuring).
-2. **Voeg drie RAG-documenten toe** met betrekking tot het restitutiebeleid, de factureringscyclus en het annuleringsbeleid van het bedrijf.
-3. **Breid de evaluatieset uit** tot ten minste acht gevallen, waaronder minstens twee die *de goedkeuringsroute door een mens* moeten activeren, en bevestig dat je evaluatiepoort correct slaagt of faalt.
-4. **Voeg één kostenrapport toe**: na het verwerken van tien gemengde queries via de agent, print hoeveel naar het kleine model gingen, hoeveel naar het grote model, en hoeveel uit cache werden geserveerd.
+1. **Vervang de tools** door factureringsgerichte tools: `get_subscription_status`, `get_invoice`, en `issue_credit` (credits boven $50 vereisen menselijke goedkeuring).
+2. **Voeg drie RAG-documenten toe** die het restitutiebeleid, de factureringscyclus en het annuleringsbeleid van het bedrijf behandelen.
+3. **Breid de evaluatieset uit** tot minimaal acht gevallen, waarvan er ten minste twee de menselijke goedkeuringsroute *moeten* activeren, en bevestig dat je evaluatiepoort correct slaagt of faalt.
+4. **Voeg een kostenrapport toe**: na het uitvoeren van tien gemengde queries via de agent, druk af hoeveel er naar het kleine model gingen, hoeveel naar het grote model en hoeveel uit de cache werden bediend.
 
-Schrijf een korte alinea (in een markdown-cel) die uitlegt welke modelrouteringsregel je koos en hoe je die met echt verkeer zou valideren. Er is geen enkel correct antwoord — je wordt beoordeeld op of de productiezorgen coherent zijn verbonden.
+Schrijf een korte paragraaf (in een markdown-cel) waarin je uitlegt welke model-routingregel je hebt gekozen en hoe je die zou valideren met echt verkeer. Er is geen enkel juist antwoord — je wordt beoordeeld op de coherentie van de koppeling van productieaspecten.
 
 ## Samenvatting
 
-In deze les heb je een agent van prototype naar productie gebracht met Microsoft Foundry:
+In deze les heb je een agent verplaatst van prototype naar productie met Microsoft Foundry:
 
-- De sprong naar productie gaat vooral over het **operationele skelet** rond het model — hosting, identiteit, status, foutafhandeling, kosten, kwaliteit en vertrouwen.
-- Je leerde de drie **uitrolpatronen** — client-hosted, Hosted Agents, en Agent Workflows — en wanneer elk passend is.
-- Je doorliep de **agent-levenscyclus**, waarbij offline **evaluatie dient als releasepoort** en online observeerbaarheid fouten terugvoert naar de testset.
-- Je paste **schaalstrategieën** toe — stateless ontwerp, modelrouting, caching, en begrensde gelijktijdigheid — en koppelde ze aan **kostenoptimalisatie**.
-- Je implementeerde **enterprise controls**: RBAC, menselijke goedkeuring, en productieveilige MCP-integratie.
-- Je bouwde een **productieklaar klantenserviceagent** die al deze zorgen samenbrengt in uitvoerbare code.
+- De overstap naar productie gaat vooral over het **operationele skelet** rond het model — hosting, identiteit, status, foutafhandeling, kosten, kwaliteit en vertrouwen.
+- Je hebt de drie **uitrolpatronen** geleerd — client-hosted, Hosted Agents en Agent Workflows — en wanneer elk past.
+- Je liep de **levenscyclus van de agent** door, waar offline **evaluatie fungeert als releasepoort** en online observeerbaarheid fouten terugvoert in de testset.
+- Je paste **schaalstrategieën** toe — stateless ontwerp, modelrouting, caching en begrensde gelijktijdigheid — en koppelde ze aan **kostenoptimalisatie**.
+- Je implementeerde **enterprise controls**: RBAC, human-in-the-loop goedkeuring en productieveilige MCP-integratie.
+- Je bouwde een **productieklaar klantenservice-agent** die al deze aspecten samenbrengt in uitvoerbare code.
 
-De volgende les maakt de omgekeerde reis: in plaats van agents grootschalig in de cloud te zetten, breng je ze *omlaag* naar een enkele ontwikkelaarsmachine en draai je ze helemaal lokaal.
+De volgende les maakt de tegengestelde reis: in plaats van agenten op te schalen naar de cloud, breng je ze *omlaag* naar een enkele ontwikkelaarsmachine en draai je ze volledig lokaal.
 
 ## Aanvullende bronnen
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry-documentatie</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service overzicht</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Overzicht Microsoft Foundry Agent Service</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
-## Vorige les
+## Vorige Les
 
 [Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
-## Volgende les
+## Volgende Les
 
 [Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
 

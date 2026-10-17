@@ -1,79 +1,79 @@
-[![איך לעצב סוכני AI טובים](../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![כיצד לעצב סוכני AI טובים](../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(לחצו על התמונה למעלה כדי לצפות בסרטון של השיעור הזה)_
+> _(לחץ על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
-# תבנית עיצוב שימוש בכלים
+# תבנית עיצוב לשימוש בכלים
 
-כלים הם מעניינים כי הם מאפשרים לסוכני AI מגוון רחב יותר של יכולות. במקום שלסוכן יהיה סט מוגבל של פעולות שהוא יכול לבצע, על ידי הוספת כלי, הסוכן יכול כעת לבצע מגוון רחב של פעולות. בפרק זה נסתכל על תבנית העיצוב לשימוש בכלים, שמתארת איך סוכני AI יכולים להשתמש בכלים ספציפיים כדי להשיג את מטרותיהם.
+כלים הם מעניינים מכיוון שהם מאפשרים לסוכני AI מגוון רחב יותר של יכולות. במקום שלסוכן יהיה סט מצומצם של פעולות שהוא יכול לבצע, על ידי הוספת כלי, הסוכן יכול כעת לבצע מגוון רחב של פעולות. בפרק זה נבחן את תבנית העיצוב לשימוש בכלים, שמתארת כיצד סוכני AI יכולים להשתמש בכלים ספציפיים כדי להשיג את המטרות שלהם.
 
 ## מבוא
 
-בשיעור זה, אנו מחפשים לענות על השאלות הבאות:
+בשיעור זה, אנו שואפים לענות על השאלות הבאות:
 
 - מהי תבנית העיצוב לשימוש בכלים?
-- לאילו מקרים ניתן להחיל אותה?
-- מהם האלמנטים/בלוקים הבונים הנדרשים ליישום התבנית?
-- מהן ההתייחסויות המיוחדות לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
+- מהם המקרים בהם ניתן להשתמש בה?
+- מהם האלמנטים/בלוקים הבנויים הדרושים ליישום תבנית העיצוב?
+- מהם השיקולים המיוחדים לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
 
-## יעדי למידה
+## מטרות הלמידה
 
-לאחר השלמת שיעור זה, תוכל ל:
+לאחר סיום השיעור תוכלו:
 
-- להגדיר את תבנית העיצוב לשימוש בכלים ומטרתה.
-- לזהות מקרים בהם ניתן להחיל את תבנית העיצוב לשימוש בכלים.
-- להבין את האלמנטים המרכזיים הנדרשים ליישום התבנית.
-- להכיר בהתייחסויות להבטחת אמינות בסוכני AI המשתמשים בתבנית עיצוב זו.
+- להגדיר את תבנית העיצוב לשימוש בכלים ואת מטרתה.
+- לזהות מקרים בהם ניתן ליישם את תבנית העיצוב לשימוש בכלים.
+- להבין את האלמנטים המרכזיים הדרושים ליישום תבנית העיצוב.
+- להכיר שיקולים להבטחת אמינות של סוכני AI המשתמשים בתבנית עיצוב זו.
 
 ## מהי תבנית העיצוב לשימוש בכלים?
 
-**תבנית העיצוב לשימוש בכלים** מתמקדת במתן היכולת ל-LLMs לאינטראקציה עם כלים חיצוניים כדי להשיג מטרות ספציפיות. כלים הם קוד שניתן להפעיל על ידי סוכן לביצוע פעולות. כלי יכול להיות פונקציה פשוטה כמו מחשבון, או קריאת API לשירות צד שלישי כמו חיפוש מחירי מניות או תחזית מזג אוויר. בהקשר של סוכני AI, כלים מתוכננים להיות מופעלים על ידי סוכנים בתגובה ל**קריאות פונקציה שנוצרו על ידי הדגם**.
+**תבנית העיצוב לשימוש בכלים** מתמקדת בכך לתת למודלים שפתיים גדולים (LLMs) את היכולת לאינטראקציה עם כלים חיצוניים להשגת מטרות ספציפיות. כלים הם קוד שניתן להריץ על ידי סוכן לביצוע פעולות. כלי יכול להיות פונקציה פשוטה כגון מחשבון, או קריאת API לשירות צד שלישי כמו חיפוש מחירי מניות או תחזית מזג אוויר. בהקשר של סוכני AI, כלים מעוצבים לריצה על ידי סוכנים בתגובה ל**קריאות פונקציה שנוצרו על ידי המודל**.
 
-## לאילו מקרים ניתן להחיל אותה?
+## מהם המקרים בהם ניתן להשתמש בה?
 
-סוכני AI יכולים לנצל כלים לביצוע משימות מורכבות, לשלוף מידע או לקבל החלטות. תבנית העיצוב לשימוש בכלים משמשת לעיתים תכופות בתרחישים הדורשים אינטראקציה דינמית עם מערכות חיצוניות, כגון בסיסי נתונים, שירותי רשת או מפרשי קוד. יכולת זו שימושית למספר מקרים שונים כולל:
+סוכני AI יכולים להשתמש בכלים לביצוע משימות מורכבות, לאחזור מידע, או לקבלת החלטות. תבנית העיצוב לשימוש בכלים משמשת לעיתים קרובות בתרחישים הדורשים אינטראקציה דינמית עם מערכות חיצוניות, כגון בסיסי נתונים, שירותי רשת, או מפרשים של קוד. יכולת זו שימושית למספר מקרים שונים הכוללים:
 
-- **שאיבת מידע דינמית:** סוכנים יכולים לשאול APIs חיצוניים או בסיסי נתונים כדי לקבל נתונים מעודכנים (למשל, שאילתא לבסיס נתונים SQLite לניתוח נתונים, שליפת מחירי מניות או מידע על מזג האוויר).
-- **ביצוע ופרשנות של קוד:** סוכנים יכולים להפעיל קוד או סקריפטים לפתירת בעיות מתמטיות, יצירת דוחות או ביצוע סימולציות.
-- **אוטומציה של זרימות עבודה:** אוטומציה של פעילויות חוזרות או רב-שלביות על ידי שילוב כלים כמו מתזמני משימות, שירותי דוא"ל או צינורות נתונים.
-- **תמיכה בלקוחות:** סוכנים יכולים לאינטראקציה עם מערכות CRM, פלטפורמות ניהול כרטיסים או בסיסי ידע לפתירת שאלות משתמשים.
-- **יצירה ועריכה של תוכן:** סוכנים יכולים לנצל כלים כמו בודקי דקדוק, מסכמים או מעריכי בטיחות תוכן כדי לסייע במשימות יצירת תוכן.
+- **אחזור מידע דינמי:** סוכנים יכולים לשאול APIs חיצוניים או בסיסי נתונים כדי לקבל נתונים מעודכנים (למשל, שאילתא למסד נתונים SQLite לצורך ניתוח נתונים, קבלת מחירי מניות או מידע על מזג האוויר).
+- **הרצת ופירוש קוד:** סוכנים יכולים להריץ קוד או סקריפטים לפתרון בעיות מתמטיות, יצירת דוחות או ביצוע סימולציות.
+- **אוטומציה של זרימות עבודה:** אוטומציה של תהליכים חוזרים או מרובי שלבים על ידי שילוב כלים כמו מתזמנים למשימות, שירותי דואר אלקטרוני, או צינורות נתונים.
+- **תמיכת לקוחות:** סוכנים יכולים לתקשר עם מערכות CRM, פלטפורמות כרטיסים, או מאגרי ידע לפתרון שאלות משתמשים.
+- **יצירה ועריכת תוכן:** סוכנים יכולים להשתמש בכלים כמו בודקי דקדוק, מסכמי טקסט, או מעריכים לבטיחות תוכן כדי לסייע במשימות יצירת תוכן.
 
-## מהם האלמנטים/הבלוקים הבונים הנדרשים ליישום תבנית העיצוב לשימוש בכלים?
+## מהם האלמנטים/בלוקים הבנויים הנדרשים ליישום תבנית העיצוב לשימוש בכלים?
 
-בלוקים אלו מאפשרים לסוכן AI לבצע מגוון רחב של משימות. נבחן את האלמנטים המרכזיים הנדרשים ליישום תבנית העיצוב לשימוש בכלים:
+בלוקים אלו מאפשרים לסוכן ה-AI לבצע מגוון רחב של משימות. נבחן את האלמנטים המרכזיים הנדרשים ליישום תבנית העיצוב לשימוש בכלים:
 
-- **סכימות פונקציה/כלי**: הגדרות מפורטות של כלים זמינים, כולל שם הפונקציה, מטרתה, הפרמטרים הנדרשים, והתוצאות הצפויות. סכימות אלו מאפשרות ל-LLM להבין אילו כלים זמינים ואיך לבנות בקשות תקפות.
+- **סכמות פונקציה/כלי**: הגדרות מפורטות של הכלים הזמינים, הכוללות שם פונקציה, מטרתה, הפרמטרים הנדרשים, והפלטים הצפויים. סכמות אלו מאפשרות ל-LLM להבין אילו כלים זמינים וכיצד לבנות בקשות תקינות.
 
-- **לוגיקת ביצוע פונקציה**: קובעת כיצד ומתי מפעילים כלים בהתבסס על כוונת המשתמש והקשר השיחה. זה יכול לכלול מודולי תכנון, מנגנוני ניתוב או זרימות מותנות שקובעות שימוש בכלים בצורה דינמית.
+- **לוגיקת הרצת הפונקציה**: מגדירה כיצד ומתי נקראים כלים בהתבסס על כוונת המשתמש והקשר השיחה. זה עשוי לכלול מודולי תכנון, מנגנוני ניתוב, או זרימות מותנות שקובעות שימוש דינמי בכלים.
 
-- **מערכת ניהול הודעות**: רכיבים שמנהלים את זרימת השיחה בין קלטי המשתמש, תשובות LLM, קריאות כלים ותוצאות כלים.
+- **מערכת ניהול הודעות**: רכיבים שמנהלים את זרימת השיחה בין קלטים מהמשתמש, תגובות LLM, קריאות לכלים, ופלטים מכלים.
 
-- **מסגרת אינטגרציה לכלים**: תשתית שמחברת את הסוכן לכלים שונים, בין אם פונקציות פשוטות או שירותים חיצוניים מורכבים.
+- **מסגרת שילוב כלים**: תשתית שמחברת את הסוכן לכלים שונים, בין אם פונקציות פשוטות או שירותים חיצוניים מורכבים.
 
-- **טיפול בשגיאות ואימות**: מנגנונים לניהול כשלים בביצוע כלים, אימות פרמטרים ולטפל בתגובות בלתי צפויות.
+- **טיפול בשגיאות ואימות**: מנגנונים לטיפול בכשלים בהרצת כלים, אימות פרמטרים וניהול תגובות בלתי צפויות.
 
-- **ניהול מצב**: עוקב אחר הקשר השיחה, אינטראקציות קודמות עם כלים ונתונים מתמשכים כדי להבטיח עקביות באינטראקציות רב-סבביות.
+- **ניהול מצב**: עוקב אחרי הקשר השיחה, אינטראקציות קודמות עם כלים ונתונים מתמשכים כדי להבטיח עקביות לאורך אינטראקציות מרובות סבבים.
 
-להלן נבחן את קריאת הפונקציה/הכלי בפירוט נוסף.
+לאחר מכן, נבחן את קריאת פונקציה/כלי ביתר פירוט.
  
 ### קריאת פונקציה/כלי
 
-קריאת פונקציה היא הדרך העיקרית לאפשר ל-LLMs לעשות אינטראקציה עם כלים. לעיתים קרובות תראה את המונחים 'פונקציה' ו'כלי' משמשים להחלפה מכיוון ש'פונקציות' (בלוקים של קוד שניתן לשימוש חוזר) הן ה'כלים' שסוכנים משתמשים כדי לבצע משימות. על מנת שקוד של פונקציה יופעל, LLM חייב להשוות את הבקשה של המשתמש לתיאור הפונקציות. לשם כך נשלחת סכימה המכילה את תיאורי כל הפונקציות הזמינות ל-LLM. ה-LLM בוחר אז את הפונקציה המתאימה ביותר למשימה ומחזיר את שמה והארגומנטים שלה. הפונקציה הנבחרת מופעלת, התגובה שלה נשלחת חזרה ל-LLM, אשר משתמש במידע כדי להגיב לבקשת המשתמש.
+קריאת פונקציה היא הדרך העיקרית בה אנו מאפשרים למודלים שפתיים גדולים (LLMs) לאינטראקציה עם כלים. לעיתים תראו 'פונקציה' ו'כלי' משמשים להחלפה זה את זה מכיוון ש'פונקציות' (בלוקים של קוד שניתן להשתמש בהם מחדש) הן ה'כלים' שהסוכנים משתמשים בהם לביצוע משימות. כדי שקוד הפונקציה יופעל, יש ש-LLM ישווה את בקשת המשתמש לתיאור הפונקציות. לשם כך, סכימה הכוללת את תיאורי כל הפונקציות הזמינות נשלחת ל-LLM. ה-LLM לאחר מכן בוחר את הפונקציה המתאימה ביותר למשימה ומחזיר את שם הפונקציה והארגומנטים. הפונקציה שנבחרה מופעלת, תגובתה נשלחת חזרה ל-LLM, שמשתמש במידע זה כדי להגיב לבקשת המשתמש.
 
-למפתחים שמעוניינים ליישם קריאת פונקציה עבור סוכנים, תצטרכו:
+למפתחים המעוניינים ליישם קריאת פונקציה עבור סוכנים דרושים:
 
-1. דגם LLM התומך בקריאת פונקציה
-2. סכימה המכילה תיאורי פונקציות
-3. הקוד לכל פונקציה שמתואר
+1. מודל LLM שתומך בקריאת פונקציה
+2. סכימה המכילה תיאורים של פונקציות
+3. הקוד עבור כל פונקציה שמתואר
 
-נשתמש בדוגמה של קבלת השעה הנוכחית בעיר להמחשה:
+נשתמש בדוגמה של קבלת הזמן הנוכחי בעיר להמחשה:
 
-1. **אתחול LLM שתומך בקריאת פונקציה:**
+1. **הפעל מודל LLM שתומך בקריאת פונקציה:**
 
-לא כל הדגמים תומכים בקריאת פונקציה, לכן חשוב לבדוק ש-LLM שבו אתה משתמש אכן תומך. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> תומך בקריאת פונקציה. נוכל להתחיל על ידי יצירת לקוח OpenAI מול Azure OpenAI **Responses API** (הנקודת קצה היציבה `/openai/v1/` — ללא צורך ב`api_version`).
+    לא כל הדגמים תומכים בקריאת פונקציה, לכן חשוב לבדוק שה-LLM בו אתה משתמש תומך בכך. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> תומך בקריאת פונקציה. נוכל להתחיל בהפעלת לקוח OpenAI מול <b>API לתגובות</b> של Azure OpenAI (נקודת הקצה היציבה `/openai/v1/` — ללא צורך ב-`api_version`).
 
     ```python
-    # לאתחל את לקוח OpenAI עבור Azure OpenAI (API תגובות, נקודת קצה v1)
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
     client = OpenAI(
         base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
         api_key=os.environ["AZURE_OPENAI_API_KEY"],
@@ -81,13 +81,13 @@
     deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **יצירת סכמת פונקציה**:
+1. **צור סכמת פונקציה**:
 
-לאחר מכן נגדיר סכמת JSON שמכילה את שם הפונקציה, תיאור מה הפונקציה עושה, ושמות ותיאורים של פרמטרי הפונקציה. 
-לאחר מכן נעביר סכימה זו ללקוח שיצרנו קודם, יחד עם בקשת המשתמש למצוא את השעה בסן פרנסיסקו. דבר חשוב לציין הוא ש**קריאת כלי** היא מה שמוחזר, **ולא** התשובה הסופית לשאלה. כפי שצויין קודם, ה-LLM מחזיר את שם הפונקציה שבחר למשימה ואת הארגומנטים שיעברו אליה.
+    לאחר מכן נגדיר סכמת JSON הכוללת את שם הפונקציה, תיאור מה הפונקציה עושה, ואת שמות ותיאורי הפרמטרים של הפונקציה.
+    לאחר מכן נעביר סכימה זו ללקוח שיצרנו קודם, יחד עם בקשת המשתמש לקבל את הזמן בסן פרנסיסקו. חשוב לציין שמה שמוחזר הוא **קריאת כלי**, **ולא** התשובה הסופית לשאלה. כמו שהוזכר קודם, ה-LLM מחזיר את שם הפונקציה שנבחרה ואת הארגומנטים שייעברו אליה.
 
     ```python
-    # תיאור פונקציה לקריאת המודל (פורמט כלי שטוח של API תגובות)
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
@@ -109,10 +109,10 @@
    
     ```python
   
-    # הודעת משתמש ראשונית
+    # Initial user message
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-    # קריאת API ראשונה: לבקש מהמודל להשתמש בפונקציה
+    # First API call: Ask the model to use the function
     response = client.responses.create(
         model=deployment_name,
         input=messages,
@@ -121,8 +121,8 @@
         store=False,
     )
 
-    # ממשק ה-API של התגובות מחזיר קריאות לכלי כפריטי function_call ב-response.output.
-    # הוסף אותם לשיחה כדי שלמודל יהיה הקשר מלא בסיבוב הבא.
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
     messages += response.output
 
     print("Model's response:")
@@ -135,10 +135,10 @@
     [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **הקוד לפונקציה הדרוש לביצוע המשימה:**
+1. **קוד הפונקציה הנדרש לביצוע המשימה:**
 
-עכשיו כשה-LLM בחר איזו פונקציה יש להפעיל, הקוד שמבצע את המשימה צריך להתממש ולהיות מופעל.
-נוכל לממש את הקוד לקבלת השעה הנוכחית בפייתון. נצטרך גם לכתוב קוד שיחלץ את השם והארגומנטים מתוך response_message כדי לקבל את התוצאה הסופית.
+    עכשיו כש-LLM בחר איזו פונקציה יש להפעיל, יש ליישם ולבצע את הקוד שמבצע את המשימה.
+    נוכל ליישם את הקוד לקבלת הזמן הנוכחי בפייתון. כמו כן, נצטרך לכתוב קוד שיחלץ את השם והארגומנטים מתוך ה-response_message כדי לקבל את התוצאה הסופית.
 
     ```python
       def get_current_time(location):
@@ -160,7 +160,7 @@
     ```
 
      ```python
-    # לטפל בקריאות לפונקציות
+    # Handle function calls
     tool_calls = [item for item in response.output if item.type == "function_call"]
     if tool_calls:
         for tool_call in tool_calls:
@@ -172,7 +172,7 @@
                     location=function_args.get("location")
                 )
 
-                # להחזיר את תוצאת הכלי כפריט function_call_output
+                # Return the tool result as a function_call_output item
                 messages.append({
                     "type": "function_call_output",
                     "call_id": tool_call.call_id,
@@ -181,7 +181,7 @@
     else:
         print("No tool calls were made by the model.")
 
-    # קריאת API שנייה: לקבל את התגובה הסופית מהמודל
+    # Second API call: Get the final response from the model
     final_response = client.responses.create(
         model=deployment_name,
         input=messages,
@@ -198,22 +198,22 @@
       The current time in San Francisco is 09:24 AM.
      ```
 
-קריאת פונקציה היא ליבה של מרבית, אם לא כל, תבניות העיצוב לשימוש בכלים של סוכנים, אך יישום זה מאפס יכול להיות לפעמים מאתגר.
-כפי שלמדנו ב-[שיעור 2](../../../02-explore-agentic-frameworks) מסגרות סוכנים מספקות לנו בלוקים לבניית שימוש בכלים מובנים מראש.
+קריאת פונקציה היא לב רוב תבניות העיצוב לשימוש בכלים לסוכנים, אך יישום שלה מאפס עלול להיות מאתגר לפעמים.
+כפי שלמדנו ב-[שיעור 2](../../../02-explore-agentic-frameworks), מסגרות agentic מספקות לנו בלוקים בנויים מראש ליישום שימוש בכלים.
  
-## דוגמאות לשימוש בכלים עם מסגרות סוכנים
+## דוגמאות לשימוש בכלים עם מסגרות agentic
 
-הנה כמה דוגמאות כיצד ניתן ליישם את תבנית העיצוב לשימוש בכלים עם מסגרות סוכנים שונות:
+הנה כמה דוגמאות כיצד ניתן ליישם את תבנית העיצוב לשימוש בכלים באמצעות מסגרות agentic שונות:
 
-### מסגרת סוכני מיקרוסופט
+### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">מסגרת סוכני מיקרוסופט</a> היא מסגרת AI בקוד פתוח לבניית סוכני AI. היא מפשטת את תהליך השימוש בקריאת פונקציה על ידי כך שמאפשרת להגדיר כלים כפונקציות פייתון עם הדקורטור `@tool`. המסגרת מנהלת את התקשורת בין הדגם לקוד שלך הלוך ושוב. היא גם מספקת גישה לכלים מובנים מראש כמו חיפוש קבצים ומפרש קוד דרך `FoundryChatClient`.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> היא מסגרת AI בקוד פתוח לבניית סוכני AI. היא מפשטת את התהליך של שימוש בקריאת פונקציות על ידי הגדרת כלים כפונקציות פייתון עם הדקורטור `@tool`. המסגרת מנהלת את התקשורת הלוך וחזור בין המודל לבין הקוד שלך. היא גם מספקת גישה לכלים שבנויים מראש כמו חיפוש בקבצים ומפרש קוד באמצעות `FoundryChatClient`.
 
-התרשים הבא מדגים את תהליך קריאת פונקציה במסגרת הסוכנים של מיקרוסופט:
+התרשים הבא ממחיש את תהליך קריאת הפונקציה במסגרת Microsoft Agent Framework:
 
-![קריאת פונקציה](../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
 
-במסגרת סוכני מיקרוסופט, כלים מוגדרים כפונקציות עם דקורטור. נוכל להמיר את הפונקציה `get_current_time` שראינו קודם לכלי על ידי שימוש בדקורטור `@tool`. המסגרת תסדר אוטומטית את הפונקציה ופרמטריה, ותיצור סכימה שתישלח ל-LLM.
+במסגרת Microsoft Agent Framework הכלים מוגדרים כפונקציות עם דקורטורים. נוכל להמיר את הפונקציה `get_current_time` שראינו קודם לכלי על ידי שימוש בדקורטור `@tool`. המסגרת תסדר אוטומטית את הפונקציה ופרמטריה, ותיצור את הסכמה לשליחה ל-LLM.
 
 ```python
 import os
@@ -226,56 +226,83 @@ def get_current_time(location: str) -> str:
     """Get the current time for a given location"""
     ...
 
-# צור את הלקוח
+# Create the client
 provider = FoundryChatClient(
     project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
     model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# צור סוכן והרץ עם הכלי
+# Create an agent and run with the tool
 agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
+
+#### כלים משרת MCP
+
+כלים לא חייבים להיות פונקציות בקוד שלך. שרת שמדבר את פרוטוקול הקשר של הדגם (Model Context Protocol - MCP, שנלמד ב[שיעור 11](../11-agentic-protocols/README.md)) מפרסם את הכלים שלו יחד עם הסכמות שלהם, והמסגרת יכולה לטעון אותם באותה הדרך שהיא מסדרת פונקציה עם דקורטור. `MCPStreamableHTTPTool` מתחבר לשרת כזה דרך HTTP, קורא את סכמות הכלים, ומציע אותם למודל יחד עם כלים מקומיים.
+
+הדוגמה הבאה משתמשת בשרת חיפוש באינטרנט המתארח על ידי <a href="https://keenable.ai" target="_blank">Keenable</a>. זה בחינם לשימוש ללא חשבון או מפתח API (הבקשות מוגבלות לפי כתובת IP), כך שהאישורים היחידים שתצטרך הם לאלה של המודל שלך. כמו בכל כלי מרוחק, השאילתות שהמודל כותב נשלחות לאותו שרת.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
+    )
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
+```
+
+השרת מפרסם שני כלים, `search_web_pages` ו-`fetch_page_content`. כשהשאלה דורשת מידע עדכני, המודל קורא ל-`search_web_pages`, מקבל כותרות, כתובות URL וקטעי טקסט, וכותב את התשובה שלו מהם, בלופ זהה לדוגמה `get_current_time` למעלה.
   
-### שירות סוכני מיקרוסופט Foundry
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">שירות סוכני מיקרוסופט Foundry</a> היא מסגרת סוכנים חדשה שנועדה להעצים מפתחים לבנות, לפרוס ולהגדיל סוכני AI איכותיים וניתנים להרחבה בבטחה מבלי צורך לנהל משאבי מחשוב ואחסון בסיסיים. השירות שימושי במיוחד ליישומי ארגונים כי הוא מנוהל לחלוטין עם אבטחה ברמת ארגון.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> היא מסגרת Agentic חדשה שנועדה להעצים מפתחים לבנות, לפרוס ולהרחיב סוכני AI איכותיים ובטוחים ללא צורך לנהל את המשאבים הבסיסיים של מחשוב ואחסון. היא שימושית במיוחד לאפליקציות ארגוניות מכיוון שהיא שירות מנוהל מלא עם אבטחה ברמה ארגונית.
 
-בהשוואה לפיתוח ישיר עם API של LLM, שירות סוכני Foundry של מיקרוסופט מספק מספר יתרונות, כולל:
+בהשוואה לפיתוח ישיר עם ה-API של LLM, Microsoft Foundry Agent Service מספקת מספר יתרונות, ביניהם:
 
-- קריאת כלים אוטומטית – אין צורך לפענח קריאה לכלי, להפעיל את הכלי ולטפל בתגובה; הכל מתבצע בצד השרת
-- ניהול מאובטח של נתונים – במקום לנהל את מצב השיחה בעצמך, תוכל להסתמך על 'שרשורים' לשמירת כל המידע הדרוש
-- כלים מוכנים לשימוש – כלים בהם ניתן להשתמש לאינטראקציה עם מקורות הנתונים שלך, כמו Bing, Azure AI Search ו-Azure Functions.
+- קריאה אוטומטית לכלי – אין צורך לנתח קריאת כלי, להפעיל את הכלי ולטפל בתגובה; כל זה נעשה כעת בצד השרת
+- נתונים מנוהלים בבטחה – במקום לנהל מצב שיחה בעצמך, תוכל להסתמך על threads לאחסון כל המידע הנדרש
+- כלים מוכנים לשימוש – כלים שניתן להשתמש בהם לאינטראקציה עם מקורות הנתונים שלך, כגון Bing, Azure AI Search ו-Azure Functions.
 
-הכלים הזמינים בשירות סוכני Foundry ניתן לחלק לשתי קטגוריות:
+הכלים הזמינים בשירות Microsoft Foundry Agent ניתן לחלק לשתי קטגוריות:
 
-1. כלים ידע:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">חיפוש מבוסס Bing</a>
+1. כלים לידע:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">עיגון עם חיפוש Bing</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">חיפוש קבצים</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. כלים פעולה:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">קריאת פונקציה</a>
+2. כלים לפעולה:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">קריאת פונקציות</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">מפרש קוד</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">כלים מוגדרים על פי OpenAPI</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">פונקציות Azure</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">כלים המוגדרים על ידי OpenAPI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-שירות הסוכן מאפשר לנו להשתמש בכלים אלו יחד כ`toolset`. הוא גם משתמש ב`threads` ששומרים מעקב אחר היסטוריית ההודעות משיחה מסוימת.
+שירות הסוכנים מאפשר לנו להשתמש בכלים אלה יחד כ-`toolset`. הוא גם מנצל `threads` שעוקבים אחרי היסטוריית ההודעות משיחה מסוימת.
 
-דמיינו שאתה סוכן מכירות בחברה בשם Contoso. ברצונך לפתח סוכן שיחה שיכול לענות על שאלות לגבי נתוני המכירות שלך.
+דמיינו שאתם סוכן מכירות בחברה בשם Contoso. אתם רוצים לפתח סוכן שיחה שיכול לענות על שאלות בנוגע לנתוני המכירות שלכם.
 
-התמונה הבאה ממחישה כיצד תוכל להשתמש בשירות סוכני Microsoft Foundry לנתח את נתוני המכירות שלך:
+התמונה הבאה מדגימה כיצד ניתן להשתמש בשירות Microsoft Foundry Agent לניתוח נתוני המכירות:
 
-![שירות סוכנים בפעולה](../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
 
-כדי להשתמש בכלים אלה עם השירות, נוכל ליצור לקוח ולהגדיר כלי או סט כלים. ליישום מעשי נוכל להשתמש בקוד פייתון הבא. ה-LLM יוכל לבחון את סט הכלים ולהחליט האם להשתמש בפונקציה שיצרת, `fetch_sales_data_using_sqlite_query`, או במפרש קוד מובנה תלוי בבקשת המשתמש.
+לשימוש בכל אחד מהכלים הללו עם השירות נוכל ליצור לקוח ולהגדיר כלי או קבוצת כלים. ליישום מעשי נשתמש בקוד הפייתון הבא. ה-LLM יוכל להסתכל על קבוצת הכלים ולהחליט האם להשתמש בפונקציה שיצר המשתמש, `fetch_sales_data_using_sqlite_query`, או במפרש הקוד הבנוי מראש לפי בקשת המשתמש.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # הפונקציה fetch_sales_data_using_sqlite_query שנמצאת בקובץ fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -283,14 +310,14 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# אתחול ערכת הכלים
+# Initialize toolset
 toolset = ToolSet()
 
-# אתחול סוכן קריאות לפונקציות עם הפונקציה fetch_sales_data_using_sqlite_query והוספתה לערכת הכלים
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# אתחול כלי מתורגמן קוד והוספתו לערכת הכלים.
+# Initialize Code Interpreter tool and adding it to the toolset. 
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -299,39 +326,38 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## מהם ההתייחסויות המיוחדות לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
+## מהם השיקולים המיוחדים לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
 
-דאגה נפוצה עם SQL שנוצר דינמית על ידי LLMs היא אבטחה, בייחוד הסיכון של הזרקת SQL או פעולות זדוניות כמו מחיקה או עריכה של בסיס הנתונים. בעוד שהחששות האלה מוצדקים, ניתן להתמודד איתם ביעילות על ידי קביעת הרשאות גישה לבסיס הנתונים בצורה נכונה. ברוב בסיסי הנתונים יש להגדיר את בסיס הנתונים במצב קריאה בלבד. עבור שירותי בסיסי נתונים כמו PostgreSQL או Azure SQL, האפליקציה צריכה להיות מקבלת תפקיד קריאה בלבד (SELECT).
+חשש נפוץ עם SQL שנוצר דינמית על ידי LLM הוא אבטחה, במיוחד הסיכון להזרקת SQL או פעולות זדוניות כמו מחיקה או שינוי מסד הנתונים. אמנם חששות אלו נכונים, ניתן למנוע אותן ביעילות על ידי קביעת הרשאות גישה למסד הנתונים באופן נכון. ברוב בסיסי הנתונים זה כולל קביעת מסד הנתונים כקריאה בלבד. עבור שירותי מסד נתונים כגון PostgreSQL או Azure SQL, יש להקצות לאפליקציה תפקיד קריאה בלבד (SELECT).
 
-הרצת האפליקציה בסביבה מאובטחת מחזקת עוד יותר את ההגנה. בתרחישי ארגונים, הנתונים בדרך כלל מופקים ומומרים ממערכות תפעוליות לבסיס נתונים או מחסן נתונים במצב קריאה בלבד עם סכימה ידידותית למשתמש. גישה זו מבטיחה שהנתונים מאובטחים, מותאמים לביצועים ולנגישות, ושהאפליקציה מוגבלת עם גישה לקריאה בלבד.
+הפעלת האפליקציה בסביבה מאובטחת מחזקת עוד יותר את ההגנה. בתרחישים ארגוניים, המידע בדרך כלל מיוצא ומועבר ממערכות מבצעיות למסד נתונים או מחסן נתונים בקריאה בלבד עם סכימה ידידותית למשתמש. גישה זו מבטיחה שהמידע מאובטח, מותאם לביצועים ונגישות, והאפליקציה מקבלת גישה מוגבלת לקריאה בלבד.
 
 ## דוגמאות קוד
 
-- פייתון: [מסגרת סוכן](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [מסגרת סוכן](./code_samples/04-dotnet-agent-framework.md)
+- פייתון: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## יש לכם שאלות נוספות על תבניות העיצוב לשימוש בכלים?
+## יש לכם עוד שאלות לגבי תבניות עיצוב לשימוש בכלים?
 
-הצטרפו ל-[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) לפגוש לומדים אחרים, להשתתף בשעות קבלה ולקבל מענה לשאלות על סוכני AI.
+הצטרפו ל-[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) כדי להיפגש עם לומדים אחרים, להשתתף בשעות הפעילות ולקבל תשובות לשאלות על סוכני ה-AI שלכם.
 
 ## משאבים נוספים
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">סדנת שירות סוכני Azure AI</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">סדנת סוכנים מרובים - Contoso Creative Writer</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">סקירת מסגרת סוכני מיקרוסופט</a>
-
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">סדנת שירות סוכני ה-AI של Azure</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">סדנת סוכנים מרובים של סופר יצירתי Contoso</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">סקירת מסגרת הסוכן של מיקרוסופט</a>
 
 ## בדיקת עשן לסוכן זה (אופציונלי)
 
-לאחר שלמדת כיצד לפרוס סוכנים ב[שיעור 16](../16-deploying-scalable-agents/README.md), תוכל לבצע בדיקת עשן ל`TravelToolAgent` של השיעור הזה (האם הוא עדיין מפעיל את הכלים שלו ועונה?) עם [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). ראה [`tests/README.md`](../tests/README.md) כיצד להפעיל אותו.
+לאחר שלמדתם לפרוס סוכנים ב[שיעור 16](../16-deploying-scalable-agents/README.md), תוכלו לבצע בדיקת עשן ל`TravelToolAgent` של השיעור הזה (האם הוא עדיין קורא לכלים שלו ועונה?) עם [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). ראו [`tests/README.md`](../tests/README.md) כיצד להפעיל אותו.
 
-## השיעור הקודם
+## שיעור קודם
 
-[הבנת תבניות עיצוב אג'נטיות](../03-agentic-design-patterns/README.md)
+[הבנת דפוסי עיצוב סוכני](../03-agentic-design-patterns/README.md)
 
 ## השיעור הבא
 
-[RAG אג'נטי](../05-agentic-rag/README.md)
+[Agentic RAG](../05-agentic-rag/README.md)
 
 ---
 
