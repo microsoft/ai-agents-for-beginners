@@ -1,9 +1,9 @@
 ---
 name: microsoft-docs
-description: Претражите званичну Microsoft документацију да бисте пронашли концепте,
-  туторијале и примере кода за Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  и још. Користи Microsoft Learn MCP као подразумевани, а за садржај који се налази
-  ван learn.microsoft.com користи Context7 и Aspire MCP.
+description: Консултујте званичну Microsoft документацију да пронађете концепте, туторијале
+  и примере кода за Azure, .NET, Agent Framework, Aspire, VS Code, GitHub и још много
+  тога. Користи Microsoft Learn MCP као подразумевани извор, са Context7 и Aspire
+  MCP за садржаје који се налазе ван learn.microsoft.com.
 ---
 # Microsoft Docs
 
@@ -11,89 +11,89 @@ description: Претражите званичну Microsoft документа�
 
 ---
 
-## Default: Microsoft Learn MCP
+## Подразумевано: Microsoft Learn MCP
 
-Користите ове алате за **све на learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows и још много тога. Ово је примарни алат за огромну већину упита везаних за Microsoft документацију.
+Користите ове алате за **све на learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows и други. Ово је основни алат за већину упита у вези са Microsoft документацијом.
 
-| Tool | Purpose |
+| Алат | Сврха |
 |------|---------|
-| `microsoft_docs_search` | Претражује learn.microsoft.com — концепти, водичи, туторијали, конфигурација |
-| `microsoft_code_sample_search` | Пронађите радне примере кода из Learn докумената. Проследите `language` (`python`, `csharp`, итд.) за најбоље резултате |
-| `microsoft_docs_fetch` | Добијте цео садржај странице са одређеног URL-а (кada исечци са претраге нису довољни) |
+| `microsoft_docs_search` | Претражује learn.microsoft.com — концепте, водиче, туторијале, конфигурацију |
+| `microsoft_code_sample_search` | Пронађе радне исечке кода из Learn документације. Проследите `language` (`python`, `csharp` и др.) за најбоље резултате |
+| `microsoft_docs_fetch` | Добите цео садржај странице са одређеног URL-а (када исечци из претраге нису довољни) |
 
-Користите `microsoft_docs_fetch` након претраге када су вам потребни комплетни туторијали, све опције конфигурације или када су исечци претраге скраћени.
+Користите `microsoft_docs_fetch` након претраге када су вам потребни комплетни туторијали, све опције конфигурације или када су исечци из претраге скраћени.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Изузеци: Када користити друге алате
 
 Следеће категорије се налазе **ван** learn.microsoft.com. Уместо тога користите назначени алат.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Користите Aspire MCP Server (преферирано) или Context7
 
-Aspire документација живи на **aspire.dev**, не на Learn. Најбољи алат зависи од ваше Aspire CLI верзије:
+Aspire документација се налази на **aspire.dev**, не на Learn. Најбољи алат зависи од ваше Aspire CLI верзије:
 
 **CLI 13.2+** (препоручено) — Aspire MCP сервер укључује уграђене алате за претрагу документације:
 
-| MCP Tool | Description |
+| MCP алат | Опис |
 |----------|-------------|
-| `list_docs` | Наводи сву доступну документацију са aspire.dev |
-| `search_docs` | Тежинско лексичко претраживање садржаја aspire.dev |
-| `get_doc` | Преузима одређени документ по slug-у |
+| `list_docs` | Листи сву доступну документацију са aspire.dev |
+| `search_docs` | Тежинска лексичка претрага кроз aspire.dev садржај |
+| `get_doc` | Враћа одређени документ по слугу |
 
-Ово је доступно у Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). За ажурирање: `aspire update --self --channel daily`. Реф: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ови алати долазе у Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). За ажурирање: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP сервер пружа претрагу интеграција (`list_integrations`, `get_integration_docs`) али **не** претрагу документacije. Вратите се на Context7:
+**CLI 13.1** — MCP сервер пружа претрагу интеграција (`list_integrations`, `get_integration_docs`) али **не** претрагу документације. У том случају користите Context7:
 
-| Library ID | Use for |
+| ИД библиотеке | Користи се за |
 |---|---|
-| `/microsoft/aspire.dev` | Примарно — водичи, интеграције, CLI референца, деплојмент |
-| `/dotnet/aspire` | Извор окружења за извршавање — унутрашњости API-ја, детаљи имплементације |
-| `/communitytoolkit/aspire` | Заједничке интеграције — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | Основно — водичи, интеграције, CLI референца, деплојмент |
+| `/microsoft/aspire` | Извор извршавања — API унутрашњости, детаљи имплементације |
+| `/communitytoolkit/aspire` | Заједница интеграција — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — Користите Context7
 
-VS Code документација живи на **code.visualstudio.com**, не на Learn.
+VS Code документација се налази на **code.visualstudio.com**, не на Learn.
 
-| Library ID | Use for |
+| ИД библиотеке | Користи се за |
 |---|---|
-| `/websites/code_visualstudio` | Корисничка документација — подешавања, функције, дебаговање, remote dev |
-| `/websites/code_visualstudio_api` | Extension API — webviews, TreeViews, команде, тачке за допринос |
+| `/websites/code_visualstudio` | Корисничка документација — подешавања, функције, дебаговање, удаљени развој |
+| `/websites/code_visualstudio_api` | Extension API — webviews, TreeViews, команде, поене учешћа |
 
-### GitHub — Use Context7
+### GitHub — Користите Context7
 
-GitHub документација живи на **docs.github.com** и **cli.github.com**.
+GitHub документација се налази на **docs.github.com** и **cli.github.com**.
 
-| Library ID | Use for |
+| ИД библиотеке | Користи се за |
 |---|---|
 | `/websites/github_en` | Actions, API, репозиторијуми, безбедност, администрација, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) команде и флагови |
+| `/websites/cli_github` | GitHub CLI (`gh`) команде и опције |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — Користите Learn MCP + Context7
 
-Agent Framework туторијали су на learn.microsoft.com (користите `microsoft_docs_search`), али **GitHub репо** садржи детаље на нивоу API-ја који често претходе објављеним документима — посебно DevUI REST API референцу, CLI опције и .NET интеграцију.
+Agent Framework туторијали су на learn.microsoft.com (користите `microsoft_docs_search`), али **GitHub репо** има детаље на нивоу API-ја који често претичу објављену документацију — посебно DevUI REST API референцу, CLI опције и .NET интеграцију.
 
-| Library ID | Use for |
+| ИД библиотеке | Користи се за |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Туторијали — DevUI водичи, трасирање, оркестрација радних токова |
-| `/microsoft/agent-framework` | Детаљи API-ја — DevUI REST endpoint-и, CLI флагови, ауторизација, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Туторијали — DevUI водичи, праћење, оркестрација токова рада |
+| `/microsoft/agent-framework` | Детаљи API-ја — DevUI REST крајње тачке, CLI опције, аутентификација, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI савет:** Прво упитајте извор Learn веб-сајта за how-to водиче, а затим извор из репозиторијума за API-специфике (шеме endpoint-а, proxy конфигурација, auth токени).
+**DevUI савет:** Прво претражите Learn сајт за упутства како се ради, а затим репо за детаље на нивоу API-ја (шеме крајњих тачака, прокси конфигурација, аутентификациони токени).
 
 ---
 
-## Context7 Setup
+## Подешавање Context7
 
-За било који Context7 упит, прво решите library ID (једнократно по сесији):
+За било који Context7 упит, прво решите ИД библиотеке (једнократно по сесији):
 
 1. Позовите `mcp_context7_resolve-library-id` са именом технологије
-2. Позовите `mcp_context7_query-docs` са враћеним library ID и конкретним упитом
+2. Позовите `mcp_context7_query-docs` са добијеним ИД-ом библиотеке и конкретним упитом
 
 ---
 
-## Writing Effective Queries
+## Писање ефективних упита
 
-Будите специфични — укључите верзију, намеру и језик:
+Будите конкретни — укључите верзију, намеру и језик:
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ Agent Framework туторијали су на learn.microsoft.com (корист
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Language** for polyglot docs (`Python`, `TypeScript`, `C#`)
+Укључите контекст:
+- **Верзију** када је релевантно (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Намера задатка** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Језик** за полиглот документацију (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Изјава о одрицању одговорности:
-Овај документ је преведен коришћењем AI сервиса за превођење [Co-op Translator](https://github.com/Azure/co-op-translator). Иако настојимо да обезбедимо тачност, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати меродавним извором. За критичне информације препоручује се професионални људски превод. Не сносимо одговорност за било какве неспоразуме или погрешна тумачења проистекла из употребе овог превода.
+**Изјава о одрицању одговорности**:
+Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
