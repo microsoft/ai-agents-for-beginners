@@ -1,99 +1,95 @@
 ---
 name: microsoft-docs
-description: استعلام عن الوثائق الرسمية لشركة Microsoft للعثور على المفاهيم والدروس
-  والأمثلة البرمجية عبر Azure و .NET و Agent Framework و Aspire و VS Code و GitHub
-  والمزيد. يستخدم Microsoft Learn MCP كالإعداد الافتراضي، مع Context7 و Aspire MCP
-  للمحتوى المتواجد خارج learn.microsoft.com.
 ---
-# Microsoft Docs
+# مستندات مايكروسوفت
 
-مهارة بحث لنظام تقنيات Microsoft. تغطي learn.microsoft.com والتوثيق الذي يعيش خارجه (VS Code، GitHub، Aspire، مستودعات Agent Framework).
+مهارة البحث لنظام تكنولوجيا مايكروسوفت. تغطي learn.microsoft.com والمستندات التي تقع خارجها (VS Code، GitHub، Aspire، مستودعات Agent Framework).
 
 ---
 
 ## الافتراضي: Microsoft Learn MCP
 
-Use these tools for **كل شيء على learn.microsoft.com** — Azure، .NET، M365، Power Platform، Agent Framework، Semantic Kernel، Windows، والمزيد. هذه هي الأداة الأساسية لمعظم استعلامات توثيق Microsoft.
+استخدم هذه الأدوات لـ **كل شيء على learn.microsoft.com** — أزور، .NET، M365، Power Platform، Agent Framework، Semantic Kernel، ويندوز، وأكثر. هذه هي الأداة الأساسية لمعظم استعلامات مستندات مايكروسوفت.
 
-| Tool | Purpose |
+| الأداة | الغرض |
 |------|---------|
-| `microsoft_docs_search` | ابحث في learn.microsoft.com — المفاهيم، الأدلة، الدروس التعليمية، التكوين |
-| `microsoft_code_sample_search` | اعثر على مقتطفات كود عاملة من مستندات Learn. مرّر `language` (`python`, `csharp`, إلخ) للحصول على أفضل النتائج |
-| `microsoft_docs_fetch` | احصل على محتوى الصفحة الكامل من عنوان URL محدد (عندما لا تكفي مقتطفات البحث) |
+| `microsoft_docs_search` | البحث في learn.microsoft.com — المفاهيم، الأدلة، البرامج التعليمية، التكوين |
+| `microsoft_code_sample_search` | إيجاد مقتطفات كود تعمل من مستندات Learn. مرر `language` (`python`، `csharp`، إلخ) لأفضل النتائج |
+| `microsoft_docs_fetch` | الحصول على محتوى الصفحة كاملة من عنوان URL محدد (عندما لا تكفي مقتطفات البحث) |
 
-استخدم `microsoft_docs_fetch` بعد البحث عندما تحتاج إلى أدلة كاملة، كل خيارات التكوين، أو عندما يتم اقتطاع مقتطفات البحث.
+استخدم `microsoft_docs_fetch` بعد البحث عندما تحتاج إلى برامج تعليمية كاملة، كل خيارات التكوين، أو عندما تُقتطع مقتطفات البحث.
 
 ---
 
 ## استثناءات: متى تستخدم أدوات أخرى
 
-الفئات التالية موجودة **خارج** learn.microsoft.com. استخدم الأداة المحددة بدلاً من ذلك.
+الفئات التالية تقع **خارج** learn.microsoft.com. استخدم الأداة المحددة بدلاً من ذلك.
 
-### .NET Aspire — استخدم Aspire MCP Server (مُفضّل) أو Context7
+### Aspire — استخدم Aspire MCP Server (المفضل) أو Context7
 
-توثيق Aspire موجود على **aspire.dev**، وليس على Learn. أفضل أداة تعتمد على إصدار Aspire CLI لديك:
+مستندات Aspire تقع على **aspire.dev**، ليست في Learn. أفضل أداة تعتمد على إصدار Aspire CLI الخاص بك:
 
-**CLI 13.2+** (موصى به) — يتضمن خادم Aspire MCP أدوات بحث توثيق مدمجة:
+**CLI 13.2+** (مستحسن) — يتضمن خادم Aspire MCP أدوات بحث مستندات مضمنة:
 
-| MCP Tool | Description |
+| أداة MCP | الوصف |
 |----------|-------------|
-| `list_docs` | يعرض كل التوثيق المتاح من aspire.dev |
-| `search_docs` | بحث لفظي موزون عبر محتوى aspire.dev |
-| `get_doc` | يسترجع مستندًا محددًا بواسطة slug |
+| `list_docs` | يعرض كل المستندات المتاحة من aspire.dev |
+| `search_docs` | بحث لغوي موزون عبر محتوى aspire.dev |
+| `get_doc` | يستعيد مستند معين بواسطة slug |
 
-تتضمن هذه في Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). للتحديث: `aspire update --self --channel daily`. مراجع: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+هذه الأدوات تُشحن مع Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). للتحديث: `aspire update --self --channel daily`.
 
-**CLI 13.1** — يوفر خادم MCP البحث عن تكاملات (`list_integrations`, `get_integration_docs`) لكنه **لا** يوفر بحثًا في التوثيق. ارجع إلى Context7:
+**CLI 13.1** — يوفر خادم MCP بحث تكامل (`list_integrations`، `get_integration_docs`) لكن **لا** يوفر بحث مستندات. استخدم Context7 بدلاً من ذلك:
 
-| Library ID | Use for |
+| معرف المكتبة | يُستخدم لـ |
 |---|---|
-| `/microsoft/aspire.dev` | أساسي — الأدلة، التكاملات، مرجع CLI، النشر |
-| `/dotnet/aspire` | مصدر وقت التشغيل — تفاصيل داخلية للـ API، تفاصيل التنفيذ |
+| `/microsoft/aspire.dev` | أساسي — أدلة، تكاملات، مرجع CLI، النشر |
+| `/microsoft/aspire` | مصادر وقت التشغيل — تفاصيل API، تفاصيل التنفيذ |
 | `/communitytoolkit/aspire` | تكاملات المجتمع — Go، Java، Node.js، Ollama |
 
 ### VS Code — استخدم Context7
 
-توثيق VS Code موجود على **code.visualstudio.com**، وليس على Learn.
+مستندات VS Code تقع على **code.visualstudio.com**، ليست في Learn.
 
-| Library ID | Use for |
+| معرف المكتبة | يُستخدم لـ |
 |---|---|
-| `/websites/code_visualstudio` | توثيق المستخدم — الإعدادات، الميزات، التصحيح، التطوير عن بُعد |
+| `/websites/code_visualstudio` | مستندات المستخدم — الإعدادات، الميزات، التصحيح، التطوير عن بُعد |
 | `/websites/code_visualstudio_api` | Extension API — webviews، TreeViews، الأوامر، نقاط المساهمة |
 
 ### GitHub — استخدم Context7
 
-توثيق GitHub موجود على **docs.github.com** و **cli.github.com**.
+مستندات GitHub تقع على **docs.github.com** و **cli.github.com**.
 
-| Library ID | Use for |
+| معرف المكتبة | يُستخدم لـ |
 |---|---|
 | `/websites/github_en` | Actions، API، المستودعات، الأمان، الإدارة، Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) — الأوامر والخيارات |
+| `/websites/cli_github` | أوامر وعلامات GitHub CLI (`gh`) |
 
 ### Agent Framework — استخدم Learn MCP + Context7
 
-دروس Agent Framework موجودة على learn.microsoft.com (استخدم `microsoft_docs_search`)، لكن **مستودع GitHub** يحتوي على تفاصيل على مستوى الـ API غالبًا ما تكون متقدمة على المستندات المنشورة — خصوصًا مرجع DevUI REST API، خيارات CLI، والتكامل مع .NET.
+برامج Agent Framework التعليمية على learn.microsoft.com (استخدم `microsoft_docs_search`)، لكن **مستودع GitHub** يحتوي على تفاصيل على مستوى API غالبًا ما تتفوق على المستندات المنشورة — خصوصًا مرجع DevUI REST API، خيارات CLI، وتكامل .NET.
 
-| Library ID | Use for |
+| معرف المكتبة | يُستخدم لـ |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | دروس — أدلة DevUI، التتبع، تنظيم سير العمل |
-| `/microsoft/agent-framework` | تفاصيل API — نقاط نهاية DevUI REST، خيارات CLI، المصادقة، .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | البرامج التعليمية — أدلة DevUI، التتبع، تنظيم سير العمل |
+| `/microsoft/agent-framework` | تفاصيل API — نقاط نهاية DevUI REST، علامات CLI، المصادقة، .NET `AddDevUI`/`MapDevUI` |
 
-**تلميح DevUI:** استعلم من مصدر موقع Learn للأدلة العملية، ثم من مصدر المستودع لتفاصيل مستوى الـ API (مخططات نقاط النهاية، تكوين الوكيل، رموز المصادقة).
+**نصيحة DevUI:** استعلم أولًا من مصدر موقع Learn لأدلة كيفية العمل، ثم من مصدر المستودع لتفاصيل مستوى API (مخططات النقاط النهائية، تكوين البروكسي، رموز المصادقة).
 
 ---
 
 ## إعداد Context7
 
-بالنسبة لأي استعلام Context7، قم بحل معرّف المكتبة أولاً (مرة واحدة لكل جلسة):
+لأي استعلام Context7، حل معرف المكتبة أولاً (مرة واحدة لكل جلسة):
 
-1. استدعي `mcp_context7_resolve-library-id` مع اسم التقنية
-2. استدعي `mcp_context7_query-docs` مع معرّف المكتبة المرجع وسؤال محدد
+1. استدعِ `mcp_context7_resolve-library-id` مع اسم التكنولوجيا
+2. استدعِ `mcp_context7_query-docs` مع معرف المكتبة المُعاد والاستعلام المحدد
 
 ---
 
-## كتابة استعلامات فعّالة
+## كتابة استعلامات فعالة
 
-كن محددًا — تضمّن الإصدار، النية، واللغة:
+كن محددًا — ضمن النسخة، الهدف، واللغة:
 
 ```
 # ❌ Too broad
@@ -109,14 +105,14 @@ Use these tools for **كل شيء على learn.microsoft.com** — Azure، .NET�
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-ضمّن السياق:
-- **الإصدار** عندما يكون ذا صلة (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **هدف المهمة** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **اللغة** للوثائق متعددة اللغات (`Python`, `TypeScript`, `C#`)
+أضف السياق:
+- **الإصدار** عندما يكون ذا صلة (`.NET 8`، `Aspire 13`، `VS Code 1.96`)
+- **هدف المهمة** (`quickstart`، `tutorial`، `overview`، `limits`، `API reference`)
+- **اللغة** لوثائق متعددة اللغات (`Python`، `TypeScript`، `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-إخلاء مسؤولية:
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية Co‑op Translator (https://github.com/Azure/co-op-translator). بينما نسعى إلى الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. يجب اعتبار الوثيقة الأصلية باللغة الأصلية هي المصدر المعتمد. للمعلومات الحساسة أو الحرجة، يوصى بالاستعانة بترجمة بشرية محترفة. نحن لا نتحمل أي مسؤولية عن سوء الفهم أو التفسيرات الخاطئة الناتجة عن استخدام هذه الترجمة.
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
