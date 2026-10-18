@@ -1,91 +1,91 @@
-# Príručka na nastavenie Azure AI Search
+# Sprievodca nastavením Azure AI Search
 
-Táto príručka vám pomôže nastaviť Azure AI Search pomocou portálu Azure. Postupujte podľa nižšie uvedených krokov na vytvorenie a konfiguráciu vašej služby Azure AI Search.
+Tento sprievodca vám pomôže nastaviť Azure AI Search pomocou Azure portálu. Postupujte podľa krokov nižšie na vytvorenie a konfiguráciu vašej služby Azure AI Search.
 
-## Požiadavky
+## Predpoklady
 
 Pred začatím sa uistite, že máte nasledovné:
 
 - Predplatné Azure. Ak nemáte predplatné Azure, môžete si vytvoriť bezplatný účet na [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Krok 1: Vytvorenie účtu Azure Storage
+## Krok 1: Vytvorenie Azure Storage účtu
 
-1. Postupujte podľa tejto inštrukcie, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), na vytvorenie nového účtu Azure Storage.
-   **POZNÁMKA**: Uistite sa, že typ účtu Storage Account je Standard General Purpose V2.
+1. Postupujte podľa tohto návodu, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), na vytvorenie nového Azure Storage účtu.
+   **POZNÁMKA**: Uistite sa, že typ Storage účtu je Standard General Purpose V2.
 
 ## Krok 2: Vytvorenie služby Azure AI Search
 
 1. Prihláste sa do [Azure portálu](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. V ľavom navigačnom paneli kliknite na **Create a resource**.
-3. Do vyhľadávacieho poľa zadajte "Azure AI Search" a zo zoznamu výsledkov vyberte **Azure AI Search**.
-4. Kliknite na tlačidlo **Create**.
-5. Na karte **Basics** zadajte nasledovné informácie:
-   - **Subscription**: Vyberte svoje predplatné Azure.
-   - **Resource group**: Vytvorte novú skupinu prostriedkov alebo vyberte existujúcu.
-   - **Resource name**: Zadajte jedinečný názov svojej vyhľadávacej služby.
-   - **Region**: Vyberte región najbližší vašim používateľom.
-   - **Pricing tier**: Vyberte cenovú úroveň, ktorá vyhovuje vašim požiadavkám. Na testovanie môžete začať s bezplatnou úrovňou.
-6. Kliknite na **Review + create**.
-7. Skontrolujte nastavenia a kliknite na **Create** na vytvorenie vyhľadávacej služby.
+2. V ľavom navigačnom paneli kliknite na **Vytvoriť zdroj**.
+3. Do vyhľadávacieho poľa zadajte "Azure AI Search" a vyberte **Azure AI Search** zo zoznamu výsledkov.
+4. Kliknite na tlačidlo **Vytvoriť**.
+5. V karte **Základy** zadajte nasledujúce informácie:
+   - **Predplatné**: Vyberte svoje Azure predplatné.
+   - **Skupina zdrojov**: Vytvorte novú skupinu zdrojov alebo vyberte existujúcu.
+   - **Názov zdroja**: Zadajte jedinečný názov pre vašu vyhľadávaciu službu.
+   - **Región**: Vyberte región najbližší vašim používateľom.
+   - **Cenová vrstva**: Vyberte cenovú vrstvu, ktorá vyhovuje vašim požiadavkám. Na testovanie môžete začať s bezplatnou vrstvou.
+6. Kliknite na **Skontrolovať + vytvoriť**.
+7. Skontrolujte nastavenia a kliknite na **Vytvoriť** na vytvorenie vyhľadávacej služby.
 
-## Krok 3: Začnite používať Azure AI Search
+## Krok 3: Začnite s Azure AI Search
 
-1. Po dokončení nasadenia prejdite do svojej vyhľadávacej služby v Azure portáli.
-2. V prehľade služby vyhľadávania skopírujte URL adresu. Mala by vyzerať takto: `https://<service-name>.search.windows.net`.
-3. **(Odporúčané)** Povoliť prístup bez kľúča pomocou Microsoft Entra ID (RBAC) podľa kroku 4 nižšie — nie je potrebný žiadny kľúč. Príklady v tejto príručke vytvárajú/aktualizujú indexy a nahrávajú dokumenty, čo vyžaduje roly **Search Service Contributor** a **Search Index Data Contributor** (alebo pri autentifikácii pomocou kľúča, **primárny administrátorský kľúč** — nie dotazovací kľúč). Iba ak nemôžete použiť RBAC, otvorte panel **Settings > Keys** a skopírujte **primárny administrátorský kľúč**.
-4. Postupujte podľa krokov na stránke [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new), aby ste vytvorili index, nahrali dáta a vykonali vyhľadávanie.
+1. Po dokončení nasadenia prejdite na vašu vyhľadávaciu službu v Azure portáli.
+2. V prehľade vyhľadávacej služby skopírujte URL. Malo by vyzerať ako `https://<service-name>.search.windows.net`.
+3. **(Odporúčané)** Povoliť prístup bez kľúča pomocou Microsoft Entra ID (RBAC) ako je uvedené v kroku 4 nižšie — kľúč nie je potrebný. Vzory v tomto návode vytvárajú/aktualizujú indexy a nahrávajú dokumenty, čo vyžaduje roly **Search Service Contributor** a **Search Index Data Contributor** (alebo pri autentifikácii založenej na kľúči, **primárny administrátorský kľúč** — nie dotazovací kľúč). Ak nemôžete použiť RBAC, otvorte panel **Nastavenia > Kľúče** a skopírujte **primárny administrátorský kľúč**.
+4. Postupujte podľa krokov na stránke [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) na vytvorenie indexu, nahranie údajov a vykonanie vyhľadávania.
 
-## Krok 4: Používanie nástrojov Azure AI Search
+## Krok 4: Použitie nástrojov Azure AI Search
 
-Azure AI Search sa integruje s rôznymi nástrojmi, ktoré zlepšujú vaše vyhľadávacie schopnosti. Môžete použiť Azure CLI, Python SDK, .NET SDK a ďalšie nástroje na pokročilé konfigurácie a operácie.
+Azure AI Search sa integruje s rôznymi nástrojmi, ktoré vylepšujú vaše vyhľadávacie možnosti. Môžete používať Azure CLI, Python SDK, .NET SDK a ďalšie nástroje na pokročilé konfigurácie a operácie.
 
-### Použitie Azure CLI
+### Používanie Azure CLI
 
-1. Nainštalujte Azure CLI podľa pokynov na stránke [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. Nainštalujte Azure CLI podľa pokynov na [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Prihláste sa do Azure CLI pomocou príkazu:
 
    ```bash
    az login
    ```
-3. **(Odporúčané) Povolenie prístupu bez kľúča pomocou Microsoft Entra ID (RBAC):**
+3. **(Odporúčané) Povoliť prístup bez kľúča pomocou Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # služba az search show nemá pole "endpoint"; zostavte URL z názvu služby.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Pri povolenom RBAC sa vzory Python a .NET SDK uvedené nižšie autentifikujú pomocou `DefaultAzureCredential`, ktoré využíva vašu reláciu `az login` počas lokálneho vývoja — nie je potrebný administrátorský kľúč. Viac informácií nájdete v [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    S povoleným RBAC sa Python a .NET SDK príklady nižšie autentifikujú cez `DefaultAzureCredential`, ktorý využíva vašu reláciu `az login` počas lokálneho vývoja — administrátorský kľúč nie je potrebný. Viac na [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Náhradný spôsob) Autentifikácia pomocou kľúča** — iba ak nemôžete použiť RBAC, uložte administrátorský kľúč tiež:
+4. **(Náhradné riešenie) Autentifikácia na základe kľúča** — iba ak nemôžete použiť RBAC, uložte aj administrátorský kľúč:
 
-#### Uloženie koncového bodu a API kľúča pre inštanciu Azure AI Search do premenných prostredia.
+#### Uložte koncový bod a API kľúč pre Azure AI Search inštanciu do premenných prostredia.
 
-    ```bash
-    # zsh/bash
-    # az search service show nemá pole "endpoint"; zostavte URL z názvu služby.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show nemá pole "endpoint"; zostavte URL z názvu služby.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Použitie Python SDK
 
-1. Nainštalujte knižnicu klienta Azure Cognitive Search a Azure Identity pre Python:
+1. Nainštalujte knižnicu Azure Cognitive Search client a Azure Identity pre Python:
 
    ```bash
    pip install azure-search-documents azure-identity
    ```
 
-2. Použite nasledujúci Python kód na vytvorenie indexu a nahrávanie dokumentov:
+2. Použite nasledujúci Python kód na vytvorenie indexu a nahranie dokumentov:
 
     ```python
     import os
@@ -97,10 +97,10 @@ Azure AI Search sa integruje s rôznymi nástrojmi, ktoré zlepšujú vaše vyh�
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (odporúčané): používa vašu identitu `az login` cez Entra ID RBAC.
-    # Vyžaduje roly "Search Service Contributor" a "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Náhradné riešenie (autentifikácia na základe kľúča):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -126,15 +126,15 @@ Azure AI Search sa integruje s rôznymi nástrojmi, ktoré zlepšujú vaše vyh�
 
 ### Použitie .NET SDK
 
-1. Spustite nasledujúci príkaz na vytvorenie indexu a nahrávanie dokumentov:
+1. Spustite nasledujúci príkaz na vytvorenie indexu a nahranie dokumentov:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Nižšie uvedený príklad pre .NET používa `DefaultAzureCredential`, ktorý môže využiť vaše prihlásenie do Azure CLI z `az login` počas lokálneho vývoja.
+    Príklad .NET nižšie používa `DefaultAzureCredential`, ktorý môže použiť vaše prihlásenie cez Azure CLI z `az login` počas lokálneho vývoja.
 
-2. Tu je .NET kód `AzureSearch.cs`:
+2. Tu je .NET kód pre `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -189,9 +189,9 @@ Pre podrobnejšie informácie si pozrite nasledujúcu dokumentáciu:
 
 ## Záver
 
-Úspešne ste nastavili Azure AI Search pomocou portálu Azure a integrovaných nástrojov. Teraz môžete preskúmať pokročilejšie funkcie a možnosti Azure AI Search na vylepšenie vašich vyhľadávacích riešení.
+Úspešne ste nastavili Azure AI Search pomocou Azure portálu a integrovaných nástrojov. Teraz môžete preskúmať pokročilejšie funkcie a možnosti Azure AI Search na vylepšenie vašich vyhľadávacích riešení.
 
-Pre ďalšiu pomoc navštívte [Azure Cognitive Search dokumentáciu](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Pre ďalšiu pomoc navštívte [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
