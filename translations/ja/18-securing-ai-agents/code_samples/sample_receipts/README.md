@@ -1,53 +1,63 @@
 # サンプル領収書フィクスチャ
 
-ノートブックを実行せずに検査できる、事前生成された3つの領収書ファイル。
+ノートブックを実行せずに検査するための、3つの事前生成された領収書ファイルです。
 
 | ファイル | 内容 |
 |---|---|
-| `01_valid_receipt.json` | `lookup_flights` ツール呼び出しのための有効な署名済み領収書。検証はTrueを返す。 |
-| `02_tampered_receipt.json` | 署名後に1つのフィールドを変更した同じ領収書。検証はFalseを返す。 |
-| `03_chain_three_receipts.json` | 3つの有効な領収書（検索、保留、予約）をつなぐチェーンで、各領収書に `previous_receipt_hash` が前のものをリンクしている。 |
+| `01_valid_receipt.json` | `lookup_flights` ツール呼び出しの有効な署名済み領収書。検証は True を返します。 |
+| `02_tampered_receipt.json` | 署名後に1つのフィールドが変更された同じ領収書。検証は False を返します。 |
+| `03_chain_three_receipts.json` | `previous_receipt_hash` で前の領収書にリンクされた、3つの有効な領収書（検索、保持、予約）のチェーン。 |
 
-## サンプル検証
+これらのフィクスチャは、ペイロードの正準JCSバイト列をEd25519で直接署名しています。
+SHA-256はコンテンツダイジェストと領収書チェーンのリンクには引き続き使われますが、
+署名前の追加プレハッシュとしては使われません。
 
-ノートブックは4つのセクションで検証方法を説明しています。これらのフィクスチャをノートブックの説明を通さずに直接検証するには：
+## サンプルの検証
+
+ノートブックは4つのセクションで検証の手順を説明します。これらのフィクスチャを
+ノートブックの説明なしで直接検証するには：
 
 ```python
 import json
 from pathlib import Path
 
-# インポートとヘルパー関数を完了していることを前提としています
-# 18-signed-receipts.ipynbのセクション1と2から。
+# Assumes you have completed the imports and helper functions
+# from sections 1 and 2 of 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # 真
+print(f"Valid receipt: {verify_receipt(valid)}")        # True
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # 偽
+print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
+## これらの生成方法
 
-## 生成方法
-
-フィクスチャはノートブックと同じコード経路を使用しており、固定の署名キーとバイト再現性のため固定タイムスタンプを使っています。再生成するには：
+フィクスチャはノートブックと同じコードパスを使い、1つの固定署名鍵と
+バイト再現性のための固定タイムスタンプがあります。再生成するには：
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-（スクリプトはこのディレクトリの `generate_fixtures.py` にあります。）
+（このディレクトリの `generate_fixtures.py` にスクリプトがあります。）
 
-## 生のJSONを検査して学生が学ぶこと
+## 生のJSONを調べて学生が学ぶこと
 
-生の領収書フォーマットを読むことで、ノートブックのセルだけでは得られない直感を育てます。JSONをざっと見た学生はしばしば次の点に気づきます：
+生の領収書フォーマットを読むことで、ノートブック内のセルが常に提供しない直感が培われます。
+JSONをざっと見る学生はよく以下に気づきます：
 
-1. 署名は不透明なbase64url文字列ですが、それ以外のフィールドはすべて読みやすいプレーンなJSONです。署名は内容を暗号化するのではなく、それを証明します。
-2. `public_key` が領収書に埋め込まれています。監査者はこれ以外に何も必要としません（ただし、公的キーが本当に主張された発行者に属することを信頼する必要があります。詳細はレッスンREADMEのアイデンティティインフラストラクチャを参照）。
-3. どのフィールドの1文字を変更しても、その後このファイルを `02_tampered_receipt.json` と比較すると、バイトレベルの仕組みが具体的に理解できます。
+1. 署名は不透明なbase64url文字列ですが、他のすべてのフィールドはプレーンな
+   読みやすいJSONです。署名は内容を暗号化しません；内容を証明します。
+2. `public_key` が領収書内に埋め込まれています。監査者は、(実際に
+   鍵が主張している発行者に属していると信頼する条件付きで；アイデンティティ
+   インフラのレッスンREADMEを参照) 他に何も必要ありません。
+3. 任意のフィールドの1文字を変更し、その後このファイルを
+   `02_tampered_receipt.json` と再比較することで、バイトレベルの仕組みが具体的に理解できます。
 
 ---
 
