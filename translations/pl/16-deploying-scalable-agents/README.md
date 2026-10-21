@@ -1,155 +1,155 @@
-# Wdrażanie skalowalnych agentów za pomocą Microsoft Foundry
+# Wdrażanie skalowalnych agentów z Microsoft Foundry
 
 ![Wdrażanie skalowalnych agentów](../../../translated_images/pl/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Do tego momentu kursu budowałeś agentów, którzy działają na Twoim laptopie, w notatniku, sterowani przez `az login` i garść zmiennych środowiskowych. To dokładnie właściwy sposób nauki. Nie jest to właściwy sposób uruchamiania agenta, na którym polega tysiące klientów o 3 nad ranem.
+Do tego momentu w kursie budowałeś agentów działających na Twoim laptopie, wewnątrz notatnika, napędzanych przez `az login` i kilka zmiennych środowiskowych. To jest dokładnie właściwy sposób nauki. To nie jest właściwy sposób na uruchomienie agenta, od którego tysięcy klientów zależy o 3 nad ranem.
 
-Ta lekcja dotyczy luki między "działa na mojej maszynie" a "działa niezawodnie i ekonomicznie w produkcji." Zamykamy tę lukę, korzystając z **Microsoft Foundry** i **Microsoft Foundry Agent Service**, budując prawdziwego agenta wsparcia klienta, który ma narzędzia, wyszukiwanie, pamięć, ocenianie i monitorowanie.
+Ta lekcja dotyczy przepaści między „działa na moim komputerze” a „działa niezawodnie i przystępnie cenowo w produkcji”. Zamykamy tę przepaść, używając **Microsoft Foundry** i **Microsoft Foundry Agent Service**, budując rzeczywistego agenta wsparcia klienta, który ma narzędzia, wyszukiwanie, pamięć, ocenę i monitorowanie.
 
 ## Wprowadzenie
 
 Ta lekcja obejmie:
 
-- Różnicę między **agentem prototypowym** a **wszczepionym agentem** oraz dlaczego przejście dotyczy głównie wszystkiego *dookoła* modelu.
-- **Wzorce wdrożeniowe** dla agentów: na kliencie, na serwisie (Hosted Agents) oraz orkiestracja przepływu pracy.
-- **Cykl życia agenta** w Microsoft Foundry — tworzenie, wersjonowanie, wdrażanie, ocena, obserwacja, wycofywanie.
-- **Strategie skalowania**: routowanie modelu, cache'owanie, współbieżność i bezstanowy design.
-- **Obserwowalność** z OpenTelemetry i śledzeniem Foundry.
-- **Optymalizacja kosztów** przez wybór modelu, routowanie i bramki ewaluacyjne.
-- **Uwagi korporacyjne**: zarządzanie, zatwierdzenie przez człowieka oraz bezpieczne uruchamianie serwerów MCP w produkcji.
+- Różnicę między **agentem prototypowym** i **wdrożonym agentem**, oraz dlaczego przejście dotyczy głównie wszystkiego *około* modelu.
+- **Wzorce wdrażania** agentów: hostowane przez klienta, hostowane jako usługa (Hosted Agents) oraz orkiestracja przepływu pracy.
+- **Cykl życia agenta** w Microsoft Foundry — tworzenie, wersjonowanie, wdrażanie, ocena, obserwacja, wycofanie.
+- **Strategie skalowania**: trasowanie modeli, buforowanie, współbieżność i projektowanie bezstanowe.
+- **Obserwowalność** z OpenTelemetry i śledzeniem w Foundry.
+- **Optymalizacja kosztów** poprzez dobór modelu, trasowanie i bramki oceny.
+- **Rozważania korporacyjne**: zarządzanie, zatwierdzenia człowieka oraz bezpieczne uruchamianie serwerów MCP w produkcji.
 
 ## Cele nauki
 
 Po ukończeniu tej lekcji będziesz potrafił:
 
 - Wybrać właściwy wzorzec wdrożenia dla określonego obciążenia agenta.
-- Wdrożyć agenta do Microsoft Foundry Agent Service, tak aby był wersjonowany, zarządzany i obserwowalny.
-- Instrumentować agenta pod kątem śledzenia i powiązać potok ewaluacyjny, który działa przed każdym wydaniem.
-- Zastosować routowanie modeli i cache'owanie, aby utrzymać niskie opóźnienia i kontrolować koszty przy skalowaniu.
-- Dodać bramkę zatwierdzenia przez człowieka dla działań wysokiego ryzyka i zintegrować serwer MCP w sposób bezpieczny dla produkcji.
+- Wdrożyć agenta w Microsoft Foundry Agent Service, aby był wersjonowany, zarządzany i obserwowalny.
+- Ustawić instrumentację agenta dla śledzenia i podłączyć potok oceny, który działa przed każdym wydaniem.
+- Stosować trasowanie modeli i buforowanie, aby utrzymać opóźnienia i koszty pod kontrolą przy skali.
+- Dodać bramkę zatwierdzenia ludzkiego dla działań wysokiego ryzyka i zintegrować serwer MCP w sposób bezpieczny produkcyjnie.
 
 ## Wymagania wstępne
 
-Ta lekcja zakłada ukończenie wcześniejszych lekcji i komfort w:
+Ta lekcja zakłada ukończenie wcześniejszych lekcji i swobodę w:
 
 - Budowaniu agentów z użyciem [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lekcja 14).
-- [Użycie narzędzi](../04-tool-use/README.md) (Lekcja 4) oraz [Agentic RAG](../05-agentic-rag/README.md) (Lekcja 5).
-- [Pamięci agenta](../13-agent-memory/README.md) (Lekcja 13) oraz [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lekcja 11).
-- [Obserwowalności i ewaluacji](../10-ai-agents-production/README.md) (Lekcja 10) — ta lekcja jest na niej bezpośrednio oparta.
+- [Używaniu narzędzi](../04-tool-use/README.md) (Lekcja 4) oraz [Agentic RAG](../05-agentic-rag/README.md) (Lekcja 5).
+- [Pamięci agenta](../13-agent-memory/README.md) (Lekcja 13) oraz [Protokół Agentic / MCP](../11-agentic-protocols/README.md) (Lekcja 11).
+- [Obserwowalności i ocenie](../10-ai-agents-production/README.md) (Lekcja 10) — ta lekcja opiera się bezpośrednio na niej.
 
-Będziesz też potrzebować:
+Będziesz również potrzebować:
 
-- Subskrypcji **Azure** i projektu **Microsoft Foundry** z co najmniej jednym wdrożonym modelem czatu.
-- **Azure CLI** z uwierzytelnieniem (`az login`).
-- Pythona 3.12+ oraz pakietów z repozytorium [`requirements.txt`](../../../requirements.txt).
+- **Subskrypcji Azure** i **projektu Microsoft Foundry** z co najmniej jednym wdrożonym modelem czatu.
+- **Uwierzytelnionego Azure CLI** (`az login`).
+- Python 3.12+ oraz pakiety z repozytorium [`requirements.txt`](../../../requirements.txt).
 
-## Od prototypu do produkcji: co się naprawdę zmienia
+## Od prototypu do produkcji: co faktycznie się zmienia
 
-Agent prototypowy i produkcyjny mają tę samą podstawową pętlę — rozumowanie, wywoływanie narzędzi, reakcja. Zmienia się wszystko wokół tej pętli. Model stanowi może 20% agenta produkcyjnego; pozostałe 80% to operacyjny szkielet.
+Agent prototypowy i agent produkcyjny dzielą tę samą podstawową pętlę — analizuj, wywołuj narzędzia, odpowiadaj. To, co się zmienia, to wszystko otaczające tę pętlę. Model stanowi może 20% agenta produkcyjnego; pozostałe 80% to operacyjny szkielet.
 
 | Obszar | Prototyp | Produkcja |
 | --- | --- | --- |
-| **Hostowanie** | Działa w Twoim notatniku | Działa jako hostingowana usługa, wersjonowana i wdrażana stopniowo |
-| **Tożsamość** | Twój token `az login` | Zarządzana tożsamość z przypisanym RBAC |
-| **Stan** | W pamięci, utracony po restarcie | Zewnętrzny (sklep wątków, usługa pamięci) |
-| **Awaria** | Widzisz ślad błędu | Ponowienia prób, zapasowe opcje, dead-letter, alerty |
-| **Koszt** | "To kilka centów" | Śledzony na żądanie, kierowany, cache'owany, budżetowany |
-| **Jakość** | Oceniasz na oko | Oceniany automatycznie przed każdym wydaniem |
-| **Zaufanie** | Zatwierdzasz każdą akcję | Polityka + człowiek w pętli dla działań ryzykownych |
+| **Hosting** | Działa w twoim notatniku | Działa jako usługa hostowana, wersjonowana i wdrażana |
+| **Tożsamość** | Twój token `az login` | Zarządzana tożsamość ze scoped RBAC |
+| **Stan** | W pamięci, tracone po restarcie | Zewnętrzny (sklep wątków, usługa pamięci) |
+| **Awaria** | Widzisz ślad stosu | Próby ponowne, awaryjne, dead-letter, alerty |
+| **Koszt** | „To kilka centów” | Śledzone na żądanie, trasowane, buforowane, budżetowane |
+| **Jakość** | Oceniasz wizualnie | Automatycznie oceniane przed każdym wydaniem |
+| **Zaufanie** | Zatwierdzasz każdą akcję | Polityka + człowiek w pętli dla ryzykownych działań |
 
-Zapamiętaj tę tabelę. Każda sekcja poniżej odpowiada jednemu z tych wierszy.
+Miej tę tabelę na uwadze. Każda poniższa sekcja odpowiada jednemu z tych wierszy.
 
-## Wzorce wdrożeniowe agentów
+## Wzorce wdrażania agentów
 
-Istnieją trzy wzorce, które będziesz używać, często łącznie.
+Istnieją trzy wzorce, które będziesz często używać, często w kombinacji.
 
 ### 1. Agenci hostowani po stronie klienta
 
-Obiekt agenta żyje w *Twoim* procesie aplikacji. Twój kod wywołuje dostawcę modelu bezpośrednio; pętla rozumowania działa w Twojej usłudze. To jest to, co robiły wszystkie poprzednie lekcje.
+Obiekt agenta żyje wewnątrz *twojego* procesu aplikacji. Twój kod wywołuje dostawcę modelu bezpośrednio; pętla rozumowania działa w twojej usłudze. To jest to, co robi każda wcześniejsza lekcja.
 
-- **Używaj, gdy** potrzebujesz pełnej kontroli nad pętlą, niestandardowego middleware lub osadzasz agenta w istniejącym backendzie.
-- **Koszt**: sam zarządzasz skalowalnością, stanem i odpornością.
+- **Używaj, gdy** potrzebujesz pełnej kontroli pętli, własnego middleware lub osadzasz agenta wewnątrz istniejącego backendu.
+- **Wadą**: sam odpowiadasz za skalowanie, stan i odporność.
 
 ### 2. Agenci hostowani (Foundry Agent Service)
 
-Agent jest *zarejestrowany jako zasób* w Microsoft Foundry. Foundry hostuje pętlę rozumowania, przechowuje wątki, wymusza bezpieczeństwo treści i RBAC, oraz udostępnia agenta w portalu Foundry. Twoja aplikacja staje się cienkim klientem, który tworzy wątki i odczytuje odpowiedzi.
+Agent jest *zarejestrowany jako zasób* w Microsoft Foundry. Foundry hostuje pętlę rozumowania, przechowuje wątki, wymusza bezpieczeństwo zawartości i RBAC oraz udostępnia agenta w portalu Foundry. Twoja aplikacja staje się cienkim klientem, który tworzy wątki i odczytuje odpowiedzi.
 
-- **Używaj, gdy** chcesz trwałości, wbudowanej obserwowalności, zarządzania i mniejszego obszaru operacyjnego.
-- **Koszt**: mniej kontroli niskiego poziomu w zamian za zarządzane środowisko uruchomieniowe.
+- **Używaj, gdy** chcesz trwałości, wbudowanej obserwowalności, zarządzania i mniejszej powierzchni operacyjnej.
+- **Wadą**: mniejsza kontrola niskiego poziomu w zamian za zarządzane środowisko uruchomieniowe.
 
-### 3. Przepływy pracy agentów
+### 3. Przepływy pracy agenta
 
-Wielu agentów (i narzędzi) jest łączonych w graf z wyraźnym przepływem sterowania — kroki sekwencyjne, rozgałęzienia, węzły zatwierdzenia przez człowieka oraz trwałe punkty kontrolne, które mogą zatrzymać i wznowić pracę. To jest funkcjonalność **Workflows** Microsoft Agent Framework zastosowana na skalę wdrożenia.
+Wielu agentów (i narzędzi) komponuje się w graf z wyraźnym przepływem kontroli — kroki sekwencyjne, rozgałęzienia, węzły zatwierdzenia przez człowieka oraz trwałe punkty kontrolne, które mogą wstrzymać i wznowić. To jest funkcjonalność **Workflows** Microsoft Agent Framework stosowana na skalę wdrożeniową.
 
-- **Używaj, gdy** pojedyncze zadanie rozciąga się na kilku wyspecjalizowanych agentów lub wymaga kroku zatwierdzenia w trakcie.
-- **Koszt**: więcej elementów do zarządzania; wymaga obserwowalności na poziomie orkiestracji.
+- **Używaj, gdy** pojedyncze zadanie obejmuje kilku wyspecjalizowanych agentów lub wymaga kroku zatwierdzenia pośrodku.
+- **Wadą**: więcej ruchomych części; wymaga obserwowalności na poziomie orkiestracji.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Hostowane u klienta]
-        A1[Twój proces aplikacji] --> M1[Dostawca modelu]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Hostowany agent]
-        A2[Lekki klient] --> F2[Usługa agenta Foundry]
-        F2 --> M2[Model + narzędzia + magazyn wątków]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Przepływ pracy agenta]
-        A3[Orkiestrator] --> S1[Agent triage]
-        S1 --> S2[Agent rozstrzygający]
-        S2 --> H[Węzeł zatwierdzenia przez człowieka]
-        H --> S3[Agent działań]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
 ## Cykl życia agenta w Microsoft Foundry
 
-Wdrożenie agenta to nie pojedynczy `push`. To pętla, bardzo podobna do cyklu wydawania oprogramowania, bo dokładnie tym jest.
+Wdrażanie agenta to nie jednorazowy `push`. To pętla, która bardzo przypomina cykl wydawniczy oprogramowania, bo właśnie to ona jest.
 
 ```mermaid
 flowchart LR
-    Create[Utwórz / Autor] --> Version[Wersja]
-    Version --> Evaluate[Oceń offline]
-    Evaluate -->|przechodzi bramę| Deploy[Wdróż hostowane]
-    Evaluate -->|nie przechodzi bramy| Create
-    Deploy --> Observe[Obserwuj online]
-    Observe --> Improve[Zbierz błędy]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Wycofaj starą wersję]
+    Deploy --> Retire[Retire old version]
 ```
 
-Kluczowa idea, przeniesiona z [Lekcji 10](../10-ai-agents-production/README.md): **ocena offline jest bramką, a nie dodatkiem.** Nowa wersja agenta nie zostanie wypuszczona, jeśli nie spełni progów oceny. Obserwowalność online zwraca błędy z rzeczywistego świata do twojego zestawu testów offline. To jest cała pętla.
+Kluczowa idea, przejęta z [Lekcji 10](../10-ai-agents-production/README.md): **ocena offline to bramka, a nie dodatek**. Nowa wersja agenta nie jest publikowana, jeśli nie przejdzie twoich progów oceny. Obserwowalność online następnie dostarcza prawdziwych awarii ze świata zewnętrznego do twojego zestawu testowego offline. To jest cała pętla.
 
 ## Strategie skalowania
 
-Skalowanie agenta różni się od skalowania bezstanowego API sieciowego, ponieważ każde żądanie może wywołać wiele kosztownych wywołań modeli i narzędzi. Cztery techniki niosą większość obciążenia.
+Skalowanie agenta różni się od skalowania bezstanowego API webowego, ponieważ każde żądanie może wywołać wiele kosztownych modeli i narzędzi. Cztery techniki niosą największe obciążenie.
 
-**Obsługa bezstanowa żądań.** Nie przechowuj stanu per-użytkownik w pamięci procesu. Przechowuj wątki rozmów w magazynie wątków Foundry lub usłudze pamięci, aby dowolna instancja mogła obsłużyć każde żądanie. To pozwala skalować poziomo — dodajesz instancje, brak sesji przypisanych do maszyny.
+**Obsługa żądań bezstanowych.** Nie przechowuj stanu na użytkownika w pamięci procesu. Przechowuj wątki konwersacji w sklepie wątków Foundry lub usłudze pamięci, aby dowolna instancja mogła obsłużyć dowolne żądanie. To pozwala na skalowanie horyzontalne — dodaj instancje, brak „sticky sessions”.
 
-**Routowanie modeli.** Nie każde żądanie wymaga twojego najwydajniejszego (i najdroższego) modelu. Kieruj proste żądania — klasyfikację intencji, krótkie faktyczne odpowiedzi — do małego, szybkiego modelu, a duży model zostaw dla prawdziwego rozumowania. Foundry's **Model Router** zrobi to za ciebie, albo możesz zaimplementować lekki klasyfikator samodzielnie. W labie zbudujesz wersję DIY.
+**Trasowanie modeli.** Nie każde żądanie wymaga twojego najbardziej zaawansowanego (i najdroższego) modelu. Kieruj proste żądania — klasyfikację intencji, krótkie odpowiedzi faktograficzne — do małego, szybkiego modelu, a duży model rezerwuj dla prawdziwego rozumowania. Foundry ma narzędzie **Model Router**, które zrobi to za ciebie, lub możesz samodzielnie zaimplementować lekki klasyfikator. Zbudujesz wersję DIY w laboratorium.
 
-**Cache'owanie odpowiedzi.** Wiele zapytań o wsparcie jest prawie duplikatami ("jak zresetować hasło?"). Cache'uj odpowiedzi na typowe pytania i serwuj je bez wywoływania modelu. Nawet umiarkowany wskaźnik trafień w cache znacząco obniża koszty i opóźnienia.
+**Buforowanie odpowiedzi.** Wiele zapytań wsparcia to prawie duplikaty („jak zresetować hasło?”). Buforuj odpowiedzi na powszechne pytania i serwuj je bez wywoływania modelu. Nawet umiarkowany współczynnik trafień w buforze znacząco obniża koszty i opóźnienia.
 
-**Współbieżność i backpressure.** Dostawcy modeli mają limity szybkości. Ogranicz współbieżność, stosuj ponowienia z eksponencjalnym opóźnieniem i reaguj łagodnie na błędy (odpowiedź w kolejce "pracujemy nad tym" jest lepsza niż błąd 500).
+**Współbieżność i backpressure.** Dostawcy modeli mają limity szybkości. Ograniczaj współbieżność, używaj ponawiania z wykładniczym opóźnieniem i obsługuj błędy łagodnie (odpowiedź w kolejce „pracujemy nad tym” jest lepsza niż błąd 500).
 
 ```mermaid
 flowchart LR
-    Q[Zapytanie użytkownika] --> C{Trafienie w pamięci podręcznej?}
-    C -->|tak| R[Zwróć odpowiedź z pamięci podręcznej]
-    C -->|nie| Router{Złożoność?}
-    Router -->|prosta| SLM[Mały model]
-    Router -->|złożona| LLM[Duży model]
-    SLM --> Out[Odpowiedź]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
-    Out --> Store[Pamięć podręczna + śledzenie]
+    Out --> Store[Cache + trace]
 ```
 
 ## Obserwowalność w produkcji
 
-Nie możesz zarządzać tym, czego nie widzisz. Jak omówiono w Lekcji 10, Microsoft Agent Framework natywnie emituje ślady **OpenTelemetry** — każde wywołanie modelu, uruchomienie narzędzia i krok orkiestracji staje się zakresem (span). W produkcji eksportujesz te zakresy do Microsoft Foundry (lub dowolnego backendu kompatybilnego z OTel), aby:
+Nie możesz zarządzać tym, czego nie widzisz. Jak omówiono w Lekcji 10, Microsoft Agent Framework natywnie emituje ślady **OpenTelemetry** — każde wywołanie modelu, narzędzia i krok orkiestracji staje się zakresem (span). W produkcji eksportujesz te zakresy do Microsoft Foundry (lub dowolnego backendu kompatybilnego z OTel), aby móc:
 
-- Śledzić jedną reklamację klienta end-to-end przez wszystkie wywołania modeli i narzędzi.
-- Obserwować opóźnienia p50/p95 i koszty na żądanie w czasie.
-- Alarmować o szczytach błędów i anomaliach kosztów zanim zauważą to użytkownicy (lub Twój dział finansowy).
+- Śledzić pojedynczą skargę klienta end-to-end przez wszystkie wywołania modeli i narzędzi.
+- Obserwować p50/p95 opóźnienia i koszty na żądanie w czasie.
+- Generować alerty o nagłych wzrostach błędów i anomaliach kosztów zanim zauważą je twoi użytkownicy (lub zespół finansowy).
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,93 +159,93 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # wykonanie agenta jest automatycznie śledzone wewnątrz tego zakresu
+    # agent execution is traced automatically inside this span
 ```
 
-Atrybuty takie jak `customer.tier` i `routed.model` zamieniają ścianę śladów w pytania, na które można odpowiedzieć ("czy klienci korporacyjni są zbyt często kierowani do małego modelu?").
+Atrybuty takie jak `customer.tier` i `routed.model` zamieniają ścianę śladów w pytania, na które można odpowiedzieć („czy klienci korporacyjni są zbyt często kierowani do małego modelu?”).
 
 ## Optymalizacja kosztów
 
-Koszty w agentach produkcyjnych dominują tokeny. Trzy dźwignie, według wpływu:
+Koszty w agentach produkcyjnych dominują tokeny. Trzy dźwignie, w kolejności wpływu:
 
-1. **Dobierz odpowiedni model.** Mały model, który przejdzie twoją bramkę oceny, jest prawie zawsze tańszy niż duży, który również ją przechodzi. Użyj oceny, aby *udowodnić*, że mały model jest wystarczająco dobry, zamiast domyślnie wybierać największy model ze względów ostrożności.
-2. **Routuj według złożoności.** Jak wyżej — płać cenę dużego modelu tylko za żądania, które potrzebują rozumowania dużym modelem.
-3. **Cache'uj agresywnie.** Najtańszym wywołaniem modelu jest to, którego nigdy nie wykonasz.
+1. **Dobierz odpowiedni rozmiar modelu.** Mały model, który przejdzie bramkę oceny, jest prawie zawsze tańszy niż duży, który też przechodzi. Użyj oceny, aby *udowodnić*, że mały model jest wystarczający, zamiast domyślnie wybierać największy z ostrożności.
+2. **Trasuj wg złożoności.** Jak powyżej — płać cenę dużego modelu tylko za żądania wymagające rozumowania dużym modelem.
+3. **Buforuj agresywnie.** Najtańsze wywołanie modelu to takie, którego nigdy nie wykonasz.
 
-Bramki oceny i kontrola kosztów to ta sama dyscyplina widziana z dwóch stron: ocena mówi o *minimalnej jakości*, a routowanie i cache'owanie utrzymują koszty jak najbliżej tego minimum.
+Bramki oceny i kontrola kosztów to ta sama dyscyplina widziana z dwóch stron: ocena mówi o *podłodze jakości*, trasowanie i buforowanie trzymają się możliwie blisko *kosztu* tej podłogi.
 
-## Uwagi korporacyjne dotyczące wdrożenia
+## Rozważania korporacyjne przy wdrożeniu
 
-**Zarządzanie.** Hosted Agents dziedziczą RBAC, bezpieczeństwo treści i logowanie audytu Foundry. Przyznaj każdemu agentowi zarządzaną tożsamość z minimalnymi uprawnieniami — dostęp tylko do odczytu bazy wiedzy, dostęp do API obsługi zgłoszeń z ograniczeniami, nic więcej.
+**Zarządzanie.** Hosted Agents dziedziczą RBAC, bezpieczeństwo zawartości i logowanie audytowe Foundry. Każdemu agentowi przypisz zarządzaną tożsamość z najmniejszym potrzebnym przywilejem — dostęp tylko do odczytu bazy wiedzy, ograniczony dostęp do API systemu ticketowego, nic więcej.
 
-**Człowiek w pętli.** Niektóre akcje są zbyt poważne, żeby automatyzować je w całości — wydawanie zwrotu pieniędzy, usuwanie konta, eskalacja do zespołu prawnego. Microsoft Agent Framework obsługuje narzędzia wymagające zatwierdzenia: agent proponuje akcję, wykonanie jest wstrzymane, człowiek zatwierdza lub odrzuca, a przepływ pracy jest wznawiany. Widziałeś prymityw w [Lekcji 6](../06-building-trustworthy-agents/README.md); tutaj go wdrażasz.
+**Człowiek w pętli.** Niektóre działania są zbyt istotne, by je automatyzować — wystawianie zwrotu pieniędzy, usuwanie konta, eskalacja do zespołu prawnego. Microsoft Agent Framework wspiera narzędzia wymagające zatwierdzenia: agent proponuje działanie, wykonanie jest wstrzymane, człowiek zatwierdza lub odrzuca, a przepływ pracy wznawia się. Primitiv widziałeś w [Lekcji 6](../06-building-trustworthy-agents/README.md); tutaj go wdrażasz.
 
-**MCP w produkcji.** [MCP](../11-agentic-protocols/README.md) pozwala agentowi korzystać z zewnętrznych narzędzi przez standardowy interfejs. W produkcji traktuj każdy serwer MCP jako nienawierzony obszar: przypnij wersję serwera, uruchamiaj go z ograniczoną tożsamością, weryfikuj jego wyniki, nigdy nie ujawniaj mu sekretów. Serwer MCP to zależność, a zależności są łatane, audytowane i ograniczane pod względem częstotliwości.
+**MCP w produkcji.** [MCP](../11-agentic-protocols/README.md) pozwala agentowi korzystać z zewnętrznych narzędzi przez standardowy interfejs. W produkcji traktuj każdy serwer MCP jako nieufną granicę: przypnij wersję serwera, uruchamiaj go z ograniczoną tożsamością, waliduj jego wyniki i nigdy nie ujawniaj mu sekretów. Serwer MCP to zależność, a zależności są łatane, audytowane i ograniczane pod względem szybkości.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Architektura rozwojowa]
-        D1[Notatnik] --> D2[Framework agenta]
-        D2 --> D3[Dostawca modelu]
-        D2 --> D4[Narzędzia lokalne]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Architektura wdrożeniowa]
-        E1[Pipeline CI] --> E2[Brama oceny]
-        E2 -->|zaliczony| E3[Usługa agenta Foundry]
-        E3 --> E4[Wersjonowany hostowany agent]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Architektura czasu wykonywania]
-        F1[Aplikacja kliencka] --> F2[Hostowany agent]
-        F2 --> F3[Router modeli]
-        F2 --> F4[Wyszukiwanie Azure AI RAG]
-        F2 --> F5[Usługa pamięci]
-        F2 --> F6[Narzędzia MCP]
-        F2 --> F7[OTel -> śledzenie Foundry]
-        F2 --> F8[Zatwierdzenie przez człowieka]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
+        F2 --> F4[Azure AI Search RAG]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-Te trzy diagramy — rozwój, wdrożenie, uruchomienie — to ten sam agent w trzech etapach swojego życia. Laboratorium, które następuje, przeprowadzi cię przez jego budowę.
+Te trzy diagramy — rozwój, wdrożenie, środowisko uruchomieniowe — to ten sam agent na trzech etapach życia. Następujące laboratorium poprowadzi cię przez jego budowę.
 
-## Laboratorium praktyczne: agent wsparcia klienta gotowy do produkcji
+## Praktyczne laboratorium: agent wsparcia klienta gotowy do produkcji
 
-Otwórz [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) i przepracuj go od początku do końca. Złożysz **agenta wsparcia klienta Contoso** z wszystkimi elementami produkcyjnymi:
+Otwórz [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) i przejdź przez niego od początku do końca. Złożysz **agenta wsparcia klienta Contoso** ze wszystkimi produkcyjnymi aspektami podłączonymi:
 
 1. **Wywoływanie narzędzi** — sprawdzanie statusu zamówienia i otwieranie zgłoszeń wsparcia.
-2. **RAG** — odpowiadanie na pytania dotyczące polityki z bazy wiedzy (Azure AI Search, z pamięciową rezerwą na wypadek braku zasobu Search).
-3. **Pamięć** — zapamiętywanie klienta poprzez kolejne wymiany rozmowy.
-4. **Routowanie modeli** — klasyfikator złożoności kieruje każde żądanie do małego lub dużego modelu.
-5. **Cache'owanie odpowiedzi** — powtarzające się pytania są obsługiwane z cache.
-6. **Zatwierdzenie przez człowieka** — refundacje powyżej progu czekają na podpis człowieka.
-7. **Potok ewaluacyjny** — mały zestaw testów offline ocenia agenta i działa jako bramka wydania.
+2. **RAG** — odpowiadanie na pytania dotyczące polityki z bazy wiedzy (Azure AI Search, z pamięcią podręczną w pamięci, aby notatnik działał bez zasobu Search).
+3. **Pamięć** — pamiętanie klienta podczas kolejnych rund rozmowy.
+4. **Trasowanie modeli** — klasyfikator złożoności kieruje każde żądanie do małego lub dużego modelu.
+5. **Buforowanie odpowiedzi** — powtarzane pytania są obsługiwane z pamięci podręcznej.
+6. **Zatwierdzenie przez człowieka** — zwroty powyżej progu są wstrzymane do zatwierdzenia człowieka.
+7. **Potok oceny** — mały zestaw testowy offline ocenia agenta i działa jako bramka przed wydaniem.
 8. **Obserwowalność** — śledzenie OpenTelemetry wokół każdego żądania.
 
-### Przegląd
+### Przejście krok po kroku
 
-Notatnik jest zorganizowany tak, że każda kwestia produkcyjna to samodzielna, uruchamialna sekcja. Sercem jest obsługiwacz żądań łączący routowanie i cache'owanie:
+Notatnik jest zorganizowany tak, by każdy aspekt produkcyjny stanowił samodzielną, wykonywalną sekcję. Jego sercem jest obsługa żądań z trasowaniem i buforowaniem:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Serwuj z pamięci podręcznej, gdy to możliwe.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Kieruj według złożoności, aby kontrolować koszty.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Uruchom agenta wewnątrz zakresu śledzenia dla obserwowalności.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Buforuj i zwracaj.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Bramką oceny, która pilnuje wydania, jest:
+Bramką oceny, która chroni wydanie, wygląda tak:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # wdrażaj tylko jeśli brama zostanie zaliczona
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Przeczytaj każde zdanie — notatnik celowo trzyma prymitywy małe, by nic nie było ukryte za wywołaniem frameworka.
+Czytaj każdy wiersz — notatnik utrzymuje prymitywy świadomie małe, aby nic nie było ukryte za wywołaniem frameworku.
 
 ## Walidacja wdrożonego agenta testami dymnymi
 
-Powyższa bramka oceny działa *offline* na obiekcie agenta. Po wdrożeniu jako Hosted Agent potrzebujesz jeszcze jednej, jeszcze tańszej kontroli: **czy wdrożony punkt końcowy faktycznie odpowiada?**
+Powyższa bramka oceny działa *offline* na obiekcie agenta. Po wdrożeniu agenta jako Hosted Agent potrzebujesz jeszcze jednej, jeszcze tańszej kontroli: **czy wdrożony endpoint faktycznie odpowiada?**
 
-"Pomyślne" wdrożenie dowodzi tylko, że płaszczyzna kontroli zaakceptowała definicję — nie dowodzi, że agent odpowiada. Brakująca zależność, błędne routowanie modelu lub wygasłe połączenie mogą pozostawić zielone wdrożenie, które nic nie zwraca. **Test dymny** wykrywa to w kilka sekund, przy każdym wdrożeniu, bez kosztów pełnej ewaluacji.
+Wdrożenie „z sukcesem” tylko dowodzi, że płaszczyzna sterowania zaakceptowała definicję — nie dowodzi, że agent odpowiada. Brak zależności, złe trasowanie modeli lub wygasłe połączenie może pozostawić zielone wdrożenie, które nic nie zwraca. **Test dymny** wykrywa to w kilka sekund, przy każdym wdrożeniu, bez kosztów pełnej oceny.
 
-To repozytorium zawiera gotowy potok testów dymnych oparty na GitHub Action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
+To repozytorium dostarcza gotowy do użycia potok testów dymnych oparty na GitHub Action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test):
 
-- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) zawiera prompt i asercje dla agenta wsparcia Contoso (podstawowe odpowiedzi polityki, wyszukiwanie zamówienia, pozostawanie w temacie i ciągłość wieloetapowej konwersacji). Katalogi dla agentów z innych lekcji znajdują się obok — patrz [`tests/README.md`](../tests/README.md).
-- **Przepływ pracy** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) loguje się za pomocą Azure OIDC i wysyła każdą prośbę HTTP POST na endpoint Odpowiedzi agenta, przerywając zadanie przy wykryciu błędu testu.
+- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) zawiera wywołania i asercje dla agenta wsparcia Contoso (odpowiedzi oparte na polityce, wyszukiwanie zamówień, pozostawanie na temat i ciągłość wątków wieloetapowych). Katalogi dla agentów innych lekcji są z nim obok — patrz [`tests/README.md`](../tests/README.md).
+- **Przepływ pracy** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) loguje się z użyciem Azure OIDC i wykonuje POST każdego zapytania do punktu Responses agenta, przerywając zadanie przy każdym błędzie asercji.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,27 +281,26 @@ To repozytorium zawiera gotowy potok testów dymnych oparty na GitHub Action [AI
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
-Uruchom to z zakładki **Actions** po wdrożeniu agenta, podając punkt końcowy projektu Foundry i nazwę agenta. Tożsamość federowana musi mieć rolę **Azure AI User** w zakresie projektu Foundry. Warstwy można sobie wyobrazić jako piramidę: testy dymne (dostępny i reagujący?) uruchamiane są przy każdym wdrożeniu, ocena offline (czy jest wystarczająco dobra, by wdrażać?) uruchamiana jest przed promocją, a ocena online (jak działa w środowisku produkcyjnym?) działa ciągle.
+Uruchom to z zakładki **Actions** po wdrożeniu swojego agenta, podając punkt końcowy projektu Foundry oraz nazwę agenta. Tożsamość federowana musi mieć rolę **Azure AI User** w zakresie projektu Foundry. Pomyśl o warstwach jako o piramidzie: testy dymne (czy agent jest osiągalny i odpowiada?) uruchamiane przy każdym wdrożeniu, ocena offline (czy jest na tyle dobra, by ją wypuścić?) uruchamiana przed promocją oraz ocena online (jak radzi sobie w działaniu?) uruchamiana ciągle.
 
 ## Sprawdzenie wiedzy
 
 Przetestuj swoją wiedzę zanim przejdziesz do zadania.
 
-**1. Około jaką część produkcyjnego agenta stanowi „model”, a co stanowi reszta?**
+**1. Około jak dużą część produkcyjnego agenta stanowi "model", a czym jest reszta?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Model stanowi mniejszość systemu — często mówi się o około 20%. Resztę stanowi szkielet operacyjny: hosting i wersjonowanie, tożsamość i RBAC, zewnętrzny stan, obsługa błędów, śledzenie kosztów, ewaluacja i kontrola z udziałem człowieka. Przejście do produkcji to głównie budowanie wszystkiego *wokół* pętli rozumowania.
+Model to mniejszość systemu — często podawana jako około 20%. Reszta to szkielet operacyjny: hosting i wersjonowanie, tożsamość i RBAC, stan zewnętrzny, obsługa błędów, śledzenie kosztów, ocena i kontrola z udziałem człowieka. Przejście do produkcji to głównie budowanie wszystkiego *wokół* pętli rozumowania.
 </details>
 
-**2. Kiedy wybrałbyś Hosted Agent zamiast klienta-hosted agenta?**
+**2. Kiedy wybrałbyś Hosted Agent zamiast agenta hostowanego po stronie klienta?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Kiedy chcesz zarządzalne środowisko uruchomieniowe z wbudowaną trwałością (wątki, które przetrwają i mogą być wznowione), obserwowalnością, bezpieczeństwem treści i RBAC, i jesteś gotów poświęcić trochę niskopoziomowej kontroli nad pętlą rozumowania na rzecz mniejszej powierzchni operacyjnej. Klient-hosted jest lepszy, gdy potrzebujesz pełnej kontroli nad pętlą lub gdy osadzasz agenta w istniejącym backendzie.
+Gdy chcesz zarządzane środowisko uruchomieniowe z wbudowaną trwałością (wątki, które utrzymują się i mogą wznowić działanie), obserwowalnością, bezpieczeństwem treści i RBAC, i jesteś gotów poświęcić trochę kontroli na niskim poziomie pętli rozumowania na rzecz mniejszej powierzchni operacyjnej. Hosting po stronie klienta jest lepszy, gdy potrzebujesz pełnej kontroli nad pętlą lub osadzasz agenta w istniejącym backendzie.
 </details>
 
 **3. Dlaczego skalowalny agent musi być bezstanowy w pamięci własnego procesu?**
@@ -309,81 +308,81 @@ Kiedy chcesz zarządzalne środowisko uruchomieniowe z wbudowaną trwałością 
 <details>
 <summary>Odpowiedź</summary>
 
-Aby dowolna instancja mogła obsłużyć dowolne żądanie, co umożliwia skalowanie poziome bez potrzeby sesji przywiązanych do jednego serwera. Stan rozmowy użytkownika jest zewnętrzny, przechowywany w magazynie wątków lub usłudze pamięci. Jeśli stan byłby w pamięci procesu, straciłbyś go przy restarcie i nie mógłbyś swobodnie rozkładać obciążenia.
+Aby każda instancja mogła obsłużyć dowolne żądanie, co pozwala na skalowanie poziome bez sesji stałych (sticky sessions). Stan konwersacji per użytkownik jest zewnętrzny wobec wątku lub serwisu pamięciowego. Gdyby stan przechowywany był w pamięci procesu, tracilibyśmy go przy restarcie i nie można byłoby swobodnie rozdzielać obciążenia.
 </details>
 
-**4. Jaki problem rozwiązuje trasowanie modeli i jak się ono ma do oceny?**
+**4. Jaki problem rozwiązuje routing modeli i jak łączy się z oceną?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Trasowanie wysyła proste żądania do małego, taniego, szybkiego modelu i rezerwuje duży model do rzeczywistego rozumowania, kontrolując zarówno opóźnienie, jak i koszt. Ma to związek z oceną, ponieważ ocena *dowodzi*, że mały model jest wystarczająco dobry dla danej klasy żądań — trasowanie bez oceny to zgadywanie.
+Routing kieruje proste żądania do małego, taniego i szybkiego modelu, a duży model rezerwuje dla rzeczywistego rozumowania, kontrolując zarówno opóźnienia, jak i koszty. Łączy się to z oceną, ponieważ to ocena *dowodzi*, że mały model jest wystarczająco dobry dla danej klasy żądań — routing bez oceny to zgadywanie.
 </details>
 
-**5. Co to jest „brama oceny” i gdzie znajduje się w cyklu życia?**
+**5. Czym jest "brama oceny" i gdzie występuje w cyklu życia?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Brama oceny uruchamia zestaw testowy offline na nowej wersji agenta i blokuje wdrożenie, jeśli wskaźnik zaliczeń nie przekroczy progu. Znajduje się między „wersją” a „wdrożeniem” w cyklu życia, czyniąc jakość warunkiem wstępnym wydania, a nie czymś, co sprawdza się po publikacji.
+Brama oceny uruchamia zestaw testów offline na nowej wersji agenta i blokuje wdrożenie, jeśli współczynnik zaliczeń nie przekroczy progu. Znajduje się pomiędzy „wersją” a „wdrożeniem” w cyklu życia, czyniąc jakość warunkiem wydania, a nie czymś, co sprawdzasz po wysłaniu do produkcji.
 </details>
 
-**6. Dlaczego serwer MCP powinien być traktowany jako nieniezaufana granica w produkcji?**
+**6. Dlaczego serwer MCP powinien być traktowany jako nieufna granica w produkcji?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Ponieważ jest zewnętrznym zależnym serwisem, do którego odwołuje się twój agent. Powinieneś przypiąć jego wersję, uruchomić z tożsamością o ograniczonych uprawnieniach, weryfikować jego wyniki, ograniczać jego dostęp i nigdy nie ujawniać mu sekretów — tak jak postępujesz z każdą zależnością zewnętrzną. Jego wyniki wpływają na rozumowanie twojego agenta, więc nieweryfikowane zaufanie to zagrożenie bezpieczeństwa.
+Ponieważ jest zewnętrznym zależnym serwisem, do którego agent się odwołuje. Powinieneś przypiąć jego wersję, uruchamiać go z ograniczoną tożsamością, weryfikować jego wyjścia, limitować częstotliwość wywołań i nigdy nie ujawniać mu sekretów — taką samą dyscyplinę stosujesz do wszelkich zależności stron trzecich. Jego wyniki wpływają na rozumowanie agenta, więc nieweryfikowane zaufanie jest ryzykiem bezpieczeństwa.
 </details>
 
-**7. Która pojedyncza zmiana zwykle ma największy wpływ na koszt produkcyjnego agenta i dlaczego?**
+**7. Która pojedyncza zmiana zwykle ma największy wpływ na koszt agenta produkcyjnego i dlaczego?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Dobre dobranie rozmiaru modelu — użycie najmniejszego modelu, który nadal przechodzi twoją bramę oceny. Koszty są zdominowane przez tokeny, a mniejszy model spełniający wymogi jakości jest niemal zawsze tańszy niż większy. Cache i trasowanie dodatkowo obniżają koszty, ale wybór odpowiedniego modelu bazowego ma największy efekt pierwszego rzędu.
+Dobór odpowiedniego rozmiaru modelu — użycie najmniejszego modelu, który nadal przechodzi bramę oceny. Koszty dominują tokeny, a mniejszy model spełniający wymogi jakościowe jest niemal zawsze tańszy od większego. Buforowanie i routing następnie jeszcze obniżają koszty, ale wybór odpowiedniego modelu bazowego ma największy efekt pierwszego rzędu.
 </details>
 
-**8. Jaką rolę odgrywają atrybuty powierzchniowe, takie jak `customer.tier` i `routed.model`, w obserwowalności?**
+**8. Jaką rolę pełnią atrybuty spanów takie jak `customer.tier` i `routed.model` w obserwowalności?**
 
 <details>
 <summary>Odpowiedź</summary>
 
-Przekształcają surowe ślady w konkretne pytania biznesowe. Bez atrybutów masz ścianę zdarzeń; z nimi możesz zapytać „czy klienci korporacyjni są zbyt często kierowani do małego modelu?” lub „który model obsługuje nasze najwolniejsze żądania?” Atrybuty umożliwiają analizę telemetrii według wymiarów istotnych dla działania twojej organizacji.
+Zamieniają surowe ślady na możliwe do zadania pytania biznesowe. Bez atrybutów masz ścianę spanów; z nimi możesz pytać „czy klienci korporacyjni są zbyt często kierowani do małego modelu?” lub „który model obsługuje nasze najwolniejsze żądania?”. Atrybuty to sposób wycinania danych telemetrycznych według wymiarów ważnych dla Twojej operacji.
 </details>
 
 ## Zadanie
 
-Weź agenta wsparcia klienta z laboratorium i wzmocnij go pod konkretny scenariusz: **agent wsparcia bilingowego dla firmy SaaS.**
+Weź agenta wsparcia klienta z laboratorium i wzmocnij go dla konkretnego scenariusza: **agenta wsparcia subskrypcji rozliczeniowej dla firmy SaaS.**
 
 Twoje zgłoszenie powinno:
 
-1. **Zamienić narzędzia** na te związane z bilingiem: `get_subscription_status`, `get_invoice`, oraz `issue_credit` (kredyty powyżej 50$ wymagają zatwierdzenia przez człowieka).
-2. **Dodać trzy dokumenty RAG** dotyczące polityki zwrotów firmy, cyklu bilingowego oraz polityki anulacji.
-3. **Rozszerzyć zestaw ewaluacyjny** do co najmniej ośmiu przypadków, w tym co najmniej dwóch, które *powinny* uruchomić ścieżkę zatwierdzenia przez człowieka, i potwierdzić, że brama oceny poprawnie akceptuje lub odrzuca.
-4. **Dodać jeden raport kosztów**: po przetworzeniu dziesięciu mieszanych zapytań przez agenta, wydrukuj, ile trafień poszło do małego modelu, ile do dużego, a ile obsłużono z cache.
+1. **Zastąpić narzędzia** narzędziami związanymi z rozliczeniami: `get_subscription_status`, `get_invoice` i `issue_credit` (kredyty powyżej 50 $ wymagają zatwierdzenia człowieka).
+2. **Dodać trzy dokumenty RAG** obejmujące politykę zwrotów firmy, cykl rozliczeniowy oraz politykę anulowania.
+3. **Rozszerzyć zestaw oceny** do co najmniej ośmiu przypadków, w tym co najmniej dwa, które *powinny* uruchomić ścieżkę zatwierdzania przez człowieka i potwierdzić, że brama oceny odpowiednio przepuszcza lub blokuje.
+4. **Dodać jeden raport kosztów**: po wykonaniu dziesięciu mieszanych zapytań przez agenta, wydrukować ile poszło do małego modelu, ile do dużego, a ile zostało obsłużone z bufora.
 
-Napisz krótki akapit (w komórce markdown) wyjaśniający, którą regułę trasowania modeli wybrałeś i jak zweryfikowałbyś ją na prawdziwym ruchu. Nie ma jednej poprawnej odpowiedzi — oceniana będzie spójność powiązania kwestii produkcyjnych.
+Napisz krótki akapit (w komórce markdown) wyjaśniający którą regułę routingu modelu wybrałeś i jak zweryfikowałbyś ją z prawdziwym ruchem. Nie ma jednej poprawnej odpowiedzi — oceniana jest spójność powiązania kwestii produkcyjnych.
 
 ## Podsumowanie
 
-W tej lekcji przeniosłeś agenta od prototypu do produkcji z użyciem Microsoft Foundry:
+W tej lekcji przeniosłeś agenta z prototypu do produkcji z Microsoft Foundry:
 
-- Skok do produkcji to przede wszystkim **szkielet operacyjny** wokół modelu — hosting, tożsamość, stan, obsługa błędów, koszty, jakość i zaufanie.
-- Poznałeś trzy **wzorce wdrożeń** — klient-hosted, Hosted Agents oraz Agent Workflows — i kiedy każdy ma zastosowanie.
-- Przeszedłeś przez **cykl życia agenta**, gdzie offline **ocena działa jako brama wydania**, a obserwowalność online odsyła błędy z powrotem do zestawu testowego.
-- Zastosowałeś **strategie skalowania** — bezstanowość, trasowanie modeli, cache i ograniczoną współbieżność — i powiązałeś je z **optymalizacją kosztów**.
-- Podłączyłeś **kontrole korporacyjne**: RBAC, zatwierdzanie z udziałem człowieka oraz integrację MCP bezpieczną dla produkcji.
-- Zbudowałeś **agenta wsparcia klienta gotowego do produkcji**, który łączy wszystkie te kwestie w działającym kodzie.
+- Skok do produkcji to głównie **szkielet operacyjny** wokół modelu — hosting, tożsamość, stan, obsługa błędów, koszt, jakość i zaufanie.
+- Poznałeś trzy **wzorce wdrożenia** — klient-hostowany, Hosted Agents oraz Agent Workflows — i kiedy są odpowiednie.
+- Przeszedłeś przez **cykl życia agenta**, gdzie offline **ocena pełni funkcję bramy wydania**, a obserwowalność online odsyła błędy z powrotem do zestawu testowego.
+- Zastosowałeś **strategie skalowania** — bezstanowość, routing modeli, buforowanie i ograniczoną współbieżność — i połączyłeś je z **optymalizacją kosztów**.
+- Włączyłeś **kontrole korporacyjne**: RBAC, zatwierdzanie z udziałem człowieka oraz integrację MCP bezpieczną dla produkcji.
+- Zbudowałeś **produkcjnie gotowego agenta wsparcia klienta**, który łączy wszystkie te aspekty w działający kod.
 
-Następna lekcja podąża w przeciwnym kierunku: zamiast skalować agentów w chmurze, przeniesiesz ich *na dół* na pojedynczą maszynę deweloperską i będziesz uruchamiać je całkowicie lokalnie.
+Następna lekcja przeprowadzi odwrotną podróż: zamiast skalować agentów w chmurze, sprowadzisz ich *w dół* na pojedynczą maszynę programisty i uruchomisz całkowicie lokalnie.
 
 ## Dodatkowe zasoby
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Dokumentacja Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Przegląd usługi Microsoft Foundry Agent</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Przegląd usługi Microsoft Foundry Agent Service</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router w Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Router modeli w Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
@@ -391,7 +390,7 @@ Następna lekcja podąża w przeciwnym kierunku: zamiast skalować agentów w ch
 
 ## Poprzednia lekcja
 
-[Budowanie agentów do obsługi komputera (CUA)](../15-browser-use/README.md)
+[Budowanie agentów do komputera (CUA)](../15-browser-use/README.md)
 
 ## Następna lekcja
 
