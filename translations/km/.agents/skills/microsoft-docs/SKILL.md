@@ -1,99 +1,99 @@
 ---
 name: microsoft-docs
-description: ស្វែងរកឯកសារផ្លូវការរបស់ Microsoft ដើម្បីរកមើល គំនិត មេរៀន និងឧទាហរណ៍កូដ
-  នៅលើ Azure, .NET, Agent Framework, Aspire, VS Code, GitHub និងផ្សេងទៀត។ ប្រើ Microsoft
-  Learn MCP ជាលំនាំដើម ហើយប្រើ Context7 និង Aspire MCP សម្រាប់មាតិកាដែលស្ថិតនៅខាងក្រៅ
+description: ស្វែងរកឯកសារផ្លូវការរបស់ Microsoft ដើម្បីស្វែងរកគំនិត មេរៀនបណ្តាញ និងឧទាហរណ៍កូដនានាទាក់ទងនឹង
+  Azure, .NET, Agent Framework, Aspire, VS Code, GitHub និងជាច្រើនទៀត។ ប្រើ Microsoft
+  Learn MCP ជាមូលដ្ឋានលំនាំដើម ជាមួយ Context7 និង Aspire MCP សម្រាប់មាតិកាដែលនៅក្រៅ
   learn.microsoft.com។
 ---
-# ឯកសារ Microsoft
+# Microsoft Docs
 
-ជំនាញសម្រាប់ស្រាវជ្រាវក្នុងប្រព័ន្ធបច្ចេកវិទ្យា Microsoft។ គ្របដណ្ដប់ learn.microsoft.com និងឯកសារដែលស្ថិតនៅក្រៅវា (VS Code, GitHub, Aspire, repos របស់ Agent Framework).
+ជំនាញស្រាវជ្រាវសម្រាប់បរិស្ថានបច្ចេកវិទ្យា Microsoft។ គ្របដណ្តប់លើ learn.microsoft.com និងឯកសារដែលរស់នៅខាងក្រៅវា (VS Code, GitHub, Aspire, Agent Framework repos)។
 
 ---
 
-## លំនាំដើម: Microsoft Learn MCP
+## ដើមហើយ: Microsoft Learn MCP
 
-ប្រើឧបករណ៍ទាំងនេះសម្រាប់ **អ្វីៗគ្រប់យ៉ាងនៅលើ learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows និងផ្សេងទៀត។ នេះជាឧបករណ៍សំខាន់សម្រាប់សំណើរសុំឯកសាររបស់ Microsoft ភាគច្រើន។
+ប្រើឧបករណ៍ទាំងនេះសម្រាប់ **អ្វីៗទាំងអស់នៅលើ learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows និងផ្សេងទៀត។ នេះគឺជាឧបករណ៍សម្រាប់សំណួរឯកសារយ៉ាងច្រើនរបស់ Microsoft។
 
-| Tool | គោលបំណង |
+| ឧបករណ៍ | គោលបំណង |
 |------|---------|
-| `microsoft_docs_search` | ស្វែងរក learn.microsoft.com — គំនិត, មគ្គុទ្ទេសក៍, មេរៀន, ការកំណត់រចនាសម្ព័ន្ធ |
-| `microsoft_code_sample_search` | រកឈ្លុះកូដដែលដំណើរការ​បានពីឯកសារ Learn. បញ្ជូន `language` (`python`, `csharp`, ល.) សម្រាប់លទ្ធផលល្អបំផុត |
-| `microsoft_docs_fetch` | យកខ្លឹមសារទំព័រពេញពី URL ណាតែមួយ (ពេលដែលខ្លឹមសារកាត់ស្រង់ពីការស្វែងរកមិនគ្រប់គ្រាន់) |
+| `microsoft_docs_search` | ស្វែងរកនៅ learn.microsoft.com — គំនិត, មគ្គុរហារណ៍, មេរៀន, ការកំណត់រចនាសម្ព័ន្ធ |
+| `microsoft_code_sample_search` | ស្វែងរកកូដដែលដំណើរការបានពីឯកសារ Learn។ ផ្ទេរចេញ `language` (`python`, `csharp`, ល. ) សម្រាប់លទ្ធផលល្អបំផុត |
+| `microsoft_docs_fetch` | ទទួលបានមាតិកាភាពពេញលេញពី URL ពិសេស (នៅពេលសេចក្ដីបកស្រាយស្វែងរកមិនគ្រប់គ្រាន់) |
 
-ប្រើ `microsoft_docs_fetch` បន្ទាប់ពីស្វែងរកពេលអ្នកត្រូវការមេរៀនពេញលេញ, ជម្រើសការកំណត់រចនាសម្ព័ន្ធទាំងអស់, ឬពេលដែលខ្លឹមសារកាត់ស្រង់ពីការស្វែងរកត្រូវបានកាត់បន្ថយ។
+ប្រើ `microsoft_docs_fetch` បន្ទាប់ពីស្វែងរកនៅពេលអ្នកត្រូវការមេរៀនពេញលេញ សេចក្ដីជ្រើសរើសកំណត់រចនាសម្ព័ន្ធទាំងអស់ ឬពេលសេចក្ដីបកស្រាយស្វែងរកត្រូវបានកាត់ក្នុង។
 
 ---
 
-## ករណីពិសេស: ពេលណាចាំបាច់ប្រើឧបករណ៍ផ្សេងៗ
+## ករណីលើកលែង: ពេលណាដែលត្រូវប្រើឧបករណ៍ផ្សេងទៀត
 
-ប្រភេទដូចតទៅស្ថិតនៅក្រៅ **learn.microsoft.com**។ សូមប្រើឧបករណ៍ដែលបានបញ្ជាក់ជំនួស។
+ប្រភេទខាងក្រោមរស់នៅ **ខាងក្រៅ** learn.microsoft.com។ ប្រើឧបករណ៍ដែលបានបញ្ជាក់ជាផ្លាស់ប្តូរ។
 
-### .NET Aspire — ប្រើ Aspire MCP Server (បានផ្តល់អាទិភាព) ឬ Context7
+### Aspire — ប្រើ Aspire MCP Server (ពេញចិត្ត) ឬ Context7
 
-ឯកសារ Aspire ស្ថិតលើ **aspire.dev**, មិនមែន Learn ទេ។ ឧបករណ៍ល្អបំផុតអាស្រ័យលើកំណែ Aspire CLI របស់អ្នក៖
+ឯកសារ Aspire រស់នៅលើ **aspire.dev**, មិនមែន Learn ទេ។ ឧបករណ៍ល្អបំផុតអាស្រ័យលើកំណែ Aspire CLI របស់អ្នក៖
 
-**CLI 13.2+** (ណែនាំ) — Aspire MCP server រួមបញ្ចូលឧបករណ៍ស្វែងរកឯកសារដែលមានស្រាប់៖
+**CLI 13.2+** (ផ្ដល់អនុសាសន៍) — ម៉ាស៊ីនបម្រើ Aspire MCP មានឧបករណ៍ស្វែងរកឯកសាររួមបញ្ចូល៖
 
 | ឧបករណ៍ MCP | ពណ៌នា |
 |----------|-------------|
-| `list_docs` | រាយបញ្ជីឯកសារទាំងអស់ដែលមានលើ aspire.dev |
-| `search_docs` | ការស្វែងរកឯកសារតាមអក្សរដែលមានទំងន់នៅក្នុងមាតិកា aspire.dev |
-| `get_doc` | យកឯកសារតាម slug ណាមួយ |
+| `list_docs` | បញ្ជីឯកសារទាំងអស់ដែលមានពី aspire.dev |
+| `search_docs` | ស្វែងរកតាមពាក្យអត្ថន័យសំខាន់ៗមានទំងន់ជាមួយមាតិការបស់ aspire.dev |
+| `get_doc` | ទាញយកឯកសារពិសេសមួយតាម slug |
 
-ទាំងនេះត្រូវបានបញ្ចូលក្នុង Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ដើម្បីធ្វើអាប់ដេត៖ `aspire update --self --channel daily`. យោង៖ https://davidpine.dev/posts/aspire-docs-mcp-tools/
+វាទាំងនេះចាប់ផ្ដើមនៅក្នុង Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028))។ ដើម្បីធ្វើបច្ចុប្បន្នភាព: `aspire update --self --channel daily`។
 
-**CLI 13.1** — MCP server មានការស្វែងរក integrations (`list_integrations`, `get_integration_docs`) ប៉ុន្តែមិនមានស្វែងរកឯកសារ **ទេ**។ ត្រូវធ្វើ fallback ទៅ Context7:
+**CLI 13.1** — ម៉ាស៊ីនបម្រើ MCP ផ្ដល់ការស្វែងរកការតភ្ជាប់ (`list_integrations`, `get_integration_docs`) ប៉ុន្តែមិនមានស្វែងរកឯកសារ។ ត្រលប់ទៅ Context7៖
 
-| Library ID | ប្រើសម្រាប់ |
+| លេខសម្គាល់បណ្ណាល័យ | ប្រើសម្រាប់ |
 |---|---|
-| `/microsoft/aspire.dev` | ចម្បង — ការណែនាំ, ការរួមបញ្ចូល, ឯកសារយោង CLI, ការដាក់ប្រើ |
-| `/dotnet/aspire` | ប្រភព runtime — ខាងក្នុង API, ព័ត៌មានអំពីការអនុវត្ត |
-| `/communitytoolkit/aspire` | ការរួមបញ្ចូលសហគមន៍ — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | ប្រភេទដើម — មគ្គុរ​ហារណ៍, ការតភ្ជាប់, ឯកសារមានCLI, ការបញ្ចូលទៅ |
+| `/microsoft/aspire` | ប្រភពដំណើរការ — ខាងក្នុង API, ព័ត៌មានអំពីការអនុវត្ត |
+| `/communitytoolkit/aspire` | ការតភ្ជាប់សហគមន៍ — Go, Java, Node.js, Ollama |
 
 ### VS Code — ប្រើ Context7
 
-ឯកសារ VS Code ស្ថិតនៅលើ **code.visualstudio.com**, មិនមែន Learn ទេ។
+ឯកសារ VS Code រស់នៅលើ **code.visualstudio.com**, មិនមែន Learn ទេ។
 
-| Library ID | ប្រើសម្រាប់ |
+| លេខសម្គាល់បណ្ណាល័យ | ប្រើសម្រាប់ |
 |---|---|
-| `/websites/code_visualstudio` | ឯកសារអ្នកប្រើ — ការកំណត់, មុខងារ, ការបំបាត់បញ្ហា, ការអភិវឌ្ឍពីចម្ងាយ |
-| `/websites/code_visualstudio_api` | API ផ្នែកបន្ថែម — webviews, TreeViews, ពាក្យបញ្ជា, ចំណុចរួមចំណែក |
+| `/websites/code_visualstudio` | ឯកសារ​ប្រើប្រាស់ — ការកំណត់, មុខងារ, ការឈប់បញ្ឈប់, ការអភិវឌ្ឍពីចម្ងាយ |
+| `/websites/code_visualstudio_api` | API បន្ថែម — webviews, TreeViews, ពាក្យបញ្ជា, ចំណុចរួមចំណែក |
 
 ### GitHub — ប្រើ Context7
 
-ឯកសារ GitHub ស្ថិតលើ **docs.github.com** និង **cli.github.com**។
+ឯកសារ GitHub រស់នៅលើ **docs.github.com** និង **cli.github.com**។
 
-| Library ID | ប្រើសម្រាប់ |
+| លេខសម្គាល់បណ្ណាល័យ | ប្រើសម្រាប់ |
 |---|---|
-| `/websites/github_en` | Actions, API, repos, សុវត្ថិភាព, ការគ្រប់គ្រង, Copilot |
-| `/websites/cli_github` | បញ្ជា និង flags សម្រាប់ GitHub CLI (`gh`) |
+| `/websites/github_en` | ការប្រតិបត្តិ, API, repos, សុវត្ថិភាព, អ្នកដឹកនាំ, Copilot |
+| `/websites/cli_github` | ពាក្យបញ្ជា និងទង់ដែងទៅ GitHub CLI (`gh`) |
 
 ### Agent Framework — ប្រើ Learn MCP + Context7
 
-មេរៀន Agent Framework មាននៅលើ learn.microsoft.com (ប្រើ `microsoft_docs_search`), ប៉ុន្តែ **repo GitHub** មានព័ត៌មានអំពីកម្រិត API ដែលជាញឹកញាប់នៅមុខឯកសារដែលបានបោះពុម្ពផ្សាយ — ជាពិសេសយោង DevUI REST API, ជម្រើស CLI, និងការរួមបញ្ចូល .NET។
+មេរៀន Agent Framework ស្ថិតនៅលើ learn.microsoft.com (ប្រើ `microsoft_docs_search`), ប៉ុន្តែ **GitHub repo** មានព័ត៌មានលម្អិត API ដែលជានិច្ចមួយនៅមុខឯកសារចេញផ្សាយ — ជាពិសេស DevUI REST API សេចក្ដីយោង, ជម្រើស CLI និងការតភ្ជាប់ .NET។
 
-| Library ID | ប្រើសម្រាប់ |
+| លេខសម្គាល់បណ្ណាល័យ | ប្រើសម្រាប់ |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | មេរៀន — មគ្គុទេសក៍ DevUI, ការតាមដាន, ការរៀបចំលំហាត់ការងារ |
-| `/microsoft/agent-framework` | ព័ត៌មានលម្អិត API — DevUI REST endpoints, CLI flags, auth, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | មេរៀន — មគ្គុររបស់ DevUI, ការតាមដាន, ការរៀបចំដំណើរការ workflow |
+| `/microsoft/agent-framework` | ព័ត៌មានលម្អិត API — DevUI REST endpoints, ទង់ដែង CLI, អាជ្ញាសិទ្ធ, .NET `AddDevUI`/`MapDevUI` |
 
-**គន្លឹះ DevUI:** សូមស្វែងរកពីប្រភពវេបសាយ Learn សម្រាប់មគ្គុទេសក៍ពីរបៀបធ្វើ ហើយបន្ទាប់មកពិនិត្យប្រភព repo សម្រាប់ព័ត៌មានលម្អិតកម្រិត API (schema នៃ endpoint, ការកំណត់ proxy, auth tokens)។
+**របៀបប្រើ DevUI៖** សួរទៅកាន់ប្រភពគេហទំព័រ Learn សម្រាប់មគ្គុរបង្ហាញរបៀបធ្វើ បន្ទាប់មកប្រភព repo សម្រាប់ព័ត៌មានលម្អិត API (ស្កីម៉ាស្ត័រ endpoints, ការកំណត់ proxy, សញ្ញាអាជ្ញា)។
 
 ---
 
-## ការកំណត់ Context7
+## ការតំឡើង Context7
 
-សម្រាប់សំណើ Context7 ទាំងអស់ សូមដោះស្រាយ ID បណ្ណាល័យ ជាមុន (ម្តងក្នុងមួយសម័យ)៖
+សម្រាប់សំណួរណាមួយបណ្តាញ Context7 សូមកំណត់លេខសម្គាល់បណ្ណាល័យជាមុន (មួយដងក្នុងមួយវគ្គថ្នាក់រៀន)៖
 
 1. ហៅ `mcp_context7_resolve-library-id` ជាមួយឈ្មោះបច្ចេកវិទ្យា
-2. ហៅ `mcp_context7_query-docs` ជាមួយ ID បណ្ណាល័យដែលបានត្រឡប់មកវិញ និងសំណើច្បាស់លាស់
+2. ហៅ `mcp_context7_query-docs` ជាមួយលេខសម្គាល់បណ្ណាល័យដែលបានត្រឡប់មក និងសំណួរប្រភេទពិសេស
 
 ---
 
-## ការសរសេរសំណើដែលមានប្រសិទ្ធភាព
+## ការសរសេរការស្វែងរកឱ្យមានប្រសិទ្ធភាព
 
-ត្រូវច្បាស់លាស់ — រួមបញ្ចូលកំណែ, គោលបំណង, និងភាសា៖
+ត្រូវមានព័ត៌មានច្បាស់លាស់ — រួមបញ្ចូលកំណែ, គោលបំណង និងភាសា៖
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ description: ស្វែងរកឯកសារផ្លូវការរប�
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **កំណែ** នៅពេលដែលពាក់ព័ន្ធ (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **គោលបំណងការងារ** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+រួមបញ្ចូលបរិបទ៖
+- **កំណែ** នៅពេលដែលជាប់សមាជិក (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **គោលបំណងភារកិច្ច** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
 - **ភាសា** សម្រាប់ឯកសារពហុភាសា (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **ការបដិសេធ**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាបកប្រែដោយ AI [Co-op Translator](https://github.com/Azure/co-op-translator). ក្នុងខណៈដែលយើងខិតខំធ្វើឱ្យមានភាពត្រឹមត្រូវ សូមចំណាំថាការបកប្រែដោយស្វ័យប្រវត្តិអាចមានកំហុស ឬ ភាពមិនត្រឹមត្រូវ. ឯកសារដើមក្នុងភាសាមូលដ្ឋានគួរត្រូវបានចាត់ទុកថាជាប្រភពយោងផ្លូវការ. សម្រាប់ព័ត៌មានដែលមានសារៈសំខាន់ យើងណែនាំឱ្យប្រើសេវាបកប្រែដោយអ្នកជំនាញមនុស្ស. យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬ ការបកស្រាយខុសណាមួយដែលកើតឡើងពីការប្រើប្រាស់ការបកប្រែនេះ.
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
