@@ -1,81 +1,81 @@
-# Azure AI Search installationsguide
+# Guide för att ställa in Azure AI Search
 
-Denna guide hjälper dig att konfigurera Azure AI Search med hjälp av Azure-portalen. Följ stegen nedan för att skapa och konfigurera din Azure AI Search-tjänst.
+Denna guide hjälper dig att ställa in Azure AI Search via Azure-portalen. Följ stegen nedan för att skapa och konfigurera din Azure AI Search-tjänst.
 
 ## Förutsättningar
 
 Innan du börjar, se till att du har följande:
 
-- Ett Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett gratis konto på [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett gratis konto på [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Steg 1: Skapa ett Azure Storage-konto
 
-1. Följ denna instruktion, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), för att skapa ett nytt Azure Storage-konto.
-   **NOTE**: Se till att typen av Storage-konto är Standard General Purpose V2.
+1. Följ instruktionen [Skapa ett Azure Storage-konto](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) för att skapa ett nytt Azure Storage-konto.
+   **OBS**: Se till att typen av Storage-konto är Standard General Purpose V2.
 
 ## Steg 2: Skapa en Azure AI Search-tjänst
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. I navigeringspanelen till vänster klickar du på **Skapa en resurs**.
-3. I sökrutan skriver du "Azure AI Search" och väljer **Azure AI Search** från resultatlistan.
-4. Klicka på knappen **Skapa**.
-5. På fliken **Grundläggande** fyller du i följande information:
+2. Klicka på **Skapa en resurs** i den vänstra navigeringspanelen.
+3. Skriv "Azure AI Search" i sökrutan och välj **Azure AI Search** från resultatlistan.
+4. Klicka på **Skapa**-knappen.
+5. I fliken **Grundläggande** anger du följande information:
    - **Prenumeration**: Välj din Azure-prenumeration.
    - **Resursgrupp**: Skapa en ny resursgrupp eller välj en befintlig.
    - **Resursnamn**: Ange ett unikt namn för din söktjänst.
    - **Region**: Välj den region som är närmast dina användare.
-   - **Prisnivå**: Välj en prisnivå som passar dina behov. Du kan börja med den kostnadsfria nivån för testning.
+   - **Prissättningsnivå**: Välj en prissättningsnivå som passar dina behov. Du kan börja med Gratisnivån för testning.
 6. Klicka på **Granska + skapa**.
 7. Granska inställningarna och klicka på **Skapa** för att skapa söktjänsten.
 
 ## Steg 3: Kom igång med Azure AI Search
 
-1. När distributionen är klar går du till din söktjänst i Azure-portalen.
-2. Kopiera URL:en i översiktsfönstret för söktjänsten. Den ska se ut som `https://<service-name>.search.windows.net`.
-3. **(Rekommenderat)** Aktivera nyckellös åtkomst med Microsoft Entra ID (RBAC) enligt Steg 4 nedan — ingen nyckel behövs. Exempelprogrammen i denna guide skapar/uppdaterar index och laddar upp dokument, vilket kräver rollerna **Search Service Contributor** och **Search Index Data Contributor** (eller, för nyckelbaserad autentisering, **primär administratörsnyckel** — inte frågenyckeln). Endast om du inte kan använda RBAC, öppna inställningarna **Inställningar > Nycklar** och kopiera **primär administratörsnyckel**.
+1. När distributionen är klar, gå till din söktjänst i Azure-portalen.
+2. Kopiera URL:en i översiktspanelen för söktjänsten. Den bör se ut som `https://<service-name>.search.windows.net`.
+3. **(Rekommenderat)** Aktivera nyckelfri åtkomst med Microsoft Entra ID (RBAC) som visas i Steg 4 nedan — ingen nyckel behövs. Exemplen i denna guide skapar/uppdaterar index och laddar upp dokument, vilket kräver rollerna **Search Service Contributor** och **Search Index Data Contributor** (eller, vid nyckelbaserad autentisering, **primär administratörsnyckel** — ej frågenyckel). Endast om du inte kan använda RBAC, öppna **Inställningar > Nycklar** och kopiera **primär administratörsnyckel**.
 4. Följ stegen i [Quickstart-guiden](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) för att skapa ett index, ladda upp data och utföra en sökning.
 
 ## Steg 4: Använd Azure AI Search-verktyg
 
-Azure AI Search integreras med olika verktyg för att förbättra dina sökmöjligheter. Du kan använda Azure CLI, Python SDK, .NET SDK och andra verktyg för avancerade konfigurationer och operationer.
+Azure AI Search integreras med olika verktyg för att förbättra dina sökfunktioner. Du kan använda Azure CLI, Python SDK, .NET SDK och andra verktyg för avancerade konfigurationer och operationer.
 
 ### Använda Azure CLI
 
-1. Installera Azure CLI genom att följa instruktionerna på [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Logga in på Azure CLI med kommandot:
+1. Installera Azure CLI genom att följa instruktionerna på [Installera Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Logga in i Azure CLI med kommandot:
 
    ```bash
    az login
    ```
-3. **(Rekommenderat) Aktivera nyckellös åtkomst med Microsoft Entra ID (RBAC):**
+3. **(Rekommenderat) Aktivera nyckelfri åtkomst med Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show har inget "endpoint"-fält; skapa URL:en från tjänstens namn.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Med RBAC aktiverat autentiserar Python- och .NET SDK-exemplen nedan med `DefaultAzureCredential`, som använder din `az login`-session under lokal utveckling — ingen administratörsnyckel behövs. Se [Anslut till Azure AI Search med roller](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Med RBAC aktiverat autentiserar Python och .NET SDK-exemplen nedan med `DefaultAzureCredential`, vilket använder din `az login`-session under lokal utveckling — ingen administratörsnyckel behövs. Se [Anslut till Azure AI Search med roller](https://learn.microsoft.com/azure/search/search-security-rbac).
 
 4. **(Reservlösning) Nyckelbaserad autentisering** — endast om du inte kan använda RBAC, spara administratörsnyckeln också:
 
-#### Spara både slutpunkt och API-nyckel för Azure AI Search-instansen som miljövariabler.
+#### Spara både endpoint och API-nyckel för Azure AI Search-instansen som miljövariabler.
 
-    ```bash
-    # zsh/bash
-    # az search service show har inget "endpoint"-fält; bygga URL från tjänstenamn.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show har inget "endpoint"-fält; bygga URL från tjänstenamn.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Använda Python SDK
 
@@ -97,11 +97,11 @@ Azure AI Search integreras med olika verktyg för att förbättra dina sökmöjl
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (rekommenderas): använder din `az login`-identitet via Entra ID RBAC.
-    # Kräver rollerna "Search Service Contributor" och "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Reservplan (nyckelbaserad autentisering):
-    # från azure.core.credentials import AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -189,9 +189,9 @@ För mer detaljerad information, se följande dokumentation:
 
 ## Slutsats
 
-Du har framgångsrikt konfigurerat Azure AI Search med Azure-portalen och integrerade verktyg. Du kan nu utforska mer avancerade funktioner och möjligheter med Azure AI Search för att förbättra dina söklösningar.
+Du har framgångsrikt ställt in Azure AI Search med hjälp av Azure-portalen och integrerade verktyg. Du kan nu utforska mer avancerade funktioner och möjligheter i Azure AI Search för att förbättra dina söklösningar.
 
-För vidare hjälp, besök [Azure Cognitive Search-dokumentationen](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+För ytterligare hjälp, besök [Azure Cognitive Search dokumentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
