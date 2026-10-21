@@ -71,15 +71,27 @@
     "source_file": ".agents/skills/jupyter-notebook/references/tutorial-patterns.md",
     "language_code": "te"
   },
+  ".agents/skills/local-ai-agents/SKILL.md": {
+    "original_hash": "6327b3d9b2950f26053dd4640a299ca4",
+    "translation_date": "2026-10-21T13:46:36+00:00",
+    "source_file": ".agents/skills/local-ai-agents/SKILL.md",
+    "language_code": "te"
+  },
   ".agents/skills/microsoft-docs/SKILL.md": {
-    "original_hash": "a0ee0c961f360a296b833ccf253e6a73",
-    "translation_date": "2026-03-07T14:39:54+00:00",
+    "original_hash": "4e3ba10a39451767a2362dcf2e5d8295",
+    "translation_date": "2026-10-21T12:53:34+00:00",
     "source_file": ".agents/skills/microsoft-docs/SKILL.md",
     "language_code": "te"
   },
+  ".agents/skills/testing-course-samples/SKILL.md": {
+    "original_hash": "4f435a5cf6d6c7a08dff0d2fbc62a849",
+    "translation_date": "2026-10-21T13:53:12+00:00",
+    "source_file": ".agents/skills/testing-course-samples/SKILL.md",
+    "language_code": "te"
+  },
   "00-course-setup/AzureSearch.md": {
-    "original_hash": "1fc9b25d924e719fa515c6eb680bc65e",
-    "translation_date": "2026-09-10T06:24:15+00:00",
+    "original_hash": "912abe2a2b1596d88ae0014cf5bde9f3",
+    "translation_date": "2026-10-21T12:53:09+00:00",
     "source_file": "00-course-setup/AzureSearch.md",
     "language_code": "te"
   },
@@ -162,8 +174,8 @@
     "language_code": "te"
   },
   "04-tool-use/README.md": {
-    "original_hash": "b8214cf662992be52dfbab206c5336a4",
-    "translation_date": "2026-07-17T22:31:55+00:00",
+    "original_hash": "d387aff3be246694e94501e980c982bc",
+    "translation_date": "2026-10-21T12:51:25+00:00",
     "source_file": "04-tool-use/README.md",
     "language_code": "te"
   },
@@ -174,8 +186,8 @@
     "language_code": "te"
   },
   "04-tool-use/code_samples/04-python-agent-framework.ipynb": {
-    "original_hash": "309625432b5b56f6a0cfafce29508e47",
-    "translation_date": "2026-07-14T07:31:35+00:00",
+    "original_hash": "092f45afb357ff4cc0f325a612de18ef",
+    "translation_date": "2026-10-21T12:32:03+00:00",
     "source_file": "04-tool-use/code_samples/04-python-agent-framework.ipynb",
     "language_code": "te"
   },
@@ -216,8 +228,8 @@
     "language_code": "te"
   },
   "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb": {
-    "original_hash": "e386c5fd0a80832dcb7d4fdba2fa54e6",
-    "translation_date": "2026-07-14T07:51:13+00:00",
+    "original_hash": "3d13dbe6484b2831d5e7342d8b9b3f22",
+    "translation_date": "2026-10-21T12:31:39+00:00",
     "source_file": "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb",
     "language_code": "te"
   },
@@ -366,20 +378,20 @@
     "language_code": "te"
   },
   "10-ai-agents-production/README.md": {
-    "original_hash": "2eba7086fb56ec001ad208ecd268d54d",
-    "translation_date": "2026-07-14T09:28:14+00:00",
+    "original_hash": "337a4cc96120a9c3e568b1ea6d7e1454",
+    "translation_date": "2026-10-21T12:52:27+00:00",
     "source_file": "10-ai-agents-production/README.md",
     "language_code": "te"
   },
   "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb": {
-    "original_hash": "f9b39e70f05dbed9e000f0610b2a1827",
-    "translation_date": "2026-07-17T21:40:31+00:00",
+    "original_hash": "ee1919627adfc5581158680044b86370",
+    "translation_date": "2026-10-21T12:32:38+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb",
     "language_code": "te"
   },
   "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb": {
-    "original_hash": "71f85492078f1c8e5a9a04feebae41f2",
-    "translation_date": "2026-07-17T21:40:00+00:00",
+    "original_hash": "272b0ef82bbc6dc7021fe775641bccbb",
+    "translation_date": "2026-10-21T12:33:06+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb",
     "language_code": "te"
   },
@@ -420,8 +432,8 @@
     "language_code": "te"
   },
   "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md": {
-    "original_hash": "0ad1ea4db343c0fd404e5e496a2bb03a",
-    "translation_date": "2026-07-14T09:48:39+00:00",
+    "original_hash": "80e2c8c8f358eec4ec13d750394577a2",
+    "translation_date": "2026-10-21T12:54:21+00:00",
     "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
     "language_code": "te"
   },
@@ -522,8 +534,8 @@
     "language_code": "te"
   },
   "16-deploying-scalable-agents/README.md": {
-    "original_hash": "f5de9bfd30ff3d92c7b787d9a05c00f7",
-    "translation_date": "2026-09-10T06:19:39+00:00",
+    "original_hash": "b2d4dfb0bd4b4b1d98dc3669cafbeab0",
+    "translation_date": "2026-10-21T12:50:27+00:00",
     "source_file": "16-deploying-scalable-agents/README.md",
     "language_code": "te"
   },
@@ -564,14 +576,14 @@
     "language_code": "te"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "259f4c2f1b978af641a0aaf40bcb7445",
-    "translation_date": "2026-05-13T11:59:38+00:00",
+    "original_hash": "a71e64d926c907b86db11696bd955aa2",
+    "translation_date": "2026-10-21T12:55:07+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "te"
   },
   "AGENTS.md": {
-    "original_hash": "737f9afa39874d4ffdc44c6bd213b434",
-    "translation_date": "2026-07-17T22:30:06+00:00",
+    "original_hash": "7152c8002857425f6fb7c3144be51e11",
+    "translation_date": "2026-10-21T12:46:44+00:00",
     "source_file": "AGENTS.md",
     "language_code": "te"
   },
@@ -588,8 +600,8 @@
     "language_code": "te"
   },
   "README.md": {
-    "original_hash": "1095bd7f7f86caa02b20f99af0c0c530",
-    "translation_date": "2026-09-10T06:08:15+00:00",
+    "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
+    "translation_date": "2026-10-21T12:48:52+00:00",
     "source_file": "README.md",
     "language_code": "te"
   },
@@ -600,8 +612,8 @@
     "language_code": "te"
   },
   "STUDY_GUIDE.md": {
-    "original_hash": "6ffadd425cc87f6a2ce4ed2100a6d80b",
-    "translation_date": "2026-03-07T13:09:07+00:00",
+    "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
+    "translation_date": "2026-10-21T12:45:47+00:00",
     "source_file": "STUDY_GUIDE.md",
     "language_code": "te"
   },
@@ -610,52 +622,6 @@
     "translation_date": "2025-12-03T15:27:46+00:00",
     "source_file": "SUPPORT.md",
     "language_code": "te"
-  },
-  "__translation_failures__": {
-    "STUDY_GUIDE.md": {
-      "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
-      "source_file": "STUDY_GUIDE.md",
-      "language_code": "te",
-      "failure_date": "2026-09-10T06:12:34+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.1.1 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    },
-    ".agents/skills/local-ai-agents/SKILL.md": {
-      "original_hash": "6327b3d9b2950f26053dd4640a299ca4",
-      "source_file": ".agents/skills/local-ai-agents/SKILL.md",
-      "language_code": "te",
-      "failure_date": "2026-07-14T12:34:45+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1 of 'SKILL.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    },
-    ".agents/skills/testing-course-samples/SKILL.md": {
-      "original_hash": "4f435a5cf6d6c7a08dff0d2fbc62a849",
-      "source_file": ".agents/skills/testing-course-samples/SKILL.md",
-      "language_code": "te",
-      "failure_date": "2026-07-17T23:41:32+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1 of 'SKILL.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    },
-    "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-      "original_hash": "a71e64d926c907b86db11696bd955aa2",
-      "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
-      "language_code": "te",
-      "failure_date": "2026-09-10T06:26:37+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
-      "failure_policy_version": 1
-    }
   },
   "tests/README.md": {
     "original_hash": "77b62539af9ac18820506113aee355f5",
