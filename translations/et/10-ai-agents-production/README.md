@@ -1,72 +1,72 @@
-# AI-agentide tootmine: jälgitavus ja hindamine
+# Tehisintellekti agendid tootmises: jälgitavus ja hindamine
 
-[![AI-agentide tootmine](../../../translated_images/et/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/et/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Kui AI-agentid liiguvad eksperimentaalsetelt prototüüpidelt pärismaailma rakendustesse, muutub oluliseks nende käitumise mõistmine, nende jõudluse jälgimine ja nende väljundite süsteemne hindamine.
+Kui tehisintellekti agendid liiguvad katseversioonidest pärismaailma rakendustesse, muutub oluliseks nende käitumise mõistmine, jõudluse jälgimine ja toodete süsteemne hindamine.
 
 ## Õpieesmärgid
 
-Pärast selle õppetüki läbimist oskad sa/sa mõistad:
-- Agentide jälgitavuse ja hindamise põhimõisteid
-- Meetodeid agentide jõudluse, kulude ja tõhususe parandamiseks
-- Mida ja kuidas oma AI-agente süsteemselt hinnata
-- Kuidas kulusid kontrollida AI-agentide tootmisse juurutamisel
-- Kuidas instrumendistada Microsoft Agent Frameworkiga loodud agente
+Pärast selle õppetüki lõpetamist oskad/saad aru:
+- Agendi jälgitavuse ja hindamise põhikontseptsioonidest
+- Agendi jõudluse, kulude ja tõhususe parandamise tehnikatest
+- Kuidas oma tehisintellekti agente süsteemselt hinnata
+- Kuidas kontrollida kulusid tehisintellekti agentide tootmisesse juurutamisel
+- Kuidas tööriistaga Microsoft Agent Framework ehitatud agente instrumendiga varustada
 
-Eesmärk on varustada sind teadmistega, et muuta sinu "mustad kasti" agentid läbipaistvateks, hallatavaks ja usaldusväärseteks süsteemideks.
+Eesmärk on varustada sind teadmistega, et muuta sinu „musta kasti“ agendid läbipaistvateks, hallatavateks ja usaldusväärseteks süsteemideks.
 
-_**Märkus:** Oluline on juurutada AI-agente, mis on turvalised ja usaldusväärsed. Vaata ka [Usaldusväärsete AI-agentide loomine](../06-building-trustworthy-agents/README.md) õppetükki._
+_**Märkus:** Oluline on juurutada turvalisi ja usaldusväärseid tehisintellekti agente. Vaata ka õppetükki [Usaldusväärsete tehisintellekti agentide loomine](../06-building-trustworthy-agents/README.md)._
 
 ## Jäljed ja ulatused
 
-Jälgitavuse tööriistad nagu [Langfuse](https://langfuse.com/) või [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kujutavad tavaliselt agentide jooksud jälgedena ja ulatustena.
+Jälgitavuse tööriistad nagu [Langfuse](https://langfuse.com/) või [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kujutavad tavaliselt agendi töid jälgedena ja ulatustena.
 
-- **Jälg** kujutab terviklikku agentide ülesannet algusest lõpuni (näiteks kasutajaküsimuse käsitlemine).
-- **Ulatused** on jälje sees üksikud sammud (näiteks keelemudeli kutsumine või andmete pärimine).
+- **Jälg** esindab täielikku agendi ülesannet algusest lõpuni (nt kasutajaküsimuse käsitlemine).
+- **Ulatused** on jälje üksikud sammud (nt keeledemudeli kutsumine või andmete päring).
 
-![Jälgede puu Langfuse'is](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
-<!-- Image URL retained for illustration purposes -->
+![Jälje puu Langfuses](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Pildilingi säilitatud illustratsiooniks -->
 
-Ilma jälgitavuseta võib AI-agent tunduda nagu "must kast" - selle sisemine olek ja loogika on hägused, mistõttu on keeruline vigu diagnoosida või jõudlust optimeerida. Jälgitavusega muutuvad agentid "klaaskastideks", pakkudes läbipaistvust, mis on otsustava tähtsusega usalduse ehitamiseks ja nende oodatud toimimise tagamiseks.
+Ilma jälgitavuseta võib tehisintellekti agent tunduda „must kast“ – tema sisemine olek ja põhjendus on läbipaistmatud, mis raskendab vigade diagnoosimist või jõudluse optimeerimist. Jälgitavusega muutuvad agendid „klaaskastideks“, pakkudes läbipaistvust, mis on usalduse loomiseks ja ootuspäraseks toimimiseks hädavajalik.
 
-## Miks jälgitavus tootmiskeskkonnas oluline on
+## Miks on jälgitavus tootmiskeskkondades oluline
 
-AI-agentide viimine tootmiskeskkondadesse seab nende jaoks uued väljakutsed ja nõuded. Jälgitavus ei ole enam "hape", vaid kriitilise tähtsusega võimekus:
+Tehisintellekti agentide üleminek tootmiskeskkonda toob kaasa uued väljakutsed ja nõuded. Jälgitavus ei ole enam lihtsalt "mugavus" vaid kriitiline võimekus:
 
-*   **Veaparandus ja põhi põhjusanalüüs:** Kui agent ebaõnnestub või annab ootamatu tulemuse, pakuvad jälgitavuse tööriistad vajalikke jälgi vea allika täpseks määramiseks. See on eriti oluline keerukate agentide puhul, mis võivad hõlmata mitut LLMi kõnet, tööriistadega suhtlemist ja tingimusloogikat.
-*   **Latentsus ja kulude juhtimine:** AI-agentid sõltuvad sageli LLMidest ja muudest välistest APIdest, mille eest arvestatakse tasu tokeni või kõne alusel. Jälgitavus võimaldab täpset nende kõnede jälgimist, aidates tuvastada liigset aeglust või kallid operatsioonid. See võimaldab optimeerida prompt’e, valida tõhusamaid mudeleid või ümber kujundada töövooge, et hallata tegevuskulusid ja tagada hea kasutajakogemus.
-*   **Usaldus, turvalisus ja nõuetele vastavus:** Paljudes rakendustes on oluline tagada, et agent käitub turvaliselt ja eetiliselt. Jälgitavus pakub auditijälge agentide tegevuste ja otsuste kohta. Seda saab kasutada selliste probleemide avastamiseks ja leevendamiseks nagu promptide süstimine, kahjuliku sisu genereerimine või isikuandmete väärkasutus (PII). Näiteks saab jälgedeid vaadata, et mõista, miks agent tegi teatud vastuse või kasutas konkreetset tööriista.
-*   **Jätkuvad parendustsüklid:** Jälgitavuse andmed on iteratiivse arendusprotsessi aluseks. Jälgides agentide toimimist päriselus, saavad meeskonnad tuvastada arenguvõimalusi, koguda andmeid modelleerimiseks ja hinnata muudatuste mõju. See tekitab tagasiside tsükli, kus tootmisalased online-hinnangud suunavad offline-katsetust ja täiustamist, viies järjest parema agentide toimimiseni.
+*   **Silumine ja põhjuslike vigade analüüs**: Kui agent ebaõnnestub või annab ootamatu tulemuse, annavad jälgitavuse tööriistad vajaliku jälje vea allika täpsustamiseks. See on eriti tähtis keeruliste agentide puhul, kus võib olla mitu LLM-i kutsungit, tööriistade vastastikmõjusid ja tingimuslikku loogikat.
+*   **Latentsus ja kulude haldamine**: Tehisintellekti agendid tuginevad sageli LLM-idele ja teistele välistele API-dele, mida arvestatakse tokeni või kutsungi põhjal. Jälgitavus võimaldab täpset kutsungite jälgimist, aidates tuvastada protsesse, mis on liigselt aeglased või kallid. See võimaldab meeskondadel optimeerida käske, valida tõhusamaid mudeleid või ümber kujundada töövooge, et hallata kulusid ja tagada hea kasutajakogemus.
+*   **Usaldus, turvalisus ja vastavus nõuetele**: Paljude rakenduste puhul on oluline tagada, et agendid käituvad turvaliselt ja eetiliselt. Jälgitavus annab auditijälje agendi tegevustest ja otsustest. Seda saab kasutada selliste probleemide avastamiseks ja leevendamiseks nagu promptide manipuleerimine, kahjuliku sisu genereerimine või isikuandmete (PII) väärkasutus. Näiteks saab jälgi läbi vaadata, et mõista, miks agent andis teatud vastuse või kasutas konkreetset tööriista.
+*   **Jätkuvad parendusringid**: Jälgitavuse andmed on iteratiivse arendusprotsessi alus. Reaalmaailmas agentide jõudlust jälgides saab meeskond tuvastada parendusvaldkondi, koguda andmeid mudelite täpsustamiseks ja kinnitada muudatuste mõju. See loob tagasisidetsükli, kus tootmisest saadud teadmised veebipõhisest hindamisest täiustavad võrguväliseid eksperimente ja parendusi, viies järk-järgult parema agendi jõudluseni.
 
-## Peamised jälgitavad mõõdikud
+## Peamised mõõdikud, mida jälgida
 
-Agentide käitumise jälgimiseks ja mõistmiseks tuleks jälgida mitmeid mõõdikuid ja signaale. Kuigi konkreetseid mõõdikuid võib varieeruda vastavalt agentide eesmärgile, on mõned universaalselt olulised.
+Agendi käitumise jälgimiseks ja mõistmiseks tuleks jälgida mitmeid mõõdikuid ja signaale. Kuigi konkreetsed mõõdikud võivad sõltuda agendi eesmärgist, on mõned universaalselt tähtsad.
 
-Siin on mõned jälgitavad kõige levinumad mõõdikud:
+Siin on mõned enim jälgitavad mõõdikud:
 
-**Latentsus:** Kui kiiresti agent vastab? Pikad ooteajad mõjuvad kasutajakogemusele negatiivselt. Latentsust peaks mõõtma ülesannete ja üksikute sammude kaupa, jälgides agentide jooksusid. Näiteks agent, kes kulutab kõikide mudelikõnede jaoks 20 sekundit, võiks kiirendada, kasutades kiirem mudelit või tehes mudelikõned paralleelselt.
+**Latentsus:** Kui kiiresti agent reageerib? Pikad ooteajad mõjuvad kasutajakogemusele halvasti. Tuleks mõõta latentsust ülesannete ja üksikute sammude kaupa, jälgides agendi tööprotsesse. Näiteks agent, kes kulutab kõigile mudelikutsungitele 20 sekundit, võiks kiireneda, kasutades kiirem mudelit või tehes kutsungid paralleelselt.
 
-**Kulud:** Kui palju maksab agentide üks jooks? AI-agentid sõltuvad LLM-i kõnedest, mille eest arvestatakse tasu tokeni või välise API-ühenduse eest. Tihe tööriistade kasutus või mitmed prompt’id võivad kiiresti kulusid tõsta. Näiteks kui agent kutsub LLM-i viis korda marginaalse kvaliteedi paranduse nimel, tuleb hinnata, kas kulud on õigustatud või kas kõnede arvu võiks vähendada või kasutada odavamat mudelit. Reaalaegne jälgimine aitab avastada ootamatuid kulutõuse (nt vead, mis tekitavad liigseid API-loope).
+**Kulud:** Milline on kulu ühe agendi töö korral? AI agendid kasutavad LLM-kutsungeid, mida arvestatakse tokeni või välise API-kutsungi kohta. Tööriistade sagedane kasutamine või mitmed käsud võivad kulusid kiiresti kasvatada. Näiteks kui agent kutsub LLM-i viis korda marginaalse kvaliteedi paranduse pärast, tuleb hinnata, kas kulu on õigustatud või kas võiks vähendada kutsungite arvu või valida odavama mudeli. Reaalajas jälgimine aitab tuvastada ootamatuid piike (nt vead, mis põhjustavad liigseid API-tsükleid).
 
-**Päringuvead:** Kui palju päringuid agent ebaõnnestus? See võib hõlmata API-vigu või ebaõnnestunud tööriistakõnesid. Et muuta agent tootmises vastupidavamaks, saab selliste vigade vastu seadistada varuplaanid või korduskatsed. Näiteks kui LLM-i pakkuja A on maas, lülitad varuvariandina üle pakkujale B.
+**Päringuvead:** Mitu päringut agent ebaõnnestus täitma? See võib hõlmata API vigu või nurjunud tööriista kutsungeid. Et muuta agent tootmises vastupidavamaks, saab seejärel seadistada tagavarakäske või kordusi. Näiteks kui LLM pakkuja A on maas, lülituda LLM pakkujale B reservvaruna.
 
-**Kasutajate tagasiside:** Otsepäringute hindamise rakendamine annab väärtuslikku infot. See võib hõlmata selgesõnalisi hinnanguid (👍heaks/👎halvaks, ⭐1-5 tärni) või tekstilisi kommentaare. Pidev negatiivne tagasiside peaks sind hoiatama, sest see on märk, et agent ei toimi ootuspäraselt. 
+**Kasutajate tagasiside:** Otse kasutajate hinnangute kaasamine annab väärtuslikku infot. See võib olla selged hinnangud (👍meeldib/👎ei meeldi, ⭐1-5 tärni) või tekstilised kommentaarid. Pidev negatiivne tagasiside peaks hoiatama, sest see tähendab, et agent ei tööta oodatult.
 
-**Kaudne kasutajate tagasiside:** Kasutajate käitumine annab kaudset tagasisidet ka ilma selgesõnaliste hinnanguteta. See võib tähendada kohest küsimuse ümber sõnastamist, korduvaid päringuid või uuesti proovi nupule klõpsamist. Näiteks, kui näed, et kasutajad esitavad sama küsimust korduvalt, on see märk, et agent ei toimi ootuspäraselt.
+**Kaudne kasutajate tagasiside:** Kasutajate käitumine annab kaudset tagasisidet ilma otseste hinnanguteta. See võib sisaldada küsimuse kiiret ümber sõnastamist, korduvaid päringuid või valikut proovida uuesti. Näiteks kui näed, et kasutajad esitavad sama küsimust korduvalt, on see märk, et agent ei tööta oodatult.
 
-**Täpsus:** Kui tihti agent annab õigeid või soovitud vastuseid? Täpsuse definitsioonid varieeruvad (näiteks probleemilahenduse õigsus, info pärimise täpsus, kasutaja rahulolu). Esimene samm on määratleda, mis on sinu agendi jaoks edu. Sa võid jälgida täpsust automatiseeritud kontrollide, hindamisskooride või ülesande täitmise siltide kaudu. Näiteks märkides jäljed "õnnestunud" või "ebaõnnestunud".
+**Täpsus:** Kui tihti agent annab õigeid või soovitud vastuseid? Täpsus võib tähendada erinevaid asju (probleemilahenduse täpsus, infootsingu õigsus, kasutajate rahulolu). Esimene samm on määratleda, mida edu sinu agendil tähendab. Täpsust võib jälgida automaatsete kontrollide, hindamisskooride või ülesande täitmise siltide kaudu. Näiteks märgistada jäljed kui „õnnestunud“ või „ebaõnnestunud“.
 
-**Automaatse hindamise mõõdikud:** Sa võid seadistada ka automaatseid hindamisi. Näiteks võid kasutada LLM-i, et hinnata agendi väljundit, kas see on kasulik, täpne või mitte. On ka mitmeid avatud lähtekoodiga raamistikke, mis aitavad hinnata agendi erinevaid aspekte. Näiteks [RAGAS](https://docs.ragas.io/) RAG-agentide jaoks või [LLM Guard](https://llm-guard.com/), mis avastab kahjulikku keelt või promptide süstimist.
+**Automatiseeritud hindamismõõdikud:** Võid seadistada ka automatiseeritud hindamisi. Näiteks saad kasutada LLM-i agendi väljundi hindamiseks selle abil, kas see on abiks, täpne või mitte. On ka mitmeid avatud lähtekoodiga teeke, mis aitavad hinnata erinevaid agendi aspekte. Nt [RAGAS](https://docs.ragas.io/) RAG agentidele või [LLM Guard](https://github.com/protectai/llm-guard) kahjuliku keele tuvastamiseks või prompt-põhise manipulatsiooni avastamiseks.
 
-Praktikas annab nende mõõdikute kombinatsioon parima ülevaate AI-agendi seisundist. Selle peatüki [näitenootebookis](./code_samples/10-expense_claim-demo.ipynb) näitame, kuidas need mõõdikud reaalsetes näidetes välja näevad, ent esmalt õpime tüüpilise hindamisprotsessi.
+Praktikas annab nende mõõdikute kombinatsioon parima ülevaate AI agendi seisundist. Käesoleva peatüki [näite märkmik](./code_samples/10-expense_claim-demo.ipynb) demonstreerib, kuidas need mõõdikud näevad välja reaalsetes näidetes, aga esmalt õpime, milline on tüüpiline hindamisprotsess.
 
-## Instrumenteerige oma agent
+## Instrumendi kasutamise paigaldamine agendile
 
-Jälgede andmete kogumiseks tuleb oma koodi instrumendistada. Eesmärk on instrumendistada agentide kood, et saata jälgi ja mõõdikuid, mida jälgitavuse platvorm suudab salvestada, töödelda ja visualiseerida.
+Jälgede kogumiseks on vaja instrumenteerida koodi. Eesmärk on instrumendiga varustada agent kood nii, et ta eraldaks jälgi ja mõõdikuid, mida jälgitavuse platvorm suudab püüda, töödelda ja visualiseerida.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) on kujunenud LLM-i jälgitavuse tööstusstandardiks. See pakub API-sid, SDK-sid ja tööriistu telemeetriaandmete genereerimiseks, kogumiseks ja eksportimiseks.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) on kujunenud tööstusharu standardiks LLM-jälgitavuses. See pakub API-sid, SDK-sid ja tööriistu telemeetria andmete genereerimiseks, kogumiseks ja eksportimiseks.
 
-Paljud instrumendistamise raamatukogud sisaldavad olemasolevaid agentide raamistikke ja muudavad OpenTelemetry ulatuste eksportimise jälgitavuse tööriistasse lihtsaks. Microsoft Agent Framework integreerub OpenTelemetry-ga loomulikult. Allpool on näide MAF agenti instrumendist:
+On palju instrumenteerimisteeke, mis pakivad olemasolevaid agendiraamistikke ja teevad lihtsaks OpenTelemetry ulatuste eksportimise jälgitavustööriista. Microsoft Agent Framework integreerub OpenTelemetry-ga loomulikult. Järgnevalt on näide MAF agendi instrumendi kasutamisest:
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -75,15 +75,15 @@ tracer = get_tracer()
 meter = get_meter()
 
 with tracer.start_as_current_span("agent_run"):
-    # Agendi täitmist jälgitakse automaatselt
+    # Agent execution is traced automatically
     pass
 ```
 
-Selle peatüki [näitenootebook](./code_samples/10-expense_claim-demo.ipynb) demonstreerib, kuidas instrumendistada oma MAF agenti.
+Käesoleva peatüki [näite märkmik](./code_samples/10-expense_claim-demo.ipynb) demonstreerib, kuidas oma MAF agenti instrumendi kaudu varustada.
 
-**Manuaalne ulatuste loomine:** Kuigi instrumendistamise raamatukogud pakuvad head alust, on sageli kohtasid, kus on vaja detailsemaid või kohandatud andmeid. Sa võid manuaalselt luua ulatusi, lisades kohandatud rakenduse loogikat. Veel olulisem, saad rikastada automaatselt või käsitsi loodud ulatusi kohandatud omadustega (tuntud ka kui sildid või metaandmed). Need võivad sisaldada ärispetsiifilisi andmeid, vahepealseid arvutusi või mis tahes konteksti, mis võib aidata vigu parandada või analüüsida, näiteks `user_id`, `session_id` või `model_version`.
+**Ulatuste käsitsi loomine:** Kuigi instrumenteerimisteegid annavad hea algusbaasi, on sageli juhtumeid, kus on vaja detailsemat või kohandatud infot. Võid käsitsi luua ulatusi, et lisada kohandatud rakendusloogikat. Veelgi tähtsam, saab automaatselt või käsitsi loodud ulatustele lisada kohandatud atribuute (tuntud ka kui sildid või metaandmed). Need atribuudid võivad sisaldada ärispetsiifilisi andmeid, vahepealseid arvutusi või konteksti, mis on kasulik silumiseks või analüüsiks, näiteks `user_id`, `session_id` või `model_version`.
 
-Näide jälgede ja ulatuste manuaalsest loomise kohta [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3) abil:
+Näide jälgede ja ulatuste käsitsi loomisest [Langfuse Python SDK-ga](https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -97,72 +97,71 @@ span.end()
 
 ## Agendi hindamine
 
-Jälgitavus annab meile mõõdikuid, aga hindamine on andmete analüüsimise protsess (ja testide läbiviimine), et määrata, kui hästi AI-agent töötab ja kuidas seda saaks paremaks teha. Teisisõnu, kui sul on need jäljed ja mõõdikud olemas, kuidas neid kasutada agendi hindamiseks ja otsuste tegemiseks?
+Jälgitavus annab meile mõõdikud, kuid hindamine on protsess, mis analüüsib neid andmeid (ja viib läbi teste), et määrata, kui hästi tehisintellekti agent töötab ja kuidas seda saab parandada. Teisisõnu, kui sul on jäljed ja mõõdikud olemas, kuidas neid kasutada agendi hindamiseks ja otsustamiseks?
 
-Regulaarne hindamine on oluline, sest AI-agentid on tihti mittetäpsed ja võivad areneda (versiooniuuenduste või mudelikäitumise muutumise kaudu) – ilma hindamiseta ei tea sa, kas sinu "tark agent" teeb oma tööd hästi või on ta regressioonis.
+Regulaarne hindamine on oluline, sest AI agendid on sageli mitte-determineeruvad ja võivad areneda (kusjuures mudeli käitumine võib muutuda või nihkuda) – ilma hindamiseta ei teaks sa, kas sinu „tark agent“ tõesti hästi töötab või on ta halvemaks läinud.
 
-AI-agentide hindamine jaguneb kahele kategooriale: **online-hindamine** ja **offline-hindamine**. Mõlemad on väärtuslikud ja täiendavad teineteist. Tavaliselt alustame offline-hindamisest, sest see on minimaalne samm enne agendi juurutamist.
+AI agentide hindamisel on kaks kategooriat: **võrguvaba (offline) hindamine** ja **veebipõhine (online) hindamine**. Mõlemad on väärtuslikud ja täiendavad üksteist. Tavaliselt alustame võrguvaba hindamisega, kuna see on minimaalne vajalik samm enne agendi tootmisesse juurutamist.
 
-### Offline-hindamine
+### Võrguvaba hindamine
 
-![Dataseti elemendid Langfuse’is](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Andmete komplekti üksused Langfuses](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-See tähendab agendi hindamist kontrollitud keskkonnas, tavaliselt testandmestike abil, mitte päris kasutajate päringutega. Kasutatakse kureeritud andmestikke, kus on teada oodatud väljund või korrektne käitumine, ning tark agent jooksutatakse nende andmestike peal.
+See hõlmab agendi hindamist kontrollitud keskkonnas, tavaliselt testandmekogude abil, mitte reaalsete kasutajaküsimustega. Kasutatakse kureeritud andmekogusid, kus teatakse oodatud väljundit või korrektset käitumist, ja siis agent töötab nende andmetega.
 
-Näiteks kui oled ehitanud matemaatikaprobleemide agenti, võib sul olla [testandmestik](https://huggingface.co/datasets/gsm8k) 100 ülesandega, mille vastused on teada. Offline-hindamist tehakse sageli arenduse käigus (ja see võib olla osa CI/CD töövoogudest), et kontrollida paranemisi või vältida regressioone. Selle eelis on, et see on **korratav ja annab selgeid täpsuse mõõdikuid, kuna on olemas tõeline vastus**. Samuti võib simuleerida kasutajate päringuid ja mõõta agendi vastuseid ideaalsete vastuste suhtes või kasutada automaatseid mõõdikuid nagu eespool kirjeldatud.
+Näiteks, kui oled loonud matemaatiliste sõnaprobleemide agendi, võib sul olla [testandmekogu](https://huggingface.co/datasets/openai/gsm8k), mis sisaldab 100 probleemi koos teadaolevate vastustega. Võrguvaba hindamine toimub sageli arendusperioodil (võib olla osa CI/CD torujuhtmetest), et kontrollida parendusi või vältida regressioone. Eelis on see, et see on **korduv ja saad selgeid täpsuse mõõdikuid, kuna on olemas tõde**. Samuti võid simuleerida kasutajaküsimusi ja mõõta agendi vastuseid ideaalse vastu või kasutada eespool kirjeldatud automatiseeritud mõõdikuid.
 
-Offline-hindamise suurim väljakutse on tagada, et testandmestik oleks põhjalik ja ajakohane – agent võib sooritada hästi fikseeritud testikomplekti peal, kuid tootmises esineda väga erinevaid päringuid. Seepärast tuleks testkomplekte regulaarselt täiendada uute erandjuhtumite ja näidetega, mis peegeldavad pärismaailma olukordi. Kasulik on segada väikseid "hääletesti" juhtumeid ja suuremaid hindamiskomplekte: väikesi kiireks kontrolliks ja suuremaid laiemate jõudlusmõõdikute jaoks.
+Võrguvaba hindamise suurim väljakutse on tagada, et testandmekogu oleks põhjalik ja jääks relevantseks – agent võib teha head tööd fikseeritud testkogul, kuid tootmises tulla toime väga erinevate päringutega. Seega peaksid testkogusid regulaarselt uuendama uute servajuhtumite ja näidetega, mis peegeldavad pärismaailma olukordi. Kasulik on segu väikestest „suitsutest“ juhtumitest ja suurematest hindamiskogudest: väikesed kiirkontrolliks ja suured laiaulatuslikumate jõudlusmõõdikute jaoks.
 
-### Online-hindamine
+### Veebipõhine hindamine
 
 ![Jälgitavuse mõõdikute ülevaade](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-See tähendab agendi hindamist elavas, päriselulises keskkonnas ehk kasutamise ajal tootmises. Online-hindamine hõlmab agendi jõudluse jälgimist reaalsete kasutajate suhtlustel ja tulemuste pidevat analüüsi.
+See tähendab agendi hindamist elavas pärismaailma keskkonnas, st tegelikul tootmiskasutamisel. Veebipõhine hindamine hõlmab agendi jõudluse jälgimist päriskasutaja interaktsioonidel ja tulemuste pidevat analüüsi.
 
-Näiteks võid jälgida õnnestumismäärasid, kasutajate rahulolu skooridest või muid mõõdikuid reaalsetel päringutel. Online-hindamise eelis on see, et see **tabab asju, mida sa laborikeskkonnas ette ei näe** – näiteks mudelite kõikumisi ajas (kui agendi tõhusus halveneb sisendmustrite muutudes) ning ootamatuid päringuid või olukordi, mis testandmestikus puudusid. See annab reaalse pildi, kuidas agent looduses käitub.
+Näiteks võid jälgida õnnestumisprotsente, kasutajate rahulolu skoori või muid mõõdikuid reaalsete andmete põhjal. Veebipõhise hindamise eelis on see, et see **tabab asju, mida sa laboris ei pruugi oodata** – saad jälgida mudeli nihkumist aja jooksul (kui agendi efektiivsus väheneb, kui sisend mustrid muutuvad) ja tabada ootamatuid päringuid või olukordi, mida sinu testandmed ei hõlmanud. See annab tõelise pildi, kuidas agent käitub pärismaailmas.
 
-Online-hindamine hõlmab sageli kaudse ja otsese kasutajate tagasiside kogumist ning võib hõlmata varjatud teste või A/B-teste (kus uus agentide versioon töötab paralleelselt vana variandiga võrdluseks). Väljakutse on sageli see, et usaldusväärsete siltide või skooride saamine reaalsete päringute põhjal võib olla keeruline – toetuda võid kasutajate tagasisidele või alluvatele mõõdikutele (näiteks kas kasutaja klikib tulemusele).
+Veebipõhine hindamine hõlmab sageli nii kaudse kui ka otsese kasutajate tagasiside kogumist ja võib sisaldada varjuteste või A/B teste (kus uus agentide versioon jookseb paralleelselt vana vastu võrdlemiseks). Väljakutseks on usaldusväärsete siltide või skooride saamine reaalajas interaktsioonide kohta – sageli toetutakse kasutajate tagasisidele või alluvatele mõõdikutele (nt kas kasutaja klõpsas tulemust).
 
-### Kahe hindamisviisi kombineerimine
+### Kahe meetodi ühendamine
 
-Online- ja offline-hindamised ei ole üksteist välistavad; need täiustavad teineteist. Online-jälgimisega (nt uued kasutajate päringutüübid, kus agent toimib halvasti) saad täiendada ja parandada offline testandmestikke. Vastupidi, hästi offline-testides toimivad agentid saab seejärel enesekindlamalt juurutada ja online-keskkonnas jälgida.
+Veebipõhine ja võrguvaba hindamine ei ole vastastikku välistavad, vaid täiendavad teineteist. Veebipõhise jälgimise põhjal saadud teadmisi (nt uute kasutajapäringutüüpide kohta, kus agent töötab halvasti) saab kasutada võrguvabade andmekogude täiustamiseks ja parandamiseks. Vastupidi, agentide, kes on võrgus hästi sooritanud, saab seejärel kindlamalt juurutada ja veebis jälgida.
 
-Tegelikult kasutavad paljud meeskonnad järgmist tsüklit:
+Tegelikult paljud meeskonnad järgivad tsüklit:
 
-_offline hindamine -> juurutamine -> online jälgimine -> uute rikete juhtumite kogumine -> lisamine offline andmestikku -> agendi täiustamine -> kordamine_.
+_võrguvaba hindamine -> juurutamine -> veebijälgimine -> uute tõrketu juhtumite kogumine -> lisamine võrguvabale andmekogule -> agendi täpsustamine -> kordamine_.
 
 ## Levinud probleemid
 
-AI-agentide tootmisse viies võid kokku puutuda mitme väljakutsega. Siin on mõned tavalised probleemid ja nende võimalikud lahendused:
+Järgnevalt mõned levinud probleemid ja võimalikud lahendused tehisintellekti agentide tootmisse juurutamisel:
 
 | **Probleem**    | **Võimalik lahendus**   |
 | ------------- | ------------------ |
-| AI-agent ei täida ülesandeid järjekindlalt | - Täiusta agendile antud prompt'i, ole eesmärkides selge.<br>- Määratle kohad, kus ülesande jagamine osadeks ja nende haldamine mitme agenti poolt aitab. |
-| AI-agent läbib lõputuid silmuseid  | - Tagada selged lõpetamise tingimused, et agent teaks, millal protsess peatub.<br>- Keerukatele, loogikut ja planeerimist nõudvatele ülesannetele kasuta suuremat mudelit, mis on mõeldud mõtlemise ülesannetele. |
-| AI-agendi tööriistade kõned ei tööta korralikult   | - Testi ja kontrolli tööriista väljundit väljaspool agendi süsteemi.<br>- Täiusta määratletud parameetreid, prompt’e ja tööriistade nimetust.  |
-| Mitme agente süsteem ei toimi järjekindlalt | - Täiusta iga agendi prompt’e, tagades, et need on spetsiifilised ja teineteisest erinevad.<br>- Ehita hierarhiline süsteem, kasutades "marsruutimise" või kontrolliva agenti, et määrata õige agent. |
+| AI Agent ei täida ülesandeid ühtlaselt | - Täpsustage agentidele antud käske; olge eesmärkides selged.<br>- Identifitseerige, kus ülesanne jagamine alamülesanneteks ja mitme agendi kaasamine võib aidata. |
+| AI Agent satub lõpututesse tsüklitesse  | - Tagage selged lõpetamise tingimused, et agent teaks, millal lõpetada protsess.<br>- Kasutage keeruliste ülesannete jaoks suuremat mudelit, mis on spetsialiseerunud põhjendamisele ja planeerimisele. |
+| AI Agendi tööriistade kutsed ei toimi hästi   | - Testige ja valideerige tööriista väljund väljaspool agendi süsteemi.<br>- Täpsustage tööriistade parameetreid, käske ja nimetusi.  |
+| Mitme agendi süsteem ei tööta ühtlaselt | - Täpsustage iga agendi käsud, et need oleksid spetsiifilised ja erinevad.<br>- Ehitage hierarhiline süsteem kasutades „suunamis“ või kontroller-agenti, kes otsustab, milline agent on õige. |
 
-Paljusid neist probleemidest saab tõhusamalt tuvastada jälgitavust kasutades. Eelnevalt käsitletud jäljed ja mõõdikud aitavad täpselt tuvastada kohta agentide töövoos, kus probleemid ilmnevad, muutes veaparanduse ja optimeerimise palju tõhusamaks.
+Paljusid neist probleemidest saab tõhusamalt avastada olemasoleva jälgitavuse abil. Varasemalt mainitud jäljed ja mõõdikud aitavad tuvastada täpselt, kus agendi töövoogu esineb probleeme, muutes silumise ja optimeerimise palju efektiivsemaks.
 
-## Kulude juhtimine
+## Kulude haldamine
+
+Siin on mõned strateegiad tehisintellekti agentide tootmisse juurutamise kulude haldamiseks:
+
+**Väiksemate mudelite kasutamine:** Väikesed keelemudelid (SLMid) võivad teatud agendi kasutusjuhtudel hästi toimida ja vähendada oluliselt kulusid. Nagu varem mainitud, on parim viis mõista, kui hästi SLM teie kasutusjuhtumil toimib, ehitada hindamissüsteem, mis määrab ja võrdleb jõudlust suuremate mudelitega. Mõelge SLM-ide kasutamisele lihtsamate ülesannete jaoks nagu kavatsuse klassifitseerimine või parameetrite väljavõtmine, samas kui keerukate mõtlemisülesannete jaoks reserveerige suuremad mudelid.
+
+**Lülitusmudeli kasutamine:** Sarnane strateegia on kasutada erinevaid mudeleid ja suurusi. Võite kasutada LLM-i/SLM-i või servita kaugfunktsiooni, et saata päringuid vastavalt keerukusele kõige sobivamatele mudelitele. See aitab samuti kulusid vähendada ja samal ajal tagada jõudluse õigetel ülesannetel. Näiteks suunake lihtsad päringud väiksematele, kiirematele mudelitele ning kasutage kallimaid suuri mudeleid ainult keerukate mõtlemisülesannete jaoks.
+
+**Vastuste vahemällu salvestamine:** Üldlevinud päringute ja ülesannete tuvastamine ning vastuste pakkumine enne, kui need läbivad teie agendi süsteemi, on hea viis sarnaste päringute mahu vähendamiseks. Võite isegi rakendada voogu, et tuvastada, kui sarnane päring on teie vahemällu salvestatud päringutega, kasutades selleks lihtsamaid tehisintellekti mudeleid. See strateegia võib märkimisväärselt vähendada kulusid sagedamini esitatavate küsimuste või tavapäraste töövoogude korral.
+
+## Vaatame, kuidas see praktikas toimib
+
+Selles [peatüki näidis-märkmikus](./code_samples/10-expense_claim-demo.ipynb) näeme näiteid, kuidas saame kasutada jälgimistööriistu oma agendi jälgimiseks ja hindamiseks.
 
 
-Siin on mõned strateegiad, kuidas hallata AI agentide tootmisse viimisega seotud kulusid:
+### Kas sul on AI-agentide tootmises kasutamise kohta veel küsimusi?
 
-**Väiksemate mudelite kasutamine:** Väikesed keelemudelid (SLMd) suudavad mõningatel agentuursetel juhtudel hästi toimida ning vähendavad oluliselt kulusid. Nagu varem mainitud, on parim viis mõista, kui hästi SLM teie kasutusjuhtumis toimib, ehitada hindamissüsteem, mis määrab ja võrdleb jõudlust suuremate mudelitega. Kaaluge SLM-de kasutamist lihtsamate ülesannete jaoks, näiteks kavatsuste klassifitseerimiseks või parameetrite väljavõtmiseks, samal ajal kui keerukama mõtlemise jaoks kasutage suuremaid mudeleid.
-
-**Marsruutimudeli kasutamine:** Sarnane strateegia on kasutada mitmekesiseid mudeleid ja suurusi. Võite kasutada LLM-i/SLM-i või serverivaba funktsiooni, et suunata päringud keerukuse põhjal sobivaimatele mudelitele. See aitab ka kulusid vähendada ning tagab samal ajal jõudluse õigetel ülesannetel. Näiteks suunake lihtsad päringud väiksematele ja kiirematele mudelitele ning kasutage kallimaid suuri mudeleid ainult keerukate mõtlemist vajavate ülesannete jaoks.
-
-**Vastuste vahemällu salvestamine:** Tuntud päringute ja ülesannete tuvastamine ning vastuste pakkumine enne agentuuri süsteemist läbi minemist on hea viis taoliste päringute mahtu vähendada. Võite isegi rakendada voogu, mis määrab, kui sarnane päring on teie vahemällu salvestatud päringutele, kasutades selleks lihtsamaid AI mudeleid. See strateegia võib oluliselt vähendada kulusid sagedasti esitatavate küsimuste või tavapäraste töövoogude puhul.
-
-## Vaatame, kuidas see praktikas töötab
-
-[Selle sektsiooni näitenootbukis](./code_samples/10-expense_claim-demo.ipynb) näeme näiteid sellest, kuidas kasutada jälgimisvahendeid meie agendi jälgimiseks ja hindamiseks.
-
-
-### Kas sul on AI agentide tootmisse viimise kohta lisaküsimusi?
-
-Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppijatega, osaleda kõneaegadel ja saada vastused oma AI agentide küsimustele.
+Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppijatega, osaleda kontoritundides ja saada vastused oma AI-agentide küsimustele.
 
 ## Eelmine õppetund
 
@@ -170,7 +169,7 @@ Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et 
 
 ## Järgmine õppetund
 
-[Agentuurprotokollid](../11-agentic-protocols/README.md)
+[Agentlikud protokollid](../11-agentic-protocols/README.md)
 
 ---
 

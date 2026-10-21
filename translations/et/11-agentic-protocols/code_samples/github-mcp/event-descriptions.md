@@ -1,183 +1,183 @@
-## Sündmuse nimi: Ehita oma koodipõhine rakendus Microsoft Foundry Agent Service abil (EMEA/USA pakkumine)
+## Ürituse nimi: Ehita oma koodikeskne rakendus Microsoft Foundry Agent Service'iga (EMEA/USA pakkumine)
 
 ## Kirjeldus
 
-Microsoft Foundry Agent Service on sujuv teenuse ja SDK kombinatsioon, mis lihtsustab tugevalt AI-l põhinevate lahenduste arendamist. Selles sessioonis õpid, kuidas ehitada oma koodipõhist AI agenti Azure'iga, kes suudab vastata küsimustele, teha andmeanalüüse ning integreerida väliseid andmeallikaid. Samuti uurid keerukamaid arhitektuure, sealhulgas mitu agenti, kes töötavad koos.
+Microsoft Foundry Agent Service on sujuv teenuse ja SDK ühend, mis lihtsustab tugevalt AI-põhiste lahenduste arendamist. Selles sessioonis õpid, kuidas ehitada oma koodikeskne AI-agent Azure'iga, mis suudab vastata küsimustele, teha andmeanalüüsi ja integreerida väliseid andmeallikaid. Samuti uurid keerukamaid arhitektuure, sealhulgas mitme agendi koostööd.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25325/>
 
 ---
 
-## Sündmuse nimi: Äriprotsesside muutmine mitmega AI agentidega, kasutades Semantic Kernelit
+## Ürituse nimi: Äriliste protsesside muutmine mitmeagendi AI abil Semantic Kerneliga
 
 ## Kirjeldus
 
-Avastage mitme agendiga AI süsteemide võimsus läbi elavate demo'de ja praktilise õppimise mustritega nagu grupivestlus, refleksioon, valija ja parv. Kasutage Semantic Kernel Process Framework’i, et automatiseerida ja skaleerida kriitilisi äriprotsesse alates klienditoest kuni projektihalduseni, kasutades Pythoni.
+Avastage mitmeagendi AI-süsteemide jõud elavate demonstratsioonide ja praktilise õppimise kaudu mustritega nagu grupivestlus, refleksioon, valija ja parv. Kasutage Semantic Kernel Process Frameworki, et automatiseerida ja skaleerida kriitilisi äriprotsesse alates klienditoest kuni projektijuhtimiseni Pythoniga.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25313/>
 
 ---
 
-## Sündmuse nimi: Agentide ja mitme agentide meeskondade ehitamine AutoGen v0.4-ga
+## Ürituse nimi: Agendipõhiste rakenduste loomine AutoGen v0.4 abil
 
 ## Kirjeldus
 
-Alustame agentide ja mitme agentide meeskondade ehitamisega AutoGen v0.4 abil. Katame ülevaate uuest AutoGen v0.4 arhitektuurist ja juhatame sind läbi, kuidas ehitada mitme agentide meeskond veebipõhise kasutajaliidese abil.
+Alustamine agentide ja mitmeagendi meeskondade ehitamiseks AutoGen v0.4-ga. Me käsitleme ülevaadet uuest AutoGen v0.4 arhitektuurist ning juhendame teid, kuidas ehitada mitmeagendi meeskond veebipõhise kasutajaliidese abil.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25327/>
 
 ---
 
-## Sündmuse nimi: AI agentide prototüüpimine GitHubi mudelitega
+## Ürituse nimi: AI agentide prototüüpimine GitHubi mudelitega
 
 ## Kirjeldus
 
-Tänu GitHub Models'ile on sul esimese AI agendi ehitamiseks vaja vaid GitHubi kontot! GitHub Models sisaldab võimsaid mudeleid nagu OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 ja palju muud, valmis mänguväljakul või sinu koodis katsetamiseks.
-Selles sessioonis demonstreerime, kuidas ühendada GitHub Modelsiga Pythonist ning seejärel ehitada agente, kasutades populaarsed Python paketid nagu PydanticAI, AutoGen ja Semantic Kernel.
-Võid otseülekandes jälgida GitHub Codespaces'is või proovida näiteid ise pärast sessiooni.
+Tänu GitHubi mudelitele on sinu esimese AI agendi ehitamiseks vaja ainult GitHubi kontot! GitHub Models sisaldab võimsaid mudeleid nagu OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 ja palju muud, mis on valmis katsetamiseks mänguväljakul või sinu koodis.
+Selles sessioonis näitame, kuidas ühendada Pythonist GitHub Modelsiga ja seejärel ehitada agente populaarsed Python paketid nagu PydanticAI, AutoGen ja Semantic Kernel kasutades.
+Saad osaleda reaalajas GitHub Codespaces või proovida näiteid ise pärast sessiooni igal ajal.
 
-> **Märkus:** GitHub Models on aegunud (toetakse kuni juuli 2026). Ära kasuta GitHub Models'i uute projektide jaoks — kasuta selle asemel **Microsoft Foundry** mudeleid.
+> **Märkus:** GitHub Models on vananenud (väljajäämas juulis 2026). Ära kasuta GitHub Modelle uute projektide jaoks — kasuta selle asemel **Microsoft Foundry** mudeleid.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25481/>
 
 ---
 
-## Sündmuse nimi: Agentide ehitamine armee mudelitega Azure AI mudelite kataloogist
+## Ürituse nimi: Agentide loomine armee mudelite abil Azure AI mudeliloendist
 
 ## Kirjeldus
 
-Azure AI mudelite kataloog pakub suurt valikut mudeleid, erinevate oskuste ja võimekustega. Kuigi algajatele sobib tavaliselt valmis mudeli kasutamine, saavad arendajad keerukamate töövoogude puhul kasutada spetsialiseeritud mudeleid, et nende valitud raamistikus töö lihtsamaks teha. Selles esituses vaatame üle mudelikataloogi pakkumise ja kuidas ehitada agente, kes töötavad suure mudelite armeega koos, ilma et see suurt raha maksaks.
+Azure AI mudeliloendis on suur valik mudeleid, erinevate oskuste ja võimetega. Kuigi alustamiseks kasutatakse valmis mudelit, saavad arendajad, kasutades keerukamaid töövooge, kasutada spetsialiseeritud mudeleid, et muuta töö oma eelistatud raamistikus lihtsamaks. Selles esituses räägime mudeliloendi pakkumisest ja sellest, kuidas ehitada agente, kes toimivad paljude mudelite peal - kulusid suurendamata.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25328/>
 
 ---
 
-## Sündmuse nimi: Mitme agenti API koos LangGraphi ja Azure Cosmos DB-ga
+## Ürituse nimi: Mitmeagendi API LangGraphi ja Azure Cosmos DB-ga
 
 ## Kirjeldus
 
-Mitme agenti AI-rakenduste tõus muudab seda, kuidas me ehitame intelligentseid süsteeme — aga kuidas neid arhitektuuriliselt kujundada reaalmaailma skaleeritavuse ja jõudluse jaoks? Selles sessioonis süüvime tootmiskvaliteediga mitme agenti rakendusse, mis on ehitatud LangGraphi abil agentide orkestreerimiseks, FastAPI kasutajaliidese kihina ja Azure Cosmos DB-ga oleku haldamise, vektorisalvestuse ja tehinguliste andmete tugipõhjana.
+Mitmeagendi AI rakenduste kasv muudab intelligentsüsteemide ehitamist - aga kuidas neid arhitektuuri panna reaalse maailma skaleeritavuse ja jõudluse jaoks? Selles sessioonis võtame põhjaliku ülevaate tootmisvalmis mitmeagendi rakendusest, mis on ehitatud LangGraphi agentide orkestreerimiseks, FastAPI API kihi jaoks ja Azure Cosmos DB jaoks oleku haldamise, vektorite salvestamise ja tehingulise andmebaasina.
 
-Detailse koodikäigu kaudu näed, kuidas disainida ja rakendada agentide juhitud töövoog, mis sujuvalt integreerib andmete tagastamisega rikastatud generatsiooni (RAG), mälu püsivust ja dünaamilisi oleku üleminekuid. Kaasame:
+Läbi üksikasjaliku koodi läbivaate näed, kuidas kujundada ja rakendada agentide juhitud töövoogu, mis sujuvalt integreerib andmete otsimiseks rikastatud genereerimist (RAG), mälu püsivust ja dünaamilisi olekumuutusi. Käsitleme:
 
-Agentide koostöö LangGraphiga struktuurse mõtlemise jaoks
-Reaalajas vestluse ajaloo salvestamine Azure Cosmos DB abil — sama andmebaas, mis toetab ChatGPT vestluse ajalugu, kiiremini kasvavat AI agentide rakendust ajaloos
-Vektoriotsing teadmiste leidmiseks Cosmos DB omavaheliste manustega
-FastAPI asünkroonsed võimalused, et hoida suhtlus responsiivne ja skaleeritav
-Selle sessiooni lõpuks on sul selge plaan, kuidas ehitada ja juurutada omaenda skaleeritavad, pilvepõhised mitme agenti rakendused, mis kasutavad kaasaegse AI ja pilve infrastruktuuri jõudu. Olgu sa AI insener, pilve arhitekt või Python arendaja — see ettekanne annab sulle praktilisi teadmisi ja tõestatud mustreid järgmise generatsiooni AI-l põhinevate rakenduste ehitamiseks.
+Agentide koostööd LangGraphiga struktureeritud mõtlemiseks
+Reaalajas vestlusajaloo salvestamist Azure Cosmos DB-s – sama andmebaas, mis jõustab ChatGPT vestlusajaloo, ajaloo kiiremini kasvava AI agendi rakenduse
+Vektoriotsingut teadmiste päringuks Cosmos DB natiivse manustamis toe abil
+FastAPI asünkroonseid võimalusi, et hoida suhtlus sujuv ja skaleeritav
+Selle sessiooni lõpuks on sul selge plaan oma skaleeritavate, pilvepõhiste mitmeagendi rakenduste ehitamiseks ja kasutuselevõtuks, mis kasutavad kaasaegse AI ja pilve infrastruktuuri jõudu. Olgu sa AI insener, pilve arhitekt või Python arendaja, see ettekandmine varustab sind praktiliste teadmiste ja proovitud mustritega järgmise põlvkonna AI-toega rakenduste ehitamiseks.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25314/>
 
 ---
 
-## Sündmuse nimi: Sinu esimene AI agent JS-ga Microsoft Foundry Agent Service'iga
+## Ürituse nimi: Sinu esimene AI agent JS-is Microsoft Foundry Agent Service'iga
 
 ## Kirjeldus
 
-Õpi, kuidas ehitada oma esimene AI agent, kasutades Microsoft Foundry Agent Service JavaScript SDK-d, täielikult hallatavat platvormi, mis teeb arenduse lihtsaks. Näitad, kuidas seadistada, ühendada tööriistad nagu Azure AI Search ning juurutada lihtne küsimustele vastav agent. Otseülekande demo abil avastad, kuidas automaatne tööriistade kutsumine ja hallatud olek protsessi lihtsustavad. Sobib algajatele, sessioon annab sulle praktilisi samme ja nõuandeid, et alustada AI agentide teekonda kindlustundega.
+Õpi, kuidas ehitada oma esimene AI agent JavaScript SDK abil Microsoft Foundry Agent Service'iga, mis on täisautomaatne platvorm, mis teeb arenduse lihtsaks. Näed, kuidas seda seadistada, ühendada tööriistu nagu Azure AI Search ja juurutada lihtne küsimustele vastav agent. Otseülekande demo kaudu avastad, kuidas automaatne tööriista kutsumine ja hallatud olek protsessi lihtsustavad. Sobib algajatele, see sessioon annab sulle praktilised sammud ja nõuanded AI agendi teekonna alguseks enesekindlalt.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25381/>
 
 ---
 
-## Sündmuse nimi: Promptimine on uus skriptimine: tutvu GenAIScriptiga
+## Ürituse nimi: Päringud on uus skriptimine: Tutvu GenAIScriptiga
 
 ## Kirjeldus
 
-Kunagi tegi jQuery veebiarenduse lihtsamaks, varjates keerukust, võimaldades arendajatel keskenduda ehitamisele, mitte brauserite vigadega võitlemisele. Täna seisab AI arendus ees sarnane väljakutse. Uued mustrid tekivad pidevalt ja neis kursis hoidmine võib olla üle jõu käiv, eriti kuna AI tööriistad — eriti agentipõhised — muutuvad võimsamaks ja keerukamaks. Mis siis, kui saaksid kasutada tipptasemel AI võimeid ülesannete automatiseerimiseks lihtsate ja tuttavate JavaScripti abstraktsioonide abil? Siin tuleb mängu GenAIScript — viis AI sujuvaks integreerimiseks sinu töövoogu, koheldes suuniseid nagu taaskasutatavaid koodiplokke. Selles kõnes uurime, kuidas GenAIScript muudab AI automatiseerimisagentide kasutamise sama intuitiivseks kui JavaScripti kirjutamise, aidates sul sujuvamaks muuta korduvaid töid ilma sügava AI eriteadmiseta.
+Kunagi tegi jQuery veebiarenduse lihtsamaks, varjates keerukusi ja võimaldades arendajatel keskenduda ehitamisele, mitte brauseri ebakõladega võitlemisele. Tänapäeval seisab AI arendus silmitsi sarnase väljakutsega. Uued mustrid tekivad pidevalt ja nende jälgimine võib olla üle jõu käiv, eriti kui AI tööriistad – eriti agendid – muutuvad võimsamaks ja keerukamaks. Mis oleks, kui saaksid kasutada kaasaegseid AI võimalusi, et automatiseerida ülesandeid kasutades lihtsaid, tuttavaid JavaScripti abstraktsioone? Siin astub mängu GenAIScript – viis AI integreerimiseks oma töövoogu lihtsalt, kus päringuid käsitletakse nagu taaskasutatavaid koodilõike. Selles ettekandes uurime, kuidas GenAIScript muudab AI automatiseerimisagendid sama intuitiivseks nagu JavaScripti kirjutamine, aidates sul sujuvamalt korduvaid ülesandeid teha ilma sügava AI teadmiste vajaduseta.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25441/>
 
 ---
 
-## Sündmuse nimi: Teadmistega rikastatud agentid LlamaIndex.TS-iga
+## Ürituse nimi: Teadmistega rikastatud agendid LlamaIndex.TS-iga
 
 ## Kirjeldus
 
-LlamaIndex on tuntud selle poolest, et lihtsustab Retrieval-Augmented Generationi (RAG) loomist, kuid meie raamistikud muudavad ka agentide ja mitme agentide süsteemide ehitamise lihtsaks! Selles sessioonis tutvustame Workflows'i, meie põhielementi agentipõhiste süsteemide ehitamiseks, ning ehitame agendi, kes kasutab RAG-i ja muid tööriistu.
+LlamaIndex on tuntud oma lihtsuse poolest RAG-i (Retrieval-Augmented Generation) loomisel, kuid meie raamistikel on ka lihtne ehitada agente ja mitmeagendi süsteeme! Selles sessioonis tutvustame Workflowsit, meie põhilist ehitusplokki agentide süsteemide loomisel, ja ehitame agendi, kes kasutab RAG-i ja muid tööriistu.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25440/>
 
 ---
 
-## Sündmuse nimi: AI agentid Java jaoks, kasutades Microsoft Foundryt ja GitHub Copilotit
+## Ürituse nimi: AI agentid Java jaoks Microsoft Foundry ja GitHub Copilotiga
 
 ## Kirjeldus
 
-Selles sessioonis näitame, kuidas integreerida keerukad AI Agentide võimed oma Java rakendustesse Microsoft Foundry abil, sealhulgas projektieesmärkide seadistamine, mudelitega eksperimenteerimine ja turvaline tootmiskõlbulike lahenduste juurutamine suurtes mahus. Samuti õpid, kuidas GitHub Copilot (IntelliJ, VS Code ja Eclipse'is) võib lihtsustada koodi kirjutamist ja süžee loomist, ning parimad mudeli valiku, peenhäälestuse ja agentilise töövoo praktikad tagavad vastutustundliku ja efektiivse arenduse. Olgu sa uus AI Agentide kasutamisel või otsid arenenud agentide loomise tehnikaid, see sessioon annab sulle tööriistad tippkogemuste pakkumiseks juba tuttavate vahenditega.
+Selles sessioonis näitame, kuidas integreerida täiustatud AI agendi funktsioone oma Java rakendustesse Microsoft Foundry abil, sealhulgas projektieesmärkide seadmist, mudelite katsetamist ja turvalist tootmisvalmis lahenduste skaleeritud juurutamist. Lisaks õpid, kuidas GitHub Copilot (IntelliJ, VS Code ja Eclipse’i jaoks) võib lihtsustada kodeerimist ja päringute loomist, samal ajal kui mudelivaliku, täpsustamise ja agentide töövoogude parimad tavad tagavad vastutustundliku ja tõhusa arenduse. Olgu sa AI agentidega uus või otsid täiustatud agentide loomise tehnikaid, see sessioon varustab sind tööriistadega, mida juba tead, et pakkuda järgmise taseme kogemusi.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25336/>
 
 ---
 
-## Sündmuse nimi: Java AI agentide ehitamine kasutades LangChain4j ja Dünaamilisi Sessioone
+## Ürituse nimi: Java AI agentide loomine LangChain4j ja dünaamiliste sessioonidega
 
 ## Kirjeldus
 
-Ava AI agentide potentsiaal oma Java rakendustes, kombineerides LangChain4j Azure Container Apps (ACA) dünaamiliste sessioonidega, mis on ühendatud Azure AI teenustega. See sessioon tutvustab praktilist näidet agendi ehitamisest, kes suudab suhelda kaugete keskkondadega, sealhulgas failihaldusega. Õpi, kuidas määratleda kohandatud tööriistu, integreerida neid agentide töövoogudesse ning kasutada Azure'i skaleeritavat infrastruktuuri intelligentsete, dünaamiliste lahenduste juurutamiseks.
+Ava AI agentide potentsiaal oma Java rakendustes, kombineerides LangChain4j Azure Container Apps (ACA) dünaamiliste sessioonidega, mis on ühendatud Azure AI teenustega. See sessioon tutvustab praktilist näidet agendi ehitamisest, kes suudab suhelda kauge keskkonnaga, sealhulgas failihaldusega. Õpi, kuidas määratleda kohandatud tööriistu, integreerida neid agendi töövoogudesse ja kasutada Azure skaleeritavat infrastruktuuri intelligentsete ja dünaamiliste lahenduste juurutamiseks.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25337/>
 
 ---
 
-## Sündmuse nimi: Vastutustundetud AI agentid
+## Ürituse nimi: Vastutustundetud AI agendid
 
 ## Kirjeldus
 
-Tule ja avasta AI agentide potentsiaalsed riskid ning võta ette väljakutse usaldusväärsete AI praktikate juurutamiseks vestlusplatvormides! See sessioon süüvib näidetesse vastutustundetute AI agentide kohta — näidates uskumatu valikuga mudelite ebaõnnestumisi, vaenulikke jailbreak'e ja muid riske, mis õõnestavad usaldust ja nõuetele vastavust.
+Liitu meiega, kui uurime AI agentide potentsiaalseid riske ja lahendame usaldusväärse AI praktika integreerimise väljakutset vestlusliku AI platvormidesse! Selles sessioonis süüvime vastutustundetute AI agentide näidetesse – näidates hingematvaid mudeleid ebaõnnestumisi, vaenulikke jailbreak’e ja muid riske, mis kahjustavad usaldust ja vastavust.
 
-Uurime Microsofti tipptasemel usaldusväärse AI tööriistu, sealhulgas sisufiltreid, punase meeskonna strateegiaid ja hindamisi — esitledes otseülekandes AI agente, kes käituvad vastutustundlikult ja vastutustundetult viisil, mida sa ei usu.
+Uurime Microsofti tipptasemel tööriistu usaldusväärse AI jaoks, sealhulgas sisufiltreid, ründetiimi strateegiaid ja hindamisi – esitades otseülekandeid AI agentidest, kes käituvad nii vastutustundlikult kui ka vastutustundetult viisil, mida sa ei usu.
 
-🔥 Mida sellest sessioonist kaasa saad:
-✅ Kuidas tuvastada ja maandada AI riske enne, kui neid saab ära kasutada
-✅ Kuidas juurutada Azure AI Content Safety-d riskikäitumise tuvastamiseks ja maandamiseks
-✅ Saladusega, mis muudab AI agentid usaldusväärseteks
+🔥 Mida sa sellest kaasa saad:
+✅ Kuidas tuvastada ja leevendada AI riske enne, kui neid saab ära kasutada
+✅ Kuidas juurutada Azure AI sisuturvalisust riskikäitumise avastamiseks ja leevendamiseks
+✅ Saladus, kuidas muuta AI agendid usaldusväärseks
 
-Valmista end ette sessiooniks, mis on täis emotsioone, kõrge panusega AI draamat ja hädavajalikke strateegiaid, et hoida oma AI ajaloos õigel poolel. Ära ehita lihtsalt AI-d — ehita AI-d, mis loeb!
+Ole valmis sessiooniks, mis on täis põnevust, kõrge panusega AI draamat ja olulisi strateegiaid, et hoida oma AI ajaloo õigele poolele. Ära ehita lihtsalt AI-d – ehita AI-d, mis loeb!
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25388/>
 
 ---
 
-## Sündmuse nimi: Ehita oma koodipõhine rakendus Microsoft Foundry Agent Service abil (.NET)
+## Ürituse nimi: Ehita oma koodikeskne rakendus Microsoft Foundry Agent Service'iga (.NET)
 
 ## Kirjeldus
 
-Microsoft Foundry Agent Service on sujuv teenuse ja SDK kombinatsioon, mis lihtsustab tugevate AI-l põhinevate lahenduste arendamist. Selles sessioonis õpid, kuidas ehitada oma koodipõhist AI agenti Azure ja C# abil, kes suudab vastata küsimustele, teha andmeanalüüse ning integreerida väliseid andmeallikaid. Samuti uurid keerukamaid arhitektuure, sealhulgas mitu agenti, kes töötavad koos.
+Microsoft Foundry Agent Service on sujuv teenuse ja SDK ühend, mis lihtsustab tugevalt AI-põhiste lahenduste arendamist. Selles sessioonis õpid, kuidas ehitada oma koodikeskne AI-agent Azure’iga ja C#-is, kes suudab vastata küsimustele, teha andmeanalüüsi ja integreerida väliseid andmeallikaid. Samuti uurid keerukamaid arhitektuure, sealhulgas mitme agendi koostööd.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25370/>
 
 ---
 
-## Sündmuse nimi: AI agentid + .NET Aspire
+## Ürituse nimi: AI agendid + Aspire
 
 ## Kirjeldus
 
-Selles sessioonis jagame mõningaid põnevamaid arenguid .NET platvormil agentide ümber. Avastage .NET praegust seisundit, sealhulgas selle uusi funktsioone ja täiustusi. Uurige võimsaid AI agentide võimeid. Teeme ka elava koodi demod agentidega ja .NET Aspire'iga.
+Selles sessioonis jagame mõningaid kõige põnevamaid arenguid .NET platvormi ümber seoses agentidega. Avastage .NET praegune seis, sealhulgas selle uued funktsioonid ja täiustused. Uurige võimsaid AI agendi võimeid. Ja teeme mõnda otsekodeerimist agentidega ja Aspire’iga.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
 
 ---
 
-## Sündmuse nimi: Semantic Kernel C#-ga mitme agentiga AI rakenduste ehitamiseks, mida toetab Azure Cosmos
+## Ürituse nimi: Semantic Kernel C#-is mitmeagendi AI rakenduste ehitamiseks, mida toetab Azure Cosmos
 
 ## Kirjeldus
 
-Viime sind läbi mitme agentiga rakenduse C#-s, mis on ehitatud Semantic Kernel raamistiku peale. Saad aru agentipõhiste rakenduste kontseptsioonidest, mõistad rakenduse detaile ja nüansse ning õpid, kuidas integreerida Azure Cosmos DB erisugusteks kasutusjuhtudeks andmebaasina.
+Juhendame sind läbi mitmeagendi rakenduse C#-is, mis on ehitatud Semantic Kernel raamistikule. Saad aru agentik rakenduste kontseptsioonidest, mõistad rakenduse detaile ja nüansse ning õpid, kuidas integreerida Azure Cosmos DB-d erinevate kasutusjuhtude andmebaasina.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25455/>
