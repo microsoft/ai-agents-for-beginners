@@ -15,6 +15,11 @@ azure-search-documents
 agent-framework-core==1.10.0
 agent-framework-foundry~=1.10.0
 agent-framework-openai~=1.10.0
+# agent_framework.orchestrations (HandoffBuilder in Lesson 14's handoff notebook) is shipped
+# as the separate agent-framework-orchestrations package. It used to arrive through the
+# meta-package's extras; pinning agent-framework-core directly dropped it. 1.0.2 and later
+# require agent-framework-core>=1.13, so 1.0.x is the line that installs with 1.10.0.
+agent-framework-orchestrations~=1.0.1
 a2a-sdk
 
 # Model Context Protocol

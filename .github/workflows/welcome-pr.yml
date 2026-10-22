@@ -1,7 +1,7 @@
 name:  Welcome to the AI Agents for Beginners 
 on:
   # Trigger the workflow on pull request
-  pull_request_target:
+  pull_request:
     types: [opened]
 permissions:
   contents: read
