@@ -153,19 +153,18 @@ class PersistentEventStore(EventStore):
         logger.info(f"Replaying events after {last_event_id}")
 
         # Fetch events in thread pool
-        events_data = await asyncio.to_thread(self._fetch_events_sync, last_event_id)
+        fetch_result = await asyncio.to_thread(self._fetch_events_sync, last_event_id)
 
-        if events_data is None:
+        if fetch_result is None:
             logger.warning(f"Could not resume stream from event {last_event_id}")
             return None
 
-        stream_id = None
+        # The anchor event's stream is authoritative, so a valid last_event_id
+        # still resumes the stream even when no later events remain to replay.
+        stream_id, events_data = fetch_result
         replayed_count = 0
 
-        for event_id, row_stream_id, message_json in events_data:
-            if stream_id is None:
-                stream_id = row_stream_id
-
+        for event_id, message_json in events_data:
             try:
                 message = self._adapter.validate_json(message_json)
             except ValidationError as e:
@@ -179,7 +178,9 @@ class PersistentEventStore(EventStore):
         logger.info(f"Replayed {replayed_count} events for stream {stream_id}")
         return stream_id
 
-    def _fetch_events_sync(self, last_event_id: EventId) -> list[tuple[EventId, StreamId, str]] | None:
+    def _fetch_events_sync(
+        self, last_event_id: EventId
+    ) -> tuple[StreamId, list[tuple[EventId, str]]] | None:
         try:
             target_id = int(last_event_id)
         except (ValueError, TypeError):
@@ -200,12 +201,12 @@ class PersistentEventStore(EventStore):
 
         # 2. Fetch subsequent events for THIS STREAM ONLY
         cursor.execute(
-            "SELECT id, stream_id, message FROM events WHERE id > ? AND stream_id = ? ORDER BY id ASC",
+            "SELECT id, message FROM events WHERE id > ? AND stream_id = ? ORDER BY id ASC",
             (target_id, stream_id)
         )
 
-        # Convert rows to list of (str_id, stream_id, msg_json)
-        return [(str(row[0]), row[1], row[2]) for row in cursor.fetchall()]
+        # Convert rows to (stream_id, list of (str_id, msg_json))
+        return stream_id, [(str(row[0]), row[1]) for row in cursor.fetchall()]
 
     def get_event_count(self) -> int:
         """Get the total number of stored events."""
