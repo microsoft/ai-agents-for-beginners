@@ -57,7 +57,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Smoke-test hosted agent
-        uses: JFolberth/ai-smoketest@v1
+        uses: JFolberth/ai-smoketest@83e32c1378c704046f99f8edcc50704f9bb50103 # v1.0.1
         with:
           project_endpoint: ${{ inputs.project_endpoint }}
           agent_name: ${{ inputs.agent_name }}
