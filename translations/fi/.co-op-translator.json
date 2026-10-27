@@ -629,6 +629,12 @@
     "source_file": "CODE_OF_CONDUCT.md",
     "language_code": "fi"
   },
+  "CONTRIBUTING.md": {
+    "original_hash": "fa5fabf99deb46d8bb92f931472926ff",
+    "translation_date": "2026-10-27T14:20:51+00:00",
+    "source_file": "CONTRIBUTING.md",
+    "language_code": "fi"
+  },
   "README.md": {
     "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
     "translation_date": "2026-10-17T20:07:05+00:00",
@@ -642,8 +648,8 @@
     "language_code": "fi"
   },
   "STUDY_GUIDE.md": {
-    "original_hash": "6ffadd425cc87f6a2ce4ed2100a6d80b",
-    "translation_date": "2026-03-06T20:17:31+00:00",
+    "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
+    "translation_date": "2026-10-27T14:20:09+00:00",
     "source_file": "STUDY_GUIDE.md",
     "language_code": "fi"
   },
@@ -652,19 +658,6 @@
     "translation_date": "2025-07-12T07:30:38+00:00",
     "source_file": "SUPPORT.md",
     "language_code": "fi"
-  },
-  "__translation_failures__": {
-    "STUDY_GUIDE.md": {
-      "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
-      "source_file": "STUDY_GUIDE.md",
-      "language_code": "fi",
-      "failure_date": "2026-10-17T20:05:53+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.2 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
-      "translator_version": "0.23.0",
-      "failure_policy_version": 1
-    }
   },
   "tests/README.md": {
     "original_hash": "77b62539af9ac18820506113aee355f5",
