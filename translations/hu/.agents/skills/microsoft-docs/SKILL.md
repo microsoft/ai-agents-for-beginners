@@ -1,100 +1,100 @@
 ---
 name: microsoft-docs
-description: Hivatalos Microsoft-dokumentáció lekérdezése a fogalmak, oktatóanyagok
-  és kódpéldák megtalálásához az Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  és még sok más területén. Alapértelmezettként a Microsoft Learn MCP-t használja,
-  a learn.microsoft.com-on kívül található tartalmak esetén pedig a Context7-et és
-  az Aspire MCP-t.
+description: Hivatalos Microsoft dokumentáció lekérdezése fogalmak, útmutatók és kódpéldák
+  megtalálásához az Azure, .NET, Agent Framework, Aspire, VS Code, GitHub és még sok
+  más területén. Alapértelmezés szerint a Microsoft Learn MCP-t használja, a Context7
+  és Aspire MCP pedig azokhoz a tartalmakhoz, amelyek a learn.microsoft.com oldalon
+  kívül érhetők el.
 ---
 # Microsoft Docs
 
-Kutatási tudás a Microsoft technológiai ökoszisztémához. Lefedi a learn.microsoft.com oldalt és az azon kívül található dokumentációt (VS Code, GitHub, Aspire, Agent Framework tárolók).
+Kutatási készség a Microsoft technológiai ökoszisztémához. Magában foglalja a learn.microsoft.com-ot és az azon kívül élő dokumentációt (VS Code, GitHub, Aspire, Agent Framework repók).
 
 ---
 
 ## Alapértelmezett: Microsoft Learn MCP
 
-Használd ezeket az eszközöket a **learn.microsoft.com teljes tartalmához** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows és még sok más. Ez az elsődleges eszköz a Microsoft dokumentációs lekérdezések túlnyomó többségéhez.
+Használd ezeket az eszközöket **mindenhez a learn.microsoft.com-on** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows és még több. Ez az elsődleges eszköz a Microsoft dokumentációs lekérdezések túlnyomó többségéhez.
 
 | Eszköz | Cél |
 |------|---------|
 | `microsoft_docs_search` | Keresés a learn.microsoft.com-on — fogalmak, útmutatók, oktatóanyagok, konfiguráció |
-| `microsoft_code_sample_search` | Találj működő kódrészleteket a Learn dokumentációból. Add át a `language` paramétert (`python`, `csharp`, stb.) a legjobb eredményért |
+| `microsoft_code_sample_search` | Működő kódrészletek keresése a Learn docsból. A legjobb eredményért add át a `language` (`python`, `csharp`, stb.) |
 | `microsoft_docs_fetch` | Teljes oldal tartalmának lekérése egy adott URL-ről (amikor a keresési kivonatok nem elegendőek) |
 
-Használd a `microsoft_docs_fetch` eszközt a keresés után, ha teljes oktatóanyagokra, minden konfigurációs lehetőségre van szükséged, vagy ha a keresési kivonatok le vannak vágva.
+Használd az `microsoft_docs_fetch`-t a keresés után, amikor teljes oktatóanyagokra, minden konfigurációs lehetőségre van szükség, vagy ha a keresési kivonatok rövidítve jelennek meg.
 
 ---
 
-## Kivételek: Mikor használj más eszközöket
+## Kivételek: Mikor Használj Más Eszközöket
 
-A következő kategóriák a **learn.microsoft.com-on kívül** találhatók. Használd helyettük a megadott eszközt.
+A következő kategóriák a **learn.microsoft.com-on kívül** élnek. Használd helyette a megjelölt eszközt.
 
-### .NET Aspire — Használd az Aspire MCP szervert (ajánlott) vagy a Context7-et
+### Aspire — Használd az Aspire MCP Servert (ajánlott) vagy a Context7-et
 
-Az Aspire dokumentáció az **aspire.dev** oldalon található, nem a Learn-en. A legjobb eszköz az Aspire CLI verziójától függ:
+Az Aspire dokumentációk az **aspire.dev** oldalon találhatók, nem a Learn-en. A legjobb eszköz a te Aspire CLI verziódtól függ:
 
-**CLI 13.2+** (ajánlott) — Az Aspire MCP szerver beépített dokumentáció-kereső eszközöket tartalmaz:
+**CLI 13.2+** (ajánlott) — Az Aspire MCP szerver beépített dokumentációs kereső eszközöket tartalmaz:
 
-| MCP eszköz | Leírás |
+| MCP Eszköz | Leírás |
 |----------|-------------|
-| `list_docs` | Felsorolja az aspire.dev-en elérhető összes dokumentációt |
-| `search_docs` | Súlyozott lexikális keresés az aspire.dev tartalmában |
-| `get_doc` | Lekéri egy adott dokumentumot slug alapján |
+| `list_docs` | Felsorolja az aspire.dev összes elérhető dokumentációját |
+| `search_docs` | Súlyozott lexikális keresés az aspire.dev tartalomban |
+| `get_doc` | Egy adott dokumentum lekérése slug alapján |
 
-Ezek az Aspire CLI 13.2-ben érkeznek ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Frissítéshez: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ezek az Aspire CLI 13.2-ben érkeznek ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Frissítéshez: `aspire update --self --channel daily`.
 
-**CLI 13.1** — Az MCP szerver integráció-keresést biztosít (`list_integrations`, `get_integration_docs`), de **nem** biztosít dokumentáció-keresést. Használj Context7-et:
+**CLI 13.1** — Az MCP szerver integrációs lekérdezést biztosít (`list_integrations`, `get_integration_docs`), de **nem** tartalomkeresőt. Ebben az esetben használd a Context7-et:
 
-| Library ID | Használat |
+| Könyvtár ID | Használat |
 |---|---|
 | `/microsoft/aspire.dev` | Elsődleges — útmutatók, integrációk, CLI referencia, telepítés |
-| `/dotnet/aspire` | Futási idő forrás — API belső részei, megvalósítási részletek |
+| `/microsoft/aspire` | Futásidejű forrás — API belső részletek, implementációs részletek |
 | `/communitytoolkit/aspire` | Közösségi integrációk — Go, Java, Node.js, Ollama |
 
 ### VS Code — Használd a Context7-et
 
-A VS Code dokumentáció a **code.visualstudio.com** oldalon található, nem a Learn-en.
+A VS Code dokumentációk a **code.visualstudio.com** oldalon találhatók, nem a Learn-en.
 
-| Library ID | Használat |
+| Könyvtár ID | Használat |
 |---|---|
 | `/websites/code_visualstudio` | Felhasználói dokumentáció — beállítások, funkciók, hibakeresés, távoli fejlesztés |
-| `/websites/code_visualstudio_api` | Bővítmény API — webviews, TreeView-k, parancsok, hozzájárulási pontok |
+| `/websites/code_visualstudio_api` | Bővítmény API — webnézetek, TreeViews, parancsok, hozzájárulási pontok |
 
 ### GitHub — Használd a Context7-et
 
-A GitHub dokumentáció a **docs.github.com** és a **cli.github.com** oldalakon található.
+A GitHub dokumentációk a **docs.github.com** és **cli.github.com** oldalakon találhatók.
 
-| Library ID | Használat |
+| Könyvtár ID | Használat |
 |---|---|
-| `/websites/github_en` | Actions, API, repo-k, biztonság, adminisztráció, Copilot |
-| `/websites/cli_github` | A GitHub CLI (`gh`) parancsai és kapcsolói |
+| `/websites/github_en` | Műveletek, API, repo-k, biztonság, adminisztráció, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) parancsok és kapcsolók |
 
-### Agent Framework — Használd a Learn MCP-t + Context7-et
+### Agent Framework — Használd a Learn MCP + Context7-et
 
-Az Agent Framework oktatóanyagai a learn.microsoft.com oldalon vannak (használd a `microsoft_docs_search`-t), de a **GitHub repo** API-szintű részleteket tartalmaz, amelyek gyakran megelőzik a publikált dokumentációt — különösen a DevUI REST API referencia, a CLI opciók és a .NET integráció terén.
+Az Agent Framework oktatóanyagok a learn.microsoft.com-on vannak (használd `microsoft_docs_search`-t), de a **GitHub repó** API szintű részleteket tartalmaz, amelyek gyakran megelőzik a közzétett dokumentumokat — különösen a DevUI REST API referencia, CLI opciók, és .NET integráció.
 
-| Library ID | Használat |
+| Könyvtár ID | Használat |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Oktatóanyagok — DevUI útmutatók, nyomkövetés, munkafolyamat-orchesztráció |
+| `/websites/learn_microsoft_en-us_agent-framework` | Oktatóanyagok — DevUI útmutatók, nyomkövetés, munkafolyamat-irányítás |
 | `/microsoft/agent-framework` | API részletek — DevUI REST végpontok, CLI kapcsolók, hitelesítés, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tipp:** Lekérdezd a Learn weboldal forrását a lépésről lépésre útmutatókért, majd a repo forrását az API-szintű részletekért (végpont-sémák, proxy konfiguráció, hitelesítési tokenek).
+**DevUI tipp:** Lekérdezd először a Learn webhely forrását a használati útmutatókért, majd a repó forrását az API szintű specifikumokért (végpont sémák, proxy konfiguráció, hitelesítő tokenek).
 
 ---
 
-## Context7 beállítása
+## Context7 Beállítás
 
-Bármilyen Context7 lekérdezéshez először oldd fel a library ID-t (egyszeri művelet munkamenetenként):
+Bármilyen Context7 lekérdezéshez először oldd fel a könyvtár ID-t (egyszer minden munkamenetben):
 
-1. Hívd meg a `mcp_context7_resolve-library-id`-t a technológia nevével
-2. Hívd meg a `mcp_context7_query-docs`-t a visszaadott library ID-vel és egy konkrét lekérdezéssel
+1. Hívd meg `mcp_context7_resolve-library-id`-t a technológia nevével
+2. Hívd meg `mcp_context7_query-docs`-t a visszakapott könyvtár ID-vel és egy konkrét lekérdezéssel
 
 ---
 
-## Hatékony lekérdezések írása
+## Hatékony Lekérdezések Írása
 
-Legyél konkrét — tüntesd fel a verziót, a szándékot és a nyelvet:
+Légy konkrét — add meg a verziót, a célt és a nyelvet:
 
 ```
 # ❌ Too broad
@@ -111,13 +111,13 @@ Legyél konkrét — tüntesd fel a verziót, a szándékot és a nyelvet:
 ```
 
 Add meg a kontextust:
-- **Verzió** amikor releváns (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Verzió** ha releváns (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
 - **Feladat célja** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Nyelv** többnyelvű dokumentáció esetén (`Python`, `TypeScript`, `C#`)
+- **Nyelv** a poliglott dokumentációkhoz (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősségkizárás**:
-Ez a dokumentum az AI-alapú fordítószolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár igyekszünk pontosak lenni, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelven tekintendő hiteles forrásnak. Kritikus információk esetén szakmai, emberi fordítást javaslunk. Nem vállalunk felelősséget az e fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

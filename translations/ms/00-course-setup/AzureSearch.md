@@ -1,39 +1,39 @@
-# Panduan Persediaan Azure AI Search
+# Panduan Penyediaan Azure AI Search
 
-Panduan ini akan membantu anda menyediakan Azure AI Search menggunakan portal Azure. Ikuti langkah-langkah di bawah untuk mencipta dan mengkonfigurasi perkhidmatan Azure AI Search anda.
+Panduan ini akan membantu anda menyediakan Azure AI Search menggunakan portal Azure. Ikuti langkah-langkah di bawah untuk membuat dan mengkonfigurasi perkhidmatan Azure AI Search anda.
 
 ## Prasyarat
 
-Sebelum anda bermula, pastikan anda mempunyai perkara berikut:
+Sebelum anda mula, pastikan anda mempunyai perkara berikut:
 
-- Langganan Azure. Jika anda tidak mempunyai langganan Azure, anda boleh mencipta akaun percuma di [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Langganan Azure. Jika anda tidak mempunyai langganan Azure, anda boleh membuat akaun percuma di [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Langkah 1: Cipta Akaun Penyimpanan Azure
+## Langkah 1: Buat Akaun Penyimpanan Azure
 
-1. Ikuti arahan ini, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), untuk mencipta Akaun Penyimpanan Azure baru.
-   **NOTE**: Pastikan jenis Akaun Penyimpanan adalah Standard General Purpose V2.
+1. Ikuti arahan ini, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), untuk membuat Akaun Penyimpanan Azure yang baru.
+   **NOTA**: Pastikan jenis Akaun Penyimpanan adalah Standard General Purpose V2.
 
-## Langkah 2: Cipta Perkhidmatan Azure AI Search
+## Langkah 2: Buat Perkhidmatan Azure AI Search
 
-1. Log masuk ke [portal Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Dalam panel navigasi di sebelah kiri, klik **Create a resource**.
-3. Dalam kotak carian, taip "Azure AI Search" dan pilih **Azure AI Search** daripada senarai hasil.
+1. Masuk ke [portal Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
+2. Dalam tetingkap navigasi sebelah kiri, klik pada **Create a resource**.
+3. Dalam kotak carian, taip "Azure AI Search" dan pilih **Azure AI Search** dari senarai keputusan.
 4. Klik butang **Create**.
 5. Dalam tab **Basics**, isikan maklumat berikut:
    - **Subscription**: Pilih langganan Azure anda.
-   - **Resource group**: Cipta kumpulan sumber baru atau pilih yang sedia ada.
+   - **Resource group**: Buat kumpulan sumber baru atau pilih yang sedia ada.
    - **Resource name**: Masukkan nama unik untuk perkhidmatan carian anda.
-   - **Region**: Pilih rantau yang paling dekat dengan pengguna anda.
-   - **Pricing tier**: Pilih tier harga yang sesuai dengan keperluan anda. Anda boleh bermula dengan tier Percuma untuk ujian.
+   - **Region**: Pilih wilayah yang paling hampir dengan pengguna anda.
+   - **Pricing tier**: Pilih tier harga yang sesuai dengan keperluan anda. Anda boleh mula dengan tier Percuma untuk ujian.
 6. Klik **Review + create**.
-7. Semak tetapan dan klik **Create** untuk mencipta perkhidmatan carian.
+7. Semak tetapan dan klik **Create** untuk membuat perkhidmatan carian.
 
-## Langkah 3: Bermula dengan Azure AI Search
+## Langkah 3: Mula dengan Azure AI Search
 
-1. Setelah penyebaran selesai, pergi ke perkhidmatan carian anda di portal Azure.
-2. Dalam panel gambaran keseluruhan perkhidmatan carian, salin URL tersebut. Ia sepatutnya kelihatan seperti `https://<service-name>.search.windows.net`.
-3. **(Disyorkan)** Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC) seperti yang ditunjukkan dalam Langkah 4 di bawah — tiada kunci diperlukan. Sampel dalam panduan ini mencipta/mengemas kini indeks dan memuat naik dokumen, yang memerlukan peranan **Search Service Contributor** dan **Search Index Data Contributor** (atau, untuk pengesahan berasaskan kunci, **primary admin key** — bukan query key). Hanya jika anda tidak dapat menggunakan RBAC, buka panel **Settings > Keys** dan salin **primary admin key**.
-4. Ikuti langkah dalam halaman [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) untuk mencipta indeks, memuat naik data, dan menjalankan carian.
+1. Setelah penyebaran selesai, buka perkhidmatan carian anda di portal Azure.
+2. Dalam panel gambaran keseluruhan perkhidmatan carian, salin URL. Ia sepatutnya kelihatan seperti `https://<service-name>.search.windows.net`.
+3. **(Disyorkan)** Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC) seperti yang ditunjukkan dalam Langkah 4 di bawah — tiada kunci diperlukan. Contoh dalam panduan ini membuat/mengemas kini indeks dan memuat naik dokumen, yang memerlukan peranan **Search Service Contributor** dan **Search Index Data Contributor** (atau, untuk pengesahan berasaskan kunci, **primary admin key** — bukan query key). Hanya jika anda tidak boleh menggunakan RBAC, buka panel **Settings > Keys** dan salin **primary admin key**.
+4. Ikuti langkah dalam halaman [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) untuk membuat indeks, memuat naik data, dan menjalankan carian.
 
 ## Langkah 4: Gunakan Alat Azure AI Search
 
@@ -42,7 +42,7 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
 ### Menggunakan Azure CLI
 
 1. Pasang Azure CLI dengan mengikuti arahan di [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Log masuk ke Azure CLI menggunakan arahan:
+2. Masuk ke Azure CLI menggunakan arahan:
 
    ```bash
    az login
@@ -53,29 +53,29 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show tidak mempunyai medan "endpoint"; bina URL dari nama perkhidmatan.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Dengan RBAC diaktifkan, sampel Python dan .NET SDK di bawah mengesahkan dengan `DefaultAzureCredential`, yang menggunakan sesi `az login` anda semasa pembangunan tempatan — tiada kunci admin diperlukan. Lihat [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Dengan RBAC diaktifkan, contoh Python dan .NET SDK di bawah mengesahkan dengan `DefaultAzureCredential`, yang menggunakan sesi `az login` anda semasa pembangunan tempatan — tiada kunci pentadbir diperlukan. Lihat [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Fallback) Pengesahan berasaskan kunci** — hanya jika anda tidak dapat menggunakan RBAC, simpan kunci admin juga:
+4. **(Pilihan cadangan) Pengesahan berasaskan kunci** — hanya jika anda tidak boleh menggunakan RBAC, simpan kunci pentadbir juga:
 
-#### Simpan kedua-dua endpoint dan API key untuk contoh Azure AI Search ke pembolehubah persekitaran.
+#### Simpan kedua-dua titik hujung dan kunci API untuk instans Azure AI Search ke pemboleh ubah persekitaran.
 
-    ```bash
-    # zsh/bash
-    # az search service show tidak mempunyai medan "endpoint"; bina URL dari nama perkhidmatan.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show tidak mempunyai medan "endpoint"; bina URL dari nama perkhidmatan.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Menggunakan Python SDK
 
@@ -85,7 +85,7 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
    pip install azure-search-documents azure-identity
    ```
 
-2. Gunakan kod Python berikut untuk mencipta indeks dan memuat naik dokumen:
+2. Gunakan kod Python berikut untuk membuat indeks dan memuat naik dokumen:
 
     ```python
     import os
@@ -97,11 +97,11 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Tanpa kunci (disyorkan): menggunakan identiti `az login` anda melalui Entra ID RBAC.
-    # Memerlukan peranan "Search Service Contributor" dan "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Sandaran (pengesahan berasaskan kunci):
-    # dari azure.core.credentials import AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -126,13 +126,13 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
 
 ### Menggunakan .NET SDK
 
-1. Jalankan arahan berikut untuk mencipta indeks dan memuat naik dokumen:
+1. Jalankan arahan berikut untuk membuat indeks dan memuat naik dokumen:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Sampel .NET di bawah menggunakan `DefaultAzureCredential`, yang boleh menggunakan log masuk Azure CLI anda dari `az login` semasa pembangunan tempatan.
+    Contoh .NET di bawah menggunakan `DefaultAzureCredential`, yang boleh menggunakan daftar masuk Azure CLI anda dari `az login` semasa pembangunan tempatan.
 
 2. Berikut adalah kod .NET untuk `AzureSearch.cs`:
 
@@ -181,7 +181,7 @@ Azure AI Search berintegrasi dengan pelbagai alat untuk meningkatkan keupayaan c
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Untuk maklumat lebih terperinci, rujuk dokumentasi berikut:
+Untuk informasi lebih terperinci, rujuk dokumentasi berikut:
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -189,7 +189,7 @@ Untuk maklumat lebih terperinci, rujuk dokumentasi berikut:
 
 ## Kesimpulan
 
-Anda telah berjaya menyediakan Azure AI Search menggunakan portal Azure dan mengintegrasikan alat-alat. Anda boleh meneroka ciri dan keupayaan Azure AI Search yang lebih maju untuk meningkatkan penyelesaian carian anda.
+Anda telah berjaya menyediakan Azure AI Search menggunakan portal Azure dan alat yang berintegrasi. Anda kini boleh meneroka ciri dan keupayaan lanjutan Azure AI Search untuk meningkatkan penyelesaian carian anda.
 
 Untuk bantuan lanjut, lawati [dokumentasi Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 

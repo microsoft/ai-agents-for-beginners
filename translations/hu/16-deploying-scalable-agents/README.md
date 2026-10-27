@@ -1,155 +1,155 @@
-# Skálázható ügynökök telepítése a Microsoft Foundry segítségével
+# Skálázható ügynökök telepítése a Microsoft Foundryval
 
 ![Skálázható ügynökök telepítése](../../../translated_images/hu/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Eddig a tanfolyamon olyan ügynököket építettél, amelyek a laptopodon futnak, egy jegyzetfüzetben, `az login` és néhány környezeti változó által vezérelve. Ez pontosan a helyes mód a tanuláshoz. Ez azonban nem megfelelő mód arra, hogy egy olyan ügynököt működtess, amelyre ezrek támaszkodnak hajnali 3-kor.
+Eddig a tanfolyamon olyan ügynököket építettél, amelyek a laptopodon futnak, egy jegyzetfüzeten belül, `az login` és néhány környezeti változó vezérlésével. Pontosan ez a helyes mód a tanulásra. Ez azonban nem a helyes mód arra, hogy egy, több ezer ügyféltől függő ügynököt működtess 3 órakor hajnalban.
 
-Ez a lecke az "it működik a gépemen" és az "it megbízhatóan és gazdaságosan működik a termelésben" közötti szakadékról szól. Ezt a szakadékot a **Microsoft Foundry** és a **Microsoft Foundry Agent Service** segítségével hidaljuk át, és egy valós ügyféltámogatási ügynököt építünk, amely eszközökkel, lekérdezéssel, memóriával, értékeléssel és megfigyeléssel rendelkezik.
+Ez a lecke arról szól, hogy milyen szakadék van az „az én gépemen működik” és az „ez megbízhatóan és megfizethetően működik éles környezetben” között. Ezt a szakadékot a **Microsoft Foundry** és a **Microsoft Foundry Agent Service** segítségével hidaljuk át, méghozzá egy valódi ügyféltámogatási ügynök felépítésével, amely eszközökkel, visszakereséssel, memóriával, értékeléssel és monitorozással rendelkezik.
 
 ## Bevezetés
 
-Ez a lecke az alábbiakat fogja lefedni:
+Ez a lecke a következőket fogja lefedni:
 
-- A különbséget a **prototípus ügynök** és egy **telepített ügynök** között, illetve hogy a váltás leginkább a modell körüli *körítésről* szól.
-- Az ügynökök **telepítési mintáinak** ismertetése: ügyfél által hosztolt, szolgáltatás által hosztolt (Hosted Agents), és munkafolyamat szerint irányított.
-- Az ügynök **életciklusát** a Microsoft Foundry-n: létrehozás, verziózás, telepítés, értékelés, megfigyelés, nyugdíjazás.
-- **Skálázási stratégiák**: modellirányítás, gyorsítótárazás, egyidejűség és állapotmentes tervezés.
-- **Megfigyelhetőség** OpenTelemetry és Foundry nyomkövetéssel.
-- **Költségoptimalizálás** modellválasztás, irányítás és értékelési kapuk révén.
-- **Vállalati szempontok**: irányítás, emberi jóváhagyás, és az MCP szerverek biztonságos működtetése a termelésben.
+- A **prototípus ügynök** és a **telepített ügynök** közötti különbséget, és hogy a váltás főként a modell körüli *minden másról* szól.
+- Ügynökök **telepítési mintáit**: kliens által hosztolt, szolgáltatás által hosztolt (Hosted Agents), és munkafolyamat-orchestrált.
+- Az **ügynök életciklusát** a Microsoft Foundryban — létrehozás, verziózás, telepítés, értékelés, megfigyelés, megszüntetés.
+- **Skálázási stratégiák**: modellirányítás, gyorsítótárazás, egyidejűség és állapotmentes dizájn.
+- **Megfigyelhetőség** OpenTelemetry-vel és Foundry-tracinggel.
+- **Költségoptimalizálás** modellválasztással, irányítással és értékelési kapukkal.
+- **Vállalati szempontok**: irányítás, emberi jóváhagyás, és MCP szerverek biztonságos futtatása éles környezetben.
 
 ## Tanulási célok
 
-A lecke elvégzése után tudni fogod, hogyan kell:
+A lecke elvégzése után tudni fogod, hogyan:
 
-- Kiválasztani a megfelelő telepítési mintát egy adott ügynökterheléshez.
-- Telepíteni egy ügynököt a Microsoft Foundry Agent Service-be, hogy verziózott, irányított és megfigyelhető legyen.
-- Instrumentálni egy ügynököt nyomkövetésre, és összekapcsolni egy minden kiadás előtt futó értékelő folyamatot.
-- Alkalmazni modellirányítást és gyorsítótárazást, hogy a késleltetés és költség kontroll alatt maradjon nagy skálán.
-- Hozzáadni egy emberi jóváhagyási kaput magas kockázatú műveletekhez és integrálni egy MCP szervert termelésbiztos módon.
+- Válassz megfelelő telepítési mintát egy adott ügynök munkaterheléshez.
+- Telepíts egy ügynököt a Microsoft Foundry Agent Service-re úgy, hogy verziózott, irányított és megfigyelhető legyen.
+- Ösztönözz egy ügynököt tracingre és kapcsolj be egy értékelési folyamatot, amely minden kiadás előtt lefut.
+- Alkalmazz modellirányítást és gyorsítótárazást a késleltetés és költség alacsonyan tartásához skálázás esetén.
+- Adj hozzá emberi jóváhagyási kaput magas kockázatú műveleteknél, és integrálj MCP szervert biztonságos éles üzemmódban.
 
 ## Előfeltételek
 
-Ez a lecke feltételezi, hogy elvégezted az előző leckéket, és magabiztosan kezeled:
+Feltételezzük, hogy az előző leckék elvégzése után jártas vagy:
 
-- Ügynökök építése a [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) segítségével (14-es lecke).
-- [Eszközhasználat](../04-tool-use/README.md) (4-es lecke) és [Agentic RAG](../05-agentic-rag/README.md) (5-ös lecke).
-- [Ügynöki memória](../13-agent-memory/README.md) (13-as lecke) és [Agentic protokollok / MCP](../11-agentic-protocols/README.md) (11-es lecke).
-- [Megfigyelhetőség és értékelés](../10-ai-agents-production/README.md) (10-es lecke) — erre közvetlenül épít ez a lecke.
+- Ügynökök építése a [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) segítségével (14. lecke).
+- [Eszközhasználat](../04-tool-use/README.md) (4. lecke) és [Agentic RAG](../05-agentic-rag/README.md) (5. lecke).
+- [Ügynök memória](../13-agent-memory/README.md) (13. lecke) és [Agentic Protokollok / MCP](../11-agentic-protocols/README.md) (11. lecke).
+- [Megfigyelhetőség és értékelés](../10-ai-agents-production/README.md) (10. lecke) — erre a leckére épít közvetlenül.
 
-Szükséged lesz még:
+Szükséged lesz továbbá:
 
-- Egy **Azure előfizetésre** és egy **Microsoft Foundry projekt**-re, amelyben legalább egy telepített chat modell van.
-- Az **Azure CLI** hitelesítésére (`az login`).
-- Python 3.12+-ra és a tárolóban lévő [`requirements.txt`](../../../requirements.txt) csomagokra.
+- Egy **Azure előfizetésre** és egy **Microsoft Foundry projektre**, amely legalább egy telepített csevegő modellt tartalmaz.
+- Az **Azure CLI** hitelesítésre (`az login`).
+- Python 3.12+-ra és az adattárban lévő csomagokra [`requirements.txt`](../../../requirements.txt).
 
-## A prototípustól a termelésig: mi változik valójában
+## Prototípusról a termelésre: mi változik valójában
 
-Egy prototípus ügynök és egy termelési ügynök ugyanazt a fő ciklust futtatja — gondolkodik, eszközöket hív, válaszol. Ami változik, az minden, ami azt a ciklust körülveszi. A modell talán 20%-át teszi ki a termelési ügynöknek; a fennmaradó 80% a működtetési váz.
+Egy prototípus ügynök és egy éles ügynök ugyanazt az alapvető ciklust használja — problémamegoldás, eszközök hívása, válaszadás. Ami változik, az a ciklus köré csomagolt minden más. A modell talán a termelési ügynök 20%-a; a másik 80% az operációs váz.
 
 | Szempont | Prototípus | Termelés |
 | --- | --- | --- |
-| **Hosztolás** | A jegyzetfüzetben fut | Szolgáltatásként fut, verziózott és kiadott |
-| **Azonosítás** | Az `az login` tokened | Kezelt identitás scoped RBAC-kal |
-| **Állapot** | Memóriában, újraindításkor elveszik | Külsőleg tárolt (szál tároló, memória szolgáltatás) |
-| **Hibakezelés** | A stack trace látható | Újrapróbálkozás, tartalék megoldások, dead-letter, riasztások |
-| **Költség** | "Néhány cent" | Kérésenként nyomon követve, irányítva, gyorsítótárazva, költségvetve |
-| **Minőség** | Te nézed meg az eredményt | Automatikusan értékelve minden kiadás előtt |
-| **Bizalom** | Te hagyod jóvá minden műveletet | Szabályzat + ember a folyamatban kockázatos műveleteknél |
+| **Hosztolás** | A jegyzetfüzetedben fut | Szolgáltatásként fut, verziózott és kiterjesztett |
+| **Azonosítás** | A te `az login` tokened | Kezelt azonosítás, scoped RBAC-kal |
+| **Állapot** | Memóriában, újraindításkor elveszik | Külső tárolású (szál tároló, memória szolgáltatás) |
+| **Hiba** | Látod a tracebacket | Újrapróbálkozás, visszaesés, dead-letter, riasztás |
+| **Költség** | "Pár cent" | Kérésenként követett, irányított, gyorsítótárazott, költségvetett |
+| **Minőség** | Kézzel átnézett kimenet | Automatikusan értékelt minden kiadás előtt |
+| **Bizalom** | Minden műveletet jóváhagysz | Szabályzat + emberi jóváhagyás kockázatos műveletekhez |
 
-Tartsd szem előtt ezt a táblázatot. Az alábbiakban minden szakasz megfelel az egyik sorának.
+Tartsd szem előtt ezt a táblázatot. Az alábbi szakaszok mindegyike ezek közül az egyiket térképezi fel.
 
 ## Ügynök telepítési minták
 
 Három mintát fogsz használni, gyakran kombinálva.
 
-### 1. Ügyfél által hosztolt ügynökök
+### 1. Kliens által hosztolt ügynökök
 
-Az ügynök objektum az *alkalmazásod* folyamatán belül él. A kódod közvetlenül hívja a modell szolgáltatót; az érvelési ciklus a szolgáltatásodban fut. Ezt csináltad minden előző leckében.
+Az ügynök objektum *a te* alkalmazásfolyamatodban él. A kódod közvetlenül hívja a modell szolgáltatót; a problémamegoldó ciklus a szolgáltatásodban fut. Ezt használtuk minden korábbi leckében.
 
-- **Használj ilyet**, ha teljes ellenőrzést akarsz az érvelési ciklus felett, egyedi köztes réteget igényelsz, vagy beágyazod az ügynököt egy meglévő backendbe.
-- **Megfontolás**: magadnak kell kezelned a skálázást, állapotot és a hibatűrést.
+- **Használd akkor, ha** teljes ellenőrzésre van szükséged a ciklus fölött, egyedi middleware-re, vagy az ügynököt egy meglévő backendbe ágyazod.
+- **Hátrány**: az skálázásról, állapotról és ellenállóságról neked kell gondoskodnod.
 
-### 2. Hosted Agents (Foundry Agent Service)
+### 2. Hosztolt ügynökök (Foundry Agent Service)
 
-Az ügynök *erőforrásként regisztrálva van* a Microsoft Foundry-ban. A Foundry hosztolja az érvelési ciklust, tárolja a szálakat, érvényesíti a tartalombiztonságot és a RBAC-ot, valamint láthatóvá teszi az ügynököt a Foundry portálban. Alkalmazásod egy vékony klienssé válik, amely szálakat hoz létre és olvassa a válaszokat.
+Az ügynök *erőforrásként van regisztrálva* a Microsoft Foundryban. A Foundry hosztolja a problémamegoldó ciklust, tárolja a szálakat, érvényesíti a tartalombiztonságot és RBAC-ot, és láthatóvá teszi az ügynököt a Foundry portálon. Az alkalmazásod vékony klienssé válik, amely szálakat hoz létre és olvassa a válaszokat.
 
-- **Használd, ha** tartósságot, beépített megfigyelhetőséget, irányítást és kisebb működtetési felületet akarsz.
-- **Cserébe**: kevesebb mélyebb kontrollt kapsz egy kezelt futtatókörnyezetért.
+- **Használd akkor, ha** tartósságot, beépített megfigyelhetőséget, irányítást és kisebb operációs felületet szeretnél.
+- **Hátrány**: kevesebb alacsony szintű kontroll a menedzselt futtatókörnyezetért cserébe.
 
 ### 3. Ügynök munkafolyamatok
 
-Több ügynök (és eszköz) explicit vezérlésű gráffá vannak komponálva — sorozatos lépések, elágazások, emberi jóváhagyási pontok, és tartós ellenőrzőpontokkal, amelyek megállíthatják és folytathatják a folyamatot. Ez a Microsoft Agent Framework **Workflows** képessége, telepítési skálán alkalmazva.
+Több ügynököt (és eszközt) komponálnak egy gráffá explicit vezérlési folyamattal — szekvenciális lépések, elágazások, emberi jóváhagyási pontok és tartós ellenőrző pontok, amelyek megállíthatók és folytathatók. Ez a Microsoft Agent Framework **Workflows** képessége telepítési skálán alkalmazva.
 
-- **Használd, ha** egyetlen feladat több speciális ügynököt érint, vagy kell egy jóváhagyási lépés középen.
-- **Megfontolás**: több mozgó alkatrész; felügyelet szintű megfigyelést igényel.
+- **Használd akkor, ha** egy feladat több specializált ügynököt igényel vagy jóváhagyási lépést a közepén.
+- **Hátrány**: több mozgó rész, szükség van orchestrációs szintű megfigyelhetőségre.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Ügyfél általi hosztolás]
-        A1[Az alkalmazásod folyamata] --> M1[Modell szolgáltató]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Hosztolt ügynök]
-        A2[Vékonny kliens] --> F2[Foundry ügynök szolgáltatás]
-        F2 --> M2[Modell + Eszközök + Szál tároló]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Ügynök munkafolyamata]
-        A3[Szervező] --> S1[Előszűrő ügynök]
-        S1 --> S2[Megoldó ügynök]
-        S2 --> H[Emberi jóváhagyási pont]
-        H --> S3[Műveleti ügynök]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
-## Az ügynök életciklusa a Microsoft Foundry-n
+## Az ügynök életciklusa a Microsoft Foundryban
 
-Az ügynök telepítése nem egy egyszeri `push`. Ez egy ciklus, amely nagyon hasonlít egy szoftverkiadási ciklusra, mert az is valójában.
+Az ügynök telepítése nem egyszeri `push`. Ez egy ciklus, és nagyon hasonlít a szoftver kiadási ciklusára, mert pontosan az.
 
 ```mermaid
 flowchart LR
-    Create[Készítő / Szerző] --> Version[Verzió]
-    Version --> Evaluate[Offline értékelés]
-    Evaluate -->|átmegy a kapun| Deploy[Hosztolt telepítés]
-    Evaluate -->|nem megy át a kapun| Create
-    Deploy --> Observe[Online megfigyelés]
-    Observe --> Improve[Hibák gyűjtése]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Régi verzió kivezénylése]
+    Deploy --> Retire[Retire old version]
 ```
 
-A kulcsötlet, amit a [10-es leckéből](../10-ai-agents-production/README.md) hoztunk át: **az offline értékelés egy kapu, nem utólagos gondolat.** Egy új ügynök verzió nem kerül kiadásra, ha nem lépi át az értékelési küszöbeidet. Az online megfigyelhetőség pedig a valós hibákat visszacsatolja az offline tesztkészletbe. Ez a teljes ciklus.
+A kulcsötlet, amely az [10. leckéből](../10-ai-agents-production/README.md) származik: **az offline értékelés kapu, nem utólagos gondolat.** Egy új ügynök verzió nem kerül szállításra, hacsak nem teljesíti az értékelési küszöböket. Az online megfigyelhetőség pedig visszacsatolja a valós világban történt hibákat az offline tesztkészletedbe. Ez az egész ciklus.
 
 ## Skálázási stratégiák
 
-Egy ügynök skálázása különbözik egy állapotmentes web API skálázásától, mert minden kérés több költséges modell- és eszközhívást indíthat. Négy technika viszi a terhelés nagy részét.
+Az ügynök skálázása különbözik egy állapotmentes web API skálázásától, mert minden kérés több drága modell- és eszközhívást indíthat. Négy technika viszi a terhelés nagy részét.
 
-**Állapotmentes kéréskezelés.** Ne tarts felhasználónkénti állapotot a folyamat memóriájában. Tárold a beszélgetési szálakat a Foundry száltárolójában vagy egy memória szolgáltatásban, hogy bármelyik példány képes legyen bármelyik kérést kezelni. Ez teszi lehetővé a vízszintes skálázást — példányokat adsz hozzá, nincs ragadós munkamenet.
+**Állapotmentes kéréskezelés.** Ne tárolj felhasználónkénti állapotot a folyamatod memóriájában. Tárold a beszélgetési szálakat a Foundry száltárolójában vagy memória szolgáltatásban, hogy bármelyik példány kezelni tudjon bármelyik kérést. Ez teszi lehetővé a vízszintes skálázást — példányok hozzáadása, ragadós munkamenetek nélkül.
 
-**Modellirányítás.** Nem minden kérést kell a legképesebb (és legdrágább) modellel kiszolgálni. Egyszerű kéréseket — például szándék osztályozást, rövid tényválaszokat — irányíts egy kicsi, gyors modellhez, és csak az igazi érveléseket küldd a nagy modellhez. A Foundry **Model Router** segíthet ebben, vagy te magad is készíthetsz egy könnyű osztályozót. A laborban mindkettőt elkészíted.
+**Modellirányítás.** Nem minden kérésnek kell a legerősebb (és legdrágább) modell. Egyszerű kéréseket — szándékosztályozás, rövid tényszerű válaszok — irányíts kis, gyors modellhez, és hagyd a nagy modellt az igazi érvelésre. A Foundry **Model Router** ezt megteszi helyetted, vagy te is csinálhatsz egy könnyű osztályozót. A DIY verziót a laborban építed meg.
 
-**Válasz gyorsítótárazás.** Sok támogatói kérdés majdnem ismétlődő ("hogyan állítom vissza a jelszavamat?"). Tárold a gyakori kérdésekre adott válaszokat gyorsítótárban, és szolgáld ki őket anélkül, hogy modellezni kellene. Még egy szerény gyorsítótár találati arány is jelentősen csökkenti a költséget és a késleltetést.
+**Válasz gyorsítótárazás.** Sok támogatási kérdés közel azonos („hogyan állíthatom vissza a jelszavam?”). Gyorsítótárazd a gyakori kérdések válaszait, és szolgáld ki anélkül, hogy elérnéd a modellt. Még egy szerény cache találati arány is jelentősen csökkenti a költséget és a késleltetést.
 
-**Egyidejűség és vissznyomás.** A modell szolgáltatóknak vannak sebességkorlátaik. Korlátozd az egyidejűséget, használj exponenciális visszalépéssel ismétlődő próbálkozásokat, és hibakezelj szépen (egy sorba állított "dolgozunk rajta" válasz jobb, mint egy 500-as hiba).
+**Egyidejűség és vissznyomás.** A modellszolgáltatóknak sebességkorlátozásaik vannak. Korlátozd az egyidejűséget, használj exponenciális visszakísérletezést, és hibakezelj szépen (egy sorban álló „dolgozunk rajta” válasz jobb egy 500-nál).
 
 ```mermaid
 flowchart LR
-    Q[Felhasználói lekérdezés] --> C{Gyorsítótár találat?}
-    C -->|igen| R[Gyorsított válasz visszaadása]
-    C -->|nem| Router{Összetettség?}
-    Router -->|egyszerű| SLM[Kis modell]
-    Router -->|bonyolult| LLM[Nagy modell]
-    SLM --> Out[Válasz]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
-    Out --> Store[Gyorsítótár + nyomkövetés]
+    Out --> Store[Cache + trace]
 ```
 
-## Megfigyelhetőség a termelésben
+## Megfigyelhetőség éles környezetben
 
-Amit nem látsz, azt nem tudod működtetni. Ahogy a 10-es leckében is említettük, a Microsoft Agent Framework natívan bocsát ki **OpenTelemetry** nyomkövetéseket — minden modellhívás, eszközhívás és irányítási lépés egy span lesz. Termelésben ezeket a spánokat exportálod a Microsoft Foundry-nak (vagy bármilyen OTel-kompatibilis backendnek), hogy:
+Amit nem látsz, azt nem tudod működtetni. Ahogy a 10. leckében tárgyaltuk, a Microsoft Agent Framework natívan ad ki **OpenTelemetry** trace-eket — minden modellhívás, eszközmeghívás és orkesztrációs lépés egy span lesz. Élesben ezek a span-ek kiexportálhatók Microsoft Foundryba (vagy bármely OTel-kompatibilis háttérbe), hogy:
 
-- Nyomon kövess egyetlen ügyfél panaszt végig minden modell- és eszközhíváson keresztül.
-- Figyeld az p50/p95 késleltetést és költséget kérések szerint időben.
-- Riasztás az error-rate csúcsokra és költségtúllépésekre azelőtt, hogy a felhasználók (vagy a pénzügyi csapat) észrevennék.
+- Egyetlen ügyfélpanaszt végigkövess modell- és eszközmeghívásokon keresztül.
+- Idővel nyomon kövesd a p50/p95 késleltetést és költséget kérésenként.
+- Hibaarány csúcsokat és költséganomáliákat jelezz a felhasználók (vagy a pénzügyi csapat) előtt.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,93 +159,93 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # az ügynök végrehajtása automatikusan követve van ezen a szakaszon belül
+    # agent execution is traced automatically inside this span
 ```
 
-Az olyan attribútumok, mint `customer.tier` és `routed.model`, alakítják át a nyomkövetések falát válaszolható kérdésekké ("túl gyakran irányítják-e a vállalati ügyfeleket a kis modellhez?").
+Az olyan attribútumok, mint a `customer.tier` és a `routed.model`, azok, amelyek egy falnyi trace-et feleletre váró kérdésekké alakítanak („a vállalati ügyfeleket túl gyakran irányítja a rendszer a kis modellhez?”).
 
 ## Költségoptimalizálás
 
-A termelési ügynökök költségét főként a tokenek jelentik. Három fogantyú, hatás szerint sorrendben:
+A költség a termelési ügynököknél leginkább a tokenekből adódik. Három befolyásoló faktor, fontossági sorrendben:
 
-1. **Megfelelő modellméret.** Egy kis modell, amely átmegy az értékelési kapun, majdnem mindig olcsóbb, mint egy nagy modell, amely szintén átmegy. Használd az értékelést arra, hogy *bizonyítsd*, hogy a kis modell elég jó, ne az óvatosság miatt válaszd mindig a legnagyobbat.
-2. **Irányítás összetettség szerint.** Mint fent — csak azoknál a kéréseknél fizess a nagy modellért, amelyek ténylegesen nagy érvelést igényelnek.
-3. **Agresszív gyorsítótárazás.** A legolcsóbb modellhívás az, amelyiket soha meg sem teszed.
+1. **Megfelelő méretű modell.** Egy kis modell, amely átmegy az értékelési kapun, szinte mindig olcsóbb, mint egy nagy modell, amely szintén átmegy. Használd az értékelést arra, hogy *bizonyítsd*, hogy a kis modell elég jó, ahelyett, hogy alapból a legnagyobb modellt választanád biztonsági okokból.
+2. **Irányítás összetettség alapján.** Ahogy korábban — csak azoknak a kéréseknek fizess nagy modelles árakat, amelyek ténylegesen nagy modelles érvelést igényelnek.
+3. **Erőteljes gyorsítótárazás.** A legolcsóbb modellhívás az, amit sosem csinálsz meg.
 
-Értékelési kapuk és költségkontroll ugyanannak a fegyelemnek két nézőpontja: az értékelés adja a *minőségi alsó határt*, az irányítás és gyorsítótárazás a lehető legközelebb tart téged a költség *alsó határához*.
+Az értékelési kapuk és költségkontroll ugyanannak a fegyelemnek két oldala: az értékelés megmondja a *minőségi alsó határt*, az irányítás és gyorsítótárazás pedig a költséget tartja olyan közel ehhez az alsó határhoz, amennyire csak lehet.
 
 ## Vállalati telepítési szempontok
 
-**Irányítás.** A Hosted Agents öröklik a Foundry RBAC-ját, tartalombiztonságát és audit naplózását. Adj minden ügynöknek egy menedzselt identitást a szükséges legkisebb jogosultsággal — csak olvasható hozzáférést az ismeretalaphoz, scoped hozzáférést a jegy API-hoz, semmi többet.
+**Irányítás.** A Hosted Agents örökli a Foundry RBAC-ját, tartalombiztonságát és audit naplózását. Adj minden ügynöknek olyan kezelt identitást, amely a szükséges minimális jogosultságokkal rendelkezik — csak olvasási jogosultság a tudásbázishoz, korlátozott hozzáférés a jegyrendszer API-hoz, semmi több.
 
-**Ember a folyamatban.** Néhány művelet túl súlyos, hogy teljesen automatizált legyen — visszatérítés kiadása, fiók törlése, jogi csapatnak történő továbbítás. A Microsoft Agent Framework támogat **jóváhagyás-követelős** eszközöket: az ügynök javasolja a műveletet, a végrehajtás szünetel, egy ember jóváhagyja vagy elutasítja, majd a munkafolyamat folytatódik. Az alapot láttad a [6-os leckében](../06-building-trustworthy-agents/README.md); itt telepíted azt.
+**Ember a folyamatban.** Bizonyos műveletek túl kockázatosak az automatikus végrehajtáshoz — visszatérítés kiadása, fiók törlése, jogi csapat bevonása. A Microsoft Agent Framework támogatja az **jóváhagyást igénylő** eszközöket: az ügynök javasolja a műveletet, a végrehajtás szünetel, egy ember jóváhagyja vagy elutasítja, majd a munkafolyamat folytatódik. Ezt a primitívet már láttad a [6. leckében](../06-building-trustworthy-agents/README.md); itt telepíted.
 
-**MCP a termelésben.** Az [MCP](../11-agentic-protocols/README.md) lehetővé teszi, hogy az ügynököd külső eszközöket használjon egy szabványos interfésszel. Termelésben minden MCP szervert megbízhatatlan határnak tekints: rögzítsd a szerver verzióját, futtasd scoped identitással, ellenőrizd a kimeneteit, és soha ne oszd meg vele az titkos adatokat. Az MCP szerver egy függőség, az ilyen függőségeket javítani, auditálni és sebességkorlátozni kell.
+**MCP élesben.** Az [MCP](../11-agentic-protocols/README.md) lehetővé teszi, hogy az ügynök külső eszközöket használjon szabványos interfészen keresztül. Éles környezetben minden MCP szervert megbízhatatlan határként kezelj: rögzítsd a szerver verzióját, futtasd scoped identitással, ellenőrizd az outputokat, és soha ne adj ki neki titkokat. Egy MCP szerver függőség, a függőségeket pedig javítják, auditálják és korlátozzák.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Fejlesztési architektúra]
-        D1[Jegyzetfüzet] --> D2[Ügynök keretrendszer]
-        D2 --> D3[Modell szolgáltató]
-        D2 --> D4[Helyi eszközök]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Telepítési architektúra]
-        E1[CI folyamat] --> E2[Értékelési kapu]
-        E2 -->|átengedés| E3[Foundry ügynök szolgáltatás]
-        E3 --> E4[Verziózott hosztolt ügynök]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Futási idejű architektúra]
-        F1[Ügyfélalkalmazás] --> F2[Hosztolt ügynök]
-        F2 --> F3[Modell útválasztó]
-        F2 --> F4[Azure AI Keresés RAG]
-        F2 --> F5[Memória szolgáltatás]
-        F2 --> F6[MCP eszközök]
-        F2 --> F7[OTel -> Foundry követés]
-        F2 --> F8[Emberi jóváhagyás]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
+        F2 --> F4[Azure AI Search RAG]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-Ezek a három diagram — fejlesztés, telepítés, futás — ugyanaz az ügynök életének három szakaszában. A következő labor lépésről lépésre végigvezet a megépítésén.
+Ezek a három diagram — fejlesztés, telepítés, futási idő — ugyanaz az ügynök a három életszakaszában. A következő labor segít megépíteni ezt.
 
-## Gyakorlati labor: Termelésre kész ügyféltámogatási ügynök
+## Gyakorlati labor: Egy éles környezetre kész ügyféltámogatási ügynök
 
-Nyisd meg a [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) fájlt, és haladj végig rajta. Össze fogsz állítani egy **Contoso ügyféltámogató ügynököt**, amelybe minden termelési szempont be van építve:
+Nyisd meg a [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) fájlt, és haladj végig rajta teljesen. Összeállítasz egy **Contoso ügyféltámogatási ügynököt**, amibe a termelési szempontok mindegyike be van kötve:
 
-1. **Eszköz hívások** — nézd meg a rendelési státuszt és nyiss támogatási jegyeket.
-2. **RAG** — válaszolj szabályzati kérdésekre egy ismeretbázisból (Azure AI Search, egy memóriabeli visszatéréses fallback-kel, hogy a jegyzetfüzet Search erőforrás nélkül is fusson).
-3. **Memória** — emlékezz az ügyfélre a beszélgetés fordulói között.
-4. **Modellirányítás** — egy komplexitás alapú osztályozó minden kérést egy kis vagy nagy modellhez irányít.
-5. **Válasz gyorsítótárazás** — ismétlődő kérdések gyorsítótárból szolgálhatók ki.
-6. **Emberi jóváhagyás** — egy küszöbérték feletti visszatérítések emberi jóváhagyást igényelnek.
-7. **Értékelési folyamat** — egy kis offline tesztkészlet értékeli az ügynököt, és kiadási kapuként működik.
-8. **Megfigyelhetőség** — OpenTelemetry nyomkövetés minden kérés körül.
+1. **Eszköz hívás** — rendelés állapotának lekérdezése és támogatási jegyek megnyitása.
+2. **RAG** — irányelvekre adott válaszok tudásbázisból (Azure AI Search, memóriában lévő visszaeséssel, hogy a jegyzetfüzet Search erőforrás nélkül fusson).
+3. **Memória** — megjegyzi az ügyfelet a beszélgetés fordulói között.
+4. **Modellirányítás** — egy összetettségi osztályozó minden kérést kis vagy nagy modellhez irányít.
+5. **Válasz gyorsítótárazás** — ismétlődő kérdéseket gyorsítótárból szolgál ki.
+6. **Emberi jóváhagyás** — küszöbérték feletti visszatérítések emberi jóváhagyásra várnak.
+7. **Értékelési folyamat** — egy kis offline tesztkészlet pontozza az ügynököt és kiadási kapuként működik.
+8. **Megfigyelhetőség** — OpenTelemetry trace minden kérés körül.
 
 ### Áttekintés
 
-A jegyzetfüzet úgy van rendszerezve, hogy minden termelési szempont egy önálló, futtatható szakasz. A szíve a routing-plus-caching kéréskezelő:
+A jegyzetfüzet úgy van felépítve, hogy minden termelési szempont önálló, futtatható szakasz legyen. A lényege a routing-plus-caching kéréskezelő:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Minél többször szolgáljunk ki gyorsítótárból.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Iránymutatás a bonyolultság alapján a költségek szabályozásához.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Futtassuk az ügynököt egy trace span belsejében az megfigyelhetőség érdekében.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Gyorsítótárazás és visszatérés.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Az értékelési kapu, amely őrzi a kiadást, így néz ki:
+A kiadást védő értékelési kapu így néz ki:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # telepítés csak akkor, ha a kapu átmegy
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Olvass el minden sort — a jegyzetfüzet szándékosan tartja kicsire az alapokat, hogy semmi ne legyen elrejtve egy keretrendszer hívás mögött.
+Olvass el minden sort — a jegyzetfüzet szándékosan tartja kicsire a primitíveket, hogy semmi ne legyen elrejtve egy framework-hívás mögött.
 
-## Egy telepített ügynök érvényesítése füsttesztekkel
+## Telepített ügynök érvényesítése füst tesztekkel
 
-A fent említett értékelési kapu *offline* fut az ügynök objektumodon. Amint az ügynök Hosted Agentként telepítve van, szükséged van még egy, még olcsóbb ellenőrzésre: **a telepített végpont tényleg válaszol-e?**
+A fenti értékelési kapu *offline* lefut az ügynök objektumon. Amint az ügynök Hosted Agent-ként telepítve van, egy további, még olcsóbb ellenőrzésre van szükség: **a telepített végpont tényleg válaszol-e?**
 
-A "sikeres" telepítés csak azt bizonyítja, hogy az irányító felület elfogadta a definíciót — nem bizonyítja, hogy az ügynök válaszol. Egy hiányzó függőség, rossz modellirányítás vagy lejárt kapcsolat zöld telepítést eredményezhet, ami nem ad vissza semmit. Egy **füstteszt** ezt másodpercek alatt észleli, minden telepítésnél, a teljes értékelés költsége nélkül.
+A „sikeres” telepítés csak azt bizonyítja, hogy a vezérlési sík elfogadta a definíciót — nem bizonyítja, hogy az ügynök válaszol. Egy hiányzó függőség, rossz modellirányítás vagy lejárt kapcsolat zöld telepítést eredményezhet, amely semmit sem ad vissza. Egy **füst teszt** ezt másodpercek alatt elkapja, minden telepítésnél, anélkül, hogy a teljes értékelést költségeznéd.
 
-Ez a tároló egy készen használható füstteszt folyamatot szállít, amely az [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action-re épül:
+Ez a tárház egy készen álló füstmérési csővezetéket tartalmaz, amely az [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action alapjaira épül:
 
-- **Katalógus** — a [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) tartalmazza a Contoso ügyféltámogató ügynökhöz készült promptokat és állításokat (alapozott szabályzati válaszok, rendelés lekérése, témán belül maradás, többfordulós szál folytonosság). Más leckék ügynökeinek katalógusai is mellette találhatók — lásd a [`tests/README.md`](../tests/README.md)-t.
-- **Munkafolyamat** — a [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) Azure OIDC-vel bejelentkezik, és POST-olja a promptokat az ügynök Válaszok végpontjára, meghiúsítva a feladatot bármely állítás hibájánál.
+- **Katalógus** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) tartalmaz promptokat és igazolásokat a Contoso ügyféltámogatási ügynökhöz (megalapozott szabályzati válaszok, rendelés lekérdezés, témakövetés és többfordulós beszélgetési folytonosság). Más leckék ügynökeinek katalógusai ezzel együtt élnek — lásd [`tests/README.md`](../tests/README.md).
+- **Munkafolyamat** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) Azure OIDC-vel jelentkezik be és POST-olja az összes promptot az ügynök válasz végpontjára, meghibásodás esetén a feladatot elutasítva.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,109 +281,108 @@ Ez a tároló egy készen használható füstteszt folyamatot szállít, amely a
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
-Futtassa az **Actions** fülről, miután az ügynöke telepítve van, megadva a Foundry projekt végpontját és az ügynök nevét. A federált identitásnak rendelkeznie kell az **Azure AI User** szerepkörrel a Foundry projekt szintjén. Gondoljon a rétegekre úgy, mint egy piramisra: a füsttesztek (elérhető és válaszol?) minden telepítéskor futnak, az offline értékelés (elég jó-e a szállításhoz?) a promóció előtt, az online értékelés (hogy teljesít vad környezetben?) folyamatosan fut.
+Futtassa az **Actions** fülről, miután az ügynök telepítve lett, megadva a Foundry projekt végpontját és az ügynök nevét. A szövetséges identitásnak a **Azure AI User** szerepre van szüksége a Foundry projekt hatókörében. Gondoljon a rétegekre úgy, mint egy piramisra: a füstpróbák (elérhető és válaszol?) minden telepítéskor futnak, az offline értékelés (elég jó a kiadásra?) a promóció előtt, az online értékelés (hogyan teljesít a valós környezetben?) folyamatosan fut.
 
 ## Tudásellenőrzés
 
-Tesztelje megértését, mielőtt tovább lépne a feladatra.
+Tesztelje megértését, mielőtt továbblép a feladatra.
 
-**1. Körülbelül mekkora része egy éles ügynöknek a "modell", és mi a maradék?**
+**1. Körülbelül mennyi egy éles ügynök „modell”, és mi a maradék?**
 
 <details>
 <summary>Válasz</summary>
 
-A modell a rendszer kisebbsége — gyakran 20% körül említik. A maradék az operatív váz: hosztolás és verziókezelés, identitás és RBAC, külső tárolt állapot, hibakezelés, költségkövetés, értékelés és emberi beavatkozásos vezérlés. Az éles üzembe helyezés leginkább arról szól, hogy mindent *a* gondolkodási kör köré kell építeni.
+A modell a rendszer kisebb része — gyakran kb. 20%-nak tekintik. A maradék az operatív váz: hosztolás és verziókezelés, azonosítás és RBAC, külső állapot, hibakezelés, költségkövetés, értékelés és emberi beavatkozás. A produção-ba lépés főként arról szól, hogy mindent a gondolkodási ciklus *köré* építsen.
 </details>
 
-**2. Mikor választana Hosted Agentet egy kliens oldali ügynök helyett?**
+**2. Mikor választaná a Hosted Agent-et egy kliens által hosztolt ügynök helyett?**
 
 <details>
 <summary>Válasz</summary>
 
-Amikor egy kezelt futtatási környezetet szeretne beépített tartóssággal (folyamok, amelyek fennmaradnak és folytathatóak), megfigyelhetőséggel, tartalombiztonsággal és RBAC-kal, és hajlandó némi mélyebb kontrollt feladni a gondolkodási kör fölött a kisebb operatív felület érdekében. Kliens hosztolás előnyösebb, ha teljes kontrollra van szüksége a kör felett, vagy beágyazza az ügynököt egy meglévő backendbe.
+Amikor egy menedzselt futtatókörnyezetet akar beépített tartóssággal (folytonos és visszaállítható szálak), megfigyelhetőséggel, tartalombiztonsággal és RBAC-kal, és hajlandó feláldozni a gondolkodási ciklus alacsony szintű irányításának egy részét a kisebb operatív felületért. A kliens által hosztolt ügynök előnyösebb, ha teljes irányítás kell a ciklus felett, vagy ha az ügynök egy meglévő háttérrendszerbe van beágyazva.
 </details>
 
-**3. Miért kell egy skálázható ügynöknek statelessnek lennie a saját folyamat memóriájában?**
+**3. Miért kell egy skálázható ügynöknek állapotmentesnek lennie a saját folyamat memóriájában?**
 
 <details>
 <summary>Válasz</summary>
 
-Mert így bármelyik példány el tud látni bármilyen kérelmet, ami lehetővé teszi a vízszintes skálázást ragadós session-ök nélkül. A felhasználónkénti beszélgetési állapotot egy külön thread store vagy memória szolgáltatás tárolja. Ha az állapot a folyamat memóriájában lenne, azt újraindításkor elveszítené, és nem tudná szabadon elosztani a terhelést.
+Hogy bármelyik példány tudjon bármilyen kérést kezelni, ami lehetővé teszi a vízszintes skálázást ragadós munkamenetek nélkül. A felhasználónkénti beszélgetési állapot külső tárolóba vagy memóriaszolgáltatásba kerül. Ha az állapot a folyamat memóriájában lenne, elveszne újraindításnál, és nem lehetne szabadon elosztani a terhelést.
 </details>
 
-**4. Milyen problémát old meg a modell útválasztás, és hogyan kapcsolódik az értékeléshez?**
+**4. Milyen problémát old meg a modell irányítás, és hogyan kapcsolódik az értékeléshez?**
 
 <details>
 <summary>Válasz</summary>
 
-Az útválasztás egyszerű kéréseket egy kis, olcsó, gyors modellnek küld, és a nagy modellt megőrzi az igazi gondolkodásra, így szabályozza a késleltetést és a költséget. Kapcsolódik az értékeléshez, mert az értékelés *bizonyítja*, hogy a kis modell elég jó egy adott kérésosztályhoz — az útválasztás értékelés nélkül csak találgatás.
+Az irányítás egyszerű kéréseket egy kis, olcsó, gyors modellhez küld, és a nagy modellt a valódi érvelésre tartja fenn, így kontrollálja a késleltetést és a költséget. Kapcsolódik az értékeléshez, mert az értékelés bizonyítja, hogy a kis modell elegendő egy adott kéréskategóriára — az értékelés nélküli irányítás csak találgatás.
 </details>
 
-**5. Mi az az "értékelési kapu," és hol helyezkedik el az életciklusban?**
+**5. Mi az az „értékelési kapu”, és hol helyezkedik el az életciklusban?**
 
 <details>
 <summary>Válasz</summary>
 
-Egy értékelési kapu offline tesztkészletet futtat le az új ügynökverzión, és akadályozza a telepítést, kivéve ha a sikerarány eléri a küszöböt. Az életciklusban a "verzió" és a "telepítés" között áll, és a minőséget kiadási előfeltétellé teszi, nem csak az utólagos ellenőrzés tárgyává.
+Egy értékelési kapu új ügynök verzióra offline teszthalmazt futtat, és blokkolja a telepítést, ha a sikerességi arány nem éri el a küszöböt. Az életciklusban a „verzió” és a „telepítés” között helyezkedik el, így a minőség előfeltétele a kiadásnak, nem pedig utólagos ellenőrzés.
 </details>
 
-**6. Miért kell az MCP szervert megbízhatatlan határként kezelni a termelésben?**
+**6. Miért kell az MCP szervert megbízhatatlan határként kezelni éles környezetben?**
 
 <details>
 <summary>Válasz</summary>
 
-Mert külső függőség, amelyet az ügynök hív meg. Rögzítenie kell a verzióját, le kell futtatnia egy szeparált identitással, ellenőriznie kell a kimeneteket, korlátoznia kell a hívások gyakoriságát, és soha nem szabad neki titkokat megadni — ugyanolyan fegyelmet kell alkalmazni, mint bármely harmadik fél függőség esetében. A kimenetei bekerülnek az ügynök gondolkodásába, így a validáció nélküli bizalom biztonsági kockázat.
+Mert egy külső függőség, amit az ügynök hív meg. Rögzíteni kell a verzióját, scoped identitással futtatni, érvényesíteni a kimeneteit, korlátozni a kihasználhatóságát, és soha nem szabad neki titkokat átadni — ugyanaz a fegyelem kell, mint bármely harmadik fél függőségnél. Kimenetei befolyásolják az ügynök érvelését, így az érvénytelenített bizalom biztonsági kockázat.
 </details>
 
-**7. Melyik egyetlen változtatásnak van általában a legnagyobb hatása az éles ügynök költségeire, és miért?**
+**7. Melyik egyetlen változtatás szokta leginkább befolyásolni az éles ügynök költségét és miért?**
 
 <details>
 <summary>Válasz</summary>
 
-A modell méretezése — a legkisebb modell használata, amely még átmegy az értékelési kapun. A költséget a tokenek uralják, és egy kisebb modell, amely megfelel a minőségi követelménynek, szinte mindig olcsóbb, mint egy nagyobb. A gyorsítótárazás és útválasztás tovább csökkenti a költségeket, de a megfelelő alapmodell kiválasztásának van az elsődleges legnagyobb hatása.
+A modell méretezése — a legkisebb olyan modellt használni, amely még átmegy az értékelési kapun. A költség a tokenekből adódik, és egy kisebb, az elvárt minőséget teljesítő modell majdnem mindig olcsóbb, mint a nagyobb. A gyorsítótárazás és az irányítás tovább csökkenti a költségeket, de a megfelelő alapmodell választása a legnagyobb elsődleges hatás.
 </details>
 
-**8. Milyen szerepet töltenek be a span attribútumok, például a `customer.tier` és a `routed.model` a megfigyelhetőségben?**
+**8. Milyen szerepet töltenek be olyan span attribútumok, mint `customer.tier` és `routed.model` a megfigyelhetőségben?**
 
 <details>
 <summary>Válasz</summary>
 
-A nyers trace-ekből választható üzleti kérdéseket formálnak. Attribútumok nélkül egy hosszú span falat kapunk; attribútumokkal megkérdezhetjük, hogy „az enterprise ügyfeleket túl gyakran irányítják-e a kis modellhez?” vagy „melyik modell kezeli a leglassabb kéréseinket?” Az attribútumok azok, amelyekkel a telemetriát az operáció szempontjából fontos dimenziók szerint szeleteljük.
+Nyers trace-ekből választható üzleti kérdéseket készítenek. Attribútumok nélkül csak egy span fal; velük meg lehet kérdezni, hogy „a vállalati ügyfeleket túl gyakran irányítják a kicsi modellhez?” vagy „melyik modell kezeli a leglassabb kéréseinket?” Az attribútumokkal szeletelhető a telemetria az üzemeltetés szempontjából fontos dimenziók szerint.
 </details>
 
 ## Feladat
 
-Vegye a laborban kapott ügyfélszolgálati ügynököt, és erősítse meg egy specifikus forgatókönyvhöz: **egy előfizetéses számlázási támogatási ügynök egy SaaS vállalat számára.**
+Vegye a laborból a ügyfélszolgálati ügynököt és erősítse meg egy konkrét szcenárióra: **egy SaaS cég előfizetéses számlázási ügyfélszolgálati ügynök.**
 
-Beküldése tartalmazza:
+A beadásnak tartalmaznia kell:
 
-1. **Cserélje le az eszközöket** számlázással kapcsolatosakra: `get_subscription_status`, `get_invoice`, és `issue_credit` (50 dollár feletti jóváírások emberi jóváhagyást igényelnek).
-2. **Adjon hozzá három RAG dokumentumot** a cég visszatérítési politikájáról, számlázási ciklusáról és lemondási feltételeiről.
-3. **Bővítse az értékelő készletet** legalább nyolc esetre, beleértve legalább kettőt, amelyeknek *meg kellene* indítaniuk az emberi jóváhagyási utat, és igazolja, hogy az értékelési kapuja megfelelően enged vagy tilt.
-4. **Adjon hozzá egy költségjelentést**: tíz vegyes lekérdezés futtatása után az ügynökön írja ki, hány ment a kis modellhez, hány a nagy modellhez, és hány szolgáltak ki cache-ből.
+1. **Cserélje le az eszközöket** számlázási relevánsakra: `get_subscription_status`, `get_invoice` és `issue_credit` (50 dollár fölötti jóváírások emberi jóváhagyást igényelnek).
+2. **Adjon hozzá három RAG dokumentumot** a cég visszatérítési politikájáról, számlázási ciklusáról és lemondási szabályzatáról.
+3. **Bővítse az értékelési készletet** legalább nyolc esetre, amelyek közül legalább kettőnek *kell* emberi jóváhagyást kiváltania, és erősítse meg, hogy az értékelési kapu helyesen enged vagy tilt.
+4. **Adj hozzá egy költségjelentést**: tíz vegyes lekérdezés lefuttatása után nyomtassa ki, hány ment a kis modellhez, hány a nagy modellhez, és hányt szolgáltak ki gyorsítótárból.
 
-Írjon egy rövid bekezdést (markdown cellában) arról, hogy melyik modell útválasztási szabályt választotta, és hogyan validálná valódi forgalommal. Nincs egyetlen helyes válasz — a minősítés az alapján történik, hogy mennyire koherens a termelési szempontok összekapcsolása.
+Írjon egy rövid bekezdést (markdown cellában), amely elmagyarázza, mely modell-irányítási szabályt választotta, és hogyan validálná azt valódi forgalommal. Nincs egyetlen helyes válasz – az értékelés alapján vizsgálják, hogy az éles környezet aggodalmai koherensen vannak-e összekapcsolva.
 
-## Összefoglaló
+## Összegzés
 
-Ebben az órában az ügynököt prototípusból termelésbe vitte a Microsoft Foundry segítségével:
+Ebben a leckében egy ügynököt prototípusról átvezettél az éles környezetbe Microsoft Foundry-val:
 
-- Az éles üzembe lépés leginkább a **modell körüli operatív vázról** szól — hosztolás, identitás, állapot, hibakezelés, költség, minőség és bizalom.
-- Megismerte a három **telepítési mintát** — kliens hosztolás, Hosted Agents, és Agent Workflows — és hogy mikor melyik illik.
-- Bejárta az **ügynök életciklusát**, ahol az offline **értékelés kiadási kapuként működik**, és az online megfigyelhetőség visszacsatolja a hibákat a tesztkészletbe.
-- Alkalmazta a **skálázási stratégiákat** — stateless tervezés, modell útválasztás, gyorsítótárazás és korlátos párhuzamosság — és összekötötte őket a **költségoptimalizálással**.
-- Beépítette az **vállalati vezérléseket**: RBAC, emberi jóváhagyás, és termelésbiztos MCP integráció.
-- Felépített egy **termelésre kész ügyfélszolgálati ügynököt**, amely mindezeket az igényeket futtatható kódba köti össze.
+- Az élesítés főként a modell köré épülő **operatív váznál** van — hosztolás, azonosítás, állapot, hibakezelés, költség, minőség és bizalom.
+- Megismerted a három **telepítési mintát** — kliens felől hosztolt, Hosted Agent, és Agent Workflow — és hogy melyik mikor illik.
+- Végigmentél az **ügynök életciklusán**, ahol az offline **értékelés kiadási kapuként működik**, és az online megfigyelhetőség visszacsatolja a hibákat a teszthalmazba.
+- Alkalmaztad a **skálázási stratégiákat** — állapotmentes kialakítás, modell irányítás, gyorsítótárazás, és korlátozott párhuzamosság — és összekapcsoltad a **költségoptimalizálással**.
+- Beépítetted a **vállalati vezérléseket**: RBAC, emberi jóváhagyás a beavatkozásban, és éles MCP integráció.
+- Építettél egy **élesre kész ügyfélszolgálati ügynököt**, amely mindezeket az aggodalmakat futtatható kódba köti össze.
 
-A következő lecke az ellentétes utat járja be: ahelyett, hogy az ügynököket felhőbe skálázza, lehozza őket *egy* fejlesztői gépre, és teljesen helyileg futtatja.
+A következő lecke az ellentétes utat járja: ahelyett, hogy ügynököket skálázna fel a felhőbe, egyetlen fejlesztői gépre viszi őket és teljesen helyben futtatja.
 
 ## További források
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry dokumentáció</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service áttekintés</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Modell útválasztó a Microsoft Foundryban</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router a Microsoft Foundry-ban</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
@@ -391,7 +390,7 @@ A következő lecke az ellentétes utat járja be: ahelyett, hogy az ügynökök
 
 ## Előző lecke
 
-[Számítógép használati ügynökök építése (CUA)](../15-browser-use/README.md)
+[Számítógép-használati ügyfélszolgálati ügynökök (CUA)](../15-browser-use/README.md)
 
 ## Következő lecke
 

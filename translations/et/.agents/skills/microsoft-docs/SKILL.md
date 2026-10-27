@@ -1,99 +1,95 @@
 ---
 name: microsoft-docs
-description: Küsib ametlikku Microsofti dokumentatsiooni, et leida mõisteid, juhendeid
-  ja koodinäiteid Azure'i, .NET-i, Agent Frameworki, Aspire'i, VS Code'i, GitHubi
-  ja muu kohta. Vaikimisi kasutatakse Microsoft Learn MCP-i; Context7 ja Aspire MCP-i
-  kasutatakse sisu jaoks, mis asub väljaspool learn.microsoft.com-i.
 ---
 # Microsoft Docs
 
-Uurimisoskus Microsofti tehnoloogiate ökosüsteemi jaoks. Hõlmab learn.microsoft.com ja väljaspool seda asuvat dokumentatsiooni (VS Code, GitHub, Aspire, Agent Frameworki hoidlad).
+Uurimisoskus Microsofti tehnoloogiliste ökosüsteemide jaoks. Katab learn.microsoft.com-i ja dokumentatsiooni, mis asub väljaspool seda (VS Code, GitHub, Aspire, Agent Frameworki hoidlad).
 
 ---
 
-## Default: Microsoft Learn MCP
+## Vaikimisi: Microsoft Learn MCP
 
-Kasutage neid tööriistu **kõigi learn.microsoft.com lehel olevate materjalide** jaoks — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ja muud. See on peamine tööriist enamikule Microsofti dokumentatsiooni päringutele.
+Kasuta neid tööriistu **kõike otsimiseks learn.microsoft.com-is** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ja palju muud. See on peamine tööriist enamiku Microsofti dokumentatsiooni päringute jaoks.
 
-| Tool | Purpose |
+| Tööriist | Eesmärk |
 |------|---------|
-| `microsoft_docs_search` | Otsi learn.microsoft.com — kontseptsioonid, juhendid, õppetunnid, konfiguratsioon |
-| `microsoft_code_sample_search` | Leia töötavad koodinäited Learn-dokumentidest. Parimate tulemuste saamiseks anna `language` (`python`, `csharp`, jne) |
-| `microsoft_docs_fetch` | Hangi kogu lehe sisu konkreetsest URL-ist (kui otsingu väljavõtted ei piisa) |
+| `microsoft_docs_search` | otsi learn.microsoft.com — kontseptsioonid, juhendid, õpetused, seadistused |
+| `microsoft_code_sample_search` | leia töötavad koodinäited Learn dokumentidest. Parimate tulemuste jaoks kasuta `language` (`python`, `csharp` jne) |
+| `microsoft_docs_fetch` | saa kogu lehe sisu konkreetsest URL-ist (kui otsingu lõiked ei piisa) |
 
-Kasutage `microsoft_docs_fetch`-i pärast otsingut, kui vajate täielikke õpetusi, kõiki konfiguratsiooni valikuid või kui otsingu väljavõtted on kärbitud.
+Kasuta `microsoft_docs_fetch` pärast otsingut, kui vajad täielikke õpetusi, kõiki seadistusvõimalusi või kui otsingu lõiked on lühendatud.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Erandid: millal kasutada teisi tööriistu
 
-Järgnevate kategooriate dokumentatsioon asub **väljaspool** learn.microsoft.com-i. Kasutage selle asemel määratud tööriista.
+Järgmised kategooriad asuvad **väljaspool** learn.microsoft.com-i. Kasuta kindlasti määratud tööriista.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — kasuta Aspire MCP serverit (eelistatuim) või Context7
 
-Aspire'i dokumendid asuvad **aspire.dev**-is, mitte Learn'is. Parim tööriist sõltub teie Aspire CLI versioonist:
+Aspire dokumentatsioon asub **aspire.dev** lehel, mitte Learnis. Parim tööriist sõltub sinu Aspire CLI versioonist:
 
-**CLI 13.2+** (soovitatav) — Aspire MCP server sisaldab sisseehitatud dokumentide otsingutööriistu:
+**CLI 13.2+** (soovitatav) — Aspire MCP server sisaldab sisseehitatud dokumentatsiooni otsingutööriistu:
 
-| MCP Tool | Description |
+| MCP tööriist | Kirjeldus |
 |----------|-------------|
-| `list_docs` | Loetleb kogu aspire.dev-i dokumentatsiooni |
+| `list_docs` | Loetleb kogu saadaval oleva dokumentatsiooni aspire.dev lehelt |
 | `search_docs` | Kaalutud leksikaalne otsing aspire.dev sisu ulatuses |
-| `get_doc` | Toob konkreetse dokumendi slugi järgi |
+| `get_doc` | Toob konkreetse dokumenti slugi alusel |
 
-Need on kaasas Aspire CLI 13.2-s ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Uuendamiseks: `aspire update --self --channel daily`. Viide: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Need kaasati Aspire CLI 13.2-sse ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Uuendamiseks: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP server pakub integratsioonide otsimist (`list_integrations`, `get_integration_docs`), kuid ei paku dokumentide otsingut. Tuleks kasutada Context7-i:
+**CLI 13.1** — MCP server toetab integreerimisotsingut (`list_integrations`, `get_integration_docs`), kuid **ei toeta** dokumentatsiooni otsingut. Seda tööriista asenduseks kasuta Context7:
 
-| Library ID | Use for |
+| Raamatu ID | Kasutusala |
 |---|---|
-| `/microsoft/aspire.dev` | Põhiline — juhendid, integratsioonid, CLI viide, juurutamine |
-| `/dotnet/aspire` | Käitusaja lähtekood — API sise-elemendid, teostuse üksikasjad |
+| `/microsoft/aspire.dev` | Peamine — juhendid, integratsioonid, CLI viited, juurutamine |
+| `/microsoft/aspire` | Käitusallikas — API sisemine toimimine, rakenduse üksikasjad |
 | `/communitytoolkit/aspire` | Kogukonna integratsioonid — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — kasuta Context7
 
-VS Code dokumendid asuvad **code.visualstudio.com**-is, mitte Learn'is.
+VS Code dokumentatsioon asub **code.visualstudio.com** lehel, mitte Learnis.
 
-| Library ID | Use for |
+| Raamatu ID | Kasutusala |
 |---|---|
-| `/websites/code_visualstudio` | Kasutaja dokumentatsioon — seaded, funktsioonid, silumine, kaugarendus |
-| `/websites/code_visualstudio_api` | Laienduse API — webviews, TreeViews, käsud, contribution points |
+| `/websites/code_visualstudio` | Kasutaja dokumentatsioon — seaded, funktsioonid, silumine, kaug-arendus |
+| `/websites/code_visualstudio_api` | Laienduse API — veebivaated, TreeViews, käsud, panusetipmid |
 
-### GitHub — Use Context7
+### GitHub — kasuta Context7
 
-GitHubi dokumendid asuvad **docs.github.com** ja **cli.github.com**.
+GitHub dokumentatsioon asub aadressidel **docs.github.com** ja **cli.github.com**.
 
-| Library ID | Use for |
+| Raamatu ID | Kasutusala |
 |---|---|
-| `/websites/github_en` | Actions, API, hoidlad, turvalisus, admin, Copilot |
+| `/websites/github_en` | Actions, API, repos, turvalisus, administreerimine, Copilot |
 | `/websites/cli_github` | GitHub CLI (`gh`) käsud ja lipud |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — kasuta Learn MCP + Context7
 
-Agent Frameworki õpetused on learn.microsoft.com-is (kasutage `microsoft_docs_search`), kuid **GitHubi hoidlas** on API-taseme üksikasjad, mis sageli eelsirguvad avaldatud dokumentatsioonist — eriti DevUI REST API viide, CLI valikud ja .NET integratsioon.
+Agent Frameworki õpetused asuvad learn.microsoft.com-il (kasuta `microsoft_docs_search`), kuid **GitHubi hoidlas** on API tasandi üksikasjad, mis sageli on välja antud dokumentatsioonist ees — eriti DevUI REST API viited, CLI valikud ja .NET integratsioon.
 
-| Library ID | Use for |
+| Raamatu ID | Kasutusala |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Õpetused — DevUI juhendid, traceerimine, töövoo orkestreerimine |
+| `/websites/learn_microsoft_en-us_agent-framework` | Õpetused — DevUI juhendid, jälgimine, töövoo orkestreerimine |
 | `/microsoft/agent-framework` | API üksikasjad — DevUI REST lõpp-punktid, CLI lipud, autentimine, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** Pärige Learn-veebisaidi lähteallikat how-to juhendite jaoks ja seejärel hoidla allikat API-taseme üksikasjade (lõpp-punktide skeemid, proxy konfiguratsioon, autentimistokenid) jaoks.
+**DevUI nõuanne:** Küsi Learn veebisaidi allikat, et saada kuidas-juhtuda juhendite jaoks, seejärel repo allikat API tasandi detailsuste saamiseks (lõpp-punkti skeemid, proxy konfiguratsioon, autentimismärgid).
 
 ---
 
-## Context7 Setup
+## Context7 seadistus
 
-Iga Context7 päringu jaoks lahendage esmalt library ID (üks kord per sessioon):
+Iga Context7 päringu puhul järgi kõigepealt raamatu ID saamist (üks kord sessiooni jooksul):
 
-1. Käivitage `mcp_context7_resolve-library-id` koos tehnoloogia nimega
-2. Käivitage `mcp_context7_query-docs` tagastatud library ID ja konkreetse päringuga
+1. Kutse `mcp_context7_resolve-library-id` tehnoloogia nimega
+2. Kutse `mcp_context7_query-docs` koos tagastatud raamatu ID ja konkreetse päringuga
 
 ---
 
-## Writing Effective Queries
+## Tõhusate päringute kirjutamine
 
-Tõhusate päringute koostamiseks olge täpsed — lisage versioon, eesmärk ja keel:
+Ole konkreetne — lisa versioon, eesmärk ja keel:
 
 ```
 # ❌ Too broad
@@ -109,15 +105,14 @@ Tõhusate päringute koostamiseks olge täpsed — lisage versioon, eesmärk ja 
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Versioon** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Ülesande eesmärk** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Keel** for polyglot docs (`Python`, `TypeScript`, `C#`)
+Lisa kontekst:
+- **Versioon** kui asjakohane (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Tööülesande eesmärk** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Keel** polüglott dokumentide puhul (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastutusest loobumine:
-
-See dokument on tõlgitud tehisintellektil põhineva tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, tuleb arvestada, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Algset dokumenti selle emakeeles tuleks pidada autoriteetseks allikaks. Kriitilise tähtsusega teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta käesoleva tõlke kasutamisest tulenevate arusaamatuste ega väärtõlgenduste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -4,16 +4,16 @@ Panduan ini akan membantu Anda mengatur Azure AI Search menggunakan portal Azure
 
 ## Prasyarat
 
-Sebelum Anda mulai, pastikan Anda memiliki hal-hal berikut:
+Sebelum memulai, pastikan Anda memiliki hal berikut:
 
 - Langganan Azure. Jika Anda belum memiliki langganan Azure, Anda dapat membuat akun gratis di [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Langkah 1: Membuat Akun Penyimpanan Azure
+## Langkah 1: Buat Akun Penyimpanan Azure
 
-1. Ikuti instruksi ini, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), untuk membuat Akun Penyimpanan Azure baru.
-   **NOTE**: Pastikan tipe Akun Penyimpanan adalah Standard General Purpose V2.
+1. Ikuti petunjuk ini, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), untuk membuat Akun Penyimpanan Azure baru.
+   **CATATAN**: Pastikan jenis Akun Penyimpanan adalah Standard General Purpose V2.
 
-## Langkah 2: Membuat Layanan Azure AI Search
+## Langkah 2: Buat Layanan Azure AI Search
 
 1. Masuk ke [portal Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
 2. Di panel navigasi sebelah kiri, klik **Create a resource**.
@@ -23,17 +23,17 @@ Sebelum Anda mulai, pastikan Anda memiliki hal-hal berikut:
    - **Subscription**: Pilih langganan Azure Anda.
    - **Resource group**: Buat grup sumber daya baru atau pilih yang sudah ada.
    - **Resource name**: Masukkan nama unik untuk layanan pencarian Anda.
-   - **Region**: Pilih wilayah terdekat dengan pengguna Anda.
-   - **Pricing tier**: Pilih tingkat harga yang sesuai dengan kebutuhan Anda. Anda dapat memulai dengan tier Gratis untuk pengujian.
+   - **Region**: Pilih wilayah yang paling dekat dengan pengguna Anda.
+   - **Pricing tier**: Pilih tingkat harga yang sesuai dengan kebutuhan Anda. Anda dapat memulai dengan tingkat Gratis untuk pengujian.
 6. Klik **Review + create**.
-7. Tinju pengaturan dan klik **Create** untuk membuat layanan pencarian.
+7. Tinjau pengaturan dan klik **Create** untuk membuat layanan pencarian.
 
-## Langkah 3: Memulai dengan Azure AI Search
+## Langkah 3: Mulai dengan Azure AI Search
 
-1. Setelah penyebaran selesai, navigasi ke layanan pencarian Anda di portal Azure.
-2. Di panel ringkasan layanan pencarian, salin URL tersebut. URL tersebut akan terlihat seperti `https://<service-name>.search.windows.net`.
-3. **(Direkomendasikan)** Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC) seperti yang ditunjukkan pada Langkah 4 di bawah — tidak perlu kunci. Contoh dalam panduan ini membuat/memperbarui indeks dan mengunggah dokumen, yang membutuhkan peran **Search Service Contributor** dan **Search Index Data Contributor** (atau, untuk autentikasi berbasis kunci, menggunakan **primary admin key** — bukan query key). Hanya jika Anda tidak dapat menggunakan RBAC, buka panel **Settings > Keys** dan salin **primary admin key**.
-4. Ikuti langkah-langkah di halaman [Panduan cepat](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) untuk membuat indeks, mengunggah data, dan melakukan pencarian.
+1. Setelah penyebaran selesai, navigasikan ke layanan pencarian Anda di portal Azure.
+2. Di panel ringkasan layanan pencarian, salin URL. URL tersebut harus terlihat seperti `https://<service-name>.search.windows.net`.
+3. **(Disarankan)** Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC) seperti yang ditunjukkan di Langkah 4 di bawah ini — tanpa perlu kunci. Contoh pada panduan ini membuat/memperbarui indeks dan mengunggah dokumen, yang memerlukan peran **Search Service Contributor** dan **Search Index Data Contributor** (atau, untuk autentikasi berbasis kunci, **primary admin key** — bukan query key). Hanya jika Anda tidak dapat menggunakan RBAC, buka panel **Settings > Keys** dan salin **primary admin key**.
+4. Ikuti langkah-langkah di halaman [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) untuk membuat indeks, mengunggah data, dan melakukan pencarian.
 
 ## Langkah 4: Gunakan Alat Azure AI Search
 
@@ -42,44 +42,44 @@ Azure AI Search terintegrasi dengan berbagai alat untuk meningkatkan kemampuan p
 ### Menggunakan Azure CLI
 
 1. Instal Azure CLI dengan mengikuti instruksi di [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Masuk ke Azure CLI menggunakan perintah:
+2. Masuk ke Azure CLI menggunakan perintah berikut:
 
    ```bash
    az login
    ```
-3. **(Direkomendasikan) Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC):**
+3. **(Disarankan) Aktifkan akses tanpa kunci dengan Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show tidak memiliki bidang "endpoint"; buat URL dari nama layanan.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Dengan RBAC diaktifkan, contoh Python dan .NET SDK di bawah mengautentikasi menggunakan `DefaultAzureCredential`, yang menggunakan sesi `az login` Anda selama pengembangan lokal — tidak perlu kunci admin. Lihat [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Dengan RBAC diaktifkan, contoh Python dan .NET SDK di bawah mengautentikasi menggunakan `DefaultAzureCredential`, yang menggunakan sesi `az login` Anda selama pengembangan lokal — tanpa perlu kunci admin. Lihat [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
 4. **(Cadangan) Autentikasi berbasis kunci** — hanya jika Anda tidak dapat menggunakan RBAC, simpan juga kunci admin:
 
-#### Simpan baik endpoint maupun API key untuk instance Azure AI Search ke variabel lingkungan.
+#### Simpan endpoint dan API key untuk instance Azure AI Search ke variabel lingkungan.
 
-    ```bash
-    # zsh/bash
-    # az search service show tidak memiliki field "endpoint"; buat URL dari nama layanan.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show tidak memiliki field "endpoint"; buat URL dari nama layanan.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Menggunakan Python SDK
 
-1. Instal perpustakaan klien Azure Cognitive Search dan Azure Identity untuk Python:
+1. Instal library klien Azure Cognitive Search dan Azure Identity untuk Python:
 
    ```bash
    pip install azure-search-documents azure-identity
@@ -97,11 +97,11 @@ Azure AI Search terintegrasi dengan berbagai alat untuk meningkatkan kemampuan p
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (disarankan): menggunakan identitas `az login` Anda melalui Entra ID RBAC.
-    # Memerlukan peran "Search Service Contributor" dan "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Cadangan (otentikasi berbasis kunci):
-    # dari azure.core.credentials impor AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -132,7 +132,7 @@ Azure AI Search terintegrasi dengan berbagai alat untuk meningkatkan kemampuan p
     dotnet run ./AzureSearch.cs
     ```
 
-    Contoh .NET di bawah menggunakan `DefaultAzureCredential`, yang dapat menggunakan sign-in Azure CLI Anda dari `az login` selama pengembangan lokal.
+    Contoh .NET di bawah menggunakan `DefaultAzureCredential`, yang dapat menggunakan masuk Azure CLI Anda dari `az login` selama pengembangan lokal.
 
 2. Berikut kode .NET dari `AzureSearch.cs`:
 
@@ -183,15 +183,15 @@ Azure AI Search terintegrasi dengan berbagai alat untuk meningkatkan kemampuan p
 
 Untuk informasi lebih rinci, lihat dokumentasi berikut:
 
-- [Buat layanan Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Mulai dengan Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Alat Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Kesimpulan
 
-Anda telah berhasil mengatur Azure AI Search menggunakan portal Azure dan alat terkait. Kini Anda dapat mengeksplorasi fitur dan kemampuan Azure AI Search yang lebih canggih untuk meningkatkan solusi pencarian Anda.
+Anda telah berhasil mengatur Azure AI Search menggunakan portal Azure dan alat terintegrasi. Sekarang Anda dapat mengeksplorasi fitur dan kemampuan Azure AI Search yang lebih canggih untuk meningkatkan solusi pencarian Anda.
 
-Untuk bantuan lebih lanjut, kunjungi [dokumentasi Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Untuk bantuan lebih lanjut, kunjungi [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

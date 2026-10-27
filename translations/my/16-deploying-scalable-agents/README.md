@@ -1,155 +1,155 @@
-# Microsoft Foundry ဖြင့် လူဦးရေ တိုးတက်စေသော Agent များကို တပ်ဆင်ခြင်း
+# Microsoft Foundry ဖြင့် ပမာဏတိုး Agents များ တင်သွင်းခြင်း
 
 ![Deploying Scalable Agents](../../../translated_images/my/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-မိမိသည် ဒီသင်ခန်းစာအထိ လက်တော့ပ်ထပ်တွင်၊ notebook အတွင်းတွင် run ခဲ့သော၊ `az login` နှင့် environment variable အနည်းငယ်ဖြင့် သက်ဆိုင်သော agent များကို တည်ဆောက်ထားပြီးဖြစ်သည်။ ၎င်းသည် သေချာစွာ လေ့လာရန် မှန်ကန်သော နည်းလမ်းဖြစ်သည်။ သို့သော် မနက် ၃ နာရီတွင် သုံးသပ်သူထောင်ချီ များအသုံးပြုသော agent ကို run ပြုလုပ်ရန် မှန်ကန်သော နည်းလမ်းမဟုတ်သည်။
+ဒီအဆင့်အထိ သင်ဟာ မိမိလပ်တော့ပေါ်မှာ အက်ဂျင့်တွေကို တည်ဆောက်ပြီး၊ notebook ထဲမှာ၊ `az login` နဲ့ ပတ်ဝန်းကျင် အချို့နဲ့ စီမံခန့်ခွဲထားပါတယ်။ ဒါဟာ မိမိသင်ယူရန် အလွန်မှန်ကန်တဲ့ နည်းလမ်းပါ။ ဒါပေမယ့်လည်း လူထောင်အနည်းငယ်က မနက်ပိုင်း ၃ နာရီမှာ ဆွဲဆောင်ထားတဲ့ အက်ဂျင့်ကို လည်ပတ်ဖို့အတွက် မမှန်ကန်ပါဘူး။
 
-ဒီသင်ခန်းစာမှာ "မိမိစက်ပေါ်မှာ အလုပ်လုပ်တယ်" နဲ့ "ထုတ်လုပ်မှုတွင် ယုံကြည်စိတ်ချစွာနှင့် သက်တောင့်သက်သာ လုပ်ဆောင်နေတယ်" ဆိုတဲ့ အကြားကို ဖော်ပြပေးမှာဖြစ်ပြီး၊ **Microsoft Foundry** နှင့် **Microsoft Foundry Agent Service** ကို အသုံးပြုကာ real customer support agent တစ်ခုကို လုပ်ဆောင်မှာဖြစ်သည်။ ထို agent တွင် ကိရိယာများ၊ ရှာဖွေမှု၊ မှတ်ဉာဏ်၊ အကဲချေမှု နှင့် စောင့်ကြည့်မှုတို့ ပါဝင်သည်။
+ဒီသင်ခန်းစာက "ငါ့စက်မှာ အလုပ်လုပ်တယ်" နဲ့ "တည်ငြိမ်စွာ အလုပ်လုပ်တယ်၊ စီးပွားရေးထုံးစံနဲ့" ဆိုတဲ့ ကြားက ဖောက်သည်များအတွက် Microsoft Foundry နှင့် Microsoft Foundry Agent Service ကို အသုံးပြုပြီး သက်သေပြထောက်ခံမှုရှိတဲ့ အကောင်အထည်ဖော် စာရင်းသွင်းတဲ့ လုပ်ငန်းစဉ်ကို သင်ယူ၍ ဖြစ်သည်။
 
-## မိတ်ဆက်
+## နိဒါန်း
 
-ဒီသင်ခန်းစာတွင် ပါဝင်သော အကြောင်းအရာများမှာ -
+ဒီသင်ခန်းစာတွင် ဖော်ပြရန်ရှိသည်မှာ -
 
-- **prototype agent** နှင့် **deployed agent** တို့၏ ကွာခြားချက်၊ အဓိကအားဖြင့် မော်ဒယ်အနောက်တွင် ရှိသော အချက်အလက်များဆီသို့ ပူးပေါင်းမှု။
-- Agent များအတွက် **deployment ပုံစံများ** — client-hosted, service-hosted (Hosted Agents), နှင့် workflow-orchestrated။
-- Microsoft Foundry တွင် **agent lifecycle** — ဖန်တီးခြင်း၊ ဗားရှင်းထုတ်ခြင်း၊ တပ်ဆင်ခြင်း၊ အကဲချယ်ခြင်း၊ ကြည့်ကြည့်မြင်မြင်ခြင်း၊ အနုတ်ခံခြင်း။
-- **scaling နည်းလမ်းများ** : မော်ဒယ်လမ်းညွှန်ခြင်း၊ caching, concurrency နှင့် stateless ဒီဇိုင်း။
-- OpenTelemetry နှင့် Foundry tracing ဖြင့် **observability**။
-- မော်ဒယ်ရွေးချယ်မှု၊ လမ်းညွှန်ခြင်း၊ အကဲဖြတ်ခြေများမှတဆင့် **ကုန်ကျစရိတ်ချွေတာမှု**။
-- **အကြီးစားလုပ်ငန်းများအတွက် စဉ်းစားစရာ**: အုပ်ချုပ်မှု, လူ့အတည်ပြုမှု, MCP စာာဗာအား ထုတ်လုပ်မှုလုံခြုံစွာ ပြေးဆွဲမှု။
+- **prototype အက်ဂျင့်** နှင့် **တင်သွင်းထားသော အက်ဂျင့်** တို့အကြား ကွာခြားချက်နှင့် အဓိကအားဖြင့် မော်ဒယ်အပြင်ပတ်ဝန်းကျင်တွင် ဖြစ်ပေါ်သည့် ရွေ့လျားမှု။
+- အက်ဂျင့်များအတွက် **တင်သွင်း နည်းပုံစံများ**: client-hosted, service-hosted (Hosted Agents), နှင့် workflow-orchestrated။
+- Microsoft Foundry တွင် **အက်ဂျင့်သက်တမ်းစဉ်** — ဖန်တီး၊ ဗားရှင်းထုတ်, တင်သွင်း၊ သုံးသပ်၊ စောင့်ကြည့်၊ ထုတ်ပယ်။
+- **ပမာဏတိုးနည်းပြချက်များ**: မော်ဒယ်နည်းလမ်းရွေးခြင်း၊ caching, concurrency, နှင့် Stateless ဒီဇိုင်း။
+- OpenTelemetry နှင့် Foundry tracing ဖြင့် **အသိပညာကို မွမ်းမံခြင်း**။
+- မော်ဒယ်ရွေးချယ်ခြင်း၊ နည်းလမ်းသွားလမ်းကြောင်းနှင့် သုံးသပ်ရေးခြင်းမှတဆင့် **ကုန်ကျစရိတ် ထိန်းချုပ်မှု**။
+- **လုပ်ငန်းအဖွဲ့အတွက် စဉ်းစားစရာများ**: အုပ်ချုပ်မှု၊ လူ့အတည်ပြုမှုနှင့် MCP servers ကို လုံခြုံစွာ ထိန်းသိမ်းခြင်း။
 
-## သင်ယူလိုသော ရည်မှန်းချက်များ
+## သင်ယူရမည့် ရည်ရွယ်ချက်များ
 
-ဒီသင်ခန်းစာပြီးပါက သင်သိရှိနားလည်နိုင်မည့် အရာများမှာ -
+ဒီသင်ခန်းစာပြီးဆုံးသည်နှင့်အတူ သင်သည် -
 
-- agent workloads များအတွက် သင့်တော်သော deployment ပုံစံကို ရွေးချယ်နိုင်ခြင်း။
-- Microsoft Foundry Agent Service တွင် agent တစ်ခုတပ်ဆင်ကာ ဗားရှင်းထုတ်ခြင်း၊ အုပ်ချုပ်ခြင်းနှင့် စောင့်ကြည့်နိုင်ခြင်း။
-- tracing အတွက် agent ကို အမှတ်စဉ်တပ်ပြီး မိတ်ဆက်ပြီး၊ ပြုလုပ်မည့် release မတိုင်မှီ အကဲဖြတ်နည်းလမ်းတစ်ခုချိတ်ဆက်နိုင်ခြင်း။
-- မော်ဒယ်လမ်းညွှန်ခြင်းနှင့် caching ကို အသုံးပြုကာ တုံ့ပြန်အချိန်နှင့် ကုန်ကျစရိတ်ကို ထိန်းချုပ်နိုင်ခြင်း။
-- အန္တရာယ်မြင့်သော လုပ်ဆောင်ချက်များအတွက် လူ့အတည်ပြုမှုမြှင့်တင်ခြင်းနှင့် MCP စာာဗာအား ထုတ်လုပ်မှု လုံခြုံစွာ ချိတ်ဆက်နိုင်ခြင်း။
+- အက်ဂျင့်အလုပ်အတွက် သင့်တော်သည့် တင်သွင်း နည်းပုံစံကို ရွေးချယ်နိုင်မည်။
+- Microsoft Foundry Agent Service သို့ အက်ဂျင့်တင်သွင်း ပြီး ဗားရှင်း၊ အုပ်ချုပ်မှု၊ နှင့် အသိပညာရှိ စေလွှတ်နိုင်မည်။
+- Tracing အတွက် အက်ဂျင့်ကို တပ်ဆင်ပြီး စေလွှတ်ခြင်းတိုင်း မတိုင်မီ သုံးသပ်ရေး လုပ်ငန်းစဉ်ကို ချိတ်ဆက်နိုင်မည်။
+- ပမာဏတိုးအဆင့်တွင် နည်းလမ်းအလျား/ရွေ့လမ်းနှင့် caching ကို အသုံးပြုပြီး ချိန်ဆန်မှုနှင့် စရိတ် ထိန်းချုပ်နိုင်မည်။
+- အမြင့်မားသော အန္တရာယ်ရှိ လုပ်ဆောင်ချက်များအတွက် လူ့အတည်ပြုမှု များ နှင့် MCP server ကို ထိန်းသိမ်းမှု စနစ် တက်ကြွစွာထည့်သွင်းနိုင်မည်။
 
-## လိုအပ်ချက်များ
+## ကြိုတင်စွဲချက်များ
 
-ဒီသင်ခန်းစာအတွက် အိမ်ရှေ့သင်ခန်းစာများကို ပြီးမြောက်ပြီး၊ အောက်ပါအရာများတွင် နားလည်သဘောပေါက်မှသာ လက်ခံမည်။
+ဒီသင်ခန်းစာက အရင်က သင်ခန်းစာများပြီးမြောက်ပြီး သင် မျှော်လင့်ထားသည်။
 
-- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) ဖြင့် agent များတည်ဆောက်ခြင်း (Lesson 14)။
-- [Tool Use](../04-tool-use/README.md) (Lesson 4) နှင့် [Agentic RAG](../05-agentic-rag/README.md) (Lesson 5)။
-- [Agent Memory](../13-agent-memory/README.md) (Lesson 13) နှင့် [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lesson 11)။
-- [Observability and Evaluation](../10-ai-agents-production/README.md) (Lesson 10) — ဒီသင်ခန်းစာသည် တိုက်ရိုက် ထပ်တူ သက်ဆိုင်သည်။
+- [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lesson 14) ဖြင့် အက်ဂျင့်များ တည်ဆောက်နိုင်ခြင်း။
+- [Tool Use](../04-tool-use/README.md) (Lesson 4) နှင့် [Agentic RAG](../05-agentic-rag/README.md) (Lesson 5) ကို အသုံးပြုနိုင်ခြင်း။
+- [Agent Memory](../13-agent-memory/README.md) (Lesson 13) နှင့် [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lesson 11) ကို နားလည်ကြောင်း။
+- [Observability and Evaluation](../10-ai-agents-production/README.md) (Lesson 10) — ဤသင်ခန်းစာကို တိုက်ရိုက်ဆက်လက်ပါသည်။
 
-သင်အောက်ပါအသုံးပြုရမည့် အရာများလည်းရှိသည်။
+သင်အနေဖြင့် လည်းလိုအပ်လိမ့်မည်မှာ -
 
-- **Azure subscription** နှင့် အနည်းဆုံး deployed chat model တစ်ခုပါဝင်သော **Microsoft Foundry project**။
-- **Azure CLI** မှ authenticator ဖြစ်ပြီး(`az login`) ဖြင့် လုပ်ဆောင်နိုင်မှု။
-- Python 3.12+ နှင့် repository ထဲရှိ [`requirements.txt`](../../../requirements.txt) ဖိုင်များထည့်သွင်းထားခြင်း။
+- အနည်းဆုံး တစ်ခု chat မော်ဒယ်တင်သွင်းပြီးသား အတူ **Azure subscription** နှင့် **Microsoft Foundry project** တစ်ခု။
+- **Azure CLI** ဖြင့် အတည်ပြုထားသည် (`az login`)။
+- Python 3.12+ နှင့် များသော စနစ်တပ်ဆင်ထားသော ပက်ကေ့ချ်များ [`requirements.txt`](../../../requirements.txt) မှာ ရှိသည်။
 
-## Prototype မှ Production သို့: အမှန်တကယ်ပြောင်းလဲသည့် အရာများ
+## Prototype မှ Production သို့: ဘာတွေ ပြောင်းလဲသွားလဲ
 
-prototype agent နှင့် production agent သို့မဟုတ် လေ့လာမှုဟာ အဓိက loop တူညီသော်လည်း — အကြောင်းအရင်းရှာခြင်း, ကိရိယာခေါ်ဆိုခြင်း, တုံ့ပြန်ခြင်း — အဝိုင်းပတ်ရှိ အရာအားလုံးကို ပြောင်းလဲသည်။ မော်ဒယ်မှာ ရာခိုင်နှုန်း ၂၀ ခန့်သာ ဖြစ်ပြီး၊ ရှေ့နေ ၈၀% က လည်ပတ်မှု၏ အစိတ်အပိုင်းဖြစ်သည်။
+Prototype agent တစ်ခုနှင့် production agent တစ်ခုမှာ အခြေခံ loop တူညီသည် — ရည်ရွယ်ချက်, call tools, တုံ့ပြန်မှု။ ပြောင်းလဲသွားတာက loop ခြုံကိုင်ထားတဲ့ အခြားပတ်ဝန်းကျင်တွေအားလုံးပါ။ Model သည် production agent ၂၀% ပမာဏသာ ဖြစ်သည်; ၈၀% ကျော်ဖြစ်သည်မှာ operation မူကြမ်းဖြစ်သည်။
 
-| စိုးရိမ်စရာ | Prototype | Production |
+| စိတ်ပူရမှု | Prototype | Production |
 | --- | --- | --- |
-| **Hosting** | မိမိ notebook တွင် run ပြုလုပ်သည် | version လုပ်ပြီး Hosted service အဖြစ် run လုပ်သည်။ |
-| **Identity** | မိမိ `az login` token ကို အသုံးပြုသည် | Scoped RBAC ပါရှိသည့် managed identity ကို အသုံးပြုသည် |
-| **State** | မိမိ process memory တွင်သာ ရှိပြီး restart မှာဆုံးရှုံးသည် | ပြင်ပ(local thread store, memory service) တွင် သိမ်းဆည်းသည် |
-| **Failure** | traceback ကို မြင်ရသည် | retry, fallback, dead-letter, alert များရှိသည် |
-| **Cost** | "ငွေရေး စင်တစ်ချောင်းကျောင်း" | တစ်ကြိမ်စာတောင်းခံမှသာ စတော့ဝယ်/လျှော့ချပေးသည်၊ cache အား အသုံးပြုသည်၊ ကြိုတင် ငွေကြေး ထားရှိသည် |
-| **Quality** | output ကို မျက်စိဖြင့် စစ်ဆေးသည် | Release မချစ်ခင် အလိုအလျောက် Evaluation ပြုလုပ်သည် |
-| **Trust** | လုပ်ဆောင်ချက်တိုင်းကို သက်ဆိုင်သူ မင်းတော်မှ အတည်ပြုသည် | နည်းပညာ၊ လောကအတွင်း လူ့အတည်ပြုစနစ်ပါဝင်သည် |
+| **Hosting** | သင်၏ notebook အတွင်းတွင် run သည် | Hosted service အဖြစ် run ပေးသည်၊ versioning နှင့် rollout ပါပါသည် |
+| **Identity** | သင်၏ `az login` token | Scoped RBAC ပါရှိသော managed identity |
+| **State** | In-memory ဖြစ်ပြီး restart ဆိုသော် မရှိတော့ပါ | Externalised (thread store, memory service) အဖြစ်ရှိသည် |
+| **Failure** | သင်သည် traceback ကို ထင်ရှားမြင်သာ | Retry, fallback, dead-letter, alert များရှိသည် |
+| **Cost** | "အနည်းငယ်ကုန်ကျသည်" | တောင်းဆိုမှုအလိုက် တွက်ချက်ခြင်း၊ routing, caching, ဘတ်ဂျက်ထားသည် |
+| **Quality** | သင်သည် ထွက်လာမှုကို ကိုယ့်မြင်သဘောဖြင့် ကြည့်သည် | မထုတ်လုပ်ခင် အလိုအလျောက် သုံးသပ်သည် |
+| **Trust** | သင်သည် တစ်ချက်ချင်း အတည်ပြုသည် | Policy နှင့် လူတွင်မဟုတ်မီ စဉ်ဆက်ဖြင့် လုပ်ဆောင်မှုများအတွက် သေချာစွာ ထိန်းချုပ်သည် |
 
-အဆိုပါဇယားကို စဉ်းစားပါ။ အောက်တွင်ရှိသည့် အစိတ်အပိုင်းတိုင်းသည် အဆိုပါ ဇယားရှိ အတန်းတစ်ခုနှင့် ထပ်တူညီသည်။
+၎င်းဇယားကို မှတ်သားထားပါ။ အောက်ပါ အပိုင်းတစ်ခုချင်းစီသည် ဤဇယားတန်းစီ တစ်ခုနှင့် အတူတကွ ရှိသည်။
 
-## Agent Deployment ပုံစံများ
+## Agent Deployment မော်ဒယ်များ
 
-သုံးမျိုးတဲ့ ပုံစံများကို အမြဲတမ်း ပေါင်းစပ်ပြီး အသုံးပြုကြသည်။
+သင် အများအားဖြင့် သုံးမည့် မော်ဒယ် သုံးမျိုးရှိသည်။
 
 ### ၁။ Client-Hosted Agents
 
-agent object ဟာ *သင့်* application process အတွင်းနေထိုင်သည်။ မိမိ၏ code က မော်ဒယ် ပေးသူကိုတိုက်ရိုက်ခေါ်ဆိုပြီး reasoning loop လည်း သင့် service အတွင်း run ဖြစ်သည်။ ဒီလို သင်ခန်းစာတွေမှာ ကျွန်တော်တို့ လုလုပ်ခဲ့တာဖြစ်သည်။
+Agent object သည် သင်၏ application process အတွင်းရှိသည်။ သင်၏ ကုဒ်သည် Model ပေးသွင်းသူကို တိုက်ရိုက် call လုပ်သည်; reasoning loop သည် သင့်ဝန်ဆောင်မှုတွင် run ဖြစ်သည်။ များသော ယခင် သင်ခန်းစာတစ်ခုချင်းစီသည် အဖြစ် ဒီပုံစံဖြင့် ရှိနေသည်။
 
-- **အသုံးပြုရန်** loop အပေါ် လုံးဝထိန်းချုပ်မှုလိုအပ်သောအခါ၊ custom middlewareလိုအပ်သောအခါ သို့မဟုတ် agent ကို လက်ရှိ backend ထဲတွင် ထည့်သွင်းချိတ်ဆက်စရာလိုပါက။
-- **ပြန်လည် ဆွေးနွေးမှု** : သင်တစ်ဦးတည်းပြီး scaling, state နှင့် resilience ကို ကိုယ်တိုင် ထိန်းချုပ်ရမည်။
+- **အသုံးပြုရန် ရက်တန့်** loop အတိုင်းလိုက် ချုပ်ကိုင်လိုသော နေရာ၊ custom middleware လိုအပ်ခြင်း သို့မဟုတ် agent ကို အခြေခံ backend အတွင်း ထည့်သွင်းထားချင်ရင်။
+- **Trade-off**: တိုးချဲ့ခြင်း, အခြေအနေ, သေချာမှုကို သင်ပိုင်ခွင့် ရှိပါသည်။
 
 ### ၂။ Hosted Agents (Foundry Agent Service)
 
-agent ကို Microsoft Foundry တွင် *resource အဖြစ် မှတ်ပုံတင်ထားသည်*။ Foundry သည် reasoning loop ကို host လုပ်ကာ threads သိမ်းဆည်း၊ content security နှင့် RBAC ကို အကောင်အထည်ဖော်၊ agent ကို Foundry portal တွင် မြင်ရစေသည်။ သင့် app သည် thread များဖန်တီးပြီး တုံ့ပြန်ချက်ဖတ်သော client အဖြစ် ဖြစ်လာသည်။
+Agent သည် Microsoft Foundry တွင် resource အဖြစ် *မှတ်ပုံတင်* လုပ်ထားသည်။ Foundry မှ reasoning loop ကို host လုပ်၊ thread များသိမ်းဆည်း၊ content safety နှင့် RBAC ကို ပေါ်တင်၊ agent ကို Foundry portal တွင် မြင်သာစေသည်။ သင့် app သည် thin client တစ်ခုဖြစ်ပြီး thread များ ဖန်တီးခြင်းနှင့် တုံ့ပြန်ချက်များ ဖတ်ရှုခြင်း ပြုလုပ်သည်။
 
-- **အသုံးပြုရန်** ခိုင်မာမှုရှိသော Durable ဖြစ်စေရန်၊ built-in observability, governance နှင့် အုပ်ချုပ်မှု ကို လျော့နည်းစေရန်လိုယ်။
-- **ပြန်လည် ဆွေးနွေးမှု** : managed runtime အတွက် အနည်းငယ်သာ ထိန်းချုပ်မှု တိကျမှုနည်းသည်။
+- **အသုံးပြုရန် ရက်တန့်** durability, တည်ဆောက်ထားသော observability, အုပ်ချုပ်မှုနှင့် သာမန် operation ကိုလျော့ချချင်ပါက။
+- **Trade-off**: managed runtime ဖြင့် မူလ control အနည်းငယ် ပေးသွားရသည်။
 
 ### ၃။ Agent Workflows
 
-အရာများစွာ agent များနှင့် ကိရိယာများကို explicit control flow ဖြင့် graph အဖြစ် ဖွဲ့စည်းသည် - တန်းစီဆက်တိုက် လုပ်ဆောင်မှုများ၊ branch များ၊ လူတစ်ဦး၏ အတည်ပြုမှု node များ၊ ရပ်တန့်ပြီး ပြန်စတင်နိုင်သော durable checkpoint များ။ ၎င်းသည် Microsoft Agent Framework **Workflows** စွမ်းဆောင်မှုဖြစ်ပြီး deployment scale တို့တွင် လက်တွေ့အသုံးချသည်။
+Agents များ (နှင့် tools များ) ရုပ်ပုံ ဂရပ်တစ်ခုအဖြစ် ဖွဲ့စည်းထားသည်၊ ထပ်တလဲလဲ control flow ပါရှိသည် — အဆင့်လိုက် လုပ်ငန်းစဉ်များ၊ ခွဲခြားခြင်း၊ လူတစ်ဦးဦးစီးမှု ရှိသည့်၊ ကာလအာဏာဖြတ်များ ပိတ်-ဖွင့် လုပ်နိုင်သည်။ ဒါက Microsoft Agent Framework **Workflows** စွမ်းဆောင်ရည်ဖြစ်ပြီး deployment အဆင့် ဖြင့် သုံးသည်။
 
-- **အသုံးပြုရန်** တစ်ခုတည်းသော အလုပ်တစ်ခုတွင် အထူးပြု agent များ စုပေါင်းလိုလျှင်၊ အတည်ပြုပြေးလမ်းအပိုင်းတစ်ခုလိုလျှင်။
-- **ပြန်လည် ဆွေးနွေးမှု** : အစိတ်အပိုင်းများပေါများခြင်း၊ orchestration-level observability လိုအပ်သည်။
+- **အသုံးပြုရန် ရက်တန့်** အလုပ်တစ်ခုမှာ အထူးပြု agent များစွာစုပေါင်း၍ သို့မဟုတ် အလယ်တွင် လူတစ်ဦး၏ အတည်ပြုမှု လိုအပ်သော အဆင့်တစ်ခုပါဝင်သည်။
+- **Trade-off**: နည်းပညာပိုင်းမှာပို၍ ပြောင်းလဲမှုများများရှိသည်; orchestration အဆင့် observability လိုအပ်သည်။
 
 ```mermaid
 flowchart TB
-    subgraph P1[အသုံးပြုသူဖျော်ဖြေသော]
-        A1[သင့်အက်ပ်လုပ်ငန်းစဉ်] --> M1[မော်ဒယ်ပံ့ပိုးသူ]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[ဖျော်ဖြေထောက်ခံသူ]
-        A2[ပေါ့ပါးသောဖျော်ဖြေရေး] --> F2[Foundry Agent ဝန်ဆောင်မှု]
-        F2 --> M2[မော်ဒယ် + ယန္တရားများ + စကြာသိုလှောင်မှု]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[မော်ဒယ်လုပ်ငန်းစဉ်]
-        A3[စီမံခန့်ခွဲသူ] --> S1[စစ်ဆေးစီစဉ်သူ]
-        S1 --> S2[ဖြေရှင်းသူ]
-        S2 --> H[လူ့ခွင့်ပြုချက်အဆုံးအဖြတ်]
-        H --> S3[လှုပ်ရှားမှုAgent]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
-## Microsoft Foundry တွင် Agent 生命周期
+## Microsoft Foundry တွင် Agent အလည်စဉ်
 
-Agent တစ်ခုတပ်ဆင်ခြင်းသည် တစ်ကြိမ်တည်းသော `push` တင်ခြင်းမဟုတ်ပါ။ ၎င်းသည် loop တစ်ခုဖြစ်ပြီး နောက်တစ်ချက်တော့ software release cycle နှင့် လုံးဝ တူညီပါသည်။
+Agent တစ်ခု တပ်ဆင်ခြင်းသည် တစ်ကြိမ်ပြုလုပ်ပြီးဆုံးသည့် `push` မဟုတ်ပါ။ ၎င်းမှာ loop တစ်ခုဖြစ်ပြီး software release cycle နှင့် ဆင်တူသည်။
 
 ```mermaid
 flowchart LR
-    Create[ဖန်တီးခြင်း / စာရေးသူ] --> Version[ဗားရှင်း]
-    Version --> Evaluate[အော့ဖ်လိုင်းမှာ သုံးသပ်ပါ]
-    Evaluate -->|ဂိတ်ဖြတ်တောက်သည်| Deploy[တည်ဆောက်ပြီး တပ်ဆင်ပါ]
-    Evaluate -->|ဂိတ်မဖြတ်တောက်ပါ| Create
-    Deploy --> Observe[အွန်လိုင်းမှာ စိစစ်ကြည့်ရှုပါ]
-    Observe --> Improve[မအောင်မြင်မှုများ စုဆောင်းပါ]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[ဟောင်းသော ဗားရှင်းကို ပယ်ဖျက်ပါ]
+    Deploy --> Retire[Retire old version]
 ```
 
-[Lesson 10](../10-ai-agents-production/README.md) မှ ကူးယူထားသော အချက်အလက်အဓိကမှာ - **offline evaluation ကို လမ်းကြောင်းတစ်ခုအဖြစ်သာ ရှုမယ်၊ ယခုအပေါ်မှ နောက်တွဲတစ်ခု မဟုတ်ပါ။** နယောက် agent ဗားရှင်းအသစ်သည် သင့်အကဲဖြတ်စံနစ်မှ ဒီဇာတ်မြောက်ရန်မလိုအပ်ပါက မပို့ပေးပါ။ online observability ကလည်း အမှားတွေကို offline test set ထဲ ပြန်ကျော်ယူတာပါ။ ဒါက loop လုံးလုံးပါပဲ။
+ကျိုးကြောင်း ဆက်စပ်သော စိတ်ကူးအနေဖြင့် [Lesson 10](../10-ai-agents-production/README.md) မှ လွှဲပြောင်းလာသည်။ **offline သုံးသပ်ခြင်းမှာ မမှားသောတံခါးဖြစ်ပြီး နောက်ကွယ်က သဘောတရား မဟုတ်ပါ။** agent version အသစ်သည် သင်၏ သုံးသပ်မှု အဆင့်သို့ ရောက်မကြပါက မထုတ်ဖြန့်ရပါ။ Online observability က then real-world failure များကို offline စမ်းသပ်မှု တစ်ခုထဲသို့ feed ပြန်ပေးသည်။ ၎င်း့သည် loop တစ်ခု လုံးဖြစ်သည်။
 
-## Scaling နည်းလမ်းများ
+## တိုးချဲ့မှု မဟာဗျူဟာများ
 
-Agent တစ်ခုအား scaling ပြုလုပ်ခြင်းသည် stateless web API များ တိုးမြှင့်ခြင်းနှင့် ကွာခြားသည်၊ အကြောင်းမှာ တောင်းဆိုချက်တစ်ခုခြင်းသည် မြှောက်ရမ်းစရာ မော်ဒယ် call များနှင့် ကိရိယာခေါ်ဆိုမှုများစွာကို ဖန်တီးနိုင်သည်။ နည်းလမ်းလေးခုသည် အများဆုံး ဖြစ်စေသည်။
+Agent တိုးချဲ့မှုသည် stateless web API တိုးချဲ့မှုနှင့် မတူပါက တောင်းဆိုမှု တစ်ခုစီတွင် မော်ဒယ် နှင့် tools များ အချို့များစွာ ခေါ်ယူကြရသည်။ နည်းဗျူဟာ လေးမျိုးသည် ကြီးမားသော အလုပ်အခွန် ပေးသည်။
 
-**Stateless request မှာန်ခြင်း။** သင့် process memory အတွင်း အသုံးပြုသူ အတိုင်အကျ ဂရုမစိုက်ပါနှင့်။ ဆက်သွယ်မှု thread များကို Foundry thread store သို့မဟုတ် memory service တွင် သိမ်းဆည်းထားသည့်အတွက် instance အသီးသီးသည် တောင်းဆိုချက် မည်သည့်အခါမဆို ကိုင်တွယ်နိုင်သည်။ ဒီနည်းလမ်းက horizontal scaling ကို ခွင့်ပြုပေးသည် - instance အသစ်တွေထည့်သွင်းနိုင်ပြီး sticky sessions မလိုအပ်ပါ။
+**Stateless request handling။** သင်၏ process memory တွင် အသုံးပြုသူ တစ်ဦးစီအတွက် အခြေအနေ မထားပါနှင့်။ ပြောဆိုချက် thread များကို Foundry thread store သို့မဟုတ် memory service တွင် သိမ်းဆည်းပါ, ထို့ကြောင့် instance မည်သည်မဆို တောင်းဆိုမှု တစ်ခုခုကို ကိုင်တွယ်နိုင်သည်။ ၎င်းသည် ရှေ့တန်းကို တိုးချဲ့နိုင်စေသောအချက်ဖြစ်သည် — instance များ ထပ်ထည့်ပါ၊ sticky session မလိုအပ်ပါ။
 
-**Model routing.** အားလုံးတောင်းဆိုချက်များကို သင့်ရဲ့ အကြီးစား (နှင့် အခြားဆုံးရွေးချယ်မော်ဒယ်) မဖြစ်စေရန်။ ရိုးရှင်းသော မော်ဒယ်များကို (ဥပမာ: ရည်ရွယ်ချက် သတ်မှတ်ခြင်း၊ အတိုချုံး အဖြေများ) ချိတ်ဆက်ပြီး မူလ မော်ဒယ်အတွက် စိတ်ကြိုက် reasoning ကို রাখতেပါတယ်။ Foundry ရဲ့ **Model Router** က ဒီအားပေးနိုင်သည်၊ ဒါမှမဟုတ် သင့်ကိုယ်ပိုင် light classifier ကို ဆောက်နိုင်သည်။ lab မှာ သင် DIY ပုံစံကို တည်ဆောက်မည်။
+**Model routing။** တောင်းဆိုမည့် request မှတ်သားရေးသည် သင့်အတွက် အကြီးစား (နှင့် အလွန်ကုန်ကျသော) မော်ဒယ် မလိုတော့ပါ။ ရိုးရှင်းသော တောင်းဆိုမှုများ — ရည်ရွယ်ချက်ခွဲခြားမှုပြုခြင်း၊ အတိုသော အချက်အလက်ဖြေဆိုချက်များ — တစ်ကိုယ်စား မော်ဒယ်စတင်တော့သည်နှင့် အားပေးထားပြီး, ကြီးမားသော မော်ဒယ်ကို တကယ် အတွေးခေါ်ရာများအတွက် သတ်မှတ်ပါ။ Foundry သည် **Model Router** တစ်ခုကို သင့်အတွက် အဲ့ဒီပြဿနာဖြေရှင်းပေးနိုင်သည်၊ သို့မဟုတ် သင်ကိုယ်တိုင် lightweight classifier တစ်ခု တည်ဆောက်နိုင်သည်။ စမ်းသပ်ခန်းတွင် DIY ဗားရှင်းကို တည်ဆောက်ပါလိမ့်မည်။
 
-**Response caching.** မေးခွန်းများအပေါ် ပြန်လည်မေးခွန်းများ အများအပြား ဖြစ်သည် ("စကားဝှက်ပြန်လည်သတ်မှတ်ရာမှာ ဘယ်လိုလုပ်မလဲ?")။ ထုံးစံမေးခွန်းများ၏ အဖြေများကို cache ထားပြီး မော်ဒယ်ကို မခံစားပဲ ဖြေကြားပါ။ cache hit rate နည်းမကောင်းသော်လည်း ကုန်ကျစရိတ်နှင့် တုံ့ပြန်အချိန်ကို ကျဆင်းစေသည်။
+**Response caching။** အခြား မေးခွန်းများမှာ အတူတူတူညီ ("passphrase ပြန်လည်သတ်မှတ်ခြင်း မည်သို့လုပ်မလဲ?") ဖြစ်သည်။ ပုံမှန် မေးခွန်းများအတွက် ဖြေချက်ကို cache ထဲသို့ သိမ်းယူပြီး မော်ဒယ်ကို မနှိပ်ဘဲ ရှာဖွေပြန်ပေးပါ။ cache hit rate နည်းနည်းပေမယ့် ကုန်ကျစရိတ်နှင့် စောင့်ဆိုင်းချိန်ကို တော်တော်လေး လျော့ချလိမ့်မည်။
 
-**Concurrency နှင့် backpressure.** မော်ဒယ်ပေးသူများသည် နှုန်းထားကန့်သတ်ချက်များ ရှိသည်။ သင့် concurrency ကို ကန့်သတ်ပြီး exponential backoff ဖြင့် retries များ၊ ချိုသာစွာ fail ရမည် (queue ထဲရှိ "ကျွန်တော်တို့လုပ်ဆောင်နေပါပြီ" တုံ့ပြန်ချက်သည် ၅၀၀ internal server error နှင့် ကောင်းသည်)။
+**Concurrency နှင့် backpressure။** မော်ဒယ် ပေးသွင်းသူများတွင် rate limits ရှိသည်။ သင့် concurrency ကို သတ်မှတ်ပါ၊ exponential backoff ဖြင့် retries အသုံးပြုပါ၊ ပြဿနာဖြစ်ပါက တင်းကြပ်စွာ လုပ်ဆောင်ပါ (queued "အကြောင်းပြုလုပ်နေလို့" တုံ့ပြန်မှုသည် ၅၀၀ error ထက် ပိုကောင်းသည်)။
 
 ```mermaid
 flowchart LR
-    Q[အသုံးပြုသူမေးခွန်း] --> C{Cache ထဲမှာတွေ့ပါသလား?}
-    C -->|ဟုတ်ကဲ့| R[Cache ထဲမှာရှိသောဖြေရှင်းချက်ကိုပြန်ပေးပါ။]
-    C -->|မဟုတ်ပါ| Router{ရှုပ်ထွေးမှု?}
-    Router -->|ရိုးရှင်းတယ်| SLM[မော်ဒယ်သေးငယ်]
-    Router -->|ရှုပ်ထွေးတယ်| LLM[မော်ဒယ်ကြီး]
-    SLM --> Out[တုံ့ပြန်မှု]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
     Out --> Store[Cache + trace]
 ```
 
-## ထုတ်လုပ်မှုတွင် Observability
+## Production တွင် Observability
 
-မနုတ်တက်သော အရာကို မမြင်ရပါ။ Lesson 10 တွင်ဖော်ပြခဲ့သလို၊ Microsoft Agent Framework သည် **OpenTelemetry** trace များကို ယိုယွင်းစွာ ထုတ်ပေးသည် — မော်ဒယ်ခေါ်ဆိုမှု တစ်ချက်၊ ကိရိယာခေါ်ဆိုမှု တစ်ချက် နှင့် orchestration အဆင့်တိုင်းသည် span ဖြစ်သည်။ ထုတ်လုပ်မှုတွင် သင်သည် မြင်သာမှုများကို Microsoft Foundry (သို့မဟုတ် OTel-compatible backend များ) သို့ export ပြုလုပ်သည်၊ ၎င်းဖြင့် -
+မမြင်နိုင်လျှင် မအောင်မြင်နိုင်ပါ။ Lesson 10 တွင်ဖော်ပြသည့်အတိုင်း Microsoft Agent Framework သည် **OpenTelemetry** trace များကို ကိုယ်ခံပေးသည် — မော်ဒယ် call တစ်ခုစီ၊ tool invocation တစ်ခုစီနှင့် orchestration အဆင့် တစ်ခုစီသည် span ဖြစ်သည်။ Production တွင် သင့်သည် ဤ span များအား Microsoft Foundry (သို့မဟုတ် မည်သည့် OTel-ကိုက်ညီသော backend) တစ်ခုသို့ ဖြည့်ပေးပြီး သင်သည် -
 
-- တစ်ဦးချင်းသော ရောင်းသူ တောင်းဆိုချက်အပေါ် အဆုံးအဖြတ်အထိ မော်ဒယ်နှင့် ကိရိယာခေါ်ဆိုမှုအားလုံးကို trace လုပ်နိုင်သည်။
-- p50/p95 တုံ့ပြန်ချိန်နှင့် တောင်းဆိုမှုတစ်ကြိမ်စီ၏ကုန်ကျစရိတ် ကြည့်ရှုနိုင်သည်။
-- စားစရာမတော်တဆမှုများနှင့် ကုန်ကျစရိတ်များပိုသွားမှုအပေါ် သင်၏အသုံးပြုသူ (သို့မဟုတ် ငွေကြေးအသင်း) သိမှတ်မရခြင်းမတိုင်မီ သတိပေးနိုင်ပါသည်။
+- customer complaint တစ်ခုကို မော်ဒယ်တစ်ခုနှင့် tools တစ်ခုစီအတွင်း end-to-end အလိုက် လိုက်နာကြည့်ရှုနိုင်သည်။
+- p50/p95 latency နှင့် တောင်းဆိုမှု တစ်ခုငှါ ကုန်ကျစရိတ်ကို အချိန်နှင့်အမျှ ကြည့်ရှုနိုင်သည်။
+- error-rate spike များနှင့် ကုန်ကျ စရိတ် အပြင်အဆင်မကျကျမှုများကို သတိပေးနိုင်ပြီး သုံးစွဲသူများ (သို့မဟုတ် finance အဖွဲ့) မသိမဖြစ်မီ ပြင်ဆင်နိုင်သည်။
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,93 +159,93 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # ဤ span အတွင်းတွင် agent အမှုဆောင်မှုကို အလိုအလျောက် မှတ်တမ်းတင်သည်။
+    # agent execution is traced automatically inside this span
 ```
 
-`customer.tier` နှင့် `routed.model` ကဲ့သို့သော attribute များသည် trace များစုစုပေါင်းကို မေးခွန်းဖြေရှင်းနိုင်သော မေးခွန်းများ ("အကြီးစား customer များသည် အကြီးမဲ့ မော်ဒယ်များကို မကြာခဏခေါ်ဆိုခြင်း ရှိနေပါသလား?") အဖြစ် ပြောင်းလဲပေးသည်။
+`customer.tier` နှင့် `routed.model` ကဲ့သို့ Attributes များသည် trace များစုစည်းမှုကိုဖြတ်၍ ကိုယ်ခံမေးခွန်းများဖြစ်စေသည် ("အကြီးစား model သို့ enterprise customer များ မကြာခဏ ပို့ဆောင်နေပါသလား?")။
 
-## ကုန်ကျစရိတ်ချွေတာခြင်း
+## ကုန်ကျစရိတ် တိုးတက်မှု
 
-ထုတ်လုပ်မှု agent များ၏ ကုန်ကျစရိတ်မှာ token များဖြစ်ပြီး ထိရောက်မှုရှိသော လှုပ်ရှားမှုသုံးခုရှိသည်။
+Production agents တွင် ကုန်ကျစရိတ်ကို token များအာဏာတည်သည်။ သုံးခုသော လှည်းကြီးများသည် ထိရောက်မှု အလိုက် -
 
-၁။ **မော်ဒယ်ကို မှန်ကန်စွာ ရွေးချယ်ပါ။** သင်၏ အကဲဖြတ်မှတ်တိုက်ကျော်လွှားသော စမ်းသပ်မှုအောင်မြင်သော သေးငယ်သောမော်ဒယ်သည် အကြီးမားသော မော်ဒယ်တစ်ခုထက် ပိုမိုတန်ဖိုးသက်သာသည်။ သက်သေပြရန်အတွက် အကဲဖြတ်မှုကိုအသုံးပြုပါ၊ အစစ်အမှန်ဖြစ်ကြောင်း ပြသပါ၊ အနောက်မော်ဒယ်ကို default အဖြစ် မရွေးချယ်ရပါ။
-၂။ **ရှုပ်ထွေးမှုအရ လမ်းညွှန်ပါ။** အပေါ်တွင်ဖော်ပြသလို — ကြီးမားသော မော်ဒယ်ကို မျှော်စင်ရေး ရှုပ်ထွေးသော reasoning လုပ်ဆောင်မှုများမှသာ အသုံးပြုပါ။
-၃။ **အစွမ်းထက်စွာ cache ကို အသုံးပြုပါ။** အကြီးဆုံးသော မော်ဒယ်ခေါ်ဆိုမှုသည် မခေါ်ဆိုခဲ့သော အခါ ဖြစ်သည်။
+1. **Model ကို မှန်ကန်အရွယ်ချိန်သည်။** စမ်းသပ်ရန် gate ဖြတ်တောက်နိုင်သော သေးငယ်သော model သည် လူကြီး model ထက် ပိုသက်သာသည်။ သေးငယ်သော model သည် လုံလောက်အောင်ကောင်းတယ် ဟုပြသရန် အသုံးပြုကြပါ, ကြီးမားသော model ကို စိုးရိမ်မှုကြောင့် default ချစရာမလိုပါ။
+2. **ဖွဲ့စည်းမှုဖြင့် route ပေးရန်။** အထက်ပါအတိုင်း - ကြီးမားသော မော်ဒယ်သုံးလျှင်သာ စျေးကြီးပြီး ရှိသင့်သည်။
+3. **ကာရှ်ကို တင်းကြပ်စွာ အသုံးချပါ။** အစပျိုးဆုံးမော်ဒယ် call သည် သင့်မလုပ်ဘဲဖြစ်ပါသည်။
 
-အကဲဖြတ်ခြေများနှင့် ကုန်ကျစရိတ် ထိန်းချုပ်မှုမှာ နည်းလမ်း နှစ်မျိုး ဖြစ်ပြီး — အကဲဖြတ်မှုသည် *အရည်အသွေး အနိမ့်ဆုံး* ကို ပြောပြသည်၊ လမ်းညွှန်ခြင်းနှင့် caching မှ ကုန်ကျစရိတ်ကို အနိမ့်ဆုံးအောက်မှာ တည်မြဲစေသည်။
+သုံးသပ်ခြင်း gate များနှင့် ကုန်ကျ စရိတ် ထိန်းချုပ်မှုသည် ဝင်ငွေ နှစ်ခုကို ကြည့်ခြင်းကဲ့သို့ဖြစ်သည် - သုံးသပ်ခြင်းသည် *အရည်အသွေး အနေအထား* ကိုပြသည်, routing နှင့် caching သည် သင်၏ *ကုန်ကျ စရိတ်* ကို အနီးဆုံး ထိန်းသိမ်းထားသည်။
 
-## အကြီးစား လုပ်ငန်းများအတွက် deployment စဉ်းစားစရာများ
+## Enterprise Deployment ဆိုင်ရာ မှတ်ချက်များ
 
-**Governance.** Hosted Agents များတွင် Foundry ၏ RBAC, content safety နှင့် audit logging ကို ရရှိသည်။ Agent တစ်ခုခြင်းစီအတွက် လုံလောက်သည့် လုပ်ဆောင်ခွင့် နည်းဆုံး Managed Identity တစ်ခုဖြစ်စေပါ။ Knowledge base ကို ဖတ်ခွင့်သာ၊ ticketing API ကို Scoped access အဖြစ်သာ၊ အခြားမလိုအပ်ပါ။
+**အုပ်ချုပ်မှု။** Hosted Agents သည် Foundry ၏ RBAC, content safety နှင့် audit logging များကို ဆက်ခံသည်။ Agent တစ်ခုချင်းစီအား လိုအပ်သည့် အနည်းဆုံး privilege ဖြင့် managed identity ပေးပါ — knowledge base ကို စာဖတ်ရန် သီးခြား access, ticketing API အတွက် scoped access, အခြားမရှိသင့်ပါ။
 
-**Human-in-the-loop.** တချို့လည်သူများလုပ်ဆောင်ချက်များကို အလိုအလျောက် လုပ်မည့်အစား (refund, account ဖျက်ခြင်း, ဥပဒေရေးရာအဖွဲ့ သို့ ဆက်သွယ်ခြင်း) အတည်ပြုပြီးမှ လုပ်ဆောင်သည်။ Microsoft Agent Framework သည် **approval-required** ကိရိယာများဖြင့်ထောက်ပံ့သည်။ Agent လုပ်ဆောင်မှုကို တင်ပြပြီး၊ pause ခံရပြီး လူတစ်ဦး၏ အတည်ပြုမှု ရရှိချိန်တွင် workflow အတက်ကျ လည်ပတ်သည်။ [Lesson 6](../06-building-trustworthy-agents/README.md) တွင် ၎င်းကို မြင်တွေ့ခဲ့ပြီး ယခုတွင် deployment ပြုလုပ်သည်။
+**လူတစ်ဦး ဦးစီးမှု။** တစ်ချို့ လုပ်ထုံးလုပ်နည်းများသည် အလိုအလျောက် ဆောင်ရွက်ရန် မလုံလောက်သောကြောင့် — ပြန်လည်ပေးချေမှုဆောင်ရွက်ခြင်း၊ အကောင့်ဖျက်ခြင်း, ဥပဒေရေးရာ အဖွဲ့ထံ ဦးတည်တင်ပြခြင်း။ Microsoft Agent Framework သည် **အတည်ပြုမှုလိုအပ်သော** tools များအား ပံ့ပိုးသည်: agent သည် လုပ်ဆောင်မှုကို တင်ပြ, စီမံအုပ်ချုပ်မှု ရပ်နားသွား, လူ့အတည်ပြုမှု ရရှိ, ထို့နောက် workflow က တက်တက်ကြွကြွ ဆက်လက်လုပ်ဆောင်သည်။ [Lesson 6](../06-building-trustworthy-agents/README.md) တွင် ယင်း primitve ကို မြင်ဖူးပြီး ယခုမှာ သင်တပ်ဆင်ပါမည်။
 
-**ထုတ်လုပ်မှုတွင် MCP.** [MCP](../11-agentic-protocols/README.md) ကိရိယာတစ်ခုဖြစ်ပြီး external tools များကို ကိုယ့် agent မှ စံနမူနာလမ်းညွှန် ဖြင့် သုံးစွဲနိုင်သည်။ ထုတ်လုပ်မှုတွင် MCP server တစ်ခုကို ယုံကြည်မှုမရှိသောနယ်နိမိတ်အဖြစ် ကစားပါ။ Server ဗားရှင်းကို pin ထားပါ၊ Scoped Identity ဖြင့် run ပြုလုပ်ပါ၊ ထွက်ရှိမှုများကို စစ်ဆေးပါ၊ စကားဝှက်များကို ထုတ်ဖော်ခြင်းမရှိပါ။ MCP server သည် dependency တစ်ခုဖြစ်ပြီး၊ dependency များကို patch ပြုလုပ်ခြင်း၊ audit ပြုလုပ်ခြင်းနှင့် နှုန်းထား ကန့်သတ်ထားသည်။
+**MCP ကို production တွင် အသုံးချခြင်း။** [MCP](../11-agentic-protocols/README.md) သည် agent သည် ပုံမှန် interface ထက် ပြင်ပ tools များကို အသုံးပြုခွင့်ပြုသည်။ Production တွင် MCP server တစ်ခုလုံးကို မယုံကြည်ရသော နယ်နိမိတ်တစ်ခုအဖြစ် ကြည့်ပါ: server version ကို pin လုပ်ပါ, scoped identity ဖြင့် run ပေးပါ, result များကို validate လုပ်ပါ, လျှို့ဝှက်ချက် မဖော်ထုတ်ပါနှင့်။ MCP server သည် dependency ဖြစ်ပြီး dependencies များမှာ patched, audited, rate-limited ဖြစ်သည်။
 
 ```mermaid
 flowchart TB
-    subgraph Dev[ဖွံ့ဖြိုးရေး စံနှုန်း]
-        D1[မှတ်စုစာအုပ်] --> D2[အေးဂျင့် ပုံစံ]
-        D2 --> D3[မော်ဒယ် ပေးသွင်းသူ]
-        D2 --> D4[ဒေသတွင်း ကိရိယာများ]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[တပ်ဆင်မှု စံနှုန်း]
-        E1[CI လမ်းကြောင်း] --> E2[သုံးသပ်ခြင်းတံခါးတံ]
-        E2 -->|ผ่าน| E3[Foundry အေးဂျင့် सेवा]
-        E3 --> E4[ဗားရှင်းထားသော တည်ဆောက်ထားသော အေးဂျင့်]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[အချိန်ပြေး စံနှုန်း]
-        F1[ဖောက်သည် ဆော့ဖ်ဝဲ] --> F2[တည်ဆောက်ထားသော အေးဂျင့်]
-        F2 --> F3[မော်ဒယ် မောင်းနှင်သူ]
-        F2 --> F4[Azure AI ရှာဖွေရေး RAG]
-        F2 --> F5[မှတ်ဉာဏ် ဝန်ဆောင်မှု]
-        F2 --> F6[MCP ကိရိယာများ]
-        F2 --> F7[OTel -> Foundry ခရမ်းခြင်း]
-        F2 --> F8[လူ့ အတည်ပြုခြင်း]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
+        F2 --> F4[Azure AI Search RAG]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-ဒီ diagram သုံးခု — ဖန်တီးမှု၊ deployment နှင့် runtime — ကို အကျဉ်းချုပ် agent တစ်ခု၏ သက်တမ်းသုံးအဆင့်ဖြစ်ကြောင်း ပြသသည်။ lab မှာ သင်အား အဆင့်ဆင့် ဖြတ်သန်းလေ့လာပေးမည်။
+ဒီ သုံးပုံစံ - development, deployment, runtime - သည် အတူတူ agent တစ်ခု၏ ဘဝနှစ်သက်အဆင့်သုံးခု ဖြစ်သည်။ အောက်ပါ lab တွင် သင်အား ဆောက်လုပ်ပုံ ကို လမ်းပြပါမည်။
 
-## လက်တွေ့ လေ့လာမှု Lab: ထုတ်လုပ်ရန် အသင့် Customer Support Agent
+## လက်တွေ့ လေ့ကျင့်ခန်း: Production-ready Customer Support Agent
 
-[`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ကို ဖွင့်၍ အဆုံးအထိ လေ့လာလုပ်ဆောင်ပါ။ သင်သည် **Contoso customer support agent** တစ်ခုကို အသုံးပြုမှုတိုင်းဖြင့် တည်ဆောက်မည်။
+[`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) ကို ဖွင့်၍ အစပြုပါ။ သင်သည် **Contoso customer support agent** ကို စုစည်းမည်ဖြစ်ပြီး တစ်ခုချင်း production ဆိုင်ရာ ထောက်ပံ့မှုများ ပါဝင်ပါမည်-
 
-၁။ **Tool ခေါ်ဆိုခြင်း** — အမှာစာအခြေအနေကို ရှာဖွေပြီး support ticket များ ဖွင့်သည်။
-၂။ **RAG** — knowledge base (Azure AI Search, notebook ကို Search resource မလိုအပ်အောင် in-memory fallback ရှိသည်) မှ စည်းကမ်းမေးခွန်းများဖြေသည်။
-၃။ **Memory** — စကားဝိုင်းကွက်တစ်ခုလုံးအတွင်း ဖောက်သည်ကို မှတ်ထားသည်။
-၄။ **Model routing** — complexity classifier တစ်ခုသည် တောင်းဆိုချက်တိုင်းအား သေးငယ်သော်မဟုတ် ကြီးမားသော မော်ဒယ်သို့ လမ်းညွှန်သည်။
-၅။ **Response caching** — ပြန်လည်မေးခွန်းများကို cache မှ ဖြေကြားသည်။
-၆။ **လူ့အတည်ပြုခြင်း** — သတ်မှတ်ထားသော အခြေအနေနှင့်အတူ refund များကို လူ့အတည်ပြုမှုရရန် ရပ်နားစေသည်။
-၇။ **Evaluation pipeline** — သေးငယ်သော offline စမ်းသပ်မှုများ စာရင်းဖြင့် agent ကို အမှတ်ပေး၍ release gate အဖြစ် သုံးသည်။
-၈။ **Observability** — တောင်းဆိုချက်တိုင်း သို့ OpenTelemetry tracing ဆက်ရောက်သည်။
+1. **Tool calling** — အော်ဒါအခြေအနေ ကြည့်ရှုခြင်း နှင့် support ticket ဖွင့်ပေးခြင်း။
+2. **RAG** — policy မေးခွန်းများကို knowledge base ကနေ ဖြေဆိုခြင်း (Azure AI Search သုံးပြီး, in-memory fallback ဖြင့် notebook သည် Search resource မလိုအပ်ဘဲ run ပေးသည်)။
+3. **Memory** — စကားပြောတွေ့ကြုံမှုတွင် ဖောက်သည်ကို မှတ်ထားခြင်း။
+4. **Model routing** — complexity classifier သည် တောင်းဆိုမှု တစ်ခုချင်းစီကို သေးငယ်သော်မဟုတ် ကြီးလာသော model တစ်ခုသို့ ရှေ့သွားပေးသည်။
+5. **Response caching** — ထပ်ခါတလဲလဲ မေးခွန်းများကို cache မှ ပေးသည်။
+6. **Human approval** — အရေအတွက် ပို၍ ကြီးမြတ်သည့် refund များသည် လူ့အသိအမှတ်ပြုခြင်းအတွက် ရပ်နေသည်။
+7. **Evaluation pipeline** — agent ကို စမ်းသပ်ထားသော သေးငယ်သော offline စမ်းသပ်မှု နှင့် release gate အဖြစ် လုပ်ဆောင်သည်။
+8. **Observability** — တောင်းဆိုမှု တစ်ခုစီ ဝန်းရံ OpenTelemetry tracing ပါဝင်သည်။
 
-### လမ်းညွှန်ချက်
+### လမ်းညွှန်
 
-notebook သည် production သက်ဆိုင်ရာအမှန်တရားကို self-contained ဖြစ်ရန် ဆောင်ရွက်ထားပြီး runnable ပုဒ်မများအဖြစ် စုပုံထားသည်။ ယခုလေ့လာရန်အဓိကမှာ routing-plus-caching request handler ဖြစ်သည်။
+Notebook သည် production ဆိုင်ရာ တစ်ခုချင်း စိတ်ပူရမှုကို self-contained, runnable အပိုင်းအဖြစ် စီစဉ်ပြီး routing နှင့် caching တောင်းဆိုမှု ကိုင်တွယ်သူ အလယ်မှာ တည်ရှိပါသည်။
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # ၁။ မဖြစ်နိုင်ချိန်အထိ ကိတ်ချပေးပါ။
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # ၂။ ကုန်ကျစရိတ် ထိန်းချုပ်ရန် စိတ်ကြိုက်ဖြတ်တိုက်ပါ။
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # ၃။ ကြည့်ရှုနိုင်မှုအတွက် အေးဂျင့်ကို trace span အတွင်း ပြေးပါ။
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # ၄။ ကိတ်ပြီး ပြန်ပေးပါ။
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-release ကိုကာကွယ်သော evaluation gate သည် ဒီအတိုင်း ပြသသည်။
+release ကို ထိန်းသိမ်းရာတွင် evaluation gate သည် ဒီလိုပုံရသည်။
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # ဂိတ်က ကုန်ကျမှသာ တပ်ဆင်ပါ။
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-လိုင်းတိုင်းကို သေချာဖတ်ပါ — notebook သည် primitive များအား Framework call များအောက်မှာ  ဖုံးကွယ်ခြင်းမရှိစေရန် အမှန်သဖြင့်အသေးစားထားသည်။
+လိုက်၍ ဖတ်ပါ — notebook သည် primitive များကို သေချာပြီ ညှိထားသောကြောင့် framework call နောက်ကွယ် မဖြစ်ပါ။
 
-## တပ်ဆင်ပြီးသည့် Agent ကို Smoke Tests နှင့် စစ်ဆေးခြင်း
+## တပ်ဆင်ပြီးသား Agent ကို Smoke Tests ဖြင့် စစ်ဆေးခြင်း
 
-အပေါ်တွင်ဖော်ပြထားသော evaluation gate ကို agent object အပေါ်တွင် *offline* ဖြင့် run ပြုလုပ်သည်။ Hosted Agent အဖြစ် တပ်ဆင်ပြီးပါက နောက်ထပ်တစ်ခု၊ ပိုမို လျှော့ချသည့် စစ်ဆေးမှုတစ်ခုလိုအပ်သည် — **တပ်ဆင်ပြီးသော endpoint ကြားဖြတ်တုံ့ပြန်နေပါသလား?** ဟူ၍။
+အထက်ပါ evaluation gate သည် *offline* အားဖြင့် သင်၏ agent object ထံ run ပါသည်။ Agent ကို Hosted Agent အဖြစ် တပ်ဆင်ပြီးနောက် သင့်အား များထပ် တစ်ခု ထပ်ဆင့် စစ်ဆေးမှု လိုအပ်သည် — **တပ်ဆင်ပြီးသော endpoint သည် အဖြေပြောနေတာလား?**
 
-"အောင်မြင်စွာ တပ်ဆင်ခြင်း" သည် control plane သည် definition ကို လက်ခံခြင်းသာ သက်သေပြသည် — agent ၏ တုံ့ပြန်မှုကို သက်သေမပြုပါ။ dependency မရှိခြင်း, model routing မမှန်ခြင်း (သို့) ဆက်သွယ်မှု သက်တမ်းကုန်ခြင်းက စစ်တမ်း သန့်ရှင်းခြင်းမရှိသော စနစ်တစ်ခုရှိစေသည်။ **smoke test** သည် ဒီအချက်ကို တစ်စက္ကန့်အတွင်း၊ တပ်ဆင်တိုင်း မှတ်တမ်းတင် အခမဲ့စစ်ဆေးပေးသည်။
+"အောင်မြင်စွာ တပ်ဆင်ခြင်း" သည် control plane သည် သတ်မှတ်ချက်ကို တူညီသည်ဟုသာ သက်သေပြသည် — agent သည် တုံ့ပြန်မှုရှိကြောင်း မသက်သေပြနိုင်ပါ။ အသုံးပြုလိုသူမှ မပါသော dependency, မဟုတ်သည့် model routing, သို့မဟုတ် connection ကုန်သွားသည်မှာ deployment သည် အဆ Green ဖြစ်သော်လည်း မည်သည့်အရာမျှ ပြန်မပေးနိုင်ပါ။ **smoke test** သည် ၎င်းကို စက္ကန့်အတွင်း တွေ့ရှိနိုင်ပြီး deployment များအတွက် လုပ်ဆောင်သည်၊ အပြည့်အစုံ သုံးသပ်မှု ကုန်ကျစရိတ် မရှိဘဲ။
 
-ဒီ repository သည် သင့်အား အသုံးပြုနိုင်သော smoke-test pipeline တစ်ခုကို [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action အခြေပြု၍ ပေးဆောင်သည်။
+ဤ repository တွင် [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action ဖြင့် တည်ဆောက်ထားသည့် အသုံးပြုရန်အသင့်ပြင်ဆင်ထားသော smoke-test pipeline ပါရှိသည်။
 
-- **Catalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) တွင် Contoso support agent အတွက် prompts နှင့် assertions (မူအရ အဖြေများ၊ အမှာစာရှာဖွေခြင်း, မဟုတ်သော ခေါင်းစဉ်အကြောင်း, မဟုတ်သော turn များ ဆက်လက်၍ ဖော် ပြမှု) ပါဝင်သည်။ အခြားသင်ခန်းစာ agent များအတွက် catalog များသည် မြင်ကွင်းအလယ်၌ မြင်နိုင်သည် — [`tests/README.md`](../tests/README.md) ကို ကြည့်ပါ။
-- **Workflow** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) တွင် Azure OIDC ဖြင့် login ဝင်ပြီး တစ်ခုချင်း prompt များကို agent ၏ Responses endpoint သို့ POST ဆောင်ရွက်ပြီး assertion များ မကျေနပ်ပါက သင်တန်းအလုပ်ကို ပျက်စီးစေသည်။
+- **Catalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) တွင် Contoso support agent အတွက် prompt များနှင့် assertions များ ပါဝင်သည် (grounded policy ဖြေချ်နည်းများ, order စစ်ဆေးခြင်း, သတင်းအချက်အလက်နဲ့ မဆွဲမဆွဲနေခြင်း, နှင့် multi-turn thread continuity)။ အခြား သင်ခန်းစာ agent များအတွက် catalog များလည်း ပါရှိပြီး - [`tests/README.md`](../tests/README.md) တွင် ကြည့်ရှုနိုင်ပါသည်။
+- **Workflow** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) သည် Azure OIDC ဖြင့် လော့ဂ်အင် ပြုလုပ်ပြီး agent ၏ Responses endpoint ကို POST လုပ်သည်, assertion မမှန်သော တစ်ခုခု တွေ့ပါက job ကို မအောင်မြင်စေပါ။
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,119 +281,118 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
+သင့်ရဲ့ agent ကို deploy ပြီးပါက **Actions** tab ထဲကနေ Foundry project endpoint နဲ့ agent နာမည်ထည့်ပြီး run လုပ်ပါ။ federated identity သည် Foundry project scope မှာ **Azure AI User** role ရှိရပါမယ်။ layers တွေကို ပျရာမစ်လေးအဖြစ်စဉ်းစားပါ - smoke test (ရောက်ရှိနိုင်ပြီးတုံ့ပြန်နိုင်မှု) ကို deployment အချိန်တိုင်း run လုပ်ပြီး၊ offline evaluation (ပစ္စည်းပို့လိုက်လို့ရနိုင်စရာကောင်းလား) ကို promotion မပြုမီမှာ run လိုက်ပြီး၊ online evaluation (လမ်းကြောင်းမှာ performance ကော? ) ကို continuous စနစ်နဲ့ run လုပ်ပါလိမ့်မယ်။
 
-သင်၏ agent ကို deploy ပြီးပါက **Actions** တက်ဘ်မှတဆင့် ရောင့်ပါ၊ သင့် Foundry project endpoint နှင့် agent နာမည်ကို ဖြည့်စွက်လိုက်ပါ။ federated identity သည် Foundry project scope တွင် **Azure AI User** အခန်းကဏ္ဍလိုအပ်သည်။ layers များကို ပရမစ်အနေနဲ့ တွေးပါ: smoke tests (ရောက်ရှိနိုင်ပြီးတုံ့ပြန်နိုင်သလား?) သည် deployment တစ်ခုစီတွင် အမြဲ ran ပြီး၊ offline evaluation (တင်ပို့ရန် လုံလောက်အောင် ကောင်းမြတ်သလား?) ကို promotion မပြုလုပ်မီ လုပ်ဆောင်ပြီး၊ online evaluation (အပြင်ပတ်ဝန်းကျင်တွင် မည်ကဲ့သို့ လုပ်ဆောင်နေသနည်း?) ကို ဆက်တိုက် run လုပ်သည်။
+## သိရှိမှတ်မိမှု စစ်ဆေးခြင်း
 
-## နည်းပညာ စစ်ဆေးမှု
+တာဝန်ကျရန်မတိုင်မီ သင်၏နားလည်မှုကို စစ်ဆေးပါ။
 
-သင်၏ နားလည်မှုကို စစ်ဆေးပြီး ဂိမ်းအပ်ရန်အတှကျ ဆက်သွားပါ။
-
-**1. ထုတ်လုပ်မှု agent မှာ "model" ဟာ ဘယ်လောက်ခန့် ပါဝင်ပြီး ကျန်ရှိတာ ဘာတွေရှိသလဲ?**
-
-<details>
-<summary>အဖြေ</summary>
-
-Model သည် စနစ်တစ်ခု၏ သေးငယ်သော အစိတ်အပိုင်းဖြစ်ပြီး ပြီးပြည့်စုံစွာ ၂၀% ခန့်သာ ရှိသည်ဟု မကြာခဏ ဆိုကြသည်။ ကျန်ရှိတာများမှာ operation skeleton ဖြစ်ပြီး hosting နှင့် versioning၊ identity နှင့် RBAC, externalised state, failure handling, cost tracking, evaluation, နှင့် human-in-the-loop controls များဖြစ်သည်။ ထုတ်လုပ်မှုသို့ရောက်ရှိခြင်းသည် reasoning loop ရှိ အရာအားလုံး *ဝှေ့ပတ်* ပြုလုပ်ခြင်း ဖြစ်သည်။
-</details>
-
-**2. Hosted Agent ကို client-hosted agent ထက် ဘယ်အချိန်မှာ ရွေးချယ်သင့်သလဲ?**
+**1. ထုတ်လုပ်ရေး agent မှာ "model" ကျော်ကြားမှု ဘယ်လောက်ရှိပြီး အခြားနည်းလမ်းတွေက ဘာတွေလဲ?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-သင်စိတ်တိုင်းကျ မပ်ဖိုင်းရှိပြီး (threads များ ထမင်းခြင်းနှင့် ပြန်ပေးနိုင်ခြင်း), observability, content safety နှင့် RBAC များပါရှိသော ပိုင်ဆိုင်မှု runtime ကိုမျှော်လင့်ပါက၊ reasoning loop ၏ အနိမ့်ဆုံးထိန်းချုပ်မှုကို လျော့နည်းသည့် operational area လှုပ်ရှားမှုများနှင့် ကုန်ကျစရိတ်ဖျော့ချလိုသူ၊ Hosted Agent ကို ရွေးချယ်သင့်သည်။ Client-hosted သည် reasoning loop အပေါ် ထိန်းချုပ်မှု အပြည့်ရှိရန်သော်လည်းကောင်း၊ နောက်ခံစနစ်တွင် Agent ကို ထည့်သွင်းသလို embed လုပ်ထားချင်သောအခါ သာဖြစ်သည်။
+model သည်စနစ်၏အသေးစားတစ်ပိုင်းသာဖြစ်ပြီး ပုံမှန်အားဖြင့် ၂၀% ခန့်သာရှိသည်။ ကျန်ရှိသည်မှာ လုပ်ဆောင်မှုကာရံ တည်ဆောက်ပုံများ ဖြစ်သည်။ အသုံးပြုမှုနှင့် version များစီမံခြင်း၊ တည်ဆောက်နေသောအတိုင်းအတာ၊ failure ကိုဆောင်ရွက်ခြင်း၊ ကုန်ကျစရိတ်စစ်ဆေးခြင်း၊ အကဲဖြတ်မှုနှင့် လူရွေ့လျားထိန်းချုပ်မှုများ ပါဝင်သည်။ ထုတ်လုပ်မှုသို့သွားရာမှာ reasoning loop အပြင်မှာအရာအားလုံးကို တည်ဆောက်မှသာဖြစ်သည်။
 </details>
 
-**3. scalable agent သည် မိမိ့ process memory တွင် stateless ဖြစ်ရခြင်း မည်သို့ အရေးကြီးသနည်း?**
+**2. Hosted Agent ကို client-hosted agent ထက် ဘယ်အချိန်မှာရွေးမလဲ?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-လက်ရှိ instance မည်သည့် request မဆို ကိုင်တွယ်နိုင်ရန်ဖြစ်ပြီး၊ sticky session မလိုအပ်ဘဲ horizontal scaling ပြုလုပ်နိုင်စေသည်။ အသုံးပြုသူတိုင်း၏ conversation state ကို thread store သို့မဟုတ် memory service တွင် ထုတ်ပြန်ထားသည်။ Process memory အတွင်း states ရှိရင် reset ပြုလုပ်လျှင် state ပျောက်ကွက်ပြီး load များကို မဖြန့်ဝေနိုင်တော့ပါ။
+built-in durability (threads persist လုပ်၍ပြန်လည်စတင်နိုင်မှု), observability, content safety, RBAC ကိုထည့်သွင်းထားသော managed runtime လိုချင်ပြီး reasoning loop ကိုအနည်းငယ်လည်းကောင်းစေ operational surface area မှနည်းငယ်နားလည်ဖို့အဆင်ပြေတယ်ဆိုရင် Hosted Agent ကိုရွေးပါ။ client-hosted သည် loop ကိုပြည့်စုံထိန်းချုပ်ဖို့လိုအပ်တဲ့အခါ သို့မဟုတ် existing backend မှာ agent ထည့်သွင်းသုံးရန်ဖြစ်လျှင်ပိုကောင်းသည်။
 </details>
 
-**4. model routing က ဘယ်ဆိုင်ရာပြဿနာကို ဖြေရှင်းပြီး evaluation နှင့် ဆက်နွယ်မှု ဘယ်လိုရှိသလဲ?**
+**3. scalable agent ကိုသဘာဝရဲ့ process memory ထဲမှာ stateless ဖြစ်ရခြင်းနောက်ခံအကြောင်းဘာလဲ?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-Routing သည် ရိုးရှင်းပြီး စျေးဆူသော model သို့ ရိုးရှင်း စစ်ဆေးမှုများ ပေးပို့ပြီး, ကြီးမားသော model ကို reasoning အတွက် သီးသန့်သုံးစွဲလိုက်သည်။ latency နဲ့ ကုန်ကျစရိတ်ကို ထိန်းချုပ်သည်။ evaluation နှင့် ဆက်နွယ်မှုမှာ evaluation သည် အကြောင်းအမျိုးအစားအချို့အတွက် စျေးသက်သာသော်လည်း ယုံကြည်စိတ်ချရမှု ရှိကြောင်း *အတည်ပြု*သည်။ Evaluation မပါက routing ဟာ ခန့်မှန်းခြေ တစ်ခုပင်ဖြစ်သည်။
+မည်သည့် instance ကိုမဆို မည်သည့် request ကိုမဆိုကိုင်တွယ်နိုင်ရန်ဖြစ်ပြီး sticky session မလိုအပ်ဘဲ horizontal scaling ပြုလုပ်ပေးနိုင်သောကြောင့်ဖြစ်သည်။ user တစ်ဦးချင်းစီအတွက် conversation state များကို thread store သို့မဟုတ် memory service တွင် ထိန်းသိမ်းထားသည်။ process memory ထဲမှာ state သိမ်းဆည်းထားခဲ့လျှင် restart မှ နောက် state ပျောက်ကွယ်သွားပြီး load ကိုလွတ်လပ်စွာဖြန့်ဝေပေး၍မရနိုင်ပါ။
 </details>
 
-**5. "evaluation gate" ဆိုတာဘာလဲ၊ lifecycle အတွင်း အရပ်ဘယ်မှာ ရှိသလဲ?**
+**4. model routing ဆိုသည်မှာ ဘယ်လိုပြဿနာကိုဖြေရှင်းပေးပြီး evaluation နဲ့ဘယ်လိုဆက်နွယ်သလဲ?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-Evaluation gate သည် အွန်လိုင်း version အသစ်တစ်ခုအပေါ် offline စမ်းသပ်မှု set တစ်ခုကို run လုပ်ပြီး စာရင်းသွင်းခြင်းကိုကန့်သတ်သည်။ lifecycle တွင် "version" နှင့် "deploy" ကြားမှာ ရှိပြီး ထုတ်လုပ်မှုအရည်အသွေးကို ထွက်ပေါ်ရန်မတိုင်ခင် စီမံထားသည့် အသွင်အပြင်ဖြစ်သည်။
+Routing သည် လျှပ်စစ်ဖြစ်ပြီး ဈေးနူန်းသက်သာသည့်နည်းပညာထားသော model သို့သွားပြီး၊ ကြီးမားသော model ကိုလုံလောက်သော reasoning အတွက်သီးခြားထားပေးခြင်းဖြင့် latency နှင့် cost ကိုထိန်းချုပ်ပေးသည်။ evaluation နှင့်ဆက်နွယ်ခြင်းမှာ evaluation သည် အဲဒီသေးငယ်သေးငယ်သော model သည် တောင်းဆိုမှုအမျိုးအစားတစ်ခုအတွက် လုံလောက်သည်ဟု *သက်သေပြ* ပေးသောကြောင့်ဖြစ်သည်။ evaluation မပါဘဲ routing သုံးခြင်းမှာ ခန့်မှန်းခြင်းပင်ဖြစ်သည်။
 </details>
 
-**6. MCP server ကို ထုတ်လုပ်မှုတွင် untrusted boundary အဖြစ် ဆက်ဆောင်ထားသင့်သည့် အကြောင်းရင်း?**
+**5. "evaluation gate" ဆိုတာဘာလဲ၊ lifecycle မှာ ဘယ်နေရာမှာ ရှိသလဲ?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-သင်၏ agent မှ ခေါ်သည့် ပြင်ပ မှန်ကန်မှုတစ်ခုဖြစ်သောကြောင့် ဖြစ်သည်။ version မြန်းကို pin လုပ်၍ scoped identity ဖြင့် run ကာ output များကို တိကျမှန်ကန်ကြောင်းစစ်ဆေးပေးရန်၊ rate-limit တပ်ရန်၊ လျှို့ဝှက်ချက်များကို မဖော်ထုတ်ရန်လိုသည်။ တတိယပါတီ မှန်ကန်မှု အတိုင်း စနစ်ပေါ်တွင် အတည်မပြုချေမှုသည် လုံခြုံရေးအန္တရာယ်ဖြစ်သည်။
+evaluation gate သည် agent ဗားရှင်းအသစ်တစ်ခုအပေါ် offline test set ကို run လုပ်ပြီး pass rate သတ်မှတ်ချက်ကျော်လွန်မှ deployment ကိုခွင့်ပြုသည်။ lifecycle မှာ "version" နဲ့ "deploy" အကြား တည်ရှိပြီး release အတွက် အရည်အသွေးကို ရှေ့တန်းလိုအပ်ချက်အဖြစ် သတ်မှတ်သည်။
 </details>
 
-**7. ထုတ်လုပ်မှု agent ၏ ကုန်ကျစရိတ်ကို အကြီးဆုံး သက်တိုးမှု ပေးသော တစ်ခုတည်း ပြောင်းလဲမှုဘာလဲ၊ အကြောင်းရင်းကဘာလဲ?**
+**6. MCP server ကို production မှာ မယုံကြည်ရသော အကန့်အသတ်အဖြစ် ဆက်ဆံရအပ်သော အကြောင်းရင်း?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-Model အရွယ်အစားကိုမှန်ကန်စွာရွေးခြင်း — သင့် evaluation gate ပေါ်မူတည်ပြီး အငယ်ဆုံး model ကိုသွားရွေးခြင်းဖြစ်သည်။ ကုန်ကျစရိတ်မှာ token များကစားလို့ ဖြစ်သည့်အတွက် အရည်အသွေးအတိုင်းအတာဖြစ်ရသော သေးငယ်သော model သည် ကြီးမားသော model ထက် ပိုသက်သာခြင်းရှိသည်။ Caching နှင့် routing များက ဆက်လက်ထိရောက်အောင်လုပ်ပေးသည်, ဒါပေမယ့် အခြေခံ model သတ်မှတ်ခြင်းမှာ အကြီးဆုံး သက်တိုးမှုရှိသည်။
+agent က ခေါ်ရသော အပြင်ဘက် အား အားထားရမည့် ကြောင်းအားဖြင့်ဖြစ်သည်။ version ကို pin လုပ်ထားရမည်၊ scoped identity နဲ့ run ရမည်၊ output များကိုစစ်ဆေးရန်၊ rate-limit ပေးရန်နှင့် secret များကို မဖော်ပြရရန်လိုသည်။ ၎င်း output များသည် agent ၏ reasoning အတွင်းသို့ဝင်ရောက်သွားသဖြင့် သေချာစစ်ဆေးထားခြင်း မရှိလျှင် လုံခြုံရေးဆိုင်ရာ အန္တရာယ် ဖြစ်ပေါ်နိုင်သည်။
 </details>
 
-**8. `customer.tier` နှင့် `routed.model` ဖော်ပြချက်များသည် observability တွင် ဘာအခန်းကဏ္ဍရှိသလဲ?**
+**7. ထုတ်လုပ်ရေး agent ၏ကုန်ကျစရိတ်တွင် အကြီးမားဆုံးသက်ရောက်မှုရှိသော အချို့ ပြောင်းလဲမှုတစ်ခုနဲ့ အာရုံစိုက်ရခြင်း?**
 
 <details>
-<summary>အဖြေ</summary>
+<summary>ဖြေချက်</summary>
 
-၎င်းတို့သည် မူရင်း trace များကို အဖြေရှာနိုင်သော စီးပွားရေးမေးခွန်းများအဖြစ် ပြောင်းလဲပေးသည်။ attributes မရှိရင် span တွေ အနှံ့ သီးခြားထင်ရုန်းရုံ၊ attributes ဖြင့် “တိုးတက်သော customer များသည် သေးငယ်သော model သို့ အများအပြား ခေါ်သလား?” သို့မဟုတ် “အေ့ကျဆုံးမေးခွန်းကို မည်သည့် model ကင်တွယ်နေလဲ?” စသဖြင့် မေးနိုင်သည်။ attributes များဖြင့် ဤမျိုး များသော telemetry နှင့် စနစ်သုံးနေ့စွဲများကို ဖြတ်တောက်နိုင်သည်။
+model ကိုမှန်ကန်အရွယ်အစားသုံးခြင်း — သင့် evaluation gate ကိုဖြတ်တောက်နိုင်သော အနည်းဆုံး model ကို သုံးခြင်းဖြစ်သည်။ ကုန်ကျစရိတ်သည် token များပေါ်တွင် အခြေခံပြီး အရည်အသွေးကောင်းသော model သည် အမြဲတမ်းကြီးမားသော model ထက် ပိုသက်သာသည်။ caching နှင့် routing က ပြုလုပ်ပေးသော အမှုများသည် cost ကို နည်းဂဏန်းနည်းလမ်းဖြင့် လျော့ချပေးနိုင်ပြီး သင့်အခြေခံ model ရွေးချယ်မှုသည် ပထမဆုံးသက်ရောက်မှု အကြီးဆုံးဖြစ်သည်။
 </details>
 
-## သတ်မှတ်အပ်ရန် လုပ်ငန်းတာဝန်
+**8. `customer.tier` နှင့် `routed.model` ကဲ့သို့သော span attribute များသည် observability တွင် ဘယ်လိုအခန်းကဏ္ဍရှိသနည်း?**
 
-lab အတွက် customer support agent ကို ယူပြီး အထူးသီးသန့် သဘောထားမှာခိုင်မာစေရန်: **SaaS ကုမ္ပဏီအတွက် subscription billing support agent။**
+<details>
+<summary>ဖြေချက်</summary>
 
-သင်၏ တင်သွင်းမှုတွင် ပါဝင်ရန် -
+အဲဒီ attribute များက raw trace များကို အဖြေရှာနိုင်သော စီးပွားရေးမေးခွန်းများအဖြစ် ပြောင်းလဲပေးသည်။ attribute မရှိပါက span များသည် နံရံတစ်ခုကဲ့သို့ ဖြစ်ပေမဲ့ attribute အပြည့်အစုံပါရှိပါက "စီးပွားရေးလုပ်ငန်းများကို သေးငယ်သော model ကို မကြာခဏခေါ်သုံးနေပါသလား?" သို့မဟုတ် "အတွေ့အကြုံအဆင်းဆုံး ရှေ့ပြေးတောင်းဆိုမှုကို ဘယ် model က ကိုင်တွယ်နေပါသလဲ?" စသည့် မေးခွန်းများကို မေးနိုင်သည်။ attribute များသည် သင့် operation အတွက် အရေးပါသော dimension များဖြင့် telemetry ကို ခွဲခြားစီစစ်ခြင်းအတွက် အသုံးပြုသည်။
+</details>
 
-၁။ **နည်းပညာများကို billing နှင့်ပတ်သက်သောအရာများဖြင့် အစားထိုးပါ** - `get_subscription_status` , `get_invoice` နှင့် `issue_credit` (၁၀၀၀၀ထက်ပိုသော credit များအတွက် လူလက်ခံအတည်ပြုချက်လိုအပ်သည်)။
-၂။ **refund policy၊ billing cycle နှင့် cancellation policy ကိုဖုံးကွယ်ထားသည့် RAG စာရွက် ၃ ခုထည့်သွင်းပါ။**
-၃။ **evaluation စာရင်းကို အနည်းဆုံး ၈ မျိုးခန့်ချဲ့ထွင်၍ လူလက်ခံအတည်ပြုချက် လမ်းကြောင်း တစ်ခုခုပါ ရှိရမည်။ evaluation gate ကို မှန်ကန်စွာ pass သို့မဟုတ် fail ဖြစ်သည်ကို အတည်ပြုပါ။**
-၄။ **ကုန်ကျစရိတ်အစီရင်ခံစာ တစ်ခုထည့်ပါ**: agent ဖြတ်သွားသော mixed queries ၁၀ ခုမှ မည်မျှတွေက အငယ်ဆုံး model, မည်မျှတွေကြီးမားသော model, မည်မျှတွေ cache ထဲကနေဖြစ်သည်ကို ထုတ်ပေးပါ။
+## တာဝန်ပေးခြင်း
 
-မှတ်စုကွန်ပျူတာရှိ မြောက်စု စာသားတစ်ပုဒ် (markdown cell) ဖြင့် မည်သည့် model-routing အိုင်တီင်းကို ရွေးချယ်ပြီး အမှန်တကယ် traffic ဖြင့် မည်သို့ စစ်ဆေးမည်ကို ရှင်းပြပါ။ တစ်ခုတည်း အတိအကျ အဖြေ မရှိပါ၊ ထုတ်လုပ်မှုစိုးရိမ်ရမှုများကို သေချာ စွာချိတ်ဆက်ထားခြင်းအပေါ် သင့်ကို တန်ဖိုးထားခြင်းဖြစ်သည်။
+lab မှ customer support agent ကို ယူပြီး သတ်မှတ်ထားသော အခြေအနေတစ်ခုအတွက် ခိုင်မာအောင် ပြင်ဆင်ပါ - **SaaS ကုမ္ပဏီအတွက် subscription billing support agent ဖြစ်စေရန်။**
+
+သင့်တင်သွင်းမှုတွင် ပါဝင်ရမည်မှာ -
+
+၁။ tools များကို billing ကိုဆိုင်ရာဖြင့် အစားထိုးပါ - `get_subscription_status`, `get_invoice`, နှင့် `issue_credit` ($50 အထက် credit များအတွက် လူ့အတည်ပြုချက်လိုအပ်သည်)။
+၂။ ကုမ္ပဏီ၏ refund policy, billing cycle, နှင့် cancellation policy ကို ဖုံးအုပ်ထားသော RAG စာရွက်စာတမ်း ၃ ခု ထည့်သွင်းပါ။
+၃။ အကဲဖြတ်မှုအစုအဝေးကို အနည်းဆုံး အမှု ၈ ခုအထိ တိုးချဲ့ပါ၊ လူ့အတည်ပြုခြင်းလိုအပ်သည့် အမှု နှစ်ခုအနည်းဆုံး ပါ၀င်စေပြီး သင့် evaluation gate မှ ဖြတ်လျှောက်မှုပုံကို အတည်ပြုပါ။
+၄။ တစ်ခုသောကုန်ကျစရိတ်အစီရင်ခံစာ ထည့်ပါ - mixed queries ၁၀ ခုအား agent ဖြတ်သွားသည့်နောက် စမောလ် model သို့၊ ကြီးမားသော model သို့ နှင့် cache မှ data သုံးသော အရေအတွက်ကို မူလက်ဖော်အပါအဝင် ပုံနှိပ်ပါ။
+
+အတိုချုံးစာပိုဒ်တစ်ပိုဒ် (markdown cell ထဲတွင်) ရေးပါ၊ သင့်ရွေးချယ်ထားသည့် model-routing စည်းကမ်းကို ဖေါ်ပြပြီး အမှန်တကယ် traffic ဖြင့် ဒီစည်းကမ်းကို မည်သို့ အတည်ပြုမလဲ ဟု ရှင်းပြပါ။ တစ်ခုတည်းသော မှန်ကန်တဲ့အဖြေ မရှိပါ - သင်၏သုံးစွဲမှု ဆိုင်ရာစိုးရိမ်မှုများကို ထိန်းသိမ်းထားနိုင်မှု အတွက် စစ်ဆေးခံရပါမည်။
 
 ## အနှစ်ချုပ်
 
-ဒီသင်ခန်းစာမှာ Microsoft Foundry အသုံးပြု၍ agent ကို prototype မှ ထုတ်လုပ်မှုသို့ ရွှေ့ပြောင်းခဲ့သည်။
+ဤသင်ခန်းစာတွင် Microsoft Foundry ဖြင့် agent ကို prototype မှ ထုတ်လုပ်ရေးသို့ ရွှေ့ပြောင်းလိုက်ပါသည်။
 
-- ထုတ်လုပ်မှုသို့ ရွှေ့ပြောင်းခြင်းမှာ model အပေါ်ရှိ **operation skeleton** (hosting, identity, state, failure handling, cost, quality, trust) အပေါ်ကို ဦးစားပေးထားသည်။
-- သင်သည် **deployment နည်းပညာ ၃ မျိုး** — client-hosted, Hosted Agents, နှင့် Agent Workflows — နှင့် မည်သည့်အခြေအနေတွင် ရောင့်သောကြောင်း သင်ယူခဲ့သည်။
-- သင်သည် **agent lifecycle** ကို လမ်းလျှောက်ခဲ့ပြီး offline **evaluation သည် release gate အဖြစ် လုပ်ဆောင်ပြီး** အွန်လိုင်း observability သည် failure များကို test set သို့ ပြန်ပို့သည်။
-- သင်သည် **scaling နည်းဗျူဟာများ** — stateless design, model routing, caching, နှင့် bounded concurrency — ကို အသုံးပြုပြီး **ကုန်ကျစရိတ် ထိန်းချုပ်မှုနှင့် ဆက်စပ်** ခဲ့သည်။
-- အဖွဲ့အစည်းသုံး ထိန်းချုပ်ခြင်းများကို ချိတ်ဆက်ခဲ့သည် - RBAC, human-in-the-loop approval, နှင့် ထုတ်လုပ်မှုလုံခြုံ MCP ပေါင်းစည်းခြင်း။
-- သင်သည် ယခု အချက်အလက်တစ်ခုချင်းစီကို runnable code ဖြင့် ပေါင်းစည်းထားသည့် **ထုတ်လုပ်မှုသုံး Customer Support Agent** တစ်ခု တည်ဆောက်ခဲ့သည်။
+- ထုတ်လုပ်ရေးသို့ လမ်းပြောင်းရာတွင် အဓိကအားဖြင့် model အပေါ်ရှိ **operational skeleton** ဖြစ်သည် - hosting, identity, state, failure handling, cost, quality နှင့် trustများ။
+- သင်သည် client-hosted, Hosted Agents, နှင့် Agent Workflows ဟူသော သုံးမျိုး **deployment patterns** ကို လေ့လာသိရှိပြီး ဘယ်အချိန်တွင် မည်မျိုးကို သုံးရမည်ကို နားလည်သွားသည်။
+- သင်သည် **agent lifecycle** ကိုလမ်းလျှောက်၍ offline **evaluation သည် release gate အဖြစ် ဆောင်ရွက်သည်** နှင့် online observability သည် failure များကို test set အတွင်း ပြန်ထည့်ပေးသည်ကို သင်ကြားသွားသည်။
+- သင်သည် **scaling strategies** (stateless design, model routing, caching, bounded concurrency) များကို အသုံးပြုပြီး၊ **cost optimisation** နှင့် ချိတ်ဆက်သွားသည်။
+- သင်သည် **enterprise controls** များဖြစ်သော RBAC, human-in-the-loop approval နှင့် production-safe MCP integration ကို ထည့်သွင်းလုပ်ဆောင်သည်။
+- သင်သည် အကောင်းဆုံး runnable code နဲ့ **production-ready customer support agent** တစ်ခု တည်ဆောက်သွားသည်။
 
-နောက်တစ်ခါ သင်ခန်းစာသည် အပြန်တဖြည်းဖြည်းသွားမှာဖြစ်ပြီးကဲ့သို့ - agent များကို cloud ထဲ တိုးမြှင့်ခြင်းမဟုတ်ဘဲ developer ပျော့တစ်ယောက်၏ စက်ကိုယ်တိုင်တွင် လုံးဝကိုယ်တိုင် local run ပြုလုပ်ရန် ရှေ့ဆက်ပါမည်။
+နောက်တစ်သင်ခန်းစာတွင် cloudသို့ agent များကို မြှင့်တင်ရန်အစား တစ်ဦးတည်း developer machine ကနေ agent များကို ထိန်းသိမ်းပြီး အသုံးပြုသွားမည်ဖြစ်သည်။
 
-## အပိုဆောင်း အရင်းအမြစ်များ
+## ထပ်ဆောင်း အရင်းအမြစ်များ
 
-- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry documentation</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service overview</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry မှတ်တမ်း</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service အကြောင်းအရာ</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Microsoft Foundry တွင် Model Router</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
-## မတိုင်မီ သင်ခန်းစာ
+## ယခင်သင်ခန်းစာ
 
 [Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
-## နောက်တစ်ခန်း သင်ခန်းစာ
+## နောက်တစ်သင်ခန်းစာ
 
 [Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
 

@@ -1,72 +1,72 @@
 # AI agenti v produkciji: opazovanje in ocenjevanje
 
-[![AI agenti v produkciji](../../../translated_images/sl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/sl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Ko AI agenti prehajajo iz eksperimentalnih prototipov v aplikacije v resničnem svetu, postane pomembno razumeti njihovo vedenje, spremljati njihovo učinkovitost in sistematično ocenjevati njihove rezultate.
+Ko AI agenti prehajajo iz eksperimentalnih prototipov v realne uporabe, postaja pomembno razumeti njihovo vedenje, spremljati njihovo učinkovitost in sistematično vrednotiti njihove rezultate.
 
 ## Cilji učenja
 
-Po končanem tem se boste naučili/razumeli:
-- Osnovne koncepte opazovanja agentov in ocenjevanja
-- Tehnike za izboljšanje zmogljivosti, stroškov in učinkovitosti agentov
+Po zaključku te lekcije boste znali/razumeli:
+- Osnovne pojme opazovanja in ocenjevanja agentov
+- Tehnike za izboljšanje učinkovitosti, stroškov in učinkovitosti agentov
 - Kaj in kako sistematično ocenjevati svoje AI agente
 - Kako nadzorovati stroške pri uvajanju AI agentov v produkcijo
-- Kako instrumentirati agente zgrajene z Microsoft Agent Framework
+- Kako instrumentirati agente, zgrajene z Microsoft Agent Frameworkom
 
-Cilj je opremiti vas z znanjem, da svoje "črne skrinjice" agente spremenite v pregledne, upravljive in zanesljive sisteme.
+Cilj je opremiti vas z znanjem, kako pretvoriti svoje "črne skrinjice" agente v pregledne, obvladljive in zanesljive sisteme.
 
-_**Opomba:** Pomembno je uvajati AI agente, ki so varni in zaupanja vredni. Oglejte si tudi lekcijo [Gradnja zaupanja vrednih AI agentov](../06-building-trustworthy-agents/README.md)._
+_**Opomba:** Pomembno je uvajati AI agente, ki so varni in zaupanja vredni. Oglejte si tudi lekcijo [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
-## Sledi in razpone
+## Sledi in razponi
 
-Orodja za opazovanje, kot sta [Langfuse](https://langfuse.com/) ali [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), običajno prikazujejo izvajanje agentov kot sledi in razpone.
+Orodja za opazovanje, kot sta [Langfuse](https://langfuse.com/) ali [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), običajno predstavljajo zagone agentov kot sledi in razpone.
 
-- **Sled** predstavlja celotno nalogo agenta od začetka do konca (npr. obravnava uporabniške zahteve).
-- **Razponi** so posamezni koraki znotraj sledi (npr. klic jezikovnega modela ali pridobivanje podatkov).
+- **Sled** predstavlja celotno nalogo agenta od začetka do konca (na primer obdelava uporabniškega poizvedovanja).
+- **Razponi** so posamezni koraki znotraj sledi (na primer klic jezikovnega modela ali pridobivanje podatkov).
 
-![Drevo sledi v Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
 <!-- Image URL retained for illustration purposes -->
 
-Brez opazovanja lahko AI agent deluje kot "črna skrinjica" - njegovo notranje stanje in razmišljanje sta nejasna, kar otežuje diagnosticiranje težav ali optimizacijo zmogljivosti. Z opazovanjem postanejo agenti "steklene škatle", ki nudijo preglednost, ki je ključna za gradnjo zaupanja in zagotavljanje, da delujejo kot je bilo načrtovano.
+Brez opazovanja se AI agent lahko zdi kot "črna skrinjica" - njegovo notranje stanje in razmišljanje sta neprozorna, zaradi česar je težko diagnosticirati težave ali optimizirati delovanje. Z opazovanjem agent postane "steklena skrinjica", ki nudi preglednost, pomembno za gradnjo zaupanja in zagotavljanje, da deluje kot je bilo predvideno.
 
 ## Zakaj je opazovanje pomembno v produkcijskih okoljih
 
-Prehod AI agentov v produkcijska okolja prinaša nov niz izzivov in zahtev. Opazovanje ni več "zaželeno", ampak kritična funkcionalnost:
+Prehod AI agentov v produkcijska okolja prinaša nov nabor izzivov in zahtev. Opazovanje ni več "lep dodatek", temveč ključna zmogljivost:
 
-*   **Razhroščevanje in analiza vzroka:** Ko agent ne uspe ali proizvede nepričakovan izhod, orodja za opazovanje nudijo sledi, potrebne za določitev izvora napake. To je še posebej pomembno pri kompleksnih agentih, ki lahko vključujejo več klicev LLM, interakcij z orodji in pogojne logike.
-*   **Upravljanje zakasnitev in stroškov:** AI agenti pogosto uporabljajo LLM in druge zunanje API-je, ki se zaračunavajo na token ali klic. Opazovanje omogoča natančno spremljanje teh klicev, kar pomaga prepoznati operacije, ki so pretirano počasne ali drage. To omogoča ekipam optimizacijo pozivov, izbiro učinkovitejših modelov ali preoblikovanje delovnih tokov za upravljanje operativnih stroškov in zagotavljanje dobre uporabniške izkušnje.
-*   **Zaupanje, varnost in skladnost:** V mnogih primerih je pomembno zagotoviti, da agenti delujejo varno in etično. Opazovanje zagotavlja revizijsko sled agentovih dejanj in odločitev. To se lahko uporablja za odkrivanje in ublažitev težav, kot so vbrizgavanje pozivov, generiranje škodljive vsebine ali nepravilno ravnanje z osebnimi podatki (PII). Na primer, lahko pregledate sledi, da razumete, zakaj je agent dal določen odgovor ali uporabil določen pripomoček.
-*   **Zanke za stalno izboljševanje:** Podatki opazovanja so osnova za iterativni razvojni proces. Z nadzorovanjem uspešnosti agentov v resničnem svetu lahko ekipe prepoznajo področja za izboljšave, zberejo podatke za fino nastavitev modelov in potrdijo vpliv sprememb. To ustvarja povratno zanko, kjer vpogledi iz produkcije prek spletnega ocenjevanja obveščajo poskuse in izboljšave brez povezave, kar vodi do postopnega izboljševanja uspešnosti agenta.
+*   **Razhroščevanje in analiza osnovnega vzroka:** Ko agent ne uspe ali ustvari nepričakovan rezultat, orodja za opazovanje zagotovijo sledi, potrebne za natančno določitev izvora napake. To je še posebej pomembno pri kompleksnih agentih, ki lahko vključujejo več klicev LLM, interakcije z orodji in pogojno logiko.
+*   **Upravljanje latence in stroškov:** AI agenti pogosto temeljijo na LLM-jih in drugih zunanjih API-jih, ki se zaračunavajo na token ali klic. Opazovanje omogoča natančno sledenje tem klicem, kar pomaga prepoznati operacije, ki so prepočasi ali predrage. To ekipam omogoča optimizacijo pozivov, izbiro učinkovitejših modelov ali prenovo delovnih tokov za obvladovanje operativnih stroškov in zagotavljanje dobre uporabniške izkušnje.
+*   **Zaupanje, varnost in skladnost:** Pri mnogih aplikacijah je pomembno zagotoviti, da agenti delujejo varno in etično. Opazovanje zagotavlja revizijsko sled delovanja in odločitev agenta. To se lahko uporabi za zaznavanje in ublažitev težav, kot so injekcija pozivov, ustvarjanje škodljive vsebine ali neustrezno ravnanje z osebnimi podatki (PII). Na primer, lahko pregledate sledi, da razumete, zakaj je agent podal določen odgovor ali uporabil določeno orodje.
+*   **Zanke nenehnega izboljševanja:** Podatki o opazovanju so osnova iterativnega razvojnega procesa. Z spremljanjem, kako agenti delujejo v resničnem svetu, lahko ekipe prepoznajo področja za izboljšave, zberejo podatke za natančno prilagajanje modelov in potrdijo učinek sprememb. To ustvarja povratno zanko, kjer produkcijski vpogledi iz spletne ocene vplivajo na eksperimentiranje in izboljšave brez povezave, kar vodi do postopoma boljše učinkovitosti agentov.
 
-## Ključni metrični podatki za sledenje
+## Ključni merljivi podatki za sledenje
 
-Za spremljanje in razumevanje vedenja agenta je treba slediti različnim metrikam in signalom. Čeprav se lahko specifične metrike razlikujejo glede na namen agenta, so nekatere univerzalno pomembne.
+Za spremljanje in razumevanje vedenja agenta bi morali slediti različnim meritvam in signalom. Čeprav se lahko specifične meritve razlikujejo glede na namen agenta, so nekatere univerzalno pomembne.
 
-Tukaj je nekaj najpogostejših metrik, ki jih spremljajo orodja za opazovanje:
+Tukaj je nekaj najpogostejših meritev, ki jih orodja za opazovanje spremljajo:
 
-**Zakasnitev:** Kako hitro agent odgovori? Dolgi časi čakanja negativno vplivajo na uporabniško izkušnjo. Meriti je treba zakasnitev za naloge in posamezne korake z beleženjem izvajanja agentov. Na primer, agent, ki za vse klice modelov potrebuje 20 sekund, se lahko pospeši z uporabo hitrejšega modela ali z izvajanjem klicev modelov vzporedno.
+**Latenca:** Kako hitro agent odgovori? Dolge čakalne dobe negativno vplivajo na uporabniško izkušnjo. Latenco za naloge in posamezne korake morate meriti s sledenjem zagonom agenta. Na primer, agent, ki za vse klice modela potrebuje 20 sekund, bi lahko pohitrili z uporabo hitrejšega modela ali s paralelnim izvajanjem klicev modela.
 
-**Stroški:** Kakšni so stroški na izvajanje agenta? AI agenti se zanašajo na klice LLM, ki se zaračunavajo na token ali zunanje API-je. Pogosta uporaba orodij ali več kratnih pozivov lahko hitro poveča stroške. Na primer, če agent kliče LLM petkrat za minimalno izboljšanje kakovosti, je treba oceniti, ali so stroški upravičeni ali pa bi bilo mogoče zmanjšati število klicev ali uporabiti cenejši model. Spremljanje v realnem času lahko tudi pomaga prepoznati nepričakovane vrhove (npr. napake, ki povzročajo prekomerne zanke API).
+**Stroški:** Kakšni so stroški na posamezen zagon agenta? AI agenti temeljijo na klicih LLM, ki se zaračunavajo na token ali zunanji API-ji. Pogosta uporaba orodij ali več pozivov lahko hitro poveča stroške. Na primer, če agent LLM kliče petkrat za manjšo izboljšavo kakovosti, morate oceniti, ali so stroški upravičeni ali bi lahko zmanjšali število klicev ali uporabili cenejši model. Spremljanje v realnem času lahko pomaga tudi pri odkrivanju nepričakovanih skokov (npr. napake, ki povzročajo pretirano število klicev API).
 
-**Napake zahtevkov:** Koliko zahtevkov je agent neuspešno izvedel? To lahko vključuje API napake ali neuspešne klice orodij. Da bi naredili svojega agenta bolj robustnega v produkciji, lahko nastavite rezervne možnosti ali ponovitve. Npr. če ponudnik LLM A ni dosegljiv, preklopite na ponudnika LLM B kot rezervnega.
+**Napake zahtevkov:** Koliko zahtevkov je agent neuspešno obdelal? To lahko vključuje napake API ali neuspešne klice orodij. Da naredite svojega agenta bolj robustnega proti tem težavam v produkciji, lahko nastavite rezervne možnosti ali ponovitve. Npr. če LLM ponudnik A ne deluje, preklopite na LLM ponudnika B kot rezervno možnost.
 
-**Napotki uporabnikov:** Uvajanje neposrednih ocen uporabnikov prinaša dragocene vpoglede. To lahko vključuje eksplicitne ocene (👍za/👎proti, ⭐1-5 zvezdic) ali besedilne komentarje. Dosledne negativne povratne informacije so znak, da agent ne deluje kot pričakovano.
+**Povratne informacije uporabnikov:** Direktne ocene uporabnikov nudijo dragocene vpoglede. To lahko vključuje eksplicitne ocene (👍všeč/👎ne, ⭐1-5 zvezdic) ali besedilne komentarje. Konsistentne negativne povratne informacije naj bi vas opozorile, saj je to znak, da agent ne deluje po pričakovanjih.
 
-**Implicitne povratne informacije uporabnikov:** Vedenje uporabnikov zagotavlja posredne povratne informacije tudi brez eksplicitnih ocen. To lahko vključuje takojšnje ponavljanje vprašanj, ponavljajoče se poizvedbe ali klik na gumb za ponovni poskus. Npr. če opazite, da uporabniki večkrat zastavljajo isto vprašanje, je to znak, da agent ne deluje kot pričakovano.
+**Implicitne povratne informacije uporabnikov:** Vedenje uporabnikov zagotavlja neposredne povratne informacije tudi brez eksplicitnih ocen. To lahko vključuje takojšnje ponovne formulacije vprašanj, ponavljajoče se poizvedbe ali klik na gumb za ponovni poskus. Npr. če opazite, da uporabniki večkrat zastavljajo isto vprašanje, je to znak, da agent ne deluje po pričakovanjih.
 
-**Natančnost:** Kako pogosto agent proizvaja pravilne ali zaželene rezultate? Definicije natančnosti se razlikujejo (npr. pravilnost reševanja problemov, natančnost pridobivanja informacij, zadovoljstvo uporabnikov). Prvi korak je opredeliti, kaj pomeni uspeh za vašega agenta. Natančnost lahko spremljate z avtomatiziranimi pregledi, ocenjevalnimi točkami ali oznakami dokončanosti nalog. Na primer, označevanje sledi kot "uspešne" ali "neuspešne".
+**Natančnost:** Kako pogosto agent proizvaja pravilne ali zaželene rezultate? Definicije natančnosti se razlikujejo (npr. pravilnost reševanja problemov, natančnost pridobivanja informacij, zadovoljstvo uporabnikov). Prvi korak je definirati, kaj pomeni uspeh za vašega agenta. Natančnost lahko spremljate preko avtomatiziranih preverjanj, ocen evalvacije ali oznak dokončanih nalog. Na primer, označevanje sledi kot "uspešno" ali "neuspešno".
 
-**Avtomatizirane ocenjevalne metrike:** Prav tako lahko nastavite avtomatske ocene. Na primer, lahko uporabite LLM za oceno izhoda agenta, npr. ali je uporaben, natančen ali ne. Obstaja tudi več odprtokodnih knjižnic, ki pomagajo oceniti različne vidike agenta. Npr. [RAGAS](https://docs.ragas.io/) za RAG agente ali [LLM Guard](https://llm-guard.com/) za zaznavanje škodljivega jezika ali vbrizgavanja pozivov.
+**Avtomatizirane metrike ocenjevanja:** Lahko nastavite tudi avtomatizirane ocene. Na primer, lahko uporabite LLM za oceno izhoda agenta, npr. ali je koristen, natančen ali ne. Na voljo je tudi več odprtokodnih knjižnic, ki vam pomagajo oceniti različne vidike agenta. Na primer [RAGAS](https://docs.ragas.io/) za RAG agente ali [LLM Guard](https://github.com/protectai/llm-guard) za zaznavanje škodljivega jezika ali injekcije pozivov.
 
-V praksi kombinacija teh metrik daje najboljši pregled nad zdravjem AI agenta. V [primerih zapiska](./code_samples/10-expense_claim-demo.ipynb) v tem poglavju bomo prikazali, kako te metrike izgledajo v resničnih primerih, a najprej se bomo naučili, kako izgleda tipični delovni tok ocenjevanja.
+V praksi kombinacija teh meritev nudi najboljši pregled nad stanjem AI agenta. V tem poglavju vas bomo s pomočjo [primernega zvezka](./code_samples/10-expense_claim-demo.ipynb) vodili, kako te meritve izgledajo v resničnih primerih, najprej pa se bomo naučili, kako poteka tipičen proces ocenjevanja.
 
 ## Instrumentirajte svojega agenta
 
-Za zbiranje podatkov o sledenju boste morali instrumentirati svojo kodo. Cilj je instrumentirati kodo agenta, da oddaja sledi in metrike, ki jih lahko zajame, obdela in vizualizira platforma za opazovanje.
+Za zbiranje podatkov sledenja boste morali instrumentirati svojo kodo. Cilj je instrumentirati kodo agenta, da oddaja sledi in meritve, ki jih lahko zajema, obdela in vizualizira platforma za opazovanje.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) je postal industrijski standard za opazovanje LLM-jev. Zagotavlja nabor API-jev, SDK-jev in orodij za generiranje, zbiranje in izvažanje telemetričnih podatkov.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) je postal industrijski standard za opazovanje LLM. Nudi nabor API-jev, SDK-jev in orodij za generiranje, zbiranje in izvoz telemetričnih podatkov.
 
-Obstaja veliko knjižnic za instrumentiranje, ki ovijejo obstoječe agentske ogrodja in olajšajo izvoz OpenTelemetry razponov v orodje za opazovanje. Microsoft Agent Framework se nativno integrira z OpenTelemetry. Spodaj je primer instrumentiranja MAF agenta:
+Obstaja veliko instrumentacijskih knjižnic, ki ovijejo obstoječe agentne okvire in olajšajo izvoz OpenTelemetry razponov v orodje za opazovanje. Microsoft Agent Framework se nativno integrira z OpenTelemetry. Spodaj je primer instrumentiranja MAF agenta:
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -75,13 +75,13 @@ tracer = get_tracer()
 meter = get_meter()
 
 with tracer.start_as_current_span("agent_run"):
-    # Izvajanje agenta je samodejno sledeno
+    # Agent execution is traced automatically
     pass
 ```
 
-[Primer zapiska](./code_samples/10-expense_claim-demo.ipynb) v tem poglavju bo prikazal, kako instrumentirati svojega MAF agenta.
+V [primerju zvezka](./code_samples/10-expense_claim-demo.ipynb) v tem poglavju bomo prikazali, kako instrumentirati vaš MAF agent.
 
-**Ročno ustvarjanje razponov:** Čeprav knjižnice za instrumentiranje zagotavljajo dobro osnovo, so pogosto potrebni bolj podrobni ali prilagojeni podatki. Ročno lahko ustvarite razpone za dodajanje prilagojene aplikacijske logike. Še pomembneje je, da lahko obogatite samodejno ali ročno ustvarjene razpone s prilagojenimi atributi (znanimi tudi kot oznake ali metapodatki). Ti atributi lahko vključujejo poslovno specifične podatke, vmesne izračune ali kateri koli kontekst, ki je uporaben za razhroščevanje ali analizo, na primer `user_id`, `session_id` ali `model_version`.
+**Ročno ustvarjanje razponov:** Čeprav instrumentacijske knjižnice nudijo dobro osnovo, so pogosto potrebni bolj podrobni ali prilagojeni podatki. Lahko ročno ustvarite razpone za dodajanje prilagojene aplikativne logike. Pomembneje je, da lahko avtomatsko ali ročno ustvarjeni razponi bogatijo lastnosti (znane tudi kot oznake ali metapodatki). Te lastnosti lahko vključujejo podatke specifične za poslovanje, vmesne izračune ali kateri koli kontekst, ki je lahko uporaben pri razhroščevanju ali analizi, kot so `user_id`, `session_id` ali `model_version`.
 
 Primer ročnega ustvarjanja sledi in razponov z [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
 
@@ -95,82 +95,81 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Ocenjevanje agentov
+## Ocenjevanje agenta
 
-Opazovanje nam daje metrike, a ocenjevanje je proces analize teh podatkov (in izvajanja testov), da določimo, kako dobro AI agent deluje in kako ga lahko izboljšamo. Z drugimi besedami, ko imate te sledi in metrike, kako jih uporabite za presojanje agenta in sprejemanje odločitev?
+Opazovanje nam daje meritve, ocenjevanje pa je proces analize teh podatkov (in izvajanja testov), da določimo, kako dobro agent deluje in kako ga lahko izboljšamo. Z drugimi besedami, ko imate te sledi in meritve, kako jih uporabite za presojo agenta in sprejemanje odločitev?
 
-Redno ocenjevanje je pomembno, ker AI agenti pogosto niso deterministični in se lahko razvijajo (z nadgradnjami ali odmikom vedenja modela) – brez ocenjevanja ne bi vedeli, ali vaš "pameten agent" dejansko opravlja svoje delo dobro ali je nazadoval.
+Redno ocenjevanje je pomembno, ker so AI agenti pogosto nedeterministični in se lahko razvijajo (prek posodobitev ali spreminjanja vedenja modela) – brez ocenjevanja ne bi vedeli, ali vaš "pameten agent" dejansko opravlja svoje delo dobro ali se je poslabšal.
 
-Obstajata dve kategoriji ocenjevanj AI agentov: **spletno ocenjevanje** in **brez povezave ocenjevanje**. Obe sta dragoceni in se dopolnjujeta. Običajno začnemo z ocenjevanjem brez povezave, saj je to minimalni potreben korak pred uvajanjem kateregakoli agenta.
+Obstajata dve kategoriji ocenjevanj za AI agente: **spletno ocenjevanje** in **brez povezave ocenjevanje**. Obe sta dragoceni in se dopolnjujeta. Običajno začnemo z ocenjevanjem brez povezave, saj je to minimalni potrebni korak pred uvajanjem katerega koli agenta.
 
 ### Ocenjevanje brez povezave
 
-![Elementi podatkovnega nabora v Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Gre za ocenjevanje agenta v nadzorovanem okolju, običajno z uporabo testnih podatkovnih množic, ne pa z živimi uporabniškimi vprašanji. Uporabite kurirane podatkovne množice, kjer veste, kakšen je pričakovani izhod ali pravilno vedenje, nato pa svojega agenta preizkusite na teh.
+To vključuje ocenjevanje agenta v kontroliranem okolju, običajno z uporabo testnih podatkovnih nizov, ne z živimi uporabniškimi poizvedbami. Uporabite skrbno izbrane podatke, kjer veste, kakšen je pričakovani izhod ali pravilno vedenje, nato pa na njih zaženete agenta.
 
-Na primer, če ste zgradili agenta za reševanje matematičnih problemov iz besedila, lahko imate [testni podatkovni niz](https://huggingface.co/datasets/gsm8k) s 100 problemi z znanimi odgovori. Ocenjevanje brez povezave se pogosto izvaja med razvojem (in je lahko del CI/CD procesov) za preverjanje izboljšav ali zaščito pred nazadovanjem. Prednost je, da je **ponovljivo in da lahko dobite jasne metrike natančnosti, saj imate osnovni resnični podatki**. Prav tako lahko simulirate uporabniška vprašanja in merite agentove odgovore glede na idealne odgovore ali uporabite avtomatizirane metrike, kot je opisano zgoraj.
+Na primer, če ste zgradili matematičnega agenta za besedilne probleme, imate morda [testni podatkovni niz](https://huggingface.co/datasets/openai/gsm8k) s 100 problemi z znanimi odgovori. Ocenjevanje brez povezave se pogosto izvaja med razvojem (in je lahko del CI/CD procesov) za preverjanje izboljšav ali zaščito pred poslabšanji. Prednost je, da je **ponovljivo in lahko dobite jasne meritve natančnosti, saj imate osnovno resnico**. Prav tako lahko simulirate uporabniške poizvedbe in merite odzive agenta glede na idealne odgovore ali uporabite avtomatizirane meritve, kot je opisano zgoraj.
 
-Glavni izziv pri ocenjevanju brez povezave je zagotoviti, da je vaš testni podatkovni niz obsežen in ostaja relevanten – agent se lahko dobro obnese na fiksnem testnem naboru, a v produkciji naleti na zelo različna vprašanja. Zato naj bi testne množice obnavljali z novimi primernimi primeri in primeri, ki odražajo resnične situacije. Mešanica majhnih "preizkusov dima" in večjih ocenjevalnih nizov je uporabna: majhni za hitre preglede in večji za širše metrike učinkovitosti.
+Glavni izziv pri ocenjevanju brez povezave je zagotoviti, da je vaš testni podatkovni niz celovit in ostaja relevanten – agent morda dobro deluje na fiksnem testnem naboru, a se v produkciji srečuje z zelo drugačnimi poizvedbami. Zato bi morali testne nize redno posodabljati z novimi robnimi primeri in primeri, ki odražajo scenarije iz resničnega sveta. Koristna je kombinacija majhnih "hitrih testov" in večjih ocenjevalnih nizov: majhnih za hitre preverbe in večjih za širše metrike učinkovitosti.
 
 ### Spletno ocenjevanje
 
-![Pregled metrik opazovanja](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Nanaša se na ocenjevanje agenta v živo, v realnem okolju, tj. med dejansko uporabo v produkciji. Spletno ocenjevanje vključuje spremljanje uspešnosti agenta pri resničnih uporabniških interakcijah in stalno analizo rezultatov.
+To pomeni ocenjevanje agenta v živo, v realnem okolju, torej med dejansko uporabo v produkciji. Spletno ocenjevanje vključuje spremljanje učinkovitosti agenta na dejanskih uporabniških interakcijah in stalno analizo rezultatov.
 
-Na primer, lahko spremljate stopnje uspešnosti, ocene zadovoljstva uporabnikov ali druge metrike za živi promet. Prednost spletnega ocenjevanja je, da **zajema stvari, ki jih morda ne pričakujete v laboratorijskem okolju** – lahko opazite odmik modela skozi čas (če učinkovitost agenta upada zaradi spremembe vhodnih vzorcev) in zaznate nepričakovana vprašanja ali situacije, ki jih ni bilo v vaših testnih podatkih. Zagotavlja resnično sliko o vedenju agenta v naravi.
+Na primer, lahko spremljate stopnje uspešnosti, ocene zadovoljstva uporabnikov ali druge meritve na živi prometni obremenitvi. Prednost spletnega ocenjevanja je, da **ujame stvari, ki jih v laboratorijskem okolju ne bi pričakovali** – lahko opazite drsenje modela skozi čas (če učinkovitost agenta upada zaradi sprememb vzorcev vhodnih podatkov) in zaznate nepričakovane poizvedbe ali situacije, ki jih v testnih podatkih ni bilo. Zagotavlja resnično sliko, kako agent deluje v naravnem okolju.
 
-Spletno ocenjevanje pogosto vključuje zbiranje implicitnih in eksplicitnih povratnih informacij uporabnikov, kot je bilo opisano, in morda izvajanje sencnih testov ali A/B testov (kjer nova različica agenta teče vzporedno za primerjavo s staro). Izziv je, da je lahko težko pridobiti zanesljive oznake ali ocene za žive interakcije – morda se zanašate na povratne informacije uporabnikov ali naslednje metrike (npr. ali je uporabnik kliknil rezultat).
+Spletno ocenjevanje pogosto vključuje zbiranje implicitnih in eksplicitnih povratnih informacij uporabnikov, kot smo že omenili, in morda izvajanje sence testov ali A/B testov (kjer nova verzija agenta deluje vzporedno s staro za primerjavo). Izziv je, da je lahko težko pridobiti zanesljive etikete ali ocene za žive interakcije – lahko se zanesete na povratne informacije uporabnikov ali spodnje meritve (npr. ali je uporabnik kliknil rezultat).
 
 ### Združevanje obeh
 
-Spletna in brez povezave ocenjevanja se ne izključujeta, temveč se močno dopolnjujeta. Vpogledi iz spletnega spremljanja (npr. novi tipi uporabniških poizvedb, kjer agent slabo deluje) se lahko uporabijo za dopolnjevanje in izboljšanje množic testnih podatkov brez povezave. Nasprotno pa se agenti, ki se dobro obnesejo v brezžičnih testih, lahko z večjo samozavestjo uvajajo in spremljajo v spletu.
+Spletna in brez povezave ocenjevanja nista izključujoči se; sta zelo dopolnjujoči. Vpoglede iz spletnega spremljanja (npr. nove vrste uporabniških poizvedb, kjer agent slabo deluje) je mogoče uporabiti za izboljšanje in nadgradnjo testnih nizov brez povezave. Nasprotno pa lahko agente, ki dobro delujejo v testih brez povezave, z večjim zaupanjem uvajamo in spremljamo v spletu.
 
-Pravzaprav številne ekipe sledijo zanki:
+Pravzaprav mnoge ekipe sprejmejo zanko:
 
-_oceni brez povezave -> uvedi -> spremljaj v spletu -> zbierz nove primere napak -> dodaj v brezžični nabor -> izboljšaj agenta -> ponovi_.
+_oceni brez povezave -> uvajaj -> spremljaj spletno -> zbiraj nove primere napak -> dodaj v testni niz brez povezave -> izpopolni agenta -> ponovi_.
 
 ## Pogoste težave
 
-Ko uvajate AI agente v produkcijo, se lahko srečate z različnimi izzivi. Tukaj so nekateri pogosti problemi in njihova možna rešitev:
+Ko uvajate AI agente v produkcijo, se lahko srečate z različnimi izzivi. Tukaj so nekatere pogoste težave in njihove potencialne rešitve:
 
-| **Težava**    | **Možna rešitev**   |
+| **Težava**    | **Potencialna rešitev**   |
 | ------------- | ------------------ |
-| AI agent ne izvaja nalog dosledno | - Izboljšajte poziv, ki ga dajete AI agentu; bodite jasni glede ciljev.<br>- Ugotovite, kje lahko naloge razdelite na podnaloge in jih obravnavate z več agenti. |
-| AI agent se zatakne v nenehnih zankah | - Zagotovite jasna pravila za zaključek, da agent ve, kdaj naj ustavi proces.<br>- Za kompleksne naloge, ki zahtevajo razmišljanje in načrtovanje, uporabite večji model, specializiran za takšne naloge. |
-| Klici orodij AI agenta ne delujejo dobro | - Preizkusite in potrdite izhod orodja zunaj sistema agenta.<br>- Izboljšajte definirane parametre, pozive in poimenovanja orodij. |
-| Sistem z več agenti ne deluje dosledno | - Izboljšajte pozive za vsakega agenta, da so specifični in različni med seboj.<br>- Zgradite hierarhični sistem z "usmerjevalnim" ali kontrolnim agentom, ki določa, kateri agent je pravi. |
+| AI agent naloge ne izvaja dosledno | - Izpopolnite poziv, dan AI agentu; bodite jasni glede ciljev.<br>- Prepoznajte, kje razdelitev nalog na podnaloge, ki jih obravnava več agentov, lahko pomaga. |
+| AI agent ujame nenehne zanke  | - Poskrbite za jasne pogoje za prekinitev, da agent ve, kdaj ustaviti proces.<br>- Za kompleksne naloge, ki zahtevajo razumevanje in načrtovanje, uporabite večji model, specializiran za te naloge. |
+| Klici orodij AI agenta ne delujejo dobro   | - Testirajte in preverite izhod orodja izven sistema agenta.<br>- Izboljšajte definirane parametre, pozive in poimenovanja orodij.  |
+| Sistem z več agenti ne deluje dosledno | - Izpopolnite pozive za vsak agent, da bodo specifični in različni med seboj.<br>- Zgradite hierarhični sistem z "usmerjevalnim" ali krmilnim agentom, ki določi, kateri agent je pravi. |
 
-Veliko teh težav je mogoče učinkoviteje odkriti z vzpostavljenim opazovanjem. Sledi in metrike, o katerih smo prej govorili, pomagajo natančno določiti, kje v delovnem toku agenta pride do težav, kar naredi razhroščevanje in optimizacijo veliko učinkovitejšo.
+Veliko teh težav je mogoče bolje prepoznati z vzpostavljenim opazovanjem. Sledi in meritve, o katerih smo govorili, pomagajo natančno določiti, kje v delovnem toku agenta se težave pojavljajo, kar bistveno olajša razhroščevanje in optimizacijo.
 
 ## Upravljanje stroškov
 
+Tukaj je nekaj strategij za obvladovanje stroškov uvajanja AI agentov v produkcijo:
 
-Tukaj je nekaj strategij za upravljanje stroškov uvajanja AI agentov v produkcijo:
+**Uporaba manjših modelov:** Majhni jezikovni modeli (SLM) lahko dobro delujejo pri določenih agentskih primerih uporabe in bodo znatno znižali stroške. Kot smo že omenili, je gradnja evaluacijskega sistema za določanje in primerjavo zmogljivosti v primerjavi z večjimi modeli najboljši način, da razumete, kako dobro bo SLM deloval za vaš primer uporabe. Razmislite o uporabi SLM za preprostejše naloge, kot so klasifikacija namenov ali izvleček parametrov, medtem ko večje modele rezervirajte za kompleksno razmišljanje.
 
-**Uporaba manjših modelov:** Majhni jezikovni modeli (SLM) se lahko dobro obnesejo pri določenih agentskih primerih uporabe in bodo znatno zmanjšali stroške. Kot je bilo omenjeno prej, je najboljši način za razumevanje, kako dobro se bo SLM obnesel za vaš primer uporabe, vzpostavitev ocenjevalnega sistema za določanje in primerjavo učinkovitosti glede na večje modele. Razmislite o uporabi SLM za preprostejše naloge, kot so klasifikacija namer ali izvleček parametrov, medtem ko večje modele rezervirajte za kompleksno sklepanje.
+**Uporaba usmerjevalnega modela:** Podobna strategija je uporaba različnih modelov in velikosti. Za usmerjanje zahtev na modele, ki so najprimernejši glede na zahtevnost, lahko uporabite LLM/SLM ali funkcijo brez strežnika. To bo prav tako pomagalo zmanjšati stroške, hkrati pa zagotoviti zmogljivost pri pravih nalogah. Na primer, preproste poizvedbe usmerite na manjše, hitrejše modele, drage velike modele pa uporabite le za zahtevnejše naloge razmišljanja.
 
-**Uporaba usmerjevalnega modela:** Podobna strategija je uporaba različnih modelov in velikosti. Lahko uporabite LLM/SLM ali strežniško brez funkcijo za usmerjanje zahtevkov glede na zapletenost do najbolj primernih modelov. To bo prav tako pomagalo zmanjšati stroške in hkrati zagotoviti zmogljivost pri pravih nalogah. Na primer, preproste poizvedbe usmerite na manjše, hitrejše modele, in drage velike modele uporabite samo za kompleksne naloge sklepanje.
-
-**Predpomnjenje odgovorov:** Prepoznavanje pogostih zahtev in nalog ter zagotavljanje odgovorov, preden gredo skozi vaš agentski sistem, je dober način za zmanjšanje količine podobnih zahtev. Lahko celo implementirate tok, ki ugotavlja, kako zelo je zahteva podobna vašim predpomnjenim zahtevam z uporabo bolj osnovnih AI modelov. Ta strategija lahko znatno zmanjša stroške za pogosto zastavljena vprašanja ali pogoste delovne tokove.
+**Predpomnjenje odzivov:** Prepoznavanje pogostih zahtev in nalog ter zagotavljanje odgovorov, še preden gredo skozi vaš agentski sistem, je dober način za zmanjšanje količine podobnih zahtev. Lahko celo izvedete potek za ugotavljanje, kako podobna je zahteva vašim predpomnjenim zahtevam, z uporabo osnovnejših modelov AI. Ta strategija lahko znatno zmanjša stroške pri pogosto zastavljenih vprašanjih ali pogostih potekih dela.
 
 ## Poglejmo, kako to deluje v praksi
 
-V [primerku zvezka tega razdelka](./code_samples/10-expense_claim-demo.ipynb) bomo videli primere, kako lahko uporabimo orodja za opazovanje za spremljanje in ocenjevanje našega agenta.
+V [primerku zapiskov tega razdelka](./code_samples/10-expense_claim-demo.ipynb) si bomo ogledali primere, kako lahko uporabimo orodja za opazovanje za spremljanje in ocenjevanje našega agenta.
 
 
-### Imate več vprašanj o AI agentih v produkciji?
+### Imate še več vprašanj o AI agentih v produkciji?
 
-Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), da se povežete z drugimi učečimi, sodelujete na urah pisarne in dobite odgovore na svoja vprašanja o AI agentih.
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), da spoznate druge udeležence, obiskujete uradne ure in dobite odgovore na svoja vprašanja o AI agentih.
 
 ## Prejšnja lekcija
 
-[Vzorec oblikovanja metacogniacije](../09-metacognition/README.md)
+[Vzorec načrtovanja metakognicije](../09-metacognition/README.md)
 
 ## Naslednja lekcija
 
-[Agentski protokoli](../11-agentic-protocols/README.md)
+[Agentni protokoli](../11-agentic-protocols/README.md)
 
 ---
 

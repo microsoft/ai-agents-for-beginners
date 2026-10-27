@@ -1,47 +1,47 @@
 # Vodnik za nastavitev Azure AI Search
 
-Ta vodnik vam bo pomagal nastaviti Azure AI Search z uporabo Azure portala. Sledite spodnjim korakom za ustvarjanje in konfiguracijo vaše Azure AI Search storitve.
+Ta vodnik vam bo pomagal nastaviti Azure AI Search z uporabo Azure portala. Sledite spodnjim korakom za ustvarjanje in konfiguracijo vaše storitve Azure AI Search.
 
-## Zahteve
+## Predpogoji
 
-Pred začetkom poskrbite, da imate naslednje:
+Preden začnete, zagotovite, da imate naslednje:
 
-- Azure naročnino. Če nimate Azure naročnine, lahko ustvarite brezplačen račun na [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Azure naročnino. Če še nimate Azure naročnine, lahko ustvarite brezplačen račun na [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Korak 1: Ustvarite Azure Storage račun
+## 1. korak: Ustvarite Azure račun za shranjevanje
 
-1. Sledite tem navodilom, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), da ustvarite nov Azure Storage račun.
-   **OPOMBA**: Prepričajte se, da je vrsta Storage računa Standard General Purpose V2.
+1. Sledite temu navodilu, [Ustvarjanje Azure računa za shranjevanje](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), za ustvarjanje novega Azure računa za shranjevanje.
+   **OPOMBA**: Prepričajte se, da je tip računa za shranjevanje Standard General Purpose V2.
 
-## Korak 2: Ustvarite Azure AI Search storitev
+## 2. korak: Ustvarite storitev Azure AI Search
 
 1. Prijavite se v [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. V levem navigacijskem meniju kliknite **Create a resource**.
-3. V iskalno polje vpišite "Azure AI Search" in izberite **Azure AI Search** s seznama rezultatov.
-4. Kliknite gumb **Create**.
-5. Na zavihku **Basics** izpolnite naslednje podatke:
-   - **Subscription**: Izberite svojo Azure naročnino.
-   - **Resource group**: Ustvarite novo ali izberite obstoječo skupino virov.
-   - **Resource name**: Vnesite edinstveno ime za vašo iskalno storitev.
-   - **Region**: Izberite regijo, ki je najbližja vašim uporabnikom.
-   - **Pricing tier**: Izberite cenovni nivo, ki ustreza vašim potrebam. Za testiranje lahko začnete s Free nivojem.
-6. Kliknite **Review + create**.
-7. Preverite nastavitve in kliknite **Create** za ustvarjanje iskalne storitve.
+2. V levem navigacijskem oknu kliknite **Ustvari vir**.
+3. V iskalno polje vnesite "Azure AI Search" in izberite **Azure AI Search** s seznama rezultatov.
+4. Kliknite gumb **Ustvari**.
+5. V zavihku **Osnove** vnesite naslednje informacije:
+   - **Naročnina**: Izberite svojo Azure naročnino.
+   - **Skupina virov**: Ustvarite novo skupino virov ali izberite obstoječo.
+   - **Ime vira**: Vnesite edinstveno ime za vašo iskalno storitev.
+   - **Regija**: Izberite regijo, najbližjo vašim uporabnikom.
+   - **Cenovni razred**: Izberite cenovni razred, ki ustreza vaši uporabi. Za testiranje lahko začnete z brezplačnim razredom.
+6. Kliknite **Pregled + ustvari**.
+7. Preglejte nastavitve in kliknite **Ustvari** za ustvarjanje iskalne storitve.
 
-## Korak 3: Začnite z uporabo Azure AI Search
+## 3. korak: Zaženite Azure AI Search
 
-1. Ko je namestitev končana, pojdite na svojo iskalno storitev v Azure portalu.
-2. Na pregledu iskalne storitve kopirajte URL. Izgledati mora približno tako: `https://<service-name>.search.windows.net`.
-3. **(Priporočeno)** Omogočite dostop brez ključa z Microsoft Entra ID (RBAC), kot je prikazano v koraku 4 spodaj — brez potrebe po ključu. Primeri v tem vodniku ustvarjajo/posodabljajo indekse in nalagajo dokumente, kar zahteva vloge **Search Service Contributor** in **Search Index Data Contributor** (ali, pri avtentikaciji s ključem, **primarni administrativni ključ** — ne ključ za poizvedbe). Če RBAC ne morete uporabiti, odprite **Settings > Keys** in kopirajte **primarni administrativni ključ**.
-4. Sledite korakom iz [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) strani za ustvarjanje indeksa, nalaganje podatkov in izvajanje iskanja.
+1. Ko je namestitev končana, pojdite v vašo iskalno storitev v Azure portalu.
+2. V pregledu iskalne storitve kopirajte URL. Moral bi izgledati kot `https://<service-name>.search.windows.net`.
+3. **(Priporočeno)** Omogočite dostop brez ključa z Microsoft Entra ID (RBAC), kot je prikazano v 4. koraku spodaj — ni potreben ključ. Primeri v tem vodniku ustvarjajo/posodabljajo indekse in nalagajo dokumente, za kar so potrebne vloge **Search Service Contributor** in **Search Index Data Contributor** (ali za preverjanje pristnosti na osnovi ključa je potreben **primarni administratorski ključ** — ne ključ poizvedbe). Če RBAC ne morete uporabiti, odprite **Nastavitve > Ključi** in kopirajte **primarni administratorski ključ**.
+4. Sledite korakom na strani [Vodnik za začetek](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) za ustvarjanje indeksa, nalaganje podatkov in izvedbo iskanja.
 
-## Korak 4: Uporaba orodij Azure AI Search
+## 4. korak: Uporaba orodij Azure AI Search
 
 Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalnih zmogljivosti. Lahko uporabljate Azure CLI, Python SDK, .NET SDK in druga orodja za napredne nastavitve in operacije.
 
 ### Uporaba Azure CLI
 
-1. Namestite Azure CLI tako, da sledite navodilom na [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. Namestite Azure CLI s sledenjem navodilom na [Namestitev Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Prijavite se v Azure CLI z ukazom:
 
    ```bash
@@ -53,29 +53,29 @@ Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalni
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # ukaz az search service show nima polja "endpoint"; URL sestavite iz imena storitve.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Z omogočenim RBAC, Python in .NET SDK primeri spodaj preverijo pristnost z `DefaultAzureCredential`, ki uporablja vaš `az login` sejo med lokalnim razvojem — ni potreben administratorski ključ. Več si oglejte v [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Z omogočenim RBAC, primeri Python in .NET SDK spodaj preverjajo pristnost z `DefaultAzureCredential`, ki med lokalnim razvojem uporablja vašo `az login` sejo — ni potreben administratorski ključ. Oglejte si [Povezava z Azure AI Search z uporabo vlog](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Rezervna možnost) Avtentikacija s ključem** — le če RBAC ne morete uporabiti, shranite tudi administratorski ključ:
+4. **(Varnostna rešitev) Preverjanje pristnosti na osnovi ključa** — le če ne morete uporabiti RBAC, shranite tudi administratorski ključ:
 
-#### Shranite tako endpoint kot API ključ Azure AI Search instance v okoljske spremenljivke.
+#### Shranite tako končno točko kot API ključ za Azure AI Search primer kot okoljski spremenljivki.
 
-    ```bash
-    # zsh/bash
-    # az search service show nima polja "endpoint"; sestavite URL iz imena storitve.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show nima polja "endpoint"; sestavite URL iz imena storitve.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Uporaba Python SDK
 
@@ -85,7 +85,7 @@ Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalni
    pip install azure-search-documents azure-identity
    ```
 
-2. Uporabite spodnjo Python kodo za ustvarjanje indeksa in nalaganje dokumentov:
+2. Uporabite naslednjo kodo v Pythonu za ustvarjanje indeksa in nalaganje dokumentov:
 
     ```python
     import os
@@ -97,10 +97,10 @@ Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalni
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Brez ključa (priporočeno): uporablja vašo identiteto `az login` preko Entra ID RBAC.
-    # Zahteva vlogi "Search Service Contributor" in "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Nadomestni način (avtentikacija na podlagi ključa):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -126,15 +126,15 @@ Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalni
 
 ### Uporaba .NET SDK
 
-1. Zaženite spodnji ukaz za ustvarjanje indeksa in nalaganje dokumentov:
+1. Zaženite naslednji ukaz za ustvarjanje indeksa in nalaganje dokumentov:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Primer .NET spodaj uporablja `DefaultAzureCredential`, ki lahko uporabi vašo prijavo v Azure CLI z `az login` med lokalnim razvojem.
+    Primer .NET spodaj uporablja `DefaultAzureCredential`, ki lahko med lokalnim razvojem uporablja vašo prijavo v Azure CLI iz `az login`.
 
-2. Tukaj je .NET koda datoteke `AzureSearch.cs`:
+2. Tukaj je .NET koda za `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -183,15 +183,15 @@ Azure AI Search se integrira z različnimi orodji za izboljšanje vaših iskalni
 
 Za bolj podrobne informacije si oglejte naslednjo dokumentacijo:
 
-- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Ustvarjanje storitve Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Začetek z Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Orodja Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Zaključek
 
-Uspešno ste nastavili Azure AI Search z uporabo Azure portala in vgrajenih orodij. Zdaj lahko raziskujete bolj napredne funkcije in zmogljivosti Azure AI Search za izboljšanje vaših iskalnih rešitev.
+Uspešno ste nastavili Azure AI Search z uporabo Azure portala in integriranih orodij. Zdaj lahko raziščete bolj napredne funkcije in zmogljivosti Azure AI Search za izboljšanje vaših iskalnih rešitev.
 
-Za dodatno pomoč obiščite [Azure Cognitive Search dokumentacijo](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Za nadaljnjo pomoč obiščite [Dokumentacijo Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

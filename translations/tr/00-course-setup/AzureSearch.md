@@ -1,48 +1,48 @@
-# Azure AI Arama Kurulum Kılavuzu
+# Azure AI Search Kurulum Rehberi
 
-Bu kılavuz, Azure portalını kullanarak Azure AI Arama'yı kurmanıza yardımcı olacaktır. Azure AI Arama hizmetinizi oluşturmak ve yapılandırmak için aşağıdaki adımları izleyin.
+Bu rehber, Azure portalını kullanarak Azure AI Search kurmanıza yardımcı olacaktır. Azure AI Search hizmetinizi oluşturmak ve yapılandırmak için aşağıdaki adımları izleyin.
 
-## Ön Koşullar
+## Önkoşullar
 
-Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+Başlamadan önce, aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Bir Azure aboneliği. Azure aboneliğiniz yoksa, [Azure Ücretsiz Hesap](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) sayfasından ücretsiz bir hesap oluşturabilirsiniz.
 
 ## Adım 1: Bir Azure Depolama Hesabı Oluşturun
 
-1. Yeni bir Azure Depolama Hesabı oluşturmak için bu talimatı izleyin: [Bir Azure depolama hesabı oluşturma](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
-   **NOT**: Depolama Hesabı türünün Standart Genel Amaç V2 olduğundan emin olun.
+1. Yeni bir Azure Depolama Hesabı oluşturmak için şu talimatı izleyin, [Bir Azure depolama hesabı oluşturma](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+   **NOT**: Depolama Hesabı türünün Standard General Purpose V2 olduğundan emin olun.
 
-## Adım 2: Bir Azure AI Arama Hizmeti Oluşturun
+## Adım 2: Bir Azure AI Search Hizmeti Oluşturun
 
-1. [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691) adresine giriş yapın.
-2. Sol gezinti panelinde **Kaynak oluştur** seçeneğine tıklayın.
-3. Arama kutusuna "Azure AI Search" yazın ve sonuçlar listesinden **Azure AI Search**’ü seçin.
+1. [Azure portalına](https://portal.azure.com/?wt.mc_id=studentamb_258691) giriş yapın.
+2. Sol navigasyon panelinde, **Kaynak oluştur** seçeneğine tıklayın.
+3. Arama kutusuna "Azure AI Search" yazın ve sonuçlar listesinden **Azure AI Search**'ü seçin.
 4. **Oluştur** butonuna tıklayın.
-5. **Temel Bilgiler** sekmesinde aşağıdaki bilgileri sağlayın:
+5. **Temel bilgiler** sekmesinde aşağıdaki bilgileri sağlayın:
    - **Abonelik**: Azure aboneliğinizi seçin.
-   - **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya mevcut birini seçin.
+   - **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya var olan birini seçin.
    - **Kaynak adı**: Arama hizmetiniz için benzersiz bir ad girin.
    - **Bölge**: Kullanıcılarınıza en yakın bölgeyi seçin.
-   - **Fiyatlandırma katmanı**: İhtiyaçlarınıza uygun fiyatlandırma katmanını seçin. Test için Ücretsiz katman ile başlayabilirsiniz.
+   - **Fiyatlandırma katmanı**: İhtiyaçlarınıza uygun bir fiyatlandırma katmanı seçin. Test için Ücretsiz katmanla başlayabilirsiniz.
 6. **İncele + oluştur** butonuna tıklayın.
 7. Ayarları gözden geçirin ve arama hizmetini oluşturmak için **Oluştur** butonuna tıklayın.
 
-## Adım 3: Azure AI Arama ile Başlayın
+## Adım 3: Azure AI Search Kullanımına Başlama
 
 1. Dağıtım tamamlandıktan sonra, Azure portalında arama hizmetinize gidin.
-2. Arama hizmeti genel görünüm panelinde URL’yi kopyalayın. Bu, `https://<service-name>.search.windows.net` şeklinde olmalıdır.
-3. **(Önerilen)** Aşağıda Adım 4’te gösterildiği gibi Microsoft Entra ID (RBAC) ile anahtarsız erişimi etkinleştirin — anahtar gerekmez. Bu kılavuzdaki örnekler dizin oluşturma/güncelleme ve belge yükleme işlemleri yapar, bu işlemler için **Search Service Contributor** ve **Search Index Data Contributor** rolleri (veya anahtara dayalı yetkilendirme için **birincil yönetici anahtarı** — sorgu anahtarı değil) gereklidir. Sadece RBAC kullanamıyorsanız, **Ayarlar > Anahtarlar** panelini açarak **birincil yönetici anahtarını** kopyalayın.
-4. Bir dizin oluşturmak, veri yüklemek ve arama yapmak için [Hızlı Başlangıç kılavuzu](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) sayfasındaki adımları izleyin.
+2. Arama hizmeti genel bakış panelinde, URL’yi kopyalayın. Şu şekildedir `https://<service-name>.search.windows.net`.
+3. **(Önerilen)** Aşağıda Adım 4’te gösterildiği gibi Microsoft Entra ID (RBAC) ile anahtarsız erişimi etkinleştirin — anahtara gerek yok. Bu rehberdeki örnekler indeks oluşturma/güncelleme ve doküman yükleme işlemleri yapar; bu işlemler için **Search Service Contributor** ve **Search Index Data Contributor** rolleri gereklidir (veya, anahtarlı kimlik doğrulama için, **birincil yönetici anahtarı** — sorgu anahtarı değil). Sadece RBAC kullanamıyorsanız, **Ayarlar > Anahtarlar** panelini açın ve **birincil yönetici anahtarını** kopyalayın.
+4. Bir indeks oluşturmak, veri yüklemek ve arama yapmak için [Hızlı başlangıç rehberi](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) sayfasındaki adımları izleyin.
 
-## Adım 4: Azure AI Arama Araçlarını Kullanın
+## Adım 4: Azure AI Search Araçlarını Kullanın
 
-Azure AI Arama, arama yeteneklerinizi geliştirmek için çeşitli araçlarla entegre olur. Azure CLI, Python SDK, .NET SDK ve diğer araçları gelişmiş yapılandırmalar ve işlemler için kullanabilirsiniz.
+Azure AI Search, arama yeteneklerinizi artırmak için çeşitli araçlarla entegre olur. Gelişmiş yapılandırmalar ve işlemler için Azure CLI, Python SDK, .NET SDK ve diğer araçları kullanabilirsiniz.
 
 ### Azure CLI Kullanımı
 
-1. [Azure CLI Kurulumu](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) talimatlarını izleyerek Azure CLI'yı yükleyin.
-2. Azure CLI'ya şu komutla giriş yapın:
+1. [Azure CLI Kurulumu](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) talimatlarını izleyerek Azure CLI'yı kurun.
+2. Azure CLI’ya aşağıdaki komutla giriş yapın:
 
    ```bash
    az login
@@ -53,39 +53,39 @@ Azure AI Arama, arama yeteneklerinizi geliştirmek için çeşitli araçlarla en
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show'da "endpoint" alanı yok; URL'yi servis adından oluştur.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    RBAC etkinleştirildiğinde, aşağıdaki Python ve .NET SDK örnekleri yerel geliştirme sırasında `az login` oturumunuzu kullanan `DefaultAzureCredential` ile kimlik doğrulaması yapar — yönetici anahtarına gerek yoktur. Ayrıntılar için [Rollerle Azure AI Search'a Bağlanma](https://learn.microsoft.com/azure/search/search-security-rbac) sayfasına bakınız.
+    RBAC etkinleştirildiğinde, aşağıdaki Python ve .NET SDK örnekleri `DefaultAzureCredential` ile kimlik doğrulaması yapar; bu, yerel geliştirme sırasında `az login` oturumunuzu kullanır — yönetici anahtarına gerek yoktur. Ayrıntılar için [Rollerle Azure AI Search’e Bağlanma](https://learn.microsoft.com/azure/search/search-security-rbac) sayfasına bakın.
 
-4. **(Alternatif) Anahtara dayalı kimlik doğrulama** — sadece RBAC kullanamıyorsanız, yönetici anahtarını da şu şekilde kaydedin:
+4. **(Yedek) Anahtarlı kimlik doğrulama** — sadece RBAC kullanamıyorsanız, yönetici anahtarını da depolayın:
 
-#### Azure AI Search örneği için hem uç nokta hem de API anahtarını ortam değişkenlerine kaydedin.
+#### Azure AI Search örneği için hem uç noktayı hem de API anahtarını ortam değişkenlerine kaydedin.
 
-    ```bash
-    # zsh/bash
-    # az search service show komutunda "endpoint" alanı yok; servis adından URL oluşturun.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show komutunda "endpoint" alanı yok; servis adından URL oluşturun.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Python SDK Kullanımı
 
-1. Azure Cognitive Search istemci kitaplığı ve Python için Azure Kimlik doğrulaması kitaplığını yükleyin:
+1. Azure Cognitive Search istemci kitaplığı ve Azure Identity for Python'u kurun:
 
    ```bash
    pip install azure-search-documents azure-identity
    ```
 
-2. Bir dizin oluşturmak ve belgeleri yüklemek için aşağıdaki Python kodunu kullanın:
+2. Bir indeks oluşturmak ve dokümanları yüklemek için aşağıdaki Python kodunu kullanın:
 
     ```python
     import os
@@ -97,10 +97,10 @@ Azure AI Arama, arama yeteneklerinizi geliştirmek için çeşitli araçlarla en
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Anahtarsız (önerilir): Entra ID RBAC aracılığıyla `az login` kimliğinizi kullanır.
-    # "Arama Servisi Katkıda Bulunan" ve "Arama İndeksi Veri Katkıda Bulunan" rolleri gerektirir.
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Yedek (anahtara dayalı kimlik doğrulama):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -126,15 +126,15 @@ Azure AI Arama, arama yeteneklerinizi geliştirmek için çeşitli araçlarla en
 
 ### .NET SDK Kullanımı
 
-1. Bir dizin oluşturmak ve belgeleri yüklemek için aşağıdaki komutu çalıştırın:
+1. Bir indeks oluşturmak ve dokümanları yüklemek için aşağıdaki komutu çalıştırın:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Aşağıdaki .NET örneği, yerel geliştirme sırasında `az login` ile Azure CLI oturumunuzu kullanabilen `DefaultAzureCredential` kullanır.
+    Aşağıdaki .NET örneği `DefaultAzureCredential` kullanır; yerel geliştirme sırasında Azure CLI oturumunuzdan `az login` yararlanabilir.
 
-2. İşte `AzureSearch.cs` dosyasının .NET kodu:
+2. İşte `AzureSearch.cs` için .NET kodu:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,15 +181,15 @@ Azure AI Arama, arama yeteneklerinizi geliştirmek için çeşitli araçlarla en
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Daha ayrıntılı bilgi için aşağıdaki belgelere bakabilirsiniz:
+Daha fazla ayrıntı için aşağıdaki belgeleri inceleyin:
 
-- [Azure Cognitive Search hizmeti oluşturma](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Azure Cognitive Search ile başlayın](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Arama Araçları](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Bir Azure Cognitive Search hizmeti oluşturma](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Azure Cognitive Search ile başlamanıza rehberlik eden](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Araçları](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Sonuç
 
-Azure portalı ve entegre araçları kullanarak Azure AI Arama'yı başarıyla kurdunuz. Artık Azure AI Arama'nın daha gelişmiş özelliklerini ve yeteneklerini keşfederek arama çözümlerinizi geliştirebilirsiniz.
+Azure AI Search’u Azure portalı ve entegre araçlar kullanarak başarıyla kurdunuz. Artık Azure AI Search’ün daha gelişmiş özelliklerini ve yeteneklerini keşfederek arama çözümlerinizi geliştirebilirsiniz.
 
 Daha fazla yardım için [Azure Cognitive Search belgeleri](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) sayfasını ziyaret edin.
 

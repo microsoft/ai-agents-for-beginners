@@ -78,8 +78,8 @@
     "language_code": "cs"
   },
   ".agents/skills/microsoft-docs/SKILL.md": {
-    "original_hash": "a0ee0c961f360a296b833ccf253e6a73",
-    "translation_date": "2026-02-19T16:25:14+00:00",
+    "original_hash": "4e3ba10a39451767a2362dcf2e5d8295",
+    "translation_date": "2026-10-17T13:33:26+00:00",
     "source_file": ".agents/skills/microsoft-docs/SKILL.md",
     "language_code": "cs"
   },
@@ -90,8 +90,8 @@
     "language_code": "cs"
   },
   "00-course-setup/AzureSearch.md": {
-    "original_hash": "1fc9b25d924e719fa515c6eb680bc65e",
-    "translation_date": "2026-09-10T02:59:09+00:00",
+    "original_hash": "912abe2a2b1596d88ae0014cf5bde9f3",
+    "translation_date": "2026-10-17T13:33:11+00:00",
     "source_file": "00-course-setup/AzureSearch.md",
     "language_code": "cs"
   },
@@ -180,8 +180,8 @@
     "language_code": "cs"
   },
   "04-tool-use/README.md": {
-    "original_hash": "b8214cf662992be52dfbab206c5336a4",
-    "translation_date": "2026-07-18T16:17:31+00:00",
+    "original_hash": "d387aff3be246694e94501e980c982bc",
+    "translation_date": "2026-10-17T13:32:16+00:00",
     "source_file": "04-tool-use/README.md",
     "language_code": "cs"
   },
@@ -192,8 +192,8 @@
     "language_code": "cs"
   },
   "04-tool-use/code_samples/04-python-agent-framework.ipynb": {
-    "original_hash": "309625432b5b56f6a0cfafce29508e47",
-    "translation_date": "2026-07-16T08:10:18+00:00",
+    "original_hash": "092f45afb357ff4cc0f325a612de18ef",
+    "translation_date": "2026-10-17T13:13:20+00:00",
     "source_file": "04-tool-use/code_samples/04-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -240,8 +240,8 @@
     "language_code": "cs"
   },
   "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb": {
-    "original_hash": "e386c5fd0a80832dcb7d4fdba2fa54e6",
-    "translation_date": "2026-07-16T08:27:08+00:00",
+    "original_hash": "3d13dbe6484b2831d5e7342d8b9b3f22",
+    "translation_date": "2026-10-17T13:13:02+00:00",
     "source_file": "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb",
     "language_code": "cs"
   },
@@ -396,20 +396,20 @@
     "language_code": "cs"
   },
   "10-ai-agents-production/README.md": {
-    "original_hash": "2eba7086fb56ec001ad208ecd268d54d",
-    "translation_date": "2026-07-16T10:36:38+00:00",
+    "original_hash": "337a4cc96120a9c3e568b1ea6d7e1454",
+    "translation_date": "2026-10-17T13:32:55+00:00",
     "source_file": "10-ai-agents-production/README.md",
     "language_code": "cs"
   },
   "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb": {
-    "original_hash": "f9b39e70f05dbed9e000f0610b2a1827",
-    "translation_date": "2026-07-18T15:38:48+00:00",
+    "original_hash": "ee1919627adfc5581158680044b86370",
+    "translation_date": "2026-10-17T13:13:50+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb",
     "language_code": "cs"
   },
   "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb": {
-    "original_hash": "71f85492078f1c8e5a9a04feebae41f2",
-    "translation_date": "2026-07-18T15:38:17+00:00",
+    "original_hash": "272b0ef82bbc6dc7021fe775641bccbb",
+    "translation_date": "2026-10-17T13:14:14+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -450,8 +450,8 @@
     "language_code": "cs"
   },
   "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md": {
-    "original_hash": "0ad1ea4db343c0fd404e5e496a2bb03a",
-    "translation_date": "2026-07-16T10:56:18+00:00",
+    "original_hash": "80e2c8c8f358eec4ec13d750394577a2",
+    "translation_date": "2026-10-17T13:33:53+00:00",
     "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
     "language_code": "cs"
   },
@@ -564,8 +564,8 @@
     "language_code": "cs"
   },
   "16-deploying-scalable-agents/README.md": {
-    "original_hash": "f5de9bfd30ff3d92c7b787d9a05c00f7",
-    "translation_date": "2026-09-10T02:57:03+00:00",
+    "original_hash": "b2d4dfb0bd4b4b1d98dc3669cafbeab0",
+    "translation_date": "2026-10-17T13:31:41+00:00",
     "source_file": "16-deploying-scalable-agents/README.md",
     "language_code": "cs"
   },
@@ -612,8 +612,8 @@
     "language_code": "cs"
   },
   "AGENTS.md": {
-    "original_hash": "737f9afa39874d4ffdc44c6bd213b434",
-    "translation_date": "2026-07-18T16:15:57+00:00",
+    "original_hash": "7152c8002857425f6fb7c3144be51e11",
+    "translation_date": "2026-10-17T13:30:04+00:00",
     "source_file": "AGENTS.md",
     "language_code": "cs"
   },
@@ -630,8 +630,8 @@
     "language_code": "cs"
   },
   "README.md": {
-    "original_hash": "1095bd7f7f86caa02b20f99af0c0c530",
-    "translation_date": "2026-09-10T02:47:45+00:00",
+    "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
+    "translation_date": "2026-10-17T13:30:44+00:00",
     "source_file": "README.md",
     "language_code": "cs"
   },
@@ -658,11 +658,11 @@
       "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
       "source_file": "STUDY_GUIDE.md",
       "language_code": "cs",
-      "failure_date": "2026-09-10T02:51:30+00:00",
+      "failure_date": "2026-10-17T13:29:30+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.2 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
-      "translator_version": "0.20.0",
+      "error_message": "Markdown translation remained incomplete for chunk 1.1.1 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
+      "translator_version": "0.23.0",
       "failure_policy_version": 1
     }
   },
