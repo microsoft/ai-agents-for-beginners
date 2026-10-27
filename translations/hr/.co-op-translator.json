@@ -396,8 +396,8 @@
     "language_code": "hr"
   },
   "10-ai-agents-production/README.md": {
-    "original_hash": "2eba7086fb56ec001ad208ecd268d54d",
-    "translation_date": "2026-07-13T23:20:35+00:00",
+    "original_hash": "337a4cc96120a9c3e568b1ea6d7e1454",
+    "translation_date": "2026-10-27T14:46:37+00:00",
     "source_file": "10-ai-agents-production/README.md",
     "language_code": "hr"
   },
@@ -627,6 +627,12 @@
     "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
     "translation_date": "2025-07-12T06:57:10+00:00",
     "source_file": "CODE_OF_CONDUCT.md",
+    "language_code": "hr"
+  },
+  "CONTRIBUTING.md": {
+    "original_hash": "fa5fabf99deb46d8bb92f931472926ff",
+    "translation_date": "2026-10-27T14:47:21+00:00",
+    "source_file": "CONTRIBUTING.md",
     "language_code": "hr"
   },
   "README.md": {
