@@ -47,22 +47,26 @@ async def execute_tool_with_resumption(session, command: str, args: dict, get_se
     
     session_id = current_session_id
     
+    # Create enhanced callback that saves tool context immediately when token is received.
+    # It is registered for new requests AND for resumed ones: while a resumed request is
+    # running the server keeps emitting newer event ids, and without this callback they are
+    # discarded, so a second disconnect could only replay from the stale starting token.
+    def enhanced_callback(token: str):
+        # Since callback fires immediately with the actual resumption token,
+        # save everything needed for resumption right away
+        protocol_version = getattr(session, 'protocol_version', None)
+        if token_manager:
+            token_manager.save_tokens(session_id, token, protocol_version, command, args)
+        # Also call the original callback
+        return on_resumption_token_update(session_id, token, command, args)
+
     # If we have an existing resumption token, pass it for resumption
     if existing_tokens and existing_tokens.get("resumption_token"):
         metadata = ClientMessageMetadata(
             resumption_token=existing_tokens["resumption_token"],
+            on_resumption_token_update=enhanced_callback,
         )
     else:
-        # Create enhanced callback that saves tool context immediately when token is received
-        def enhanced_callback(token: str):
-            # Since callback fires immediately with the actual resumption token,
-            # save everything needed for resumption right away
-            protocol_version = getattr(session, 'protocol_version', None)
-            if token_manager:
-                token_manager.save_tokens(session_id, token, protocol_version, command, args)
-            # Also call the original callback
-            return on_resumption_token_update(session_id, token, command, args)
-        
         metadata = ClientMessageMetadata(
             on_resumption_token_update=enhanced_callback,
         )
