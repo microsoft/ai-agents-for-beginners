@@ -629,6 +629,12 @@
     "source_file": "CODE_OF_CONDUCT.md",
     "language_code": "sw"
   },
+  "CONTRIBUTING.md": {
+    "original_hash": "fa5fabf99deb46d8bb92f931472926ff",
+    "translation_date": "2026-10-27T14:39:35+00:00",
+    "source_file": "CONTRIBUTING.md",
+    "language_code": "sw"
+  },
   "README.md": {
     "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
     "translation_date": "2026-10-17T13:15:49+00:00",
@@ -652,6 +658,19 @@
     "translation_date": "2025-07-12T07:31:20+00:00",
     "source_file": "SUPPORT.md",
     "language_code": "sw"
+  },
+  "__translation_failures__": {
+    "16-deploying-scalable-agents/README.md": {
+      "original_hash": "b2d4dfb0bd4b4b1d98dc3669cafbeab0",
+      "source_file": "16-deploying-scalable-agents/README.md",
+      "language_code": "sw",
+      "failure_date": "2026-10-27T14:27:29+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    }
   },
   "tests/README.md": {
     "original_hash": "77b62539af9ac18820506113aee355f5",
