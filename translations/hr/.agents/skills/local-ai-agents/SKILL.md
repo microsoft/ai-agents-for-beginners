@@ -1,5 +1,6 @@
 ---
 name: local-ai-agents
+description: Build local-first AI agents that run entirely on a developer workstation with Microsoft Foundry Local and Qwen function-calling models. Covers sandboxed local tools, local RAG with Chroma, local MCP servers, hybrid cloud/local routing, and privacy, cost, and offline trade-offs.
 license: MIT
 ---
 # Kreiranje lokalnih AI agenata s Foundry Local i Qwen

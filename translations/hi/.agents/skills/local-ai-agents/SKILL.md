@@ -1,5 +1,6 @@
 ---
 name: local-ai-agents
+description: Build local-first AI agents that run entirely on a developer workstation with Microsoft Foundry Local and Qwen function-calling models. Covers sandboxed local tools, local RAG with Chroma, local MCP servers, hybrid cloud/local routing, and privacy, cost, and offline trade-offs.
 license: MIT
 ---
 # Foundry Local और Qwen के साथ लोकल AI एजेंट बनाना
@@ -60,10 +61,10 @@ client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # local pla
 
 | स्थिति | यह कहाँ चलता है |
 |-----------|---------------|
-
+| संवेदनशील डेटा / ऑफ़लाइन | लोकल SLM |
 | साधारण, सीमित कार्य | लोकल SLM (सस्ता, तेज़) |
-
-| क्लाउड आउटेज | लोकल SLM (सुंदर गिरावट) |
+| गैर-संवेदनशील डेटा पर कठिन बहु-चरणीय तर्क | क्लाउड मॉडल |
+| क्लाउड आउटेज | लोकल SLM (गुणवत्ता में क्रमिक कमी) |
 
 यह Lesson 16 से मॉडल-रूटिंग विचार को दर्शाता है, कार्यस्थल को रूट्स में से एक के रूप में रखता है। ऐसे डिज़ाइन पसंद करें जो स्थानीय विकल्प पर वापस जाएं ताकि एजेंट सीधे विफल होने के बजाय गुणवत्ता में गिरावट करे।
 

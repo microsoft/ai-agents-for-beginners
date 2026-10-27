@@ -25,6 +25,7 @@ GitHub 액션에서 [`.github/workflows/smoke-test.yml`](../../../.github/workfl
 
 
 
+| 카탈로그 | 레슨 | 배포할 에이전트 이름 |
 |---------|--------|-----------------|
 | [`lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json) | [01 – AI 에이전트 소개](../01-intro-to-ai-agents/README.md) | `TravelAgent` |
 | [`lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json) | [04 – 도구 사용](../04-tool-use/README.md) | `TravelToolAgent` |
@@ -38,6 +39,7 @@ GitHub 액션에서 [`.github/workflows/smoke-test.yml`](../../../.github/workfl
 비결정적이고 창의적인 출력을 생성하는 레슨은 의도적으로 제외됩니다:
 
 
+- **레슨 17 (로컬 AI 에이전트 만들기)**은 워크스테이션에서 Foundry Local을 사용해
   전적으로 실행되며 Foundry Responses 엔드포인트를 노출하지 않으므로
   이 액션이 적용되지 않습니다. 노트북을 로컬에서 실행하여 검증하세요.
 - 디자인 패턴과 이론 레슨 (02, 03, 06, 07, 09, 12)은 배포 가능한

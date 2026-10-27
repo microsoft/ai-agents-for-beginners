@@ -1,5 +1,6 @@
 ---
 name: deploying-scalable-agents
+description: Take a working agent prototype to a scalable, observable production deployment on Microsoft Foundry. Covers deployment patterns, the agent lifecycle, model routing, response caching, evaluation gates, human approval, OpenTelemetry observability, cost optimisation, and smoke-testing deployed agents.
 license: MIT
 ---
 # Desdobramento de Agentes Escaláveis com Microsoft Foundry

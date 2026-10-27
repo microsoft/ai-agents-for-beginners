@@ -1,5 +1,6 @@
 ---
 name: testing-course-samples
+description: "Use when asked to validate, test, smoke-test, or run the course's notebook and code samples against a live Microsoft Foundry / Azure OpenAI configuration. Covers environment setup (.env, az login, packages), the scripts/validate-notebooks.ps1 runner, interpreting PASS/FAIL results, and which lessons need extra resources (Azure AI Search, GitHub MCP, Foundry Local, Playwright)."
 ---
 # Kurssinäytteiden testaaminen
 
