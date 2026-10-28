@@ -164,8 +164,14 @@ from nacl.exceptions import BadSignatureError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
+    # Strict: Python's decoder skips characters outside the alphabet and also
+    # accepts padding, the standard +/ alphabet and non-zero spare bits.
+    # Re-encoding and comparing accepts only the one unpadded base64url form.
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    data = base64.urlsafe_b64decode(s + padding)
+    if base64.urlsafe_b64encode(data).decode("ascii").rstrip("=") != s:
+        raise ValueError("not canonical unpadded base64url")
+    return data
 
 def verify_receipt(receipt: dict, trusted_public_key: str) -> bool:
     # trusted_public_key is the issuer's key, obtained from somewhere other

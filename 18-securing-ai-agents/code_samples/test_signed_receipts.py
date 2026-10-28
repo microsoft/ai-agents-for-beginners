@@ -107,6 +107,36 @@ class SignedReceiptFixtures(unittest.TestCase):
         self.assertIs(verify_receipt(valid, "not a key"), False)
         self.assertIs(verify_receipt(valid, None), False)
 
+    def test_other_spellings_of_a_valid_signature_or_key_fail(self):
+        # Python's base64 decoder is lenient. The verifier accepts only the one
+        # unpadded base64url form, so a key or signature has a single spelling.
+        valid = load("01_valid_receipt.json")
+        sig = valid["signature"]["sig"]
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+
+        def spare_bit(s):  # the same bytes, with a non-zero spare bit in the last character
+            return s[:-1] + alphabet[alphabet.index(s[-1]) ^ 1]
+
+        signatures = {
+            "trailing characters": sig + "!!!",
+            "padding": sig + "==",
+            "non-zero spare bit": spare_bit(sig),
+        }
+        for name, spelling in signatures.items():
+            with self.subTest(signature=name):
+                receipt = {**valid, "signature": {**valid["signature"], "sig": spelling}}
+                self.assertIs(verify_receipt(receipt, ISSUER_KEY), False)
+        keys = {
+            "trailing characters": ISSUER_KEY + "!!!",
+            "padding": ISSUER_KEY + "=",
+            "standard alphabet": ISSUER_KEY.replace("-", "+").replace("_", "/"),
+            "non-zero spare bit": spare_bit(ISSUER_KEY),
+        }
+        for name, spelling in keys.items():
+            with self.subTest(key=name):
+                self.assertNotEqual(spelling, ISSUER_KEY)
+                self.assertIs(verify_receipt(valid, spelling), False)
+
     def test_a_bad_entry_does_not_stop_the_chain_check(self):
         chain = load("03_chain_three_receipts.json")
         results = verify_chain([chain[0], {"signature": "x"}, chain[2]], ISSUER_KEY)
