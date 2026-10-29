@@ -1,30 +1,30 @@
-## Název události: Vytvořte svou aplikaci postavenou na kódu s Microsoft Foundry Agent Service (nabídka EMEA/US)
+## Název události: Vytvořte svou aplikaci založenou na kódu s Microsoft Foundry Agent Service (nabídka EMEA/USA)
 
 ## Popis
 
-Microsoft Foundry Agent Service je bezproblémová kombinace služby a SDK, která zjednodušuje vývoj robustních řešení řízených umělou inteligencí. V této relaci se naučíte, jak postavit vlastní AI agenta založeného na kódu s Azure, který dokáže odpovídat na otázky, provádět analýzu dat a integrovat externí datové zdroje. Také prozkoumáte složitější architektury, včetně několika agentů spolupracujících dohromady.
+Microsoft Foundry Agent Service je bezproblémová kombinace služby a SDK, která zjednodušuje vývoj robustních řešení řízených AI. V této relaci se naučíte, jak si postavit vlastního AI agenta založeného na kódu pomocí Azure, který dokáže odpovídat na otázky, provádět analýzu dat a integrovat externí datové zdroje. Budete také zkoumat složitější architektury, včetně více agentů pracujících společně.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25325/>
 
 ---
 
-## Název události: Transformace obchodních procesů s víceagenty AI pomocí Semantic Kernel
+## Název události: Transformace podnikových procesů s víceagentní AI pomocí Semantic Kernel
 
 ## Popis
 
-Objevte sílu víceagentních AI systémů prostřednictvím živých ukázek a praktického učení na vzorcích včetně skupinového chatu, reflexe, selektoru a hejna. Využijte Semantic Kernel Process Framework k automatizaci a škálování kritických obchodních procesů, od zákaznické podpory až po řízení projektů za použití Pythonu.
+Objevte sílu víceagentních AI systémů prostřednictvím živých ukázek a praktického učení s vzorci včetně skupinového chatu, reflexe, výběru a hejna. Využijte Semantic Kernel Process Framework k automatizaci a škálování klíčových podnikových procesů od zákaznické podpory až po řízení projektů pomocí Pythonu.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25313/>
 
 ---
 
-## Název události: Budování agentních aplikací s AutoGen v0.4
+## Název události: Vytváření agentních aplikací s AutoGen v0.4
 
 ## Popis
 
-Začínáme s tvorbou agentů a víceagentních týmů pomocí AutoGen v0.4. Představíme přehled nové architektury AutoGen v0.4 a provedeme vás, jak vytvořit víceagentní tým s webovým uživatelským rozhraním.
+Začínáme s tvorbou agentů a týmů více agentů pomocí AutoGen v0.4. Pokryjeme přehled nové architektury AutoGen v0.4 a provedeme vás, jak sestavit tým více agentů s webovým uživatelským rozhraním.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25327/>
@@ -35,22 +35,22 @@ Začínáme s tvorbou agentů a víceagentních týmů pomocí AutoGen v0.4. Př
 
 ## Popis
 
-Díky GitHub Models vše, co potřebujete k vytvoření svého prvního AI agenta, je účet na GitHubu! GitHub Models zahrnuje výkonné modely jako OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 a mnoho dalších, připravených k vyzkoušení na hřišti nebo ve vašem kódu.
-V této relaci ukážeme, jak se připojit k GitHub Models z Pythonu a poté sestavovat agenty pomocí populárních Python balíčků jako PydanticAI, AutoGen a Semantic Kernel.
-Můžete sledovat živě v GitHub Codespaces nebo si příklady kdykoliv po relaci vyzkoušet sami.
+Díky GitHub Models vše, co potřebujete k vytvoření svého prvního AI agenta, je účet GitHub! GitHub Models zahrnuje silné modely jako OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 a mnoho dalších, připravených k vyzkoušení na playgroundu nebo ve vašem kódu.
+V této relaci ukážeme, jak se připojit k GitHub Models z Pythonu a následně vytvořit agenty pomocí oblíbených Python balíčků jako PydanticAI, AutoGen a Semantic Kernel.
+Můžete sledovat živě v GitHub Codespaces nebo si příklady vyzkoušet sami kdykoli po relaci.
 
-> **Poznámka:** GitHub Models je zastaralý (bude ukončen v červenci 2026). Nepoužívejte GitHub Models pro nové projekty — místo nich používejte modely **Microsoft Foundry**.
+> **Poznámka:** GitHub Models jsou zastaralé (ukončení provozu červenec 2026). Nepoužívejte GitHub Models pro nové projekty — místo toho používejte modely **Microsoft Foundry**.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25481/>
 
 ---
 
-## Název události: Budování agentů s armádou modelů z katalogu Azure AI modelů
+## Název události: Vytváření agentů s armádou modelů z katalogu Azure AI modelů
 
 ## Popis
 
-Katalog modelů Azure AI nabízí širokou škálu modelů s různými dovednostmi a schopnostmi. Zatímco pro začátek stačí použít základní model, vývojáři mohou při použití složitějších pracovních postupů využít specializované modely, aby usnadnili práci ve svém preferovaném rámci. V této prezentaci projdeme nabídku katalogu modelů a ukážeme, jak vytvářet agenty, kteří fungují nad armádou modelů — a přitom vás to nebude stát majlant.
+Katalog Azure AI modelů nabízí širokou škálu modelů s různými schopnostmi a dovednostmi. Při použití modelu z regálu pro rychlý start mohou vývojáři v průběhu času využívat specializované modely pro lepší práci ve svém oblíbeném frameworku. V této prezentaci probereme nabídku modelového katalogu a jak můžete vytvářet agenty, kteří stojí na vrcholu armády modelů – a přitom vás to nestojí jmění.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25328/>
@@ -61,15 +61,15 @@ Katalog modelů Azure AI nabízí širokou škálu modelů s různými dovednost
 
 ## Popis
 
-Nástup multi-agentních AI aplikací mění způsob, jakým stavíme inteligentní systémy — ale jak je navrhnout pro škálovatelnost a výkon v reálném světě? V této relaci se ponoříme do produkční multi-agentní aplikace postavené s LangGraph pro orchestraci agentů, FastAPI jako API vrstvy a Azure Cosmos DB jako páteře pro správu stavu, uložení vektorů a transakčních dat.
+Nárůst víceagentních AI aplikací mění způsob, jak vytváříme inteligentní systémy – ale jak je navrhnout pro škálovatelnost a výkon v reálném světě? V této relaci se ponoříme do produkční víceagentní aplikace vytvořené s LangGraph pro orchestraci agentů, FastAPI pro API vrstvu a Azure Cosmos DB jako páteř pro správu stavů, ukládání vektorů a transakční data.
 
-Prostřednictvím podrobného rozboru kódu uvidíte, jak navrhnout a implementovat agenty řízený pracovní tok, který hladce integruje retrieval-augmented generation (RAG), uchovávání paměti a dynamické přechody stavů. Pokryjeme:
+Podrobným průchodem kódem zjistíte, jak navrhnout a implementovat agentně řízený tok práce, který bezproblémově integruje retrieval-augmented generation (RAG), uchovávání paměti a dynamické přechody stavů. Pokryjeme:
 
-Spolupráci agentů s LangGraph pro strukturované uvažování
-Ukládání historie chatů v reálném čase pomocí Azure Cosmos DB — stejné databáze, která podporuje historii chatu v ChatGPT, nejrychleji rostoucí AI agentní aplikaci v historii
-Vyhledávání vektoru pro získávání znalostí s nativní podporou embeddings v Cosmos DB
-Asynchronní schopnosti FastAPI pro udržení rychlé a škálovatelné interakce
-Na konci této relace budete mít jasný plán pro vytváření a nasazování vlastních škálovatelných cloud-native multi-agentních aplikací, které využívají sílu moderní AI a cloudové infrastruktury. Ať už jste AI inženýr, cloudový architekt nebo vývojář v Pythonu, tato přednáška vás vybaví praktickými poznatky a osvědčenými postupy pro vytvoření nové generace aplikací poháněných AI
+Spolupráce agentů s LangGraph pro strukturované uvažování
+Ukládání historie chatu v reálném čase pomocí Azure Cosmos DB – stejná databáze, která pohání historii chatu v ChatGPT, nejrychleji rostoucí AI agentní aplikaci v historii
+Vyhledávání ve vektorech pro získávání znalostí s nativní podporou embeddingů Cosmos DB
+Async schopnosti FastAPI pro udržení responzivních a škálovatelných interakcí
+Na konci této relace budete mít jasný plán pro vytváření a nasazení svých vlastních škálovatelných, nativně cloudových víceagentních aplikací využívajících sílu moderní AI a cloudové infrastruktury. Ať už jste AI inženýr, cloud architekt, nebo Python vývojář, tato přednáška vám poskytne praktické poznatky a osvědčené vzory pro tvorbu nové generace AI aplikací.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25314/>
@@ -80,29 +80,29 @@ Na konci této relace budete mít jasný plán pro vytváření a nasazování v
 
 ## Popis
 
-Naučte se, jak vytvořit svého prvního AI agenta pomocí JavaScript SDK pro Microsoft Foundry Agent Service, plně spravovanou platformu, která usnadňuje vývoj. Ukážeme, jak ji nastavit, připojit nástroje jako Azure AI Search a nasadit jednoduchého agenta pro odpovídání na otázky. S živou ukázkou objevíte, jak automatické volání nástrojů a spravovaný stav zjednodušují celý proces. Ideální pro začátečníky, tato relace vám poskytne praktické kroky a tipy, jak s jistotou začít svou AI agentní cestu.
+Naučte se, jak vytvořit svého prvního AI agenta pomocí JavaScript SDK pro Microsoft Foundry Agent Service, plně spravovanou platformu, která zjednodušuje vývoj. Uvidíte, jak ji nastavit, připojit nástroje jako Azure AI Search a nasadit jednoduchého agenta na zodpovídání otázek. Živá demo ukáže, jak automatické volání nástrojů a spravovaný stav zjednodušují proces. Perfektní pro začátečníky, tato relace vám poskytne praktické kroky a tipy pro sebevědomý start s AI agentem.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25381/>
 
 ---
 
-## Název události: Promptování je nový skriptovací jazyk: Poznejte GenAIScript
+## Název události: Promptování je nový skriptovací jazyk: Seznamte se s GenAIScript
 
 ## Popis
 
-jQuery kdysi usnadnilo webový vývoj tím, že abstrakovalo složitosti a umožnilo vývojářům soustředit se na tvorbu místo boje s nešvary prohlížečů. Dnes vývoj AI čelí podobné výzvě. Neustále se objevují nové vzory a držet krok může být ohromující, zejména když se nástroje AI — především agentní — stávají silnějšími a složitějšími. Co kdybyste mohli využít špičkové možnosti AI k automatizaci úkolů pomocí jednoduchých, známých JavaScriptových abstrakcí? Přichází GenAIScript — způsob, jak hladce integrovat AI do vašeho pracovního toku, zacházet s promptami jako s opakovaně použitelnými kusy kódu. V této přednášce prozkoumáme, jak vám GenAIScript umožní cítit se s automatizačními agenty AI stejně intuitivně jako při psaní JavaScriptu a pomůže vám zjednodušit opakující se práci bez nutnosti hlubokých znalostí AI.
+jQuery kdysi usnadnilo vývoj webu tím, že abstrahovalo složitosti a umožnilo vývojářům soustředit se na tvorbu místo boje s nepravidelnostmi prohlížečů. Dnes čelí vývoj AI podobné výzvě. Neustále vznikají nové vzory a držet krok může být ohromující, zvlášť jak nástroje AI – zejména agentní – jsou stále silnější a složitější. Co kdybyste mohli využít nejmodernější schopnosti AI k automatizaci úloh pomocí jednoduchých, známých JavaScript abstrakcí? Přichází GenAIScript – způsob, jak snadno integrovat AI do vašeho pracovního postupu a zacházet s promptami jako s opakovaně použitelnými kusy kódu. V této přednášce si ukážeme, jak GenAIScript dělá agentní AI automatizaci tak intuitivní jako psaní JavaScriptu, pomáhajíc vám zjednodušit opakovanou práci bez potřeby hlubokých znalostí AI.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25441/>
 
 ---
 
-## Název události: Agenti rozšíření znalostí s LlamaIndex.TS
+## Název události: Agentní systémy s rozšířením znalostí s LlamaIndex.TS
 
 ## Popis
 
-LlamaIndex je známý tím, že usnadňuje vytváření Retrieval-Augmented Generation (RAG), ale naše frameworky také usnadňují budování agentů a víceagentních systémů! V této relaci představíme Workflows, náš základní stavební blok pro budování agentních systémů, a postavíme agenta využívajícího RAG a další nástroje.
+LlamaIndex je známý tím, že usnadňuje tvorbu Retrieval-Augmented Generation (RAG), ale naše frameworky také usnadňují tvorbu agentů a víceagentních systémů! V této relaci představíme Workflows, náš základní stavební kámen pro tvorbu agentních systémů, a sestavíme agenta, který využívá RAG a další nástroje.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25440/>
@@ -113,18 +113,18 @@ LlamaIndex je známý tím, že usnadňuje vytváření Retrieval-Augmented Gene
 
 ## Popis
 
-V této relaci vám ukážeme, jak začlenit pokročilé AI schopnosti agentů do vašich Java aplikací pomocí Microsoft Foundry, včetně nastavování cílů projektů, experimentování s modely a bezpečného nasazení produkčních řešení ve velkém měřítku. Naučíte se také, jak GitHub Copilot (v IntelliJ, VS Code a Eclipse) zjednodušuje kódování a tvorbu promptů, zatímco osvědčené postupy ve výběru modelů, doladění a agentních pracovních tocích zajistí odpovědný a efektivní vývoj. Ať už jste v AI agentech noví, nebo hledáte pokročilé techniky jejich tvorby, tato relace vám poskytne vybavení k dodání přelomových zkušeností s nástroji, které už znáte.
+V této relaci vám ukážeme, jak vložit pokročilé schopnosti AI agentů do vašich Java aplikací pomocí Microsoft Foundry, včetně nastavení cílů projektu, experimentování s modely a bezpečného nasazení produkčních řešení v měřítku. Naučíte se, jak může GitHub Copilot (v IntelliJ, VS Code a Eclipse) zjednodušit kódování a tvorbu promptů, zatímco nejlepší praxe v oblasti výběru modelu, ladění a agentních pracovních toků zajistí odpovědný a efektivní vývoj. Ať už jste v AI agentech nováčkem nebo hledáte pokročilé techniky jejich tvorby, tato relace vám umožní doručit špičkové zážitky s nástroji, které již znáte.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25336/>
 
 ---
 
-## Název události: Budování Java AI agentů s LangChain4j a dynamickými relacemi
+## Název události: Vytváření Java AI agentů pomocí LangChain4j a dynamických relací
 
 ## Popis
 
-Odemkněte potenciál AI agentů ve vašich Java aplikacích kombinací LangChain4j s dynamickými relacemi Azure Container Apps (ACA) připojenými k službám Azure AI. Tato relace ukazuje praktický příklad vytvoření agenta schopného interakce s vzdáleným prostředím, včetně správy souborů. Naučte se definovat vlastní nástroje, integrovat je do agentních pracovních toků a využít škálovatelnou infrastrukturu Azure k nasazení inteligentních, dynamických řešení.
+Odemkněte potenciál AI agentů ve svých Java aplikacích kombinací LangChain4j s dynamickými relacemi Azure Container Apps (ACA) připojenými k Azure AI službám. Tato relace představí praktický příklad tvorby agenta schopného interagovat s vzdáleným prostředím, včetně správy souborů. Naučte se definovat vlastní nástroje, integrovat je do pracovních toků agenta a využívat škálovatelnou infrastrukturu Azure k nasazení inteligentních, dynamických řešení.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25337/>
@@ -135,49 +135,49 @@ Odemkněte potenciál AI agentů ve vašich Java aplikacích kombinací LangChai
 
 ## Popis
 
-Přidejte se k nám při zkoumání potenciálních rizik AI agentů a řešení výzvy zavádění důvěryhodných postupů AI do konverzačních AI platforem! Tato relace se detailně věnuje příkladům nezodpovědných AI agentů — předvádějíc ohromující ukázky selhání modelů, protivysvěcujících útoků a dalších rizik, která oslabují důvěryhodnost a soulad s předpisy.
+Připojte se k nám, když prozkoumáme potenciální rizika AI agentů a řešíme výzvu začlenění důvěryhodných AI praktik do konverzačních AI platforem! Tato relace jde do hloubky s příklady nezodpovědných AI agentů – ukazující dechberoucí případy selhání modelů, nepřátelských jailbreaků a dalších rizik, která narušují důvěru a shodu.
 
-Prozkoumáme nejmodernější nástroje Microsoftu pro důvěryhodnou AI, včetně filtrů obsahu, strategií red teamingu a hodnocení — doplněné o živé ukázky chování AI agentů odpovědně i nezodpovědně způsobem, kterému neuvěříte.
+Prozkoumáme špičkové Microsoft nástroje pro důvěryhodnou AI, včetně filtrů obsahu, strategií red teaming a evaluací – s živými ukázkami AI agentů chovajících se zodpovědně i nezodpovědně způsobem, kterému neuvěříte.
 
 🔥 Co si odnesete:
-✅ Jak rozpoznat a zmírnit AI rizika dříve, než mohou být zneužita
-✅ Jak nasadit Azure AI Content Safety k detekci a eliminaci rizikového chování
-✅ Tajemství, jak učinit AI agenty důvěryhodnými
+✅ Jak identifikovat a zmírnit AI rizika, než budou zneužita
+✅ Jak nasadit Azure AI Content Safety k detekci a zmírnění rizikového chování
+✅ Tajný recept na to, jak učinit AI agenty důvěryhodnými
 
-Připravte se na relaci plnou očekávání, dramat AI vysoko na sázkách a nezbytných strategií, jak udržet vaši AI na správné straně historie. Nejenže tvořte AI — tvořte AI, na které záleží!
+Připravte se na relaci plnou napětí, vysoce rizikového AI dramatu a nezbytných strategií, jak udržet vaši AI na správné straně dějin. Nejen stavte AI — stavte AI, která má smysl!
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25388/>
 
 ---
 
-## Název události: Vytvořte svou aplikaci postavenou na kódu s Microsoft Foundry Agent Service (.NET)
+## Název události: Vytvořte svou aplikaci založenou na kódu s Microsoft Foundry Agent Service (.NET)
 
 ## Popis
 
-Microsoft Foundry Agent Service je bezproblémová kombinace služby a SDK, která zjednodušuje vývoj robustních řešení řízených umělou inteligencí. V této relaci se naučíte, jak postavit vlastního AI agenta založeného na kódu s Azure a C#, který dokáže odpovídat na otázky, provádět analýzu dat a integrovat externí datové zdroje. Také prozkoumáte složitější architektury, včetně několika agentů spolupracujících dohromady.
+Microsoft Foundry Agent Service je bezproblémová kombinace služby a SDK, která zjednodušuje vývoj robustních řešení řízených AI. V této relaci se naučíte, jak si postavit vlastního AI agenta založeného na kódu pomocí Azure a C#, který dokáže odpovídat na otázky, provádět analýzu dat a integrovat externí datové zdroje. Budete také zkoumat složitější architektury, včetně více agentů pracujících společně.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25370/>
 
 ---
 
-## Název události: AI agenti + .NET Aspire
+## Název události: AI agenti + Aspire
 
 ## Popis
 
-V této relaci se podělíme o některé z nejzajímavějších vývojů na platformě .NET kolem Agentů. Objevte aktuální stav .NET, včetně jeho nových funkcí a vylepšení. Prozkoumejte výkonné schopnosti AI agentů. A provedeme společné živé kódování s Agenty a .NET Aspire.
+V této relaci s vámi sdílíme některé z nejzajímavějších novinek na platformě .NET kolem agentů. Objevte aktuální stav .NET, včetně jeho nových funkcí a vylepšení. Prozkoumejte výkonné schopnosti AI agentů. A provedeme i živé kódování s agenty a Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
 
 ---
 
-## Název události: Semantic Kernel s C# pro vytváření multi-agentních AI aplikací poháněných Azure Cosmos
+## Název události: Semantic Kernel s C# pro tvorbu víceagentních AI aplikací poháněných Azure Cosmos
 
 ## Popis
 
-Provedeme vás multi-agentní aplikací v C# postavenou na frameworku Semantic Kernel. Porozumíte konceptům za agentními aplikacemi, pochopíte implementační detaily a nuance a naučíte se, jak integrovat Azure Cosmos DB jako databázi pro různé případy použití.
+Provedeme vás víceagentní aplikací v C#, která je postavena na frameworku Semantic Kernel. Pochopíte koncepty agentních aplikací, porozumíte implementačním detailům a nuancím a naučíte se integrovat Azure Cosmos DB jako databázi pro různé případy použití.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25455/>

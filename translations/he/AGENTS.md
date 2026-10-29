@@ -2,44 +2,44 @@
 
 ## סקירת הפרויקט
 
-מאגר זה מכיל "סוכני בינה מלאכותית למתחילים" - קורס חינוכי מקיף המלמד כל מה שצריך כדי לבנות סוכני בינה מלאכותית. הקורס מורכב מ-18 שיעורים (מספרים 00-18) העוסקים ביסודות, תבניות עיצוב, מסגרות עבודה, פריסה בפרודקשן, סוכנים מקומיים/מכשיריים, ואבטחת סוכנים.
+מאגר זה מכיל "סוכני AI למתחילים" - קורס חינוכי מקיף המלמד את כל הדרוש לבניית סוכני AI. הקורס מורכב מ-18 שיעורים (מספרים 00-18) שמכסים יסודות, דפוסי עיצוב, מסגרות, פריסה לייצור, סוכנים מקומיים/מכשיריים, ובטיחות של סוכני AI.
 
-**טכנולוגיות מרכזיות:**
+**טכנולוגיות מפתח:**
 - Python 3.12+
-- מחברות Jupyter ללימוד אינטראקטיבי
-- מסגרות בינה מלאכותית: Microsoft Agent Framework (MAF)
+- יומני Jupyter ללמידה אינטראקטיבית
+- מסגרות AI: Microsoft Agent Framework (MAF)
 - שירותי Azure AI: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **ארכיטקטורה:**
-- מבנה מבוסס שיעורים (תיקיות 00-15+)
-- כל שיעור כולל: תיעוד README, דוגמאות קוד (מחברות Jupyter), ותמונות
-- תמיכה רב-שפתית באמצעות מערכת תרגום אוטומטי
-- מחברת Python אחת לכל שיעור המשתמשת ב-Microsoft Agent Framework
+- מבנה מבוסס שיעורים (ספריות 00-18)
+- כל שיעור מכיל: תיעוד README, דוגמאות קוד (יומני Jupyter), ותמונות
+- תמיכה רב-לשונית באמצעות מערכת תרגום אוטומטית
+- יומן Python אחד לכל שיעור באמצעות Microsoft Agent Framework
 
 ## פקודות התקנה
 
 ### דרישות מוקדמות
 - Python 3.12 ומעלה
-- מנוי Azure (עבור Microsoft Foundry)
-- Azure CLI מותקן ומאומת (פקודת `az login`)
+- מנוי Azure (ל-Microsoft Foundry)
+- Azure CLI מותקן ומאומת (`az login`)
 
 ### התקנה ראשונית
 
-1. **שכפל או ספר את המאגר:**
+1. **שכפל או צרף למאגר:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # או
+   # OR
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **צור והפעל סביבת Python וירטואלית:**
+2. **צור והפעל סביבה וירטואלית של Python:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # ב-Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **התקן תלותיות:**
+3. **התקן תלותים:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -47,96 +47,96 @@
 4. **הגדר משתני סביבה:**
    ```bash
    cp .env.example .env
-   # ערוך את קובץ .env עם מפתחות ה-API והנקודות קצה שלך
+   # Edit .env with your API keys and endpoints
    ```
 
-### משתני סביבה נדרשים
+### משתני סביבה דרושים
 
-עבור **Microsoft Foundry** (נדרש):
-- `AZURE_AI_PROJECT_ENDPOINT` - נקודת הקצה של פרויקט Microsoft Foundry
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - שם פריסת המודל (למשל, gpt-5-mini)
+עבור **Microsoft Foundry** (חובה):
+- `AZURE_AI_PROJECT_ENDPOINT` - נקודת קצה לפרויקט Microsoft Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - שם פריסת מודל (למשל, gpt-5-mini)
 
 עבור **Azure AI Search** (שיעור 05 - RAG):
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - נקודת הקצה של Azure AI Search
-- `AZURE_SEARCH_API_KEY` - מפתח API של Azure AI Search
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - נקודת קצה של Azure AI Search
+- `AZURE_SEARCH_API_KEY` - מפתח API ל-Azure AI Search
 
-אימות: הרץ `az login` לפני הפעלת המחברות (משתמש ב-`AzureCliCredential`).
+אימות: הרץ `az login` לפני הפעלת היומנים (משתמש ב-`AzureCliCredential`).
 
 ## תהליך פיתוח
 
-### הפעלת מחברות Jupyter
+### הרצת יומני Jupyter
 
-כל שיעור מכיל מספר מחברות Jupyter עבור מסגרות שונות:
+כל שיעור מכיל מספר יומני Jupyter עבור מסגרות שונות:
 
 1. **הפעל את Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **נווט לתיקיית השיעור** (למשל, `01-intro-to-ai-agents/code_samples/`)
+2. **נווט לספריה של שיעור** (למשל, `01-intro-to-ai-agents/code_samples/`)
 
-3. **פתח והפעל מחברות:**
+3. **פתח והרץ יומנים:**
    - `*-python-agent-framework.ipynb` - שימוש ב-Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - שימוש ב-Microsoft Agent Framework (.NET)
 
 ### עבודה עם Microsoft Agent Framework
 
 **Microsoft Agent Framework + Microsoft Foundry:**
-- דורש מנוי Azure
-- משתמש ב-`FoundryChatClient` לשירות סוכן V2 (סוכנים נראים בפורטל Foundry)
-- מוכן לפרודקשן עם נראות מובנית
+- דרוש מנוי Azure
+- משתמש ב-`FoundryChatClient` עבור Agent Service V2 (סוכנים נראים בפורטל Foundry)
+- מוכן לייצור עם יכולת ניטור מובנית
 - תבנית קבצים: `*-python-agent-framework.ipynb`
 
 ## הוראות בדיקה
 
-מאגר זה חינוכי עם קוד לדוגמא ולא קוד לפרודקשן עם בדיקות אוטומטיות. כדי לאמת את ההתקנה והשינויים:
+זהו מאגר חינוכי עם קוד דוגמה ולא קוד ייצור עם בדיקות אוטומטיות. לאמת את ההתקנה והשינויים:
 
 ### בדיקה ידנית
 
-1. **בדוק את סביבת Python:**
+1. **בדוק את סביבת ה-Python:**
    ```bash
-   python --version  # צריך להיות 3.12 ומעלה
+   python --version  # Should be 3.12+
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **בדוק הרצת מחברת:**
+2. **בדוק הרצת היומן:**
    ```bash
-   # המר את המחברת לתסריט והפעל (מייבא בדיקות)
+   # Convert notebook to script and run (tests imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **אמת משתני סביבה:**
+3. **אמת את משתני הסביבה:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### הפעלת מחברות יחידות
+### הרצת יומנים בודדים
 
-פתח מחברות ב-Jupyter והרץ תאים ברצף. כל מחברת היא עצמאית וכוללת:
+פתח יומנים ב-Jupyter והרץ תאים ברצף. כל יומן הוא עצמאי וכולל:
 - הצהרות ייבוא
-- טעינת קונפיגורציה
-- מימושים לדוגמא של סוכן
-- פלט צפוי בתאי markdown
+- טעינת הגדרות
+- יישומי סוכן לדוגמה
+- פלטים צפויים בתאי markdown
 
-### בדיקה ראשונית של סוכנים פרוסים
+### בדיקת עשן לסוכנים שפועלים
 
-עבור שיעורים שבהם סוכן משוחרר כסוכן Microsoft Foundry (01, 04, 05, 16), המאגר כולל קטלוגי בדיקות ראשוניות תחת `tests/` שמופעלות ע"י תהליך `.github/workflows/smoke-test.yml` דרך הפעולה [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). אלו שערי בדיקה קלים לאחר פריסה (האם הסוכן נגיש ועוקב אחרי דרישות הפקודות הבסיסיות?), כמילוי תהליך ההערכה בשיעורים 10 ו-16. ראה [tests/README.md](./tests/README.md) למיפוי בין קטלוג לשיעור ולסוכן. שיעור 17 רץ מקומית עם Foundry Local ואין לו נקודת קצה מתארחת, לכן הוא נבדק על ידי הרצת מחברתו ישירות.
+עבור שיעורים בהם סוכן מפורסם כסוכן Microsoft Foundry (01, 04, 05, 16), המאגר כולל קטלוגי בדיקה בעזרת עשן תחת `tests/` שמופעלים על ידי תהליך `.github/workflows/smoke-test.yml` באמצעות הפעולה [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). אלו שער קל משקל לאחר פריסה (האם הסוכן נגיש ועומד בציפיות הנחיה בסיסיות?), המשלימים את קו הערכה בשיעורים 10 ו-16. ראה [tests/README.md](./tests/README.md) למיפוי קטלוג-לשיעור-לסוכן. שיעור 17 רץ מקומית עם Foundry Local ואין לו נקודת קצה משודרת, לכן הוא מאומת בהרצת היומן שלו ישירות.
 
 ## סגנון קוד
 
-### קונבנציות Python
+### נורמות Python
 
-- **גרסת Python**: 3.12 ומעלה
-- **סגנון קוד**: עקוב אחרי קונבנציות PEP 8 סטנדרטיות של Python
-- **מחברות**: השתמש בתאי markdown ברורים כדי להסביר מושגים
-- **ייבוא**: קבץ לפי ספרייה סטנדרטית, צד שלישי ומוכר מקומי
+- **גרסת Python**: 3.12+
+- **סגנון קוד**: עקוב אחרי הנורמות הסטנדרטיות PEP 8 של Python
+- **יומנים**: השתמש בתאי markdown ברורים להסבר מושגים
+- **ייבוא**: קבץ לפי ספריית סטנדרט, צד שלישי, מקומי
 
-### קונבנציות מחברות Jupyter
+### נורמות יומני Jupyter
 
-- כלול תאי markdown תיאוריים לפני תאי הקוד
-- הוסף דוגמאות פלט במחברות כהפניה
+- כלול תאי markdown מתארים לפני תאי קוד
+- הוסף דוגמאות פלט ביומנים כהפניה
 - השתמש בשמות משתנים ברורים התואמים למושגי השיעור
-- שמור על סדר הרצת המחברת ליניארי (תא 1 → 2 → 3...)
+- שמור על סדר הרצת היומן ליניארי (תא 1 → 2 → 3...)
 
 ### ארגון קבצים
 
@@ -154,161 +154,161 @@
 
 ### בניית תיעוד
 
-מאגר זה משתמש Markdown לתיעוד:
+מאגר זה משתמש ב-Markdown לתיעוד:
 - קבצי README.md בכל תיקיית שיעור
 - README.md ראשי בשורש המאגר
 - מערכת תרגום אוטומטית דרך GitHub Actions
 
-### תהליך CI/CD
+### צינור CI/CD
 
 ממוקם ב-`.github/workflows/`:
 
-1. **co-op-translator.yml** - תרגום אוטומטי ל-50+ שפות
-2. **welcome-issue.yml** - מקבל ברוכים הבאים ליוצרי נושאים חדשים
-3. **welcome-pr.yml** - מקבל ברוכים הבאים לתורמי בקשות משיכה חדשות
+1. **co-op-translator.yml** - תרגום אוטומטי ליותר מ-50 שפות
+2. **welcome-issue.yml** - מקבל יוצרים חדשים של נושאים
+3. **welcome-pr.yml** - מקבל משתתפי pull request חדשים
 
 ### פריסה
 
-זהו מאגר חינוכי - ללא תהליך פריסה. משתמשים:
-1. עושים Fork או שכפול של המאגר
-2. מריצים את המחברות מקומית או ב-GitHub Codespaces
+זהו מאגר חינוכי - אין תהליך פריסה. המשתמשים:
+1. מצורפים או משכפלים את המאגר
+2. מריצים יומנים מקומית או ב-GitHub Codespaces
 3. לומדים על ידי שינוי וניסוי בדוגמאות
 
-## הנחיות לבקשות משיכה
+## קווים מנחים לבקשות משיכה
 
-### לפני הגשה
+### לפני ההגשה
 
 1. **בדוק את השינויים שלך:**
-   - הרץ את המחברות המושפעות במלואן
-   - אמת שכל התאים רצים ללא שגיאות
+   - הרץ את כל היומנים המושפעים במלואם
+   - אמת שכל התאים מורצים ללא שגיאות
    - בדוק שהפלטים מתאימים
 
 2. **עדכוני תיעוד:**
-   - עדכן README.md אם מוסיפים מושגים חדשים
-   - הוסף הערות במחברות לקוד מורכב
-   - ודא שתאי markdown מסבירים את המטרה
+   - עדכן README.md אם מוסיף מושגים חדשים
+   - הוסף הערות ביומנים לקוד מורכב
+   - וודא שתאי markdown מסבירים את המטרה
 
 3. **שינויים בקבצים:**
    - הימנע מהתחייבות של קבצי `.env` (השתמש ב-`.env.example`)
-   - אל תתחייב בתיקיות `venv/` או `__pycache__/`
-   - שמור פלטי מחברות כשהם ממחישים מושגים
-   - הסר קבצים זמניים ומחברות גיבוי (`*-backup.ipynb`)
+   - אל תתחייב בספריות `venv/` או `__pycache__/`
+   - שמור על פלטי היומנים כשהם מראים מושגים
+   - הסר קבצים זמניים וגיבויים של יומנים (`*-backup.ipynb`)
 
 ### פורמט כותרת PR
 
 השתמש בכותרות מתארות:
-- `[Lesson-XX] הוסף דוגמה חדשה עבור <concept>`
-- `[Fix] תקן שגיאת כתיב ב-README של lesson-XX`
-- `[Update] שפר דוגמת קוד ב-lesson-XX`
-- `[Docs] עדכן הוראות התקנה`
+- `[Lesson-XX] Add new example for <concept>`
+- `[Fix] Correct typo in lesson-XX README`
+- `[Update] Improve code sample in lesson-XX`
+- `[Docs] Update setup instructions`
 
-### בדיקות נדרשות
+### בדיקות דרושות
 
-- יש להפעיל מחברות ללא שגיאות
-- קבצי README צריכים להיות ברורים ומדויקים
+- היומנים צריכים לרוץ ללא שגיאות
+- קבצי README צריכים להיות ברורים ותקינים
 - עקוב אחרי דפוסי קוד קיימים במאגר
-- שמור על עקביות עם שיעורים אחרים
+- שמור עקביות עם שיעורים אחרים
 
 ## הערות נוספות
 
-### טעויות נפוצות
+### בעיות נפוצות
 
 1. **אי התאמת גרסת Python:**
-   - ודא שמשתמשים ב-Python 3.12 ומעלה
-   - ייתכן שחבילות מסוימות לא יעבדו עם גרסאות ישנות יותר
-   - השתמש בפקודה `python3 -m venv` כדי לציין במפורש גרסת Python
+   - ודא שמשתמשים ב-Python 3.12+
+   - ייתכן שחלק מהחבילות לא יעבדו עם גרסאות ישנות יותר
+   - השתמש ב-`python3 -m venv` כדי לציין במפורש את גרסת Python
 
 2. **משתני סביבה:**
-   - תמיד צור קובץ `.env` מתוך `.env.example`
-   - אל תתחייב את קובץ `.env` (הוא ב-`.gitignore`)
-   - התחבר עם `az login` לאימות Entra ID ללא מפתח
+   - תמיד צור `.env` מ-`.env.example`
+   - אל תתחייב בקובץ `.env` (הוא ב-`.gitignore`)
+   - התחבר באמצעות `az login` לאימות Entra ID ללא מפתח
 
 3. **קונפליקטים בחבילות:**
    - השתמש בסביבה וירטואלית חדשה
-   - התקן מתוך `requirements.txt` במקום חבילות בודדות
-   - ייתכן שמחברות מסוימות דורשות חבילות נוספות המוזכרות בתאי markdown
+   - התקן מ-`requirements.txt` במקום חבילות בודדות
+   - ייתכן שיומנים מסוימים ידרשו חבילות נוספות שמצוינות בתאי markdown שלהם
 
 4. **שירותי Azure:**
    - שירותי Azure AI דורשים מנוי פעיל
-   - חלק מהפיצ'רים ספציפיים לאזור גאוגרפי
-   - ודא שפריסת Azure OpenAI שלך תומכת ב-API התגובות
+   - חלק מהפיצ'רים הם ספציפיים לאזור
+   - וודא שפריסת מודל Azure OpenAI שלך תומכת ב-Responses API
 
-### מסלול לימוד
+### מסלול הלמידה
 
-מומלץ להתקדם בשיעורים לפי הסדר:
-1. **00-course-setup** - התחלה להגדרת הסביבה
-2. **01-intro-to-ai-agents** - הבנת יסודות סוכני AI
-3. **02-explore-agentic-frameworks** - למידה על מסגרות עבודה שונות
-4. **03-agentic-design-patterns** - תבניות עיצוב מרכזיות
-5. המשך בשיעורים המסומנים לפי הסדר
+התקדמות מומלצת בין השיעורים:
+1. **00-course-setup** - התחל כאן להגדרת סביבה
+2. **01-intro-to-ai-agents** - הבן את יסודות סוכני AI
+3. **02-explore-agentic-frameworks** - למד על מסגרות שונות
+4. **03-agentic-design-patterns** - דפוסי עיצוב מרכזיים
+5. המשך בשיעורים ממוספרים ברצף
 
 ### בחירת מסגרת עבודה
 
 בחר מסגרת על פי המטרות שלך:
 - **כל השיעורים**: Microsoft Agent Framework (MAF) עם `FoundryChatClient`
-- **רישום סוכנים בצד השרת** ב-Microsoft Foundry Agent Service V2 והם גלויים בפורטל Foundry
+- **רישום סוכנים בצד השרת** ב-Microsoft Foundry Agent Service V2 וסוכנים נראים בפורטל Foundry
 
 ### קבלת עזרה
 
 - הצטרף ל-[Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- בדוק את קבצי README של השיעורים להנחיות ספציפיות
-- עיין ב-[README.md](./README.md) הראשי לקבלת סקירת הקורס
+- עיין בקבצי README של השיעורים להדרכה ספציפית
+- בדוק את ה-[README.md](./README.md) הראשי לקבלת סקירת הקורס
 - התייחס ל-[Course Setup](./00-course-setup/README.md) להוראות התקנה מפורטות
 
 ### תרומה
 
 זהו פרויקט חינוכי פתוח. תרומות מתקבלות בברכה:
-- שפר דוגמות קוד
+- שפר דוגמאות קוד
 - תקן שגיאות כתיב או טעויות
-- הוסף הערות להבהרה
-- הצע נושאי שיעור חדשים
-- תרגם לשפות נוספות
+- הוסף הערות להסברים
+- הצע נושאים חדשים לשיעורים
+- תרגום לשפות נוספות
 
-עיין ב-[GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) לצרכים נוכחיים.
+ראה [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) לצרכים העדכניים.
 
 ## הקשר ספציפי לפרויקט
 
-### תמיכה ברב-שפות
+### תמיכה רב-לשונית
 
 מאגר זה משתמש במערכת תרגום אוטומטית:
-- תומך ב-50+ שפות
+- תמיכה בלמעלה מ-50 שפות
 - תרגומים בתיקיות `/translations/<lang-code>/`
-- תהליך GitHub Actions מטפל בעדכוני התרגום
+- תהליך GitHub Actions מטפל בעדכוני תרגום
 - קבצי מקור באנגלית בשורש המאגר
 
 ### מבנה השיעור
 
 כל שיעור עוקב אחרי דפוס אחיד:
-1. תמונת תצוגה מקדימה עם קישור לסרטון
-2. תוכן השיעור הכתוב (README.md)
-3. דוגמאות קוד במספר מסגרות עבודה
+1. תמונת טמפון עם קישור לסרטון
+2. תוכן השיעור כתוב (README.md)
+3. דוגמאות קוד במסגרות שונות
 4. מטרות למידה ודרישות מוקדמות
-5. משאבי לימוד נוספים בקישורים
+5. קישורים למשאבים חינוכיים נוספים
 
-### שם דוגמאות קוד
+### שם דוגמת קוד
 
 פורמט: `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - שיעור 1, MAF Python
-- `14-sequential.ipynb` - שיעור 14, תבניות מתקדמות ב-MAF
-- `16-python-agent-framework.ipynb` - שיעור 16, סוכן תמיכה בלקוח בפרודקשן
+- `14-sequential.ipynb` - שיעור 14, דפוסים MAF מתקדמים
+- `16-python-agent-framework.ipynb` - שיעור 16, סוכן תמיכה ללקוח לייצור
 - `17-local-agent-foundry-local.ipynb` - שיעור 17, סוכן מקומי עם Foundry Local + Qwen
 
 ### תיקיות מיוחדות
 
-- `translated_images/` - תמונות מתורגמות
-- `images/` - תמונות מקור באנגלית
-- `.devcontainer/` - קונפיגורציית מכולת פיתוח ל-VS Code
+- `translated_images/` - תמונות מותאמות לתרגומים
+- `images/` - תמונות מקור לתוכן באנגלית
+- `.devcontainer/` - תצורת מכולת פיתוח VS Code
 - `.github/` - תהליכי עבודה ותבניות GitHub Actions
 
-### תלותיות
+### תלותים
 
-חבילות מרכזיות מתוך `requirements.txt`:
+חבילות מפתח מ-`requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `a2a-sdk` - תמיכה בפרוטוקול Agent-to-Agent
+- `a2a-sdk` - תמיכה בפרוטוקול בין סוכנים
 - `azure-ai-inference`, `azure-ai-projects` - שירותי Azure AI
 - `azure-identity` - אימות Azure (AzureCliCredential)
 - `azure-search-documents` - אינטגרציה עם Azure AI Search
-- `mcp[cli]` - תמיכה ב-Model Context Protocol
+- `mcp[cli]` - תמיכה בפרוטוקול Model Context
 
 ---
 

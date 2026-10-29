@@ -1,72 +1,72 @@
-# AI ügynökök éles környezetben: Megfigyelhetőség és értékelés
+# AI Agentek a termelésben: Megfigyelhetőség és értékelés
 
-[![AI ügynökök éles környezetben](../../../translated_images/hu/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/hu/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Ahogy az AI ügynökök az kísérleti prototípusoktól a valódi alkalmazások felé haladnak, egyre fontosabbá válik viselkedésük megértése, teljesítményük figyelése és kimeneteik szisztematikus értékelése.
+Ahogy az AI agentek az experimentális prototípusoktól a valós világban használt alkalmazások felé haladnak, egyre fontosabbá válik a viselkedésük megértése, a teljesítményük figyelése és az eredményeik szisztematikus értékelése.
 
-## Tanulási célok
+## Tanulási Célok
 
-A leckét elvégezve tudni fogod/érteni fogod:
-- Az ügynökök megfigyelhetőségének és értékelésének alapvető fogalmait
-- Technikákat az ügynökök teljesítményének, költségeinek és hatékonyságának javítására
-- Mit és hogyan érdemes szisztematikusan értékelni AI ügynökeiddel kapcsolatban
-- Hogyan kontrolláld a költségeket az AI ügynökök éles környezetbe való telepítésekor
-- Hogyan lehet műszerelni az Microsoft Agent Frameworkkel épített ügynököket
+A leckének a végére tudni fogod/meg fogod érteni:
+- Az agent megfigyelhetőség és értékelés alapfogalmait
+- Technikákat az agentek teljesítményének, költségeinek és hatékonyságának javításához
+- Mit és hogyan értékelj szisztematikusan az AI agentjeidnél
+- Hogyan kontrolláld a költségeket AI agentek termelési bevezetésekor
+- Hogyan instrumentáld azokat az agenteket, amiket a Microsoft Agent Frameworkkel építesz
 
-A cél, hogy olyan tudással vértezd fel magad, amely révén „fekete doboz” ügynökeidet átlátható, kezelhető és megbízható rendszerként alakíthatod át.
+A cél az, hogy olyan tudást adjunk át, amivel "fekete dobozos" agentjeidet átlátható, kezelhető és megbízható rendszerekké alakíthatod.
 
-_**Megjegyzés:** Fontos, hogy biztonságos és megbízható AI ügynököket telepítsünk. Nézd meg a [Megbízható AI ügynökök építése](../06-building-trustworthy-agents/README.md) leckét is._
+_**Megjegyzés:** Fontos, hogy biztonságos és megbízható AI Agenteket vezessünk be. Nézd meg a [Meghitt AI Agentek építése](../06-building-trustworthy-agents/README.md) leckét is._
 
-## Nyomok és szegmensek
+## Traces és Spans
 
-A megfigyelhetőségi eszközök, mint például a [Langfuse](https://langfuse.com/) vagy a [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) jellemzően az ügynök futásokat nyomok és szegmensek formájában jelenítik meg.
+A megfigyelhetőségi eszközök, mint a [Langfuse](https://langfuse.com/) vagy a [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), általában az agent futásokat traces és spans formájában jelenítik meg.
 
-- **Nyom** egy teljes ügynöki feladatot jelöl a kezdetétől a végéig (például egy felhasználói lekérdezés kezelése).
-- **Szegmensek** a nyomon belüli egyes lépések (például egy nyelvi modell hívása vagy adatlekérés).
+- **Trace** egy teljes agent feladatot reprezentál a kezdetétől a végéig (például egy felhasználói lekérdezés kezelése).
+- **Spans** a trace egyes lépései (például egy nyelvi modell hívása vagy adatlekérés).
 
 ![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
 <!-- Image URL retained for illustration purposes -->
 
-Megfigyelhetőség nélkül egy AI ügynök „fekete doboznak” tűnhet – belső állapota és érvelése átláthatatlan, ami megnehezíti a hibák felderítését vagy a teljesítmény optimalizálását. A megfigyelhetőséggel az ügynökök „üveg dobozzá” válnak, átláthatóságot nyújtva, ami létfontosságú a bizalom építéséhez és a kívánt működés biztosításához.
+Megfigyelhetőség nélkül egy AI agent „fekete doboznak” tűnhet – belső állapota és logikája átlátszatlan, nehéz hibát diagnosztizálni vagy a teljesítményt optimalizálni. Megfigyelhetőséggel az agentek „üveg dobozzá” válnak, átláthatóságot kínálva, amely létfontosságú a bizalom kiépítéséhez és annak biztosításához, hogy rendeltetésszerűen működjenek.
 
-## Miért fontos a megfigyelhetőség az éles környezetekben
+## Miért fontos a megfigyelhetőség a termelési környezetben?
 
-Az AI ügynökök éles környezetbe helyezése új kihívásokat és követelményeket hoz. A megfigyelhetőség már nem „jó, ha van”, hanem kritikus képesség:
+AI agentek termelési környezetbe való áthelyezése új kihívásokat és követelményeket hoz. A megfigyelhetőség már nem „jó, ha van”, hanem kritikus képesség:
 
-*   **Hibakeresés és ok-okozati elemzés**: Ha egy ügynök hibázik vagy váratlan kimenetet produkál, a megfigyelhetőségi eszközök olyan nyomokat biztosítanak, amelyek segítségével pontosan meg lehet határozni a hiba forrását. Különösen fontos ez bonyolult ügynökök esetén, amelyek több LLM hívást, eszközhasználatot és feltételes logikát foglalhatnak magukban.
-*   **Válaszidő és költségkezelés**: Az AI ügynökök gyakran LLM-ekre és más külső API-kra támaszkodnak, melyeket tokenenként vagy hívásonként számolnak el. A megfigyelhetőség lehetővé teszi ezen hívások pontos nyomon követését, segít azonosítani a túl lassú vagy drága műveleteket. Ezáltal a csapatok optimalizálhatják a promptokat, hatékonyabb modelleket választhatnak vagy áttervezhetik a munkafolyamatokat az üzemeltetési költségek csökkentése és a jó felhasználói élmény biztosítása érdekében.
-*   **Bizalom, biztonság és megfelelőség**: Sok alkalmazásnál alapvető fontosságú, hogy az ügynökök biztonságosan és etikusan viselkedjenek. A megfigyelhetőség audit nyomot biztosít az ügynök műveleteiről és döntéseiről. Ez felhasználható például prompt injekció, káros tartalom generálása vagy személyes adatok helytelen kezelése (PII) észlelésére és enyhítésére. Például visszanézheted a nyomokat, hogy megértsd, egy adott válasz vagy eszközhasználat miért történt.
-*   **Folyamatos fejlesztési ciklusok**: A megfigyelhetőségi adatok az iteratív fejlesztési folyamat alapját képezik. A valós környezetben nyújtott teljesítmény figyelése révén a csapatok javítási területeket azonosíthatnak, adatokat gyűjthetnek modellek finomhangolásához, valamint validálhatják a változtatások hatását. Ez olyan visszacsatolási hurkot hoz létre, amelyben az online értékelésből származó éles betekintések offline kísérletezést és finomítást táplálnak, egyre jobb ügynöki teljesítményt eredményezve.
+*   **Hibakeresés és Okfeltáró Elemzés:** Amikor egy agent hibázik vagy váratlan eredményt produkál, a megfigyelhetőségi eszközök rendelkezésre bocsátják a szükséges trace-eket a hiba forrásának beazonosításához. Ez különösen fontos komplex agenteknél, amelyek több LLM hívást, eszközinterakciót és feltételes logikát tartalmazhatnak.
+*   **Késleltetés és Költségkezelés:** Az AI agentek gyakran LLM-ekre és külső API-kra támaszkodnak, melyeket token vagy hívás alapján számláznak. A megfigyelhetőség lehetővé teszi ezen hívások pontos nyomon követését, segítve az olyan műveletek azonosítását, amelyek túl lassúak vagy költségesek. Ezáltal a csapatok optimalizálhatják a promptokat, hatékonyabb modelleket választhatnak, vagy újratervezhetik a munkafolyamatokat, hogy kezeljék az üzemeltetési költségeket és jó felhasználói élményt biztosítsanak.
+*   **Bizalom, Biztonság és Megfelelés:** Sok alkalmazásban fontos biztosítani, hogy az agentek biztonságosan és etikusan viselkedjenek. A megfigyelhetőség audit nyomvonalat biztosít az agent műveleteiről és döntéseiről. Ez használható olyan problémák detektálására és kezelése, mint a prompt injekció, káros tartalom létrehozása vagy személyes azonosító információk (PII) nem megfelelő kezelése. Például áttekintheted a trace-eket, hogy megértsd, miért adott az agent adott választ vagy miért használt egy konkrét eszközt.
+*   **Folyamatos Fejlesztési Ciklusok:** A megfigyelhetőségi adatok egy iteratív fejlesztési folyamat alapjai. A valódi világban nyújtott teljesítmény figyelésével a csapatok azonosíthatják a fejlesztendő területeket, adatokat gyűjthetnek a modellek finomhangolásához, és validálhatják a változtatások hatását. Ez visszacsatolási hurkot hoz létre, ahol a termelési betekintések az online értékelésből visszahatnak az offline kísérletezésre és finomításra, ami egyre jobb ügynök teljesítményt eredményez.
 
-## Nyomon követendő kulcsmutatók
+## Követendő Fő Mutatók
 
-Az ügynök viselkedésének figyeléséhez és megértéséhez számos mutatót és jelet érdemes követni. A konkrét mutatók változhatnak az ügynök céljától függően, de vannak általánosan fontosak is.
+Az agent viselkedésének figyelemmel kíséréséhez és megértéséhez számos mutatót és jelet kell figyelni. A specifikus mutatók változhatnak az agent céljától függően, de néhány általánosan fontos.
 
-Íme néhány a leggyakoribb, megfigyelhetőségi eszközök által követett mutatók közül:
+Íme néhány a leggyakoribb mutatók közül, amelyeket a megfigyelhetőségi eszközök monitoroznak:
 
-**Válaszidő:** Milyen gyorsan válaszol az ügynök? A hosszú várakozási idők negatívan befolyásolják a felhasználói élményt. A válaszidőt érdemes mérni feladatokra és egyéni lépésekre, az ügynök futásának nyomon követésével. Például egy olyan ügynök, amely az összes modellhívásra 20 másodpercet vesz igénybe, felgyorsítható gyorsabb modellel vagy párhuzamos hívások futtatásával.
+**Késleltetés:** Milyen gyorsan válaszol az agent? A hosszú várakozási idők negatívan befolyásolják a felhasználói élményt. Kell mérned a késleltetést a feladatokra és az egyes lépésekre is, trace-ek segítségével. Például, ha egy agent a teljes modellhívásokra 20 másodpercet igényel, gyorsabb modellel vagy párhuzamos hívásokkal felgyorsítható.
 
-**Költségek:** Mennyibe kerül egy ügynök futtatása? Az AI ügynökök LLM hívásokra támaszkodnak, amelyeket tokenenként vagy hívásonként számláznak, illetve külső API-kra. Gyakori eszközhasználat vagy sok prompt gyorsan növelheti a költségeket. Például, ha egy ügynök ötször hív egy LLM-et egy marginális minőségjavításért, mérlegelned kell, hogy megéri-e a költség, vagy csökkentheted a hívások számát vagy olcsóbb modellt használhatsz. Az élő monitorozás szintén segíthet váratlan költséghullámokat azonosítani (például hibák okozta túlzott API hívásokat).
+**Költségek:** Mennyi a költség egy agent futtatásra? Az AI agentek LLM hívásokat használnak tokenalapú számlázással vagy külső API-kat. Gyakori eszközhasználat vagy többszörös promptok gyorsan növelhetik a költségeket. Például, ha egy agent ötször hív egy LLM-et egész kismértékű minőségjavulásért, fontold meg, hogy megéri-e a költséget, vagy csökkenteni kell a hívások számát vagy egy olcsóbb modellt használni. Az élő monitorozás segíthet váratlan kiugrások azonosításában (pl. hibák miatt túlzott API ciklusok).
 
-**Kéréshibák:** Hány kérést nem tudott teljesíteni az ügynök? Ide tartozhatnak API hibák vagy sikertelen eszközhívások. A robosztusabb ügynök érdekében érdemes fallbacks vagy újrapróbálkozások beállítása, például ha LLM szolgáltató A leállt, akkor kapcsolj át LLM szolgáltató B-re tartalékba.
+**Kérés Hibák:** Hány kérés sikertelen az agentnél? Ez magában foglalhat API hibákat vagy sikertelen eszközhívásokat. Ahhoz, hogy az agent robosztusabb legyen éles környezetben, beállíthatsz visszaeséseket vagy újrapróbálkozásokat. Pl. ha az LLM szolgáltató A nem elérhető, váltasz a B szolgáltatóra tartalékként.
 
-**Felhasználói visszajelzés:** Közvetlen felhasználói értékelések bevezetése értékes betekintést nyújt. Ide tartozhatnak explicit értékelések (👍jóváhagyás/👎elutasítás, ⭐1-5 csillag) vagy szöveges megjegyzések. Az ismétlődő negatív visszajelzés figyelmeztető jel, hogy az ügynök nem úgy működik, ahogy kellene.
+**Felhasználói Visszajelzés:** A közvetlen felhasználói értékelések értékes betekintéseket adnak. Ez lehet egyértelmű értékelés (👍fel, 👎le, ⭐1-5 csillag) vagy szöveges kommentek. A következetesen negatív visszajelzések figyelmeztetnek, hogy az agent nem a vártak szerint működik.
 
-**Implicit felhasználói visszajelzés:** A felhasználói viselkedések közvetett visszajelzést is adnak explicit értékelés nélkül. Ide tartoznak az azonnali kérdés átfogalmazások, ismételt lekérdezések vagy újrapróbálkozás gomb megnyomása. Például, ha azt látod, hogy a felhasználók ismételten ugyanazt a kérdést teszik fel, az azt jelzi, hogy az ügynök nem működik jól.
+**Implicit Felhasználói Visszajelzés:** A felhasználók viselkedése közvetett visszajelzést ad még explict értékelések nélkül is. Ez magában foglalhat azonnali kérdésátfogalmazást, ismételt lekérdezéseket vagy ismétlés gomb megnyomását. Pl. ha látod, hogy a felhasználók ismételten ugyanazt a kérdést teszik fel, az a jele annak, hogy az agent nem működik megfelelően.
 
-**Pontosság:** Milyen gyakran ad az ügynök helyes vagy kívánatos kimenetet? A pontosság definíciója változó (pl. probléma megoldás helyessége, információkeresés pontossága, felhasználói elégedettség). Az első lépés annak meghatározása, hogy mi a siker az ügynököd számára. Nyomon követheted a pontosságot automatikus ellenőrzéseken, értékelési pontszámokon vagy feladat teljesítési címkéken keresztül. Például a nyomok megjelölése „sikeres” vagy „sikertelen” státusszal.
+**Pontosság:** Milyen gyakran produkál az agent helyes vagy kívánatos kimenetet? A pontosság definíciói változnak (pl. problémamegoldás helyessége, információ visszakeresési pontosság, felhasználói elégedettség). Az első lépés meghatározni, mi a siker az agent számára. Követheted az pontosságot automata ellenőrzések, értékelési pontszámok vagy feladat teljesítési címkék alapján. Például trace-ek megjelölése „sikeres” vagy „sikertelen” státusszal.
 
-**Automatikus értékelési mutatók:** Automatikus értékelések is beállíthatók. Például egy LLM-et használhatsz az ügynök kimenetének pontozására, például mennyire segítőkész vagy pontos. Számos nyílt forráskódú könyvtár is létezik, melyek segítenek az ügynök különböző aspektusainak pontozásában. Például a [RAGAS](https://docs.ragas.io/) RAG ügynökökhöz vagy az [LLM Guard](https://llm-guard.com/) a káros nyelvezet vagy prompt injekció detektálására.
+**Automatizált Értékelési Mutatók:** Beállíthatsz automatikus értékeléseket is. Például használhatsz LLM-et az agent kimenetének értékelésére, vajon segítőkész, pontos-e vagy sem. Számos nyílt forráskódú könyvtár segít különböző aspektusok pontozásában, pl. [RAGAS](https://docs.ragas.io/) RAG agentekhez vagy [LLM Guard](https://github.com/protectai/llm-guard) káros nyelv vagy prompt injekció detektálására.
 
-Gyakorlatban ezeknek a mutatóknak a kombinációja adja az AI ügynök egészségügyi állapotának legjobb lefedettségét. Ebben a fejezetben a [példa jegyzetfüzetben](./code_samples/10-expense_claim-demo.ipynb) megmutatjuk, hogyan néznek ki ezek a mutatók valós példákban, de először megtanuljuk, hogy néz ki egy tipikus értékelési munkafolyamat.
+Gyakorlatban ezen mutatók kombinációja adja a legjobb lefedettséget egy AI agent egészségére vonatkozóan. Ebben a fejezetben a [példa jegyzetfüzetben](./code_samples/10-expense_claim-demo.ipynb) megmutatjuk, hogyan néznek ki ezek a mutatók valós példákban, de előbb tanuljuk meg, hogyan néz ki egy tipikus értékelési munkafolyamat.
 
-## Műszereld az ügynököt
+## Instrumentáld az Agentet
 
-Annak érdekében, hogy nyomkövetési adatokat gyűjts, műszerelned kell a kódodat. A cél az, hogy az ügynök kódját olyan módon szereld fel, hogy nyomokat és mutatókat generáljon, melyeket egy megfigyelhetőségi platform be tud fogadni, feldolgozni és megjeleníteni.
+A trace adatok gyűjtéséhez instrumentálnod kell a kódodat. A cél, hogy az agent kódja olyan trace-eket és metrikákat adjon le, amelyeket egy megfigyelhetőségi platform elfogadhat, feldolgozhat és vizualizálhat.
 
-**OpenTelemetry (OTel):** Az [OpenTelemetry](https://opentelemetry.io/) ipari szabvánnyá vált az LLM megfigyelhetőség terén. API-k, SDK-k és eszközök gyűjteményét nyújtja a telemetriai adatok generálásához, gyűjtéséhez és exportálásához.
+**OpenTelemetry (OTel):** Az [OpenTelemetry](https://opentelemetry.io/) iparági szabványként jelent meg az LLM megfigyelhetőséghez. API-kat, SDK-kat és eszközöket nyújt a telemetriai adatok generálásához, gyűjtéséhez és exportálásához.
 
-Sok olyan műszerelési könyvtár létezik, amely a meglévő ügynök keretrendszereket burkolja, megkönnyítve az OpenTelemetry szegmensek exportálását megfigyelhetőségi eszközbe. A Microsoft Agent Framework natív módon integrálódik az OpenTelemetry-vel. Alább egy példa MAF ügynök műszerelésére:
+Számos instrumentációs könyvtár létezik, amelyek beburkolják a meglévő agent keretrendszereket, és megkönnyítik az OpenTelemetry span-ek exportálását megfigyelhetőségi eszközökbe. A Microsoft Agent Framework natívan integrálódik az OpenTelemetry-vel. Az alábbi példa egy MAF agent instrumentálására:
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -75,15 +75,15 @@ tracer = get_tracer()
 meter = get_meter()
 
 with tracer.start_as_current_span("agent_run"):
-    # Az ügynök végrehajtása automatikusan követve van
+    # Agent execution is traced automatically
     pass
 ```
 
-Ebben a fejezetben a [példa jegyzetfüzet](./code_samples/10-expense_claim-demo.ipynb) bemutatja, hogyan műszereld a MAF ügynöködet.
+Ebben a fejezetben a [példa jegyzetfüzet](./code_samples/10-expense_claim-demo.ipynb) megmutatja, hogyan instrumentáld a MAF agented.
 
-**Kézi szegmens létrehozás:** Bár a műszerelési könyvtárak jó alapot adnak, gyakran szükség van részletesebb vagy egyedi információkra. Kézzel is létrehozhatsz szegmenseket, hogy egyedi alkalmazáslogikát adj hozzá. Fontosabb, hogy a kézzel vagy automatikusan létrehozott szegmenseket egyedi attribútumokkal (más néven címkék vagy metaadatok) gazdagíthatod. Ezek az attribútumok tartalmazhatnak üzlet-specifikus adatokat, köztes számításokat vagy bármilyen kontextust, mely a hibakereséshez vagy elemzéshez hasznos lehet, például `user_id`, `session_id`, vagy `model_version`.
+**Manuális Span Létrehozás:** Bár az instrumentációs könyvtárak jó alapot adnak, sok esetben részletesebb vagy egyedi információkra van szükség. Manuálisan is létrehozhatsz span-eket egyedi alkalmazási logikákkal. Ami még fontosabb, bővítheted az automatikusan vagy manuálisan létrehozott span-eket egyedi attribútumokkal (más néven címkék vagy metaadatok). Ezek az attribútumok tartalmazhatnak üzleti specifikus adatokat, köztes számításokat vagy bármilyen kontextust, ami hasznos lehet hibakereséshez vagy elemzéshez, mint például `user_id`, `session_id` vagy `model_version`.
 
-Példa az eljárásra a [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3) használatával:
+Példa trace-ek és span-ek manuális létrehozására a [Langfuse Python SDK-val](https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -95,82 +95,81 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Ügynök értékelés
+## Agent Értékelés
 
-A megfigyelhetőség mutatókat ad, de az értékelés arra szolgál, hogy ezeket az adatokat elemezve (és teszteket végezve) meghatározzuk, az AI ügynök mennyire jól teljesít és hogyan lehet javítani rajta. Más szóval, miután megvan a nyom és a mutatók, hogyan használod ezeket az ügynök megítélésére és döntések meghozatalára?
+A megfigyelhetőség mutatókat szolgáltat, de az értékelés az az adat elemzési folyamat (és tesztek végzése), amivel meghatározzuk, mennyire teljesít jól az AI agent, és hogyan javítható. Másképp fogalmazva, amikor megvannak a trace-ek és metrikák, hogyan használod őket az agent megítéléséhez és döntésekhez?
 
-A rendszeres értékelés fontos, mert az AI ügynökök gyakran nem determinisztikusak és fejlődhetnek (frissítések vagy model viselkedési elmozdulás révén) – értékelés nélkül nem tudnád, hogy az „okos ügynököd” valóban jól végzi-e a dolgát vagy visszaesett.
+Rendszeres értékelés fontos, mert az AI agentek gyakran nem determinisztikusak és fejlődhetnek (frissítéseken vagy modell viselkedés eltolódáson keresztül) – értékelés nélkül nem tudnád, hogy az „okos agented” tényleg jól végzi-e a munkáját, vagy visszaesett.
 
-Az AI ügynökök értékelésének két kategóriája van: **online értékelés** és **offline értékelés**. Mindkettő értékes és kiegészítik egymást. Általában offline értékeléssel kezdjük, mivel ez a minimum lépés az ügynök telepítése előtt.
+Két kategória van AI agentek értékelésében: **online értékelés** és **offline értékelés**. Mindkettő értékes, és kiegészítik egymást. Általában offline értékeléssel kezdünk, mert ez a minimálisan szükséges lépés ügynök bevezetése előtt.
 
-### Offline értékelés
+### Offline Értékelés
 
 ![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Ez az ügynök kontrollált környezetben való értékelését jelenti, általában tesztadatkészletek használatával, nem élő felhasználói lekérdezésekkel. Kurált adatbázisokat használsz, ahol tudod, mi az elvárt kimenet vagy helyes viselkedés, majd lefuttatod az ügynököt ezeken.
+Ez az agent kontrollált környezetben történő értékelését jelenti, tipikusan teszt adathalmazokkal, nem élő felhasználói lekérdezésekkel. Kurált adatokat használsz, ahol tudod, mi a várt kimenet vagy helyes viselkedés, és azokon futtatod az agentet.
 
-Például ha egy matematikai szöveges feladatokat megoldó ügynököt építettél, lehet, hogy van egy [tesztadatkészleted](https://huggingface.co/datasets/gsm8k) 100 jól ismert megoldású problémával. Az offline értékelés gyakran a fejlesztés során történik (és része lehet a CI/CD folyamatoknak) a javulás ellenőrzésére vagy a visszalépések megakadályozására. Ennek az az előnye, hogy **ismételhető és tiszta pontossági mutatókat kapsz, mert van igazságalap**. Szimulálhatod a felhasználói kérdéseket és mérheted az ügynök válaszait az ideális válaszokhoz képest, vagy használhatsz automatikus mutatókat, ahogy fentebb leírtuk.
+Például, ha egy matek szöveges feladatokat megoldó agentet építettél, lehet egy [teszt adatkészleted](https://huggingface.co/datasets/openai/gsm8k) 100 ismert megoldású problémával. Az offline értékelést gyakran fejlesztés alatt végzik (és része lehet CI/CD folyamatoknak), hogy ellenőrizzék a javulást vagy akadályozzák a visszaesést. Előnye, hogy **ismételhető és tiszta pontossági mérőszámokat ad, mert megvan az igazság**. Szimulálhatod a felhasználói lekérdezéseket és mérheted az agent válaszait az ideális megoldásokhoz képest, vagy használhatod az automatizált metrikákat, ahogy fentebb leírtuk.
 
-Az offline értékelés fő kihívása annak biztosítása, hogy a tesztadatkészlet átfogó és releváns maradjon – az ügynök lehet, hogy jól teljesít egy fix tesztkészleten, de éles környezetben egészen más kérdésekkel találkozik. Ezért az adatkészletet folyamatosan frissíteni kell új szélső esetekkel és olyan példákkal, amelyek a valós helyzeteket tükrözik. Hasznos egy kis „gyors teszt” készlet és a nagyobb értékelő készletek kombinációja: a kis készletek gyors ellenőrzésekhez, a nagyobbak szélesebb körű teljesítménymutatókhoz.
+Az offline értékelés kulcskihívása az, hogy az adatkészlet átfogó és releváns maradjon – az agent jól teljesíthet egy fix tesztkészleten, de a termelésben nagyon eltérő kérdésekkel találkozhat. Ezért naprakészen kell tartanod a tesztkészleteket új szélsőséges esetekkel és a valós élet szcenáriókat tükröző példákkal. Hasznos egy keverék: kis „füstteszt” esetek gyors ellenőrzésre és nagyobb értékelő készletek szélesebb körű teljesítmény mérésre.
 
-### Online értékelés
+### Online Értékelés
 
 ![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Ez az ügynök élő, valós környezetben történő értékelését jelenti, azaz az éles használat alatt. Az online értékelés folyamatosan figyeli az ügynök teljesítményét valós felhasználói interakciók alapján, és elemzi az eredményeket.
+Ez azt jelenti, hogy az agentet élő, valós környezetben értékeljük, vagyis a termelésben való tényleges használat során. Az online értékelés belefoglalja az agent teljesítményének figyelését valós felhasználói interakciókon és az eredmények folyamatos elemzését.
 
-Például követheted a sikerarányokat, felhasználói elégedettségi pontszámokat vagy más mutatókat élő forgalomban. Az online értékelés előnye, hogy **megragadja azokat a dolgokat, amelyeket a laboratóriumi környezetben nem feltétlenül várnál** – megfigyelheted az idővel bekövetkező modell eltolódást (ha az ügynök hatékonysága romlik az input minták változása miatt) és észreveheted az váratlan lekérdezéseket vagy helyzeteket, amelyek nem voltak jelen a tesztadatban. Ez valós képet ad az ügynök viselkedéséről a terepen.
+Például követheted a sikerességi arányokat, felhasználói elégedettségi pontszámokat vagy más metrikákat élő forgalomnál. Az online értékelés előnye, hogy **megragad olyan dolgokat, amit labor körülmények között nem feltétlenül várnál** – megfigyelheted a modell eltolódását az idő múlásával (ha az agent hatékonysága romlik az input mintázatok változásával) és elcsíphetsz váratlan lekérdezéseket vagy helyzeteket, amik nem voltak a tesztadatokban. Valódi képet ad az agent természetszerű viselkedéséről.
 
-Az online értékelés gyakran magában foglalja a közvetett és közvetlen felhasználói visszajelzések gyűjtését, valamint árnyéktesztek vagy A/B tesztek futtatását (ahol az ügynök új verziója párhuzamosan fut a régi verzióval összehasonlítás céljából). Az kihívás az, hogy megbízható címkék vagy pontszámok beszerzése az élő interakciókhoz nehéz lehet – támaszkodhatsz a felhasználói visszajelzésekre vagy a további mutatókra (például hogy a felhasználó rákattintott-e az eredményre).
+Az online értékelés gyakran gyűjt implicit és explicit felhasználói visszajelzést, ahogy korábban tárgyaltuk, és előfordulhat árnyék tesztek vagy A/B tesztek futtatása is (ahol az agent új verziója párhuzamosan fut a régivel az összehasonlításhoz). Kihívás, hogy nehéz megbízható címkéket vagy pontszámokat szerezni élő interakciókhoz – gyakran a felhasználói visszajelzésekre vagy lenyomati mutatókra (pl. az eredményre kattintott-e a felhasználó) támaszkodhatsz.
 
 ### A kettő kombinálása
 
-Az online és offline értékelések nem zárják ki egymást; nagyon kiegészítik egymást. Az online monitorozásból származó betekintések (pl. új típusú felhasználói kérdések, ahol az ügynök rosszul teljesít) felhasználhatók az offline tesztadatok bővítésére és javítására. Ezzel szemben az offline teszteken jól teljesítő ügynököket bátrabban lehet élesíteni és online figyelni.
+Az online és offline értékelés nem kizárólagos; erősen kiegészítik egymást. Az online monitorozásból származó észrevételeket (pl. új típusú felhasználói kérdések, ahol az agent gyengén teljesít) felhasználhatod az offline tesztadatkészletek bővítésére és javítására. Fordítva, az offline teszteken jól teljesítő agenteket magabiztosabban telepítheted és figyelheted online.
 
-Valójában sok csapat egy ciklust alkalmaz:
+Tény, hogy sok csapat egy ciklust követ:
 
-_offline értékelés -> telepítés -> online monitorozás -> új hibás esetek gyűjtése -> hozzáadás az offline adatbázishoz -> ügynök finomítása -> ismétlés_.
+_offline értékel -> telepít -> online monitoroz -> új hibás eseteket gyűjt -> hozzáad az offline adatokhoz -> finomhangolja az agentet -> ismét_
 
 ## Gyakori problémák
 
-AI ügynökök élesítésénél különféle kihívásokkal találkozhatsz. Íme néhány gyakori probléma és lehetséges megoldásuk:
+AI agentek termelési környezetbe való bevezetése során különféle kihívásokkal találkozhatsz. Íme néhány gyakori probléma és lehetséges megoldásaik:
 
 | **Probléma**    | **Lehetséges megoldás**   |
 | ------------- | ------------------ |
-| Az AI ügynök nem végzi következetesen a feladatokat | - Finomítsd az AI ügynök számára adott promptot; legyél egyértelmű a célokkal.<br>- Azonosítsd, hol lehet a feladatokat alküldetésekre bontani és több ügynökre bízni. |
-| Az AI ügynök ismétlődő hurkokba kerül | - Biztosíts egyértelmű leállítási feltételeket, hogy az ügynök tudja, mikor kell leállítani a folyamatot.<br>- Összetettebb, érvelést és tervezést igénylő feladatokhoz használj nagyobb, erre specializált modellt. |
-| Az AI ügynök eszközhívásai nem működnek jól | - Teszteld és érvényesítsd az eszköz kimenetét az ügynök rendszerén kívül.<br>- Finomítsd az eszközök paramétereit, promptjait és elnevezéseit.  |
-| Többügynökös rendszer nem működik következetesen | - Finomítsd azon ügynökök promptjait, hogy azok specifikusak és jól elkülönüljenek egymástól.<br>- Építs fel egy hierarchikus rendszert „irányító” vagy kontroller ügynökkel, amely meghatározza, melyik ügynök a megfelelő. |
+| Az AI agent nem végzi a feladatokat következetesen | - Finomítsd az agentnek adott promptokat; legyél világos a célokkal.<br>- Azonosítsd, hol segíthet a feladatokat alfeladatokra bontani és több agentet használni. |
+| Az AI agent folyamatos ciklusokba fut  | - Biztosíts világos befejezési feltételeket, hogy tudja, mikor álljon le.<br>- Összetett, érvelést és tervezést igénylő feladatokhoz használd a nagyobb, érvelési feladatokra szakosodott modellt. |
+| AI agent eszköz hívások nem jól működnek   | - Teszteld és validáld az eszköz kimenetét az agent rendszeren kívül.<br>- Finomítsd a definiált paramétereket, promptokat és az eszközök elnevezését.  |
+| Többagent rendszer nem működik következetesen | - Finomítsd az egyes agenteknek adott promptokat, hogy specifikusak és megkülönböztethetőek legyenek.<br>- Építs hierarchikus rendszert, egy „irányító” vagy vezérlő agenttel, amely meghatározza, hogy melyik agent a megfelelő. |
 
-Sok ilyen problémát hatékonyabban lehet azonosítani megfigyelhetőség alkalmazásával. A korábban említett nyomok és mutatók segítenek pontosan behatárolni, hogy az ügynök munkafolyamatában hol fordulnak elő gondok, így a hibakeresés és optimalizálás sokkal eredményesebb.
+Sok problémát hatékonyabban azonosítanak megfigyelhetőség segítségével. Az előzőekben tárgyalt trace-ek és metrikák pontosan megmutatják, hogy az agent munkafolyamat mely pontján jelentkeznek problémák, így a hibakeresés és optimalizálás jóval hatékonyabbá válik.
 
 ## Költségek kezelése
 
+Íme néhány stratégia AI agentek termelési bevezetésének költségeinek kezelésére:
 
-Íme néhány stratégia az AI ügynökök élesbe állítási költségeinek kezelésére:
+**Kisebb modellek használata:** A kis nyelvi modellek (SLM-ek) bizonyos agentikus felhasználási esetekben jól teljesíthetnek, és jelentősen csökkentik a költségeket. Ahogy korábban említettük, a legjobb módja annak, hogy megértsük, mennyire jól teljesít egy SLM az Ön használati esetében, ha kiépítünk egy értékelő rendszert a teljesítményük meghatározására és összehasonlítására a nagyobb modellekkel. Fontolja meg SLM-ek használatát egyszerűbb feladatokra, például szándék osztályozásra vagy paraméterkinyerésre, miközben a nagyobb modelleket összetett következtetésekhez tartogatja.
 
-**Kisebb modellek használata:** A kis nyelvi modellek (Small Language Models, SLM-k) bizonyos ügynöki alkalmazásokban jól teljesíthetnek, és jelentősen csökkentik a költségeket. Ahogy korábban említettük, a teljesítmény értékelésére és a nagyobb modellekkel való összehasonlításra szolgáló rendszer kiépítése a legjobb módja annak, hogy megértsük, egy SLM mennyire lesz hatékony az adott használati esetben. Érdemes SLM-eket használni egyszerűbb feladatokra, például szándék osztályozásra vagy paraméterkinyerésre, míg az összetettebb következtetésekhez tartalékolhatjuk a nagyobb modelleket.
+**Router modell használata:** Egy hasonló stratégia, ha különféle modelleket és méreteket használunk. Használhat egy LLM/SLM-et vagy szerver nélküli függvényt arra, hogy a kéréseket a komplexitás szerint a legmegfelelőbb modellekhez irányítsa. Ez segít csökkenteni a költségeket, miközben a teljesítményt a megfelelő feladatoknál biztosítja. Például az egyszerű lekérdezéseket kisebb, gyorsabb modellekhez irányítsa, és csak az összetett következtetési feladatokhoz használja a drága nagy modelleket.
 
-**Útválasztó modell használata:** Egy hasonló stratégia, hogy különféle modelleket és méreteket alkalmazunk. Használhatunk LLM-et/SLM-et vagy szerver nélküli funkciót arra, hogy a bonyolultság alapján irányítsuk a kéréseket a legmegfelelőbb modellekhez. Ez szintén segít csökkenteni a költségeket, miközben biztosítja a teljesítményt a megfelelő feladatokhoz. Például az egyszerű lekérdezéseket irányítsuk kisebb, gyorsabb modellekhez, és csak a drága nagy modelleket használjuk összetett következtetésekhez.
+**Válaszok gyorsítótárazása:** Gyakori kérések és feladatok azonosítása, illetve a válaszok megadása még mielőtt átmennének az agentikus rendszerén, jó módja a hasonló kérések mennyiségének csökkentésére. Még egy olyan folyamatot is megvalósíthat, amely azonosítja, mennyire hasonló egy kérés a gyorsítótárazott kéréseihez alapvetőbb AI modellek segítségével. Ez a stratégia jelentősen csökkentheti a gyakran feltett kérdésekre vagy gyakori munkafolyamatokra jutó költségeket.
 
-**Válaszok gyorsítótárazása:** Gyakori kérések és feladatok azonosítása, valamint a válaszok előzetes biztosítása az ügynöki rendszer előtt jó módszer a hasonló kérések számának csökkentésére. Akár egy olyan folyamatot is kialakíthatunk, amely egy egyszerűbb AI modell segítségével megállapítja, mennyire hasonló egy kérés a gyorsítótárazott kérésekhez. Ez a stratégia jelentősen csökkentheti a költségeket gyakran feltett kérdések vagy gyakori munkafolyamatok esetén.
+## Nézzük meg, hogyan működik ez a gyakorlatban
 
-## Nézzük, hogyan működik ez a gyakorlatban
-
-Ebben a [szakasz példafüzetében](./code_samples/10-expense_claim-demo.ipynb) példákat látunk arra, hogyan használhatunk megfigyelhetőségi eszközöket az ügynökünk monitorozására és értékelésére.
+A [szakasz példafüzete](./code_samples/10-expense_claim-demo.ipynb) példákat mutat arra, hogyan használhatunk megfigyelési eszközöket az agentünk figyelésére és értékelésére.
 
 
-### További kérdéseid vannak az AI ügynökökről éles környezetben?
+### További kérdései vannak az AI ügynökökről a termelésben?
 
-Csatlakozz a [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) közösséghez, hogy találkozz más tanulókkal, részt vegyél konzultációs órákon, és választ kapj az AI ügynökökkel kapcsolatos kérdéseidre.
+Csatlakozzon a [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) csoporthoz, hogy találkozzon más tanulókkal, részt vegyen irodai órákon, és kérdéseit megválaszolják az AI ügynökökről.
 
-## Előző lecké
+## Előző lecke
 
-[Metakogníciós tervezési minta](../09-metacognition/README.md)
+[Metakogníció tervezési minta](../09-metacognition/README.md)
 
-## Következő lecké
+## Következő lecke
 
-[Ügynöki protokollok](../11-agentic-protocols/README.md)
+[Agentikus protokollok](../11-agentic-protocols/README.md)
 
 ---
 

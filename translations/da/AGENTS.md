@@ -2,41 +2,41 @@
 
 ## Projektoversigt
 
-Dette repository indeholder "AI-agenter for begyndere" - et omfattende undervisningsforløb, der lærer alt, hvad der er nødvendigt for at bygge AI-agenter. Kurset består af 18 lektioner (nummereret 00-18), der dækker grundlæggende principper, designmønstre, frameworks, produktion-udrulning, lokale/enhedsbårne agenter og sikkerhed for AI-agenter.
+Dette repository indeholder "AI Agenter for Begyndere" - et omfattende uddannelsesforløb, der lærer alt nødvendigt for at bygge AI Agenter. Kurset består af 18 lektioner (nummereret 00-18), der dækker grundlæggende principper, designmønstre, frameworks, produktionsudrulning, lokale/på-enhed agenter og sikkerhed for AI agenter.
 
-**Nøgleteknologier:**
+**Nøgle teknologier:**
 - Python 3.12+
 - Jupyter Notebooks til interaktiv læring
 - AI Frameworks: Microsoft Agent Framework (MAF)
 - Azure AI Services: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Arkitektur:**
-- Lektion-baseret struktur (00-15+ mapper)
-- Hver lektion indeholder: README-dokumentation, kodeeksempler (Jupyter notebooks) og billeder
-- Multisprog-understøttelse via automatiseret oversættelsessystem
-- Ét Python-notebook per lektion der bruger Microsoft Agent Framework
+- Lektion-baseret struktur (00-18 mapper)
+- Hver lektion indeholder: README dokumentation, kodeeksempler (Jupyter notebooks) og billeder
+- Multisprog support via automatisk oversættelsessystem
+- Ét Python notebook pr. lektion med Microsoft Agent Framework
 
-## Opsætningskommandoer
+## Setup kommandoer
 
 ### Forudsætninger
 - Python 3.12 eller nyere
-- Azure-abonnement (til Microsoft Foundry)
+- Azure abonnement (til Microsoft Foundry)
 - Azure CLI installeret og autentificeret (`az login`)
 
 ### Initial opsætning
 
-1. **Klon eller fork repositoryet:**
+1. **Klon eller fork repository:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # ELLER
+   # OR
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Opret og aktiver Python virtual environment:**
+2. **Opret og aktivér Python virtuelt miljø:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # På Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Installer afhængigheder:**
@@ -44,64 +44,64 @@ Dette repository indeholder "AI-agenter for begyndere" - et omfattende undervisn
    pip install -r requirements.txt
    ```
 
-4. **Sæt miljøvariabler op:**
+4. **Opsæt miljøvariabler:**
    ```bash
    cp .env.example .env
-   # Rediger .env med dine API-nøgler og slutpunkter
+   # Edit .env with your API keys and endpoints
    ```
 
-### Krævede miljøvariabler
+### Påkrævede miljøvariabler
 
 For **Microsoft Foundry** (påkrævet):
-- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry projekt endepunkt
+- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry projektendepunkt
 - `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Modeludrulningsnavn (f.eks. gpt-5-mini)
 
 For **Azure AI Search** (Lektion 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endepunkt
 - `AZURE_SEARCH_API_KEY` - Azure AI Search API nøgle
 
-Autentificering: Kør `az login` før du kører notebooks (benytter `AzureCliCredential`).
+Autentificering: Kør `az login` før du kører notebooks (bruger `AzureCliCredential`).
 
-## Udviklingsworkflow
+## Udviklingsarbejdsgang
 
 ### Kørsel af Jupyter Notebooks
 
-Hver lektion indeholder flere Jupyter notebooks for forskellige frameworks:
+Hver lektion indeholder flere Jupyter notebooks til forskellige frameworks:
 
 1. **Start Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Naviger til en lektionsmappe** (f.eks. `01-intro-to-ai-agents/code_samples/`)
+2. **Skift til en lektionmappe** (f.eks. `01-intro-to-ai-agents/code_samples/`)
 
 3. **Åbn og kør notebooks:**
-   - `*-python-agent-framework.ipynb` - Brug af Microsoft Agent Framework (Python)
-   - `*-dotnet-agent-framework.ipynb` - Brug af Microsoft Agent Framework (.NET)
+   - `*-python-agent-framework.ipynb` - Brug Microsoft Agent Framework (Python)
+   - `*-dotnet-agent-framework.ipynb` - Brug Microsoft Agent Framework (.NET)
 
 ### Arbejde med Microsoft Agent Framework
 
 **Microsoft Agent Framework + Microsoft Foundry:**
-- Kræver Azure-abonnement
-- Bruger `FoundryChatClient` for Agent Service V2 (agenter synlige i Foundry-portalen)
-- Produktionsklar med indbygget observabilitet
-- Filmønster: `*-python-agent-framework.ipynb`
+- Kræver Azure abonnement
+- Bruger `FoundryChatClient` til Agent Service V2 (agenter synlige i Foundry portalen)
+- Produktionsklar med indbygget overvågning
+- Filnavnmønster: `*-python-agent-framework.ipynb`
 
-## Testinstruktioner
+## Testvejledning
 
-Dette er et undervisningsrepository med eksempel-kode i stedet for produktionskode med automatiserede tests. For at verificere din opsætning og ændringer:
+Dette er et uddannelsesrepository med eksempel kode i stedet for produktionskode med automatiske tests. For at verificere din opsætning og ændringer:
 
 ### Manuel test
 
-1. **Test Python-miljøet:**
+1. **Test Python miljø:**
    ```bash
-   python --version  # Skal være 3.12+
+   python --version  # Should be 3.12+
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Test notebook-eksekvering:**
+2. **Test notebook kørsel:**
    ```bash
-   # Konverter note bog til script og kør (tester imports)
+   # Convert notebook to script and run (tests imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -110,33 +110,33 @@ Dette er et undervisningsrepository med eksempel-kode i stedet for produktionsko
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Kørsel af individuelle notebooks
+### Kør individuelle notebooks
 
-Åbn notebooks i Jupyter og udfør cellerne sekventielt. Hver notebook er selvstændig og indeholder:
+Åbn notebooks i Jupyter og udfør celler sekventielt. Hver notebook er selvstændig og indeholder:
 - Import-sætninger
 - Konfigurationsindlæsning
-- Eksempel på agent-implementeringer
+- Eksempelagent-implementeringer
 - Forventede output i markdown-celler
 
-### Smoke-test af udrullede agenter
+### Røgtest af udrullede agenter
 
-For lektioner, hvor en agent er udrullet som en Microsoft Foundry-hostet agent (01, 04, 05, 16), leverer repoet smoke-test kataloger under `tests/`, som køres af `.github/workflows/smoke-test.yml` workflowet via [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) actionen. Disse er en letvægts post-udrulnings-gate (er agenten tilgængelig og følger basale promptforventninger?), som supplerer evalueringspipelinens lektioner 10 og 16. Se [tests/README.md](./tests/README.md) for katalog-til-lektion-til-agent mapping. Lektion 17 kører lokalt med Foundry Local og har ikke noget hostet endepunkt, så den valideres ved direkte kørsel af dens notebook.
+For lektioner hvor en agent er udrullet som en Microsoft Foundry hostet agent (01, 04, 05, 16), leverer repoet røgtest-kataloger under `tests/`, som køres af `.github/workflows/smoke-test.yml` workflowet via [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) action. Dette er en letvægts post-udrulningsport (er agenten tilgængelig og følger basale promptforventninger?), som supplerer evalueringspipelinjen i Lektion 10 og 16. Se [tests/README.md](./tests/README.md) for kortlægning af katalog-til-lektion-til-agent. Lektion 17 kører lokalt med Foundry Local og har ikke et hostet endepunkt, så den valideres ved direkte at køre sin notebook.
 
 ## Kodestil
 
-### Python-konventioner
+### Python konventioner
 
-- **Python Version**: 3.12+
+- **Python version**: 3.12+
 - **Kodestil**: Følg standard Python PEP 8 konventioner
 - **Notebooks**: Brug klare markdown-celler til at forklare koncepter
-- **Imports**: Grupper efter standardbibliotek, tredjepart, lokale imports
+- **Imports**: Gruppér efter standardbibliotek, tredjepart, lokale imports
 
-### Jupyter Notebook-konventioner
+### Jupyter Notebook konventioner
 
 - Inkluder beskrivende markdown-celler før kodeceller
 - Tilføj output-eksempler i notebooks til reference
-- Brug klare variabelnavne, der matcher lektionskoncepter
-- Hold notebook-eksekveringsrækkefølgen lineær (celle 1 → 2 → 3...)
+- Brug klare variabelnavne, der matcher lektionens koncepter
+- Hold notebook kørselsrækkefølge lineær (celle 1 → 2 → 3...)
 
 ### Filorganisation
 
@@ -150,137 +150,137 @@ For lektioner, hvor en agent er udrullet som en Microsoft Foundry-hostet agent (
     └── *.png
 ```
 
-## Byg og Udrul
+## Byg og Udrulning
 
-### Byg dokumentation
+### Opbygning af dokumentation
 
 Dette repository bruger Markdown til dokumentation:
-- README.md filer i hver lektionsmappe
-- Hoved-README.md i repositoryets rod
-- Automatiseret oversættelsessystem via GitHub Actions
+- README.md filer i hver lektionmappe
+- Hoved README.md i repository rod
+- Automatisk oversættelsessystem via GitHub Actions
 
-### CI/CD Pipeline
+### CI/CD pipeline
 
-Placering i `.github/workflows/`:
+Findes i `.github/workflows/`:
 
 1. **co-op-translator.yml** - Automatisk oversættelse til 50+ sprog
-2. **welcome-issue.yml** - Velkomst til nye issue-oprettere
-3. **welcome-pr.yml** - Velkomst til nye pull request-bidragsydere
+2. **welcome-issue.yml** - Byder nye issues skabere velkommen
+3. **welcome-pr.yml** - Byder nye pull request bidragydere velkommen
 
 ### Udrulning
 
-Dette er et undervisningsrepository - ingen udrulningsproces. Brugere:
-1. Fork eller klon repositoryet
-2. Kør notebooks lokalt eller i GitHub Codespaces
-3. Lær ved at modificere og eksperimentere med eksempler
+Dette er et uddannelsesrepository - ingen udrulningsproces. Brugere:
+1. Forgrener eller kloner repository
+2. Kører notebooks lokalt eller i GitHub Codespaces
+3. Lærer ved at modificere og eksperimentere med eksempler
 
 ## Retningslinjer for Pull Requests
 
 ### Før indsendelse
 
 1. **Test dine ændringer:**
-   - Kør de berørte notebooks fuldstændigt
-   - Bekræft at alle celler kører uden fejl
-   - Kontrollér at output er passende
+   - Kør berørte notebooks fuldstændigt
+   - Verificer at alle celler kan køres uden fejl
+   - Tjek at output er passende
 
 2. **Opdater dokumentation:**
    - Opdater README.md hvis nye koncepter tilføjes
-   - Tilføj kommentarer i notebooks til kompleks kode
-   - Sørg for, at markdown-celler forklarer formålet
+   - Tilføj kommentarer i notebooks for kompleks kode
+   - Sørg for markdown-celler forklarer formålet
 
 3. **Filændringer:**
-   - Undgå at commite `.env` filer (brug `.env.example`)
+   - Undgå at committe `.env` filer (brug `.env.example`)
    - Commit ikke `venv/` eller `__pycache__/` mapper
-   - Behold notebook-output når de viser koncepter
-   - Fjern midlertidige filer og backup-notebooks (`*-backup.ipynb`)
+   - Behold notebook outputs, når de demonstrerer koncepter
+   - Fjern midlertidige filer og backup notebooks (`*-backup.ipynb`)
 
-### PR-titel format
+### PR titel format
 
 Brug beskrivende titler:
-- `[Lesson-XX] Tilføj nyt eksempel til <concept>`
-- `[Fix] Rettelse af fejl i lesson-XX README`
-- `[Update] Forbedr kodeeksempel i lesson-XX`
-- `[Docs] Opdater opstillingsinstruktioner`
+- `[Lesson-XX] Add new example for <concept>`
+- `[Fix] Correct typo in lesson-XX README`
+- `[Update] Improve code sample in lesson-XX`
+- `[Docs] Update setup instructions`
 
-### Påkrævede checks
+### Påkrævede tjek
 
 - Notebooks skal køre uden fejl
-- README-filer skal være klare og korrekte
-- Følg eksisterende kode-mønstre i repositoryet
+- README filer skal være klare og korrekte
+- Følg eksisterende kode mønstre i repository
 - Oprethold konsistens med andre lektioner
 
 ## Yderligere noter
 
 ### Almindelige faldgruber
 
-1. **Python version mismatch:**
-   - Sikr brug af Python 3.12+
-   - Nogle pakker virker måske ikke på ældre versioner
-   - Brug `python3 -m venv` for eksplicit at specificere Python-version
+1. **Python versions mismatch:**
+   - Sørg for at bruge Python 3.12+
+   - Nogle pakker fungerer måske ikke med ældre versioner
+   - Brug `python3 -m venv` til eksplicit at angive Python version
 
 2. **Miljøvariabler:**
-   - Opret altid en `.env` fra `.env.example`
-   - Commit ikke `.env` filen (den er i `.gitignore`)
-   - Log ind med `az login` for nøglefri Entra ID-autentificering
+   - Opret altid `.env` fra `.env.example`
+   - Commit ikke `.env` fil (den er i `.gitignore`)
+   - Log ind med `az login` for nøglefri Entra ID autentificering
 
 3. **Pakke-konflikter:**
-   - Brug et frisk virtual environment
-   - Installer fra `requirements.txt` fremfor enkeltpakker
+   - Brug et frisk virtuelt miljø
+   - Installer fra `requirements.txt` fremfor individuelle pakker
    - Nogle notebooks kan kræve ekstra pakker nævnt i deres markdown-celler
 
-4. **Azure services:**
+4. **Azure tjenester:**
    - Azure AI services kræver aktivt abonnement
    - Nogle funktioner er regionsspecifikke
-   - Sikr at din Azure OpenAI modeludrulning understøtter Responses API
+   - Sørg for, at din Azure OpenAI modeludrulning understøtter Responses API
 
-### Læringsvej
+### Læringssti
 
-Anbefalet progression gennem lektionerne:
+Anbefalet rækkefølge gennem lektionerne:
 1. **00-course-setup** - Start her for miljøopsætning
-2. **01-intro-to-ai-agents** - Forståelse af AI-agenters grundlæggende
+2. **01-intro-to-ai-agents** - Forstå AI agent grundprincipper
 3. **02-explore-agentic-frameworks** - Lær om forskellige frameworks
-4. **03-agentic-design-patterns** - Centrale designmønstre
-5. Fortsæt gennem nummererede lektioner sekventielt
+4. **03-agentic-design-patterns** - Kerne designmønstre
+5. Fortsæt sekventielt gennem nummererede lektioner
 
 ### Framework valg
 
 Vælg framework baseret på dine mål:
 - **Alle lektioner**: Microsoft Agent Framework (MAF) med `FoundryChatClient`
-- **Agenter registreres server-side** i Microsoft Foundry Agent Service V2 og er synlige i Foundry-portalen
+- **Agenter registreres server-side** i Microsoft Foundry Agent Service V2 og er synlige i Foundry portalen
 
 ### Få hjælp
 
 - Deltag i [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Gennemgå lektions-README filer for specifik vejledning
-- Se hoved-[README.md](./README.md) for kursusoversigt
-- Henvis til [Course Setup](./00-course-setup/README.md) for detaljerede opsætningsinstruktioner
+- Gennemgå lektionernes README filer for specifik vejledning
+- Tjek hoved-[README.md](./README.md) for kursusoversigt
+- Se [Course Setup](./00-course-setup/README.md) for detaljerede opsætningsinstruktioner
 
 ### Bidrag
 
-Dette er et åbent undervisningsprojekt. Bidrag er velkomne:
+Dette er et åbent uddannelsesprojekt. Bidrag velkomne:
 - Forbedr kodeeksempler
-- Rett fejl eller slå fejl op
+- Ret stavefejl eller fejl
 - Tilføj forklarende kommentarer
-- Foreslå nye lektionsemner
-- Oversæt til yderligere sprog
+- Forslå nye lektionsemner
+- Oversæt til flere sprog
 
-Se [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for nuværende behov.
+Se [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for aktuelle behov.
 
-## Projektspecifik kontekst
+## Projekt-specifik kontekst
 
-### Flersproget understøttelse
+### Multisprog support
 
 Dette repository bruger et automatiseret oversættelsessystem:
-- 50+ sprog understøttet
+- Understøtter 50+ sprog
 - Oversættelser i `/translations/<lang-code>/` mapper
-- GitHub Actions workflow håndterer oversættelsesopdateringer
-- Kildefiler er på engelsk i repository-roden
+- GitHub Actions workflow håndterer opdateringer til oversættelser
+- Kildefiler er på engelsk i repository rod
 
 ### Lektionsstruktur
 
 Hver lektion følger et ensartet mønster:
 1. Videominiature med link
-2. Skriftligt lektionsindhold (README.md)
+2. Skrevet lektionindhold (README.md)
 3. Kodeeksempler i flere frameworks
 4. Læringsmål og forudsætninger
 5. Ekstra læringsressourcer linket
@@ -290,7 +290,7 @@ Hver lektion følger et ensartet mønster:
 Format: `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - Lektion 1, MAF Python
 - `14-sequential.ipynb` - Lektion 14, MAF avancerede mønstre
-- `16-python-agent-framework.ipynb` - Lektion 16, produktions kundeservice agent
+- `16-python-agent-framework.ipynb` - Lektion 16, produktionskunde-support agent
 - `17-local-agent-foundry-local.ipynb` - Lektion 17, lokal agent med Foundry Local + Qwen
 
 ### Specielle mapper
@@ -305,7 +305,7 @@ Format: `<lesson-number>-python-agent-framework.ipynb`
 Nøglepakker fra `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
 - `a2a-sdk` - Agent-til-agent protokol support
-- `azure-ai-inference`, `azure-ai-projects` - Azure AI services
+- `azure-ai-inference`, `azure-ai-projects` - Azure AI tjenester
 - `azure-identity` - Azure autentificering (AzureCliCredential)
 - `azure-search-documents` - Azure AI Search integration
 - `mcp[cli]` - Model Context Protocol support

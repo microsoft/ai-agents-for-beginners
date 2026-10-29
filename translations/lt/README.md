@@ -2,24 +2,24 @@
 
 ![Dirbtinio intelekto agentai pradedantiesiems](../../translated_images/lt/repo-thumbnailv3.917487e234b90100.webp)
 
-## Kursas, mokantis visko, ką reikia žinoti, kad pradėtumėte kurti dirbtinio intelekto agentus
+## Kursas, išmokantis visko, ką reikia žinoti, kad pradėtumėte kurti dirbtinio intelekto agentus
 
 [![GitHub licencija](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub autorių skaičius](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub bendradarbiai](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
 [![GitHub problemos](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub prašymai įtraukti](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs laukiami](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-užklausos](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PRS laukiami](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 Kelių kalbų palaikymas
+### 🌐 Daugiakalbė palaikymas
 
-#### Palaikoma per GitHub veiksmą (automatiškai ir visada atnaujinta)
+#### Vertimus palaiko [Co-op Translator](https://github.com/Azure/co-op-translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](./README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabų](../ar/README.md) | [Bengalų](../bn/README.md) | [Bulgarų](../bg/README.md) | [Birmos (Myanmar)](../my/README.md) | [Kinų (Supaprastinta)](../zh-CN/README.md) | [Kinų (Tradicinė, Honkongas)](../zh-HK/README.md) | [Kinų (Tradicinė, Makao)](../zh-MO/README.md) | [Kinų (Tradicinė, Taivanas)](../zh-TW/README.md) | [Kroatų](../hr/README.md) | [Čekų](../cs/README.md) | [Danų](../da/README.md) | [Olandų](../nl/README.md) | [Estų](../et/README.md) | [Suomių](../fi/README.md) | [Prancūzų](../fr/README.md) | [Vokiečių](../de/README.md) | [Graikų](../el/README.md) | [Hebrajų](../he/README.md) | [Hindi](../hi/README.md) | [Vengrų](../hu/README.md) | [Indoneziečių](../id/README.md) | [Italų](../it/README.md) | [Japonų](../ja/README.md) | [Kannados](../kn/README.md) | [Khmerų](../km/README.md) | [Korėjiečių](../ko/README.md) | [Lietuvių](./README.md) | [Malaizų](../ms/README.md) | [Malajalų](../ml/README.md) | [Manipuri (Meitei Mayek)](../mni/README.md) | [Maratų](../mr/README.md) | [Nepaliečių](../ne/README.md) | [Nigerijos pidžino](../pcm/README.md) | [Norvegų](../no/README.md) | [Persų (Farsi)](../fa/README.md) | [Lenkų](../pl/README.md) | [Portugalų (Brazilija)](../pt-BR/README.md) | [Portugalų (Portugalija)](../pt-PT/README.md) | [Pandžabių (Gurmukhi)](../pa/README.md) | [Rumunų](../ro/README.md) | [Rusų](../ru/README.md) | [Serbų (Kirilica)](../sr/README.md) | [Slovakų](../sk/README.md) | [Slovėnų](../sl/README.md) | [Ispanų](../es/README.md) | [Suahelio](../sw/README.md) | [Švedų](../sv/README.md) | [Tagalogų (Filipinų)](../tl/README.md) | [Tamilų](../ta/README.md) | [Telugų](../te/README.md) | [Tailando](../th/README.md) | [Turkų](../tr/README.md) | [Ukrainiečių](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamiečių](../vi/README.md)
 
-> **Norite klonuoti vietoje?**
+> **Norite kopijuoti vietoje?**
 >
-> Šiame saugykloje yra daugiau nei 50 kalbų vertimų, dėl ko ženkliai padidėja atsisiuntimo dydis. Norėdami klonuoti be vertimų, naudokite sparse checkout:
+> Ši saugykla apima daugiau nei 50 kalbų vertimų, kurie žymiai padidina parsisiuntimo dydį. Norėdami kopijuoti be vertimų, naudokite ribotą atsisiuntimą (sparse checkout):
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,10 +35,10 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> Tai suteikia jums viską, ko reikia kursui baigti, daug greičiau atsisiunčiant.
+> Tai suteikia viską, ko reikia kursui baigti, su daug greitesniu atsisiuntimu.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Jei norite, kad būtų palaikomos papildomos vertimų kalbos, jos išvardytos [čia](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
+**Dėl papildomų kalbų pasirinkimų žr. [Co-op Translator palaikomas kalbas](https://github.com/Azure/co-op-translator/blob/main/docs/supported-languages.md).**
 
 [![GitHub stebėtojai](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub šakos](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -49,74 +49,74 @@
 
 ## 🌱 Pradžia
 
-Šiame kurse yra pamokos, apimančios dirbtinio intelekto agentų kūrimo pagrindus. Kiekviena pamoka apima atskirą temą, tad pradėkite, nuo ko norite!
+Šiame kurse yra pamokos, apimančios dirbtinio intelekto agentų kūrimo pagrindus. Kiekviena pamoka apima savo temą, tad pradėkite nuo bet kurios, kuri jums patinka!
 
-Šiam kursui palaikomos kelios kalbos. Peržiūrėkite mūsų [prieinamas kalbas čia](#-multi-language-support).
+Šiame kurse yra daugiakalbė palaikymas. Raskite mūsų [galimas kalbas čia](#-multi-language-support).
 
-Jei pirmą kartą kuriate su generatyviniais DI modeliais, peržiūrėkite mūsų [Generatyvinio DI pradedantiesiems](https://aka.ms/genai-beginners) kursą, kuriame yra 21 pamoka apie GenAI kūrimą.
+Jei tai jūsų pirmas kartas dirbant su generatyviniais dirbtinio intelekto modeliais, peržiūrėkite mūsų [Generatyvinio DI pradedantiesiems](https://aka.ms/genai-beginners) kursą, kuriame yra 21 pamoka apie darbą su GenAI.
 
-Nepamirškite [įvertinti (🌟) šią saugyklą](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [padaryti fork’ą](https://github.com/microsoft/ai-agents-for-beginners/fork), kad galėtumėte paleisti kodą.
+Nepamirškite [pažymėti (🌟) šią saugyklą žvaigždute](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [padaryti saugyklos atšaką (fork)](https://github.com/microsoft/ai-agents-for-beginners/fork) kodui paleisti.
 
-### Susipažinkite su kitais mokiniais, gaukite atsakymus į savo klausimus
+### Susipažinkite su kitais besimokantiesiems, gaukite atsakymus į savo klausimus
 
-Jei užstrigote arba turite klausimų dėl dirbtinio intelekto agentų kūrimo, prisijunkite prie specialios mūsų Discord kanalo [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Jei susiduriate su sunkumais ar turite klausimų apie dirbtinio intelekto agentų kūrimą, prisijunkite prie mūsų specialios Discord kanalo [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### Ko jums reikia
 
-Kiekvienoje šio kurso pamokoje yra pateikti kodo pavyzdžiai, kuriuos rasite code_samples aplanke. Galite [padaryti šios saugyklos fork’ą](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.
+Kiekvienoje šio kurso pamokoje yra kodo pavyzdžių, kuriuos rasite code_samples kataloge. Galite [padaryti saugyklos atšaką (fork)](https://github.com/microsoft/ai-agents-for-beginners/fork) ir sukurti savo kopiją.
 
-Šių užduočių kodo pavyzdžiai naudoja Microsoft Agent Framework kartu su Microsoft Foundry Agent Service V2:
+Šių užduočių kodo pavyzdžiai naudoja Microsoft Agent Framework su Microsoft Foundry Agent Service V2:
 
-- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) – reikalinga Azure paskyra
+- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - reikalinga Azure paskyra
 
-Šiame kurse naudojamos šios Microsoft DI agentų platformos ir paslaugos:
+Šis kursas naudoja šias Microsoft dirbtinio intelekto agentų karkaso sistemas ir paslaugas:
 
 - [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/agent-framework/overview/)
 - [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Kai kurie kodo pavyzdžiai taip pat palaiko alternatyvius OpenAI suderinamus tiekėjus, tokius kaip [MiniMax](https://platform.minimaxi.com/), kuris siūlo didelės apimties kontekstinius modelius (iki 204K žetonų). Išsamias konfigūracijos detales rasite [Kurso sąrangoje](./00-course-setup/README.md).
+Kai kurie kodo pavyzdžiai taip pat palaiko kitus OpenAI suderinamus tiekėjus, tokius kaip [MiniMax](https://platform.minimaxi.com/), kuris siūlo didelio konteksto modelius (iki 204K žetonų). Daugiau informacijos apie konfigūraciją rasite [kurso nustatymuose](./00-course-setup/README.md).
 
-Daugiau informacijos apie šio kurso kodo paleidimą rasite [Kurso sąrankoje](./00-course-setup/README.md).
+Daugiau informacijos apie kodo vykdymą šiam kursui rasite [kurso nustatymuose](./00-course-setup/README.md).
 
-## 🙏 Ar norite padėti?
+## 🙏 Norite padėti?
 
-Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Atidarykite problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Turite pasiūlymų ar radote rašybos ar kodo klaidų? [Atidarykite problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite traukimo užklausą](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
-## 📂 Kiekviena pamoka apima
+## 📂 Kiekvienoje pamokoje yra
 
-- Rašytinę pamoką README faile ir trumpą vaizdo įrašą
-- Python kodo pavyzdžius, naudojant Microsoft Agent Framework su Microsoft Foundry
-- Nuorodas į papildomus išteklius, norint tęsti mokymąsi
+- Rašytinė pamoka README faile ir trumpas vaizdo įrašas
+- Python kodo pavyzdžiai, naudojantys Microsoft Agent Framework su Microsoft Foundry
+- Nuorodos į papildomus išteklius tolimesniam mokymuisi
 
 
 ## 🗃️ Pamokos
 
-| **Pamoka**                                   | **Tekstas ir kodas**                              | **Vaizdo įrašas**                                         | **Papildomas mokymasis**                                                             |
-|-----------------------------------------------|-------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Supažindinimas su DI agentais ir jų naudojimo sritimis       | [Nuoroda](./01-intro-to-ai-agents/README.md)          | [Vaizdo įrašas](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| DI agentinių sistemų tyrinėjimas             | [Nuoroda](./02-explore-agentic-frameworks/README.md)  | [Vaizdo įrašas](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| DI agentinių dizaino modelių supratimas     | [Nuoroda](./03-agentic-design-patterns/README.md)     | [Vaizdo įrašas](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Įrankių naudojimo dizaino modelis             | [Nuoroda](./04-tool-use/README.md)                    | [Vaizdo įrašas](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentinis RAG                                 | [Nuoroda](./05-agentic-rag/README.md)                 | [Vaizdo įrašas](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Patikimų DI agentų kūrimas                   | [Nuoroda](./06-building-trustworthy-agents/README.md) | [Vaizdo įrašas](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Planavimo dizaino modelis                     | [Nuoroda](./07-planning-design/README.md)             | [Vaizdo įrašas](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Multi-agentų dizaino modelis                  | [Nuoroda](./08-multi-agent/README.md)                 | [Vaizdo įrašas](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metakognicijos dizaino šablonas            | [Nuoroda](./09-metacognition/README.md)                | [Vaizdo įrašas](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI agentai gamyboje                         | [Nuoroda](./10-ai-agents-production/README.md)         | [Vaizdo įrašas](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentinių protokolų naudojimas (MCP, A2A ir NLWeb) | [Nuoroda](./11-agentic-protocols/README.md)            | [Vaizdo įrašas](https://youtu.be/X-Dh9R3Opn8)                                  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Konteksto inžinerija AI agentams           | [Nuoroda](./12-context-engineering/README.md)          | [Vaizdo įrašas](https://youtu.be/F5zqRV7gEag)                                  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentinės atminties valdymas                | [Nuoroda](./13-agent-memory/README.md)      |      [Vaizdo įrašas](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Microsoft agentų karkaso tyrinėjimas        | [Nuoroda](./14-microsoft-agent-framework/README.md)                             |                                                            |                                                                                        |
-| Kompiuterinių naudotojų agentų kūrimas (CUA) | [Nuoroda](./15-browser-use/README.md)      |                                                            | [Nuoroda](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| Skalaujames agentų diegimas                  | [Nuoroda](./16-deploying-scalable-agents/README.md)  |                                                    | [Nuoroda](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
-| Vietinių AI agentų kūrimas                   | [Nuoroda](./17-creating-local-ai-agents/README.md)   |                                                    | [Nuoroda](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
-| AI agentų saugumas                           | [Nuoroda](./18-securing-ai-agents/README.md)   |                                                            | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| **Pamoka**                                   | **Tekstas ir kodas**                                    | **Vaizdo įrašas**                                                  | **Papildomas mokymasis**                                                                     |
+|----------------------------------------------|--------------------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Dirbtinio intelekto agentų įvadas ir panaudojimo atvejai       | [Nuoroda](./01-intro-to-ai-agents/README.md)          | [Vaizdo įrašas](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tyrinėjant AI agentinių karkasų sistemas              | [Nuoroda](./02-explore-agentic-frameworks/README.md)  | [Vaizdo įrašas](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Dirbtinio intelekto agentinių dizaino modelių supratimas     | [Nuoroda](./03-agentic-design-patterns/README.md)     | [Vaizdo įrašas](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Įrankių naudojimo dizaino modelis                      | [Nuoroda](./04-tool-use/README.md)                    | [Vaizdo įrašas](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentinis RAG                                  | [Nuoroda](./05-agentic-rag/README.md)                 | [Vaizdo įrašas](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Patikimų dirbtinio intelekto agentų kūrimas               | [Nuoroda](./06-building-trustworthy-agents/README.md) | [Vaizdo įrašas](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK) | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Planavimo dizaino modelis                      | [Nuoroda](./07-planning-design/README.md)             | [Vaizdo įrašas](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Daugiagentinis dizaino modelis                   | [Nuoroda](./08-multi-agent/README.md)                 | [Vaizdo įrašas](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Metakognityvinis dizaino modelis                 | [Nuoroda](./09-metacognition/README.md)               | [Vaizdo įrašas](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Dirbtinio intelekto agentai gamyboje                      | [Nuoroda](./10-ai-agents-production/README.md)        | [Vaizdo įrašas](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Naudojant agentinius protokolus (MCP, A2A ir NLWeb) | [Nuoroda](./11-agentic-protocols/README.md)           | [Vaizdo įrašas](https://youtu.be/X-Dh9R3Opn8)                                 | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Konteksto inžinerija dirbtinio intelekto agentams            | [Nuoroda](./12-context-engineering/README.md)         | [Vaizdo įrašas](https://youtu.be/F5zqRV7gEag)                                 | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentinių atminties valdymas                      | [Nuoroda](./13-agent-memory/README.md)     |      [Vaizdo įrašas](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Microsoft Agent Framework tyrinėjimas                         | [Nuoroda](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Kompiuterio naudojimo agentų kūrimas (CUA)           | [Nuoroda](./15-browser-use/README.md)     |                                                            | [Nuoroda](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| Skalaujamų agentų diegimas                    | [Nuoroda](./16-deploying-scalable-agents/README.md) |                                                    | [Nuoroda](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
+| Vietinių dirbtinio intelekto agentų kūrimas                     | [Nuoroda](./17-creating-local-ai-agents/README.md)  |                                                    | [Nuoroda](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
+| Dirbtinio intelekto agentų saugumas                           | [Nuoroda](./18-securing-ai-agents/README.md)  |                                                            | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Kiti kursai
 
-Mūsų komanda kuria ir kitus kursus! Pasižiūrėkite:
+Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -125,26 +125,26 @@ Mūsų komanda kuria ir kitus kursus! Pasižiūrėkite:
 [![LangChain pradedantiesiems](https://img.shields.io/badge/LangChain%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin)
 ---
 
-### Azure / Edge / MCP / Agentai
+### Azure / Edge / MCP / agentai
 [![AZD pradedantiesiems](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI pradedantiesiems](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP pradedantiesiems](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI agentai pradedantiesiems](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Dirbtinio intelekto agentai pradedantiesiems](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### Generatyvinis AI serija
-[![Generatyvinis AI pradedantiesiems](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![Generatyvinis AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![Generatyvinis AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![Generatyvinis AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Generatyvaus DI serija
+[![Generatyvinis DI pradedantiesiems](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Generatyvinis DI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![Generatyvinis DI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![Generatyvinis DI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
 ### Pagrindinis mokymasis
-[![ML pradedantiesiems](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+[![DML pradedantiesiems](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Duomenų mokslas pradedantiesiems](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI pradedantiesiems](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+[![DI pradedantiesiems](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
 [![Kibernetinis saugumas pradedantiesiems](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
 [![Tinklalapių kūrimas pradedantiesiems](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
 [![IoT pradedantiesiems](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
@@ -152,46 +152,46 @@ Mūsų komanda kuria ir kitus kursus! Pasižiūrėkite:
 
 ---
  
-### Copilot serija
-[![Copilot AI suporuotam programavimui](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![Copilot C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![Copilot nuotykiai](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+### "Copilot" serija
+[!["Copilot" DI porinei programavimo pagalbai](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[!["Copilot" C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[!["Copilot" nuotykis](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Bendruomenės padėkos
+## 🌟 Bendruomenės padėka
 
-Ačiū [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodo pavyzdžių pateikimą, demonstruojant Agentic RAG. 
+Ačiū [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodo pavyzdžių pateikimą, demonstruojant Agentinį RAG. 
 
 ## Prisidėjimas
 
-Šis projektas kviečia prisidėti ir teikti pasiūlymus. Dauguma indėlių reikalauja, kad sutiktumėte su
-Indėlio Licencijos Sutartimi (CLA), kuria patvirtinate, kad turite teisę ir iš tikrųjų suteikiate mums
-teises naudoti jūsų indėlį. Daugiau informacijos rasite <https://cla.opensource.microsoft.com>.
+Šis projektas laukią indėlių ir pasiūlymų. Dauguma prisidėjimų reikalauja, kad sutiksite su
+Bendradarbio licencijos sutartimi (CLA), kuri deklaruoja, kad turite teisę ir iš tikrųjų suteikiate mums
+teises naudoti jūsų prisidėjimą. Daugiau informacijos rasite <https://cla.opensource.microsoft.com>.
 
-Pateikus PR, CLA botas automatiškai nustatys, ar jums reikia pateikti
-CLA, ir tinkamai pažymės PR (pvz., būsenos tikrinimas, komentaras). Tiesiog vykdykite botas nurodymus.
-Tai reikės padaryti tik vieną kartą visuose saugyklose, naudojančiose mūsų CLA.
+Kai teikiate "pull request", CLA robotas automatiškai nustatys, ar jums reikia pateikti
+CLA ir tinkamai pažymės PR (pvz., būsenos tikrinimas, komentaras). Tiesiog vykdykite roboto nurodymus.
+Tai reikės padaryti tik vieną kartą visuose mūsų CLA naudojančiuose repozitorijose.
 
-Šis projektas priėmė [„Microsoft“ atvirojo kodo elgesio kodeksą](https://opensource.microsoft.com/codeofconduct/).
-Daugiau informacijos rasite [Elgesio kodekso DUK](https://opensource.microsoft.com/codeofconduct/faq/) arba
-susisiekite su [opencode@microsoft.com](mailto:opencode@microsoft.com) dėl papildomų klausimų ar pastabų.
+Šis projektas priėmė [Microsoft atvirojo kodo elgesio kodeksą](https://opensource.microsoft.com/codeofconduct/).
+Daugiau informacijos rasite [elgesio kodekso DUK](https://opensource.microsoft.com/codeofconduct/faq/) arba
+susisiekite su [opencode@microsoft.com](mailto:opencode@microsoft.com) dėl papildomų klausimų ar komentarų.
 
-## Prekės ženklai
+## Prekių ženklai
 
-Šiame projekte gali būti projektų, produktų ar paslaugų prekės ženklų ar logotipų. Įgaliotas „Microsoft“
-prekės ženklų ar logotipų naudojimas yra sąlygotas ir turi atitikti
-[„Microsoft“ prekės ženklų ir prekių ženklų gairės](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-„Microsoft“ prekės ženklų ar logotipų naudojimas modifikuotose šio projekto versijose neturi sukelti painiavos ar rodyti „Microsoft“ rėmimą.
-Bet koks trečiųjų šalių prekės ženklų ar logotipų naudojimas yra sąlygotas šių trečiųjų šalių politikos.
+Šis projektas gali turėti prekių ženklus ar logotipus projektams, produktams ar paslaugoms. Leidžiamas
+"Microsoft" prekių ženklų ar logotipų naudojimas yra reikalingas laikytis
+[Microsoft prekių ženklų ir prekės ženklo gairių](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+"Microsoft" prekių ženklų ar logotipų naudojimas šio projekto modifikuotose versijose neturi sukelti painiavos ar rodyti, kad projektas remiamas "Microsoft".
+Bet koks trečiųjų šalių prekių ženklų arba logotipų naudojimas priklauso atitinkamų trečiųjų šalių politikoms.
 
 ## Pagalbos gavimas
 
 
-Jei užstrigote arba turite klausimų apie AI programų kūrimą, prisijunkite:
+Jei užstrigote ar turite klausimų apie DI programėlių kūrimą, prisijunkite:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Jei turite produkto atsiliepimų ar susidūrėte su klaidomis kurdami, apsilankykite:
+Jei turite produktų atsiliepimų arba pastebite klaidų kūrimo metu, apsilankykite:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

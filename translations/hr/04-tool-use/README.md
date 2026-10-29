@@ -1,79 +1,79 @@
 [![Kako dizajnirati dobre AI agente](../../../translated_images/hr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Kliknite na sliku iznad za gledanje videa ove lekcije)_
+> _(Kliknite na gornju sliku za pregled videa ove lekcije)_
 
-# Dizajnerski obrazac korištenja alata
+# Predložak za korištenje alata
 
-Alati su zanimljivi jer AI agentima omogućuju širi raspon mogućnosti. Umjesto da agent ima ograničen skup radnji koje može izvesti, dodavanjem alata agent sada može izvršavati širok spektar radnji. U ovom poglavlju ćemo pogledati Dizajnerski obrazac korištenja alata, koji opisuje kako AI agenti mogu koristiti specifične alate za postizanje svojih ciljeva.
+Alati su zanimljivi jer omogućuju AI agentima širi spektar sposobnosti. Umjesto da agent ima ograničen skup radnji koje može izvršiti, dodavanjem alata agent sada može obaviti širok raspon radnji. U ovom poglavlju ćemo proučiti predložak za korištenje alata, koji opisuje kako AI agenti mogu koristiti specifične alate za postizanje svojih ciljeva.
 
 ## Uvod
 
-U ovoj lekciji želimo odgovoriti na sljedeća pitanja:
+U ovoj lekciji tražimo odgovore na sljedeća pitanja:
 
-- Što je dizajnerski obrazac korištenja alata?
-- Koje su primjene na koje se može primijeniti?
-- Koji su elementi/gradivni blokovi potrebni za implementaciju dizajnerskog obrasca?
-- Koje su posebne napomene za korištenje dizajnerskog obrasca korištenja alata u izgradnji pouzdanih AI agenata?
+- Što je predložak za korištenje alata?
+- U kojim se slučajevima primjene može koristiti?
+- Koji su elementi/gradivni blokovi potrebni za implementaciju predloška?
+- Koje su posebne razmatranja pri korištenju predloška za korištenje alata za izgradnju pouzdanih AI agenata?
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije, moći ćete:
+Nakon završetka ove lekcije moći ćete:
 
-- Definirati dizajnerski obrazac korištenja alata i njegovu svrhu.
-- Identificirati primjene gdje je dizajnerski obrazac korištenja alata primjenjiv.
-- Razumjeti ključne elemente potrebne za implementaciju dizajnerskog obrasca.
-- Prepoznati napomene za osiguravanje pouzdanosti AI agenata koji koriste ovaj dizajnerski obrazac.
+- Definirati predložak za korištenje alata i njegovu svrhu.
+- Prepoznati slučajeve korištenja u kojima je predložak primjenjiv.
+- Razumjeti ključne elemente potrebne za implementaciju predloška.
+- Prepoznati razmatranja za osiguravanje pouzdanosti AI agenata koji koriste ovaj predložak.
 
-## Što je dizajnerski obrazac korištenja alata?
+## Što je predložak za korištenje alata?
 
-**Dizajnerski obrazac korištenja alata** fokusira se na pružanje mogućnosti LLM-ovima da komuniciraju s vanjskim alatima kako bi postigli specifične ciljeve. Alati su kodovi koje agent može izvršiti za izvođenje radnji. Alat može biti jednostavna funkcija poput kalkulatora, ili API poziv prema trećoj strani kao što je provjera cijena dionica ili meteorološka prognoza. U kontekstu AI agenata, alati su dizajnirani da budu izvršeni od strane agenata kao odgovor na **pozive funkcijama generirane od modela**.
+**Predložak za korištenje alata** fokusira se na omogućavanje LLM-ovima (velikim jezičnim modelima) da komuniciraju s vanjskim alatima kako bi postigli specifične ciljeve. Alati su kod koji agent može izvršiti za obavljanje radnji. Alat može biti jednostavna funkcija poput kalkulatora ili poziv API-ja treće strane kao što je pregled cijena dionica ili vremenska prognoza. U kontekstu AI agenata, alati su dizajnirani da ih agenti izvršavaju kao odgovor na **funkcijske pozive generirane modelom**.
 
-## Koje su primjene na koje se može primijeniti?
+## U kojim slučajevima se može primijeniti?
 
-AI agenti mogu koristiti alate za obavljanje složenih zadataka, dohvat informacija ili donošenje odluka. Dizajnerski obrazac korištenja alata često se koristi u scenarijima koji zahtijevaju dinamičnu interakciju s vanjskim sustavima, poput baza podataka, web usluga ili interpreterima koda. Ova sposobnost korisna je za različite slučajeve upotrebe uključujući:
+AI agenti mogu koristiti alate za dovršavanje složenih zadataka, dohvaćanje informacija ili donošenje odluka. Predložak za korištenje alata često se koristi u scenarijima koji zahtijevaju dinamičku interakciju s vanjskim sustavima poput baza podataka, web servisa ili interpretatora koda. Ova sposobnost korisna je za različite slučajeve, uključujući:
 
-- **Dinamičan dohvat informacija:** Agenti mogu upitavati vanjske API-je ili baze podataka kako bi dohvatili najnovije podatke (npr. upit SQLite baze za analizu podataka, dohvat cijena dionica ili vremenske prognoze).
-- **Izvršavanje i interpretacija koda:** Agenti mogu izvršavati kod ili skripte za rješavanje matematičkih problema, generiranje izvještaja ili izvođenje simulacija.
-- **Automatizacija radnih tijekova:** Automatiziranje ponavljajućih ili višestepenih radnih tijekova integriranjem alata kao što su raspoređivači zadataka, e-mail usluge ili podatkovni tokovi.
-- **Korisnička podrška:** Agenti mogu komunicirati s CRM sustavima, platformama za upravljanje zahtjevima ili bazama znanja za rješavanje korisničkih upita.
-- **Generiranje i uređivanje sadržaja:** Agenti mogu koristiti alate poput provjere gramatike, sažimanja teksta ili evaluacije sigurnosti sadržaja za pomoć u zadacima stvaranja sadržaja.
+- **Dinamičko dohvaćanje informacija:** Agent može upitavati vanjske API-je ili baze podataka kako bi pribavio ažurirane podatke (npr. upit SQLite baze za analizu podataka, dohvat cijena dionica ili vremenskih informacija).
+- **Izvršavanje i interpretacija koda:** Agent može izvršavati kod ili skripte za rješavanje matematičkih problema, generiranje izvještaja ili izvođenje simulacija.
+- **Automatizacija radnih tijekova:** Automatizacija ponavljajućih ili višestepenskih procesa integriranjem alata poput raspoređivača zadataka, servisima e-pošte ili podatkovnim cjevovodima.
+- **Korisnička podrška:** Agent može komunicirati s CRM sustavima, platformama za izdavanje kartica ili bazama znanja za rješavanje korisničkih upita.
+- **Generiranje i uređivanje sadržaja:** Agent može koristiti alate poput provjere gramatike, sažimanja teksta ili ocjenjivača sigurnosti sadržaja za pomoć u zadacima stvaranja sadržaja.
 
-## Koji su elementi/gradivni blokovi potrebni za implementaciju dizajnerskog obrasca korištenja alata?
+## Koji su elementi/gradivni blokovi potrebni za implementaciju predloška za korištenje alata?
 
-Ovi gradivni blokovi omogućuju AI agentu da izvršava širok spektar zadataka. Pogledajmo ključne elemente potrebne za implementaciju dizajnerskog obrasca korištenja alata:
+Ovi gradivni blokovi omogućuju AI agentu obavljanje širokog raspona zadataka. Pogledajmo ključne elemente potrebne za implementaciju predloška za korištenje alata:
 
-- **Sheme funkcija/alata**: Detaljni opisi dostupnih alata, uključujući naziv funkcije, svrhu, potrebne parametre i očekivane izlaze. Ove sheme omogućuju LLM-u da razumije koji su alati dostupni i kako konstruirati valjane zahtjeve.
+- **Sheme funkcija/alata**: Detaljni opisi dostupnih alata, uključujući ime funkcije, svrhu, potrebne parametre i očekivane rezultate. Ove sheme omogućuju LLM-u razumijevanje dostupnih alata i kako sastaviti valjane zahtjeve.
 
-- **Logika izvršavanja funkcija**: Upravljanje načinom i vremenom pozivanja alata na temelju korisničke namjere i konteksta razgovora. To može uključivati planere, mehanizme usmjeravanja ili uvjetne tokove koje dinamički određuju korištenje alata.
+- **Logika izvršavanja funkcije**: Određuje kako i kada se alati pozivaju na temelju korisnikove namjere i konteksta razgovora. To može uključivati module planiranja, mehanizme usmjeravanja ili uvjetne tokove koji dinamički određuju korištenje alata.
 
-- **Sustav za rukovanje porukama**: Komponente koje upravljaju razgovornim tokom između korisničkih unosa, LLM odgovora, poziva alata i izlaza iz alata.
+- **Sustav za upravljanje porukama**: Komponente koje upravljaju tijekovima razgovora između korisničkih unosa, LLM-ovih odgovora, poziva alata i rezultata alata.
 
-- **Okvir za integraciju alata**: Infrastruktura koja povezuje agenta s različitim alatima, bilo da se radi o jednostavnim funkcijama ili složenim vanjskim uslugama.
+- **Okvir za integraciju alata**: Infrastruktura koja povezuje agenta s raznim alatima, bilo da su to jednostavne funkcije ili složene vanjske usluge.
 
-- **Rukovanje pogreškama i validacija**: Mehanizmi za upravljanje neuspjesima u izvršavanju alata, validaciju parametara i rukovanje neočekivanim odgovorima.
+- **Rukovanje pogreškama i validacija**: Mehanizmi za upravljanje neuspjesima pri izvršavanju alata, validaciju parametara i upravljanje neočekivanim odgovorima.
 
-- **Upravljanje stanjem**: Praćenje konteksta razgovora, prethodnih interakcija s alatima i trajnih podataka kako bi se osigurala dosljednost tijekom višekratnih interakcija.
+- **Upravljanje stanjem**: Praćenje konteksta razgovora, prethodnih interakcija s alatima i trajnih podataka radi osiguravanja dosljednosti tijekom višekratnih okretaja.
 
-Sljedeće ćemo detaljnije pogledati pozivanje funkcija/alata.
+Sljedeće, pogledajmo detaljnije pozivanje funkcija/alata.
  
 ### Pozivanje funkcija/alata
 
-Pozivanje funkcija je glavni način na koji omogućavamo Large Language Models (LLM-ovima) interakciju s alatima. Često ćete vidjeti da se "funkcija" i "alat" koriste naizmjenično jer su "funkcije" (blokovi ponovo iskoristivog koda) alati koje agenti koriste za obavljanje zadataka. Da bi kod funkcije bio pozvan, LLM mora usporediti korisnički zahtjev s opisom funkcije. Za to se šalje shema koja sadrži opise svih dostupnih funkcija LLM-u. LLM tada odabire najprikladniju funkciju za zadatak i vraća njen naziv i argumente. Odabrana funkcija se poziva, njen odgovor se šalje natrag LLM-u, koji koristi informacije za odgovor na korisnički zahtjev.
+Pozivanje funkcije je primarni način na koji omogućavamo velikim jezičnim modelima (LLM-ovima) da komuniciraju s alatima. Često ćete vidjeti da se 'Funkcija' i 'Alat' koriste naizmjence jer su 'funkcije' (blokovi ponovno upotrebljivog koda) alati koje agent koristi za izvršavanje zadataka. Da bi se pozvao kod neke funkcije, LLM mora usporediti korisnički zahtjev s opisom funkcije. Za to se šalje shema koja sadrži opise svih dostupnih funkcija LLM-u. LLM zatim odabire najprikladniju funkciju za zadatak i vraća njezino ime i argumente. Odabrana funkcija se poziva, njezin odgovor se šalje natrag LLM-u, koji koristi informacije kako bi odgovorio na korisnički zahtjev.
 
-Za programere koji žele implementirati pozivanje funkcija za agente, potrebni su:
+Za razvoj funkcije pozivanja za agente, potrebno je:
 
-1. LLM model koji podržava pozivanje funkcija
+1. Model LLM koji podržava pozivanje funkcija
 2. Shema koja sadrži opise funkcija
 3. Kod za svaku opisanu funkciju
 
-Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
+Koristit ćemo primjer dobivanja točnog vremena u nekom gradu za ilustraciju:
 
-1. **Inicijalizirajte LLM koji podržava pozivanje funkcija:**
+1. **Inicijalizacija LLM-a koji podržava pozivanje funkcija:**
 
-    Nisu svi modeli podržavaju pozivanje funkcija, pa je važno provjeriti podržava li LLM koji koristite. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> podržava pozivanje funkcija. Možemo započeti inicijalizacijom OpenAI klijenta prema Azure OpenAI **Responses API** (stabilni `/openai/v1/` endpoint — nije potreban `api_version`). 
+    Ne podržavaju svi modeli pozivanje funkcija, stoga je važno provjeriti podršku u modelu koji koristite.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> podržava pozivanje funkcija. Možemo početi inicijalizirati OpenAI klijent prema Azure OpenAI **Responses API-ju** (stabilna `/openai/v1/` krajnja točka — nije potreban `api_version`). 
 
     ```python
-    # Inicijalizirajte OpenAI klijent za Azure OpenAI (Responses API, v1 endpoint)
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
     client = OpenAI(
         base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
         api_key=os.environ["AZURE_OPENAI_API_KEY"],
@@ -81,13 +81,13 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
     deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **Kreirajte shemu funkcije**:
+1. **Kreiranje sheme funkcije**:
 
-    Sljedeće definiramo JSON shemu koja sadrži naziv funkcije, opis onoga što funkcija radi, te nazive i opise parametara funkcije.
-    Nakon toga ćemo tu shemu poslati klijentu kreiranom ranije zajedno s korisničkim zahtjevom za pronalaskom vremena u San Franciscu. Važno je napomenuti da se vraća **poziv alatu**, a **ne** konačan odgovor na pitanje. Kao što je spomenuto ranije, LLM vraća naziv funkcije koju je odabrao za zadatak i argumente koji će joj biti proslijeđeni.
+    Sljedeće ćemo definirati JSON shemu koja sadrži ime funkcije, opis što funkcija radi i imena i opise parametara funkcije.
+    Zatim ćemo ovu shemu proslijediti ranije kreiranom klijentu zajedno s korisničkim zahtjevom za pronalaskom vremena u San Franciscu. Važno je napomenuti da se vraća **poziv alata**, **a ne** konačni odgovor na pitanje. Kao što je ranije navedeno, LLM vraća ime funkcije koju je odabrao za zadatak i argumente koji će joj biti dodijeljeni.
 
     ```python
-    # Opis funkcije za model da pročita (format alata Responses API flat)
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
@@ -109,10 +109,10 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
    
     ```python
   
-    # Početna korisnička poruka
+    # Initial user message
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-    # Prvi API poziv: Zatražite od modela da koristi funkciju
+    # First API call: Ask the model to use the function
     response = client.responses.create(
         model=deployment_name,
         input=messages,
@@ -121,8 +121,8 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
         store=False,
     )
 
-    # Responses API vraća pozive alata kao stavke function_call u response.output.
-    # Dodajte ih u razgovor kako bi model imao puni kontekst u sljedećem koraku.
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
     messages += response.output
 
     print("Model's response:")
@@ -135,10 +135,10 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
     [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **Kod funkcije potreban za izvođenje zadatka:**
+1. **Kod funkcije potreban da izvrši zadatak:**
 
-    Sada kada je LLM odabrao koju funkciju treba pokrenuti, potrebno je implementirati i izvršiti kod koji obavlja zadatak.
-    Kod za dohvat trenutnog vremena možemo implementirati u Pythonu. Također treba napisati kod za izdvajanje naziva i argumenata iz response_message kako bismo dobili konačni rezultat.
+    Sada kada je LLM odabrao koju funkciju treba izvršiti, kod koji izvršava zadatak treba biti implementiran i pokrenut.
+    Možemo implementirati kod za dobivanje točnog vremena u Pythonu. Također ćemo morati napisati kod za izdvajanje imena i argumenata iz response_message kako bismo dobili konačni rezultat.
 
     ```python
       def get_current_time(location):
@@ -160,7 +160,7 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
     ```
 
      ```python
-    # Obrada poziva funkcija
+    # Handle function calls
     tool_calls = [item for item in response.output if item.type == "function_call"]
     if tool_calls:
         for tool_call in tool_calls:
@@ -172,7 +172,7 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
                     location=function_args.get("location")
                 )
 
-                # Vratite rezultat alata kao stavku function_call_output
+                # Return the tool result as a function_call_output item
                 messages.append({
                     "type": "function_call_output",
                     "call_id": tool_call.call_id,
@@ -181,7 +181,7 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
     else:
         print("No tool calls were made by the model.")
 
-    # Drugi API poziv: Dohvatite konačni odgovor iz modela
+    # Second API call: Get the final response from the model
     final_response = client.responses.create(
         model=deployment_name,
         input=messages,
@@ -198,22 +198,22 @@ Upotrijebimo primjer kako dobiti trenutno vrijeme u gradu:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Pozivanje funkcija je u srcu većine, ako ne i svih dizajna korištenja alata u agentima, no implementacija od nule ponekad može biti izazovna.
-Kao što smo naučili u [Lekciji 2](../../../02-explore-agentic-frameworks), agentni okviri pružaju nam predizrađene gradivne blokove za implementaciju korištenja alata.
+Pozivanje funkcija je srž većine, ako ne i svih, dizajna korištenja alata agenta, no implementacija od početka ponekad može biti izazovna.
+Kao što smo naučili u [Lekciji 2](../../../02-explore-agentic-frameworks), agentni okviri nam pružaju unaprijed izrađene gradivne blokove za implementaciju korištenja alata.
  
 ## Primjeri korištenja alata s agentnim okvirima
 
-Evo nekoliko primjera kako možete implementirati dizajnerski obrazac korištenja alata koristeći različite agentne okvire:
+Evo nekoliko primjera kako implementirati predložak za korištenje alata koristeći različite agentne okvire:
 
 ### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> je open-source AI okvir za izgradnju AI agenata. Pojednostavljuje proces korištenja pozivanja funkcija omogućujući vam da definirate alate kao Python funkcije s dekoratorom `@tool`. Okvir upravlja komunikacijom između modela i vašeg koda. Također pruža pristup predizgrađenim alatima poput File Search i Code Interpreter putem `FoundryChatClient`.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> je otvoreni AI okvir za izgradnju AI agenata. Pojednostavljuje proces korištenja poziva funkcija dopuštajući da se alati definiraju kao Python funkcije s dekoratorom `@tool`. Okvir upravlja međusobnom komunikacijom između modela i vašeg koda. Također pruža pristup unaprijed izrađenim alatima kao što su Pretraživanje datoteka i Interpreter koda putem `FoundryChatClient`.
 
-Sljedeća shema ilustrira proces pozivanja funkcija s Microsoft Agent Frameworkom:
+Sljedeća shema ilustrira proces pozivanja funkcije s Microsoft Agent Frameworkom:
 
-![pozivanje funkcija](../../../translated_images/hr/functioncalling-diagram.a84006fc287f6014.webp)
+![pozivanje funkcije](../../../translated_images/hr/functioncalling-diagram.a84006fc287f6014.webp)
 
-U Microsoft Agent Frameworku alati su definirani kao dekorirane funkcije. Funkciju `get_current_time` koju smo ranije vidjeli možemo pretvoriti u alat koristeći dekorator `@tool`. Okvir će automatski serijalizirati funkciju i njene parametre, kreirajući shemu za slanje LLM-u.
+U Microsoft Agent Frameworku alati se definiraju kao dekorirane funkcije. Možemo pretvoriti funkciju `get_current_time` koju smo ranije vidjeli u alat korištenjem dekoratora `@tool`. Okvir će automatski serijalizirati funkciju i njezine parametre, stvarajući shemu za slanje LLM-u.
 
 ```python
 import os
@@ -226,34 +226,61 @@ def get_current_time(location: str) -> str:
     """Get the current time for a given location"""
     ...
 
-# Kreirajte klijenta
+# Create the client
 provider = FoundryChatClient(
     project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
     model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Kreirajte agenta i pokrenite ga s alatom
+# Create an agent and run with the tool
 agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
+
+#### Alati s MCP servera
+
+Alati ne moraju biti funkcije u vašem vlastitom kodu. Server koji koristi Model Context Protocol (MCP, obrađeno u [Lekciji 11](../11-agentic-protocols/README.md)) objavljuje svoje alate zajedno sa shemama, i okvir ih može učitati na isti način kao i serijalizirana dekorirana funkcija. `MCPStreamableHTTPTool` se povezuje na takav server preko HTTP-a, čita sheme alata i nudi ih modelu uz lokalne alate.
+
+Primjer ispod koristi web pretraživački server koji je domaćin <a href="https://keenable.ai" target="_blank">Keenable</a>. Besplatan je za korištenje bez računa ili API ključa (zahtjevi su ograničeni po IP adresi), pa su vam jedine vjerodajnice one za vaš model. Kao i kod bilo kojeg udaljenog alata, upiti koje model piše šalju se tom serveru.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
+    )
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
+```
+
+Server objavljuje dva alata, `search_web_pages` i `fetch_page_content`. Kad je potrebna trenutna informacija, model poziva `search_web_pages`, dobiva nazive, URL-ove i isječke teksta, te iz njih sastavlja svoj odgovor, isti je slučaj kao u primjeru `get_current_time` ranije.
   
 ### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> je noviji agentni okvir dizajniran kako bi programerima omogućio sigurno izgrađivanje, implementaciju i skaliranje visokokvalitetnih i proširivih AI agenata bez potrebe za upravljanjem osnovnim računalnim i spremišnim resursima. Posebno je koristan za enterprise aplikacije jer je potpuno upravljana usluga s enterprise razinom sigurnosti.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> je noviji agentni okvir dizajniran da programerima omogući sigurno izgradnju, implementaciju i skaliranje visokokvalitetnih i proširivih AI agenata bez potrebe za upravljanjem osnovnim računalnim i skladišnim resursima. Posebno je koristan za korporativne aplikacije budući da je u potpunosti upravljana usluga s sigurnošću razine poduzeća.
 
-U usporedbi s razvojem direktno s LLM API-jem, Microsoft Foundry Agent Service nudi nekoliko prednosti, uključujući:
+U usporedbi s razvojem direktno s LLM API-jima, Microsoft Foundry Agent Service pruža neke prednosti, uključujući:
 
-- Automatsko pozivanje alata – nije potrebno parsirati poziv alatu, pokretati alat i upravljati odgovorom; sve se to sada obavlja na strani servera
-- Sigurno upravljani podaci – umjesto upravljanja vlastitim stanjem razgovora, možete se osloniti na teme (threads) za pohranu svih potrebnih informacija
-- Alati spremni za korištenje – alati kojima možete upravljati za interakciju s izvorima podataka poput Bing, Azure AI Search i Azure Functions.
+- Automatsko pozivanje alata – nema potrebe za parsiranjem poziva alata, izvođenjem alata i rukovanjem odgovorom; sve se to sada obavlja na strani servera
+- Sigurno upravljanje podacima – umjesto upravljanja vlastitim stanjem razgovora, možete se osloniti na threadove za pohranu svih potrebnih informacija
+- Alati spremni za korištenje – alati za interakciju s vašim izvorištima podataka, kao što su Bing, Azure AI Search i Azure Functions.
 
 Alati dostupni u Microsoft Foundry Agent Service mogu se podijeliti u dvije kategorije:
 
-1. Alati znanja:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Povezivanje s Bing pretraživanjem</a>
+1. Alati za znanje:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Podloga s Bing pretraživanjem</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Pretraživanje datoteka</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI pretraživanje</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. Alati za akciju:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Pozivanje funkcija</a>
@@ -261,21 +288,21 @@ Alati dostupni u Microsoft Foundry Agent Service mogu se podijeliti u dvije kate
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Alati definirani OpenAPI-jem</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service nam omogućuje korištenje ovih alata zajedno kao `toolset`. Također koristi `threads` koji prate povijest poruka iz određenog razgovora.
+Agent Service nam omogućuje korištenje ovih alata zajedno kao `toolset`. Također koristi `threads` koji prate povijest poruka u određenom razgovoru.
 
-Zamislite da ste prodajni agent u tvrtki Contoso. Želite razviti razgovornog agenta koji može odgovarati na pitanja o vašim prodajnim podacima.
+Zamislite da ste prodajni agent u tvrtki Contoso. Želite razviti konverzacijski agent koji može odgovoriti na pitanja o vašim prodajnim podacima.
 
-Sljedeća slika ilustrira kako biste mogli koristiti Microsoft Foundry Agent Service za analizu vaših prodajnih podataka:
+Slika ispod ilustrira kako biste mogli koristiti Microsoft Foundry Agent Service za analizu vaših prodajnih podataka:
 
-![Agentni servis u akciji](../../../translated_images/hr/agent-service-in-action.34fb465c9a84659e.webp)
+![Agent servis u akciji](../../../translated_images/hr/agent-service-in-action.34fb465c9a84659e.webp)
 
-Za korištenje bilo kojeg od ovih alata uz servis možemo kreirati klijenta i definirati alat ili skup alata. Kako to praktično implementirati, možemo koristiti sljedeći Python kod. LLM će moći pogledati skup alata i odlučiti hoće li koristiti korisnički definiranu funkciju `fetch_sales_data_using_sqlite_query`, ili predizgrađeni Code Interpreter, ovisno o korisničkom zahtjevu.
+Za korištenje bilo kojeg od ovih alata s uslugom možemo kreirati klijenta i definirati alat ili skup alata. Za praktičnu implementaciju možemo iskoristiti sljedeći Python kod. LLM će moći pogledati skup alata i odlučiti hoće li koristiti funkciju kreiranu od korisnika, `fetch_sales_data_using_sqlite_query`, ili unaprijed izgrađeni Interpreter koda, ovisno o korisničkom zahtjevu.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # funkcija fetch_sales_data_using_sqlite_query koja se može pronaći u datoteci fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -283,14 +310,14 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Inicijaliziraj skup alata
+# Initialize toolset
 toolset = ToolSet()
 
-# Inicijaliziraj agenta za pozivanje funkcija s funkcijom fetch_sales_data_using_sqlite_query i dodaj ga u skup alata
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Inicijaliziraj alat za tumač koda i dodaj ga u skup alata.
+# Initialize Code Interpreter tool and adding it to the toolset. 
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -299,39 +326,38 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Koje su posebne napomene za korištenje dizajnerskog obrasca korištenja alata u izgradnji pouzdanih AI agenata?
+## Koja su posebna razmatranja pri korištenju predloška za korištenje alata za izgradnju pouzdanih AI agenata?
 
-Česta briga kod SQL-a dinamički generiranog od LLM-a je sigurnost, posebno rizik od SQL injekcija ili zlonamjernih radnji poput brisanja ili izmjene baze podataka. Iako su ove brige opravdane, mogu se učinkovito ublažiti pravilnim konfiguriranjem dozvola pristupa bazi podataka. Za većinu baza to uključuje konfiguriranje baze kao samo za čitanje. Za baze kao što su PostgreSQL ili Azure SQL, aplikaciji se treba dodijeliti samo uloga za čitanje (SELECT).
+Česta briga kada SQL dinamički generiraju LLM-ovi je sigurnost, posebno rizik od SQL injekcija ili zlonamjernih radnji, poput brisanja ili manipulacije bazom podataka. Iako su te zabrinutosti opravdane, mogu se učinkovito ublažiti pravilnim konfiguriranjem dopuštenja za pristup bazi podataka. Za većinu baza to uključuje konfiguriranje baze u samo za čitanje. Za usluge baza poput PostgreSQL-a ili Azure SQL, aplikacija bi trebala imati dodijeljenu ulogu samo za čitanje (SELECT).
 
-Pokretanje aplikacije u sigurnom okruženju dodatno povećava zaštitu. U poslovnim scenarijima podaci se obično izvlače i transformiraju iz operativnih sustava u bazu samo za čitanje ili skladište podataka s jednostavnom shemom. Ovaj pristup osigurava sigurnost podataka, optimizaciju za performanse i pristupačnost te da aplikacija ima ograničen pristup samo za čitanje.
+Pokretanje aplikacije u sigurnom okruženju dodatno povećava zaštitu. U korporativnim scenarijima, podaci se obično izvlače i transformiraju iz operativnih sustava u bazu podataka ili skladište podataka samo za čitanje s korisnički prihvatljivom shemom. Ovaj pristup osigurava da su podaci sigurni, optimizirani za performanse i dostupnost, te da aplikacija ima ograničen, samo za čitanje pristup.
 
 ## Primjeri koda
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Imate li dodatnih pitanja o dizajnerskim obrascima korištenja alata?
+## Imate li dodatnih pitanja o predlošcima za korištenje alata?
 
-Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) da upoznate druge učenike, sudjelujete u uredskim satima i dobijete odgovore na pitanja o AI agentima.
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) da upoznate druge učenike, sudjelujete na radnim satima i dobijete odgovore na pitanja o AI agentima.
 
 ## Dodatni resursi
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service radionica</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer radionica s više agenata</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Pregled Microsoft Agent Frameworka</a>
-
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Radionica</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Pregled Microsoft Agent Okvira</a>
 
 ## Osnovno testiranje ovog agenta (neobavezno)
 
-Nakon što naučite kako postaviti agente u [Lekcija 16](../16-deploying-scalable-agents/README.md), možete osnovno testirati `TravelToolAgent` iz ove lekcije (još uvijek poziva svoje alate i odgovara?) s [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). Pogledajte [`tests/README.md`](../tests/README.md) kako ga pokrenuti.
+Nakon što naučite postavljati agente u [Lekcija 16](../16-deploying-scalable-agents/README.md), možete osnovno testirati `TravelToolAgent` ove lekcije (još uvijek poziva svoje alate i odgovara?) s [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). Pogledajte [`tests/README.md`](../tests/README.md) za upute kako ga pokrenuti.
 
 ## Prethodna lekcija
 
-[Razumijevanje agentičkih dizajnerskih obrazaca](../03-agentic-design-patterns/README.md)
+[Razumijevanje agentnih dizajnerskih obrazaca](../03-agentic-design-patterns/README.md)
 
 ## Sljedeća lekcija
 
-[Agentički RAG](../05-agentic-rag/README.md)
+[Agentni RAG](../05-agentic-rag/README.md)
 
 ---
 

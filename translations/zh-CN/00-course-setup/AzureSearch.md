@@ -1,85 +1,85 @@
 # Azure AI 搜索设置指南
 
-本指南将帮助您使用 Azure 门户设置 Azure AI 搜索。请按照以下步骤创建并配置您的 Azure AI 搜索服务。
+本指南将帮助您使用 Azure 门户设置 Azure AI 搜索。请按照以下步骤创建和配置您的 Azure AI 搜索服务。
 
-## 先决条件
+## 前提条件
 
-在开始之前，请确保您拥有以下内容：
+在开始之前，请确保您具备以下条件：
 
 - 一个 Azure 订阅。如果您没有 Azure 订阅，可以在 [Azure 免费账户](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) 创建一个免费账户。
 
-## 第一步：创建 Azure 存储帐户
+## 第 1 步：创建 Azure 存储帐户
 
-1. 按照此指南，[创建 Azure 存储帐户](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)，创建一个新的 Azure 存储帐户。
-   <strong>注意</strong>：确保存储帐户的类型为 Standard General Purpose V2。
+1. 按照此说明，[创建 Azure 存储帐户](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) 来创建新的 Azure 存储帐户。
+   <strong>注意</strong>：确保存储帐户类型是标准通用用途 V2。
 
-## 第二步：创建 Azure AI 搜索服务
+## 第 2 步：创建 Azure AI 搜索服务
 
-1. 登录 [Azure 门户](https://portal.azure.com/?wt.mc_id=studentamb_258691)。
+1. 登录到 [Azure 门户](https://portal.azure.com/?wt.mc_id=studentamb_258691)。
 2. 在左侧导航窗格中，点击 <strong>创建资源</strong>。
-3. 在搜索框中输入 “Azure AI Search”，并从结果列表中选择 **Azure AI Search**。
+3. 在搜索框中输入 “Azure AI 搜索”，然后从结果列表中选择 **Azure AI 搜索**。
 4. 点击 <strong>创建</strong> 按钮。
-5. 在 <strong>基本信息</strong> 选项卡中，填写以下信息：
+5. 在 <strong>基础</strong> 选项卡中，填写以下信息：
    - <strong>订阅</strong>：选择您的 Azure 订阅。
-   - <strong>资源组</strong>：创建新的资源组或选择现有的资源组。
-   - <strong>资源名称</strong>：输入您的搜索服务的唯一名称。
-   - <strong>区域</strong>：选择离您的用户最近的区域。
-   - <strong>定价层</strong>：选择适合您需求的定价层。测试阶段可以选择免费层。
+   - <strong>资源组</strong>：创建新的资源组或选择已有资源组。
+   - <strong>资源名称</strong>：输入搜索服务的唯一名称。
+   - <strong>区域</strong>：选择最靠近您的用户的区域。
+   - <strong>定价层</strong>：根据您的需求选择定价层。您可以从免费的测试层开始。
 6. 点击 **查看 + 创建**。
 7. 审核设置后，点击 <strong>创建</strong> 以创建搜索服务。
 
-## 第三步：开始使用 Azure AI 搜索
+## 第 3 步：开始使用 Azure AI 搜索
 
-1. 部署完成后，导航到 Azure 门户中的您的搜索服务。
-2. 在搜索服务概览窗格中，复制 URL。格式应为 `https://<service-name>.search.windows.net`。
-3. **（推荐）** 启用使用 Microsoft Entra ID（基于角色的访问控制，RBAC）的无密钥访问，如下第 4 步所示 —— 无需访问密钥。本指南中的示例创建/更新索引并上传文档，这些操作需要 <strong>搜索服务贡献者</strong> 和 <strong>搜索索引数据贡献者</strong> 角色（或者，对于基于密钥的身份验证，需要 <strong>主管理员密钥</strong> —— 不是查询密钥）。仅当您无法使用 RBAC 时，打开 **设置 > 密钥** 页面并复制 <strong>主管理员密钥</strong>。
-4. 按照 [快速入门指南](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) 页面中的步骤，创建索引、上传数据并执行搜索。
+1. 部署完成后，导航到 Azure 门户中的搜索服务。
+2. 在搜索服务概览窗格，复制 URL。它应类似于 `https://<service-name>.search.windows.net`。
+3. <strong>（推荐）</strong>启用使用 Microsoft Entra ID（RBAC）的无密钥访问，如下面第 4 步所示 — 无需密钥。本指南中的示例创建/更新索引并上传文档，这需要 <strong>搜索服务贡献者</strong> 和 <strong>搜索索引数据贡献者</strong> 角色（或使用基于密钥的身份验证时使用 <strong>主管理员密钥</strong> — 不是查询密钥）。仅当您无法使用 RBAC 时，请打开 **设置 > 密钥** 窗格并复制 <strong>主管理员密钥</strong>。
+4. 按照 [快速入门指南](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) 中的步骤创建索引、上传数据并执行搜索。
 
-## 第四步：使用 Azure AI 搜索工具
+## 第 4 步：使用 Azure AI 搜索工具
 
-Azure AI 搜索集成了多种工具以增强您的搜索功能。您可以使用 Azure CLI、Python SDK、.NET SDK 及其他工具进行高级配置和操作。
+Azure AI 搜索集成了多种工具以增强您的搜索功能。您可以使用 Azure CLI、Python SDK、.NET SDK 以及其他工具进行高级配置和操作。
 
 ### 使用 Azure CLI
 
-1. 按照 [安装 Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) 的说明安装 Azure CLI。
+1. 按照 [安装 Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) 中的说明安装 Azure CLI。
 2. 使用以下命令登录 Azure CLI：
 
    ```bash
    az login
    ```
-3. **（推荐）启用使用 Microsoft Entra ID（RBAC）的无密钥访问：**
+3. **（推荐）启用 Microsoft Entra ID（RBAC）的无密钥访问：**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show 没有“endpoint”字段；从服务名称构建 URL。
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    启用 RBAC 后，下面的 Python 和 .NET SDK 示例通过 `DefaultAzureCredential` 进行身份验证，该凭据在本地开发期间使用您的 `az login` 会话 —— 无需管理员密钥。详见 [使用角色连接 Azure AI 搜索](https://learn.microsoft.com/azure/search/search-security-rbac)。
+    启用 RBAC 后，下面的 Python 和 .NET SDK 示例将使用 `DefaultAzureCredential` 进行身份验证，本地开发期间使用您的 `az login` 会话 — 无需管理员密钥。详见 [使用角色连接 Azure AI 搜索](https://learn.microsoft.com/azure/search/search-security-rbac)。
 
-4. **（回退方案）基于密钥的身份验证** —— 仅当您无法使用 RBAC 时，才存储管理员密钥：
+4. **（没法使用 RBAC 时）基于密钥的身份验证** — 仅当您不能使用 RBAC 时，存储管理员密钥：
 
-#### 将 Azure AI 搜索实例的端点和 API 密钥存储到环境变量。
+#### 将 Azure AI 搜索实例的端点和 API 密钥存储为环境变量。
 
-    ```bash
-    # zsh/bash
-    # az search service show 没有“endpoint”字段；从服务名称构建 URL。
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show 没有“endpoint”字段；从服务名称构建 URL。
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### 使用 Python SDK
 
-1. 安装 Azure 认知搜索客户端库和 Azure 身份验证库：
+1. 安装 Azure 认知搜索客户端库和 Azure 身份库的 Python 版本：
 
    ```bash
    pip install azure-search-documents azure-identity
@@ -97,11 +97,11 @@ Azure AI 搜索集成了多种工具以增强您的搜索功能。您可以使�
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # 无密钥（推荐）：通过 Entra ID RBAC 使用你的 `az login` 身份。
-    # 需要“搜索服务贡献者”和“搜索索引数据贡献者”角色。
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # 备用（基于密钥的认证）：
-    # 来自 azure.core.credentials 的 AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -132,9 +132,9 @@ Azure AI 搜索集成了多种工具以增强您的搜索功能。您可以使�
     dotnet run ./AzureSearch.cs
     ```
 
-    下面的 .NET 示例使用 `DefaultAzureCredential`，可使用您在本地开发期间通过 `az login` 登录 Azure CLI 的身份。
+    下面的 .NET 示例使用 `DefaultAzureCredential`，本地开发期间可以使用您通过 `az login` 登录的 Azure CLI。
 
-2. 这是 `AzureSearch.cs` 的 .NET 代码：
+2. 这是 `AzureSearch.cs` 的 .NET 代码示例：
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,15 +181,15 @@ Azure AI 搜索集成了多种工具以增强您的搜索功能。您可以使�
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-更多详细信息，请参阅以下文档：
+有关更详细的信息，请参阅以下文档：
 
 - [创建 Azure 认知搜索服务](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [开始使用 Azure 认知搜索](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
 - [Azure AI 搜索工具](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
-## 结论
+## 总结
 
-您已成功使用 Azure 门户和集成工具设置 Azure AI 搜索。现在，您可以探索 Azure AI 搜索的更多高级功能和能力，以增强您的搜索解决方案。
+您已成功使用 Azure 门户和集成工具设置了 Azure AI 搜索。现在，您可以探索 Azure AI 搜索的更高级功能和能力，以增强您的搜索解决方案。
 
 如需进一步帮助，请访问 [Azure 认知搜索文档](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691)。
 

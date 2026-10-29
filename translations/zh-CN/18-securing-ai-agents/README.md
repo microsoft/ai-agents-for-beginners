@@ -51,9 +51,9 @@
 ```mermaid
 flowchart LR
     A[代理调用工具] --> B[构建收据负载]
-    B --> C[JSON 规范化 RFC 8785]
-    C --> E[使用 Ed25519 签署规范化字节]
-    E --> F[带有签名的收据]
+    B --> C[规范化 JSON RFC 8785]
+    C --> E[Ed25519 直接对规范字节签名]
+    E --> F[带签名的收据]
     F --> G[审计员离线验证]
     G --> H{签名有效？}
     H -- yes --> I[篡改证明]
@@ -135,7 +135,7 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# 直接规范化并签署 JCS 字节。PureEdDSA 内部进行哈希处理。
+# 规范化并直接对 JCS 字节签名。PureEdDSA 内部自行完成哈希。
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
@@ -158,7 +158,6 @@ receipt = {
 
 ```python
 import base64
-import hashlib
 from nacl import signing
 from nacl.exceptions import BadSignatureError
 from jcs import canonicalize
@@ -253,7 +252,7 @@ flowchart LR
 
 上述第3点值得单独讲述：行动收据说“此密钥签署了此内容”，却永远不说“有人类授权此操作”。对于高风险操作（退款、删除、汇款），治理框架越来越多地要求缺失的那句话，这可以用本课中已经构建的相同原语生成。
 
-后续笔记本`code_samples/human-authorization-receipts.ipynb`增加了第二种收据类型`human.approval.v1`，与本课收据使用相同的封套格式（类型化负载以 Ed25519 签名，基于规范化 JCS 字节，`signature` 对象在签名字节之外）。指定审批人先对<strong>完整的规范动作及其摘要</strong>签名；代理的行动收据携带<strong>相同动作摘要</strong>和`parent_approval_ref`，即审批收据哈希，遵循你上面构建的链中`previous_receipt_hash`的相同约定。一个`verify_chain`分别使用<strong>两个固定密钥注册表</strong>（审批人密钥与代理密钥）验证两个工件，代码路径共用但权限从不共享。
+后续笔记本 `code_samples/human-authorization-receipts.ipynb` 新增一种收据类型 `human.approval.v1`，其包封格式与本课收据相同（带类型的负载，通过 Ed25519 对其规范化的 JCS 字节签名，且 `signature` 对象位于签名字节之外）。被命名的审批人先签署<strong>完整规范操作及其摘要</strong>，执行前；代理的操作收据携带<strong>相同的操作摘要</strong>及 `parent_approval_ref`，即该批准收据的 `receipt_hash`，采用与链中 `previous_receipt_hash` 相同的约定。一个 `verify_chain` 函数将两个收据在<strong>分开的固定公钥注册表</strong>（审批人和代理人公钥）下验证，代码路径相同，权威方不同。
 
 这个属性的谨慎表述是：*人类批准了这个确切操作，代理恰好执行了该批准动作。* 笔记本中因拒绝机制使该属性真实而非仅仅声明：
 
@@ -261,7 +260,7 @@ flowchart LR
 - <strong>过期授权</strong>：签名仍然可校验，但因政策版本变更、审批人密钥已从固定注册表移除或审批过期，执行时拒绝；
 - <strong>摘要替代</strong>：有效签名的行动收据指向绑定不同规范动作的<em>真实</em>审批。
 
-每个失败都会给出不同的拒绝原因，审计员读拒绝时可以判断权限是过期了还是执行动作变了。笔记本教的规则是：单独签名的审批不是授权。授权只有在执行时两个收据仍绑定同一规范动作时才存在。人类审批收据是本课定义的一种教育组合，而非`draft-farley-acta-signed-receipts`定义的收据类型。
+每种失败都有独特理由，审计员看到拒绝便知是权威过期还是执行内容变动。笔记本教你的规则是：签名的批准本身不构成权威。权威仅在执行时两个收据仍捆绑到相同规范操作时成立。人类批准收据是本课定义的教学性组合，并非 `draft-farley-acta-signed-receipts` 草案所定义的收据类型。
 
 ## 生产参考
 
@@ -269,11 +268,11 @@ flowchart LR
 
 1. **直接基于加密原语构建。** 你刚才看到的50行代码已适用于许多场景。PyNaCl（Ed25519）和`jcs`包（规范化 JSON）是维护良好且已审计的库。
 
-2. **使用生产级收据库。** 几个开源项目实现了相同模式并附加更多功能（密钥轮换、批量验证、JWK 集分发、与政策引擎集成）：
-   - 签名流程使用独立 IETF 草案([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)，修订版02)中的 JCS 和签名范围约定。教程中的教育收据与草案里的`{payload, signature}`封套不同，且未呈现为符合规范的实现。草案公开了共享的合规测试套件（[agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)），面向其线格式的实现。
-   - 微软代理治理工具包将收据与基于 Cedar 的策略决策组合；详见该仓库中的教程33，示例端到端流程。
-   - `protect-mcp`（npm）和`@veritasacta/verify`（npm）包提供针对 Node 的收据签名和离线验证，实现用于为 MCP 服务器构建防篡改审计轨迹，包括基于 WebAuthn 的桌面流程中“持有待共同签署”审批收据发放，与人类授权笔记本中相同的审批收据模式。
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) 提供了相同的 Ed25519 + JCS 签名模式，集成了 LangChain 和 CrewAI，包含开放的交叉验证测试向量及通过 [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) 贡献的合规映射。
+2. **使用生产用收据库。** 若干开源项目实现了相同模式并加添附加功能（密钥轮换、批量验证、JWK 集分发、与策略引擎整合）：
+   - 签名流程采用了独立 IETF 互联网草案（[`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)，修订02）中的 JCS 与签名作用域约定。本课的扁平教学收据与该草案的 `{payload, signature}` 包封格式不同，不应视为其合规实现。该草案发布了共享合规套件（[agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)），供以其线格式为目标的实现使用。
+   - 微软代理治理工具包将收据与基于 Cedar 的策略决策组合；详见该仓库教程33，涵盖端到端示例。
+   - `protect-mcp` （npm）和 `@veritasacta/verify` （npm）包提供了基于 Node 的收据签名及离线验证实现，可包装任何 MCP 服务器生成防篡改审计链，包括支持的共签流程——暂停操作发出绑定操作摘要的批准收据（桌面流程中基于 WebAuthn），与上述人类授权笔记本采用的批准收据方案相同。
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK（`pip install nobulex`）在 Python 中实现相同的 Ed25519 + JCS 签名模式，集成了 LangChain 和 CrewAI，包含发布的交叉验证测试向量，并通过 [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) 提供合规映射。
 
 选择自写还是用库，与选择自写 JWT 库或用测试库类似：两者合理；库节省时间，减少审计面；自写需理解每个原语。本课教授自写路径，奠定任一选择的基础。
 
@@ -295,7 +294,7 @@ flowchart LR
 <summary>答案</summary>
 
 
-验证失败。签名是针对原始负载的规范字节计算的；修改任何字段都会改变这些字节，从而使签名无效。攻击者需要私钥来生成新的有效签名，但他们并不拥有私钥。
+验证失败。签名是针对原始负载的规范字节计算的；修改任何字段都会改变这些字节，使签名无效。攻击者需要私钥才能生成新的有效签名，而他们没有私钥。
 </details>
 
 **3. 为什么收据包含 `tool_args_hash` 和 `result_hash`，而不是原始参数和结果？**

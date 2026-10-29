@@ -1,183 +1,183 @@
-## Renginio pavadinimas: Sukurkite savo programą su Microsoft Foundry Agent Service (EMEA/US pasiūlymas)
+## Renginio pavadinimas: Kurkite savo kodu pagrįstą programėlę su Microsoft Foundry Agent Service (EMEA/US pasiūlymas)
 
 ## Aprašymas
 
-Microsoft Foundry Agent Service yra sklandus paslaugos ir SDK derinys, kuris supaprastina tvirtų, dirbtiniu intelektu pagrįstų sprendimų kūrimą. Šios sesijos metu sužinosite, kaip sukurti savo kodu pagrįstą DI agentą su Azure, kuris gali atsakyti į klausimus, atlikti duomenų analizę ir integruoti išorinius duomenų šaltinius. Taip pat nagrinėsite sudėtingesnes architektūras, įskaitant kelis agentus, veikiančius kartu.
+Microsoft Foundry Agent Service yra sklandus paslaugos ir SDK derinys, kuris supaprastina patikimų AI valdomų sprendimų kūrimą. Šioje sesijoje sužinosite, kaip sukurti savo kodu pirmą AI agentą naudodami Azure, kuris gali atsakyti į klausimus, atlikti duomenų analizę ir integruoti išorinius duomenų šaltinius. Taip pat išnagrinėsite sudėtingesnes architektūras, įskaitant kelis agentus, dirbančius kartu.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25325/>
 
 ---
 
-## Renginio pavadinimas: Verslo procesų pertvarkymas naudojant daugiagentinį DI su Semantic Kernel
+## Renginio pavadinimas: Verslo procesų transformavimas naudojant daugiaagentę AI su Semantic Kernel
 
 ## Aprašymas
 
-Atraskite daugiagentinių DI sistemų galią per tiesiogines demonstracijas ir praktinį mokymąsi su šablonais, įskaitant grupinį pokalbį, refleksiją, pasirinkėją ir spiečių. Pasitelkite Semantic Kernel proceso sistemą automatizuoti ir didinti svarbius verslo procesus, nuo klientų aptarnavimo iki projektų valdymo naudojant Python.
+Atraskite daugiaagentės AI sistemos galią per tiesioginius demonstravimus ir praktinį mokymą su šablonais, įskaitant grupinį pokalbį, refleksiją, pasirinkimą ir spiečių. Pasinaudokite Semantic Kernel Process Framework automatizuodami ir plečiant svarbius verslo procesus, nuo klientų aptarnavimo iki projektų valdymo naudojant Python.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25313/>
 
 ---
 
-## Renginio pavadinimas: Agentinių programėlių kūrimas naudojant AutoGen v0.4
+## Renginio pavadinimas: Agentinių programėlių kūrimas su AutoGen v0.4
 
 ## Aprašymas
 
-Pradėkite kurti agentus ir daugiagentes komandas naudodami AutoGen v0.4. Apžvelgsime naujos AutoGen v0.4 architektūros pagrindus ir parodysime, kaip sukurti daugiagentę komandą su interneto vartotojo sąsaja.
+Pradėkite kurti agentus ir daugiaagentines komandas naudodami AutoGen v0.4. Apžvelgsime naują AutoGen v0.4 architektūrą ir parodysime, kaip sukurti daugiaagentę komandą su internetine vartotojo sąsaja.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25327/>
 
 ---
 
-## Renginio pavadinimas: DI agentų prototipavimas su GitHub modeliais
+## Renginio pavadinimas: AI agentų prototipavimas su GitHub Models
 
 ## Aprašymas
 
-Dėka GitHub modelių, viskas, ko jums reikia norint sukurti pirmą DI agentą, yra GitHub paskyra! GitHub modeliai apima galingus modelius, tokius kaip OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 ir daugelį kitų, pasiruošusių būti išbandyti žaidimų aikštelėje arba jūsų kode.
-Šioje sesijoje parodysime, kaip iš Python prijungti prie GitHub modelių ir tada kurti agentus naudojant populiarius Python paketus, tokius kaip PydanticAI, AutoGen ir Semantic Kernel.
-Galite sekti gyvai GitHub Codespaces arba bet kada po sesijos išbandyti pavyzdžius patys.
+Dėka GitHub Models, viskas, ko jums reikia norint sukurti pirmą AI agentą, yra GitHub paskyra! GitHub Models suteikia galingus modelius, tokius kaip OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1 ir daugelį kitų, paruoštų išbandyti žaidimų aikštelėje arba savo kode.
+Šioje sesijoje parodysime, kaip prisijungti prie GitHub Models iš Python bei sukurti agentus naudodami populiarias Python biblioteka, tokias kaip PydanticAI, AutoGen ir Semantic Kernel.
+Galėsite tiesiogiai sekti demonstraciją GitHub Codespaces arba išbandyti pavyzdžius patys bet kada po sesijos.
 
-> **Pastaba:** GitHub modeliai nutraukiami (baigs veikti 2026 m. liepą). Nenaudokite GitHub modelių naujiems projektams – naudokite **Microsoft Foundry** modelius.
+> **Pastaba:** GitHub Models yra pasenęs (nutraukiamas 2026 m. liepą). Nenaudokite GitHub Models naujiems projektams — vietoj to naudokite **Microsoft Foundry** modelius.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25481/>
 
 ---
 
-## Renginio pavadinimas: Agentų kūrimas naudojant Azure DI modelių kataloge esančių modelių armiją
+## Renginio pavadinimas: Agentų kūrimas su Azure AI modelių katalogo kariuomene
 
 ## Aprašymas
 
-Azure DI modelių katalogas siūlo platų modelių pasirinkimą su skirtingais gebėjimais ir įgūdžiais. Pradėdami nuo universalaus modelio, kūrėjai, naudodami sudėtingesnius darbo srautus, gali pasinaudoti specializuotais modeliais, kad atliktų darbą savo pasirinktoje sistemoje. Šioje prezentacijoje apžvelgiame modelių katalogo pasiūlymus ir kaip galite sukurti agentus, kurie veikia ant derinio modelių armijos – neprarasdami savo biudžeto.
+Azure AI modelių katalogas siūlo didelį įvairių modelių spektrą su skirtingomis įgūdžių sritimis ir galimybėmis. Pradėdami naudodami paruoštą modelį galite greitai pradėti, tačiau kūrėjai, naudodami sudėtingesnius darbo procesus, gali pasinaudoti specializuotais modeliais, kad atliktų darbą savo pasirinktoje platformoje. Šioje prezentacijoje apžvelgsime modelių katalogo pasiūlymus ir kaip sukurti agentus, kurie remiasi daugybe modelių – nebrangiai.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25328/>
 
 ---
 
-## Renginio pavadinimas: Daugiagentinis API su LangGraph ir Azure Cosmos DB
+## Renginio pavadinimas: Daugiaagentinis API su LangGraph ir Azure Cosmos DB
 
 ## Aprašymas
 
-Daugiagentinių DI programų augimas keičia kaip statome intelektualias sistemas – bet kaip jas sukurti, kad būtų realiai pritaikoma ir veiksminga? Šios sesijos metu gilinsimės į gamybos lygio daugiagentę programą, sukurtą su LangGraph agentų koordinavimui, FastAPI kaip API sluoksniu ir Azure Cosmos DB kaip pagrindu būsenos valdymui, vektorių saugojimui ir sandorių duomenims.
+Daugiaagentės AI programėlės sparčiai keičia intelektualių sistemų kūrimą – bet kaip jas projektuoti realaus pasaulio masteliui ir našumui? Šioje sesijoje gilinsimės į gamybai parengtą daugiaagentę programėlę, sukurtą su LangGraph agentų valdymui, FastAPI API sluoksniui ir Azure Cosmos DB kaip pagrindą būsenos valdymui, vektorių saugojimui ir sandorių duomenims.
 
-Per išsamų kodo perėjimą pamatysite, kaip sukurti agentų pagrindu veikiančią darbo eigą, kuri sklandžiai integruoja atgavimo papildomą generavimą (RAG), atminties išsaugojimą ir dinamiškas būsenos perėjas. Aptarsime:
+Detaliame kodo apžvalgoje pamatysite, kaip sukurti agentų valdomą darbo eigą, kuriai būdingas sklandus Retrieval-Augmented Generation (RAG), atminties išsaugojimas ir dinaminiai būsenos perėjimai. Apžvelgsime:
 
-Agentų bendradarbiavimą su LangGraph struktūrizuotam mąstymui
-Realaus laiko pokalbių istorijos saugojimą naudojant Azure Cosmos DB – tą pačią duomenų bazę, kuri palaiko pokalbių istoriją ChatGPT, sparčiausiai augančio DI agento istorijoje
-Vektorių paiešką žinių atkūrimui su Cosmos DB natyviu įdėjimų palaikymu
-FastAPI asinchronines galimybes, kad sąveikos būtų greitos ir lengvai plečiamos
-Sesijos pabaigoje turėsite aiškią schemą savo plečiamų, debesų pagrindu veikiančių daugiagentinių programėlių kūrimui ir diegimui, pasinaudodami modernaus DI ir debesų infrastruktūros galia. Nesvarbu, ar esate DI inžinierius, debesų architektas ar Python kūrėjas – ši kalba suteiks praktinių įžvalgų ir patikrintų šablonų kuriant naujos kartos DI pagrindu veikiančias programas.
+Agentų bendradarbiavimą su LangGraph struktūriniam mąstymui
+Pokalbių istorijos realaus laiko saugojimą naudojant Azure Cosmos DB – tą pačią duomenų bazę, kuri palaiko pokalbių istoriją ChatGPT, greičiausiai augančios AI agentų programėlės istorijoje
+Žinių gavimą vektorinėmis paieškomis su Cosmos DB natyviu įkėlimų palaikymu
+FastAPI asinchronines galimybes, kad pokalbiai būtų greiti ir skalaujami
+Sesijos pabaigoje turėsite aiškią schemą, kaip kurti ir diegti savo skalinius, debesyse veikiančius daugiaagentinius sprendimus, kurie pasitelkia modernios AI ir debesų infrastruktūros galią. Nesvarbu, ar esate AI inžinierius, debesų architektas ar Python kūrėjas, šis pranešimas suteiks jums praktinių įžvalgų ir patikrintų šablonų kito lygio AI valdomų programėlių kūrimui.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25314/>
 
 ---
 
-## Renginio pavadinimas: Jūsų pirmas DI agentas JavaScripte su Microsoft Foundry Agent Service
+## Renginio pavadinimas: Jūsų pirmasis AI agentas JS su Microsoft Foundry Agent Service
 
 ## Aprašymas
 
-Sužinokite, kaip sukurti savo pirmą DI agentą naudodami JavaScript SDK Microsoft Foundry Agent Service, visiškai valdomą platformą, kuri palengvina kūrimą. Pamatysite, kaip ją nustatyti, prijungti įrankius, tokius kaip Azure AI Search, ir diegti paprastą klausimų–atsakymų agentą. Gyvos demonstracijos metu atrasite, kaip automatinis įrankių iškvietimas ir valdomos būsenos supaprastina procesą. Puikiai tinka pradedantiesiems – ši sesija pateiks praktinius žingsnius ir patarimus, kad su pasitikėjimu pradėtumėte savo DI agento kelionę.
+Sužinokite, kaip sukurti savo pirmą AI agentą naudodami JavaScript SDK Microsoft Foundry Agent Service – pilnai valdomą platformą, kuri palengvina kūrimą. Pamatysite, kaip ją nustatyti, sujungti įrankius, tokius kaip Azure AI Search, ir paleisti paprastą klausimų-atsakymų agentą. Tiesioginėje demonstracijoje sužinosite, kaip automatinis įrankių kvietimas ir valdomos būsenos supaprastina procesą. Puikiai tinka pradedantiesiems – ši sesija suteikia praktinių žingsnių ir patarimų, kad su pasitikėjimu pradėtumėte AI agento kelią.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25381/>
 
 ---
 
-## Renginio pavadinimas: Promptavimas yra naujas skriptavimas: susipažinkite su GenAIScript
+## Renginio pavadinimas: Promptavimas yra naujas scenarijų rašymas: susipažinkite su GenAIScript
 
 ## Aprašymas
 
-Kadaise jQuery palengvino žiniatinklio kūrimą, abstraktuodama sudėtingumus ir leisdama kūrėjams koncentruotis į kūrimą, o ne naršyklių ypatybių sprendimą. Šiandien DI kūrimas susiduria su panašia problema. Nuolat atsiranda nauji šablonai, o jas sekti gali būti sudėtinga, ypač kai DI įrankiai – ypač agentiniai – tampa galingesni ir sudėtingesni. O jeigu galėtumėte pasinaudoti moderniausiomis DI galimybėmis automatizuodami užduotis naudodami paprastus, pažįstamus JavaScript abstraktus? Pristatome GenAIScript – būdą lengvai integruoti DI į jūsų darbo eigą, traktuojant promptus kaip pakartotinai naudojamus kodo fragmentus. Šioje kalboje aptarsime, kaip GenAIScript padaro DI automatizacijos agentus intuityviais kaip JavaScript rašymą, padėdama supaprastinti pasikartojančius darbus be gilaus DI žinių poreikio.
+Kadaise jQuery palengvino svetainių kūrimą, pašalindama sudėtingumą ir leidusi programuotojams koncentruotis į kūrimą, o ne kovojimą su naršyklių ypatumais. Šiandien AI kūrimas susiduria su panašia iššūkių serija. Nuolat atsiranda nauji šablonai, kuriuos sekti gali būti sunku, ypač kai AI įrankiai – ypač agentiniai – tampa galingesni ir sudėtingesni. O jei galėtumėte pasinaudoti pažangiausiomis AI galimybėmis, automatizuodami užduotis naudodami paprastus, pažįstamus JavaScript abstraktus? Susipažinkite su GenAIScript – būdu integruoti AI į savo darbą sklandžiai, elgiantis su promptais kaip su pakartotinai naudojamais kodo fragmentais. Šiame pranešime apžvelgsime, kaip GenAIScript verčia AI automatizavimo agentus jaustis taip pat intuityviai, kaip rašyti JavaScript, padėdamas supaprastinti pasikartojančius darbus nereikalaujant gilios AI ekspertizės.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25441/>
 
 ---
 
-## Renginio pavadinimas: Žinių praturtinti agentai su LlamaIndex.TS
+## Renginio pavadinimas: Žinių papildyti agentai su LlamaIndex.TS
 
 ## Aprašymas
 
-LlamaIndex yra žinomas dėl to, kad supaprastina Retrieval-Augmented Generation (RAG) kūrimą, tačiau mūsų karkasai taip pat leidžia lengvai kurti agentus ir daugiagentines sistemas! Šioje sesijoje pristatysime Workflows – pagrindinį bloką agentinių sistemų statybai – ir sukursime agentą, kuris naudoja RAG ir kitus įrankius.
+LlamaIndex yra žinomas kaip įrankis, palengvinantis Retrieval-Augmented Generation (RAG) kūrimą, tačiau mūsų karkasai taip pat leidžia lengvai kurti agentus ir daugiaagentines sistemas! Šioje sesijoje pristatysime Workflows – pagrindinį mūsų agentinių sistemų statybos bloką, ir sukursime agentą, naudojantį RAG ir kitus įrankius.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25440/>
 
 ---
 
-## Renginio pavadinimas: DI agentai Java kalbai naudojant Microsoft Foundry ir GitHub Copilot
+## Renginio pavadinimas: AI agentai Java naudojant Microsoft Foundry ir GitHub Copilot
 
 ## Aprašymas
 
-Šios sesijos metu parodysime, kaip įterpti pažangias DI agentų galimybes į jūsų Java programas naudojant Microsoft Foundry, įskaitant projekto tikslų nustatymą, bandymus su modeliais ir saugų produkcijos sprendimų diegimą mastu. Be to, sužinosite, kaip GitHub Copilot (IntelliJ, VS Code ir Eclipse) gali supaprastinti kodo rašymą ir promtų kūrimą, o modelių pasirinkimo, fine-tuning‘o ir agentinių darbo srautų gerosios praktikos užtikrina atsakingą ir efektyvų kūrimą. Nesvarbu, ar esate naujokas DI agentų srityje, ar ieškote pažangių agentų kūrimo technikų, ši sesija įtrauks jus į naujos kartos patirtis su jau žinomais įrankiais.
+Šioje sesijoje parodysime, kaip įterpti pažangias AI agentų funkcijas į savo Java programas naudodami Microsoft Foundry, įskaitant projekto tikslų nustatymą, modelių eksperimentavimą ir saugų gamybai tinkamų sprendimų diegimą mastu. Pakeliui sužinosite, kaip GitHub Copilot (IntelliJ, VS Code ir Eclipse) gali pagreitinti kodavimą ir promptų kūrimą, o gerosios praktikos modelių pasirinkime, tikslinime ir agentinių darbo eigos užtikrins atsakingą ir efektyvų kūrimą. Nesvarbu, ar esate naujokas AI agentų srityje, ar ieškote pažangių agentų kūrimo technikų, ši sesija aprūpins jus įrankiais ir žiniomis aukštesnio lygio patirtims pasiekti.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25336/>
 
 ---
 
-## Renginio pavadinimas: Java DI agentų kūrimas naudojant LangChain4j ir dinamiškas sesijas
+## Renginio pavadinimas: Java AI agentų kūrimas naudojant LangChain4j ir dinamiškas sesijas
 
 ## Aprašymas
 
-Atraskite DI agentų potencialą savo Java programėlėse derindami LangChain4j su Azure Container Apps (ACA) dinamiškomis sesijomis, prijungtomis prie Azure DI paslaugų. Šioje sesijoje pristatomas praktinis pavyzdys, kaip sukurti agentą, galintį bendrauti su nuotoline aplinka, įskaitant failų valdymą. Sužinokite, kaip apibrėžti pasirinktinius įrankius, integruoti juos į agentų darbo eigas ir pasinaudoti Azure plečiama infrastruktūra, kad diegtumėte intelektualius, dinamiškus sprendimus.
+Išlaisvinkite AI agentų potencialą savo Java programose, derindami LangChain4j su Azure Container Apps (ACA) dinamiškomis sesijomis, prijungtomis prie Azure AI paslaugų. Šioje sesijoje bus parodytas praktinis pavyzdys, kaip sukurti agentą, galintį bendrauti nuotolinėje aplinkoje, įskaitant failų valdymą. Sužinokite, kaip apibrėžti pasirinktinius įrankius, integruoti juos į agentų darbo eigas ir pasinaudoti Azure skalės infrastruktūra protingų, dinamiškų sprendimų diegimui.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25337/>
 
 ---
 
-## Renginio pavadinimas: Neatsakingi DI agentai
+## Renginio pavadinimas: Nesąžiningi AI agentai
 
 ## Aprašymas
 
-Prisijunkite prie mūsų, kai tyrinėsime DI agentų keliamas rizikas ir spręsime patikimų DI praktikų integravimo į pokalbių DI platformas iššūkius! Šioje sesijoje gilinsimės į pavyzdžius su neatsakingais DI agentais – pateiksime stulbinančius modelių gedimų, priešiškų sistemų prasiveržimų ir kitų rizikų pavyzdžius, kurie menkina pasitikėjimą ir atitiktį.
+Prisijunkite prie mūsų, kai gilinsimės į AI agentų galimus pavojus ir spręsime iššūkį įterpiant patikimos AI praktikas pokalbių AI platformose! Ši sesija detaliai nagrinės nesąžiningų AI agentų pavyzdžius – pristatydama žandikaulį numušančius modelių klaidų atvejus, priešiškų sistemų įsibrovimų (jailbreak) atvejus ir kitus pavojus, kurie mažina pasitikėjimą ir atitiktį.
 
-Apžvelgsime Microsoft pažangius įrankius patikimai DI, įskaitant turinio filtrus, raudonojo komandos strategijas ir vertinimus – rodysime gyvas demonstracijas, kur DI agentai elgiasi atsakingai ir neatsakingai, tai, ką sunku patikėti.
+Išnagrinėsime Microsoft pažangiausias priemones patikimai AI, įskaitant turinio filtrus, raudonos komandos strategijas ir vertinimus – su tiesioginėmis demonstracijomis, kaip AI agentai elgiasi tiek atsakingai, tiek neatsakingai, būdais, kurių neįtikėsite.
 
-🔥 Ką gausite:
-✅ Kaip nustatyti ir sumažinti DI rizikas, prieš jas išnaudojant
+🔥 Ką pasiimsite iš šios sesijos:
+✅ Kaip anksti atpažinti ir sumažinti AI rizikas, kad jų negalėtų išnaudoti
 ✅ Kaip diegti Azure AI Content Safety rizikingam elgesiui aptikti ir sumažinti
-✅ Slaptas metodas, kaip padaryti DI agentus patikimus
+✅ Paslapties sudedamoji dalis, kad AI agentai būtų patikimi
 
-Pasiruoškite sesijai, pilnai entuziazmo, didelės rizikos DI scenų ir būtinos strategijos, kaip palaikyti DI teisingoje pusėje istorijos. Nebūkite tik DI kūrėjas – būkite DI, kuris svarbus!
+Pasiruoškite sesijai, pilnai entuziazmo, aukšto lygio AI dramos ir būtinų strategijų, kaip palaikyti savo AI tinkamoje pusėje istorijos. Nekurkite tik AI – kurkite AI, kuris yra svarbus!
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25388/>
 
 ---
 
-## Renginio pavadinimas: Sukurkite savo kodu pagrįstą programą su Microsoft Foundry Agent Service (.NET)
+## Renginio pavadinimas: Kurkite savo kodu pagrįstą programėlę su Microsoft Foundry Agent Service (.NET)
 
 ## Aprašymas
 
-Microsoft Foundry Agent Service yra sklandus paslaugos ir SDK derinys, kuris supaprastina tvirtų, dirbtiniu intelektu pagrįstų sprendimų kūrimą. Šios sesijos metu sužinosite, kaip sukurti savo kodu pagrįstą DI agentą su Azure ir C#, kuris gali atsakyti į klausimus, atlikti duomenų analizę ir integruoti išorinius duomenų šaltinius. Taip pat nagrinėsite sudėtingesnes architektūras, įskaitant kelis agentus, veikiančius kartu.
+Microsoft Foundry Agent Service yra sklandus paslaugos ir SDK derinys, kuris supaprastina patikimų AI valdomų sprendimų kūrimą. Šioje sesijoje sužinosite, kaip sukurti savo kodu pirmą AI agentą naudodami Azure ir C#, kuris gali atsakyti į klausimus, atlikti duomenų analizę ir integruoti išorinius duomenų šaltinius. Taip pat išnagrinėsite sudėtingesnes architektūras, įskaitant kelis agentus, dirbančius kartu.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25370/>
 
 ---
 
-## Renginio pavadinimas: DI agentai + .NET Aspire
+## Renginio pavadinimas: AI agentai + Aspire
 
 ## Aprašymas
 
-Šios sesijos metu pasidalinsime įdomiausiais .NET platformos pasiekimais agentų srityje. Sužinosite dabartinę .NET būklę, įskaitant naujas funkcijas ir patobulinimus. Išnagrinėsime galingas DI agentų galimybes. Taip pat atliksime gyvą kodavimą su agentais ir .NET Aspire.
+Šioje sesijoje pasidalinsime naujausiais įdomiausiais .NET platformos pokyčiais apie agentus. Sužinosite dabartinę .NET būseną, įskaitant naujas funkcijas ir patobulinimus. Ištyrinėsite galingas AI agentų galimybes. Taip pat vyks tiesioginis kodavimas su agentais ir Aspire.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25332/>
 
 ---
 
-## Renginio pavadinimas: Semantic Kernel su C# daugiaagentinių DI programų kūrimui, pagrįstų Azure Cosmos
+## Renginio pavadinimas: Semantic Kernel su C# daugiaagentėms AI programėlėms kurti, veikiančioms su Azure Cosmos
 
 ## Aprašymas
 
-Jus supažindinsime su daugiaagentine C# programa, sukurta ant Semantic Kernel karkaso. Suprasite agentinių programų koncepcijas, realizacijos detales ir niuansus, bei išmoksite integruoti Azure Cosmos DB kaip duomenų bazę įvairioms naudojimo sritims.
+Parodysime daugiaagentę programėlę C#, sukurtą Semantic Kernel karkase. Suprasite agentinių programėlių koncepcijas, įgyvendinimo detales ir niuansus, bei išmoksite integruoti Azure Cosmos DB kaip duomenų bazę įvairioms paskirtims.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25455/>
