@@ -1,91 +1,91 @@
-# راهنمای راه‌اندازی Azure AI Search
+# راهنمای راه‌اندازی جستجوی هوش مصنوعی Azure
 
-این راهنما به شما کمک می‌کند تا Azure AI Search را با استفاده از پرتال Azure راه‌اندازی کنید. مراحل زیر را دنبال کنید تا سرویس Azure AI Search خود را ایجاد و پیکربندی کنید.
+این راهنما به شما کمک می‌کند تا جستجوی هوش مصنوعی Azure را با استفاده از پرتال Azure راه‌اندازی کنید. برای ایجاد و پیکربندی سرویس جستجوی هوش مصنوعی Azure مراحل زیر را دنبال کنید.
 
 ## پیش‌نیازها
 
-قبل از شروع، از موارد زیر اطمینان حاصل کنید:
+قبل از شروع، اطمینان حاصل کنید که موارد زیر را دارید:
 
-- یک اشتراک Azure. اگر اشتراک Azure ندارید، می‌توانید یک حساب رایگان در [حساب رایگان Azure](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) ایجاد کنید.
+- یک اشتراک Azure. اگر اشتراک Azure ندارید، می‌توانید یک حساب رایگان در [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) ایجاد کنید.
 
-## مرحله 1: ایجاد یک حساب ذخیره‌سازی Azure
+## مرحله ۱: ایجاد یک حساب ذخیره‌سازی Azure
 
-1. این دستورالعمل را دنبال کنید، [ایجاد یک حساب ذخیره‌سازی Azure](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)، تا یک حساب ذخیره‌سازی Azure جدید ایجاد کنید.
-   **توجه**: مطمئن شوید که نوع حساب ذخیره‌سازی Standard General Purpose V2 است.
+1. این دستورالعمل را دنبال کنید، [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)، تا یک حساب ذخیره‌سازی جدید Azure ایجاد کنید.
+   **توجه**: مطمئن شوید نوع حساب ذخیره‌سازی Standard General Purpose V2 باشد.
 
-## مرحله 2: ایجاد یک سرویس Azure AI Search
+## مرحله ۲: ایجاد سرویس جستجوی هوش مصنوعی Azure
 
-1. وارد [پرتال Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691) شوید.
-2. در پنل ناوبری سمت چپ، روی **ایجاد یک منبع** کلیک کنید.
-3. در جعبه جستجو، "Azure AI Search" را تایپ کرده و **Azure AI Search** را از فهرست نتایج انتخاب کنید.
-4. روی دکمه **ایجاد** کلیک کنید.
-5. در تب **اساسی‌ها**، اطلاعات زیر را وارد کنید:
-   - **اشتراک**: اشتراک Azure خود را انتخاب کنید.
-   - **گروه منابع**: یک گروه منابع جدید ایجاد کنید یا گروه موجود را انتخاب کنید.
-   - **نام منبع**: یک نام یکتا برای سرویس جستجوی خود وارد کنید.
-   - **منطقه**: نزدیک‌ترین منطقه به کاربران خود را انتخاب کنید.
-   - **سطح قیمت‌گذاری**: یک سطح قیمت متناسب با نیاز خود انتخاب کنید. می‌توانید برای آزمایش با سطح رایگان شروع کنید.
-6. روی **بررسی + ایجاد** کلیک کنید.
-7. تنظیمات را بررسی کرده و روی **ایجاد** کلیک کنید تا سرویس جستجو ایجاد شود.
+1. وارد [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691) شوید.
+2. در پنل ناوبری سمت چپ، روی **Create a resource** کلیک کنید.
+3. در کادر جستجو، «Azure AI Search» را تایپ کرده و **Azure AI Search** را از لیست نتایج انتخاب کنید.
+4. روی دکمه **Create** کلیک کنید.
+5. در تب **Basics** اطلاعات زیر را وارد کنید:
+   - **Subscription**: اشتراک Azure خود را انتخاب کنید.
+   - **Resource group**: یک گروه منبع جدید ایجاد کنید یا یک گروه موجود را انتخاب نمایید.
+   - **Resource name**: یک نام یکتا برای سرویس جستجوی خود وارد کنید.
+   - **Region**: منطقه‌ای را که به کاربران شما نزدیک‌تر است انتخاب کنید.
+   - **Pricing tier**: سطح قیمتی که متناسب با نیازهای شماست انتخاب کنید. می‌توانید برای تست با سطح رایگان شروع کنید.
+6. روی **Review + create** کلیک کنید.
+7. تنظیمات را بازبینی کرده و روی **Create** کلیک کنید تا سرویس جستجو ایجاد شود.
 
-## مرحله 3: شروع به کار با Azure AI Search
+## مرحله ۳: شروع کار با جستجوی هوش مصنوعی Azure
 
-1. پس از تکمیل استقرار، به سرویس جستجوی خود در پرتال Azure بروید.
-2. در پنل نمای کلی سرویس جستجو، URL را کپی کنید. باید مشابه `https://<service-name>.search.windows.net` باشد.
-3. **(توصیه شده)** دسترسی بدون کلید با Microsoft Entra ID (RBAC) را فعال کنید همانطور که در مرحله 4 زیر نشان داده شده است — نیازی به کلید نیست. نمونه‌های این راهنما ایندکس‌ها را ایجاد/به‌روزرسانی کرده و اسناد را آپلود می‌کنند، که نیاز به نقش‌های **Search Service Contributor** و **Search Index Data Contributor** دارند (یا برای احراز هویت مبتنی بر کلید، کلید مدیریت اصلی — نه کلید پرس‌وجو). فقط در صورتی که نمی‌توانید از RBAC استفاده کنید، به بخش **تنظیمات > کلیدها** رفته و **کلید مدیریت اصلی** را کپی کنید.
-4. مراحل صفحه [راهنمای شروع سریع](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) را برای ایجاد ایندکس، بارگذاری داده‌ها و انجام جستجو دنبال کنید.
+1. پس از اتمام استقرار، به سرویس جستجوی خود در پرتال Azure بروید.
+2. در پنجره نمای کلی سرویس جستجو، URL را کپی کنید. این URL باید مانند `https://<service-name>.search.windows.net` باشد.
+3. **(توصیه شده)** دسترسی بدون کلید با Microsoft Entra ID (RBAC) را فعال کنید، همانطور که در مرحله ۴ زیر نشان داده شده است — نیازی به کلید نیست. نمونه‌های موجود در این راهنما ایجاد/به‌روزرسانی فهرست‌ها و بارگذاری اسناد را انجام می‌دهند که نیازمند نقش‌های **Search Service Contributor** و **Search Index Data Contributor** هستند (یا برای احراز هویت بر اساس کلید، **primary admin key** — نه کلید پرس‌وجو). فقط اگر نمی‌توانید از RBAC استفاده کنید، به پنجره **Settings > Keys** بروید و **primary admin key** را کپی کنید.
+4. مراحل صفحه [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) را برای ایجاد یک فهرست، بارگذاری داده‌ها و انجام جستجو دنبال کنید.
 
-## مرحله 4: استفاده از ابزارهای Azure AI Search
+## مرحله ۴: استفاده از ابزارهای جستجوی هوش مصنوعی Azure
 
-Azure AI Search با ابزارهای مختلفی یکپارچه می‌شود تا توانایی‌های جستجوی شما را افزایش دهد. می‌توانید از Azure CLI، Python SDK، .NET SDK و سایر ابزارها برای پیکربندی‌ها و عملیات پیشرفته استفاده کنید.
+جستجوی هوش مصنوعی Azure با ابزارهای مختلفی ادغام می‌شود تا قابلیت‌های جستجوی شما را افزایش دهد. می‌توانید از Azure CLI، Python SDK، .NET SDK و سایر ابزارها برای پیکربندی‌ها و عملیات پیشرفته استفاده کنید.
 
 ### استفاده از Azure CLI
 
-1. Azure CLI را با دنبال کردن دستورالعمل‌های [نصب Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) نصب کنید.
-2. با استفاده از دستور زیر وارد Azure CLI شوید:
+1. Azure CLI را با دنبال کردن دستورالعمل‌های موجود در [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) نصب کنید.
+2. با فرمان زیر وارد Azure CLI شوید:
 
    ```bash
    az login
    ```
-3. **(توصیه شده) دسترسی بدون کلید با Microsoft Entra ID (RBAC) را فعال کنید:**
+3. **(توصیه شده) دسترسی بدون کلید با Microsoft Entra ID (RBAC) فعال کنید:**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # سرویس جستجو show فیلد "endpoint" ندارد؛ آدرس URL را از نام سرویس بسازید.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    با فعال‌سازی RBAC، نمونه‌های SDK پایتون و .NET زیر با استفاده از `DefaultAzureCredential` احراز هویت می‌کنند که در زمان توسعه محلی از جلسه `az login` شما استفاده می‌کند — نیازی به کلید مدیریت نیست. مشاهده کنید [اتصال به Azure AI Search با استفاده از نقش‌ها](https://learn.microsoft.com/azure/search/search-security-rbac).
+    با فعال بودن RBAC، نمونه‌های Python و .NET SDK زیر با استفاده از `DefaultAzureCredential` احراز هویت می‌کنند، که در طول توسعه محلی از جلسه `az login` شما استفاده می‌کند — نیازی به کلید ادمین نیست. به [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac) مراجعه کنید.
 
-4. **(راه‌حل جایگزین) احراز هویت مبتنی بر کلید** — فقط اگر نتوانید از RBAC استفاده کنید، کلید مدیریت را نیز ذخیره کنید:
+4. **(گزینه جایگزین) احراز هویت بر پایه کلید** — تنها در صورتی که نتوانید از RBAC استفاده کنید، کلید ادمین را هم ذخیره کنید:
 
-#### ذخیره آدرس نقطه انتهایی و کلید API برای نمونه Azure AI Search در متغیرهای محیطی.
+#### هر دو نقطه انتهایی و کلید API مربوط به نمونه جستجوی هوش مصنوعی Azure را در متغیرهای محیطی ذخیره کنید.
 
-    ```bash
-    # zsh/bash
-    # دستور az search service show فیلد "endpoint" ندارد؛ URL را از نام سرویس بسازید.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # پاورشل
-    # دستور az search service show فیلد "endpoint" ندارد؛ URL را از نام سرویس بسازید.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### استفاده از Python SDK
 
-1. کتابخانه مشتری Azure Cognitive Search و Azure Identity برای پایتون را نصب کنید:
+1. کتابخانه کلاینت Azure Cognitive Search و Azure Identity برای Python را نصب کنید:
 
    ```bash
    pip install azure-search-documents azure-identity
    ```
 
-2. از کد پایتون زیر برای ایجاد ایندکس و بارگذاری اسناد استفاده کنید:
+2. از کد Python زیر برای ایجاد یک فهرست و بارگذاری اسناد استفاده کنید:
 
     ```python
     import os
@@ -97,11 +97,11 @@ Azure AI Search با ابزارهای مختلفی یکپارچه می‌شود 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # بدون کلید (توصیه شده): از هویت `az login` شما از طریق دسترسی RBAC در Entra ID استفاده می‌کند.
-    # نیازمند نقش‌های "مشارکت‌کننده سرویس جستجو" و "مشارکت‌کننده داده شاخص جستجو" است.
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # حالت جایگزین (احراز هویت مبتنی بر کلید):
-    # از azure.core.credentials وارد کردن AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -126,15 +126,15 @@ Azure AI Search با ابزارهای مختلفی یکپارچه می‌شود 
 
 ### استفاده از .NET SDK
 
-1. دستور زیر را برای ایجاد ایندکس و بارگذاری اسناد اجرا کنید:
+1. فرمان زیر را برای ایجاد یک فهرست و بارگذاری اسناد اجرا کنید:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    نمونه .NET زیر از `DefaultAzureCredential` استفاده می‌کند که می‌تواند از ورود به حساب Azure CLI شما در زمان توسعه محلی `az login` بهره ببرد.
+    نمونه .NET زیر از `DefaultAzureCredential` استفاده می‌کند، که می‌تواند در طول توسعه محلی از طریق ورود به Azure CLI از `az login` استفاده کند.
 
-2. این هم کد .NET فایل `AzureSearch.cs`:
+2. کد .NET مربوط به `AzureSearch.cs` به شرح زیر است:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,17 +181,17 @@ Azure AI Search با ابزارهای مختلفی یکپارچه می‌شود 
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-برای اطلاعات بیشتر، به مستندات زیر مراجعه کنید:
+برای اطلاعات دقیق‌تر به مستندات زیر مراجعه کنید:
 
-- [ایجاد یک سرویس جستجوی شناختی Azure](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [شروع به کار با Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [ابزارهای Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## نتیجه‌گیری
 
-شما با موفقیت Azure AI Search را با استفاده از پرتال Azure و ابزارهای یکپارچه‌شده راه‌اندازی کرده‌اید. اکنون می‌توانید ویژگی‌ها و قابلیت‌های پیشرفته‌تر Azure AI Search را برای بهبود راه‌حل‌های جستجوی خود کاوش کنید.
+شما با موفقیت جستجوی هوش مصنوعی Azure را از طریق پرتال Azure و ابزارهای یکپارچه راه‌اندازی کرده‌اید. اکنون می‌توانید قابلیت‌ها و ویژگی‌های پیشرفته‌تر جستجوی هوش مصنوعی Azure را برای بهبود راه‌حل‌های جستجوی خود بررسی کنید.
 
-برای کمک‌های بیشتر، به [مستندات Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) مراجعه کنید.
+برای دریافت کمک بیشتر، به [مستندات Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) مراجعه کنید.
 
 ---
 

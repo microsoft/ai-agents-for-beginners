@@ -146,12 +146,11 @@ Make sure that you are using the right version of Python in VSCode.
 
 ### Step 1: Create a Microsoft Foundry Project
 
-You need an Microsoft Foundry **hub** and **project** with a deployed model to run the notebooks.
+You need a Microsoft Foundry **project** with a deployed model to run the notebooks. Create the project directly in the current Microsoft Foundry experience; a hub is not required.
 
 1. Go to [ai.azure.com](https://ai.azure.com) and sign in with your Azure account.
-2. Create a **hub** (or use an existing one). See: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
-3. Inside the hub, create a **project**.
-4. Deploy a model (e.g., `gpt-5-mini`) from **Models + Endpoints** → **Deploy model**.
+2. Select **Create project** and follow the prompts to create your project.
+3. In the project, deploy a model (e.g., `gpt-5-mini`) from **Models + Endpoints** → **Deploy model**.
 
 ### Step 2: Retrieve Your Project Endpoint and Model Deployment Name
 

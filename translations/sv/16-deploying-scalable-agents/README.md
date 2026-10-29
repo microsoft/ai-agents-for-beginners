@@ -2,154 +2,154 @@
 
 ![Distribuera skalbara agenter](../../../translated_images/sv/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Fram till denna punkt i kursen har du byggt agenter som körs på din bärbara dator, inuti en notebook, drivna av `az login` och ett par miljövariabler. Det är precis rätt sätt att lära sig på. Det är inte rätt sätt att köra en agent som tusentals kunder är beroende av klockan 3 på morgonen.
+Fram till denna punkt i kursen har du byggt agenter som körs på din bärbara dator, inuti en anteckningsbok, drivna av `az login` och några miljövariabler. Det är precis rätt sätt att lära sig på. Det är inte rätt sätt att köra en agent som tusentals kunder är beroende av klockan 3 på morgonen.
 
-Denna lektion handlar om gapet mellan "det fungerar på min maskin" och "det fungerar, pålitligt och prisvärt, i produktion." Vi stänger det gapet med hjälp av **Microsoft Foundry** och **Microsoft Foundry Agent Service**, och vi gör det genom att bygga en riktig kundsupportagent som har verktyg, hämtning, minne, utvärdering och övervakning.
+Den här lektionen handlar om gapet mellan "det funkar på min maskin" och "det funkar, pålitligt och prisvärt, i produktion." Vi stänger det gapet med hjälp av **Microsoft Foundry** och **Microsoft Foundry Agent Service**, och gör det genom att bygga en riktig kundsupportagent som har verktyg, hämtning, minne, utvärdering och övervakning.
 
 ## Introduktion
 
 Den här lektionen kommer att täcka:
 
-- Skillnaden mellan en **prototype-agent** och en **distribuerad agent**, och varför övergången mest handlar om allt *runtomkring* modellen.
-- **Distribueringsmönster** för agenter: klienthostad, tjänstehostad (Hosted Agents) och arbetsflödesorkestrerad.
+- Skillnaden mellan en **prototypeagent** och en **distribuerad agent**, och varför övergången mest handlar om allt *runtomkring* modellen.
+- **Distributionsmönster** för agenter: klienthostad, tjänstehostad (Hosted Agents), och arbetsflödesorkestrerade.
 - **Agentens livscykel** på Microsoft Foundry — skapa, versionera, distribuera, utvärdera, observera, pensionera.
-- **Skalningsstrategier**: modellruttning, caching, samtidighet och stateless design.
-- **Observerbarhet** med OpenTelemetry och Foundry-spårning.
-- **Kostnadsoptimering** genom modellval, ruttning och utvärderingsgrindar.
-- **Företagsöverväganden**: styrning, mänskligt godkännande och att köra MCP-servrar säkert i produktion.
+- **Scaling-strategier**: modellruttning, cachelagring, samtidighet och tillståndslös design.
+- **Observerbarhet** med OpenTelemetry och Foundry-tracing.
+- **Kostnadsoptimering** genom val av modell, ruttning och utvärderingsportar.
+- **Företagsöverväganden**: styrning, mänskligt godkännande och säker drift av MCP-servrar i produktion.
 
 ## Lärandemål
 
-Efter att ha genomfört denna lektion kommer du att veta hur man:
+Efter att ha slutfört denna lektion kommer du att kunna:
 
-- Väljer rätt distribueringsmönster för en given agentbelastning.
-- Distribuerar en agent till Microsoft Foundry Agent Service så att den versioneras, styrs och är observerbar.
-- Instrumenterar en agent för spårning och kopplar ihop en utvärderingspipeline som körs före varje release.
-- Använder modellruttning och caching för att hålla latens och kostnad under kontroll i skala.
-- Lägger till en grind för mänskligt godkännande för högriskåtgärder och integrerar en MCP-server på ett produktionssäkert sätt.
+- Välja rätt distributionsmönster för en given agentbelastning.
+- Distribuera en agent till Microsoft Foundry Agent Service så att den blir versionerad, styrd och observerbar.
+- Instrumentera en agent för tracing och koppla en utvärderingspipeline som körs före varje release.
+- Applicera modellruttning och cachelagring för att hålla latens och kostnad under kontroll i skala.
+- Lägga till en mänsklig godkännandeport för högriskåtgärder och integrera en MCP-server på ett produktion-säkert sätt.
 
 ## Förkunskaper
 
-Denna lektion förutsätter att du har slutfört tidigare lektioner och är bekväm med:
+Den här lektionen förutsätter att du har gjort de tidigare lektionerna och är bekväm med:
 
 - Att bygga agenter med [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lektion 14).
 - [Verktygsanvändning](../04-tool-use/README.md) (Lektion 4) och [Agentic RAG](../05-agentic-rag/README.md) (Lektion 5).
 - [Agentminne](../13-agent-memory/README.md) (Lektion 13) och [Agentic Protocols / MCP](../11-agentic-protocols/README.md) (Lektion 11).
-- [Observerbarhet och utvärdering](../10-ai-agents-production/README.md) (Lektion 10) — denna lektion bygger direkt vidare på den.
+- [Observerbarhet och utvärdering](../10-ai-agents-production/README.md) (Lektion 10) — denna lektion bygger direkt på den.
 
-Du kommer också behöva:
+Du behöver också:
 
-- Ett **Azure-prenumeration** och ett **Microsoft Foundry-projekt** med minst en distribuerad chattmodell.
-- Autentiserat **Azure CLI** (`az login`).
-- Python 3.12+ och paketen i repositoryn [`requirements.txt`](../../../requirements.txt).
+- En **Azure-prenumeration** och ett **Microsoft Foundry-projekt** med minst en distribuerad chattmodell.
+- **Azure CLI** autentiserad (`az login`).
+- Python 3.12+ och paketen i förvaret [`requirements.txt`](../../../requirements.txt).
 
-## Från prototyp till produktion: vad förändras egentligen
+## Från prototyp till produktion: vad ändras egentligen
 
-En prototype-agent och en produktionsagent delar samma kärnloop — resonera, anropa verktyg, svara. Vad som förändras är allt runt omkring den loopen. Modellen är kanske 20 % av en produktionsagent; de andra 80 % är den operativa skeletten.
+En prototypeagent och en produktionsagent delar samma kärnloop — resonera, anropa verktyg, svara. Vad som ändras är allt som är omslutet runt den loopen. Modellen är kanske 20 % av en produktionsagent; de andra 80 % är den operationella skelettet.
 
 | Aspekt | Prototyp | Produktion |
 | --- | --- | --- |
-| **Hosting** | Körs i din notebook | Körs som en hostad tjänst, versioneras och rullas ut |
-| **Identitet** | Din `az login`-token | Hanterad identitet med scoped RBAC |
-| **State** | I minnet, förloras vid omstart | Extern lagring (trådstore, minnestjänst) |
-| **Felhantering** | Du ser tracebaken | Omgångsförsök, fallback, dead-letter, larm |
-| **Kostnad** | "Det är några cent" | Spåras per förfrågan, ruttas, cachelagras, budgeteras |
-| **Kvalitet** | Du granskar resultaten | Utvärderas automatiskt före varje release |
-| **Förtroende** | Du godkänner varje åtgärd | Policy + människa i loopen för riskfyllda åtgärder |
+| **Hosting** | Körs i din anteckningsbok | Körs som en hostad tjänst, versionerad och ut rullad |
+| **Identitet** | Din `az login`-token | Hanterad identitet med avgränsad RBAC |
+| **Tillstånd** | I minnet, förloras vid omstart | Externiserat (tråd-lagring, minnestjänst) |
+| **Fel** | Du ser felspårningen | Försök igen, fallback, död-brevlåda, larm |
+| **Kostnad** | "Det är några ören" | Spåras per förfrågan, routas, cachas, budgeteras |
+| **Kvalitet** | Du granskare utdata | Utvärderas automatiskt före varje release |
+| **Förtroende** | Du godkänner varje åtgärd | Policy + människa-i-slingan för riskfyllda åtgärder |
 
-Ha denna tabell i åtanke. Varje sektion nedan motsvarar en av dessa rader.
+Tänk på denna tabell. Varje avsnitt nedan motsvarar en av dessa rader.
 
-## Agent-distribueringsmönster
+## Agentdistributionsmönster
 
-Det finns tre mönster du kommer använda, ofta i kombination.
+Det finns tre mönster du kommer att använda, ofta i kombination.
 
 ### 1. Klienthostade agenter
 
-Agentobjektet lever inuti *din* applikationsprocess. Din kod anropar modellleverantören direkt; resonemangsloopen körs i din tjänst. Det här är vad varje tidigare lektion har gjort.
+Agentobjektet lever inuti *din* applikationsprocess. Din kod anropar modellleverantören direkt; resonemangsloopen körs i din tjänst. Detta är vad varje tidigare lektion har gjort.
 
-- **Använd när** du behöver full kontroll över loopen, specialanpassad middleware eller att bädda in agenten i en befintlig backend.
-- **Nackdel**: du ansvarar själv för skalning, state och motståndskraft.
+- **Använd det när** du behöver full kontroll över loopen, anpassad middleware, eller om du bäddar in agenten i en befintlig backend.
+- **Avvägning**: du äger skalning, tillstånd och motståndskraft själv.
 
 ### 2. Hostade agenter (Foundry Agent Service)
 
 Agenten är *registrerad som en resurs* i Microsoft Foundry. Foundry hostar resonemangsloopen, lagrar trådar, upprätthåller innehållssäkerhet och RBAC, och gör agenten synlig i Foundry-portalen. Din app blir en tunn klient som skapar trådar och läser svar.
 
-- **Använd när** du vill ha uthållighet, inbyggd observerbarhet, styrning och mindre operativ yta.
-- **Nackdel**: mindre låg-nivå kontroll i utbyte mot en hanterad runtime.
+- **Använd det när** du vill ha hållbarhet, inbyggd observerbarhet, styrning och mindre operativ yta.
+- **Avvägning**: mindre låg-nivå-kontroll i utbyte mot en hanterad runtime.
 
 ### 3. Agentarbetsflöden
 
-Flera agenter (och verktyg) är sammansatta i en graf med explicit kontrollflöde — sekventiella steg, förgrening, mänskliga godkännandenoder och hållbara checkpoints som kan pausas och återupptas. Detta är Microsoft Agent Frameworks **Workflows**-funktion tillämpad i distributionsskala.
+Flera agenter (och verktyg) komponerade i en graf med explicit kontrollflöde — sekventiella steg, grenindelning, mänskliga godkännandenoder, och hållbara kontrollpunkter som kan pausa och återuppta. Detta är Microsoft Agent Frameworks **Workflows**-funktion använde i distributionsskala.
 
-- **Använd när** en enskild uppgift spänner över flera specialiserade agenter eller kräver ett godkännande mitt i.
-- **Nackdel**: fler rörliga delar; kräver orkestreringsnivå observerbarhet.
+- **Använd det när** en enda uppgift sträcker sig över flera specialiserade agenter eller kräver ett godkännande mitt i processen.
+- **Avvägning**: fler rörliga delar; kräver orkestreringsnivåobserverbarhet.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Klienthostad]
-        A1[Din App-process] --> M1[Modellleverantör]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Hostad Agent]
-        A2[Tunn Klient] --> F2[Foundry Agent-tjänst]
-        F2 --> M2[Modell + Verktyg + Trådlager]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Agentarbetsflöde]
-        A3[Orkestrator] --> S1[Triage-agent]
-        S1 --> S2[Lösningsagent]
-        S2 --> H[Mänsklig Godkännandenod]
-        H --> S3[Aktionsagent]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
 ## Agentens livscykel på Microsoft Foundry
 
-Att distribuera en agent är inte ett engångs-`push`. Det är en loop, och det liknar mycket en mjukvarurelasecykel eftersom det är precis vad det är.
+Att distribuera en agent är inte en engångshändelse `push`. Det är en loop, och det liknar mycket en mjukvarureleasecykel eftersom det är precis vad det är.
 
 ```mermaid
 flowchart LR
-    Create[Skapa / Författare] --> Version[Version]
-    Version --> Evaluate[Utvärdera offline]
-    Evaluate -->|passerar grind| Deploy[Distribuera värdbaserat]
-    Evaluate -->|misslyckas vid grind| Create
-    Deploy --> Observe[Observera online]
-    Observe --> Improve[Samla in fel]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Pensionera gammal version]
+    Deploy --> Retire[Retire old version]
 ```
 
-Kärnidén, hämtad från [Lektion 10](../10-ai-agents-production/README.md): **offline-utvärdering är en grind, inte en eftertanke.** En ny agentversion skickas inte ut om den inte klarar dina utvärderingströsklar. Online-observerbarhet matar sedan tillbaka verkliga fel till ditt offline-testset. Det är hela loopen.
+Nyckelidén, hämtad från [Lektion 10](../10-ai-agents-production/README.md): **offline-utvärdering är en port, inte en eftertanke.** En ny agentversion levereras inte om den inte klarar dina utvärderingströsklar. Online-observerbarhet matar sedan verkliga fel tillbaka in i din offline-testuppsättning. Det är hela loopen.
 
-## Skalningsstrategier
+## Scaling-strategier
 
-Att skala en agent skiljer sig från att skala ett stateless webb-API, eftersom varje förfrågan kan utlösa flera dyra modell- och verktygsanrop. Fyra tekniker bär större delen av belastningen.
+Att skala en agent skiljer sig från att skala ett tillståndslöst webb-API, eftersom varje förfrågan kan trigga flera kostsamma modell- och verktygsanrop. Fyra tekniker bär det mesta av lasten.
 
-**Stateless förfrågningshantering.** Behåll inget användar-specifikt tillstånd i din processminne. Spara samtalstrådar i Foundrys trådstore eller en minnestjänst så att vilken instans som helst kan hantera vilken förfrågan som helst. Detta är vad som låter dig skala horisontellt — lägg till instanser, inga klibbiga sessioner.
+**Tillståndslös förfråganhantering.** Behåll inget användarspecifikt tillstånd i processminnet. Persistenta konversations-trådar i Foundrys trådlager eller en minnestjänst så att vilken instans som helst kan hantera vilken förfrågan som helst. Detta är vad som låter dig skala horisontellt — lägg till instanser, inga klibbiga sessioner.
 
-**Modellruttning.** Inte varje förfrågan kräver din mest kapabla (och dyraste) modell. Rutta enkla förfrågningar — avsiktsklassificering, korta faktabaserade svar — till en liten, snabb modell och reservera den stora modellen för äkta resonemang. Foundrys **Model Router** kan göra detta åt dig, eller så kan du implementera en lättviktsklassificerare själv. Du kommer att bygga en gör-det-själv-version i labbet.
+**Modellruttning.** Inte varje förfrågan behöver din mest kapabla (och dyraste) modell. Rutt enkla förfrågningar — avsiktsklassificering, kortfattade faktasvar — till en liten, snabb modell, och reservera den stora modellen för verkligt resonemang. Foundrys **Model Router** kan göra detta åt dig, eller så kan du implementera en lättviktsklassificerare själv. Du bygger DIY-versionen i labbet.
 
-**Caching av svar.** Många supportfrågor är nästan dubbletter ("hur återställer jag mitt lösenord?"). Cachea svar på vanliga frågor och leverera dem utan att alls anropa modellen. Även en måttlig cacheträffrate skär avsevärt kostnad och latens.
+**Svarscachelagring.** Många supportfrågor är nästan dubletter ("hur återställer jag mitt lösenord?"). Cachera svar på vanliga frågor och leverera dem utan att träffa modellen alls. Även en modest cacheträfffrekvens minskar kostnad och latens betydligt.
 
-**Samtidighet och backpressure.** Modellleverantörer har hastighetsbegränsningar. Begränsa din samtidighet, använd omförsök med exponentiell backoff och faila snyggt (ett köat "vi arbetar på det"-svar är bättre än en 500).
+**Samtidighet och tryckavlastning.** Modellleverantörer har hastighetsbegränsningar. Begränsa din samtidighet, använd försök igen med exponentiell backoff, och feila snyggt (ett köat "vi jobbar på det"-svar är bättre än ett 500-fel).
 
 ```mermaid
 flowchart LR
-    Q[Användarfråga] --> C{Cach träff?}
-    C -->|ja| R[Returnera cachad svar]
-    C -->|nej| Router{Komplexitet?}
-    Router -->|enkel| SLM[Liten modell]
-    Router -->|komplex| LLM[Stor modell]
-    SLM --> Out[Svar]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
-    Out --> Store[Cache + spårning]
+    Out --> Store[Cache + trace]
 ```
 
 ## Observerbarhet i produktion
 
-Du kan inte styra det du inte kan se. Som täcktes i Lektion 10, emitterar Microsoft Agent Framework **OpenTelemetry**-spårningar nativt — varje modellanrop, verktygsanrop och orkestreringssteg blir en span. I produktion exporterar du dessa spans till Microsoft Foundry (eller någon OTel-kompatibel backend) så att du kan:
+Du kan inte driva det du inte kan se. Som täcks i Lektion 10, emitterar Microsoft Agent Framework **OpenTelemetry**-spårningar nativt — varje modellanrop, verktygsanrop och orkestreringssteg blir en span. I produktion exporterar du dessa spans till Microsoft Foundry (eller någon OTel-kompatibel backend) så att du kan:
 
-- Spåra ett enskilt kundklagomål från början till slut över varje modell- och verktygsanrop.
+- Spåra ett enda kundklagomål från början till slut över varje modell- och verktygsanrop.
 - Övervaka p50/p95 latens och kostnad per förfrågan över tid.
-- Larma vid felratetoppar och kostnadsavvikelser innan dina användare (eller din ekonomiavdelning) märker det.
+- Larma om felratepikar och kostnadsavvikelser innan dina användare (eller din ekonomiavdelning) märker det.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,93 +159,93 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # agentens körning spåras automatiskt inom detta spann
+    # agent execution is traced automatically inside this span
 ```
 
-Attribut som `customer.tier` och `routed.model` är det som förvandlar en vägg av spårningar till besvarbara frågor ("blir företagskunder alltför ofta ruttade till den lilla modellen?").
+Attribut som `customer.tier` och `routed.model` är vad som förvandlar en vägg av spårningar till besvarbara frågor ("blir företagskunder routade till den lilla modellen för ofta?").
 
 ## Kostnadsoptimering
 
 Kostnaden i produktionsagenter domineras av tokens. Tre spakar, i ordning efter påverkan:
 
-1. **Anpassa modellstorleken rätt.** En liten modell som klarar din utvärderingsgrind är nästan alltid billigare än en stor som också klarar den. Använd utvärdering för att *bevisa* att den lilla modellen är tillräckligt bra i stället för att som standard välja den största modellen av försiktighet.
-2. **Rutta efter komplexitet.** Som ovan — betala stora modellpriser endast för förfrågningar som kräver resonemang med stor modell.
-3. **Cachea aggressivt.** Det billigaste modellanropet är det du aldrig gör.
+1. **Rätt storlek på modellen.** En liten modell som klarar din utvärderingsport är nästan alltid billigare än en stor som också klarar den. Använd utvärdering för att *bevisa* att den lilla modellen är tillräckligt bra istället för att som standard välja den största modellen av försiktighet.
+2. **Ruta efter komplexitet.** Som ovan — betala stor-modell-priser bara för förfrågningar som behöver stor-modellresonemang.
+3. **Cachelagra aggressivt.** Det billigaste modellanropet är det du aldrig gör.
 
-Utvärderingsgrindar och kostnadskontroll är samma disciplin sett från två vinklar: utvärdering berättar *kvalitetsgolvet*, medan ruttning och caching håller dig så nära det golvets *kostnad* som möjligt.
+Utvärderingsportar och kostnadskontroll är samma disciplin sedd från två vinklar: utvärdering talar om *kvalitetsgolvet*, ruttning och caching håller dig så nära golvets *kostnad* som möjligt.
 
-## Företagsöverväganden för distribution
+## Företagsdistribution: överväganden
 
-**Styrning.** Hostade agenter ärv det Foundrys RBAC, innehållssäkerhet och revisionsloggning. Ge varje agent en hanterad identitet med minsta privilegier den behöver — läsbehörighet till kunskapsbasen, scopad åtkomst till ärende-API:et, inget mer.
+**Styrning.** Hostade agenter ärva Foundrys RBAC, innehållssäkerhet och revisionsloggning. Ge varje agent en hanterad identitet med minsta privilegium den behöver — läsbehörighet till kunskapsbasen, avgränsad åtkomst till ärende-API:et, inget mer.
 
-**Människa i loopen.** Vissa åtgärder är för betydande för att automatiseras helt — utfärda återbetalning, radera ett konto, eskalera till en juridisk avdelning. Microsoft Agent Framework stödjer **godkännande-krävande** verktyg: agenten föreslår handling, exekveringen pausas, en människa godkänner eller avvisar och arbetsflödet fortsätter. Du såg denna primitiv i [Lektion 6](../06-building-trustworthy-agents/README.md); här distribuerar du den.
+**Människa-i-slingan.** Vissa åtgärder är för viktiga för att automatiseras rakt av — utfärda återbetalning, radera ett konto, eskalera till en juridisk avdelning. Microsoft Agent Framework stöder **godkännande-krävande** verktyg: agenten föreslår åtgärden, exekveringen pausas, en människa godkänner eller avvisar, och arbetsflödet fortsätter. Du såg primitivet i [Lektion 6](../06-building-trustworthy-agents/README.md); här distribuerar du det.
 
-**MCP i produktion.** [MCP](../11-agentic-protocols/README.md) låter din agent använda externa verktyg via ett standardgränssnitt. I produktion behandlar du varje MCP-server som en opålitlig gräns: fasttöm serverversion, kör med scopad identitet, validera dess output och exponera aldrig hemligheter till den. En MCP-server är en beroende komponent, och beroenden patchas, granskas och hastighetsbegränsas.
+**MCP i produktion.** [MCP](../11-agentic-protocols/README.md) låter din agent använda externa verktyg genom ett standardgränssnitt. I produktion behandla varje MCP-server som en opålitlig gräns: fixa serverversionen, kör den med avgränsad identitet, validera dess resultat och exponera aldrig hemligheter för den. En MCP-server är ett beroende, och beroenden patchas, granskas och får hastighetsbegränsningar.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Utvecklingsarkitektur]
-        D1[Anteckningsbok] --> D2[Agentramverk]
-        D2 --> D3[Modellleverantör]
-        D2 --> D4[Lokala verktyg]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Driftsarkitektur]
-        E1[CI-pipeline] --> E2[Utvärderingsgrind]
-        E2 -->|godkänd| E3[Foundry Agent-tjänst]
-        E3 --> E4[Versionerad värdagent]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Körningsarkitektur]
-        F1[Klientapp] --> F2[Värdagent]
-        F2 --> F3[Modellrouter]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Minnestjänst]
-        F2 --> F6[MCP-verktyg]
-        F2 --> F7[OTel -> Foundry-spårning]
-        F2 --> F8[Mänskligt godkännande]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-De tre diagrammen — utveckling, distribution, runtime — visar samma agent i tre stadier av dess liv. Labbet som följer går igenom hur du bygger den.
+Dessa tre diagram — utveckling, distribution, körning — är samma agent i tre livsstadier. Labbet som följer går igenom att bygga den.
 
 ## Praktiskt labb: En produktionsklar kundsupportagent
 
-Öppna [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) och arbeta dig igenom den från början till slut. Du kommer att sätta ihop en **Contoso kundsupportagent** med alla produktionsaspekter inkopplade:
+Öppna [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) och arbeta igenom den från början till slut. Du kommer att sätta ihop en **Contoso kundsupportagent** med alla produktionskrav inkopplade:
 
 1. **Verktygsanrop** — slå upp orderstatus och öppna supportärenden.
-2. **RAG** — svara på policyfrågor från kunskapsbasen (Azure AI Search, med en minnesbaserad fallback så att notebooken kan köras utan en Search-resource).
-3. **Minne** — kom ihåg kunden över samtalets vändningar.
-4. **Modellruttning** — en komplexitetsklassificerare ruttar varje förfrågan till en liten eller stor modell.
-5. **Caching av svar** — upprepade frågor levereras från cache.
-6. **Mänskligt godkännande** — återbetalningar över en tröskel pausas för mänskligt godkännande.
-7. **Utvärderingspipeline** — en liten offline testmängd poängsätter agenten och fungerar som en releasegrind.
-8. **Observerbarhet** — OpenTelemetry-spårning runt varje förfrågan.
+2. **RAG** — svara på policyfrågor från en kunskapsbas (Azure AI Search, med en minnesbaserad fallback så att anteckningsboken körs utan en Search-resurs).
+3. **Minne** — komma ihåg kunden över samtalsomgångar.
+4. **Modellruttning** — en komplexitetsklassificerare skickar varje förfrågan till en liten eller stor modell.
+5. **Cachelagring av svar** — upprepade frågor svaras från cache.
+6. **Mänskligt godkännande** — återbetalningar över en gräns pausar för mänskligt godkännande.
+7. **Utvärderingspipeline** — en liten offline-testuppsättning betygsätter agenten och fungerar som en release-port.
+8. **Observerbarhet** — OpenTelemetry-tracing runt varje förfrågan.
 
 ### Genomgång
 
-Notebooken är organiserad så varje produktionsbekymmer är en självständig, körbar sektion. Kärnan är request-handlern med routning plus caching:
+Anteckningsboken är organiserad så att varje produktionsaspekt är en självständig, körbar sektion. Hjärtat i den är routning-plus-cachehanteraren:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Servera från cache när vi kan.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Rauta efter komplexitet för att kontrollera kostnad.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Kör agenten inom en spårningsspan för observabilitet.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Cachea och returnera.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Utvärderingsgrinden som skyddar en release ser ut så här:
+Utvärderingsporten som skyddar en release ser ut så här:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # distribuera endast om porten godkänns
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Läs varje rad — notebooken håller primitiva funktioner medvetet små så att inget är dolt bakom ett ramverksanrop.
+Läs varje rad — anteckningsboken håller primitivena medvetet små så att inget är dolt bakom en ramverksanrop.
 
-## Validera en distribuerad agent med smoketester
+## Validera en distribuerad agent med röktester
 
-Utvärderingsgrinden ovan körs *offline* mot ditt agentobjekt. När agenten är distribuerad som en Hostad Agent behöver du en kontroll till, ännu billigare: **svarar den distribuerade endpointen faktiskt?**
+Utvärderingsporten ovan körs *offline* mot ditt agentobjekt. När agenten är distribuerad som Hosted Agent behöver du en till, ännu billigare kontroll: **svarar den distribuerade endpointen faktiskt?**
 
-Att distribuera "framgångsrikt" bevisar bara att kontrollplanet accepterade definitionen — det bevisar inte att agenten svarar. En saknad beroende, felaktig modellruttning eller en utgången anslutning kan lämna en grön distribution som inte returnerar någonting. Ett **smoketest** fångar detta på sekunder, vid varje distribution, utan kostnaden för en fullständig utvärdering.
+Att distribuera "framgångsrikt" bevisar bara att kontrollplanet accepterade definitionen — det bevisar inte att agenten svarar. En saknad beroende, en felaktig modellruttning eller en utgången anslutning kan lämna en grön distribution som inte returnerar något. Ett **röktest** fångar det på sekunder, vid varje distribution, utan kostnaden för en full utvärdering.
 
-Detta repository levereras med en redo-att-använda smoketestpipeline byggd på [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
+Detta förvar levereras med en färdig att använda röktestpipeline byggd på [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
 
-- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) innehåller promptar och assertioner för Contoso-supportagenten (grundade policy-svar, en orderuppslagning, ämneshållning och trådkontinuitet över flera vändor). Kataloger för andra lektioners agenter finns parallellt — se [`tests/README.md`](../tests/README.md).
-- **Arbetsflöde** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) loggar in med Azure OIDC och POSTar varje prompt till agentens Responses-endpoint, misslyckar jobbet vid varje assertion miss.
+- **Katalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) innehåller prompts och påståenden för Contoso supportagent (grundade policy-svar, en orderuppslagning, hålla sig ämnesrelaterad och kontinuitet i flera svängar). Kataloger för andra lektionsagenter finns bredvid — se [`tests/README.md`](../tests/README.md).
+- **Arbetsflöde** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) loggar in med Azure OIDC och POST-ar varje prompt till agentens Responses-endpoint, misslyckas jobbet vid varje påståendefel.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,19 +281,18 @@ Detta repository levereras med en redo-att-använda smoketestpipeline byggd på 
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
-Kör det från fliken **Actions** när din agent är distribuerad, och ange din Foundry-projektendpoint och agentnamn. Den federerade identiteten behöver rollen **Azure AI User** på Foundry-projektets nivå. Tänk på lagren som en pyramid: röktester (nåbar och svarar?) körs vid varje distribution, offlineutvärdering (tillräckligt bra för leverans?) körs före promotion, och onlineutvärdering (hur presterar den i verkligheten?) körs kontinuerligt.
+Kör det från fliken **Actions** när din agent är distribuerad, och ange din Foundry-projektendpoint och agentnamn. Den federerade identiteten behöver rollen **Azure AI User** på Foundry-projektets nivå. Tänk på lagren som en pyramid: röktester (tillgänglig och svarar?) körs vid varje distribution, offline utvärdering (bra nog för att leverera?) körs innan befordran, och online utvärdering (hur går det i verkligheten?) körs kontinuerligt.
 
 ## Kunskapskontroll
 
 Testa din förståelse innan du går vidare till uppgiften.
 
-**1. Ungefär hur stor del av en produktionsagent är "modellen", och vad är resten?**
+**1. Ungefär hur stor del av en produktionsagent är "modellen" och vad är resten?**
 
 <details>
 <summary>Svar</summary>
 
-Modellen är en minoritet av systemet — ofta cirka 20%. Resten är den operativa skelettet: hosting och versionshantering, identitet och RBAC, externt tillstånd, felhantering, kostnadsspårning, utvärdering och mänsklig-in-loop-kontroller. Att gå till produktion handlar mest om att bygga allt *runt* resonemangsloopen.
+Modellen är en minoritet av systemet — ofta angiven som runt 20%. Resten är den operativa stomme: hosting och versionering, identitet och RBAC, eksternlagrad status, felhantering, kostnadsspårning, utvärdering och mänskliga kontroller i loopen. Att gå till produktion handlar mest om att bygga allt *runt* resonemangsloopen.
 </details>
 
 **2. När skulle du välja en Hosted Agent framför en klienthostad agent?**
@@ -301,7 +300,7 @@ Modellen är en minoritet av systemet — ofta cirka 20%. Resten är den operati
 <details>
 <summary>Svar</summary>
 
-När du vill ha en hanterad runtime med inbyggd hållbarhet (trådar som kvarstår och kan återupptas), observerbarhet, innehållssäkerhet och RBAC, och du är villig att byta bort lite av den lågnivåkontrollen över resonemangsloopen för mindre operativ komplexitet. Klienthostad är att föredra när du behöver full kontroll över loopen eller ska bädda in agenten i en befintlig backend.
+När du vill ha en hanterad runtime med inbyggd hållbarhet (trådar som kan fortsätta och återupptas), observabilitet, innehållssäkerhet och RBAC, och du är villig att byta bort lite lågnivåkontroll över resonemangsloopen för en mindre operativ yta. Klienthostad är att föredra när du behöver full kontroll över loopen eller integrerar agenten i en befintlig backend.
 </details>
 
 **3. Varför måste en skalbar agent vara stateless i sin egen processminne?**
@@ -309,15 +308,15 @@ När du vill ha en hanterad runtime med inbyggd hållbarhet (trådar som kvarst�
 <details>
 <summary>Svar</summary>
 
-Så att vilken instans som helst kan hantera vilken förfrågan som helst, vilket möjliggör horisontell skalning utan klibbiga sessioner. Per-användarsamtalsstat är externt till en trådlagring eller memoritjänst. Om tillståndet levde i processminnet skulle du förlora det vid omstart och kunde inte distribuera belastningen fritt.
+Så att vilken instans som helst kan hantera vilken förfrågan som helst, vilket möjliggör horisontell skalning utan klibbiga sessioner. Per-användarsamtalsstatus lagras externt i en trådlager eller minnestjänst. Om status levde i processminnet skulle du förlora den vid omstart och inte kunna distribuera lasten fritt.
 </details>
 
-**4. Vilket problem löser modellroutning, och hur relaterar det till utvärdering?**
+**4. Vilket problem löser modellriktning och hur relaterar det till utvärdering?**
 
 <details>
 <summary>Svar</summary>
 
-Routning skickar enkla förfrågningar till en liten, billig, snabb modell och reserverar den stora modellen för genuint resonemang, vilket kontrollerar både latens och kostnad. Det relaterar till utvärdering eftersom utvärdering är vad som *bevisar* att den lilla modellen är tillräckligt bra för en viss typ av förfrågningar — routning utan utvärdering är gissningar.
+Routing skickar enkla förfrågningar till en liten, billig, snabb modell och reserverar den stora modellen för äkta resonemang, vilket styr både latens och kostnad. Det relaterar till utvärdering eftersom utvärdering är vad som *bevisar* att den lilla modellen är tillräckligt bra för en klass av förfrågningar — routing utan utvärdering är gissning.
 </details>
 
 **5. Vad är en "utvärderingsgrind" och var sitter den i livscykeln?**
@@ -325,15 +324,15 @@ Routning skickar enkla förfrågningar till en liten, billig, snabb modell och r
 <details>
 <summary>Svar</summary>
 
-En utvärderingsgrind kör ett offline-testset mot en ny agentversion och blockerar distribution om inte godkännandefrekvensen överstiger en tröskel. Den sitter mellan "version" och "distribuera" i livscykeln, vilket gör kvalitet till en förutsättning för release istället för något du kontrollerar efter leverans.
+En utvärderingsgrind kör en offline testuppsättning mot en ny agentversion och blockerar distribution om inte godkännandegraden når en tröskel. Den sitter mellan "version" och "distribution" i livscykeln, och gör kvalitet till en förutsättning för release istället för något du kontrollerar efter leverans.
 </details>
 
-**6. Varför bör en MCP-server betraktas som en opålitlig gräns i produktion?**
+**6. Varför bör en MCP-server behandlas som en otillförlitlig gräns i produktion?**
 
 <details>
 <summary>Svar</summary>
 
-Eftersom det är en extern beroende som din agent anropar. Du bör låsa versionen, köra den med en begränsad identitet, validera dess utdata, begränsa dess anropshastighet och aldrig exponera hemligheter för den — samma disciplin som för vilket tredjepartsberoende som helst. Dess utdata påverkar din agents resonemang, så ovägd tillit är en säkerhetsrisk.
+Eftersom det är ett externt beroende som din agent kallar på. Du bör låsa dess version, köra den med en avgränsad identitet, validera dess utdata, begränsa begäran och aldrig exponera hemligheter för den — samma disciplin som för alla tredjepartsberoenden. Dess utdata flyter in i din agents resonemang, så ovaliderat förtroende är en säkerhetsrisk.
 </details>
 
 **7. Vilken enskild förändring har oftast störst påverkan på produktionsagentens kostnad, och varför?**
@@ -341,49 +340,49 @@ Eftersom det är en extern beroende som din agent anropar. Du bör låsa version
 <details>
 <summary>Svar</summary>
 
-Rätt dimensionering av modellen — att använda den minsta modellen som fortfarande klarar din utvärderingsgrind. Kostnaden domineras av tokens, och en mindre modell som uppfyller kvalitetskravet är nästan alltid billigare än en större. Cachning och routning minskar sedan kostnaden ytterligare, men valet av rätt basmodell har störst förstahands-effekt.
+Att anpassa modellstorleken — att använda den minsta modellen som fortfarande klarar din utvärderingsgrind. Kostnaden domineras av tokens, och en mindre modell som uppfyller kvalitetsnivån är nästan alltid billigare än en större. Cachning och routing minskar sedan kostnaden ytterligare, men valet av rätt basmodell har den största direkta effekten.
 </details>
 
-**8. Vilken roll spelar span-attribut som `customer.tier` och `routed.model` i observerbarhet?**
+**8. Vilken roll spelar spanattribut som `customer.tier` och `routed.model` i observabilitet?**
 
 <details>
 <summary>Svar</summary>
 
-De förvandlar råa spår till besvarbara affärsfrågor. Utan attribut har du en vägg av spans; med dem kan du fråga "routas företagskunder för ofta till den lilla modellen?" eller "vilken modell hanterar våra långsammaste förfrågningar?" Attribut är hur du delar upp telemetri efter de dimensioner som är viktiga för din verksamhet.
+De förvandlar råa spår till besvarbara affärsfrågor. Utan attribut har du en vägg av spans; med dem kan du fråga "får företagskunder för ofta omdirigering till den lilla modellen?" eller "vilken modell hanterar våra långsammaste förfrågningar?" Attribut är hur du skär telemetri efter de dimensioner som är viktiga för din verksamhet.
 </details>
 
 ## Uppgift
 
-Ta kundsupportagenten från labbet och förstärk den för ett specifikt scenario: **en prenumerations- och faktureringssupportagent för ett SaaS-företag.**
+Ta kundsupportagenten från labbet och förstärk den för ett specifikt scenario: **en prenumerationsfaktureringssupportagent för ett SaaS-företag.**
 
 Din inlämning ska:
 
-1. **Byt ut verktygen** mot faktureringsrelevanta: `get_subscription_status`, `get_invoice` och `issue_credit` (krediter över $50 kräver mänskligt godkännande).
+1. **Byt ut verktygen** mot faktureringsrelevanta: `get_subscription_status`, `get_invoice`, och `issue_credit` (krediter över 50 dollar kräver mänskligt godkännande).
 2. **Lägg till tre RAG-dokument** som täcker företagets återbetalningspolicy, faktureringscykel och avbokningspolicy.
-3. **Utöka utvärderingssetet** till minst åtta fall, inklusive minst två som *bör* trigga den mänskliga godkännandevägen, och bekräfta att din utvärderingsgrind korrekt godkänner eller underkänner.
-4. **Lägg till en kostnadsrapport**: efter att ha kört tio blandade förfrågningar genom agenten, skriv ut hur många som gick till den lilla modellen, hur många till den stora modellen och hur många som serverades från cache.
+3. **Utöka utvärderingsuppsättningen** till minst åtta fall, varav minst två *ska* trigga mänskligt godkännandespår, och bekräfta att din utvärderingsgrind godkänner eller underkänner korrekt.
+4. **Lägg till en kostnadsrapport**: efter att ha kört tio blandade frågor genom agenten, skriv ut hur många som gick till den lilla modellen, hur många till den stora modellen, och hur många som serverades från cache.
 
-Skriv ett kort stycke (i en markdown-cell) där du förklarar vilken modellroutningsregel du valde och hur du skulle validera den med verklig trafik. Det finns inget enda rätt svar — du bedöms på hur väl produktionsaspekterna är kopplade samman.
+Skriv ett kort stycke (i en markdowncell) som förklarar vilken modellroutningsregel du valde och hur du skulle validera den med verklig trafik. Det finns inget enda rätt svar — du bedöms på om produktionsaspekterna är sammanfogade på ett koherent sätt.
 
 ## Sammanfattning
 
-I denna lektion flyttade du en agent från prototyp till produktion med Microsoft Foundry:
+I denna lektion gick du från prototyp till produktion med Microsoft Foundry:
 
-- Steget till produktion handlar mest om **det operativa skelettet** runt modellen — hosting, identitet, tillstånd, felhantering, kostnad, kvalitet och förtroende.
+- Steget till produktion handlar mest om **den operativa stommen** runt modellen — hosting, identitet, status, felhantering, kostnad, kvalitet och förtroende.
 - Du lärde dig de tre **distributionsmönstren** — klienthostad, Hosted Agents och Agent Workflows — och när varje passar.
-- Du gick igenom **agentlivscykeln**, där offline **utvärdering fungerar som en releasegrind** och online-observerbarhet matar tillbaka fel till testsetet.
-- Du tillämpade **skalningsstrategier** — stateless design, modellroutning, cachning och begränsad samtidighet — och kopplade dem till **kostnadsoptimering**.
-- Du kopplade in **företagskontroller**: RBAC, mänskligt godkännande och produktionssäker MCP-integration.
+- Du gick igenom **agentens livscykel**, där offline **utvärdering fungerar som en releasegrind** och onlineobservabilitet matar tillbaka fel till testuppsättningen.
+- Du tillämpade **skalningsstrategier** — stateless design, modellriktning, cachning och begränsad samtidighet — och kopplade dem till **kostnadsoptimering**.
+- Du kopplade in **företagskontroller**: RBAC, mänskligt godkännande i loopen och produktionssäker MCP-integration.
 - Du byggde en **produktionsklar kundsupportagent** som binder ihop alla dessa aspekter i körbar kod.
 
-Nästa lektion tar motsatt resa: istället för att skala upp agenter i molnet, ska du ta ner dem *till* en enskild utvecklarmaskin och köra dem helt lokalt.
+Nästa lektion tar motsatt väg: istället för att skala upp agenter i molnet tar du ner dem *till* en utvecklarmaskin och kör dem helt lokalt.
 
 ## Ytterligare resurser
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry-dokumentation</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Översikt över Microsoft Foundry Agent Service</a>
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Översikt Microsoft Foundry Agent Service</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router i Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router i Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
@@ -391,11 +390,11 @@ Nästa lektion tar motsatt resa: istället för att skala upp agenter i molnet, 
 
 ## Föregående lektion
 
-[Bygga datoranvändaragenter (CUA)](../15-browser-use/README.md)
+[Bygga Computerrustningsagenter (CUA)](../15-browser-use/README.md)
 
 ## Nästa lektion
 
-[Skapa lokala AI-agenter](../17-creating-local-ai-agents/README.md)
+[Skapa Lokala AI-agenter](../17-creating-local-ai-agents/README.md)
 
 ---
 

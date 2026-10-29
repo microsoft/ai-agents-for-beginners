@@ -1,55 +1,63 @@
-# Sample Receipt Fixtures
+# ឧបករណ៍ទទួលបានគំរូ
 
-Three pre-generated receipt files for inspection without running the notebook.
+ឯកសារទទួលបានបំណែកបីដែលបានបង្កើតរួចសម្រាប់ពិនិត្យដោយគ្មានការរត់កំណត់ហេតុ។
 
-| File | What it is |
+| ឯកសារ | វាអ្វី |
 |---|---|
-| `01_valid_receipt.json` | វា​ជា​វិទ្យាសាស្ត្រ​ដែល​បាន​ចុះ​ហត្ថលេខា​ត្រឹមត្រូវ​សម្រាប់​ការ​ស៊ើបអង្កេត​ហោះហើរ `lookup_flights` ។ ការ​ផ្ទៀងផ្ទាត់​បាន​ទទួល​ប្រសិទ្ធភាព។ |
-| `02_tampered_receipt.json` | វា​ជា​វិទ្យាសាស្ត្រ​ដូចគ្នា​ដែល​មាន​វាល​មួយ​បាន​ផ្លាស់ប្តូរ​បន្ទាប់​ពី​បាន​ចុះ​ហត្ថលេខា។ ការ​ផ្ទៀងផ្ទាត់​បាន​ស្ទួន។ |
-| `03_chain_three_receipts.json` | ច្រវាក់​នៃ​វិទ្យាសាស្ត្រ​ត្រឹមត្រូវ​បី​រក្សា (ស្វែងរក ការកាន់ ការកក់) ជាមួយ `previous_receipt_hash` តភ្ជាប់​មួយ​នីមួយៗ​ទៅ​នឹង​មុន។ |
+| `01_valid_receipt.json` | ជាការទទួលបានដែលបានចុះហត្ថលេខាដែលត្រឹមត្រូវសម្រាប់ការហៅឧបករណ៍ `lookup_flights`។ ការបញ្ជាក់ទទួលបានត្រឹមត្រូវ។ |
+| `02_tampered_receipt.json` | ទទួលបានដដែលដែលមានចំណែកមួយបានកែបន្ទាប់ពីចុះហត្ថលេខា។ ការបញ្ជាក់ទទួលបានមិនត្រឹមត្រូវ។ |
+| `03_chain_three_receipts.json` | ខ្សែរដៃពីរមានទទួលបានត្រឹមត្រូវបី (ស្វែងរក, ទប់ស្កាត់, កក់) មាន `previous_receipt_hash` ភ្ជាប់នីមួយៗទៅនឹងមុន។ |
 
-## Verifying the samples
+ឧបករណ៍ទទួលបានចុះហត្ថលេខាលើអត្ថបទ JCS គំរូបច្ចុប្បន្នដោយផ្ទាល់ជាមួយ Ed25519។
+SHA-256 នៅតែប្រើសម្រាប់សេចក្ដីសង្ខេបមាតិកានិងខ្សែរទ្រទ្រង់លេខទទួលបាន មិនមែនជាច្រើន
+ការស្នើរសុំមុនចុះហត្ថលេខា។
 
-The notebook walks through verification in four sections. To verify these fixtures
-directly without running through the notebook narrative:
+## ការបញ្ជាក់គំរូទទួលបាន
+
+កំណត់ហេតុនេះបង្ហាញពីការបញ្ជាក់ក្នុងបួនផ្នែក។ ដើម្បីបញ្ជាក់ឧបករណ៍ទទួលបានទាំងនេះ
+ដោយផ្ទាល់ដោយគ្មានការរត់កំណត់ហេតុនេះ:
 
 ```python
 import json
 from pathlib import Path
 
-# សន្មត់ថាអ្នកបានបញ្ចប់ការនាំចូលនិងមុខងារជួយរួចរាល់ហើយ
-# ពីផ្នែក 1 និង 2 នៃ 18-signed-receipts.ipynb។
+# Assumes you have completed the imports and helper functions
+# from sections 1 and 2 of 18-signed-receipts.ipynb.
 
 valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # ពិត
+print(f"Valid receipt: {verify_receipt(valid)}")        # True
 
 tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # មិនពិត
+print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
 
 chain = json.loads(Path("03_chain_three_receipts.json").read_text())
 for r in verify_chain(chain):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## How these were generated
+## របៀបដែលបានបង្កើតវា
 
-The fixtures use the same code path as the notebook, with one fixed signing key
-and fixed timestamps for byte-reproducibility. To regenerate:
+ឧបករណ៍ទទួលបានប្រើផ្លូវកូដដដែលជាមួយគណនីចុះហត្ថលេខាកំណត់មួយ
+និងពេលវេលាកំណត់សម្រាប់ភាពអាចបំលែងបាន។ ដើម្បីបង្កើតឡើងវិញ:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script is at `generate_fixtures.py` in this directory.)
+(ស្គ្រីបនៅក្នុង `generate_fixtures.py` នៅក្នុងថតឯកសារនេះ។)
 
-## What students learn from inspecting raw JSON
+## អ្វីដែលសិស្សរៀនពីការត្រួតពិនិត្យ JSON ment
 
-Reading the raw receipt format builds intuition that the cells in the notebook
-do not always provide. Students who skim the JSON often notice:
+ការអានទ្រង់ទ្រាយទទួលបាន ment ស្រឡាយបង្កើតជំនាញច្បាស់ថាសែលនៅក្នុងកំណត់ហេតុនេះ
+មិនតែងតែផ្តល់ជូនឡើយ។ សិស្សដែលបង្រួម JSON ជាញឹកញាប់សម្គាល់ថា:
 
-1. ប្រស្នា​ជា​សញ្ញា​មូលដ្ឋាន64url ដែលមិនច្បាស់លាស់ ប៉ុន្តែ​វាល​ទាំងអស់​ផ្សេង​ទៀត​ជា JSON ដែលអាន​ងាយ។ សញ្ញា​មិន​បញ្ជូន​កូដ មិន​អ៊ិនគ្រីបមាតិកា​ទេ វាធានា​អំពីវា។
-2. `public_key` ត្រូវបាន​បញ្ចូលក្នុង​វិទ្យាសាស្ត្រ។ អ្នកត្រួតពិនិត្យមិន​ត្រូវការអ្វី​បន្ថែម​ដើម្បីផ្ទៀងផ្ទាត់ (ដោយមានលក្ខខណ្ឌ​ថា​ជំនឿថា​កូនសោ​នេះ​សព្វថ្ងៃ​យល់ព្រម​ឲ្យ​ដោយ​អ្នកចេញផ្សាយ​ផ្ទាល់ខ្លួន; មាន​ពុម្ព​បទ README ស្ដីអំពី​រោងចក្រ​អត្តសញ្ញាណ)។
-3. ការផ្លាស់ប្តូរតួអក្សរ​តែមួយ​ក្នុង​វាលណាមួយ បន្ទាប់ពី​ប្រៀបធៀប​ឯកសារ​នេះ​ជាមួយ `02_tampered_receipt.json` ធ្វើឲ្យ​គ្រប់ប្រព័ន្ធ​ប្លែក​ផ្ទាល់ច្បាស់លាស់។
+1. ហត្ថលេខាជាសញ្ញាទ្រង់ទ្រាយ base64url ដែលមិនរបាយបាយ ប៉ុន្តែចំណែកផ្សេងទៀតគឺ JSON ដែលអានបានច្បាស់។ ហត្ថលេខាមិនបានកូដសម្ងាត់មាតិកា; វាបញ្ជាក់ពីមាតិកា។ 
+   JSON អាចអានបាន។ ហត្ថលេខានេះមិនបាន​រុក្ខជាតិ​អត្ថបទ​ទេ; វាបង្ហាញពីវា។
+2. `public_key` ត្រូវបានបញ្ចូលនៅក្នុងវិក័យប័ត្រ។ អ្នកពិនិត្យគណនីមិនត្រូវការអ្វីផ្សេងទៀត
+   ដើម្បីផ្ទៀងផ្ទាត់ (អាស្រ័យលើការជឿថាគ្រាប់សោពិតជាផ្ដល់ដោយអាជ្ញាធរដែលបានបញ្ជាក់;
+   អានមេរៀន README អំពីហេដ្ឋារចនាសម្ព័ន្ធអត្តសញ្ញាណ)។
+3. ការផ្លាស់ប្តូរតួអក្សរតែមួយក្នុងវាលណាមួយ បន្ទាប់មកធៀបឡើងវិញនូវឯកសារនេះជាមួយ
+   `02_tampered_receipt.json` ធ្វើឱ្យមេកានិចកម្រិតបៃក្លាយជាការពិតរឹង។
 
 ---
 

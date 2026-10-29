@@ -29,7 +29,7 @@ Use `microsoft_docs_fetch` after search when you need complete tutorials, all co
 
 The following categories live **outside** learn.microsoft.com. Use the specified tool instead.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Use Aspire MCP Server (preferred) or Context7
 
 Aspire docs live on **aspire.dev**, not Learn. The best tool depends on your Aspire CLI version:
 
@@ -41,14 +41,14 @@ Aspire docs live on **aspire.dev**, not Learn. The best tool depends on your Asp
 | `search_docs` | Weighted lexical search across aspire.dev content |
 | `get_doc` | Retrieves a specific document by slug |
 
-These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). To update: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). To update: `aspire update --self --channel daily`.
 
 **CLI 13.1** — The MCP server provides integration lookup (`list_integrations`, `get_integration_docs`) but **not** docs search. Fall back to Context7:
 
 | Library ID | Use for |
 |---|---|
 | `/microsoft/aspire.dev` | Primary — guides, integrations, CLI reference, deployment |
-| `/dotnet/aspire` | Runtime source — API internals, implementation details |
+| `/microsoft/aspire` | Runtime source — API internals, implementation details |
 | `/communitytoolkit/aspire` | Community integrations — Go, Java, Node.js, Ollama |
 
 ### VS Code — Use Context7
@@ -117,6 +117,6 @@ Include context:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
+**Disclaimer**:
 This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

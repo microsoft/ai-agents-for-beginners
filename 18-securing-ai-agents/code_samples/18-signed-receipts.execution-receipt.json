@@ -1,0 +1,70 @@
+{
+  "schema": "notebook-execution-receipt/v1",
+  "attestation_boundary": "Repository record of a local code-cell run, not an independent attestation or provider execution.",
+  "result": "PASS",
+  "notebook": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
+  "source_commit": "e9bb90f0bfcd84a2e4fde5cf7640868c17e6ad13",
+  "source_git_blob": "58e5a22f57daca95bc0a5991955fb0b7b02e4c42",
+  "source_sha256": "db57d47a4f7ffbe884bf1d0eb70c5a20add4d5bbbdaa949fd3b9e8db3bceadbf",
+  "tested_source_sha256": {
+    "18-securing-ai-agents/README.md": "d3b8b5dd208e263f60cd8c4f0c2972847121f58e43f09ad3c57b3f9ceef857ca",
+    "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": "db57d47a4f7ffbe884bf1d0eb70c5a20add4d5bbbdaa949fd3b9e8db3bceadbf",
+    "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb": "cdb58b3dff0c6ed123205800d160cfba874dac1c1e3e64727f02a2fcdbe008be",
+    "18-securing-ai-agents/code_samples/requirements.txt": "47873af54264b9b463c14397348259b2797993c39601542bbb152b168cbd7807",
+    "18-securing-ai-agents/code_samples/test_signed_receipts.py": "9f2154ddbcceef2d310872d09040b69004579cbbc301c63e0b9fdadc506bdc9b",
+    "18-securing-ai-agents/code_samples/sample_receipts/01_valid_receipt.json": "4cfda83f309da0a2280e7cd0a736beab7052ea7ed2e1d5af379b8fb7c01417df",
+    "18-securing-ai-agents/code_samples/sample_receipts/02_tampered_receipt.json": "192f8655d300fee55e6adc981ee2092b42638f2af65ed28fcc69409b48601fd8",
+    "18-securing-ai-agents/code_samples/sample_receipts/03_chain_three_receipts.json": "128e7dec669d1539bb6894a7bb019c393da6f29622276e00df88bbc0ee61dcfb",
+    "18-securing-ai-agents/code_samples/sample_receipts/README.md": "60a3abc3424e90e0f654dc329d6348b577d77060200c73306da681813e167d01"
+  },
+  "python": "3.12.14",
+  "implementation": "CPython",
+  "packages": {
+    "PyNaCl": "1.6.2",
+    "jcs": "0.2.1"
+  },
+  "started_at_utc": "2026-10-15T15:04:10.144Z",
+  "finished_at_utc": "2026-10-15T15:04:10.416Z",
+  "cells": {
+    "code_total": 14,
+    "executed": 13,
+    "errors": 0,
+    "skipped": [
+      "%pip install -q pynacl jcs (dependencies preinstalled)"
+    ]
+  },
+  "related_notebooks": [
+    {
+      "notebook": "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb",
+      "code_total": 6,
+      "executed": 6,
+      "errors": 0,
+      "saved_outputs_refreshed": true
+    }
+  ],
+  "source_notebook_outputs": 11,
+  "source_notebook_saved_outputs_preserved": true,
+  "execution_output_committed": false,
+  "regression_tests": {
+    "command": "python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v",
+    "count": 16,
+    "errors": 0,
+    "failures": 0,
+    "working_directory": "repository root"
+  },
+  "reproduction": {
+    "install": "python -m pip install pynacl==1.6.2 jcs==0.2.1",
+    "execute": "python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v",
+    "executor": "CPython exec of notebook Python code cells via unittest; no Jupyter kernel used",
+    "working_directory": "repository root"
+  },
+  "assertions": {
+    "valid_fixture_and_chain_accepted": true,
+    "tampered_and_unpinned_receipts_rejected": true,
+    "malformed_receipt_and_chain_input_rejected_without_exception": true,
+    "readme_verifier_checked": true,
+    "requirements_ascii_and_cp949_readable": true,
+    "human_verification_repeatable_without_consumption_or_dispatch": true,
+    "human_saved_outputs_match_current_code": true
+  }
+}

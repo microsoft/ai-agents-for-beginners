@@ -1,8 +1,8 @@
 # Водич за подешавање Azure AI претраге
 
-Овај водич ће вам помоћи да подесите Azure AI претрагу користећи Azure портал. Пратите кораке у наставку да бисте креирали и конфигурисали вашу Azure AI претраживачку услугу.
+Овај водич ће вам помоћи да подесите Azure AI претрагу користећи Azure портал. Следите кораке у наставку да бисте креирали и конфигурисали ваш Azure AI претраживачки сервис.
 
-## Претходни услови
+## Захтеви
 
 Пре него што почнете, уверите се да имате следеће:
 
@@ -10,34 +10,34 @@
 
 ## Корак 1: Креирајте Azure Storage налог
 
-1. Пратите упутства, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), да бисте креирали нови Azure Storage налог.
-   **НАПОМЕНА**: Уверите се да је тип Storage налога Standard General Purpose V2.
+1. Пратите ова упутства, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), да бисте креирали нови Azure Storage налог.
+   **НАПОМЕНА**: Обавезно изаберите тип Storage Account као Standard General Purpose V2.
 
-## Корак 2: Креирајте Azure AI претраживачку услугу
+## Корак 2: Креирајте Azure AI претраживачки сервис
 
-1. Пријавите се на [Azure портал](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. У левом навигационом панелу кликните на **Create a resource**.
-3. У пољу за претрагу укуцајте "Azure AI Search" и изаберите **Azure AI Search** из резултата.
+1. Пријавите се у [Azure портал](https://portal.azure.com/?wt.mc_id=studentamb_258691).
+2. У левом навигационом менију кликните на **Create a resource**.
+3. У пољу за претрагу укуцајте "Azure AI Search" и изаберите **Azure AI Search** из листе резултата.
 4. Кликните на дугме **Create**.
-5. На картици **Basics** унесите следеће информације:
+5. На картици **Basics**, унесите следеће информације:
    - **Subscription**: Изаберите вашу Azure претплату.
    - **Resource group**: Креирајте нову ресурсну групу или изаберите постојећу.
-   - **Resource name**: Унесите јединствено име за вашу претраживачку услугу.
-   - **Region**: Изаберите регион најближи вашим корисницима.
-   - **Pricing tier**: Изаберите ниво цене који одговара вашим захтевима. Можете почети са бесплатним слојем за тестирање.
+   - **Resource name**: Унесите јединствено име за ваш претраживачки сервис.
+   - **Region**: Изаберите регију која је најближа вашим корисницима.
+   - **Pricing tier**: Изаберите план цена који одговара вашим захтевима. Можете почети са бесплатним (Free) планом за тестирање.
 6. Кликните **Review + create**.
-7. Прегледајте подешавања и кликните **Create** да бисте креирали претраживачку услугу.
+7. Прегледајте подешавања и кликните **Create** да бисте креирали претраживачки сервис.
 
-## Корак 3: Почните са Azure AI претрагом
+## Корак 3: Почетак рада са Azure AI претрагом
 
-1. Када се дистрибуција заврши, идите у вашу претраживачку услугу у Azure порталу.
-2. На прозору са прегледом претраживача копирајте URL. Требало би да изгледа као `https://<service-name>.search.windows.net`.
-3. **(Препоручено)** Омогућите приступ без кључа преко Microsoft Entra ID (RBAC) као што је приказано у Кораку 4 испод — није потребан кључ. Примери у овом водичу креирају/ажурирају индексе и отпремају документе, што захтева улоге **Search Service Contributor** и **Search Index Data Contributor** (или, за аутентификацију на основу кључа, **primary admin key** — не query key). Само ако не можете користити RBAC, отворите **Settings > Keys** и копирајте **primary admin key**.
-4. Пратите кораке на [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) страници да бисте креирали индекс, отпремили податке и извршили претрагу.
+1. Када имплементација буде завршена, идите до вашег претраживачког сервиса у Azure порталу.
+2. У прегледу сервиса копирајте URL адресу. Требало би да изгледа као `https://<service-name>.search.windows.net`.
+3. **(Препоручено)** Омогућите приступ без кључа помоћу Microsoft Entra ID (RBAC) као што је приказано у кораку 4 испод — није потребан кључ. Примери у овом водичу креирају/ажурирају индексе и постављају документе, што захтева улоге **Search Service Contributor** и **Search Index Data Contributor** (или, за аутентификацију на основу кључа, **primary admin key** — а не query key). Само ако не можете да користите RBAC, отворите **Settings > Keys** и копирајте **primary admin key**.
+4. Пратите кораке у [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) страници да бисте креирали индекс, поставили податке и извршили претрагу.
 
-## Корак 4: Користите Azure AI претраживачке алате
+## Корак 4: Коришћење алата за Azure AI претрагу
 
-Azure AI претрага се интегрише са различитим алатима за побољшање ваших могућности претраге. Можете користити Azure CLI, Python SDK, .NET SDK и друге алате за напредне конфигурације и операције.
+Azure AI претрага се интегрише са различитим алатима за унапређење ваших претраживачких могућности. Можете користити Azure CLI, Python SDK, .NET SDK и друге алате за напредне конфигурације и операције.
 
 ### Коришћење Azure CLI
 
@@ -47,45 +47,45 @@ Azure AI претрага се интегрише са различитим ал
    ```bash
    az login
    ```
-3. **(Препоручено) Омогућите приступ без кључа преко Microsoft Entra ID (RBAC):**
+3. **(Препоручено) Омогућите приступ без кључа помоћу Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search сервиса приказује да нема поље "endpoint"; саставите URL из имена сервиса.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Са омогућеним RBAC, Python и .NET SDK примери испод аутентификују се са `DefaultAzureCredential`, која користи вашу `az login` сесију током локалног развоја — није потребан админ кључ. Види [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Са омогућеним RBAC, примери у Python и .NET SDK доле се аутентификују помоћу `DefaultAzureCredential`, који користи вашу `az login` сесију током локалног развоја — није потребан администраторски кључ. Погледајте [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Алтернативно) Аутентификација на основу кључа** — само ако не можете користити RBAC, сачувајте и админ кључ:
+4. **(Резервно) Аутентификација на основу кључа** — само ако не можете да користите RBAC, сачувајте и администраторски кључ:
 
-#### Сачувајте установађујући ендпоинт и API кључ Azure AI претраживања као променљиве окружења.
+#### Сачувајте и крајњу тачку и API кључ за Azure AI претраживачки инстанс у променљиве окружења.
 
-    ```bash
-    # zsh/bash
-    # az search service show нема поље "endpoint"; направите URL из имена услуге.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show нема поље "endpoint"; направите URL из имена услуге.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-### Коришћење Python SDK-а
+### Коришћење Python SDK
 
-1. Инсталирајте Azure Cognitive Search клијент библиотеку и Azure Identity за Python:
+1. Инсталирајте библиотеку Azure Cognitive Search клијента и Azure Identity за Python:
 
    ```bash
    pip install azure-search-documents azure-identity
    ```
 
-2. Користите следећи Python код за креирање индекса и отпремање докумената:
+2. Користите следећи Python код да бисте креирали индекс и поставили документе:
 
     ```python
     import os
@@ -97,10 +97,10 @@ Azure AI претрага се интегрише са различитим ал
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Без кључа (препоручено): користи ваш идентитет из `az login` преко Entra ID RBAC.
-    # Захтева улоге "Search Service Contributor" и "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Резервна опција (аутентификација заснована на кључу):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -124,17 +124,17 @@ Azure AI претрага се интегрише са различитим ал
     search_client.upload_documents(documents)
     ```
 
-### Коришћење .NET SDK-а
+### Коришћење .NET SDK
 
-1. Покрените следећу команду за креирање индекса и отпремање докумената:
+1. Покрените следећу команду да бисте креирали индекс и поставили документе:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Испод наведени .NET пример користи `DefaultAzureCredential`, која може користити вашу Azure CLI пријаву из `az login` током локалног развоја.
+    Пример за .NET испод користи `DefaultAzureCredential`, који може да користи вашу Azure CLI пријаву са `az login` током локалног развоја.
 
-2. Ево .NET кода из `AzureSearch.cs`:
+2. Ево .NET кода за `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -189,9 +189,9 @@ Azure AI претрага се интегрише са различитим ал
 
 ## Закључак
 
-Успешно сте подесили Azure AI претрагу користећи Azure портал и интегрисане алате. Сада можете истражити напредније функције и могућности Azure AI претраге да унапредите ваша претраживачка решења.
+Успешно сте поставили Azure AI претрагу користећи Azure портал и интегрисане алате. Сада можете истражити напредније функције и могућности Azure AI претраге да побољшате ваша претраживачка решења.
 
-За даљу помоћ, посетите [Azure Cognitive Search документацију](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+За даљу помоћ, посетите [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

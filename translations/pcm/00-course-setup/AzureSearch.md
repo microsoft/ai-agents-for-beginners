@@ -1,12 +1,12 @@
 # Azure AI Search Setup Guide
 
-Dis guide go help you set up Azure AI Search using di Azure portal. Follow di steps wey dey below to create an configure your Azure AI Search service.
+Dis guide go help you set up Azure AI Search using the Azure portal. Follow di steps wey dey below to create and configure your Azure AI Search service.
 
 ## Prerequisites
 
-Before you start, make sure say you get di following:
+Before you start, make sure say you get dis one:
 
-- One Azure subscription. If you no get Azure subscription, you fit create free account for [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Azure subscription. If you never get Azure subscription, you fit create free account for [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Step 1: Create an Azure Storage Account
 
@@ -15,34 +15,34 @@ Before you start, make sure say you get di following:
 
 ## Step 2: Create an Azure AI Search Service
 
-1. Sign in to di [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. For di left-hand navigation pane, click on **Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
+2. For di left-hand navigation pane, click **Create a resource**.
 3. For di search box, type "Azure AI Search" and select **Azure AI Search** from di list of results.
 4. Click di **Create** button.
-5. For di **Basics** tab, provide di following information:
+5. For di **Basics** tab, put di following information:
    - **Subscription**: Select your Azure subscription.
-   - **Resource group**: Create new resource group or select one wey already dey.
-   - **Resource name**: Put unique name for your search service.
-   - **Region**: Select di region wey close to your users.
-   - **Pricing tier**: Choose pricing tier wey fit your need. You fit start with Free tier for testing.
+   - **Resource group**: Create new resource group or select one wey dey.
+   - **Resource name**: Enter unique name for your search service.
+   - **Region**: Select di region wey near your users.
+   - **Pricing tier**: Choose pricing tier wey suit your needs. You fit start with Free tier for testing.
 6. Click **Review + create**.
-7. Review di settings and click **Create** to create di search service.
+7. Review di settings then click **Create** to create di search service.
 
 ## Step 3: Get Started with Azure AI Search
 
-1. After deployment finish, go to your search service for Azure portal.
-2. For di search service overview pane, copy di URL. E go look like `https://<service-name>.search.windows.net`.
-3. **(Recommended)** Enable keyless access with Microsoft Entra ID (RBAC) as e show for Step 4 below — no key needed. Di samples for dis guide dey create/update indexes and upload documents, wey need **Search Service Contributor** and **Search Index Data Contributor** roles (or if na key-based auth, di **primary admin key** — no be di query key). Only if you no fit use RBAC, open di **Settings > Keys** pane and copy di **primary admin key**.
-4. Follow di steps for di [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create index, upload data, and perform search.
+1. When deployment finish, waka go your search service for Azure portal.
+2. For di search service overview pane, copy di URL. E go be like `https://<service-name>.search.windows.net`.
+3. **(Recommended)** Enable keyless access with Microsoft Entra ID (RBAC) like e show for Step 4 below—no key dey needed. Di samples for dis guide go create/update indexes and upload documents, wey need **Search Service Contributor** and **Search Index Data Contributor** roles (or, if na key-based auth, di **primary admin key** — no be di query key). If you no fit use RBAC, open **Settings > Keys** pane and copy **primary admin key**.
+4. Follow di steps for the [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page to create index, upload data, and do search.
 
 ## Step 4: Use Azure AI Search Tools
 
-Azure AI Search dey integrate with different tools to improve your search capabilities. You fit use Azure CLI, Python SDK, .NET SDK and other tools for advanced configuration and operations.
+Azure AI Search dey work with different tools to make your search beta. You fit use Azure CLI, Python SDK, .NET SDK and other tools for advanced setup and actions.
 
 ### Using Azure CLI
 
 1. Install Azure CLI by following instructions for [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Sign in to Azure CLI using dis command:
+2. Sign in to Azure CLI with this command:
 
    ```bash
    az login
@@ -53,29 +53,29 @@ Azure AI Search dey integrate with different tools to improve your search capabi
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service no get "endpoint" field; make di URL from di service name.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    With RBAC enabled, di Python and .NET SDK samples below dey authenticate with `DefaultAzureCredential`, wey dey use your `az login` session during local development — no admin key needed. See [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    When you enable RBAC, Python and .NET SDK samples for below go authenticate with `DefaultAzureCredential`, wey dey use your `az login` session during local development—no admin key required. See [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Fallback) Key-based auth** — only if you no fit use RBAC, store di admin key too:
+4. **(Fallback) Key-based auth** — na only if you no fit use RBAC, store admin key also:
 
-#### Store both endpoint and API key for Azure AI Search instance to environment variables.
+#### Store both endpoint and API key for Azure AI Search instance into environment variables.
 
-    ```bash
-    # zsh/bash
-    # az search service show no get "endpoint" field; build di URL from di service name.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show no get "endpoint" field; build di URL from di service name.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Using Python SDK
 
@@ -97,8 +97,8 @@ Azure AI Search dey integrate with different tools to improve your search capabi
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (recommended): e dey use your `az login` identity via Entra ID RBAC.
-    # E need di "Search Service Contributor" and "Search Index Data Contributor" role dem.
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
     # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
@@ -132,7 +132,7 @@ Azure AI Search dey integrate with different tools to improve your search capabi
     dotnet run ./AzureSearch.cs
     ```
 
-    Di .NET sample below dey use `DefaultAzureCredential`, wey fit use your Azure CLI sign-in from `az login` during local development.
+    .NET sample for below dey use `DefaultAzureCredential`, wey fit use your Azure CLI sign-in from `az login` during local development.
 
 2. Here na di .NET code for `AzureSearch.cs`:
 
@@ -181,7 +181,7 @@ Azure AI Search dey integrate with different tools to improve your search capabi
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-For more detailed info, check di following documentation:
+For more detailed information, check di following documentation:
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -189,9 +189,9 @@ For more detailed info, check di following documentation:
 
 ## Conclusion
 
-You don successfully set up Azure AI Search using Azure portal and integrated tools. Now, you fit explore more advanced features and capabilities of Azure AI Search to make your search solutions beta.
+You don successfully set up Azure AI Search using Azure portal and other integrated tools. Now you fit explore more advanced features and things wey Azure AI Search get to make your search better.
 
-For more help, visit di [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+If you need more help, visit [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

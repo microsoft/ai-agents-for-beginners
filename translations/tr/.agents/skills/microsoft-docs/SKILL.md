@@ -1,99 +1,99 @@
 ---
 name: microsoft-docs
-description: Resmi Microsoft belgelerini sorgulayarak Azure, .NET, Agent Framework,
-  Aspire, VS Code, GitHub ve daha fazlası genelinde kavramlar, öğreticiler ve kod
-  örnekleri bulabilirsiniz. Varsayılan olarak Microsoft Learn MCP kullanılır; learn.microsoft.com
-  dışında yer alan içerikler için Context7 ve Aspire MCP kullanılır.
+description: Azure, .NET, Agent Framework, Aspire, VS Code, GitHub ve daha fazlası
+  gibi Microsoft resmi belgelerinde kavramlar, eğitimler ve kod örnekleri arayın.
+  Varsayılan olarak Microsoft Learn MCP'yi kullanır, learn.microsoft.com dışındaki
+  içerikler için Context7 ve Aspire MCP'yi kullanır.
 ---
 # Microsoft Docs
 
-Microsoft teknoloji ekosistemi için araştırma becerisi. learn.microsoft.com ve bunun dışında bulunan belgeleri kapsar (VS Code, GitHub, Aspire, Agent Framework depoları).
+Microsoft teknoloji ekosistemi için araştırma becerisi. learn.microsoft.com ve bunun dışında bulunan dökümantasyonları kapsar (VS Code, GitHub, Aspire, Agent Framework depoları).
 
 ---
 
-## Default: Microsoft Learn MCP
+## Varsayılan: Microsoft Learn MCP
 
-Bu araçları **learn.microsoft.com üzerindeki her şey için** kullanın — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ve daha fazlası. Bu, Microsoft belgeleriyle ilgili soruların büyük çoğunluğu için birincil araçtır.
+**learn.microsoft.com üzerindeki her şey** için bu araçları kullanın — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ve daha fazlası. Bu araç, Microsoft dökümantasyon sorgularının büyük çoğunluğu için birincil araçtır.
 
-| Tool | Purpose |
+| Araç | Amaç |
 |------|---------|
-| `microsoft_docs_search` | learn.microsoft.com içinde arama — kavramlar, kılavuzlar, öğreticiler, yapılandırma |
-| `microsoft_code_sample_search` | Learn belgelerinden çalışan kod parçacıklarını bulun. En iyi sonuçlar için `language` (`python`, `csharp`, vb.) parametresini geçin |
-| `microsoft_docs_fetch` | Belirli bir URL'den tam sayfa içeriğini alın (arama alıntıları yeterli olmadığında) |
+| `microsoft_docs_search` | learn.microsoft.com içinde ara — kavramlar, rehberler, öğreticiler, yapılandırma |
+| `microsoft_code_sample_search` | Learn dökümanlarından çalışan kod parçacıkları bul. En iyi sonuçlar için `language` (`python`, `csharp`, vb.) kullan. |
+| `microsoft_docs_fetch` | Belirli bir URL'den tam sayfa içeriği al (arama alıntıları yeterli olmadığında) |
 
-Arama sonrası tam öğreticilere, tüm yapılandırma seçeneklerine veya arama alıntıları kesildiğinde `microsoft_docs_fetch` kullanın.
+Arama sonrası, eksiksiz öğreticilere, tüm yapılandırma seçeneklerine ihtiyacınız olduğunda veya arama alıntıları kısaltıldığında `microsoft_docs_fetch` kullanın.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## İstisnalar: Diğer Araçlar Ne Zaman Kullanılır
 
-Aşağıdaki kategoriler **learn.microsoft.com dışında** yer alır. Bunun yerine belirtilen aracı kullanın.
+Aşağıdaki kategoriler **learn.microsoft.com dışındadır**. Bunun yerine belirtilen aracı kullanın.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Aspire MCP Sunucusu (tercih edilen) veya Context7 kullanın
 
-Aspire belgeleri **aspire.dev** üzerinde bulunur, Learn üzerinde değil. En iyi araç Aspire CLI sürümünüze bağlıdır:
+Aspire dokümanları **aspire.dev** sitesinde bulunur, Learn'de değil. En iyi araç Aspire CLI sürümünüze bağlıdır:
 
-**CLI 13.2+** (önerilir) — Aspire MCP sunucusu yerleşik belge arama araçları içerir:
+**CLI 13.2+** (önerilen) — Aspire MCP sunucusu dahili doküman arama araçlarını içerir:
 
-| MCP Tool | Description |
+| MCP Aracı | Açıklama |
 |----------|-------------|
-| `list_docs` | aspire.dev içindeki tüm kullanılabilir belgeleri listeler |
-| `search_docs` | aspire.dev içeriği üzerinde ağırlıklı leksikal arama yapar |
-| `get_doc` | Belirli bir slug ile bir belge getirir |
+| `list_docs` | aspire.dev sitesindeki tüm mevcut dokümanları listeler |
+| `search_docs` | aspire.dev içeriğinde ağırlıklı sözcüksel arama yapar |
+| `get_doc` | Belirli bir belgeyi slug ile getirir |
 
-Bunlar Aspire CLI 13.2 ile gelir ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Güncellemek için: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Bunlar Aspire CLI 13.2 ile gelir ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Güncellemek için: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP sunucusu entegrasyon araması (`list_integrations`, `get_integration_docs`) sağlar ancak belge araması sağlamaz. Context7'e geri dönün:
+**CLI 13.1** — MCP sunucusu entegrasyon araması sağlar (`list_integrations`, `get_integration_docs`) ama **doküman araması sağlamaz**. Bu durumda Context7 kullanın:
 
-| Library ID | Use for |
+| Kütüphane ID | Kullanım Alanı |
 |---|---|
-| `/microsoft/aspire.dev` | Birincil — kılavuzlar, entegrasyonlar, CLI referansı, dağıtım |
-| `/dotnet/aspire` | Çalışma zamanı kaynağı — API iç detayları, uygulama ayrıntıları |
+| `/microsoft/aspire.dev` | Birincil — rehberler, entegrasyonlar, CLI referansı, dağıtım |
+| `/microsoft/aspire` | Çalışma zamanı kaynakları — API iç detayları, uygulama ayrıntıları |
 | `/communitytoolkit/aspire` | Topluluk entegrasyonları — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — Context7 kullanın
 
-VS Code belgeleri **code.visualstudio.com** üzerinde bulunur, Learn üzerinde değil.
+VS Code dokümanları **code.visualstudio.com** sitesinde bulunur, Learn'de değil.
 
-| Library ID | Use for |
+| Kütüphane ID | Kullanım Alanı |
 |---|---|
-| `/websites/code_visualstudio` | Kullanıcı belgeleri — ayarlar, özellikler, hata ayıklama, uzak geliştirme |
-| `/websites/code_visualstudio_api` | Uzantı API'si — web görünümleri, TreeView'lar, komutlar, katkı noktaları |
+| `/websites/code_visualstudio` | Kullanıcı dokümanları — ayarlar, özellikler, hata ayıklama, uzak geliştirme |
+| `/websites/code_visualstudio_api` | Uzantı API — webview'ler, TreeView'lar, komutlar, katkı noktaları |
 
-### GitHub — Use Context7
+### GitHub — Context7 kullanın
 
-GitHub belgeleri **docs.github.com** ve **cli.github.com** üzerinde bulunur.
+GitHub dokümanları **docs.github.com** ve **cli.github.com** adreslerinde bulunur.
 
-| Library ID | Use for |
+| Kütüphane ID | Kullanım Alanı |
 |---|---|
 | `/websites/github_en` | Actions, API, depolar, güvenlik, yönetim, Copilot |
 | `/websites/cli_github` | GitHub CLI (`gh`) komutları ve bayrakları |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — Learn MCP + Context7 kullanın
 
-Agent Framework öğreticileri learn.microsoft.com üzerinde (kullan `microsoft_docs_search`), ancak **GitHub deposu** genellikle yayımlanmış belgelerden daha ileri düzeyde API ayrıntısına sahiptir — özellikle DevUI REST API referansı, CLI seçenekleri ve .NET entegrasyonu.
+Agent Framework öğreticileri learn.microsoft.com üzerindedir (`microsoft_docs_search` kullanın), ancak **GitHub deposu** genellikle yayımlanan dokümanlardan daha güncel olan API düzeyinde detaylar içerir — özellikle DevUI REST API referansı, CLI seçenekleri ve .NET entegrasyonu.
 
-| Library ID | Use for |
+| Kütüphane ID | Kullanım Alanı |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Öğreticiler — DevUI kılavuzları, izleme, iş akışı orkestrasyonu |
-| `/microsoft/agent-framework` | API ayrıntısı — DevUI REST uç noktaları, CLI bayrakları, kimlik doğrulama, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Öğreticiler — DevUI rehberleri, izleme, iş akışı düzenleme |
+| `/microsoft/agent-framework` | API detayları — DevUI REST uç noktaları, CLI bayrakları, kimlik doğrulama, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI ipucu:** Nasıl yapılır kılavuzları için Learn web sitesi kaynağını sorgulayın, ardından uç nokta şemaları, proxy yapılandırması, kimlik doğrulama belirteçleri gibi API düzeyindeki ayrıntılar için depo kaynağına bakın.
-
----
-
-## Context7 Setup
-
-Herhangi bir Context7 sorgusu için önce kütüphane ID'sini çözün (oturum başına bir kerelik):
-
-1. Teknoloji adı ile `mcp_context7_resolve-library-id` çağırın
-2. Döndürülen kütüphane ID'si ve belirli bir sorgu ile `mcp_context7_query-docs` çağırın
+**DevUI ipucu:** Öğretici rehberleri için Learn web sitesi kaynağını, ardından uç nokta şemaları, proxy konfigürasyonu, kimlik doğrulama jetonları gibi API düzeyinde detaylar için depo kaynağını sorgulayın.
 
 ---
 
-## Writing Effective Queries
+## Context7 Kurulumu
 
-Spesifik olun — sürümü, amacı ve dili dahil edin:
+Herhangi bir Context7 sorgusu için öncelikle kütüphane ID'sini çözümleyin (oturum başına bir kez):
+
+1. Teknoloji adıyla `mcp_context7_resolve-library-id` çağırın
+2. Dönen kütüphane ID'si ve belirli bir sorguyla `mcp_context7_query-docs` çağırın
+
+---
+
+## Etkili Sorgular Yazma
+
+Spesifik olun — sürüm, niyet ve dili dahil edin:
 
 ```
 # ❌ Too broad
@@ -110,13 +110,13 @@ Spesifik olun — sürümü, amacı ve dili dahil edin:
 ```
 
 Bağlam ekleyin:
-- **Version** gerektiğinde (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Language** çok dilli belgeler için (`Python`, `TypeScript`, `C#`)
+- İlgili olduğunda **Sürüm** (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Görev niyeti** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- Poliglot belgeler için **Dil** (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:
-Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal diliyle hazırlanmış versiyonu yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucunda ortaya çıkabilecek herhangi bir yanlış anlama veya yanlış yorumdan sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,7 +2,7 @@
 
 ## Projektöversikt
 
-Detta arkiv innehåller "AI-agenter för nybörjare" - en omfattande utbildningskurs som lär ut allt som behövs för att bygga AI-agenter. Kursen består av 18 lektioner (numrerade 00-18) som täcker grunder, designmönster, ramverk, produktionsdistribution, lokala/enhetsbaserade agenter och säkerhet för AI-agenter.
+Detta arkiv innehåller "AI Agents for Beginners" - en omfattande utbildningskurs som lär ut allt som behövs för att bygga AI-agenter. Kursen består av 18 lektioner (numrerade 00-18) som täcker grunder, designmönster, ramverk, produktionsdistribution, lokala/enhetsagenter och säkerhet för AI-agenter.
 
 **Nyckelteknologier:**
 - Python 3.12+
@@ -11,8 +11,8 @@ Detta arkiv innehåller "AI-agenter för nybörjare" - en omfattande utbildnings
 - Azure AI-tjänster: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Arkitektur:**
-- Lektion-baserad struktur (00-15+ kataloger)
-- Varje lektion innehåller: README-dokumentation, kodexempel (Jupyter notebooks), och bilder
+- Lektionbaserad struktur (00-18 kataloger)
+- Varje lektion innehåller: README-dokumentation, kodexempel (Jupyter-notebooks) och bilder
 - Flerspråkigt stöd via automatiserat översättningssystem
 - En Python-notebook per lektion som använder Microsoft Agent Framework
 
@@ -25,18 +25,18 @@ Detta arkiv innehåller "AI-agenter för nybörjare" - en omfattande utbildnings
 
 ### Initial installation
 
-1. **Klona eller forka arkivet:**
+1. **Klona eller fork:a arkivet:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # ELLER
+   # OR
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Skapa och aktivera Python virtuell miljö:**
+2. **Skapa och aktivera Python virtuellt miljö:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # På Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Installera beroenden:**
@@ -47,20 +47,20 @@ Detta arkiv innehåller "AI-agenter för nybörjare" - en omfattande utbildnings
 4. **Ställ in miljövariabler:**
    ```bash
    cp .env.example .env
-   # Redigera .env med dina API-nycklar och slutpunkter
+   # Edit .env with your API keys and endpoints
    ```
 
 ### Obligatoriska miljövariabler
 
-För **Microsoft Foundry** (Obligatoriskt):
-- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry-projektendpunkt
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Modellimplementeringsnamn (t.ex. gpt-5-mini)
+För **Microsoft Foundry** (obligatoriskt):
+- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry projektendpoint
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Modellutplaceringsnamn (t.ex. gpt-5-mini)
 
 För **Azure AI Search** (Lektion 05 - RAG):
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search-endpunkt
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
 - `AZURE_SEARCH_API_KEY` - Azure AI Search API-nyckel
 
-Autentisering: Kör `az login` innan du kör notebooks (använder `AzureCliCredential`).
+Autentisering: Kör `az login` före körning av notebooks (använder `AzureCliCredential`).
 
 ## Utvecklingsarbetsflöde
 
@@ -84,24 +84,24 @@ Varje lektion innehåller flera Jupyter notebooks för olika ramverk:
 **Microsoft Agent Framework + Microsoft Foundry:**
 - Kräver Azure-prenumeration
 - Använder `FoundryChatClient` för Agent Service V2 (agenter synliga i Foundry-portalen)
-- Produktionsredo med inbyggd observerbarhet
+- Produktionsredo med inbyggd observabilitet
 - Filnamnsmönster: `*-python-agent-framework.ipynb`
 
 ## Testinstruktioner
 
-Detta är ett utbildningsarkiv med exempel på kod snarare än produktionskod med automatiserade tester. För att verifiera din installation och ändringar:
+Detta är ett utbildningsarkiv med exempel på kod snarare än produktionskod med automatiska tester. För att verifiera din installation och ändringar:
 
 ### Manuell testning
 
-1. **Testa Python-miljön:**
+1. **Testa Python-miljö:**
    ```bash
-   python --version  # Bör vara 3.12+
+   python --version  # Should be 3.12+
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
 2. **Testa körning av notebook:**
    ```bash
-   # Konvertera anteckningsbok till skript och kör (testar importer)
+   # Convert notebook to script and run (tests imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -112,31 +112,31 @@ Detta är ett utbildningsarkiv med exempel på kod snarare än produktionskod me
 
 ### Köra enskilda notebooks
 
-Öppna notebooks i Jupyter och kör celler sekventiellt. Varje notebook är självständig och innehåller:
-- Import-satser
+Öppna notebooks i Jupyter och kör celler sekventiellt. Varje notebook är fristående och innehåller:
+- Importuttalanden
 - Konfigurationsladdning
 - Exempel på agentimplementationer
-- Förväntade utdata i markdown-celler
+- Förväntade resultat i markdown-celler
 
-### Röktestning av distribuerade agenter
+### Röktester av distribuerade agenter
 
-För lektioner där en agent är distribuerad som en Microsoft Foundry-hostad agent (01, 04, 05, 16) innehåller repo röktestkataloger under `tests/` som körs av `.github/workflows/smoke-test.yml` arbetsflödet via [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) åtgärden. Dessa fungerar som en lättviktig post-distributionsgrind (är agenten nåbar och följer grundläggande promptförväntningar?), som kompletterar utvärderingspipelinjen i Lektion 10 och 16. Se [tests/README.md](./tests/README.md) för kartläggning katalog-till-lektion-till-agent. Lektion 17 körs lokalt med Foundry Local och har ingen hostad endpunkt, så den valideras genom att köra dess notebook direkt.
+För lektioner där en agent distribueras som en Microsoft Foundry värdagent (01, 04, 05, 16), levererar repot röktestkataloger under `tests/` som körs av `.github/workflows/smoke-test.yml` arbetsflödet via [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) action. Dessa är en lättviktig post-distributionskontroll (är agenten nåbar och följer grundläggande promptförväntningar?), som kompletterar utvärderingspipelinjen i Lektion 10 och 16. Se [tests/README.md](./tests/README.md) för katalog-till-lektion-till-agent mappning. Lektion 17 körs lokalt med Foundry Local och har ingen värdendpoint, så den valideras genom att köra sin notebook direkt.
 
 ## Kodstil
 
 ### Python-konventioner
 
-- **Python-version**: 3.12+
-- **Kodstil**: Följ standard Python PEP 8-konventioner
+- **Pythonversion**: 3.12+
+- **Kodstil**: Följ standard PEP 8-konventioner för Python
 - **Notebooks**: Använd tydliga markdown-celler för att förklara koncept
-- **Imports**: Gruppera standardbibliotek, tredjeparts- och lokala imports
+- **Importeringar**: Gruppera efter standardbibliotek, tredjepartsbibliotek och lokala importeringar
 
 ### Jupyter Notebook-konventioner
 
 - Inkludera beskrivande markdown-celler före kodceller
-- Lägg till exempel på utdata i notebooks för referens
+- Lägg till exempel på utdata i notebooks som referens
 - Använd tydliga variabelnamn som matchar lektionskoncept
-- Håll notebook-körningsordningen linjär (cell 1 → 2 → 3...)
+- Håll ordningen på notebook-exekvering linjär (cell 1 → 2 → 3...)
 
 ### Filorganisation
 
@@ -150,40 +150,40 @@ För lektioner där en agent är distribuerad som en Microsoft Foundry-hostad ag
     └── *.png
 ```
 
-## Bygg och Distribution
+## Bygg och distribution
 
 ### Bygga dokumentation
 
 Detta arkiv använder Markdown för dokumentation:
 - README.md-filer i varje lektionsmapp
-- Huvudsaklig README.md i arkivroten
-- Automatiserat översättningssystem via GitHub Actions
+- Huvud-README.md i arkivets rot
+- Automatiskt översättningssystem via GitHub Actions
 
 ### CI/CD-pipeline
 
 Belägen i `.github/workflows/`:
 
 1. **co-op-translator.yml** - Automatisk översättning till 50+ språk
-2. **welcome-issue.yml** - Välkomnar nya issueskapare
+2. **welcome-issue.yml** - Välkomnar nya ärendeskapare
 3. **welcome-pr.yml** - Välkomnar nya pull request-bidragsgivare
 
 ### Distribution
 
 Detta är ett utbildningsarkiv - ingen distributionsprocess. Användare:
-1. Fork eller klona arkivet
+1. Fork:a eller klona arkivet
 2. Kör notebooks lokalt eller i GitHub Codespaces
-3. Lär dig genom att modifiera och experimentera med exempel
+3. Lär genom att modifiera och experimentera med exempel
 
 ## Riktlinjer för pull requests
 
-### Innan du skickar in
+### Innan inlämning
 
 1. **Testa dina ändringar:**
-   - Kör berörda notebooks komplett
-   - Verifiera att alla celler kör utan fel
+   - Kör berörda notebooks helt
+   - Verifiera att alla celler körs utan fel
    - Kontrollera att utdata är lämpliga
 
-2. **Dokumentationsuppdateringar:**
+2. **Uppdatera dokumentation:**
    - Uppdatera README.md om nya koncept läggs till
    - Lägg till kommentarer i notebooks för komplex kod
    - Säkerställ att markdown-celler förklarar syftet
@@ -194,64 +194,64 @@ Detta är ett utbildningsarkiv - ingen distributionsprocess. Användare:
    - Behåll notebook-utdata när de demonstrerar koncept
    - Ta bort temporära filer och backup-notebooks (`*-backup.ipynb`)
 
-### PR-titelformat
+### Format för PR-titel
 
 Använd beskrivande titlar:
-- `[Lesson-XX] Lägg till nytt exempel för <concept>`
-- `[Fix] Korrigera stavfel i lesson-XX README`
-- `[Update] Förbättra kodexempel i lesson-XX`
-- `[Docs] Uppdatera installationsinstruktioner`
+- `[Lesson-XX] Add new example for <concept>`
+- `[Fix] Correct typo in lesson-XX README`
+- `[Update] Improve code sample in lesson-XX`
+- `[Docs] Update setup instructions`
 
 ### Obligatoriska kontroller
 
 - Notebooks ska köras utan fel
 - README-filer ska vara tydliga och korrekta
-- Följ existerande kodmönster i arkivet
-- Behåll konsistens med andra lektioner
+- Följ befintliga kodmönster i arkivet
+- Håll konsekvens med andra lektioner
 
 ## Ytterligare anteckningar
 
 ### Vanliga fallgropar
 
-1. **Python version mismatch:**
+1. **Pythonversionsmissanpassning:**
    - Säkerställ att Python 3.12+ används
-   - Vissa paket fungerar inte med äldre versioner
-   - Använd `python3 -m venv` för att specificera Python-version explicit
+   - Vissa paket fungerar kanske inte med äldre versioner
+   - Använd `python3 -m venv` för att explicit ange Python-version
 
 2. **Miljövariabler:**
    - Skapa alltid `.env` från `.env.example`
-   - Committra inte `.env` filen (den finns i `.gitignore`)
+   - Commita inte `.env` fil (den finns i `.gitignore`)
    - Logga in med `az login` för nyckellös Entra ID-autentisering
 
 3. **Paketkonflikter:**
-   - Använd en fräsch virtuell miljö
-   - Installera från `requirements.txt` istället för enskilda paket
-   - Vissa notebooks kan kräva ytterligare paket, nämnda i deras markdown-celler
+   - Använd en ren virtuell miljö
+   - Installera från `requirements.txt` snarare än enstaka paket
+   - Vissa notebooks kan kräva ytterligare paket som nämns i deras markdown-celler
 
 4. **Azure-tjänster:**
    - Azure AI-tjänster kräver aktiv prenumeration
    - Vissa funktioner är regionsspecifika
-   - Säkerställ att din Azure OpenAI-modellimplementering stödjer Responses API
+   - Säkerställ att din Azure OpenAI-modellutplacering stödjer Responses API
 
-### Inlärningsväg
+### Läroväg
 
 Rekommenderad progression genom lektionerna:
-1. **00-course-setup** - Börja här för miljöinställning
-2. **01-intro-to-ai-agents** - Förstå grunderna för AI-agenter
+1. **00-course-setup** - Starta här för miljöinstallation
+2. **01-intro-to-ai-agents** - Förstå AI-agenters grunder
 3. **02-explore-agentic-frameworks** - Lär dig om olika ramverk
 4. **03-agentic-design-patterns** - Kärndesignmönster
 5. Fortsätt genom numrerade lektioner i ordning
 
-### Val av ramverk
+### Ramverksval
 
 Välj ramverk baserat på dina mål:
 - **Alla lektioner**: Microsoft Agent Framework (MAF) med `FoundryChatClient`
-- **Agenter registreras server-side** i Microsoft Foundry Agent Service V2 och syns i Foundry-portalen
+- **Agenter registrerar sig server-side** i Microsoft Foundry Agent Service V2 och syns i Foundry-portalen
 
-### Skaffa hjälp
+### Få hjälp
 
 - Gå med i [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Granska lektions-READMEs för specifik vägledning
+- Granska lektions-README-filer för specifik vägledning
 - Kolla huvud-[README.md](./README.md) för kursöversikt
 - Se [Course Setup](./00-course-setup/README.md) för detaljerade installationsinstruktioner
 
@@ -259,14 +259,14 @@ Välj ramverk baserat på dina mål:
 
 Detta är ett öppet utbildningsprojekt. Bidrag välkomnas:
 - Förbättra kodexempel
-- Rätta stavfel eller fel
+- Rätta stavfel eller felaktigheter
 - Lägg till förtydligande kommentarer
-- Föreslå nya lektionsteman
-- Översätt till ytterligare språk
+- Föreslå nya lektionsämnen
+- Översätt till fler språk
 
 Se [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) för aktuella behov.
 
-## Projektspecifik kontext
+## Projekt-specifik kontext
 
 ### Flerspråkigt stöd
 
@@ -274,16 +274,16 @@ Detta arkiv använder ett automatiserat översättningssystem:
 - 50+ språk stöds
 - Översättningar i `/translations/<lang-code>/` kataloger
 - GitHub Actions-arbetsflöde hanterar översättningsuppdateringar
-- Källfiler är på engelska i arkivroten
+- Källfilerna är på engelska i arkivets rot
 
 ### Lektionsstruktur
 
 Varje lektion följer ett konsekvent mönster:
-1. Video-miniature med länk
+1. Videominiatyr med länk
 2. Skrivet lektionsinnehåll (README.md)
 3. Kodexempel i flera ramverk
-4. Läromål och förutsättningar
-5. Ytterligare lärresurser länkade
+4. Lärandemål och förutsättningar
+5. Extra lärresurser länkade
 
 ### Namngivning av kodexempel
 
@@ -295,18 +295,18 @@ Format: `<lesson-number>-python-agent-framework.ipynb`
 
 ### Specialkataloger
 
-- `translated_images/` - Lokaliserade bilder för översättningar
+- `translated_images/` - Lokalt anpassade bilder för översättningar
 - `images/` - Originalbilder för engelskt innehåll
-- `.devcontainer/` - VS Code utvecklingscontainerskonfiguration
+- `.devcontainer/` - VS Code utvecklingscontainerkonfiguration
 - `.github/` - GitHub Actions arbetsflöden och mallar
 
 ### Beroenden
 
 Nyckelpaket från `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `a2a-sdk` - Agent-to-Agent protokollstöd
+- `a2a-sdk` - Agent-till-agent protokollstöd
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI-tjänster
-- `azure-identity` - Azure autentisering (AzureCliCredential)
+- `azure-identity` - Azure-autentisering (AzureCliCredential)
 - `azure-search-documents` - Azure AI Search-integration
 - `mcp[cli]` - Model Context Protocol-stöd
 

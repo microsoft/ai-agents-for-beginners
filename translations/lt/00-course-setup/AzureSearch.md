@@ -1,81 +1,81 @@
-# Azure AI Search įdiegimo vadovas
+# Azure AI Search diegimo vadovas
 
-Šis vadovas padės jums įdiegti Azure AI Search naudojant Azure portalą. Sekite žemiau pateiktus veiksmus, kad sukurtumėte ir sukonfigūruotumėte savo Azure AI Search paslaugą.
+Šis vadovas padės jums nustatyti Azure AI Search naudojant Azure portalą. Vadovaukitės toliau pateiktais žingsniais, kad sukurtumėte ir sukonfigūruotumėte savo Azure AI Search paslaugą.
 
-## Prieš pradedant
+## Prieš pradėdami
 
-Prieš pradėdami įsitikinkite, kad turite šiuos dalykus:
+Prieš pradėdami, įsitikinkite, kad turite šiuos dalykus:
 
 - Azure prenumeratą. Jei neturite Azure prenumeratos, galite sukurti nemokamą paskyrą adresu [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## 1 veiksmas: Sukurkite Azure saugyklos paskyrą
+## 1 žingsnis: Sukurkite Azure saugyklos paskyrą
 
-1. Sekite šią instrukciją, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), kad sukurtumėte naują Azure saugyklos paskyrą.
+1. Vadovaukitės instrukcija, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), kad sukurtumėte naują Azure saugyklos paskyrą.
    **PASTABA**: Įsitikinkite, kad saugyklos paskyros tipas yra Standard General Purpose V2.
 
-## 2 veiksmas: Sukurkite Azure AI Search paslaugą
+## 2 žingsnis: Sukurkite Azure AI Search paslaugą
 
 1. Prisijunkite prie [Azure portalo](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Kairėje naršymo srityje spustelėkite **Create a resource**.
-3. Paieškos laukelyje įveskite „Azure AI Search“ ir iš rezultatų sąrašo pasirinkite **Azure AI Search**.
+2. Kairėje navigacijos srityje spustelėkite **Create a resource**.
+3. Paieškos lauke įveskite „Azure AI Search“ ir iš rezultatų sąrašo pasirinkite **Azure AI Search**.
 4. Spustelėkite mygtuką **Create**.
 5. Skiltyje **Basics** pateikite šią informaciją:
    - **Subscription**: Pasirinkite savo Azure prenumeratą.
-   - **Resource group**: Sukurkite naują arba pasirinkite esamą resursų grupę.
-   - **Resource name**: Įveskite unikalias paieškos paslaugos pavadinimą.
-   - **Region**: Pasirinkite regioną, artimiausią jūsų vartotojams.
-   - **Pricing tier**: Pasirinkite kainų lygį, atitinkantį jūsų poreikius. Testavimui galite pradėti nuo nemokamo rinkinio.
+   - **Resource group**: Sukurkite naują resursų grupę arba pasirinkite esamą.
+   - **Resource name**: Įveskite unikalų savo paieškos paslaugos pavadinimą.
+   - **Region**: Pasirinkite regioną, kuris yra arčiausiai jūsų vartotojų.
+   - **Pricing tier**: Pasirinkite kainodaros lygį, kuris atitinka jūsų reikalavimus. Galite pradėti nuo nemokamo lygio testavimui.
 6. Spustelėkite **Review + create**.
 7. Peržiūrėkite nustatymus ir spustelėkite **Create**, kad sukurtumėte paieškos paslaugą.
 
-## 3 veiksmas: Pradėkite naudotis Azure AI Search
+## 3 žingsnis: Pradėkite naudotis Azure AI Search
 
-1. Baigus diegimą, eikite į savo paieškos paslaugą Azure portale.
-2. Paieškos paslaugos apžvalgos srityje nukopijuokite URL. Jis turėtų atrodyti kaip `https://<service-name>.search.windows.net`.
-3. **(Rekomenduojama)** Įgalinkite prieigą be rakto su Microsoft Entra ID (RBAC), kaip parodyta 4 žingsnyje žemiau — rakto nereikia. Šio vadovo pavyzdžiai kuria / atnaujina indeksus ir įkelia dokumentus, kurie reikalauja **Search Service Contributor** ir **Search Index Data Contributor** vaidmenų (arba, naudojant autentifikavimą su raktu, **pagrindinio administratoriaus rakto** — ne užklausos rakto). Tik jei negalite naudoti RBAC, atidarykite **Settings > Keys** puslapį ir nukopijuokite **pagrindinį administratoriaus raktą**.
-4. Sekite žingsnius [Quickstart vadove](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new), kad sukurtumėte indeksą, įkeltumėte duomenis ir atliktumėte paiešką.
+1. Pasibaigus diegimui, nueikite į savo paieškos paslaugą Azure portale.
+2. Paieškos paslaugos apžvalgos lange nukopijuokite URL. Jis turėtų atrodyti kaip `https://<service-name>.search.windows.net`.
+3. **(Rekomenduojama)** Įjunkite prisijungimą be rakto su Microsoft Entra ID (RBAC), kaip parodyta 4 žingsnyje žemiau – raktas nereikalingas. Šio vadovo pavyzdžiai kuria/atnaujina indeksus ir įkelia dokumentus, kurie reikalauja **Search Service Contributor** ir **Search Index Data Contributor** vaidmenų (arba, naudojant autentifikaciją su raktu, **pagrindinio administratoriaus rakto** – ne užklausų rakto). Jei negalite naudoti RBAC, atsidarykite **Settings > Keys** ir nukopijuokite **pagrindinį administratoriaus raktą**.
+4. Laikykitės [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) puslapio nurodymų, kad sukurtumėte indeksą, įkeltumėte duomenis ir atliktumėte paiešką.
 
-## 4 veiksmas: Naudokite Azure AI Search įrankius
+## 4 žingsnis: Naudokite Azure AI Search įrankius
 
-Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų paieškos galimybes. Galite naudoti Azure CLI, Python SDK, .NET SDK ir kitus įrankius pažangioms konfigūracijoms ir operacijoms.
+Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų paieškos galimybes. Galite naudoti Azure CLI, Python SDK, .NET SDK ir kitus įrankius pažangesnėms konfigūracijoms ir operacijoms.
 
 ### Naudojant Azure CLI
 
-1. Įdiekite Azure CLI sekdami instrukcijas adresu [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. Įdiekite Azure CLI pagal instrukcijas [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Prisijunkite prie Azure CLI naudodami komandą:
 
    ```bash
    az login
    ```
-3. **(Rekomenduojama) Įgalinkite prieigą be rakto su Microsoft Entra ID (RBAC):**
+3. **(Rekomenduojama) Įjunkite prisijungimą be rakto su Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show neturi "endpoint" lauko; sukurkite URL iš paslaugos pavadinimo.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Naudojant įjungtą RBAC, žemiau pateikti Python ir .NET SDK pavyzdžiai autentifikuojasi su `DefaultAzureCredential`, kuris vietinio vystymo metu naudoja jūsų `az login` sesiją — administratoriaus rakto nereikia. Žr. [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Su įjungtu RBAC, žemiau pateikti Python ir .NET SDK pavyzdžiai autentifikuojasi su `DefaultAzureCredential`, kuris naudoja jūsų `az login` sesiją vietiniame kūrime – administravimo rakto nereikia. Žr. [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Alternatyva) Autentifikacija su raktu** — tik jei negalite naudoti RBAC, taip pat saugokite administratoriaus raktą:
+4. **(Atsarginis variantas) Autentifikacija su raktu** – tik jei negalite naudoti RBAC, taip pat saugokite administratoriaus raktą:
 
-#### Išsaugokite tiek endpoint, tiek API raktą Azure AI Search instancijos kintamuosiuose aplinkoje.
+#### Išsaugokite tiek galinio taško, tiek API raktą Azure AI Search instancijos aplinkos kintamuosiuose.
 
-    ```bash
-    # zsh/bash
-    # az search service show neturi „endpoint“ lauko; sukurkite URL iš paslaugos vardo.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show neturi „endpoint“ lauko; sukurkite URL iš paslaugos vardo.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Naudojant Python SDK
 
@@ -85,7 +85,7 @@ Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų pai
    pip install azure-search-documents azure-identity
    ```
 
-2. Naudokite šį Python kodą, kad sukurtumėte indeksą ir įkeltumėte dokumentus:
+2. Naudokite šį Python kodą kurdami indeksą ir įkeldami dokumentus:
 
     ```python
     import os
@@ -97,12 +97,12 @@ Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų pai
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Be rakto (rekomenduojama): naudoja jūsų `az login` tapatybę per Entra ID RBAC.
-    # Reikalauja „Search Service Contributor“ ir „Search Index Data Contributor“ vaidmenų.
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Atsarginis variantas (autentifikacija pagal raktą):
-    # iš azure.core.credentials importuoti AzureKeyCredential
-    # kredencialas = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -132,9 +132,9 @@ Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų pai
     dotnet run ./AzureSearch.cs
     ```
 
-    Žemiau pateiktas .NET pavyzdys naudoja `DefaultAzureCredential`, kuris gali naudoti jūsų Azure CLI prisijungimą iš `az login` vietinio vystymo metu.
+    Žemiau pateiktas .NET pavyzdys naudoja `DefaultAzureCredential`, kuris gali naudoti jūsų Azure CLI prisijungimą iš `az login` vietiniam kūrimui.
 
-2. Štai .NET failo `AzureSearch.cs` kodas:
+2. Štai `AzureSearch.cs` .NET kodo pavyzdys:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,15 +181,15 @@ Azure AI Search integruojasi su įvairiais įrankiais, kad pagerintų jūsų pai
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Daugiau išsamių informacijos rasite šioje dokumentacijoje:
+Daugiau detalių rasite šioje dokumentacijoje:
 
-- [Sukurkite Azure Cognitive Search paslaugą](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Pradėkite naudotis Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search įrankiai](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
-## Išvada
+## Išvados
 
-Jūs sėkmingai įdiegėte Azure AI Search naudodami Azure portalą ir integruotus įrankius. Dabar galite tyrinėti pažangesnes Azure AI Search funkcijas ir galimybes, kad pagerintumėte savo paieškos sprendimus.
+Sėkmingai nustatėte Azure AI Search naudodami Azure portalą ir integruotus įrankius. Dabar galite tyrinėti pažangesnes Azure AI Search funkcijas ir galimybes, kad pagerintumėte savo paieškos sprendimus.
 
 Dėl papildomos pagalbos apsilankykite [Azure Cognitive Search dokumentacijoje](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 

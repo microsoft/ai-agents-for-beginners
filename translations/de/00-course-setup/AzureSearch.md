@@ -1,6 +1,6 @@
-# Azure AI Search Einrichtungshandbuch
+# Azure AI Search Setup Anleitung
 
-Dieser Leitfaden hilft Ihnen bei der Einrichtung von Azure AI Search über das Azure-Portal. Folgen Sie den untenstehenden Schritten, um Ihren Azure AI Search-Dienst zu erstellen und zu konfigurieren.
+Diese Anleitung hilft Ihnen bei der Einrichtung von Azure AI Search über das Azure-Portal. Folgen Sie den untenstehenden Schritten, um Ihren Azure AI Search-Dienst zu erstellen und zu konfigurieren.
 
 ## Voraussetzungen
 
@@ -10,8 +10,8 @@ Stellen Sie vor Beginn sicher, dass Sie Folgendes haben:
 
 ## Schritt 1: Erstellen eines Azure Storage-Kontos
 
-1. Befolgen Sie diese Anleitung, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), um ein neues Azure Storage-Konto zu erstellen.
-   **HINWEIS**: Stellen Sie sicher, dass der Typ des Storage-Kontos "Standard General Purpose V2" ist.
+1. Folgen Sie dieser Anleitung, [Erstellen eines Azure Storage-Kontos](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), um ein neues Azure Storage-Konto zu erstellen.
+   **HINWEIS**: Stellen Sie sicher, dass der Typ des Storage-Kontos Standard General Purpose V2 ist.
 
 ## Schritt 2: Erstellen eines Azure AI Search-Dienstes
 
@@ -19,63 +19,63 @@ Stellen Sie vor Beginn sicher, dass Sie Folgendes haben:
 2. Klicken Sie im linken Navigationsbereich auf **Ressource erstellen**.
 3. Geben Sie im Suchfeld „Azure AI Search“ ein und wählen Sie **Azure AI Search** aus der Ergebnisliste aus.
 4. Klicken Sie auf die Schaltfläche **Erstellen**.
-5. Geben Sie im Tab **Grundlagen** die folgenden Informationen ein:
+5. Geben Sie im Tab **Basics** die folgenden Informationen an:
    - **Abonnement**: Wählen Sie Ihr Azure-Abonnement aus.
-   - **Resource Group**: Erstellen Sie eine neue Ressourcengruppe oder wählen Sie eine vorhandene aus.
-   - **Ressourcename**: Geben Sie einen eindeutigen Namen für Ihren Suchdienst ein.
-   - **Region**: Wählen Sie die Region, die Ihren Benutzern am nächsten ist.
-   - **Preisstufe**: Wählen Sie eine Preisstufe, die Ihren Anforderungen entspricht. Für Tests können Sie mit der kostenlosen Stufe beginnen.
+   - **Ressourcengruppe**: Erstellen Sie eine neue Ressourcengruppe oder wählen Sie eine vorhandene aus.
+   - **Ressourcenname**: Geben Sie einen eindeutigen Namen für Ihren Suchdienst ein.
+   - **Region**: Wählen Sie die Region aus, die Ihren Benutzern am nächsten liegt.
+   - **Preisstufe**: Wählen Sie eine Preisstufe, die Ihren Anforderungen entspricht. Sie können für Tests mit der kostenlosen Stufe beginnen.
 6. Klicken Sie auf **Überprüfen + erstellen**.
 7. Überprüfen Sie die Einstellungen und klicken Sie auf **Erstellen**, um den Suchdienst zu erstellen.
 
-## Schritt 3: Einstieg in Azure AI Search
+## Schritt 3: Erste Schritte mit Azure AI Search
 
-1. Sobald die Bereitstellung abgeschlossen ist, navigieren Sie zu Ihrem Suchdienst im Azure-Portal.
+1. Sobald die Bereitstellung abgeschlossen ist, navigieren Sie im Azure-Portal zu Ihrem Suchdienst.
 2. Kopieren Sie im Übersichtsbereich des Suchdienstes die URL. Diese sollte wie `https://<service-name>.search.windows.net` aussehen.
-3. **(Empfohlen)** Aktivieren Sie den schlüssellosen Zugriff mit Microsoft Entra ID (RBAC), wie in Schritt 4 unten gezeigt — kein Schlüssel erforderlich. Die Beispiele in diesem Handbuch erstellen/aktualisieren Indizes und laden Dokumente hoch, wofür die Rollen **Search Service Contributor** und **Search Index Data Contributor** erforderlich sind (oder für die schlüsselbasierte Authentifizierung der **primäre Administrationsschlüssel** — nicht der Abfrageschlüssel). Nur wenn Sie RBAC nicht verwenden können, öffnen Sie das Menü **Einstellungen > Schlüssel** und kopieren Sie den **primären Administrationsschlüssel**.
-4. Folgen Sie den Schritten in der [Schnellstartanleitung](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new), um einen Index zu erstellen, Daten hochzuladen und eine Suche durchzuführen.
+3. **(Empfohlen)** Aktivieren Sie den schlüsselosen Zugriff mit Microsoft Entra ID (RBAC), wie in Schritt 4 unten gezeigt – kein Schlüssel erforderlich. Die Beispiele in dieser Anleitung erstellen/aktualisieren Indizes und laden Dokumente hoch, wofür die Rollen **Search Service Contributor** und **Search Index Data Contributor** benötigt werden (oder bei schlüsselbasierter Authentifizierung der **primäre Administratorschlüssel**, nicht der Abfrageschlüssel). Nur wenn Sie RBAC nicht verwenden können, öffnen Sie den Bereich **Einstellungen > Schlüssel** und kopieren Sie den **primären Administratorschlüssel**.
+4. Befolgen Sie die Schritte auf der Seite [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new), um einen Index zu erstellen, Daten hochzuladen und eine Suche durchzuführen.
 
-## Schritt 4: Verwendung von Azure AI Search Tools
+## Schritt 4: Verwendung der Azure AI Search-Tools
 
-Azure AI Search integriert verschiedene Tools, um Ihre Suchfunktionen zu erweitern. Sie können die Azure CLI, das Python SDK, das .NET SDK und andere Tools für erweiterte Konfigurationen und Operationen verwenden.
+Azure AI Search integriert sich mit verschiedenen Tools zur Erweiterung Ihrer Suchfunktionen. Sie können Azure CLI, Python SDK, .NET SDK und andere Tools für erweiterte Konfigurationen und Operationen verwenden.
 
 ### Verwendung der Azure CLI
 
-1. Installieren Sie die Azure CLI, indem Sie den Anweisungen unter [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) folgen.
-2. Melden Sie sich mit dem Befehl bei der Azure CLI an:
+1. Installieren Sie die Azure CLI, indem Sie den Anweisungen unter [Azure CLI installieren](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) folgen.
+2. Melden Sie sich mit folgendem Befehl bei der Azure CLI an:
 
    ```bash
    az login
    ```
-3. **(Empfohlen) Aktivieren Sie den schlüssellosen Zugriff mit Microsoft Entra ID (RBAC):**
+3. **(Empfohlen) Aktivieren Sie den schlüsselosen Zugriff mit Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show hat kein "endpoint"-Feld; die URL wird aus dem Dienstnamen erstellt.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Mit aktiviertem RBAC authentifizieren sich die unten stehenden Python- und .NET-SDK-Beispiele über `DefaultAzureCredential`, der während der lokalen Entwicklung Ihre `az login`-Sitzung verwendet — kein Administrationsschlüssel erforderlich. Weitere Informationen finden Sie unter [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Mit aktiviertem RBAC authentifizieren sich die untenstehenden Python- und .NET-SDK-Beispiele mit `DefaultAzureCredential`, das Ihre `az login`-Sitzung während der lokalen Entwicklung verwendet – kein Administratorschlüssel erforderlich. Siehe [Verbindung zu Azure AI Search mit Rollen](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Alternativ) Schlüsselbasierte Authentifizierung** — nur wenn Sie RBAC nicht verwenden können, speichern Sie auch den Administrationsschlüssel:
+4. **(Fallback) Schlüsselbasierte Authentifizierung** – nur wenn Sie RBAC nicht verwenden können, speichern Sie auch den Administratorschlüssel:
 
-#### Speichern Sie sowohl Endpoint als auch API-Schlüssel der Azure AI Search-Instanz in Umgebungsvariablen.
+#### Speichern Sie sowohl Endpunkt als auch API-Schlüssel für die Azure AI Search-Instanz als Umgebungsvariablen.
 
-    ```bash
-    # zsh/bash
-    # az search service show hat kein "endpoint"-Feld; bauen Sie die URL aus dem Servicenamen zusammen.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show hat kein "endpoint"-Feld; bauen Sie die URL aus dem Servicenamen zusammen.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Verwendung des Python SDK
 
@@ -97,10 +97,10 @@ Azure AI Search integriert verschiedene Tools, um Ihre Suchfunktionen zu erweite
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (empfohlen): verwendet Ihre `az login` Identität über Entra ID RBAC.
-    # Erfordert die Rollen "Search Service Contributor" und "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Fallback (schlüsselbasierte Authentifizierung):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -132,7 +132,7 @@ Azure AI Search integriert verschiedene Tools, um Ihre Suchfunktionen zu erweite
     dotnet run ./AzureSearch.cs
     ```
 
-    Das .NET-Beispiel unten verwendet `DefaultAzureCredential`, das Ihr Azure CLI-Anmeldeverfahren von `az login` während der lokalen Entwicklung nutzen kann.
+    Das untenstehende .NET-Beispiel verwendet `DefaultAzureCredential`, das während der lokalen Entwicklung Ihre Azure CLI-Anmeldung von `az login` verwenden kann.
 
 2. Hier ist der .NET-Code von `AzureSearch.cs`:
 
@@ -181,15 +181,15 @@ Azure AI Search integriert verschiedene Tools, um Ihre Suchfunktionen zu erweite
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Für detailliertere Informationen lesen Sie bitte die folgende Dokumentation:
+Für detailliertere Informationen verweisen wir auf folgende Dokumentation:
 
 - [Erstellen eines Azure Cognitive Search-Dienstes](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Erste Schritte mit Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Azure AI Search-Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Fazit
 
-Sie haben Azure AI Search erfolgreich über das Azure-Portal eingerichtet und in Tools integriert. Nun können Sie weitere fortgeschrittene Funktionen und Möglichkeiten von Azure AI Search erkunden, um Ihre Suchlösungen zu verbessern.
+Sie haben erfolgreich Azure AI Search mithilfe des Azure-Portals und integrierter Tools eingerichtet. Nun können Sie fortgeschrittene Funktionen und Fähigkeiten von Azure AI Search erkunden, um Ihre Suchlösungen zu verbessern.
 
 Für weitere Unterstützung besuchen Sie die [Azure Cognitive Search-Dokumentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 

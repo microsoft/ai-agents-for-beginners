@@ -107,14 +107,14 @@ Deploying an agent is not a one-time `push`. It is a loop, and it looks a lot li
 
 ```mermaid
 flowchart LR
-    Create[Crea / Autor] --> Version[Versión]
-    Version --> Evaluate[Evaluar sin conexión]
-    Evaluate -->|pasa puerta| Deploy[Implementar alojado]
-    Evaluate -->|falla puerta| Create
-    Deploy --> Observe[Observar en línea]
-    Observe --> Improve[Recopilar fallos]
+    Create[Erstellen / Autor] --> Version[Version]
+    Version --> Evaluate[Offline bewerten]
+    Evaluate -->|Gate besteht| Deploy[Bereitstellung gehostet]
+    Evaluate -->|Gate nicht bestanden| Create
+    Deploy --> Observe[Online beobachten]
+    Observe --> Improve[Fehler sammeln]
     Improve --> Create
-    Deploy --> Retire[Retirar versión antigua]
+    Deploy --> Retire[Alte Version zurückziehen]
 ```
 
 The key idea, carried over from [Lesson 10](../10-ai-agents-production/README.md): **offline evaluation is a gate, not an afterthought.** A new agent version does not ship unless it clears your evaluation thresholds. Online observability then feeds real-world failures back into your offline test set. That is the whole loop.
@@ -281,7 +281,6 @@ This repository ships a ready-to-use smoke-test pipeline built on the [AI Smoke 
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
-
 Run it from the **Actions** tab once your agent is deployed, supplying your Foundry project endpoint and agent name. The federated identity needs the **Azure AI User** role at Foundry project scope. Think of the layers as a pyramid: smoke tests (reachable and responding?) run on every deploy, offline evaluation (good enough to ship?) runs before promotion, and online evaluation (how is it doing in the wild?) runs continuously.
 
 ## Knowledge Check
@@ -383,7 +382,7 @@ The next lesson takes the opposite journey: instead of scaling agents up into th
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Microsoft Foundry documentation</a>
 - <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Microsoft Foundry Agent Service overview</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router in Microsoft Foundry</a>
 - <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
 - <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>

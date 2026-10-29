@@ -62,6 +62,17 @@ class PersistentEventStoreTests(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         self.store.close()
 
+    async def test_returns_stream_when_no_later_events_exist(self) -> None:
+        last_event_id = await self.store.store_event(
+            "stream-a", message("notifications/first")
+        )
+
+        callback = AsyncMock()
+        stream_id = await self.store.replay_events_after(last_event_id, callback)
+
+        self.assertEqual(stream_id, "stream-a")
+        callback.assert_not_awaited()
+
     async def test_callback_failure_stops_replay_and_can_be_retried(self) -> None:
         last_event_id = await self.store.store_event(
             "stream-a", message("notifications/first")

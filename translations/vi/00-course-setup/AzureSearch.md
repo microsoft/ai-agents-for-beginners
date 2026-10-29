@@ -1,81 +1,81 @@
 # Hướng Dẫn Thiết Lập Azure AI Search
 
-Hướng dẫn này sẽ giúp bạn thiết lập Azure AI Search bằng cách sử dụng cổng thông tin Azure. Hãy thực hiện theo các bước dưới đây để tạo và cấu hình dịch vụ Azure AI Search của bạn.
+Hướng dẫn này sẽ giúp bạn thiết lập Azure AI Search sử dụng cổng thông tin Azure. Làm theo các bước dưới đây để tạo và cấu hình dịch vụ Azure AI Search của bạn.
 
-## Yêu Cầu Trước Khi Bắt Đầu
+## Các Yêu Cầu Trước
 
-Trước khi bắt đầu, hãy chắc chắn bạn có những điều sau:
+Trước khi bắt đầu, hãy đảm bảo bạn có những điều sau:
 
-- Một thuê bao Azure. Nếu bạn chưa có thuê bao Azure, bạn có thể tạo tài khoản miễn phí tại [Tài Khoản Miễn Phí Azure](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Một đăng ký Azure. Nếu bạn chưa có đăng ký Azure, bạn có thể tạo tài khoản miễn phí tại [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Bước 1: Tạo Tài Khoản Lưu Trữ Azure
 
-1. Thực hiện theo hướng dẫn này, [Tạo tài khoản lưu trữ Azure](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), để tạo một Tài khoản Lưu trữ Azure mới.
-   **LƯU Ý**: Đảm bảo loại Tài khoản Lưu trữ là Standard General Purpose V2.
+1. Thực hiện theo hướng dẫn này, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), để tạo một Tài Khoản Lưu Trữ Azure mới.
+   **CHÚ Ý**: Đảm bảo loại Tài Khoản Lưu Trữ là Standard General Purpose V2.
 
 ## Bước 2: Tạo Dịch Vụ Azure AI Search
 
 1. Đăng nhập vào [cổng thông tin Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Trong thanh điều hướng bên trái, nhấp vào **Tạo tài nguyên**.
+2. Trong thanh điều hướng bên trái, bấm vào **Create a resource**.
 3. Trong hộp tìm kiếm, nhập "Azure AI Search" và chọn **Azure AI Search** từ danh sách kết quả.
-4. Nhấn nút **Tạo**.
-5. Trong thẻ **Cơ bản**, cung cấp các thông tin sau:
-   - **Thuê bao**: Chọn thuê bao Azure của bạn.
-   - **Nhóm tài nguyên**: Tạo nhóm tài nguyên mới hoặc chọn nhóm tài nguyên hiện có.
-   - **Tên tài nguyên**: Nhập tên duy nhất cho dịch vụ tìm kiếm của bạn.
-   - **Khu vực**: Chọn khu vực gần người dùng nhất.
-   - **Hạng giá**: Chọn hạng giá phù hợp với yêu cầu của bạn. Bạn có thể bắt đầu với hạng Miễn phí để thử nghiệm.
-6. Nhấp **Xem lại + tạo**.
-7. Kiểm tra các cài đặt rồi bấm **Tạo** để tạo dịch vụ tìm kiếm.
+4. Nhấn nút **Create**.
+5. Ở tab **Basics**, cung cấp các thông tin sau:
+   - **Subscription**: Chọn đăng ký Azure của bạn.
+   - **Resource group**: Tạo nhóm tài nguyên mới hoặc chọn nhóm tài nguyên đã có.
+   - **Resource name**: Nhập tên duy nhất cho dịch vụ tìm kiếm của bạn.
+   - **Region**: Chọn khu vực gần người dùng của bạn nhất.
+   - **Pricing tier**: Chọn cấp giá phù hợp với yêu cầu của bạn. Bạn có thể bắt đầu với cấp Miễn phí để thử nghiệm.
+6. Nhấn **Review + create**.
+7. Xem lại các thiết lập và nhấn **Create** để tạo dịch vụ tìm kiếm.
 
-## Bước 3: Bắt Đầu Với Azure AI Search
+## Bước 3: Bắt Đầu với Azure AI Search
 
-1. Khi việc triển khai hoàn tất, chuyển đến dịch vụ tìm kiếm của bạn trong cổng thông tin Azure.
+1. Khi việc triển khai hoàn tất, điều hướng đến dịch vụ tìm kiếm của bạn trong cổng thông tin Azure.
 2. Trong bảng tổng quan dịch vụ tìm kiếm, sao chép URL. Nó sẽ trông giống như `https://<service-name>.search.windows.net`.
-3. **(Khuyên dùng)** Bật truy cập không cần khóa với Microsoft Entra ID (RBAC) như hướng dẫn ở Bước 4 bên dưới — không cần khóa. Các ví dụ trong hướng dẫn này tạo/cập nhật chỉ mục và tải lên tài liệu, điều này yêu cầu vai trò **Search Service Contributor** và **Search Index Data Contributor** (hoặc, nếu sử dụng xác thực dựa trên khóa, cần **khóa quản trị chính** — không phải khóa truy vấn). Chỉ khi bạn không thể dùng RBAC, mở bảng **Cài đặt > Khóa** và sao chép **khóa quản trị chính**.
-4. Thực hiện theo các bước trong trang [Hướng dẫn nhanh](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) để tạo chỉ mục, tải dữ liệu và thực hiện tìm kiếm.
+3. **(Khuyến nghị)** Bật truy cập không cần khóa với Microsoft Entra ID (RBAC) như hướng dẫn ở Bước 4 dưới đây — không cần khóa. Các mẫu trong hướng dẫn này tạo/cập nhật chỉ mục và tải tài liệu lên, yêu cầu các vai trò **Search Service Contributor** và **Search Index Data Contributor** (hoặc, với xác thực dựa trên khóa, khóa quản trị chính — không phải khóa truy vấn). Chỉ khi bạn không thể sử dụng RBAC, hãy mở bảng **Settings > Keys** và sao chép **khóa quản trị chính**.
+4. Thực hiện các bước trong trang [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) để tạo chỉ mục, tải dữ liệu và thực hiện tìm kiếm.
 
 ## Bước 4: Sử Dụng Công Cụ Azure AI Search
 
-Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng tìm kiếm của bạn. Bạn có thể sử dụng Azure CLI, Python SDK, .NET SDK và các công cụ khác để cấu hình và vận hành nâng cao.
+Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng tìm kiếm của bạn. Bạn có thể sử dụng Azure CLI, Python SDK, .NET SDK và các công cụ khác cho các cấu hình và thao tác nâng cao.
 
 ### Sử Dụng Azure CLI
 
-1. Cài đặt Azure CLI theo hướng dẫn tại [Cài đặt Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Đăng nhập vào Azure CLI sử dụng lệnh:
+1. Cài đặt Azure CLI theo hướng dẫn tại [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Đăng nhập vào Azure CLI bằng lệnh:
 
    ```bash
    az login
    ```
-3. **(Khuyên dùng) Bật truy cập không khóa bằng Microsoft Entra ID (RBAC):**
+3. **(Khuyến nghị) Bật truy cập không cần khóa với Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # dịch vụ tìm kiếm az show không có trường "endpoint"; xây dựng URL từ tên dịch vụ.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Với RBAC được bật, các ví dụ Python và .NET SDK bên dưới xác thực bằng `DefaultAzureCredential`, sử dụng phiên `az login` của bạn khi phát triển cục bộ — không cần khóa quản trị. Xem [Kết nối tới Azure AI Search với vai trò](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Với RBAC được bật, các mẫu Python và .NET SDK dưới đây xác thực với `DefaultAzureCredential`, sử dụng phiên `az login` của bạn trong quá trình phát triển tại chỗ — không cần khóa quản trị. Xem [Kết nối với Azure AI Search bằng các vai trò](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Dự phòng) Xác thực dựa trên khóa** — chỉ khi bạn không thể dùng RBAC, lưu khóa quản trị:
+4. **(Dự phòng) Xác thực dựa trên khóa** — chỉ khi bạn không thể sử dụng RBAC, lưu khóa quản trị:
 
-#### Lưu cả endpoint và API key cho instance Azure AI Search vào biến môi trường.
+#### Lưu cả điểm cuối và khóa API của Azure AI Search vào biến môi trường.
 
-    ```bash
-    # zsh/bash
-    # az search service show không có trường "endpoint"; xây dựng URL từ tên dịch vụ.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show không có trường "endpoint"; xây dựng URL từ tên dịch vụ.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Sử Dụng Python SDK
 
@@ -85,7 +85,7 @@ Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng
    pip install azure-search-documents azure-identity
    ```
 
-2. Sử dụng đoạn mã Python sau để tạo chỉ mục và tải tài liệu lên:
+2. Sử dụng mã Python sau để tạo chỉ mục và tải tài liệu lên:
 
     ```python
     import os
@@ -97,11 +97,11 @@ Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Không khóa (đề xuất): sử dụng danh tính `az login` của bạn thông qua Entra ID RBAC.
-    # Yêu cầu các vai trò "Search Service Contributor" và "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Dự phòng (xác thực dựa trên khóa):
-    # từ azure.core.credentials nhập AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -132,9 +132,9 @@ Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng
     dotnet run ./AzureSearch.cs
     ```
 
-    Ví dụ .NET bên dưới sử dụng `DefaultAzureCredential`, có thể dùng đăng nhập Azure CLI từ `az login` trong quá trình phát triển cục bộ.
+    Mẫu .NET dưới đây sử dụng `DefaultAzureCredential`, có thể sử dụng đăng nhập Azure CLI của bạn từ `az login` trong quá trình phát triển tại chỗ.
 
-2. Đây là mã nguồn .NET của `AzureSearch.cs`:
+2. Đây là mã .NET của `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,7 +181,7 @@ Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Để biết thêm chi tiết, vui lòng tham khảo tài liệu sau:
+Để biết thông tin chi tiết hơn, hãy tham khảo tài liệu sau:
 
 - [Tạo dịch vụ Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Bắt đầu với Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -189,7 +189,7 @@ Azure AI Search tích hợp với nhiều công cụ để nâng cao khả năng
 
 ## Kết Luận
 
-Bạn đã thiết lập thành công Azure AI Search sử dụng cổng thông tin Azure và các công cụ tích hợp. Bây giờ bạn có thể khám phá thêm các tính năng và khả năng nâng cao của Azure AI Search để cải thiện các giải pháp tìm kiếm của mình.
+Bạn đã thiết lập thành công Azure AI Search sử dụng cổng thông tin Azure và các công cụ tích hợp. Bạn có thể khám phá thêm các tính năng và khả năng nâng cao của Azure AI Search để cải thiện giải pháp tìm kiếm của mình.
 
 Để được hỗ trợ thêm, hãy truy cập [tài liệu Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 

@@ -15,15 +15,17 @@ extra pre-hash before signing.
 
 ## Verifying the samples
 
-The notebook walks through verification in four sections. To verify these fixtures
-directly without running through the notebook narrative:
+In `18-signed-receipts.ipynb`, run Setup and Sections 1 through 3 first.
+Section 3 defines `verify_chain`; Sections 1 and 2 alone are not enough.
+Then run the following block in a new cell, with the notebook's working directory
+set to `18-securing-ai-agents/code_samples`. The fixture paths below are relative
+to that directory.
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
 # The issuer's key, pinned here rather than read from any receipt. In a real
 # deployment it comes from the issuer's JWK Set or a pinned config value.
@@ -48,6 +50,20 @@ print(f"Forged, checked against its own key: "
 print(f"Forged, checked against issuer key:  "
       f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
+
+### Checking the example without Jupyter
+
+From the repository root, install the lesson dependencies and run:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+These tests execute the notebook's Python examples and the exact README block
+above. They also check that tampering and unpinned keys are rejected by the
+verifiers. The tests skip the notebook's `%pip` setup cell because dependencies
+are installed separately. They do not change the notebook or fixtures.
 
 ## How these were generated
 

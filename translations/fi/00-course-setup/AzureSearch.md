@@ -1,91 +1,91 @@
-# Azure AI Search -asetusten opas
+# Azure AI Searchin asennusopas
 
-Tämä opas auttaa sinua määrittämään Azure AI Searchin Azure-portaalin avulla. Noudata alla olevia ohjeita luodaksesi ja määrittääksesi Azure AI Search -palvelusi.
+Tämä opas auttaa sinua ottamaan Azure AI Searchin käyttöön Azure-portaalin avulla. Noudata alla olevia ohjeita luodaksesi ja määrittääksesi Azure AI Search -palvelusi.
 
-## Vaatimukset
+## Ennen aloittamista
 
-Ennen aloittamista varmista, että sinulla on seuraavat:
+Varmista ennen aloittamista, että sinulla on seuraavat asiat:
 
 - Azure-tilaus. Jos sinulla ei ole Azure-tilausta, voit luoda ilmaisen tilin osoitteessa [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Vaihe 1: Luo Azure Storage -tili
 
 1. Noudata tätä ohjetta, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), luodaksesi uuden Azure Storage -tilin.
-   **HUOM**: Varmista, että Storage-tilin tyypiksi on valittu Standard General Purpose V2.
+   **HUOM**: Varmista, että Storage Accountin tyypiksi on valittu Standard General Purpose V2.
 
 ## Vaihe 2: Luo Azure AI Search -palvelu
 
 1. Kirjaudu sisään [Azure-portaaliin](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Valitse vasemmassa navigointipaneelissa **Create a resource**.
-3. Kirjoita hakukenttään "Azure AI Search" ja valitse hakutuloksista **Azure AI Search**.
-4. Napsauta **Create**-painiketta.
-5. Täytä **Basics**-välilehdellä seuraavat tiedot:
-   - **Subscription**: Valitse Azure-tilauksesi.
-   - **Resource group**: Luo uusi resurssiryhmä tai valitse olemassa oleva.
-   - **Resource name**: Anna hakupalvelullesi ainutlaatuinen nimi.
-   - **Region**: Valitse käyttäjiäsi lähinnä oleva alue.
-   - **Pricing tier**: Valitse hintataso tarpeittesi mukaan. Voit aloittaa testaamalla Free-tasolla.
-6. Napsauta **Review + create**.
-7. Tarkista asetukset ja napsauta **Create** luodaksesi hakupalvelun.
+2. Vasemmanpuoleisessa navigaatiopaneelissa napsauta **Luo resurssi**.
+3. Hakukenttään kirjoita "Azure AI Search" ja valitse **Azure AI Search** tulosluettelosta.
+4. Napsauta **Luo**-painiketta.
+5. **Perustiedot**-välilehdellä anna seuraavat tiedot:
+   - **Tilaus**: Valitse Azure-tilauksesi.
+   - **Resurssiryhmä**: Luo uusi resurssiryhmä tai valitse olemassa oleva.
+   - **Resurssin nimi**: Anna hakupalvelullesi ainutlaatuinen nimi.
+   - **Alue**: Valitse alue, joka on käyttäjiäsi lähinnä.
+   - **Hinnoittelutasot**: Valitse hinnoittelutaso, joka sopii tarpeisiisi. Voit aloittaa ilmaisella tasolla testauksessa.
+6. Napsauta **Tarkista + luo**.
+7. Tarkista asetukset ja napsauta **Luo** luodaksesi hakupalvelun.
 
 ## Vaihe 3: Aloita Azure AI Searchin käyttö
 
 1. Kun käyttöönotto on valmis, siirry hakupalveluusi Azure-portaalissa.
-2. Kopioi hakupalvelun yleisnäkymästä URL-osoite. Sen pitäisi olla muodossa `https://<service-name>.search.windows.net`.
-3. **(Suositeltu)** Ota käyttöön avainvapaa pääsy Microsoft Entra ID:llä (RBAC) alla olevan Vaiheen 4 mukaisesti — avainta ei tarvita. Tämän oppaan esimerkit luovat/päivittävät indeksejä ja lataavat dokumentteja, mikä edellyttää **Search Service Contributor** ja **Search Index Data Contributor** -rooleja (tai avainpohjaisessa todentamisessa **primary admin key** — ei query key). Käytä RBAC:ia aina kun mahdollista, ja jos et voi, avaa **Settings > Keys** -paneeli ja kopioi **primary admin key**.
-4. Noudata [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) -sivun ohjeita luodaksesi indeksin, ladataksesi dataa ja suorittaaksesi haun.
+2. Kopioi hakupalvelun yleiskatsauspaneelista URL-osoite. Sen pitäisi näyttää tältä: `https://<service-name>.search.windows.net`.
+3. **(Suositeltavaa)** Ota käyttöön avaimeton käyttö Microsoft Entra ID:n (RBAC) kanssa alla kohdassa Vaihe 4 — avainta ei tarvita. Tässä oppaassa olevat esimerkit luovat/päivittävät indeksejä ja lataavat asiakirjoja, jotka vaativat roolit **Search Service Contributor** ja **Search Index Data Contributor** (tai avaintunnistuksessa **pääkäyttäjän avain** — ei kyselyavainta). Vain jos et voi käyttää RBACia, avaa **Asetukset > Avaimet** -paneeli ja kopioi **pääkäyttäjän avain**.
+4. Noudata ohjeita [Pika-aloitusoppaassa](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) indeksin luomiseksi, datan lataamiseksi ja haun suorittamiseksi.
 
 ## Vaihe 4: Käytä Azure AI Search -työkaluja
 
-Azure AI Search integroituu erilaisiin työkaluihin hakutoimintojen tehostamiseksi. Voit käyttää Azure CLI:tä, Python SDK:ta, .NET SDK:ta ja muita työkaluja kehittyneeseen määritykseen ja toimintoihin.
+Azure AI Search integroituu useiden työkalujen kanssa parantaakseen hakutoimintojasi. Voit käyttää Azure CLI:tä, Python SDK:ta, .NET SDK:ta ja muita työkaluja edistyneisiin määrityksiin ja toimintoihin.
 
 ### Azure CLI:n käyttö
 
-1. Asenna Azure CLI seuraamalla ohjeita osoitteessa [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. Asenna Azure CLI noudattamalla ohjeita kohdassa [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Kirjaudu sisään Azure CLI:hin komennolla:
 
    ```bash
    az login
    ```
-3. **(Suositeltu) Ota avainvapaa pääsy käyttöön Microsoft Entra ID:llä (RBAC):**
+3. **(Suositeltavaa) Ota käyttöön avaimeton käyttö Microsoft Entra ID:n (RBAC) kanssa:**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show -komennolla ei ole "endpoint"-kenttää; luo URL palvelun nimestä.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Kun RBAC on käytössä, alla olevat Python- ja .NET SDK -esimerkit tunnistautuvat `DefaultAzureCredential`-luokan avulla, joka käyttää `az login` -istuntoasi paikallisessa kehityksessä — ylläpitäjän avainta ei tarvita. Katso lisää [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+    RBACin ollessa käytössä alla olevat Python- ja .NET SDK -esimerkit todentavat käyttämällä `DefaultAzureCredential`, joka hyödyntää `az login`-istuntoasi paikallisessa kehityksessä — ei tarvitse admin-avainta. Katso [Yhdistä Azure AI Searchiin rooleilla](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Varavaihtoehto) Avainpohjainen tunnistus** — vain jos et voi käyttää RBAC:ia, tallenna myös ylläpitäjän avain:
+4. **(Varavaihtoehto) Avaintunnistus** — vain jos et voi käyttää RBACia, tallenna myös admin-avain:
 
-#### Tallenna sekä päätepiste että API-avain ympäristömuuttujiin Azure AI Search -instanssille.
+#### Tallenna sekä päätepiste että API-avain Azure AI Search -instanssin ympäristömuuttujiin.
 
-    ```bash
-    # zsh/bash
-    # az search service show -komennossa ei ole "endpoint"-kenttää; rakenna URL palvelun nimestä.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show -komennossa ei ole "endpoint"-kenttää; rakenna URL palvelun nimestä.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Python SDK:n käyttö
 
-1. Asenna Azure Cognitive Search -asiakas- ja Azure Identity -kirjastot Pythonille:
+1. Asenna Azure Cognitive Search -asiakasohjelmakirjasto ja Azure Identity Pythonille:
 
    ```bash
    pip install azure-search-documents azure-identity
    ```
 
-2. Käytä seuraavaa Python-koodia luodaksesi indeksin ja ladataksesi dokumentteja:
+2. Käytä seuraavaa Python-koodia indeksin luomiseksi ja asiakirjojen lataamiseksi:
 
     ```python
     import os
@@ -97,10 +97,10 @@ Azure AI Search integroituu erilaisiin työkaluihin hakutoimintojen tehostamisek
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Avaineton (suositeltu): käyttää `az login` -henkilöllisyyttäsi Entra ID RBAC:n kautta.
-    # Vaatii "Search Service Contributor" ja "Search Index Data Contributor" -roolit.
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Varavaihtoehto (avaimeen perustuva todennus):
+    # Fallback (key-based auth):
     # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
@@ -126,15 +126,15 @@ Azure AI Search integroituu erilaisiin työkaluihin hakutoimintojen tehostamisek
 
 ### .NET SDK:n käyttö
 
-1. Suorita seuraava komento luodaksesi indeksin ja ladataksesi dokumentteja:
+1. Suorita seuraava komento indeksin luomiseksi ja asiakirjojen lataamiseksi:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-    Alla oleva .NET-esimerkki käyttää `DefaultAzureCredential`-luokkaa, joka voi käyttää Azure CLI:n `az login` -kirjautumistasi paikallisessa kehityksessä.
+    Alla oleva .NET-esimerkki käyttää `DefaultAzureCredential`, joka voi käyttää Azure CLI -kirjautumistasi `az login` paikallisessa kehityksessä.
 
-2. Tässä on .NET-koodi tiedostosta `AzureSearch.cs`:
+2. Tässä on `AzureSearch.cs` .NET-koodi:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,17 +181,17 @@ Azure AI Search integroituu erilaisiin työkaluihin hakutoimintojen tehostamisek
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Lisätietoja löydät seuraavista dokumenteista:
+Yksityiskohtaisempaa tietoa saat seuraavasta dokumentaatiosta:
 
-- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Luo Azure Cognitive Search -palvelu](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Aloita Azure Cognitive Searchin käyttö](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search -työkalut](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Yhteenveto
 
-Olet onnistuneesti määrittänyt Azure AI Searchin Azure-portaalin ja integroit työkalut. Voit nyt tutustua Azure AI Searchin kehittyneempiin ominaisuuksiin ja toimintoihin ratkaistaksesi hakutarpeitasi paremmin.
+Olet onnistuneesti ottanut Azure AI Searchin käyttöön Azure-portaalin ja integroitujen työkalujen avulla. Voit nyt tutkia Azure AI Searchin kehittyneempiä ominaisuuksia ja mahdollisuuksia parantaaksesi hakuratkaisujasi.
 
-Lisäavun saamiseksi vieraile osoitteessa [Azure Cognitive Search dokumentaatio](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Lisäavun saamiseksi käy [Azure Cognitive Search -dokumentaatiossa](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

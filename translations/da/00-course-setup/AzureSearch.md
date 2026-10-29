@@ -1,6 +1,6 @@
 # Azure AI Search Opsætningsguide
 
-Denne guide vil hjælpe dig med at opsætte Azure AI Search ved hjælp af Azure-portalen. Følg nedenstående trin for at oprette og konfigurere din Azure AI Search-tjeneste.
+Denne guide hjælper dig med at opsætte Azure AI Search ved hjælp af Azure-portalen. Følg trinene nedenfor for at oprette og konfigurere din Azure AI Search-service.
 
 ## Forudsætninger
 
@@ -10,34 +10,34 @@ Før du begynder, skal du sikre dig, at du har følgende:
 
 ## Trin 1: Opret en Azure Storage-konto
 
-1. Følg denne vejledning, [Opret en Azure storage-konto](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), for at oprette en ny Azure Storage-konto.
-   **NOTE**: Sørg for, at typen af Storage-konto er Standard General Purpose V2.
+1. Følg denne vejledning, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), for at oprette en ny Azure Storage-konto.
+   **NOTE**: Sørg for, at typen af Storage Account er Standard General Purpose V2.
 
-## Trin 2: Opret en Azure AI Search-tjeneste
+## Trin 2: Opret en Azure AI Search-service
 
 1. Log ind på [Azure-portalen](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Klik på **Opret en ressource** i navigationspanelet til venstre.
-3. Skriv "Azure AI Search" i søgefeltet, og vælg **Azure AI Search** på listen over resultater.
-4. Klik på **Opret**-knappen.
-5. Under fanen **Basics** skal du angive følgende oplysninger:
-   - **Abonnement**: Vælg dit Azure-abonnement.
-   - **Ressourcegruppe**: Opret en ny ressourcegruppe eller vælg en eksisterende.
-   - **Ressourcenavn**: Indtast et unikt navn til din søgetjeneste.
+2. Klik på **Create a resource** i navigationsruden til venstre.
+3. Skriv "Azure AI Search" i søgefeltet, og vælg **Azure AI Search** fra listen over resultater.
+4. Klik på knappen **Create**.
+5. I fanen **Basics** skal du angive følgende oplysninger:
+   - **Subscription**: Vælg dit Azure-abonnement.
+   - **Resource group**: Opret en ny ressourcegruppe eller vælg en eksisterende.
+   - **Resource name**: Angiv et unikt navn til din søgeservice.
    - **Region**: Vælg den region, der er tættest på dine brugere.
-   - **Prislag**: Vælg et prislag, der passer til dine behov. Du kan starte med det gratis lag til test.
-6. Klik på **Gennemse + opret**.
-7. Gennemgå indstillingerne, og klik på **Opret** for at oprette søgetjenesten.
+   - **Pricing tier**: Vælg en prismodel, der passer til dine behov. Du kan starte med Free-tier til testformål.
+6. Klik på **Review + create**.
+7. Gennemse indstillingerne, og klik på **Create** for at oprette søgeservicen.
 
 ## Trin 3: Kom i gang med Azure AI Search
 
-1. Når implementeringen er færdig, naviger til din søgetjeneste i Azure-portalen.
-2. Kopiér URL'en i oversigten for søgetjenesten. Den burde se sådan ud: `https://<service-name>.search.windows.net`.
-3. **(Anbefalet)** Aktivér nøglefri adgang med Microsoft Entra ID (RBAC), som vist i trin 4 nedenfor — ingen nøgle nødvendig. Eksemplerne i denne guide opretter/opdaterer indeks og uploader dokumenter, hvilket kræver rollerne **Search Service Contributor** og **Search Index Data Contributor** (eller, for nøglebaseret autentificering, **primær admin-nøgle** — ikke forespørgselsnøglen). Hvis du ikke kan bruge RBAC, åbn da **Indstillinger > Nøgler** og kopier **den primære admin-nøgle**.
-4. Følg trinnene i [Quickstart-guiden](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) for at oprette et indeks, uploade data og udføre en søgning.
+1. Når implementeringen er færdig, skal du gå til din søgeservice i Azure-portalen.
+2. Kopier URL’en i oversigten for søgeservicen. Den skulle se ud som `https://<service-name>.search.windows.net`.
+3. **(Anbefalet)** Aktiver nøgelfri adgang med Microsoft Entra ID (RBAC) som vist i trin 4 herunder — ingen nøgle nødvendig. Eksemplerne i denne guide opretter/opdaterer indeks og uploader dokumenter, som kræver rollerne **Search Service Contributor** og **Search Index Data Contributor** (eller ved nøglebaseret autentifikation den **primære admin-nøgle** — ikke forespørgselsnøglen). Kun hvis du ikke kan bruge RBAC, skal du åbne **Settings > Keys** og kopiere den **primære admin-nøgle**.
+4. Følg trinene på siden [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) for at oprette et indeks, uploade data og foretage en søgning.
 
 ## Trin 4: Brug Azure AI Search-værktøjer
 
-Azure AI Search integreres med forskellige værktøjer for at forbedre dine søgefunktioner. Du kan bruge Azure CLI, Python SDK, .NET SDK og andre værktøjer til avancerede konfigurationer og operationer.
+Azure AI Search integreres med forskellige værktøjer for at forbedre dine søgemuligheder. Du kan bruge Azure CLI, Python SDK, .NET SDK og andre værktøjer til avancerede konfigurationer og operationer.
 
 ### Brug af Azure CLI
 
@@ -47,39 +47,39 @@ Azure AI Search integreres med forskellige værktøjer for at forbedre dine søg
    ```bash
    az login
    ```
-3. **(Anbefalet) Aktivér nøglefri adgang med Microsoft Entra ID (RBAC):**
+3. **(Anbefalet) Aktiver nøgelfri adgang med Microsoft Entra ID (RBAC):**
 
     ```bash
     az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
     az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
-    # az search service show har ikke noget "endpoint"-felt; opret URL'en ud fra servicens navn.
+    # az search service show has no "endpoint" field; build the URL from the service name.
     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    Med RBAC aktiveret, godkender Python- og .NET SDK-eksemplerne nedenfor med `DefaultAzureCredential`, som bruger din `az login` session under lokal udvikling — ingen admin-nøgle nødvendig. Se [Forbind til Azure AI Search ved hjælp af roller](https://learn.microsoft.com/azure/search/search-security-rbac).
+    Med RBAC aktiveret autentificerer Python- og .NET SDK-eksemplerne nedenfor med `DefaultAzureCredential`, som bruger din `az login` session under lokal udvikling — ingen admin-nøgle nødvendig. Se [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-4. **(Backup) Nøglebaseret autentificering** — kun hvis du ikke kan bruge RBAC, gem også admin-nøglen:
+4. **(Fallback) Nøglebaseret autentifikation** — kun hvis du ikke kan bruge RBAC, skal du også gemme admin-nøglen:
 
-#### Gem både slutpunkt og API-nøgle for Azure AI Search-instansen som miljøvariabler.
+#### Gem både endpoint og API-nøgle til Azure AI Search-instans som miljøvariabler.
 
-    ```bash
-    # zsh/bash
-    # az search service show har ikke noget "endpoint" felt; byg URL'en ud fra servicens navn.
-    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
-    export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
-    ```powershell
-    # PowerShell
-    # az search service show har ikke noget "endpoint" felt; byg URL'en ud fra servicens navn.
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
-    $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Brug af Python SDK
 
-1. Installer klientbiblioteket Azure Cognitive Search og Azure Identity til Python:
+1. Installer Azure Cognitive Search-klientbiblioteket og Azure Identity til Python:
 
    ```bash
    pip install azure-search-documents azure-identity
@@ -97,11 +97,11 @@ Azure AI Search integreres med forskellige værktøjer for at forbedre dine søg
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
     index_name = "sample-index"
 
-    # Keyless (anbefalet): bruger din `az login` identitet via Entra ID RBAC.
-    # Kræver rollerne "Search Service Contributor" og "Search Index Data Contributor".
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
     credential = DefaultAzureCredential()
-    # Tilbagefald (nøglebaseret godkendelse):
-    # fra azure.core.credentials import AzureKeyCredential
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
     # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
@@ -134,7 +134,7 @@ Azure AI Search integreres med forskellige værktøjer for at forbedre dine søg
 
     .NET-eksemplet nedenfor bruger `DefaultAzureCredential`, som kan bruge din Azure CLI-login fra `az login` under lokal udvikling.
 
-2. Her er .NET-koden fra `AzureSearch.cs`:
+2. Her er .NET-koden for `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
@@ -181,17 +181,17 @@ Azure AI Search integreres med forskellige værktøjer for at forbedre dine søg
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-For mere detaljeret information, henvises til følgende dokumentation:
+For mere detaljeret information, henvises der til følgende dokumentation:
 
-- [Opret en Azure Cognitive Search-tjeneste](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Kom godt i gang med Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search-værktøjer](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Konklusion
 
-Du har med succes opsat Azure AI Search ved hjælp af Azure-portalen og integrerede værktøjer. Du kan nu udforske mere avancerede funktioner og muligheder i Azure AI Search for at forbedre dine søgeløsninger.
+Du har nu med succes opsat Azure AI Search ved hjælp af Azure-portalen og integreret værktøjer. Du kan nu udforske mere avancerede funktioner og muligheder i Azure AI Search for at forbedre dine søgeløsninger.
 
-For yderligere hjælp, besøg [Azure Cognitive Search dokumentationen](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+For yderligere assistance, besøg [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 

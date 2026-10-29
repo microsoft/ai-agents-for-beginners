@@ -2,154 +2,154 @@
 
 ![Implementarea agenților scalabili](../../../translated_images/ro/lesson-16-thumbnail.d78cace536bc5d50.webp)
 
-Până în acest punct al cursului ai construit agenți care rulează pe laptopul tău, în interiorul unui notebook, controlați prin `az login` și câteva variabile de mediu. Aceasta este exact metoda corectă de a învăța. Nu este însă metoda corectă pentru a rula un agent de care mii de clienți depind la ora 3 dimineața.
+Până în acest punct al cursului ați construit agenți care rulează pe laptopul vostru, într-un notebook, conduși de `az login` și câteva variabile de mediu. Aceasta este exact metoda corectă de a învăța. Nu este metoda corectă de a rula un agent de care mii de clienți depind la 3 dimineața.
 
-Această lecție tratează decalajul dintre „funcționează pe mașina mea” și „funcționează, fiabil și accesibil, în producție”. Închidem acest decalaj folosind **Microsoft Foundry** și **Microsoft Foundry Agent Service**, construind un agent real de suport pentru clienți care include uneltele, recuperarea, memoria, evaluarea și monitorizarea.
+Această lecție este despre golul dintre „funcționează pe mașina mea” și „funcționează fiabil și accesibil în producție.” Închidem acest gol folosind **Microsoft Foundry** și **Microsoft Foundry Agent Service**, construind un agent real de asistență pentru clienți care include unelte, regăsire, memorie, evaluare și monitorizare.
 
 ## Introducere
 
 Această lecție va acoperi:
 
-- Diferența dintre un **agent prototip** și un **agent implementat**, și de ce tranziția ține în principal de tot ceea ce este *în jurul* modelului.
-- **Modele de implementare** pentru agenți: găzduit de client, găzduit ca serviciu (Hosted Agents) și orchestrat prin fluxuri de lucru.
+- Diferența dintre un **agent prototip** și un **agent implementat**, și de ce tranziția este în mare parte despre tot ce este *în jurul* modelului.
+- **Modele de implementare** pentru agenți: găzduit la client, găzduit ca serviciu (Hosted Agents), și orchestrate prin fluxuri de lucru.
 - **Ciclul de viață al agentului** pe Microsoft Foundry — creare, versiune, implementare, evaluare, observare, retragere.
-- **Strategii de scalare**: rutarea modelului, caching, concureță și design fără stare.
-- **Observabilitate** cu OpenTelemetry și urmărire Foundry.
+- **Strategii de scalare**: rutarea modelului, caching, concurență și design fără stare.
+- **Observabilitate** cu OpenTelemetry și trasare în Foundry.
 - **Optimizarea costurilor** prin selecția modelului, rutare și porți de evaluare.
-- **Considerații pentru întreprinderi**: guvernanță, aprobarea umană și executarea serverelor MCP în siguranță în producție.
+- **Considerații enterprise**: guvernanță, aprobare umană și rularea sigură a serverelor MCP în producție.
 
 ## Obiective de învățare
 
-După parcurgerea acestei lecții vei ști cum să:
+După finalizarea acestei lecții, veți ști cum să:
 
-- Alegi modelul de implementare potrivit pentru o sarcină dată a agentului.
-- Implementezi un agent în Microsoft Foundry Agent Service astfel încât să fie versionat, guvernat și observabil.
-- Instrumentezi un agent pentru urmărire și conectezi un flux de evaluare care rulează înainte de fiecare lansare.
-- Aplici rutare și caching de model pentru a menține latența și costul sub control la scară.
-- Adaugi o poartă de aprobare umană pentru acțiuni cu risc ridicat și integrezi un server MCP într-un mod sigur pentru producție.
+- Alegeți modelul potrivit de implementare pentru o anumită sarcină a agentului.
+- Implementați un agent în Microsoft Foundry Agent Service astfel încât să fie versionat, guvernat și observabil.
+- Instrumentați un agent pentru trasare și conectați un pipeline de evaluare care rulează înainte de fiecare lansare.
+- Aplicați rutarea modelului și caching pentru a menține latența și costul sub control la scară.
+- Adăugați o poartă de aprobare umană pentru acțiuni cu risc ridicat și integrați un server MCP într-un mod sigur pentru producție.
 
-## Precondiții
+## Cerințe prealabile
 
-Această lecție presupune că ai parcurs lecțiile anterioare și ești confortabil cu:
+Această lecție presupune că ați finalizat lecțiile anterioare și sunteți confortabil cu:
 
 - Construirea agenților cu [Microsoft Agent Framework](../14-microsoft-agent-framework/README.md) (Lecția 14).
 - [Utilizarea uneltelor](../04-tool-use/README.md) (Lecția 4) și [Agentic RAG](../05-agentic-rag/README.md) (Lecția 5).
 - [Memoria agentului](../13-agent-memory/README.md) (Lecția 13) și [Protocoalele agentice / MCP](../11-agentic-protocols/README.md) (Lecția 11).
-- [Observabilitatea și evaluarea](../10-ai-agents-production/README.md) (Lecția 10) — această lecție construiește direct pe baza ei.
+- [Observabilitate și evaluare](../10-ai-agents-production/README.md) (Lecția 10) — această lecție se bazează direct pe ea.
 
-Vei avea nevoie și de:
+De asemenea, veți avea nevoie de:
 
 - Un **abonament Azure** și un **proiect Microsoft Foundry** cu cel puțin un model de chat implementat.
-- CLI-ul **Azure** autentificat (`az login`).
-- Python 3.12+ și pachetele din fișierul [`requirements.txt`](../../../requirements.txt).
+- CLI Azure autentificat (`az login`).
+- Python 3.12+ și pachetele din depozitul [`requirements.txt`](../../../requirements.txt).
 
-## Din prototip în producție: Ce se schimbă de fapt
+## De la Prototip la Producție: Ce se schimbă de fapt
 
-Un agent prototip și unul de producție împart același ciclu principal — raționament, apelare unelte, răspuns. Se schimbă tot ce este în jurul acestui ciclu. Modelul constituie poate 20% dintr-un agent de producție; restul de 80% este scheletul operațional.
+Un agent prototip și un agent de producție împart aceeași buclă de bază — raționament, apelare unelte, răspuns. Ce se schimbă este tot ce este în jurul acelei bucle. Modelul reprezintă probabil 20% dintr-un agent de producție; restul de 80% este scheletul operațional.
 
 | Aspect | Prototip | Producție |
 | --- | --- | --- |
-| **Găzduire** | Rulează în notebook-ul tău | Rulează ca serviciu găzduit, versionat și implementat |
-| **Identitate** | Tokenul tău `az login` | Identitate gestionată cu RBAC restrâns |
-| **Stare** | În memorie, pierdută la restart | Externalizată (thread store, serviciu de memorie) |
-| **Eșec** | Vezi traceback-ul | Reîncercări, fallback-uri, coadă pentru mesaje ratate, alerte |
-| **Cost** | „Este câțiva cenți” | Urmărit pe cerere, rutat, cache-uit, bugetat |
-| **Calitate** | Verifici manual ieșirea | Evaluată automat înainte de fiecare lansare |
-| **Încredere** | Aprobi fiecare acțiune | Politică + uman în buclă pentru acțiuni riscante |
+| **Găzduire** | Rulează în notebook-ul tău | Rulează ca serviciu găzduit, versionat și distribuit |
+| **Identitate** | Tokenul tău `az login` | Identitate gestionată cu RBAC restricționat |
+| **Stare** | În memorie, pierdută la restart | Externalizată (magazin fire, serviciu de memorie) |
+| **Eșec** | Vezi traceback-ul | Reîncercări, fallback-uri, coadă de mesaje nedesfăcute, alerte |
+| **Cost** | „E câțiva cenți” | Urmărit per cerere, rutat, cached, bugetat |
+| **Calitate** | Verifici manual ieșirea | Evaluat automat înainte de fiecare lansare |
+| **Încredere** | Aprobi fiecare acțiune | Politică + om în buclă pentru acțiuni riscante |
 
-Reține acest tabel. Fiecare secțiune de mai jos corespunde uneia dintre aceste linii.
+Țineți minte acest tabel. Fiecare secțiune de mai jos corespunde unuia dintre aceste rânduri.
 
-## Modele de implementare a agenților
+## Modele de Implementare ale Agenților
 
-Există trei modele pe care le vei folosi, adesea împreună.
+Există trei modele pe care le veți folosi, adesea în combinație.
 
-### 1. Agenți găzduiți pe client
+### 1. Agenți găzduiți la client
 
-Obiectul agentului trăiește în procesul aplicației *tale*. Codul tău apelează direct furnizorul modelului; ciclul de raționament rulează în serviciul tău. Aceasta este ceea ce a făcut fiecare lecție anterioară.
+Obiectul agent trăiește în interiorul procesului *aplicației tale*. Codul tău apelează direct furnizorul de model; bucla de raționament rulează în serviciul tău. Aceasta este ceea ce a făcut fiecare lecție anterioară.
 
-- **Folosește-l când** ai nevoie de control total asupra ciclului, middleware personalizat, sau încorporezi agentul într-un backend existent.
-- **Dezavantaj**: tu ești responsabil de scalare, stare și reziliență.
+- **Folosește-l când** ai nevoie de control total asupra buclei, middleware personalizat sau încorporezi agentul într-un backend existent.
+- **Compromis**: ești responsabil personal pentru scalare, stare și reziliență.
 
 ### 2. Agenți găzduiți (Foundry Agent Service)
 
-Agentul este *înregistrat ca resursă* în Microsoft Foundry. Foundry găzduiește ciclul de raționament, stochează firele de conversație, impune siguranța conținutului și RBAC și face agentul vizibil în portalul Foundry. Aplicația ta devine un client subțire care creează fire și citește răspunsuri.
+Agentul este *înregistrat ca resursă* în Microsoft Foundry. Foundry găzduiește bucla de raționament, stochează firele conversației, aplică siguranța conținutului și RBAC, și face agentul vizibil în portalul Foundry. Aplicația ta devine un client subțire care creează fire și citește răspunsuri.
 
-- **Folosește-l când** dorești durabilitate, observabilitate integrată, guvernanță și o suprafață operațională redusă.
-- **Dezavantaj**: control mai redus la nivel scăzut în schimbul unui runtime gestionat.
+- **Folosește-l când** vrei durabilitate, observabilitate încorporată, guvernanță și o suprafață operațională redusă.
+- **Compromis**: mai puțin control la nivel scăzut în schimbul unui runtime gestionat.
 
 ### 3. Fluxuri de lucru pentru agenți
 
-Mai mulți agenți (și unelte) sunt compuși într-un graf cu control explicit al fluxului — pași secvențiali, ramificări, noduri de aprobare umană și puncte durabile de control care permit pauză și reluare. Aceasta este capacitatea **Workflows** din Microsoft Agent Framework aplicată la scară de implementare.
+Mai mulți agenți (și unelte) sunt compuși într-un graf cu flux de control explicit — pași secvențiali, ramificare, noduri de aprobare umană și puncte de control durabile care pot pune pauză și apoi relua execuția. Aceasta este capacitatea **Workflows** din Microsoft Agent Framework aplicată la scară de implementare.
 
-- **Folosește-l când** o singură sarcină implică mai mulți agenți specializați sau necesită o etapă de aprobare la mijloc.
-- **Dezavantaj**: mai multe componente în mișcare; necesită observabilitate la nivelul orchestration.
+- **Folosește-l când** o singură sarcină implică mai mulți agenți specializați sau necesită o etapă de aprobare în mijloc.
+- **Compromis**: mai multe piese în mișcare; necesită observabilitate la nivel de orchestrare.
 
 ```mermaid
 flowchart TB
-    subgraph P1[Găzduit de client]
-        A1[Procesul aplicației dvs.] --> M1[Furnizor de model]
+    subgraph P1[Client-Hosted]
+        A1[Your App Process] --> M1[Model Provider]
     end
-    subgraph P2[Agent găzduit]
-        A2[Client subțire] --> F2[Serviciu Agent Foundry]
-        F2 --> M2[Model + Instrumente + Magazin de thread-uri]
+    subgraph P2[Hosted Agent]
+        A2[Thin Client] --> F2[Foundry Agent Service]
+        F2 --> M2[Model + Tools + Thread Store]
     end
-    subgraph P3[Flux de lucru al agentului]
-        A3[Orchestrator] --> S1[Agent de triere]
-        S1 --> S2[Agent de rezolvare]
-        S2 --> H[Nod de aprobare umană]
-        H --> S3[Agent de acțiune]
+    subgraph P3[Agent Workflow]
+        A3[Orchestrator] --> S1[Triage Agent]
+        S1 --> S2[Resolver Agent]
+        S2 --> H[Human Approval Node]
+        H --> S3[Action Agent]
     end
 ```
 
 ## Ciclul de viață al agentului pe Microsoft Foundry
 
-Implementarea unui agent nu este un simplu `push`. Este un ciclu, asemănător cu un ciclu de lansare software pentru că exact asta este.
+Implementarea unui agent nu este o operațiune unică `push`. Este o buclă, și seamănă foarte mult cu un ciclu de lansare software deoarece exact asta este.
 
 ```mermaid
 flowchart LR
-    Create[Creează / Autor] --> Version[Versiune]
-    Version --> Evaluate[Evaluează offline]
-    Evaluate -->|trece poarta| Deploy[Distribuie găzduit]
-    Evaluate -->|eșuează poarta| Create
-    Deploy --> Observe[Observă online]
-    Observe --> Improve[Colectează eșecuri]
+    Create[Create / Author] --> Version[Version]
+    Version --> Evaluate[Evaluate offline]
+    Evaluate -->|passes gate| Deploy[Deploy hosted]
+    Evaluate -->|fails gate| Create
+    Deploy --> Observe[Observe online]
+    Observe --> Improve[Collect failures]
     Improve --> Create
-    Deploy --> Retire[Retrage versiunea veche]
+    Deploy --> Retire[Retire old version]
 ```
 
-Ideea-cheie, preluată din [Lecția 10](../10-ai-agents-production/README.md): **evaluarea offline este o poartă, nu o reflecție tardivă.** O nouă versiune a agentului nu se lansează dacă nu trece pragurile tale de evaluare. Observabilitatea online aduce înapoi în setul tău de teste offline eșecurile din lumea reală. Acesta este întregul ciclu.
+Ideea cheie, preluată din [Lecția 10](../10-ai-agents-production/README.md): **evaluarea offline este o poartă, nu o reflecție ulterioară.** O nouă versiune a agentului nu se lansează dacă nu trece pragurile tale de evaluare. Observabilitatea online apoi alimentează înapoi în setul tău de teste offline informații despre eșecurile din lumea reală. Aceasta este întreaga buclă.
 
 ## Strategii de scalare
 
-Scalarea unui agent este diferită de scalarea unui API web fără stare, deoarece fiecare cerere poate declanșa multiple apeluri costisitoare model și unelte. Patru tehnici suportă cea mai mare încărcare.
+Scalarea unui agent este diferită de scalarea unei API web fără stare, deoarece fiecare cerere poate declanșa multiple apeluri costisitoare la model și unelte. Patru tehnici suportă majoritatea încărcăturii.
 
-**Gestionarea cererilor fără stare.** Nu păstra stare per utilizator în memoria procesului tău. Persistă firele de conversație în depozitul de fire Foundry sau un serviciu de memorie astfel încât orice instanță poate deservi orice cerere. Aceasta este ceea ce permite scalarea orizontală — adaugă instanțe, fără sesiuni sticky.
+**Gestionarea cererilor fără stare.** Nu păstra starea per utilizator în memoria procesului tău. Persistă firele conversației în magazinul de fire Foundry sau un serviciu de memorie astfel încât orice instanță să poată gestiona orice cerere. Aceasta permite scalarea orizontală — adăugarea de instanțe, fără sesiuni sticky.
 
-**Rutararea modelului.** Nu fiecare cerere are nevoie de cel mai capabil (și costisitor) model al tău. Direcționează cererile simple — clasificarea intențiilor, răspunsuri factuale scurte — către un model mic, rapid, și păstrează modelul mare pentru raționamente reale. Foundry oferă un **Model Router** pentru asta, sau poți implementa un clasificator ușor singur. Vei construi versiunea DIY în laborator.
+**Rutarea modelului.** Nu fiecare cerere necesită cel mai capabil (și mai scump) model. Routează cererile simple — clasificarea intenției, răspunsuri scurte factuale — către un model mic și rapid, și rezervă modelul mare pentru raționamentul autentic. **Model Router** din Foundry poate face asta pentru tine, sau poți implementa un clasificator ușor pe cont propriu. Vei construi versiunea DIY în laborator.
 
-**Caching al răspunsurilor.** Multe întrebări de suport sunt aproape duplicate („cum îmi resetez parola?”). Cache-uiește răspunsurile la întrebările frecvente și serveste-le fără să apelezi modelul deloc. Chiar și o rată moderată de cache hit taie costurile și latența semnificativ.
+**Caching-ul răspunsurilor.** Multe întrebări de suport sunt aproape duplicate („cum resetez parola?”). Cachează răspunsurile la întrebările frecvente și servește-le fără a apela modelul deloc. Chiar și o rată modestă de hit în cache reduce semnificativ costul și latența.
 
-**Concurența și presiunea înapoi.** Furnizorii de modele au limite de rată. Limitează-ți concurența, folosește reîncercări cu backoff exponențial și eșuează elegant (un răspuns în coadă „ocupat” bate un 500).
+**Concurență și backpressure.** Furnizorii de modele au limite de rată. Limitează concurența, folosește reîncercări cu backoff exponential și eșuează cu grație (un răspuns „suntem pe fază” în coadă este mai bun decât un 500).
 
 ```mermaid
 flowchart LR
-    Q[Interogare utilizator] --> C{A fost găsit în cache?}
-    C -->|da| R[Returnează răspunsul din cache]
-    C -->|nu| Router{Complexitate?}
-    Router -->|simplă| SLM[Model mic]
-    Router -->|complexă| LLM[Model mare]
-    SLM --> Out[Răspuns]
+    Q[User query] --> C{Cache hit?}
+    C -->|yes| R[Return cached answer]
+    C -->|no| Router{Complexity?}
+    Router -->|simple| SLM[Small model]
+    Router -->|complex| LLM[Large model]
+    SLM --> Out[Response]
     LLM --> Out
-    Out --> Store[Cache + urmărire]
+    Out --> Store[Cache + trace]
 ```
 
 ## Observabilitate în producție
 
-Nu poți opera ce nu vezi. Așa cum s-a acoperit în Lecția 10, Microsoft Agent Framework emite urme **OpenTelemetry** nativ — fiecare apel de model, invocare unealtă și pas de orchestrare devine o span. În producție exporți aceste span-uri către Microsoft Foundry (sau orice backend compatibil OTel) astfel încât să poți:
+Nu poți opera ce nu poți vedea. După cum s-a acoperit în Lecția 10, Microsoft Agent Framework emite nativ trace-uri **OpenTelemetry** — fiecare apel de model, invocare de unealtă și pas de orchestrare devine un span. În producție exporți acele span-uri către Microsoft Foundry (sau orice backend compatibil OTel) pentru a putea:
 
-- Urmări o singură reclamație a clientului cap-coadă prin fiecare apel de model și unealtă.
+- Urmări o singură reclamație a clientului de la început până la sfârșit prin fiecare apel de model și unealtă.
 - Monitoriza latența p50/p95 și costul per cerere în timp.
-- Trimite alerte la spike-uri de rată de eroare și anomalii de cost înainte ca utilizatorii tăi (sau echipa financiară) să observe.
+- Alerta asupra vârfurilor de rată de eroare și anomaliilor de cost înainte ca utilizatorii tăi (sau echipa ta financiară) să observe.
 
 ```python
 from agent_framework.observability import get_tracer
@@ -159,93 +159,93 @@ tracer = get_tracer()
 with tracer.start_as_current_span("support_request") as span:
     span.set_attribute("customer.tier", "enterprise")
     span.set_attribute("routed.model", "gpt-5-nano")
-    # execuția agentului este urmărită automat în interiorul acestei perioade
+    # agent execution is traced automatically inside this span
 ```
 
-Atribute precum `customer.tier` și `routed.model` transformă un perete de urme într-un set de întrebări răspunzătoare („clienții enterprise sunt direcționați prea des către modelul mic?”).
+Atribute precum `customer.tier` și `routed.model` transformă un perete de trace-uri în întrebări la care se poate răspunde ("clienții enterprise sunt direcționați prea des către modelul mic?").
 
 ## Optimizarea costurilor
 
-Costul în agenții de producție este dominat de tokeni. Trei pârghii, în ordinea impactului:
+Costul în agenții de producție este dominat de token-uri. Trei pârghii, în ordinea impactului:
 
-1. **Dimensionează corect modelul.** Un model mic care trece poarta ta de evaluare este aproape întotdeauna mai ieftin decât unul mare care trece și el. Folosește evaluarea pentru a *dovedi* că modelul mic este suficient de bun, nu implicit să alegi modelul cel mai mare din precauție.
-2. **Rutează după complexitate.** Ca mai sus — plătește prețul modelului mare doar pentru cererile ce necesită raționament cu modelul mare.
-3. **Cache-uiește agresiv.** Cel mai ieftin apel de model este cel pe care nu îl faci niciodată.
+1. **Potrivește dimensiunea modelului.** Un model mic care trece poarta ta de evaluare este aproape întotdeauna mai ieftin decât unul mare care de asemenea trece. Folosește evaluarea pentru a *dovedi* că modelul mic este suficient, în loc să presupui din precauție modelul cel mai mare.
+2. **Rutează după complexitate.** Ca mai sus — plătește prețul modelului mare doar pentru cererile care necesită raționament cu model mare.
+3. **Cachează agresiv.** Cel mai ieftin apel de model este cel pe care nu îl faci niciodată.
 
-Porțile de evaluare și controlul costurilor sunt aceeași disciplină văzută din două unghiuri: evaluarea îți spune *plafonul de calitate*, rutarea și caching-ul te mențin cât mai aproape de *costul* acestui plafon.
+Porțile de evaluare și controlul costurilor sunt aceeași disciplină văzută din două unghiuri: evaluarea îți spune *nivelul minim de calitate*, rutarea și caching-ul te mențin cât mai aproape de *costul* acestui nivel.
 
-## Considerații pentru implementarea în întreprinderi
+## Considerații pentru implementarea enterprise
 
-**Guvernanță.** Hosted Agents moștenesc RBAC-ul, siguranța conținutului și logarea auditului din Foundry. Oferă fiecărui agent o identitate gestionată cu privilegiul minim necesar — acces doar în citire la baza de cunoștințe, acces limitat la API-ul de ticketing, nimic mai mult.
+**Guvernanță.** Hosted Agents moștenesc RBAC-ul, siguranța conținutului și jurnalizarea de audit a Foundry. Oferă fiecărui agent o identitate gestionată cu cel mai mic privilegiu necesar — acces numai în citire la baza de cunoștințe, acces restricționat la API-ul de ticketing, nimic mai mult.
 
-**Uman în buclă.** Unele acțiuni sunt prea grave pentru a fi automatizate complet — emiterea unei rambursări, ștergerea unui cont, escaladarea către echipa juridică. Microsoft Agent Framework suportă unelte care necesită **aprobarea umană**: agentul propune acțiunea, execuția se oprește, un om aprobă sau respinge, apoi fluxul de lucru reia. Ai văzut această primitivă în [Lecția 6](../06-building-trustworthy-agents/README.md); aici o implementezi.
+**Om în buclă.** Anumite acțiuni sunt prea importante pentru a fi automatizate complet — emiterea unei rambursări, ștergerea unui cont, escaladarea către o echipă juridică. Microsoft Agent Framework suportă unelte care **necesită aprobare**: agentul propune acțiunea, execuția se oprește, un om aprobă sau respinge, și fluxul de lucru reia. Ai văzut primitiva în [Lecția 6](../06-building-trustworthy-agents/README.md); aici o implementezi.
 
-**MCP în producție.** [MCP](../11-agentic-protocols/README.md) permite agentului tău să consume unelte externe printr-o interfață standard. În producție, tratează fiecare server MCP ca o frontieră neîncredere: blochează versiunea serverului, rulează-l cu o identitate restrânsă, validează ieșirile, și nu expune niciodată secrete către el. Un server MCP este o dependență și dependențele sunt patchuite, auditate și limitate pe rată.
+**MCP în producție.** [MCP](../11-agentic-protocols/README.md) permite agentului să consume unelte externe printr-o interfață standard. În producție, tratează fiecare server MCP ca o frontieră neîncrezătoare: fixează versiunea serverului, ruleaz-o cu o identitate restricționată, validează rezultatele, și niciodată nu expune secrete către ea. Un server MCP este o dependență, iar dependențele sunt patch-uite, auditate și limitate la rată.
 
 ```mermaid
 flowchart TB
-    subgraph Dev[Arhitectură de Dezvoltare]
-        D1[Caiet de note] --> D2[Cadru Agent]
-        D2 --> D3[Furnizor Model]
-        D2 --> D4[Instrumente Locale]
+    subgraph Dev[Development Architecture]
+        D1[Notebook] --> D2[Agent Framework]
+        D2 --> D3[Model Provider]
+        D2 --> D4[Local tools]
     end
-    subgraph Deploy[Arhitectură de Implementare]
-        E1[Pipeline CI] --> E2[Poartă de evaluare]
-        E2 -->|trece| E3[Serviciu Agent Foundry]
-        E3 --> E4[Agent găzduit versiune]
+    subgraph Deploy[Deployment Architecture]
+        E1[CI pipeline] --> E2[Evaluation gate]
+        E2 -->|pass| E3[Foundry Agent Service]
+        E3 --> E4[Versioned hosted agent]
     end
-    subgraph Run[Arhitectură de rulare]
-        F1[Aplicație client] --> F2[Agent găzduit]
-        F2 --> F3[Router Model]
+    subgraph Run[Runtime Architecture]
+        F1[Client app] --> F2[Hosted agent]
+        F2 --> F3[Model Router]
         F2 --> F4[Azure AI Search RAG]
-        F2 --> F5[Serviciu memorie]
-        F2 --> F6[Instrumente MCP]
-        F2 --> F7[OTel -> trasare Foundry]
-        F2 --> F8[Aprobare umană]
+        F2 --> F5[Memory service]
+        F2 --> F6[MCP tools]
+        F2 --> F7[OTel -> Foundry tracing]
+        F2 --> F8[Human approval]
     end
 ```
 
-Acele trei diagrame — dezvoltare, implementare, runtime — sunt același agent în trei etape ale vieții sale. Laboratorul de mai jos te va ghida în construirea lui.
+Acele trei diagrame — dezvoltare, implementare, rulare — arată același agent în trei etape ale vieții sale. Laboratorul care urmează te ghidează să-l construiești.
 
-## Laborator practic: Agent de suport clienți gata pentru producție
+## Laborator Practic: Un agent de asistență clienți pregătit pentru producție
 
-Deschide [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) și parcurge-l integral. Vei asambla un **agent de suport clienți Contoso** cu fiecare grijă de producție integrată:
+Deschide [`code_samples/16-python-agent-framework.ipynb`](./code_samples/16-python-agent-framework.ipynb) și parcurge-l integral. Vei asambla un **agent de asistență clienți Contoso** cu toate preocupările de producție integrate:
 
-1. **Apelarea uneltelor** — află starea comenzilor și deschide tichete de suport.
-2. **RAG** — răspunde la întrebări de politică din baza de cunoștințe (Azure AI Search, cu o fallback în memorie astfel încât notebook-ul să ruleze și fără resursa Search).
-3. **Memorie** — amintește-ți clientul în tururile conversației.
-4. **Rutare model** — un clasificator de complexitate direcționează fiecare cerere către un model mic sau mare.
-5. **Caching răspunsuri** — întrebările repetate sunt servite din cache.
+1. **Apelare unelte** — verifică statusul comenzilor și deschide tichete de suport.
+2. **RAG** — răspunde la întrebări de politică dintr-o bază de cunoștințe (Azure AI Search, cu un fallback în memorie pentru ca notebook-ul să ruleze fără o resursă Search).
+3. **Memorie** — amintește clientul de-a lungul conversației.
+4. **Rutarea modelului** — un clasificator de complexitate direcționează fiecare cerere către model mic sau mare.
+5. **Caching-ul răspunsurilor** — întrebările repetate sunt servite din cache.
 6. **Aprobare umană** — rambursările peste un prag sunt oprite pentru semnătura umană.
-7. **Flux de evaluare** — un set mic offline de teste evaluează agentul și funcționează ca poartă de lansare.
-8. **Observabilitate** — urmărire OpenTelemetry pentru fiecare cerere.
+7. **Pipeline de evaluare** — un set mic de teste offline evaluează agentul și acționează ca poartă de lansare.
+8. **Observabilitate** — trasare OpenTelemetry pentru fiecare cerere.
 
 ### Parcurgere
 
-Notebook-ul este organizat astfel încât fiecare grijă de producție să fie o secțiune separată, rulabilă. Inima lui este handler-ul de cereri cu rutare-plus-caching:
+Notebook-ul este organizat astfel încât fiecare preocupare de producție să fie o secțiune autonomă și executabilă. Inima lui este handler-ul de cereri cu rutare și caching:
 
 ```python
 async def handle_support_request(query: str, customer_id: str) -> str:
-    # 1. Servește din cache când putem.
+    # 1. Serve from cache when we can.
     cached = response_cache.get(normalize(query))
     if cached:
         return cached
 
-    # 2. Rutează după complexitate pentru a controla costul.
+    # 2. Route by complexity to control cost.
     model = "gpt-5-nano" if is_simple(query) else "gpt-5-mini"
 
-    # 3. Rulează agentul în interiorul unui span de trasare pentru observabilitate.
+    # 3. Run the agent inside a trace span for observability.
     with tracer.start_as_current_span("support_request") as span:
         span.set_attribute("routed.model", model)
         span.set_attribute("customer.id", customer_id)
         response = await support_agent.run(query, model=model)
 
-    # 4. Cachează și returnează.
+    # 4. Cache and return.
     response_cache.set(normalize(query), response.text)
     return response.text
 ```
 
-Poarta de evaluare care păzește o lansare arată așa:
+Poarta de evaluare care protejează o lansare arată astfel:
 
 ```python
 async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
@@ -256,21 +256,21 @@ async def evaluation_gate(agent, test_cases, threshold: float = 0.8) -> bool:
             passed += 1
     pass_rate = passed / len(test_cases)
     print(f"Evaluation pass rate: {pass_rate:.0%} (gate: {threshold:.0%})")
-    return pass_rate >= threshold  # implementează doar dacă poarta trece
+    return pass_rate >= threshold  # only deploy if the gate passes
 ```
 
-Citește fiecare linie — notebook-ul păstrează primitivele deliberat mici astfel încât nimic să nu fie ascuns în spatele unui apel de framework.
+Citește fiecare linie — notebook-ul menține primitivele deliberat mici pentru ca nimic să nu fie ascuns în spatele unui apel de framework.
 
-## Validarea unui agent implementat cu teste de tip „smoke”
+## Validarea unui agent implementat cu teste rapide
 
-Poarta de evaluare de mai sus rulează *offline* pe obiectul tău agent. Odată ce agentul este implementat ca Hosted Agent, ai nevoie de o verificare suplimentară, chiar mai ieftină: **endpointul implementat răspunde efectiv?**
+Poarta de evaluare de mai sus rulează *offline* pe obiectul agentului tău. Odată ce agentul este implementat ca Hosted Agent, ai nevoie de o verificare în plus, chiar mai ieftină: **răspunde cu adevărat endpointul implementat?**
 
-Implementarea „cu succes” dovedește doar că planul de control a acceptat definiția — nu dovedește că agentul răspunde. O dependență lipsă, o rutare greșită a modelului sau o conexiune expirată pot lăsa o implementare verde care nu returnează nimic. Un **test smoke** prinde asta în secunde, la fiecare implementare, fără costul unei evaluări complete.
+Implementarea „cu succes” dovedește doar că planul de control a acceptat definiția — nu dovedește că agentul răspunde. O dependență lipsă, o rutare greșită a modelului sau o conexiune expirată pot lăsa o implementare cu status verde care nu returnează nimic. Un **test rapid (smoke test)** prinde asta în secunde, la fiecare implementare, fără costul unei evaluări complete.
 
-Acest depozit furnizează un pipeline pregătit pentru teste smoke construit pe [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
+Acest depozit oferă un pipeline gata de folosit pentru teste rapide bazat pe [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) GitHub Action:
 
-- **Catalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) conține prompturi și assert-uri pentru agentul de suport Contoso (răspunsuri de politică fundamentate, căutare comenzi, menținerea subiectului, continuitatea firelor multi-turn). Cataloagele pentru agenții altor lecții sunt alăturate — vezi [`tests/README.md`](../tests/README.md).
-- **Flux** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) se autentifică cu Azure OIDC și POST-ează fiecare prompt către endpointul Responses al agentului, eșuând jobul la orice assert nereușit.
+- **Catalog** — [`tests/lesson-16-smoke-tests.json`](../../../tests/lesson-16-smoke-tests.json) conține prompturi și aserțiuni pentru agentul de suport Contoso (răspunsuri fundamentate pe politică, căutare de comenzi, menținerea subiectului și continuitatea firelor multi-turn). Cataloage pentru alți agenți din lecții trăiesc alături — vezi [`tests/README.md`](../tests/README.md).
+- **Flux de lucru** — [`.github/workflows/smoke-test.yml`](../../../.github/workflows/smoke-test.yml) se autentifică cu Azure OIDC și trimite POST fiecărui prompt către endpoint-ul Responses al agentului, eșuând jobul la orice aserțiune nerespectată.
 
 ```yaml
 - name: Smoke-test hosted agent
@@ -281,35 +281,34 @@ Acest depozit furnizează un pipeline pregătit pentru teste smoke construit pe 
     tests_file: tests/lesson-16-smoke-tests.json
 ```
 
+Rulați-l din fila **Acțiuni** odată ce agentul dvs. este implementat, furnizând endpoint-ul proiectului Foundry și numele agentului. Identitatea federată are nevoie de rolul **Azure AI User** la nivelul proiectului Foundry. Gândiți-vă la straturi ca la o piramidă: testele de fum (accesibil și răspunde?) rulează la fiecare implementare, evaluarea offline (suficient de bun pentru a fi lansat?) rulează înainte de promovare, iar evaluarea online (cum se comportă în mediul real?) rulează continuu.
 
-Rulează-l din fila **Actions** odată ce agentul tău este implementat, furnizând endpoint-ul proiectului Foundry și numele agentului. Identitatea federată are nevoie de rolul **Azure AI User** la nivelul proiectului Foundry. Gândește-te la straturi ca la o piramidă: teste rapide (este accesibil și răspunde?) rulează la fiecare implementare, evaluarea offline (este suficient de bun pentru a fi lansat?) rulează înainte de promovare, iar evaluarea online (cum se descurcă în condiții reale?) rulează continuu.
+## Verificare a Cunoștințelor
 
-## Verificare a cunoștințelor
+Testați-vă înțelegerea înainte de a trece la sarcină.
 
-Testează-ți înțelegerea înainte de a trece la sarcină.
-
-**1. Aproximativ cât dintr-un agent de producție este „modelul” și ce reprezintă restul?**
+**1. Aproximativ cât de mult dintr-un agent de producție este „modelul” și ce reprezintă restul?**
 
 <details>
 <summary>Răspuns</summary>
 
-Modelul reprezintă o minoritate a sistemului – adesea menționat ca fiind în jur de 20%. Restul este scheletul operațional: găzduire și versionare, identitate și RBAC, stare externalizată, gestionarea erorilor, urmărirea costurilor, evaluarea și controale cu intervenție umană. Trecerea la producție este în mare parte despre construirea tuturor elementelor *în jurul* buclei de raționament.
+Modelul este o minoritate a sistemului — adesea estimat la aproximativ 20%. Restul este scheletul operațional: găzduire și versionare, identitate și RBAC, stare externalizată, gestionarea eșecurilor, urmărirea costurilor, evaluare și controale cu intervenție umană. Trecerea în producție înseamnă în principal construirea a tot ceea ce este *în jurul* ciclului de raționament.
 </details>
 
-**2. Când ai alege un Agent Găzduit în locul unui agent găzduit pe client?**
+**2. Când ați alege un Agent Găzduit în loc de un agent găzduit pe client?**
 
 <details>
 <summary>Răspuns</summary>
 
-Când dorești un runtime gestionat cu durabilitate încorporată (fire de execuție care persistă și pot fi reluate), observabilitate, siguranța conținutului și RBAC, și ești dispus să renunți la un anumit control de nivel jos asupra buclei de raționament pentru o suprafață operațională mai mică. Găzduirea pe client este preferabilă când ai nevoie de control total asupra buclei sau încorporezi agentul într-un backend existent.
+Când doriți un runtime gestionat cu durabilitate integrată (fire care persistă și pot relua), observabilitate, siguranță a conținutului și RBAC, și sunteți dispus să renunțați la un control de nivel jos asupra ciclului de raționament pentru o suprafață operațională mai redusă. Găzduirea pe client este preferabilă când aveți nevoie de control complet asupra ciclului sau când încorporați agentul într-un backend existent.
 </details>
 
-**3. De ce trebuie un agent scalabil să fie fără stare în memoria procesului său propriu?**
+**3. De ce trebuie ca un agent scalabil să fie fără stare în propria memorie de proces?**
 
 <details>
 <summary>Răspuns</summary>
 
-Astfel, orice instanță poate gestiona orice cerere, ceea ce permite scalarea orizontală fără sesiuni fixe (sticky sessions). Starea conversației per utilizator este externalizată într-un magazin de fire de execuție sau serviciu de memorie. Dacă starea ar trăi în memoria procesului, ai pierde-o la repornire și nu ai putea distribui încărcătura liber.
+Pentru ca orice instanță să poată prelua orice cerere, ceea ce permite scalare orizontală fără sesiuni sticky. Starea conversației per utilizator este externalizată într-un magazin de fire sau serviciu de memorie. Dacă starea ar fi în memoria procesului, s-ar pierde la repornire și nu s-ar putea distribui încărcarea liber.
 </details>
 
 **4. Ce problemă rezolvă rutarea modelului și cum se leagă de evaluare?**
@@ -317,82 +316,81 @@ Astfel, orice instanță poate gestiona orice cerere, ceea ce permite scalarea o
 <details>
 <summary>Răspuns</summary>
 
-Rutarea trimite cererile simple către un model mic, ieftin și rapid și rezervă modelul mare pentru raționamentul autentic, controlând atât latența, cât și costul. Se leagă de evaluare pentru că evaluarea este ceea ce *dovedește* că modelul mic este suficient de bun pentru o clasă de cereri — rutarea fără evaluare este o presupunere.
+Rutarea trimite cererile simple către un model mic, ieftin și rapid și rezervă modelul mare pentru raționamentul real, controlând atât latența, cât și costul. Se leagă de evaluare pentru că evaluarea *demonstrează* că modelul mic este suficient de bun pentru o clasă de cereri — rutarea fără evaluare este o presupunere.
 </details>
 
-**5. Ce este un „poartă de evaluare” și unde se află în ciclul de viață?**
+**5. Ce este un „poartă de evaluare” și unde se situează în ciclul de viață?**
 
 <details>
 <summary>Răspuns</summary>
 
-O poartă de evaluare rulează un set de teste offline pe o versiune nouă a agentului și blochează implementarea dacă rata de trecere nu depășește un prag. Se află între „versiune” și „implementare” în ciclul de viață, făcând calitatea o condiție prealabilă pentru lansare în loc să fie ceva ce verifici după lansare.
+O poartă de evaluare rulează un set de teste offline pe o versiune nouă a agentului și blochează implementarea dacă rata de trecere nu depășește un prag. Se situează între „versiune” și „implementare” în ciclul de viață, făcând din calitate o condiție prealabilă pentru lansare, nu ceva verificat după livrare.
 </details>
 
-**6. De ce trebuie un server MCP să fie tratat ca o frontieră neîncrezătoare în producție?**
+**6. De ce ar trebui un server MCP să fie tratat ca o limită neîncredere în producție?**
 
 <details>
 <summary>Răspuns</summary>
 
-Pentru că este o dependență externă către care agentul tău face apel. Ar trebui să fixezi versiunea lui, să îl rulezi cu o identitate restrânsă, să validezi ieșirile, să limitezi rata de acces și să nu expui niciodată secrete către el – aceeași disciplină pe care o aplici oricărei dependențe terțe. Ieșirile sale intră în raționamentul agentului tău, astfel că încrederea nevalidată este un risc de securitate.
+Pentru că este o dependență externă la care agentul dvs. apelează. Trebuie să fixați versiunea acestuia, să-l rulați cu o identitate scopă, să validați ieșirile, să limitați ratele și să nu-i expuneți niciodată secrete — aceeași disciplină pe care o aplicați oricărei dependențe terțe. Ieșirile lui intră în raționamentul agentului, astfel că încrederea nevalidată reprezintă un risc de securitate.
 </details>
 
-**7. Care este singura schimbare care de obicei are cel mai mare impact asupra costului unui agent de producție și de ce?**
+**7. Care schimbare de obicei are cel mai mare impact asupra costului agentului de producție și de ce?**
 
 <details>
 <summary>Răspuns</summary>
 
-Ajustarea dimensiunii modelului — folosirea celui mai mic model care trece în continuare poarta ta de evaluare. Costul este dominat de tokeni, iar un model mai mic care îndeplinește criteriul de calitate este aproape întotdeauna mai ieftin decât unul mai mare. Caching-ul și rutarea reduc costul suplimentar, dar alegerea modelului de bază potrivit are cel mai mare efect de primă ordine.
+Dimensionarea corectă a modelului — folosirea celui mai mic model care încă trece poarta de evaluare. Costurile sunt dominate de tokeni, iar un model mai mic care îndeplinește pragul de calitate este aproape întotdeauna mai ieftin decât unul mai mare. Caching-ul și rutarea reduc apoi costul și mai mult, dar alegerea modelului de bază are cel mai mare efect de prim ordin.
 </details>
 
-**8. Ce rol joacă atributele span-ului precum `customer.tier` și `routed.model` în observabilitate?**
+**8. Ce rol au atributele span precum `customer.tier` și `routed.model` în observabilitate?**
 
 <details>
 <summary>Răspuns</summary>
 
-Ele transformă trace-urile brute în întrebări de afaceri la care se poate răspunde. Fără atribute ai un zid de span-uri; cu ele poți întreba „sunt clienții enterprise direcționați prea des către modelul mic?” sau „care model gestionează cele mai lente cereri ale noastre?” Atributele sunt modul în care împarți telemetria pe dimensiunile care contează pentru operațiunea ta.
+Ele transformă urmele brute în întrebări de business la care se poate răspunde. Fără atribute aveți un zid de spanuri; cu ele puteți întreba „clienții enterprise sunt adesea rutați către modelul mic?” sau „care model gestionează cele mai lente cereri ale noastre?” Atributele sunt modul prin care segmentați telemetria după dimensiunile importante pentru operațiunea dvs.
 </details>
 
 ## Sarcină
 
-Ia agentul de suport clienți din laborator și întărește-l pentru un scenariu specific: **agent de suport facturare pentru un abonament pentru o companie SaaS.**
+Luați agentul de asistență clienți din laborator și consolidați-l pentru un scenariu specific: **un agent de suport pentru facturarea abonamentelor al unei companii SaaS.**
 
-Livrarea ta trebuie să:
+Trimiterea dvs. ar trebui să:
 
-1. **Înlocuiască uneltele** cu altele relevante pentru facturare: `get_subscription_status`, `get_invoice` și `issue_credit` (creditele peste 50$ necesită aprobare umană).
-2. **Adauge trei documente RAG** care acoperă politica de rambursare a companiei, ciclul de facturare și politica de anulare.
-3. **Extindă setul de evaluare** la cel puțin opt cazuri, inclusiv cel puțin două care *ar trebui* să activeze calea cu aprobare umană, și să confirme că poarta ta de evaluare trece sau respinge corect.
-4. **Adauge un raport de cost**: după ce rulezi zece interogări mixte prin agent, afișează câte au mers către modelul mic, câte către modelul mare și câte au fost servite din cache.
+1. **Înlocuiască instrumentele** cu unele relevante pentru facturare: `get_subscription_status`, `get_invoice` și `issue_credit` (credite peste 50$ necesită aprobare umană).
+2. **Adauge trei documente RAG** acoperind politica de rambursare, ciclul de facturare și politica de anulare ale companiei.
+3. **Extindă setul de evaluare** la cel puțin opt cazuri, inclusiv cel puțin două care *ar trebui* să declanșeze calea de aprobare umană, și să confirme că poarta de evaluare trece sau eșuează corect.
+4. **Adauge un raport de cost**: după rularea a zece interogări mixte prin agent, afișați câte au fost procesate de modelul mic, câte de modelul mare și câte din cache.
 
-Scrie un paragraf scurt (într-o celulă markdown) explicând regula de rutare a modelului pe care ai ales-o și cum ai valida-o cu trafic real. Nu există un răspuns unic corect – ești evaluat pe coerența legăturii dintre preocupările de producție.
+Scrieți un paragraf scurt (într-o celulă markdown) explicând ce regulă de rutare a modelului ați ales și cum ați valida cu trafic real. Nu există un răspuns corect unic — veți fi evaluați pe cât de coerente sunt integrate preocupările de producție.
 
 ## Rezumat
 
-În această lecție ai mutat un agent de la prototip la producție cu Microsoft Foundry:
+În această lecție ați mutat un agent de la prototip la producție cu Microsoft Foundry:
 
-- Saltul spre producție este în mare parte despre **scheletul operațional** din jurul modelului — găzduire, identitate, stare, gestionarea erorilor, cost, calitate și încredere.
-- Ai învățat cele trei **modele de implementare** — găzduire pe client, Agenti găzduiți și Fluxuri de lucru Agent — și când se potrivesc fiecare.
-- Ai parcurs **ciclul de viață al agentului**, în care evaluarea offline **acționează ca o poartă de lansare** iar observabilitatea online reintegrează eșecurile în setul de teste.
-- Ai aplicat **strategii de scalare** — design fără stare, rutare a modelului, caching și concurență limitată — și le-ai conectat la **optimizarea costurilor**.
-- Ai integrat **controale enterprise**: RBAC, aprobare cu intervenție umană și integrare sigură MCP în producție.
-- Ai construit un **agent de suport clienți gata pentru producție** care leagă toate aceste preocupări în cod rulabil.
+- Saltul în producție este în principal despre **scheletul operațional** din jurul modelului — găzduire, identitate, stare, gestionarea eșecurilor, cost, calitate și încredere.
+- Ați învățat cele trei **modele de implementare** — client-hosted, Agenti Găzduiți și Fluxuri de Lucru cu Agent — și când se potrivește fiecare.
+- Ați parcurs **ciclul de viață al agentului**, unde evaluarea offline **acționează ca o poartă de lansare** și observabilitatea online reintroduce eșecurile în setul de teste.
+- Ați aplicat **strategii de scalare** — design fără stare, rutarea modelului, caching și concurență limitată — și le-ați legat de **optimizarea costurilor**.
+- Ați conectat **controale enterprise**: RBAC, aprobare cu intervenție umană și integrare MCP sigură pentru producție.
+- Ați construit un **agent de suport clienți pregătit pentru producție** care leagă toate aceste preocupări în cod funcțional.
 
-Următoarea lecție face călătoria inversă: în loc să scalezi agenții în cloud, îi vei aduce *în jos* pe o singură mașină de dezvoltare și îi vei rula complet local.
+Lecția următoare urmează o călătorie opusă: în loc să scalați agenți în cloud, îi veți coborî pe o singură mașină de dezvoltator și îi veți rula complet local.
 
-## Resurse suplimentare
+## Resurse Suplimentare
 
 - <a href="https://learn.microsoft.com/azure/ai-foundry/what-is-azure-ai-foundry" target="_blank">Documentația Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Prezentare generală a serviciului Agent Microsoft Foundry</a>
-
+- <a href="https://learn.microsoft.com/azure/ai-foundry/agents/overview" target="_blank">Prezentare generală Microsoft Foundry Agent Service</a>
 - <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python" target="_blank">Microsoft Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-foundry/concepts/model-router" target="_blank">Model Router în Microsoft Foundry</a>
-- <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Căutare AI Azure</a>
+- <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router" target="_blank">Model Router în Microsoft Foundry</a>
+- <a href="https://learn.microsoft.com/azure/search/search-what-is-azure-search" target="_blank">Azure AI Search</a>
 - <a href="https://opentelemetry.io/" target="_blank">OpenTelemetry</a>
-- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">Acțiune GitHub AI Smoke Test</a>
+- <a href="https://github.com/marketplace/actions/ai-smoke-test" target="_blank">AI Smoke Test GitHub Action</a>
 - <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol (MCP)</a>
 
 ## Lecția Anterioară
 
-[Construirea Agenților de Utilizare a Calculatorului (CUA)](../15-browser-use/README.md)
+[Construirea Agentiilor pentru Utilizarea Calculatorului (CUA)](../15-browser-use/README.md)
 
 ## Lecția Următoare
 
