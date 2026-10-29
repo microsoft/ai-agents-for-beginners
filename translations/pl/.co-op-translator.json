@@ -629,6 +629,12 @@
     "source_file": "CODE_OF_CONDUCT.md",
     "language_code": "pl"
   },
+  "CONTRIBUTING.md": {
+    "original_hash": "fa5fabf99deb46d8bb92f931472926ff",
+    "translation_date": "2026-10-27T14:12:31+00:00",
+    "source_file": "CONTRIBUTING.md",
+    "language_code": "pl"
+  },
   "README.md": {
     "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
     "translation_date": "2026-10-21T07:17:39+00:00",

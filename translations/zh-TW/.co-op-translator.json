@@ -629,6 +629,12 @@
     "source_file": "CODE_OF_CONDUCT.md",
     "language_code": "zh-TW"
   },
+  "CONTRIBUTING.md": {
+    "original_hash": "fa5fabf99deb46d8bb92f931472926ff",
+    "translation_date": "2026-10-27T15:21:26+00:00",
+    "source_file": "CONTRIBUTING.md",
+    "language_code": "zh-TW"
+  },
   "README.md": {
     "original_hash": "fafa05dd38dcb6fb5ee5827fde5f3236",
     "translation_date": "2026-10-21T06:43:12+00:00",
@@ -658,22 +664,22 @@
       "original_hash": "7152c8002857425f6fb7c3144be51e11",
       "source_file": "AGENTS.md",
       "language_code": "zh-TW",
-      "failure_date": "2026-10-21T06:42:30+00:00",
+      "failure_date": "2026-10-27T15:17:03+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'AGENTS.md', and the chunk could not be split further.",
-      "translator_version": "0.23.1",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'AGENTS.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
       "failure_policy_version": 1
     },
     "04-tool-use/README.md": {
       "original_hash": "d387aff3be246694e94501e980c982bc",
       "source_file": "04-tool-use/README.md",
       "language_code": "zh-TW",
-      "failure_date": "2026-10-21T06:46:42+00:00",
+      "failure_date": "2026-10-27T15:20:39+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 2.2.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.1",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
       "failure_policy_version": 1
     }
   },
