@@ -124,7 +124,7 @@ All Python notebooks get label `*-python-agent-framework.ipynb`.
 
 - **Azure CLI** — Needed for authentication. Install from [aka.ms/installazurecli](https://aka.ms/installazurecli).
 - **Azure Subscription** — For access to Microsoft Foundry and Microsoft Foundry Agent Service.
-- **Microsoft Foundry Project** — Project wey get deployed model (e.g., `gpt-5-mini`). See [Step 1](#step-1-create-a-microsoft-foundry-project) below.
+- **Microsoft Foundry Project** — Project wey get deployed model (e.g., `gpt-5-mini`). See [Step 1](#step-1-create-microsoft-foundry-project) below.
 
 We don include `requirements.txt` file for root of dis repository wey get all di needed Python packages to run di code samples.
 
