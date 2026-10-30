@@ -1,63 +1,87 @@
 # Sampuli za Risiti
 
-Faili tatu za risiti zilizotengenezwa awali kwa ukaguzi bila kuendesha daftari.
+Faili tatu za risiti zilizotayarishwa mapema kwa ukaguzi bila kukimbia daftari la kumbukumbu.
 
-| Faili | Kitu kilicho ndani |
+| Faili | Inavyokuwa |
 |---|---|
-| `01_valid_receipt.json` | Risiti halali yenye saini kwa wito wa zana ya `lookup_flights`. Uhakiki unarudisha True. |
-| `02_tampered_receipt.json` | Risiti ile ile iliyo na urekebishaji moja baada ya kusainiwa. Uhakiki unarudisha False. |
-| `03_chain_three_receipts.json` | Mnyororo wa risiti tatu halali (tafuta, hifadhi, kitabu) yenye `previous_receipt_hash` inayounganisha kila moja kwenye ile ya awali. |
+| `01_valid_receipt.json` | Risiti halali iliyoainishwa kwa wito wa zana ya `lookup_flights`. Uhakiki unarudisha Kweli. |
+| `02_tampered_receipt.json` | Risiti ile ile yenye sehemu moja iliyobadilishwa baada ya kusainiwa. Uhakiki unarudisha Siyo kweli. |
+| `03_chain_three_receipts.json` | Mnyororo wa risiti tatu halali (tafuta, shikilia, kitabu) na `previous_receipt_hash` kuunganisha kila moja na ile ya awali. |
 
-Sampuli hizi husaini moja kwa moja bait ya JCS ya mzigo kwa kutumia Ed25519.
-SHA-256 bado inatumika kwa mfumuko wa maudhui na viungo vya mnyororo wa risiti, si kama
-pre-hash ya ziada kabla ya kusaini.
+Sampuli hizi husaini bayt za JCS za teremu moja kwa moja kwa Ed25519.
+SHA-256 bado inatumika kwa diiji za maudhui na viungo vya mnyororo wa risiti, si kama
+awali ya ziada kabla ya kusaini.
 
-## Kukagua sampuli
+## Kuhakiki sampuli
 
-Daftari huenda hatua kwa hatua kupitia ukaguzi katika sehemu nne. Ili kuthibitisha sampuli hizi
-moja kwa moja bila kuandika hadithi ya daftari:
+Katika `18-signed-receipts.ipynb`, endesha Setup na Sehemu 1 hadi 3 kwanza.
+Sehemu ya 3 hufafanua `verify_chain`; Sehemu za 1 na 2 peke yake hazitoshi.
+Kisha endesha kipande kinachofuata katika seli mpya, na saraka ya kazi ya daftari
+ikitengenezwa kuwa `18-securing-ai-agents/code_samples`. Njia za sampuli zilizo hapa chini ni kwa
+kuhusiana na saraka hiyo.
 
 ```python
 import json
 from pathlib import Path
 
-# Inadhani umeamaliza kuingiza na kazi za msaada
-# kutoka sehemu 1 na 2 za 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Kweli
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Si kweli
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Jinsi hizi zilivyotengenezwa
+### Kukagua mfano bila Jupyter
 
-Sampuli hizi hutumia njia ile ile ya msimbo kama daftari, na funguo moja ya kusaini iliyowekwa
-na muda ulio thibitishwa kwa ajili ya urekebishaji wa bait. Ili kuzalisha tena:
+Kutoka mizizi ya hifadhidata, weka utegemezi wa somo na endesha:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Majaribio haya hufanya mifano ya Python ya daftari la kumbukumbu na kipande halisi cha README
+hapo juu. Pia huangalia kama uliyumba na funguo zisizolipishwa zinakataliwa na
+wahakiki. Majaribio yanapuuza seli ya usanidi ya `%pip` kwa sababu utegemezi
+umewekwa kando. Hayabadilishi daftari au sampuli.
+
+## Jinsi zilivyozalishwa
+
+Sampuli hutumia njia ile ile ya msimbo kama daftari la kumbukumbu, na ufunguo mmoja wa sahihi wa kusaini
+pamoja na nyakati za kurekebisha kwa kurudia tena bayt. Ili kuzalisha tena:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripti iko `generate_fixtures.py` katika saraka hii.)
+(Skripti iko katika `generate_fixtures.py` katika saraka hii.)
 
-## Kile wanafunzi hujifunza kwa kukagua JSON ghafi
+## Kile wanafunzi wanachojifunza kwa kukagua JSON ghafi
 
-Kusoma muundo wa risiti ghafi hujenga hisia isiyopatikana kila wakati katika seli za daftari.
-Wanafunzi wanaochambua JSON mara nyingi hugundua:
+Kusoma muundo wa risiti ghafi hujenga hisia ambazo seli katika daftari la kumbukumbu
+hazizitoi kila wakati. Wanafunzi wanaosoma kwa haraka JSON mara nyingi hugundua:
 
-1. Saini ni kamba ya base64url isiyoonekana, lakini kila shamba lingine ni JSON ya kusomeka wazi.
-   Saini haisimbui maudhui; inathibitisha tu.
-2. `public_key` imejumuishwa kwenye risiti. Mkaguzi hahitaji chochote zaidi
-   kuthibitisha (kwa kuzingatia kuamini kwamba funguo kweli ni mali ya
-   mtumaji aliyejitaja; angalia README ya somo juu ya miundombinu ya utambulisho).
-3. Kubadilisha herufi moja kati ya shamba lolote, kisha kulinganisha tena faili hii na
-   `02_tampered_receipt.json`, huweka wazi utaratibu wa ngazi ya bait.
+1. Saini ni mfuatiliaji wa base64url wa kuficha, lakini kila sehemu nyingine ni JSON wazi
+   inayosomeka. Saini haisimbui maudhui; inathibitisha.
+2. `public_key` imejumuishwa katika risiti, ambayo inatosha kuangalia
+   uthabiti wa ndani lakini si kuaminiwa kwa mtayarishaji. Mkaguzi lazima aitazame kwa ufunguo
+   uliowekwa nje ya risiti au uliotatuliwa kupitia rejista ya kuaminika.
+3. Kubadilisha herufi moja katika sehemu yoyote, kisha kuilinganisha tena faili hili
+   na `02_tampered_receipt.json`, hufanya utaratibu wa ngazi ya bayt kuwa wazi.
 
 ---
 
