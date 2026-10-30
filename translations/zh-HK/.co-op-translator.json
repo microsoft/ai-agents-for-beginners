@@ -664,7 +664,7 @@
       "original_hash": "7152c8002857425f6fb7c3144be51e11",
       "source_file": "AGENTS.md",
       "language_code": "zh-HK",
-      "failure_date": "2026-10-27T15:08:01+00:00",
+      "failure_date": "2026-10-29T11:31:09+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'AGENTS.md', and the chunk could not be split further.",
@@ -675,10 +675,21 @@
       "original_hash": "d387aff3be246694e94501e980c982bc",
       "source_file": "04-tool-use/README.md",
       "language_code": "zh-HK",
-      "failure_date": "2026-10-27T15:12:23+00:00",
+      "failure_date": "2026-10-29T11:34:33+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    },
+    "00-course-setup/README.md": {
+      "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
+      "source_file": "00-course-setup/README.md",
+      "language_code": "zh-HK",
+      "failure_date": "2026-10-29T11:38:32+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }
