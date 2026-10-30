@@ -168,44 +168,56 @@ from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
+    # Strict: Python's decoder skips characters outside the alphabet and also
+    # accepts padding, the standard +/ alphabet and non-zero spare bits.
+    # Re-encoding and comparing accepts only the one unpadded base64url form.
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
+    data = base64.urlsafe_b64decode(s + padding)
+    if base64.urlsafe_b64encode(data).decode("ascii").rstrip("=") != s:
+        raise ValueError("not canonical unpadded base64url")
+    return data
 
-def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
-    # The signature is a structured object: {"alg", "sig", "public_key"}.
-    if not isinstance(receipt, dict):
+def verify_receipt(receipt: dict, trusted_public_key: str) -> bool:
+    # trusted_public_key is the issuer's key, obtained from somewhere other
+    # than this receipt. Never use receipt["signature"]["public_key"] here:
+    # see "What Receipts Prove (and What They Do Not)" below.
+    # Fails closed: anything malformed returns False instead of raising.
+    if not isinstance(receipt, dict) or not isinstance(trusted_public_key, str):
         return False
     sig_obj = receipt.get("signature")
     if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
         return False
+    sig_b64 = sig_obj.get("sig")
+    if not isinstance(sig_b64, str):
+        return False
+
     try:
-        # An inline key proves only self-consistency. Trust is configured out of band.
-        public_key = sig_obj.get("public_key")
-        signature = sig_obj.get("sig")
-        if not isinstance(public_key, str) or not isinstance(signature, str):
-            return False
-        if public_key not in trusted_public_keys:
-            return False
+        # Reconstruct the payload that was actually signed (everything except signature).
         payload = {k: v for k, v in receipt.items() if k != "signature"}
         canonical_bytes = canonicalize(payload)
-        verify_key = signing.VerifyKey(b64url_decode(public_key))
-        verify_key.verify(canonical_bytes, b64url_decode(signature))
+        verify_key = signing.VerifyKey(b64url_decode(trusted_public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(sig_b64))
         return True
     except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
+    except Exception:
+        # An undecodable key or signature, or a payload that cannot be
+        # canonicalized: fail closed rather than raise.
+        return False
 ```
 
-This function takes a receipt plus the relying party's pinned key set and returns
-`True` only if the signature is valid under an accepted key. Verification needs no
-network call, but key trust is still an external configuration decision.
+This function takes a receipt and the issuer's public key, and returns `True` if the signature is valid and `False` otherwise, including when the input is malformed. No network call and no verification service: once you hold the issuer's key, verification is entirely local and offline. What it does still require is that key, obtained from somewhere other than the receipt itself.
 
 To see tampering detection in action, the notebook walks through:
 
 1. Producing a valid receipt and confirming it verifies.
 2. Modifying one byte of the `tool_args_hash` field.
 3. Re-running verification and seeing it fail.
+4. Tampering again, but this time re-signing with a key the attacker generated and embedding that key in the receipt.
 
-This is the practical demonstration that receipts are tamper-evident: any modification, however small, breaks the signature.
+Step 4 is the one worth sitting with. That receipt is internally consistent: its signature is genuine for its contents and for the key it carries, so it verifies against the key inside it. It fails only when checked against the issuer's real key. Steps 2 and 3 catch an attacker who did not bother to re-sign; step 4 catches the one who did.
+
+This is the practical demonstration that receipts are tamper-evident: any change to a signed field breaks the signature, provided you verify against a key the attacker did not supply. The `signature` object itself is outside the signed bytes, which is why the key you verify against has to come from somewhere other than the receipt.
 
 ## Chaining Receipts for Multi-Step Agents
 
@@ -226,10 +238,7 @@ Each receipt records the hash of the receipt before it. To remove receipt 2 sile
 - Modify receipt 3's `previous_receipt_hash` field (breaks receipt 3's signature), OR
 - Forge a new signature on a modified receipt 3 (requires the agent's private key).
 
-If the private key is protected and a verifier pins an independently witnessed chain
-head, these attacks are detectable. Publishing the key inside each receipt is not
-sufficient: a signer or attacker can present a different key, rewrite a suffix, or
-truncate the chain unless the relying party has an external trust and completeness anchor.
+If the private key is in a hardware key vault and verifiers check every receipt against the issuer's public key, obtained independently (a published JWK Set or a pinned config value), neither attack is feasible without detection. Publishing the key inside each receipt is not enough: an attacker can re-sign with their own key and embed that one instead, which is fixture `04_resigned_receipt.json`.
 
 The notebook walks through:
 
@@ -259,6 +268,8 @@ This is the most important section of this lesson. Receipts are powerful but the
 5. **Execution or real-world effect**: a post-call receipt records what its issuer claims happened. Proving admission or reconciling an external effect requires evidence from the actual executor or provider boundary.
 6. **Completeness**: an absent receipt can mean blocked, omitted, lost, or not instrumented. Absence becomes evidence only within an authenticated closed population.
 7. **Trusted time**: a signed timestamp proves the signer carried that value, not that the value was correct. Trusted time needs a separate time authority or witnessed checkpoint.
+
+**The key in the receipt is not the key you verify with.** This follows from point 3, and it is the one place where the distinction has to change your code rather than your understanding. The `public_key` in the sample above is there so the example is self-contained. A verifier must never trust it. Anyone can take a receipt, alter it, sign it with a key they generated, and embed that key; the result verifies perfectly against itself. That is fixture `04_resigned_receipt.json` in `sample_receipts/`, and it is why `verify_receipt` above takes the key as an argument instead of reading it out of the receipt. Obtain the issuer's key independently, from the JWK Set in the Production Checklist below or another anchor you pinned in advance, and verify against that. A signature checked with a key that arrived in the same envelope proves only that the envelope is self-consistent.
 
 This boundary matters for two reasons:
 
@@ -320,7 +331,7 @@ No network call is required after that trust configuration is established.
 <details>
 <summary>Answer</summary>
 
-Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any field changes those bytes, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
+Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any payload field changes those bytes, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
 </details>
 
 **3. Why does the receipt include a `tool_args_hash` and `result_hash` rather than the raw arguments and result?**
@@ -336,10 +347,7 @@ Two reasons. First, the receipt may need to be archived or transmitted in enviro
 <details>
 <summary>Answer</summary>
 
-The next presented receipt no longer links to its expected predecessor, so verification
-of that presented sequence fails from the gap onward. If the signer controls the private
-key, it can rewrite or truncate a suffix. Detecting that requires a pinned current head,
-external checkpoint, or authenticated population commitment.
+Every receipt that came after the deleted one. Their `previous_receipt_hash` fields no longer match the actual chain (because the receipt they referenced no longer exists, or the chain now points to a different predecessor). To hide the deletion, the attacker would have to re-sign every later receipt, which requires the issuer's private key. A re-signature with any other key fails when checked against the issuer's key.
 </details>
 
 **5. A receipt verifies cleanly. Does that prove the agent's action was correct, sound, or compliant with policy?**
