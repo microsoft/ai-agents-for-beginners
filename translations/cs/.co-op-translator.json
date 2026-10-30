@@ -664,10 +664,21 @@
       "original_hash": "8d19cdca78cb8e707aee69f3d9ec5cfd",
       "source_file": "STUDY_GUIDE.md",
       "language_code": "cs",
-      "failure_date": "2026-10-27T14:39:18+00:00",
+      "failure_date": "2026-10-29T15:16:24+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.2.1.1.1.1.1 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'STUDY_GUIDE.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    },
+    "00-course-setup/README.md": {
+      "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
+      "source_file": "00-course-setup/README.md",
+      "language_code": "cs",
+      "failure_date": "2026-10-29T15:20:21+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }

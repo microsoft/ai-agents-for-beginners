@@ -659,6 +659,19 @@
     "source_file": "SUPPORT.md",
     "language_code": "bn"
   },
+  "__translation_failures__": {
+    "00-course-setup/README.md": {
+      "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
+      "source_file": "00-course-setup/README.md",
+      "language_code": "bn",
+      "failure_date": "2026-10-29T16:38:01+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    }
+  },
   "tests/README.md": {
     "original_hash": "77b62539af9ac18820506113aee355f5",
     "translation_date": "2026-10-21T08:08:00+00:00",
