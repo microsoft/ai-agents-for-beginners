@@ -124,7 +124,7 @@ Sve Python bilježnice su označene oznakom `*-python-agent-framework.ipynb`.
 
 - **Azure CLI** — Potrebno za autentifikaciju. Instalirajte sa [aka.ms/installazurecli](https://aka.ms/installazurecli).
 - **Azure Pretplata** — Za pristup Microsoft Foundry i Microsoft Foundry Agent Service.
-- **Microsoft Foundry Projekt** — Projekt s implementiranim modelom (npr., `gpt-5-mini`). Pogledajte [Korak 1](#step-1-create-a-microsoft-foundry-project) dolje.
+- **Microsoft Foundry Projekt** — Projekt s implementiranim modelom (npr., `gpt-5-mini`). Pogledajte [Korak 1](#korak-1-kreirajte-microsoft-foundry-projekt) dolje.
 
 U korijenu ovog repozitorija uključili smo datoteku `requirements.txt` koja sadrži sve potrebne Python pakete za pokretanje primjera koda.
 

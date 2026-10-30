@@ -124,7 +124,7 @@ Alla Python-notebookar är märkta `*-python-agent-framework.ipynb`.
 
 - **Azure CLI** — Krävs för autentisering. Installera från [aka.ms/installazurecli](https://aka.ms/installazurecli).
 - **Azure-prenumeration** — För åtkomst till Microsoft Foundry och Microsoft Foundry Agent Service.
-- **Microsoft Foundry-projekt** — Ett projekt med en distribuerad modell (t.ex. `gpt-5-mini`). Se [Steg 1](#step-1-create-a-microsoft-foundry-project) nedan.
+- **Microsoft Foundry-projekt** — Ett projekt med en distribuerad modell (t.ex. `gpt-5-mini`). Se [Steg 1](#steg-1-skapa-ett-microsoft-foundry-projekt) nedan.
 
 Vi har inkluderat en `requirements.txt` fil i root av detta repo som innehåller alla nödvändiga Python-paket för att köra kodexemplen.
 

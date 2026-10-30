@@ -263,7 +263,7 @@ Joissakin oppituntien 6 ja 8 muistikirjoissa kutsutaan **Azure OpenAI:ta** suora
 | Muuttuja | Mistä se löytyy |
 |----------|-----------------|
 | `AZURE_OPENAI_ENDPOINT` | Azure-portaali → oma **Azure OpenAI** -resurssisi → **Avain ja päätepiste** → Päätepiste (esim. `https://<your-resource>.openai.azure.com`) |
-| `AZURE_OPENAI_DEPLOYMENT` | Ominaisuutesi nimi (esim. `gpt-5-mini`), joka tukee Responses-rajapintaa |
+| `AZURE_OPENAI_DEPLOYMENT` | Käyttöönotetun mallisi nimi (esim. `gpt-5-mini`), joka tukee Responses-rajapintaa |
 | `AZURE_OPENAI_API_KEY` | Valinnainen — vain jos käytät avainpohjaista todennusta `az login` / Entra ID sijaan |
 
 > Responses-rajapinta käyttää vakaata `/openai/v1/`-päätepistettä, joten `api-version` ei ole tarpeen. Kirjaudu sisään `az login` käyttämällä avaintonta Entra ID -todennusta.
