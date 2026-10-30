@@ -1,44 +1,68 @@
-# নমুনা রসিদ ফিক্সচার
+# নমুনা রসিদ ফিকচার
 
-নোটবুক চালানো ছাড়াই পরিদর্শনের জন্য তিনটি পূর্ব-তৈরি রসিদ ফাইল।
+নোটবুক চালানো ছাড়াই পরিদর্শনের জন্য তিনটি পূর্ব-উত্পন্ন রসিদ ফাইল।
 
-| ফাইল | এটিই কি |
+| ফাইল | এটি কী |
 |---|---|
-| `01_valid_receipt.json` | একটি বৈধ স্বাক্ষরিত রসিদ `lookup_flights` টুল কলের জন্য। যাচাইকরণ সত্য ফেরত দেয়। |
-| `02_tampered_receipt.json` | একই রসিদ এক ফিল্ড স্বাক্ষরের পর পরিবর্তিত। যাচাইকরণ মিথ্যা ফেরত দেয়। |
-| `03_chain_three_receipts.json` | তিনটি বৈধ রসিদের একটি শৃঙ্খল (search, hold, book) যার মধ্যে `previous_receipt_hash` প্রতিটি পূর্ববর্তী রসিদের সাথে সংযুক্ত। |
+| `01_valid_receipt.json` | একটি বৈধ স্বাক্ষরযুক্ত রসিদ একটি `lookup_flights` টুল কলের জন্য। যাচাই সত্য ফেরত দেয়। |
+| `02_tampered_receipt.json` | স্বাক্ষর করার পরে একটি ক্ষেত্র পরিবর্তিত হওয়া একই রসিদ। যাচাই মিথ্যা ফেরত দেয়। |
+| `03_chain_three_receipts.json` | তিনটি বৈধ রসিদের একটি চেইন (search, hold, book) যেখানে `previous_receipt_hash` প্রতিটি আগেরটির সাথে সংযুক্ত করছে। |
 
-ফিক্সচারগুলি সরাসরি Ed25519 দিয়ে পেলোডের ক্যানোনিকাল JCS বাইটে স্বাক্ষর করে।
-SHA-256 এখনও কনটেন্ট ডাইজেস্ট এবং রসিদ-শৃঙ্খল লিঙ্কের জন্য ব্যবহৃত হয়, স্বাক্ষরের পূর্বে অতিরিক্ত প্রি-হ্যাশ হিসাবে নয়।
+ফিক্সচারগুলি সরাসরি Ed25519 দিয়ে পে-লোডের canonical JCS বাইটগুলিতে স্বাক্ষর করে।
+SHA-256 কন্টেন্ট ডাইজেস্ট এবং রসিদ-চেইন লিঙ্কের জন্য ব্যবহৃত হয়, স্বাক্ষরের আগে অতিরিক্ত pre-hash হিসাবে নয়।
+অতিরিক্ত pre-hash স্বাক্ষরের আগে ব্যবহৃত হয় না।
 
+## নমুনাগুলো যাচাই করা
 
-## নমুনাগুলি যাচাই করা
-
-নোটবুক চারটি অংশে যাচাইকরণের ধাপ ব্যাখ্যা করে। এই ফিক্সচারগুলি সরাসরি যাচাই করতে চাইলে নোটবুকটি চালানো ছাড়াই:
+`18-signed-receipts.ipynb` তে, প্রথমে Setup এবং Section 1 থেকে 3 চালান।
+Section 3 এ `verify_chain` সংজ্ঞায়িত করা হয়েছে; কেবল Section 1 এবং 2 যথেষ্ট নয়।
+তারপর একটি নতুন সেলে নিচের ব্লকটি চালান, যেখানে নোটবুকের কাজের ডিরেক্টরি
+সেট করা হয়েছে `18-securing-ai-agents/code_samples` এ। নিচের ফিক্সচারের পথগুলি সেই ডিরেক্টরির আপেক্ষিক।
 
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
+### জুপিটার ছাড়া উদাহরণ পরীক্ষা করা
+
+রিপোজিটোরি রুট থেকে, লেসনের ডিপেন্ডেন্সিগুলি ইনস্টল করুন এবং চালান:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+এই টেস্টগুলি নোটবুকের পাইথন উদাহরণসমূহ এবং ঠিক উপরের README ব্লকটি চালায়।  
+সেগুলিও যাচাই করে যে তাম্পারিং এবং আনপিন করা কীগুলি ভেরিফায়ার দ্বারা প্রত্যাখ্যাত হচ্ছে।  
+টেস্টগুলি নোটবুকের `%pip` সেটআপ সেল এড়িয়ে যায় কারণ ডিপেন্ডেন্সিগুলি আলাদাভাবে ইনস্টল করা হয়।  
+এগুলি নোটবুক বা ফিক্সচারে কোনো পরিবর্তন আনে না।  
+
 ## এগুলি কীভাবে তৈরি করা হয়েছে
 
-ফিক্সচারগুলি নোটবুকের একই কোড পাথ ব্যবহার করে, একটি স্থায়ী স্বাক্ষর কী এবং নির্দিষ্ট সময়মুদ্রা দিয়ে বাইট পুনরুত্পাদনযোগ্যতার জন্য। পুনঃতৈরির জন্য:
-
+ফিক্সচারগুলি একই কোড পাথ ব্যবহার করে যেমন নোটবুক, একটি নির্দিষ্ট সাইনিং কী সহ
+এবং বাইট-রিপ্রোডিউসিবিলিটির জন্য নির্দিষ্ট টাইমস্ট্যাম্প সহ। পুনরায় তৈরি করতে:
 
 ```bash
 python3 generate_fixtures.py
@@ -46,18 +70,18 @@ python3 generate_fixtures.py
 
 (স্ক্রিপ্টটি এই ডিরেক্টরির `generate_fixtures.py` এ রয়েছে।)
 
-## শিক্ষার্থীরা কাঁচা JSON পরিদর্শন থেকে কী শিখে
+## ছাত্ররা কাঁচা JSON পরিদর্শন থেকে কী শেখে
 
-কাঁচা রসিদ ফরম্যাট পড়া নোটবুকের কোষগুলিতে সবসময় উপলব্ধ না হওয়া ধারণা গড়ে তোলে। যারা JSON দ্রুত পড়ে তারা প্রায়ই লক্ষ্য করে:
+কাঁচা রসিদ ফরম্যাট পড়া এমন বোধ গড়ে তোলে যা নোটবুকের সেল সবসময় দেয় না। 
+JSON স্কিম করা শিক্ষার্থীরা প্রায়ই লক্ষ্য করে:
 
-
-1. স্বাক্ষরটি একটি অপ্যাস পর্বত বেস64url স্ট্রিং, কিন্তু প্রতিটি অন্য ক্ষেত্র সরলপাঠ্য JSON। 
-   স্বাক্ষরটি কন্টেন্ট এনক্রিপ্ট করে না; এটি কন্টেন্টটির প্রতি প্রত্যয় প্রকাশ করে। 
-2. রসিদে `public_key` এম্বেড করা হয়েছে। একটি নিরীক্ষকের অন্য কিছুই প্রয়োজন নেই
-   যাচাই করার জন্য (এই শর্তে যে কীটি প্রকৃতপক্ষে দাবীকৃত
-   ইস্যুকর্তার অন্তর্গত; পরিচয় অবকাঠামোর লেসন README দেখুন)।
-3. যেকোনো ফিল্ডের একটি অক্ষর পরিবর্তন করা, তারপর এই ফাইলটি আবার
-   `02_tampered_receipt.json` এর সাথে পুনরায় তুলনা করা, বাইট-স্তরের প্রক্রিয়াটি বাস্তব করে তোলে।
+1. সাক্ষরটি একটি অপ্যাক বেস64url স্ট্রিং, কিন্তু বাকী সব ক্ষেত্র সোজাসুজি
+   পড়ার উপযোগী JSON। সাক্ষরটি বিষয়বস্তু এনক্রিপ্ট করে না; এটি তার প্রমাণ দেয়।
+2. `public_key` রসিদে অন্তর্ভুক্ত থাকে, যা স্ব-সঙ্গতি যাচাই করার জন্য যথেষ্ট,
+   কিন্তু ইস্যুকারককে বিশ্বাস করার জন্য নয়। একজন নিরীক্ষককে এটি একটি কীয়ের সঙ্গে তুলনা করতে হবে
+   যা রসিদের বাইরে পিন করা আছে বা একটি বিশ্বাসযোগ্য রেজিস্ট্রির মাধ্যমে সমাধান করা হয়েছে।
+৩. যেকোনো ক্ষেত্রের একক অক্ষর পরিবর্তন করা, তারপর এই ফাইলটিকে পুনরায় তুলনা করা  
+   `02_tampered_receipt.json`, বাইট-স্তরের পদ্ধতিটিকে বাস্তব রূপ দেয়।
 
 ---
 
