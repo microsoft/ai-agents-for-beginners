@@ -588,26 +588,26 @@
     "language_code": "sv"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "b789e73c357bfbcd179133077fd3b34c",
-    "translation_date": "2026-09-10T10:43:45+00:00",
+    "original_hash": "c6433e2b62048d6ce1f29979208b8032",
+    "translation_date": "2026-10-30T20:11:51+00:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "sv"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "ca70977fa1a9378cc3c9b0b5c368930d",
-    "translation_date": "2026-09-10T09:58:51+00:00",
+    "original_hash": "5645a82b2c6aaee1156e413b89c3b08e",
+    "translation_date": "2026-10-30T19:50:19+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "sv"
   },
   "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb": {
-    "original_hash": "90d12015db78ea6bd1559073996f7ad9",
-    "translation_date": "2026-09-10T09:57:21+00:00",
+    "original_hash": "a87b977d2d0401f61c65fec26cc75f2b",
+    "translation_date": "2026-10-30T19:49:06+00:00",
     "source_file": "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb",
     "language_code": "sv"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "a71e64d926c907b86db11696bd955aa2",
-    "translation_date": "2026-09-10T10:52:30+00:00",
+    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
+    "translation_date": "2026-10-30T20:12:01+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "sv"
   },
