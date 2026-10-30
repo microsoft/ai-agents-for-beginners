@@ -1,63 +1,87 @@
-# Esimerkkikuittien esimerkit
+# Esimerkkikuitin testitiedostot
 
 Kolme valmiiksi luotua kuittitiedostoa tarkastelua varten ilman, että tarvitsee ajaa muistikirjaa.
 
-| Tiedosto | Mitä se on |
+| Tiedosto | Mikä se on |
 |---|---|
-| `01_valid_receipt.json` | Voimassa oleva allekirjoitettu kuitti `lookup_flights`-työkalukutsulle. Varmennus palauttaa True. |
-| `02_tampered_receipt.json` | Sama kuitti muokatulla yhdellä kentällä allekirjoituksen jälkeen. Varmennus palauttaa False. |
-| `03_chain_three_receipts.json` | Kolmen kelvollisen kuitin ketju (haku, varaus, varaa) jossa `previous_receipt_hash` linkittää ne toisiinsa. |
+| `01_valid_receipt.json` | Kelvollinen allekirjoitettu kuitti `lookup_flights` työkalukutsulle. Varmistus palauttaa True. |
+| `02_tampered_receipt.json` | Sama kuitti, jossa yksi kenttä muutettu allekirjoittamisen jälkeen. Varmistus palauttaa False. |
+| `03_chain_three_receipts.json` | Kolmen kelvollisen kuitin ketju (etsintä, varaus, varaa) kutsuineen, joissa `previous_receipt_hash` linkittää jokaisen edelliseen. |
 
-Esimerkeissä allekirjoitetaan suoraan hyötykuorman kanoniset JCS-tavut Ed25519:llä.
-SHA-256:tä käytetään edelleen sisällön tiivisteissä ja kuittiketjun linkeissä, ei
-ylimääräisenä esitiivisteenä ennen allekirjoitusta.
+Testit allekirjoittavat kuorman kanoniset JCS-tavut suoraan Ed25519:llä.
+SHA-256:tä käytetään edelleen sisältötiivisteissä ja kuituketjun linkeissä, ei ylimääräisenä esitiivisteenä ennen allekirjoitusta.
 
-## Esimerkkien varmennus
 
-Muistikirja esittelee varmentamisen neljässä osassa. Näiden esimerkkien
-suora varmentaminen ilman muistikirjan ajamista:
+## Esimerkkien varmistaminen
+
+`18-signed-receipts.ipynb`:ssa suorita ensin Setup ja osiot 1–3.
+Osio 3 määrittelee `verify_chain`; osiot 1 ja 2 yksinään eivät riitä.
+Sitten suorita seuraava lohko uudessa solussa, asettaen muistikirjan työhakemistoksi
+`18-securing-ai-agents/code_samples`. Alla olevat testitiedostojen polut ovat suhteellisia
+kyseiseen hakemistoon.
 
 ```python
 import json
 from pathlib import Path
 
-# Oletetaan, että olet suorittanut tuonnit ja apufunktiot
-# kohdista 1 ja 2 tiedostosta 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Tosi
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Epätosi
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Näin ne on luotu
+### Esimerkin tarkistaminen ilman Jupyteria
 
-Esimerkeissä käytetään samaa koodireittiä kuin muistikirjassa, yhdellä kiinteällä allekirjoitusavaimella
-ja kiinteillä ajoituksilla tavutasolla toistettavuuden varmistamiseksi. Uudelleenluomiseen:
+Repositorion juuresta asenna oppitunnin riippuvuudet ja aja:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Nämä testit suorittavat muistikirjan Python-esimerkit ja yllä tarkennetun README-lohkon.
+Ne myös tarkistavat, että manipulointi ja sipulointi ilman kiinnitettyjä avaimia hylätään varmistaessa.
+Testit ohittavat muistikirjan `%pip` setup-solun, koska riippuvuudet asennetaan erikseen. Ne eivät muuta muistikirjaa tai testitiedostoja.
+
+
+## Miten nämä luotiin
+
+Testit käyttävät samaa koodipolkua kuin muistikirja, yhdellä kiinteällä allekirjoitusavaimella
+ja kiinteillä aikaleimoilla tavujen toistettavuuden varmistamiseksi. Uudelleenluonti:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripti löytyy tästä kansiosta nimellä `generate_fixtures.py`.)
+(Skripti on `generate_fixtures.py` tässä hakemistossa.)
 
-## Mitä opiskelijat oppivat lukemalla raakaa JSON-muotoa
+## Mitä opiskelijat oppivat raakan JSONin tarkastelussa
 
-Raakatilan lukeminen muodostaa intuitiota, jota muistikirjan solut eivät aina tarjoa. 
-Opiskelijat, jotka selaavat JSON:ia, huomaavat usein:
+Raakamuotoisen kuitin lukeminen luo intuitiota, mitä muistikirjan solut eivät aina tarjoa.
+JSONia nopeasti selaavat opiskelijat havaitsevat usein:
 
-1. Allekirjoitus on läpinäkymätön base64url-merkkijono, mutta kaikki muut kentät ovat selkeästi
-   luettavaa JSON:ia. Allekirjoitus ei salaa sisältöä; se todentaa sen.
-2. `public_key` sisältyy kuittiin. Tarkastajan ei tarvitse mitään muuta
-   varmistaakseen (edellyttäen, että avain todella kuuluu väitetyille
-   myöntäjälle; katso oppitunnin README identiteettirakenteista).
-3. Yhden merkin muuttaminen missä tahansa kentässä ja sitten tämän tiedoston vertaaminen
-   tiedostoon `02_tampered_receipt.json` tekee tavutason mekanismin konkreettiseksi.
+1. Allekirjoitus on läpinäkymätön base64url-merkkijono, mutta kaikki muut kentät ovat puhdasta
+   luettavaa JSONia. Allekirjoitus ei salaa sisältöä; se vakuuttaa siitä.
+2. `public_key` on sisällytetty kuittiin, mikä riittää tarkistamaan
+   itsejohdonmukaisuuden mutta ei julkaisijan luotettavuutta. Tarkastajan täytyy verrata sitä avaimella,
+   joka on kiinnitetty kuitin ulkopuolelle tai ratkaistu luotettavan rekisterin kautta.
+3. Yhden merkin muuttaminen missä tahansa kentässä ja sitten tämän tiedoston uudelleen vertaaminen
+   `02_tampered_receipt.json`:iin konkretisoi tavutasolla toimivan mekanismin.
 
 ---
 
