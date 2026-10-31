@@ -379,21 +379,7 @@ This is a known issue with Python on macOS where the system SSL certificates are
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**Option 2: Use `connection_verify=False` in your notebook (for GitHub Models notebooks only)**
-
-In the Lesson 6 notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), a commented-out workaround is already included. Uncomment `connection_verify=False` when you hit certificate errors:
-
-```python
-client = ChatCompletionsClient(
-    endpoint=endpoint,
-    credential=AzureKeyCredential(token),
-    connection_verify=False,  # Disable SSL verification if you encounter certificate errors
-)
-```
-
-> **⚠️ Warning:** Disabling SSL verification (`connection_verify=False`) reduces security by skipping certificate validation. Use this only as a temporary workaround in development environments. Never use it in production.
-
-**Option 3: Install and use `truststore`**
+**Option 2: Install and use `truststore`**
 
 ```bash
 pip install truststore
