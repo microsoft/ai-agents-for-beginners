@@ -96,8 +96,8 @@
     "language_code": "et"
   },
   "00-course-setup/README.md": {
-    "original_hash": "133e1ccb18b42be22355bd608593e86c",
-    "translation_date": "2026-09-10T03:32:58+00:00",
+    "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
+    "translation_date": "2026-10-30T22:09:21+00:00",
     "source_file": "00-course-setup/README.md",
     "language_code": "et"
   },
@@ -588,26 +588,26 @@
     "language_code": "et"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "b789e73c357bfbcd179133077fd3b34c",
-    "translation_date": "2026-09-10T03:27:49+00:00",
+    "original_hash": "c6433e2b62048d6ce1f29979208b8032",
+    "translation_date": "2026-10-30T22:07:13+00:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "et"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "ca70977fa1a9378cc3c9b0b5c368930d",
-    "translation_date": "2026-09-10T03:07:32+00:00",
+    "original_hash": "5645a82b2c6aaee1156e413b89c3b08e",
+    "translation_date": "2026-10-30T21:43:53+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "et"
   },
   "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb": {
-    "original_hash": "90d12015db78ea6bd1559073996f7ad9",
-    "translation_date": "2026-09-10T03:06:30+00:00",
+    "original_hash": "a87b977d2d0401f61c65fec26cc75f2b",
+    "translation_date": "2026-10-30T21:43:05+00:00",
     "source_file": "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb",
     "language_code": "et"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "a71e64d926c907b86db11696bd955aa2",
-    "translation_date": "2026-09-10T03:37:06+00:00",
+    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
+    "translation_date": "2026-10-30T22:09:52+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "et"
   },
@@ -658,19 +658,6 @@
     "translation_date": "2025-10-11T10:56:46+00:00",
     "source_file": "SUPPORT.md",
     "language_code": "et"
-  },
-  "__translation_failures__": {
-    "00-course-setup/README.md": {
-      "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
-      "source_file": "00-course-setup/README.md",
-      "language_code": "et",
-      "failure_date": "2026-10-29T14:16:17+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 2.2.1.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
-      "failure_policy_version": 1
-    }
   },
   "tests/README.md": {
     "original_hash": "77b62539af9ac18820506113aee355f5",

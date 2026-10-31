@@ -1,6 +1,6 @@
-[Se lektionsvideoen: Sikring af AI-agenter med kryptografiske kvitteringer](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Se lektionens video: Sikring af AI-agenter med kryptografiske kvitteringer](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Lektionsvideo og miniaturebillede tilføjes af Microsoft indholdsteam efter sammenfletning, i overensstemmelse med lektion 14 / 15 mønsteret.)_
+> _(Lektionsvideo og miniaturebillede tilføjes af Microsoft-indholdsteamet efter sammensmeltning, i overensstemmelse med mønsteret for lektion 14 / 15.)_
 
 # Sikring af AI-agenter med kryptografiske kvitteringer
 
@@ -10,39 +10,42 @@ Denne lektion vil dække:
 
 - Hvorfor revisionsspor for AI-agenter er vigtige for overholdelse, fejlfinding og tillid.
 - Hvad en kryptografisk kvittering er, og hvordan den adskiller sig fra en usigneret loglinje.
-- Hvordan man producerer en underskrevet kvittering for et agentværktøjsopkald i ren Python.
+- Hvordan man producerer en underskrevet kvittering for en agents værktøjskald i almindelig Python.
 - Hvordan man verificerer en kvittering offline og opdager manipulation.
-- Hvordan man kæder kvitteringer sammen, så fjernelse eller omrokering af én bryder kæden.
-- Hvad kvitteringer beviser, og hvad de eksplicit ikke beviser.
+- Hvordan man kæder kvitteringer, sådan at fjernelse eller omlægning af en enkelt bryder kæden.
+- Hvad kvitteringer beviser, og hvad de udtrykkeligt ikke beviser.
 
 ## Læringsmål
 
-Når du har gennemført denne lektion, vil du vide, hvordan du:
+Efter at have gennemført denne lektion vil du vide, hvordan du:
 
-- Identificerer fejltilstande, der motiverer kryptografisk provenance for agenthandlinger.
+- Identificerer svigtformer, der motiverer kryptografisk oprindelse for agenthandlinger.
 - Producerer en Ed25519-underskrevet kvittering over en kanonisk JSON-payload.
-- Verificerer en kvittering uafhængigt med kun underskriverens offentlige nøgle.
-- Opdager manipulation ved at køre verifikationen igen på en modificeret kvittering.
+- Verificerer en kvittering uafhængigt ved kun at bruge underskriverens offentlige nøgle.
+- Opdager manipulation ved at genkøre verifikationen på en modificeret kvittering.
 - Bygger en hash-kædet sekvens af kvitteringer og forklarer, hvorfor kæden er vigtig.
-- Genkender grænsen mellem, hvad kvitteringer beviser (attribution, integritet, rækkefølge) og hvad de ikke gør (korrekthed af handlingen, gyldighed af politikken).
+- Genkender grænsen mellem hvad kvitteringer beviser (attribution, integritet, rækkefølge) og hvad de ikke gør (korrekthed af handlingen, gyldigheden af politikken).
 
-## Problemet: Dit agents revisionsspor
+## Problemet: Din agents revisionsspor
 
-Forestil dig, at du har deployeret en AI-agent for Contoso Travel. Agenten læser kundeforespørgsler, kalder et fly-API for at finde muligheder og booker pladser på kundens vegne. I det sidste kvartal behandlede agenten 50.000 reservationer.
+Forestil dig, at du har implementeret en AI-agent for Contoso Travel. Agenten læser kundebestillinger, kalder en fly-API for at finde muligheder og booker sæder på kundens vegne. Sidste kvartal behandlede agenten 50.000 bookinger.
 
-I dag ankommer en revisor. De stiller et simpelt spørgsmål: "Vis mig, hvad din agent gjorde."
+I dag dukker en revisor op. De stiller et enkelt spørgsmål: "Vis mig, hvad din agent gjorde."
 
-Du overdrager dine logfiler. Revisoren ser på dem og stiller det sværere spørgsmål: "Hvordan ved jeg, at disse logs ikke er blevet redigeret?"
+Du overleverer dine logfiler. Revisoren kigger på dem og stiller det sværere spørgsmål: "Hvordan ved jeg, at disse logs ikke er blevet redigeret?"
 
-Dette er audit-trail-problemet. De fleste agentdeployeringer i dag baserer sig på:
+Dette er problemet med revisionssporet. De fleste agentimplementeringer i dag er afhængige af:
 
-- **Applikationslogs**: skrevet af agenten selv, redigerbare af alle med filsystemadgang.
-- **Cloud-loggingtjenester**: manipulation kan opdages på platformniveau, men kun hvis revisoren stoler på platformudbyderen.
-- **Databasetransaktionslogs**: velegnede til databaseændringer, men ikke for vilkårlige værktøjsopkald.
+- **Applikationslogs**: skrevet af agenten selv, kan redigeres af alle med adgang til filsystemet.
+- **Cloud-loggingtjenester**: manipulationssikrede på platformniveau, men kun hvis revisor stoler på platformoperatøren.
+- **Databasetransaktionslogs**: velegnede til databaseændringer, men ikke til vilkårlige værktøjskald.
 
-Ingen af disse kan besvare revisorens spørgsmål uden, at revisoren skal stole på nogen (dig, din cloud-udbyder, din databaseleverandør). Til intern brug er den tillid ofte acceptabel. For regulerede arbejdsbelastninger (finans, sundhed, alt under EU AI-loven) er det ikke.
+Ingen af disse kan besvare revisorens spørgsmål uden, at revisoren skal have tillid til nogen (dig, din cloud-udbyder, din databaseleverandør). Til intern brug er den tillid ofte acceptabel. For regulerede arbejdsbyrder (finans, sundhedsvæsen, alt omfattet af EU's AI-forordning) er det ikke.
 
-Kryptografiske kvitteringer løser dette ved at gøre hver agenthandling uafhængigt verificerbar. Revisoren behøver ikke at stole på dig. De behøver kun din offentlige nøgle og kvitteringen selv.
+Kryptografiske kvitteringer afsmalder dette problem ved at gøre en underskrevet erklæring uafhængigt verificerbar. Revisoren har stadig brug for en ekstern årsag til at have tillid til underskriftnøglen og den komponent, der producerede erklæringen. En indlejret nøgle beviser selvkonsistens, ikke udstederidentitet eller håndhævelsesplacering.
+
+
+
 
 ## Hvad er en kryptografisk kvittering?
 
@@ -50,14 +53,14 @@ En kvittering er et JSON-objekt, der registrerer, hvad en agent gjorde, underskr
 
 ```mermaid
 flowchart LR
-    A[Agent påkalder et værktøj] --> B[Opbyg kvitteringspayload]
-    B --> C[Kanoniser JSON RFC 8785]
-    C --> E[Ed25519 signer kanoniske bytes]
-    E --> F[Kvittering med signatur]
-    F --> G[Revisor verificerer offline]
-    G --> H{Er signaturen gyldig?}
-    H -- yes --> I[Manipulationssikker bevis]
-    H -- no --> J[Kvittering afvist]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
 En minimal kvittering ser sådan ud:
@@ -81,32 +84,32 @@ En minimal kvittering ser sådan ud:
 }
 ```
 
-Tre egenskaber gør arbejdet:
+Tre egenskaber udfører arbejdet:
 
-1. **Signaturen**. Kvitteringen underskrives af agentens gateway med en Ed25519 privat nøgle. Enhver med den tilsvarende offentlige nøgle kan verificere signaturen offline. Manipulation af et hvilket som helst felt ugyldiggør signaturen.
+1. **Signaturen**. Kvitteringen er underskrevet af agentens gateway med en Ed25519 privatnøgle. Enhver med den tilsvarende offentlige nøgle kan verificere signaturen offline. En part, der stoler på kvitteringen, skal fastlåse denne nøgle eller opslå den i et betroet register uden for kvitteringen. Manipulation af et underskrevet felt ugyldiggør signaturen.
 
-2. **Kanonisk kodning**. Før underskrift serialiseres kvitteringen med JSON Canonicalization Scheme (JCS, RFC 8785). Dette sikrer, at to implementeringer, der producerer samme logiske kvittering, også producerer byte-identisk output. Uden kanonisk kodning ville forskellige JSON-serialisatorer producere forskellige signaturer for samme indhold.
+2. **Kanonisk kodning**. Før underskrift serialiseres kvitteringen ved hjælp af JSON Canonicalization Scheme (JCS, RFC 8785). Det sikrer, at to implementeringer, der producerer samme logiske kvittering, genererer byte-identisk output. Uden kanonisering ville forskellige JSON-serialisatorer producere forskellige signaturer for samme indhold.
 
-3. **Hash-kædning**. Feltet `previous_receipt_hash` forbinder hver kvittering til den foregående. Fjernelse eller omrokering af en kvittering bryder alle kvitteringer efter den. Manipulation bliver synlig på kæde-niveau, selv hvis individuelle signaturer bliver omgået.
+3. **Hash-kædning**. Feltet `previous_receipt_hash` forbinder hver kvittering med den foregående. Fjernelse eller omlægning af en kvittering bryder den præsenterede sekvens. Opdagelse af afkortning eller en underskriverstyret omskrivning kræver også et fastlåst aktuelt kædehoved, uafhængigt bevist checkpoint eller autentificeret lukket-populationsforpligtelse.
 
-Sammen giver disse egenskaber tre garantier:
+Samlet giver disse egenskaber tre garantier:
 
-- **Attribution**: denne nøgle underskrev dette indhold.
-- **Integritet**: indholdet er ikke ændret siden underskrift.
-- **Rækkefølge**: denne kvittering kom efter den pågældende kvittering i kæden.
+- **Attribution til en nøgle**: denne nøgle underskrev dette indhold. Organisatorisk eller menneskelig identitet kræver en betroet nøglebinding.
+- **Integritet**: indholdet har ikke ændret sig siden underskrift.
+- **Rækkefølge i den verificerede sekvens**: denne kvittering forbinder til den forgående.
 
 ## Produktion af en kvittering i Python
 
-Du behøver ikke et særligt bibliotek for at producere en kvittering. De kryptografiske primitive findes bredt, og logikken er kun nogle få dusin linjer Python.
+Du behøver ikke et specielt bibliotek for at producere en kvittering. De kryptografiske primitive funktioner er bredt tilgængelige, og logikken er få dusin linjer Python.
 
-De praktiske øvelser i `code_samples/18-signed-receipts.ipynb` gennemgår hele flowet. Her er en opsummering:
+De praktiske øvelser i `code_samples/18-signed-receipts.ipynb` gennemgår hele forløbet. Den versionsstyrede `code_samples/18-signed-receipts.execution-receipt.json` registrerer den præcise notebook-hash, Python-miljø, celleantal og tjek fra den seneste rene kørsel uden at ændre lektionens gemte output. Den forkortede version:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 kanonisk JSON
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Generer eller indlæs en signeringsnøgle (i produktion, gem i en nøgleboks)
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# Byg kvitteringsindholdet (ingen signatur endnu)
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kannoniser og signer JCS-bytes direkte. PureEdDSA hasher internt.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Vedhæft et struktureret signaturobjekt.
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -150,239 +154,272 @@ receipt = {
 }
 ```
 
-Det er hele underskrifts-pipelinen. Øvelserne i notebooken gennemgår hvert trin.
+Det er hele underskriftsprocessen. Øvelserne i notebooken gennemgår hvert trin.
 
-## Verifikation af en kvittering og detektion af manipulation
+## Verificering af en kvittering og opdagelse af manipulation
 
-Verifikation er den omvendte operation:
+Verificering er den modvendte operation:
 
 ```python
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # Signaturen er et struktureret objekt: {"alg", "sig", "public_key"}.
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # Genskab den nyttelast, der faktisk blev underskrevet (alt undtagen signaturen).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-Denne funktion tager en kvittering og returnerer `True`, hvis signaturen er gyldig, ellers `False`. Ingen netværkskald, ingen servicedependency, ingen tillid nødvendig til tredjepart.
+Denne funktion tager en kvittering plus den betroede parts fastlåste nøglesæt og returnerer
+`True` kun hvis signaturen er gyldig under en accepteret nøgle. Verificering kræver ikke
+netværkskald, men tillid til nøgler er stadig en ekstern konfigurationsbeslutning.
 
-For at se manipulation opdages i praksis, gennemgår notebooken:
+For at se manipulation opdages i praksis gennemgår notebooken:
 
-1. At producere en gyldig kvittering og bekræfte den.
-2. At ændre en enkelt byte i feltet `tool_args_hash`.
-3. At køre verifikationen igen og se den fejle.
+1. Produktion af en gyldig kvittering og bekræftelse af verifikation.
+2. Ændring af en byte i `tool_args_hash`-feltet.
+3. Genkørsel af verifikation og se, at den fejler.
 
-Dette er den praktiske demonstration af, at kvitteringer er manipulationssikre: enhver ændring, uanset hvor lille, bryder signaturen.
+Dette er den praktiske demonstration af, at kvitteringer er manipulationssikrede: enhver ændring, uanset hvor lille, bryder signaturen.
 
-## Kædning af kvitteringer for agent med flere trin
+## Kædning af kvitteringer for multi-trins agenter
 
 En enkelt underskrevet kvittering beskytter en handling. En kæde af kvitteringer beskytter en sekvens.
 
 ```mermaid
 flowchart LR
-    R0[Kvittering 0<br/>genese] --> R1[Kvittering 1]
-    R1 --> R2[Kvittering 2]
-    R2 --> R3[Kvittering 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Hver kvittering registrerer hash-værdien af den foregående kvittering. For at fjerne kvittering 2 uden at blive opdaget, skal en angriber enten:
+Hver kvittering registrerer hashen af den forudgående kvittering. For at fjerne kvittering 2 uden at blive opdaget, skal en angriber enten:
 
-- Ændre kvittering 3's `previous_receipt_hash` felt (bryder kvittering 3's signatur), ELLER
-- Falske en ny signatur på en modificeret kvittering 3 (kræver agentens private nøgle).
+- Ændre kvittering 3's `previous_receipt_hash`-felt (bryder kvittering 3's signatur), ELLER
+- Forfalske en ny signatur på en modificeret kvittering 3 (kræver agentens private nøgle).
 
-Hvis den private nøgle er i en hardware-nøgleboks, og du offentliggør den offentlige nøgle med hver kvittering, er ingen af angrebene mulige uden at blive opdaget.
+Hvis den private nøgle er beskyttet og en verificerer fastlåser et uafhængigt bevist kædehoved,
+kan disse angreb opdages. Det er ikke tilstrækkeligt at offentliggøre nøglen i hver kvittering:
+en underskriver eller angriber kan præsentere en anden nøgle, omskrive en suffiks eller
+afkorte kæden, medmindre den betroede part har et eksternt tillids- og fuldstændighedsanker.
 
 Notebooken gennemgår:
 
-1. Byg en kæde af tre kvitteringer.
-2. Bekræft, at hver kvitterings `previous_receipt_hash` matcher den faktiske hash af den forrige kvittering.
-3. Manipuler én kvittering midt i kæden og se kæden bryde præcis der.
+1. Opbygning af en kæde bestående af tre kvitteringer.
+2. Verificere, at hver kvitterings `previous_receipt_hash` matcher den faktiske hash af den foregående kvittering.
+3. Manipulere en kvittering midt i kæden og se kæden bryde præcis der.
 
-Sådan producerer du et revisionsspor, som en ekstern revisor kan verificere uden at skulle have tillid til dig.
+Sådan producerer du et revisionsspor, som en ekstern revisor kan verificere under sine
+egne fastlåste udstedernøgler og kædecheckpoints, uden at skulle stole på din muterbare loglager.
 
-## Hvad kvitteringer beviser (og ikke beviser)
+## Hvad kvitteringer beviser (og hvad de ikke gør)
 
-Dette er det vigtigste afsnit i denne lektion. Kvitteringer er kraftfulde, men deres kraft er begrænset.
+Dette er det vigtigste afsnit i denne lektion. Kvitteringer er kraftfulde, men deres magt er begrænset.
 
 **Kvitteringer beviser tre ting:**
 
 1. **Attribution**: en specifik nøgle underskrev en specifik payload.
 2. **Integritet**: payloaden har ikke ændret sig siden underskrift.
-3. **Rækkefølge**: denne kvittering kom efter den tidligere i hash-kæden.
+3. **Rækkefølge i en præsenteret, verificeret sekvens**: denne kvittering refererer til den forgående.
 
-**Kvitteringer BEVISEr IKKE:**
+**Kvitteringer beviser IKKE:**
 
-1. **Korrekthed**: at agentens handling var korrekt. En kvittering kan underskrives for et forkert svar lige så nemt som for et korrekt.
-2. **Politikoverholdelse**: at politiken refereret i `policy_id` rent faktisk blev evalueret, eller at den ville have tilladt handlingen ved kontrol. Kvitteringen registrerer, hvad der blev hævdet, ikke hvad der blev håndhævet.
-3. **Identitet ud over nøglen**: kvitteringen siger "denne nøgle underskrev dette indhold." Den siger ikke "denne person godkendte dette." Tilknytning af nøgle til person eller organisation kræver separat identitetsinfrastruktur (et katalog, et offentligt nøgleregister, mv.).
-4. **Sandfærdighed af input**: hvis agenten modtager en manipuleret prompt og handler på den, registrerer kvitteringen handlingen trofast. Kvitteringer kommer efter inputvalidering, ikke som erstatning.
+1. **Korrekthed**: at agentens handling var den rigtige handling. En kvittering kan underskrives for et forkert svar lige så rent som for et rigtigt svar.
+2. **Politikoverholdelse**: at den politik, der blev henvist til i `policy_id`, faktisk blev evalueret, eller at den ville have tilladt denne handling, hvis den blev kontrolleret. Kvitteringen registrerer, hvad der blev hævdet, ikke hvad der blev håndhævet.
+3. **Identitet ud over nøgle**: kvitteringen siger "denne nøgle underskrev dette indhold." Den siger ikke "denne person godkendte dette." At forbinde en nøgle med en person eller organisation kræver separat identitetsinfrastruktur (et katalog, et offentligt nøgleregister osv.).
+4. **Sandfærdighed af input**: hvis agenten modtager en manipuleret prompt og handler på den, registrerer kvitteringen handlingen troværdigt. Kvitteringer er efterfølgende validering af input, ikke en erstatning for det.
+5. **Udførelse eller virkelige effekter**: en kvittering efter kald registrerer, hvad dens udsteder hævder skete. Bevis for adgang eller afstemning af ekstern effekt kræver beviser fra den faktiske udfører eller leverandørens grænse.
+6. **Fuldstændighed**: en manglende kvittering kan betyde blokeret, udeladt, tabt eller ikke instrumenteret. Fravær bliver kun bevis inden for en autentificeret lukket population.
+7. **Betroet tid**: et underskrevet tidsstempel beviser, at underskriveren havde den værdi, ikke at værdien var korrekt. Betroet tid kræver en separat tidsautoritet eller bevist checkpoint.
 
 Denne grænse er vigtig af to grunde:
 
-- Den fortæller dig, hvad kvitteringer er nyttige til: at gøre agentens opførsel revisionsbar og manipulationssikker, også på tværs af organisatoriske grænser.
-- Den fortæller dig, hvilke ekstra lag du stadig har brug for: inputvalidering (lektion 6), policye-håndhævelse (kort omtalt nedenfor) og identitetsinfrastruktur (uden for denne lektions omfang).
+- Den fortæller dig, hvad kvitteringer er nyttige til: at gøre agentadfærd revisionsbar og manipulationssikker, selv på tværs af organisatoriske grænser.
+- Den fortæller dig, hvilke yderligere lag du stadig har brug for: inputvalidering (Lektion 6), politi-håndhævelse (kort berørt nedenfor) og identitetsinfrastruktur (uden for denne lektions ramme).
 
-En almindelig fejl er at antage, at "vi har kvitteringer" betyder "vi er styret." Det gør det ikke. Kvitteringer er en grundsten. Styring er systemet, du bygger ovenpå.
+En almindelig fejl er at antage, at "vi har kvitteringer" betyder "vi er styret." Det gør det ikke. Kvitteringer er et fundament. Styring er systemet, du bygger ovenpå.
 
-## Bevis for at et menneske godkendte den præcise handling
+## Binding af en godkendelsessignatur til den nøjagtige handling
 
-Punkt 3 ovenfor fortjener sit eget afsnit: en handlingskvittering siger "denne nøgle underskrev dette indhold," aldrig "et menneske godkendte dette." For højrisiaktioner (refusioner, sletninger, overførsler) kræver styringsrammer i stigende grad netop denne manglende erklæring, og den kan produceres med de samme primitive, du allerede byggede i denne lektion.
+Punkt 3 ovenfor fortjener sit eget afsnit: en handlingskvittering siger "denne nøgle underskrev dette indhold," aldrig "et menneske godkendte dette." For højrisikohandlinger (refusioner, sletninger, overførsler) kan en separat godkendersignatur binde den nøjagtige handling. At forbinde den nøgle til et menneske og kontrollere menneskelig tilstedeværelse er stadig separate ansvar.
 
-Den efterfølgende notebook `code_samples/human-authorization-receipts.ipynb` tilføjer en anden kvitteringstype, `human.approval.v1`, i samme kuvertform som lektionens kvitteringer (en typet payload underskrevet af Ed25519 over sine kanoniske JCS-bytes, med `signature`-objektet uden for de underskrevne bytes). En navngiven godkender underskriver **hele den kanoniske handling og dens digest** før eksekvering; agentens handlingskvittering indeholder **samme handlingsdigest** og en `parent_approval_ref`, godkendelsens `receipt_hash`, samme konvention som `previous_receipt_hash` i kæden du byggede ovenfor. En `verify_chain` verificerer begge artefakter under **separate fastlåste nøgleregistre** (godkender-nøgler vs. agent-nøgler), så kodevejen deles, men myndighederne aldrig gør.
+Den efterfølgende notebook `code_samples/human-authorization-receipts.ipynb` tilføjer en anden type kvittering, `human.approval.v1`, i samme kuvertform som lektionens kvitteringer (en typet payload underskrevet med Ed25519 over dens kanoniske JCS-bytes, med `signature`-objektet uden for de underskrevne bytes). En godkendernøgle underskriver den **fulde kanoniske handling og dens digest**; en agentnøgle underskriver en påstand med **samme handlingsdigest** og en `parent_approval_ref`, `receipt_hash` godkendelsen, samme konvention som `previous_receipt_hash` i kæden du byggede ovenfor. Én `verify_chain` gennemgår begge artefakter under **separate fastlåste nøgleregistre** (godkendernøgler vs agentnøgler), så kodevejen deles men myndighederne aldrig gør.
 
-Den egenskab, det giver, formuleret nøje: *mennesket godkendte denne præcise handling, og agenten udførte netop den godkendte handling.* Notebookens afvisnings-fixtures er det, der gør egenskaben reel snarere end påstået:
+Egenskaben, som dette sikrer, formuleret omhyggeligt: *den fastlåste godkendernøgle underskrev denne præcise
+handling, og agentnøglen underskrev senere en erklæring med samme handlingsdigest.*
+Det er nyttigt bevis, men det er ikke i sig selv bevis for, at handlingen blev udført. For at
+kontrollere udførelsen skal den nøjagtige godkendelse også reserveres og forbruges én gang på
+den faktiske udførelsesgrænse; ukendte udbyderresultater skal forblive ukendte fremfor
+blindt at blive forsøgt igen. Notebookens afvisningsfunktioner tester kvitteringskædelaget:
 
-- det klassiske sæt: manipulation, forvirret stedfortræder, genafspilning, forfalskede nøgler på begge sider, malformed input;
-- **udløbet myndighed**: en signatur, der stadig verificerer, men afvises alligevel fordi politikversionen flyttede, godkender-nøglen blev fjernet fra registret, eller godkendelsen udløb før eksekvering;
-- **digest-udskiftning**: en gyldigt underskrevet handlingskvittering, der peger på en *ægte* godkendelse, der binder til en *anden* kanonisk handling.
+- manipulation, forvirret stedfortræder, forfalskede nøgler på begge sider samt forkert input;
+- **forældet autoritet**: en signatur der stadig verificeres, nægtet alligevel fordi politiversionen skiftede, godkendernøglen blev roteret ud af det fastlåste register, eller godkendelsen udløb før den angivne verifikationstid;
+- **digest-substitution**: en gyldigt underskrevet handlingskvittering, der peger på en *ægte* godkendelse, som binder en *anden* kanonisk handling.
 
-Hver fejl afviser med en særskilt grund, så en revisor, der læser afvisningen, kan afgøre, om myndigheden er udløbet eller om den eksekverede handling er ændret. Reglen notebooken lærer: en underskrevet godkendelse er ikke myndighed i sig selv. Myndighed eksisterer kun, hvis begge kvitteringer binder til samme kanoniske handling på eksekveringstidspunktet. Menneske-godkendelseskvitteringen er en pædagogisk sammensætning defineret i denne lektion, ikke en kvitteringstype defineret af `draft-farley-acta-signed-receipts`.
+Hver fejl afvises med en særskilt grund, så en revisor, der læser en afvisning, kan afgøre om autoriteten er forældet eller den hævdede handling ændret. Verificering er skrivebeskyttet og gentagelig: den forbruger ikke godkendelsen eller kalder en udbyder. En separat udfører har brug for holdbar, atomar genspilbeskyttelse og eksplicit succes-, fejloplysninger og uafklarede resultater. Den menneskelige godkendelseskvittering er en pædagogisk sammensætning defineret af denne lektion, ikke en kvitteringstype defineret af `draft-farley-acta-signed-receipts`.
 
-## Produktionshenvisninger
+## Produktionsreferencer
 
 Python-koden i denne lektion er bevidst minimal, så du kan læse hver linje og forstå præcis, hvad der sker. I produktion har du to muligheder:
 
-1. **Byg direkte på de kryptografiske primitive.** De 50 linjer, du så ovenfor, er tilstrækkelige til mange brugstilfælde. PyNaCl (Ed25519) og `jcs`-pakken (kanonisk JSON) er velvedligeholdte og reviderede biblioteker.
+1. **Byg direkte på de kryptografiske primitive funktioner.** De 50 linjer, du så ovenfor, er tilstrækkelige til mange anvendelsestilfælde. PyNaCl (Ed25519) og `jcs`-pakken (kanonisk JSON) er velvedligeholdte og reviderede biblioteker.
 
-2. **Brug et produktionsklar kvitteringsbibliotek.** Flere open-source projekter implementerer samme mønster med ekstra funktioner (nøgle-rotation, batch-verifikation, JWK Set-distribution, integration med policy-engine):
-   - Signaturpipelinen bruger JCS og signatur-omfangskonventioner i et uafhængigt IETF Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revision 02). Lektionens flade uddannelseskvittering adskiller sig fra draftets `{payload, signature}` kuvert og præsenteres ikke som en konform implementering. Draftet udgiver en fælles konformitetstestpakke ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) for implementeringer, der målretter dets wire-format.
-   - Microsoft Agent Governance Toolkit sammensætter kvitteringer med Cedar-baserede politikbeslutninger; se Tutorial 33 i det repository for et end-to-end eksempel.
-   - `protect-mcp` (npm) og `@veritasacta/verify` (npm) pakkerne leverer en Node-baseret implementering af kvitteringssignering og offline verifikation, beregnet til at omslutte enhver MCP-server med et manipulationssikkert revisionsspor, inklusive en held-for-co-sign flow, hvor en pausere handling udsteder en godkendelseskvittering bundet til handlingsdigest (WebAuthn-backede i desktop-flowet), samme godkendelses-kvitteringsmønster som den menneskeautorisation-notebook, der er omtalt ovenfor.
-   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) leverer det samme Ed25519 + JCS underskriftsmønster i Python med LangChain og CrewAI integrationer, inklusiv offentliggjorte krydsvaliderings-testvektorer og en overholdelseskortlægning bidraget via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+2. **Brug et produktionsklar kvitteringsbibliotek.** Flere open source-projekter implementerer samme mønster med yderligere funktioner (nøglerotation, batchverifikation, JWK Set-distribution, integration med politiske motorer):
+   - Underskriftsprocessen bruger JCS og signaturscope-konventioner i et uafhængigt IETF Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revision 02). Denne lektions flade pædagogiske kvittering adskiller sig fra udkastets `{payload, signature}`-kuvert og præsenteres ikke som en konform implementering. Udkastet offentliggør en fælles konformitetstestpakke ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) for implementeringer, der sigter mod dets wireformatsformat.
+   - Microsoft Agent Governance Toolkit komponerer kvitteringer med Cedar-baserede beslutninger; se Tutorial 33 i det depot for et end-to-end eksempel.
+   - `protect-mcp` (npm) og `@veritasacta/verify` (npm) pakkerne tilbyder en Node-baseret implementering af kvitteringssignering og offline verifikation, beregnet til at omslutte enhver MCP-server med et manipulationssikkert revisionsspor, inklusive et afventet samunderskriftsflow, hvor en pauset handling udsender en godkendelseskvittering bundet til handlingsdigestet (WebAuthn-understøttet i desktop-flowet), det samme godkendelseskvitteringsmønster som den menneskelige autorisationsnotebook ovenfor.
+   - Den **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) leverer det samme Ed25519 + JCS signeringsmønster i Python med LangChain og CrewAI integrationer, inklusive publicerede krydsvaliderings testvektorer og en overholdelseskortlægning bidraget via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+   - **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** leverer et supplerende lag til håndhævelse af præcis handling: offline-verificerbare godkendelsesmodtagelser, fastlåst WebAuthn eller kvorum autoritet, engangsforbrug ved eksekutorkanten og en eksplicit sti for uafklaret udfald. Dens rammeadaptere behandler en modtagelse som nødvendigt bevis snarere end bevis på, at en ekstern effekt fandt sted.
 
-Valget mellem at bygge selv og bruge et bibliotek spejler beslutningen mellem at skrive dit eget JWT-bibliotek og bruge et testet et: begge er rimelige; biblioteket sparer tid og reducerer revisionsfladen; den fra-grunden-tilgang tvinger dig til at forstå hver primitiv. Denne lektion underviser i fra-grund-metoden, så du har fundamentet for begge valg.
+Beslutningen mellem at udvikle eget og bruge et bibliotek tilsvarer valget mellem at skrive dit eget JWT-bibliotek og bruge et testet: begge er rimelige; biblioteket sparer tid og reducerer revisionsfladen; fra-skratch-tilgangen tvinger dig til at forstå hver primitiv. Denne lektion lærer fra-skratch-tilgangen, så du har grundlaget for begge valg.
 
-## Videnscheck
+## Videnskontrol
 
-Test din forståelse inden du går videre til øvelsen.
+Test din forståelse før du går videre til praksisøvelsen.
 
-**1. En kvittering er underskrevet med agentens private Ed25519-nøgle. Revisor har kun den offentlige nøgle. Kan revisor verificere kvitteringen offline?**
-
-<details>
-<summary>Svar</summary>
-
-Ja. Ed25519-verifikation kræver kun den offentlige nøgle og de underskrevne bytes. Intet netværkskald, ingen servicedependency. Dette er egenskaben, der gør kvitteringer nyttige i air-gapped, multi-organisation eller lav-tillids revisionsmiljøer.
-</details>
-
-**2. En angriber ændrer kvitteringens `policy_id`-felt for at påstå, at det var underlagt en mere lempelig politik. Signaturen var over den oprindelige payload. Hvad sker der under verifikationen?**
+**1. En modtagelse er underskrevet med agentens private Ed25519-nøgle. Revisoren har kun den offentlige nøgle. Kan revisor verificere modtagelsen offline?**
 
 <details>
 <summary>Svar</summary>
 
-
-Verificeringen mislykkes. Signaturen blev beregnet over de kanoniske bytes af den oprindelige nyttelast; ændring af et hvilket som helst felt ændrer disse bytes, hvilket gør signaturen ugyldig. Angriberen ville have brug for den private nøgle for at producere en frisk gyldig signatur, hvilket de ikke har.
+Ja, kryptografisk verifikation kræver kun den offentlige nøgle og de underskrevne bytes. 
+Revisoren skal stadig uafhængigt opnå og fastlåse den accepterede offentlige nøgle uden for modtagelsen.
+Der kræves ikke netværkskald efter denne tillidskonfiguration er etableret.
 </details>
 
-**3. Hvorfor indeholder kvitteringen en `tool_args_hash` og `result_hash` i stedet for de rå argumenter og resultat?**
+**2. En angriber ændrer `policy_id` feltet i en modtagelse for at hævde, at den var underlagt en mere tilladende politik. Signaturen var over den originale payload. Hvad sker der under verifikationen?**
 
 <details>
 <summary>Svar</summary>
 
-To grunde. For det første skal kvitteringen muligvis arkiveres eller overføres i miljøer, hvor afsløring af det rå indhold (PII, forretningsdata) er problematisk. Hashing holder kvitteringen lille og indholdet privat; revisoren bekræfter, at hashen matcher en separat lagret kopi af det faktiske indhold. For det andet har hashes en fast størrelse; en kvittering med hashes er begrænset i størrelse uanset hvor store input og output var.
+Verifikationen mislykkes. Signaturen blev beregnet over de kanoniske bytes af den originale payload; ændring af et hvilket som helst felt ændrer disse bytes, hvilket gør signaturen ugyldig. Angriberen ville have brug for den private nøgle til at lave en ny gyldig signatur, hvilket de ikke har.
 </details>
 
-**4. Feltet `previous_receipt_hash` linker hver kvittering til dens forgænger. Hvis en angriber stille sletter én kvittering midt i en kæde, hvad bliver så ugyldigt?**
+**3. Hvorfor inkluderer modtagelsen en `tool_args_hash` og `result_hash` i stedet for de rå argumenter og resultat?**
 
 <details>
 <summary>Svar</summary>
 
-Hver kvittering, der kom efter den slettede. Deres `previous_receipt_hash` felter matcher ikke længere den faktiske kæde (fordi kvitteringen, de refererede til, ikke længere eksisterer, eller kæden nu peger på en anden forgænger). For at skjule sletningen skulle angriberen gensignere hver senere kvittering, hvilket kræver den private nøgle.
+To grunde. Først kan modtagelsen have brug for at blive arkiveret eller overført i miljøer, hvor lækage af råt indhold (PII, forretningsdata) er et problem. Hashing holder modtagelsen lille og indholdet privat; revisoren verificerer, at hashen matcher en separat opbevaret kopi af det faktiske indhold. For det andet har hashes en fast størrelse; en modtagelse med hashes er begrænset i størrelse uanset hvor store input og output var.
 </details>
 
-**5. En kvittering verificeres rent. Beviser det, at agentens handling var korrekt, forsvarlig eller i overensstemmelse med politikken?**
+**4. `previous_receipt_hash` feltet forbinder hver modtagelse med sin forgænger. Hvis en angriber stille og roligt sletter en modtagelse midt i en kæde, hvad bliver ugyldigt?**
 
 <details>
 <summary>Svar</summary>
 
-Nej. En gyldig kvittering beviser tre ting: attribution (denne nøgle har signeret dette indhold), integritet (indholdet er ikke ændret) og rækkefølge (denne kvittering kom efter den anden kvittering). Det beviser IKKE, at handlingen var korrekt, at politikken navngivet i `policy_id` faktisk blev evalueret, eller at agenten fulgte alle regler. Kvitteringer gør agentens adfærd auditerbar, ikke nødvendigvis korrekt. Dette er den vigtigste grænse i lektionen.
+Den næste præsenterede modtagelse linker ikke længere til sin forventede forgænger, så verifikationen
+af den fremlagte sekvens fejler fra hullet og fremad. Hvis signatøren kontrollerer den private
+nøgle, kan den omskrive eller forkorte en suffiks. At opdage det kræver en fastlåst aktuel hoved,
+ekstern checkpoint eller autentificeret befolkningsforpligtelse.
 </details>
 
-## Øvelsesopgave
+**5. En modtagelse verificeres rent. Beviser det, at agentens handling var korrekt, vellykket eller i overensstemmelse med politikken?**
 
-Åbn `code_samples/18-signed-receipts.ipynb` og fuldfør alle fire sektioner:
+<details>
+<summary>Svar</summary>
 
-1. **Sektion 1**: Signer din første kvittering og verificer den.
-2. **Sektion 2**: Manipuler kvitteringen og observer, at verificering mislykkes.
-3. **Sektion 3**: Byg en kæde af tre kvitteringer og verificer kædens integritet.
-4. **Sektion 4**: Anvend mønsteret på en agent bygget med Microsoft Agent Framework: indpak et værktøjskald i kvitterings-signering, og verificer derefter kvitteringen uafhængigt.
+Nej. Under en fastlåst nøgle og kædekontekst beviser en gyldig modtagelse signaturtilskrivning,
+indholds integritet og et link til den fremlagte forgænger. Den BEVISER IKKE at
+handlingen var korrekt eller udført, at politikken blev evalueret, at tidsstemplet er
+pålideligt, eller at datasættet er fuldstændigt. Dette er den vigtigste grænse i lektionen.
+</details>
 
-**Udvidelsesudfordring 1:** udvid kvitteringsskemaet med et yderligere felt efter eget valg (for eksempel en anmodnings-ID til sporing), opdater den kanoniske signeringslogik til at inkludere det, og bekræft at kvitteringen stadig kan gå gennem verificering. Ændr derefter feltet efter signering, og bekræft, at verificering mislykkes. Dette tvinger dig til at forstå, hvordan hver byte i den kanoniske kodning bidrager til signaturen.
+## Praksisøvelse
 
-**Udvidelsesudfordring 2:** SHA-256-hash to af dine kvitteringer sammen (sammenkæd deres kanoniske bytes i en deterministisk rækkefølge) og indlej den resulterende digest som et nyt felt på en tredje kvittering inden signering. Verificer at alle tre kvitteringer stadig kan gå igennem verificering. Du har lige bygget et inklusionsbevis på ét trin: enhver, der holder den tredje kvittering, kan bevise at de to første eksisterede på tidspunktet for den sene signering uden at skulle afsløre deres indhold. Dette er mønsteret, som selective-disclosure kvitteringer bruger i stor skala (Merkle-forpligtelser, RFC 6962).
+Åbn `code_samples/18-signed-receipts.ipynb` og udfyld alle fire sektioner:
+
+1. **Sektion 1**: Underskriv din første modtagelse og verificer den.
+2. **Sektion 2**: Manipulér modtagelsen og observer verifikationsfejl.
+3. **Sektion 3**: Byg en tre-modtagelses kæde og verificer kædens integritet.
+4. **Sektion 4**: Anvend mønsteret på en agent bygget med Microsoft Agent Framework: pak et værktøjsopkald ind i modtagelses-signering, og verificer derefter modtagelsen uafhængigt.
+
+**Udvidelsesudfordring 1:** udvid modtagelsesskemaet med et ekstra felt efter eget valg (for eksempel et forespørgsels-ID til sporing), opdatér den kanoniske signeringslogik til at inkludere det, og bekræft at modtagelsen stadig kan rundsendes gennem verifikation. Ændr derefter feltet efter signeringen og bekræft at verifikationen fejler. Dette tvinger dig til at forstå, hvordan hver byte af den kanoniske kodning bidrager til signaturen.
+
+**Udvidelsesudfordring 2:** SHA-256-hash to af dine modtagelser sammen (kæd deres kanoniske bytes i en deterministisk rækkefølge) og indlejre den resulterende digest som et nyt felt på en tredje modtagelse før signering. Verificer, at alle tre modtagelser stadig kan rundsendes. Du har netop bygget et en-trins inklusionsbevis: enhver, der har den tredje modtagelse, kan bevise, at de første to eksisterede på tidspunktet for signeringen uden at skulle afsløre deres indhold. Dette er mønsteret, som selektive afsløringsmodtagelser bruger i stor skala (Merkle-forpligtelser, RFC 6962).
 
 ## Konklusion
 
-Kryptografiske kvitteringer giver AI-agenter et revisionsspor, der er:
+Kryptografiske modtagelser giver AI-agenter et revisionsspor, der er:
 
-- **Uafhængigt verificerbart**: enhver med den offentlige nøgle kan verificere, uden afhængighed af service.
-- **Manipulationsbeviseligt**: enhver ændring ugyldiggør signaturen.
-- **Bærbart**: en kvittering er en lille JSON-fil; den kan arkiveres, overføres og verificeres overalt.
-- **Standardtilpasset**: bygget på Ed25519 (RFC 8032), JCS (RFC 8785) og SHA-256, alle bredt anvendte primitives.
+- **Uafhængigt verificerbart under fastlåst tillid**: en part med accepterede offentlige nøgler og underskrevne bytes kan verificere uden tjenesteafhængighed.
+- **Manipulationssikkert**: enhver ændring ugyldiggør signaturen.
+- **Transportabelt**: en modtagelse er en lille JSON-fil; den kan arkiveres, overføres og verificeres hvor som helst.
+- **Standard-aligneret**: bygget på Ed25519 (RFC 8032), JCS (RFC 8785) og SHA-256, alle bredt udbredte primitiv.
 
-De er ikke en erstatning for inputvalidering, håndhævelse af politik, eller identitetsinfrastruktur. De er et fundament for disse lag. Når du implementerer agenter i regulerede arbejdsbelastninger, workflows mellem flere organisationer, eller enhver kontekst hvor en fremtidig revisor ikke kan antages at stole på dig, er kvitteringer hvordan du gør revisionssporet ærligt.
+De er ikke en erstatning for inputvalidering, håndhævelse af politik, eksekutorpåtegning,
+resultatbevis, fuldstændighedskontrol eller identitetsinfrastruktur. De er et fundament
+for disse lag. I regulerede eller multi-organisations arbejdsgange gør modtagelser specifikke
+udstederaftaler uafhængigt kontrollerbare under revisorens egen tillidskonfiguration.
 
-Det vigtigste at tage med: kvitteringer beviser, hvem der sagde hvad, hvornår. De beviser ikke, at det sagte var sandt eller rigtigt. Hold denne sondring stramt. Det er forskellen mellem et ærligt oprindelsessystem og et misvisende.
+Det vigtigste takeaway: modtagelser beviser, at en bestemt nøgle har underskrevet bestemt
+indhold. Et medbragt tidsstempel er en underskrivers påstand, medmindre den er tidsattesteret separat. En
+modtagelse beviser ikke, at dens indhold var sandt, at en handling blev udført, eller at
+datasættet er komplet. Hold disse distinktioner stramt.
 
 ## Produktionscheckliste
 
-Når du er klar til at gå videre fra denne lektion til at implementere kvitterings-signerende agenter i et rigtigt miljø:
+Når du er klar til at gå videre fra denne lektion til at implementere modtagelses-underskrevne agenter i et reelt miljø:
 
-- [ ] **Flyt signeringsnøglen væk fra udviklerlaptoppen.** Brug Azure Key Vault, AWS KMS eller en hardware-sikkerhedsmodul. Den private nøgle, der signerer dine kvitteringer, må aldrig ligge i versionskontrol eller i klartekst på applikationsmaskiner.
-- [ ] **Publicer den offentlige verifikationsnøgle.** Revisorer har brug for den til offline verifikation. Standardmønsteret er et JWK Set på en velkendt URL (RFC 7517), f.eks. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Anchor kæden eksternt.** Skriv periodisk den seneste kædehoved-hash til en transparenslog (Sigstore Rekor, RFC 3161 tidsstempelautoritet, eller et andet internt system), så en ekstern part kan bekræfte "denne kæde eksisterede på dette tidspunkt."
-- [ ] **Gem kvitteringer uforanderligt.** Append-only blob storage (Azure Storage med immutabilitetspolitikker, AWS S3 Object Lock) forhindrer insiders i at omskrive historik på lagringslaget.
-- [ ] **Beslut om opbevaringsperiode.** Mange regulativer kræver flere års opbevaring. Planlæg for vækst af kvitteringer (hver kvittering er ~500 bytes; en agent, der laver 10.000 kald dagligt, producerer ~1,8 GB pr. år).
-- [ ] **Dokumentér hvad kvitteringer ikke dækker.** Kvitteringer beviser attribution, integritet og rækkefølge. Din runbook bør eksplicit liste hvilke yderligere kontroller (inputvalidering, politikhåndhævelse, hastighedsbegrænsning, identitetsinfrastruktur) der ledsager kvitteringer i din governance-tilgang.
+- [ ] **Flyt signeringsnøglen væk fra udviklerens laptop.** Brug Azure Key Vault, AWS KMS eller en hardware-sikkerhedsmodul. Den private nøgle som underskriver dine modtagelser må aldrig gemmes i versionskontrol eller i klartekst på applikationsmaskiner.
+- [ ] **Etabler verifieringsnøgle tillid.** Publicer nøgler via et JWK-set eller register, og lad derefter afhængige parter fastlåse den accepterede udsteders identitet, nøglesæt og rotationspolitik uden for individuelle modtagelser. En indlejret nøgle alene er ikke et tillidsanker.
+- [ ] **Fastlås kæden eksternt.** Skriv periodisk den seneste kædehoved-hash til en gennemsigtighedslog (Sigstore Rekor, RFC 3161 tidsstempel autoritet, eller et andet internt system), så en ekstern part kan bekræfte "denne kæde eksisterede på dette tidspunkt."
+- [ ] **Opbevar modtagelser uforanderligt.** Append-only blob storage (Azure Storage med uforanderlighedspolitikker, AWS S3 Object Lock) forhindrer indsidere i at omskrive historik på lagringslaget.
+- [ ] **Beslut om opbevaring.** Mange overholdelsesregimer kræver flers års opbevaring. Planlæg til vækst i modtagelser (hver modtagelse er ~500 bytes; en agent der laver 10K kald pr. dag producerer ~1.8 GB pr. år).
+- [ ] **Dokumentér hvad modtagelser ikke dækker.** Modtagelser beviser tilskrivning, integritet og rækkefølge. Din kørebog bør eksplicit liste, hvilke yderligere kontroller (inputvalidering, politikhåndhævelse, begrænsning af ringhastighed, identitetsinfrastruktur) der ligger sammen med modtagelser i din governance-tilgang.
 
 ### Har du flere spørgsmål om sikring af AI-agenter?
 
-Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at mødes med andre lærende, deltage i kontortimer, og få svar på dine AI Agent-spørgsmål.
+Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at mødes med andre lærende, deltage i kontortid og få svar på dine spørgsmål om AI-agenter.
 
 ## Ud over denne lektion
 
-Denne lektion dækker enkelt-kvitteringssignering og hash-kædede sekvenser. De samme primitive bygger block for flere mere avancerede mønstre, du kan møde, efterhånden som din governance-tilgang modnes:
+Denne lektion dækker enkelt-modtagelses signering og hash-kædede sekvenser. De samme primitiv sammensætter flere mere avancerede mønstre, du kan støde på, efterhånden som din governance-tilgang modnes:
 
-- **Selective disclosure.** Når en kvitterings felter er uafhængigt forpligtede (RFC 6962-stil Merkle-træ), kan du afsløre specifikke felter til bestemte revisorer og bevise at resten er uændret uden at afsløre dem. Nyttigt når den samme kvittering skal opfylde både en omfattende audit (der ønsker fuldstændighed) og dataminimeringsregler som GDPR (der ønsker at revisor ser så lidt som muligt).
-- **Kvitterings tilbagekaldelse.** Hvis en signeringsnøgle kompromitteres, skal du kunne markere alle kvitteringer signeret med den nøgle som utroværdige fra et givet tidspunkt fremad. Standardmønstre: kortlivede signeringsnøgler plus en offentliggjort tilbagekaldelsesliste, eller en transparenslog med tilbagekaldelsesposter.
-- **Bilaterale / splittede signaturkvitteringer.** Nogle implementeringer splitter den signerede nyttelast i pre-eksekvering (`authorization_*`) og post-eksekvering (`result_*`) halvdele med uafhængige signaturer, nyttigt når autorisationsbeslutningen og det observerede resultat produceres af forskellige aktører eller på forskellige tidspunkter. Dette bygger oven på kvitteringsformatet undervist i denne lektion.
-- **Nyttelastkomposition.** En kvittering forsegler de bytes, du lægger i `result_hash`. Virkelige nyttelaster er ofte rigere end et enkelt værktøjskald: forudgående beslutningsgrundlag (modelprediktion, overvejede muligheder, bevis og dets fuldstændighed, risikoposition, ansvarskæde, gate-udfald) kan alle bo i nyttelasten, forseglet af en enkelt kvittering. Dette holder kvitteringsformatet minimalt samtidig med at nytteladningsskemaer kan udvikle sig domæne-for-domæne.
-- **Tvær-implementeringskonformitet.** Flere uafhængige implementeringer af samme kvitteringsformat (Python, TypeScript, Rust, Go) krydsverificerer mod delte testvektorer. Hvis du bygger din egen implementering, bekræfter validering mod publicerede vektorer kompatibilitet på netværksniveau.
-- **Post-kvantemigration.** Ed25519 er bredt anvendt i dag men er ikke kvante-resistent. Kvitteringsformatet er algoritme-agilt: feltet `signature.alg` kan bære `ML-DSA-65` (NIST's post-kvante signaturstandard), når du har brug for at migrere. Planlæg en overgangsperiode hvor kvitteringer er dobbeltsigneret.
+- **Selektiv afsløring.** Når en modtagelses felter er uafhængigt forpligtet (RFC 6962-stil Merkle-træ), kan du afsløre specifikke felter til specifikke revisorer og bevise, at resten er uændret uden at eksponere dem. Nyttigt når den samme modtagelse skal opfylde både en omfattende revision (som ønsker fuldstændighed) og dataminimeringsregler som GDPR (som ønsker, at revisor ser så lidt som nødvendigt).
+- **Modtagelses tilbagekaldelse.** Hvis en signeringsnøgle kompromitteres, har du brug for en måde at markere alle modtagelser underskrevet af den nøgle som utroværdige fremadrettet fra et tidspunkt. Standardmønstre: kortlivede signeringsnøgler plus en offentliggjort tilbagekaldelsesliste, eller en gennemsigtighedslog med tilbagekaldelsesposter.
+- **Bilaterale / split-signatur modtagelser.** Nogle implementeringer opdeler den signerede payload i forud-udførelses (`authorization_*`) og efter-udførelses (`result_*`) halvdele med uafhængige signaturer, nyttigt når autorisationsbeslutningen og det observerede resultat produceres af forskellige aktører eller på forskellige tidspunkter. Dette lægges additivt oven på modtagelsesformatet, der undervises i denne lektion.
+- **Payload composition.** En modtagelse forsegler præcis de bytes, du lægger i `result_hash`. Virkelighedens payloads er ofte rigere end et enkelt værktøjsopkalds resultat: forud-beslutnings ræsonnement (modelprædiction, overvejede muligheder, bevismateriale og dets fuldstændighed, risikoposition, ansvarskæde, gate-udfald) kan alle leve inde i payloaden, forseglet af en enkelt modtagelse. Dette holder modtagelsesformatet minimalt samtidig med at tillade payload-skjemaer at udvikle sig domæne-for-domæne.
+- **Krydsimplementerings overensstemmelse.** Flere uafhængige implementeringer af det samme modtagelsesformat (Python, TypeScript, Rust, Go) krydsverificerer mod fælles testvektorer. Hvis du bygger din egen implementering, bekræfter validering mod publicerede vektorer ledningskompatibilitet.
+- **Post-kvante migration.** Ed25519 er bredt udbredt i dag, men er ikke kvante-resistent. En `alg` label alene er ikke migration: en profil skal definere ML-DSA nøglekodning, kanoniske underskrevne bytes, verifikation, policy for den pågældende part, nedsænkning modstand og overgangssemantik. Planlæg og test en dual-signatur overgang mod delte vektorer før du fremsætter kompatibilitetskrav.
 
 ## Yderligere ressourcer
 
 - <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signed Decision Receipts for Machine-to-Machine Access Control</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview (Azure AI)</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI oversigt (Azure AI)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digital Signature Algorithm (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merkle-træ-konstruktion brugt af selective-disclosure kvitteringer)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merkle-træ konstruktion brugt af selektive-afsløringsmodtagelser)
 - <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifiable Decision Receipts</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Tvær-implementerings konformitetstestvektorer</a> for kvitteringsformatet brugt i denne lektion (Apache-2.0)
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Cross-implementation overensstemmelsestestvektorer</a> for det modtagelsesformat brugt i denne lektion (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentation</a> (Ed25519 i Python)
 
 ## Forrige lektion

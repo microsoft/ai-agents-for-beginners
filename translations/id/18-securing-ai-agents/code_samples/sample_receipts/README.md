@@ -1,63 +1,87 @@
-# Contoh Fixtures Struk
+# Contoh Fixture Tanda Terima
 
-Tiga file struk yang sudah dibuat sebelumnya untuk pemeriksaan tanpa menjalankan notebook.
+Tiga berkas tanda terima yang telah dibuat sebelumnya untuk inspeksi tanpa menjalankan notebook.
 
-| File | Apa itu |
+| Berkas | Apa itu |
 |---|---|
-| `01_valid_receipt.json` | Struk yang valid dan ditandatangani untuk panggilan alat `lookup_flights`. Verifikasi mengembalikan True. |
-| `02_tampered_receipt.json` | Struk yang sama dengan satu kolom diubah setelah penandatanganan. Verifikasi mengembalikan False. |
-| `03_chain_three_receipts.json` | Rangkaian tiga struk valid (search, hold, book) dengan `previous_receipt_hash` yang menghubungkan setiap struk ke yang sebelumnya. |
+| `01_valid_receipt.json` | Tanda terima yang ditandatangani secara sah untuk pemanggilan alat `lookup_flights`. Verifikasi mengembalikan True. |
+| `02_tampered_receipt.json` | Tanda terima yang sama dengan satu kolom diubah setelah penandatanganan. Verifikasi mengembalikan False. |
+| `03_chain_three_receipts.json` | Rangkaian tiga tanda terima yang sah (cari, tahan, pesan) dengan `previous_receipt_hash` menghubungkan setiap tanda terima dengan yang sebelumnya. |
 
-Fixtures ini menandatangani byte JCS kanonik payload secara langsung dengan Ed25519.
-SHA-256 tetap digunakan untuk digest konten dan link rantai struk, bukan sebagai
-pre-hash tambahan sebelum penandatanganan.
+Fixture menandatangani byte JCS kanonik dari payload langsung dengan Ed25519.
+SHA-256 tetap digunakan untuk ringkasan konten dan tautan rantai tanda terima, bukan sebagai
+pre-hash ekstra sebelum penandatanganan.
 
-## Memverifikasi contoh
+## Memverifikasi Contoh
 
-Notebook membahas verifikasi dalam empat bagian. Untuk memverifikasi fixture ini
-langsung tanpa menjalankan narasi notebook:
+Dalam `18-signed-receipts.ipynb`, jalankan Setup dan Bagian 1 sampai 3 terlebih dahulu.
+Bagian 3 mendefinisikan `verify_chain`; Bagian 1 dan 2 saja tidak cukup.
+Kemudian jalankan blok berikut dalam sel baru, dengan direktori kerja notebook
+diatur ke `18-securing-ai-agents/code_samples`. Jalur fixture di bawah ini relatif
+terhadap direktori tersebut.
 
 ```python
 import json
 from pathlib import Path
 
-# Mengasumsikan Anda telah menyelesaikan impor dan fungsi pembantu
-# dari bagian 1 dan 2 dari 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Benar
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Salah
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Cara pembuatan ini
+### Memeriksa contoh tanpa Jupyter
 
-Fixtures menggunakan jalur kode yang sama dengan notebook, dengan satu kunci tanda tangan tetap
-dan cap waktu tetap untuk reproduksi byte. Untuk membuat ulang:
+Dari akar repositori, pasang ketergantungan pelajaran dan jalankan:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Tes ini menjalankan contoh Python dalam notebook dan blok README yang sama
+di atas. Tes juga memeriksa bahwa pemalsuan dan kunci yang tidak dipin ditolak oleh
+verifier. Tes melewati sel setup `%pip` notebook karena ketergantungan
+dipasang secara terpisah. Tes tidak mengubah notebook atau fixture.
+
+## Bagaimana ini dibuat
+
+Fixture menggunakan jalur kode yang sama dengan notebook, dengan satu kunci tanda tangan tetap
+dan waktu tetap untuk reproduksibilitas byte. Untuk membuat ulang:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script ada di `generate_fixtures.py` di direktori ini.)
+(Skrip berada di `generate_fixtures.py` dalam direktori ini.)
 
-## Apa yang dipelajari siswa dari memeriksa JSON mentah
+## Apa yang dipelajari siswa dari inspeksi JSON mentah
 
-Membaca format struk mentah membangun intuisi yang tidak selalu tersedia di sel notebook.
+Membaca format tanda terima mentah membangun intuisi yang tidak selalu diberikan oleh sel di notebook.
 Siswa yang membaca sekilas JSON sering memperhatikan:
 
-1. Tanda tangan adalah string base64url yang tidak transparan, tetapi setiap kolom lain adalah JSON yang
-   dapat dibaca biasa. Tanda tangan tidak mengenkripsi konten; itu membuktikannya.
-2. `public_key` disisipkan di dalam struk. Auditor tidak memerlukan apa pun selain itu
-   untuk memverifikasi (tergantung pada kepercayaan bahwa kunci benar-benar milik
-   penerbit yang diklaim; lihat README pelajaran tentang infrastruktur identitas).
-3. Mengubah satu karakter dari kolom apa pun, lalu membandingkan ulang file ini dengan
-   `02_tampered_receipt.json`, membuat mekanisme tingkat byte menjadi konkrit.
+1. Tanda tangan adalah string base64url buram, tetapi setiap kolom lain adalah JSON yang dapat
+   dibaca biasa. Tanda tangan tidak mengenkripsi isi; ia menyatakan isi tersebut.
+2. `public_key` tertanam dalam tanda terima, yang cukup untuk memeriksa
+   konsistensi diri tetapi bukan kepercayaan penerbit. Auditor harus membandingkannya dengan kunci
+   yang dipin di luar tanda terima atau diselesaikan melalui registri terpercaya.
+3. Mengubah satu karakter dari kolom mana pun, lalu membandingkan ulang berkas ini dengan
+   `02_tampered_receipt.json`, membuat mekanisme pada tingkat byte menjadi lebih nyata.
 
 ---
 

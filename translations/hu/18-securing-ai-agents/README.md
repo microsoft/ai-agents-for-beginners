@@ -1,63 +1,66 @@
-[Nézze meg az óravideót: AI ügynökök védelme kriptográfiai bizonylatokkal](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Nézze meg az oktatóvideót: AI ügynökök biztosítása kriptográfiai bizonylatokkal](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Az óravideót és a bélyegképet a Microsoft tartalomcsapata adja hozzá az összefésülés után, az 14/15. lecke mintájának megfelelően.)_
+> _(Az oktatóvideót és a bélyegképet a Microsoft tartalomcsapata adja hozzá az összeolvasztás után, az oktatás 14/15 mintájához igazodva.)_
 
-# AI ügynökök védelme kriptográfiai bizonylatokkal
+# AI ügynökök biztosítása kriptográfiai bizonylatokkal
 
 ## Bevezetés
 
-Ez az óra a következő témákat fogja érinteni:
+Ez az oktatás a következőkről fog szólni:
 
-- Miért fontosak az audit nyomvonalak az AI ügynökök számára megfelelőség, hibakeresés és bizalom szempontjából.
+- Miért számítanak az audit nyomvonalak az AI ügynökök esetében a megfelelés, hibakeresés és bizalom szempontjából.
 - Mi az a kriptográfiai bizonylat, és miben különbözik egy aláíratlan naplóbejegyzéstől.
-- Hogyan készítsünk aláírt bizonylatot egy ügynök eszközhívásáról egyszerű Pythonban.
-- Hogyan ellenőrizzünk bizonylatot offline, és hogyan észleljük a manipulációt.
-- Hogyan láncoljunk össze bizonylatokat úgy, hogy egy eltávolítás vagy átrendezés megszakítsa a láncot.
-- Mit bizonyítanak a bizonylatok, és mit kifejezetten nem bizonyítanak.
+- Hogyan lehet egyszerű Pythonban aláírt bizonylatot készíteni egy ügynök eszközhívásához.
+- Hogyan lehet offline ellenőrizni egy bizonylatot észlelve az esetleges manipulációt.
+- Hogyan lehet láncolni a bizonylatokat úgy, hogy egy eltávolítás vagy átrendezés megszakítsa a láncot.
+- Mit bizonyítanak a bizonylatok, és mit NEM bizonyítanak kifejezetten.
 
 ## Tanulási célok
 
-Az óra elvégzése után tudni fogja, hogyan:
+Az oktatás elvégzése után tudni fogja, hogyan:
 
-- Azonosítsa azokat a hibamódokat, amelyek az ügynök műveleteinek kriptográfiai eredetének motivációját adják.
-- Készítsen Ed25519 aláírt bizonylatot egy kanonikus JSON adatcsomag felett.
-- Ellenőrizzen egy bizonylatot önállóan, csak az aláíró nyilvános kulcsát használva.
-- Észlelje a manipulációt úgy, hogy újra lefuttatja az ellenőrzést egy módosított bizonylaton.
-- Hozzon létre hash-láncolt bizonylat-szekvenciát, és magyarázza el, miért fontos a lánc.
-- Ismerje fel a határt, hogy mit bizonyítanak a bizonylatok (hozzárendelés, integritás, sorrendiség), és mit nem (a művelet helyessége, a szabályzat helyessége).
+- Azonosítani azokat a hibamódokat, amelyek az ügynöki cselekvések kriptográfiai hitelességét indokolják.
+- Előállítani egy Ed25519-gyel aláírt bizonylatot egy kanonikus JSON adattartalomról.
+- Függetlenül ellenőrizni egy bizonylatot csak az aláíró nyilvános kulcsával.
+- Észlelni a manipulációt azzal, hogy módosított bizonylaton újra lefuttatja az ellenőrzést.
+- Építeni egy hash láncolt bizonylatsorozatot és elmagyarázni, miért fontos a lánc.
+- Felismerni a határvonalat azzal kapcsolatban, hogy mit bizonyítanak a bizonylatok (hozzárendelés, integritás, sorrendiség), és mit nem (a cselekvés helyessége, a szabályzat érvényessége).
 
-## A probléma: Az ügynöke audit nyomvonala
+## A probléma: az ügynök audit nyomvonala
 
-Képzelje el, hogy telepített egy AI ügynököt a Contoso Travel számára. Az ügynök olvassa az ügyfél kéréseit, meghív egy járatok API-t az opciók lekérdezéséhez, és lefoglal helyeket az ügyfél nevében. Az előző negyedévben az ügynök 50 000 foglalást dolgozott fel.
+Tegyük fel, hogy telepítettél egy AI ügynököt a Contoso Travel számára. Az ügynök olvassa az ügyfelek kéréseit, hív egy járat-API-t az opciók kereséséhez, és foglal helyeket az ügyfél nevében. Múlt negyedévben az ügynök 50 000 foglalást dolgozott fel.
 
-Ma megérkezik egy auditor. Egy egyszerű kérdést tesz fel: "Mutassa meg, mit csinált az ügynöke."
+Ma megjelenik egy auditor. Egy egyszerű kérdést tesz fel: „Mutasd meg, mit csinált az ügynököd.”
 
-Átadja a naplófájlokat. Az auditor megnézi azokat, majd egy nehezebb kérdést tesz fel: "Honnan tudom, hogy ezeket a naplókat nem szerkesztették?"
+Átadod a naplófájlokat. Az auditor megnézi őket, és felteszi a nehezebb kérdést: „Honnan tudhatom, hogy ezeket a naplókat nem szerkesztették meg?”
 
-Ez az audit nyomvonali probléma. A mai ügynök telepítések többsége a következőkre támaszkodik:
+Ez az audit nyomvonal problémája. A legtöbb mai ügynök bevezetés a következőkre támaszkodik:
 
-- **Alkalmazásnaplók**: maguk az ügynökök írják, szerkeszthető bármely fájlrendszer-hozzáféréssel rendelkező személy által.
-- **Felhőalapú naplózási szolgáltatások**: a platform szintjén manipulációt jelző, de csak akkor, ha az auditor megbízik a platform üzemeltetőjében.
-- **Adatbázis tranzakciós naplók**: jól használhatók adatbázis-változásokhoz, de nem tetszőleges eszközhívásokhoz.
+- **Alkalmazás naplók**: az ügynök által írt, bárki által módosítható, aki hozzáfér a fájlrendszerhez.
+- **Felhő alapú naplózási szolgáltatások**: a platform szintjén biztonságosak, de csak ha az auditor megbízik a platform üzemeltetőjében.
+- **Adatbázis tranzakciós naplók**: jól alkalmasak adatbázis változásokhoz, de nem tetszőleges eszközhívásokhoz.
 
-Ezek egyike sem tud választ adni az auditor kérdésére anélkül, hogy az auditor valakiben megbízzon (Önben, a felhőszolgáltatóban vagy az adatbázis szállítójában). Belső használatra ez az elfogadható megbízhatóság gyakran elegendő. Szabályozott munkafolyamatokhoz (pénzügy, egészségügy, minden, amire az EU AI irányelv vonatkozik) nem az.
+Ezek közül egyik sem tudja megválaszolni az auditor kérdését anélkül, hogy az auditor valakiben (parent, felhőszolgáltatója, adatbázis szolgáltatója) megbízzon. Belső használatra ez gyakran elfogadható. Szabályozott feladatokhoz (pénzügy, egészségügy, bármi az EU AI rendelet hatálya alá tartozó) nem az.
 
-A kriptográfiai bizonylatok ezt úgy oldják meg, hogy minden egyes ügynöki művelet függetlenül ellenőrizhetővé válik. Az auditor nem Önben bízik meg, csak a nyilvános kulcsban és magában a bizonylatban.
+A kriptográfiai bizonylatok ezt a problémát úgy szűkítik le, hogy egy aláírt állítást függetlenül
+ellenőrizhetővé tesznek. Az auditor azonban továbbra is kívülről jövő okot igényel az aláíró kulcs és
+a bizonylatot előállító komponens megbízhatóságának elfogadására. A beágyazott kulcs önmagában az önkonszisztenciát igazolja,
+nem az kibocsátó személyazonosságát vagy az érvényesítés helyét.
 
 ## Mi az a kriptográfiai bizonylat?
 
-Egy bizonylat egy JSON objektum, amely rögzíti, mit tett az ügynök, digitális aláírással ellátva.
+Egy bizonylat egy JSON objektum, amely rögzíti, mit csinált az ügynök, digitális aláírással ellátva.
 
 ```mermaid
 flowchart LR
-    A[Az ügynök eszközt hív meg] --> B[Nyugta adattermék összeállítása]
-    B --> C[JSON kanonizálás RFC 8785 szerint]
-    C --> E[Ed25519 aláírás a kanonikus bájtokon]
-    E --> F[Aláírt nyugta]
-    F --> G[Az auditor offline módon ellenőrzi]
-    G --> H{Az aláírás érvényes?}
-    H -- yes --> I[Változtatás-ellenálló bizonyíték]
-    H -- no --> J[Nyugta elutasítva]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
 Egy minimális bizonylat így néz ki:
@@ -83,30 +86,30 @@ Egy minimális bizonylat így néz ki:
 
 Három tulajdonság végzi a munkát:
 
-1. **Az aláírás**. A bizonylatot az ügynök átjárója írja alá Ed25519 privát kulccsal. Bárki, aki rendelkezik a megfelelő nyilvános kulccsal, offline ellenőrizheti az aláírást. A mezők bármilyen manipulációja érvénytelenné teszi az aláírást.
+1. **Az aláírás**. A bizonylatot az ügynök átjárója írja alá Ed25519 privát kulccsal. Bárki, aki rendelkezik a megfelelő nyilvános kulccsal, offline ellenőrizheti az aláírást. A megbízó félnek le kell tennie ezt a kulcsot vagy megbízható nyilvántartásból kell lekérnie azt a bizonylaton kívül. Bármely aláírt mező manipulálása érvénytelenné teszi az aláírást.
 
-2. **Kanonikus kódolás**. Aláírás előtt a bizonylatot a JSON Canonicalization Scheme (JCS, RFC 8785) szerint szerializálják. Ez biztosítja, hogy két implementáció, amely ugyanazt az értelmi bizonylatot állítja elő, bájtazonos outputot generáljon. Kanonikalizáció nélkül különböző JSON szerializálók eltérő aláírásokat állítanának elő azonos tartalomhoz.
+2. **Kanonikus kódolás**. Aláírás előtt a bizonylatot a JSON Canonicalization Scheme (JCS, RFC 8785) formátumban szerializáljuk. Ez biztosítja, hogy két különböző megvalósítás, amely ugyanazt a logikai bizonylatot állítja elő, bájtsorozat szintjén azonos kimenetet eredményezzen. Kanonizálás nélkül a különböző JSON sorosítók eltérő aláírásokat állítanának elő ugyanarra a tartalomra.
 
-3. **Hash-láncolás**. A `previous_receipt_hash` mező összekapcsolja minden bizonylatot az előzővel. Egy bizonylat eltávolítása vagy átrendezése megszakítja az utána következő minden bizonylatot. A manipuláció a láncnál is láthatóvá válik, még ha az egyedi aláírásokat meg is kerülik.
+3. **Hash láncolás**. Az `previous_receipt_hash` mező összekapcsolja az aktuális bizonylatot az előzővel. Egy bizonylat eltávolítása vagy átrendezése megszakítja a bemutatott sorozatot. A lekicsinyítés vagy az aláíró által kontrollált átírás észleléséhez szükség van egy rögzített aktuális láncfejre, függetlenül tanúsított ellenőrzőpontra vagy hitelesített zárt populációs kötelezettségvállalásra.
 
-Ezek a tulajdonságok három garanciát nyújtanak:
+Együttesen ezek a tulajdonságok három garanciát nyújtanak:
 
-- **Hozzárendelés**: ez a kulcs írta alá ezt a tartalmat.
-- **Integritás**: a tartalom nem változott az aláírás óta.
-- **Sorrendiség**: ez a bizonylat az után a bizonylat után keletkezett a láncban.
+- **Kulcshoz rendelés**: ez a kulcs írta alá ezt a tartalmat. Szervezeti vagy emberi identitás igazolásához megbízható kulcskötés szükséges.
+- **Integritás**: a tartalom az aláírás óta nem változott.
+- **Sorrendiség az ellenőrzött sorozatban**: ez a bizonylat kapcsolatban áll az előddel.
 
-## Bizonylat készítése Pythonban
+## Bizonylat előállítása Pythonban
 
-Nincs szükség külön könyvtárra a bizonylat készítéséhez. A kriptográfiai primitívek széles körben elérhetők, és a logika néhány tucat sor Python.
+Nem kell külön könyvtár a bizonylat előállításához. A kriptográfiai primitívek széles körben elérhetők, a logika néhány tucat sor Python.
 
-A gyakorlati gyakorlatok a `code_samples/18-signed-receipts.ipynb` fájlban lépésről lépésre végigvezetik a teljes folyamatot. A rövid összefoglaló:
+A gyakorlati feladatok a `code_samples/18-signed-receipts.ipynb` végigvezetik a teljes folyamatot. A verziókövetett `code_samples/18-signed-receipts.execution-receipt.json` rögzíti a pontos jegyzetfüzet-hash-t, Python környezetet, cellaszámot és ellenőrzéseket a legutóbbi tiszta futtatásból anélkül, hogy megváltoztatná az óra mentett kimeneteit. A rövidített változat:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 kanonikus JSON
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Aláíró kulcs generálása vagy betöltése (éles környezetben tárolja kulcstárban)
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# A blokk nyugtázási tartalom összeállítása (még nincs aláírás)
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# A JCS bájtokat kanonizálja és aláírja közvetlenül. A PureEdDSA belsőleg hashel.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Struktúrált aláírási objektum csatolása.
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -150,239 +154,272 @@ receipt = {
 }
 ```
 
-Ez a teljes aláírási folyamat. A jegyzetfüzet lépésenként végigvezeti minden részét.
+Ez az egész aláírási folyamat. A jegyzetfüzet feladatai lépésről lépésre végigvezetnek.
 
 ## Bizonylat ellenőrzése és manipuláció észlelése
 
-Az ellenőrzés az ellentétes művelet:
+Az ellenőrzés a fordított művelet:
 
 ```python
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # Az aláírás egy strukturált objektum: {"alg", "sig", "public_key"}.
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # Állítsuk vissza a ténylegesen aláírt tartalmat (minden, az aláírást kivéve).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-Ez a függvény kap egy bizonylatot, és `True`-t ad vissza, ha az aláírás érvényes, ellenkező esetben `False`-t. Nincs hálózati hívás, nincs szolgáltatásfüggőség, nem szükséges megbízni harmadik félben.
+Ez a függvény fogad egy bizonylatot és a megbízó fél rögzített kulcskészletét, és visszaad
+`True`-at, csak ha az aláírás elfogadott kulcs esetén érvényes. Az ellenőrzés nem igényel
+hálózati hívást, de a kulcs megbízhatósága továbbra is külső konfigurációs döntés.
 
-A manipuláció észlelésének megtekintéséhez a jegyzetfüzet bemutatja:
+A manipuláció észlelésének bemutatásához a jegyzetfüzet végigvezeti:
 
-1. Érvényes bizonylat készítése és ellenőrzésének megerősítése.
-2. Egy bájt megváltoztatása a `tool_args_hash` mezőben.
-3. Az ellenőrzés újrafuttatása és az ellenőrzés sikertelenségének megfigyelése.
+1. Érvényes bizonylat előállítása és ellenőrzésének megerősítése.
+2. Az `tool_args_hash` mező egy bájtjának módosítása.
+3. Az ellenőrzés újrafuttatása és sikertelenségének megfigyelése.
 
-Ez a gyakorlati bemutató, hogy a bizonylatok manipulációt láthatóvá tesznek: bármilyen módosítás, akár kicsi is, megszakítja az aláírást.
+Ez a gyakorlati bemutató, hogy a bizonylatok manipuláció-ellenállók: bármilyen módosítás, bármilyen kicsi, megszakítja az aláírást.
 
-## Bizonylatok láncolása több lépéses ügynökök esetén
+## Bizonylatok láncolása többlépéses ügynökökhöz
 
-Egyetlen aláírt bizonylat egy műveletet véd. A bizonylatok láncolata egy szekvenciát véd.
+Egyetlen aláírt bizonylat egy cselekvést véd. Egy bizonylatlánc egy egész sorozatot.
 
 ```mermaid
 flowchart LR
-    R0[Nyugta 0<br/>kezdete] --> R1[Nyugta 1]
-    R1 --> R2[Nyugta 2]
-    R2 --> R3[Nyugta 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Minden bizonylat rögzíti az előző bizonylat hash-ét. Egy támadó ahhoz, hogy a 2. bizonylatot csendben eltávolítsa, vagy:
+Minden bizonylat rögzíti az előző bizonylat hash-ét. Egy támadónak, aki csendben el akar távolítani egy 2. számút, vagy:
 
-- Megváltoztatja a 3. bizonylat `previous_receipt_hash` mezőjét (ezzel megszakad a 3. bizonylat aláírása), VAGY
-- Új aláírást hamisít egy módosított 3. bizonylaton (ez az ügynök privát kulcsát igényli).
+- Módosítania kell a 3. számú bizonylat `previous_receipt_hash` mezőjét (ez megszakítja a 3. számú bizonylat aláírását), VAGY
+- Egy új aláírást kell meghamisítania a módosított 3. számú bizonylaton (ehhez az ügynök privát kulcsa szükséges).
 
-Ha a privát kulcs hardveres kulcstárolóban van, és közzéteszi a nyilvános kulcsot minden bizonylattal, egyik támadás sem kivitelezhető észrevétel nélkül.
+Ha a privát kulcs védett, és az ellenőrző rögzíti egy függetlenül tanúsított láncfej jelenlétét,
+ezek a támadások észlelhetők. A kulcs megjelenítése minden bizonylatban nem elég: az aláíró vagy a támadó más kulcsot is előadhat, átírhatja a lánc végét, vagy lerövidítheti a láncot, hacsak a megbízó fél nem rendelkezik külső megbízhatósági és teljességi horgonyzóval.
 
-A jegyzetfüzet bemutatja:
 
-1. Három bizonylat láncolatának létrehozása.
-2. Annak ellenőrzése, hogy minden bizonylat `previous_receipt_hash` megegyezik az előző bizonylat valódi hash-ével.
-3. Egy bizonylat manipulálása a lánc közepén, és a lánc pontosan ott megszakad.
 
-Így készíthet audit nyomvonalat, amelyet egy külső auditor ellenőrizhet anélkül, hogy Önben bíznia kellene.
+A jegyzetkönyv végigvezeti a következőket:
 
-## Mit bizonyítanak a bizonylatok (és mit nem)
+1. Három bizonylat láncának felépítése.
+2. Annak ellenőrzése, hogy minden bizonylat `previous_receipt_hash` értéke megegyezik-e az előző bizonylat tényleges hash értékével.
+3. Egy bizonylat közepén történő manipuláció és annak megfigyelése, hogy a lánc pontosan ott megszakad.
 
-Ez a lecke legfontosabb része. A bizonylatok erőteljesek, de korlátok között.
+Így hozható létre olyan audit nyomvonal, amelyet egy külső auditor a saját általa rögzített kibocsátói kulcsokkal és láncellenőrzési pontokkal tud megerősíteni anélkül, hogy a módosítható naplóadatbázisban megbízna.
+
+
+## Amit a bizonylatok bizonyítanak (és amit nem)
+
+Ez a lecke legfontosabb része. A bizonylatok erőteljesek, de határaik vannak.
 
 **A bizonylatok három dolgot bizonyítanak:**
 
-1. **Hozzárendelés**: egy adott kulcs aláírt egy adott feldolgozandó tartalmat.
-2. **Integritás**: a tartalom nem változott az aláírás óta.
-3. **Sorrendiség**: ez a bizonylat a hash láncban az után keletkezett.
+1. **Hozzárendelés**: egy adott kulccsal aláírták a konkrét adathalmazt.
+2. **Integritás**: az adathalmaz nem változott az aláírás óta.
+3. **Sorrend a bemutatott, ellenőrzött sorozaton belül**: ez a bizonylat kapcsolódik az előzőhöz.
 
 **A bizonylatok NEM bizonyítanak:**
 
-1. **Helyesség**: hogy az ügynök művelete helyes volt. Egy bizonylat ugyanúgy aláírható hibás válaszra is, mint helyesre.
-2. **Szabályzati megfelelőség**: hogy a `policy_id`-ban hivatkozott szabályzatot ténylegesen alkalmazták-e, vagy hogy engedélyezte volna-e ezt a műveletet, ha ellenőrizték volna. A bizonylat azt rögzíti, amit állítottak, nem azt, amit végrehajtottak.
-3. **Személyazonosság a kulcson túl**: a bizonylat csak annyit mond, "ez a kulcs írta alá ezt a tartalmat." Nem mondja azt, hogy "ez az ember engedélyezte ezt." Egy kulcs személyhez vagy szervezethez kötése külön identitás infrastruktúrát igényel (pl. címtár, nyilvános kulcs regiszter).
-4. **A bemenetek valóságtartalma**: ha az ügynök manipulált parancsot kap, és annak alapján cselekszik, a bizonylat hűen rögzíti a műveletet. A bizonylatok a bemeneti ellenőrzés után, nem helyettesei annak.
+1. **Helyességet**: hogy az ügynök cselekedete a helyes volt. Egy bizonylat ugyanúgy aláírható rossz válasz esetén, mint jó választ.
+2. **Szabályozási megfelelést**: hogy az `policy_id`-ben hivatkozott szabályozást valóban kiértékelték-e, vagy hogy az adott cselekvést engedélyezte volna, ha ellenőrzik. A bizonylat a állítottakat rögzíti, nem azt, hogy mit hajtottak végre.
+3. **Személyazonosságot a kulcson túl**: a bizonylat azt mondja, „ez a kulcs írta alá ezt a tartalmat.” Nem mondja, hogy „egy ember engedélyezte ezt.” Egy kulcs személyhez vagy szervezethez való kapcsolása külön személyazonosság-kezelő infrastruktúrát igényel (pl. címtár, nyilvános kulcs lista stb.).
+4. **A bemenetek igazságát**: ha az ügynök hamisított bemenetet kap és arra cselekszik, a bizonylat hűen rögzíti a cselekvést. A bizonylatok a bemenet-ellenőrzés után állnak, nem helyettesítik azt.
+5. **Végrehajtást vagy valós hatást**: egy utólagos bizonylat azt rögzíti, amit a kibocsátó állít. A belépés bizonyítása vagy egy külső hatás összepárosítása a tényleges végrehajtó vagy szolgáltató határ vonalán kívüli bizonyítékot igényel.
+6. **Teljességet**: egy hiányzó bizonylat jelentheti, hogy blokkolták, kihagyták, elveszett vagy nem volt instrumentálva. A hiány csak hitelesített zárt közösségben válik bizonyítékká.
+7. **Megtartott időt**: egy aláírt időbélyeg igazolja, hogy az aláíró birtokában volt a megadott értéknek, nem azt, hogy az érték helyes volt. Megbízható időhöz külön időhatóság vagy tanúsított ellenőrzési pont szükséges.
 
 Ez a határvonal két okból fontos:
 
-- Megmutatja, mire jók a bizonylatok: az ügynöki viselkedés auditálható és manipulációt jelzővé tétele, még szervezeti határokon át is.
-- Megmutatja, milyen további rétegekre van még szükség: bemeneti ellenőrzés (6. lecke), szabályzat érvényesítés (röviden később), identitás infrastruktúra (nem része ennek az órának).
+- Megmutatja, mire használhatók a bizonylatok: az ügynöki viselkedés auditálhatóvá és manipulációra érzékennyé tétele még szervezeti határokon átívelve is.
+- Megmutatja, milyen további rétegekre van még szükség: bemenet-ellenőrzésre (6. lecke), szabályzat végrehajtásra (az alábbiakban röviden tárgyalt), és személyazonosság-infrastruktúrára (ez a lecke hatókörén kívül esik).
 
-Gyakori tévedés azt hinni, hogy "van bizonylatunk" azt jelenti, hogy "megfelelünk." Ez nem igaz. A bizonylatok alapot adnak. A szabályozás az a rendszer, amelyet erre építünk.
+Egy gyakori tévedés azt hinni, hogy „vannak bizonylataink” = „irányítás alatt vagyunk”. Nem így van. A bizonylatok az alapot képezik. Az irányítás az a rendszer, amelyet erre az alapra építünk.
 
-## Bizonyítása, hogy egy ember jóváhagyta az adott műveletet
+## Egy jóváhagyó aláírásának kötése a pontos cselekvéshez
 
-A fenti 3. pont megérdemel egy külön szakaszt: egy művelet bizonylat azt mondja, "ez a kulcs írta alá ezt a tartalmat," sosem azt, hogy "egy ember engedélyezte ezt." Magas kockázatú műveleteknél (visszatérítések, törlések, átutalások) a szabályozási keretrendszerek egyre inkább kifejezetten ezt a hiányzó igazolást követelik meg, amely előállítható ugyanazokkal az eszközökkel, amelyeket ebben a leckében már használt.
+A fentiek közül a 3. pont megér egy külön szakaszt: egy cselekvéshozzáférési bizonylat azt mondja, „ez a kulcs írta alá ezt a tartalmat”, sosem azt, hogy „egy ember engedélyezte ezt.” Magas kockázatú műveletek esetén (visszatérítés, törlés, átutalás) egy külön jóváhagyó aláírás kötheti a pontos cselekvést. A kulcs személyhez kötése és az emberi jelenlét ellenőrzése külön feladat marad.
 
-A folytató jegyzetfüzet, a `code_samples/human-authorization-receipts.ipynb` egy második típusú bizonylatot, a `human.approval.v1`-et ad hozzá, amely ugyanabban a boríték formában van, mint a lecke bizonylatai (tipizált csomag, amelyet Ed25519 ír alá kanonikus JCS bájtokon, az aláírás objektum a bájtokon kívül). Egy névvel ellátott jóváhagyó írja alá a **teljes kanonikus műveletet és annak hash-ét** a végrehajtás előtt; az ügynök műveleti bizonylata hordozza a **ugyanazt a műveleti hash-t** és egy `parent_approval_ref`-et, a jóváhagyás bizonylatának `receipt_hash`-ét, ugyanazzal a konvencióval, mint a láncban az előző bizonylat hash-e, `previous_receipt_hash`. Egy `verify_chain` mindkét artefaktumot ellenőrzi **külön állított kulcsnyilvántartások alatt** (jóváhagyó kulcsok vs ügynök kulcsok), így a kódút közös, de a hatóságok soha nem.
+A következő jegyzetkönyv `code_samples/human-authorization-receipts.ipynb` egy második bizonylattípust vezet be, `human.approval.v1`, ugyanolyan boríték formában, mint a lecke bizonylatai (egy típusos adathalmaz Ed25519 aláírással az aláírt JCS bájtokon, `signature` objektummal az aláírt bájtokon kívül). Egy jóváhagyó kulcs írja alá a **teljes kanonikus cselekvést és annak lenyomatát**; egy ügynök kulcsa egy állítást ír alá, amely **ugyanazon cselekvés lenyomatát** és egy `parent_approval_ref`-t tartalmaz, az `receipt_hash`-t a jóváhagyásról, ugyanolyan konvenció szerint mint az `previous_receipt_hash` a fent épített láncban. Egy `verify_chain` mindkét iratot külön **rögzített kulcskönyvtárak alatt járja be** (jóváhagyó kulcsok vs ügynök kulcsok), így a kódút közös, de a hatóságok sosem.
 
-A tulajdonság, amelyet így kapunk, gondosan megfogalmazva: *az ember jóváhagyta ezt az adott műveletet, és az ügynök pontosan ezt az engedélyezett műveletet hajtotta végre.* A jegyzetfüzet elutasítási eset tesztjei teszik megalapozottá ezt a tulajdonságot:
+Ez az állapot pontosan ezt biztosítja: *a rögzített jóváhagyó kulcs aláírta ezt a pontos
+műveletet, és az ügynök kulcsa később aláírta ugyanazon művelet lenyomatát tartalmazó nyilatkozatot.*
+Ez hasznos bizonyíték, de önmagában nem bizonyítja, hogy a művelet végrehajtódott. A
+végrehajtás ellenőrzéséhez a pontos jóváhagyást a tényleges végrehajtói oldalon egyszerre el kell foglalni és felhasználni; ismeretlen szolgáltatói eredmények maradjanak ismeretlenek, ne próbáljanak vakon újra.
+A jegyzetkönyv visszautasítási tesztjei a bizonylatlánc réteget próbálják:
 
-- a klasszikus esetek: manipuláció, összezavart ügynök, újrajátszás, hamisított kulcsok mindkét oldalon, rossz formátumú bemenet;
-- **lejárt hatóság**: olyan aláírás, amely még ellenőrizhető, de elutasításra kerül, mert a szabályzat verziója változott, a jóváhagyó kulcsot eltávolították a nyilvántartásból, vagy a jóváhagyás lejárt a végrehajtás előtt;
-- **hash helyettesítés**: egy érvényesen aláírt műveleti bizonylat, amely valódi jóváhagyásra mutat, de az egy másik kanonikus művelethez kötődik.
 
-Minden hiba elutasítással jár, egyedi okkal, így az auditor meg tudja különböztetni, hogy lejárt-e a hatóság, vagy változott-e a végrehajtott művelet. A jegyzetfüzet által tanított szabály: egy aláírt jóváhagyás nem hatóság önmagában. A hatóság csak akkor áll fenn, ha mindkét bizonylat ugyanahhoz a kanonikus művelethez kötött a végrehajtás idején. Az emberi jóváhagyás bizonylata oktatási kompozíció, amelyet ez az óra definiál, nem a `draft-farley-acta-signed-receipts` által definiált bizonylattípus.
+- **elavult hatóság**: egy még ellenőrző aláírás, amelyet mégis elutasítanak, mert a szabályzat verzió változott, a jóváhagyó kulcs rotálódott a rögzített könyvtárból, vagy a jóváhagyás lejárt az adott ellenőrzési időpont előtt;
+- **lenyomat helyettesítés**: egy érvényesen aláírt cselekvési bizonylat, amely egy *valódi* jóváhagyást mutat be, ami egy *másik* kanonikus cselekvést köt le.
 
-## Gyártási hivatkozások
 
-Ennek az órának a Python kódja szándékosan minimális, hogy minden sort elolvashasson és pontosan értse, mi történik. Éles környezetben két lehetősége van:
+Minden hiba visszautasítása egyedi okkal történik, így egy auditor, aki olvassa a visszautasítást, meg tudja mondani, hogy a hatáskör elavult-e vagy a követelt művelet megváltozott-e. A verifikáció csak olvasható és ismételhető: nem fogyasztja el a jóváhagyást és nem hív meg szolgáltatót. Egy külön végrehajtónak tartós, atomi újrajátszás elleni védelemre és egyértelmű sikeres, sikertelen és bizonytalan eredményekre van szüksége. Az emberi jóváhagyási bizonylat egy oktató jellegű összetétel, amelyet ez a lecke határoz meg, nem pedig egy bizonylattípus, amelyet a `draft-farley-acta-signed-receipts` definiál.
 
-1. **Közvetlenül a kriptográfiai primitívekre építkezik.** A fent látott 50 sor sok esetben elegendő. A PyNaCl (Ed25519) és a `jcs` csomag (kanonikus JSON) jól karbantartott és auditált könyvtárak.
+## Termelési hivatkozások
 
-2. **Használ egy éles bizonylat könyvtárat.** Több nyílt forráskódú projekt valósítja meg ugyanazt a mintát további funkciókkal (kulcscsere, tömeges ellenőrzés, JWK készlet terjesztés, integráció a szabályzat motorokkal):
-   - Az aláírási folyamat az IETF független internetes tervezetének (Internet-Draft) JCS és aláírási hatókör konvencióit használja ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), 02. revízió). A lecke lapos oktató bizonylata különbözik a tervezet `{payload, signature}` borítékától és nem konform megvalósításként jelenik meg. A tervezet közzétesz egy megosztott konformancia csomagot ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) a formátum célzott megvalósításaihoz.
-   - A Microsoft Agent Governance Toolkit a bizonylatokat Cedar-alapú szabályzati döntésekkel összefűzi; az ehhez kapcsolódó 33. oktatóanyagban látható egy végponttól végpontig példa.
-   - A `protect-mcp` (npm) és `@veritasacta/verify` (npm) csomagok Node-alapú megvalósítást kínálnak bizonylat aláíráshoz és offline ellenőrzéshez, céljuk MCP szerverek tamper-evidens audit nyomvonalának becsomagolása, beleértve egy tárgyalt co-sign (együtt aláírás) folyamatot is, ahol egy szüneteltetett művelet jóváhagyási bizonylatot bocsát ki, amely a műveleti hash-hez kötött (desktop folyamatban WebAuthn-támogatással), ugyanaz a jóváhagyási bizonylat minta, mint az emberi jóváhagyás jegyzetfüzetben.
-   - A **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) ugyanazt az Ed25519 + JCS aláírási mintát nyújtja Pythonban LangChain és CrewAI integrációkkal, publikált keresztezési tesztvektorokkal és megfelelés térképezéssel, amelyet a [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) járult hozzá.
+Ennek a leckének a Python kódja szándékosan minimális, hogy minden sort el tudjon olvasni és pontosan megértse, mi történik. Termelési környezetben két lehetősége van:
 
-Az, hogy sajátot készít vagy könyvtárat használ, hasonló döntés, mint JWT könyvtár esetén: mindkettő ésszerű; a könyvtár időt spórol és csökkenti az audit felületet; a nulláról építkezés arra kényszerít, hogy minden primitívát megértsen. Ez az óra az alapoktól induló utat tanítja, hogy mindkét választás alapját ismerje.
+1. **Közvetlenül építsen a kriptográfiai primitívekre.** A fenti 50 sor sok használati esethez elegendő. A PyNaCl (Ed25519) és a `jcs` csomag (kanonikus JSON) jól karbantartott és auditált könyvtárak.
+
+2. **Használjon termelési bizonylat könyvtárat.** Számos nyílt forráskódú projekt valósítja meg ugyanazt a mintát további funkciókkal (kulcscsere, kötegelt verifikáció, JWK halmaz terjesztés, integráció szabálymotorokkal):
+   - Az aláíró feldolgozócső használja az JCS és az aláírási terület konvenciókat egy független IETF Internet-Draftban ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), 02-es revízió). Ennek a leckének a lapos, oktató bizonylata eltér a draft `{payload, signature}` borítékától, és nem egy konform megvalósításként kerül bemutatásra. A draft közzétesz egy közös konformancia csomagot ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) a vonatkozó formátumra célzott megvalósítások számára.
+   - A Microsoft Agent Governance Toolkit Cedar alapú szabályhatározatokkal fűzi össze a bizonylatokat; ennek végponttól-végpontig példáját lásd a tárházban a 33-as oktatóanyagban.
+   - A `protect-mcp` (npm) és `@veritasacta/verify` (npm) csomagok Node alapú megvalósítást nyújtanak a bizonylat aláírására és offline verifikációra, amely bármely MCP szervert tamper-evidens audit trail-lel tud burkolni, beleértve a co-sign kezelésű folyamatot, amelyben egy szüneteltetett művelet kibocsát egy az akció összegzéssel kötött jóváhagyási bizonylatot (asztali folyamatban WebAuthn alátámasztással), ugyanazt a jóváhagyási bizonylat mintát, mint a fentebb bemutatott emberi jóváhagyási jegyzetfüzet.
+   - A **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) ugyanazt az Ed25519 + JCS aláírási mintát biztosítja Pythonban LangChain és CrewAI integrációkkal, beleértve a közzétett keresztellenőrző tesztvektorokat és egy megfelelőségi leképezést, amelyet az [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) járult hozzá.
+   - Az **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** egy kiegészítő pontos művelet-végrehajtási réteget nyújt: offline ellenőrizhető jóváhagyási nyugták, rögzített WebAuthn vagy kvórumhatóság, egyszeri felhasználás a végrehajtó határán, és egy egyértelműen meghatározatlan kimenetű útvonal. Keretrendszer-adapterei a nyugtát szükséges bizonyítékként kezelik, nem pedig annak bizonyítékaként, hogy külső hatás történt.
+
+A saját megvalósítás és a könyvtár használata közötti döntés hasonló a saját JWT könyvtár írása és egy tesztelt használata közötti döntéshez: mindkettő ésszerű; a könyvtár időt takarít meg és csökkenti az auditfelületet; a nulláról induló megközelítés arra kényszerít, hogy minden primitívet megérts. Ez a lecke a nulláról induló utat tanítja, hogy meglegyen a alapod bármelyik választáshoz.
 
 ## Tudásellenőrzés
 
-Tesztelje megértését, mielőtt a gyakorlati feladathoz lép.
+Teszteld a megértésed, mielőtt a gyakorlati feladatra lépnél.
 
-**1. Egy bizonylatot az ügynök Ed25519 privát kulcsával írnak alá. Az auditor csak a nyilvános kulccsal rendelkezik. Tudja az auditor offline ellenőrizni a bizonylatot?**
+**1. Egy nyugtát az ügynök privát Ed25519 kulcsával írnak alá. Az ellenőr csak a nyilvános kulccsal rendelkezik. Ellenőrizheti az ellenőr a nyugtát offline?**
 
 <details>
 <summary>Válasz</summary>
 
-Igen. Az Ed25519 ellenőrzéshez csak a nyilvános kulcs és az aláírt bájtok szükségesek. Nincs hálózati hívás, nincs szolgáltatásfüggőség. Ez az a tulajdonság, amely hasznossá teszi a bizonylatokat légmentesen leválasztott, több szervezetet átfogó vagy alacsony bizalmi audit környezetben.
+Igen, a kriptográfiai ellenőrzéshez csak a nyilvános kulcsra és az aláírt bájtokra van szükség. Az
+ellenőrnek azonban függetlenül meg kell szereznie és rögzítenie kell az elfogadott nyilvános kulcsot a nyugta nélkül.
+Miután ez a bizalmi beállítás megvalósult, nincs szükség hálózati hívásra.
 </details>
 
-**2. Egy támadó módosítja a bizonylat `policy_id` mezőjét, azt állítva, hogy egy engedékenyebb szabályzat irányította. Az aláírás a eredeti adatokon alapult. Mi történik az ellenőrzés során?**
+**2. Egy támadó módosítja a `policy_id` mezőt egy bizonylaton, hogy azt állítsa, egy engedékenyebb szabályzat alapján készült. Az aláírás az eredeti adatcsomagra vonatkozott. Mi történik az ellenőrzés során?**
 
 <details>
 <summary>Válasz</summary>
 
-
-Az ellenőrzés sikertelen. Az aláírás az eredeti adathordozó kanonikus bájtjain alapult; bármely mező módosítása megváltoztatja azokat a bájtokat, ami az aláírás érvénytelenségét eredményezi. A támadónak szüksége lenne a privát kulcsra, hogy új érvényes aláírást készítsen, amit azonban nem birtokol.
+Az ellenőrzés meghiúsul. Az aláírás az eredeti adatcsomag kanonikus byte-jai alapján készült; bármely mező módosítása megváltoztatja ezeket a byte-okat, így az aláírás érvénytelenné válik. A támadónak a privát kulcsra lenne szüksége egy új, érvényes aláírás létrehozásához, amivel nem rendelkezik.
 </details>
 
-**3. Miért tartalmaz a blokk `tool_args_hash` és `result_hash` mezőket a nyers argumentumok és eredmény helyett?**
+**3. Miért tartalmaz a bizonylat egy `tool_args_hash` és `result_hash` mezőt a nyers argumentumok és eredmény helyett?**
 
 <details>
 <summary>Válasz</summary>
 
-Két ok miatt. Először is, szükség lehet arra, hogy a blokkot archiválják vagy továbbítsák olyan környezetben, ahol a nyers tartalom (személyes adatok, üzleti adatok) kiszivárgása problémát okoz. A hash-elés kicsiben tartja a blokkot és védi a tartalmat; az auditornak elegendő ellenőriznie, hogy a hash megfelel egy külön tárolt másolatnak. Másodszor, a hashek fix méretűek; a hash-eket tartalmazó blokk mérete korlátos, függetlenül attól, hogy az inputok vagy outputok milyen nagyok voltak.
+Két okból. Először is, a bizonylatot archiválni vagy továbbítani kell olyan környezetekben, ahol a nyers tartalom (személyes adatok, üzleti adatok) kiszivárgása problémát jelenthet. A hashelés kicsiben tartja a bizonylatot és védi a tartalmat; a felügyelő ellenőrzi, hogy a hash megfelel-e egy külön tárolt példánynak. Másodszor, a hash-eknek fix méretük van; egy hash-eket tartalmazó bizonylat mérete korlátozott marad, függetlenül az inputok és outputok méretétől.
 </details>
 
-**4. A `previous_receipt_hash` mező minden blokkot az elődjéhez köt. Ha egy támadó csendben töröl egy blokkot egy lánc közepéről, mi lesz érvénytelen?**
+**4. A `previous_receipt_hash` mező minden bizonylatot összekapcsol az előzőjével. Ha egy támadó csendben kitöröl egy bizonylatot a lánc közepéről, mi válik érvénytelenné?**
 
 <details>
 <summary>Válasz</summary>
 
-Minden blokk, amely a törölt blokk után következik. Az ő `previous_receipt_hash` mezőik már nem illeszkednek a tényleges lánchoz (mert a hivatkozott blokk már nem létezik, vagy a lánc más elődöt mutat). A törlés elrejtéséhez a támadónak újra kellene írnia és aláírnia minden későbbi blokkot, amihez a privát kulcs szükséges.
+A következő bemutatott bizonylat már nem kapcsolódik az elvárt elődhez, így az adott bemutatott sorozat ellenőrzése a hiánytól kezdve meghiúsul. Ha az aláíró rendelkezik a privát kulccsal, átírhatja vagy levághatja a lánc egy végződő részét. Ennek felismeréséhez rögzített aktuális fejre, külső ellenőrzőpontra vagy hitelesített népességi elkötelezettségre van szükség.
+
+
+
 </details>
 
-**5. Egy blokk tisztán ellenőrzött. Vajon ez bizonyítja, hogy az ügynök művelete helyes, megalapozott vagy megfelel a szabályzatnak?**
+**5. Egy nyugta tisztán igazolja. Ez bizonyítja, hogy az ügynök cselekedete helyes, megalapozott vagy megfelel-e a szabályzatnak?**
 
 <details>
 <summary>Válasz</summary>
 
-Nem. Egy érvényes blokk három dolgot igazol: hozzárendelhetőséget (ez a kulcs írta alá ezt a tartalmat), sértetlenséget (a tartalom nem változott), és sorrendet (ez a blokk az adott blokk után érkezett). Nem bizonyítja, hogy a művelet helyes volt, hogy a `policy_id`-ban nevezett szabályzatot valóban kiértékelték, vagy hogy az ügynök betartotta az összes szabályt. A blokkok az ügynök viselkedését vizsgálhatóvá teszik, de nem feltétlenül helyessé. Ez a leckében a legfontosabb határvonal.
+Nem. Egy rögzített kulcs és lánckörnyezet alatt egy érvényes nyugta bizonyítja az aláírás hozzárendelhetőségét,
+a tartalom sértetlenségét és a bemutatott előd megkötését. Nem bizonyítja azonban,
+hogy a művelet helyes volt vagy végrehajtották, hogy az irányelvet kiértékelték, hogy az időbélyeg
+megbízható, vagy hogy a rekordkészlet teljes. Ez a lecke legfontosabb határa.
 </details>
 
 ## Gyakorlati feladat
 
-Nyissa meg a `code_samples/18-signed-receipts.ipynb` fájlt és fejezze be a négy részt:
+Nyisd meg az `code_samples/18-signed-receipts.ipynb` fájlt és töltsd ki mind a négy részt:
 
-1. **1. rész**: Írja alá az első blokkot és ellenőrizze.
-2. **2. rész**: Manipulálja a blokkot és figyelje meg az ellenőrzés kudarcát.
-3. **3. rész**: Építsen egy három blokkos láncot és ellenőrizze a lánc épségét.
-4. **4. rész**: Alkalmazza mintaként egy Microsoft Agent Framework-kel épített ügynöknél: csomagolja eszközhívást blokk-aláírásba, majd külön ellenőrizze a blokkot.
+1. **1. rész**: Írd alá az első nyugtádat, és ellenőrizd azt.
+2. **2. rész**: Manipuláld a nyugtát, és figyeld meg az ellenőrzés sikertelenségét.
+3. **3. rész**: Építs egy három-nyugta láncot, és ellenőrizd a lánc sértetlenségét.
+4. **4. rész**: Alkalmazd a mintát egy Microsoft Agent Framework-dal készült ügynökön: burkold az eszközhívást nyugta aláírásba, majd ellenőrizd a nyugtát külön.
 
-**Haladó feladat 1:** Bővítse a blokk sémáját egy saját választott mezővel (például nyomkövetési kérésazonosítóval), frissítse a kanonikus aláírási logikát, hogy ezt is tartalmazza, és győződjön meg róla, hogy a blokk továbbra is helyesen ellenőrződik. Ezután módosítsa a mezőt aláírás után, és győződjön meg róla, hogy az ellenőrzés megbukik. Ez arra készteti, hogy megértse, hogyan járul hozzá a kanonikus kódolás minden bájtja az aláíráshoz.
+**Extra kihívás 1:** bővítsd a nyugta sémát egy tetszőleges további mezővel (például egy kérés azonosítóval a nyomon követéshez), frissítsd a kanonikus aláírási logikát, hogy tartalmazza azt, és bizonyítsd, hogy a nyugta továbbra is átmegy az ellenőrzésen. Ezután módosítsd a mezőt az aláírás után, és bizonyítsd, hogy az ellenőrzés meghiúsul. Ez arra kényszerít, hogy megértsd, hogyan járul hozzá a kanonikus kódolás minden bájtja az aláíráshoz.
 
-**Haladó feladat 2:** Készítsen SHA-256-at két blokkjára együttesen (kanonikus bájtjaikat determinisztikus sorrendben összefűzve), majd ágyazza be a keletkezett digest-et egy harmadik blokk új mezőjeként aláírás előtt. Ellenőrizze, hogy mindhárom blokk továbbra is helyesen ellenőrződik. Ezzel egy egylépéses befogadási bizonyítékot épített: aki a harmadik blokkot birtokolja, igazolhatja, hogy az első kettő létezett az aláírás időpontjában anélkül, hogy azok tartalmát felfedné. Ez az a minta, amelyet a kiválasztó közzétételi blokkok nagy léptékben használnak (Merkle-elköteleződések, RFC 6962).
+**Extra kihívás 2:** Használj SHA-256 hash-t két nyugtád összefűzött kanonikus bájtjára, és ágyazd be a kapott lenyomatot egy új mezőként egy harmadik nyugtába az aláírás előtt. Ellenőrizd, hogy mindhárom nyugta továbbra is átmegy az ellenőrzésen. Most egy egylépéses inklúziós bizonyítékot építettél: bárki, aki birtokolja a harmadik nyugtát, bizonyíthatja, hogy az első kettő létezett az aláírás idején az adataik felfedése nélkül. Ez az a minta, amit a szelektív közzétételi nyugták nagy léptékben alkalmaznak (Merkle elkötelezettségek, RFC 6962).
 
 ## Összefoglalás
 
-A kriptográfiai blokkok olyan audit nyomot adnak az AI ügynököknek, amely:
+A kriptográfiai nyugták egy auditálási nyomot adnak az MI ügynököknek, amely:
 
-- **Függetlenül ellenőrizhető:** bármely fél, aki birtokolja a nyilvános kulcsot, ellenőrizheti, nincs szolgáltatásfüggőség.
-- **Hamisítás-biztos:** minden módosítás érvényteleníti az aláírást.
-- **Hordozható:** egy blokk egy kis JSON fájl; archiválható, továbbítható és bármikor ellenőrizhető.
-- **Szabványkövető:** Ed25519 (RFC 8032), JCS (RFC 8785), és SHA-256 alapú, mind széles körben elterjedt primitívek.
+- **Függetlenül ellenőrizhető rögzített bizalom alatt**: egy elfogadott nyilvános kulccsal és aláírt bájtokkal rendelkező fél valóban szolgáltatásfüggőség nélkül ellenőrizhet.
+- **Manipulációbiztos**: bármilyen módosítás érvénytelenné teszi az aláírást.
+- **Hordozható**: a nyugta egy kis JSON fájl; archiválható, továbbítható és bárhol ellenőrizhető.
+- **Szabványkövető**: Ed25519 (RFC 8032), JCS (RFC 8785) és SHA-256 szabványokra épül, mind széles körben alkalmazott primitívek.
 
-Nem helyettesítik a bemeneti ellenőrzést, szabályzatvégrehajtást vagy identitásinfrastruktúrát. Ezek ezek alapját képezik. Amikor ügynököket telepít szabályozott környezetbe, több szervezetes munkafolyamatokba vagy bármilyen olyan helyzetbe, ahol a jövőbeni auditor nem feltételezhetően bízik önben, a blokkok teszik az audit nyomot őszintévé.
+Nem helyettesítik a bemeneti érvényesítést, szabályzat érvényesítést, végrehajtó elfogadást,
+eredménybizonyítékot, teljességi ellenőrzéseket vagy az identitásinfrastruktúrát. Ezek az alapkőveik
+ezen rétegeknek. Szabályozott vagy több szervezetes munkafolyamatokban a nyugták lehetővé teszik,
+hogy a kibocsátó egyedi nyilatkozatai függetlenül ellenőrizhetők legyenek az auditor saját bizalmi konfigurációja szerint.
 
-A legfontosabb tanulság: a blokkok bizonyítják, ki, mit, mikor mondott. Nem bizonyítják, hogy az elmondott igaz vagy helyes volt. Ezt a különbséget szorosan tartsa szem előtt. Ez a különbség egy becsületes eredettörténeti rendszer és egy megtévesztő között.
+A legfontosabb tanulság: a nyugták bizonyítják, hogy egy bizonyos kulcs aláírt egy bizonyos
+tartalmat. A benne hordozott időbélyeg egy aláírói állítás, hacsak nincs külön időhitelesítve. Egy
+nyugta nem bizonyítja, hogy a tartalma igaz volt, hogy egy művelet végrehajtásra került, vagy hogy a
+rekordkészlet teljes volt. Ezeket a különbségeket tartsd szigorúan szem előtt.
 
-## Éles üzem checklist
+## Bevezetési ellenőrzőlista
 
-Amikor készen áll arra, hogy a leckéből továbblépve éles környezetben telepítsen blokk-aláírásos ügynököket:
+Amikor készen állsz arra, hogy kilépj ebből a leckéből és éles környezetben helyezd üzembe az aláírt nyugtás ügynököket:
 
-- [ ] **Mozgassa el az aláíró kulcsot a fejlesztői laptopról.** Használjon Azure Key Vault-ot, AWS KMS-t vagy hardveres biztonsági modult. Az aláíró privát kulcs soha nem kerülhet forráskód-tárba vagy alkalmazásgépen törtszövegként.
-- [ ] **Tegye közzé az ellenőrzési nyilvános kulcsot.** Az auditoroknak offline ellenőrzéshez szükségük van erre. A szabványos minta egy JWK készlet egy jól ismert URL-en (RFC 7517), pl. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Horgonyozza le a láncot külsőleg.** Időszakosan írja a legfrissebb láncfej hash-ét egy átláthatósági naplóba (Sigstore Rekor, RFC 3161 időbélyegző hatóság vagy egy második belső rendszer) hogy egy külső fél igazolhassa, hogy "ez a lánc létezett ezen az időponton."
-- [ ] **Tárolja a blokkokat változtathatatlanul.** Csak hozzáfűzős tárhely (Azure Storageimmutabilitás-politikákkal, AWS S3 Object Lock) megakadályoz egy belső támadót, hogy átírja a történelmet a tárolási rétegben.
-- [ ] **Döntse el a megőrzési időt.** Sok megfelelőségi szabály többéves megőrzést ír elő. Tervezze a blokkok növekedését (egy blokk ~500 bájt; egy ügynök napi 10K hívással évente kb. 1,8 GB-ot generál).
-- [ ] **Dokumentálja, mit nem fednek a blokkok.** A blokkok bizonyítják a hozzárendelhetőséget, sértetlenséget és sorrendet. A futtatási könyvben világosan sorolja fel, hogy milyen további kontrollok (bemeneti ellenőrzés, szabályzati végrehajtás, sebességkorlátozás, identitásinfrastruktúra) működnek a blokkok mellett az irányítási keretében.
+- [ ] **Mozgasd az aláíró kulcsot a fejlesztői laptopról.** Használj Azure Key Vault-ot, AWS KMS-t vagy hardveres biztonsági modult. Az a privát kulcs, amellyel a nyugtáidat aláírod, soha nem élhet forráskód-tárolóban vagy tiszta szövegként az alkalmazási gépeken.
+- [ ] **Hozzon létre ellenőrző kulcs bizalmat.** Kiadja a kulcsokat JWK Készleten vagy regisztráción keresztül, majd a megbízó felek rögzítik az elfogadott kibocsátó identitását, kulcskészletet és forgatási szabályzatot az egyes bizonylatokon kívül. Egy beágyazott kulcs önmagában nem bizalmi horgony.
+- [ ] **Horgonyozza be a láncot külsőleg.** Időszakosan írja be a legfrissebb láncfej-hash-t egy átláthatósági naplóba (Sigstore Rekor, RFC 3161 időbélyegző hatóság, vagy egy második belső rendszer), így egy külső fél megerősítheti, hogy "ez a lánc létezett ezen az időpontban."
+- [ ] **Tárolja a bizonylatokat módosíthatatlanul.** Csak hozzáfűzhető blob-tárolás (Azure Storage immutabilitási szabályzatokkal, AWS S3 Object Lock) megakadályozza, hogy egy bennfentes átírja a történelmet a tárolási rétegen.
+- [ ] **Döntsön a megőrzésről.** Sok megfelelőségi rendszer több éves megőrzést ír elő. Tervezze meg a bizonylatnövekedést (egy bizonylat kb. 500 bájt; egy ügynök, amely naponta 10 ezer hívást generál, évente kb. 1,8 GB adatot állít elő).
+- [ ] **Dokumentálja, mit nem fednek le a bizonylatok.** A bizonylatok bizonyítják a hozzárendelést, integritást és sorrendet. Az útmutatónak világosan fel kell sorolnia, hogy milyen további ellenőrzések (bemeneti validáció, szabályzat végrehajtás, ráta korlátozás, identitás-infrastruktúra) vannak jelen a bizonylatok mellett a kormányzási álláspontban.
 
 ### Van még kérdése az AI ügynökök biztonságáról?
 
-Csatlakozzon a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, találkozzon más tanulókkal, vegyen részt hivatalos fogadóórákon, és kapja meg AI ügynökök kérdéseire a válaszokat.
+Csatlakozzon a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, hogy más tanulókkal találkozzon, részt vegyen ügyfélórákon, és megkapja AI Ügynökök kérdéseire a válaszokat.
 
-## A lecke utáni fejlesztések
+## Tovább a leckén túl
 
-Ez a lecke egyetlen blokk aláírását és hash láncolt sorozatokat mutat be. Ugyanazok a primitívek számos fejlettebb mintává állnak össze, amelyekkel találkozhat, ahogy irányítási környezete fejlődik:
+Ez a lecke egyetlen bizonylat aláírását és hash-elosztott szekvenciákat fed le. Ugyanezek az primitívek több fejlettebb mintát alkotnak, amelyeket a kormányzási pozíció fejlesztésével találkozhat:
 
-- **Szelektív közzététel.** Amikor egy blokk mezői független elkötelezettséggel rendelkeznek (RFC 6962-stílusú Merkle-fa), bizonyos mezőket külön auditoroknak is felfedhet és igazolhatja, hogy a többi nem változott anélkül, hogy nyilvánosságra hozná azokat. Hasznos, ha ugyanaz a blokk egy átfogó auditnak (mely teljességet akar) és adatminimalizálási szabályozásoknak, mint a GDPR (mely a lehető legkevesebbet akarja mutatni az auditor számára) is meg kell feleljen.
-- **Blokk visszavonás.** Ha egy aláíró kulcs kompromittálódik, szükséges mód az összes ezzel az aláíró kulccsal aláírt blokk megbízhatatlannak jelölésére a visszavonástól kezdve. Szabványos minták: rövid életű aláíró kulcsok plusz közzétett visszavonási lista, vagy egy átláthatósági napló visszavonási bejegyzésekkel.
-- **Kétoldalú / megosztott aláírású blokkok.** Egyes megvalósítások az aláírt adatot kettéosztják elő-végrehajtási (`authorization_*`) és utó-végrehajtási (`result_*`) részekre független aláírásokkal, ami hasznos, ha az engedélyezési döntést és az észlelt eredményt külön szereplők vagy időpontok állítják elő. Ez összerakható a leckében tanult blokk formátumra.
-- **Adathordozó összeállítás.** Egy blokk lezárja azokat a bájtokat, amelyeket `result_hash`-ban ad meg. A valós adatok gyakran gazdagabbak, mint egyetlen eszközhívás eredménye: döntés előtti gondolkodás (modell-előrejelzés, fontolóra vett opciók, bizonyíték és annak teljessége, kockázati helyzet, elszámoltathatósági lánc, döntő kapu eredmény) mind beleférnek az adathordozóba, amelyet egy blokk zár le. Ez minimalizálja a blokk formátumát, miközben az adatsémák egyes területek szerint fejlődhetnek.
-- **Több implementáció közötti összhang.** Több független megvalósítás ugyanabba a blokk formátumba (Python, TypeScript, Rust, Go) keresztellenőrződik a közös tesztvektorokkal. Ha saját maga valósítja meg, a nyilvános vektorokkal való validáció megerősíti a kompatibilitást.
-- **Post-kvantum átállás.** Az Ed25519 ma széles körben használatos, de nem kvantumbiztos. A blokk formátum algoritmus-ügyes: a `signature.alg` mező tartalmazhatja az `ML-DSA-65`-öt (a NIST poszt-kvantum aláírási szabványát), amikor szükséges az átállás. Tervezzen átmeneti időszakot, amikor a blokkok két aláírással rendelkeznek.
+- **Szelektív nyilvánosságra hozatal.** Ha egy bizonylat mezői önállóan vannak lekötve (RFC 6962 stílusú Merkle fa), akkor konkrét mezőket meg lehet mutatni bizonyos auditoroknak és igazolni, hogy a többi változatlan maradt anélkül, hogy azokat felfednék. Hasznos, amikor ugyanazon bizonylatnak egyszerre kell kielégítenie egy átfogó auditot (amely teljességet igényel) és adatminimalizálási szabályokat, mint a GDPR (amely azt szeretné, hogy az auditor a lehető legkevesebbet lássa).
+- **Bizonylat visszavonás.** Ha egy aláíró kulcs kompromittálódik, szükség van egy módra, hogy egy adott időponttól kezdve minden azzal a kulccsal aláírt bizonylatot megbízhatatlannak jelöljünk. Szokásos minták: rövid élettartamú aláíró kulcsok plusz közzétett visszavonási lista, vagy egy átláthatósági napló visszavonási bejegyzésekkel.
+- **Kétoldalú / megosztott aláírású bizonylatok.** Egyes megvalósítások az aláírt terhelést végrehajtás előtti (`authorization_*`) és végrehajtás utáni (`result_*`) felére osztják, független aláírásokkal, ami hasznos, ha az engedélyezési döntést és a megfigyelt eredményt eltérő szereplők vagy időpontok állítják elő. Ez összeadódóan épül rá a jelen leckében tanult bizonylatformátumra.
+- **Terhelés összeállítás.** Egy bizonylat bármilyen bájtot lezár, amit a `result_hash` beilleszt. A valós terhelések gyakran gazdagabbak, mint egyetlen eszközhívás eredménye: döntés előtti érvelés (modell-előrejelzés, megfontolt opciók, bizonyíték és annak teljessége, kockázati helyzet, felelősségi lánc, kapu eredménye) mind beleférhetnek, egyetlen bizonylattal lezárva. Ez minimalizálja a bizonylatformátumot, miközben lehetővé teszi, hogy a terhelési sémák domain-specifikusan fejlődjenek.
+- **Implementációk közötti megfelelőség.** Több független megvalósítás ugyanazon bizonylatformátumra (Python, TypeScript, Rust, Go) közös tesztvektorok alapján ellenőriz. Ha saját megvalósítást épít, a közzétett vektorokkal történő validáció biztosítja a vezetékre vonatkozó kompatibilitást.
+- **Kvantum utáni migráció.** Az Ed25519 ma széles körben használt, de nem kvantumbiztos. Önmagában egy `alg` címke nem migráció: egy profilnak definiálnia kell ML-DSA kulcskódolást, kanonikus aláírt bájtokat, érvényesítést, megbízói szabályzatot, leminősítés elleni védelmet és átmeneti szemantikát. Tervezze meg és tesztelje a kettős aláírásos átmenetet közös vektorok ellen, mielőtt kompatibilitási állításokat tesz.
 
 ## További források
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-javaslat: Gépek közötti hozzáférés-vezérlés aláírt döntési blokkokkal</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Aláírt döntési bizonylatok gép-gép hozzáférés-vezérléshez</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Felelős AI áttekintés (Azure AI)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-görbe digitális aláírási algoritmus (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON kanonizálási séma (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Tanúsítvány Átláthatóság</a> (Merkle-fa szerkezet alkalmazva szelektív közzétételi blokkokban)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, 33. oktatóanyag: Offline ellenőrizhető döntési blokkok</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Implementációk közötti összhang tesztvektorok</a> a tanult blokk formátumhoz (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON kanonikalizációs séma (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Tanúsítvány átláthatóság</a> (Merkle-fa szerkezet a szelektív nyilvánosságra hozott bizonylatokhoz)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, 33. oktatóanyag: Offline-ellenőrizhető döntési bizonylatok</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Implementációk közötti megfelelőség teszt vektorok</a> a jelen leckében használt bizonylatformátumhoz (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentáció</a> (Ed25519 Pythonban)
 
 ## Előző lecke

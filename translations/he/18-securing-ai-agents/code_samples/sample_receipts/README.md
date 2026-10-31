@@ -1,63 +1,87 @@
-# דוגמאות קבלות לדוגמה
+# דוגמאות קבלות
 
-שלושה קבצים של קבלות שנוצרו מראש לצורך בדיקה ללא הרצת המחברת.
+שלושה קבצי קבלה שנוצרו מראש לבדיקה ללא צורך בהרצת המחברת.
 
-| קובץ | מה זה |
+| קובץ | מה הוא |
 |---|---|
-| `01_valid_receipt.json` | קבלה תקפה וחתומה לשימוש בכלי `lookup_flights`. אימות מחזיר True. |
-| `02_tampered_receipt.json` | אותה קבלה עם שדה אחד ששונָה אחרי החתימה. אימות מחזיר False. |
-| `03_chain_three_receipts.json` | שרשרת של שלוש קבלות תקפות (חיפוש, החזקה, הזמנה) עם `previous_receipt_hash` שמקשר כל אחת לזו הקודמת. |
+| `01_valid_receipt.json` | קבלה תקפה וחתומה עבור קריאה לכלי `lookup_flights`. אימות מחזיר True. |
+| `02_tampered_receipt.json` | אותה קבלה עם שדה אחד ששונה לאחר החתימה. אימות מחזיר False. |
+| `03_chain_three_receipts.json` | שרשרת של שלוש קבלות תקפות (חיפוש, החזקה, הזמנה) עם `previous_receipt_hash` שמקשר כל אחת לקודמתה. |
 
-הדוגמאות חותמות את הבייטים הקאנוניים של JCS בפיילוד ישירות בעזרת Ed25519.
-SHA-256 נשאר בשימוש לעיכול תוכן ולקישורי שרשרת הקבלות, לא כ-
-חישוב מקדים נוסף לפני החתימה.
+הדוגמאות חותמות את בתים הקנוניים של המידע בפורמט JCS ישירות עם Ed25519.
+SHA-256 נשאר בשימוש לעיכול תוכן ולקישורים בשרשרת הקבלות, לא כ-
+מקדים נוסף לפני החתימה.
 
 ## אימות הדוגמאות
 
-המחברת מציגה את תהליך האימות בארבעה חלקים. לאימות הדוגמאות האלה
-ישירות ללא הרצה של הסיפור במחברת:
+ב-`18-signed-receipts.ipynb`, הרץ תחילה את ההגדרות ואת הסעיפים 1 עד 3.
+סעיף 3 מגדיר את `verify_chain`; הסעיפים 1 ו-2 לבדם אינם מספיקים.
+לאחר מכן הרץ את הבלוק הבא בתא חדש, כאשר ספריית העבודה של המחברת
+מוגדרת ל-`18-securing-ai-agents/code_samples`. הנתיבים לדוגמאות למטה יחסיים
+לספריה זו.
 
 ```python
 import json
 from pathlib import Path
 
-# מניח שסיימת את הייבוא והפונקציות העזר
-# מהחלקים 1 ו-2 של 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # נכון
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # לא נכון
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## איך הן נוצרו
+### בדיקת הדוגמה ללא Jupyter
 
-הדוגמאות משתמשות באותו מסלול קוד כמו המחברת, עם מפתח חתימה אחד קבוע
-וחותמות זמן קבועות לשחזור בתים. ליצירה מחדש:
+משורש המאגר, התקן את התלויות של השיעור והרץ:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+בדיקות אלו מריצות את הדוגמאות בפייתון במחברת ואת בלוק ה-README המדויק
+למעלה. הן גם בודקות כי שינוי והוספת מפתחות לא מקובעים נדחים על ידי
+המאמתים. הבדיקות מדלגות על תא ההגדרות `%pip` במחברת מכיוון שהתלויות
+מותקנות בנפרד. הן אינן משנות את המחברת או הדוגמאות.
+
+## איך נוצרו אלו
+
+הדוגמאות משתמשות באותו מסלול קוד כמו המחברת, עם מפתח חתימה קבוע
+וטיימסטמפ קבועים לשחזור בתים מדויק. ליצירה מחדש:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(הסקריפט נמצא ב-`generate_fixtures.py` בתיקייה זו.)
+(הסקריפט נמצא ב-`generate_fixtures.py` בספריה זו.)
 
-## מה הסטודנטים לומדים בבדיקת JSON גולמי
+## מה לומדים התלמידים מבדיקת JSON גולמי
 
-קריאת פורמט הקבלה הגולמי מפתחת אינטואיציה שלפעמים התאים במחברת
-אינם מספקים. סטודנטים הסורקים את ה-JSON לעיתים מבחינים ב:
+קריאת פורמט הקבלה הגולמית בונה אינטואיציה שהתאים במחברת
+לא תמיד מספקים. תלמידים הסורקים את ה-JSON לעיתים מבחינים ב:
 
-1. החתימה היא מחרוזת base64url לא שקופה, אך כל שדה אחר הוא JSON קריא
-   פשוט. החתימה אינה מצפינה את התוכן; היא מאשרת אותו.
-2. `public_key` מוטמע בקבלה. מבקר לא צריך דבר נוסף
-   לאימות (בתנאי שמהימנים שהמפתח שייך למנפיק המוצהר;
-   ראה את הדרכת ה-README בנושא תשתיות זהות).
-3. שינוי תו יחיד בכל שדה, ואז השוואה מחודשת עם
-   `02_tampered_receipt.json`, עושה את המנגנון ברמת הבייטים למוחשי.
+1. החתימה היא מחרוזת בסיס64url אטומה, אך כל שדה אחר הוא JSON קריא
+   פשוט. החתימה אינה מוצפנת את התוכן; היא מאשרת אותו.
+2. ה-`public_key` מוטמע בקבלה, וזה מספיק לבדוק
+   עקביות עצמית אך לא אמון במנפיק. מבקר חייב להשוות זאת עם מפתח
+   מקובע מחוץ לקבלה או שנפתר דרך רישום מהימן.
+3. שינוי תו אחד בלבד בכל שדה, ואז השוואת הקובץ מחדש עם
+   `02_tampered_receipt.json`, ממחיש את המנגנון ברמת ה-בתים.
 
 ---
 

@@ -1,63 +1,87 @@
-# أمثلة على الإيصالات النموذجية
+# عينات الإيصالات
 
-ثلاثة ملفات إيصالات مولدة مسبقًا للفحص دون الحاجة لتشغيل الدفتر.
+ثلاثة ملفات إيصالات مولدة مسبقًا للفحص بدون تشغيل الدفتر.
 
 | الملف | ما هو |
 |---|---|
-| `01_valid_receipt.json` | إيصال موقع صالح لاستدعاء أداة `lookup_flights`. التحقق يرجع True. |
+| `01_valid_receipt.json` | إيصال صالح موقع لمكالمة أداة `lookup_flights`. التحقق يرجع True. |
 | `02_tampered_receipt.json` | نفس الإيصال مع تعديل حقل واحد بعد التوقيع. التحقق يرجع False. |
-| `03_chain_three_receipts.json` | سلسلة من ثلاث إيصالات صالحة (بحث، تعليق، حجز) مع `previous_receipt_hash` تربط كل منها بالسابق. |
+| `03_chain_three_receipts.json` | سلسلة من ثلاثة إيصالات صالحة (بحث، احتجاز، حجز) مع `previous_receipt_hash` تربط كل منها بالسابق. |
 
-تقوم الأمثلة بتوقيع بايتات JCS الموحدة للعبء مباشرة بواسطة Ed25519.
-تبقى SHA-256 مستخدمة لهضم المحتوى ورابط سلسلة الإيصالات، وليست
-كهاش مسبق إضافي قبل التوقيع.
+تقوم العينات بالتوقيع مباشرة على بايتات JCS القانونية للحمل باستخدام Ed25519.
+تبقى SHA-256 مستخدمة لهضم المحتوى وروابط سلسلة الإيصالات، وليس كـ
+هضم مسبق إضافي قبل التوقيع.
 
 ## التحقق من العينات
 
-يشرح الدفتر عملية التحقق في أربعة أقسام. للتحقق من هذه الأمثلة
-مباشرة دون المرور بسرد الدفتر:
+في `18-signed-receipts.ipynb`، قم بتشغيل الإعداد والأقسام من 1 إلى 3 أولاً.
+القسم 3 يعرف `verify_chain`؛ الأقسام 1 و2 وحدهما غير كافيين.
+ثم شغّل الكتلة التالية في خلية جديدة، مع ضبط دليل العمل للدفتر
+إلى `18-securing-ai-agents/code_samples`. مسارات العينات أدناه نسبية
+لذلك الدليل.
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## كيف تم توليد هذه
+### التحقق من المثال بدون Jupyter
 
-تستخدم الأمثلة نفس مسار الكود الخاص بالدفتر، مع مفتاح توقيع ثابت
-وطوابع زمنية ثابتة لضمان استنساخ البايتات. لإعادة التوليد:
+من جذر المستودع، قم بتثبيت اعتماديات الدرس وتشغيل:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+تنفذ هذه الاختبارات أمثلة بايثون للدفتر وكتلة README الدقيقة
+أعلاه. كما تتحقق من رفض التلاعب والمفاتيح غير المثبتة من قبل
+المدققين. تتخطى الاختبارات خلية الإعداد `%pip` الخاصة بالدفتر لأن الاعتماديات
+مثبتة بشكل منفصل. لا تغير الدفاتر أو العينات.
+
+## كيف تم توليد هذه العينات
+
+تستخدم العينات نفس مسار الكود كالدفتر، مع مفتاح توقيع ثابت
+وطوابع زمنية ثابتة لإعادة إنتاجية البايت. لإعادة التوليد:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(السكريبت موجود في `generate_fixtures.py` في هذا الدليل.)
+(السكربت موجود في `generate_fixtures.py` ضمن هذا الدليل.)
 
 ## ما يتعلمه الطلاب من فحص JSON الخام
 
-قراءة تنسيق الإيصال الخام تبني الحدس الذي لا توفره دائمًا الخلايا في الدفتر.
-غالبًا ما يلاحظ الطلاب الذين يتصفحون JSON بسرعة:
+قراءة صيغة الإيصال الخام تبني حدسًا لا توفره الخلايا في الدفتر دائمًا.
+غالبًا ما يلاحظ الطلاب الذين يتصفحون JSON:
 
-1. التوقيع هو سلسلة base64url غامضة، لكن كل الحقول الأخرى JSON عادي
-   قابل للقراءة. التوقيع لا يشفر المحتوى؛ بل يشهد عليه.
-2. `public_key` مضمّن في الإيصال. لا يحتاج المدقق إلى أي شيء آخر
-   للتحقق (بشرط الثقة في أن المفتاح ينتمي فعلاً للجهة المصدرّة المدعاة؛
-   راجع README الدرس حول بنية الهوية).
+1. التوقيع هو سلسلة مشفرة بالقاعدة64url غامضة، لكن كل حقل آخر هو JSON
+   واضح للقراءة. التوقيع لا يشفر المحتوى؛ بل يشهد عليه.
+2. `public_key` مضمن في الإيصال، وهذا كافٍ لفحص
+   الاتساق الذاتي لكن ليس الثقة بإصدار الإيصال. يجب على المدقق مقارنته بمفتاح
+   مثبت خارج الإيصال أو يتم حله عبر سجل موثوق.
 3. تعديل حرف واحد في أي حقل، ثم إعادة مقارنة هذا الملف مع
-   `02_tampered_receipt.json`، يجعل آلية مستوى البايت واضحة.
+   `02_tampered_receipt.json` يجعل آلية مستوى البايت ملموسة.
 
 ---
 

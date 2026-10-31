@@ -1,44 +1,68 @@
-# Các mẫu Biên nhận
+# Bộ Dữ Liệu Mẫu Biên Lai
 
-Ba tệp biên nhận được tạo sẵn để kiểm tra mà không cần chạy sổ tay.
+Ba tệp biên lai được tạo sẵn để kiểm tra mà không cần chạy notebook.
 
-| Tệp | Đây là gì |
+| Tệp | Nó là gì |
 |---|---|
-| `01_valid_receipt.json` | Một biên nhận hợp lệ đã được ký cho một lần gọi công cụ `lookup_flights`. Việc xác minh trả về True. |
-| `02_tampered_receipt.json` | Cùng một biên nhận với một trường bị chỉnh sửa sau khi ký. Việc xác minh trả về False. |
-| `03_chain_three_receipts.json` | Một chuỗi ba biên nhận hợp lệ (tìm kiếm, giữ chỗ, đặt chỗ) với `previous_receipt_hash` liên kết mỗi biên nhận với biên nhận trước đó. |
+| `01_valid_receipt.json` | Một biên lai hợp lệ đã được ký cho một cuộc gọi công cụ `lookup_flights`. Xác minh trả về True. |
+| `02_tampered_receipt.json` | Cùng một biên lai với một trường bị sửa đổi sau khi ký. Xác minh trả về False. |
+| `03_chain_three_receipts.json` | Một chuỗi gồm ba biên lai hợp lệ (tìm kiếm, giữ, đặt chỗ) với `previous_receipt_hash` liên kết từng biên lai với biên lai trước đó. |
 
-Các mẫu ký trực tiếp các byte JCS chuẩn của payload với Ed25519.
-SHA-256 vẫn được sử dụng cho các bản tóm tắt nội dung và các liên kết chuỗi biên nhận, không như một
-bước tiền băm bổ sung trước khi ký.
+Bộ dữ liệu này ký trực tiếp các byte JCS chuẩn hóa của payload bằng Ed25519.
+SHA-256 vẫn được dùng cho tiêu đề nội dung và các liên kết chuỗi biên lai, không phải như một
+bước băm trước khi ký thêm.
 
 ## Xác minh các mẫu
 
-Sổ tay hướng dẫn xác minh qua bốn phần. Để kiểm tra các mẫu này
-trực tiếp mà không cần qua phần giải thích của sổ tay:
+Trong `18-signed-receipts.ipynb`, chạy phần Setup và các Phần 1 đến 3 trước.
+Phần 3 định nghĩa `verify_chain`; Chỉ Phần 1 và 2 thì không đủ.
+Sau đó chạy khối lệnh sau trong một ô mới, với thư mục làm việc của notebook
+được đặt thành `18-securing-ai-agents/code_samples`. Đường dẫn bộ dữ liệu bên dưới là tương đối
+so với thư mục đó.
 
 ```python
 import json
 from pathlib import Path
 
-# Giả sử bạn đã hoàn thành việc nhập khẩu và các hàm trợ giúp
-# từ các phần 1 và 2 của 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Đúng
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Sai
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Cách các mẫu này được tạo ra
+### Kiểm tra ví dụ mà không cần Jupyter
 
-Các mẫu sử dụng cùng đoạn mã với sổ tay, với một khóa ký cố định
-và dấu thời gian cố định để tái tạo byte. Để tạo lại:
+Từ thư mục gốc của kho lưu trữ, cài đặt phụ thuộc bài học và chạy:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Những bài kiểm tra này thực thi các ví dụ Python trong notebook và khối README chính xác
+phía trên. Chúng cũng kiểm tra rằng sự giả mạo và các khóa không được ghim sẽ bị từ chối bởi
+các trình xác minh. Các bài kiểm tra bỏ qua ô thiết lập `%pip` của notebook vì các phụ thuộc
+được cài đặt riêng. Chúng không thay đổi notebook hay bộ dữ liệu.
+
+## Cách những mẫu này được tạo ra
+
+Bộ dữ liệu sử dụng cùng đường đi mã như notebook, với một khóa ký cố định
+và dấu thời gian cố định để tái lập byte giống nhau. Để tạo lại:
 
 ```bash
 python3 generate_fixtures.py
@@ -46,18 +70,18 @@ python3 generate_fixtures.py
 
 (Kịch bản nằm ở `generate_fixtures.py` trong thư mục này.)
 
-## Những gì sinh viên học được khi kiểm tra JSON thô
+## Sinh viên học gì khi xem xét JSON thô
 
-Đọc định dạng biên nhận thô giúp xây dựng trực giác mà các ô trong sổ tay
-không phải lúc nào cũng cung cấp. Sinh viên thường nhận thấy khi lướt qua JSON:
+Việc đọc định dạng biên lai thô xây dựng trực giác mà các ô trong notebook
+không phải lúc nào cũng cung cấp. Sinh viên khi đọc lướt JSON thường nhận thấy:
 
-1. Chữ ký là một chuỗi base64url khó hiểu, nhưng mọi trường khác đều là JSON dễ đọc
-   bình thường. Chữ ký không mã hóa nội dung; nó chỉ xác nhận nội dung đó.
-2. `public_key` được nhúng trong biên nhận. Một kiểm toán viên không cần gì thêm
-   để xác minh (miễn là tin tưởng rằng khóa thực sự thuộc về người phát hành được khẳng định;
-   xem README bài học về hạ tầng nhận dạng).
-3. Thay đổi một ký tự bất kỳ trong bất cứ trường nào, rồi so sánh lại tệp này với
-   `02_tampered_receipt.json`, làm rõ cơ chế ở cấp byte.
+1. Chữ ký là một chuỗi base64url không rõ cấu trúc, nhưng mọi trường khác đều là JSON
+   đọc được rõ. Chữ ký không mã hóa nội dung; nó xác nhận nội dung đó.
+2. `public_key` được nhúng trong biên lai, đủ để kiểm tra
+   tính nhất quán nội bộ nhưng không phải sự tin cậy của người phát hành. Một kiểm toán viên phải so sánh nó với một khóa
+   được ghim bên ngoài biên lai hoặc được giải quyết qua một đăng ký tin cậy.
+3. Sửa một ký tự đơn trong bất kỳ trường nào, rồi so sánh lại tệp này với
+   `02_tampered_receipt.json`, làm cho cơ chế cấp byte trở nên rõ ràng.
 
 ---
 
