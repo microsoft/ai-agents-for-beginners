@@ -12,28 +12,52 @@
 SHA-256 अझै पनि सामग्री डाइजेस्ट र रसिद-श्रृंखला लिंकहरूका लागि प्रयोग हुन्छ, हस्ताक्षरअघि
 अतिरिक्त प्रि-ह्यासको रूपमा होइन।
 
-## नमूनाहरूको प्रमाणीकरण
+## नमूनाहरूको जाँच
 
-नोटबुकले प्रमाणीकरणलाई चार भागमा प्रस्तुत गर्छ। यी फिक्स्चर्सलाई सीधा प्रमाणीकरण गर्न
-नोटबुक कथा नचलाइकन:
+`18-signed-receipts.ipynb` मा, पहिले सेटअप र सेक्सन 1 देखि 3 चलाउनुहोस्।
+सेक्सन 3 ले `verify_chain` परिभाषित गर्छ; मात्र सेक्सन 1 र 2 पर्याप्त छैनन्।
+त्यसपछि नयाँ सेलमा तलको ब्लक चलाउनुहोस्, नोटबुकको कार्य निर्देशिका
+लाई `18-securing-ai-agents/code_samples` मा सेट गरिएको। तलका फिक्स्चर पथहरू सापेक्ष
+त्यस निर्देशिकासँग।
 
 ```python
 import json
 from pathlib import Path
 
-# तपाइँले इम्पोर्टहरू र सहायक प्रकार्यहरू पूरा गरेको मानिन्छ
-# 18-signed-receipts.ipynb का खण्ड १ र २ बाट।
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # सत्य
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # झूठो
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter बिना उदाहरण जाँच
+
+रिपोजिटरी रुटबाट पाठका निर्भरताहरू स्थापना गरी चलाउनुहोस्:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+यी परीक्षणहरूले नोटबुकका Python उदाहरणहरू र ठ्याक्कै README ब्लक चलाउँछन्
+माथि। तिनीहरूले साथै छेडछाड र अनपिन गरिएका कुञ्जीहरू प्रमाणकहरूले
+अस्वीकृत गर्छन्। परीक्षणहरूले नोटबुकको `%pip` सेटअप सेल स्किप गर्छन् किनभने निर्भरता
+अलग रूपमा स्थापना गरिएका छन्। तिनीहरूले नोटबुक वा फिक्स्चरहरू परिवर्तन गर्दैनन्।
 
 ## कसरी यी उत्पादन गरियो
 

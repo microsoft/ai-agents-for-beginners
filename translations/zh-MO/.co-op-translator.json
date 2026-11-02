@@ -588,8 +588,8 @@
     "language_code": "zh-MO"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "b789e73c357bfbcd179133077fd3b34c",
-    "translation_date": "2026-09-10T08:56:42+00:00",
+    "original_hash": "c6433e2b62048d6ce1f29979208b8032",
+    "translation_date": "2026-11-02T14:44:38+09:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "zh-MO"
   },
@@ -606,8 +606,8 @@
     "language_code": "zh-MO"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "a71e64d926c907b86db11696bd955aa2",
-    "translation_date": "2026-09-10T09:10:15+00:00",
+    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
+    "translation_date": "2026-11-02T14:44:38+09:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "zh-MO"
   },
@@ -690,28 +690,6 @@
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
-      "failure_policy_version": 1
-    },
-    "18-securing-ai-agents/README.md": {
-      "original_hash": "c6433e2b62048d6ce1f29979208b8032",
-      "source_file": "18-securing-ai-agents/README.md",
-      "language_code": "zh-MO",
-      "failure_date": "2026-10-30T20:33:26+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.1.2.2.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
-      "failure_policy_version": 1
-    },
-    "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-      "original_hash": "417c99ed7a3db15af5020c0b20a90917",
-      "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
-      "language_code": "zh-MO",
-      "failure_date": "2026-10-30T20:38:26+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }

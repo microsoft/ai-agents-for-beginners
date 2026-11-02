@@ -42,7 +42,10 @@ Este es el problema del rastro de auditoría. La mayoría de los despliegues de 
 
 Ninguno de estos puede responder a la pregunta del auditor sin que el auditor tenga que confiar en alguien (tú, tu proveedor de nube, tu proveedor de base de datos). Para uso interno, esa confianza suele ser aceptable. Para cargas reguladas (finanzas, salud, cualquier cosa sujeta al Acta de IA de la UE), no lo es.
 
-Los recibos criptográficos resuelven esto haciendo que cada acción del agente sea verificable de forma independiente. El auditor no necesita confiar en ti. Solo necesita tu clave pública y el recibo mismo.
+Los recibos criptográficos reducen este problema al hacer que una declaración firmada independientemente
+verificable. El auditor todavía necesita una razón fuera de banda para confiar en la clave de firma y
+el componente que produjo la declaración. Una clave incrustada demuestra la autoconsistencia,
+no la identidad del emisor ni el lugar donde se hace cumplir.
 
 ## ¿Qué es un recibo criptográfico?
 
@@ -50,14 +53,14 @@ Un recibo es un objeto JSON que registra lo que hizo un agente, firmado con una 
 
 ```mermaid
 flowchart LR
-    A[El agente invoca una herramienta] --> B[Construir carga útil del recibo]
-    B --> C[Canonicalizar JSON RFC 8785]
-    C --> E[Firmar bytes canónicos Ed25519]
-    E --> F[Recibo con firma]
-    F --> G[Auditor verifica fuera de línea]
-    G --> H{¿Firma válida?}
-    H -- yes --> I[Prueba a prueba de manipulaciones]
-    H -- no --> J[Recibo rechazado]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
 Un recibo minimalista se ve así:
@@ -83,30 +86,30 @@ Un recibo minimalista se ve así:
 
 Tres propiedades están haciendo el trabajo:
 
-1. **La firma**. El recibo está firmado por la puerta de enlace del agente usando una clave privada Ed25519. Cualquiera con la clave pública correspondiente puede verificar la firma sin conexión. Manipular cualquier campo invalida la firma.
+1. **La firma**. El recibo está firmado por la pasarela del agente usando una clave privada Ed25519. Cualquier persona con la clave pública correspondiente puede verificar la firma sin conexión. Una parte que confía debe fijar esa clave o resolverla desde un registro de confianza fuera del recibo. La manipulación de cualquier campo firmado invalida la firma.
 
 2. **Codificación canónica**. Antes de firmar, el recibo se serializa usando JSON Canonicalization Scheme (JCS, RFC 8785). Esto asegura que dos implementaciones que produzcan el mismo recibo lógico produzcan salida idéntica byte a byte. Sin canonicalización, diferentes serializadores JSON producirían firmas distintas para el mismo contenido.
 
-3. **Encadenamiento por hash**. El campo `previous_receipt_hash` enlaza cada recibo con el anterior. Eliminar o reordenar un recibo rompe todos los recibos posteriores en la cadena. La manipulación se vuelve visible a nivel de cadena aun si se saltan firmas individuales.
+3. **Encadenamiento de hashes**. El campo `previous_receipt_hash` enlaza cada recibo con el anterior. Eliminar o reordenar un recibo rompe la secuencia presentada. Detectar un truncamiento o una reescritura controlada por el firmante también requiere una cabeza de la cadena actual fijada, un punto de control atestiguado de forma independiente o un compromiso autenticado de población cerrada.
 
 Juntas estas propiedades proveen tres garantías:
 
-- **Atribución**: esta clave firmó este contenido.
+- **Atribución a una clave**: esta clave firmó este contenido. La identidad organizacional o humana requiere una vinculación de clave confiable.
 - **Integridad**: el contenido no ha cambiado desde la firma.
-- **Orden**: este recibo vino después de ese recibo en la cadena.
+- **Orden dentro de la secuencia verificada**: este recibo enlaza con ese predecesor.
 
 ## Produciendo un recibo en Python
 
 No necesitas una biblioteca especial para producir un recibo. Los primitivos criptográficos están ampliamente disponibles y la lógica es unas pocas docenas de líneas en Python.
 
-Los ejercicios prácticos en `code_samples/18-signed-receipts.ipynb` recorren todo el flujo completo. La versión resumen:
+Los ejercicios prácticos en `code_samples/18-signed-receipts.ipynb` recorren todo el flujo. El `code_samples/18-signed-receipts.execution-receipt.json` bajo control de versiones registra el hash exacto del cuaderno, el entorno de Python, el número de celdas y las comprobaciones de la última ejecución limpia sin cambiar los resultados guardados de la lección. La versión resumida:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # JSON canónico RFC 8785
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Generar o cargar una clave de firma (en producción, almacenar en una bóveda de claves)
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# Construir la carga útil del recibo (aún sin firma)
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canonicalizar y firmar los bytes JCS directamente. PureEdDSA hace el hash internamente.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Adjuntar un objeto de firma estructurado.
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -160,33 +164,40 @@ La verificación es la operación inversa:
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # La firma es un objeto estructurado: {"alg", "sig", "public_key"}.
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # Reconstruir la carga útil que fue firmada realmente (todo excepto la firma).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-Esta función toma un recibo y devuelve `True` si la firma es válida, `False` en caso contrario. No hay llamada a red, ni dependencia de servicios, ni confianza en terceros requerida.
+Esta función toma un recibo más el conjunto de claves fijadas de la parte confiada y devuelve
+`True` solo si la firma es válida con una clave aceptada. La verificación no requiere
+llamada a la red, pero la confianza en la clave sigue siendo una decisión de configuración externa.
 
 Para ver la detección de manipulación en acción, el notebook muestra:
 
@@ -202,9 +213,9 @@ Un recibo firmado protege una acción. Una cadena de recibos protege una secuenc
 
 ```mermaid
 flowchart LR
-    R0[Recibo 0<br/>génesis] --> R1[Recibo 1]
-    R1 --> R2[Recibo 2]
-    R2 --> R3[Recibo 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
@@ -215,7 +226,10 @@ Cada recibo registra el hash del recibo anterior. Para eliminar silenciosamente 
 - Modificar el campo `previous_receipt_hash` del recibo 3 (rompe la firma del recibo 3), O
 - Forjar una nueva firma sobre un recibo 3 modificado (requiere la clave privada del agente).
 
-Si la clave privada está en un almacén de claves hardware y publicas la clave pública con cada recibo, ninguno de estos ataques es factible sin ser detectado.
+Si la clave privada está protegida y un verificador ancla la cabecera de una cadena atestiguada de forma independiente
+estos ataques son detectables. Publicar la clave dentro de cada recibo no es
+suficiente: un firmante o atacante puede presentar una clave diferente, reescribir un sufijo, o
+truncar la cadena a menos que la parte que confía tenga una ancla externa de confianza y de completitud.
 
 El notebook muestra:
 
@@ -223,7 +237,8 @@ El notebook muestra:
 2. Verificar que el `previous_receipt_hash` de cada recibo coincida con el hash real del recibo previo.
 3. Manipular un recibo en medio y ver cómo la cadena se rompe justo en ese punto.
 
-Así es como se produce un rastro de auditoría que un auditor externo puede verificar sin tener que confiar en ti.
+Así es como se produce un registro de auditoría que un auditor externo puede verificar bajo sus
+propias claves del emisor fijadas y puntos de control de la cadena, sin confiar en su almacén de registros mutable.
 
 ## Qué prueban los recibos (y qué no prueban)
 
@@ -233,7 +248,7 @@ Esta es la sección más importante de esta lección. Los recibos son poderosos 
 
 1. **Atribución**: una clave específica firmó una carga útil específica.
 2. **Integridad**: la carga útil no ha cambiado desde la firma.
-3. **Orden**: este recibo vino después de ese recibo en la cadena de hash.
+3. **Orden dentro de una secuencia presentada y verificada**: este recibo enlaza con ese predecesor.
 
 **Los recibos NO prueban:**
 
@@ -241,6 +256,9 @@ Esta es la sección más importante de esta lección. Los recibos son poderosos 
 2. **Cumplimiento de la política**: que la política referenciada en `policy_id` fue realmente evaluada, o que hubiera permitido esta acción si se hubiera verificado. El recibo registra lo que se dijo, no lo que se hizo cumplir.
 3. **Identidad más allá de la clave**: el recibo dice "esta clave firmó este contenido." No dice "este humano autorizó esto." Conectar una clave con una persona u organización requiere una infraestructura de identidad separada (un directorio, un registro de clave pública, etc.).
 4. **Veracidad de las entradas**: si el agente recibe un prompt manipulado y actúa en consecuencia, el recibo registra fielmente la acción. Los recibos están después de la validación de entradas, no son un sustituto de ella.
+5. **Ejecución o efecto en el mundo real**: un recibo posterior a la llamada registra lo que su emisor afirma que ocurrió. Demostrar la admisión o reconciliar un efecto externo requiere evidencia del ejecutor real o del límite del proveedor.
+6. **Completitud**: un recibo ausente puede significar bloqueado, omitido, perdido o no instrumentado. La ausencia se convierte en evidencia solo dentro de una población cerrada autenticada.
+7. **Tiempo de confianza**: una marca de tiempo firmada prueba que el firmante tenía ese valor, no que el valor fuera correcto. El tiempo confiable necesita una autoridad temporal separada o un punto de control atestiguado.
 
 Este límite importa por dos razones:
 
@@ -249,19 +267,24 @@ Este límite importa por dos razones:
 
 Un error común es suponer que "tenemos recibos" significa "estamos gobernados". No es así. Los recibos son una base. La gobernanza es el sistema que construyes encima.
 
-## Demostrando que un humano aprobó la acción exacta
+## Vincular la firma de un aprobador a la acción exacta
 
-El punto 3 arriba merece su propia sección: un recibo de acción dice "esta clave firmó este contenido," nunca "un humano autorizó esto." Para acciones de alto riesgo (reembolsos, eliminaciones, transferencias bancarias), los marcos de gobernanza exigen cada vez más esa declaración faltante, y se puede producir con los mismos primitivos que ya construiste en esta lección.
+El punto 3 anterior merece su propia sección: un recibo de acción dice "esta clave firmó este contenido", nunca "un humano autorizó esto." Para acciones de alto riesgo (reembolsos, eliminaciones, transferencias bancarias), una firma aprobadora separada puede vincular la acción exacta. Conectar esa clave a un humano y comprobar la presencia humana siguen siendo responsabilidades separadas.
 
-El notebook sucesor `code_samples/human-authorization-receipts.ipynb` añade un segundo tipo de recibo, `human.approval.v1`, con la misma forma de sobre que los recibos de la lección (una carga útil tipada firmada por Ed25519 sobre sus bytes canónicos JCS, con el objeto `signature` fuera de los bytes firmados). Un aprobador nombrado firma la **acción canónica completa y su digest** antes de la ejecución; el recibo de acción del agente lleva el **mismo digest de la acción** y una `parent_approval_ref`, el `receipt_hash` de la aprobación, la misma convención que `previous_receipt_hash` en la cadena que construiste arriba. Una `verify_chain` revisa ambos artefactos bajo **registros de claves fijados separados** (claves de aprobador vs claves de agente), así que el camino de código es compartido pero las autoridades nunca lo son.
+El cuaderno de seguimiento `code_samples/human-authorization-receipts.ipynb` añade un segundo tipo de recibo, `human.approval.v1`, en la misma forma de sobre que los recibos de la lección (una carga tipada firmada por Ed25519 sobre sus bytes canónicos JCS, con el objeto `signature` fuera de los bytes firmados). Una clave de aprobador firma la **acción canónica completa y su digest**; una clave de agente firma una reclamación que porta el **mismo digest de acción** y un `parent_approval_ref`, el `receipt_hash` de la aprobación, la misma convención que `previous_receipt_hash` en la cadena que construiste arriba. Un `verify_chain` recorre ambos artefactos bajo **registros de claves fijados separados** (claves de aprobador vs claves de agente), de modo que la ruta de código se comparte pero las autoridades nunca lo hacen.
 
-La propiedad que esto otorga, expresada con cuidado: *el humano aprobó esta acción exacta, y el agente ejecutó exactamente esa acción aprobada.* Los arreglos de rechazo del notebook son los que hacen que esta propiedad sea real y no solo una afirmación:
+La propiedad que esto confiere, enunciada cuidadosamente: *la clave del aprobador fijada firmó esta exacta
+acción, y la clave del agente posteriormente firmó una declaración que contiene el mismo resumen de la acción.*
+Eso es evidencia útil, pero no es por sí sola prueba de que la acción se ejecutó.
+Para controlar la ejecución, la aprobación exacta también debe reservarse y consumirse una vez en el límite del ejecutor real;
+los resultados desconocidos del proveedor deben permanecer desconocidos en lugar de reintentarlos a ciegas.
+Los fixtures de rechazo del cuaderno prueban la capa de cadena de recibos:
 
-- el conjunto clásico: manipulación, atacante confuso, reproducción, claves forjadas en cualquiera de las partes, entrada malformada;
-- **autoridad obsoleta**: una firma que aún verifica, rechazada de todos modos porque la versión de la política cambió, la clave del aprobador fue rotada fuera del registro fijado, o la aprobación venció antes de la ejecución;
+- manipulación, agente confundido, claves forjadas en cualquiera de los lados, y entrada malformada;
+- **autoridad obsoleta**: una firma que aún verifica, rechazada de todos modos porque la versión de la política cambió, la clave del aprobador fue rotada fuera del registro anclado, o la aprobación expiró antes de la hora de verificación proporcionada;
 - **sustitución de digest**: un recibo de acción válido apuntando a una aprobación *real* que enlaza una acción canónica *diferente*.
 
-Cada rechazo tiene una razón distinta, así un auditor leyendo un rechazo puede saber si la autoridad se volvió obsoleta o si la acción ejecutada cambió. La regla que enseña el notebook: una aprobación firmada no es autoridad por sí sola. La autoridad existe solo si ambos recibos aún se refieren a la misma acción canónica en el momento de la ejecución. El recibo de aprobación humana es una composición educativa definida por esta lección, no un tipo de recibo definido por `draft-farley-acta-signed-receipts`.
+Cada rechazo incluye una razón distinta, de modo que un auditor que lea un rechazo puede saber si la autoridad quedó obsoleta o si la acción reclamada cambió. La verificación es de solo lectura y repetible: no consume la aprobación ni invoca a un proveedor. Un ejecutor separado necesita protección duradera y atómica contra la reproducción y resultados explícitos de éxito, fallo e indeterminados. El recibo de aprobación humana es una composición educativa definida por esta lección, no un tipo de recibo definido por `draft-farley-acta-signed-receipts`.
 
 ## Referencias para producción
 
@@ -274,6 +297,7 @@ El código Python en esta lección es intencionalmente minimalista para que pued
    - El Microsoft Agent Governance Toolkit compone recibos con decisiones de políticas basadas en Cedar; ve el Tutorial 33 en ese repositorio para un ejemplo de extremo a extremo.
    - Los paquetes `protect-mcp` (npm) y `@veritasacta/verify` (npm) proporcionan una implementación basada en Node para firma de recibos y verificación sin conexión, destinada a envolver cualquier servidor MCP con un rastro de auditoría evidente de manipulaciones, incluyendo un flujo de co-firma retenido en el que una acción pausada emite un recibo de aprobación vinculado al digest de la acción (respaldado por WebAuthn en el flujo de escritorio), el mismo patrón de recibo de aprobación del notebook de autorización humana arriba.
    - El SDK Python **[nobulex](https://github.com/arian-gogani/nobulex)** (`pip install nobulex`) proporciona el mismo patrón de firma Ed25519 + JCS en Python con integraciones LangChain y CrewAI, incluyendo vectores de prueba de validación cruzada publicados y un mapeo de cumplimiento aportado vía [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+- **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** proporciona una capa complementaria de aplicación de acciones exactas: recibos de aprobación verificables sin conexión, WebAuthn fijado o autoridad de quórum, consumo único en el límite del ejecutor, y una ruta explícita de resultado indeterminado. Sus adaptadores del framework tratan un recibo como evidencia necesaria en lugar de prueba de que ocurrió un efecto externo.
 
 La decisión entre crear tu propia solución y usar una biblioteca es similar a la decisión entre escribir tu propia biblioteca JWT o usar una probada: ambas son razonables; la biblioteca ahorra tiempo y reduce la superficie de auditoría; el enfoque desde cero te obliga a entender cada primitivo. Esta lección enseña el camino desde cero para que tengas la base para cualquiera de las opciones.
 
@@ -286,7 +310,9 @@ Pon a prueba tu comprensión antes de pasar al ejercicio práctico.
 <details>
 <summary>Respuesta</summary>
 
-Sí. La verificación Ed25519 requiere solo la clave pública y los bytes firmados. No hay llamadas a red, ni dependencia de servicio. Esta es la propiedad que hace útiles los recibos en entornos aislados, multi-organizacionales o de baja confianza.
+Sí, la verificación criptográfica requiere únicamente la clave pública y los bytes firmados. El
+auditor aún debe obtener y fijar la clave pública aceptada independientemente del recibo.
+No se requiere ninguna llamada de red después de que esa configuración de confianza esté establecida.
 </details>
 
 **2. Un atacante modifica el campo `policy_id` de un recibo para afirmar que estuvo gobernado por una política más permisiva. La firma fue sobre la carga original. ¿Qué ocurre durante la verificación?**
@@ -311,7 +337,10 @@ Dos razones. Primero, puede ser necesario archivar o transmitir el recibo en ent
 <details>
 <summary>Respuesta</summary>
 
-Todos los recibos que vinieron después del eliminado. Sus campos `previous_receipt_hash` ya no coinciden con la cadena real (porque el recibo al que hacían referencia ya no existe, o la cadena ahora apunta a un predecesor diferente). Para ocultar la eliminación, el atacante tendría que volver a firmar cada recibo posterior, lo que requiere la clave privada.
+El siguiente recibo presentado ya no enlaza con su predecesor esperado, por lo que la verificación
+de esa secuencia presentada falla a partir de la brecha en adelante. Si el firmante controla la clave privada,
+puede reescribir o truncar un sufijo. Detectarlo requiere una cabeza actual fijada,
+un punto de control externo o un compromiso autenticado de la población.
 </details>
 
 **5. Un recibo se verifica correctamente. ¿Eso prueba que la acción del agente fue correcta, válida o conforme a la política?**
@@ -319,7 +348,10 @@ Todos los recibos que vinieron después del eliminado. Sus campos `previous_rece
 <details>
 <summary>Respuesta</summary>
 
-No. Un recibo válido prueba tres cosas: atribución (esta clave firmó este contenido), integridad (el contenido no ha cambiado) y orden (este recibo vino después de ese recibo). NO prueba que la acción fue correcta, que la política nombrada en `policy_id` se evaluó realmente, o que el agente siguió cada regla. Los recibos hacen auditable el comportamiento del agente, no necesariamente correcto. Esta es la frontera más importante de la lección.
+No. Bajo una clave anclada y un contexto de cadena, un recibo válido demuestra la atribución de la firma,
+integridad del contenido y un enlace al predecesor presentado. NO demuestra que la
+acción fuera correcta o se ejecutara, que la política fuera evaluada, que la marca de tiempo sea
+confiable, o que el conjunto de registros esté completo. Este es el límite más importante en la lección.
 </details>
 
 ## Ejercicio práctico
@@ -339,21 +371,27 @@ Abre `code_samples/18-signed-receipts.ipynb` y completa las cuatro secciones:
 
 Los recibos criptográficos dan a los agentes de IA una pista de auditoría que es:
 
-- **Verificable independientemente**: cualquier parte con la clave pública puede verificar sin dependencia de servicios.
+- **Verificable de forma independiente bajo confianza fijada**: una parte con claves públicas aceptadas y bytes firmados puede verificar sin una dependencia de servicio.
 - **Evidente a manipulaciones**: cualquier modificación invalida la firma.
 - **Portátil**: un recibo es un archivo JSON pequeño; puede archivarse, transmitirse y verificarse en cualquier lugar.
 - **Alineado con estándares**: construido sobre Ed25519 (RFC 8032), JCS (RFC 8785) y SHA-256, todos primitivos ampliamente desplegados.
 
-No son un sustituto para validación de entradas, aplicación de políticas o infraestructura de identidad. Son la base para esas capas. Cuando despliegas agentes en cargas reguladas, flujos de trabajo multiorganización o cualquier entorno donde un auditor futuro no pueda confiar en ti, los recibos son cómo haces honesta la pista de auditoría.
+No son un sustituto de la validación de entradas, la aplicación de políticas, la admisión de ejecutores,
+evidencia de resultados, controles de completitud, o la infraestructura de identidad. Son una base
+para esas capas. En flujos de trabajo regulados o multi-organización, los comprobantes hacen que
+las declaraciones específicas del emisor sean verificables de forma independiente bajo la propia configuración de confianza del auditor.
 
-La lección más importante: los recibos prueban quién dijo qué y cuándo. No prueban que lo dicho sea verdadero o correcto. Sostén firmemente esta distinción. Es la diferencia entre un sistema de procedencia honesto y uno engañoso.
+La conclusión más importante: los recibos demuestran que una clave en particular firmó
+contenido particular. Una marca de tiempo incorporada es una afirmación del firmante a menos que esté atestiguada por separado. Un
+recibo no prueba que su contenido fuera verdadero, que una acción se ejecutó, o que el
+conjunto de registros esté completo. Mantén esas distinciones con rigor.
 
 ## Lista de verificación para producción
 
 Cuando estés listo para pasar de esta lección a desplegar agentes con recibos firmados en un entorno real:
 
 - [ ] **Mueve la clave de firma fuera del laptop del desarrollador.** Usa Azure Key Vault, AWS KMS o un módulo de seguridad de hardware. La clave privada que firma tus recibos nunca debe residir en control de código fuente ni en texto plano en máquinas de aplicación.
-- [ ] **Publica la clave pública de verificación.** Los auditores la necesitan para verificar offline. El patrón estándar es un Conjunto JWK en una URL conocida (RFC 7517), p. ej., `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Establecer la confianza en la clave del verificador.** Publicar claves a través de un JWK Set o un registro, luego hacer que las partes que confían fijen la identidad del emisor aceptado, el conjunto de claves y la política de rotación fuera de los recibos individuales. Una clave en línea por sí sola no es un ancla de confianza.
 - [ ] **Ancla la cadena externamente.** Periódicamente escribe el hash del último cabezal de cadena en un log de transparencia (Sigstore Rekor, autoridad de tiempo RFC 3161, o un segundo sistema interno) para que una parte externa pueda confirmar "esta cadena existía en este momento."
 - [ ] **Almacena los recibos de forma inmutable.** El almacenamiento append-only (Azure Storage con políticas de inmutabilidad, AWS S3 Object Lock) previene que un interno reescriba la historia a nivel de almacenamiento.
 - [ ] **Decide la retención.** Muchos regímenes de cumplimiento requieren retención por múltiples años. Planea el crecimiento de recibos (cada recibo es ~500 bytes; un agente que hace 10K llamadas al día produce ~1.8 GB por año).
@@ -372,7 +410,7 @@ Esta lección cubre la firma de recibos simples y secuencias encadenadas con has
 - **Recibos con firma bilateral/dividida.** Algunas implementaciones separan la carga firmada en pre-ejecución (`authorization_*`) y post-ejecución (`result_*`) con firmas independientes, útil cuando la decisión de autorización y el resultado observado son producidos por actores distintos o en tiempos distintos. Esto se suma al formato de recibo enseñado en esta lección.
 - **Composición de la carga.** Un recibo sella cualquier byte que pongas en `result_hash`. Las cargas reales suelen ser más ricas que un solo resultado de llamada a herramienta: el razonamiento previo a la decisión (predicción del modelo, opciones consideradas, evidencia y su completitud, postura de riesgo, cadena de responsabilidad, resultado de puerta) puede vivir dentro de la carga sellada por un solo recibo. Esto mantiene el formato de recibo minimalista mientras permite que los esquemas de carga evolucionen dominio por dominio.
 - **Conformidad cruzada de implementación.** Múltiples implementaciones independientes del mismo formato de recibo (Python, TypeScript, Rust, Go) verifican entre sí usando vectores de prueba compartidos. Si construyes tu propia implementación, validar contra vectores publicados confirma la compatibilidad en wire.
-- **Migración post-cuántica.** Ed25519 es ampliamente desplegado hoy pero no es resistente a quantum. El formato de recibo es ágil en algoritmos: el campo `signature.alg` puede llevar `ML-DSA-65` (el estándar NIST de firmas post-cuánticas) cuando necesites migrar. Planea un periodo de transición donde los recibos estén firmados doblemente.
+- **Migración post-cuántica.** Ed25519 está ampliamente desplegado hoy en día, pero no es resistente a ataques cuánticos. Una etiqueta `alg` por sí sola no es una migración: un perfil debe definir la codificación de clave ML-DSA, los bytes firmados canónicos, la verificación, la política de la parte que confía, la resistencia a retrocesos y la semántica de transición. Planifique y pruebe una transición con firma dual contra vectores compartidos antes de hacer declaraciones de compatibilidad.
 
 ## Recursos adicionales
 

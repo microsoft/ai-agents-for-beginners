@@ -42,7 +42,10 @@
 
 若不信任任何人（您、雲端提供者、資料庫商），以上都無法回答稽核人問題。內部使用此信任常可接受，但對受管制工作負載（金融、醫療、受 EU AI 法規）則不可。
 
-密碼學憑證透過使每項代理行為可獨立驗證解決此問題。稽核人不需信任您；只需您的公開鑰匙與憑證本身。
+加密收據透過令已簽署的聲明可以獨立地
+驗證。審計者仍然需要一個帶外的理由去信任簽署金鑰及
+產生該聲明的組件。內嵌金鑰證明的是自我一致性，
+而不是簽發者身份或執行所在位置。
 
 ## 什麼是密碼學憑證？
 
@@ -50,14 +53,14 @@
 
 ```mermaid
 flowchart LR
-    A[代理調用工具] --> B[建立收據負載]
-    B --> C[JSON RFC 8785 規範化]
-    C --> E[Ed25519 簽署規範化字節]
-    E --> F[附帶簽名的收據]
-    F --> G[審核員離線驗證]
-    G --> H{簽名有效？}
-    H -- yes --> I[防篡改證明]
-    H -- no --> J[收據被拒絕]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
 最基本的憑證看起來像這樣：
@@ -83,30 +86,30 @@ flowchart LR
 
 有三個特性在發揮效用：
 
-1. <strong>簽章</strong>。憑證由代理閘道以 Ed25519 私鑰簽署。擁有對應公開鑰匙的人可離線驗證。任一欄位被竄改都會使簽章失效。
+1. <strong>簽名</strong>。收據由代理的網關使用 Ed25519 私鑰簽署。任何持有相應公鑰的人均可離線驗證該簽名。依賴方必須釘選該公鑰或從收據之外的受信託登記處解析該公鑰。對任何已簽署欄位的篡改都會使簽名失效。
 
 2. <strong>標準編碼</strong>。簽署前先用 JSON 標準化方案（JCS, RFC 8785）序列化。此確保兩個產生相同邏輯憑證的實作產生位元組一致輸出。若無標準化，不同 JSON 序列化器會對相同內容產生不同簽章。
 
-3. <strong>哈希串接</strong>。`previous_receipt_hash` 欄位將每憑證連結至前一憑證。刪除或重排會破壞後續所有憑證。即使個別簽章被侵蝕，串鏈層級依然可發現竄改。
+3. <strong>雜湊鏈</strong>。 `previous_receipt_hash` 欄位將每張收據連結到前一張。 移除或重排收據會破壞所呈現的序列。 偵測截斷或由簽署者控制的改寫亦需要一個已固定的當前鏈頭、獨立見證的檢查點，或經認證的封閉群體承諾。
 
 這些特性合力提供三項保證：
 
-- <strong>歸屬</strong>：此鑰匙簽署了該內容。
+- <strong>歸屬於一把金鑰</strong>: 此金鑰已對該內容簽名。組織或個人身份需要受信任的金鑰綁定。
 - <strong>完整性</strong>：內容自簽署後未被改變。
-- <strong>排序</strong>：此憑證在鏈中位於該憑證之後。
+- <strong>在已驗證序列中的排序</strong>: 此收據連結到該前一項.
 
 ## 在 Python 中產生憑證
 
 您不需要特殊函式庫就能產生憑證。密碼學基元廣泛可用，邏輯只有數十行 Python 代碼。
 
-實作練習已放在 `code_samples/18-signed-receipts.ipynb`，全程帶您走過流程。以下為摘要：
+在 `code_samples/18-signed-receipts.ipynb` 的實作練習會帶你走完整個流程。受版本控制的 `code_samples/18-signed-receipts.execution-receipt.json` 會記錄最後一次乾淨執行中的精確筆記本雜湊值、Python 環境、單元格數量，以及檢查項目，而不會更改課程已儲存的輸出。簡短版本：
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 標準 JSON
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# 生成或載入簽署金鑰（生產環境中應存放於金鑰保管庫）
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# 建立收據有效載荷（尚未簽署）
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# 直接對 JCS 位元組進行標準化並簽署。PureEdDSA 內部會做雜湊處理。
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# 附加結構化簽名物件。
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -160,33 +164,40 @@ receipt = {
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # 簽名是一個結構化物件：{"alg", "sig", "public_key"}。
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # 重建實際被簽署的有效負載（除簽名外的所有內容）。
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-此函式接收憑證，若簽章合法回傳 `True`，否則 `False`。不需網路、不依賴服務、亦無需信任第三方。
+此函數接收一個收據以及依賴方已釘選的金鑰集合，並返回
+`True` 只會在簽名在被接受的金鑰下有效時返回。驗證不需要
+網絡請求，但金鑰信任仍然是外部配置的決定。
 
 欲展示偵測竄改實況，筆記本將示範：
 
@@ -202,9 +213,9 @@ def verify_receipt(receipt: dict) -> bool:
 
 ```mermaid
 flowchart LR
-    R0[收據 0<br/>起點] --> R1[收據 1]
-    R1 --> R2[收據 2]
-    R2 --> R3[收據 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
@@ -215,7 +226,10 @@ flowchart LR
 - 修改第 3 個憑證的 `previous_receipt_hash` 欄位（會破壞第 3 個憑證的簽章），或
 - 偽造修改後第 3 個憑證的新簽章（需要代理的私鑰）。
 
-若私鑰存於硬體金鑰庫且您隨每張憑證發佈公開鑰匙，則兩種攻擊皆難以成功且無法逃避偵測。
+如果私鑰受到保護，且驗證者釘選了一個有獨立見證的鏈頭，
+這些攻擊便可被偵測。僅在每個收執內發布該鑰匙並不足夠：
+簽署者或攻擊者可以提出不同的鑰匙、改寫後綴或
+截斷鏈，除非依賴方擁有外部的信任和完整性錨點。
 
 筆記本示範：
 
@@ -223,7 +237,8 @@ flowchart LR
 2. 驗證每張憑證的 `previous_receipt_hash` 與前一憑證的實際哈希符不符。
 3. 竄改鏈中憑證之一，看到鏈在該點斷裂。
 
-這是您產生外部稽核可驗證且無須信任您的稽核軌跡的方式。
+ 這就是你如何產生一個審計軌跡，外部審計員可以在其
+ 自身固定的簽發者金鑰和鏈檢查點下驗證，而無需信任你可變的日誌儲存庫。
 
 ## 憑證能證明什麼（和不能證明什麼）
 
@@ -233,7 +248,7 @@ flowchart LR
 
 1. <strong>歸屬</strong>：特定鑰匙簽署了特定載荷。
 2. <strong>完整性</strong>：載荷自簽署後未被改動。
-3. <strong>排序</strong>：此憑證在哈希鏈中排列晚於該憑證。
+3. <strong>在已呈示並已驗證的序列中的排序</strong>: 此收據連結到該前一項.
 
 **憑證不能證明：**
 
@@ -241,6 +256,9 @@ flowchart LR
 2. <strong>政策合規</strong>：`policy_id` 所指政策是否真的被評估，或若檢查過是否允許此行為。憑證記錄的是聲稱而非強制。
 3. <strong>身份超越鑰匙</strong>：憑證說「此鑰匙簽了此內容」，不說「此人授權此事」。連結鑰匙與人或組織需另有身份基礎設施（目錄、公開鑰匙登記等）。
 4. <strong>輸入真實性</strong>：若代理收到被操控的提示並依此行動，憑證忠實記錄該行動。憑證站位於輸入驗證之後，非替代品。
+5. <strong>執行或實際世界效應</strong>: 事後回執記錄發出者聲稱發生嘅事。要證明承認或核對一個外部效應，需要來自實際執行者或提供者邊界嘅證據.
+6. <strong>完整性</strong>: 缺失嘅回執可以代表被封鎖、被遺漏、遺失，或者未被記錄。只有喺經身份驗證嘅封閉群體內，缺失先會成為證據.
+7. <strong>受信任嘅時間</strong>: 已簽名嘅時間戳證明簽署者帶有該值，但並唔係證明該值係正確嘅。受信任嘅時間需要獨立嘅時間權威或有見證嘅檢查點.
 
 此界限重要有兩原因：
 
@@ -249,19 +267,24 @@ flowchart LR
 
 常見錯誤是以為「有憑證」即「被治理」。非也。憑證是基礎，治理是您疊加構建的系統。
 
-## 證明人類核准了該精確行動
+## 綁定核准者的簽名到確切操作
 
-上述第 3 點值得專設一節：行動憑證說「此鑰匙簽署該內容」，不說「人類授權此事」。對高風險行動（退款、刪除、匯款），治理框架越來越要求缺失的敘述，且可藉由本課已建置基元產生。
+上面的第 3 項值得獨立成一節：一張操作收據會寫「這把金鑰為這個內容簽名」，不會寫「某位人類已授權此項」。對於高風險操作（退款、刪除、電匯），可由獨立的核准者簽名來綁定具體的操作。將該金鑰與某位人類連結，以及檢查人類是否在場，仍然是分開的責任。
 
-續筆記本 `code_samples/human-authorization-receipts.ipynb` 新增第二種憑證類別 `human.approval.v1`，採本課同包裝格式（以 Ed25519 對其標準化 JCS 位元組簽署的帶型載荷，`signature` 物件位於簽署內容外）。命名核准者簽署<strong>完整標準化行動及其摘要</strong>於執行前；代理的行動憑證攜帶<strong>相同行動摘要</strong>與 `parent_approval_ref`（核准憑證的 `receipt_hash`，與先前憑證鏈中 `previous_receipt_hash` 類似慣例）。單一 `verify_chain` 在<strong>分別鎖定的鑰匙登錄表</strong>中驗證兩者（核准者鑰匙對比代理鑰匙），敘述邏輯共用但權威互不相通。
+後續的筆記本 `code_samples/human-authorization-receipts.ipynb` 新增了第二種收據類型 `human.approval.v1`，與教學中的收據採用相同的信封形狀。 該信封包含一個已由 Ed25519 對其規範化的 JCS 位元組簽署之帶類型載荷，且 `signature` 物件位於被簽署的位元組之外。 一個批准者金鑰會簽署 <strong>完整的規範化操作及其摘要</strong>；代理者金鑰會簽署一個聲明，該聲明攜帶 <strong>相同的操作摘要</strong> 以及 `parent_approval_ref`，即批准的 `receipt_hash`，與你在上面建立的鏈中 `previous_receipt_hash` 採用相同的慣例。 一個 `verify_chain` 將兩個工件放到 <strong>各自獨立的已釘選金鑰註冊表</strong> 下。 審批者金鑰與代理人金鑰保持分離，因此程式碼路徑可以共用，但授權方永遠不會被共用。
 
-此機制嚴謹敘述的特性是：*此人類核准了此精確行動，代理確實執行該核准行動。* 筆記本的拒絕條件使此特性能得以具體呈現而非空談：
+這樣可獲得的屬性，謹慎陳述：*已固定的核准者金鑰簽署了這個精確的
+動作，且代理金鑰後來簽署了一份聲明，載有相同的動作摘要.*
+這是有用的證據，但它本身並不能證明該動作已被執行。要
+控制執行，該精確的批准也必須在
+實際執行者邊界；未知的提供者結果必須保持未知，而不是被
+盲目重試。筆記本中的拒絕測試用例會測試收據鏈層：
 
-- 經典狀況：竄改、困惑代理、重放、兩側偽造鑰匙、格式錯誤輸入；
-- <strong>權威過期</strong>：簽章仍驗證通過，但因政策版本更新、核准者鑰匙旋轉出登錄表，或執行前核准已過期而拒絕；
+- 篡改、混淆代理（confused deputy）、任一方偽造金鑰，以及格式錯誤的輸入；
+- <strong>陳舊授權</strong>: 簽名仍可驗證，但仍被拒絕，原因可能是政策版本已變更、核准者的金鑰已從已釘選的註冊表中旋轉移除，或核准在提供的驗證時間之前已過期；
 - <strong>摘要替換</strong>：一有效簽署的行動憑證指向<em>不同</em>標準化行動的<em>真實</em>核准。
 
-每個失效條件均附有明確拒絕原因，稽核者可判別權威是否過期或執行行動變更。筆記本教導的規則是：簽署核准本身不等於權威。權威存在的條件是兩憑證在執行時仍約束於相同標準行動。人類核准憑證是本課定義的教學複合產物，非 `draft-farley-acta-signed-receipts` 所定義憑證類型。
+每一次失敗都會以不同的原因被拒絕，因此審計員閱讀拒絕時可以判斷是授權已失效還是所聲稱的操作已變更。驗證是唯讀且可重複的：它不會消耗批准或呼叫提供者。獨立的執行者需要耐久、原子性的重放保護，以及明確的成功、失敗和不確定結果。人工批准收據是本課程定義的一種教學性組合，而不是 `draft-farley-acta-signed-receipts` 定義的收據類型。
 
 ## 產業參考
 
@@ -274,6 +297,7 @@ flowchart LR
    - Microsoft Agent Governance Toolkit 以 Cedar 政策決策組合憑證；該套件中第 33 教學示範端對端案例。
    - `protect-mcp`（npm）與 `@veritasacta/verify`（npm）套件提供 Node.js 版的憑證簽署與離線驗證實作，用於將任何 MCP 伺服器包裝成具竄改證據的審計軌跡，包括保留共簽流程，其中暫停的行動會發出綁定動作摘要的核准憑證（桌面流程借助 WebAuthn），就是前述人類授權筆記本的同一核准憑證模式。
    - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK（`pip install nobulex`）在 Python 中提供相同 Ed25519 + JCS 簽署模式，搭配 LangChain 與 CrewAI 整合，含公開的跨驗證測試向量及由 [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) 貢獻的合規對映表。
+- **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** 提供一個互補的精確動作執行層：離線可驗證的批准收據、綁定的 WebAuthn 或法定人數授權、在執行器邊界一次性消耗，以及一條明確的未決結果路徑。其框架適配器將收據視為必要的證據，而非外部效果已發生的證明。
 
 自行開發與使用函式庫的抉擇如同自行撰寫 JWT 函式庫或用經考驗函式庫之選擇：兩者皆合理；函式庫節省時間並減少審計面積；從零實作逼迫你拆解每個基元。本課著重零基礎路徑，為兩種選項奠定基礎。
 
@@ -286,7 +310,9 @@ flowchart LR
 <details>
 <summary>答案</summary>
 
-能。Ed25519 驗證只需公開鑰匙與簽署位元組。無須網路呼叫，無服務依賴。此特性讓憑證適用於氣隙、多組織或低信任審核環境。
+是的，密碼學驗證只需要公鑰和已簽署的位元組。該
+審計員仍然必須在不依賴收據的情況下，獨立取得並固定被接受的公鑰。
+在該信任設定建立之後，無需任何網絡呼叫。
 </details>
 
 **2. 攻擊者修改憑證的 `policy_id` 欄位以聲稱採用更寬鬆的政策。原始載荷被簽署。驗證時會發生什麼事？**
@@ -311,7 +337,10 @@ flowchart LR
 <details>
 <summary>答案</summary>
 
-之後所有的收據都會無效。它們的 `previous_receipt_hash` 欄位不再與實際鏈條相符（因為它們參考的收據已不存在，或者鏈條現在指向不同的前置者）。為了掩蓋刪除，攻擊者必須重新對所有後續收據簽名，這需要私鑰。
+下一個呈交的收據已不再連結到其預期的前一項，因此驗證
+該呈交序列會由該間隙起驗證失敗。如果簽署者控制私有
+密鑰，它可以重寫或截斷後綴。要偵測到這情況需要一個已釘選的當前 head，
+外部檢查點，或經驗證的人口承諾。
 </details>
 
 **5. 收據驗證通過了。這是否證明代理的行動是正確、合理或符合法規？**
@@ -319,7 +348,10 @@ flowchart LR
 <details>
 <summary>答案</summary>
 
-不。有效的收據證明三件事：歸屬（此金鑰簽署了此內容）、完整性（內容沒有變動）和順序（此收據在前一收據之後）。它不證明行動的正確性，不證明在 `policy_id` 中指定的政策被實際評估，也不證明代理遵守了所有規則。收據使代理行為可審計，但未必正確。這是本課程中最重要的界限。
+不。在已釘選的金鑰和鏈上下文下，一個有效的收據證明簽名歸屬，
+內容完整性，以及與所呈示前一項的連結。它並不證明該
+操作是否正確或已執行、政策是否已被評估、時間戳是否
+受到信任，或記錄集是否完整。這是本課程中最重要的界限。
 </details>
 
 ## 練習題
@@ -339,21 +371,27 @@ flowchart LR
 
 密碼學收據為 AI 代理提供以下審計軌跡：
 
-- <strong>獨立可驗證</strong>：任何擁有公鑰的方都能驗證，無需依賴服務。
+- <strong>在已釘選的信任下可獨立驗證</strong>：擁有已接受的公鑰和已簽名位元組的一方可以在沒有服務依賴的情況下進行驗證。
 - <strong>篡改即顯示</strong>：任何更動都會使簽名失效。
 - <strong>可攜帶</strong>：收據是一個小型 JSON 檔案，可於任何地方存檔、傳輸與驗證。
 - <strong>符合標準</strong>：基於 Ed25519 (RFC 8032)、JCS (RFC 8785) 與 SHA-256，全是廣泛部署的原語。
 
-它們並非輸入驗證、政策強制或身份基礎結構的替代品，而是這些層級的基石。當你將代理部署於受管控的工作負載、多組織工作流或任何不可以預期未來審計員會信任你的環境時，收據是你確保審計軌跡真實的方式。
+它們並不能取代輸入驗證、政策執行、執行者的準入、
+結果證據、完整性控制，或身份基礎設施。它們是這些層的基礎
+在受監管或跨多組織的工作流程中，收據使特定的
+發行者的聲明能夠在審計者自己的信任配置下被獨立檢核。
 
-最重要的收穫：收據證明是誰在什麼時間說了什麼，但並不保證所說內容的真實性或正確性。請牢牢把握這點。這是誠實的出處系統與誤導性系統的分水嶺。
+最重要的重點：收據證明某個特定的金鑰簽署了特定的
+內容。隨附的時間戳記是簽署者的一項聲明，除非另有獨立的時間見證。
+收據並不證明其內容為真、某項動作已執行，或該
+記錄集是完整的。務必嚴格區分這些不同點。
 
 ## 生產檢查清單
 
 當你準備從本課程畢業並在真實環境部署收據簽署代理時：
 
 - [ ] **將簽署金鑰移出開發人員筆記型電腦。** 使用 Azure Key Vault、AWS KMS 或硬體安全模組。簽署收據的私鑰絕不可存於原始碼控制或應用機器的明文中。
-- [ ] **發布驗證用公鑰。** 審計員離線驗證所需。標準模式為於知名 URL 處公開 JWK 集合（RFC 7517），例如 `https://your-org.example.com/.well-known/agent-keys.json`。
+- [ ] **建立驗證者金鑰信任。** 透過 JWK Set 或註冊表發布金鑰，然後讓依賴方在個別收據之外固定已接受的發行者身分、金鑰集與輪換政策。單靠內嵌金鑰並非信任錨點。
 - [ ] **向外部錨定鏈條。** 定期將最新鏈頭的雜湊寫入透明度日誌（Sigstore Rekor、RFC 3161 時戳授權中心或第二套內部系統），以供外部方確認「此鏈在此時存在」。
 - [ ] **不變式存儲收據。** 追加式 Blob 存儲（Azure Storage 設不可變性策略、AWS S3 物件鎖定）防止內部人於存儲層改寫歷史。
 - [ ] **決定保留期限。** 多數合規規範要求多年保留。計劃收據膨脹（每張收據約 500 字節；代理每日調用 1 萬次每年產約 1.8 GB）。
@@ -372,7 +410,7 @@ flowchart LR
 - **雙邊／分裂簽名收據。** 有些實作將簽署載荷拆為執行前（`authorization_*`）與執行後（`result_*`）兩半，各自簽名，適用於授權決策與實際結果由不同角色或時間點產生的狀況。此架構可加成於本課程教授的格式。
 - **載荷組合。** 收據封存你放入 `result_hash` 的任何位元組。實務載荷往往比單一工具調用結果更豐富：預決策推理（模型預測、考慮選項、證據及其完整性、風險態勢、問責鏈、門控結果）皆可納入載荷，由單一收據封存。保持收據格式精簡，同時讓載荷結構可依領域發展。
 - **跨實作一致性。** 不同獨立實作（Python、TypeScript、Rust、Go）針對共享測試向量互相驗證。若自行打造實作，驗證公開向量可確保兼容。
-- **後量子遷移。** Ed25519 廣泛部署但非量子安全。收據格式為可變演算法設計：需遷移時，`signature.alg` 欄位可帶 `ML-DSA-65`（NIST 後量子簽名標準）。規劃過渡時期雙重簽名收據。
+- **後量子遷移。** Ed25519 目前被廣泛部署，但並非抗量子。單靠 `alg` 標籤並不等同於遷移：一個設定檔必須定義 ML-DSA 金鑰編碼、規範化的簽署位元組、驗證、依賴方策略、降級抗性，以及過渡語義。作出相容性聲明之前，應針對共享向量規劃並測試雙重簽名過渡。
 
 ## 附加資源
 

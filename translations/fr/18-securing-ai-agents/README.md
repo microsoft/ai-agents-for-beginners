@@ -42,7 +42,10 @@ C’est le problème de la piste d’audit. La plupart des déploiements d’age
 
 Aucun de ces moyens ne peut répondre à la question de l’auditeur sans que celui-ci ait à faire confiance à quelqu’un (vous, votre fournisseur cloud, votre vendeur de base de données). Pour un usage interne, cette confiance est souvent acceptable. Pour des charges de travail régulées (finance, santé, tout ce qui est soumis au règlement européen sur l’IA), ce n’est pas le cas.
 
-Les reçus cryptographiques résolvent ce problème en rendant chaque action d’agent indépendamment vérifiable. L’auditeur n’a pas besoin de vous faire confiance. Il lui suffit de votre clé publique et du reçu lui-même.
+Les reçus cryptographiques réduisent ce problème en rendant une déclaration signée indépendamment
+vérifiable. L'auditeur a cependant encore besoin d'une raison hors-bande pour faire confiance à la clé de signature et
+au composant qui a produit la déclaration. Une clé intégrée prouve la cohérence interne,
+pas l'identité de l'émetteur ni l'emplacement d'exécution.
 
 ## Qu’est-ce qu’un reçu cryptographique ?
 
@@ -50,14 +53,14 @@ Un reçu est un objet JSON qui enregistre ce qu’un agent a fait, signé avec u
 
 ```mermaid
 flowchart LR
-    A[L'agent invoque un outil] --> B[Construire la charge utile du reçu]
-    B --> C[Canonicaliser JSON RFC 8785]
-    C --> E[Signer les octets canoniques avec Ed25519]
-    E --> F[Reçu avec signature]
-    F --> G[L'auditeur vérifie hors ligne]
-    G --> H{Signature valide ?}
-    H -- yes --> I[Preuve évidente de falsification]
-    H -- no --> J[Reçu rejeté]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
 Un reçu minimal ressemble à ceci :
@@ -83,30 +86,30 @@ Un reçu minimal ressemble à ceci :
 
 Trois propriétés assurent le fonctionnement :
 
-1. **La signature**. Le reçu est signé par la passerelle de l’agent à l’aide d’une clé privée Ed25519. Toute personne disposant de la clé publique correspondante peut vérifier la signature hors ligne. Toute modification d’un champ invalide la signature.
+1. **La signature**. Le reçu est signé par la passerelle de l'agent à l'aide d'une clé privée Ed25519. Toute personne disposant de la clé publique correspondante peut vérifier la signature hors ligne. Une partie s'appuyant sur le reçu doit épingler cette clé ou la résoudre depuis un registre de confiance externe au reçu. La falsification de tout champ signé rend la signature invalide.
 
 2. **Encodage canonique**. Avant la signature, le reçu est sérialisé selon le JSON Canonicalization Scheme (JCS, RFC 8785). Cela garantit que deux implémentations produisant le même reçu logique produisent une sortie identique au niveau octet. Sans canonisation, différents sérialiseurs JSON produiraient des signatures différentes pour un même contenu.
 
-3. **Chaînage par hachage**. Le champ `previous_receipt_hash` relie chaque reçu au précédent. La suppression ou le réordonnancement d’un reçu casse tous les reçus qui suivent. La falsification devient visible au niveau de la chaîne, même si les signatures individuelles sont contournées.
+3. **Chaînage de hachage**. Le champ `previous_receipt_hash` relie chaque reçu à celui qui le précède. La suppression ou le réordonnancement d'un reçu brise la séquence présentée. La détection d'une troncature ou d'une réécriture contrôlée par le signataire nécessite également une tête de chaîne actuelle épinglée, un point de contrôle attesté indépendamment, ou un engagement authentifié d'une population fermée.
 
 Ensemble, ces propriétés fournissent trois garanties :
 
-- **Attribution** : cette clé a signé ce contenu.
+- **Attribution à une clé**: cette clé a signé ce contenu. L'identité organisationnelle ou humaine nécessite une liaison de clé de confiance.
 - **Intégrité** : le contenu n’a pas changé depuis la signature.
-- **Ordonnancement** : ce reçu vient après ce reçu dans la chaîne.
+- **Ordre au sein de la séquence vérifiée**: ce reçu renvoie à ce prédécesseur.
 
 ## Produire un reçu en Python
 
 Vous n’avez pas besoin d’une bibliothèque spéciale pour produire un reçu. Les primitives cryptographiques sont largement disponibles et la logique nécessite quelques dizaines de lignes de Python.
 
-Les exercices pratiques dans `code_samples/18-signed-receipts.ipynb` parcourent tout le processus. Version résumée :
+Les exercices pratiques de `code_samples/18-signed-receipts.ipynb` parcourent l'ensemble du flux. Le `code_samples/18-signed-receipts.execution-receipt.json`, géré sous contrôle de version, enregistre le hachage exact du notebook, l'environnement Python, le nombre de cellules et les vérifications de la dernière exécution propre sans modifier les sorties enregistrées de la leçon. La version résumée :
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # JSON canonique RFC 8785
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Générer ou charger une clé de signature (en production, stocker dans un dépôt de clés)
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# Construire la charge utile du reçu (pas encore de signature)
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canoniciser et signer directement les octets JCS. PureEdDSA hache en interne.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Joindre un objet de signature structuré.
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -160,33 +164,40 @@ La vérification est l’opération inverse :
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # La signature est un objet structuré : {"alg", "sig", "public_key"}.
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # Reconstruire la charge utile qui a été effectivement signée (tout sauf la signature).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-Cette fonction prend un reçu et retourne `True` si la signature est valide, `False` sinon. Pas d’appel réseau, pas de dépendance à un service, pas besoin de faire confiance à un tiers.
+Cette fonction prend un reçu ainsi que l'ensemble de clés épinglées de la partie faisant confiance et renvoie
+`True` uniquement si la signature est valide avec une clé acceptée. La vérification ne nécessite aucun
+appel réseau, mais la confiance envers la clé reste une décision de configuration externe.
 
 Pour voir la détection de falsification en action, le notebook détaille :
 
@@ -202,9 +213,9 @@ Un reçu signé protège une action unique. Une chaîne de reçus protège une s
 
 ```mermaid
 flowchart LR
-    R0[Reçu 0<br/>genèse] --> R1[Reçu 1]
-    R1 --> R2[Reçu 2]
-    R2 --> R3[Reçu 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
@@ -215,7 +226,10 @@ Chaque reçu enregistre le hachage du reçu précédent. Pour supprimer silencie
 - Modifier le champ `previous_receipt_hash` du reçu 3 (ce qui casse la signature du reçu 3), OU
 - Forger une nouvelle signature sur un reçu 3 modifié (ce qui nécessite la clé privée de l’agent).
 
-Si la clé privée est stockée dans un coffre-fort matériel et que vous publiez la clé publique avec chaque reçu, aucune des attaques n’est réalisable sans détection.
+Si la clé privée est protégée et qu'un vérificateur ancre la tête d'une chaîne attestée indépendamment
+ces attaques sont détectables. Publier la clé dans chaque reçu n'est pas
+suffisant : un signataire ou un attaquant peut présenter une clé différente, réécrire un suffixe, ou
+tronquer la chaîne à moins que la partie qui se fie n'ait une ancre externe de confiance et d'exhaustivité.
 
 Le notebook détaille :
 
@@ -223,7 +237,8 @@ Le notebook détaille :
 2. La vérification que le `previous_receipt_hash` de chaque reçu correspond bien au hachage réel du reçu précédent.
 3. La falsification d’un reçu au milieu de la chaîne et la rupture visible de la chaîne à ce point précis.
 
-C’est ainsi que vous produisez une piste d’audit qu’un auditeur externe peut vérifier sans vous faire confiance.
+C'est ainsi que vous produisez une piste d'audit qu'un auditeur externe peut vérifier sous ses
+propres clés d'émetteur épinglées et points de contrôle de chaîne, sans faire confiance à votre magasin de journaux modifiable.
 
 ## Ce que prouvent les reçus (et ce qu’ils ne prouvent pas)
 
@@ -233,7 +248,7 @@ C’est la section la plus importante de cette leçon. Les reçus sont puissants
 
 1. **Attribution** : une clé spécifique a signé une charge utile spécifique.
 2. **Intégrité** : la charge utile n’a pas changé depuis la signature.
-3. **Ordonnancement** : ce reçu vient après ce reçu dans la chaîne de hachage.
+3. **Ordre au sein d'une séquence présentée et vérifiée**: ce reçu renvoie à ce prédécesseur.
 
 **Les reçus ne prouvent PAS :**
 
@@ -241,6 +256,9 @@ C’est la section la plus importante de cette leçon. Les reçus sont puissants
 2. **Conformité à la politique** : que la politique référencée dans `policy_id` a réellement été évaluée, ou qu’elle aurait permis cette action si elle avait été vérifiée. Le reçu enregistre ce qui a été affirmé, pas ce qui a été appliqué.
 3. **Identité au-delà de la clé** : le reçu dit « cette clé a signé ce contenu ». Il ne dit pas « cet humain a autorisé cela ». Relier une clé à une personne ou organisation nécessite une infrastructure d’identité distincte (un annuaire, un registre de clés publiques, etc.)
 4. **Véracité des entrées** : si l’agent reçoit un prompt manipulé et agit en conséquence, le reçu enregistre fidèlement l’action. Les reçus sont en aval de la validation des entrées, pas un substitut.
+5. **Exécution ou effet dans le monde réel**: un reçu post-appel enregistre ce que son émetteur affirme s'être produit. Prouver une admission ou réconcilier un effet externe exige des preuves provenant de l'exécuteur réel ou de la frontière du fournisseur.
+6. **Complétude**: l'absence d'un reçu peut signifier bloqué, omis, perdu ou non instrumenté. L'absence ne devient une preuve que dans une population fermée authentifiée.
+7. **Temps de confiance**: un horodatage signé prouve que le signataire détenait cette valeur, pas que la valeur était correcte. Le temps de confiance nécessite une autorité temporelle séparée ou un point de contrôle attesté.
 
 Cette limite importe pour deux raisons :
 
@@ -249,19 +267,24 @@ Cette limite importe pour deux raisons :
 
 Une erreur fréquente est de supposer que « nous avons des reçus » signifie « nous sommes gouvernés ». Ce n’est pas le cas. Les reçus sont une base. La gouvernance est le système que vous construisez par-dessus.
 
-## Prouver qu’un humain a approuvé l’action exacte
+## Associer la signature d'un approbateur à l'action exacte
 
-Le point 3 ci-dessus mérite sa propre section : un reçu d’action dit « cette clé a signé ce contenu », jamais « un humain a autorisé cela ». Pour les actions à haut risque (remboursements, suppressions, virements bancaires), les cadres de gouvernance exigent de plus en plus précisément cette affirmation absente, qui est produite avec les mêmes primitives que vous avez déjà construites dans cette leçon.
+Le point 3 ci-dessus mérite sa propre section : un reçu d'action indique "cette clé a signé ce contenu", jamais "un humain a autorisé cela". Pour les actions à haut risque (remboursements, suppressions, virements), une signature d'approbateur distincte peut lier l'action exacte. Relier cette clé à un humain et vérifier la présence humaine restent des responsabilités séparées.
 
-Le notebook suivant `code_samples/human-authorization-receipts.ipynb` ajoute un second type de reçu, `human.approval.v1`, avec la même structure enveloppe que les reçus de la leçon (une charge utile typée signée par Ed25519 sur ses octets JCS canoniques, avec l’objet `signature` en dehors des octets signés). Un approbateur nommé signe **l’action canonique complète et son digest** avant exécution ; le reçu d’action de l’agent porte **le même digest d’action** et un `parent_approval_ref`, le `receipt_hash` de l’approbation, la même convention que `previous_receipt_hash` dans la chaîne construite ci-dessus. Une seule fonction `verify_chain` valide les deux artefacts sous **des registres de clés épinglés séparés** (clés d’approbateurs vs clés d’agents), donc le chemin de code est partagé mais les autorités ne le sont jamais.
+Le notebook de suivi `code_samples/human-authorization-receipts.ipynb` ajoute un deuxième type de reçu, `human.approval.v1`, dans la même forme d'enveloppe que les reçus de la leçon. Cette enveloppe contient une charge utile typée, signée par Ed25519 sur ses octets JCS canoniques, avec l'objet `signature` en dehors des octets signés. Une clé d'approbateur signe l'**action canonique complète et son empreinte**; une clé d'agent signe une revendication portant la **même empreinte de l'action** et un `parent_approval_ref`, le `receipt_hash` de l'approbation, la même convention que `previous_receipt_hash` dans la chaîne que vous avez construite ci-dessus. Un `verify_chain` parcourt les deux artefacts sous **des registres de clés épinglés séparés**. Les clés des approbateurs et les clés des agents restent séparées, donc le chemin du code est partagé mais les autorités ne le sont jamais.
 
-La propriété obtenue, formulée soigneusement : *l’humain a approuvé cette action exacte, et l’agent a exécuté exactement cette action approuvée.* Les simulations de refus du notebook rendent cette propriété réelle plutôt que simplement affirmée :
+La propriété que cela procure, énoncée avec précision : *la clé d'approbation épinglée a signé cette
+action exacte, et la clé de l'agent a ensuite signé une déclaration portant la même empreinte d'action.*
+C'est une preuve utile, mais ce n'est pas en soi la preuve que l'action a été exécutée. Pour
+contrôler l'exécution, l'approbation exacte doit également être réservée et consommée une seule fois à la
+frontière réelle de l'exécuteur ; les résultats inconnus du fournisseur doivent rester inconnus plutôt que d'être
+réessayés à l'aveugle. Les fixtures de refus du notebook testent la couche receipt-chain :
 
-- l’ensemble classique : falsification, délégué confus, rejouage, clés falsifiées de chaque côté, entrée mal formée ;
-- **autorité périmée** : une signature qui vérifie toujours, refusée quand même parce que la version de la politique a changé, la clé d’approbateur a été retirée du registre épinglé, ou l’approbation a expiré avant l’exécution ;
+- manipulation, député confus, clés falsifiées de part et d'autre, et entrée malformée;
+- **autorité périmée**: une signature qui se vérifie encore, refusée malgré tout parce que la version de la politique a changé, la clé de l'approbateur a été retirée du registre épinglé, ou l'approbation a expiré avant l'heure de vérification fournie;
 - **substitution de digest** : un reçu d’action signé valide pointant vers une *vraie* approbation qui lie une *action canonique différente*.
 
-Chaque échec refuse avec une raison distincte, donc un auditeur lisant un refus peut savoir si l’autorité est périmée ou si l’action exécutée a changé. La règle enseignée dans le notebook : une approbation signée n’est pas une autorité en soi. L’autorité existe seulement si les deux reçus lient toujours à la même action canonique au moment de l’exécution. Le reçu d’approbation humaine est une composition éducative définie par cette leçon, pas un type de reçu défini par `draft-farley-acta-signed-receipts`.
+Chaque refus est accompagné d'une raison distincte, de sorte qu'un auditeur lisant un refus peut déterminer si l'autorité est devenue obsolète ou si l'action revendiquée a changé. La vérification est en lecture seule et répétable : elle ne consomme pas l'approbation et n'invoque pas de fournisseur. Un exécuteur distinct nécessite une protection durable et atomique contre la relecture ainsi que des résultats explicites de succès, d'échec et d'indétermination. Le reçu d'approbation humaine est une composition pédagogique définie par cette leçon, et non un type de reçu défini par `draft-farley-acta-signed-receipts`.
 
 ## Références pour la production
 
@@ -274,6 +297,7 @@ Le code Python de cette leçon est volontairement minimal pour que vous puissiez
    - Le Microsoft Agent Governance Toolkit compose des reçus avec des décisions de politique basées sur Cedar ; voir le Tutoriel 33 dans ce dépôt pour un exemple de bout en bout.
    - Les paquets `protect-mcp` (npm) et `@veritasacta/verify` (npm) fournissent une implémentation Node de signature de reçus et vérification hors ligne, destinés à envelopper tout serveur MCP avec une piste d’audit évidente à falsifier, incluant un flux held-for-co-sign dans lequel une action mise en pause émet un reçu d’approbation lié au digest de l’action (soutenu par WebAuthn dans le flux desktop), le même modèle d’approbation que celui du notebook d’autorisation humaine ci-dessus.
    - Le SDK Python **[nobulex](https://github.com/arian-gogani/nobulex)** (`pip install nobulex`) fournit le même modèle de signature Ed25519 + JCS en Python avec intégrations LangChain et CrewAI, incluant des vecteurs de test de validation croisée publiés et une cartographie de conformité contribué via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+- **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** fournit une couche d'application d'actions exactes complémentaire: reçus d'approbation vérifiables hors ligne, WebAuthn épinglé ou autorité de quorum, consommation unique à la frontière de l'exécuteur, et un chemin explicite à issue indéterminée. Ses adaptateurs de framework considèrent un reçu comme une preuve nécessaire plutôt que comme la preuve qu'un effet externe s'est produit.
 
 Le choix entre développer soi-même et utiliser une bibliothèque reflète celui entre écrire sa propre bibliothèque JWT et en utiliser une testée : les deux sont raisonnables ; la bibliothèque fait gagner du temps et réduit la surface d’audit ; la méthode from-scratch vous force à comprendre chaque primitive. Cette leçon enseigne la voie from-scratch pour vous donner la base dans les deux cas.
 
@@ -286,7 +310,9 @@ Testez votre compréhension avant de passer à l’exercice pratique.
 <details>
 <summary>Réponse</summary>
 
-Oui. La vérification Ed25519 nécessite uniquement la clé publique et les octets signés. Pas d’appel réseau, pas de dépendance à un service. C’est cette propriété qui rend les reçus utiles dans des contextes d’audit isolés, multi-organisationnels ou à faible confiance.
+Oui, la vérification cryptographique nécessite uniquement la clé publique et les octets signés. L'
+auditeur doit encore obtenir et épingler la clé publique acceptée indépendamment du reçu.
+Aucun appel réseau n'est requis une fois que cette configuration de confiance est établie.
 </details>
 
 **2. Un attaquant modifie le champ `policy_id` d’un reçu pour prétendre qu’il était soumis à une politique plus permissive. La signature portait sur la charge utile originale. Que se passe-t-il lors de la vérification ?**
@@ -311,7 +337,10 @@ Deux raisons. Premièrement, le reçu peut devoir être archivé ou transmis dan
 <details>
 <summary>Réponse</summary>
 
-Tous les reçus qui suivaient celui supprimé. Leurs champs `previous_receipt_hash` ne correspondent plus à la chaîne réelle (car le reçu référencé n'existe plus, ou la chaîne pointe maintenant vers un prédécesseur différent). Pour cacher la suppression, l'attaquant devrait resigner chaque reçu suivant, ce qui nécessite la clé privée.
+Le reçu présenté suivant ne se rattache plus à son prédécesseur attendu, donc la vérification
+de cette séquence présentée échoue à partir de l'interruption. Si le signataire contrôle la clé privée,
+il peut réécrire ou tronquer un suffixe. La détection de cela nécessite une tête courante épinglée,
+un point de contrôle externe, ou un engagement authentifié de la population.
 </details>
 
 **5. Un reçu est vérifié avec succès. Cela prouve-t-il que l'action de l'agent était correcte, valide ou conforme à la politique ?**
@@ -319,7 +348,10 @@ Tous les reçus qui suivaient celui supprimé. Leurs champs `previous_receipt_ha
 <details>
 <summary>Réponse</summary>
 
-Non. Un reçu valide prouve trois choses : l'attribution (cette clé a signé ce contenu), l'intégrité (le contenu n'a pas changé) et l'ordre (ce reçu est bien postérieur à ce reçu-là). Il ne prouve PAS que l'action était correcte, que la politique nommée dans `policy_id` a bien été évaluée, ou que l'agent a respecté chaque règle. Les reçus rendent le comportement de l'agent auditable, pas nécessairement correct. C'est la limite la plus importante de cette leçon.
+Non. Dans un contexte de clé épinglée et de chaîne, un reçu valide prouve l'attribution de la signature,
+l'intégrité du contenu, et un lien vers le prédécesseur présenté. Il NE prouve PAS que l'
+action était correcte ou exécutée, que la politique a été évaluée, que l'horodatage est
+fiable, ou que l'ensemble des enregistrements est complet. C'est la frontière la plus importante de la leçon.
 </details>
 
 ## Exercice pratique
@@ -339,21 +371,27 @@ Ouvrez `code_samples/18-signed-receipts.ipynb` et complétez les quatre sections
 
 Les reçus cryptographiques fournissent aux agents IA une piste d’audit qui est :
 
-- **Indépendamment vérifiable** : toute partie ayant la clé publique peut vérifier, sans dépendance à un service.
+- **Vérifiable de manière indépendante sous une confiance épinglée**: une partie disposant de clés publiques acceptées et d'octets signés peut vérifier sans dépendance à un service.
 - **À l’épreuve des altérations** : toute modification invalide la signature.
 - **Portable** : un reçu est un petit fichier JSON ; il peut être archivé, transmis et vérifié partout.
 - **Aligné sur les standards** : construit sur Ed25519 (RFC 8032), JCS (RFC 8785) et SHA-256, des primitives largement déployées.
 
-Ils ne remplacent pas la validation des entrées, l’application des politiques ou l’infrastructure d’identité. Ils constituent la base pour ces couches. Lorsque vous déployez des agents dans des environnements réglementés, des flux de travail multi-organisation, ou tout contexte où un futur auditeur ne peut pas être supposé vous faire confiance, les reçus sont la manière de rendre la piste d’audit honnête.
+Ils ne remplacent pas la validation des entrées, l'application des politiques, l'admission des exécuteurs,
+les preuves de résultat, les contrôles d'exhaustivité ou l'infrastructure d'identité. Ils constituent une base
+pour ces couches. Dans les flux de travail réglementés ou impliquant plusieurs organisations, les reçus rendent les déclarations
+spécifiques de l'émetteur vérifiables indépendamment sous la propre configuration de confiance de l'auditeur.
 
-L’essentiel à retenir : les reçus prouvent qui a dit quoi, et quand. Ils ne prouvent pas que ce qui a été dit était vrai ou juste. Gardez bien cette distinction. C’est la différence entre un système de provenance honnête et un système trompeur.
+Le point le plus important : les reçus prouvent qu'une clé particulière a signé
+un contenu particulier. Un horodatage inclus est une assertion du signataire sauf s'il est attesté séparément dans le temps.
+Un reçu ne prouve pas que son contenu était vrai, qu'une action a été exécutée, ou que le
+jeu d'enregistrements est complet. Respectez strictement ces distinctions.
 
 ## Liste de vérification pour la production
 
 Lorsque vous êtes prêt à passer de cette leçon au déploiement d’agents signant des reçus en environnement réel :
 
 - [ ] **Déplacez la clé de signature hors de l’ordinateur du développeur.** Utilisez Azure Key Vault, AWS KMS ou un module matériel de sécurité. La clé privée signant vos reçus ne doit jamais se trouver dans le contrôle de source ou en clair sur les machines applicatives.
-- [ ] **Publiez la clé publique de vérification.** Les auditeurs en ont besoin pour vérifier offline. Le modèle standard est un ensemble JWK à une URL bien connue (RFC 7517), par exemple `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Établir la confiance dans la clé du vérificateur.** Publiez les clés via un JWK Set ou un registre, puis demandez aux parties prenantes de fixer l'identité de l'émetteur acceptée, l'ensemble de clés et la politique de rotation en dehors des reçus individuels. Une clé intégrée seule n'est pas une ancre de confiance.
 - [ ] **Ancrez la chaîne à l’extérieur.** Écrivez périodiquement le hash de la tête de chaîne la plus récente dans un journal de transparence (Sigstore Rekor, une autorité de timestamp RFC 3161, ou un second système interne) pour qu’un tiers puisse confirmer « cette chaîne existait à ce moment ».
 - [ ] **Stockez les reçus de manière immuable.** Le stockage append-only (Azure Storage avec politiques d’immuabilité, AWS S3 Object Lock) empêche un initié de réécrire l’histoire au niveau du stockage.
 - [ ] **Décidez de la durée de conservation.** De nombreux régimes de conformité exigent une conservation de plusieurs années. Prévoyez la croissance des reçus (chaque reçu fait ~500 octets; un agent effectuant 10 000 appels par jour génère ~1.8 Go par an).
@@ -372,7 +410,7 @@ Cette leçon couvre la signature d’un seul reçu et les séquences en chaîne 
 - **Reçus bilatéraux / signature fractionnée.** Certaines implémentations divisent la charge utile signée en deux moitiés, pré-exécution (`authorization_*`) et post-exécution (`result_*`), avec signatures indépendantes, utile lorsque la décision d’autorisation et le résultat observé sont produits par différents acteurs ou à différents moments. Cela s’ajoute de façon additive au format de reçu enseigné dans cette leçon.
 - **Composition de charge utile.** Un reçu scelle les octets que vous mettez dans `result_hash`. Les charges utiles réelles sont souvent plus riches qu’un simple résultat d’appel d’outil : raisonnement pré-décision (prédiction modèle, options considérées, preuves et leur complétude, posture de risque, chaîne de responsabilité, résultat du gate) peuvent tous vivre dans la charge utile, scellée par un seul reçu. Cela maintient le format de reçu minimal tout en laissant évoluer les schémas de charge utile domaine par domaine.
 - **Conformité inter-implémentation.** Plusieurs implémentations indépendantes du même format de reçu (Python, TypeScript, Rust, Go) se vérifient entre elles avec des vecteurs de test partagés. Si vous créez votre propre implémentation, valider avec les vecteurs publiés confirme la compatibilité sur le fil.
-- **Migration post-quantique.** Ed25519 est largement déployé aujourd’hui mais n’est pas résistant au quantique. Le format de reçu est agile sur l’algorithme : le champ `signature.alg` peut porter `ML-DSA-65` (standard de signature post-quantique NIST) lorsque vous devez migrer. Prévoyez une période de transition où les reçus sont signés en double.
+- **Migration post-quantique.** Ed25519 est largement déployé aujourd'hui mais n'est pas résistant aux attaques quantiques. Une étiquette `alg` seule ne constitue pas une migration: un profil doit définir l'encodage des clés ML-DSA, les octets signés canoniques, la vérification, la politique du relying party, la résistance aux rétrogradations, et la sémantique de transition. Planifiez et testez une transition à double signature contre des vecteurs partagés avant d'avancer des revendications de compatibilité.
 
 ## Ressources supplémentaires
 

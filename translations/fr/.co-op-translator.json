@@ -588,8 +588,8 @@
     "language_code": "fr"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "b789e73c357bfbcd179133077fd3b34c",
-    "translation_date": "2026-09-09T23:42:46+00:00",
+    "original_hash": "c6433e2b62048d6ce1f29979208b8032",
+    "translation_date": "2026-11-02T14:44:38+09:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "fr"
   },
@@ -668,17 +668,6 @@
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
-      "failure_policy_version": 1
-    },
-    "18-securing-ai-agents/README.md": {
-      "original_hash": "c6433e2b62048d6ce1f29979208b8032",
-      "source_file": "18-securing-ai-agents/README.md",
-      "language_code": "fr",
-      "failure_date": "2026-10-30T16:03:26+00:00",
-      "status": "failed",
-      "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.2.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }
