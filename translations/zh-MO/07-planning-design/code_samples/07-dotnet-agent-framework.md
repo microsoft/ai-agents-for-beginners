@@ -1,63 +1,66 @@
-# 🎯 規劃與設計模式：使用 GitHub 模型 (.NET)
+# 🎯 使用 Azure OpenAI（Responses API）與 .NET 的規劃與設計模式
 
 ## 📋 學習目標
 
-本筆記本展示了使用 Microsoft Agent Framework 和 GitHub 模型在 .NET 中構建智能代理的企業級規劃與設計模式。您將學習如何創建能分解複雜問題、規劃多步解決方案並執行複雜工作流程的代理，結合 .NET 的企業功能。
+本筆記本示範了使用 .NET 中的 Microsoft Agent Framework 與 Azure OpenAI（Responses API）構建智能代理的企業級規劃與設計模式。您將學會創建能分解複雜問題、規劃多步解決方案並利用 .NET 的企業功能執行複雜工作流程的代理。
 
-## ⚙️ 先決條件與設置
+## ⚙️ 前置條件與環境設置
 
 **開發環境：**
 - .NET 9.0 SDK 或更高版本
-- Visual Studio 2022 或安裝 C# 擴展的 VS Code
-- GitHub Models API 訪問權限
+- Visual Studio 2022 或帶有 C# 擴充功能的 VS Code
+- 擁有 Azure 訂閱與 Azure OpenAI 資源及模型部署
+- Azure CLI — 使用 `az login` 登入
 
-**所需依賴項：**
+**必要依賴項：**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**環境配置 (.env 文件)：**
+**環境配置（.env 檔案）：**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## 執行代碼
+## 執行程式碼
 
-本課程包含一個 .NET 單文件應用程式的實現。執行方式如下：
+本課程包含一個 .NET 單文件應用程式的實作。執行方法如下：
 
 ```bash
-# Make the file executable (Linux/macOS)
+# 令檔案可執行（Linux/macOS）
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# 執行應用程式
 ./07-dotnet-agent-framework.cs
 ```
 
-或者使用 dotnet run 命令：
+或使用 dotnet run 命令：
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## 代碼實現
+## 程式碼實作說明
 
-完整的實現可在 `07-dotnet-agent-framework.cs` 中找到，展示了以下內容：
+完整實作位於 `07-dotnet-agent-framework.cs`，示範了：
 
-- 使用 DotNetEnv 加載環境配置
-- 配置 OpenAI 客戶端以使用 GitHub 模型
-- 使用 JSON 序列化定義結構化數據模型（Plan 和 TravelPlan）
-- 使用 JSON schema 創建具有結構化輸出的 AI 代理
-- 執行規劃請求並生成類型安全的響應
+- 使用 DotNetEnv 載入環境配置
+- 配置 Azure OpenAI 用戶端並透過 `GetChatClient().AsAIAgent()` 創建 AI 代理
+- 使用 JSON 序列化定義結構化資料模型（Plan 與 TravelPlan）
+- 使用 JSON schema 創建具結構化輸出的 AI 代理
+- 以型別安全的回應執行規劃請求
 
-## 核心概念
+## 主要概念
 
-### 使用類型安全模型進行結構化規劃
+### 利用型別安全模型進行結構化規劃
 
-代理使用 C# 類來定義規劃輸出的結構：
+代理採用 C# 類別定義規劃輸出的結構：
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### 用於結構化輸出的 JSON Schema
 
-代理被配置為返回符合 TravelPlan schema 的響應：
+代理配置為回傳符合 TravelPlan schema 的回應：
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -98,20 +103,22 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### 規劃代理指令
 
-代理充當協調者，將任務分配給專門的子代理：
+代理作為協調者，將任務委派給專門子代理：
 
-- FlightBooking：負責預訂航班並提供航班信息
-- HotelBooking：負責預訂酒店並提供酒店信息
-- CarRental：負責租車並提供租車信息
-- ActivitiesBooking：負責預訂活動並提供活動信息
-- DestinationInfo：負責提供目的地信息
+- FlightBooking：負責訂機票及提供航班資訊
+- HotelBooking：負責訂旅館及提供旅館資訊
+- CarRental：負責訂租車及提供租車資訊
+- ActivitiesBooking：負責訂活動及提供活動資訊
+- DestinationInfo：負責提供旅遊目的地資訊
 - DefaultAgent：負責處理一般請求
 
 ## 預期輸出
 
-當您使用旅行規劃請求運行代理時，它將分析請求並生成結構化的計劃，將適當的任務分配給專門的代理，並以符合 TravelPlan schema 的 JSON 格式輸出。
+當您執行代理處理旅遊規劃請求時，代理會分析請求並產生一份結構化計劃，將任務適當指派至專門代理，並以符合 TravelPlan schema 的 JSON 格式回傳。
 
 ---
 
-**免責聲明**：  
-本文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們努力確保翻譯的準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於關鍵信息，建議使用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責聲明**：
+本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要資訊，建議尋求專業人工翻譯。我們不對因使用本翻譯而引起的任何誤解或曲解承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

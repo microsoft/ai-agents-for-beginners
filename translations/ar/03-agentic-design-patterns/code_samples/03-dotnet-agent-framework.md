@@ -1,178 +1,183 @@
-# 🎨 أنماط تصميم الوكلاء مع نماذج GitHub (.NET)
+# 🎨 أنماط التصميم الوكيلية مع Azure OpenAI (واجهات برمجة استجابات) (.NET)
 
 ## 📋 أهداف التعلم
 
-يستعرض هذا المثال أنماط تصميم على مستوى المؤسسات لبناء وكلاء ذكيين باستخدام إطار عمل Microsoft Agent في .NET مع تكامل نماذج GitHub. ستتعلم أنماطًا احترافية ونهجًا معماريًا يجعل الوكلاء جاهزين للإنتاج، وقابلين للصيانة، وقابلين للتوسع.
+يوضح هذا المثال أنماط تصميم على مستوى المؤسسات لبناء وكلاء أذكياء باستخدام إطار عمل Microsoft Agent في .NET مع تكامل Azure OpenAI (واجهات برمجة استجابات). ستتعلم أنماطًا احترافية ونهجًا معماريًا تجعل الوكلاء جاهزين للإنتاج، وقابلين للصيانة، وقابلين للتوسع.
 
-### أنماط تصميم المؤسسات
+### أنماط التصميم المؤسسية
 
-- 🏭 **نمط المصنع**: إنشاء وكلاء موحد مع حقن التبعيات
-- 🔧 **نمط البناء**: إعداد وتكوين الوكلاء بطريقة سلسة
-- 🧵 **أنماط آمنة للخيوط**: إدارة المحادثات المتزامنة
-- 📋 **نمط المستودع**: إدارة الأدوات والقدرات بشكل منظم
+- 🏭 **نمط المصنع**: إنشاء وكيل موحد مع حقن التبعيات
+- 🔧 **نمط الباني**: إعداد وتكوين وكيل بطريقة متسلسلة
+- 🧵 **أنماط السلامة في الخيوط**: إدارة المحادثات المتزامنة
+- 📋 **نمط المستودع**: تنظيم أدوات وإدارة القدرات
 
-## 🎯 فوائد معمارية خاصة بـ .NET
+## 🎯 فوائد معمارية محددة لـ .NET
 
 ### ميزات المؤسسات
 
-- **التصنيف القوي**: التحقق أثناء وقت الترجمة ودعم IntelliSense
+- **الكتابة القوية**: التحقق في وقت الترجمة ودعم IntelliSense
 - **حقن التبعيات**: تكامل حاوية DI المدمجة
-- **إدارة التكوين**: أنماط IConfiguration وOptions
-- **Async/Await**: دعم البرمجة غير المتزامنة من الدرجة الأولى
+- **إدارة التكوين**: أنماط IConfiguration والخيارات
+- **Async/Await**: دعم البرمجة اللامتزامنة من الدرجة الأولى
 
 ### أنماط جاهزة للإنتاج
 
 - **تكامل التسجيل**: دعم ILogger والتسجيل الهيكلي
-- **فحوصات الصحة**: مراقبة وتشخيص مدمج
-- **التحقق من التكوين**: التصنيف القوي مع تعليقات البيانات
-- **معالجة الأخطاء**: إدارة استثناءات منظمة
+- **فحوصات الصحة**: المراقبة والتشخيص المدمجين
+- **التحقق من التكوين**: الكتابة القوية مع تعليقات البيانات
+- **معالجة الأخطاء**: إدارة الاستثناءات بشكل منظم
 
-## 🔧 الهندسة التقنية
+## 🔧 العمارة التقنية
 
 ### مكونات .NET الأساسية
 
-- **Microsoft.Extensions.AI**: تجريدات خدمات الذكاء الاصطناعي الموحدة
-- **Microsoft.Agents.AI**: إطار عمل تنظيم الوكلاء على مستوى المؤسسات
-- **تكامل نماذج GitHub**: أنماط عميل API عالية الأداء
-- **نظام التكوين**: تكامل appsettings.json والبيئة
+- **Microsoft.Extensions.AI**: تجريدات موحدة لخدمات الذكاء الاصطناعي
+- **Microsoft.Agents.AI**: إطار عمل تنظيم الوكلاء للمؤسسات
+- **Azure OpenAI (واجهات برمجة الاستجابات)**: أنماط عملاء API عالية الأداء
+- **نظام التكوين**: appsettings.json والتكامل مع البيئة
 
-### تنفيذ أنماط التصميم
+### تنفيذ نمط التصميم
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[مجموعة خدمات IIService] --> B[منشئ الوكيل]
+    B --> C[الإعدادات]
+    C --> D[سجل الأدوات]
+    D --> E[وكيل الذكاء الاصطناعي]
 ```
 
-## 🏗️ أنماط المؤسسات المعروضة
+## 🏗️ أنماط المؤسسات المطبقة
 
-### 1. **أنماط الإنشاء**
+### 1. **أنماط إنشائية**
 
-- **مصنع الوكلاء**: إنشاء وكلاء مركزي مع تكوين متسق
-- **نمط البناء**: واجهة برمجية سلسة لتكوين الوكلاء المعقد
-- **نمط Singleton**: إدارة الموارد والتكوين المشتركة
-- **حقن التبعيات**: تقليل التداخل وتحسين قابلية الاختبار
+- **مصنع الوكلاء**: إنشاء مركزي للوكلاء مع تكوين متناسق
+- **نمط الباني**: API متسلسلة لتكوين الوكيل المعقد
+- **نمط المفرد**: مشاركة الموارد وإدارة التكوين
+- **حقن التبعيات**: فصل مرن وقابلية الاختبار
 
-### 2. **أنماط السلوك**
+### 2. **أنماط سلوكية**
 
-- **نمط الاستراتيجية**: استراتيجيات تنفيذ الأدوات القابلة للتبديل
-- **نمط الأوامر**: عمليات الوكلاء المغلفة مع التراجع/الإعادة
-- **نمط المراقب**: إدارة دورة حياة الوكلاء المدفوعة بالأحداث
-- **نمط الطريقة النموذجية**: تدفقات عمل تنفيذ الوكلاء الموحدة
+- **نمط الإستراتيجية**: استراتيجيات تنفيذ أدوات قابلة للتبديل
+- **نمط الأمر**: عمليات وكيل مغلفة مع التراجع/الإعادة
+- **نمط المراقب**: إدارة دورة حياة الوكيل بالحدث
+- **طريقة القالب**: سير عمل تنفيذ وكيل موحد
 
-### 3. **أنماط الهيكل**
+### 3. **أنماط هيكلية**
 
-- **نمط المحول**: طبقة تكامل API لنماذج GitHub
-- **نمط الزخرفة**: تعزيز قدرات الوكلاء
-- **نمط الواجهة**: واجهات تفاعل مبسطة للوكلاء
-- **نمط الوكيل**: التحميل الكسول والتخزين المؤقت لتحسين الأداء
+- **نمط المحول**: طبقة تكامل Azure OpenAI (واجهات برمجة الاستجابات)
+- **نمط الزخرفة**: تعزيز قدرات الوكيل
+- **نمط الواجهة الأمامية**: تبسيط واجهات تفاعل الوكيل
+- **نمط الوكيل الوكيل**: التحميل الكسول والتخزين المؤقت للأداء
 
 ## 📚 مبادئ تصميم .NET
 
 ### مبادئ SOLID
 
-- **المسؤولية الواحدة**: لكل مكون غرض واضح
-- **مفتوح/مغلق**: قابل للتوسيع دون تعديل
-- **استبدال ليسكوف**: تنفيذ الأدوات المستندة إلى الواجهة
-- **فصل الواجهة**: واجهات مركزة ومتجانسة
-- **عكس التبعيات**: الاعتماد على التجريدات وليس التفاصيل
+- **المسؤولية الفردية**: كل مكون له هدف واضح واحد
+- **الفتح/الإغلاق**: القابلية للتوسعة بدون تعديل
+- **استبدال ليسكوف**: تنفيذات الأدوات القائمة على الواجهات
+- **تقسيم الواجهات**: واجهات مركزة ومتناسقة
+- **انعكاس التبعيات**: الاعتماد على التجريدات، لا على التفاصيل
 
-### الهندسة النظيفة
+### العمارة النظيفة
 
-- **طبقة المجال**: تجريدات الوكلاء والأدوات الأساسية
-- **طبقة التطبيق**: تنظيم الوكلاء وتدفقات العمل
-- **طبقة البنية التحتية**: تكامل نماذج GitHub والخدمات الخارجية
-- **طبقة العرض**: تفاعل المستخدم وتنسيق الاستجابة
+- **طبقة النطاق**: التجريدات الأساسية للوكلاء والأدوات
+- **طبقة التطبيق**: تنظيم الوكلاء وسير العمل
+- **طبقة البنية التحتية**: تكامل Azure OpenAI (واجهات برمجة الاستجابات) والخدمات الخارجية
+- **طبقة العرض**: تفاعل المستخدم وتنسيق الاستجابات
 
 ## 🔒 اعتبارات المؤسسات
 
 ### الأمان
 
-- **إدارة الاعتمادات**: التعامل الآمن مع مفاتيح API باستخدام IConfiguration
-- **التحقق من المدخلات**: التصنيف القوي والتحقق من تعليقات البيانات
-- **تنقية المخرجات**: معالجة الاستجابات بشكل آمن وتصفيتها
+- **إدارة بيانات الاعتماد**: التعامل الآمن مع مفتاح API باستخدام IConfiguration
+- **التحقق من الإدخال**: الكتابة القوية والتحقق بتعليقات البيانات
+- **تنقية الإخراج**: معالجة وتصفية الاستجابات بأمان
 - **تسجيل التدقيق**: تتبع شامل للعمليات
 
 ### الأداء
 
-- **أنماط غير متزامنة**: عمليات الإدخال/الإخراج غير المحظورة
-- **تجميع الاتصالات**: إدارة فعالة لعملاء HTTP
+- **أنماط اللامزامنة**: عمليات I/O غير محجوزة
+- **تجميع الاتصالات**: إدارة فعالة لعميل HTTP
 - **التخزين المؤقت**: تخزين الاستجابات لتحسين الأداء
 - **إدارة الموارد**: أنماط التخلص والتنظيف المناسبة
 
-### التوسع
+### القابلية للتوسع
 
-- **أمان الخيوط**: دعم تنفيذ الوكلاء المتزامن
+- **سلامة الخيوط**: دعم تنفيذ الوكلاء المتزامن
 - **تجميع الموارد**: استخدام الموارد بكفاءة
-- **إدارة الحمل**: تحديد المعدل ومعالجة الضغط الخلفي
-- **المراقبة**: مقاييس الأداء وفحوصات الصحة
+- **إدارة الحمل**: تحديد السرعة والتعامل مع الضغط الخلفي
+- **المراقبة**: مؤشرات الأداء وفحوصات الصحة
 
-## 🚀 نشر الإنتاج
+## 🚀 النشر للإنتاج
 
 - **إدارة التكوين**: إعدادات خاصة بالبيئة
-- **استراتيجية التسجيل**: تسجيل هيكلي مع معرفات الارتباط
-- **معالجة الأخطاء**: معالجة استثناءات عالمية مع استرداد مناسب
-- **المراقبة**: رؤى التطبيق ومؤشرات الأداء
-- **الاختبار**: أنماط الاختبارات الوحدوية، واختبارات التكامل، واختبارات التحميل
+- **استراتيجية التسجيل**: تسجيل هيكلي بمعرفات الترابط
+- **معالجة الأخطاء**: التعامل مع الاستثناءات العالمي مع استرداد مناسب
+- **المراقبة**: رؤى التطبيقات ومؤشرات الأداء
+- **الاختبار**: اختبارات الوحدة، الاختبارات التكاملية، وأنماط اختبار الحمل
 
-جاهز لبناء وكلاء ذكيين على مستوى المؤسسات باستخدام .NET؟ لنقم بتصميم شيء قوي! 🏢✨
+هل أنت مستعد لبناء وكلاء أذكياء على مستوى المؤسسات مع .NET؟ هيا لنصمم شيئًا قويًا! 🏢✨
 
 ## 🚀 البدء
 
-### المتطلبات الأساسية
+### المتطلبات المسبقة
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أعلى
-- [رمز الوصول إلى API لنماذج GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث
+- [اشتراك Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر نموذج
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — قم بتسجيل الدخول باستخدام `az login`
 
 ### المتغيرات البيئية المطلوبة
 
 ```bash
-# zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# زد شيل/باش
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# باور شيل
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+az login
 ```
 
-### كود المثال
+### مثال على الكود
 
 لتشغيل مثال الكود،
 
 ```bash
-# zsh/bash
+# زي شيل / باش
 chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-أو باستخدام dotnet CLI:
+أو باستخدام CLI دوت نت:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-راجع [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) للحصول على الكود الكامل.
+راجع [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) للكود الكامل.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**إخلاء المسؤولية**:  
-تم ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة ناتجة عن استخدام هذه الترجمة.
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

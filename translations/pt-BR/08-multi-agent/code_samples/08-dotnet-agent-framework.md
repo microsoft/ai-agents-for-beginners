@@ -1,13 +1,13 @@
-# 🤝 Sistemas de Fluxo de Trabalho Multi-Agente Empresarial (.NET)
+# 🤝 Sistemas Empresariais de Fluxo de Trabalho Multiagente (.NET)
 
 ## 📋 Objetivos de Aprendizagem
 
-Este notebook demonstra como construir sistemas multi-agente sofisticados de nível empresarial usando o Microsoft Agent Framework em .NET com Modelos do GitHub. Você aprenderá a orquestrar múltiplos agentes especializados trabalhando juntos por meio de fluxos de trabalho estruturados, aproveitando os recursos empresariais do .NET para soluções prontas para produção.
+Este notebook demonstra como construir sistemas sofisticados multiagentes de nível empresarial usando o Microsoft Agent Framework em .NET com Azure OpenAI (API de Respostas). Você aprenderá a orquestrar vários agentes especializados trabalhando juntos por meio de fluxos de trabalho estruturados, aproveitando os recursos empresariais do .NET para soluções prontas para produção.
 
-**Capacidades Multi-Agente Empresariais que Você Irá Desenvolver:**
-- 👥 **Colaboração entre Agentes**: Coordenação de agentes com validação em tempo de compilação
-- 🔄 **Orquestração de Fluxo de Trabalho**: Definição declarativa de fluxo de trabalho com padrões assíncronos do .NET
-- 🎭 **Especialização de Funções**: Personalidades de agentes fortemente tipadas e domínios de especialização
+**Capacidades Multiagentes Empresariais que Você Construirá:**
+- 👥 **Colaboração de Agentes**: Coordenação segura por tipo com validação em tempo de compilação
+- 🔄 **Orquestração de Fluxo de Trabalho**: Definição declarativa de fluxo de trabalho com padrões async do .NET
+- 🎭 **Especialização de Função**: Personalidades de agentes fortemente tipadas e domínios de especialização
 - 🏢 **Integração Empresarial**: Padrões prontos para produção com monitoramento e tratamento de erros
 
 ## ⚙️ Pré-requisitos e Configuração
@@ -15,30 +15,33 @@ Este notebook demonstra como construir sistemas multi-agente sofisticados de ní
 **Ambiente de Desenvolvimento:**
 - SDK .NET 9.0 ou superior
 - Visual Studio 2022 ou VS Code com extensão C#
-- Assinatura do Azure (para agentes persistentes)
+- Assinatura Azure (para agentes persistentes)
 
 **Pacotes NuGet Necessários:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
 ## Exemplo de Código
 
-O código completo funcional para esta lição está disponível no arquivo C# correspondente: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+O código completo funcional para esta lição está disponível no arquivo C# acompanhante: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
 Para executar o exemplo:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Torne o arquivo executável (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Execute o exemplo
 ./08-dotnet-agent-framework.cs
 ```
 
@@ -50,35 +53,37 @@ dotnet run 08-dotnet-agent-framework.cs
 
 ## O Que Este Exemplo Demonstra
 
-Este sistema de fluxo de trabalho multi-agente cria um serviço de recomendação de viagens para hotéis com dois agentes especializados:
+Este sistema de fluxo de trabalho multiagente cria um serviço de recomendação de viagens para hotéis com dois agentes especializados:
 
 1. **Agente FrontDesk**: Um agente de viagens que fornece recomendações de atividades e locais
-2. **Agente Concierge**: Revisa as recomendações para garantir experiências autênticas e não turísticas
+2. **Agente Concierge**: Revisa as recomendações para garantir experiências autênticas, não turísticas
 
 Os agentes trabalham juntos em um fluxo de trabalho onde:
 - O agente FrontDesk recebe a solicitação inicial de viagem
-- O agente Concierge revisa e refina a recomendação
+- O agente Concierge revisa e aprimora a recomendação
 - O fluxo de trabalho transmite respostas em tempo real
 
-## Conceitos Principais
+## Conceitos-Chave
 
 ### Coordenação de Agentes
-O exemplo demonstra a coordenação de agentes com validação em tempo de compilação usando o Microsoft Agent Framework.
+O exemplo demonstra coordenação segura por tipo de agentes usando o Microsoft Agent Framework com validação em tempo de compilação.
 
 ### Orquestração de Fluxo de Trabalho
-Utiliza definição declarativa de fluxo de trabalho com padrões assíncronos do .NET para conectar múltiplos agentes em um pipeline.
+Usa definição declarativa de fluxo de trabalho com padrões async do .NET para conectar múltiplos agentes em uma pipeline.
 
-### Respostas em Streaming
-Implementa transmissão em tempo real de respostas dos agentes usando enumeráveis assíncronos e arquitetura orientada a eventos.
+### Transmissão de Respostas
+Implementa transmissão em tempo real das respostas dos agentes usando enumeráveis async e arquitetura orientada a eventos.
 
 ### Integração Empresarial
-Mostra padrões prontos para produção, incluindo:
+Mostra padrões prontos para produção incluindo:
 - Configuração de variáveis de ambiente
 - Gerenciamento seguro de credenciais
 - Tratamento de erros
-- Processamento de eventos assíncronos
+- Processamento assíncrono de eventos
 
 ---
 
-**Aviso Legal**:  
-Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autoritativa. Para informações críticas, recomenda-se a tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Aviso Legal**:
+Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, por favor, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

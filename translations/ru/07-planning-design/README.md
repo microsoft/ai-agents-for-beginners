@@ -1,55 +1,55 @@
-[![Дизайн-паттерн планирования](../../../translated_images/ru/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Паттерн проектирования планирования](../../../translated_images/ru/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 
-# Дизайн планирования
+# Проектирование Планирования
 
 ## Введение
 
-В этом уроке будут рассмотрены:
+В этом уроке будет рассмотрено
 
-* Определение ясной общей цели и разбиение сложной задачи на управляемые подзадачи.
-* Использование структурированного вывода для более надежных и машинно-читаемых ответов.
-* Применение событийно-управляемого подхода для обработки динамических задач и неожиданных входных данных.
+* Определение чёткой общей цели и разбиение сложной задачи на управляемые подзадачи.
+* Использование структурированного вывода для более надёжных и машинно-читаемых ответов.
+* Применение событийно-ориентированного подхода для обработки динамических задач и неожиданных вводов.
 
 ## Цели обучения
 
-По завершении урока вы поймете:
+После завершения этого урока вы будете понимать:
 
-* Определять и задавать общую цель для AI-агента, убедившись, что он ясно понимает, чего нужно достичь.
-* Декомпозировать сложную задачу на управляемые подзадачи и организовывать их в логическую последовательность.
-* Оснастить агентов необходимыми инструментами (например, инструментами поиска или аналитики данных), решать, когда и как они используются, и справляться с возникающими неожиданными ситуациями.
-* Оценивать результаты подзадач, измерять производительность и итеративно корректировать действия для улучшения итогового результата.
+* Как определить и установить общую цель для ИИ-агента, чтобы он чётко понимал, что нужно достичь.
+* Как разложить сложную задачу на управляемые подзадачи и организовать их в логическую последовательность.
+* Как оснащать агентов правильными инструментами (например, поисковыми или аналитическими), решать, когда и как их использовать, а также справляться с неожиданными ситуациями.
+* Как оценивать результаты подзадач, измерять эффективность и повторять действия для улучшения итогового результата.
 
 ## Определение общей цели и разбиение задачи
 
 ![Определение целей и задач](../../../translated_images/ru/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Большинство реальных задач слишком сложны, чтобы решать их за один шаг. AI-агенту нужна краткая цель, которая будет направлять его планирование и действия. Например, рассмотрим цель:
+Большинство реальных задач слишком сложны, чтобы решать их за один шаг. Для ИИ-агента нужна чёткая цель, которая направляет его планирование и действия. Например, рассмотрим цель:
 
-    "Сгенерировать 3-дневный маршрут путешествия."
+    "Создать маршрут путешествия на 3 дня."
 
-Хотя ее просто сформулировать, все равно требуется уточнение. Чем яснее цель, тем лучше агент (и любые человеческие сотрудники) сможет сосредоточиться на достижении правильного результата, например создании комплексного маршрута с вариантами перелетов, рекомендациями по отелям и предложениями по активностям.
+Хотя это просто заявление, его всё же нужно уточнить. Чем яснее цель, тем лучше агент (и любые участвующие люди) смогут сосредоточиться на достижении правильного результата, например создание комплексного маршрута с вариантами перелётов, рекомендациями отелей и предложениями активностей.
 
 ### Декомпозиция задачи
 
-Крупные или сложные задачи становятся более управляемыми, когда их разбивают на меньшие, ориентированные на цель подзадачи.
-Для примера с маршрутом путешествия вы можете декомпозировать цель на:
+Большие или сложные задачи становятся более управляемыми, когда их разбивают на меньшие, ориентированные на цель подзадачи.
+Для примера маршрута путешествия можно разложить цель на:
 
 * Бронирование авиабилетов
 * Бронирование отеля
 * Аренда автомобиля
 * Персонализация
 
-Каждую подзадачу затем можно поручить специализированным агентам или процессам. Один агент может специализироваться на поиске лучших предложений по авиабилетам, другой — на бронировании отелей и т. д. Координирующий или «финализирующий» агент затем может собрать эти результаты в единый связный маршрут для конечного пользователя.
+Затем каждая подзадача может обрабатываться выделенными агентами или процессами. Один агент может специализироваться на поиске лучших авиарейсов, другой — на бронировании отелей и т.д. Координирующий или «следующий» агент может затем собрать эти результаты в единый связный маршрут для конечного пользователя.
 
-Этот модульный подход также позволяет постепенно улучшать систему. Например, вы можете добавить специализированных агентов для рекомендаций по еде или предложений локальных активностей и со временем дорабатывать маршрут.
+Такой модульный подход также позволяет поэтапно улучшать систему. Например, можно добавить специализированных агентов для рекомендаций по еде или местным развлечениям и со временем улучшать маршрут.
 
 ### Структурированный вывод
 
-Большие языковые модели (LLMs) могут генерировать структурированный вывод (например, JSON), который проще для последующих агентов или сервисов парсить и обрабатывать. Это особенно полезно в многопользовательском (multi-agent) контексте, где мы можем выполнять эти задачи после получения результата планирования. Обзорную информацию смотрите в этой <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">публикации в блоге</a>.
+Большие языковые модели (LLM) могут генерировать структурированный вывод (например, JSON), который легче парсить и обрабатывать следующим агентам или сервисам. Это особенно полезно в контексте мультиагентной системы, где можно выполнять задачи после получения плана.
 
-Ниже приведен фрагмент Python, демонстрирующий простого агента планирования, декомпозирующего цель на подзадачи и генерирующего структурированный план:
+Следующий фрагмент Python демонстрирует простого агента планирования, который разлагает цель на подзадачи и генерирует структурированный план:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -82,25 +81,16 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # Чтобы аутентифицироваться в модели, вам нужно сгенерировать персональный токен доступа (PAT) в настройках GitHub.
-    # Создайте свой PAT, следуя инструкциям здесь: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
-# Определите сообщение пользователя
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# Определить сообщение пользователя
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +101,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Убедитесь, что содержимое ответа является допустимой JSON-строкой перед загрузкой
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Содержимое ответа не является допустимой JSON-строкой")
-
-# # Выведите содержимое ответа после загрузки в формате JSON
-# pprint(json.loads(response_content))
-
-# Проверьте содержимое ответа с помощью модели MathReasoning
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Агент планирования с оркестрацией нескольких агентов
+### Агент планирования с мультиагентной оркестрацией
 
-В этом примере Агент семантического маршрутизатора получает запрос пользователя (например, "Мне нужен план отеля для моей поездки.").
+В этом примере Semantiс Router Agent получает запрос от пользователя (например, «Мне нужен план отеля для моей поездки.»).
 
-Затем планировщик:
+Планировщик затем:
 
-* Получает план по отелю: Планировщик принимает сообщение пользователя и, основываясь на системном промпте (включая детали доступных агентов), генерирует структурированный план путешествия.
-* Перечисляет агентов и их инструменты: Реестр агентов содержит список агентов (например, для перелетов, отелей, аренды автомобилей и активностей) вместе с функциями или инструментами, которые они предлагают.
-* Маршрутизирует план к соответствующим агентам: В зависимости от количества подзадач планировщик либо отправляет сообщение напрямую выделенному агенту (для сценариев с одной задачей), либо координирует через менеджер группового чата для совместной работы нескольких агентов.
-* Суммирует результат: Наконец, планировщик суммирует сгенерированный план для ясности.
-Ниже приведен пример кода на Python, иллюстрирующий эти шаги:
+* Получает план отеля: планировщик берёт сообщение пользователя и, основываясь на системном запросе (включая детали доступных агентов), генерирует структурированный план поездки.
+* Составляет список агентов и их инструментов: реестр агентов содержит список агентов (например, для авиабилетов, отелей, аренды автомобилей и активностей) вместе с предлагаемыми функциями или инструментами.
+* Направляет план соответствующим агентам: в зависимости от количества подзадач планировщик либо отправляет сообщение напрямую выделенному агенту (для одиночных задач), либо координирует через менеджер группового чата для сотрудничества нескольких агентов.
+* Резюмирует результат: в конце планировщик подводит итог сгенерированного плана для ясности.
+Следующий пример кода на Python иллюстрирует эти шаги:
 
 ```python
 
@@ -180,25 +153,22 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# Создайте клиента с проверкой типов переменных окружения
+# Создать клиента
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 from pprint import pprint
 
-# Определите сообщение пользователя
+# Определить сообщение пользователя
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +176,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Убедитесь, что содержимое ответа является допустимой JSON-строкой перед загрузкой
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# Выведите содержимое ответа после загрузки его как JSON
+# Вывести содержимое ответа после загрузки его как JSON
 
 pprint(json.loads(response_content))
 ```
 
-Что далее — это вывод из предыдущего кода, и вы затем можете использовать этот структурированный вывод, чтобы маршрутизировать к `assigned_agent` и суммировать план путешествия для конечного пользователя.
+Далее приведён вывод с предыдущего кода, и вы можете использовать этот структурированный вывод для передачи `assigned_agent` и подведения итогов плана поездки конечному пользователю.
 
 ```json
 {
@@ -254,21 +220,23 @@ pprint(json.loads(response_content))
 }
 ```
 
-Пример ноутбука с предыдущим фрагментом кода доступен [здесь](07-autogen.ipynb).
+Пример ноутбука с предыдущим кодом доступен [здесь](./code_samples/07-python-agent-framework.ipynb).
 
 ### Итеративное планирование
 
-Некоторым задачам требуется обмен информацией или перепланирование, когда результат одной подзадачи влияет на следующую. Например, если агент обнаруживает неожиданный формат данных при бронировании рейсов, ему может потребоваться адаптировать стратегию перед переходом к бронированию отелей.
+Некоторые задачи требуют взаимодействия или перепланирования, когда результат одной подзадачи влияет на следующую. Например, если агент обнаруживает неожиданный формат данных при бронировании авиабилетов, ему может понадобиться адаптировать стратегию перед тем, как продолжить с бронированием отеля.
 
-Кроме того, обратная связь от пользователя (например, человек решает, что предпочитает более ранний рейс) может запустить частичное перепланирование. Такой динамический, итеративный подход обеспечивает соответствие итогового решения реальным ограничениям и меняющимся предпочтениям пользователя.
+Кроме того, обратная связь пользователя (например, если человек решает, что предпочитает более ранний рейс) может вызвать частичное перепланирование. Такой динамичный итеративный подход гарантирует, что итоговое решение соответствует реальным ограничениям и изменяющимся предпочтениям пользователя.
 
-например, пример кода
+например, исходный код
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 #.. то же, что и в предыдущем коде, и передать историю пользователя, текущий план
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +244,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
 # .. перепланировать и отправить задачи соответствующим агентам
 ```
 
-Для более всестороннего планирования ознакомьтесь с Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">статьей в блоге</a> о решении сложных задач.
+Для более комплексного планирования ознакомьтесь с Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> для решения сложных задач.
 
 ## Резюме
 
-В этой статье мы рассмотрели пример того, как можно создать планировщик, который может динамически выбирать определенных доступных агентов. Выходные данные Планировщика декомпозируют задачи и назначают агентов, чтобы они могли быть выполнены. Предполагается, что агенты имеют доступ к функциям/инструментам, необходимым для выполнения задачи. В дополнение к агентам вы можете включить другие паттерны, такие как рефлексия, суммаризатор и round robin чат для дальнейшей кастомизации.
+В этой статье мы рассмотрели пример, как можно создать планировщика, который динамически выбирает доступных агентов. Вывод планировщика разбивает задачи и назначает агентов для их выполнения. Предполагается, что агенты имеют доступ к необходимым функциям/инструментам для выполнения задачи. Дополнительно можно использовать другие паттерны, такие как рефлексия, суммаризатор и круговой чат, для дальнейшей настройки.
 
 ## Дополнительные ресурсы
 
-AutoGen Magentic One - Generalist multi-agent system для решения сложных задач, показавший впечатляющие результаты на нескольких сложных бенчмарках для агентных систем. Справка: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. В этой реализации оркестратор создает специализированный план задач и делегирует эти задачи доступным агентам. В дополнение к планированию оркестратор также использует механизм отслеживания для мониторинга прогресса задачи и перепланирования по мере необходимости.
+Magnetic One — универсальная мультиагентная система для решения сложных задач, которая достигла впечатляющих результатов на нескольких сложных агентных тестах. Ссылка: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. В этой реализации оркестратор создаёт специфичные для задач планы и делегирует их доступным агентам. Помимо планирования оркестратор использует механизм отслеживания прогресса задачи и перепланирует по мере необходимости.
 
-### Есть вопросы о шаблоне проектирования планирования?
+### Хотите узнать больше о паттерне проектирования планирования?
 
-Присоединяйтесь к [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), чтобы встретиться с другими учащимися, посетить часы консультаций и получить ответы на вопросы по вашим AI-агентам.
+Присоединяйтесь к [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), чтобы встретиться с другими обучающимися, посетить часы работы и получить ответы на вопросы по ИИ-агентам.
 
 ## Предыдущий урок
 
-[Создание надежных AI-агентов](../06-building-trustworthy-agents/README.md)
+[Создание надёжных ИИ-агентов](../06-building-trustworthy-agents/README.md)
 
 ## Следующий урок
 
-[Шаблон проектирования для нескольких агентов](../08-multi-agent/README.md)
+[Паттерн проектирования мультиагентов](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Отказ от ответственности**:
-Этот документ был переведён с помощью сервиса машинного перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия по обеспечению точности, пожалуйста, учитывайте, что автоматические переводы могут содержать ошибки или неточности. Исходный документ на языке оригинала следует считать авторитетным источником. Для критически важной информации рекомендуется профессиональный перевод человеком. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования этого перевода.
+Этот документ был переведен с использованием сервиса машинного перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия по обеспечению точности, имейте в виду, что автоматический перевод может содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется обратиться к профессиональному человеческому переводу. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования этого перевода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

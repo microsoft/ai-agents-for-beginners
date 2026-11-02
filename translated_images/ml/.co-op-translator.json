@@ -60,8 +60,8 @@
     "language_code": "ml"
   },
   "agentic-rag-core-loop.c8f4b85c26920f71.webp": {
-    "original_hash": "50d0fbb205ac84d29c034ef421054bcc",
-    "translation_date": "2026-01-16T09:28:12+00:00",
+    "original_hash": "1e9a1a0d4dd502b3d87e130857244ed8",
+    "translation_date": "2026-04-20T17:13:34+00:00",
     "source_file": "05-agentic-rag/images/agentic-rag-core-loop.png",
     "language_code": "ml"
   },
@@ -161,6 +161,12 @@
     "source_file": "09-metacognition/images/importance-of-metacognition.png",
     "language_code": "ml"
   },
+  "jupyter.7b2dca0b936cba42.webp": {
+    "original_hash": "802e86062b26641a3d82862c8945df1f",
+    "translation_date": "2026-03-07T15:32:59+00:00",
+    "source_file": ".agents/skills/jupyter-notebook/assets/jupyter.png",
+    "language_code": "ml"
+  },
   "lesson-1-thumbnail.d21b2c34b32d35bb.webp": {
     "original_hash": "1e627886539599e995c8a0d08adfba85",
     "translation_date": "2026-01-16T09:34:40+00:00",
@@ -195,6 +201,18 @@
     "original_hash": "70b0737e452fe804ef87e5acb18f0d2d",
     "translation_date": "2026-01-16T09:31:13+00:00",
     "source_file": "14-microsoft-agent-framework/images/lesson-14-thumbnail.png",
+    "language_code": "ml"
+  },
+  "lesson-16-thumbnail.d78cace536bc5d50.webp": {
+    "original_hash": "4e97affe07f7da011c6480ea5064e4b8",
+    "translation_date": "2026-07-14T13:06:29+00:00",
+    "source_file": "16-deploying-scalable-agents/images/lesson-16-thumbnail.png",
+    "language_code": "ml"
+  },
+  "lesson-17-thumbnail.f86434c595a408fc.webp": {
+    "original_hash": "77309fb3cdef036c99fc43f3913eb932",
+    "translation_date": "2026-07-14T13:06:19+00:00",
+    "source_file": "17-creating-local-ai-agents/images/lesson-17-thumbnail.png",
     "language_code": "ml"
   },
   "lesson-2-thumbnail.c65f44c93b8558df.webp": {
@@ -351,6 +369,12 @@
     "original_hash": "10cb416d29f7bca58e0937625fe3c0db",
     "translation_date": "2026-01-16T09:25:52+00:00",
     "source_file": "images/repo-thumbnailv2.png",
+    "language_code": "ml"
+  },
+  "repo-thumbnailv3.917487e234b90100.webp": {
+    "original_hash": "a2bad300a761f0c059f200c5325a8ea2",
+    "translation_date": "2026-07-14T13:06:09+00:00",
+    "source_file": "images/repo-thumbnailv3.png",
     "language_code": "ml"
   },
   "select-fork-repository.4497f6bb05ccd6b4.webp": {

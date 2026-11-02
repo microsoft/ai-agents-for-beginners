@@ -1,18 +1,32 @@
 # Azure AI & Identity
-azure-ai-inference
 azure-ai-projects
 azure-identity
 azure-search-documents
 
-# Microsoft Agent Framework
-agent-framework
+# Microsoft Agent Framework (MAF)
+# OpenAIChatClient targets the Azure OpenAI Responses API (v1 endpoint) by default.
+# Pinned to the 1.10.x line: 1.11.0 introduced breaking API changes used by the
+# course notebooks (removed ChatMessage and HostedWebSearchTool, changed the
+# Message constructor, and dropped the model= argument on Agent.run()).
+#
+# NOTE: agent-framework-core is pinned directly (not via the agent-framework meta-package)
+# to avoid the [all] extras pulling in unpinned integration sub-packages whose newer
+# pre-releases require agent-framework-core>=1.11.0 and cause a pip conflict.
+agent-framework-core==1.10.0
+agent-framework-foundry~=1.10.0
+agent-framework-openai~=1.10.0
+# agent_framework.orchestrations (HandoffBuilder in Lesson 14's handoff notebook) is shipped
+# as the separate agent-framework-orchestrations package. It used to arrive through the
+# meta-package's extras; pinning agent-framework-core directly dropped it. 1.0.2 and later
+# require agent-framework-core>=1.13, so 1.0.x is the line that installs with 1.10.0.
+agent-framework-orchestrations~=1.0.1
 a2a-sdk
 
 # Model Context Protocol
-mcp[cli]
+mcp[cli]<2
 
-# OpenAI
-openai
+# OpenAI - Responses API requires >=1.108.1
+openai>=1.108.1
 
 # Data & Utilities
 httpx
@@ -23,3 +37,11 @@ pandas
 pillow
 python-dotenv
 uvicorn
+
+# Lesson 17 - Creating Local AI Agents with Foundry Local and Qwen
+foundry-local-sdk
+chromadb
+
+# Lesson 18 - Securing AI Agents with cryptographic receipts
+jcs
+pynacl

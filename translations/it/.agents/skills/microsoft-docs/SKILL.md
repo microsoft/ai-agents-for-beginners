@@ -1,27 +1,27 @@
 ---
 name: microsoft-docs
-description: Interroga la documentazione ufficiale Microsoft per trovare concetti,
-  tutorial ed esempi di codice relativi ad Azure, .NET, Agent Framework, Aspire, VS
-  Code, GitHub e altro. Usa Microsoft Learn MCP come predefinito, con Context7 e Aspire
-  MCP per i contenuti che si trovano al di fuori di learn.microsoft.com.
+description: Interroga la documentazione ufficiale di Microsoft per trovare concetti,
+  tutorial ed esempi di codice su Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+  e altro. Utilizza Microsoft Learn MCP come predefinito, con Context7 e Aspire MCP
+  per contenuti che si trovano al di fuori di learn.microsoft.com.
 ---
-# Documentazione Microsoft
+# Microsoft Docs
 
-Competenze di ricerca per l'ecosistema tecnologico Microsoft. Copre learn.microsoft.com e la documentazione che vive al di fuori di esso (VS Code, GitHub, Aspire, repository Agent Framework).
+Capacità di ricerca per l'ecosistema tecnologico Microsoft. Copre learn.microsoft.com e la documentazione che si trova al di fuori di esso (VS Code, GitHub, Aspire, repository Agent Framework).
 
 ---
 
 ## Predefinito: Microsoft Learn MCP
 
-Usa questi strumenti per **tutto ciò che è su learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows e altro. Questo è lo strumento principale per la stragrande maggioranza delle richieste di documentazione Microsoft.
+Usa questi strumenti per **tutto su learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows e altro. Questo è lo strumento principale per la stragrande maggioranza delle query sulla documentazione Microsoft.
 
 | Strumento | Scopo |
 |------|---------|
-| `microsoft_docs_search` | Cerca su learn.microsoft.com — concetti, guide, tutorial, configurazione |
-| `microsoft_code_sample_search` | Trova snippet di codice funzionanti dalle pagine di Learn. Passa `language` (`python`, `csharp`, ecc.) per i migliori risultati |
-| `microsoft_docs_fetch` | Ottieni il contenuto completo della pagina da un URL specifico (quando gli estratti della ricerca non sono sufficienti) |
+| `microsoft_docs_search` | Cerca in learn.microsoft.com — concetti, guide, tutorial, configurazione |
+| `microsoft_code_sample_search` | Trova snippet di codice funzionanti dalla documentazione Learn. Passa `language` (`python`, `csharp`, ecc.) per migliori risultati |
+| `microsoft_docs_fetch` | Ottieni il contenuto completo della pagina da un URL specifico (quando gli estratti di ricerca non sono sufficienti) |
 
-Usa `microsoft_docs_fetch` dopo la ricerca quando hai bisogno di tutorial completi, di tutte le opzioni di configurazione o quando gli estratti di ricerca sono troncati.
+Usa `microsoft_docs_fetch` dopo la ricerca quando ti servono tutorial completi, tutte le opzioni di configurazione, o quando gli estratti di ricerca sono troncati.
 
 ---
 
@@ -29,71 +29,71 @@ Usa `microsoft_docs_fetch` dopo la ricerca quando hai bisogno di tutorial comple
 
 Le seguenti categorie vivono **al di fuori** di learn.microsoft.com. Usa lo strumento specificato invece.
 
-### .NET Aspire — Usa Aspire MCP Server (preferito) o Context7
+### Aspire — Usa Aspire MCP Server (preferito) o Context7
 
-La documentazione di Aspire è su **aspire.dev**, non su Learn. Il miglior strumento dipende dalla versione della tua CLI Aspire:
+La documentazione Aspire si trova su **aspire.dev**, non su Learn. Il miglior strumento dipende dalla tua versione dell' Aspire CLI:
 
-**CLI 13.2+** (consigliato) — L'Aspire MCP server include strumenti di ricerca della documentazione integrati:
+**CLI 13.2+** (consigliato) — Il server Aspire MCP include strumenti di ricerca documenti integrati:
 
 | Strumento MCP | Descrizione |
 |----------|-------------|
 | `list_docs` | Elenca tutta la documentazione disponibile da aspire.dev |
-| `search_docs` | Ricerca lessicale pesata attraverso il contenuto di aspire.dev |
-| `get_doc` | Recupera un documento specifico per slug |
+| `search_docs` | Ricerca lessicale pesata tra i contenuti di aspire.dev |
+| `get_doc` | Recupera un documento specifico tramite slug |
 
-Questi sono inclusi in Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Per aggiornare: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Questi sono inclusi in Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Per aggiornare: `aspire update --self --channel daily`.
 
-**CLI 13.1** — L'MCP server fornisce lookup delle integrazioni (`list_integrations`, `get_integration_docs`) ma **non** la ricerca nella documentazione. Ricorri a Context7:
+**CLI 13.1** — Il server MCP fornisce lookup integrazione (`list_integrations`, `get_integration_docs`) ma **non** ricerca documenti. Usa invece Context7:
 
-| ID libreria | Da usare per |
+| ID Libreria | Da usare per |
 |---|---|
-| `/microsoft/aspire.dev` | Principale — guide, integrazioni, riferimento CLI, distribuzione |
-| `/dotnet/aspire` | Sorgente runtime — internals dell'API, dettagli di implementazione |
-| `/communitytoolkit/aspire` | Integrazioni della community — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | Principale — guide, integrazioni, riferimento CLI, deployment |
+| `/microsoft/aspire` | Sorgente runtime — internals API, dettagli implementazione |
+| `/communitytoolkit/aspire` | Integrazioni comunitarie — Go, Java, Node.js, Ollama |
 
 ### VS Code — Usa Context7
 
-La documentazione di VS Code è su **code.visualstudio.com**, non su Learn.
+La documentazione di VS Code si trova su **code.visualstudio.com**, non su Learn.
 
-| ID libreria | Da usare per |
+| ID Libreria | Da usare per |
 |---|---|
-| `/websites/code_visualstudio` | Documentazione utente — impostazioni, funzionalità, debugging, sviluppo remoto |
-| `/websites/code_visualstudio_api` | API per estensioni — webviews, TreeViews, comandi, punti di contributo |
+| `/websites/code_visualstudio` | Documentazione utente — impostazioni, funzionalità, debug, sviluppo remoto |
+| `/websites/code_visualstudio_api` | API estensioni — webviews, TreeViews, comandi, punti di contribuzione |
 
 ### GitHub — Usa Context7
 
-La documentazione di GitHub è su **docs.github.com** e **cli.github.com**.
+La documentazione GitHub si trova su **docs.github.com** e **cli.github.com**.
 
-| ID libreria | Da usare per |
+| ID Libreria | Da usare per |
 |---|---|
-| `/websites/github_en` | Actions, API, repository, sicurezza, amministrazione, Copilot |
-| `/websites/cli_github` | Comandi e flag del GitHub CLI (`gh`) |
+| `/websites/github_en` | Azioni, API, repository, sicurezza, amministrazione, Copilot |
+| `/websites/cli_github` | Comandi e flag GitHub CLI (`gh`) |
 
 ### Agent Framework — Usa Learn MCP + Context7
 
-I tutorial di Agent Framework sono su learn.microsoft.com (usa `microsoft_docs_search`), ma il **repo GitHub** contiene dettagli a livello API che spesso sono avanti rispetto alla documentazione pubblicata — in particolare il riferimento REST API di DevUI, le opzioni CLI e l'integrazione .NET.
+I tutorial di Agent Framework sono su learn.microsoft.com (usa `microsoft_docs_search`), ma il **repository GitHub** contiene dettagli a livello API spesso più aggiornati rispetto alla documentazione pubblicata — in particolare riferimento REST API DevUI, opzioni CLI e integrazione .NET.
 
-| ID libreria | Da usare per |
+| ID Libreria | Da usare per |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Tutorial — guide DevUI, tracing, orchestrazione dei workflow |
-| `/microsoft/agent-framework` | Dettagli API — endpoint REST di DevUI, flag CLI, autenticazione, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Tutorial — guide DevUI, tracciamento, orchestrazione workflow |
+| `/microsoft/agent-framework` | Dettagli API — endpoint REST DevUI, flag CLI, autenticazione, .NET `AddDevUI`/`MapDevUI` |
 
-**Suggerimento DevUI:** Interroga la sorgente del sito Learn per le guide how-to, poi la sorgente del repository per specifiche a livello API (schemi degli endpoint, configurazione del proxy, token di autenticazione).
+**Suggerimento DevUI:** Interroga la fonte del sito Learn per guide pratiche, poi la fonte del repo per dettagli a livello API (schemi endpoint, configurazione proxy, token autenticazione).
 
 ---
 
-## Configurazione di Context7
+## Configurazione Context7
 
-Per qualsiasi query su Context7, risolvi prima l'ID libreria (una tantum per sessione):
+Per qualsiasi query Context7, risolvi prima l'ID libreria (una volta per sessione):
 
-1. Chiamare `mcp_context7_resolve-library-id` con il nome della tecnologia
-2. Chiamare `mcp_context7_query-docs` con l'ID libreria restituito e una query specifica
+1. Chiama `mcp_context7_resolve-library-id` con il nome della tecnologia
+2. Chiama `mcp_context7_query-docs` con l'ID libreria restituito e una query specifica
 
 ---
 
 ## Scrivere query efficaci
 
-Sii specifico — includi versione, intento e lingua:
+Sii specifico — includi versione, intento e linguaggio:
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ Sii specifico — includi versione, intento e lingua:
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include il contesto:
+Includi il contesto:
 - **Versione** quando rilevante (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Obiettivo** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Lingua** per documentazione poliglotta (`Python`, `TypeScript`, `C#`)
+- **Intento del compito** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Linguaggio** per documentazione poliglotta (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Dichiarazione di non responsabilità:
-Questo documento è stato tradotto utilizzando il servizio di traduzione automatica AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci a garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua originale deve essere considerato la fonte autorevole. Per informazioni critiche si raccomanda una traduzione professionale effettuata da un traduttore umano. Non siamo responsabili per eventuali fraintendimenti o interpretazioni errate derivanti dall'uso di questa traduzione.
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire la precisione, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un essere umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

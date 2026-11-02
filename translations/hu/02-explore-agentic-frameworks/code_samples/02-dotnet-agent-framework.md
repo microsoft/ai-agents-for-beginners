@@ -1,114 +1,118 @@
-# 🔍 A Microsoft Agent Framework felfedezése - Alapvető ügynök (.NET)
+# 🔍 A Microsoft Agent Framework felfedezése - Alap ügynök (.NET)
 
 ## 📋 Tanulási célok
 
-Ez a példa bemutatja a Microsoft Agent Framework alapvető koncepcióit egy egyszerű ügynök implementációján keresztül .NET-ben. Megismerheted az alapvető ügynöki mintákat, és megértheted, hogyan működnek az intelligens ügynökök a háttérben C# és a .NET ökoszisztéma segítségével.
+Ez a példa a Microsoft Agent Framework alapfogalmait vizsgálja meg egy alap ügynök megvalósításán keresztül .NET-ben. Megtanulod a fő ügynökös mintákat és megérted, hogyan működnek az intelligens ügynökök a háttérben C# és a .NET ökoszisztéma használatával.
 
-### Amit felfedezhetsz
+### Amit felfedezel
 
-- 🏗️ **Ügynök architektúra**: Az AI ügynökök alapvető felépítésének megértése .NET-ben  
-- 🛠️ **Eszközintegráció**: Hogyan használják az ügynökök a külső funkciókat képességeik bővítésére  
-- 💬 **Beszélgetési folyamat**: Többfordulós beszélgetések és kontextus kezelése szálkezeléssel  
-- 🔧 **Konfigurációs minták**: Legjobb gyakorlatok az ügynök beállításához és kezeléséhez .NET-ben  
+- 🏗️ **Ügynök architektúra**: Az AI ügynökök alapstruktúrájának megértése .NET-ben
+- 🛠️ **Eszközintegráció**: Hogyan használják az ügynökök a külső funkciókat képességeik kibővítésére  
+- 💬 **Párbeszédfolyam**: Többfordulós beszélgetések kezelése és a kontextus menedzsmentje szál kezeléssel
+- 🔧 **Konfigurációs minták**: Ügynök beállításának és kezelésének legjobb gyakorlatai .NET-ben
 
-## 🎯 Főbb lefedett koncepciók
+## 🎯 Főbb lefedett fogalmak
 
-### Ügynöki keretrendszer alapelvei
+### Ügynökkeretelvek alapjai
 
-- **Autonómia**: Hogyan hoznak az ügynökök önálló döntéseket a .NET AI absztrakciók segítségével  
-- **Reaktivitás**: Környezeti változásokra és felhasználói bemenetekre való reagálás  
-- **Proaktivitás**: Kezdeményezés vállalása célok és kontextus alapján  
-- **Társas képesség**: Természetes nyelvű interakció beszélgetési szálakon keresztül  
+- **Autonómia**: Az ügynökök hogyan hoznak önálló döntéseket .NET AI absztrakciók segítségével
+- **Reaktivitás**: Reagálás a környezeti változásokra és a felhasználói bemenetekre
+- **Proaktivitás**: Kezdeményezés vállalása célok és kontextus alapján
+- **Társas képesség**: Természetes nyelven való kommunikáció beszélgetési szálakon keresztül
 
-### Technikai összetevők
+### Műszaki összetevők
 
-- **AIAgent**: Az ügynökök alapvető irányítása és beszélgetéskezelése (.NET)  
-- **Eszközfunkciók**: Az ügynök képességeinek bővítése C# metódusokkal és attribútumokkal  
-- **OpenAI integráció**: Nyelvi modellek használata szabványosított .NET API-kon keresztül  
-- **Biztonságos konfiguráció**: API-kulcsok kezelése környezetalapú beállításokkal  
+- **AIAgent**: Az ügynök fő szervezése és a beszélgetés menedzsmentje (.NET)
+- **Eszközfunkciók**: Az ügynök képességeinek kiterjesztése C# metódusokkal és attribútumokkal
+- **Azure OpenAI integráció**: Nyelvi modellek használata az Azure OpenAI Responses API-n keresztül
+- **Biztonságos konfiguráció**: Környezet-alapú végpont menedzsment
 
-## 🔧 Technikai háttér
+## 🔧 Műszaki háttér
 
 ### Alapvető technológiák
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API integráció  
-- OpenAI-kompatibilis kliens minták  
-- Környezetalapú konfiguráció DotNetEnv segítségével  
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) integráció
+- Azure.AI.OpenAI kliensminták
+- Környezeti konfiguráció DotNetEnv segítségével
 
-### Ügynöki képességek
+### Ügynök képességek
 
-- Természetes nyelv megértése és generálása  
-- Funkcióhívás és eszközhasználat C# attribútumokkal  
-- Kontextusérzékeny válaszok beszélgetési szálakkal  
-- Bővíthető architektúra függőséginjektálási mintákkal  
+- Természetes nyelv megértése és generálása
+- Funkcióhívás és eszközhasználat C# attribútumokkal
+- Kontextus-érzékeny válaszok beszélgetési munkamenetekkel
+- Kiterjeszthető architektúra függőséginjektálási mintákkal
 
-## 📚 Keretrendszerek összehasonlítása
+## 📚 Keretrendszer összehasonlítás
 
-Ez a példa bemutatja a Microsoft Agent Framework megközelítését más ügynöki keretrendszerekkel összehasonlítva:
+Ez a példa bemutatja a Microsoft Agent Framework megközelítését más ügynökkeretekhez képest:
 
-| Funkció | Microsoft Agent Framework | Egyéb keretrendszerek |
-|---------|---------------------------|-----------------------|
+| Jellemző | Microsoft Agent Framework | Egyéb keretrendszerek |
+|---------|-------------------------|------------------|
 | **Integráció** | Natív Microsoft ökoszisztéma | Változó kompatibilitás |
 | **Egyszerűség** | Tiszta, intuitív API | Gyakran bonyolult beállítás |
-| **Bővíthetőség** | Könnyű eszközintegráció | Keretrendszerfüggő |
-| **Vállalati szintű** | Gyártásra tervezve | Keretrendszertől függően változó |
+| **Kiterjeszthetőség** | Könnyű eszközintegráció | Keretrendszer-függő |
+| **Vállalati használatra kész** | Termelésre tervezve | Keretrendszerenként változó |
 
 ## 🚀 Első lépések
 
 ### Előfeltételek
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) vagy újabb  
-- [GitHub Models API hozzáférési token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) vagy újabb
+- Egy [Azure előfizetés](https://azure.microsoft.com/free/) Azure OpenAI erőforrással és modell telepítéssel
+- Az [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — bejelentkezés `az login` parancssal
 
 ### Szükséges környezeti változók
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Jelentkezzen be, hogy az AzureCliCredential beszerezhessen egy tokent
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Ezután jelentkezzen be, hogy az AzureCliCredential tokenhez juthasson
+az login
 ```
-  
 
-### Példakód
+### Mintakód
 
-A kód futtatásához:
+A példa kód futtatásához,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
+
 Vagy a dotnet CLI használatával:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-A teljes kódot lásd itt: [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs).
+
+A teljes kód a [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) fájlban.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -217,33 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
-  
 
 ## 🎓 Főbb tanulságok
 
-1. **Ügynök architektúra**: A Microsoft Agent Framework tiszta, típusbiztos megközelítést kínál AI ügynökök építéséhez .NET-ben  
-2. **Eszközintegráció**: A `[Description]` attribútummal ellátott funkciók elérhető eszközökké válnak az ügynök számára  
-3. **Beszélgetési kontextus**: A szálkezelés lehetővé teszi a többfordulós beszélgetéseket teljes kontextusérzékenységgel  
-4. **Konfigurációkezelés**: A környezeti változók és a biztonságos hitelesítő adatok kezelése a .NET legjobb gyakorlatait követi  
-5. **OpenAI kompatibilitás**: A GitHub Models integráció zökkenőmentesen működik az OpenAI-kompatibilis API-kon keresztül  
+1. **Ügynök architektúra**: A Microsoft Agent Framework tiszta, típusbiztos megközelítést nyújt AI ügynökök építéséhez .NET-ben
+2. **Eszközintegráció**: A `[Description]` attribútummal ellátott függvények az ügynök számára elérhető eszközökké válnak
+3. **Beszélgetési kontextus**: A munkamenet-kezelés lehetővé teszi a többfordulós párbeszédeket teljes kontextus észleléssel
+4. **Konfiguráció menedzsment**: A környezeti változók és a biztonságos hitelesítő kezelése a .NET legjobb gyakorlatait követi
+5. **Azure OpenAI Responses API**: Az ügynök az Azure OpenAI Responses API-t használja az Azure.AI.OpenAI SDK-n keresztül
 
 ## 🔗 További források
 
-- [Microsoft Agent Framework dokumentáció](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models piactér](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Egyszerű fájlalkalmazások](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework dokumentáció](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI a Microsoft Foundry-ban](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Egyszeri fájl alkalmazások](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősség kizárása**:  
-Ez a dokumentum az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Fontos információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

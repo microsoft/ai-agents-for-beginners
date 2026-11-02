@@ -1,39 +1,42 @@
-# 🎯 Planificare și modele de design cu GitHub Models (.NET)
+# 🎯 Planificare & Modele de Proiectare cu Azure OpenAI (API Răspunsuri) (.NET)
 
-## 📋 Obiective de învățare
+## 📋 Obiective de Învățare
 
-Acest notebook demonstrează modele de planificare și design de nivel enterprise pentru construirea agenților inteligenți utilizând Microsoft Agent Framework în .NET cu GitHub Models. Vei învăța să creezi agenți care pot descompune probleme complexe, planifica soluții în mai mulți pași și executa fluxuri de lucru sofisticate cu funcționalitățile enterprise ale .NET.
+Acest notebook demonstrează modele de planificare și proiectare la nivel enterprise pentru construirea agenților inteligenți folosind Microsoft Agent Framework în .NET cu Azure OpenAI (API Răspunsuri). Vei învăța cum să creezi agenți care pot decomprima probleme complexe, să planifice soluții în pași multipli și să execute fluxuri de lucru sofisticate cu funcționalitățile enterprise ale .NET.
 
-## ⚙️ Cerințe preliminare și configurare
+## ⚙️ Cerințe și Configurare
 
-**Mediu de dezvoltare:**
-- SDK .NET 9.0 sau mai recent
+**Mediu de Dezvoltare:**
+- .NET 9.0 SDK sau versiune superioară
 - Visual Studio 2022 sau VS Code cu extensia C#
-- Acces la API-ul GitHub Models
+- Un abonament Azure cu o resursă Azure OpenAI și o implementare de model
+- Azure CLI — autentificare cu `az login`
 
-**Dependențe necesare:**
+**Dependențe Necesare:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Configurare mediu (.env file):**
+**Configurarea Mediului (.env file):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Rularea codului
+## Rularea Codului
 
-Această lecție include o implementare .NET Single File App. Pentru a o rula:
+Această lecție include o implementare a unei aplicații Single File .NET. Pentru a o rula:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Fă fișierul executabil (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Rulează aplicația
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,19 +46,19 @@ Sau folosește comanda dotnet run:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Implementarea codului
+## Implementarea Codului
 
 Implementarea completă este disponibilă în `07-dotnet-agent-framework.cs`, care demonstrează:
 
 - Încărcarea configurației mediului cu DotNetEnv
-- Configurarea clientului OpenAI pentru GitHub Models
+- Configurarea clientului Azure OpenAI și crearea unui agent AI folosind `GetChatClient().AsAIAgent()`
 - Definirea modelelor de date structurate (Plan și TravelPlan) cu serializare JSON
-- Crearea unui agent AI cu output structurat utilizând schema JSON
+- Crearea unui agent AI cu output structurat folosind schema JSON
 - Executarea cererilor de planificare cu răspunsuri tip-safe
 
-## Concepte cheie
+## Concepte Cheie
 
-### Planificare structurată cu modele tip-safe
+### Planificare Structurată cu Modele Tip-Sigure
 
 Agentul folosește clase C# pentru a defini structura output-urilor de planificare:
 
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### Schema JSON pentru output-uri structurate
+### Schema JSON pentru Output-uri Structurate
 
-Agentul este configurat să returneze răspunsuri care se potrivesc cu schema TravelPlan:
+Agentul este configurat să returneze răspunsuri conforme cu schema TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Instrucțiuni pentru agentul de planificare
+### Instrucțiuni pentru Agentul de Planificare
 
-Agentul acționează ca un coordonator, delegând sarcini agenților specializați:
+Agentul acționează ca un coordonator, delegând sarcini către sub-agenti specializați:
 
-- FlightBooking: Pentru rezervarea zborurilor și furnizarea informațiilor despre zboruri
-- HotelBooking: Pentru rezervarea hotelurilor și furnizarea informațiilor despre hoteluri
-- CarRental: Pentru rezervarea mașinilor și furnizarea informațiilor despre închirieri auto
-- ActivitiesBooking: Pentru rezervarea activităților și furnizarea informațiilor despre activități
-- DestinationInfo: Pentru furnizarea informațiilor despre destinații
+- FlightBooking: Pentru rezervarea zborurilor și oferirea de informații despre zbor
+- HotelBooking: Pentru rezervarea hotelurilor și oferirea de informații despre hoteluri
+- CarRental: Pentru rezervarea mașinilor și oferirea de informații despre închirieri auto
+- ActivitiesBooking: Pentru rezervarea activităților și oferirea de informații despre activități
+- DestinationInfo: Pentru oferirea de informații despre destinații
 - DefaultAgent: Pentru gestionarea cererilor generale
 
-## Output așteptat
+## Output Așteptat
 
-Când rulezi agentul cu o cerere de planificare a călătoriei, acesta va analiza cererea și va genera un plan structurat cu atribuirea corespunzătoare a sarcinilor agenților specializați, formatat ca JSON conform schema TravelPlan.
+Când rulezi agentul cu o cerere de planificare a unei călătorii, acesta va analiza cererea și va genera un plan structurat cu alocări de sarcini corespunzătoare către agenți specializați, formatat ca JSON conform schema TravelPlan.
 
 ---
 
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

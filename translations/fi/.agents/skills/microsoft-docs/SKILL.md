@@ -1,97 +1,98 @@
 ---
 name: microsoft-docs
-description: Kysy virallista Microsoftin dokumentaatiota löytääksesi käsitteitä, opetusohjelmia
-  ja koodiesimerkkejä Azureen, .NET:iin, Agent Frameworkiin, Aspireen, VS Codeen,
-  GitHubiin ja muihin liittyen. Käyttää oletuksena Microsoft Learn MCP:tä, sekä Context7:ää
-  ja Aspire MCP:tä sisällölle, joka sijaitsee learn.microsoft.comin ulkopuolella.
+description: Kysy virallisesta Microsoftin dokumentaatiosta löytääksesi käsitteitä,
+  oppaita ja koodiesimerkkejä Azuresta, .NET:stä, Agent Frameworkista, Aspiresta,
+  VS Codesta, GitHubista ja muista. Käyttää oletuksena Microsoft Learn MCP:tä, sekä
+  Context7:ää ja Aspire MCP:tä sisällöille, jotka sijaitsevat learn.microsoft.comin
+  ulkopuolella.
 ---
 # Microsoft Docs
 
-Tutkimustaito Microsoftin teknologiaympäristöä varten. Kattaa learn.microsoft.comin ja dokumentaation, joka sijaitsee sen ulkopuolella (VS Code, GitHub, Aspire, Agent Framework -repositoriot).
+Tutkimustaito Microsoftin teknologiaympäristössä. Kattaa learn.microsoft.comin ja sen ulkopuolella elävän dokumentaation (VS Code, GitHub, Aspire, Agent Framework -repositoriot).
 
 ---
 
-## Default: Microsoft Learn MCP
+## Oletus: Microsoft Learn MCP
 
-Käytä näitä työkaluja **kaikkeen, mikä löytyy osoitteesta learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ja muut. Tämä on ensisijainen työkalu suurimmassa osassa Microsoft-dokumentaatioon liittyvistä kyselyistä.
+Käytä näitä työkaluja **kaikkiin learn.microsoft.comin asioihin** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows ja muut. Tämä on ensisijainen työkalu suurimmalle osalle Microsoftin dokumentaatiokyselyistä.
 
-| Tool | Purpose |
+| Työkalu | Tarkoitus |
 |------|---------|
-| `microsoft_docs_search` | Etsi learn.microsoft.com — käsitteet, oppaat, tutoriaalit, konfigurointi |
-| `microsoft_code_sample_search` | Etsi toimivia koodikatkelmia Learn-dokumenteista. Anna `language` (`python`, `csharp`, jne.) parhaiten tuloksin |
-| `microsoft_docs_fetch` | Hae täysi sivun sisältö tietystä URL-osoitteesta (kun hakukatkelmat eivät riitä) |
+| `microsoft_docs_search` | Etsi learn.microsoft.comista — käsitteet, oppaat, tutoriaalit, konfigurointi |
+| `microsoft_code_sample_search` | Löydä toimivat koodiesimerkit Learn-dokumenteista. Anna `language` (`python`, `csharp` jne.) parhaiden tulosten saamiseksi |
+| `microsoft_docs_fetch` | Hanki koko sivun sisältö tietystä URL-osoitteesta (kun hakupätkät eivät riitä) |
 
-Käytä `microsoft_docs_fetch`-työkalua haun jälkeen, kun tarvitset täydelliset tutoriaalit, kaikki konfiguraatioasetukset tai kun hakukatkelmat on katkaistu.
+Käytä `microsoft_docs_fetch` haun jälkeen, kun tarvitset täydellisiä tutoriaaleja, kaikki konfigurointivaihtoehdot tai kun hakupätkät ovat lyhennettyjä.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Poikkeukset: Milloin käyttää muita työkaluja
 
-Seuraavat kategoriat sijaitsevat **sen ULKOPUOLELLA** learn.microsoft.com-sivustoa. Käytä sen sijaan määriteltyä työkalua.
+Seuraavat kategoriat sijaitsevat **learn.microsoft.comin ulkopuolella**. Käytä sijaan määriteltyä työkalua.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Käytä Aspire MCP Serveriä (suositus) tai Context7:ää
 
-Aspire-dokumentaatio löytyy osoitteesta **aspire.dev**, ei Learnista. Paras työkalu riippuu Aspire CLI -versiostasi:
+Aspire-dokumentaatiot löytyvät **aspire.dev** -osoitteesta, eivät Learnista. Paras työkalu riippuu Aspire CLI -versiostasi:
 
-**CLI 13.2+** (suositeltu) — Aspire MCP -palvelin sisältää sisäänrakennetut dokumentaation hakutyökalut:
+**CLI 13.2+** (suositus) — Aspire MCP -palvelimessa on sisäänrakennetut dokumentaation hakutyökalut:
 
-| MCP Tool | Description |
+| MCP-työkalu | Kuvaus |
 |----------|-------------|
-| `list_docs` | Luettelee kaiken saatavilla olevan dokumentaation osoitteesta aspire.dev |
-| `search_docs` | Painotettu leksikaalinen haku aspire.dev -sisällöstä |
-| `get_doc` | Hakee tietyn dokumentin slugin perusteella |
+| `list_docs` | Listaa kaikki saatavilla olevat dokumentaatiot aspire.devistä |
+| `search_docs` | Painotettu leksikaalinen haku aspire.dev-sisällöstä |
+| `get_doc` | Hakee tietyn dokumentin nimen perusteella |
 
-Nämä sisältyvät Aspire CLI 13.2:een ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Päivitä: `aspire update --self --channel daily`. Viite: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Nämä julkaistiin Aspire CLI 13.2:ssa ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Päivitä: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP-palvelin tarjoaa integraatiohaun (`list_integrations`, `get_integration_docs`) mutta **ei** dokumentaation hakua. Palaa Context7:aan:
+**CLI 13.1** — MCP-palvelin tarjoaa integraatiohaun (`list_integrations`, `get_integration_docs`) mutta **ei** dokumentaation hakua. Palaa Context7:ään:
 
-| Library ID | Use for |
+| Kirjaston tunniste | Käyttötarkoitus |
 |---|---|
-| `/microsoft/aspire.dev` | Ensisijainen — oppaat, integraatiot, CLI-viite, käyttöönotto |
-| `/dotnet/aspire` | Ajonaikainen lähdekoodi — API:n sisäiset osat, toteutusyksityiskohdat |
+| `/microsoft/aspire.dev` | Pääasiallinen — oppaat, integraatiot, CLI-viite, käyttöönotto |
+| `/microsoft/aspire` | Suorituksen lähde — API:n sisäiset tiedot, toteutuksen yksityiskohdat |
 | `/communitytoolkit/aspire` | Yhteisön integraatiot — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — Käytä Context7:ää
 
 VS Code -dokumentaatio löytyy osoitteesta **code.visualstudio.com**, ei Learnista.
 
-| Library ID | Use for |
+| Kirjaston tunniste | Käyttötarkoitus |
 |---|---|
 | `/websites/code_visualstudio` | Käyttäjädokumentaatio — asetukset, ominaisuudet, virheenkorjaus, etäkehitys |
-| `/websites/code_visualstudio_api` | Laajennuksen API — webviewt, TreeViewt, komennot, kontribuutiopisteet |
+| `/websites/code_visualstudio_api` | Laajennuksen API — webview't, TreeView't, komennot, kontribuutiopisteet |
 
-### GitHub — Use Context7
+### GitHub — Käytä Context7:ää
 
-GitHub-dokumentaatio löytyy osoitteista **docs.github.com** ja **cli.github.com**.
+GitHubin dokumentaatio on osoitteissa **docs.github.com** ja **cli.github.com**.
 
-| Library ID | Use for |
+| Kirjaston tunniste | Käyttötarkoitus |
 |---|---|
-| `/websites/github_en` | Actions, API, repositoriot, suojaus, hallinta, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) -komennot ja liput |
+| `/websites/github_en` | Toiminnot, API, repositoriot, tietoturva, hallinta, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) komennot ja liput |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — Käytä Learn MCP:tä + Context7:ää
 
-Agent Frameworkin tutoriaalit ovat learn.microsoft.comissa (käytä `microsoft_docs_search`), mutta **GitHub-repositorio** sisältää API-tason yksityiskohtia, jotka usein edeltävät julkaistuja docs-sivuja — erityisesti DevUI REST API -viite, CLI-valinnat ja .NET-integraatio.
+Agent Frameworkin tutoriaalit löytyvät learn.microsoft.comista (käytä `microsoft_docs_search`), mutta **GitHub-repossa** on API-tasoisia tietoja, jotka ovat usein julkaistua dokumentaatiota edellä — erityisesti DevUI REST API -viite, CLI-vaihtoehdot ja .NET-integraatio.
 
-| Library ID | Use for |
+| Kirjaston tunniste | Käyttötarkoitus |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Opetusohjelmat — DevUI-oppaat, jäljitys, työnkulun orkestrointi |
-| `/microsoft/agent-framework` | API-yksityiskohdat — DevUI REST-päätepisteet, CLI-liput, autentikointi, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Tutoriaalit — DevUI-oppaat, jäljitys, työnkulun orkestrointi |
+| `/microsoft/agent-framework` | API-tiedot — DevUI REST -päätepisteet, CLI-liput, todennus, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** Hae Learn-verkkosivuston lähteestä how-to-oppaat ja tarkista sitten repositorion lähde API-tason yksityiskohtia varten (päätepisteiden skeemat, proxy-konfiguraatio, autentikointitunnukset).
+**DevUI-vinkki:** Kysy Learn-verkkosivun lähteestä miten-ohjeet ja sen jälkeen repositorion lähteestä API-tason yksityiskohdat (pääteskeemat, proxyn konfigurointi, todennustunnukset).
 
 ---
 
-## Context7 Setup
+## Context7:n käyttöönotto
 
-Context7-kyselyä varten ratkaise ensin kirjaston ID (kertakäyttö per istunto):
+Jokaisen Context7-kyselyn kohdalla selvitä ensin kirjaston tunniste (kertaluonteinen per istunto):
 
-1. Kutsu `mcp_context7_resolve-library-id` teknologian nimellä
-2. Kutsu `mcp_context7_query-docs` palautetulla kirjaston ID:llä ja tarkemmalla kyselyllä
+1. Soita `mcp_context7_resolve-library-id` teknologian nimellä
+2. Soita `mcp_context7_query-docs` saadulla kirjastontunnisteella ja tietyn kyselyn kanssa
 
 ---
 
-## Writing Effective Queries
+## Tehokkaiden kyselyiden kirjoittaminen
 
 Ole tarkka — sisällytä versio, tarkoitus ja kieli:
 
@@ -109,14 +110,14 @@ Ole tarkka — sisällytä versio, tarkoitus ja kieli:
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Language** for polyglot docs (`Python`, `TypeScript`, `C#`)
+Lisää konteksti:
+- **Versio** kun relevantti (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Tehtävän tarkoitus** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Kieli** monikielisissä dokumentaatioissa (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastuuvapauslauseke:
-Tämä asiakirja on käännetty käyttämällä tekoälykäännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, ota huomioon, että automaattikäännöksissä voi olla virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulee pitää virallisena lähteenä. Tärkeiden tietojen osalta suositellaan ammattimaista käännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai virheellisistä tulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

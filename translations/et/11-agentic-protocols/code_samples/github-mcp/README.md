@@ -1,73 +1,72 @@
-# Github MCP Server Näide
+# Github MCP serveri näide
 
 ## Kirjeldus
 
-See demo loodi AI Agentide Hackathoni jaoks, mida korraldas Microsoft Reactor.
+See oli demo, mis loodi Microsoft Reactori kaudu korraldatud AI Agentide hackathoni jaoks.
 
-Tööriist on mõeldud hackathoni projektide soovitamiseks kasutaja Githubi reposide põhjal. See toimub järgmiselt:
+Seda tööriista kasutatakse kasutaja Githubi hoidlate põhjal hackathoni projektide soovitamiseks. Seda tehakse järgmiselt:
 
-1. **Github Agent** - Kasutab Github MCP Serverit, et hankida reposid ja nende kohta teavet.
-2. **Hackathoni Agent** - Võtab Github Agenti andmed ja loob loovaid hackathoni projektide ideid, lähtudes kasutaja projektidest, kasutatud programmeerimiskeeltest ja AI Agentide hackathoni projektiradadest.
-3. **Sündmuste Agent** - Hackathoni agendi soovituste põhjal soovitab sündmuste agent asjakohaseid sündmusi AI Agentide Hackathoni sarjast.
+1. **Github Agent** – Kasutab Github MCP Serverit hoidlate ja nende hoidlate kohta käiva teabe hankimiseks.
+2. **Hackathoni agent** – Võtab Githubi agendilt saadud andmed ja tuleb välja loominguliste hackathoni projektide ideedega, mis põhinevad kasutaja projektidel, kasutatavatel keeltes ning AI Agentide hackathoni projektiradadel.
+3. **Sündmuste agent** – Põhinedes hackathoni agendi soovitusel soovitab vastavaid üritusi AI Agentide hackathoni sarjast.
 
 ## Koodi käivitamine
 
 ### Keskkonnamuutujad
 
-See demo kasutab Azure Open AI teenust, Semantic Kernelit, Github MCP Serverit ja Azure AI Searchi.
+See demo kasutab Microsoft Agent Frameworki, Azure OpenAI teenust, Github MCP Serverit ja Azure AI Searchi.
 
-Veendu, et sul on õiged keskkonnamuutujad seadistatud nende tööriistade kasutamiseks:
+Veenduge, et teil on õiged keskkonnamuutujad seadistatud nende tööriistade kasutamiseks:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
 
-## Chainlit Serveri käivitamine
+## Chainlit serveri käivitamine
 
-MCP serveriga ühenduse loomiseks kasutab see demo Chainlit'i vestlusliidest.
+MCP serveriga ühenduse loomiseks kasutab see demo Chainlit’it vestlusliidesena.
 
-Serveri käivitamiseks kasuta oma terminalis järgmist käsku:
+Serveri käivitamiseks kasutage oma terminalis järgmist käsku:
 
 ```bash
 chainlit run app.py -w
 ```
 
 
-See peaks käivitama sinu Chainlit serveri aadressil `localhost:8000` ning täitma sinu Azure AI Search indeksi `event-descriptions.md` sisuga.
+See peaks käivitama teie Chainlit serveri aadressil `localhost:8000` ning täitma teie Azure AI Searchi indeksit `event-descriptions.md` sisuga.
 
-## MCP Serveriga ühenduse loomine
+## Ühenduse loomine MCP serveriga
 
-Github MCP Serveriga ühenduse loomiseks vali "pistiku" ikoon, mis asub "Sisesta oma sõnum siia.." vestluskasti all:
+Github MCP Serveriga ühenduse loomiseks valige "pistikupesa" ikoon "Type your message here.." vestlusakna all:
 
-![MCP Ühendus](../../../../../translated_images/et/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![MCP Connect](../../../../../translated_images/et/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Sealt saad klõpsata "Connect an MCP", et lisada käsk Github MCP Serveriga ühenduse loomiseks:
+Sealt saate klõpsata "Connect an MCP" nuppu, et lisada käsk Github MCP Serveriga ühenduse loomiseks:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
 
-Asenda "[YOUR PERSONAL ACCESS TOKEN]" oma tegeliku isikliku juurdepääsulubade tokeniga.
+Asendage "[YOUR PERSONAL ACCESS TOKEN]" oma tegeliku isikliku juurdepääsutokniga.
 
-Pärast ühenduse loomist peaks pistiku ikooni kõrval ilmuma (1), mis kinnitab, et ühendus on loodud. Kui ei, proovi Chainlit serverit uuesti käivitada käsuga `chainlit run app.py -w`.
+Pärast ühenduse loomist peaks pistikupesa ikooni kõrvale ilmuma (1), mis kinnitab, et ühendus on loodud. Kui ei, proovige Chainlit server uuesti käivitada käsuga `chainlit run app.py -w`.
 
 ## Demo kasutamine
 
-Agentide töövoo käivitamiseks hackathoni projektide soovitamiseks võid sisestada sõnumi nagu:
+Hackathoni projektide soovitamise agentide töövoo alustamiseks võite kirjutada sõnumi näiteks:
 
-"Soovita hackathoni projekte Githubi kasutajale koreyspace"
+"Soovita hackathoni projekte Github kasutajale koreyspace"
 
-Router Agent analüüsib sinu päringut ja määrab, milline agentide kombinatsioon (GitHub, Hackathon ja Events) sobib kõige paremini sinu päringu käsitlemiseks. Agendid töötavad koos, et pakkuda põhjalikke soovitusi, mis põhinevad Githubi reposide analüüsil, projektide ideedel ja asjakohastel tehnoloogiasündmustel.
+Router Agent analüüsib teie päringut ning otsustab, milline agentide kombinatsioon (GitHub, Hackathon ja Events) sobib teie päringuga tegelemiseks kõige paremini. Agentide koostöö võimaldab pakkuda põhjalikke soovitusi, mis põhinevad GitHubi hoidlate analüüsil, projektide ideede genereerimisel ja asjakohastel tehnikasündmustel.
 
 ---
 
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastutusest loobumine**:
+See dokument on tõlgitud tehisintellektil põhineva tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame täpsust, palun pange tähele, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega kaasnevate arusaamatuste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

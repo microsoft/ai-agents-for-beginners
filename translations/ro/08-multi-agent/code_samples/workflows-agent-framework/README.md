@@ -1,69 +1,69 @@
 # Construirea aplicațiilor multi-agent cu Microsoft Agent Framework Workflow
 
-Acest tutorial te va ghida în înțelegerea și construirea aplicațiilor multi-agent folosind Microsoft Agent Framework. Vom explora conceptele de bază ale sistemelor multi-agent, arhitectura componentei Workflow a framework-ului și vom parcurge exemple practice în Python și .NET pentru diferite modele de flux de lucru.
+Acest tutorial vă va ghida prin înțelegerea și construirea aplicațiilor multi-agent folosind Microsoft Agent Framework. Vom explora conceptele de bază ale sistemelor multi-agent, vom analiza arhitectura componentei Workflow a framework-ului și vom parcurge exemple practice atât în Python, cât și în .NET pentru diferite modele de workflow.
 
 ## 1\. Înțelegerea sistemelor multi-agent
 
-Un agent AI este un sistem care depășește capacitățile unui model standard de limbaj extins (LLM). Acesta poate percepe mediul, lua decizii și întreprinde acțiuni pentru a atinge obiective specifice. Un sistem multi-agent implică mai mulți astfel de agenți care colaborează pentru a rezolva o problemă dificilă sau imposibil de gestionat de un singur agent.
+Un Agent AI este un sistem care depășește capabilitățile unui Model de Limbaj Mare (LLM) standard. Acesta poate percepe mediul său, lua decizii și întreprinde acțiuni pentru a atinge obiective specifice. Un sistem multi-agent implică mai mulți astfel de agenți care colaborează pentru a rezolva o problemă care ar fi dificilă sau imposibilă pentru un singur agent să o gestioneze singur.
 
-### Scenarii comune de aplicație
+### Scenarii comune de aplicare
 
-  * **Rezolvarea problemelor complexe**: Descompunerea unei sarcini mari (de exemplu, organizarea unui eveniment la nivel de companie) în sub-sarcini mai mici gestionate de agenți specializați (de exemplu, un agent de buget, un agent de logistică, un agent de marketing).
-  * **Asistenți virtuali**: Un agent principal delegă sarcini precum programarea, cercetarea și rezervările către alți agenți specializați.
-  * **Crearea automată de conținut**: Un flux de lucru în care un agent redactează conținut, altul îl verifică pentru acuratețe și ton, iar un al treilea îl publică.
+  * **Rezolvarea problemelor complexe**: Descompunerea unei sarcini mari (de exemplu, planificarea unui eveniment la nivel de companie) în sub-sarcini mai mici gestionate de agenți specializați (de exemplu, un agent pentru buget, un agent de logistică, un agent de marketing).
+  * **Asistenți virtuali**: Un agent asistent principal care delegă sarcini precum programarea, cercetarea și rezervările către alți agenți specializați.
+  * **Crearea automată de conținut**: Un workflow în care un agent redactează conținut, altul îl revizuiește pentru acuratețe și ton, iar un al treilea îl publică.
 
 ### Modele multi-agent
 
-Sistemele multi-agent pot fi organizate în mai multe modele, care determină modul în care interacționează:
+Sistemele multi-agent pot fi organizate în mai multe modele, care determină modul în care acestea interacționează:
 
-  * **Secvențial**: Agenții lucrează într-o ordine prestabilită, ca pe o linie de asamblare. Rezultatul unui agent devine intrarea pentru următorul.
-  * **Concurent**: Agenții lucrează în paralel pe diferite părți ale unei sarcini, iar rezultatele lor sunt agregate la final.
-  * **Condițional**: Fluxul de lucru urmează căi diferite în funcție de rezultatul unui agent, similar unei instrucțiuni if-then-else.
+  * **Secvențial**: Agenții lucrează într-o ordine prestabilită, asemenea unei linii de asamblare. Ieșirea unui agent devine intrarea pentru următorul.
+  * **Concurrent**: Agenții lucrează în paralel la diferite părți ale unei sarcini, iar rezultatele lor sunt agregate la final.
+  * **Condițional**: Workflow-ul urmează căi diferite bazate pe ieșirea unui agent, similar unei instrucțiuni if-then-else.
 
-## 2\. Arhitectura Workflow din Microsoft Agent Framework
+## 2\. Arhitectura Workflow-ului Microsoft Agent Framework
 
-Sistemul de workflow al Agent Framework este un motor avansat de orchestrare conceput pentru a gestiona interacțiuni complexe între mai mulți agenți. Este construit pe o arhitectură bazată pe grafuri care utilizează un [model de execuție în stil Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), unde procesarea are loc în pași sincronizați numiți "supersteps".
+Sistemul de workflow al Agent Framework este un motor avansat de orchestrare proiectat pentru a gestiona interacțiuni complexe între mai mulți agenți. Este construit pe o arhitectură bazată pe graf care utilizează un [model de execuție de tip Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), unde procesarea are loc în pași sincronizați numiți "superpași."
 
-### Componente de bază
+### Componente principale
 
 Arhitectura este compusă din trei părți principale:
 
 1.  **Executori**: Acestea sunt unitățile fundamentale de procesare. În exemplele noastre, un `Agent` este un tip de executor. Fiecare executor poate avea mai mulți handleri de mesaje care sunt invocați automat în funcție de tipul mesajului primit.
-2.  **Muchii**: Acestea definesc calea pe care o urmează mesajele între executori. Muchiile pot avea condiții, permițând rutarea dinamică a informațiilor prin graful de workflow.
-3.  **Workflow**: Această componentă orchestrează întregul proces, gestionând executorii, muchiile și fluxul general de execuție. Asigură procesarea mesajelor în ordinea corectă și transmite evenimente pentru observabilitate.
+2.  **Muchii**: Definiesc traseul pe care îl iau mesajele între executori. Muchiile pot avea condiții, permițând rutarea dinamică a informației prin graful workflow-ului.
+3.  **Workflow**: Această componentă orchestrează întregul proces, gestionând executori, muchii și fluxul general de execuție. Asigură procesarea mesajelor în ordinea corectă și transmite fluxuri de evenimente pentru observabilitate.
 
-*O diagramă care ilustrează componentele de bază ale sistemului de workflow.*
+*Un diagram care ilustrează componentele principale ale sistemului de workflow.*
 
 Această structură permite construirea de aplicații robuste și scalabile folosind modele fundamentale precum lanțuri secvențiale, fan-out/fan-in pentru procesare paralelă și logică switch-case pentru fluxuri condiționale.
 
 ## 3\. Exemple practice și analiză de cod
 
-Acum, să explorăm cum să implementăm diferite modele de flux de lucru folosind framework-ul. Vom analiza codul atât în Python, cât și în .NET pentru fiecare exemplu.
+Acum să explorăm cum să implementăm diferite modele de workflow folosind framework-ul. Vom examina atât cod Python, cât și .NET pentru fiecare exemplu.
 
-### Caz 1: Workflow secvențial de bază
+### Cazul 1: Workflow secvențial de bază
 
-Acesta este cel mai simplu model, în care rezultatul unui agent este transmis direct altuia. Scenariul nostru implică un agent `FrontDesk` al hotelului care face o recomandare de călătorie, care este apoi revizuită de un agent `Concierge`.
+Acesta este cel mai simplu model, în care ieșirea unui agent este transmisă direct către altul. Scenariul nostru implică un agent `FrontDesk` al unui hotel care face o recomandare de călătorie, ce este apoi revizuită de un agent `Concierge`.
 
 *Diagramă a workflow-ului de bază FrontDesk -\> Concierge.*
 
 #### Contextul scenariului
 
-Un călător cere o recomandare pentru Paris.
+Un călător cere o recomandare în Paris.
 
-1.  Agentul `FrontDesk`, conceput pentru concizie, sugerează vizitarea Muzeului Luvru.
-2.  Agentul `Concierge`, care prioritizează experiențele autentice, primește această sugestie. Acesta revizuiește recomandarea și oferă feedback, sugerând o alternativă mai locală, mai puțin turistică.
+1.  Agentul `FrontDesk`, proiectat pentru concizie, sugerează vizitarea Muzeului Louvre.
+2.  Agentul `Concierge`, care prioritizează experiențe autentice, primește această sugestie. Revizuiește recomandarea și oferă feedback, sugerând o alternativă mai locală, mai puțin turistică.
 
 #### Analiza implementării în Python
 
-În exemplul Python, definim și creăm mai întâi cei doi agenți, fiecare cu instrucțiuni specifice.
+În exemplul Python, mai întâi definim și creăm cei doi agenți, fiecare cu instrucțiuni specifice.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Definirea rolurilor și instrucțiunilor agentului
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,24 +71,24 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Crearea instanțelor agentului
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Apoi, folosim `WorkflowBuilder` pentru a construi graful. `front_desk_agent` este setat ca punct de pornire, iar o muchie este creată pentru a conecta rezultatul său la `reviewer_agent`.
+Apoi, `WorkflowBuilder` este folosit pentru a construi graful. Agentul `front_desk_agent` este setat ca punct de pornire, iar o muchie este creată pentru a conecta ieșirea acestuia la `reviewer_agent`.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
 În final, workflow-ul este executat cu promptul inițial al utilizatorului.
@@ -97,37 +97,37 @@ workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run execută fluxul de lucru; get_outputs() returnează rezultatul executorului de ieșiri.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### Analiza implementării în .NET (C#)
+#### Analiza implementării în .NET (C\#)
 
-Implementarea în .NET urmează o logică foarte similară. Mai întâi, sunt definite constante pentru numele și instrucțiunile agenților.
+Implementarea în .NET urmează o logică foarte similară. Mai întâi sunt definite constante pentru numele agenților și instrucțiunile acestora.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agenții sunt creați folosind un `OpenAIClient`, iar apoi `WorkflowBuilder` definește fluxul secvențial prin adăugarea unei muchii de la `frontDeskAgent` la `reviewerAgent`.
+Agenții sunt creați utilizând un `AzureOpenAIClient` (Answers API), apoi `WorkflowBuilder` definește fluxul secvențial adăugând o muchie de la `frontDeskAgent` la `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow-ul este apoi rulat cu mesajul utilizatorului, iar rezultatele sunt transmise în flux.
+Workflow-ul este apoi rulat cu mesajul utilizatorului, iar rezultatele sunt transmise în flux înapoi.
 
-### Caz 2: Workflow secvențial multi-pas
+### Cazul 2: Workflow secvențial cu mai mulți pași
 
-Acest model extinde secvența de bază pentru a include mai mulți agenți. Este ideal pentru procese care necesită mai multe etape de rafinare sau transformare.
+Acest model extinde secvența de bază pentru a include mai mulți agenți. Este ideal pentru procese care necesită multiple etape de rafinare sau transformare.
 
 #### Contextul scenariului
 
 Un utilizator oferă o imagine a unui living și cere o ofertă pentru mobilă.
 
-1.  **Sales-Agent**: Identifică piesele de mobilier din imagine și creează o listă.
-2.  **Price-Agent**: Ia lista de articole și oferă o defalcare detaliată a prețurilor, incluzând opțiuni de buget, medii și premium.
-3.  **Quote-Agent**: Primește lista cu prețuri și o formatează într-un document formal de ofertă în Markdown.
+1.  **Agent de vânzări**: Identifică obiectele de mobilier din imagine și creează o listă.
+2.  **Agent de prețuri**: Primește lista de obiecte și oferă o defalcare detaliată a prețurilor, inclusiv opțiuni de buget, medii și premium.
+3.  **Agent de ofertă**: Primește lista cu prețuri și o formulează într-un document formal de ofertă în Markdown.
 
 *Diagramă a workflow-ului Sales -\> Price -\> Quote.*
 
 #### Analiza implementării în Python
 
-Sunt definiți trei agenți, fiecare cu un rol specializat. Workflow-ul este construit folosind `add_edge` pentru a crea un lanț: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Trei agenți sunt definiți, fiecare cu un rol specializat. Workflow-ul este construit folosind `add_edge` pentru a crea un lanț: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Creează trei agenți specializați
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Construiește fluxul de lucru secvențial
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Inputul este un `ChatMessage` care include atât text, cât și URI-ul imaginii. Framework-ul gestionează transmiterea rezultatului fiecărui agent către următorul în secvență până când oferta finală este generată.
+Intrarea este un `ChatMessage` care include atât text, cât și URI-ul imaginii. Framework-ul gestionează transmiterea ieșirii fiecărui agent către următorul în secvență până când oferta finală este generată.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Mesajul utilizatorului conține atât text, cât și o imagine
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Execută fluxul de lucru
+events = await workflow.run(message)
 ```
 
-#### Analiza implementării în .NET (C#)
+#### Analiza implementării în .NET (C\#)
 
-Exemplul .NET oglindește versiunea Python. Sunt creați trei agenți (`salesagent`, `priceagent`, `quoteagent`). `WorkflowBuilder` îi leagă secvențial.
+Exemplul .NET oglindește versiunea Python. Trei agenți (`salesagent`, `priceagent`, `quoteagent`) sunt creați. `WorkflowBuilder` îi leagă secvențial.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Mesajul utilizatorului este construit cu datele imaginii (ca bytes) și promptul text. Metoda `InProcessExecution.StreamAsync` inițiază workflow-ul, iar rezultatul final este capturat din flux.
+Mesajul utilizatorului este construit cu datele imaginii (ca bytes) și promptul text. Metoda `InProcessExecution.RunStreamingAsync` inițiază workflow-ul, iar ieșirea finală este capturată din flux.
 
-### Caz 3: Workflow concurent
+### Cazul 3: Workflow concurent
 
-Acest model este utilizat atunci când sarcinile pot fi realizate simultan pentru a economisi timp. Implică un "fan-out" către mai mulți agenți și un "fan-in" pentru agregarea rezultatelor.
+Acest model se utilizează când sarcinile pot fi executate simultan pentru a economisi timp. Implică un "fan-out" către mai mulți agenți și un "fan-in" pentru agregarea rezultatelor.
 
 #### Contextul scenariului
 
-Un utilizator cere planificarea unei excursii în Seattle.
+Un utilizator cere să planifice o călătorie la Seattle.
 
-1.  **Dispatcher (Fan-Out)**: Cererea utilizatorului este trimisă simultan la doi agenți.
-2.  **Researcher-Agent**: Cercetează atracții, vremea și considerații cheie pentru o excursie în Seattle în decembrie.
-3.  **Plan-Agent**: Creează independent un itinerar detaliat zi cu zi.
+1.  **Dispatcher (Fan-Out)**: Cererea utilizatorului este trimisă simultan către doi agenți.
+2.  **Agent de cercetare**: Cercetează atracții, vreme și considerente cheie pentru o călătorie la Seattle în decembrie.
+3.  **Agent de planificare**: Creează independent un itinerar detaliat, zi cu zi.
 4.  **Aggregator (Fan-In)**: Rezultatele de la cercetător și planificator sunt colectate și prezentate împreună ca rezultat final.
 
 *Diagramă a workflow-ului concurent Researcher și Planner.*
 
 #### Analiza implementării în Python
 
-`ConcurrentBuilder` simplifică crearea acestui model. Trebuie doar să listezi agenții participanți, iar builder-ul creează automat logica necesară pentru fan-out și fan-in.
+`ConcurrentBuilder` simplifică crearea acestui model. Pur și simplu enumerați agenții participanți, iar builder-ul creează automat logica necesară fan-out și fan-in.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder gestionează logica de dispersie/recuperare
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Rulează fluxul de lucru
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework-ul asigură că `research_agent` și `plan_agent` se execută în paralel, iar rezultatele lor finale sunt colectate într-o listă.
+Framework-ul asigură că `research_agent` și `plan_agent` execută în paralel, iar ieșirile finale sunt colectate într-o listă.
 
-#### Analiza implementării în .NET (C#)
+#### Analiza implementării în .NET (C\#)
 
-În .NET, acest model necesită o definiție mai explicită. Executorii personalizați (`ConcurrentStartExecutor` și `ConcurrentAggregationExecutor`) sunt creați pentru a gestiona logica fan-out și fan-in.
+În .NET, acest model necesită o definiție mai explicită. Executori personalizați (`ConcurrentStartExecutor` și `ConcurrentAggregationExecutor`) sunt creați pentru a gestiona logica fan-out și fan-in.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` folosește `AddFanOutEdge` și `AddFanInEdge` pentru a construi graful cu acești executori personalizați și agenții.
+`WorkflowBuilder` folosește apoi `AddFanOutEdge` și `AddFanInEdge` pentru a construi graful cu acești executori personalizați și agenții.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Caz 4: Workflow condițional
+### Cazul 4: Workflow condițional
 
-Workflow-urile condiționale introduc logică de ramificare, permițând sistemului să urmeze căi diferite în funcție de rezultate intermediare.
+Workflow-urile condiționale introduc o logică de ramificare, permițând sistemului să urmeze căi diferite bazate pe rezultate intermediare.
 
 #### Contextul scenariului
 
 Acest workflow automatizează crearea și publicarea unui tutorial tehnic.
 
-1.  **Evangelist-Agent**: Scrie un draft al tutorialului pe baza unui plan și a unor URL-uri date.
-2.  **ContentReviewer-Agent**: Revizuiește draftul. Verifică dacă numărul de cuvinte depășește 200.
+1.  **Agentul evangelist**: Scrie un draft al tutorialului bazat pe un plan și URL-uri date.
+2.  **Agentul de revizuire de conținut**: Revizuiește draftul. Verifică dacă numărul de cuvinte depășește 200.
 3.  **Ramificare condițională**:
-      * **Dacă este aprobat (`Yes`)**: Workflow-ul continuă către `Publisher-Agent`.
+      * **Dacă este aprobat (`Yes`)**: Workflow-ul continuă către agentul `Publisher`.
       * **Dacă este respins (`No`)**: Workflow-ul se oprește și afișează motivul respingerii.
-4.  **Publisher-Agent**: Dacă draftul este aprobat, acest agent salvează conținutul într-un fișier Markdown.
+4.  **Agentul Publisher**: Dacă draftul este aprobat, acest agent salvează conținutul într-un fișier Markdown.
 
 #### Analiza implementării în Python
 
-Acest exemplu folosește o funcție personalizată, `select_targets`, pentru a implementa logica condițională. Această funcție este transmisă la `add_multi_selection_edge_group` și direcționează workflow-ul pe baza câmpului `review_result` din rezultatul revizorului.
+Acest exemplu folosește o funcție personalizată, `select_targets`, pentru a implementa logica condițională. Această funcție este transmisă la `add_multi_selection_edge_group` și direcționează workflow-ul bazat pe câmpul `review_result` din ieșirea agentului de revizuire.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Această funcție determină pasul următor bazat pe rezultatul recenziei
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Dacă este aprobat, continuă la executorul 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Dacă este respins, continuă la executorul 'handle_review' pentru a raporta eșecul
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Constructorul de fluxuri de lucru folosește funcția de selecție pentru rutare
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Muchia de selecție multiplă implementează logica condițională
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Executorii personalizați precum `to_reviewer_result` sunt utilizați pentru a analiza output-ul JSON de la agenți și a-l converti în obiecte puternic tipizate pe care funcția de selecție le poate inspecta.
+Executori personalizați precum `to_reviewer_result` sunt folosiți pentru a analiza ieșirea JSON de la agenți și a o converti în obiecte tipizate pe care funcția de selecție le poate inspecta.
 
-#### Analiza implementării în .NET (C#)
+#### Analiza implementării în .NET (C\#)
 
-Versiunea .NET folosește o abordare similară cu o funcție condițională. Un `Func<object?, bool>` este definit pentru a verifica proprietatea `Result` a obiectului `ReviewResult`.
+Varianta .NET folosește o abordare similară cu o funcție condiție definită ca `Func<object?, bool>` pentru a verifica proprietatea `Result` a obiectului `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Parametrul `condition` al metodei `AddEdge` permite `WorkflowBuilder` să creeze o cale de ramificare. Workflow-ul va urma muchia către `publishExecutor` doar dacă condiția `GetCondition(expectedResult: "Yes")` returnează true. În caz contrar, urmează calea către `sendReviewerExecutor`.
+Parametrul `condition` al metodei `AddEdge` permite lui `WorkflowBuilder` să creeze un drum ramificat. Workflow-ul va urma muchia către `publishExecutor` doar dacă condiția `GetCondition(expectedResult: "Yes")` returnează adevărat. Altfel, urmează calea către `sendReviewerExecutor`.
 
 ## Concluzie
 
-Microsoft Agent Framework Workflow oferă o fundație robustă și flexibilă pentru orchestrarea sistemelor complexe multi-agent. Prin valorificarea arhitecturii sale bazate pe grafuri și a componentelor de bază, dezvoltatorii pot proiecta și implementa fluxuri de lucru sofisticate atât în Python, cât și în .NET. Indiferent dacă aplicația ta necesită procesare secvențială simplă, execuție paralelă sau logică condițională dinamică, framework-ul oferă instrumentele necesare pentru a construi soluții AI puternice, scalabile și sigure.
+Microsoft Agent Framework Workflow oferă o bază robustă și flexibilă pentru orchestrarea sistemelor complexe multi-agent. Folosind arhitectura sa bazată pe graf și componentele principale, dezvoltatorii pot proiecta și implementa workflow-uri sofisticate atât în Python, cât și în .NET. Indiferent dacă aplicația dumneavoastră necesită procesare secvențială simplă, execuție paralelă sau logică condițională dinamică, framework-ul oferă instrumentele necesare pentru a construi soluții AI puternice, scalabile și tip-sigure.
 
 ---
 
-**Declinarea responsabilității**:  
-Acest document a fost tradus utilizând serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși depunem eforturi pentru acuratețe, vă rugăm să aveți în vedere că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autoritară. Pentru informații critice, se recomandă traducerea realizată de un profesionist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

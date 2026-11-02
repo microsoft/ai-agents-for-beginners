@@ -1,118 +1,124 @@
-# How to Build Agent-to-Agent Communication Systems with MCP
+# Di Building of Agent-to-Agent Communication Systems wit MCP
 
-> TL;DR - You fit build Agent2Agent Communication on MCP? Yes!
+> TL;DR - You fit build Agent2Agent Communication pan MCP? Yes!
 
-MCP don grow well-well pass di original plan wey be "to dey give context to LLMs". Wit di new updates like [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), and notifications ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) and [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP don strong well to help build complex agent-to-agent communication systems.
+MCP don improve well well pass im og goal of "providing context to LLMs". Wit di recent beta wey include [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), and notifications ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) and [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP don now get strong foundation to build complex agent-to-agent communication systems.
 
-## Di Agent/Tool Misunderstanding
+## Di Agent/Tool Wrong Idea Dem
 
-As developers dey try tools wey get agent-like behavior (wey fit run for long time, need extra input for middle of di work, etc.), one common mistake na to think say MCP no fit work because di early examples of di tools na just simple request-response pattern.
+As more developers dey test tools wey dem get agentic behaviours (wey fit run long time, fit need extra input for middle sotay e dey run, etc.), one wrong idea be say MCP no tay for dis kain things mainly because im early tools examples focus on simple request-response ways dem.
 
-Dis idea no correct again. MCP don improve well-well for di past months wit features wey fit help build long-running agent-like behavior:
+Dis kain way of thinking don old. Di MCP specification don improve well well for di last few months wit capabilities wey dey close di gap for long-running agentic behaviour:
 
-- **Streaming & Partial Results**: Updates wey dey show progress as di work dey go on
-- **Resumability**: Clients fit reconnect and continue after dem disconnect
-- **Durability**: Results no go lost even if server restart (e.g., wit resource links)
-- **Multi-turn**: Fit ask for extra input during execution wit elicitation and sampling
+- **Streaming & Partial Results**: Real-time progress updates while e dey run
+- **Resumability**: Clients fit reconnect and continue afta dem disconnect
+- **Durability**: Result dey survive server restart (e.g., using resource links)
+- **Multi-turn**: Interactive input for middle of execution wit elicitation and sampling
 
-All dis features fit join together to make complex agent-like and multi-agent applications wey dey use MCP protocol.
+All dis things fit join together to enable complex agentic and multi-agent application dem, all of dem dey run pan MCP protocol.
 
-For dis article, we go dey call agent "tool" wey dey available for MCP server. Dis mean say one host application dey wey dey use MCP client to connect wit di MCP server and fit call di agent.
+For example, we go call agent as "tool" wey dey for MCP server. Dis mean say one host app dey wey dey use MCP client to start session wit MCP server and fit call di agent.
 
-## Wetin Make MCP Tool "Agentic"?
+## Wetin Mek MCP Tool "Agentic"?
 
-Before we go start implementation, make we first understand wetin infrastructure we need to support long-running agents.
+Before we start, make we set di kind infrastructure capabilities to support long-running agents.
 
-> We go define agent as something wey fit work by itself for long time, fit handle complex tasks wey need many interactions or adjustments based on feedback wey dey happen for di moment.
+> We go define agent as one entity wey fit work on im own for long time, fit handle complex tasks wey fit need many interactions or adjustments based on real-time feedback.
 
 ### 1. Streaming & Partial Results
 
-Di normal request-response pattern no dey work for long-running tasks. Agents need to dey provide:
+Traditional request-response pattern no fit work for long-running job. Agents need to provide:
 
-- Updates wey dey show progress as di work dey go on
-- Results wey dey come small-small
+- Real-time progress updates
+- Intermediate results
 
-**MCP Support**: Resource update notifications dey allow streaming partial results, but you go need design am well to avoid wahala wit JSON-RPC's 1:1 request/response model.
+**MCP Support**: Resource update notifications dey allow streaming partial results, but you need design am well to avoid wahala with JSON-RPC's 1:1 request/response model.
 
 | Feature                    | Use Case                                                                                                                                                                       | MCP Support                                                                                |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Real-time Progress Updates | User request make agent migrate codebase. Di agent dey stream progress: "10% - Dey check dependencies... 25% - Dey convert TypeScript files... 50% - Dey update imports..."    | ✅ Progress notifications                                                                  |
-| Partial Results            | "Generate book" task dey stream partial results, e.g., 1) Story arc outline, 2) Chapter list, 3) Each chapter as e complete. Host fit check, stop, or change direction anytime. | ✅ Notifications fit "extend" to include partial results see proposals on PR 383, 776      |
+| Real-time Progress Updates | User request codebase migration task. Agent dey stream progress: "10% - Dey analyze dependencies... 25% - Dey convert TypeScript files... 50% - Dey update imports..."          | ✅ Progress notifications                                                                  |
+| Partial Results            | "Make book" task dey stream partial results, e.g., 1) Story arc outline, 2) Chapter list, 3) Each chapter as e finish. Host fit check, cancel, or redirect anytime.              | ✅ Notifications fit "extend" to hold partial results like for proposals PR 383, 776        |
 
-<strong>Figure 1:</strong> Dis diagram dey show how MCP agent dey stream real-time progress updates and partial results to di host application during long-running task, so user fit dey monitor di work as e dey happen.
+<div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
+<strong>Figure 1:</strong> Dis diagram show how MCP agent dey stream real-time progress updates and partial results go host app while e dey do long-running job, allow user to check di execution for real time.
+</div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host App<br/>(MCP Klient)
+    participant Server as MCP Server<br/>(Agent Tulu)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Stat long wok
+    Host->>Server: Kol agent_tulu()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Progress Update
+        Server-->>Host: Progress + part result dem
+        Host-->>User: Stream update dem
     end
 
     Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Host-->>User: Don komplete
 ```
 
 ### 2. Resumability
 
-Agents need to handle network wahala well:
+Agents must sabi handle network wahala well:
 
-- Fit reconnect after client disconnect
-- Fit continue from where e stop (message redelivery)
+- Reconnect after (client) disconnect
+- Continue from where dem stop (message redelivery)
 
-**MCP Support**: MCP StreamableHTTP transport dey support session resumption and message redelivery wit session IDs and last event IDs. Di server need to implement EventStore wey go allow event replays when client reconnect.  
-Community proposal (PR #975) dey look into transport-agnostic resumable streams.
+**MCP Support**: MCP StreamableHTTP transport today support session resumption and message redelivery wit session IDs and last event IDs. Di important one be say server must get EventStore wey fit do event replay wen client connect again.  
+Note say community get proposal (PR #975) wey dey explore transport-agnostic resumable streams.
 
 | Feature      | Use Case                                                                                                                                                   | MCP Support                                                                |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Resumability | Client disconnect during long-running task. When e reconnect, session go continue wit di events wey e miss replayed, e go continue from where e stop.       | ✅ StreamableHTTP transport wit session IDs, event replay, and EventStore |
+| Resumability | Client disconnect for long-running task. When e reconnect, session resume with missed events replayed, e continue smoothly from where e stop.              | ✅ StreamableHTTP transport wit session IDs, event replay, and EventStore |
 
-<strong>Figure 2:</strong> Dis diagram dey show how MCP's StreamableHTTP transport and event store dey make session resumption easy: if client disconnect, e fit reconnect and replay di events wey e miss, continue di task without losing progress.
+<div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
+<strong>Figure 2:</strong> Dis diagram show how MCP StreamableHTTP transport and event store dey enable smooth session resumption: if client disconnect, e fit reconnect and replay missed events, e continue di work without loss of progress.
+</div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Host App<br/>(MCP Klaiyan)
+    participant Server as MCP Sava<br/>(Esjent Tulu)
+    participant Store as Event Stɔ
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Strat task
+    Host->>Server: Kol tulu [seson: abc123]
+    Server->>Store: Seiv events
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Konɛkshon don lost
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Rikonɛkt [seson: abc123]
+    Store-->>Server: Riplei events
+    Server-->>Host: Kat ap + kontinyu
+    Host-->>User: ✅ Komplit
 ```
 
 ### 3. Durability
 
-Long-running agents need persistent state:
+Long-running agents need to keep persistent state:
 
-- Results no go lost even if server restart
-- Status fit dey check outside di normal session
+- Results survive when server restart
+- Status fit get outside normal call
 - Progress tracking across sessions
 
-**MCP Support**: MCP dey support Resource link return type for tool calls. One way na to design tool wey go create resource and return resource link immediately. Di tool fit dey work for background and dey update di resource. Di client fit dey check di state of di resource to get partial or full results (based on wetin di server dey provide) or subscribe to di resource for update notifications.
+**MCP Support**: MCP now fit support Resource link return type for tool calls. Today, one pattern be say design tool wey go create resource and immediately return resource link. Tool fit continue to do work for background and update resource. Client fit poll dis resource state for partial or full results (based on resource update wey server give) or subscribe to resource for update notifications.
 
-One wahala na say to dey check resources or subscribe for updates fit use resources well-well if e dey scale. Community proposal (including #992) dey look into webhooks or triggers wey server fit use to notify di client/host application of updates.
+One limitation be say polling resources or subscribing for updates fit use plenty resource and fit cause wahala when scale. One community proposal (including #992) dey investigate to add webhooks or triggers wey server fit call to notify client/host app about updates.
 
 | Feature    | Use Case                                                                                                                                        | MCP Support                                                        |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Durability | Server crash during data migration task. Results and progress no go lost, client fit check status and continue from persistent resource.        | ✅ Resource links wit persistent storage and status notifications |
+| Durability | Server crash during data migration task. Results and progress survive restart, client fit check status and continue from persistent resource.  | ✅ Resource links wit persistent storage and status notifications   |
 
-Today, di common way na to design tool wey go create resource and return resource link immediately. Di tool fit dey work for background, dey send resource notifications wey dey show progress updates or partial results, and dey update di resource content as e dey go.
+Today, common pattern be say design tool wey go create resource and immediately return resource link. Tool fit continue for background to do work, send resource notifications for progress updates or partial results, and update content for resource as e need.
 
-<strong>Figure 3:</strong> Dis diagram dey show how MCP agents dey use persistent resources and status notifications to make sure say long-running tasks no go lost even if server restart, so clients fit check progress and get results after failure.
+<div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
+<strong>Figure 3:</strong> Dis diagram show how MCP agents dey use persistent resources and status notifications to make sure say long-running tasks survive server restarts, make clients fit check progress and collect results even after failure.
+</div>
 
 ```mermaid
 sequenceDiagram
@@ -138,19 +144,21 @@ sequenceDiagram
 
 ### 4. Multi-Turn Interactions
 
-Agents dey need extra input during execution:
+Agents sometimes need more input during execution:
 
 - Human clarification or approval
-- AI help for complex decisions
-- Adjust parameters as e dey go
+- AI assistance for complex decisions
+- Dynamic parameter adjustment
 
-**MCP Support**: Fully supported wit sampling (for AI input) and elicitation (for human input).
+**MCP Support**: Fully support through sampling (for AI input) and elicitation (for human input).
 
 | Feature                 | Use Case                                                                                                                                     | MCP Support                                           |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Multi-Turn Interactions | Travel booking agent dey ask user to confirm price, then e dey ask AI to summarize travel data before e complete di booking.                 | ✅ Elicitation for human input, sampling for AI input |
+| Multi-Turn Interactions | Travel booking agent dey request price confirmation from user, then e ask AI to summarize travel data before e finish di booking.             | ✅ Elicitation for human input, sampling for AI input |
 
-<strong>Figure 4:</strong> Dis diagram dey show how MCP agents fit dey ask human input or request AI help during execution, to support complex workflows like confirmation and dynamic decision-making.
+<div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
+<strong>Figure 4:</strong> Dis diagram show how MCP agents fit interactively ask human input or request AI help during execution, support complex, multi-turn work like confirmations and dynamic decision making.
+</div>
 
 ```mermaid
 sequenceDiagram
@@ -161,42 +169,42 @@ sequenceDiagram
     User->>Host: Book flight
     Host->>Server: Call travel_agent
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
+    Server->>Host: Elicitation: "You sure say na $500?"
+    Note over Host: Elicitation callback (if e dey)
+    Host->>User: 💰 You confirm price?
     User->>Host: "Yes"
     Host->>Server: Confirmed
 
     Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
+    Note over Host: AI callback (if e dey)
     Host->>Server: Report summary
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Flight don book finish
 ```
 
 ## How to Implement Long-Running Agents on MCP - Code Overview
 
-For dis article, we get [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) wey show complete implementation of long-running agents wit MCP Python SDK wey dey use StreamableHTTP transport for session resumption and message redelivery. Di implementation dey show how MCP features fit join together to make agent-like behaviors.
+As part of dis article, we give one [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) wey get full implementation of long-running agents using MCP Python SDK with StreamableHTTP transport for session resumption and message redelivery. Dis implementation show how MCP capabilities fit join to make strong agent-like behaviours.
 
-We implement server wit two main agent tools:
+Specifically, we implement server wit two main agent tools:
 
-- **Travel Agent** - E dey simulate travel booking service wit price confirmation via elicitation
-- **Research Agent** - E dey do research tasks wit AI-assisted summaries via sampling
+- **Travel Agent** - Simulate travel booking service wit price confirmation through elicitation
+- **Research Agent** - Dey do research with AI-assisted summaries through sampling
 
-Both agents dey show real-time progress updates, interactive confirmations, and full session resumption.
+Both agents show real-time progress updates, interactive confirmations, and full session resumption features.
 
 ### Key Implementation Concepts
 
-Di sections below dey show server-side agent implementation and client-side host handling for each feature:
+Di next sections go show server-side agent implementation and client-side host handling for each capability:
 
 #### Streaming & Progress Updates - Real-time Task Status
 
-Streaming dey allow agents to dey give real-time progress updates during long-running tasks, so users fit dey know di status and intermediate results.
+Streaming make agents fit provide real-time progress updates while dem dey run long-running tasks, keep users informed about task status and intermediate results.
 
 **Server Implementation (agent dey send progress notifications):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# From server/server.py - Travel agent wey dey send progress updates
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -205,7 +213,7 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Make e be like work
 
 # Alternative: Log messages for detailed step-by-step updates
 await ctx.session.send_log_message(
@@ -219,7 +227,7 @@ await ctx.session.send_log_message(
 **Client Implementation (host dey receive progress updates):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# From client/client.py - Client wey dey handle real-time notifications
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -228,7 +236,7 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Register message handler wen you dey create session
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
@@ -237,12 +245,12 @@ async with ClientSession(
 
 #### Elicitation - Requesting User Input
 
-Elicitation dey allow agents to dey ask user input during execution. Dis dey important for confirmation, clarification, or approval during long-running tasks.
+Elicitation make agents fit ask user input during execution. Dis dey essential for confirmations, clarifications, or approvals during long-running tasks.
 
-**Server Implementation (agent dey ask for confirmation):**
+**Server Implementation (agent dey request confirmation):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# From server/server.py - Travel agent dey ask for price confirmation
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -250,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Continue wit booking
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Cancel di booking
     booking_cancelled = True
 ```
 
 **Client Implementation (host dey provide elicitation callback):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# From client/client.py - How client dem dey handle elicitation requests
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -278,7 +286,7 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Register di callback wen you dey create di session
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
@@ -287,12 +295,12 @@ async with ClientSession(
 
 #### Sampling - Requesting AI Assistance
 
-Sampling dey allow agents to dey ask LLM help for complex decisions or content generation during execution. Dis dey make human-AI workflows possible.
+Sampling allow agents to request LLM help for complex decisions or content generation during execution. Dis dey enable hybrid human-AI workflow.
 
-**Server Implementation (agent dey ask AI for help):**
+**Server Implementation (agent dey request AI assistance):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# From server/server.py - Research agent wey dey ask AI for summary
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -313,13 +321,13 @@ if sampling_result and sampling_result.content:
 **Client Implementation (host dey provide sampling callback):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# From client/client.py - Client wey dey handle sampling requests
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # For real app, dis fit call one LLM API
+    # For demo na, we dey give mock response
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -329,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Register the callback wen you dey create the session
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -339,9 +347,9 @@ async with ClientSession(
 
 #### Resumability - Session Continuity Across Disconnections
 
-Resumability dey make sure say long-running agent tasks no go stop if client disconnect, and e go continue well when e reconnect. Dis dey use event stores and resumption tokens.
+Resumability mean say long-running agent tasks fit survive client disconnections and continue smoothly when client reconnect. Dis dey implemented through event stores and resumption tokens.
 
-**Event Store Implementation (server dey keep session state):**
+**Event Store Implementation (server hold session state):**
 
 ```python
 # From server/event_store.py - Simple in-memory event store
@@ -359,9 +367,24 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Replay only later events from the session's original stream.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
+
+        return stream_id
 
 # From server/server.py - Passing event store to session manager
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
@@ -382,17 +405,17 @@ event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Client Metadata wit Resumption Token (client dey reconnect wit stored state):**
+**Client Metadata with Resumption Token (client reconnect using stored state):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# From client/client.py - Client resum with metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Use di resumption token wey dey to continue from where we stop
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Create callback to save di resumption token wen e land
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -401,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Send request wit resumption metadata
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -414,22 +437,24 @@ result = await session.send_request(
 )
 ```
 
-Di host application dey keep session IDs and resumption tokens locally, so e fit reconnect to di session wey dey already dey without losing progress or state.
+Di host app go maintain session IDs and resumption tokens locally, to fit reconnect to existing sessions without loss of progress or state.
 
 ### Code Organization
 
+<div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
 <strong>Figure 5:</strong> MCP-based agent system architecture
+</div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
+    User([User]) -->|"Waka-Work"| Host["Host<br/>(MCP Client)"]
     Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    Server -->|Show| AgentsTools[Agents as Tools]
+    AgentsTools -->|Waka-Work| AgentA[Travel Agent]
+    AgentsTools -->|Waka-Work| AgentB[Research Agent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Dey Watch| StateUpdates[Progress & State Updates]
+    Server -->|Dey Publish| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -438,67 +463,68 @@ graph LR
 
 **Key Files:**
 
-- **`server/server.py`** - Resumable MCP server wit travel and research agents wey dey show elicitation, sampling, and progress updates
-- **`client/client.py`** - Interactive host application wit resumption support, callback handlers, and token management
-- **`server/event_store.py`** - Event store implementation wey dey allow session resumption and message redelivery
+- **`server/server.py`** - Resumable MCP server wit travel and research agents wey dem show elicitation, sampling, and progress updates
+- **`client/client.py`** - Interactive host app wit resumption support, callback handlers, and token management
+- **`server/event_store.py`** - Event store implementation wey enable session resumption and message redelivery
 
-## How to Extend to Multi-Agent Communication on MCP
+## Extending to Multi-Agent Communication on MCP
 
-Di implementation wey we show fit extend to multi-agent systems by making di host application smarter and bigger:
+Di implementation wey we mention before fit extend go multi-agent systems by making host app more intelligent and bigger in scope:
 
-- **Intelligent Task Decomposition**: Host go break complex user requests into smaller tasks for different agents
-- **Multi-Server Coordination**: Host go connect to many MCP servers, each one dey provide different agent capabilities
-- **Task State Management**: Host go dey track progress across many agent tasks wey dey happen at di same time, dey handle dependencies and order
-- **Resilience & Retries**: Host go dey manage failures, dey retry tasks, and dey redirect tasks if agents no dey available
-- **Result Synthesis**: Host go join di outputs from many agents to make one final result wey make sense
+- **Intelligent Task Decomposition**: Host go analyze complex user requests, break am into subtasks for different specialized agents
+- **Multi-Server Coordination**: Host go maintain connections to multiple MCP servers, each one get different agent capabilities
+- **Task State Management**: Host go track progress across many agent tasks wey run at di same time, handle dependencies and sequence dem
+- **Resilience & Retries**: Host go handle failures, do retry logic, and reroute tasks if agents no dey available
+- **Result Synthesis**: Host go combine output from many agents go one final sensible results
 
-Di host go change from simple client to smart orchestrator wey dey manage distributed agent capabilities but still dey use MCP protocol.
+Di host go change from simple client go intelligent orchestrator, wey dey coordinate distributed agent capabilities while still dey on same MCP protocol base.
 
 ## Conclusion
 
-MCP don improve wit features like resource notifications, elicitation/sampling, resumable streams, and persistent resources wey dey make agent-to-agent interactions possible but still dey simple.
+MCP enhanced capabilities - resource notifications, elicitation/sampling, resumable streams, and persistent resources - dey enable complex agent-to-agent interactions but protocol still dey simple.
 
 ## How to Start
 
-Ready to build your own agent2agent system? Follow dis steps:
+You ready to build your own agent2agent system? Follow these steps:
 
 ### 1. Run di Demo
 
 ```bash
-# Start the server with event store for resumption
+# Start di server wit event store so dat e fit continue from where e stop
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# For oda terminal, run di interactive client
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
 **Commands wey dey available for interactive mode:**
 
-- `travel_agent` - Book travel wit price confirmation via elicitation
-- `research_agent` - Research topics wit AI-assisted summaries via sampling
-- `list` - Show all di tools wey dey available
+- `travel_agent` - Book travel wit price confirmation through elicitation
+- `research_agent` - Research topics wit AI-assisted summaries using sampling
+- `list` - Show all tools wey dey available
 - `clean-tokens` - Clear resumption tokens
 - `help` - Show detailed command help
 - `quit` - Exit di client
 
 ### 2. Test Resumption Capabilities
 
-- Start one long-running agent (e.g., `travel_agent`)
-- Stop di client during execution (Ctrl+C)
-- Start di client again - e go continue from where e stop
+- Start long-running agent (e.g., `travel_agent`)
+- Interrupt client during execution (Ctrl+C)
+- Restart di client, e go automatically resume from where e stop
 
 ### 3. Explore and Extend
 
 - **Explore di examples**: Check dis [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Join di community**: Join MCP discussions for GitHub
-- **Experiment**: Start wit one simple long-running task and dey add streaming, resumability, and multi-agent coordination small-small
+- **Join di community**: Participate for MCP discussions for GitHub
+- **Experiment**: Start wit simple long-running task and slowly add streaming, resumability, and multi-agent coordination
 
-Dis dey show how MCP dey make smart agent behaviors possible but still dey simple.
-Overall, MCP protocol spec dey change quick-quick; we go advise make you check di official documentation website for di latest updates - https://modelcontextprotocol.io/introduction
+Dis one dey show how MCP fit enable intelligent agent behaviours while still keep tool-based simplicity.
+
+Overall, di MCP protocol spec dey evolve fast; make you go check official docs site for di latest updates - https://modelcontextprotocol.io/introduction
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am correct, abeg make you sabi say machine translation fit get mistake or no dey accurate well. Di original dokyument wey dey for di native language na di main source wey you go trust. For important information, e better make professional human translator check am. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,181 +2,189 @@
 
 [![Agentik Protokoller](../../../translated_images/tr/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Dersin videosunu görüntülemek için yukarıdaki resme tıklayın)_
+> _(Bu derse ait videoyu izlemek için yukarıdaki resme tıklayın)_
 
-Yapay zeka ajanlarının kullanımı arttıkça, standartlaştırma, güvenlik ve açık inovasyonu destekleyen protokollere olan ihtiyaç da artıyor. Bu derste, bu ihtiyacı karşılamayı amaçlayan 3 protokolü ele alacağız - Model Context Protocol (MCP), Agent to Agent (A2A) ve Natural Language Web (NLWeb).
+AI ajanlarının kullanımı arttıkça, standartlaştırmayı, güvenliği sağlayan ve açık inovasyonu destekleyen protokollere olan ihtiyaç da artmaktadır. Bu derste, bu ihtiyacı karşılamaya yönelik 3 protokolü ele alacağız - Model Context Protocol (MCP), Agent to Agent (A2A) ve Natural Language Web (NLWeb).
 
 ## Giriş
 
-Bu derste ele alacaklarımız:
+Bu derste aşağıdakileri öğreneceğiz:
 
-• **MCP**'nin Yapay Zeka Ajanlarının kullanıcı görevlerini tamamlamak için harici araçlara ve verilere erişmesini nasıl sağladığı.
+• **MCP'nin** AI Ajanlarının kullanıcı görevlerini tamamlamak için dış araçlar ve verilere erişimini nasıl sağladığını.
 
-• **A2A**'nın farklı yapay zeka ajanları arasında iletişim ve iş birliği olanağı nasıl sunduğu.
+• **A2A'nın** farklı AI ajanları arasında iletişim ve iş birliği olanağı nasıl sunulduğunu.
 
-• **NLWeb**'in herhangi bir web sitesine doğal dil arayüzleri getirerek Yapay Zeka Ajanlarının içeriği keşfetmesini ve etkileşim kurmasını nasıl sağladığı.
+• **NLWeb'in** herhangi bir web sitesine doğal dil arayüzleri getirerek AI Ajanlarının içeriği keşfetmesini ve etkileşimde bulunmasını nasıl sağladığını.
 
 ## Öğrenme Hedefleri
 
-• **Tanımlamak**: MCP, A2A ve NLWeb'in yapay zeka ajanları bağlamındaki temel amacı ve faydalarını belirlemek.
+• AI ajanları bağlamında MCP, A2A ve NLWeb'in temel amacını ve faydalarını **belirlemek**.
 
-• **Açıklamak**: Her protokolün LLM'ler, araçlar ve diğer ajanlar arasındaki iletişim ve etkileşimi nasıl kolaylaştırdığını açıklamak.
+• Her protokolün LLM'ler, araçlar ve diğer ajanlar arasındaki iletişim ve etkileşimi nasıl kolaylaştırdığını **açıklamak**.
 
-• **Farkına varmak**: Karmaşık ajan sistemleri oluştururken her protokolün oynadığı ayrı rolleri tanımak.
+• Karmaşık ajan sistemleri oluşturmadaki her protokolün farklı rollerini **tanımak**.
 
 ## Model Context Protocol
 
-**Model Context Protocol (MCP)**, uygulamaların LLM'lere bağlam ve araçlar sağlaması için standartlaştırılmış bir yol sunan açık bir standarttır. Bu, Yapay Zeka Ajanlarının tutarlı bir şekilde bağlanabileceği farklı veri kaynakları ve araçlara yönelik bir "evrensel adaptör" olanağı sağlar.
+**Model Context Protocol (MCP)**, uygulamaların LLM'lere bağlam ve araçlar sağlaması için standart bir yol sunan açık bir standarttır. Bu, AI Ajanlarının farklı veri kaynakları ve araçlara tutarlı şekilde bağlanmasını sağlayan bir "evrensel adaptör" işlevi görür.
 
-MCP'nin bileşenlerine, doğrudan API kullanımına kıyasla sağladığı faydalara ve Yapay Zeka ajanlarının bir MCP sunucusunu nasıl kullanabileceğine dair bir örneğe bakalım.
+MCP'nin bileşenlerine, doğrudan API kullanımına kıyasla avantajlarına ve AI ajanlarının bir MCP sunucusunu nasıl kullanabileceğine bakalım.
 
 ### MCP Temel Bileşenleri
 
-MCP, **istemci-sunucu mimarisi** üzerinde çalışır ve temel bileşenler şunlardır:
+MCP, **istemci-sunucu mimarisi** üzerine kurulu olup temel bileşenleri şunlardır:
 
-• **Hosts** (Barındırıcılar) MCP Sunucularına bağlantıları başlatan LLM uygulamalarıdır (örneğin VSCode gibi bir kod editörü).
+• **Ev Sahipleri (Hosts)**, bir MCP sunucusuna bağlantı başlatan LLM uygulamalarıdır (örneğin, VSCode gibi bir kod editörü).
 
-• **Clients** (İstemciler) barındırıcı uygulama içindeki, sunucularla birebir bağlantıyı sürdüren bileşenlerdir.
+• **İstemciler (Clients)**, ev sahibi uygulama içinde sunucularla bire bir bağlantı sürdüren bileşenlerdir.
 
-• **Servers** (Sunucular) belirli yetenekleri açığa çıkaran hafif programlardır.
+• **Sunucular (Servers)**, belirli yetenekleri sunan hafif programlardır.
 
-Protokolde yer alan üç temel ilkel, bir MCP Sunucusunun yetenekleridir:
+Protokolde MCP Sunucusunun yetenekleri olan üç temel primitif vardır:
 
-• **Tools** (Araçlar): Bunlar bir Yapay Zeka ajanının bir eylemi gerçekleştirmek için çağırabileceği ayrık eylemler veya işlevlerdir. Örneğin, bir hava durumu servisi "hava durumu al" aracını açığa çıkarabilir veya bir e-ticaret sunucusu "ürün satın al" aracını sunabilir. MCP sunucuları, yetenekler listesinde her aracın adını, açıklamasını ve giriş/çıkış şemasını bildirir.
+• **Araçlar (Tools)**: AI ajanın çağırarak işlem yapabileceği ayrı eylemler veya fonksiyonlardır. Örneğin, bir hava durumu servisi "hava durumu al" aracı sunabilir veya bir e-ticaret sunucusu "ürün satın al" aracını sunabilir. MCP sunucuları, her aracın adını, açıklamasını ve giriş/çıkış şemasını yetenek listelerinde bildirir.
 
-• **Resources** (Kaynaklar): Bunlar MCP sunucusunun sağlayabileceği salt okunur veri öğeleri veya belgeler olup istemciler bunları talep üzerine alabilir. Örnekler arasında dosya içerikleri, veritabanı kayıtları veya log dosyaları bulunur. Kaynaklar metin (kod veya JSON gibi) veya ikili (görseller veya PDF'ler gibi) olabilir.
+• **Kaynaklar (Resources)**: MCP sunucusunun sağlayabileceği salt okunur veri öğeleri veya dokümanlardır ve istemciler bunları talep üzerine alabilir. Örnekler arasında dosya içeriği, veritabanı kayıtları veya günlük dosyaları bulunur. Kaynaklar metin (kod veya JSON gibi) ya da ikili (görüntü veya PDF gibi) olabilir.
 
-• **Prompts**: Bunlar daha karmaşık iş akışlarına olanak tanıyan önerilen istemleri sağlayan ön tanımlı şablonlardır.
+• **İstemde Bulunanlar (Prompts)**: Önerilen istemleri sağlayan önceden tanımlanmış şablonlardır ve daha karmaşık iş akışlarına olanak tanır.
 
 ### MCP'nin Faydaları
 
-MCP, Yapay Zeka Ajanları için önemli avantajlar sunar:
+MCP, AI Ajanları için önemli avantajlar sunar:
 
-• **Dinamik Araç Keşfi**: Ajanlar, bir sunucudan hangi araçların mevcut olduğunu ve ne yaptıklarına dair açıklamalarla dinamik olarak bir liste alabilir. Bu, entegrasyon için genellikle statik kodlama gerektiren geleneksel API'lerle tezat oluşturur; API'de herhangi bir değişiklik kod güncellemesi gerektirir. MCP, "bir kez entegre et" yaklaşımı sunarak daha yüksek uyarlanabilirlik sağlar.
+• **Dinamik Araç Keşfi**: Ajanlar, sunucudan mevcut araçların listesini ve ne yaptıklarına dair açıklamaları dinamik olarak alabilir. Bu, genellikle entegrasyonlar için statik kodlama gerektiren geleneksel API'lere kıyasla farklıdır; API değişiklikleri kod güncellemeleri ister. MCP, "bir kez entegre et" yaklaşımıyla daha yüksek uyum sağlar.
 
-• **LLM'ler Arası Birlikte Çalışabilirlik**: MCP, farklı LLM'ler arasında çalışarak çekirdek modelleri değiştirme esnekliği sağlar ve daha iyi performans için değerlendirme olanağı verir.
+• **LLM'ler Arası Birlikte Çalışabilirlik**: MCP, farklı LLM'ler arasında çalışır ve daha iyi performans için temel modelleri değiştirme esnekliği sunar.
 
-• **Standartlaştırılmış Güvenlik**: MCP, standart bir kimlik doğrulama yöntemi içerir ve ek MCP sunucularına erişim eklenirken ölçeklenebilirliği artırır. Bu, çeşitli geleneksel API'ler için farklı anahtarlar ve kimlik doğrulama türlerini yönetmekten daha basittir.
+• **Standartlaştırılmış Güvenlik**: MCP, standart bir kimlik doğrulama yöntemi içerir, bu da ek MCP sunucularına erişim eklerken ölçeklenebilirliği artırır. Bu, çeşitli geleneksel API'ler için farklı anahtarlar ve kimlik doğrulama türleri yönetmekten daha basittir.
 
 ### MCP Örneği
 
-![MCP Diyagramı](../../../translated_images/tr/mcp-diagram.e4ca1cbd551444a1.webp)
+![MCP Diagram](../../../translated_images/tr/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Bir kullanıcının MCP ile çalışan bir Yapay Zeka asistanı kullanarak uçak bileti rezervasyonu yapmak istediğini hayal edelim.
+Bir kullanıcının MCP destekli bir AI asistanıyla uçuş rezervasyonu yapmak istediğini hayal edin.
 
-1. **Bağlantı**: Yapay Zeka asistanı (MCP istemcisi), bir havayolu tarafından sağlanan bir MCP sunucusuna bağlanır.
+1. **Bağlantı**: AI asistanı (MCP istemcisi), bir havayolu tarafından sağlanan MCP sunucusuna bağlanır.
 
-2. **Araç Keşfi**: İstemci havayolunun MCP sunucusuna, "Hangi araçlara sahipsiniz?" diye sorar. Sunucu "uçuş ara" ve "uçuş rezervasyonu yap" gibi araçlarla yanıt verir.
+2. **Araç Keşfi**: İstemci havayolunun MCP sunucusuna "Hangi araçlara sahipsiniz?" diye sorar. Sunucu "uçuş ara" ve "uçuş rezervasyonu" gibi araçları listeler.
 
-3. **Araç Çağrısı**: Ardından asistanınıza, "Portland'dan Honolulu'ya bir uçuş ara lütfen" dersiniz. Yapay Zeka asistanı, LLM'ini kullanarak "uçuş ara" aracını çağırması gerektiğini belirler ve ilgili parametreleri (kalkış, varış) MCP sunucusuna iletir.
+3. **Araç Çağrısı**: Ardından kullanıcı AI asistanına "Portland'dan Honolulu'ya uçuş ara" der. AI asistanı, LLM'siyle "uçuş ara" aracını çağırması gerektiğini belirler ve ilgili parametreleri (kalkış, varış) MCP sunucusuna iletir.
 
-4. **Yürütme ve Yanıt**: MCP sunucusu bir sarma (wrapper) olarak hareket eder, havayolu iç rezervasyon API'sine gerçek çağrıyı yapar. Ardından uçuş bilgilerini (ör. JSON verisi) alır ve Yapay Zeka asistanına geri gönderir.
+4. **İcra ve Yanıt**: MCP sunucusu, bir sarmalayıcı (wrapper) olarak havayolunun dahili rezervasyon API'sini çağırır. Gelen uçuş bilgilerini (örneğin JSON verisi) alır ve AI asistanına geri gönderir.
 
-5. **İleri Etkileşim**: Yapay Zeka asistanı uçuş seçeneklerini sunar. Bir uçuş seçildiğinde, asistan aynı MCP sunucusunda "uçuş rezervasyonu yap" aracını çağırarak rezervasyonu tamamlayabilir.
+5. **İleri Etkileşim**: AI asistanı uçuş seçeneklerini sunar. Kullanıcı bir uçuş seçtikten sonra, asistan aynı MCP sunucusunda "uçuş rezervasyonu" aracını çağırarak rezervasyonu tamamlar.
 
 ## Ajanlar Arası Protokol (A2A)
 
-MCP, LLM'leri araçlara bağlamaya odaklanırken, **Agent-to-Agent (A2A) protokolü** bir adım daha ileri giderek farklı yapay zeka ajanları arasında iletişim ve iş birliğine olanak tanır. A2A, farklı kuruluşlar, ortamlar ve teknoloji yığınları arasındaki yapay zeka ajanlarını paylaşılan bir görevi tamamlamak için birbirine bağlar.
+MCP, LLM'leri araçlara bağlamaya odaklanırken, **Ajanlar Arası (A2A) protokolü** bir adım daha ileri giderek farklı AI ajanları arasında iletişim ve iş birliği sağlar. A2A, farklı organizasyonlar, ortamlar ve teknoloji yığınları arasında AI ajanlarını ortak bir görevi tamamlamak için bağlar.
 
-A2A'nın bileşenlerini ve faydalarını inceleyeceğiz ve bunun seyahat uygulamamızda nasıl uygulanabileceğine dair bir örnek vereceğiz.
+A2A'nın bileşenlerini ve faydalarını inceleyeceğiz ve seyahat uygulamamızda nasıl uygulanabileceğine dair bir örnek göreceğiz.
 
 ### A2A Temel Bileşenleri
 
-A2A, ajanlar arasındaki iletişimi etkinleştirmeye ve onların kullanıcı için bir alt görevi birlikte tamamlamasına odaklanır. Protokolün her bileşeni buna katkıda bulunur:
+A2A, ajanların iletişim kurmasını ve kullanıcı alt görevini tamamlamak için birlikte çalışmasını sağlar. Protokolün her bileşeni buna katkı sağlar:
 
-#### Agent Card
+#### Ajan Kartı
 
-MCP sunucusunun bir araç listesi paylaşmasına benzer şekilde, bir Agent Card şunları içerir:
-- Ajanın Adı .
+MCP sunucusunun araç listesini paylaşmasına benzer şekilde, Ajan Kartı şunlara sahiptir:
+- Ajanın Adı.
 - Tamamladığı genel görevlerin **açıklaması**.
-- Diğer ajanların (ve hatta insan kullanıcıların) bir ajana ne zaman ve neden çağrı yapmaları gerektiğini anlamalarına yardımcı olacak açıklamalı **özgül beceriler listesi**.
-- Ajanın **mevcut Endpoint URL'si**
-- Ajanın **sürümü** ve akışlı yanıtlar ile push bildirimleri gibi **yetenekleri**.
+- Diğer ajanların (veya insan kullanıcıların) ne zaman ve neden bu ajanı çağırmak isteyeceklerini anlamalarına yardımcı olacak **özgül yeteneklerin listesi** ve açıklamaları.
+- Ajanın **şimdiki Uç Nokta URL'si**.
+- Ajanın **sürümü** ve akış yanıtları ile anlık bildirimler gibi **yetenekleri**.
 
-#### Agent Executor
+#### Ajan Yürütücüsü
 
-Agent Executor, **kullanıcı sohbetinin bağlamını uzak ajana iletmekten** sorumludur; uzak ajanın tamamlanması gereken görevi anlaması için buna ihtiyacı vardır. Bir A2A sunucusunda, bir ajan gelen istekleri ayrıştırmak ve kendi dahili araçlarını kullanarak görevleri yürütmek için kendi Büyük Dil Modelini (LLM) kullanır.
+Ajan Yürütücüsü, **kullanıcı sohbet bağlamını uzak ajana iletmekten** sorumludur; uzak ajan, tamamlanacak görevi anlamak için buna ihtiyaç duyar. Bir A2A sunucusunda, ajan gelen istekleri anlamak ve dahili araçlarıyla görevleri yerine getirmek için kendi Büyük Dil Modelini (LLM) kullanır.
 
-#### Artifact
+#### Eser (Artifact)
 
-Uzak ajan istenen görevi tamamladığında, yaptığı iş bir artifact olarak oluşturulur. Bir artifact, **ajanın çalışmasının sonucunu**, **tamamlanan işin açıklamasını** ve protokol aracılığıyla gönderilen **metin bağlamını** içerir. Artifact gönderildikten sonra uzak ajanla olan bağlantı, tekrar ihtiyaç duyulana kadar kapatılır.
+Uzak ajan istenen görevi tamamladıktan sonra, çalışma ürünü bir eser olarak oluşturulur. Eser **ajan çalışmasının sonucunu**, **tamamlanan işin açıklamasını** ve protokol yoluyla gönderilen **metin bağlamını** içerir. Eser gönderildikten sonra uzak ajanla bağlantı, tekrar gerekene kadar kapatılır.
 
-#### Event Queue
+#### Olay Kuyruğu
 
-Bu bileşen, **güncellemeleri işlemek ve mesajları iletmek** için kullanılır. Ajanik sistemlerde, görev tamamlama süreleri daha uzun olabileceği için, bir görevin tamamlanmasından önce ajanlar arasındaki bağlantının kapanmasını önlemek amacıyla üretimde özellikle önemlidir.
+Bu bileşen, **güncellemeleri yönetmek ve mesajları iletmek** için kullanılır. Özellikle üretimde, ajanlar arasındaki bağlantının görev tamamlanmadan kapanmasını önlemek için çok önemlidir; çünkü görevin tamamlanması uzun sürebilir.
 
-### A2A'nin Faydaları
+### A2A'nın Faydaları
 
-• **Gelişmiş İş Birliği**: Farklı satıcılar ve platformlardan gelen ajanların etkileşimde bulunmasını, bağlam paylaşmasını ve birlikte çalışmasını sağlayarak geleneksel olarak ayrık sistemler arasında kesintisiz otomasyon kolaylaştırır.
+• **Gelişmiş İş Birliği**: Farklı satıcı ve platformlardan ajanların etkileşime geçmesini, bağlam paylaşmasını ve birlikte çalışmasını sağlar; geleneksel olarak ayrık sistemler arasında sorunsuz otomasyon kolaylaştırır.
 
-• **Model Seçimi Esnekliği**: Her A2A ajanı, isteklerini hizmet vermek için hangi LLM'yi kullanacağına karar verebilir; bu, bazı MCP senaryolarındaki tek bir LLM bağlantısının aksine, ajan başına optimize edilmiş veya ince ayarlı modellerin kullanılmasına izin verir.
+• **Model Seçimi Esnekliği**: Her A2A ajanı isteklerini hangi LLM ile karşılayacağına karar verebilir, böylece MCP’nin bazı durumlarındaki tek LLM bağlantısına kıyasla her ajan için optimize edilmiş veya ince ayar yapılmış modeller kullanılabilir.
 
-• **Yerleşik Kimlik Doğrulama**: Kimlik doğrulama A2A protokolüne doğrudan entegre edilmiştir ve ajan etkileşimleri için sağlam bir güvenlik çerçevesi sağlar.
+• **Yerleşik Kimlik Doğrulama**: Kimlik doğrulama doğrudan A2A protokolüne entegre edilmiştir ve ajanlar arasındaki etkileşimlerde güçlü bir güvenlik altyapısı sağlar.
 
 ### A2A Örneği
 
-![A2A Diyagramı](../../../translated_images/tr/A2A-Diagram.8666928d648acc26.webp)
+![A2A Diagram](../../../translated_images/tr/A2A-Diagram.8666928d648acc26.webp)
 
-Seyahat rezervasyon senaryomuzu genişletelim, ancak bu sefer A2A kullanarak.
+Seyahat rezervasyonu senaryomuzu genişletelim, ancak bu sefer A2A kullanarak.
 
-1. **Kullanıcı Çoklu Ajan İsteği**: Bir kullanıcı "Sıradaki hafta için Honolulu'ya tam bir seyahat rezerve et, uçuşlar, otel ve kiralık araba dahil" gibi bir istekte bulunarak bir "Seyahat Acentesi" A2A istemcisi/ajanı ile etkileşime geçer.
+1. **Kullanıcı Çok Ajanlı İstem**: Bir kullanıcı "Gelecek hafta için Honolulu'ya uçuş, otel ve araç kiralama dahil tüm seyahati rezerve et" diyerek "Seyahat Ajanı" A2A istemcisi/ajani ile etkileşimde bulunur.
 
-2. **Seyahat Acentesi Tarafından Orkestrasyon**: Seyahat Acentesi bu karmaşık isteği alır. Görev hakkında akıl yürütmek ve diğer uzman ajanlarla etkileşime geçmesi gerektiğini belirlemek için kendi LLM'sini kullanır.
+2. **Seyahat Ajanı Orkestrasyonu**: Seyahat Ajanı bu karmaşık isteği alır. Görevi anlamak için LLM'sini kullanır ve diğer uzmanlaşmış ajanlarla etkileşime geçmesi gerektiğine karar verir.
 
-3. **Ajanlar Arası İletişim**: Seyahat Acentesi daha sonra A2A protokolünü kullanarak farklı şirketler tarafından oluşturulan "Havayolu Ajanı", "Otel Ajanı" ve "Araç Kiralama Ajanı" gibi alt akış ajanlarına bağlanır.
+3. **Ajanlar Arası İletişim**: Seyahat Ajanı sonra A2A protokolünü kullanarak, farklı şirketler tarafından oluşturulmuş "Havayolu Ajanı", "Otel Ajanı" ve "Araç Kiralama Ajanı" gibi alt ajanlara bağlanır.
 
-4. **Yetkilendirilmiş Görev Yürütme**: Seyahat Acentesi, bu uzman ajanlara belirli görevleri delegeler (ör. "Honolulu'ya uçuş bul", "Bir otel rezervasyonu yap", "Araba kirala"). Kendi LLM'lerini çalıştıran ve kendi araçlarını kullanan (bunlar kendileri MCP sunucuları da olabilir) her bir uzman ajan rezervasyonun kendi bölümünü gerçekleştirir.
+4. **Delege Edilen Görev İcraatı**: Seyahat Ajanı bu uzmanlaşmış ajanlara belirli görevler (örneğin "Honolulu uçuşlarını bul", "Otel rezerve et", "Araç kirala") gönderir. Bu uzman ajanlar, kendi LLM'lerini çalıştırır ve kendi araçlarını (kendileri de MCP sunucuları olabilir) kullanarak rezervasyonun kendi bölümlerini tamamlar.
 
-5. **Konsolide Yanıt**: Tüm alt akış ajanları görevlerini tamamladığında, Seyahat Acentesi sonuçları (uçuş detayları, otel onayı, araç kiralama rezervasyonu) derler ve kullanıcıya kapsamlı, sohbet tarzında bir yanıt gönderir.
+5. **Konsolide Yanıt**: Tüm alt ajanlar görevlerini tamamladıktan sonra Seyahat Ajanı sonuçları (uçuş ayrıntıları, otel onayı, araç kiralama rezervasyonu) derler ve kullanıcıya kapsamlı, sohbet tarzında yanıt gönderir.
 
-## Natural Language Web (NLWeb)
+## Doğal Dil Web (NLWeb)
 
-Web siteleri, kullanıcıların internette bilgi ve verilere erişmesi için uzun zamandır birincil yol olmuştur.
+Web siteleri, uzun süredir kullanıcıların internet üzerinden bilgi ve verilere erişiminin temel yolu olmuştur.
 
-NLWeb'in farklı bileşenlerine, NLWeb'in faydalarına ve seyahat uygulamamız örneği ile NLWeb'in nasıl çalıştığına bakalım.
+NLWeb'in farklı bileşenlerini, NLWeb'in faydalarını ve seyahat uygulamamıza bakarak NLWeb'in nasıl çalıştığını görelim.
 
 ### NLWeb Bileşenleri
 
-- **NLWeb Uygulaması (Çekirdek Servis Kodu)**: Doğal dil sorularını işleyen sistem. Platformun farklı parçalarını bağlayarak yanıtlar oluşturur. Bunu bir web sitesinin doğal dil özelliklerini güçlendiren **motor** olarak düşünebilirsiniz.
+- **NLWeb Uygulaması (Temel Hizmet Kodu)**: Doğal dil sorularını işleyen sistemdir. Platformun farklı parçalarını yanıtlar oluşturmak için bağlar. Bir web sitesinin doğal dil özelliklerini çalıştıran **motor** olarak düşünebilirsiniz.
 
-- **NLWeb Protokolü**: Bir web sitesiyle doğal dil etkileşimi için **temel kurallar dizisi**dir. Yanıtları JSON formatında (genellikle Schema.org kullanarak) gönderir. Amacı, HTML'in belgeleri çevrimiçi paylaşmayı mümkün kılması gibi, “AI Web” için basit bir temel yaratmaktır.
+- **NLWeb Protokolü**: Bir web sitesiyle doğal dil etkileşimi için **temel kurallar seti**dir. Yanıtları JSON formatında (çoğunlukla Schema.org kullanarak) gönderir. Amacı, HTML'nin belge paylaşımını mümkün kıldığı gibi, “Yapay Zeka Webi” için basit bir temel oluşturmaktır.
 
-- **MCP Sunucusu (Model Context Protocol Uç Noktası)**: Her NLWeb kurulumu aynı zamanda bir **MCP sunucusu** olarak da çalışır. Bu, diğer AI sistemleriyle **araçları (ör. bir `ask` yöntemi) ve veriyi** paylaşabileceği anlamına gelir. Pratikte, bu web sitesinin içerik ve yeteneklerinin Yapay Zeka ajanları tarafından kullanılmasını sağlar ve sitenin daha geniş “ajan ekosistemi”nin bir parçası olmasına olanak tanır.
+- **MCP Sunucusu (Model Context Protocol Uç Noktası)**: Her NLWeb yapılandırması aynı zamanda bir **MCP sunucusu** olarak da çalışır. Bu, başka AI sistemleriyle **araçlar (örneğin bir “sorma” metodu) ve veri paylaşımı** yapabileceği anlamına gelir. Pratikte, web sitesinin içeriği ve yetenekleri AI ajanlarınca kullanılabilir hale gelir ve site daha geniş “ajan ekosistemi”nin parçası olur.
 
-- **Embedding Modelleri**: Bu modeller, web sitesi içeriğini bilgisayarların karşılaştırıp arama yapabileceği şekilde anlamı yakalayan sayısal temsillere, yani vektörlere (embedding) dönüştürmek için kullanılır. Bu vektörler özel bir veritabanında saklanır ve kullanıcılar hangi embedding modelini kullanmak istediklerini seçebilir.
+- **Embedding Modelleri**: Bunlar, web sitesi içeriğini **vektör adı verilen sayısal temsillere dönüştürmek** için kullanılır. Bu vektörler, anlamı bilgisayarların karşılaştırıp arayabileceği şekilde yakalar. Özel bir veritabanında saklanır ve kullanıcılar kullanılacak embedding modelini seçebilir.
 
-- **Vektör Veritabanı (Getirme Mekanizması)**: Bu veritabanı, web sitesi içeriğinin embedding'lerini saklar. Birisi bir soru sorduğunda, NLWeb en alakalı bilgiyi hızla bulmak için vektör veritabanını kontrol eder. Benzerliğe göre sıralanmış hızlı bir olası yanıt listesi sağlar. NLWeb, Qdrant, Snowflake, Milvus, Azure AI Search ve Elasticsearch gibi farklı vektör depolama sistemleriyle çalışır.
+- **Vektör Veritabanı (Erişim Mekanizması)**: Bu veritabanı, **web sitesi içeriğinin embeddinglerini saklar**. Bir soru sorulduğunda, NLWeb vektör veritabanına bakarak en ilgili bilgileri hızlıca bulur. Benzerlik sırasına göre derecelendirilmiş olası yanıtların hızlı listesini sağlar. NLWeb; Qdrant, Snowflake, Milvus, Azure AI Search ve Elasticsearch gibi farklı vektör depolama sistemleriyle çalışır.
 
-### Örnek Üzerinden NLWeb
+### NLWeb Örnek
 
 ![NLWeb](../../../translated_images/tr/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Seyahat rezervasyon web sitemizi tekrar düşünün, ancak bu sefer NLWeb tarafından güçlendiriliyor.
+Seyahat rezervasyon web sitemize tekrar bakalım; bu sefer NLWeb destekli.
 
-1. **Veri Alımı**: Seyahat web sitesinin mevcut ürün katalogları (ör. uçuş listeleri, otel açıklamaları, tur paketleri) Schema.org kullanılarak formatlanır veya RSS beslemeleri yoluyla yüklenir. NLWeb'in araçları bu yapılandırılmış veriyi alır, embedding'ler oluşturur ve bunları yerel veya uzak bir vektör veritabanında saklar.
+1. **Veri Alımı**: Seyahat sitesinin mevcut ürün katalogları (ör. uçuş listeleri, otel tanımları, tur paketleri) Schema.org kullanılarak formatlanır veya RSS beslemeleriyle yüklenir. NLWeb'in araçları bu yapılandırılmış verileri alır, embedding'ler oluşturur ve bunları yerel veya uzak bir vektör veritabanında saklar.
 
-2. **Doğal Dil Sorgusu (İnsan)**: Bir kullanıcı siteyi ziyaret eder ve menülerde gezinmek yerine sohbet arayüzüne şu cümleyi yazar: "Gelecek hafta için havuzlu, aile dostu bir Honolulu oteli bul."
+2. **Doğal Dil Sorgusu (İnsan)**: Bir kullanıcı siteyi ziyaret eder ve menülere tıklamak yerine sohbet arayüzüne yazar: "Gelecek hafta için havuzlu, aile dostu bir otel bul Honolulu'da."
 
-3. **NLWeb İşleme**: NLWeb uygulaması bu sorguyu alır. Sorguyu anlamak için bir LLM'ye gönderir ve eşzamanlı olarak ilgili otel listelerini bulmak için vektör veritabanında arama yapar.
+3. **NLWeb İşleme**: NLWeb uygulaması bu sorguyu alır. Sorguyu anlamak için LLM'ye gönderir ve eşzamanlı olarak vektör veritabanında ilgili otel kayıtlarını arar.
 
-4. **Doğru Sonuçlar**: LLM, veritabanından gelen arama sonuçlarını yorumlamaya, "aile dostu", "havuz" ve "Honolulu" kriterlerine göre en iyi eşleşmeleri belirlemeye yardımcı olur ve ardından doğal dilde bir yanıt biçimlendirir. Kritik olarak, yanıt web sitesinin kataloğundaki gerçek otellere atıfta bulunur; uydurma bilgi üretmekten kaçınır.
+4. **Doğru Sonuçlar**: LLM, veritabanından gelen arama sonuçlarını yorumlamaya ve "aile dostu," "havuz" ve "Honolulu" kriterlerine göre en iyi eşleşmeleri belirlemeye yardımcı olur, sonrasında doğal dille yanıtı formatlar. Önemli olarak, yanıt gerçek otel kataloglarına referans verir; uydurma bilgi içermez.
 
-5. **Yapay Zeka Ajanı Etkileşimi**: NLWeb bir MCP sunucusu olarak hizmet verdiği için, harici bir Yapay Zeka seyahat ajanı da bu web sitesinin NLWeb örneğine bağlanabilir. Yapay zeka ajanı daha sonra siteyi doğrudan sorgulamak için `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")` MCP yöntemini kullanabilir. NLWeb örneği bunu işler, restoran bilgisi veritabanını (yüklenmişse) kullanır ve yapılandırılmış bir JSON yanıtı döndürür.
+5. **AI Ajan Etkileşimi**: NLWeb bir MCP sunucusu olarak hizmet verdiği için, harici bir AI seyahat ajanı da bu sitedeki NLWeb örneğine bağlanabilir. AI ajanı `ask` MCP metoduyla siteyi doğrudan sorgulayabilir: `ask("Oteller tarafından önerilen Honolulu bölgesinde vegan dostu restoranlar var mı?")`. NLWeb örneği bunu işler, varsa restoran veritabanını kullanır ve yapılandırılmış JSON yanıt döner.
 
 ### MCP/A2A/NLWeb Hakkında Daha Fazla Sorunuz mu Var?
 
-Diğer öğrenenlerle tanışmak, danışma saatlerine katılmak ve Yapay Zeka Ajanlarınızla ilgili sorularınızı yanıtlatmak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)'a katılın.
+Başka öğrenenlerle tanışmak, ofis saatlerine katılmak ve AI Ajanları ile ilgili sorularınızı sormak için [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)'a katılın.
 
 ## Kaynaklar
 
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP Yeni Başlayanlar için](https://aka.ms/mcp-for-beginners)  
+- [MCP Dokümantasyonu](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [NLWeb Deposu](https://github.com/nlweb-ai/NLWeb)
+- [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
+
+## Önceki Ders
+
+[Üretimde AI Ajanları](../10-ai-agents-production/README.md)
+
+## Sonraki Ders
+
+[AI Ajanları için Bağlam Mühendisliği](../12-context-engineering/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:
-Bu belge AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstermemize rağmen, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilindeki hâli yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanılması sonucu ortaya çıkabilecek herhangi bir yanlış anlama veya yanlış yorumdan sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

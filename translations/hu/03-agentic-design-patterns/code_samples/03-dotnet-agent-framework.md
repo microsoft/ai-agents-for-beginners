@@ -1,150 +1,153 @@
-# 🎨 Agentikus tervezési minták GitHub modellekkel (.NET)
+# 🎨 Ügynöki tervezési minták Azure OpenAI-val (Responses API) (.NET)
 
 ## 📋 Tanulási célok
 
-Ez a példa bemutatja az üzleti szintű tervezési mintákat intelligens ügynökök létrehozásához a Microsoft Agent Framework segítségével .NET-ben, GitHub modellek integrációjával. Megtanulhatod a professzionális mintákat és architekturális megközelítéseket, amelyek az ügynököket gyártásra kész, karbantartható és skálázható formában teszik elérhetővé.
+Ez a példa vállalati szintű tervezési mintákat mutat be intelligens ügynökök építéséhez a Microsoft Agent Framework .NET környezetében, Azure OpenAI (Responses API) integrációval. Megtanulhatod a professzionális mintákat és architekturális megközelítéseket, amelyek az ügynököket gyártásra készé, karbantarthatóvá és méretezhetővé teszik.
 
-### Üzleti tervezési minták
+### Vállalati tervezési minták
 
-- 🏭 **Factory minta**: Standardizált ügynök létrehozás függőség injektálással
-- 🔧 **Builder minta**: Folyékony ügynök konfiguráció és beállítás
+- 🏭 **Factory Pattern (Gyári minta)**: Szabványosított ügynök létrehozás függőséginjektálással
+- 🔧 **Builder Pattern (Építő minta)**: Folyékony ügynök konfiguráció és beállítás
 - 🧵 **Szálbiztos minták**: Párhuzamos beszélgetéskezelés
-- 📋 **Repository minta**: Eszközök és képességek szervezett kezelése
+- 📋 **Repository Pattern (Tároló minta)**: Szervezett eszköz- és képességkezelés
 
 ## 🎯 .NET-specifikus architekturális előnyök
 
-### Üzleti funkciók
+### Vállalati jellemzők
 
-- **Erős típusosság**: Fordítási időben történő validáció és IntelliSense támogatás
-- **Függőség injektálás**: Beépített DI konténer integráció
+- **Erős típusosság**: Fordításkori érvényesítés és IntelliSense támogatás
+- **Függőséginjekció**: Beépített DI konténer integráció
 - **Konfigurációkezelés**: IConfiguration és Options minták
-- **Async/Await**: Első osztályú aszinkron programozási támogatás
+- **Async/Await**: Kiemelt aszinkron programozási támogatás
 
 ### Gyártásra kész minták
 
-- **Naplózási integráció**: ILogger és strukturált naplózási támogatás
-- **Egészségügyi ellenőrzések**: Beépített monitorozás és diagnosztika
-- **Konfiguráció validáció**: Erős típusosság adat annotációkkal
+- **Naplózás integráció**: ILogger és strukturált naplózás támogatás
+- **Egészségellenőrzések**: Beépített monitorozás és diagnosztika
+- **Konfiguráció érvényesítés**: Erős típusosság adat annotációkkal
 - **Hibakezelés**: Strukturált kivételkezelés
 
-## 🔧 Technikai architektúra
+## 🔧 Műszaki architektúra
 
 ### Alapvető .NET komponensek
 
-- **Microsoft.Extensions.AI**: Egységes AI szolgáltatás absztrakciók
-- **Microsoft.Agents.AI**: Üzleti ügynökök orchesztrációs keretrendszere
-- **GitHub modellek integrációja**: Nagy teljesítményű API kliens minták
+- **Microsoft.Extensions.AI**: Egységes AI szolgáltatási absztrakciók
+- **Microsoft.Agents.AI**: Vállalati ügynökösszehangoló keretrendszer
+- **Azure OpenAI (Responses API)**: Nagyteljesítményű API kliensminták
 - **Konfigurációs rendszer**: appsettings.json és környezet integráció
 
-### Tervezési minták megvalósítása
+### Tervezési minta megvalósítás
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Ügynök Építő]
+    B --> C[Konfiguráció]
+    C --> D[Eszköz Regiszter]
+    D --> E[MI Ügynök]
 ```
 
-## 🏗️ Bemutatott üzleti minták
+## 🏗️ Bemutatott vállalati minták
 
 ### 1. **Létrehozási minták**
 
-- **Agent Factory**: Központosított ügynök létrehozás következetes konfigurációval
-- **Builder minta**: Folyékony API komplex ügynök konfigurációhoz
-- **Singleton minta**: Megosztott erőforrások és konfigurációkezelés
-- **Függőség injektálás**: Laza kapcsolódás és tesztelhetőség
+- **Ügynökgyár**: Központosított ügynöklétrehozás egységes konfigurációval
+- **Builder Pattern**: Folyékony API összetett ügynök konfigurációhoz
+- **Singleton minta**: Megosztott erőforrás- és konfigurációkezelés
+- **Függőséginjektálás**: Laza kapcsolás és tesztelhetőség
 
 ### 2. **Viselkedési minták**
 
-- **Stratégia minta**: Cserélhető eszköz végrehajtási stratégiák
-- **Parancs minta**: Ügynök műveletek kapszulázása visszavonás/újra végrehajtás lehetőséggel
-- **Megfigyelő minta**: Eseményvezérelt ügynök életciklus-kezelés
-- **Sablon metódus**: Standardizált ügynök végrehajtási munkafolyamatok
+- **Stratégia minta**: Felcserélhető eszközvégrehajtási stratégiák
+- **Parancs minta**: Kapszulázott ügynök műveletek visszavonással/ismétléssel
+- **Megfigyelő minta**: Eseményvezérelt ügynök életcikluskezelés
+- **Sablon metódus**: Szabványosított ügynök végrehajtási munkafolyamatok
 
 ### 3. **Strukturális minták**
 
-- **Adapter minta**: GitHub modellek API integrációs réteg
-- **Dekorátor minta**: Ügynök képességek bővítése
-- **Homlokzat minta**: Egyszerűsített ügynök interakciós interfészek
-- **Proxy minta**: Lusta betöltés és gyorsítótárazás a teljesítmény érdekében
+- **Adapter minta**: Azure OpenAI (Responses API) integrációs réteg
+- **Dekorátor minta**: Ügynök képességnövelés
+- **Függöny minta**: Egyszerűsített ügynök interakciós felületek
+- **Proxy minta**: Lusta betöltés és cache-elés a teljesítményért
 
-## 📚 .NET tervezési elvek
+## 📚 .NET tervezési alapelvek
 
-### SOLID elvek
+### SOLID alapelvek
 
 - **Egyetlen felelősség**: Minden komponensnek egyértelmű célja van
-- **Nyitott/Zárt**: Bővíthető módosítás nélkül
-- **Liskov helyettesítés**: Interfész-alapú eszköz implementációk
+- **Nyitott/zárt**: Bővíthető módosítás nélkül
+- **Liskov-helyettesítés**: Interfész alapú eszközmegvalósítások
 - **Interfész szegregáció**: Fókuszált, összetartó interfészek
-- **Függőség inverzió**: Absztrakciókra támaszkodás, nem konkrétumokra
+- **Függőség megfordítás**: Absztrakciókra, nem konkrétumokra támaszkodás
 
 ### Tiszta architektúra
 
 - **Domain réteg**: Alapvető ügynök és eszköz absztrakciók
-- **Alkalmazási réteg**: Ügynök orchesztráció és munkafolyamatok
-- **Infrastruktúra réteg**: GitHub modellek integrációja és külső szolgáltatások
+- **Alkalmazási réteg**: Ügynök összehangolás és munkafolyamatok
+- **Infrastruktúra réteg**: Azure OpenAI (Responses API) integráció és külső szolgáltatások
 - **Prezentációs réteg**: Felhasználói interakció és válaszformázás
 
-## 🔒 Üzleti szempontok
+## 🔒 Vállalati megfontolások
 
 ### Biztonság
 
-- **Hitelesítő adatok kezelése**: Biztonságos API kulcs kezelés IConfiguration segítségével
-- **Bemenet validáció**: Erős típusosság és adat annotáció validáció
-- **Kimenet szűrés**: Biztonságos válaszfeldolgozás és szűrés
+- **Hitelesítő adatok kezelése**: Biztonságos API kulcs kezelése IConfiguration-nal
+- **Bemeneti érvényesítés**: Erős típusosság és adat annotáció érvényesítés
+- **Kimeneti tisztítás**: Biztonságos válasz feldolgozás és szűrés
 - **Audit naplózás**: Átfogó műveletkövetés
 
 ### Teljesítmény
 
 - **Aszinkron minták**: Nem blokkoló I/O műveletek
-- **Kapcsolat pooling**: Hatékony HTTP kliens kezelés
-- **Gyorsítótárazás**: Válasz gyorsítótárazás a jobb teljesítmény érdekében
-- **Erőforrás-kezelés**: Megfelelő felszabadítás és tisztítási minták
+- **Kapcsolatpoolozás**: Hatékony HTTP kliens kezelés
+- **Caching**: Válasz cache-elés a jobb teljesítményért
+- **Erőforrás-kezelés**: Megfelelő hulladékkezelés és tisztítási minták
 
-### Skálázhatóság
+### Méretezhetőség
 
-- **Szálbiztonság**: Párhuzamos ügynök végrehajtás támogatása
-- **Erőforrás pooling**: Hatékony erőforrás kihasználás
-- **Terheléskezelés**: Sebességkorlátozás és visszanyomás kezelése
-- **Monitorozás**: Teljesítménymutatók és egészségügyi ellenőrzések
+- **Szálbiztonság**: Párhuzamos ügynökvégrehajtás támogatása
+- **Erőforrás-poolozás**: Hatékony erőforrás-kihasználás
+- **Terhelés menedzsment**: Aránykorlátozás és vissza nyomás kezelése
+- **Monitorozás**: Teljesítménymutatók és egészségellenőrzések
 
-## 🚀 Gyártási telepítés
+## 🚀 Gyártásra való telepítés
 
 - **Konfigurációkezelés**: Környezet-specifikus beállítások
 - **Naplózási stratégia**: Strukturált naplózás korrelációs azonosítókkal
 - **Hibakezelés**: Globális kivételkezelés megfelelő helyreállítással
-- **Monitorozás**: Alkalmazás betekintések és teljesítmény számlálók
-- **Tesztelés**: Egységtesztek, integrációs tesztek és terhelési tesztelési minták
+- **Monitorozás**: Alkalmazás-információk és teljesítmény számlálók
+- **Tesztelés**: Egységtesztek, integrációs tesztek és terheléses tesztelési minták
 
-Készen állsz üzleti szintű intelligens ügynökök létrehozására .NET-ben? Építsünk valami robusztust! 🏢✨
+Készen állsz vállalati szintű intelligens ügynökök építésére .NET-ben? Tervezzünk valami masszívat! 🏢✨
 
 ## 🚀 Első lépések
 
 ### Előfeltételek
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) vagy újabb
-- [GitHub Models API hozzáférési token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Egy [Azure előfizetés](https://azure.microsoft.com/free/), Azure OpenAI erőforrással és modell telepítéssel
+- Az [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — jelentkezz be az `az login` paranccsal
 
 ### Szükséges környezeti változók
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Jelentkezzen be, hogy az AzureCliCredential tokenhez jusson
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Ezután jelentkezzen be, hogy az AzureCliCredential tokenhez juthasson
+az login
 ```
 
-### Példa kód
+### Minta kód
 
-A kód példa futtatásához,
+A kódpélda futtatásához,
 
 ```bash
 # zsh/bash
@@ -158,21 +161,23 @@ Vagy a dotnet CLI használatával:
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Lásd [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) a teljes kódért.
+A teljes kód a [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) fájlban található.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősség kizárása**:  
-Ez a dokumentum az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

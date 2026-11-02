@@ -1,210 +1,210 @@
-# MCP ile Agent-to-Agent İletişim Sistemleri Kurma
+# MCP ile Agent-to-Agent İletişim Sistemleri Oluşturmak
 
-> TL;DR - MCP üzerinde Agent2Agent İletişimi Kurabilir misiniz? Evet!
+> Özet - MCP Üzerinde Agent2Agent İletişim Kurabilir misiniz? Evet!
 
-MCP, "LLM'lere bağlam sağlama" olan orijinal hedefinin ötesinde önemli ölçüde gelişti. [Devam edebilir akışlar](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [bilgi toplama](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [örnekleme](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ve bildirimler ([ilerleme](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ve [kaynaklar](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) gibi son geliştirmelerle MCP, karmaşık agent-to-agent iletişim sistemleri oluşturmak için sağlam bir temel sağlar.
+MCP, orijinal hedefi olan "LLM'lere bağlam sağlama"dan çok daha ileriye evrildi. [Devam edilebilir akımlar](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [yöneltme](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [örnekleme](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) ve bildirimler ([ilerleme](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) ve [kaynaklar](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) gibi son gelişmelerle MCP, karmaşık agent-to-agent iletişim sistemleri kurmak için sağlam bir temel sağlar.
 
-## Agent/Tool Yanılgısı
+## Agent/Araç Yanılgısı
 
-Agentik davranışlara sahip araçları (uzun süre çalışır, yürütme sırasında ek girdilere ihtiyaç duyabilir, vb.) keşfeden daha fazla geliştiriciyle birlikte, yaygın bir yanılgı MCP'nin uygun olmadığıdır. Bunun nedeni, MCP'nin araç ilkelinin erken örneklerinin basit istek-yanıt kalıplarına odaklanmasıdır.
+Daha fazla geliştirici uzun süre çalışan, yürütme sırasında ek girdi gerektirebilen vb. ajan davranışlarına sahip araçları keşfettikçe, MCP'nin erken araç örneklerinin basit istek-yanıt kalıplarına odaklanması nedeniyle MCP'nin uygun olmadığına dair yaygın bir yanılgı vardır.
 
-Bu algı artık geçerli değil. MCP spesifikasyonu, uzun süreli agentik davranışlar oluşturma boşluğunu kapatan özelliklerle son birkaç ayda önemli ölçüde geliştirildi:
+Bu algı artık güncel değil. MCP spesifikasyonu, uzun süre çalışan ajan davranışı oluşturmadaki farkı kapatan yeteneklerle son birkaç ayda önemli ölçüde geliştirildi:
 
 - **Akış ve Kısmi Sonuçlar**: Yürütme sırasında gerçek zamanlı ilerleme güncellemeleri
-- **Devamlılık**: Bağlantı kesildikten sonra istemciler yeniden bağlanabilir ve devam edebilir
-- **Dayanıklılık**: Sonuçlar sunucu yeniden başlatmalarından sonra korunur (örneğin, kaynak bağlantıları aracılığıyla)
-- **Çoklu dönüş**: Yürütme sırasında etkileşimli girişler bilgi toplama ve örnekleme yoluyla
+- **Devam Edebilirlik**: Bağlantı kesildikten sonra istemciler yeniden bağlanıp devam edebilir
+- **Dayanıklılık**: Sonuçlar sunucu yeniden başlatmalarından sonra korunur (örneğin, kaynak bağlantıları ile)
+- **Çok Turlu**: Yürütme sırasında etkileşimli girdi, yöneltme ve örnekleme yoluyla
 
-Bu özellikler, MCP protokolü üzerinde konuşlandırılan karmaşık agentik ve çoklu agent uygulamalarını mümkün kılmak için birleştirilebilir.
+Bu özellikler, MCP protokolü üzerinde dağıtılan karmaşık ajan ve çok ajan uygulamalarını mümkün kılmak için birleştirilebilir.
 
-Referans olarak, bir agenti MCP sunucusunda mevcut olan bir "araç" olarak adlandıracağız. Bu, bir MCP istemcisini uygulayan ve MCP sunucusuyla bir oturum kuran ve agenti çağırabilen bir ana uygulamanın varlığını ima eder.
+Referans olarak, bir ajanı MCP sunucusunda mevcut olan bir "araç" olarak adlandıracağız. Bu, bir MCP sunucusu ile oturum kuran ve ajanı çağırabilen bir MCP istemcisi uygulayan bir ana uygulamanın varlığını ima eder.
 
-## MCP Araçlarını "Agentik" Yapan Nedir?
+## Bir MCP Aracını "Ajanik" Yapan Nedir?
 
-Uygulamaya geçmeden önce, uzun süreli agentleri desteklemek için gereken altyapı yeteneklerini belirleyelim.
+Uygulamaya dalmadan önce, uzun süre çalışan ajanları desteklemek için hangi altyapı yeteneklerinin gerektiğini belirleyelim.
 
-> Bir agenti, uzun süre boyunca bağımsız olarak çalışabilen, birden fazla etkileşim veya gerçek zamanlı geri bildirimlere dayalı ayarlamalar gerektirebilecek karmaşık görevleri yerine getirebilen bir varlık olarak tanımlayacağız.
+> Bir ajanı, uzunca süreler boyunca otonom çalışabilen, çoklu etkileşim veya gerçek zamanlı geribildirim temelinde ayarlamalar yapabilen karmaşık görevleri yerine getirebilen bir varlık olarak tanımlayacağız.
 
 ### 1. Akış ve Kısmi Sonuçlar
 
-Geleneksel istek-yanıt kalıpları uzun süreli görevler için işe yaramaz. Agentlerin şunları sağlaması gerekir:
+Geleneksel istek-yanıt kalıpları uzun süren görevler için uygun değildir. Ajanların sağlaması gerekenler:
 
 - Gerçek zamanlı ilerleme güncellemeleri
 - Ara sonuçlar
 
-**MCP Desteği**: Kaynak güncelleme bildirimleri kısmi sonuçların akışını sağlar, ancak bu, JSON-RPC'nin 1:1 istek/yanıt modeliyle çakışmaları önlemek için dikkatli bir tasarım gerektirir.
+**MCP Desteği**: Kaynak güncelleme bildirimleri kısmi sonuçların akışını sağlar, ancak bu JSON-RPC'nin 1:1 istek/yanıt modeli ile çakışmaları önlemek için dikkatli tasarım gerektirir.
 
-| Özellik                    | Kullanım Durumu                                                                                                                                                                       | MCP Desteği                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Gerçek zamanlı İlerleme Güncellemeleri | Kullanıcı bir kod tabanı geçiş görevi talep eder. Agent ilerlemeyi akış olarak iletir: "10% - Bağımlılıkları analiz ediyor... 25% - TypeScript dosyalarını dönüştürüyor... 50% - İthalatları güncelliyor..."          | ✅ İlerleme bildirimleri                                                                  |
-| Kısmi Sonuçlar            | "Bir kitap oluştur" görevi kısmi sonuçları akış olarak iletir, örneğin: 1) Hikaye yayının taslağı, 2) Bölüm listesi, 3) Tamamlanan her bölüm. Ana bilgisayar herhangi bir aşamada inceleyebilir, iptal edebilir veya yönlendirebilir. | ✅ Bildirimler "genişletilebilir" ve kısmi sonuçları içerebilir, PR 383, 776 önerilerine bakın |
+| Özellik                   | Kullanım Durumu                                                                                                                                                                   | MCP Desteği                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Gerçek Zamanlı İlerleme   | Kullanıcı bir kod tabanı geçiş görevi ister. Ajan ilerlemeyi aktarır: "10% - Bağımlılıklar analiz ediliyor... 25% - TypeScript dosyaları dönüştürülüyor... 50% - İçe aktarımlar güncelleniyor..." | ✅ İlerleme bildirimleri                                                                  |
+| Kısmi Sonuçlar            | "Bir kitap oluştur" görevi kısmi sonuçları aktarır: 1) Hikaye arkı taslağı, 2) Bölüm listesi, 3) Her bölüm tamamlandıkça. Ana uygulama herhangi bir aşamada inceleyebilir, iptal edebilir veya yönlendirebilir. | ✅ Bildirimler "uzatılabilir" kısmi sonuçlar için PR 383, 776'de önerilere bakınız            |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Şekil 1:</strong> Bu diyagram, bir MCP agentinin uzun süreli bir görev sırasında ana uygulamaya gerçek zamanlı ilerleme güncellemeleri ve kısmi sonuçları nasıl akış olarak ilettiğini, kullanıcının yürütmeyi gerçek zamanlı olarak izlemesini sağladığını göstermektedir.
+<strong>Şekil 1:</strong> Bu diyagram, MCP ajanının uzun süren bir görev sırasında ana uygulamaya gerçek zamanlı ilerleme güncellemeleri ve kısmi sonuçlar nasıl aktardığını gösterir, kullanıcının yürütmeyi gerçek zamanlı izlemesini sağlar.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Ana Uygulama<br/>(MCP İstemcisi)
+    participant Server as MCP Sunucusu<br/>(Ajan Aracı)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Uzun görevi başlat
+    Host->>Server: agent_tool() çağrısı
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop İlerleme Güncellemeleri
+        Server-->>Host: İlerleme + kısmi sonuçlar
+        Host-->>User: Akış güncellemeleri
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Nihai sonuç
+    Host-->>User: Tamamlandı
 ```
 
-### 2. Devamlılık
+### 2. Devam Edebilirlik
 
-Agentler ağ kesintilerini sorunsuz bir şekilde yönetmelidir:
+Ajanların ağ kesintilerini zarifçe yönetmesi gerekir:
 
-- (İstemci) bağlantı kesildikten sonra yeniden bağlanma
-- Kaldıkları yerden devam etme (mesaj yeniden iletimi)
+- (istemci) bağlantı kesilmesinden sonra yeniden bağlanma
+- Kaldığı yerden devam etme (mesajların yeniden teslimi)
 
-**MCP Desteği**: MCP StreamableHTTP taşıma bugün oturum kimlikleri ve son olay kimlikleri ile oturum devamlılığı ve mesaj yeniden iletimi destekler. Burada önemli olan, sunucunun istemci yeniden bağlandığında olay tekrarlarını etkinleştiren bir EventStore uygulaması gerektiğidir.  
-Topluluk önerisi (PR #975) taşıma bağımsız devam edebilir akışları keşfetmektedir.
+**MCP Desteği**: MCP StreamableHTTP taşıması bugün oturum devam ettirme ve mesaj yeniden teslimini oturum kimlikleri ve son olay kimlikleri ile destekler. Burada önemli nokta, sunucunun istemci yeniden bağlandığında olay tekrarlarını mümkün kılan bir Olay Deposu uygulaması yapmasıdır.
+Toplulukta, taşıma-agnostik devam edilebilir akışları araştıran bir öneri (PR #975) bulunmaktadır.
 
-| Özellik      | Kullanım Durumu                                                                                                                                                   | MCP Desteği                                                                |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| Devamlılık | Uzun süreli görev sırasında istemci bağlantısı kesilir. Yeniden bağlandığında, oturum kaçırılan olaylar yeniden oynatılarak sorunsuz bir şekilde kaldığı yerden devam eder. | ✅ StreamableHTTP taşıma oturum kimlikleri, olay tekrarları ve EventStore ile |
+| Özellik       | Kullanım Durumu                                                                                                                                                | MCP Desteği                                                               |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Devam Edebilir | İstemci uzun süren bir görev sırasında bağlantısı kesilir. Yeniden bağlandığında, oturum kaybedilen olayların tekrar oynatılmasıyla kaldığı yerden sorunsuz devam eder. | ✅ Oturum kimlikleri, olay tekrarları ve Olay Deposu ile StreamableHTTP taşıması |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Şekil 2:</strong> Bu diyagram, MCP'nin StreamableHTTP taşıma ve olay deposunun oturum devamlılığını nasıl sağladığını gösterir: istemci bağlantısı kesilirse, yeniden bağlanabilir ve kaçırılan olayları yeniden oynatabilir, görevi ilerleme kaybı olmadan sürdürebilir.
+<strong>Şekil 2:</strong> Bu diyagram, MCP'nin StreamableHTTP taşıması ve olay deposunun kesintisiz oturum devamını nasıl sağladığını gösterir: istemci bağlantısı kesilirse, yeniden bağlanabilir ve kaçırılan olayları tekrar oynatabilir, böylece görev ilerlemesini kaybetmeden devam eder.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Ev Sahibi Uygulama<br/>(MCP İstemcisi)
+    participant Server as MCP Sunucusu<br/>(Ajan Aracı)
+    participant Store as Olay Deposu
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Görevi başlat
+    Host->>Server: Aracı çağır [oturum: abc123]
+    Server->>Store: Olayları kaydet
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Bağlantı kesildi
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Yeniden bağlan [oturum: abc123]
+    Store-->>Server: Olayları tekrar oynat
+    Server-->>Host: Telafi et + devam et
+    Host-->>User: ✅ Tamamlandı
 ```
 
 ### 3. Dayanıklılık
 
-Uzun süreli agentlerin kalıcı duruma ihtiyacı vardır:
+Uzun çalışan ajanların kalıcı duruma ihtiyacı vardır:
 
-- Sonuçlar sunucu yeniden başlatmalarından sonra korunur
-- Durum dış bantta alınabilir
-- Oturumlar arasında ilerleme takibi
+- Sonuçlar sunucu yeniden başlatmalarını atlatır
+- Durum out-of-band (bant-dışı) alınabilir
+- Oturumlar arası ilerleme takibi
 
-**MCP Desteği**: MCP artık araç çağrıları için bir Kaynak bağlantı dönüş türünü desteklemektedir. Bugün, bir araç tasarlamak ve hemen bir kaynak bağlantısı döndürmek için bir araç tasarlamak yaygın bir modeldir. Araç, arka planda görevi ele alabilir ve kaynağı güncelleyebilir. Buna karşılık, istemci bu kaynağın durumunu kontrol etmeyi (sunucunun sağladığı kaynak güncellemelerine bağlı olarak kısmi veya tam sonuçlar almak için) veya güncelleme bildirimleri için kaynağa abone olmayı seçebilir.
+**MCP Desteği**: MCP artık araç çağrıları için Kaynak bağlantısı dönüş tipini destekliyor. Bugün yaygın bir desen, arka planda işi sürdüren ve kaynak güncellemeleri ile ilerlemeyi bildiren bir kaynak yaratarak hemen kaynak bağlantısını döndüren bir araç tasarlamaktır. İstemci, kısmi veya tam sonuçlar almak için bu kaynağın durumunu yoklayabilir veya güncelleme bildirimlerine abone olabilir.
 
-Buradaki bir sınırlama, kaynakları kontrol etmenin veya güncellemeler için abone olmanın ölçekle ilgili etkileri olan kaynakları tüketebilmesidir. Sunucunun istemci/ana uygulamayı güncellemeler hakkında bilgilendirmek için çağırabileceği webhook'lar veya tetikleyiciler ekleme olasılığını keşfeden açık bir topluluk önerisi (992 dahil) bulunmaktadır.
+Burada bir kısıtlama, kaynakları yoklama ya da güncellemelere abone olmanın ölçeklendirmede kaynak tüketimine yol açmasıdır. Sunucunun istemci/ana uygulamayı güncellemelerden haberdar etmek için çağırabileceği webhook veya tetikleyiciler içerebilme ihtimali üzerine açık bir topluluk önerisi (#992 dahil) bulunmaktadır.
 
-| Özellik    | Kullanım Durumu                                                                                                                                        | MCP Desteği                                                        |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Dayanıklılık | Veri geçiş görevi sırasında sunucu çöküyor. Sonuçlar ve ilerleme yeniden başlatmadan sonra korunur, istemci durumu kontrol edebilir ve kalıcı kaynaktan devam edebilir. | ✅ Kalıcı depolama ve durum bildirimleri ile kaynak bağlantıları |
+| Özellik   | Kullanım Durumu                                                                                              | MCP Desteği                                                     |
+| --------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Dayanıklılık | Veri geçişi görevi sırasında sunucu çöker. Sonuçlar ve ilerleme yeniden başlatmadan sağ kurtulur, istemci durumu kontrol edip kalıcı kaynaktan devam eder. | ✅ Kalıcı depolama ve durum bildirimleri içeren kaynak bağlantıları |
 
-Bugün, bir araç tasarlamak ve hemen bir kaynak bağlantısı döndürmek yaygın bir modeldir. Araç, arka planda görevi ele alabilir, ilerleme güncellemeleri olarak hizmet eden veya kısmi sonuçlar içeren kaynak bildirimleri yayınlayabilir ve gerektiği gibi kaynaktaki içeriği güncelleyebilir.
+Bugün yaygın bir desen, bir kaynak yaratan ve hemen kaynak bağlantısını döndüren bir araç tasarlamaktır. Araç arka planda görevi yürütür, ilerleme güncellemeleri veya kısmi sonuçlar sağlayan kaynak bildirimleri oluşturur ve gerektiğinde kaynaktaki içeriği günceller.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Şekil 3:</strong> Bu diyagram, MCP agentlerinin kalıcı kaynakları ve durum bildirimlerini kullanarak uzun süreli görevlerin sunucu yeniden başlatmalarından sonra hayatta kalmasını nasıl sağladığını, istemcilerin ilerlemeyi kontrol etmesine ve hatalardan sonra sonuçları almasına olanak tanıdığını göstermektedir.
+<strong>Şekil 3:</strong> Bu diyagram, MCP ajanlarının kalıcı kaynaklar ve durum bildirimlerini kullanarak, uzun süre çalışan görevlerin sunucu yeniden başlatmalarını atlatmasını ve istemcilerin ilerlemeyi izleyip sonuçları başarısızlık sonrası da alabilmesini nasıl sağladığını gösterir.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Ana Uygulama<br/>(MCP İstemcisi)
+    participant Server as MCP Sunucusu<br/>(Ajan Aracı)
+    participant DB as Kalıcı Depolama
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Görevi başlat
+    Host->>Server: Aracı çağır
+    Server->>DB: Kaynak oluştur + güncellemeler
+    Server-->>Host: 🔗 Kaynak bağlantısı
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Sunucu yeniden başlatma
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Durumu kontrol et
+    Host->>Server: Kaynağı al
+    Server->>DB: Durumu yükle
+    Server-->>Host: Mevcut ilerleme
+    Server->>DB: Tamamla + bildir
+    Host-->>User: ✅ Tamamlandı
 ```
 
-### 4. Çoklu Dönüş Etkileşimleri
+### 4. Çok Turlu Etkileşimler
 
-Agentler genellikle yürütme sırasında ek girdilere ihtiyaç duyar:
+Ajanlar sıklıkla yürütme sırasında ek girdiye ihtiyaç duyar:
 
-- İnsan açıklaması veya onayı
-- Karmaşık kararlar için AI yardımı
-- Dinamik parametre ayarlamaları
+- İnsan tarafından açıklama veya onay
+- Karmaşık kararlar için yapay zeka yardımı
+- Dinamik parametre ayarı
 
-**MCP Desteği**: Örnekleme (AI girdisi için) ve bilgi toplama (insan girdisi için) aracılığıyla tamamen desteklenir.
+**MCP Desteği**: Yöneltme (insan girdisi için) ve örnekleme (Yapay Zeka girdisi için) yoluyla tamamen desteklenir.
 
-| Özellik                 | Kullanım Durumu                                                                                                                                     | MCP Desteği                                           |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Çoklu Dönüş Etkileşimleri | Seyahat rezervasyonu agenti kullanıcıdan fiyat onayı ister, ardından rezervasyon işlemini tamamlamadan önce seyahat verilerini özetlemek için AI'dan yardım ister. | ✅ İnsan girdisi için bilgi toplama, AI girdisi için örnekleme |
+| Özellik                  | Kullanım Durumu                                                                                                                                       | MCP Desteği                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Çok Turlu Etkileşimler   | Seyahat rezervasyon aracısı kullanıcıdan fiyat onayı ister, sonra rezervasyonu tamamlamadan önce yapay zekadan seyahat verilerini özetlemesini ister. | ✅ İnsan girişi için yöneltme, yapay zeka girişi için örnekleme |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Şekil 4:</strong> Bu diyagram, MCP agentlerinin yürütme sırasında insan girdisini etkileşimli olarak toplayabileceğini veya AI yardımı isteyebileceğini, onaylar ve dinamik karar verme gibi karmaşık, çoklu dönüş iş akışlarını desteklediğini göstermektedir.
+<strong>Şekil 4:</strong> Bu diyagram, MCP ajanlarının yürütme sırasında insan girdisi almak veya yapay zekadan yardım istemek suretiyle nasıl etkileşimde bulunabileceğini ve çok turlu, karmaşık iş akışlarını (onaylar ve dinamik karar alma gibi) desteklediğini gösterir.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Ana Uygulama<br/>(MCP İstemcisi)
+    participant Server as MCP Sunucusu<br/>(Agent Aracı)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Uçuş rezervasyonu yap
+    Host->>Server: seyahat_acentasına çağrı yap
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Bilgi toplama: "500$ onaylanıyor mu?"
+    Note over Host: Bilgi toplama geri çağrısı (mevcutsa)
+    Host->>User: 💰 Fiyatı onayla?
+    User->>Host: "Evet"
+    Host->>Server: Onaylandı
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Örnekleme: "Verileri özetle"
+    Note over Host: AI geri çağrısı (mevcutsa)
+    Host->>Server: Rapor özeti
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Uçuş rezervasyonu yapıldı
 ```
 
-## MCP'de Uzun Süreli Agentler Uygulama - Kod Genel Bakış
+## MCP Üzerinde Uzun Süren Ajanların Uygulanması - Kod Genel Bakış
 
-Bu makale kapsamında, StreamableHTTP taşıma ile oturum devamlılığı ve mesaj yeniden iletimi için MCP Python SDK kullanılarak uzun süreli agentlerin tam bir uygulamasını içeren bir [kod deposu](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) sağlıyoruz. Uygulama, MCP yeteneklerinin agent benzeri davranışları etkinleştirmek için nasıl birleştirilebileceğini göstermektedir.
+Bu makale kapsamında, MCP Python SDK'sını StreamableHTTP taşıma ile oturum devam ettirme ve mesaj yeniden teslimi için kullanan uzun süre çalışan ajanların tam bir uygulamasını içeren bir [kod deposu](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) sağlıyoruz. Uygulama MCP yeteneklerinin nasıl birleştirilebileceğini ve sofistike ajan benzeri davranışları nasıl sağlayabileceğini gösterir.
 
-Özellikle, iki ana agent aracı içeren bir sunucu uyguluyoruz:
+Özellikle, iki ana ajan aracı sunucusu uygularız:
 
-- **Seyahat Agenti** - Bilgi toplama yoluyla fiyat onayı simüle eden bir seyahat rezervasyon hizmeti
-- **Araştırma Agenti** - Örnekleme yoluyla AI destekli özetlerle araştırma görevleri gerçekleştirir
+- **Seyahat Ajanı** - Yöneltme yoluyla fiyat onayı veren seyahat rezervasyon servisini simüle eder
+- **Araştırma Ajanı** - Örnekleme yoluyla yapay zeka destekli özetlerle araştırma görevleri yapar
 
-Her iki agent de gerçek zamanlı ilerleme güncellemelerini, etkileşimli onayları ve tam oturum devamlılığı yeteneklerini gösterir.
+Her iki ajan gerçek zamanlı ilerleme güncellemeleri, etkileşimli onaylar ve tam oturum devam ettirme yeteneklerini gösterir.
 
-### Temel Uygulama Kavramları
+### Anahtar Uygulama Kavramları
 
-Aşağıdaki bölümler, her yetenek için sunucu tarafı agent uygulamasını ve istemci tarafı ana bilgisayar işlemesini göstermektedir:
+Aşağıdaki bölümler her yetenek için sunucu tarafı ajan uygulaması ve istemci tarafı ana uygulama işleyişini gösterir:
 
 #### Akış ve İlerleme Güncellemeleri - Gerçek Zamanlı Görev Durumu
 
-Akış, agentlerin uzun süreli görevler sırasında gerçek zamanlı ilerleme güncellemeleri sağlamasına olanak tanır, kullanıcıları görev durumu ve ara sonuçlar hakkında bilgilendirir.
+Akış, ajanların uzun süren görevlerde gerçek zamanlı ilerleme güncellemeleri sağlamasını mümkün kılar, böylece kullanıcılar görev durumu ve ara sonuçlar hakkında bilgi sahibi olur.
 
-**Sunucu Uygulaması (agent ilerleme bildirimleri gönderir):**
+**Sunucu Uygulaması (ajan ilerleme bildirimleri gönderir):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Sunucu/server.py'den - Seyahat acentesi ilerleme güncellemeleri gönderiyor
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # İş simülasyonu
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternatif: Ayrıntılı adım adım güncellemeler için günlük mesajları
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**İstemci Uygulaması (ana bilgisayar ilerleme güncellemelerini alır):**
+**İstemci Uygulaması (ana uygulama ilerleme güncellemeleri alır):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# client/client.py dosyasından - Gerçek zamanlı bildirimleri yöneten istemci
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Oturum oluşturulurken mesaj işleyicisini kaydet
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Bilgi Toplama - Kullanıcı Girdisi İsteme
+#### Yöneltme - Kullanıcı Girdisi İsteği
 
-Bilgi toplama, agentlerin yürütme sırasında kullanıcı girdisi istemesine olanak tanır. Bu, uzun süreli görevler sırasında onaylar, açıklamalar veya onaylar için gereklidir.
+Yöneltme, ajanların yürütme sırasında kullanıcıdan girdi istemesini sağlar. Bu, onaylar, açıklamalar veya onaylar için kritik önemdedir.
 
-**Sunucu Uygulaması (agent onay ister):**
+**Sunucu Uygulaması (ajan onay ister):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Server/server.py'den - Fiyat onayı talep eden seyahat acentesi
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Rezervasyona devam et
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Rezervasyonu iptal et
     booking_cancelled = True
 ```
 
-**İstemci Uygulaması (ana bilgisayar bilgi toplama geri çağrısı sağlar):**
+**İstemci Uygulaması (ana uygulama yöneltme geri çağrısı sağlar):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# client/client.py'den - İstemci yoklama isteklerini işleme
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Oturum oluşturulurken geri çağırmayı kaydet
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Örnekleme - AI Yardımı İsteme
+#### Örnekleme - Yapay Zeka Yardımı İsteği
 
-Örnekleme, agentlerin yürütme sırasında karmaşık kararlar veya içerik oluşturma için LLM yardımı istemesine olanak tanır. Bu, hibrit insan-AI iş akışlarını mümkün kılar.
+Örnekleme, ajanların karmaşık kararlar veya içerik oluşturma için çalıştırma sırasında LLM desteği istemesini sağlar. Bu hibrit insan-yapay zeka iş akışlarını mümkün kılar.
 
-**Sunucu Uygulaması (agent AI yardımı ister):**
+**Sunucu Uygulaması (ajan yapay zeka yardımı ister):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Server/server.py'den - Araştırma ajanı AI özeti istiyor
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**İstemci Uygulaması (ana bilgisayar örnekleme geri çağrısı sağlar):**
+**İstemci Uygulaması (ana uygulama örnekleme geri çağrısı sağlar):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# client/client.py'den - İstemciden örnekleme isteklerini işleme
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # Gerçek bir uygulamada, bu bir LLM API'sini çağırabilir
+    # Demo amaçlı, sahte bir yanıt sağlıyoruz
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Oturum oluşturulurken geri çağrıyı kaydet
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Devamlılık - Kesintiler Arasında Oturum Sürekliliği
+#### Devam Edebilirlik - Bağlantı Kesintileri Arasında Oturum Sürekliliği
 
-Devamlılık, uzun süreli agent görevlerinin istemci bağlantı kesilmelerini hayatta kalmasını ve yeniden bağlanma sırasında sorunsuz bir şekilde devam etmesini sağlar. Bu, olay depoları ve devamlılık belirteçleri aracılığıyla uygulanır.
+Devam edebilirlik, uzun süren ajan görevlerinin istemci bağlantı kesintilerinden sağ çıkmasını ve yeniden bağlandığında sorunsuzca devam etmesini sağlar. Bu, olay depoları ve devam ettirme jetonlarıyla uygulanır.
 
 **Olay Deposu Uygulaması (sunucu oturum durumunu tutar):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Server/event_store.py'den - Basit bellek içi olay deposu
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Oturumun orijinal akışından sadece sonraki olayları tekrar oynat.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Server/server.py'den - Olay deposunu oturum yöneticisine geçir
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Devam için olay deposu ile oturum yöneticisi oluştur
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Olay deposu, oturum devamını sağlar
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Kullanım: Olay deposu ile başlat
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**İstemci Meta Verileri ile Devamlılık Belirteci (istemci depolanan durumu kullanarak yeniden bağlanır):**
+**Devam ettirme Jetonlu İstemci Metaverisi (istemci saklanan durumla yeniden bağlanır):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# client/client.py'den - Meta verilerle istemci devamı
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Kaldığımız yerden devam etmek için mevcut devam jetonunu kullan
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Alındığında devam jetonunu kaydetmek için geri arama oluştur
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Devam meta verisi ile istek gönder
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,92 +437,94 @@ result = await session.send_request(
 )
 ```
 
-Ana uygulama, oturum kimliklerini ve devamlılık belirteçlerini yerel olarak tutar, mevcut oturumlara ilerleme veya durum kaybı olmadan yeniden bağlanmasını sağlar.
+Ana uygulama, oturum kimliklerini ve devam ettirme jetonlarını yerel olarak korur, böylece ilerlemeyi veya durumu kaybetmeden mevcut oturumlara yeniden bağlanabilir.
 
 ### Kod Organizasyonu
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Şekil 5:</strong> MCP tabanlı agent sistem mimarisi
+<strong>Şekil 5:</strong> MCP tabanlı ajan sistem mimarisi
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Kullanıcı]) -->|"Görev"| Host["Ev Sahibi<br/>(MCP İstemcisi)"]
+    Host -->|araçları listele| Server[MCP Sunucusu]
+    Server -->|Ortaya çıkarır| AgentsTools[Temsilciler Araçlar olarak]
+    AgentsTools -->|Görev| AgentA[Seyahat Acentası]
+    AgentsTools -->|Görev| AgentB[Araştırma Acentası]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|İzler| StateUpdates[İlerleme ve Durum Güncellemeleri]
+    Server -->|Yayınlar| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
     class Host,Server,StateUpdates core;
 ```
 
-**Temel Dosyalar:**
+**Anahtar Dosyalar:**
 
-- **`server/server.py`** - Seyahat ve araştırma agentlerini bilgi toplama, örnekleme ve ilerleme güncellemeleri ile gösteren devamlı MCP sunucusu
-- **`client/client.py`** - Devamlılık desteği, geri çağrı işleyicileri ve belirteç yönetimi ile etkileşimli ana uygulama
-- **`server/event_store.py`** - Oturum devamlılığı ve mesaj yeniden iletimi sağlayan olay deposu uygulaması
+- **`server/server.py`** - Yöneltme, örnekleme ve ilerleme güncellemelerini gösteren devam edilebilir MCP sunucusu Seyahat ve Araştırma ajanları ile
+- **`client/client.py`** - Devam ettirme desteği, geri çağrı işleyicileri ve jeton yönetimi içeren etkileşimli ana uygulama
+- **`server/event_store.py`** - Oturum devam ettirme ve mesaj yeniden teslimini mümkün kılan olay deposu uygulaması
 
-## MCP'de Çoklu Agent İletişimine Genişletme
+## MCP Üzerinde Çok Ajanlı İletişime Genişletme
 
-Yukarıdaki uygulama, ana uygulamanın zekasını ve kapsamını artırarak çoklu agent sistemlerine genişletilebilir:
+Yukarıdaki uygulama, ana uygulamanın zekasını ve kapsamını geliştirerek çok ajanlı sistemlere genişletilebilir:
 
-- **Akıllı Görev Ayrıştırma**: Ana bilgisayar karmaşık kullanıcı isteklerini analiz eder ve bunları farklı uzmanlaşmış agentler için alt görevlere böler
-- **Çoklu Sunucu Koordinasyonu**: Ana bilgisayar, farklı agent yeteneklerini ortaya çıkaran birden fazla MCP sunucusuna bağlantıları sürdürür
-- **Görev Durumu Yönetimi**: Ana bilgisayar, birden fazla eşzamanlı agent görevi arasında ilerlemeyi takip eder, bağımlılıkları ve sıralamayı yönetir
-- **Dayanıklılık ve Yeniden Denemeler**: Ana bilgisayar hataları yönetir, yeniden deneme mantığını uygular ve agentler kullanılamaz hale geldiğinde görevleri yeniden yönlendirir
-- **Sonuç Sentezi**: Ana bilgisayar, birden fazla agentten gelen çıktıları tutarlı nihai sonuçlara birleştirir
+- **Akıllı Görev Parçalaması**: Ana uygulama karmaşık kullanıcı isteklerini analiz eder ve bunları farklı uzman ajanlar için alt görevlere böler
+- **Çoklu Sunucu Koordinasyonu**: Ana uygulama, farklı ajan yetenekleri sunan birden fazla MCP sunucusuna bağlantıları sürdürür
+- **Görev Durum Yönetimi**: Ana uygulama, çoklu eşzamanlı ajan görevlerindeki ilerlemeyi, bağımlılıkları ve sıralamayı takip eder
+- **Dayanıklılık ve Yeniden Denemeler**: Ana uygulama hataları yönetir, yeniden deneme mantığı uygular ve ajanlar kullanılamaz hale geldiğinde görevleri farklı yönlendirir
+- **Sonuç Sentezi**: Ana uygulama çoklu ajanlardan çıkan çıktıları uyumlu nihai sonuçlarda birleştirir
 
-Ana bilgisayar, basit bir istemciden, dağıtılmış agent yeteneklerini koordine eden ve aynı MCP protokolü temelini koruyan akıllı bir düzenleyiciye dönüşür.
+Ana uygulama, basit bir istemciden, dağıtık ajan yeteneklerini koordine eden zeki bir orkestratöre evrilir; aynı MCP protokol temelini korur.
 
 ## Sonuç
 
-MCP'nin geliştirilmiş yetenekleri - kaynak bildirimleri, bilgi toplama/örnekleme, devam edebilir akışlar ve kalıcı kaynaklar - protokol basitliğini korurken karmaşık agent-to-agent etkileşimlerini mümkün kılar.
+MCP'nin geliştirilmiş yetenekleri - kaynak bildirimleri, yöneltme/örnekleme, devam edilebilir akışlar ve kalıcı kaynaklar - karmaşık agent-to-agent etkileşimleri sağlarken protokol basitliğini korur.
 
 ## Başlarken
 
-Kendi agent2agent sisteminizi kurmaya hazır mısınız? İşte adımlar:
+Kendi agent2agent sisteminizi kurmaya hazır mısınız? Bu adımları izleyin:
 
 ### 1. Demoyu Çalıştırın
 
 ```bash
-# Start the server with event store for resumption
+# Devam için olay deposuyla sunucuyu başlat
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Başka bir terminalde, etkileşimli istemciyi çalıştırın
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Etkileşimli modda kullanılabilir komutlar:**
+**Etkileşimli modda mevcut komutlar:**
 
-- `travel_agent` - Bilgi toplama yoluyla fiyat onayı ile seyahat rezervasyonu yapın
-- `research_agent` - Örnekleme yoluyla AI destekli özetlerle konuları araştırın
-- `list` - Tüm mevcut araçları göster
-- `clean-tokens` - Devamlılık belirteçlerini temizle
-- `help` - Ayrıntılı komut yardımını göster
+- `travel_agent` - Yöneltme yoluyla fiyat onayı ile seyahat rezervasyonu yapma
+- `research_agent` - Örnekleme yoluyla yapay zeka destekli özetler ile araştırma konuları
+- `list` - Mevcut tüm araçları göster
+- `clean-tokens` - Devam ettirme jetonlarını temizle
+- `help` - Detaylı komut yardımını göster
 - `quit` - İstemciden çık
 
-### 2. Devamlılık Yeteneklerini Test Edin
+### 2. Devam Etme Yeteneğini Test Edin
 
-- Uzun süreli bir agent başlatın (örneğin, `travel_agent`)
-- Yürütme sırasında istemciyi durdurun (Ctrl+C)
-- İstemciyi yeniden başlatın - kaldığı yerden otomatik olarak devam edecektir
+- Uzun süre çalışan bir ajan başlatın (örn., `travel_agent`)
+- Çalıştırma sırasında istemciyi durdurun (Ctrl+C)
+- İstemciyi yeniden başlatın - otomatik olarak kaldığı yerden devam edecektir
 
 ### 3. Keşfedin ve Genişletin
 
-- **Örnekleri keşfedin**: Bu [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) örneklerine göz atın
+- **Örnekleri keşfedin**: Bu [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) deposunu inceleyin
 - **Topluluğa katılın**: GitHub'daki MCP tartışmalarına katılın
-- **Deney yapın**: Basit bir uzun süreli görevle başlayın ve yavaş yavaş akış, devamlılık ve çoklu agent koordinasyonu ekleyin
+- **Deney yapın**: Basit bir uzun süren görevle başlayın ve kademeli olarak akış, devam edebilirlik ve çoklu ajan koordinasyonunu ekleyin
 
-Bu, MCP'nin araç tabanlı basitliği korurken akıllı agent davranışlarını nasıl mümkün kıldığını göstermektedir.
+Bu, MCP'nin zeki ajan davranışlarını araç tabanlı sadelikle nasıl mümkün kıldığını gösterir.
 
-Genel olarak, MCP protokol spesifikasyonu hızla gelişiyor; okuy
+Genel olarak, MCP protokol spesifikasyonu hızla gelişiyor; okuyucu resmi dokümantasyon sitesini en son güncellemeler için incelemeye teşvik edilir - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Feragatname**:  
-Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalardan sorumlu değiliz.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

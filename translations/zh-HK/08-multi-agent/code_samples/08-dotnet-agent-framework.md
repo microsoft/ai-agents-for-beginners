@@ -1,84 +1,89 @@
-# 🤝 企業級多代理工作流程系統 (.NET)
+# 🤝 企業多代理工作流程系統 (.NET)
 
 ## 📋 學習目標
 
-此筆記本展示如何使用 Microsoft Agent Framework 和 GitHub 模型在 .NET 中構建高級企業級多代理系統。您將學習如何通過結構化的工作流程協調多個專業代理，利用 .NET 的企業功能來打造適合生產環境的解決方案。
+本筆記本展示如何使用 .NET 中的 Microsoft Agent Framework 並結合 Azure OpenAI (Responses API) 建立複雜的企業級多代理系統。你將學習如何通過結構化工作流程協調多個專業代理協同工作，並利用 .NET 的企業功能打造可投入生產的解決方案。
 
-**您將構建的企業級多代理功能：**
-- 👥 **代理協作**：類型安全的代理協調，具備編譯時驗證
-- 🔄 **工作流程編排**：使用 .NET 的異步模式進行聲明式工作流程定義
-- 🎭 **角色專業化**：強類型的代理角色和專業領域
-- 🏢 **企業整合**：具備監控和錯誤處理的生產級模式
+**你將打造的企業多代理能力：**
+- 👥 <strong>代理協作</strong>：具備編譯時驗證的類型安全代理協調
+- 🔄 <strong>工作流程編排</strong>：使用 .NET 非同步模式的宣告式工作流程定義
+- 🎭 <strong>角色專精</strong>：強類型代理人格與專業領域
+- 🏢 <strong>企業整合</strong>：監控與錯誤處理的生產級範式
 
-## ⚙️ 先決條件與設置
+## ⚙️ 前置條件與設置
 
 **開發環境：**
 - .NET 9.0 SDK 或更高版本
-- Visual Studio 2022 或安裝了 C# 擴展的 VS Code
-- Azure 訂閱（用於持久化代理）
+- Visual Studio 2022 或具備 C# 擴充的 VS Code
+- Azure 訂閱（用於持久代理）
 
-**所需的 NuGet 套件：**
+**所需 NuGet 套件：**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
 ## 程式碼範例
 
-本課程的完整工作程式碼可在附帶的 C# 文件中找到：[`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+本課程的完整可執行程式碼可在附帶的 C# 檔案中取得：[`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
-執行範例：
+執行範例步驟：
 
 ```bash
-# Make the file executable (Linux/macOS)
+# 令檔案可執行（Linux/macOS）
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# 運行範例
 ./08-dotnet-agent-framework.cs
 ```
 
-或者使用 .NET CLI：
+或使用 .NET CLI：
 
 ```bash
 dotnet run 08-dotnet-agent-framework.cs
 ```
 
-## 本範例展示的內容
+## 本範例展示內容
 
-此多代理工作流程系統創建了一個酒店旅行推薦服務，包含兩個專業代理：
+此多代理工作流程系統創建了一個飯店旅遊推薦服務，包含兩個專業代理：
 
-1. **前台代理**：提供活動和地點推薦的旅行代理
-2. **禮賓代理**：審核推薦以確保提供真實且非旅遊化的體驗
+1. **FrontDesk 代理**：提供活動及地點推薦的旅遊代理
+2. **Concierge 代理**：檢視推薦以確保體驗真實且非觀光客化
 
-代理通過以下工作流程協作：
-- 前台代理接收初始旅行請求
-- 禮賓代理審核並改進推薦
-- 工作流程以實時流方式傳遞回應
+這些代理在一個工作流程中協作：
+- FrontDesk 代理接收初始旅遊請求
+- Concierge 代理審核並精煉推薦內容
+- 工作流程實時串流回應
 
-## 核心概念
+## 主要概念
 
-### 代理協作
-範例展示了使用 Microsoft Agent Framework 進行類型安全的代理協作，並具備編譯時驗證。
+### 代理協調
+範例展示如何使用 Microsoft Agent Framework 實現具編譯時驗證的類型安全代理協調。
 
 ### 工作流程編排
-使用 .NET 的異步模式進行聲明式工作流程定義，將多個代理連接到管道中。
+使用 .NET 的非同步模式，以宣告式工作流程定義串聯多個代理。
 
-### 實時回應流
-使用異步可枚舉和事件驅動架構實現代理回應的實時流。
+### 串流回應
+實作代理回應的實時串流，採用非同步列舉和事件驅動架構。
 
 ### 企業整合
-展示了生產級模式，包括：
-- 環境變數配置
+展示生產級範式包括：
+- 環境變數設定
 - 安全憑證管理
 - 錯誤處理
-- 異步事件處理
+- 非同步事件處理
 
 ---
 
-**免責聲明**：  
-此文件已使用人工智能翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要信息，建議使用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責聲明**：
+本文件由 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻譯而成。雖然我們致力於確保準確性，但請注意，機器自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要資訊，建議進行專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

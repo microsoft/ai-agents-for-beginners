@@ -1,32 +1,32 @@
-[![How to design better AI agents](../../../translated_images/pcm/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/pcm/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Click di picture wey de for top make you watch di video for dis lesson)_
-# Principles wey dey guide how to design AI agents
+> _(Click di image wey dey above to watch video of dis lesson)_
+# AI Agentic Design Principles
 
-## Intro
+## Introduction
 
-Plenty different ways dey to think how person go build AI Agentic Systems. Since ambiguity na part of generative AI design, e fit hard for engineers to sabi how dem go even start. We don make set of human-centric UX Design Principles to help developers build customer-centered agentic systems wey go solve business needs. These design principles no be strict architecture; na jus starting point for teams wey dey define and build agent experiences.
+Many ways dey to think about building AI Agentic Systems. Because say ambiguity na feature and no be bug for Generative AI design, e dey sometimes hard for engineers to sabi where to start. We don create set of human-centric UX Design Principles to help developers build customer-centric agentic systems to solve their business needs. Dis design principles no be dey prescribe architecture but na starting point for teams wey dey define and build agent experiences.
 
-For general, agents suppose:
+Generally, agents suppose:
 
-- Broaden and scale human capacities (brainstorming, problem-solving, automation, etc.)
-- Fill in knowledge gaps (make person quick sabi knowledge domains, translation, etc.)
-- Facilitate and support collaboration the way we as individuals like to work with others
-- Make we better versions of ourselves (like life coach/task master, help us learn emotional regulation and mindfulness skills, build resilience, etc.)
+- Make human capacities bigger and better (brainstorming, problem-solving, automation, etc.)
+- Fill knowledge gaps (make me sabi well well for knowledge domains, translation, etc.)
+- Support and promote collaboration in di way we as individuals like to work wit others
+- Make us better versions of ourselves (e.g., life coach/task master, helping us learn emotional regulation and mindfulness skills, build resilience, etc.)
 
-## Wetin dis Lesson go Cover
+## Wetin Dis Lesson Go Cover
 
-- Wetin be the Agentic Design Principles
-- Some guidelines wey you fit follow when you dey implement these design principles
-- Some examples how to use the design principles
+- Wetin be Agentic Design Principles
+- Some guidelines to follow to fit implement these design principles
+- Some examples of how to use the design principles
 
 ## Learning Goals
 
 After you finish dis lesson, you go fit:
 
-1. Explain wetin the Agentic Design Principles be
-2. Explain the guidelines for using the Agentic Design Principles
-3. Understand how to build an agent using the Agentic Design Principles
+1. Explain wetin be Agentic Design Principles
+2. Explain guidelines to use Agentic Design Principles
+3. Understand how to build agent using Agentic Design Principles
 
 ## The Agentic Design Principles
 
@@ -34,57 +34,57 @@ After you finish dis lesson, you go fit:
 
 ### Agent (Space)
 
-Na di environment wey the agent dey operate. These principles dey guide how we go design agents for physical and digital worlds.
+Na environment wey agent dey work. These principles dey guide how we design agents to dey engage for physical and digital worlds.
 
-- **Connecting, not collapsing** – help connect people to other people, events, and actionable knowledge to enable collaboration and connection.
+- **Connecting, no be collapsing** – help connect people to other people, events, and actionable knowledge to enable collaboration and connection.
 - Agents dey help connect events, knowledge, and people.
-- Agents dey bring people closer together. Dem no suppose replace or make people feel small.
-- **Easily accessible yet occasionally invisible** – agent go mostly work for background and e go only make small touch when e relevant and correct.
-  - Agent suppose easy to find and access for authorized users for any device or platform.
+- Agents dey bring people close together. Dem no be to replace or belittle people.
+- **Easily accessible but sometimes invisible** – agent dey mostly operate for background and e go only show small when e necessary and appropriate.
+  - Agent easy to find and use for authorized users for any device or platform.
   - Agent dey support multimodal inputs and outputs (sound, voice, text, etc.).
-  - Agent fit move smoothly between foreground and background; between proactive and reactive, depending on how e sense user needs.
-  - Agent fit dey operate invisible, but the background process path and how e collaborate with other Agents suppose dey clear and controllable by the user.
+  - Agent fit waka well between foreground and background; between proactive and reactive, depending on how e sense di user needs.
+  - Agent fit dey invisible form, but the background process path and collaboration with other Agents dey transparent to and fit be controlled by di user.
 
 ### Agent (Time)
 
-Na how the agent dey operate over time. These principles dey guide how we design agents wey dey interact across past, present, and future.
+Dis na how the agent dey operate over time. These principles show how we design agents wey dem dey interact across past, present, and future.
 
-- **Past**: Reflecting on history wey include both state and context.
-  - Agent go provide more relevant results based on analysis of richer historical data, no be only the event, people, or states.
-  - Agent dey create connections from past events and e dey actively reflect on memory to engage with current situations.
-- **Now**: Nudging more than notifying.
-  - Agent dey follow full approach to interact with people. When event happen, Agent go pass static notification or other static formality. Agent fit simplify flows or generate cues dynamically to direct the user’s attention for the correct moment.
-  - Agent go deliver information based on contextual environment, social and cultural changes and tailor am to user intent.
-  - Agent interaction fit be gradual, e fit grow and increase for complexity to empower users for long term.
-- **Future**: Adapting and evolving.
-  - Agent dey adapt to different devices, platforms, and modalities.
-  - Agent dey adapt to user behavior, accessibility needs, and e dey freely customizable.
-  - Agent dey shape and e dey evolve through continuous user interaction.
+- **Past**: Reflecting on history wey get both state and context.
+  - Agent go provide better results based on analysis of deep historical data pass only the event, people, or states.
+  - Agent dey create connections from past events and dey actively reflect on memory to fit engage with current situations.
+- **Now**: Small reminder pass only notification.
+  - Agent get full approach for interacting with people. When event happen, the Agent no go just give static notification or formal talk. Agent fit simplify flow or dynamically generate cues to direct di user attention at di right time.
+  - Agent dey deliver information base on contextual environment, social and cultural changes and e go fit user intent.
+  - Agent interaction fit dey gradual, grow in complexity to empower users for long time.
+- **Future**: Fit adapt and evolve.
+  - Agent dey adapt to various devices, platforms, and modalities.
+  - Agent dey adapt to user behavior, accessibility needs, and fit freely customizable.
+  - Agent dey shaped by and dey evolve through constant user interaction.
 
 ### Agent (Core)
 
-These na the main elements wey dey the core of agent design.
+These na key elements for di core of agent design.
 
-- **Embrace uncertainty but establish trust**.
-  - Small level of Agent uncertainty dey expected. Uncertainty na key part of agent design.
-  - Trust and transparency na foundational layers for Agent design.
-  - Humans dey control when Agent dey on/off and Agent status suppose dey clearly visible all the time.
+- **Embrace uncertainty but make trust dey strong**.
+  - Some level of Agent uncertainty dey expected. Uncertainty na key part of agent design.
+  - Trust and transparency na foundation layer for Agent design.
+  - Humans dey control when Agent dey on/off and Agent status dey clear for all time.
 
-## The Guidelines to Implement These Principles
+## Guidelines to Implement These Principles
 
-When you dey use the design principles wey come before, use these guidelines:
+When you dey use these design principles, follow dis guidelines:
 
-1. **Transparency**: Make user sabi say AI dey involved, how e dey work (including past actions), and how dem fit give feedback and modify the system.
-2. **Control**: Make user fit customize, specify preferences and personalize, and get control over the system and im attributes (including ability to forget).
-3. **Consistency**: Try make experiences consistent and multi-modal across devices and endpoints. Use familiar UI/UX elements where possible (for example, microphone icon for voice interaction) and reduce customer cognitive load as much as you fit (for example, try make responses short, use visual aids, and ‘Learn More’ content).
+1. **Transparency**: Tell di user say AI dey involved, how e dey work (including past actions), and how to give feedback and change di system.
+2. **Control**: Enable user to customize, specify preferences and personalize, and dey control the system and its attributes (including ability to forget).
+3. **Consistency**: Try make consistent, multi-modal experience across devices and endpoints. Use familiar UI/UX elements where possible (like microphone icon for voice interaction) and reduce customer cognitive load as much as possible (for example, make responses short, use visual aids, and ‘Learn More’ content).
 
-## How To Design a Travel Agent using These Principles and Guidelines
+## How To Design Travel Agent using These Principles and Guidelines
 
-Imagine say you dey design Travel Agent, na so you fit think how to use the Design Principles and Guidelines:
+Imagine say you dey design Travel Agent, na so you fit take think about using Design Principles and Guidelines:
 
-1. **Transparency** – Tell user say Travel Agent na AI-enabled Agent. Give small basic instructions how to start (for example, “Hello” message, sample prompts). Put dis for product page. Show list of prompts wey user don ask before. Make e clear how to give feedback (thumbs up and down, Send Feedback button, etc.). Make am clear if Agent get usage or topic restrictions.
-2. **Control** – Make sure say e clear how user fit modify the Agent after dem don create am with things like the System Prompt. Make user fit choose how verbose the Agent dey, im writing style, and any things wey Agent no suppose talk about. Allow user to view and delete any related files or data, prompts, and past conversations.
-3. **Consistency** – Make sure say icons for Share Prompt, add a file or photo and tag person or something dey standard and people sabi am. Use paperclip icon to show file upload/sharing with Agent, and image icon to show graphics upload.
+1. **Transparency** – Make user sabi say Travel Agent na AI-enabled Agent. Give some basic instructions how to start (like “Hello” message, sample prompts). Clearly put am for product page. Show list of prompts user don ask before. Make e clear how to give feedback (thumbs up or down, Send Feedback button, etc.). Say clearly if Agent get usage or topic restrictions.
+2. **Control** – Make e clear how user fit change Agent after e don create with things like System Prompt. Enable user to choose how verbose Agent go be, e writing style, and any things wey Agent no suppose talk about. Allow user to see and delete files or data, prompts, and past talks wey join Agent.
+3. **Consistency** – Make sure say icons for Share Prompt, add file or photo and tag person or thing dey standard and people fit recognize am. Use paperclip icon for file upload/share with Agent, and image icon for graphics upload.
 
 ## Sample Codes
 
@@ -92,9 +92,9 @@ Imagine say you dey design Travel Agent, na so you fit think how to use the Desi
 - .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## You get more questions about AI Agentic Design Patterns?
+## You Get More Questions About AI Agentic Design Patterns?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) make you meet other learners, join office hours and get your AI Agents questions answer.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and make you get your AI Agent questions answer.
 
 ## Additional Resources
 
@@ -113,6 +113,6 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) make you 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Abeg note:
-Dis document don translate by AI translation service [Co-op Translator] (https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automatic translations fit get mistake or no too correct. The original document for im original language na the authoritative source. If na critical information, make professional human translator do the translation. We no go responsible for any misunderstanding or misinterpretation wey fit come from using this translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

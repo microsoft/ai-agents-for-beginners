@@ -1,15 +1,15 @@
 [![Trustworthy AI Agents](../../../translated_images/ja/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(上の画像をクリックするとこのレッスンのビデオを視聴できます)_
+> _(上の画像をクリックするとこのレッスンのビデオが見られます)_
 
 # 信頼できるAIエージェントの構築
 
 ## はじめに
 
-このレッスンでは以下を扱います：
+本レッスンでは以下について説明します：
 
-- 安全で効果的なAIエージェントの構築と展開方法
-- AIエージェント開発時の重要なセキュリティ考慮点
+- 安全で効果的なAIエージェントの構築とデプロイ方法
+- AIエージェント開発時の重要なセキュリティ上の考慮事項
 - AIエージェント開発時のデータおよびユーザープライバシーの維持方法
 
 ## 学習目標
@@ -17,28 +17,28 @@
 このレッスンを修了すると、以下ができるようになります：
 
 - AIエージェント作成時のリスクの特定と軽減
-- データとアクセスを適切に管理するためのセキュリティ対策の実装
-- データプライバシーを保ちつつ質の高いユーザー体験を提供するAIエージェントの作成
+- データとアクセスが適切に管理されるようにするためのセキュリティ対策の実装
+- データプライバシーを守り、質の高いユーザー体験を提供するAIエージェントの作成
 
 ## 安全性
 
-まずは安全なエージェンティックアプリケーションの構築について見ていきましょう。安全性とは、AIエージェントが設計どおりに機能することを意味します。エージェンティックアプリケーションの開発者として、安全性を最大化するための方法とツールがあります。
+まずは安全なエージェントアプリケーションの構築について見ていきましょう。安全性とは、AIエージェントが設計どおりに動作することを意味します。エージェントアプリケーションの開発者として、安全性を最大化する方法やツールがあります：
 
 ### システムメッセージフレームワークの構築
 
-もし大規模言語モデル（LLM）を使ってAIアプリケーションを構築したことがあれば、堅牢なシステムプロンプトやシステムメッセージの設計の重要性をご存じでしょう。これらのプロンプトは、LLMがユーザーやデータとどのように対話するかのメタルールや指示、ガイドラインを設定します。
+大規模言語モデル（LLM）を使ってAIアプリケーションを構築したことがあるなら、堅牢なシステムプロンプトやシステムメッセージの設計がいかに重要かご存じでしょう。これらのプロンプトは、LLMがユーザーやデータとどのようにやり取りするかのメタルール、指示、ガイドラインを設定します。
 
-AIエージェントにとっては、AIエージェントが設計したタスクを完遂するため、さらに具体的で詳細な指示が必要なため、システムプロンプトはもっと重要です。
+AIエージェントの場合はさらに重要で、AIエージェントに課したタスクを完遂するために極めて具体的な指示が必要です。
 
-拡張可能なシステムプロンプトを作成するために、アプリケーション内の一つまたは複数のエージェントを構築するためのシステムメッセージフレームワークを使うことができます：
+スケーラブルなシステムプロンプトを作成するには、アプリケーション内の一つまたは複数のエージェントを構築するためのシステムメッセージフレームワークを使用できます：
 
 ![Building a System Message Framework](../../../translated_images/ja/system-message-framework.3a97368c92d11d68.webp)
 
-#### ステップ1: メタシステムメッセージの作成
+#### ステップ 1：メタシステムメッセージの作成
 
-メタプロンプトは、LLMが作成するエージェント用のシステムプロンプトを生成するために使用されます。複数のエージェントを効率的に作成できるようにテンプレートとして設計します。
+メタプロンプトは、作成するエージェントのシステムプロンプトを生成するためにLLMで使用されます。これはテンプレートとして設計し、必要に応じて複数のエージェントを効率的に作成できるようにします。
 
-以下はLLMに与えるメタシステムメッセージの例です：
+こちらはLLMに与えるメタシステムメッセージの例です：
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -47,21 +47,21 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### ステップ2: 基本プロンプトの作成
+#### ステップ 2：基本的なプロンプトの作成
 
-次のステップは、AIエージェントを説明する基本プロンプトを作成することです。エージェントの役割、エージェントが完了するタスク、その他の責任を含めるべきです。
+次のステップは、AIエージェントを説明する基本的なプロンプトを作成することです。エージェントの役割、エージェントが実行するタスク、その他エージェントの責任を含めるべきです。
 
-例を示します：
+例はこちらです：
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### ステップ3: LLMに基本システムメッセージを提供
+#### ステップ 3：基本システムメッセージをLLMに提供
 
-今度は、メタシステムメッセージをシステムメッセージとして提供し、基本システムメッセージも一緒に渡すことでこのシステムメッセージを最適化できます。
+今度はメタシステムメッセージをシステムメッセージとして及び基本システムメッセージと共に提供して、システムメッセージを最適化します。
 
-これにより、AIエージェントを案内するのにより適したシステムメッセージが作成されます：
+これにより、AIエージェントを効果的に導くためにより良く設計されたシステムメッセージが生成されます：
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,100 +113,112 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### ステップ4: 反復と改善
+#### ステップ 4：繰り返しと改善
 
-このシステムメッセージフレームワークの価値は、複数のエージェントからシステムメッセージをスケーラブルに作成しやすくするとともに、時間をかけてシステムメッセージを改善できることです。最初から完全なユースケースに合うシステムメッセージができることは稀です。基本システムメッセージを変更してシステムで実行し、小さな調整や改善を行うことで、結果を比較・評価できます。
+このシステムメッセージフレームワークの価値は、複数エージェントからのシステムメッセージ作成を簡単にスケーリングできること、及びシステムメッセージを時間と共に改善できることにあります。最初から完全なユースケースにぴったり合うシステムメッセージは稀です。基本的なシステムメッセージを微調整し、システムを通じて結果を比較評価することで小さな改善を繰り返せます。
 
 ## 脅威の理解
 
-信頼できるAIエージェントを構築するには、AIエージェントへのリスクや脅威を理解し、それを軽減することが重要です。AIエージェントに影響を及ぼす様々な脅威の一部について見て、どのようにより良く計画し準備できるかを考えましょう。
+信頼できるAIエージェントを構築するには、リスクや脅威を理解して軽減することが重要です。AIエージェントに対するさまざまな脅威の一部と、それらに備え計画する方法を見ていきましょう。
 
 ![Understanding Threats](../../../translated_images/ja/understanding-threats.89edeada8a97fc0f.webp)
 
 ### タスクと指示
 
-**説明:** 攻撃者がプロンプトの操作や入力の改変によってAIエージェントの指示や目標を変更しようとする攻撃。
+**説明:** 攻撃者はプロンプトや入力の操作を通じてAIエージェントの指示や目標を変更しようとします。
 
-**軽減策:** AIエージェントが処理する前に潜在的に危険なプロンプトを検出するための検証チェックや入力フィルターを実行する。これらの攻撃は通常頻繁なエージェントとの対話を必要とするため、会話のターン数を制限することも防止策になる。
+**軽減策:** AIエージェントに処理される前に潜在的に危険なプロンプトを検出するために、検証チェックと入力フィルターを実行します。これらの攻撃は通常頻繁なやり取りを必要とするため、会話のターン数を制限することもこれらの攻撃防止に有効です。
 
 ### 重要システムへのアクセス
 
-**説明:** AIエージェントが機密データを保存しているシステムやサービスにアクセスできる場合、攻撃者がエージェントとこれらのサービス間の通信を乗っ取る可能性がある。これは直接攻撃やエージェントを介した間接的な情報収集の試みも含む。
+**説明:** AIエージェントが機密データを格納するシステムやサービスにアクセス権を持つ場合、攻撃者はエージェントとそのサービス間の通信を侵害できます。これには直接攻撃のほか、エージェントを通じてこれらのシステムの情報を得ようとする間接的な試みも含まれます。
 
-**軽減策:** これらの攻撃を防ぐため、AIエージェントには必要な範囲でのみシステムへのアクセスを許可する。エージェントとシステム間の通信も安全にするべき。認証とアクセス制御の実装も情報保護手段の一つ。
+**軽減策:** AIエージェントは必要に応じた最低限のシステムアクセスに制限し、エージェントとシステム間の通信は安全であるべきです。認証やアクセス制御を実装することも情報保護に役立ちます。
 
 ### リソースとサービスの過負荷
 
-**説明:** AIエージェントはタスクを完了するために様々なツールやサービスにアクセスできる。この能力を使い、攻撃者がエージェント経由で大量のリクエストを送信してサービスに攻撃をかけ、システム障害や高コストを引き起こす可能性がある。
+**説明:** AIエージェントはタスク完遂のため様々なツールやサービスにアクセスできます。攻撃者はこの能力を利用してAIエージェントを通じ大量のリクエストを送ることで、システム障害や高コストを引き起こす攻撃を仕掛けることができます。
 
-**軽減策:** AIエージェントがサービスに送信できるリクエスト数を制限するポリシーを実装する。会話のターン数やエージェントへのリクエスト数を制限することも防止策となる。
+**軽減策:** AIエージェントがサービスに送信できるリクエスト数を制限するポリシーを実装します。会話のターン数やAIエージェントへのリクエスト数を制限することもこれら攻撃防止に有効です。
 
-### 知識ベースの汚染
+### ナレッジベース汚染
 
-**説明:** この種の攻撃はAIエージェント自体を直接狙うのではなく、エージェントが使用する知識ベースや他のサービスを狙う。データや情報を汚染することで、ユーザーへの応答に偏りや意図しない結果が生じる恐れがある。
+**説明:** この攻撃はAIエージェント自体を直接狙うのではなく、エージェントが利用するナレッジベースやその他サービスを標的とします。これによりAIエージェントが使用するデータや情報が汚染され、偏ったり予期しない応答をユーザーに返す可能性があります。
 
-**軽減策:** エージェントがワークフローで使用するデータを定期的に検証する。アクセスは安全に管理し、信頼できる人物のみが変更できるようにして、この攻撃を防ぐ。
+**軽減策:** AIエージェントのワークフローで使用するデータの定期的な検証を行い、このデータへのアクセスは信頼できる人だけが変更できるように安全に保つことが必要です。
 
 ### 連鎖的なエラー
 
-**説明:** AIエージェントはタスク完了のため複数のツールやサービスを利用する。攻撃者によるエラーがこれらの接続されたシステムの障害を引き起こし、攻撃が拡大しトラブルシューティングが困難になる場合がある。
+**説明:** AIエージェントは様々なツールやサービスにアクセスしてタスクを完遂します。攻撃者によるエラーがこれら他の接続システムの障害を招き、攻撃がより広範囲となり、トラブルシューティングが困難になることがあります。
 
-**軽減策:** これを避ける一つの方法として、たとえばDockerコンテナ内でタスクを実行するなど、限られた環境でAIエージェントを動作させて直接的なシステム攻撃を防ぐ手法がある。特定のシステムがエラー応答した際のフォールバック機構や再実行ロジックの作成も大規模なシステム障害を防ぐ方法である。
+**軽減策:** これを防ぐ方法の一つが、AIエージェントを制限された環境（たとえばDockerコンテナ内）で動作させ、直接のシステム攻撃を防止することです。特定システムがエラーを返した場合のフォールバック機構やリトライロジックの作成も大きなシステム障害防止に役立ちます。
 
 ## ヒューマン・イン・ザ・ループ
 
-信頼できるAIエージェントシステムを構築するもう一つの効果的な方法はヒューマン・イン・ザ・ループ方式の利用です。これは実行中にユーザーがエージェントにフィードバックを提供できるフローを作ります。ユーザーは多エージェントシステム内のエージェントの役割を果たし、実行プロセスの承認または終了を行います。
+信頼できるAIエージェントシステムを構築するもう一つの効果的な方法がヒューマン・イン・ザ・ループの導入です。これは実行中にユーザーがエージェントにフィードバックを提供できる仕組みを作ります。ユーザーは基本的にマルチエージェントシステムの一員として機能し、実行プロセスの承認や終了を提供します。
 
 ![Human in The Loop](../../../translated_images/ja/human-in-the-loop.5f0068a678f62f4f.webp)
 
-以下はAutoGenを使ったこのコンセプトの実装例のコードスニペットです：
+以下はMicrosoft Agent Frameworkを使ってこの概念を実装したコードスニペットです：
 
 ```python
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# エージェントを作成します。
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # input() を使用してコンソールからユーザー入力を取得します。
+# 人間の承認を含むプロバイダーを作成する
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
-# ユーザーが "APPROVE" と言ったときに会話を終了する終了条件を作成します。
-termination = TextMentionTermination("APPROVE")
+# 人間の承認ステップを含むエージェントを作成する
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# チームを作成します。
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# 会話を実行し、コンソールにストリームします。
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# スクリプトで実行する際は asyncio.run(...) を使用します。
-await Console(stream)
-
+# ユーザーはレスポンスを確認し、承認できます
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
-## まとめ
+## 結論
 
-信頼できるAIエージェントを構築するには、綿密な設計、堅牢なセキュリティ対策、継続的な改善が必要です。体系的なメタプロンプトシステムの導入、潜在的な脅威の理解、軽減策の適用により、安全かつ効果的なAIエージェントを開発できます。さらにヒューマン・イン・ザ・ループ方式を取り入れることで、AIエージェントがユーザーのニーズと一致し、リスクを最小化することが可能です。AIが進化し続ける中で、セキュリティ、プライバシー、倫理的配慮に積極的に取り組むことが、AI駆動システムの信頼性と信頼を築く鍵となります。
+信頼できるAIエージェントの構築には、慎重な設計、堅牢なセキュリティ対策、継続的な改善が必要です。構造化されたメタ・プロンプトシステムの実装、潜在的な脅威の理解、軽減策の適用により、安全かつ効果的なAIエージェントを開発できます。加えて、ヒューマン・イン・ザ・ループ方式を取り入れることで、AIエージェントはユーザーのニーズに沿いながらリスクを最小化して動作し続けられます。AIが進化し続ける中で、セキュリティ、プライバシー、倫理面での積極的な対策を維持することが、AI駆動システムの信頼性と信頼を育む鍵となります。
 
-### 信頼できるAIエージェントの構築についてさらに質問がありますか？
+## コードサンプル
 
-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) に参加して、他の学習者と交流し、オフィスアワーに参加してAIエージェントに関する質問に答えてもらいましょう。
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): メタプロンプトのシステムメッセージフレームワークを段階的に実演。
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): 信頼できるエージェントのための事前承認ゲート、リスク階層化、監査ログ。
+
+### 信頼できるAIエージェントの構築についてもっと質問がありますか？
+
+その他の学習者と交流したり、オフィスアワーに参加してAIエージェントの質問に答えてもらうには、[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)に参加してください。
 
 ## 追加リソース
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluation of generative AI models and AI applications</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Safety system messages</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Assessment Template</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">責任あるAIの概要</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">生成AIモデルおよびAIアプリケーションの評価</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">安全なシステムメッセージ</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">リスク評価テンプレート</a>
 
 ## 前のレッスン
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agentic RAG（エージェンティックRAG）](../05-agentic-rag/README.md)
 
 ## 次のレッスン
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[計画デザインパターン](../07-planning-design/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**免責事項**：  
-本書類は、AI翻訳サービス「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用して翻訳されました。正確性の向上に努めていますが、自動翻訳には誤りや不正確な箇所が含まれる可能性があります。原文の母国語版が正本として扱われるべきです。重要な情報については、専門の人間翻訳をご利用いただくことを推奨します。本翻訳の利用により生じたいかなる誤解や解釈の相違についても、当方は責任を負いません。
+**免責事項**：
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知おきください。原文の原語版が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や解釈違いについても、当方は責任を負いかねます。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

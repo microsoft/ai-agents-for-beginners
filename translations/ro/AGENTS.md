@@ -1,178 +1,161 @@
 # AGENTS.md
 
-## Prezentare generală a proiectului
+## Prezentarea Proiectului
 
-This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
+Acest depozit conține "Agenți AI pentru Începători" - un curs educațional cuprinzător care predă tot ce este necesar pentru a construi Agenți AI. Cursul constă în 18 lecții (numerotate 00-18) care acoperă fundamentele, modele de design, framework-uri, implementare în producție, agenți locali/pe dispozitiv și securitatea agenților AI.
 
-**Tehnologii cheie:**
+**Tehnologii Cheie:**
 - Python 3.12+
 - Jupyter Notebooks pentru învățare interactivă
-- Framework-uri AI: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Servicii Azure AI: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (nivel gratuit disponibil)
+- Framework-uri AI: Microsoft Agent Framework (MAF)
+- Servicii Azure AI: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Arhitectură:**
-- Structură bazată pe lecții (directoare 00-15+)
-- Fiecare lecție conține: documentație README, exemple de cod (Jupyter notebooks) și imagini
-- Suport pentru mai multe limbi printr-un sistem automatizat de traducere
-- Multiple opțiuni de framework per lecție (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Structură bazată pe lecții (directorii 00-18)
+- Fiecare lecție conține: documentație README, exemple de cod (jurnale Jupyter) și imagini
+- Suport multi-limbă prin sistem automatizat de traducere
+- Un notebook Python per lecție folosind Microsoft Agent Framework
 
-## Comenzi de configurare
+## Comenzi de Configurare
 
-### Cerințe prealabile
-- Python 3.12 sau mai recent
-- Cont GitHub (pentru GitHub Models - nivel gratuit)
-- Abonament Azure (opțional, pentru serviciile Azure AI)
+### Cerințe Prealabile
+- Python 3.12 sau versiune superioară
+- Abonament Azure (pentru Microsoft Foundry)
+- Azure CLI instalat și autentificat (`az login`)
 
-### Configurare inițială
+### Configurare Inițială
 
-1. **Clonați sau faceți fork la repository:**
+1. **Clonează sau fă fork la depozit:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # SAU
+   # OR
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Creați și activați mediu virtual Python:**
+2. **Creează și activează mediul virtual Python:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Pe Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Instalați dependențele:**
+3. **Instalează dependențele:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configurați variabilele de mediu:**
+4. **Configurează variabilele de mediu:**
    ```bash
    cp .env.example .env
-   # Editează fișierul .env cu cheile tale API și endpoint-urile.
+   # Edit .env with your API keys and endpoints
    ```
 
-### Variabile de mediu necesare
+### Variabile de Mediu Necesare
 
-Pentru **GitHub Models (gratuit)**:
-- `GITHUB_TOKEN` - token de acces personal GitHub
+Pentru **Microsoft Foundry** (Necesar):
+- `AZURE_AI_PROJECT_ENDPOINT` - Endpoint-ul proiectului Microsoft Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Numele implementării modelului (exemplu: gpt-5-mini)
 
-Pentru **Azure AI Services** (opțional):
-- `PROJECT_ENDPOINT` - endpointul proiectului Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - cheie API Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - URL endpoint Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - numele implementării pentru modelul de chat
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - numele implementării pentru embeddings
-- Configurare Azure suplimentară, așa cum se arată în `.env.example`
+Pentru **Azure AI Search** (Lecția 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Endpoint Azure AI Search
+- `AZURE_SEARCH_API_KEY` - Cheia API Azure AI Search
 
-## Flux de lucru pentru dezvoltare
+Autentificare: Rulează `az login` înainte de a rula jurnalele (folosește `AzureCliCredential`).
 
-### Rularea notebook-urilor Jupyter
+## Fluxul de Dezvoltare
 
-Fiecare lecție conține mai multe notebook-uri Jupyter pentru diferite framework-uri:
+### Executarea Jupyter Notebooks
 
-1. **Porniți Jupyter:**
+Fiecare lecție conține mai multe jurnale Jupyter pentru diferite framework-uri:
+
+1. **Pornește Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Navigați la un director de lecție** (de ex., `01-intro-to-ai-agents/code_samples/`)
+2. **Navighează la un director de lecție** (exemplu: `01-intro-to-ai-agents/code_samples/`)
 
-3. **Deschideți și rulați notebook-urile:**
-   - `*-semantic-kernel.ipynb` - Using Semantic Kernel framework
-   - `*-autogen.ipynb` - Using AutoGen framework
-   - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
-   - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Using Azure AI Agent Service
+3. **Deschide și rulează jurnalele:**
+   - `*-python-agent-framework.ipynb` - Folosind Microsoft Agent Framework (Python)
+   - `*-dotnet-agent-framework.ipynb` - Folosind Microsoft Agent Framework (.NET)
 
-### Lucrul cu diferite framework-uri
+### Lucrul cu Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Nivel gratuit disponibil cu cont GitHub
-- Bun pentru învățare și experimentare
-- File pattern: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Nivel gratuit disponibil cu cont GitHub
-- Capabilități de orchestrare multi-agent
-- File pattern: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Cel mai recent framework de la Microsoft
-- Disponibil în Python și .NET
-- File pattern: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
+**Microsoft Agent Framework + Microsoft Foundry:**
 - Necesită abonament Azure
-- Funcționalități pregătite pentru producție
-- File pattern: `*-azureaiagent.ipynb`
+- Folosește `FoundryChatClient` pentru Agent Service V2 (agenți vizibili în portalul Foundry)
+- Pregătit pentru producție cu observabilitate integrată
+- Pattern de fișier: `*-python-agent-framework.ipynb`
 
-## Instrucțiuni de testare
+## Instrucțiuni de Testare
 
-This is an educational repository with example code rather than production code with automated tests. To verify your setup and changes:
+Acesta este un depozit educațional cu cod exemplu mai degrabă decât cod de producție cu teste automate. Pentru a verifica configurarea și modificările tale:
 
-### Testare manuală
+### Testare Manuală
 
-1. **Testați mediul Python:**
+1. **Testează mediul Python:**
    ```bash
-   python --version  # Ar trebui să fie 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   python --version  # Should be 3.12+
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Testați execuția notebook-urilor:**
+2. **Testează execuția jurnalelor:**
    ```bash
-   # Convertește notebook-ul în script și rulează (testează importurile)
+   # Convert notebook to script and run (tests imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Verificați variabilele de mediu:**
+3. **Verifică variabilele de mediu:**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Rularea notebook-urilor individuale
+### Rularea Jurnale Individuale
 
-Deschideți notebook-urile în Jupyter și executați celulele secvențial. Fiecare notebook este autonom și include:
-- Instrucțiuni de import
-- Încărcare configurație
-- Implementări de exemplu ale agenților
-- Output-uri așteptate în celulele markdown
+Deschide jurnalele în Jupyter și execută celulele în ordine. Fiecare jurnal este autonom și include:
+- Declarații de import
+- Încărcarea configurației
+- Implementări de agenți exemplu
+- Rezultate așteptate în celulele markdown
 
-## Stilul codului
+### Testare Sumativă pentru Agenți Implementați
+
+Pentru lecțiile în care un agent este implementat ca agent găzduit în Microsoft Foundry (01, 04, 05, 16), repo-ul include cataloage pentru testare sumativă sub `tests/` care sunt rulate de fluxul `.github/workflows/smoke-test.yml` prin acțiunea [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). Acestea sunt un filtru ușor post-implementare (este agentul accesibil și urmează cerințele de prompt de bază?), completând pipeline-ul de evaluare din Lecțiile 10 și 16. Vezi [tests/README.md](./tests/README.md) pentru alocarea catalog-lecție-agent. Lecția 17 rulează local cu Foundry Local și nu are un punct final găzduit, deci este validată prin rularea directă a jurnalului său.
+
+## Stilul Codului
 
 ### Convenții Python
 
 - **Versiune Python**: 3.12+
-- **Stilul codului**: Urmați convențiile standard Python PEP 8
-- **Notebooks**: Folosiți celule markdown clare pentru a explica conceptele
-- **Imports**: Grupează după biblioteca standard, terțe, importuri locale
+- **Stil Cod**: Urmează convențiile standard Python PEP 8
+- **Jurnale**: Folosește celule markdown clare pentru explicarea conceptelor
+- **Importuri**: Grupează după bibliotecă standard, terță parte, importuri locale
 
-### Convenții pentru Jupyter Notebook-uri
+### Convenții Jupyter Notebook
 
-- Includeți celule markdown descriptive înaintea celulelor de cod
-- Adăugați exemple de output în notebook-uri pentru referință
-- Folosiți nume de variabile clare care corespund conceptelor lecției
-- Mențineți ordinea de execuție a notebook-ului liniară (celula 1 → 2 → 3...)
+- Include celule markdown descriptive înaintea codului
+- Adaugă exemple de output în jurnale pentru referință
+- Folosește nume clare de variabile care corespund conceptelor lecției
+- Menține ordinea liniară a executării jurnalului (celula 1 → 2 → 3...)
 
-### Organizarea fișierelor
+### Organizarea Fișierelor
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Construire și implementare
+## Construire și Implementare
 
-### Generarea documentației
+### Construirea Documentației
 
-Acest repository folosește Markdown pentru documentație:
-- Fișiere README.md în fiecare folder de lecție
+Acest depozit folosește Markdown pentru documentație:
+- Fișiere README.md în fiecare dosar de lecție
 - README.md principal la rădăcina depozitului
 - Sistem automatizat de traducere prin GitHub Actions
 
@@ -181,161 +164,155 @@ Acest repository folosește Markdown pentru documentație:
 Situat în `.github/workflows/`:
 
 1. **co-op-translator.yml** - Traducere automată în peste 50 de limbi
-2. **welcome-issue.yml** - Primește creatorii de issue-uri noi
-3. **welcome-pr.yml** - Primește noii contribuitori de pull request-uri
+2. **welcome-issue.yml** - Salută creatorii de issue-uri noi
+3. **welcome-pr.yml** - Salută contributorii pull request-urilor noi
 
 ### Implementare
 
-Acesta este un repository educațional - nu există proces de implementare. Utilizatorii:
-1. Faceți fork sau clonați repository-ul
-2. Rulați notebook-urile local sau în GitHub Codespaces
-3. Învățați modificând și experimentând cu exemplele
+Acesta este un depozit educațional - fără proces de implementare. Utilizatorii:
+1. Fă fork sau clonează depozitul
+2. Rulează jurnalele local sau în GitHub Codespaces
+3. Învață modificând și experimentând cu exemplele
 
-## Ghid pentru Pull Request-uri
+## Ghiduri pentru Pull Request
 
-### Înainte de trimitere
+### Înainte de a Trimite
 
-1. **Testați modificările:**
-   - Rulați complet notebook-urile afectate
-   - Verificați că toate celulele se execută fără erori
-   - Verificați că output-urile sunt adecvate
+1. **Testează modificările tale:**
+   - Rulează complet jurnalele afectate
+   - Verifică ca toate celulele să se execute fără erori
+   - Asigură-te că rezultatele sunt potrivite
 
-2. **Actualizări ale documentației:**
-   - Actualizați README.md dacă adăugați concepte noi
-   - Adăugați comentarii în notebook-uri pentru cod complex
-   - Asigurați-vă că celulele markdown explică scopul
+2. **Actualizări de documentație:**
+   - Actualizează README.md dacă adaugi concepte noi
+   - Adaugă comentarii în jurnale pentru cod complex
+   - Asigură-te că celulele markdown explică scopul
 
 3. **Modificări de fișiere:**
-   - Evitați să comiteți fișiere `.env` (folosiți `.env.example`)
-   - Nu comiteți directoarele `venv/` sau `__pycache__/`
-   - Păstrați output-urile notebook-urilor când demonstrează concepte
-   - Eliminați fișierele temporare și notebook-urile de backup (`*-backup.ipynb`)
+   - Evită să comiți fișierele `.env` (folosește `.env.example`)
+   - Nu comiți directoarele `venv/` sau `__pycache__/`
+   - Păstrează output-urile jurnalelor când demonstrează concepte
+   - Elimină fișiere temporare și backup-uri de jurnale (`*-backup.ipynb`)
 
-### Format titlu PR
+### Format Titlu PR
 
-Folosiți titluri descriptive:
+Folosește titluri descriptive:
 - `[Lesson-XX] Add new example for <concept>`
 - `[Fix] Correct typo in lesson-XX README`
 - `[Update] Improve code sample in lesson-XX`
 - `[Docs] Update setup instructions`
 
-### Verificări obligatorii
+### Verificări Necesare
 
-- Notebook-urile ar trebui să se execute fără erori
-- Fișierele README ar trebui să fie clare și precise
-- Urmați modelele existente de cod din repository
-- Mențineți consistența cu celelalte lecții
+- Jurnalele trebuie să se execute fără erori
+- Fișierele README trebuie să fie clare și corecte
+- Urmează modelele de cod existente în depozit
+- Menține consistența cu celelalte lecții
 
-## Note suplimentare
+## Note Suplimentare
 
-### Probleme comune
+### Probleme Comune
 
-1. **Incompatibilitate a versiunii Python:**
-   - Asigurați-vă că folosiți Python 3.12+
+1. **Neconcordanță versiune Python:**
+   - Asigură-te că folosești Python 3.12+
    - Unele pachete pot să nu funcționeze cu versiuni mai vechi
-   - Folosiți `python3 -m venv` pentru a specifica explicit versiunea Python
+   - Folosește `python3 -m venv` pentru a specifica explicit versiunea Python
 
-2. **Variabilele de mediu:**
-   - Întotdeauna creați `.env` pornind de la `.env.example`
-   - Nu comiteți fișierul `.env` (este în `.gitignore`)
-   - Token-ul GitHub necesită permisiuni adecvate
+2. **Variabile de mediu:**
+   - Creează întotdeauna `.env` din `.env.example`
+   - Nu comite fișierul `.env` (este în `.gitignore`)
+   - Autentifică-te cu `az login` pentru autentificare Entra ID fără chei
 
-3. **Conflicte între pachete:**
-   - Folosiți un mediu virtual proaspăt
-   - Instalați din `requirements.txt` în loc de pachete individuale
-   - Unele notebook-uri pot necesita pachete suplimentare menționate în celulele lor markdown
+3. **Conflicte de pachete:**
+   - Folosește un mediu virtual nou
+   - Instalează din `requirements.txt` în loc de pachete individuale
+   - Unele jurnale pot necesita pachete adiționale menționate în celulele markdown
 
 4. **Servicii Azure:**
-   - Serviciile Azure AI necesită un abonament activ
+   - Serviciile Azure AI necesită abonament activ
    - Unele funcționalități sunt specifice regiunii
-   - Se aplică limitările nivelului gratuit pentru GitHub Models
+   - Asigură-te că implementarea modelului tău Azure OpenAI suportă API-ul de Răspunsuri
 
-### Parcurs de învățare
+### Parcurs de Învățare
 
-Progresie recomandată prin lecții:
-1. **00-course-setup** - Începeți aici pentru configurarea mediului
-2. **01-intro-to-ai-agents** - Înțelegeți elementele fundamentale ale agenților AI
-3. **02-explore-agentic-frameworks** - Aflați despre diferite framework-uri
-4. **03-agentic-design-patterns** - Modele de design de bază
-5. Continuați prin lecțiile numerotate în ordine secvențială
+Progres recomandat prin lecții:
+1. **00-course-setup** - Începe aici pentru configurarea mediului
+2. **01-intro-to-ai-agents** - Înțelege fundamentele agenților AI
+3. **02-explore-agentic-frameworks** - Află despre diferite framework-uri
+4. **03-agentic-design-patterns** - Modele principale de design
+5. Continuă secvențial prin lecțiile numerotate
 
-### Alegerea framework-ului
+### Alegerea Framework-ului
 
-Alegeți framework-ul în funcție de obiectivele dvs.:
-- **Învățare/Prototipare**: Semantic Kernel + GitHub Models (free)
-- **Sisteme multi-agent**: AutoGen
-- **Funcționalități de ultimă oră**: Microsoft Agent Framework (MAF)
-- **Implementare în producție**: Azure AI Agent Service
+Alege framework-ul în funcție de obiectivele tale:
+- **Toate lecțiile**: Microsoft Agent Framework (MAF) cu `FoundryChatClient`
+- **Agenții se înregistrează pe server** în Microsoft Foundry Agent Service V2 și sunt vizibili în portalul Foundry
 
-### Obținerea ajutorului
+### Obținerea Ajutorului
 
-- Alăturați-vă [Comunității Microsoft Foundry pe Discord](https://aka.ms/ai-agents/discord)
-- Consultați fișierele README ale lecțiilor pentru ghidaj specific
-- Verificați [README.md](./README.md) principal pentru prezentarea cursului
-- Consultați [Configurarea cursului](./00-course-setup/README.md) pentru instrucțiuni detaliate de configurare
+- Alătură-te [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Consultă fișierele README ale lecțiilor pentru indicații specifice
+- Verifică README.md principal pentru prezentarea cursului [README.md](./README.md)
+- Consultă [Course Setup](./00-course-setup/README.md) pentru instrucțiuni detaliate de configurare
 
 ### Contribuții
 
 Acesta este un proiect educațional deschis. Contribuțiile sunt binevenite:
-- Îmbunătățiți exemplele de cod
-- Remediați greșeli de tastare sau erori
-- Adăugați comentarii clarificatoare
-- Sugerați subiecte noi pentru lecții
-- Traduceți în limbi suplimentare
+- Îmbunătățirea exemplelor de cod
+- Corectarea greșelilor de scriere sau a erorilor
+- Adăugarea de comentarii clarificatoare
+- Sugestii pentru subiecte noi de lecții
+- Traduceri în limbi suplimentare
 
-Vezi [Issue-uri GitHub](https://github.com/microsoft/ai-agents-for-beginners/issues) pentru nevoi curente.
+Vezi [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) pentru nevoile curente.
 
-## Context specific proiectului
+## Context Specific Proiectului
 
-### Suport pentru mai multe limbi
+### Suport Multi-Limbă
 
-Acest repository folosește un sistem de traducere automatizat:
-- Suport pentru peste 50 de limbi
-- Traduceri în directoarele `/translations/<lang-code>/`
-- Workflow-ul GitHub Actions se ocupă de actualizările traducerilor
-- Fișierele sursă sunt în engleză la rădăcina repository-ului
+Acest depozit folosește un sistem automatizat de traducere:
+- Suportă peste 50 de limbi
+- Traducerile sunt în directoarele `/translations/<lang-code>/`
+- Workflow-ul GitHub Actions se ocupă de actualizările de traducere
+- Fișierele sursă sunt în engleză la rădăcina depozitului
 
-### Structura lecțiilor
+### Structura Lecțiilor
 
-Fiecare lecție urmează un tipar consistent:
+Fiecare lecție urmează un model consecvent:
 1. Miniatură video cu link
 2. Conținut scris al lecției (README.md)
-3. Exemple de cod în multiple framework-uri
-4. Obiective de învățare și cerințe prealabile
-5. Resurse suplimentare de învățare legate
+3. Exemple de cod în mai multe framework-uri
+4. Obiective de învățare și prerechizite
+5. Resurse suplimentare de învățare linkuite
 
-### Numele fișierelor exemple de cod
+### Denumirea Exemplului de Cod
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lecția 4, Semantic Kernel
-- `07-autogen.ipynb` - Lecția 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lecția 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lecția 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lecția 1, MAF Python
+- `14-sequential.ipynb` - Lecția 14, modele avansate MAF
+- `16-python-agent-framework.ipynb` - Lecția 16, agent suport clienți pentru producție
+- `17-local-agent-foundry-local.ipynb` - Lecția 17, agent local cu Foundry Local + Qwen
 
-### Directoare speciale
+### Directoare Speciale
 
 - `translated_images/` - Imagini localizate pentru traduceri
 - `images/` - Imagini originale pentru conținutul în engleză
-- `.devcontainer/` - Configurare container dezvoltare VS Code
+- `.devcontainer/` - Configurarea container-ului de dezvoltare VS Code
 - `.github/` - Workflow-uri și template-uri GitHub Actions
 
 ### Dependențe
 
 Pachete cheie din `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - framework-ul AutoGen
-- `semantic-kernel` - Framework-ul Semantic Kernel
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Suport protocol Agent-la-Agent
 - `azure-ai-inference`, `azure-ai-projects` - Servicii Azure AI
+- `azure-identity` - Autentificare Azure (AzureCliCredential)
 - `azure-search-documents` - Integrare Azure AI Search
-- `chromadb` - Bază de date vectorială pentru exemple RAG
-- `chainlit` - Framework UI pentru chat
-- `browser_use` - Automatizare browser pentru agenți
-- `mcp[cli]` - Suport Model Context Protocol
-- `mem0ai` - Managementul memoriei pentru agenți
+- `mcp[cli]` - Suport Protocol Context Model
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Declinare de responsabilitate**:
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să fim cât mai corecți, vă rugăm să rețineți că traducerile automatizate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă o traducere profesională realizată de un traducător uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

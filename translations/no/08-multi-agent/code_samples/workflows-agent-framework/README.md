@@ -1,69 +1,69 @@
 # Bygge Multi-Agent Applikasjoner med Microsoft Agent Framework Workflow
 
-Denne veiledningen hjelper deg med å forstå og bygge multi-agent applikasjoner ved bruk av Microsoft Agent Framework. Vi skal utforske kjernekonseptene for multi-agent systemer, dykke ned i arkitekturen til rammeverkets Workflow-komponent, og gå gjennom praktiske eksempler i både Python og .NET for ulike workflow-mønstre.
+Denne veiledningen vil lede deg gjennom forståelsen og byggingen av multi-agent applikasjoner ved bruk av Microsoft Agent Framework. Vi vil utforske kjernkonseptene for multi-agent systemer, dykke ned i arkitekturen til rammeverkets Workflow-komponent, og gå gjennom praktiske eksempler i både Python og .NET for ulike arbeidsflytmønstre.
 
-## 1\. Forståelse av Multi-Agent Systemer
+## 1\. Forstå Multi-Agent Systemer
 
-En AI-agent er et system som går utover kapasiteten til en standard Large Language Model (LLM). Den kan oppfatte sitt miljø, ta beslutninger og utføre handlinger for å oppnå spesifikke mål. Et multi-agent system involverer flere slike agenter som samarbeider for å løse et problem som ville vært vanskelig eller umulig for en enkelt agent å håndtere alene.
+En AI-agent er et system som går utover kapabilitetene til en standard stor språkmodell (LLM). Den kan oppfatte sitt miljø, ta beslutninger og utføre handlinger for å oppnå spesifikke mål. Et multi-agent system involverer flere av disse agentene som samarbeider for å løse et problem som ville vært vanskelig eller umulig for en enkelt agent å håndtere alene.
 
-### Vanlige Bruksområder
+### Vanlige Anvendelsesscenarier
 
-  * **Løsning av komplekse problemer**: Dele opp en stor oppgave (f.eks. planlegging av et firmaarrangement) i mindre deloppgaver som håndteres av spesialiserte agenter (f.eks. en budsjettagent, en logistikkagent, en markedsføringsagent).
-  * **Virtuelle assistenter**: En primær assistentagent som delegerer oppgaver som planlegging, forskning og bestilling til andre spesialiserte agenter.
-  * **Automatisert innholdsskaping**: En workflow hvor én agent utarbeider innhold, en annen gjennomgår det for nøyaktighet og tone, og en tredje publiserer det.
+  * **Kompleks Problemløsning**: Å bryte ned en stor oppgave (for eksempel planlegging av et selskapsomfattende arrangement) i mindre deloppgaver håndtert av spesialiserte agenter (for eksempel en budsjettagent, en logistikkagent, en markedsføringsagent).
+  * **Virtuelle Assistenter**: En primær assistentagent som delegerer oppgaver som timeplanlegging, research og booking til andre spesialiserte agenter.
+  * **Automatisert Innholdsproduksjon**: En arbeidsflyt hvor en agent utarbeider innhold, en annen gjennomgår det for nøyaktighet og tone, og en tredje publiserer det.
 
 ### Multi-Agent Mønstre
 
-Multi-agent systemer kan organiseres i flere mønstre som bestemmer hvordan de interagerer:
+Multi-agent systemer kan organiseres i flere mønstre som bestemmer hvordan de samhandler:
 
-  * **Sekvensiell**: Agenter arbeider i en forhåndsdefinert rekkefølge, som på en samlebånd. Utdata fra én agent blir inngangsdata for den neste.
-  * **Samtidig**: Agenter arbeider parallelt med ulike deler av en oppgave, og resultatene deres samles til slutt.
-  * **Betinget**: Workflow følger ulike veier basert på utdata fra en agent, lik en if-then-else-logikk.
+  * **Sekvensiell**: Agenter jobber i en forhåndsdefinert rekkefølge, som en samlebåndsprosess. Utdata fra en agent blir inndata for neste.
+  * **Parallell**: Agenter jobber samtidig på ulike deler av en oppgave, og resultatene samles opp til slutt.
+  * **Betinget**: Arbeidsflyten følger ulike veier basert på utdata fra en agent, lik en if-then-else-setning.
 
 ## 2\. Microsoft Agent Framework Workflow Arkitektur
 
-Agent Frameworks workflow-system er en avansert orkestreringsmotor designet for å håndtere komplekse interaksjoner mellom flere agenter. Det er bygget på en grafbasert arkitektur som bruker en [Pregel-stil utførelsesmodell](https://kowshik.github.io/JPregel/pregel_paper.pdf), hvor prosessering skjer i synkroniserte steg kalt "supersteps."
+Agent Frameworks arbeidsflytsystem er en avansert orkestreringsmotor designet for å håndtere komplekse interaksjoner mellom flere agenter. Det er bygget på en grafbasert arkitektur som bruker en [Pregel-stil eksekveringsmodell](https://kowshik.github.io/JPregel/pregel_paper.pdf), hvor prosessering skjer i synkroniserte steg kalt "supersteps."
 
 ### Kjernekomponenter
 
 Arkitekturen består av tre hoveddeler:
 
-1.  **Executors**: Dette er de grunnleggende prosesseringsenhetene. I våre eksempler er en `Agent` en type executor. Hver executor kan ha flere meldingshåndterere som automatisk aktiveres basert på typen melding som mottas.
-2.  **Edges**: Disse definerer banen som meldinger tar mellom executors. Edges kan ha betingelser, som tillater dynamisk ruting av informasjon gjennom workflow-grafen.
-3.  **Workflow**: Denne komponenten orkestrerer hele prosessen, administrerer executors, edges og den overordnede flyten av utførelse. Den sørger for at meldinger behandles i riktig rekkefølge og strømmer hendelser for observasjon.
+1.  **Executorer**: Disse er de fundamentale prosesseringsenhetene. I våre eksempler er en `Agent` en type executor. Hver executor kan ha flere meldingshåndterere som automatisk kalles opp basert på meldingstypen som mottas.
+2.  **Edges**: Disse definerer hvilken vei meldinger tar mellom executorene. Edges kan ha betingelser som tillater dynamisk styring av informasjon gjennom arbeidsflytgrafen.
+3.  **Workflow**: Denne komponenten orkestrerer hele prosessen, styrer executorene, edgene og den overordnede kjøringsflyten. Den sikrer at meldinger behandles i riktig rekkefølge og strømmer hendelser for observabilitet.
 
-*Et diagram som illustrerer kjernekomponentene i workflow-systemet.*
+*Et diagram som illustrerer kjernekomponentene i arbeidsflytsystemet.*
 
-Denne strukturen gjør det mulig å bygge robuste og skalerbare applikasjoner ved bruk av grunnleggende mønstre som sekvensielle kjeder, fan-out/fan-in for parallell prosessering, og switch-case logikk for betingede flyter.
+Denne strukturen tillater bygging av robuste og skalerbare applikasjoner ved bruk av grunnleggende mønstre som sekvensielle kjeder, fan-out/fan-in for parallell prosessering, og switch-case-logikk for betingede flyter.
 
 ## 3\. Praktiske Eksempler og Kodeanalyse
 
-La oss nå utforske hvordan man implementerer ulike workflow-mønstre ved bruk av rammeverket. Vi skal se på både Python- og .NET-kode for hvert eksempel.
+Nå skal vi utforske hvordan man implementerer ulike arbeidsflytmønstre med rammeverket. Vi ser på både Python- og .NET-kode for hvert eksempel.
 
-### Case 1: Grunnleggende Sekvensiell Workflow
+### Case 1: Enkel Sekvensiell Arbeidsflyt
 
-Dette er det enkleste mønsteret, hvor én agents utdata sendes direkte til en annen. Vårt scenario involverer en hotell-`FrontDesk` agent som gir en reiseanbefaling, som deretter vurderes av en `Concierge` agent.
+Dette er det enkleste mønsteret, hvor utdata fra en agent sendes direkte til en annen. Scenariet vårt involverer en hotell-`FrontDesk`-agent som gir en reiseanbefaling, som deretter blir gjennomgått av en `Concierge`-agent.
 
-*Diagram av den grunnleggende FrontDesk -\> Concierge workflow.*
+*Diagram over den grunnleggende FrontDesk -> Concierge arbeidsflyten.*
 
 #### Scenario Bakgrunn
 
 En reisende ber om en anbefaling i Paris.
 
-1.  `FrontDesk`-agenten, designet for kortfattethet, foreslår et besøk til Louvre-museet.
-2.  `Concierge`-agenten, som prioriterer autentiske opplevelser, mottar dette forslaget. Den vurderer anbefalingen og gir tilbakemelding, med et forslag til et mer lokalt, mindre turistpreget alternativ.
+1.  `FrontDesk`-agenten, designet for kortfattethet, foreslår å besøke Louvre-museet.
+2.  `Concierge`-agenten, som prioriterer autentiske opplevelser, mottar denne anbefalingen. Den gjennomgår anbefalingen og gir tilbakemelding, og foreslår et mer lokalt, mindre turistpreget alternativ.
 
-#### Python Implementering Analyse
+#### Python Implementasjonsanalyse
 
 I Python-eksemplet definerer og oppretter vi først de to agentene, hver med spesifikke instruksjoner.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Definer agentroller og instruksjoner
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Opprett agentforekomster
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Deretter brukes `WorkflowBuilder` til å konstruere grafen. `front_desk_agent` settes som startpunkt, og en edge opprettes for å koble dens utdata til `reviewer_agent`.
+Deretter brukes `WorkflowBuilder` for å bygge grafen. `front_desk_agent` settes som startpunkt, og en edge opprettes for å koble utdata fra denne til `reviewer_agent`.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# 01.python-agent-framework-arbeidsflyt-ghmodel-grunnleggende.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Til slutt utføres workflow med den innledende brukerforespørselen.
+Til slutt kjøres arbeidsflyten med den initielle brukerprompten.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run kjører arbeidsflyten; get_outputs() returnerer resultatet fra utdatautføreren.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) Implementering Analyse
+#### .NET (C\#) Implementasjonsanalyse
 
-.NET-implementeringen følger en veldig lik logikk. Først defineres konstanter for agentenes navn og instruksjoner.
+.NET-implementasjonen følger en svært lik logikk. Først defineres konstanter for agentenes navn og instruksjoner.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agentene opprettes ved bruk av en `OpenAIClient`, og deretter definerer `WorkflowBuilder` den sekvensielle flyten ved å legge til en edge fra `frontDeskAgent` til `reviewerAgent`.
+Agentene opprettes med en `AzureOpenAIClient` (Responses API), og `WorkflowBuilder` definerer den sekvensielle flyten ved å legge til en edge fra `frontDeskAgent` til `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow kjøres deretter med brukerens melding, og resultatene strømmes tilbake.
+Arbeidsflyten kjøres deretter med brukerens melding, og resultatene streames tilbake.
 
-### Case 2: Multi-Step Sekvensiell Workflow
+### Case 2: Sekvensiell Arbeidsflyt med Flere Steg
 
-Dette mønsteret utvider den grunnleggende sekvensen til å inkludere flere agenter. Det er ideelt for prosesser som krever flere stadier av raffinering eller transformasjon.
+Dette mønsteret utvider den grunnleggende sekvensen til å inkludere flere agenter. Det er ideelt for prosesser som krever flere stadier av forbedring eller transformasjon.
 
 #### Scenario Bakgrunn
 
-En bruker gir et bilde av en stue og ber om et møbeltilbud.
+En bruker sender inn et bilde av en stue og ber om et møbeltilbud.
 
-1.  **Sales-Agent**: Identifiserer møbelartiklene i bildet og lager en liste.
-2.  **Price-Agent**: Tar listen over artikler og gir en detaljert prisoversikt, inkludert budsjett-, mellomklasse- og premiumalternativer.
-3.  **Quote-Agent**: Mottar den prissatte listen og formaterer den til et formelt tilbudsdokument i Markdown.
+1.  **Salgagent**: Identifiserer møblene i bildet og lager en liste.
+2.  **Prisagent**: Tar listen over gjenstander og gir en detaljert prisoversikt, inkludert budsjett-, mellomklasse- og premiumalternativer.
+3.  **Tilbudsagent**: Mottar prislisten og formaterer det til et formelt tilbudsdokument i Markdown.
 
-*Diagram av Sales -\> Price -\> Quote workflow.*
+*Diagram over Salg -> Pris -> Tilbud arbeidsflyten.*
 
-#### Python Implementering Analyse
+#### Python Implementasjonsanalyse
 
-Tre agenter defineres, hver med en spesialisert rolle. Workflow konstrueres ved bruk av `add_edge` for å lage en kjede: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Tre agenter defineres, hver med en spesialisert rolle. Arbeidsflyten bygges med `add_edge` for å skape en kjede: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Lag tre spesialiserte agenter
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Bygg den sekvensielle arbeidsflyten
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Inndata er en `ChatMessage` som inkluderer både tekst og bilde-URI. Rammeverket håndterer overføringen av utdata fra hver agent til den neste i sekvensen til det endelige tilbudet er generert.
+Inngangen er en `ChatMessage` som inkluderer både tekst og bilde-URI. Rammeverket håndterer å sende utdata fra hver agent til den neste i sekvensen til det endelige tilbudet genereres.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Brukermeldingen inneholder både tekst og et bilde
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,12 +182,11 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Kjør arbeidsflyten
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) Implementering Analyse
+#### .NET (C#) Implementasjonsanalyse
 
 .NET-eksemplet speiler Python-versjonen. Tre agenter (`salesagent`, `priceagent`, `quoteagent`) opprettes. `WorkflowBuilder` kobler dem sekvensielt.
 
@@ -195,9 +194,9 @@ async for event in workflow.run_stream(message):
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,9 +205,9 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Brukerens melding konstrueres med både bildedata (som bytes) og tekstprompt. `InProcessExecution.StreamAsync`-metoden initierer workflow, og sluttresultatet fanges opp fra strømmen.
+Brukerens melding bygges med både bildeinformasjon (som bytes) og tekstprompt. Metoden `InProcessExecution.RunStreamingAsync` starter arbeidsflyten, og det endelige resultatet hentes fra strømmen.
 
-### Case 3: Samtidig Workflow
+### Case 3: Parallell Arbeidsflyt
 
 Dette mønsteret brukes når oppgaver kan utføres samtidig for å spare tid. Det involverer en "fan-out" til flere agenter og en "fan-in" for å samle resultatene.
 
@@ -217,34 +216,34 @@ Dette mønsteret brukes når oppgaver kan utføres samtidig for å spare tid. De
 En bruker ber om å planlegge en tur til Seattle.
 
 1.  **Dispatcher (Fan-Out)**: Brukerens forespørsel sendes til to agenter samtidig.
-2.  **Researcher-Agent**: Undersøker attraksjoner, vær og viktige hensyn for en tur til Seattle i desember.
-3.  **Plan-Agent**: Lager uavhengig en detaljert dag-for-dag reiseplan.
-4.  **Aggregator (Fan-In)**: Utdataene fra både forskeren og planleggeren samles og presenteres sammen som sluttresultatet.
+2.  **Forsker-Agent**: Undersøker attraksjoner, vær og viktige hensyn for en tur til Seattle i desember.
+3.  **Planlegger-Agent**: Lager uavhengig en detaljert dag-for-dag reiserute.
+4.  **Aggregator (Fan-In)**: Resultatene fra både forskeren og planleggeren samles og presenteres samlet som sluttresultat.
 
-*Diagram av den samtidige Researcher og Planner workflow.*
+*Diagram over den parallelle Forsker- og Planlegger-arbeidsflyten.*
 
-#### Python Implementering Analyse
+#### Python Implementasjonsanalyse
 
-`ConcurrentBuilder` forenkler opprettelsen av dette mønsteret. Du lister bare opp de deltakende agentene, og builderen oppretter automatisk nødvendig fan-out og fan-in logikk.
+`ConcurrentBuilder` forenkler opprettelsen av dette mønsteret. Du lister bare opp de deltakende agentene, og builderen lager automatisk nødvendig fan-out og fan-in-logikk.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder håndterer fan-out/fan-in logikken
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Kjør arbeidsflyten
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Rammeverket sørger for at `research_agent` og `plan_agent` utføres parallelt, og deres endelige utdata samles i en liste.
+Rammeverket sørger for at `research_agent` og `plan_agent` kjører parallelt, og deres endelige utdata samles i en liste.
 
-#### .NET (C\#) Implementering Analyse
+#### .NET (C#) Implementasjonsanalyse
 
-I .NET krever dette mønsteret en mer eksplisitt definisjon. Egendefinerte executors (`ConcurrentStartExecutor` og `ConcurrentAggregationExecutor`) opprettes for å håndtere fan-out og fan-in logikk.
+I .NET krever dette mønsteret en mer eksplisitt definisjon. Tilpassede executor’er (`ConcurrentStartExecutor` og `ConcurrentAggregationExecutor`) opprettes for å håndtere fan-out og fan-in logikk.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` bruker deretter `AddFanOutEdge` og `AddFanInEdge` for å konstruere grafen med disse egendefinerte executors og agentene.
+`WorkflowBuilder` bruker deretter `AddFanOutEdge` og `AddFanInEdge` for å bygge grafen med disse tilpassede executorene og agentene.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Case 4: Betinget Workflow
+### Case 4: Betinget Arbeidsflyt
 
-Betingede workflows introduserer forgrenet logikk, som lar systemet ta ulike veier basert på mellomresultater.
+Betingede arbeidsflyter introduserer forgreningslogikk, som tillater systemet å ta ulike veier basert på mellomliggende resultater.
 
 #### Scenario Bakgrunn
 
-Denne workflow automatiserer opprettelsen og publiseringen av en teknisk veiledning.
+Denne arbeidsflyten automatiserer opprettelse og publisering av en teknisk veiledning.
 
 1.  **Evangelist-Agent**: Skriver et utkast til veiledningen basert på en gitt disposisjon og URL-er.
-2.  **ContentReviewer-Agent**: Gjennomgår utkastet. Den sjekker om ordantallet er over 200 ord.
-3.  **Betinget Forgrening**:
-      * **Hvis Godkjent (`Yes`)**: Workflow fortsetter til `Publisher-Agent`.
-      * **Hvis Avvist (`No`)**: Workflow stopper og gir ut årsaken til avvisning.
+2.  **ContentReviewer-Agent**: Gjennomgår utkastet. Sjekker om antall ord er over 200.
+3.  **Betinget Gren**:
+      * **Hvis godkjent (`Yes`)**: Arbeidsflyten fortsetter til `Publisher-Agent`.
+      * **Hvis avvist (`No`)**: Arbeidsflyten stopper og gir grunnlaget for avvisningen.
 4.  **Publisher-Agent**: Hvis utkastet er godkjent, lagrer denne agenten innholdet til en Markdown-fil.
 
-#### Python Implementering Analyse
+#### Python Implementasjonsanalyse
 
-Dette eksemplet bruker en egendefinert funksjon, `select_targets`, for å implementere den betingede logikken. Denne funksjonen sendes til `add_multi_selection_edge_group` og styrer workflow basert på `review_result`-feltet fra anmelderens utdata.
+Dette eksemplet bruker en egendefinert funksjon, `select_targets`, for å implementere den betingede logikken. Denne funksjonen gis til `add_multi_selection_edge_group` og styrer arbeidsflyten basert på feltet `review_result` fra anmelderens utdata.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Denne funksjonen bestemmer neste steg basert på gjennomgangsresultatet
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Hvis godkjent, fortsett til 'save_draft' utføreren
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Hvis avvist, fortsett til 'handle_review' utføreren for å rapportere feil
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Arbeidsflytbyggeren bruker utvalgsfunksjonen for ruting
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Multi-utvalgskanten implementerer den betingede logikken
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Egendefinerte executors som `to_reviewer_result` brukes til å analysere JSON-utdata fra agentene og konvertere dem til sterkt typede objekter som utvalgsfunksjonen kan inspisere.
+Tilpassede executor’er som `to_reviewer_result` brukes for å analysere JSON-utdata fra agentene og konvertere dem til sterkt typede objekter som valgfunksjonen kan inspisere.
 
-#### .NET (C\#) Implementering Analyse
+#### .NET (C#) Implementasjonsanalyse
 
-.NET-versjonen bruker en lignende tilnærming med en betingelsesfunksjon. En `Func<object?, bool>` defineres for å sjekke `Result`-egenskapen til `ReviewResult`-objektet.
+.NET-versjonen bruker en tilsvarende tilnærming med en betingelsesfunksjon. En `Func<object?, bool>` defineres for å sjekke `Result`-egenskapen til `ReviewResult`-objektet.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge`-metodens `condition`-parameter lar `WorkflowBuilder` opprette en forgrenet vei. Workflow vil kun følge kanten til `publishExecutor` hvis betingelsen `GetCondition(expectedResult: "Yes")` returnerer true. Ellers følger den veien til `sendReviewerExecutor`.
+`AddEdge`-metodens `condition`-parameter tillater `WorkflowBuilder` å lage en forgreningsvei. Arbeidsflyten følger kun kanten til `publishExecutor` hvis betingelsen `GetCondition(expectedResult: "Yes")` returnerer true. Ellers følger den veien til `sendReviewerExecutor`.
 
 ## Konklusjon
 
-Microsoft Agent Framework Workflow gir et robust og fleksibelt grunnlag for orkestrering av komplekse, multi-agent systemer. Ved å utnytte dens grafbaserte arkitektur og kjernekomponenter kan utviklere designe og implementere sofistikerte workflows i både Python og .NET. Enten applikasjonen din krever enkel sekvensiell prosessering, parallell utførelse eller dynamisk betinget logikk, tilbyr rammeverket verktøyene for å bygge kraftige, skalerbare og type-sikre AI-drevne løsninger.
+Microsoft Agent Framework Workflow gir et robust og fleksibelt fundament for orkestrering av komplekse multi-agent systemer. Ved å utnytte dens grafbaserte arkitektur og kjernekomponenter kan utviklere designe og implementere sofistikerte arbeidsflyter i både Python og .NET. Enten applikasjonen din krever enkel sekvensiell prosessering, parallell eksekvering eller dynamisk betinget logikk, tilbyr rammeverket verktøyene for å bygge kraftige, skalerbare og typesikre AI-drevne løsninger.
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

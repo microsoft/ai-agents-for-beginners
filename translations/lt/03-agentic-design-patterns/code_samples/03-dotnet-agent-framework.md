@@ -1,145 +1,148 @@
-# 🎨 Agentinio dizaino šablonai su GitHub modeliais (.NET)
+# 🎨 Agentinių dizaino modelių taikymas su Azure OpenAI (Atsakymų API) (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šis pavyzdys demonstruoja įmonės lygio dizaino šablonus, skirtus kurti intelektualius agentus naudojant Microsoft Agent Framework .NET aplinkoje su GitHub modelių integracija. Jūs išmoksite profesionalių šablonų ir architektūrinių metodų, kurie padaro agentus paruoštus gamybai, lengvai prižiūrimus ir plečiamus.
+Šis pavyzdys iliustruoja įmonių lygio dizaino modelius, skirtus protingų agentų kūrimui naudojant Microsoft Agent Framework .NET su Azure OpenAI (Atsakymų API) integracija. Išmoksite profesionalius modelius ir architektūrinius požiūrius, kurie padaro agentus paruoštais gamybai, lengvai prižiūrimą ir skalėjamą.
 
-### Įmonės dizaino šablonai
+### Įmonių dizaino modeliai
 
-- 🏭 **Gamyklos šablonas**: Standartizuotas agentų kūrimas su priklausomybių injekcija
-- 🔧 **Kūrėjo šablonas**: Sklandus agentų konfigūravimas ir nustatymas
-- 🧵 **Saugūs gijų šablonai**: Lygiagretus pokalbių valdymas
-- 📋 **Saugyklos šablonas**: Tvarkingas įrankių ir galimybių valdymas
+- 🏭 **Fabriko modelis**: Standartizuotas agentų kūrimas su priklausomybių injekcija
+- 🔧 **Konstruktoriaus modelis**: Sklandus agento konfigūravimas ir paruošimas
+- 🧵 **Saugūs dėl gijų modeliai**: Kelių pokalbių valdymas vienu metu
+- 📋 **Saugyklos modelis**: Įrankių ir galimybių organizavimas
 
-## 🎯 .NET specifiniai architektūriniai privalumai
+## 🎯 .NET specifinės architektūrinės naudos
 
-### Įmonės funkcijos
+### Įmonių savybės
 
-- **Stiprus tipavimas**: Patikrinimas kompiliavimo metu ir IntelliSense palaikymas
-- **Priklausomybių injekcija**: Integruotas DI konteineris
-- **Konfigūracijos valdymas**: IConfiguration ir Options šablonai
-- **Async/Await**: Pirmo lygio asinchroninio programavimo palaikymas
+- **Stiprus tipavimas**: Kompiliavimo metu patikrinimas ir IntelliSense palaikymas
+- **Priklausomybių injekcija**: Įmontuotas DI konteinerio integravimas
+- **Konfigūracijos valdymas**: IConfiguration ir Options modeliai
+- **Async/Await**: Pirmos klasės asinchroninio programavimo palaikymas
 
-### Paruošti gamybai šablonai
+### Gamybai paruošti modeliai
 
-- **Žurnalų integracija**: ILogger ir struktūrizuoto žurnalų palaikymas
-- **Sveikatos patikrinimai**: Integruotas stebėjimas ir diagnostika
-- **Konfigūracijos patikrinimas**: Stiprus tipavimas su duomenų anotacijomis
-- **Klaidų valdymas**: Struktūrizuotas išimčių valdymas
+- **Registracijos integracija**: ILogger ir struktūruota registracija
+- **Sveikatos patikra**: Įmontuotas stebėjimas ir diagnostika
+- **Konfigūracijos patikra**: Stiprus tipavimas su duomenų anotacijomis
+- **Klaidų tvarkymas**: Struktūruota išimčių valdymas
 
 ## 🔧 Techninė architektūra
 
 ### Pagrindiniai .NET komponentai
 
-- **Microsoft.Extensions.AI**: Vieningos AI paslaugų abstrakcijos
-- **Microsoft.Agents.AI**: Įmonės agentų orkestravimo sistema
-- **GitHub modelių integracija**: Aukštos kokybės API klientų šablonai
+- **Microsoft.Extensions.AI**: Suvienyti DI paslaugų abstrakcijos
+- **Microsoft.Agents.AI**: Įmonių agentų koordinavimo sistema
+- **Azure OpenAI (Atsakymų API)**: Aukšto našumo API kliento modeliai
 - **Konfigūracijos sistema**: appsettings.json ir aplinkos integracija
 
-### Dizaino šablonų įgyvendinimas
+### Dizaino modelio įgyvendinimas
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Agentas Kūrėjas]
+    B --> C[Konfigūracija]
+    C --> D[Įrankių Registras]
+    D --> E[DI Agentas]
 ```
 
-## 🏗️ Demonstraciniai įmonės šablonai
+## 🏗️ Demonstravimo įmonių modeliai
 
-### 1. **Kūrybiniai šablonai**
+### 1. **Kūrimo modeliai**
 
-- **Agentų gamykla**: Centralizuotas agentų kūrimas su nuoseklia konfigūracija
-- **Kūrėjo šablonas**: Sklandus API sudėtingų agentų konfigūravimui
-- **Vienetinis šablonas**: Bendrų resursų ir konfigūracijos valdymas
-- **Priklausomybių injekcija**: Laisvas susiejimas ir testavimo galimybės
+- **Agentų fabriko modelis**: Centralizuotas agentų kūrimas su nuoseklia konfigūracija
+- **Konstruktoriaus modelis**: Sklandus API sudėtingai agento konfigūracijai
+- **Vienetinis modelis**: Bendrų resursų ir konfigūracijos valdymas
+- **Priklausomybių injekcija**: Laisvas sujungimas ir testavimas
 
-### 2. **Elgesio šablonai**
+### 2. **Elgesio modeliai**
 
-- **Strategijos šablonas**: Keičiamos įrankių vykdymo strategijos
-- **Komandos šablonas**: Inkapsuliuotos agentų operacijos su atšaukimo/atstatymo galimybėmis
-- **Stebėtojo šablonas**: Įvykiais pagrįstas agentų gyvavimo ciklo valdymas
-- **Šabloninio metodo šablonas**: Standartizuoti agentų vykdymo procesai
+- **Strategijos modelis**: Keičiamos įrankių vykdymo strategijos
+- **Komandos modelis**: Įkapsuliuotos agentų operacijos su anuliavimu / pakartojimu
+- **Stebėtojo modelis**: Renginių pagrindu agentų gyvavimo ciklo valdymas
+- **Šablono metodas**: Standartizuotos agento vykdymo darbo eigos
 
-### 3. **Struktūriniai šablonai**
+### 3. **Struktūriniai modeliai**
 
-- **Adapterio šablonas**: GitHub modelių API integracijos sluoksnis
-- **Dekoratoriaus šablonas**: Agentų galimybių plėtra
-- **Fasado šablonas**: Supaprastintos agentų sąsajos
-- **Proxy šablonas**: Lėtas įkrovimas ir talpyklos naudojimas našumui gerinti
+- **Adapterio modelis**: Azure OpenAI (Atsakymų API) integracijos sluoksnis
+- **Dekoratoriaus modelis**: Agentų galimybių išplėtimas
+- **Fasado modelis**: Supaprastintos agentų sąsajos
+- **Proksio modelis**: Atsipalaidavęs įkėlimas ir kešavimas našumui gerinti
 
 ## 📚 .NET dizaino principai
 
 ### SOLID principai
 
-- **Vienos atsakomybės**: Kiekvienas komponentas turi aiškų tikslą
-- **Atviras/Uždarytas**: Plečiamas be modifikacijų
-- **Liskov substitucija**: Įrankių įgyvendinimas pagal sąsajas
-- **Sąsajų segregacija**: Koncentruotos, darnios sąsajos
-- **Priklausomybės inversija**: Priklausomybė nuo abstrakcijų, o ne nuo konkrečių įgyvendinimų
+- **Vienos atsakomybės principas**: Kiekvienas komponentas turi aiškų tikslą
+- **Atviras/Uždarytas**: Plečiama be modifikavimo
+- **Liskovo pakeitimo principas**: Sąsajos pagrindu įrankių įgyvendinimai
+- **Sąsajų segregacija**: Tikslinės, vientisos sąsajos
+- **Priklausomybių inversija**: Priklausomybė nuo abstrakcijų, ne konkrečių klasių
 
 ### Švari architektūra
 
-- **Domeno sluoksnis**: Pagrindinės agentų ir įrankių abstrakcijos
-- **Programų sluoksnis**: Agentų orkestravimas ir darbo eigos
-- **Infrastruktūros sluoksnis**: GitHub modelių integracija ir išorinės paslaugos
-- **Pateikimo sluoksnis**: Vartotojo sąveika ir atsakymų formatavimas
+- **Domėnio sluoksnis**: Pagrindinės agentų ir įrankių abstrakcijos
+- **Taikymo sluoksnis**: Agentų koordinavimas ir darbo eigos
+- **Infrastruktūros sluoksnis**: Azure OpenAI (Atsakymų API) integracija ir išorinės paslaugos
+- **Pristatymo sluoksnis**: Vartotojo sąveika ir atsakymų formatavimas
 
-## 🔒 Įmonės svarstymai
+## 🔒 Įmonių svarstymai
 
 ### Saugumas
 
-- **Kredencialų valdymas**: Saugus API raktų tvarkymas su IConfiguration
-- **Įvesties patikrinimas**: Stiprus tipavimas ir duomenų anotacijų patikrinimas
+- **Autentifikavimo valdymas**: Saugus API raktų tvarkymas su IConfiguration
+- **Įvesties patikra**: Stiprus tipavimas ir duomenų anotacijų patikra
 - **Išvesties valymas**: Saugus atsakymų apdorojimas ir filtravimas
-- **Audito žurnalai**: Išsamus operacijų sekimas
+- **Auditų registracija**: Visapusiškas operacijų sekimas
 
 ### Našumas
 
-- **Asinchroniniai šablonai**: Neužblokuojančios I/O operacijos
-- **Jungčių telkinys**: Efektyvus HTTP klientų valdymas
-- **Talpyklos naudojimas**: Atsakymų talpyklos našumui gerinti
-- **Resursų valdymas**: Tinkamas išteklių atlaisvinimas ir valymas
+- **Asinchroniniai modeliai**: Blokavimą išvengiančios įvesties/išvesties operacijos
+- **Ryšių telkimas**: Efektyvus HTTP klientų valdymas
+- **Kešavimas**: Atsakymų kešavimas našumo gerinimui
+- **Išteklių valdymas**: Tinkamas išteklių utilizavimas ir išvalymas
 
-### Skalavimas
+### Skalėjamumas
 
-- **Gijų saugumas**: Lygiagretus agentų vykdymo palaikymas
-- **Resursų telkinys**: Efektyvus išteklių naudojimas
-- **Krovos valdymas**: Greičio ribojimas ir apkrovos valdymas
-- **Stebėjimas**: Našumo metrikos ir sveikatos patikrinimai
+- **Saugumas gijų atžvilgiu**: Kelių agentų vykdymo vienu metu palaikymas
+- **Išteklių telkimas**: Efektyvus išteklių panaudojimas
+- **Krūvio valdymas**: Greičio ribojimas ir atgalinio spaudimo tvarkymas
+- **Stebėjimas**: Našumo metrikos ir sveikatos patikros
 
 ## 🚀 Gamybinis diegimas
 
-- **Konfigūracijos valdymas**: Aplinkai specifiniai nustatymai
-- **Žurnalų strategija**: Struktūrizuoti žurnalai su koreliacijos ID
-- **Klaidų valdymas**: Globalus išimčių valdymas su tinkamu atkūrimu
+- **Konfigūracijos valdymas**: Aplinkai būdingi nustatymai
+- **Registracijos strategija**: Struktūruota registracija su koreliacijos ID
+- **Klaidų tvarkymas**: Globalus išimčių valdymas su tinkamu atsigavimu
 - **Stebėjimas**: Programų įžvalgos ir našumo skaitikliai
-- **Testavimas**: Vienetų testai, integraciniai testai ir apkrovos testavimo šablonai
+- **Testavimas**: Vienetų testai, integraciniai testai ir apkrovos testavimo modeliai
 
-Pasiruošę kurti įmonės lygio intelektualius agentus su .NET? Sukurkime kažką tvirto! 🏢✨
+Pasiruošę sukurti įmonių lygio protingus agentus su .NET? Sukurkime kažką tvirto! 🏢✨
 
 ## 🚀 Pradžia
 
 ### Reikalavimai
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
-- [GitHub Models API prieigos raktas](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI resursu ir modelio diegimu
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite su `az login`
 
-### Reikalingi aplinkos kintamieji
+### Būtini aplinkos kintamieji
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
+az login
 ```
 
 ### Pavyzdinis kodas
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Arba naudojant dotnet CLI:
+Arba naudodami dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Žr. [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) visam kodui.
+Žr. [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) pilną kodą.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus interpretavimus, atsiradusius dėl šio vertimo naudojimo.
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

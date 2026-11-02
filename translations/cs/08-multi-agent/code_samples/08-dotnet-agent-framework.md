@@ -1,44 +1,47 @@
-# 🤝 Podnikové systémy pracovních postupů s více agenty (.NET)
+# 🤝 Podnikové systémy pracovních toků s více agenty (.NET)
 
-## 📋 Cíle učení
+## 📋 Výukové cíle
 
-Tento notebook ukazuje, jak vytvořit sofistikované podnikové systémy s více agenty pomocí Microsoft Agent Framework v .NET s modely GitHub. Naučíte se orchestraci několika specializovaných agentů, kteří spolupracují prostřednictvím strukturovaných pracovních postupů, využívajících podnikové funkce .NET pro řešení připravená k produkci.
+Tento zápisník ukazuje, jak vytvořit sofistikované podnikové systémy s více agenty pomocí Microsoft Agent Framework v .NET s Azure OpenAI (Responses API). Naučíte se orchestraci několika specializovaných agentů spolupracujících prostřednictvím strukturovaných pracovních toků a využijete podnikové funkce .NET pro řešení připravená do produkce.
 
-**Podnikové schopnosti s více agenty, které vytvoříte:**
-- 👥 **Spolupráce agentů**: Typově bezpečná koordinace agentů s validací při kompilaci
-- 🔄 **Orchestrace pracovních postupů**: Deklarativní definice pracovních postupů s asynchronními vzory .NET
-- 🎭 **Specializace rolí**: Silně typované osobnosti agentů a oblasti odbornosti
-- 🏢 **Podniková integrace**: Vzory připravené pro produkci s monitorováním a zpracováním chyb
+**Podnikové schopnosti více agentů, které vybudujete:**
+- 👥 **Spolupráce agentů**: typově bezpečná koordinace agentů s validací při překladu
+- 🔄 **Orchestrace pracovních toků**: deklarativní definice pracovního toku s asynchronními vzory .NET
+- 🎭 **Specializace rolí**: silně typované osobnosti agentů a domény odbornosti
+- 🏢 **Podniková integrace**: vzory připravené pro produkci s monitorováním a zpracováním chyb
 
 ## ⚙️ Předpoklady a nastavení
 
 **Vývojové prostředí:**
 - .NET 9.0 SDK nebo vyšší
-- Visual Studio 2022 nebo VS Code s rozšířením pro C#
-- Předplatné Azure (pro perzistentní agenty)
+- Visual Studio 2022 nebo VS Code s C# rozšířením
+- Azure předplatné (pro trvalé agenty)
 
-**Požadované balíčky NuGet:**
+**Požadované NuGet balíčky:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
-## Ukázka kódu
+## Ukázkový kód
 
-Kompletní funkční kód pro tuto lekci je dostupný v přiloženém souboru C#: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+Kompletní funkční kód této lekce je dostupný v přiloženém souboru C#: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
 Pro spuštění ukázky:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Nastavte soubor jako spustitelný (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Spusťte ukázku
 ./08-dotnet-agent-framework.cs
 ```
 
@@ -50,35 +53,37 @@ dotnet run 08-dotnet-agent-framework.cs
 
 ## Co tato ukázka demonstruje
 
-Tento systém pracovních postupů s více agenty vytváří službu doporučení pro hotelové cestování se dvěma specializovanými agenty:
+Tento systém pracovních toků s více agenty vytváří službu doporučení hotelových cest s dvěma specializovanými agenty:
 
-1. **Agent recepce**: Cestovní agent, který poskytuje doporučení aktivit a lokalit
-2. **Agent concierge**: Přezkoumává doporučení, aby zajistil autentické, neturistické zážitky
+1. **FrontDesk Agent**: cestovní agent poskytující doporučení aktivit a míst
+2. **Concierge Agent**: kontroluje doporučení, aby zajistil autentické, ne-turistické zážitky
 
-Agenti spolupracují v pracovním postupu, kde:
-- Agent recepce obdrží počáteční požadavek na cestování
-- Agent concierge přezkoumá a upraví doporučení
-- Pracovní postup streamuje odpovědi v reálném čase
+Agentky spolupracují ve workflow, kde:
+- Agent FrontDesk přijímá počáteční cestovní požadavek
+- Agent Concierge kontroluje a zpřesňuje doporučení
+- Pracovní tok streamuje odpovědi v reálném čase
 
 ## Klíčové koncepty
 
 ### Koordinace agentů
-Ukázka demonstruje typově bezpečnou koordinaci agentů pomocí Microsoft Agent Framework s validací při kompilaci.
+Ukázka demonstruje typově bezpečnou koordinaci agentů pomocí Microsoft Agent Framework s validací při překladu.
 
-### Orchestrace pracovních postupů
-Používá deklarativní definici pracovních postupů s asynchronními vzory .NET k propojení více agentů v pipeline.
+### Orchestrace pracovních toků
+Používá deklarativní definici pracovního toku s asynchronními vzory .NET k propojení více agentů v pipeline.
 
 ### Streamování odpovědí
-Implementuje streamování odpovědí agentů v reálném čase pomocí asynchronních enumerací a architektury řízené událostmi.
+Realizuje streamování odpovědí agentů v reálném čase pomocí asynchronních enumerabilních a událostmi řízené architektury.
 
 ### Podniková integrace
-Ukazuje vzory připravené pro produkci, včetně:
-- Konfigurace proměnných prostředí
+Ukazuje vzory připravené do produkce včetně:
+- Konfigurace prostředí přes proměnné prostředí
 - Bezpečné správy přihlašovacích údajů
 - Zpracování chyb
-- Asynchronního zpracování událostí
+- Asynchronní zpracování událostí
 
 ---
 
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,0 +1,124 @@
+# 🎯 ការធ្វើផែនការ និងរចនាបទជាមួយ Azure OpenAI (Responses API) (.NET)
+
+## 📋 គោលបំណងការសិក្សា
+
+សៀវភៅចំណាំនេះបង្ហាញពីការធ្វើផែនការ និងរចនាបទកម្រិតសហគ្រាសសម្រាប់ការបង្កើតភ្នាក់ងារ ឆ្លាតវៃដោយប្រើ Microsoft Agent Framework នៅក្នុង .NET ជាមួយ Azure OpenAI (Responses API)។ អ្នកនឹងរៀនបង្កើតភ្នាក់ងារដែលអាចបំបែកបញ្ហាស្មុគស្មាញ, រៀបចំដំណោះស្រាយ មានជំហានច្រើន, និងអនុវត្តន៍ឯកសារលម្អិតជាមួយលក្ខណៈរបស់ .NET សម្រាប់សហគ្រាស។
+
+## ⚙️ លក្ខខណ្ឌចាំបាច់ និងការដំឡើង
+
+**បរិស្ថានអភិវឌ្ឍន៍៖**
+- .NET 9.0 SDK ឬខ្ពស់ជាងនេះ
+- Visual Studio 2022 ឬ VS Code ជាមួយកម្មវិធីបន្ថែម C#
+- មានសុពលភាព Azure subscription ជាមួយធនធាន Azure OpenAI និងការបញ្ចូនលំនាំ
+- Azure CLI — ចូលប្រើដោយ `az login`
+
+**ការពឹងផ្អែកចាំបាច់៖**
+```xml
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
+<PackageReference Include="DotNetEnv" Version="3.1.1" />
+```
+
+**ការកំណត់បរិស្ថាន (.env file):**
+```env
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+```
+
+## របៀបដំណើរកូដ
+
+មេរៀននេះរួមបញ្ចូលការអនុវត្តកម្មវិធី .NET Single File App។ ដើម្បីដំណើរការ៖
+
+```bash
+# បង្កើតឱ្យឯកសារដំណើរការ (Linux/macOS)
+chmod +x 07-dotnet-agent-framework.cs
+
+# ប្រតិបត្តិកម្មភាសា
+./07-dotnet-agent-framework.cs
+```
+
+ឬប្រើពាក្យបញ្ជា dotnet run:
+
+```bash
+dotnet run 07-dotnet-agent-framework.cs
+```
+
+## ការអនុវត្តកូដ
+
+ការអនុវត្តពេញលេញស្ថិតក្នុង `07-dotnet-agent-framework.cs` ដែលបង្ហាញពី៖
+
+- ការផ្ទុកការកំណត់បរិស្ថានជាមួយ DotNetEnv
+- ការកំណត់ Azure OpenAI client និងបង្កើតភ្នាក់ងារ AI ដោយប្រើ `GetChatClient().AsAIAgent()`
+- ការកំណត់គំរូទិន្នន័យរចនាសម្ព័ន្ធ (Plan និង TravelPlan) ជាមួយការបំលែង JSON
+- បង្កើតភ្នាក់ងារ AI ជាមួយចេញលទ្ធផលរចនាសម្ព័ន្ធដោយប្រើ JSON schema
+- អនុវត្តសំណើការធ្វើផែនការជាមួយចម្លើយប្រភេទដែលមានសុវត្ថិភាព
+
+## យល់ដឹងសំខាន់ៗ
+
+### ការធ្វើផែនការរចនាសម្ព័ន្ធជាមួយគំរូមានប្រភេទបញ្ជាក់
+
+ភ្នាក់ងារប្រើថ្នាក់ C# ដើម្បីកំណត់រចនាសម្ព័ន្ធចេញលទ្ធផលផែនការ៖
+
+```csharp
+public class Plan
+{
+    [JsonPropertyName("assigned_agent")]
+    public string? Assigned_agent { get; set; }
+
+    [JsonPropertyName("task_details")]
+    public string? Task_details { get; set; }
+}
+
+public class TravelPlan
+{
+    [JsonPropertyName("main_task")]
+    public string? Main_task { get; set; }
+
+    [JsonPropertyName("subtasks")]
+    public IList<Plan> Subtasks { get; set; }
+}
+```
+
+### JSON Schema សម្រាប់ចេញលទ្ធផលរចនាសម្ព័ន្ធ
+
+ភ្នាក់ងារត្រូវបានកំណត់ឲ្យត្រឡប់ចម្លើយដែលផ្គូផ្គងទៅនឹង schema TravelPlan៖
+
+```csharp
+ChatClientAgentOptions agentOptions = new()
+{
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
+    ChatOptions = new()
+    {
+        ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
+            schema: AIJsonUtilities.CreateJsonSchema(typeof(TravelPlan)),
+            schemaName: "TravelPlan",
+            schemaDescription: "Travel Plan with main_task and subtasks")
+    }
+};
+```
+
+### សេចក្ដីណែនាំសម្រាប់ភ្នាក់ងារធ្វើផែនការ
+
+ភ្នាក់ងារប្រព្រឹត្តទៅជា​រដ្ឋសភា ប្រគល់ចំនួនភារកិច្ចទៅភ្នាក់ងារសាធារណៈពិសេស៖
+
+- FlightBooking: សម្រាប់កក់សំបុត្រយន្តហោះ និងផ្តល់ព័ត៌មានអំពីការហោះហើរ
+- HotelBooking: សម្រាប់កក់សណ្ឋាគារ និងផ្តល់ព័ត៌មានអំពីសណ្ឋាគារ
+- CarRental: សម្រាប់កក់រថយន្ត និងផ្តល់ព័ត៌មានអំពីការជួលរថយន្ត
+- ActivitiesBooking: សម្រាប់កក់សកម្មភាព និងផ្តល់ព័ត៌មានអំពីសកម្មភាពផ្សេងៗ
+- DestinationInfo: សម្រាប់ផ្តល់ព័ត៌មានអំពីគោលដៅ
+- DefaultAgent: សម្រាប់ដោះស្រាយសំណើទូទៅ
+
+## លទ្ធផលដែលរំពឹងទុក
+
+នៅពេលអ្នកដំណើរការ​ភ្នាក់ងារជាមួយសំណើការធ្វើផែនការធ្វើដំណើរ ភ្នាក់ងារនឹងវិភាគសំណើ និងបង្កើតផែនការដែលមានរចនាសម្ព័ន្ធ ជាមួយការបែងចែកភារកិច្ចទៅភ្នាក់ងារជាពិសេស តាមទ្រង់ទ្រាយ JSON ដែលស្របតាម schema TravelPlan។
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

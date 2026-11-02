@@ -1,63 +1,66 @@
-# 🎯 תכנון ותבניות עיצוב עם מודלים של GitHub (.NET)
+# 🎯 תכנון ודפוסי עיצוב עם Azure OpenAI (Responses API) (.NET)
 
-## 📋 מטרות למידה
+## 📋 מטרות הלמידה
 
-מחברת זו מציגה תכנון ותבניות עיצוב ברמה ארגונית לבניית סוכנים חכמים באמצעות Microsoft Agent Framework ב-.NET עם מודלים של GitHub. תלמדו ליצור סוכנים שיכולים לפרק בעיות מורכבות, לתכנן פתרונות רב-שלביים ולהפעיל תהליכי עבודה מתקדמים עם תכונות ארגוניות של .NET.
+המחברת הזו מדגימה דפוסי תכנון ועיצוב ברמת ארגונית לבניית סוכנים אינטליגנטיים באמצעות Microsoft Agent Framework ב-.NET עם Azure OpenAI (Responses API). תלמד כיצד ליצור סוכנים היכולים לפרק בעיות מורכבות, לתכנן פתרונות מרובי שלבים, ולבצע זרימות עבודה מתוחכמות עם תכונות ארגוניות של .NET.
 
-## ⚙️ דרישות מוקדמות והגדרות
+## ⚙️ דרישות מוקדמות והתקנה
 
 **סביבת פיתוח:**
-- .NET 9.0 SDK או גרסה גבוהה יותר
-- Visual Studio 2022 או VS Code עם הרחבת C#
-- גישה ל-API של מודלים של GitHub
+- .NET 9.0 SDK או גבוה יותר
+- Visual Studio 2022 או VS Code עם תוסף C#
+- מנוי Azure עם משאב Azure OpenAI והטמעת מודל
+- Azure CLI — התחבר עם `az login`
 
 **תלויות נדרשות:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**הגדרת סביבה (קובץ .env):**
+**קונפיגורציית סביבה (קובץ .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## הפעלת הקוד
+## הרצת הקוד
 
-שיעור זה כולל יישום של אפליקציה בודדת ב-.NET. להפעלתה:
+שיעור זה כולל מימוש אפליקציית קובץ יחיד ב-.NET. כדי להריץ אותה:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# הפוך את הקובץ לניתן להרצה (לינוקס/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# הפעל את היישום
 ./07-dotnet-agent-framework.cs
 ```
 
-או השתמשו בפקודת dotnet run:
+או השתמש בפקודת dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## יישום קוד
+## מימוש הקוד
 
-היישום המלא זמין בקובץ `07-dotnet-agent-framework.cs`, שמדגים:
+המימוש המלא זמין בקובץ `07-dotnet-agent-framework.cs`, ומדגים:
 
 - טעינת הגדרות סביבה עם DotNetEnv
-- הגדרת לקוח OpenAI עבור מודלים של GitHub
-- הגדרת מודלים של נתונים מובנים (Plan ו-TravelPlan) עם סריאליזציה ל-JSON
-- יצירת סוכן AI עם פלט מובנה באמצעות JSON schema
-- ביצוע בקשות תכנון עם תגובות בטוחות מסוג
+- הגדרת לקוח Azure OpenAI ויצירת סוכן בינה מלאכותית באמצעות `GetChatClient().AsAIAgent()`
+- הגדרת מודלים מובנים (Plan ו-TravelPlan) עם סיריאליזציה ב-JSON
+- יצירת סוכן בינה מלאכותית עם פלט מובנה באמצעות סכמת JSON
+- ביצוע בקשות תכנון עם תגובות בטוחות מבחינה טיפוסית
 
 ## מושגים מרכזיים
 
-### תכנון מובנה עם מודלים בטוחים מסוג
+### תכנון מובנה עם מודלים בטוחים טיפוסית
 
-הסוכן משתמש במחלקות C# כדי להגדיר את מבנה פלטי התכנון:
+הסוכן משתמש במחלקות C# להגדרת מבנה הפלט של התכנון:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema לפלטים מובנים
+### סכמת JSON לפלטים מובנים
 
-הסוכן מוגדר להחזיר תגובות התואמות את הסכמה של TravelPlan:
+הסוכן מוגדר להחזיר תגובות התואמות לסכמת TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### הוראות לסוכן תכנון
+### הוראות סוכן התכנון
 
-הסוכן פועל כמתאם, ומאציל משימות לסוכנים תת-מומחים:
+הסוכן פועל כרכז, שמאציל משימות לסוכנים מיוחדים:
 
 - FlightBooking: להזמנת טיסות ומתן מידע על טיסות
 - HotelBooking: להזמנת מלונות ומתן מידע על מלונות
-- CarRental: להזמנת רכבים ומתן מידע על השכרת רכבים
+- CarRental: להזמנת רכב ומתן מידע על השכרת רכב
 - ActivitiesBooking: להזמנת פעילויות ומתן מידע על פעילויות
 - DestinationInfo: למתן מידע על יעדים
 - DefaultAgent: לטיפול בבקשות כלליות
 
 ## פלט צפוי
 
-כאשר תפעילו את הסוכן עם בקשת תכנון נסיעה, הוא ינתח את הבקשה וייצור תוכנית מובנית עם הקצאת משימות מתאימה לסוכנים תת-מומחים, בפורמט JSON התואם את הסכמה של TravelPlan.
+כשאתה מפעיל את הסוכן עם בקשת תכנון טיול, הוא ינתח את הבקשה ויצור תוכנית מובנית עם הקצאת משימות מתאימה לסוכנים מיוחדים, המעוצבת כ-JSON התואם לסכמת TravelPlan.
 
 ---
 
-**כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו אחראים לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

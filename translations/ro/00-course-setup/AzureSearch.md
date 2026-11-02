@@ -1,89 +1,108 @@
 # Ghid de configurare Azure AI Search
 
-Acest ghid te va ajuta să configurezi Azure AI Search folosind portalul Azure. Urmează pașii de mai jos pentru a crea și configura serviciul Azure AI Search.
+Acest ghid te va ajuta să configurezi Azure AI Search folosind portalul Azure. Urmează pașii de mai jos pentru a crea și configura serviciul tău Azure AI Search.
 
 ## Cerințe preliminare
 
 Înainte de a începe, asigură-te că ai următoarele:
 
-- Un abonament Azure. Dacă nu ai un abonament Azure, poți crea un cont gratuit la [Cont Gratuit Azure](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Un abonament Azure. Dacă nu ai un abonament Azure, poți crea un cont gratuit la [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Pasul 1: Creează un cont de stocare Azure
 
-1. Urmează instrucțiunile de aici, [Crearea unui cont de stocare Azure](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), pentru a crea un nou cont de stocare Azure.  
-   **NOTE**: Asigură-te că tipul contului de stocare este Standard General Purpose V2.
+1. Urmează această instrucțiune, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), pentru a crea un nou cont de stocare Azure.
+   **NOTĂ**: Asigură-te că tipul contului de stocare este Standard General Purpose V2.
 
 ## Pasul 2: Creează un serviciu Azure AI Search
 
-1. Autentifică-te în [portalul Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
+1. Conectează-te la [portalul Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
 2. În panoul de navigare din stânga, dă clic pe **Create a resource**.
-3. În caseta de căutare, tastează "Azure AI Search" și selectează **Azure AI Search** din lista de rezultate.
-4. Dă clic pe butonul **Create**.
+3. În caseta de căutare, tastează „Azure AI Search” și selectează **Azure AI Search** din lista rezultatelor.
+4. Apasă butonul **Create**.
 5. În fila **Basics**, furnizează următoarele informații:
-   - **Subscription**: Selectează abonamentul tău Azure.
-   - **Resource group**: Creează un nou grup de resurse sau selectează unul existent.
-   - **Resource name**: Introdu un nume unic pentru serviciul tău de căutare.
+   - **Subscription**: Selectează abonamentul Azure.
+   - **Resource group**: Creează un grup de resurse nou sau selectează unul existent.
+   - **Resource name**: Introdu un nume unic pentru serviciul de căutare.
    - **Region**: Selectează regiunea cea mai apropiată de utilizatorii tăi.
-   - **Pricing tier**: Alege un nivel de preț care să corespundă cerințelor tale. Poți începe cu nivelul gratuit pentru testare.
-6. Dă clic pe **Review + create**.
-7. Revizuiește setările și dă clic pe **Create** pentru a crea serviciul de căutare.
+   - **Pricing tier**: Alege un nivel de preț care se potrivește cerințelor tale. Poți începe cu nivelul Free pentru testare.
+6. Apasă pe **Review + create**.
+7. Verifică setările și apasă pe **Create** pentru a crea serviciul de căutare.
 
-## Pasul 3: Începe să utilizezi Azure AI Search
+## Pasul 3: Începe să folosești Azure AI Search
 
-1. După finalizarea implementării, navighează la serviciul tău de căutare în portalul Azure.
-2. În panoul de prezentare generală al serviciului de căutare, copiază URL-ul. Ar trebui să arate astfel: `https://<service-name>.search.windows.net`.
-3. În panoul Settings > Keys, copiază cheia de interogare.
-4. Urmează pașii de pe pagina [Ghid de început rapid](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) pentru a crea un index, a încărca date și a efectua o interogare de căutare.
+1. După ce implementarea se finalizează, navighează la serviciul tău de căutare în portalul Azure.
+2. În panoul de prezentare al serviciului de căutare, copiază URL-ul. Acesta ar trebui să arate ca `https://<service-name>.search.windows.net`.
+3. **(Recomandat)** Activează accesul fără cheie cu Microsoft Entra ID (RBAC) așa cum este arătat în Pasul 4 de mai jos — nu este nevoie de cheie. Exemplele din acest ghid creează/actualizează indexuri și încarcă documente, pentru care sunt necesare rolurile **Search Service Contributor** și **Search Index Data Contributor** (sau, pentru autentificarea bazată pe cheie, **cheia de administrator primară** — nu cheia de interogare). Doar dacă nu poți utiliza RBAC, deschide panoul **Settings > Keys** și copiază **cheia de administrator primară**.
+4. Urmează pașii din pagina [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) pentru a crea un index, a încărca date și a efectua o căutare.
 
-## Pasul 4: Utilizează instrumentele Azure AI Search
+## Pasul 4: Folosește uneltele Azure AI Search
 
-Azure AI Search se integrează cu diverse instrumente pentru a îmbunătăți capacitățile de căutare. Poți utiliza Azure CLI, Python SDK, .NET SDK și alte instrumente pentru configurări și operațiuni avansate.
+Azure AI Search se integrează cu diverse unelte pentru a îmbunătăți capabilitățile de căutare. Poți folosi Azure CLI, SDK-ul Python, SDK-ul .NET și alte unelte pentru configurații și operațiuni avansate.
 
-### Utilizarea Azure CLI
+### Folosirea Azure CLI
 
-1. Instalează Azure CLI urmând instrucțiunile de aici: [Instalare Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Autentifică-te în Azure CLI folosind comanda:
+1. Instalează Azure CLI urmând instrucțiunile de la [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Conectează-te la Azure CLI folosind comanda:
 
    ```bash
    az login
    ```
-
-3. Stochează endpoint-ul și cheia API pentru instanța Azure AI Search în variabile de mediu.
+3. **(Recomandat) Activează accesul fără cheie cu Microsoft Entra ID (RBAC):**
 
     ```bash
-    # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    ```powershell
-    # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+    Cu RBAC activat, exemplele de SDK Python și .NET de mai jos se autentifică cu `DefaultAzureCredential`, care folosește sesiunea ta `az login` în timpul dezvoltării locale — nu este nevoie de cheia de administrator. Vezi [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
 
-### Utilizarea Python SDK
+4. **(Alternativ) Autentificare pe bază de cheie** — doar dacă nu poți folosi RBAC, stochează și cheia de administrator:
 
-1. Instalează biblioteca client Azure Cognitive Search pentru Python:
+#### Stochează atât endpoint-ul cât și cheia API pentru instanța Azure AI Search în variabilele de mediu.
+
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+### Folosirea SDK-ului Python
+
+1. Instalează biblioteca client Azure Cognitive Search și Azure Identity pentru Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. Utilizează următorul cod Python pentru a crea un index și a încărca documente:
+2. Folosește următorul cod Python pentru a crea un index și a încărca documente:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -105,7 +124,7 @@ Azure AI Search se integrează cu diverse instrumente pentru a îmbunătăți ca
     search_client.upload_documents(documents)
     ```
 
-### Utilizarea .NET SDK
+### Folosirea SDK-ului .NET
 
 1. Rulează următoarea comandă pentru a crea un index și a încărca documente:
 
@@ -113,22 +132,30 @@ Azure AI Search se integrează cu diverse instrumente pentru a îmbunătăți ca
     dotnet run ./AzureSearch.cs
     ```
 
-2. Iată codul .NET din `AzureSearch.cs`:
+    Exemplul .NET de mai jos folosește `DefaultAzureCredential`, care poate utiliza logarea ta Azure CLI din `az login` în timpul dezvoltării locale.
+
+2. Iată codul .NET al `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -156,17 +183,19 @@ Azure AI Search se integrează cu diverse instrumente pentru a îmbunătăți ca
 
 Pentru informații mai detaliate, consultă următoarea documentație:
 
-- [Crearea unui serviciu Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Începe cu Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Instrumente Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Concluzie
 
-Ai configurat cu succes Azure AI Search folosind portalul Azure și instrumentele integrate. Acum poți explora funcționalități și capabilități mai avansate ale Azure AI Search pentru a îmbunătăți soluțiile tale de căutare.
+Ai configurat cu succes Azure AI Search folosind portalul Azure și uneltele integrate. Acum poți explora funcții și capabilități mai avansate ale Azure AI Search pentru a îmbunătăți soluțiile tale de căutare.
 
-Pentru asistență suplimentară, vizitează [Documentația Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Pentru asistență suplimentară, vizitează documentația [Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa maternă ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

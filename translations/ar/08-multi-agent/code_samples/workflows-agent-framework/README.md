@@ -1,69 +1,69 @@
 # بناء تطبيقات متعددة الوكلاء باستخدام إطار عمل Microsoft Agent Workflow
 
-هذا الدليل سيرشدك لفهم وبناء تطبيقات متعددة الوكلاء باستخدام إطار عمل Microsoft Agent. سنستكشف المفاهيم الأساسية لأنظمة الوكلاء المتعددة، ونغوص في بنية مكون Workflow الخاص بالإطار، ونستعرض أمثلة عملية باستخدام Python و .NET لأنماط سير العمل المختلفة.
+سيرشدك هذا الدليل خلال فهم وبناء تطبيقات متعددة الوكلاء باستخدام إطار عمل Microsoft Agent. سوف نستكشف المفاهيم الأساسية لأنظمة الوكلاء المتعددين، نتعمق في هندسة مكون سير العمل للإطار، ونتابع أمثلة عملية في كل من بايثون و .NET لأنماط سير عمل مختلفة.
 
-## 1. فهم أنظمة الوكلاء المتعددة
+## 1\. فهم أنظمة الوكلاء المتعددين
 
-الوكيل الذكي هو نظام يتجاوز قدرات نموذج اللغة الكبير (LLM) التقليدي. يمكنه إدراك بيئته، واتخاذ القرارات، وتنفيذ الإجراءات لتحقيق أهداف محددة. نظام الوكلاء المتعددة يتضمن عدة وكلاء يتعاونون لحل مشكلة قد تكون صعبة أو مستحيلة على وكيل واحد التعامل معها بمفرده.
+الوكيل الذكي هو نظام يتجاوز قدرات نموذج اللغة الكبير العادي (LLM). يمكنه إدراك بيئته، اتخاذ القرارات، واتخاذ الإجراءات لتحقيق أهداف محددة. نظام الوكلاء المتعددين يتضمن عدة من هؤلاء الوكلاء يتعاونون لحل مشكلة ستكون صعبة أو مستحيلة على وكيل واحد التعامل معها بمفرده.
 
-### سيناريوهات التطبيقات الشائعة
+### السيناريوهات التطبيقية الشائعة
 
-  * **حل المشكلات المعقدة**: تقسيم مهمة كبيرة (مثل تخطيط حدث على مستوى الشركة) إلى مهام فرعية يتم التعامل معها بواسطة وكلاء متخصصين (مثل وكيل الميزانية، وكيل اللوجستيات، وكيل التسويق).
-  * **المساعدات الافتراضية**: وكيل مساعد رئيسي يقوم بتفويض مهام مثل الجدولة، البحث، والحجز إلى وكلاء متخصصين آخرين.
-  * **إنشاء المحتوى الآلي**: سير عمل حيث يقوم وكيل بكتابة المحتوى، وآخر بمراجعته للتأكد من دقته ونبرته، وثالث بنشره.
+  * **حل المشكلات المعقدة**: تقسيم مهمة كبيرة (مثل، تخطيط حدث يشمل الشركة بأكملها) إلى مهام فرعية أصغر يتولاها وكلاء متخصصون (مثلاً، وكيل الميزانية، وكيل اللوجستيات، وكيل التسويق).
+  * **المساعدون الافتراضيون**: وكيل مساعد رئيسي يفوض مهام مثل الجدولة، الأبحاث، والحجز إلى وكلاء متخصصين آخرين.
+  * **إنشاء المحتوى التلقائي**: سير عمل حيث يقوم وكيل واحد بصياغة المحتوى، وآخر يراجعه من حيث الدقة والنبرة، وثالث ينشره.
 
-### أنماط الوكلاء المتعددة
+### أنماط الوكلاء المتعددين
 
-يمكن تنظيم أنظمة الوكلاء المتعددة في عدة أنماط تحدد كيفية تفاعلهم:
+يمكن تنظيم أنظمة الوكلاء المتعددين في عدة أنماط، تحدد كيف تتفاعل فيما بينها:
 
-  * **تتابعي**: يعمل الوكلاء بترتيب محدد مسبقًا، مثل خط التجميع. يصبح ناتج وكيل واحد مدخلًا للوكيل التالي.
+  * **تسلسلي**: يعمل الوكلاء بترتيب محدد مسبقًا، مثل خط تجميع. مخرجات وكيل واحد تصبح مدخلات للآخر.
   * **متزامن**: يعمل الوكلاء بالتوازي على أجزاء مختلفة من المهمة، ويتم تجميع نتائجهم في النهاية.
-  * **شرطي**: يتبع سير العمل مسارات مختلفة بناءً على ناتج وكيل معين، مشابه لبيان if-then-else.
+  * **شرطي**: يتبع سير العمل مسارات مختلفة بناءً على مخرجات وكيل، مشابه لعبارة if-then-else.
 
-## 2. بنية Workflow في إطار عمل Microsoft Agent
+## 2\. هندسة سير عمل إطار عمل Microsoft Agent
 
-نظام سير العمل في إطار العمل هو محرك تنسيق متقدم مصمم لإدارة التفاعلات المعقدة بين الوكلاء المتعددين. يعتمد على بنية قائمة على الرسوم البيانية تستخدم [نموذج تنفيذ Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf)، حيث تتم المعالجة في خطوات متزامنة تُعرف باسم "supersteps".
+نظام سير العمل في إطار الوكيل هو محرك تنظيم متقدم مصمم لإدارة التفاعلات المعقدة بين عدة وكلاء. تم بناؤه على هندسة قائمة على الرسم البياني تستخدم [نموذج تنفيذ بأسلوب Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf)، حيث تتم المعالجة في خطوات متزامنة تسمى "supersteps".
 
 ### المكونات الأساسية
 
-تتكون البنية من ثلاثة أجزاء رئيسية:
+تتألف الهندسة من ثلاثة أجزاء رئيسية:
 
-1. **المنفذون**: هم وحدات المعالجة الأساسية. في أمثلتنا، يعتبر `Agent` نوعًا من المنفذين. يمكن لكل منفذ أن يحتوي على عدة معالجات رسائل يتم استدعاؤها تلقائيًا بناءً على نوع الرسالة المستلمة.
-2. **الحواف**: تحدد المسار الذي تسلكه الرسائل بين المنفذين. يمكن أن تحتوي الحواف على شروط، مما يسمح بتوجيه ديناميكي للمعلومات عبر الرسم البياني لسير العمل.
-3. **سير العمل**: هذا المكون ينظم العملية بأكملها، ويدير المنفذين، والحواف، وتدفق التنفيذ العام. يضمن معالجة الرسائل بالترتيب الصحيح ويبث الأحداث للمراقبة.
+1.  **المنفذون (Executors)**: هذه هي الوحدات الأساسية للمعالجة. في أمثلتنا، `Agent` هو نوع من المنفذ. يمكن لكل منفذ أن يملك عدة معالجات للرسائل تُستدعى تلقائيًا بناءً على نوع الرسالة المستلمة.
+2.  **الحواف (Edges)**: تحدد المسار الذي تسلكه الرسائل بين المنفذين. يمكن أن تحتوي الحواف على شروط تسمح بالتوجيه الديناميكي للمعلومات عبر رسم سير العمل.
+3.  **سير العمل (Workflow)**: ينظم هذه العملية بأكملها، يدير المنفذين، الحواف، وتدفق التنفيذ العام. يضمن معالجة الرسائل بالترتيب الصحيح ويبث الأحداث للرصد.
 
-*رسم بياني يوضح المكونات الأساسية لنظام سير العمل.*
+*مخطط يوضح المكونات الأساسية لنظام سير العمل.*
 
-تتيح هذه البنية إنشاء تطبيقات قوية وقابلة للتوسع باستخدام أنماط أساسية مثل السلاسل التتابعية، التوزيع والتجميع للمعالجة المتوازية، ومنطق التبديل للحالات الشرطية.
+تتيح هذه البنية بناء تطبيقات قوية وقابلة للتوسع باستخدام أنماط أساسية مثل سلاسل متتابعة، ونمط fan-out/fan-in للمعالجة المتوازية، ومنطق switch-case لتدفقات شرطية.
 
-## 3. أمثلة عملية وتحليل الكود
+## 3\. أمثلة عملية وتحليل الكود
 
-الآن، دعونا نستكشف كيفية تنفيذ أنماط سير العمل المختلفة باستخدام الإطار. سنستعرض أمثلة الكود لكل من Python و .NET لكل نمط.
+الآن، دعنا نستعرض كيفية تنفيذ أنماط سير العمل المختلفة باستخدام الإطار. سننظر في الكود الخاص بكلٍ من بايثون و .NET لكل مثال.
 
-### الحالة 1: سير عمل تتابعي بسيط
+### الحالة 1: سير عمل تسلسلي أساسي
 
-هذا هو النمط الأبسط، حيث يتم تمرير ناتج وكيل مباشرة إلى وكيل آخر. السيناريو الخاص بنا يتضمن وكيل `FrontDesk` للفندق الذي يقدم توصية سفر، والتي يتم مراجعتها بعد ذلك بواسطة وكيل `Concierge`.
+هذا هو أبسط نمط، حيث يتم تمرير مخرجات وكيل واحد مباشرة إلى آخر. سيناريو هذا المثال يتضمن وكيل `FrontDesk` في الفندق يقدم توصية سفر، ويتم مراجعتها بواسطة وكيل `Concierge`.
 
-*رسم بياني لسير العمل الأساسي FrontDesk -> Concierge.*
+*مخطط سير العمل الأساسي FrontDesk -> Concierge.*
 
 #### خلفية السيناريو
 
-يسأل مسافر عن توصية في باريس.
+يطلب مسافر توصية في باريس.
 
-1. يقدم وكيل `FrontDesk`، المصمم للإيجاز، اقتراحًا بزيارة متحف اللوفر.
-2. يتلقى وكيل `Concierge`، الذي يفضل التجارب الأصيلة، هذا الاقتراح. يقوم بمراجعة التوصية ويقدم ملاحظات، مقترحًا بديلاً أكثر محلية وأقل سياحية.
+1.  وكيل `FrontDesk`، المصمم ليكون مختصرًا، يقترح زيارة متحف اللوفر.
+2.  وكيل `Concierge`، الذي يفضل التجارب الأصيلة، يستلم هذا الاقتراح. يراجعه ويقدم ملاحظات، مقترحًا بديلًا محليًا وأقل سياحية.
 
-#### تحليل تنفيذ Python
+#### تحليل التنفيذ في بايثون
 
-في مثال Python، نقوم أولاً بتعريف وإنشاء الوكيلين، كل منهما بتعليمات محددة.
+في مثال بايثون، نعرف وننشئ أولًا الوكيلين، كل منهما بتعليمات محددة.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# تحديد أدوار وتعليمات الوكيل
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# إنشاء نسخ من الوكيل
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-بعد ذلك، يتم استخدام `WorkflowBuilder` لبناء الرسم البياني. يتم تعيين `front_desk_agent` كنقطة البداية، ويتم إنشاء حافة لربط ناتجه بـ `reviewer_agent`.
+بعد ذلك، يستخدم `WorkflowBuilder` لبناء الرسم البياني. يتم تعيين `front_desk_agent` كنقطة البداية، ويتم إنشاء حافة لربط مخرجاته بالوagent `reviewer_agent`.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# ٠١.برمجية-وكيل-بايثون-إطار-العمل-سير-العمل-نموذج-جي-اتش-الأساسي.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-أخيرًا، يتم تنفيذ سير العمل مع المطالبة الأولية للمستخدم.
+وأخيرًا، يتم تنفيذ سير العمل باستخدام موجه المستخدم الابتدائي.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# يقوم run بتنفيذ سير العمل؛ تعيد get_outputs() نتيجة منفذ الإخراج.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### تحليل تنفيذ .NET (C#)
+#### تحليل التنفيذ في .NET (C#)
 
-يتبع تنفيذ .NET منطقًا مشابهًا جدًا. أولاً، يتم تعريف الثوابت لأسماء الوكلاء وتعليماتهم.
+تنفيذ .NET يتبع منطقًا مشابهًا للغاية. أولًا تُعرّف الثوابت لأسماء وتعليمات الوكلاء.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-يتم إنشاء الوكلاء باستخدام `OpenAIClient`، ثم يقوم `WorkflowBuilder` بتحديد التدفق التتابعي عن طريق إضافة حافة من `frontDeskAgent` إلى `reviewerAgent`.
+يتم إنشاء الوكلاء باستخدام `AzureOpenAIClient` (واجهة استجابة Responses API)، ثم يحدد `WorkflowBuilder` التدفق التسلسلي بإضافة حافة من `frontDeskAgent` إلى `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-يتم تشغيل سير العمل بعد ذلك مع رسالة المستخدم، ويتم بث النتائج مرة أخرى.
+ثم يتم تشغيل سير العمل برسالة المستخدم، وتُبث النتائج مرة أخرى.
 
-### الحالة 2: سير عمل تتابعي متعدد الخطوات
+### الحالة 2: سير عمل تسلسلي متعدد الخطوات
 
-يمدد هذا النمط التسلسل الأساسي ليشمل المزيد من الوكلاء. إنه مثالي للعمليات التي تتطلب مراحل متعددة من التحسين أو التحويل.
+هذا النمط يوسع التسلسل الأساسي ليشمل المزيد من الوكلاء. مثالي للعمليات التي تتطلب مراحل متعددة من التحسين أو التحويل.
 
 #### خلفية السيناريو
 
-يقدم مستخدم صورة لغرفة معيشة ويطلب عرض أسعار للأثاث.
+يقدم المستخدم صورة لغرفة المعيشة ويطلب عرض أسعار للأثاث.
 
-1. **Sales-Agent**: يحدد عناصر الأثاث في الصورة ويُنشئ قائمة.
-2. **Price-Agent**: يأخذ قائمة العناصر ويقدم تفصيلًا للأسعار، بما في ذلك الخيارات الاقتصادية والمتوسطة والفاخرة.
-3. **Quote-Agent**: يتلقى القائمة المسعرة ويُنسقها في مستند عرض أسعار رسمي بصيغة Markdown.
+1.  **وكيل المبيعات**: يحدد قطع الأثاث في الصورة وينشئ قائمة.
+2.  **وكيل الأسعار**: يأخذ القائمة ويوفر تفصيل للأسعار، يشمل خيارات الميزانية والمتوسطة والفاخرة.
+3.  **وكيل العرض**: يستلم القائمة المُسعرّة وينسقها في وثيقة عرض رسمي بصيغة Markdown.
 
-*رسم بياني لسير العمل Sales -> Price -> Quote.*
+*مخطط سير العمل Sales -> Price -> Quote.*
 
-#### تحليل تنفيذ Python
+#### تحليل التنفيذ في بايثون
 
-يتم تعريف ثلاثة وكلاء، كل منهم له دور متخصص. يتم بناء سير العمل باستخدام `add_edge` لإنشاء سلسلة: `sales_agent` -> `price_agent` -> `quote_agent`.
+تم تعريف ثلاثة وكلاء، كل منهم بدور متخصص. تم بناء سير العمل باستخدام `add_edge` لإنشاء سلسلة: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# إنشاء ثلاثة وكلاء متخصصين
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# بناء سير العمل التسلسلي
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-المدخل هو `ChatMessage` يتضمن النص ورابط الصورة. يتولى الإطار تمرير ناتج كل وكيل إلى التالي في التسلسل حتى يتم إنشاء عرض الأسعار النهائي.
+المدخل هو `ChatMessage` يتضمن نصًا ورابط الصورة. يتولى الإطار تمرير مخرجات كل وكيل إلى التالي بالتتابع حتى يتم إنشاء العرض النهائي.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# تحتوي رسالة المستخدم على نص وصورة معًا
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# شغّل سير العمل
+events = await workflow.run(message)
 ```
 
-#### تحليل تنفيذ .NET (C#)
+#### تحليل التنفيذ في .NET (C#)
 
-يعكس مثال .NET نسخة Python. يتم إنشاء ثلاثة وكلاء (`salesagent`, `priceagent`, `quoteagent`). يقوم `WorkflowBuilder` بربطهم بالتتابع.
+المثال في .NET يعكس النسخة من بايثون. يتم إنشاء ثلاثة وكلاء (`salesagent`، `priceagent`، `quoteagent`). يربط `WorkflowBuilder` بينهم تسلسليًا.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-يتم إنشاء رسالة المستخدم مع بيانات الصورة (كبايت) والنص. يتم تشغيل سير العمل باستخدام `InProcessExecution.StreamAsync`، ويتم التقاط الناتج النهائي من البث.
+يتم إنشاء رسالة المستخدم بكل من بيانات الصورة (كـ bytes) والنص. طريقة `InProcessExecution.RunStreamingAsync` تبدأ سير العمل، ويتم التقاط المخرجات النهائية من التدفق.
 
 ### الحالة 3: سير عمل متزامن
 
-يُستخدم هذا النمط عندما يمكن تنفيذ المهام في نفس الوقت لتوفير الوقت. يتضمن "توزيع" إلى عدة وكلاء و"تجميع" لتجميع النتائج.
+يُستخدم هذا النمط عند إمكانية تنفيذ المهام في آنٍ واحد لتوفير الوقت. يتضمن "التوزيع" إلى عدة وكلاء و"التجميع" لنتائجهم.
 
 #### خلفية السيناريو
 
 يطلب مستخدم تخطيط رحلة إلى سياتل.
 
-1. **Dispatcher (Fan-Out)**: يتم إرسال طلب المستخدم إلى وكيلين في نفس الوقت.
-2. **Researcher-Agent**: يبحث عن المعالم السياحية، الطقس، والاعتبارات الرئيسية لرحلة إلى سياتل في ديسمبر.
-3. **Plan-Agent**: يُنشئ بشكل مستقل خطة سفر مفصلة يومًا بيوم.
-4. **Aggregator (Fan-In)**: يتم جمع نواتج الباحث والمخطط وتقديمها معًا كنتيجة نهائية.
+1.  **الموزع (Fan-Out)**: يتم إرسال طلب المستخدم إلى وكيلين في نفس الوقت.
+2.  **وكيل البحث**: يبحث عن المواقع السياحية، الطقس، والنقاط الأساسية لرحلة إلى سياتل في ديسمبر.
+3.  **وكيل التخطيط**: ينشئ بشكل مستقل جدول سفر مفصل يومًا بيوم.
+4.  **المجمع (Fan-In)**: تُجمع مخرجات كل من الباحث والمخطط وتُعرض معًا كنتيجة نهائية.
 
-*رسم بياني لسير العمل المتزامن Researcher و Planner.*
+*مخطط سير عمل الباحث والمخطط المتزامن.*
 
-#### تحليل تنفيذ Python
+#### تحليل التنفيذ في بايثون
 
-يبسط `ConcurrentBuilder` إنشاء هذا النمط. تقوم ببساطة بإدراج الوكلاء المشاركين، ويقوم المنشئ تلقائيًا بإنشاء منطق التوزيع والتجميع اللازم.
+يقوم `ConcurrentBuilder` بتبسيط إنشاء هذا النمط. كل ما عليك هو سرد الوكلاء المشاركين، ويقوم البناء تلقائيًا بإنشاء منطق "التوزيع" و"التجميع" اللازم.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# يقوم ConcurrentBuilder بإدارة منطق التفرع والتجميع
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# تشغيل سير العمل
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-يضمن الإطار أن `research_agent` و `plan_agent` يعملان بالتوازي، ويتم جمع نواتجهما النهائية في قائمة.
+يضمن الإطار تنفيذ `research_agent` و `plan_agent` بالتوازي، ويتم جمع مخرجاتهما النهائية في قائمة.
 
-#### تحليل تنفيذ .NET (C#)
+#### تحليل التنفيذ في .NET (C#)
 
-في .NET، يتطلب هذا النمط تعريفًا أكثر وضوحًا. يتم إنشاء منفذين مخصصين (`ConcurrentStartExecutor` و `ConcurrentAggregationExecutor`) للتعامل مع منطق التوزيع والتجميع.
+في .NET، يتطلب هذا النمط تعريفًا أكثر وضوحًا. يتم إنشاء منفذين مخصصين (`ConcurrentStartExecutor` و `ConcurrentAggregationExecutor`) للتعامل مع منطق "التوزيع" و"التجميع".
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-ثم يستخدم `WorkflowBuilder` `AddFanOutEdge` و `AddFanInEdge` لبناء الرسم البياني مع هؤلاء المنفذين المخصصين والوكلاء.
+ثم يستخدم `WorkflowBuilder` أساليب `AddFanOutEdge` و `AddFanInEdge` لبناء الرسم البياني مع هؤلاء المنفذين المخصصين والوكلاء.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -292,43 +291,43 @@ var workflow = new WorkflowBuilder(startExecutor)
 
 ### الحالة 4: سير عمل شرطي
 
-تُدخل سير العمل الشرطي منطق التفرع، مما يسمح للنظام باتخاذ مسارات مختلفة بناءً على النتائج الوسيطة.
+تُدخل سير العمل الشرطي منطق التفرع، مما يسمح للنظام باتخاذ مسارات مختلفة بناءً على نتائج وسطية.
 
 #### خلفية السيناريو
 
-يقوم هذا سير العمل بأتمتة إنشاء ونشر دليل تقني.
+يقوم هذا سير العمل بأتمتة إنشاء ونشر درس تقني.
 
-1. **Evangelist-Agent**: يكتب مسودة الدليل بناءً على مخطط وروابط محددة.
-2. **ContentReviewer-Agent**: يراجع المسودة. يتحقق مما إذا كان عدد الكلمات يتجاوز 200 كلمة.
-3. **فرع شرطي**:
-      * **إذا تمت الموافقة (`Yes`)**: يتقدم سير العمل إلى `Publisher-Agent`.
-      * **إذا تم الرفض (`No`)**: يتوقف سير العمل ويُخرج سبب الرفض.
-4. **Publisher-Agent**: إذا تمت الموافقة على المسودة، يقوم هذا الوكيل بحفظ المحتوى في ملف Markdown.
+1.  **وكيل المبشر (Evangelist)**: يكتب مسودة الدرس بناءً على مخطط وروابط معطاة.
+2.  **وكيل مراجعة المحتوى**: يراجع المسودة. يتحقق مما إذا كان عدد الكلمات يزيد عن 200 كلمة.
+3.  **التفرع الشرطي**:
+      * **إذا تم الموافقة (`نعم`)**: يتابع سير العمل إلى وكيل النشر.
+      * **إذا تم الرفض (`لا`)**: يتوقف سير العمل ويُخرج سبب الرفض.
+4.  **وكيل النشر**: إذا تم الموافقة على المسودة، يحفظ المحتوى في ملف Markdown.
 
-#### تحليل تنفيذ Python
+#### تحليل التنفيذ في بايثون
 
-يستخدم هذا المثال وظيفة مخصصة، `select_targets`، لتنفيذ المنطق الشرطي. يتم تمرير هذه الوظيفة إلى `add_multi_selection_edge_group` لتوجيه سير العمل بناءً على الحقل `review_result` من ناتج المراجع.
+يستخدم هذا المثال وظيفة مخصصة، `select_targets`، لتطبيق المنطق الشرطي. تُمرر هذه الوظيفة إلى `add_multi_selection_edge_group` وتوجه سير العمل بناءً على حقل `review_result` من مخرجات المراجع.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# هذه الدالة تحدد الخطوة التالية بناءً على نتيجة المراجعة
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # إذا تم الموافقة، تابع إلى منفذ 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # إذا تم الرفض، تابع إلى منفذ 'handle_review' للإبلاغ عن الفشل
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# يقوم منشئ سير العمل باستخدام دالة الاختيار للتوجيه
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # ينفذ الحافة متعددة الاختيارات المنطق الشرطي
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-يتم استخدام منفذين مخصصين مثل `to_reviewer_result` لتحليل الناتج JSON من الوكلاء وتحويله إلى كائنات ذات نوع قوي يمكن أن تفحصها وظيفة التحديد.
+تُستخدم منفذات مخصصة مثل `to_reviewer_result` لتحليل الإخراج JSON من الوكلاء وتحويله إلى كائنات ذات نوع قوي يمكن لدالة الاختيار فحصها.
 
-#### تحليل تنفيذ .NET (C#)
+#### تحليل التنفيذ في .NET (C#)
 
-يستخدم إصدار .NET نهجًا مشابهًا مع وظيفة شرطية. يتم تعريف `Func<object?, bool>` للتحقق من خاصية `Result` لكائن `ReviewResult`.
+النسخة في .NET تستخدم نهجًا مشابهًا مع دالة شرطية. تُعرف `Func<object?, bool>` لفحص خاصية `Result` لكائن `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-يسمح معلمة `condition` في طريقة `AddEdge` لـ `WorkflowBuilder` بإنشاء مسار متفرع. يتبع سير العمل الحافة إلى `publishExecutor` فقط إذا كانت الوظيفة الشرطية `GetCondition(expectedResult: "Yes")` تُرجع true. خلاف ذلك، يتبع المسار إلى `sendReviewerExecutor`.
+تسمح معلمة `condition` في طريقة `AddEdge` لـ `WorkflowBuilder` بإنشاء مسار تفرعي. يتبع سير العمل الحافة إلى `publishExecutor` فقط إذا كانت حالة `GetCondition(expectedResult: "Yes")` صحيحة. وإلا، يتبع المسار إلى `sendReviewerExecutor`.
 
-## الخاتمة
+## الخلاصة
 
-يوفر إطار عمل Microsoft Agent Workflow أساسًا قويًا ومرنًا لتنسيق أنظمة متعددة الوكلاء المعقدة. من خلال الاستفادة من بنيته القائمة على الرسوم البيانية ومكوناته الأساسية، يمكن للمطورين تصميم وتنفيذ سير عمل متقدم في كل من Python و .NET. سواء كان تطبيقك يتطلب معالجة تتابعية بسيطة، تنفيذًا متوازيًا، أو منطقًا شرطيًا ديناميكيًا، يوفر الإطار الأدوات اللازمة لبناء حلول قوية وقابلة للتوسع وآمنة تعتمد على الذكاء الاصطناعي.
+يوفر سير عمل إطار Microsoft Agent أساسًا قويًا ومرنًا لتنظيم أنظمة متعددة الوكلاء معقدة. بالاستفادة من هندسته القائمة على الرسم البياني ومكوناته الأساسية، يمكن للمطورين تصميم وتنفيذ سير عمل متقدمة في كل من بايثون و .NET. سواء تطلب التطبيق معالجة تسلسلية بسيطة، تنفيذ متوازي، أو منطق شرطي ديناميكي، يوفر الإطار الأدوات لبناء حلول ذكاء اصطناعي قوية، قابلة للتوسع، وآمنة النوع.
 
 ---
 
-**إخلاء المسؤولية**:  
-تم ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي. للحصول على معلومات حاسمة، يُوصى بالاستعانة بترجمة بشرية احترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة ناتجة عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

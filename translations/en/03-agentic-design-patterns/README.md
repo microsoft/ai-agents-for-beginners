@@ -94,7 +94,7 @@ Imagine you are designing a Travel Agent, here is how you could think about usin
 
 ## Got More Questions about AI Agentic Design Patterns?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 

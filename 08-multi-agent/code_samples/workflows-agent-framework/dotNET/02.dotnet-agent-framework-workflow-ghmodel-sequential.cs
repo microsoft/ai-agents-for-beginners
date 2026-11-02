@@ -1,18 +1,17 @@
 #!/usr/bin/dotnet run
-#:package Microsoft.Extensions.AI@9.9.1
-#:package System.ClientModel@1.6.1.0
+#:package Microsoft.Extensions.AI@10.*
+#:package Azure.AI.OpenAI@2.1.0
 #:package Azure.Identity@1.15.0
 #:package System.Linq.Async@6.0.3
-#:package OpenTelemetry.Api@1.0.0
-#:package Microsoft.Agents.AI.Workflows@1.0.0-preview.251001.3
-#:package Microsoft.Agents.AI.OpenAI@1.0.0-preview.251001.3
+#:package OpenTelemetry.Api@1.*
+#:package Microsoft.Agents.AI.Workflows@1.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 #:package DotNetEnv@3.1.1
 
 using System;
 using System.ComponentModel;
-using System.ClientModel;
 using System.IO;
-using OpenAI;
+using Azure.AI.OpenAI;
 using Azure.Identity;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
@@ -22,22 +21,15 @@ using DotNetEnv;
 // Load environment variables from .env file
 Env.Load("../../../.env");
 
-// Configure GitHub Models endpoint and credentials
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = "gpt-4o";  // Using GPT-4o for vision capabilities
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
 // Path to furniture image for analysis
 var imgPath = "../imgs/home.png";
 
-// Configure OpenAI client options with GitHub Models endpoint
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Create OpenAI client with API key credential
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Sales Agent (Stage 1) - Furniture Analysis
 const string SalesAgentName = "Sales-Agent";
@@ -76,17 +68,17 @@ async Task<byte[]> OpenImageBytesAsync(string path)
 var imageBytes = await OpenImageBytesAsync(imgPath);
 
 // Create AI agents for the sequential workflow
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent salesAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: SalesAgentName, instructions: SalesAgentInstructions);
-AIAgent priceagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent priceAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: PriceAgentName, instructions: PriceAgentInstructions);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent quoteAgent = azureClient.GetChatClient(deployment).AsIChatClient().AsAIAgent(
     name: QuoteAgentName, instructions: QuoteAgentInstructions);
 
 // Build sequential workflow: Sales → Price → Quote
-var workflow = new WorkflowBuilder(salesagent)
-    .AddEdge(salesagent, priceagent)
-    .AddEdge(priceagent, quoteagent)
+var workflow = new WorkflowBuilder(salesAgent)
+    .AddEdge(salesAgent, priceAgent)
+    .AddEdge(priceAgent, quoteAgent)
     .Build();
 
 // Create user message with image and instructions
@@ -96,7 +88,7 @@ ChatMessage userMessage = new ChatMessage(ChatRole.User, [
 ]);
 
 // Execute workflow with streaming
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, userMessage);
+StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, userMessage);
 
 // Process workflow events and collect results
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));
@@ -104,7 +96,7 @@ string id = "";
 string messageData = "";
 await foreach (WorkflowEvent evt in run.WatchStreamAsync().ConfigureAwait(false))
 {
-    if (evt is AgentRunUpdateEvent executorComplete)
+    if (evt is AgentResponseUpdateEvent executorComplete)
     {
         if (id == "")
         {
@@ -112,7 +104,7 @@ await foreach (WorkflowEvent evt in run.WatchStreamAsync().ConfigureAwait(false)
         }
         if (id == executorComplete.ExecutorId)
         {
-            messageData += executorComplete.Data.ToString();
+            messageData += executorComplete.Data?.ToString();
         }
         else
         {

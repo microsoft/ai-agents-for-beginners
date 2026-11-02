@@ -1,19 +1,19 @@
-[![Cara Merancang Agen AI yang Baik](../../../translated_images/id/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Cara Mendesain Agen AI yang Baik](../../../translated_images/id/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Klik gambar di atas untuk menonton video pelajaran ini)_
+> _(Klik gambar di atas untuk melihat video pelajaran ini)_
 
 # Pola Desain Penggunaan Alat
 
-Alat menarik karena memungkinkan agen AI memiliki jangkauan kemampuan yang lebih luas. Alih-alih agen memiliki set tindakan terbatas yang dapat dilakukan, dengan menambahkan alat, agen sekarang dapat melakukan berbagai tindakan. Dalam bab ini, kita akan melihat Pola Desain Penggunaan Alat, yang menggambarkan bagaimana agen AI dapat menggunakan alat tertentu untuk mencapai tujuan mereka.
+Alat menarik karena memungkinkan agen AI memiliki rentang kemampuan yang lebih luas. Alih-alih agen memiliki sekumpulan tindakan terbatas yang dapat dilakukan, dengan menambahkan alat, agen sekarang dapat melakukan berbagai tindakan. Dalam bab ini, kita akan melihat Pola Desain Penggunaan Alat, yang menggambarkan bagaimana agen AI dapat menggunakan alat tertentu untuk mencapai tujuan mereka.
 
 ## Pendahuluan
 
-Dalam pelajaran ini, kita ingin menjawab pertanyaan berikut:
+Dalam pelajaran ini, kami akan mencoba menjawab pertanyaan-pertanyaan berikut:
 
 - Apa itu pola desain penggunaan alat?
-- Untuk kasus penggunaan apa pola ini dapat diterapkan?
-- Apa saja elemen/bangunan dasar yang diperlukan untuk mengimplementasikan pola desain ini?
-- Apa pertimbangan khusus saat menggunakan Pola Desain Penggunaan Alat untuk membangun agen AI yang dapat dipercaya?
+- Apa saja kasus penggunaan yang dapat diterapkan?
+- Apa saja elemen/blok bangunan yang diperlukan untuk mengimplementasikan pola desain ini?
+- Apa saja pertimbangan khusus untuk menggunakan Pola Desain Penggunaan Alat dalam membangun agen AI yang dapat dipercaya?
 
 ## Tujuan Pembelajaran
 
@@ -21,126 +21,124 @@ Setelah menyelesaikan pelajaran ini, Anda akan dapat:
 
 - Mendefinisikan Pola Desain Penggunaan Alat dan tujuannya.
 - Mengidentifikasi kasus penggunaan di mana Pola Desain Penggunaan Alat dapat diterapkan.
-- Memahami elemen kunci yang diperlukan untuk mengimplementasikan pola desain.
-- Mengenali pertimbangan untuk memastikan kepercayaan dalam agen AI yang menggunakan pola desain ini.
+- Memahami elemen kunci yang diperlukan untuk mengimplementasikan pola desain ini.
+- Mengenali pertimbangan untuk memastikan kepercayaan pada agen AI yang menggunakan pola desain ini.
 
 ## Apa itu Pola Desain Penggunaan Alat?
 
-**Pola Desain Penggunaan Alat** berfokus pada memberi kemampuan pada LLM untuk berinteraksi dengan alat eksternal guna mencapai tujuan tertentu. Alat adalah kode yang dapat dieksekusi oleh agen untuk melakukan tindakan. Alat bisa berupa fungsi sederhana seperti kalkulator, atau panggilan API ke layanan pihak ketiga seperti pencarian harga saham atau prakiraan cuaca. Dalam konteks agen AI, alat dirancang untuk dieksekusi oleh agen sebagai respons terhadap **panggilan fungsi yang dihasilkan model**.
+**Pola Desain Penggunaan Alat** berfokus pada memberikan kemampuan kepada LLM untuk berinteraksi dengan alat eksternal guna mencapai tujuan tertentu. Alat adalah kode yang dapat dijalankan oleh agen untuk melakukan tindakan. Sebuah alat bisa berupa fungsi sederhana seperti kalkulator, atau panggilan API ke layanan pihak ketiga seperti pencarian harga saham atau prakiraan cuaca. Dalam konteks agen AI, alat dirancang untuk dijalankan oleh agen sebagai respons terhadap **panggilan fungsi yang dihasilkan model**.
 
-## Untuk kasus penggunaan apa pola ini dapat diterapkan?
+## Apa saja kasus penggunaan yang dapat diterapkan?
 
-Agen AI dapat memanfaatkan alat untuk menyelesaikan tugas kompleks, mengambil informasi, atau membuat keputusan. Pola desain penggunaan alat sering digunakan dalam skenario yang membutuhkan interaksi dinamis dengan sistem eksternal, seperti basis data, layanan web, atau interpreter kode. Kemampuan ini berguna untuk sejumlah kasus penggunaan berbeda termasuk:
+Agen AI dapat memanfaatkan alat untuk menyelesaikan tugas kompleks, mengambil informasi, atau membuat keputusan. Pola desain penggunaan alat sering digunakan dalam skenario yang memerlukan interaksi dinamis dengan sistem eksternal, seperti basis data, layanan web, atau interpreter kode. Kemampuan ini berguna untuk berbagai kasus penggunaan termasuk:
 
-- **Pengambilan Informasi Dinamis:** Agen dapat mengkueri API eksternal atau basis data untuk mendapatkan data terbaru (misalnya, query basis data SQLite untuk analisis data, mengambil harga saham atau informasi cuaca).
-- **Eksekusi dan Interpretasi Kode:** Agen dapat menjalankan kode atau skrip untuk menyelesaikan masalah matematika, membuat laporan, atau melakukan simulasi.
-- **Otomatisasi Alur Kerja:** Mengotomatisasi alur kerja berulang atau multi langkah dengan mengintegrasikan alat seperti penjadwal tugas, layanan email, atau pipeline data.
+- **Pengambilan Informasi Dinamis:** Agen dapat mengkueri API eksternal atau basis data untuk mengambil data terkini (misal, mengkueri basis data SQLite untuk analisis data, mengambil harga saham atau informasi cuaca).
+- **Eksekusi dan Interpretasi Kode:** Agen dapat menjalankan kode atau skrip untuk menyelesaikan masalah matematika, menghasilkan laporan, atau melakukan simulasi.
+- **Otomasi Proses Kerja:** Mengotomasi alur kerja berulang atau multi-langkah dengan mengintegrasikan alat seperti penjadwal tugas, layanan email, atau pipeline data.
 - **Dukungan Pelanggan:** Agen dapat berinteraksi dengan sistem CRM, platform tiket, atau basis pengetahuan untuk menyelesaikan pertanyaan pengguna.
-- **Pembuatan dan Penyuntingan Konten:** Agen dapat menggunakan alat seperti pemeriksa tata bahasa, ringkas teks, atau evaluator keamanan konten untuk membantu tugas pembuatan konten.
+- **Pembuatan dan Pengeditan Konten:** Agen dapat memanfaatkan alat seperti pemeriksa tata bahasa, peringkas teks, atau evaluator keamanan konten untuk membantu tugas pembuatan konten.
 
-## Apa saja elemen/bangunan dasar yang diperlukan untuk mengimplementasikan pola desain penggunaan alat?
+## Apa saja elemen/blok bangunan yang diperlukan untuk mengimplementasikan pola desain penggunaan alat?
 
-Bangunan-bangunan dasar ini memungkinkan agen AI melakukan berbagai tugas. Mari kita lihat elemen kunci yang diperlukan untuk mengimplementasikan Pola Desain Penggunaan Alat:
+Blok bangunan ini memungkinkan agen AI melakukan berbagai tugas. Mari kita lihat elemen kunci yang diperlukan untuk mengimplementasikan Pola Desain Penggunaan Alat:
 
-- **Skema Fungsi/Alat**: Definisi rinci alat yang tersedia, termasuk nama fungsi, tujuan, parameter yang diperlukan, dan output yang diharapkan. Skema ini memungkinkan LLM memahami alat yang ada dan cara membuat permintaan yang valid.
+- **Skema Fungsi/Alat**: Definisi rinci alat yang tersedia, termasuk nama fungsi, tujuan, parameter yang diperlukan, dan keluaran yang diharapkan. Skema ini memungkinkan LLM memahami alat apa saja yang tersedia dan bagaimana menyusun permintaan yang valid.
 
-- **Logika Eksekusi Fungsi**: Mengatur bagaimana dan kapan alat dipanggil berdasarkan niat pengguna dan konteks percakapan. Ini dapat mencakup modul perencana, mekanisme pengalihan, atau alur kondisional yang menentukan penggunaan alat secara dinamis.
+- **Logika Eksekusi Fungsi**: Mengatur bagaimana dan kapan alat dipanggil berdasarkan maksud pengguna dan konteks percakapan. Ini dapat mencakup modul perencana, mekanisme pengarah, atau alur kondisional yang menentukan penggunaan alat secara dinamis.
 
-- **Sistem Penanganan Pesan**: Komponen yang mengelola alur percakapan antara input pengguna, respons LLM, panggilan alat, dan output alat.
+- **Sistem Penanganan Pesan**: Komponen yang mengelola aliran percakapan antara input pengguna, respons LLM, panggilan alat, dan keluaran alat.
 
-- **Kerangka Integrasi Alat**: Infrastruktur yang menghubungkan agen ke berbagai alat, baik itu fungsi sederhana atau layanan eksternal kompleks.
+- **Kerangka Integrasi Alat**: Infrastruktur yang menghubungkan agen dengan berbagai alat, baik itu fungsi sederhana atau layanan eksternal kompleks.
 
 - **Penanganan Kesalahan & Validasi**: Mekanisme untuk menangani kegagalan dalam eksekusi alat, memvalidasi parameter, dan mengelola respons tak terduga.
 
-- **Manajemen Status**: Melacak konteks percakapan, interaksi alat sebelumnya, dan data persisten untuk memastikan konsistensi dalam interaksi berulang.
+- **Manajemen Status**: Melacak konteks percakapan, interaksi alat sebelumnya, dan data persistensi untuk memastikan konsistensi dalam interaksi multi-langkah.
 
-Selanjutnya, mari kita lihat lebih detail tentang Panggilan Fungsi/Alat.
+Selanjutnya, mari kita lihat Panggilan Fungsi/Alat dengan lebih detail.
  
 ### Panggilan Fungsi/Alat
 
-Panggilan fungsi adalah cara utama kita memungkinkan Model Bahasa Besar (LLM) berinteraksi dengan alat. Anda sering akan melihat 'Fungsi' dan 'Alat' digunakan secara bergantian karena 'fungsi' (blok kode yang dapat digunakan kembali) adalah 'alat' yang digunakan agen untuk menjalankan tugas. Agar kode sebuah fungsi dapat dipanggil, LLM harus membandingkan permintaan pengguna dengan deskripsi fungsi. Untuk melakukan ini, sebuah skema yang berisi deskripsi semua fungsi yang tersedia dikirim ke LLM. LLM kemudian memilih fungsi yang paling sesuai untuk tugas tersebut dan mengembalikan nama serta argumennya. Fungsi yang dipilih dipanggil, responsnya dikirim kembali ke LLM, yang menggunakan informasi tersebut untuk menanggapi permintaan pengguna.
+Panggilan fungsi adalah cara utama kita memungkinkan Large Language Models (LLM) berinteraksi dengan alat. Anda sering akan melihat 'Fungsi' dan 'Alat' digunakan secara bergantian karena 'fungsi' (blok kode yang dapat digunakan ulang) adalah 'alat' yang digunakan agen untuk menyelesaikan tugas. Agar kode sebuah fungsi dapat dipanggil, LLM harus membandingkan permintaan pengguna dengan deskripsi fungsi tersebut. Untuk ini, sebuah skema yang berisi deskripsi semua fungsi yang tersedia dikirim ke LLM. LLM kemudian memilih fungsi yang paling tepat untuk tugas itu dan mengembalikan nama serta argumennya. Fungsi yang dipilih dipanggil, responsnya dikirim kembali ke LLM, yang menggunakan informasi tersebut untuk merespon permintaan pengguna.
 
-Untuk developer mengimplementasikan panggilan fungsi untuk agen, Anda akan membutuhkan:
+Untuk pengembang mengimplementasikan panggilan fungsi untuk agen, Anda akan memerlukan:
 
 1. Model LLM yang mendukung panggilan fungsi
 2. Skema yang berisi deskripsi fungsi
 3. Kode untuk setiap fungsi yang dideskripsikan
 
-Mari gunakan contoh mendapatkan waktu saat ini di sebuah kota untuk mengilustrasikan:
+Mari kita gunakan contoh mendapatkan waktu saat ini di sebuah kota untuk mengilustrasikan:
 
 1. **Inisialisasi LLM yang mendukung panggilan fungsi:**
 
-    Tidak semua model mendukung panggilan fungsi, jadi penting memeriksa LLM yang Anda gunakan apakah mendukung. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> mendukung panggilan fungsi. Kita bisa mulai dengan menginisialisasi klien Azure OpenAI.
+    Tidak semua model mendukung panggilan fungsi, jadi penting memastikan LLM yang Anda gunakan melakukannya. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> mendukung panggilan fungsi. Kita bisa mulai dengan menginisiasi klien OpenAI terhadap **Responses API** Azure OpenAI (endpoint stabil `/openai/v1/` — tanpa perlu `api_version`). 
 
     ```python
-    # Inisialisasi klien Azure OpenAI
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
 1. **Buat Skema Fungsi**:
 
-    Selanjutnya kita akan mendefinisikan skema JSON yang berisi nama fungsi, deskripsi dari apa yang dilakukan fungsi tersebut, serta nama dan deskripsi parameter fungsi.
-    Kita kemudian akan mengirim skema ini ke klien yang dibuat sebelumnya, bersamaan dengan permintaan pengguna untuk mencari waktu di San Francisco. Yang penting dicatat adalah bahwa **panggilan alat** lah yang dikembalikan, **bukan** jawaban akhir untuk pertanyaan. Seperti disebutkan sebelumnya, LLM mengembalikan nama fungsi yang dipilih untuk tugas tersebut, dan argumen yang akan dikirim ke fungsi itu.
+    Selanjutnya kita akan mendefinisikan skema JSON yang berisi nama fungsi, deskripsi apa yang dilakukan fungsi, dan nama serta deskripsi parameter fungsi.
+    Kita kemudian akan mengambil skema ini dan memberikannya ke klien yang dibuat sebelumnya, bersama dengan permintaan pengguna untuk menemukan waktu di San Francisco. Yang penting diperhatikan adalah **panggilan alat** yang dikembalikan, **bukan** jawaban akhir dari pertanyaannya. Seperti disebutkan sebelumnya, LLM mengembalikan nama fungsi yang dipilih untuk tugas, dan argumen yang akan diteruskannya.
 
     ```python
-    # Deskripsi fungsi untuk model baca
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # Pesan pengguna awal
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # Panggilan API pertama: Meminta model untuk menggunakan fungsi
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Memproses respons model
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
 1. **Kode fungsi yang diperlukan untuk menjalankan tugas:**
 
-    Sekarang LLM telah memilih fungsi mana yang perlu dijalankan, kode yang menjalankan tugas tersebut harus diimplementasikan dan dieksekusi.
-    Kita bisa mengimplementasikan kode untuk mendapatkan waktu saat ini menggunakan Python. Kita juga perlu menulis kode untuk mengekstrak nama dan argumen dari response_message agar mendapatkan hasil akhir.
+    Setelah LLM memilih fungsi yang harus dijalankan, kode yang menjalankan tugas perlu diimplementasikan dan dieksekusi.
+    Kita bisa mengimplementasikan kode untuk mendapatkan waktu saat ini dalam Python. Kita juga perlu menulis kode untuk mengekstrak nama dan argumen dari response_message untuk mendapatkan hasil akhirnya.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ Mari gunakan contoh mendapatkan waktu saat ini di sebuah kota untuk mengilustras
     ```
 
      ```python
-     # Tangani pemanggilan fungsi
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Panggilan API kedua: Dapatkan respons akhir dari model
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@ Mari gunakan contoh mendapatkan waktu saat ini di sebuah kota untuk mengilustras
       The current time in San Francisco is 09:24 AM.
      ```
 
-Panggilan Fungsi adalah inti dari sebagian besar, jika bukan semua, desain penggunaan alat agen, namun mengimplementasikannya dari awal kadang bisa menjadi tantangan.
-Seperti yang kita pelajari di [Pelajaran 2](../../../02-explore-agentic-frameworks), kerangka kerja agentic menyediakan bangunan dasar yang sudah dibuat untuk mengimplementasikan penggunaan alat.
+Panggilan Fungsi adalah inti dari sebagian besar, jika tidak semua, desain penggunaan alat agen, namun mengimplementasikannya dari nol kadang bisa menantang.
+Seperti yang kita pelajari di [Pelajaran 2](../../../02-explore-agentic-frameworks) kerangka agen menyediakan kita blok bangunan yang sudah jadi untuk mengimplementasikan penggunaan alat.
  
-## Contoh Penggunaan Alat dengan Kerangka Kerja Agentic
+## Contoh Penggunaan Alat dengan Kerangka Agen
 
-Berikut beberapa contoh bagaimana Anda dapat mengimplementasikan Pola Desain Penggunaan Alat menggunakan berbagai kerangka kerja agentic:
+Berikut beberapa contoh bagaimana Anda dapat mengimplementasikan Pola Desain Penggunaan Alat menggunakan berbagai kerangka agen:
 
-### Semantic Kernel
+### Kerangka Agen Microsoft
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> adalah kerangka kerja AI open-source untuk pengembang .NET, Python, dan Java yang bekerja dengan Model Bahasa Besar (LLM). Ia menyederhanakan proses penggunaan panggilan fungsi dengan secara otomatis menggambarkan fungsi Anda dan parameter mereka ke model melalui proses yang disebut <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serialisasi</a>. Ia juga menangani komunikasi bolak-balik antara model dan kode Anda. Keuntungan lain menggunakan kerangka kerja agentic seperti Semantic Kernel adalah memungkinkan Anda mengakses alat yang sudah dibuat sebelumnya seperti <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Pencarian Berkas</a> dan <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter Kode</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Kerangka Agen Microsoft</a> adalah kerangka kerja AI sumber terbuka untuk membangun agen AI. Kerangka ini menyederhanakan proses penggunaan panggilan fungsi dengan memungkinkan Anda mendefinisikan alat sebagai fungsi Python dengan dekorator `@tool`. Kerangka ini menangani komunikasi bolak-balik antara model dan kode Anda. Ia juga menyediakan akses ke alat yang sudah jadi seperti Pencarian File dan Interpreter Kode melalui `FoundryChatClient`.
 
-Diagram berikut menggambarkan proses panggilan fungsi dengan Semantic Kernel:
+Diagram berikut menggambarkan proses panggilan fungsi dengan Kerangka Agen Microsoft:
 
-![function calling](../../../translated_images/id/functioncalling-diagram.a84006fc287f6014.webp)
+![panggilan fungsi](../../../translated_images/id/functioncalling-diagram.a84006fc287f6014.webp)
 
-Di Semantic Kernel fungsi/alat disebut <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugin</a>. Kita bisa mengubah fungsi `get_current_time` yang kita lihat sebelumnya menjadi plugin dengan mengubahnya menjadi kelas yang berisi fungsi tersebut. Kita juga dapat mengimpor dekorator `kernel_function`, yang menerima deskripsi fungsi. Ketika Anda membuat kernel dengan GetCurrentTimePlugin, kernel secara otomatis akan men-serialisasi fungsi dan parameternya, membuat skema untuk dikirim ke LLM dalam prosesnya.
+Dalam Kerangka Agen Microsoft, alat didefinisikan sebagai fungsi berdekorasi. Kita bisa mengubah fungsi `get_current_time` yang kita lihat sebelumnya menjadi alat dengan menggunakan dekorator `@tool`. Kerangka akan secara otomatis menserialisasi fungsi dan parameternya, membuat skema untuk dikirim ke LLM.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### Alat dari server MCP
+
+Alat tidak harus fungsi dalam kode Anda sendiri. Server yang menggunakan Model Context Protocol (MCP, dibahas di [Pelajaran 11](../11-agentic-protocols/README.md)) menerbitkan alatnya bersama skema, dan kerangka dapat memuatnya dengan cara yang sama seperti menserialisasi fungsi berdekorasi. `MCPStreamableHTTPTool` terhubung ke server tersebut lewat HTTP, membaca skema alat, dan menawarkan alat tersebut ke model bersamaan dengan alat lokal.
+
+Contoh di bawah menggunakan server pencarian web yang dihosting oleh <a href="https://keenable.ai" target="_blank">Keenable</a>. Gratis digunakan tanpa akun atau kunci API (permintaan dibatasi per IP), sehingga satu-satunya kredensial yang Anda butuhkan adalah untuk model Anda. Seperti alat jauh lainnya, query yang ditulis model dikirim ke server tersebut.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# Buat kernel
-kernel = Kernel()
-
-# Buat plugin
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# Tambahkan plugin ke kernel
-kernel.add_plugin(get_current_time_plugin)
-```
+Server menerbitkan dua alat, `search_web_pages` dan `fetch_page_content`. Ketika sebuah pertanyaan membutuhkan informasi terkini, model memanggil `search_web_pages`, mendapatkan kembali judul, URL, dan cuplikan teks, lalu menulis jawabannya dari sana, siklus yang sama seperti contoh `get_current_time` di atas.
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> adalah kerangka kerja agentic yang lebih baru yang dirancang untuk memberdayakan developer membangun, menerapkan, dan menskalakan agen AI berkualitas tinggi dan dapat diperluas dengan aman tanpa perlu mengelola sumber daya komputasi dan penyimpanan di belakangnya. Ini sangat berguna untuk aplikasi perusahaan karena merupakan layanan terkelola penuh dengan keamanan tingkat perusahaan.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> adalah kerangka agen yang lebih baru yang dirancang untuk memberdayakan pengembang membangun, menyebarkan, dan meningkatkan agen AI berkualitas tinggi yang dapat diperluas dengan aman tanpa perlu mengelola sumber daya komputasi dan penyimpanan dasar. Ini sangat berguna untuk aplikasi perusahaan karena merupakan layanan terkelola penuh dengan keamanan tingkat perusahaan.
 
-Jika dibandingkan mengembangkan langsung dengan API LLM, Azure AI Agent Service memberikan beberapa keuntungan, termasuk:
+Dibandingkan dengan pengembangan langsung dengan API LLM, Microsoft Foundry Agent Service memberikan beberapa keuntungan, termasuk:
 
-- Panggilan alat otomatis – tidak perlu menguraikan panggilan alat, memanggil alat, dan menangani respons; semua ini sekarang dilakukan di sisi server
-- Data yang dikelola secara aman – daripada mengelola status percakapan sendiri, Anda dapat mengandalkan threads untuk menyimpan semua informasi yang dibutuhkan
-- Alat siap pakai – Alat yang dapat digunakan untuk berinteraksi dengan sumber data Anda, seperti Bing, Azure AI Search, dan Azure Functions.
+- Panggilan alat otomatis – tidak perlu mem-parsing panggilan alat, memanggil alat, dan menangani respons; semua ini kini dilakukan di sisi server
+- Pengelolaan data yang aman – daripada mengelola status percakapan sendiri, Anda dapat mengandalkan thread untuk menyimpan semua informasi yang Anda butuhkan
+- Alat siap pakai – Alat yang bisa Anda gunakan untuk berinteraksi dengan sumber data Anda, seperti Bing, Azure AI Search, dan Azure Functions.
 
-Alat yang tersedia di Azure AI Agent Service dapat dibagi menjadi dua kategori:
+Alat yang tersedia di Microsoft Foundry Agent Service dapat dibagi dalam dua kategori:
 
 1. Alat Pengetahuan:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding dengan Pencarian Bing</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Pencarian Berkas</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Pencarian Azure AI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding dengan Bing Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Pencarian File</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. Alat Aksi:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Panggilan Fungsi</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Interpreter Kode</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Alat yang didefinisikan OpenAPI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Alat yang didefinisikan oleh OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Layanan Agen memungkinkan kita menggunakan alat ini bersama sebagai `toolset`. Ia juga menggunakan `threads` yang melacak riwayat pesan dari percakapan tertentu.
+Layanan Agen memungkinkan kita menggunakan alat-alat ini bersama sebagai sebuah `toolset`. Ini juga menggunakan `threads` yang melacak riwayat pesan dari percakapan tertentu.
 
 Bayangkan Anda adalah agen penjualan di perusahaan bernama Contoso. Anda ingin mengembangkan agen percakapan yang dapat menjawab pertanyaan tentang data penjualan Anda.
 
-Gambar berikut mengilustrasikan bagaimana Anda dapat menggunakan Azure AI Agent Service untuk menganalisis data penjualan Anda:
+Gambar berikut menggambarkan bagaimana Anda dapat menggunakan Microsoft Foundry Agent Service untuk menganalisis data penjualan Anda:
 
-![Agentic Service In Action](../../../translated_images/id/agent-service-in-action.34fb465c9a84659e.webp)
+![Layanan Agen Beraksi](../../../translated_images/id/agent-service-in-action.34fb465c9a84659e.webp)
 
-Untuk menggunakan alat apapun dengan layanan ini kita bisa membuat klien dan mendefinisikan alat atau toolset. Untuk mengimplementasikan ini secara praktis kita dapat menggunakan kode Python berikut. LLM dapat melihat toolset tersebut dan memutuskan apakah akan menggunakan fungsi yang dibuat pengguna, `fetch_sales_data_using_sqlite_query`, atau Interpreter Kode bawaan tergantung pada permintaan pengguna.
+Untuk menggunakan alat mana pun dengan layanan, kita dapat membuat klien dan mendefinisikan alat atau set alat. Untuk mengimplementasikannya secara praktis, kita dapat menggunakan kode Python berikut. LLM akan dapat melihat set alat dan memutuskan apakah menggunakan fungsi buatan pengguna, `fetch_sales_data_using_sqlite_query`, atau Interpreter Kode yang sudah jadi tergantung permintaan pengguna.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fungsi fetch_sales_data_using_sqlite_query yang dapat ditemukan dalam file fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Inisialisasi kumpulan alat
+# Initialize toolset
 toolset = ToolSet()
 
-# Inisialisasi agen pemanggilan fungsi dengan fungsi fetch_sales_data_using_sqlite_query dan menambahkannya ke kumpulan alat
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Inisialisasi alat Interpreter Kode dan menambahkannya ke kumpulan alat.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## Apa pertimbangan khusus saat menggunakan Pola Desain Penggunaan Alat untuk membangun agen AI yang dapat dipercaya?
+## Apa saja pertimbangan khusus untuk menggunakan Pola Desain Penggunaan Alat dalam membangun agen AI yang dapat dipercaya?
 
-Kekhawatiran umum terkait SQL yang dihasilkan secara dinamis oleh LLM adalah keamanan, terutama risiko injeksi SQL atau tindakan berbahaya, seperti menghapus atau memanipulasi basis data. Meskipun kekhawatiran ini valid, mereka dapat ditanggulangi secara efektif dengan mengonfigurasi izin akses basis data dengan benar. Untuk sebagian besar basis data ini melibatkan konfigurasi basis data sebagai hanya-baca. Untuk layanan basis data seperti PostgreSQL atau Azure SQL, aplikasi harus diberikan peran hanya-baca (SELECT).
+Kekhawatiran umum dengan SQL yang dihasilkan secara dinamis oleh LLM adalah keamanan, khususnya risiko injeksi SQL atau tindakan berbahaya, seperti menghapus atau merusak basis data. Walaupun kekhawatiran ini valid, mereka dapat diatasi secara efektif dengan mengonfigurasi izin akses basis data dengan benar. Untuk sebagian besar basis data, ini melibatkan konfigurasi basis data sebagai hanya-baca. Untuk layanan basis data seperti PostgreSQL atau Azure SQL, aplikasi harus diberi peran hanya-baca (SELECT).
 
-Menjalankan aplikasi di lingkungan yang aman semakin meningkatkan perlindungan. Dalam skenario perusahaan, data biasanya diekstraksi dan diubah dari sistem operasional ke basis data hanya-baca atau gudang data dengan skema yang mudah digunakan. Pendekatan ini memastikan data aman, dioptimalkan untuk kinerja dan aksesibilitas, dan aplikasi memiliki akses terbatas hanya-baca.
+Menjalankan aplikasi dalam lingkungan yang aman semakin meningkatkan perlindungan. Dalam skenario perusahaan, data biasanya diekstrak dan diubah dari sistem operasional ke basis data hanya-baca atau gudang data dengan skema yang mudah digunakan. Pendekatan ini memastikan bahwa data aman, dioptimalkan untuk kinerja dan aksesibilitas, dan aplikasi memiliki akses terbatas hanya-baca.
 
-## Kode Contoh
-- Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
+## Contoh Kode
 
-## Punya Pertanyaan Lebih Banyak tentang Pola Desain Penggunaan Alat?
+- Python: [Kerangka Agen](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Kerangka Agen](./code_samples/04-dotnet-agent-framework.md)
 
-Bergabunglah dengan [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pembelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan Anda tentang AI Agents.
+## Punya Pertanyaan lebih lanjut tentang Pola Desain Penggunaan Alat?
+
+Bergabunglah dengan [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pembelajar lain, menghadiri jam kantor, dan mendapatkan jawaban untuk pertanyaan Agen AI Anda.
 
 ## Sumber Daya Tambahan
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Workshop Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Workshop Penulis Kreatif Multi-Agent Contoso</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Tutorial Pemanggilan Fungsi Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter Kode Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Alat Autogen</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Lokakarya Azure AI Agents Service</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Workshop Multi-Agen Penulis Kreatif Contoso</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Gambaran Umum Kerangka Agen Microsoft</a>
+
+## Pengujian Ringkas Agen Ini (Opsional)
+
+Setelah Anda belajar menerapkan agen di [Pelajaran 16](../16-deploying-scalable-agents/README.md), Anda dapat melakukan pengujian ringkas `TravelToolAgent` dari pelajaran ini (apakah masih memanggil alatnya dan menjawab?) dengan [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). Lihat [`tests/README.md`](../tests/README.md) tentang cara menjalankannya.
 
 ## Pelajaran Sebelumnya
 
-[Memahami Pola Desain Agentic](../03-agentic-design-patterns/README.md)
+[Memahami Pola Desain Agen](../03-agentic-design-patterns/README.md)
 
 ## Pelajaran Selanjutnya
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[RAG Agen](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau interpretasi yang timbul dari penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

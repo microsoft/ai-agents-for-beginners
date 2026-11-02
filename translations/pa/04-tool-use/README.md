@@ -1,146 +1,144 @@
-[![How to Design Good AI Agents](../../../translated_images/pa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![ਚੰਗੇ AI ਏਜੰਟ ਕਿਵੇਂ ਡਿਜ਼ਾਈਨ ਕਰਨ](../../../translated_images/pa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(ਇਸ ਪਾਠ ਦੀ ਵੀਡੀਓ ਦੇਖਣ ਲਈ ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰੋ)_
+> _(ਉੱਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਦੇਖੋ)_
 
 # ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ
 
-ਟੂਲ ਦਿਲਚਸਪ ਹਨ ਕਿਉਂਕਿ ਇਹ ਏਆਈ ਏਜੰਟਾਂ ਨੂੰ ਵਿਆਪਕ ਸਮਰੱਥਾਵਾਂ ਦੇਣ ਦੇ ਯੋਗ ਬਣਾਉਂਦੇ ਹਨ। ਏਜੰਟ ਕੋਲ ਸੀਮਤ ਕਾਰਵਾਈਆਂ ਕਰਨ ਦਾ ਸਮਰੱਥਾ ਹੋਣ ਦੀ ਬਜਾਏ, ਇੱਕ ਟੂਲ ਜੋੜ ਕੇ, ਹੁਣ ਏਜੰਟ ਵੱਡੀ ਸੰਖਿਆ ਵਿਚ ਕਾਰਵਾਈਆਂ ਕਰ ਸਕਦਾ ਹੈ। ਇਸ ਅਧਿਆਏ ਵਿੱਚ, ਅਸੀਂ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਉਤੇ ਚਰਚਾ ਕਰਾਂਗੇ, ਜੋ ਦੱਸਦਾ ਹੈ ਕਿ ਏਆਈ ਏਜੰਟ ਕਿਸ ਤਰ੍ਹਾਂ ਖਾਸ ਟੂਲਾਂ ਨੂੰ ਆਪਣੇ ਟੀਚਿਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਵਰਤ ਸਕਦੇ ਹਨ।
+ਟੂਲ ਮਨੋਹਰ ਹਨ ਕਿਉਂਕਿ ਇਹ AI ਏਜੰਟਾਂ ਨੂੰ ਵੱਧ ਤਰ੍ਹਾਂ ਦੀ ਸਮਰਥਾ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਨ। ਇੱਕ ਏਜੰਟ ਵੱਲੋਂ ਕਰ ਸਕਣ ਵਾਲੀਆਂ ਸੀਮਤ ਕ੍ਰਿਆਵਾਂ ਦੇ ਬਜਾਏ, ਇੱਕ ਟੂਲ ਜੋੜਕੇ, ਏਜੰਟ ਹੁਣ ਵੱਖ-ਵੱਖ ਕਾਰਜ ਕਰ ਸਕਦਾ ਹੈ। ਇਸ ਅਧਿਆਇ ਵਿੱਚ, ਅਸੀਂ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਵੇਖਾਂਗੇ, ਜੋ ਦਰਸਾਉਂਦਾ ਹੈ ਕਿ AI ਏਜੰਟ ਆਪਣੇ ਲਕੜਾਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਕਿਵੇਂ ਨਿਰਧਾਰਤ ਟੂਲਾਂ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹਨ।
 
 ## ਪਰਿਚਯ
 
-ਇਸ ਪਾਠ ਵਿੱਚ, ਅਸੀਂ ਹੇਠ ਲਿਖੇ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਜਵਾਬ ਲੱਭਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹਾਂ:
+ਇਸ ਪਾਠ ਵਿੱਚ ਅਸੀਂ ਹੇਠ ਲਿਖੇ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਜਵਾਬ ਲੱਭਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹਾਂ:
 
 - ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਕੀ ਹੈ?
-- ਇਹ ਕਿਹੜੇ ਉਪਯੋਗ ਕੇਸਾਂ ਤੇ ਲਾਗੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ?
+- ਇਹ ਕਿਹੜੇ ਕੇਸਾਂ 'ਚ ਲਾਗੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ?
 - ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਕਿਹੜੇ ਤੱਤ/ਬਿਲਡਿੰਗ ਬਲਾਕ ਲੋੜੀਂਦੇ ਹਨ?
-- ਭਰੋਸੇਮੰਦ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੇ ਖਾਸ ਧਿਆਨ ਦੇਣ ਵਾਲੇ ਮੁੱਦੇ ਕੀ ਹਨ?
+- ਭਰੋਸੇਯੋਗ AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੀ ਵਰਤੋਂ ਦੇ ਵਿਸ਼ੇਸ਼ ਧਿਆਨਾਂ ਕੀ ਹਨ?
 
-## ਸਿੱਖਣ ਦੇ ਲੱਖ
+## ਸਿੱਖਣ ਦੇ ਲਕੜੇ
 
-ਇਸ ਪਾਠ ਨੂੰ ਪੂਰਾ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਇਹ ਯੋਗ ਹੋ ਜਾਵੋਗੇ:
+ਇਸ ਪਾਠ ਨੂੰ ਪੂਰਾ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਸਮਰੱਥ ਹੋਵੋਗੇ:
 
-- ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਅਤੇ ਇਸਦਾ ਉਦੇਸ਼ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨਾ।
-- ਉਹ ਉਪਯੋਗ ਕੇਸਾਂ ਦੀ ਪਹਚਾਣ ਕਰਨਾ ਜਿੱਥੇ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਲਾਗੂ ਹੋ ਸਕਦਾ ਹੈ।
-- ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਲਾਗੂ ਕਰਨ ਲਈ ਮੁੱਖ ਤੱਤਾਂ ਨੂੰ ਸਮਝਣਾ।
-- ਇਸ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ ਏਆਈ ਏਜੰਟਾਂ ਵਿੱਚ ਭਰੋਸੇਯੋਗਤਾ ਨਿਸ਼ਚਿਤ ਕਰਨ ਵਾਲੀਆਂ ਚਿੰਤਾਵਾਂ ਦੀ ਪਹਚਾਣ।
+- ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਅਤੇ ਇਸ ਦੇ ਉਦੇਸ਼ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰੋ।
+- ਉਹ ਕੇਸਾਂ ਪਛਾਣੋ ਜਿੱਥੇ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਲਾਗੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।
+- ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਮੁੱਖ ਤੱਤਾਂ ਨੂੰ ਸਮਝੋ।
+- ਇਸ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ ਭਰੋਸੇਯੋਗਤਾ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਵਿਚਾਰ ਕਰਨ ਯੋਗ ਗੱਲਾਂ ਨੂੰ ਪਛਾਣੋ।
 
 ## ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਕੀ ਹੈ?
 
-**ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ** LLMs ਨੂੰ ਇਹ ਯੋਗਤਾ ਦੇਣ 'ਤੇ ਧਿਆਨ ਦੇਂਦਾ ਹੈ ਕਿ ਉਹ ਬਾਹਰੀ ਟੂਲਾਂ ਨਾਲ ਪਰਸਪਰ ਪ੍ਰਭਾਵ ਕਰ ਸਕਣ ਤਾਂ ਜੋ ਖਾਸ ਟੀਚਿਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕੀਤਾ ਜਾ ਸਕੇ। ਟੂਲ ਕੋਡ ਹੁੰਦੇ ਹਨ ਜੋ ਇੱਕ ਏਜੰਟ ਦੁਆਰਾ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਚਲਾਏ ਜਾ ਸਕਦੇ ਹਨ। ਇੱਕ ਟੂਲ ਸਧਾਰਣ ਫੰਕਸ਼ਨ ਜਿਵੇਂ ਕਿ ਕੈਲਕੂਲੇਟਰ ਹੋ ਸਕਦਾ ਹੈ, ਜਾਂ ਤੀਜੇ ਪਾਸੇ ਦੀ ਸੇਵਾ ਦਾ API ਕਾਲ ਜਿਵੇਂ ਕਿ ਸਟਾਕ ਕੀਮਤ ਜਾਂ ਮੌਸਮ ਦੀ ਭਵਿੱਖਵाणी। ਏਆਈ ਏਜੰਟਾਂ ਦੇ ਸੰਦਰਭ ਵਿੱਚ, ਟੂਲਾਂ ਨੂੰ ਆਮ ਤੌਰ 'ਤੇ **ਮਾਡਲ-ਜੈਨੀਰੇਟ ਕੀਤੀਆਂ ਫੰਕਸ਼ਨ ਕਾਲਾਂ** ਦੇ ਜਵਾਬ ਵਿੱਚ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ।
+**ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ** LLMs ਨੂੰ ਵਿਦੇਸ਼ੀ ਟੂਲਾਂ ਨਾਲ ਮੁਲਾਕਾਤ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਦਿੰਦਾ ਹੈ ਤਾਂ ਜੋ ਵਿਸ਼ੇਸ਼ ਲਕੜਾਂ ਹਾਸਲ ਕੀਤੇ ਜਾ ਸਕਣ। ਟੂਲ ਐਜੰਟ ਵੱਲੋਂ ਕਿਰਿਆਵਾਂ ਕਰਨ ਲਈ ਚਲਾਈ ਜਾਣ ਵਾਲੀ ਕੋਡ ਹੁੰਦੀ ਹੈ। ਇੱਕ ਟੂਲ ਇੱਕ ਸਾਦਾ ਫ਼ੰਕਸ਼ਨ ਹੋ ਸਕਦਾ ਹੈ ਜਿਵੇਂ ਕਿ ਕੈਲਕੂਲੇਟਰ, ਜਾਂ ਤੀਸਰੇ ਧਿਰ ਦੀ ਸੇਵਾ ਲਈ API ਕਾਲ ਜਿਵੇਂ ਕਿ ਸਟਾਕ ਕੀਮਤਾਂ ਦੀ ਖੋਜ ਜਾਂ ਮੌਸਮ ਦੀ ਭਵਿੱਖਵਾਣੀ। AI ਏਜੰਟਾਂ ਦੇ ਸੰਦਰਭ ਵਿੱਚ, ਟੂਲਾਂ ਨੂੰ **ਮਾਡਲ-ਪੈਦਾ ਕੀਤੇ ਫੰਕਸ਼ਨ ਕਾਲਾਂ** ਦੇ ਜਵਾਬ ਵਿੱਚ ਚਲਾਉਣ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ।
 
-## ਇਹ ਕਿਹੜੇ ਉਪਯੋਗ ਕੇਸਾਂ ਤੇ ਲਾਗੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ?
+## ਇਹ ਕਿਹੜੇ ਕੇਸਾਂ 'ਚ ਲਾਗੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ?
 
-ਏਆਈ ਏਜੰਟ ਟੂਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਜ਼ਟਿਲ ਕਾਰਜ ਪੂਰੇ ਕਰ ਸਕਦੇ ਹਨ, ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੇ ਹਨ ਜਾਂ ਫੈਸਲੇ ਲੈ ਸਕਦੇ ਹਨ। ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਪ੍ਰਚੁਰਤ ਤੌਰ 'ਤੇ ਬਾਹਰੀ ਸਿਸਟਮਾਂ ਦੇ ਨਾਲ ਗਤੀਸ਼ੀਲ ਪਰਸਪਰ ਪ੍ਰਭਾਵ ਦੀ ਲੋੜ ਵਾਲੀਆਂ ਸਥਿਤੀਆਂ ਵਿੱਚ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਡੈਟਾਬੇਸ, ਵੈੱਬ ਸੇਵਾਵਾਂ ਜਾਂ ਕੋਡ ਇੰਟਰਪ੍ਰੀਟਰ। ਇਹ ਸਮਰੱਥਾ ਹੇਠ ਲਿਖੇ ਮੁੱਖ ਉਪਯੋਗ ਕੇਸਾਂ ਲਈ ਲਾਭਦਾਇਕ ਹੈ:
+AI ਏਜੰਟ ਜਟਿਲ ਕੰਮ ਪੂਰੇ ਕਰਨ, ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਜਾਂ ਫੈਸਲੇ ਕਰਨ ਲਈ ਟੂਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹਨ। ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਇਨ੍ਹਾਂ ਦਿਓਰਾਂ ਵਿੱਚ ਵਰਤੀ ਜਾਂਦੀ ਹੈ ਜਿੱਥੇ ਵਿਦੇਸ਼ੀ ਪ੍ਰਣਾਲੀਆਂ ਨਾਲ ਡਾਇਨਾਮਿਕ ਇੰਟਰਐਕਸ਼ਨ di ਲੋੜ ਹੋਵੇ, ਜਿਵੇਂ ਕਿ ਡੇਟਾਬੇਸ, ਵੈੱਬ ਸੇਵਾਵਾਂ ਜਾਂ ਕੋਡ ਇੰਟਰਪਰੀਟਰ। ਇਹ ਸਮਰੱਥਾ ਕਈ ਵੱਖ-ਵੱਖ ਵਰਤੋਂ ਦੇ ਮਾਮਲਿਆਂ ਲਈ ਲਾਭਦਾਇਕ ਹੈ ਪ੍ਰਮੁੱਖ:
 
-- **ਗਤੀਸ਼ੀਲ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤੀ:** ਏਜੰਟ ਬਾਹਰੀ API ਜਾਂ ਡੈਟਾਬੇਸ ਨੂੰ ਪੁੱਛਗਿੱਛ ਕਰ ਕੇ ਤਾਜ਼ਾ ਡਾਟਾ ਲੈ ਸਕਦੇ ਹਨ (ਜਿਵੇਂ ਕਿ SQLite ਡੈਟਾਬੇਸ ਵਿੱਚ ਡਾਟਾ ਵਿਸ਼ਲੇਸ਼ਣ ਲਈ ਪੁੱਛਗਿੱਛ, ਸਟਾਕ ਕੀਮਤਾਂ ਜਾਂ ਮੌਸਮ ਦੀ ਜਾਣਕਾਰੀ ਲੈਣਾ)।
-- **ਕੋਡ ਚਲਾਉਣਾ ਅਤੇ ਵਿਆਖਿਆ:** ਏਜੰਟ ਗਣਿਤੀ ਸਮੱਸਿਆਵਾਂ ਹੱਲ ਕਰਨ, ਰਿਪੋਰਟ ਤਿਆਰ ਕਰਨ ਜਾਂ ਸਿਮੂਲੇਸ਼ਨ ਕਰਨ ਲਈ ਕੋਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਚਲਾ ਸਕਦੇ ਹਨ।
-- **ਵਰਕਫਲੋ ਸਵੈਚਾਲਨ:** ਟਾਸਕ ਸ਼ੈਡਿਊਲਰ, ਈਮੇਲ ਸੇਵਾਵਾਂ ਜਾਂ ਡੇਟਾ ਪਾਈਪਲਾਈਨਾਂ ਵਰਗੇ ਟੂਲਾਂ ਨੂੰ ਜੋੜ ਕੇ ਦੁਹਰਾਏ ਜਾਣ ਵਾਲੇ ਜਾਂ ਕਈ ਕਦਮਾਂ ਵਾਲੇ ਵਰਕਫਲੋਜ਼ ਦੀ ਸਵੈਚਾਲਨ ਕਰੋ।
-- **ਗਾਹਕ ਸਹਾਇਤਾ:** ਏਜੰਟ CRM 시스템ਾਂ, ਟਿੱਕਟਿੰਗ ਪਲੇਟਫਾਰਮਾਂ ਜਾਂ ਗਿਆਨ ਅਧਾਰ ਨਾਲ ਪਰਸਪਰ ਲੱਭ ਕਰ ਸਕਦੇ ਹਨ ਤਾਂ ਜੋ ਯੂਜ਼ਰ ਪੁੱਛਗਿੱਛਾਂ ਨੂੰ ਹੱਲ ਕੀਤਾ ਜਾ ਸਕੇ।
-- **ਸਮੱਗਰੀ ਬਣਾਉਣ ਅਤੇ ਸੋਧ:** ਏਜੰਟ ਗ੍ਰਾਮਰ ਚੈਕਰ, ਟੈਕਸਟ ਸੰਖੇਪਕ ਜਾਂ ਸਮੱਗਰੀ ਸੁਰੱਖਿਆ ਮੁਲਾਂਕਣਕਰਤਾ ਵਰਗੇ ਟੂਲਾਂ ਦੀ ਸਹਾਇਤਾ ਨਾਲ ਸਮੱਗਰੀ ਬਣਾਉਣ ਵਾਲੇ ਕੰਮਾਂ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰ ਸਕਦੇ ਹਨ।
+- **ਡਾਇਨਾਮਿਕ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤੀ:** ਏਜੰਟ ਬਾਹਰੀ API ਜਾਂ ਡੇਟਾਬੇਸ ਦਾ ਪ੍ਰਸ਼ਨ ਕਰ ਸਕਦੇ ਹਨ ਤਾਜ਼ਾ ਡਾਟਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ (ਉਦਾਹਰਨ ਵਜੋਂ, ਡੇਟਾ ਵਿਸ਼ਲੇਸ਼ਣ ਲਈ SQLite ਡੇਟਾਬੇਸ ਪੁੱਛਤਾਛ, ਸਟਾਕ ਕੀਮਤਾਂ ਜਾਂ ਮੌਸਮ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨਾ)।
+- **ਕੋਡ ਚਲਾਉਣਾ ਅਤੇ ਵਿਆਖਿਆ ਕਰਨਾ:** ਏਜੰਟ ਗਣਿਤ ਸਮੱਸਿਆਵਾਂ ਹੱਲ ਕਰਨ, ਰਿਪੋਰਟਾਂ ਤਿਆਰ ਕਰਨ ਜਾਂ ਨਕਲਾਂ ਕਰਨ ਲਈ ਕੋਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਚਲਾ ਸਕਦੇ ਹਨ।
+- **ਵਰਕਫਲੋ ਆਟੋਮੇਸ਼ਨ:** ਟਾਸਕ ਸ਼ੈਡ੍ਯੂਲਰ, ਈਮੇਲ ਸੇਵਾਵਾਂ ਜਾਂ ਡਾਟਾ ਪਾਈਪਲਾਈਨਾਂ ਵਰਗੇ ਟੂਲਾਂ ਨੂੰ ਜੋੜ ਕੇ ਬਾਰੰਬਾਰ ਜਾਂ ਬਹੁ-ਕਦਮੀ ਕਾਰਜ ਸੁਚਾਰੂ ਬਣਾਉਣਾ।
+- **ਗਾਹਕ ਸਹਾਇਤਾ:** ਏਜੰਟ ਸੀ ਆਰ ਐਮ ਪ੍ਰਣਾਲੀ, ਟਿਕਟ ਪਲੇਟਫਾਰਮ ਜਾਂ ਗਿਆਨ ਅਧਾਰ ਨਾਲ ਮੁਲਾਕਾਤ ਕਰਕੇ ਉਪਭੋਗਤਾ ਪ੍ਰਸ਼ਨਾਂ ਦਾ ਹੱਲ ਕਰ ਸਕਦੇ ਹਨ।
+- **ਸਮੱਗਰੀ ਤਿਆਰ ਅਤੇ ਸੋਧਣ:** ਪ੍ਰਮੁੱਖ, ਟੈਕਸਟ ਸਾਰਾਂਸ਼ਕਾਕਰ ਜਾਂ ਸਮੱਗਰੀ ਸੁਰੱਖਿਆ ਮੁਲਿਆਕਕਰ ਵਰਗੇ ਟੂਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਵਾਲੇ ਟੂਲਾਂ ਨਾਲ ਸਹਾਇਤਾ ਲੈ ਸਕਦੇ ਹਨ।
 
-## ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਕਿਹੜੇ ਤੱਤ/ਬਿਲਡਿੰਗ ਬਲਾਕ ਲੋੜੀਂਦੇ ਹਨ?
+## ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਤੱਤ/ਬਿਲਡਿੰਗ ਬਲਾਕ ਕੀ ਹਨ?
 
-ਇਹ ਬਿਲਡਿੰਗ ਬਲਾਕ ਏਆਈ ਏਜੰਟ ਨੂੰ ਵਿਆਪਕ ਕਾਰਜ ਕਰਨ ਯੋਗ ਬਣਾਉਂਦੇ ਹਨ। ਅਸੀਂ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਲਾਗੂ ਕਰਨ ਲਈ ਜਰੂਰੀ ਮੁੱਖ ਤੱਤਾਂ ਨੂੰ ਵੇਖਦੇ ਹਾਂ:
+ਇਹ ਬਿਲਡਿੰਗ ਬਲਾਕ AI ਏਜੰਟ ਨੂੰ ਵਿਸ਼ਾਲ ਪੈਮਾਨੇ ਦੇ ਕੰਮ ਕਰਨ ਦਿੰਦੇ ਹਨ। ਆਓ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਮੁੱਖ ਤੱਤਾਂ ਨੂੰ ਵੇਖੀਏ:
 
-- **ਫੰਕਸ਼ਨ/ਟੂਲ ਸਕੀਮਾ**: ਉਪਲਬਧ ਟੂਲਾਂ ਦੀ ਵਿਸਥਾਰ ਨਾਲ ਪਰਿਭਾਸ਼ਾ, ਫੰਕਸ਼ਨ ਦਾ ਨਾਮ, ਉਦੇਸ਼, ਲੋੜੀਂਦੇ ਪੈਰਾਮੀਟਰ ਅਤੇ ਉਮੀਦ ਕੀਤੀ ਨਤੀਜੇ। ਇਹ ਸਕੀਮਾਂ LLM ਨੂੰ ਇਹ ਸਮਝਣ ਵਿੱਚ ਸਹਾਇਤਾ ਦਿੰਦੇ ਹਨ ਕਿ ਕਿਹੜੇ ਟੂਲ ਉਪਲਬਧ ਹਨ ਅਤੇ ਕਿਵੇਂ ਵੈਧ ਬੇਨਤੀਆਂ ਬਣਾਉਣੀਆਂ ਹਨ।
+- **ਫੰਕਸ਼ਨ/ਟੂਲ ਸਕੀਮਾਜ਼**: ਉਪਲਬਧ ਟੂਲਾਂ ਦੀ ਵਿਸਥਾਰਿਤ ਪਰਿਭਾਸ਼ਾ, ਜਿਸ ਵਿੱਚ ਫੰਕਸ਼ਨ ਦਾ ਨਾਮ, ਉਦੇਸ਼, ਲੋੜੀਂਦੇ ਪੈਰਮੀਟਰਾ ਅਤੇ ਉਮੀਦ ਕੀਤੀ ਗਈ ਆਉਟਪੁੱਟ ਸ਼ਾਮਿਲ ਹਨ। ਇਹ ਸਕੀਮਾਂ LLM ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ ਕਿ ਕਿਹੜੇ ਟੂਲ ਉਪਲਬਧ ਹਨ ਅਤੇ ਕਿਵੇਂ ਵੈਧ ਬੇਨਤੀ ਬਣਾਈ ਜਾ ਸਕਦੀ ਹੈ।
 
-- **ਫੰਕਸ਼ਨ ਚਲਾਉਣ ਵਾਲਾ ਲੋਜਿਕ**: ਵਰਤੋਂਕਾਰ ਦੀ ਭਾਵਨਾ ਅਤੇ ਗੱਲਬਾਤ ਸੰਦਰਭ ਦੇ ਆਧਾਰ 'ਤੇ ਟੂਲਾਂ ਨੂੰ ਕਿਵੇਂ ਅਤੇ ਕਦੋਂ ਬੁਲਾਇਆ ਜਾਂਦਾ ਹੈ, ਇਹ ਨਿਰਧਾਰਿਤ ਕਰਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਯੋਜਨਾ ਬਣਾਉਣ ਵਾਲੇ ਮਾਡਿਊਲ, ਰੂਟਿੰਗ ਪ੍ਰਣਾਲੀ ਜਾਂ ਸ਼ਰਤੀ ਪ੍ਰਵਾਹ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ ਜੋ ਡਾਇਨੇਮਿਕ ਟੂਲ ਵਰਤੋਂ ਨਿਰਧਾਰਤ ਕਰਦੇ ਹਨ।
+- **ਫੰਕਸ਼ਨ ਚਲਾਉਣ ਦੀ ਲਾਜਿਕ**: ਇਸ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਕਿ ਟੂਲ ਕਦੋਂ ਅਤੇ ਕਿਵੇਂ ਵਰਤੇ ਜਾਣ, ਉਪਭੋਗਤਾ ਦੇ ਇਰਾਦੇ ਅਤੇ ਗੱਲਬਾਤ ਦੇ ਸੰਦਰਭ ਦੇ ਅਧਾਰ 'ਤੇ। ਇਸ ਵਿੱਚ ਯੋਜਕ ਮੋਡੀਊਲ, ਰੂਟਿੰਗ ਮਕੈਨਿਜ਼ਮ ਜਾਂ ਸ਼ਰਤੀ प्रवाह ਸ਼ਾਮਿਲ ਹੋ ਸਕਦੇ ਹਨ ਜੋ ਟੂਲ ਦੀ ਵਰਤੋਂ ਨੂੰ ਡਾਇਨਾਮਿਕ ਤਰੀਕੇ ਨਾਲ ਨਿਰਧਾਰਤ ਕਰਦੇ ਹਨ।
 
-- **ਸੰਦੇਸ਼ ਹੈਂਡਲਿੰਗ ਸਿਸਟਮ**: ਉਹ ਭਾਗ ਜੋ ਵਰਤੋਂਕਾਰ ਦੀਆਂ ਇਨਪੁੱਟਾਂ, LLM ਦੇ ਜਵਾਬਾਂ, ਟੂਲ ਕਾਲਾਂ ਅਤੇ ਟੂਲ ਨਤੀਜਿਆਂ ਵਿਚਕਾਰ ਗੱਲਬਾਤ ਦਾ ਪ੍ਰਬੰਧ ਕਰਦੇ ਹਨ।
+- **ਸੰਦੇਸ਼ ਸੰਭਾਲਣ ਪ੍ਰਣਾਲੀ**: ਤੱਤ ਜੋ ਉਪਭੋਗਤਾ ਇਨਪੁੱਟਾਂ, LLM ਜਵਾਬਾਂ, ਟੂਲ ਕਾਲਾਂ ਅਤੇ ਟੂਲ ਆਉਟਪੁੱਟਾਂ ਵਿਚਕਾਰ ਗੱਲਬਾਤ ਚੱਲਵਾਉਂਦੇ ਹਨ।
 
-- **ਟੂਲ ਇੰਟਿਗ੍ਰੇਸ਼ਨ ਫਰੇਮਵਰਕ**: ਹਿੱਸਾ ਜੋ ਏਜੰਟ ਨੂੰ ਵੱਖ-ਵੱਖ ਟੂਲਾਂ ਨਾਲ ਜੋੜਦਾ ਹੈ, ਚਾਹੇ ਉਹ ਸਧਾਰਣ ਫੰਕਸ਼ਨ ਹੋਣ ਜਾਂ ਜਟਿਲ ਬਾਹਰੀ ਸੇਵਾਵਾਂ।
+- **ਟੂਲ ਇੰਟੀਗਰੇਸ਼ਨ ਫਰੇਮਵਰਕ**: ਢਾਂਚਾ ਜੋ ਏਜੰਟ ਨੂੰ ਵੱਖ-ਵੱਖ ਟੂਲਾਂ ਨਾਲ ਜੋੜਦਾ ਹੈ, ਚਾਹੇ ਉਹ ਸਧਾਰਣ ਫੰਕਸ਼ਨ ਹੋਣ ਜਾਂ ਜਟਿਲ ਵਿਦੇਸ਼ੀ ਸੇਵਾਵਾਂ।
 
-- **ਗਲਤੀ ਸੰਭਾਲ ਅਤੇ ਵੈਰਿਫਿਕੇਸ਼ਨ**: ਟੂਲ ਚਲਾਉਣ ਵਿੱਚ ਆਉਣ ਵਾਲੀਆਂ ਅਸਫਲਤਾਵਾਂ, ਪੈਰਾਮੀਟਰਾਂ ਦੀ ਵੈਧਤਾ ਜਾਂ ਅਣਪੇक्षित ਜਵਾਬਾਂ ਦਾ ਪ੍ਰਬੰਧ ਕਰਨ ਵਾਲੇ ਮਕੈਨੀਜ਼ਮ।
+- **ਗ਼ਲਤੀ ਸੰਭਾਲਣ ਅਤੇ ਪ੍ਰਮਾਣੀਕਰਨ**: ਟੂਲ ਚਲਾਉਣ ਵਿੱਚ ਵਿੱਫਲਤਾ ਨੂੰ ਸੰਭਾਲਣ, ਪੈਰਮੀਟਰਾ ਦੀ ਜਾਂਚ ਕਰਨ ਅਤੇ ਅਚਾਨਕ ਜਵਾਬਾਂ ਨੂੰ ਸਾਂਭਣ ਲਈ ਮਕੈਨਿਜ਼ਮ।
 
-- **ਸਥਿਤੀ ਪ੍ਰਬੰਧਨ**: ਗੱਲਬਾਤ ਸੰਦਰਭ, ਪਹਿਲਾਂ ਹੋਈ ਟੂਲ ਇੰਟੇਰੈਕਸ਼ਨਾਂ ਅਤੇ ਸਥਾਈ ਡਾਟਾ ਨੂੰ ਟਰੈਕ ਕਰਨਾ ਤਾਂ ਜੋ ਕਈ ਵਾਰੀ ਚੱਲ ਰਹੀਆਂ ਗੱਲਬਾਤਾਂ ਵਿੱਚ ਸਥਿਰਤਾ ਬਣਾ ਰਹੇ।
+- **ਸਥਿਤੀ ਪ੍ਰਬੰਧਨ**: ਗੱਲਬਾਤ ਦੇ ਸੰਦਰਭ, ਪਿਛਲੇ ਟੂਲ ਇੰਟਰੈਕਸ਼ਨ ਅਤੇ ਲੰਬੇ ਸਮੇਂ ਲਈ ਡੇਟਾ ਦਾ ਟ੍ਰੈਕ ਰੱਖਣਾ, ਤਾਂ ਜੋ ਬਹੁ-ਦੌਰੀ ਇੰਟਰੈਕਸ਼ਨਾਂ ਵਿੱਚ ਸਥਿਰਤਾ ਯਕੀਨੀ ਬਣਾਈ ਜਾ ਸਕੇ।
 
-ਹੁਣ ਅਸੀਂ ਫੰਕਸ਼ਨ/ਟੂਲ ਕਾਲਿੰਗ ਨੂੰ ਵਧੇਰੇ ਵੇਰਵੇ ਨਾਲ ਵੇਖਾਂਗੇ।
-
+ਅਗਲੀ ਵਾਰੀ, ਆਓ ਫੰਕਸ਼ਨ/ਟੂਲ ਕਾਲਿੰਗ ਬਾਰੇ ਹੋਰ ਵਿਸਥਾਰ ਵਿੱਚ ਜਾਣਦੇ ਹਾਂ।
+ 
 ### ਫੰਕਸ਼ਨ/ਟੂਲ ਕਾਲਿੰਗ
 
-ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਵੱਡੇ ਭਾਸ਼ਾ ਮਾਡਲਾਂ (LLMs) ਨੂੰ ਟੂਲਾਂ ਨਾਲ ਪਰਸਪਰ ਪ੍ਰਭਾਵ ਕਰਨ ਦਾ ਮੁੱਖ ਤਰੀਕਾ ਹੈ। ਅਕਸਰ ਤੁਸੀਂ 'ਫੰਕਸ਼ਨ' ਅਤੇ 'ਟੂਲ' ਨੂੰ ਬਦਲ-ਬਦਲ ਕੇ ਵਰਤਿਆ ਵੇਖੋਗੇ ਕਿਉਂਕਿ 'ਫੰਕਸ਼ਨ' (ਪੁਨਰਵਰਤਨਯੋਗ ਕੋਡ ਦੇ ਬਲਾਕ) ਉਹ 'ਟੂਲ' ਹਨ ਜੋ ਏਜੰਟ ਕਾਰਜ ਕਰਨ ਲਈ ਵਰਤਦੇ ਹਨ। ਕਿਸੇ ਫੰਕਸ਼ਨ ਦਾ ਕੋਡ ਚਲਾਉਣ ਲਈ, LLM ਨੂੰ ਵਰਤੋਂਕਾਰ ਦੀ ਬੇਨਤੀ ਦਾ ਫੰਕਸ਼ਨ ਦੀ ਵਿਆਖਿਆ ਨਾਲ ਤੁਲਨਾ ਕਰਨੀ ਪੈਂਦੀ ਹੈ। ਇਸ ਲਈ ਸਾਰੇ ਉਪਲਬਧ ਫੰਕਸ਼ਨਾਂ ਦੀਆਂ ਵਿਆਖਿਆਵਾਂ ਵਾਲਾ ਇਕ ਸਕੀਮਾ LLM ਨੂੰ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ। ਫਿਰ LLM ਟਾਸਕ ਲਈ ਸਭ ਤੋਂ ਉਚਿਤ ਫੰਕਸ਼ਨ ਚੁਣਦਾ ਹੈ ਅਤੇ ਇਸਦੇ ਨਾਮ ਅਤੇ ਪੈਰਾਮੀਟਰ ਵਾਪਸ ਕਰਦਾ ਹੈ। ਚੁਣਿਆ ਹੋਇਆ ਫੰਕਸ਼ਨ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ, ਉਸਦੀ ਜਵਾਬੀ ਸੰਦੇਸ਼ LLM ਨੂੰ ਭੇਜੀ ਜਾਂਦੀ ਹੈ, ਜਿਸਦੇ ਆਧਾਰ 'ਤੇ LLM ਵਰਤੋਂਕਾਰ ਦੀ ਬੇਨਤੀ ਦਾ ਜਵਾਬ ਦਿੰਦਾ ਹੈ।
+ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਮੁੱਖ ਤਰੀਕਾ ਹੈ ਜਿਸ ਨਾਲ ਅਸੀਂ ਵੱਡੇ ਭਾਸ਼ਾ ਮਾਡਲਾਂ (LLMs) ਨੂੰ ਟੂਲਾਂ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰਨ ਯੋਗ ਬਣਾਉਂਦੇ ਹਾਂ। ਤੁਸੀਂ ਅਕਸਰ 'ਫੰਕਸ਼ਨ' ਅਤੇ 'ਟੂਲ' ਨੂੰ ਪਰਸਪਰ ਤਬਦੀਲੀ ਵਿੱਚ ਵਰਤਦੇ ਹੋਵੋਗੇ ਕਿਉਂਕਿ 'ਫੰਕਸ਼ਨ' (ਦੋਹਰਾਏ ਜਾਣ ਵਾਲੇ ਕੋਡ ਬਲਾਕ) ਹੀ 'ਟੂਲ' ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਵਰਤੋਂ ਏਜੰਟ ਕਰਦੇ ਹਨ। ਕਿਸੇ ਫੰਕਸ਼ਨ ਦੇ ਕੋਡ ਨੂੰ ਚਲਾਉਣ ਲਈ, LLM ਨੂੰ ਫੰਕਸ਼ਨਾਂ ਦੇ ਵੇਰਵੇ ਨਾਲ ਉਪਭੋਗਤਾ ਦੀ ਬੇਨਤੀ ਦੀ ਤੁਲਨਾ ਕਰਨੀ ਪੈਂਦੀ ਹੈ। ਇਸ ਲਈ, ਇੱਕ ਸਕੀਮਾ ਜਿਸ ਵਿਚ ਸਭ ਉਪਲੱਬਧ ਫੰਕਸ਼ਨਾਂ ਦੇ ਵੇਰਵੇ ਹੁੰਦੇ ਹਨ, LLM ਨੂੰ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ। LLM ਫਿਰ ਕੰਮ ਲਈ ਸਭ ਤੋਂ ਉਚਿਤ ਫੰਕਸ਼ਨ ਚੁਣਦਾ ਹੈ ਤੇ ਉਸਦਾ ਨਾਮ ਅਤੇ ਦਲੀਲਾਂ ਵਾਪਸ ਕਰਦਾ ਹੈ। ਚੁਣਿਆ ਗਿਆ ਫੰਕਸ਼ਨ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ, ਇਸ ਦਾ ਜਵਾਬ LLM ਨੂੰ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ, ਜੋ ਇਸ ਜਾਣਕਾਰੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਉਪਭੋਗਤਾ ਦੀ ਬੇਨਤੀ ਦਾ ਜਵਾਬ ਦਿੰਦਾ ਹੈ।
 
-ਏਜੰਟਾਂ ਲਈ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਲਾਗੂ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਬਰਕਰਾਰ ਕਰਨਾ ਪਵੇਗਾ:
+ਵਿਕਾਸਕਾਰਾਂ ਲਈ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਲਾਗੂ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਲੋੜੀਂਦਾ ਹੈ:
 
-1. ਇੱਕ ਐਸਾ LLM ਮਾਡਲ ਜੋ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਕਰਦਾ ਹੋਵੇ
+1. ਉਹ LLM ਮਾਡਲ ਜੋ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਹਿਯੋਗ ਕਰਦਾ ਹੋਵੇ
 2. ਫੰਕਸ਼ਨ ਵੇਰਵਿਆਂ ਵਾਲਾ ਸਕੀਮਾ
-3. ਹਰ ਫੰਕਸ਼ਨ ਦਾ ਕੋਡ ਜੋ ਵੇਰਵਾ ਦਿੱਤਾ ਗਿਆ ਹੈ
+3. ਹਰ ਵਰਣਿਤ ਫੰਕਸ਼ਨ ਦਾ ਕੋਡ
 
-ਚਲੋ ਸ਼ਹਿਰ ਵਿੱਚ ਮੁਲਕਤ ਸਮਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਦੇ ਉਦਾਹਰਨ ਨਾਲ ਸਮਝਾਈਏ:
+ਆਓ ਇੱਕ ਸ਼ਹਿਰ ਵਿੱਚ ਮੌਜੂਦਾ ਸਮਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਦਾ ਉਦਾਹਰਨ ਲੈਂਦੇ ਹਾਂ:
 
-1. **ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਕਰਨ ਵਾਲਾ LLM ਆਰੰਭ ਕਰੋ:**
+1. **ਓਹ LLM ਸ਼ੁਰੂ ਕਰੋ ਜੋ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਕਰਦਾ ਹੈ:**
 
-   ਸਾਰੇ ਮਾਡਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਨੂੰ ਸਪੋਰਟ ਨਹੀਂ ਕਰਦੇ, ਇਸलिए ਇਹ ਜ਼ਰੂਰੀ ਹੈ ਕਿ ਤੁਸੀਂ ਚੈੱਕ ਕਰੋ ਕਿ ਤੁਸੀਂ ਜਿਹੜਾ LLM ਵਰਤ ਰਹੇ ਹੋ ਉਹ ਇਸ ਨੂੰ ਸਹਾਇਤਾ ਦਿੰਦਾ ਹੈ। <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">ਅਜ਼ੁਰ ਓਪਨਏਆਈ</a> ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਕਰਦਾ ਹੈ। ਅਸੀਂ ਅਜ਼ੁਰ ਓਪਨਏਆਈ ਕਲਾਇਂਟ ਨੂੰ ਆਰੰਭ ਕਰਕੇ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹਾਂ।
+    ਸਭ ਮਾਡਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੇ, ਇਸ ਲਈ ਇਹ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ ਹੈ ਕਿ ਤੁਸੀਂ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਵਰਤ ਰਹੇ LLM ਦਾ ਇਹ ਸਮਰਥਨ ਹੈ।     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦਾ ਸਮਰਥਨ ਕਰਦਾ ਹੈ। ਅਸੀਂ Azure OpenAI **Responses API** (ਜੇਹੜਾ ਕਿ `/openai/v1/` ਐਂਡਪੌਇੰਟ ਹੈ — ਕੋਈ `api_version` ਦੀ ਲੋੜ ਨਹੀਂ) ਦੁਆਰਾ OpenAI ਕਲਾਇੰਟ ਸ਼ੁਰੂ ਕਰ ਕੇ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹਾਂ।
 
     ```python
-    # ਏਜ਼ਯੂਰ ਓਪਨਏਆਈ ਕਲਾਇੰਟ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **ਫੰਕਸ਼ਨ ਸਕੀਮਾ ਬਣਾਓ:**
+1. **ਫੰਕਸ਼ਨ ਸਕੀਮਾ ਬਣਾਓ**:
 
-   ਅਗਲਾ ਕਦਮ ਇੱਕ JSON ਸਕੀਮਾ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨਾ ਹੈ ਜਿਸ ਵਿੱਚ ਫੰਕਸ਼ਨ ਦਾ ਨਾਮ, ਇਹ ਕੀ ਕਰਦਾ ਹੈ ਇਸ ਦੀ ਵਰਣਨਾ ਅਤੇ ਫੰਕਸ਼ਨ ਪੈਰਾਮੀਟਰਾਂ ਦੇ ਨਾਮ ਅਤੇ ਵਰਣਨਾ ਸ਼ਾਮਲ ਹਨ।
-   ਅਸੀਂ ਫਿਰ ਇਸ ਸਕੀਮਾ ਨੂੰ ਕਲਾਇਂਟ ਨੂੰ ਭੇਜਾਂਗੇ ਜੋ ਪਹਿਲਾਂ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਅਤੇ ਵਰਤੋਂਕਾਰ ਦੀ ਬੇਨਤੀ ਨੂੰ ਵੀ ਜੋ ਸੈਨ ਫ੍ਰਾਂਸਿਸਕੋ ਵਿੱਚ ਸਮਾਂ ਲੱਭ ਰਿਹਾ ਹੈ। ਮਹੱਤਵਪੂਰਣ ਗੱਲ ਇਹ ਹੈ ਕਿ **ਟੂਲ ਕਾਲ** ਹੀ ਵਾਪਸ ਆਉਂਦਾ ਹੈ, ਸਵਾਲ ਦਾ ਅੰਤਿਮ ਜਵਾਬ ਨਹੀਂ। ਜਿਵੇਂ ਪਹਿਲਾਂ ਕਿਹਾ ਗਿਆ, LLM ਉਸ ਫੰਕਸ਼ਨ ਦਾ ਨਾਮ ਵਾਪਸ ਕਰਦਾ ਹੈ ਜੋ ਉਸਨੇ ਇਸ ਕਾਰਜ ਲਈ ਚੁਣਿਆ, ਅਤੇ ਜਿਹੜੇ ਪੈਰਾਮੀਟਰ ਉਸਨੂੰ ਦਿੱਤੇ ਜਾਣਗੇ।
+    ਅਗਲੇ, ਅਸੀਂ ਇੱਕ JSON ਸਕੀਮਾ ਪਰਿਭਾਸ਼ਿਤ ਕਰਾਂਗੇ ਜਿਸ ਵਿੱਚ ਫੰਕਸ਼ਨ ਦਾ ਨਾਮ, ਫੰਕਸ਼ਨ ਕੀਤਾ ਕੀ ਕੰਮ ਕਰਦਾ ਹੈ ਦਾ ਵੇਰਵਾ, ਅਤੇ ਫੰਕਸ਼ਨ ਪੈਰਮੀਟਰਾਂ ਦੇ ਨਾਮ ਅਤੇ ਵੇਰਵੇ ਹੋਣਗੇ।
+    ਫਿਰ ਅਸੀਂ ਇਹ ਸਕੀਮਾ ਇਸ ਕਲਾਇੰਟ ਨੂੰ ਭੇਜਾਂਗੇ ਜੋ ਉਪਭੋਗਤਾ ਦੀ ਬੇਨਤੀ ਦੇ ਨਾਲ ਹੈ ਕਿ ਉਹ ਸੈਨ ਫਰਾਂਸਿਸਕੋ ਦਾ ਸਮਾਂ ਲੱਭੇ। ਇਹ ਧਿਆਨਯੋਗ ਹੈ ਕਿ **ਟੂਲ ਕਾਲ** ਵਾਪਸ ਅਾਉਂਦਾ ਹੈ, ਸਵਾਲ ਦਾ ਅੰਤਿਮ ਜਵਾਬ ਨਹੀਂ। ਪਹਿਲਾਂ ਵੀ ਦੱਸਿਆ ਗਿਆ ਹੈ ਕਿ LLM ਨੇ ਕੰਮ ਲਈ ਚੁਣਿਆ ਫੰਕਸ਼ਨ ਅਤੇ ਇਸ ਦੇ ਦਲੀਲਾਂ ਦੇ ਨਾਮ ਨੂੰ ਵਾਪਸ ਭੇਜਦਾ ਹੈ।
 
     ```python
-    # ਮਾਡਲ ਲਈ ਫੰਕਸ਼ਨ ਦਾ ਵਰਣਨ ਪੜ੍ਹਨ ਲਈ
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # ਸ਼ੁਰੂਆਤੀ ਉਪਭੋਗਤਾ ਸੁਨੇਹਾ
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # ਪਹਿਲੀ ਏਪੀਆਈ ਕਾਲ: ਮਾਡਲ ਨੂੰ ਫੰਕਸ਼ਨ ਦੇ ਇਸਤੇਮਾਲ ਲਈ ਪੁੱਛੋ
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # ਮਾਡਲ ਦੇ ਜਵਾਬ ਨੂੰ ਪ੍ਰਕਿਰਿਆ ਕਰੋ
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **ਟਾਸਕ ਕਰਨ ਲਈ ਲੋੜੀਂਦਾ ਫੰਕਸ਼ਨ ਕੋਡ:**
+1. **ਕੰਮ ਕਰਨ ਲਈ ਫੰਕਸ਼ਨ ਕੋਡ:**
 
-   ਹੁਣ ਜਦੋਂ ਕਿ LLM ਨੇ ਚੁਣਿਆ ਹੈ ਕਿ ਕਿਸ ਫੰਕਸ਼ਨ ਨੂੰ ਚਲਾਉਣਾ ਹੈ, ਉਸ ਟਾਸਕ ਨੂੰ ਕਰਨ ਵਾਲਾ ਕੋਡ ਲਿਖਿਆ ਅਤੇ ਚਲਾਇਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।
-   ਅਸੀਂ ਪਾਈਥਨ ਵਿੱਚ ਮੌਜੂਦਾ ਸਮਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਕੋਡ ਲਿਖ ਸਕਦੇ ਹਾਂ। ਅਸੀਂ ਇਹ ਵੀ ਕੋਡ ਲਿਖਣਾ ਪਵੇਗਾ ਜੋ response_message ਤੋਂ ਨਾਮ ਅਤੇ ਪੈਰਾਮੀਟਰ ਨਿਕਾਲਦਾ ਹੈ ਤਾਂ ਜੋ ਅੰਤਿਮ ਨਤੀਜਾ ਮਿਲ ਸਕੇ।
+    ਹੁਣ ਜਦੋਂ ਕਿ LLM ਨੇ ਧਿਆਨ ਦਿੱਤਾ ਕਿ ਕਿਹੜਾ ਫੰਕਸ਼ਨ ਚਲਾਉਣਾ ਹੈ, ਕੰਮ ਕਰਨ ਵਾਲਾ ਕੋਡ ਲਿਖਣਾ ਅਤੇ ਚਲਾਉਣਾ ਜ਼ਰੂਰੀ ਹੈ।
+    ਅਸੀਂ ਪਾਈਥਨ ਵਿੱਚ ਮੌਜੂਦਾ ਸਮਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਕੋਡ ਲਿਖ سکتے ਹਾਂ। ਸਾਡੇ ਨੂੰ ਇਸ ਕੋਡ ਵਿੱਚ ਹੇਠਾਂ ਦਿੱਤੇ ਜਵਾਬ ਤੋਂ ਨਾਮ ਅਤੇ ਦਲੀਲਾਂ ਨੂੰ ਕੱਢਣ ਦਾ ਵੀ ਕੋਡ ਲਿਖਣਾ ਪਵੇਗਾ ਤਾਂ ਜੋ ਅੰਤਿਮ ਨਤੀਜਾ ਮਿਲ ਸਕੇ।
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@
     ```
 
      ```python
-     # ਫੰਕਸ਼ਨ ਕਾਲਾਂ ਸੰਭਾਲੋ
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # ਦੂਜਾ API ਕਾਲ: ਮਾਡਲ ਤੋਂ ਆਖਰੀ ਜਵਾਬ ਲਓ
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@
       The current time in San Francisco is 09:24 AM.
      ```
 
-ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਜ਼ਿਆਦਾਤਰ, ਜੇ ਨਾ ਤਾਂ ਸਾਰੇ ਏਜੰਟ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਵਿੱਚ ਮੁੱਖ ਭੂਮਿਕਾ ਨਿਭਾਉਂਦਾ ਹੈ, ਪਰ ਇਸ ਨੂੰ ਸਿਰੇ ਤੋਂ ਲਾਗੂ ਕਰਨਾ ਕਈ ਵਾਰੀ ਚੁਣੌਤੀ ਭਰਿਆ ਹੁੰਦਾ ਹੈ।
-ਜਿਵੇਂ ਅਸੀਂ [ਪਾਠ 2](../../../02-explore-agentic-frameworks) ਵਿੱਚ ਸਿੱਖਿਆ, ਏਜੰਟਿਕ ਫਰੇਮਵਰਕਾਂ ਸਾਡੇ ਲਈ ਪਹਿਲਾਂ ਹੀ ਬਨਾਏ ਹੋਏ ਬਿਲਡਿੰਗ ਬਲਾਕ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਨ ਜੋ ਟੂਲ ਯੂਜ਼ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਸਹਾਇਕ ਹੁੰਦੇ ਹਨ।
+ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ बहੁਤ ਸਾਰੀਆਂ, ਜੇ ਨਹੀਂ ਤਾਂ ਸਾਰੀਆਂ ਏਜੰਟ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਦਾ ਮੁੱਖ ਅੰਗ ਹੈ, ਪਰ ਇਸ ਨੂੰ ਸੁਆਦ ਤੋਂ ਲਾਗੂ ਕਰਨਾ ਕਈ ਵਾਰੀ ਮੁਸ਼ਕਲ ਹੋ ਸਕਦਾ ਹੈ।
+ਜਿਵੇਂ ਕਿ ਅਸੀਂ ਸਿੱਖਿਆ [ਪਾਠ 2](../../../02-explore-agentic-frameworks) ਵਿੱਚ, ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਸਾਡੇ ਲਈ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰ ਬਿਲਡਿੰਗ ਬਲਾਕ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਨ ਜੋ ਟੂਲ ਵਰਤੋਂ ਨੂੰ ਅਮਲ 'ਚ ਲਿਆਉਂਦੇ ਹਨ।
+ 
+## ਏਜੰਟਿਕ ਫਰੇਮਵਰਕਸ ਨਾਲ ਟੂਲ ਯੂਜ਼ ਉਦਾਹਰਨਾਂ
 
-## ਏਜੰਟਿਕ ਫਰੇਮਵਰਕਾਂ ਨਾਲ ਟੂਲ ਯੂਜ਼ ਦੇ ਉਦਾਹਰਣ
+ਹੇਠਾਂ ਕੁਝ ਉਦਾਹਰਨ ਦਿੱਤੀਆਂ ਗਈਆਂ ਹਨ ਕਿ ਕਿਸ ਤਰ੍ਹਾਂ ਤੁਸੀਂ ਵੱਖ-ਵੱਖ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਵਰਤ ਕੇ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਲਾਗੂ ਕਰ ਸਕਦੇ ਹੋ:
 
-ਹੇਠਾਂ ਕੁਝ ਉਦਾਹਰਣ ਹਨ ਕਿ ਤੁਸੀਂ ਵੱਖ-ਵੱਖ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਨੂੰ ਕਿਵੇਂ ਲਾਗੂ ਕਰ ਸਕਦੇ ਹੋ:
+### ਮਾਇਕ੍ਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ
 
-### ਸੇਮੈਂਟਿਕ ਕਰਨਲ
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">ਮਾਇਕ੍ਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ</a> ਇੱਕ ਖੁੱਲਾ ਸਰੋਤ AI ਫਰੇਮਵਰਕ ਹੈ ਜੋ AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਹੈ। ਇਹ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦੇ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਸੌਖਾ ਬਣਾਉਂਦਾ ਹੈ ਕਿਉਂਕਿ ਤੁਸੀਂ Python ਫੰਕਸ਼ਨਾਂ ਦੇ ਤੌਰ 'ਤੇ ਟੂਲਾਂ ਨੂੰ `@tool` ਡੇਕੋਰੇਟਰ ਨਾਲ ਪਰਿਭਾਸ਼ਿਤ ਕਰ ਸਕਦੇ ਹੋ। ਫਰੇਮਵਰਕ ਮਾਡਲ ਅਤੇ ਤੁਹਾਡੇ ਕੋਡ ਵਿਚਕਾਰ ਬੈਕ-ਅਤੇ-ਫੋਰਥ ਸੰਚਾਰ ਸੰਭਾਲਦਾ ਹੈ। ਇਹ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰ ਟੂਲਾਂ ਜਿਵੇਂ ਕਿ ਫਾਈਲ ਖੋਜ ਅਤੇ ਕੋਡ ਇੰਟਰਪਰੀਟਰ ਨੂੰ `FoundryChatClient` ਰਾਹੀਂ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">ਸੇਮੈਂਟਿਕ ਕਰਨਲ</a> .NET, ਪਾਈਥਨ, ਅਤੇ ਜਾਵਾ ਵਿਕਾਸਕਾਰਾਂ ਲਈ ਇੱਕ ਖੁੱਲਾ ਸਰੋਤ ਏਆਈ ਫਰੇਮਵਰਕ ਹੈ ਜੋ ਵੱਡੇ ਭਾਸ਼ਾ ਮਾਡਲਾਂ (LLMs) ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ। ਇਹ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਆਸਾਨ ਬਣਾਉਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਹ ਆਪਣੇ ਆਪ ਹੀ ਤੁਹਾਡੇ ਫੰਕਸ਼ਨਾਂ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਪੈਰਾਮੀਟਰਾਂ ਦੀ ਵਰਣਨਾ ਮਾਡਲ ਨੂੰ ਕਰਦਾ ਹੈ ਜਿਹੜਾ ਕਿ <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">ਸੀਰੀਅਲਾਈਜ਼ਿੰਗ</a> ਕਹਾਉਂਦਾ ਹੈ। ਇਹ ਮਾਡਲ ਅਤੇ ਤੁਹਾਡੇ ਕੋਡ ਵਿਚਕਾਰ ਵਾਪਸੀ ਗੱਲਬਾਤ ਦਾ ਪ੍ਰਬੰਧ ਵੀ ਕਰਦਾ ਹੈ। ਸੇਮੈਂਟਿਕ ਕਰਨਲ ਵਰਗਾ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਵਰਤਣ ਦਾ ਇੱਕ ਹੋਰ ਫਾਇਦਾ ਇਹ ਹੈ ਕਿ ਇਸ ਨਾਲ ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਤੋਂ ਬਣਾਈਆਂ ਟੂਲਾਂ ਜਿਵੇਂ ਕਿ <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">ਫਾਈਲ ਖੋਜ</a> ਅਤੇ <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">ਕੋਡ ਇੰਟਰਪ੍ਰੀਟਰ</a> ਨੂੰ ਸਧਾਰਨ ਤਰੀਕੇ ਨਾਲ ਵਰਤਣ ਦਾ ਮੌਕਾ ਮਿਲਦਾ ਹੈ।
+ਹੇਠਾਂ ਦਿੱਤਾ ਚਿੱਤਰ ਮਾਇਕ੍ਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਨਾਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ:
 
-ਹੇਠਾਂ ਦਿੱਤਾ ਡਾਇਗ੍ਰਾਮ ਸੇਮੈਂਟਿਕ ਕਰਨਲ ਨਾਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ:
+![ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ](../../../translated_images/pa/functioncalling-diagram.a84006fc287f6014.webp)
 
-![function calling](../../../translated_images/pa/functioncalling-diagram.a84006fc287f6014.webp)
-
-ਸੇਮੈਂਟਿਕ ਕਰਨਲ ਵਿੱਚ ਫੰਕਸ਼ਨ/ਟੂਲਾਂ ਨੂੰ <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">ਪਲੱਗਇਨ</a> ਕਿਹਾ ਜਾਂਦਾ ਹੈ। ਅਸੀਂ `get_current_time` ਫੰਕਸ਼ਨ ਨੂੰ ਇੱਕ ਕਲਾਸ ਵਿੱਚ ਬਦਲ ਕੇ ਪਲੱਗਇਨ ਬਣਾ ਸਕਦੇ ਹਾਂ ਜਿਸਦੇ ਅੰਦਰ ਉਹ ਫੰਕਸ਼ਨ ਹੋਵੇ। ਅਸੀਂ `kernel_function` ਡੈਕੋਰੇਟਰ ਨੂੰ ਵੀ ਇम्पੋਰਟ ਕਰ ਸਕਦੇ ਹਾਂ, ਜੋ ਫੰਕਸ਼ਨ ਦੀ ਵਰਣਨਾ ਲੈਂਦਾ ਹੈ। ਇਸ ਤੋਂ ਬਾਅਦ ਜਦੋਂ ਤੁਸੀਂ GetCurrentTimePlugin ਨਾਲ ਇੱਕ ਕਰਨਲ ਬਣਾਉਂਦੇ ਹੋ, ਕਰਨਲ ਆਪਣੇ ਆਪ ਫੰਕਸ਼ਨ ਅਤੇ ਇਸਦੇ ਪੈਰਾਮੀਟਰਾਂ ਨੂੰ ਸੀਰੀਅਲਾਈਜ਼ ਕਰਦਾ ਹੈ, ਜੋ ਸਕੀਮਾ ਬਣਾਉਂਦਾ ਹੈ ਜੋ LLM ਨੂੰ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ।
+ਮਾਇਕ੍ਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਵਿੱਚ, ਟੂਲਾਂ ਨੂੰ ਡੇਕੋਰੇਟ ਕੀਤੇ ਗਏ ਫੰਕਸ਼ਨਾਂ ਵਾਂਗ ਪਰਿਭਾਸ਼ਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਅਸੀਂ ਪਹਿਲਾਂ ਵੇਖੇ ਗਏ `get_current_time` ਫੰਕਸ਼ਨ ਨੂੰ `@tool` ਡੇਕੋਰੇਟਰ ਨਾਲ ਇੱਕ ਟੂਲ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹਾਂ। ਫਰੇਮਵਰਕ ਆਪਮਾਤਰ ਫੰਕਸ਼ਨ ਅਤੇ ਇਸ ਦੇ ਪੈਰਮੀਟਰਾ ਨੂੰ ਸੀਰੀਅਲਾਈਜ਼ ਕਰੇਗਾ, ਸਕੀਮਾ ਬਣਾਉਂਦਾ ਹੈ ਅਤੇ LLM ਨੂੰ ਭੇਜੇਗਾ।
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### MCP ਸਰਵਰ ਤੋਂ ਟੂਲ
+
+ਟੂਲ ਤੁਹਾਡੇ ਆਪਣੇ ਕੋਡ ਦੇ ਫੰਕਸ਼ਨ ਹੋਣ ਲਾਜ਼ਮੀ ਨਹੀਂ। ਇੱਕ ਸਰਵਰ ਜੋ ਮਾਡਲ ਕਾਨਟੈਕਸਟ ਪ੍ਰੋਟੋਕੋਲ (MCP, ਜਿਸ ਨੂੰ ਅਸੀਂ [ਪਾਠ 11](../11-agentic-protocols/README.md) ਵਿੱਚ ਦੇਖਿਆ) ਬੋਲਦਾ ਹੈ, ਆਪਣੇ ਟੂਲਾਂ ਨੂੰ ਸਕੀਮੇਲਾਂ ਨਾਲ ਪ੍ਰਕਾਸ਼ਤ ਕਰਦਾ ਹੈ, ਅਤੇ ਫਰੇਮਵਰਕ ਉਨ੍ਹਾਂ ਨੂੰ ਉਸੇ ਤਰੀਕੇ ਨਾਲ ਲੋਡ ਕਰ ਸਕਦਾ ਹੈ ਜਿਵੇਂ ਕਿ ਉਹ ਇੱਕ ਡੇਕੋਰੇਟਿਡ ਫੰਕਸ਼ਨ ਨੂੰ ਸੀਰੀਅਲਾਈਜ਼ ਕਰਦਾ ਹੈ। `MCPStreamableHTTPTool` HTTP ਰਾਹੀਂ ਇਸ ਤਰ੍ਹਾਂ ਦੇ ਸਰਵਰ ਨਾਲ ਜੁੜਦਾ ਹੈ, ਟੂਲ ਸਕੀਮੇਲਾਂ ਪੜ੍ਹਦਾ ਹੈ ਅਤੇ ਮਾਡਲ ਨੂੰ ਕਾਫੀ ਹੋਰ ਟੂਲਾਂ ਦੇ ਨਾਲ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।
+
+ਹੇਠਾਂ ਦਿੱਤੇ ਉਦਾਹਰਨ ਵਿੱਚੋਂ ਇੱਕ ਵੈੱਬ ਖੋਜ ਸਰਵਰ ਹੈ ਜੋ <a href="https://keenable.ai" target="_blank">Keenable</a> ਵੱਲੋਂ ਹੋਸਟ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਬਿਨਾਂ ਖਾਤੇ ਜਾਂ API ਕੁੰਜੀ ਦੇ ਮਫ਼ਤ ਵਰਤੋਂ ਲਈ ਹੈ (ਬੇਨਤੀਆਂ ਹਰ IP ਲਈ ਸੀਮਿਤ ਹੁੰਦੀਆਂ ਹਨ), ਇਸ ਲਈ ਤੁਹਾਡੇ ਮਾਡਲ ਲਈ ਹੀ ਕ੍ਰੈਡੇਂਸ਼ਿਅਲ ਲੋੜੀਂਦੇ ਹਨ। ਜਿਵੇਂ ਕਿਸੇ ਵੀ ਰਿਮੋਟ ਟੂਲ ਨਾਲ ਹੁੰਦਾ ਹੈ, ਮਾਡਲ ਦੇ ਦੁਆਰਾ ਲਿਖੀਆਂ ਗਈਆਂ ਖੋਜਾਂ ਉਸ ਸਰਵਰ ਨੂੰ ਭੇਜੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# ਕਰਨਲ ਬਣਾਓ
-kernel = Kernel()
-
-# ਪਲੱਗਇਨ ਬਣਾਓ
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# ਪਲੱਗਇਨ ਨੂੰ ਕਰਨਲ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ
-kernel.add_plugin(get_current_time_plugin)
-```
+ਸਰਵਰ ਦੋ ਟੂਲ ਪ੍ਰਕਾਸ਼ਤ ਕਰਦਾ ਹੈ, `search_web_pages` ਅਤੇ `fetch_page_content`। ਜਦੋਂ ਪ੍ਰਸ਼ਨ ਨੂੰ ਤਾਜ਼ਾ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ, ਤਾਂ ਮਾਡਲ `search_web_pages` ਨੂੰ ਕਾਲ ਕਰਦਾ ਹੈ, ਸਿਰਲੇਖ, URL ਅਤੇ ਟੈਕਸਟ ਟੁਕੜੇ ਫਿਰ ਦੌੜਦਾ ਹੈ ਅਤੇ ਉਨ੍ਹਾਂ ਤੋਂ ਆਪਣਾ ਜਵਾਬ ਲਿਖਦਾ ਹੈ, ਉੱਪਰ ਦਿੱਤੇ `get_current_time` ਉਦਾਹਰਨ ਵਾਲੇ ਹੀ ਲੂਪ ਵਿੱਚ।
   
-### ਅਜ਼ੁਰ ਏਆਈ ਏਜੰਟ ਸੇਵਾ
+### ਮਾਇਕ੍ਰੋਸਾਫਟ ਫਾਉਂਡਰੀ ਏਜੰਟ ਸਰਵਿਸ
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">ਅਜ਼ੁਰ ਏਆਈ ਏਜੰਟ ਸੇਵਾ</a> ਇੱਕ ਨਵਾਂ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਹੈ ਜੋ ਡਿਵੈਲਪਰਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਉੱਚ-ਗੁਣਵੱਤਾ, ਵਿਸਤਾਰਯੋਗ ਏਆਈ ਏਜੰਟਾਂ ਬਣਾਉਣ, ਡਿਪਲੋਇ ਕਰਨ ਅਤੇ ਸਕੇਲ ਕਰਨ ਦੇ ਯੋਗ ਬਣਾਉਂਦਾ ਹੈ ਬਿਨਾਂ ਹੇਠਲੇ ਸਤਰ ਦੇ ਕੰਪਿਊਟ ਅਤੇ ਸਟੋਰੇਜ ਸਰੋਤਾਂ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕੀਤੇ। ਇਹ ਵਿਸ਼ੇਸ਼ ਤੌਰ 'ਤੇ ਉਦਯੋਗਿਕ ਐਪਲੀਕੇਸ਼ਨਾਂ ਲਈ ਲਾਭਦਾਇਕ ਹੈ ਕਿਉਂਕਿ ਇਹ ਇੱਕ ਪੂਰੀ ਤਰ੍ਹਾਂ ਪ੍ਰਬੰਧਿਤ ਸੇਵਾ ਹੈ ਜੋ ਉਦਯੋਗਿਕ ਸਰਟੀਫਿਕੇਸ਼ਨ ਨਾਲ ਲੈਸ ਹੈ।
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">ਮਾਇਕ੍ਰੋਸਾਫਟ ਫਾਉਂਡਰੀ ਏਜੰਟ ਸਰਵਿਸ</a> ਇੱਕ ਨਵਾਂ ਏਜੰਟਿਕ ਫਰੇਮਵਰਕ ਹੈ ਜੋ ਵਿਕਾਸਕਾਰਾਂ ਨੂੰ ਬਿਨਾਂ ਨਿਮਨਲਿਖਤ ਗਣਨ ਅਤੇ ਸੰਗ੍ਰਹਿ ਸਰੋਤਾਂ ਦੇ ਪ੍ਰਬੰਧ ਦੇ, ਸੁਰੱਖਿਅਤ, ਪੈਮਾਨੇਯੋਗ ਅਤੇ ਵਿਸ਼ਤਰੀਤ AI ਏਜੰਟ ਬਣਾਉਣ, ਤੈਨਾਤ ਕਰਨ ਅਤੇ ਵੱਡੇ ਪੱਧਰ ’ਤੇ ਚਲਾਉਣ ਯੋਗ ਬਣਾਉਂਦਾ ਹੈ। ਇਹ ਖਾਸ ਤੌਰ 'ਤੇ ਉਦਯੋਗਿਕ ਐਪਲੀਕੇਸ਼ਨਾਂ ਲਈ ਬਹੁਤ ਉਪਯੋਗੀ ਹੈ ਕਿਉਂਕਿ ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਪ੍ਰਬੰਧਿਤ ਸੇਵਾ ਹੈ ਜਿਸ ਵਿੱਚ ਉਦਯੋਗਿਕ ਗਰੇਡ ਸੁਰੱਖਿਆ ਹੁੰਦੀ ਹੈ।
 
-ਜਦੋਂ ਤੁਸੀਂ ਇਸਨੂੰ LLM API ਨਾਲ ਸਿੱਧਾ ਵਿਕਾਸ ਨਾਲ ਤੁਲਨਾ ਕਰਦੇ ਹੋ, ਅਜ਼ੁਰ ਏਆਈ ਏਜੰਟ ਸੇਵਾ ਹੇਠ ਲਿਖੇ ਲਾਭ ਦਿੰਦੀ ਹੈ:
+ਯੋਜਨਾ ਦੇ ਸਿੱਧੇ LLM API ਨਾਲ ਵਿਕਾਸ ਦੇ ਮੁਕਾਬਲੇ, ਮਾਇਕ੍ਰੋਸਾਫਟ ਫਾਉਂਡਰੀ ਏਜੰਟ ਸਰਵਿਸ ਕੁਝ ਲਾਭ ਦਿੰਦਾ ਹੈ, ਜੋ ਇਸ ਤਰ੍ਹਾਂ ਹਨ:
 
-- ਸਵੈਚਾਲਿਤ ਟੂਲ ਕਾਲਿੰਗ – ਹੁਣ ਸਰਵਰ-ਸਾਈਡ ਤੇ ਸਾਰਾ ਕੰਮ ਹੁੰਦਾ ਹੈ, ਟੂਲ ਕਾਲ ਨੂੰ ਪਾਰਸ ਕਰਨ, ਟੂਲ ਨੂੰ ਚਲਾਉਣ ਅਤੇ ਜਵਾਬ ਦਾ ਪ੍ਰਬੰਧ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ
-- ਸੁਰੱਖਿਅਤ ਡਾਟਾ ਪ੍ਰਬੰਧਨ – ਗੱਲਬਾਤ ਪੰਜਾਬੀ ਸਥਿਤੀ ਨੂੰ ਸਾਂਭਣ ਦੀ ਬਜਾਏ ਤੁਸੀਂ ਥ੍ਰੇਡਾਂ 'ਤੇ ਭਰੋਸਾ ਕਰ ਸਕਦੇ ਹੋ ਜੋ ਸਾਰੀ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਦੇ ਹਨ
-- ਪਹਿਲਾਂ ਤੋਂ ਬਣੇ ਹੋਏ ਟੂਲ – ਜਿਹੜੇ ਤੁਸੀਂ ਆਪਣੇ ਡਾਟਾ ਸਰੋਤਾਂ ਨਾਲ ਪਰਸਪਰ ਕਰ ਸਕਦੇ ਹੋ, ਜਿਵੇਂ Bing, ਅਜ਼ੁਰ ਏਆਈ ਖੋਜ, ਅਤੇ ਅਜ਼ੁਰ ਫਂਕਸ਼ਨਜ਼।
+- ਆਟੋਮੈਟਿਕ ਟੂਲ ਕਾਲਿੰਗ – ਹੁਣ ਸਰਵਰ ਪਾਸੇ ਸਾਰੇ ਕੰਮ, ਜਿਸ ਵਿੱਚ ਟੂਲ ਕਾਲ ਦਾ ਪਾਰਸ ਕਰਨਾ, ਟੂਲ ਨੂੰ ਚਲਾਉਣਾ ਅਤੇ ਜਵਾਬ ਦਾ ਸੰਭਾਲ, ਆਪਣੇ ਆਪ ਹੁੰਦਾ ਹੈ
+- ਸੁਰੱਖਿਅਤ ਡੇਟਾ ਪ੍ਰਬੰਧਨ – ਆਪਣੀ ਗੱਲਬਾਤ ਸਥਿਤੀ ਸੰਭਾਲਣ ਦੀ ਬਜਾਏ, ਤੁਸੀਂ ਥ੍ਰੇਡਾਂ 'ਤੇ ਭਰੋਸਾ ਕਰ ਸਕਦੇ ਹੋ ਜੋ ਸਾਰੀ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਦੇ ਹਨ
+- ਬਾਕਸ ਤੋਂ ਬਾਹਰ ਟੂਲਾਂ – ਉਹ ਟੂਲ ਜਿਨ੍ਹਾਂ ਨਾਲ ਤੁਸੀਂ ਆਪਣੇ ਡਾਟਾ ਸਰੋਤਾਂ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ, ਜਿਵੇਂ ਕਿ ਬਿੰਗ, ਏਜ਼ਿਊਰ AI ਖੋਜ ਅਤੇ ਏਜ਼ਿਊਰ ਫੰਕਸ਼ਨ।
 
-ਅਜ਼ੁਰ ਏਆਈ ਏਜੰਟ ਸੇਵਾ ਵਿੱਚ ਉਪਲਬਧ ਟੂਲਾਂ ਨੂੰ ਦੋ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਵੰਡਿਆ ਜਾ ਸਕਦਾ ਹੈ:
+ਮਾਇਕ੍ਰੋਸਾਫਟ ਫਾਉਂਡਰੀ ਏਜੰਟ ਸਰਵਿਸ ਵਿੱਚ ਉਪਲੱਬਧ ਟੂਲਾਂ ਨੂੰ ਦੋ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਵੰਡਿਆ ਜਾ ਸਕਦਾ ਹੈ:
 
-1. ਗਿਆਨ ਟੂਲ:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">ਬਿੰਗ ਖੋਜ ਨਾਲ ਗਰਾਉਂਡਿੰਗ</a>
+1. ਗਿਆਨ ਸਮੱਗਰੀ ਵਾਲੇ ਟੂਲ:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">ਬਿੰਗ ਖੋਜ ਨਾਲ ਗਰਾਊਂਡਿੰਗ</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">ਫਾਈਲ ਖੋਜ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">ਅਜ਼ੁਰ ਏਆਈ ਖੋਜ</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">ਏਜ਼ਿਊਰ AI ਖੋਜ</a>
 
-2. ਕ੍ਰਿਆਟਮਕ ਟੂਲ:
+2. ਕਾਰਜ ਟੂਲ:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">ਕੋਡ ਇੰਟਰਪ੍ਰੀਟਰ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI ਪ੍ਰਿਭਾਸ਼ਿਤ ਟੂਲ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">ਅਜ਼ੁਰ ਫਂਕਸ਼ਨਜ਼</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">ਕੋਡ ਇੰਟਰਪਰੀਟਰ</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">ਓਪਨAPI ਪਰਿਭਾਸ਼ਿਤ ਟੂਲਾਂ</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">ਏਜ਼ਿਊਰ ਫੰਕਸ਼ਨ</a>
 
-ਏਜੰਟ ਸੇਵਾ ਸਾਨੂੰ ਇਹ ਟੂਲ ਇਕੱਠੇ ਕਰਕੇ ਇੱਕ `ਟੂਲਸੈੱਟ` ਵਜੋਂ ਵਰਤਣ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ। ਇਹ `ਥ੍ਰੇਡ` ਦੀ ਵਰਤੋਂ ਵੀ ਕਰਦੀ ਹੈ ਜੋ ਖਾਸ ਗੱਲਬਾਤ ਦੀ ਮੈਸੇਜ ਇਤਿਹਾਸ ਨੂੰ ਟਰੈਕ ਕਰਦੇ ਹਨ।
+ਏਜੰਟ ਸਰਵਿਸ ਸਾਨੂੰ ਇਨ੍ਹਾਂ ਟੂਲਾਂ ਨੂੰ ਇੱਕ `toolset` ਵਜੋਂ ਵਰਤਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ। ਇਹ ਵੀ `threads` ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਜੋ ਵਿਸ਼ੇਸ਼ ਗੱਲਬਾਤ ਦੇ ਸ 메시ਜਾਂ ਦੇ ਇਤਿਹਾਸ ਨੂੰ ਟਰੈਕ ਕਰਦਾ ਹੈ।
 
-ਕਲਪਨਾ ਕਰੋ ਕਿ ਤੁਸੀਂ Contoso ਨਾਮਕ ਕੰਪਨੀ ਵਿੱਚ ਸੇਲਜ਼ ਏਜੰਟ ਹੋ। ਤੁਸੀਂ ਇੱਕ ਗੱਲਬਾਤੀ ਏਜੰਟ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ਜੋ ਤੁਹਾਡੇ ਸੇਲਜ਼ ਡਾਟਾ ਬਾਰੇ ਸਵਾਲਾਂ ਦੇ ਉੱਤਰ ਦੇ ਸਕੇ।
+ਸੋਚੋ ਤੁਸੀਂ Contoso ਨਾਮਕ ਕੰਪਨੀ ਵਿੱਚ ਸੇਲਜ਼ ਏਜੰਟ ਹੋ। ਤੁਸੀਂ ਐਸਾ ਗੱਲਬਾਤੀ ਏਜੰਟ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ਜੋ ਤੁਹਾਡੇ ਸੇਲਜ਼ ਡੇਟਾ ਬਾਰੇ ਸਵਾਲਾਂ ਦਾ ਜਵਾਬ ਦੇ ਸਕੇ।
 
-ਹੇਠਾਂ ਦਿੱਤੀ ਤਸਵੀਰ ਦਰਸਾਉਂਦੀ ਹੈ ਕਿ ਤੁਸੀਂ ਅਜ਼ੁਰ ਏਆਈ ਏਜੰਟ ਸੇਵਾ ਵਰਤ ਕੇ ਕਿਵੇਂ ਆਪਣੇ ਸੇਲਜ਼ ਡਾਟਾ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰ ਸਕਦੇ ਹੋ:
+ਹੇਠਾਂ ਦਿੱਤੀ ਤਸਵੀਰ ਦਰਸਾਉਂਦੀ ਹੈ ਕਿ ਤੁਸੀਂ ਮਾਇਕ੍ਰੋਸਾਫਟ ਫਾਉਂਡਰੀ ਏਜੰਟ ਸਰਵਿਸ ਨਾਲ ਕਿਸ ਤਰ੍ਹਾਂ ਆਪਣੇ ਸੇਲਜ਼ ਡੇਟਾ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰ ਸਕਦੇ ਹੋ:
 
-![Agentic Service In Action](../../../translated_images/pa/agent-service-in-action.34fb465c9a84659e.webp)
+![ਏਜੰਟਿਕ ਸਰਵਿਸ ਕਾਰਜ ਵਿੱਚ](../../../translated_images/pa/agent-service-in-action.34fb465c9a84659e.webp)
 
-ਸੇਵਾ ਨਾਲ ਕਿਸੇ ਵੀ ਟੂਲ ਨੂੰ ਵਰਤਣ ਲਈ ਅਸੀਂ ਕਲਾਇਂਟ ਬਣਾਕੇ ਟੂਲ ਜਾਂ ਟੂਲਸੈੱਟ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰ ਸਕਦੇ ਹਾਂ। ਇਸਨੂੰ ਵਿਹਾਰਕ ਰੂਪ ਵਿੱਚ ਲਾਗੂ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਪਾਈਥਨ ਕੋਡ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹਾਂ। LLM ਟੂਲਸੈੱਟ ਨੂੰ ਵੇਖ ਕੇ ਫੈਸਲਾ ਕਰੇਗਾ ਕਿ ਵਰਤੋਂਕਾਰ ਬਣਾਇਆ ਫੰਕਸ਼ਨ `fetch_sales_data_using_sqlite_query` ਨੂੰ ਵਰਤਣਾ ਹੈ ਜਾਂ ਪਹਿਲਾਂ ਤੋਂ ਬਣਾਇਆ ਕੋਡ ਇੰਟਰਪ੍ਰੀਟਰ ਉਹਦੇ ਹਿਸਾਬ ਨਾਲ।
+ਸਰਵਿਸ ਨਾਲ ਕਿਸੇ ਵੀ ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਅਸੀਂ ਕਲਾਇੰਟ ਬਣਾਉਂਦੇ ਹਾਂ ਅਤੇ ਟੂਲ ਜਾਂ ਟੂਲਸੈਟ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦੇ ਹਾਂ। ਇਹ ਵਰਤੋਂਕਾਰੀ ਤੌਰ 'ਤੇ ਅਸੀਂ ਹੇਠਾਂ ਦਿੱਤਾ Python ਕੋਡ ਦਿੱਤਾ ਹੈ। LLM ਟੂਲ ਸੈਟ ਨੂੰ ਦੇਖਕੇ ਫੈਸਲਾ ਕਰੇਗਾ ਕਿ ਉਪਭੋਗਤਾ ਬਣਾਇਆ ਫੰਕਸ਼ਨ, `fetch_sales_data_using_sqlite_query` ਜਾਂ ਪਹਿਲਾਂ ਬਣਾਇਆ ਹੋਇਆ ਕੋਡ ਇੰਟਰਪਰੀਟਰ ਵਰਤਨਾ ਹੈ ਭਾਵੇਂ ਉਪਭੋਗਤਾ ਦੀ ਬੇਨਤੀ ਕੀ ਹੈ।
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query ਫੰਕਸ਼ਨ ਜੋ fetch_sales_data_functions.py ਫਾਇਲ ਵਿੱਚ ਮਿਲ ਸਕਦਾ ਹੈ।
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# ਟੂਲਸੈੱਟ ਸ਼ੁਰੂ ਕਰੋ
+# Initialize toolset
 toolset = ToolSet()
 
-# fetch_sales_data_using_sqlite_query ਫੰਕਸ਼ਨ ਨਾਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਏਜੰਟ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਟੂਲਸੈੱਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# ਕੋਡ ਇੰਟਰਪ੍ਰੀਟਰ ਟੂਲ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ ਅਤੇ ਇਹਨੂੰ ਟੂਲਸੈੱਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## ਭਰੋਸੇਯੋਗ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਸਮੇਂ ਖ਼ਾਸ ਧਿਆਨ
+## ਭਰੋਸੇਯੋਗ AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਵਰਤਦੇ ਸਮੇਂ ਵਿਸ਼ੇਸ਼ ਧਿਆਨ
 
-LLMs ਦੁਆਰਾ ਡਾਈਨਾਮਿਕ ਤੌਰ 'ਤੇ ਬਣਾਈ ਗਈ SQL ਦੇ ਸੁਰੱਖਿਆ ਸੰਬੰਧੀ ਸੁਆਲ ਸਧਾਰਨ ਹਨ, ਖਾਸਕਰ SQL ਇੰਜੈਕਸ਼ਨ ਜਾਂ ਮਾਲਿਸ਼ਿਅਸ ਕਾਰਵਾਈਆਂ, ਜਿਵੇਂ ਡੈਟਾਬੇਸ ਡ੍ਰੌਪ ਕਰਨਾ ਜਾਂ ਛੇੜਛਾੜ ਕਰਨਾ। ਜਦਕਿ ਇਹ ਚਿੰਤਾਵਾਂ ਵਾਜਬ ਹਨ, ਇਹਨਾਂ ਨੂੰ ਡੈਟਾਬੇਸ ਦੀ ਐਕਸੈਸ ਪਰਮੀਸ਼ਨਾਂ ਨੂੰ ਢੰਗ ਨਾਲ ਕੰਫਿਗਰ ਕਰਕੇ ਅਚਿਛੀ ਤਰ੍ਹਾਂ ਘਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ। ਬਹੁਤ ਸਾਰੇ ਡੈਟਾਬੇਸਾਂ ਲਈ ਇਹ ਪঠন-ਕੇਵਲ ਅਧਿਕਾਰ (read-only) ਵਿੱਚ ਡੈਟਾਬੇਸ ਨੂੰ ਸੈਟ ਕਰਨ ਨਾਲ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਜਿਵੇਂ PostgreSQL ਜਾਂ ਅਜ਼ੁਰ SQL ਵਰਗੀਆਂ ਡੈਟਾਬੇਸ ਸੇਵਾਵਾਂ ਵਿੱਚ, ਐਪ ਨੂੰ ਪठन-ਕੇਵਲ (SELECT) ਭੂਮਿਕਾ ਅਲਾਟ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।
+LLMs ਦੁਆਰਾ ਡਾਇਨਾਮਿਕ ਤਰੀਕੇ ਨਾਲ ਬਣਾਈ ਗਈ SQL ਦੇ ਨਾਲ ਇੱਕ ਆਮ ਚਿੰਤਾ ਸੁਰੱਖਿਆ ਹੈ, ਖ਼ਾਸਤੌਰ 'ਤੇ SQL ਇੰਜੈਕਸ਼ਨ ਜਾਂ ਖ਼ਤਰਨਾਕ ਕਾਰਜਾਂ ਦਾ ਖ਼ਤਰਾ, ਜਿਵੇਂ ਡੇਟਾਬੇਸ ਡ੍ਰਾਪ ਕਰਨਾ ਜਾਂ ਛੇੜਛਾੜ ਕਰਨਾ। ਜਦੋਂ ਕਿ ਇਹ ਚਿੰਤਾਵਾਂ ਸਹੀ ਹਨ, ਇਹਨਾਂ ਨੂੰ ਡੇਟਾਬੇਸ ਐਕਸੈਸ ਅਨੁਮਤੀਆਂ ਨੂੰ ਠੀਕ ਤਰੀਕੇ ਨਾਲ ਸੈੱਟ ਕਰਕੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਤਰੀਕੇ ਨਾਲ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਡੇਟਾਬੇਸਾਂ ਲਈ ਇਹ ਰੀਡ-ਓਨਲੀ ਲਈ ਕਨਫਿਗਰ ਕਰਨ ਵਿੱਚ ਸ਼ਾਮਿਲ ਹੈ। ਪੋਸਟਗਰੇਐਸਕਿਊਐਲ ਜਾਂ ਏਜ਼ਿਊਰ SQL ਵਰਗੀਆਂ ਡੇਟਾਬੇਸ ਸੇਵਾਵਾਂ ਲਈ, ਐਪ ਨੂੰ ਰੀਡ-ਓਨਲੀ (SELECT) ਰੋਲ ਦਿੱਤਾ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।
 
-ਐਪ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਵਾਤਾਵਰਣ ਵਿੱਚ ਚਲਾਉਣ ਨਾਲ ਸੁਰੱਖਿਆ ਹੋਰ ਵਧ ਜਾਂਦੀ ਹੈ। ਉਦਯੋਗਿਕ ਸਥਿਤੀਆਂ ਵਿੱਚ, ਡਾਟਾ ਆਮ ਤੌਰ 'ਤੇ ਚਾਲੂ ਸਿਸਟਮਾਂ ਤੋਂ ਕੱਢ ਕੇ ਇੱਕ ਪਠਿਤ-ਕੇਵਲ ਡੈਟਾਬੇਸ ਜਾਂ ਡੈਟਾ ਵੇਅਰਹਾਊਸ ਵਿੱਚ ਬਦਲਿਆ ਜਾਂਦਾ ਹੈ, ਜੋ ਵਰਤੋਂਕਾਰ-ਮਿੱਤਰ ਸਕੀਮਾ ਰੱਖਦਾ ਹੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਡਾਟਾ ਸੁਰੱਖਿਅਤ ਹੈ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਪਹੁੰਚ ਲਈ ਭਲਕੇ ਤਰੀਕੇ ਨਾਲ ਤਿਆਰ ਹੈ ਅਤੇ ਐਪ ਦਾ ਐਕਸੈਸ ਸਹਿਮਤ ਹੈ।
+ਐਪ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਮਾਹੌਲ ਵਿੱਚ ਚਲਾਉਣਾ ਵੀ ਸੁਰੱਖਿਆ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦਾ ਹੈ। ਉਦਯੋਗਿਕ ਸੰਦਰਭਾਂ ਵਿੱਚ, ਡੇਟਾ ਆਮ ਤੌਰ 'ਤੇ ਕਾਰਜਕਾਰੀ ਪ੍ਰਣਾਲੀਆਂ ਤੋਂ ਖ਼ਿੱਚ ਕੇ ਇੱਕ ਰੀਡ-ਓਨਲੀ ਡੇਟਾਬੇਸ ਜਾਂ ਡੇਟਾ ਵੇਅਰਹਾ^{ਸ} ਵਿੱਚ ਪਰਿਵਰਤਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਜਿਸ ਦੀ ਵਰਤੋਂ ਕਰਨ ਵਾਲੇ ਲਾਈਕschema ਹੁੰਦੀ ਹੈ। ਇਹ ਢੰਗ ਜਾਂਚਦਾ ਹੈ ਕਿ ਡੇਟਾ ਸੁਰੱਖਿਅਤ ਹੈ, ਪ੍ਰਦਰਸ਼ਨ ਅਤੇ ਪਹੁੰਚ ਲਈ ਅਨੁਕੂਲਿਤ ਹੈ, ਅਤੇ ਐਪ ਕੋਲ ਸੀਮਤ, ਰੀਡ-ਓਨਲੀ ਐਕਸੈਸ ਹੈ।
 
-## ਸੈਂਪਲ ਕੋਡਸ
-- Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
+## ਨਮੂਨਾ ਕੋਡ
 
-## ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨਾਂ ਬਾਰੇ ਹੋਰ ਸਵਾਲ ਹਨ?
+- Python: [ਏਜੰਟ ਫਰੇਮਵਰਕ](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [ਏਜੰਟ ਫਰੇਮਵਰਕ](./code_samples/04-dotnet-agent-framework.md)
 
-ਹੋਰ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਮਿਲਣ ਲਈ, ਦਫ਼ਤਰ ਘੰਟਿਆਂ ਵਿੱਚ ਸ਼ਾਮਿਲ ਹੋਵੋ ਅਤੇ ਆਪਣੇ AI ਏਜੰਟਸ ਦੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਲਈ [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ਵਿੱਚ ਸ਼ਾਮਿਲ ਹੋਵੋ।
+## ਟੂਲ ਯੂਜ਼ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ ਬਾਰੇ ਹੋਰ ਸਵਾਲ ਹਨ?
+
+[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ, ਹੋਰ ਸਿੱਖਣ ਵਾਲਿਆਂ ਨਾਲ ਮਿਲੋ, ਦਫ਼ਤਰ ਦੇ ਘੰਟੇ ਵਿੱਚ ਹਾਜ਼ਰੀ ਦਿਓ ਅਤੇ ਆਪਣੇ AI ਏਜੰਟ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਪ੍ਰਾਪਤ ਕਰੋ।
 
 ## ਵਾਧੂ ਸਰੋਤ
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">ਐਜ਼ੂਅਰ AI ਏਜੰਟਸ ਸਰਵਿਸ ਵਰਕਸ਼ਾਪ</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">ਕਾਂਟੋਸੋ ਕ੍ਰੀਏਟਿਵ ਰਾਈਟਰ ਮਲਟੀ-ਏਜੰਟ ਵਰਕਸ਼ਾਪ</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">ਸੈਮੈਂਟਿਕ ਕਰਨੈਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਟਿਊਟੋਰੀਅਲ</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">ਸੈਮੈਂਟਿਕ ਕਰਨੈਲ ਕੋਡ ਅਨੁਵਾਦਕ</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">ਆਟੋਜਨ ਟੂਲਸ</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI ਏਜੰਟ ਸਰਵਿਸ ਵਰਕਸ਼ਾਪ</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">ਕੋਨਟੋਸੋ ਕ੍ਰੀਏਟਿਵ ਰਾਈਟਰ ਮਲਟੀ-ਏਜੰਟ ਵਰਕਸ਼ਾਪ</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">ਮਾਈਕਰੋਸੌਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਓਵਰਵਿਊ</a>
+
+## ਇਸ ਏਜੰਟ ਦੀ ਸ੍ਮੋਕ-ਟੈਸਟਿੰਗ (ਵਿਕਲਪਿਕ)
+
+[ਪਾਠ 16](../16-deploying-scalable-agents/README.md) ਵਿੱਚ ਏਜੰਟਸ ਨੂੰ ਡਿਪਲੋਇ ਕਰਨ ਸਿੱਖਣ ਤੋਂ ਬਾਦ, ਤੁਸੀਂ ਇਸ ਪਾਠ ਦਾ `TravelToolAgent` (ਕੀ ਇਹ ਹੁਣ ਵੀ ਆਪਣੇ ਟੂਲਜ਼ ਨੂੰ ਕਾਲ ਕਰਦਾ ਹੈ ਅਤੇ ਜਵਾਬ ਦਿੰਦਾ ਹੈ?) ਨੂੰ [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json) ਨਾਲ ਸ੍ਮੋਕ-ਟੈਸਟ ਕਰ ਸਕਦੇ ਹੋ। ਇਸ ਨੂੰ ਚਲਾਉਣ ਲਈ ਵੇਖੋ [`tests/README.md`](../tests/README.md)।
 
 ## ਪਿਛਲਾ ਪਾਠ
 
-[Agentic Design Patterns ਨੂੰ ਸਮਝਣਾ](../03-agentic-design-patterns/README.md)
+[ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨਸ ਨੂੰ ਸਮਝਣਾ](../03-agentic-design-patterns/README.md)
 
 ## ਅਗਲਾ ਪਾਠ
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[ਏਜੰਟਿਕ RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ਅਸਤੀਫ਼ਾ**:
-ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਅਤ ਲਈ ਯਤਨ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਜਾਣੋ ਕਿ ਆਟੋਮੈਟਿਕ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਹੀਤੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਹੀ ਪ੍ਰਮਾਣਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਣ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ਾਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਤੋਂ ਉੱਪਜਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਭ੍ਰਮਾਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+**ਅਸਵੀਕਾਰੋਪਣ**:
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ ਏਆਈ ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਤਾਵਾਂ ਲਈ ਯਤਨਸ਼ੀਲ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਮੱਤਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਅਧਿਕਾਰਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜਰੂਰੀ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੇ ਉਪਯੋਗ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਵਾਂ ਲਈ ਜਵਾਬਦੇਹ ਨਹੀਂ ਹਾਂ।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

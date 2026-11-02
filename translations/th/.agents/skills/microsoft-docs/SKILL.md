@@ -1,98 +1,99 @@
 ---
 name: microsoft-docs
-description: ค้นหาเอกสารอย่างเป็นทางการของ Microsoft เพื่อค้นหาแนวคิด บทแนะนำ และตัวอย่างโค้ดสำหรับ
-  Azure, .NET, Agent Framework, Aspire, VS Code, GitHub และอื่นๆ ใช้ Microsoft Learn
-  MCP เป็นค่าเริ่มต้น โดยใช้ Context7 และ Aspire MCP สำหรับเนื้อหาที่อยู่นอก learn.microsoft.com.
+description: ค้นหาข้อมูลในเอกสารอย่างเป็นทางการของ Microsoft เพื่อค้นหาคอนเซปต์ บทเรียน
+  และตัวอย่างโค้ดในหัวข้อต่างๆ เช่น Azure, .NET, Agent Framework, Aspire, VS Code,
+  GitHub และอื่นๆ ใช้ Microsoft Learn MCP เป็นค่าเริ่มต้น พร้อมทั้ง Context7 และ Aspire
+  MCP สำหรับเนื้อหาที่อยู่นอก learn.microsoft.com
 ---
-# Microsoft Docs
+# เอกสาร Microsoft
 
-ทักษะการค้นคว้าสำหรับระบบนิเวศเทคโนโลยีของ Microsoft ครอบคลุม learn.microsoft.com และเอกสารที่อยู่นอกเว็บไซต์นั้น (VS Code, GitHub, Aspire, ที่เก็บ Agent Framework).
+ทักษะการค้นคว้าสำหรับระบบนิเวศเทคโนโลยีของ Microsoft ครอบคลุม learn.microsoft.com และเอกสารที่อยู่นอกเหนือจากนั้น (VS Code, GitHub, Aspire, Agent Framework repos)
 
 ---
 
-## Default: Microsoft Learn MCP
+## ค่าปริยาย: Microsoft Learn MCP
 
-ใช้เครื่องมือเหล่านี้สำหรับ **ทุกอย่างบน learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows และอื่นๆ นี่คือเครื่องมือหลักสำหรับคำถามเกี่ยวกับเอกสาร Microsoft ส่วนใหญ่
+ใช้เครื่องมือเหล่านี้สำหรับ **ทุกอย่างบน learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows และอื่นๆ นี่คือเครื่องมือหลักสำหรับคำค้นสอบถามเอกสาร Microsoft ส่วนใหญ่
 
-| Tool | Purpose |
+| เครื่องมือ | วัตถุประสงค์ |
 |------|---------|
-| `microsoft_docs_search` | ค้นหา learn.microsoft.com — แนวคิด, คำแนะนำ, แบบฝึกหัด, การกำหนดค่า |
-| `microsoft_code_sample_search` | ค้นหาตัวอย่างโค้ดที่ใช้งานได้จากเอกสาร Learn ให้ส่ง `language` (`python`, `csharp`, ฯลฯ) เพื่อผลลัพธ์ที่ดีที่สุด |
-| `microsoft_docs_fetch` | ดึงเนื้อหาเต็มหน้าจาก URL ที่ระบุ (เมื่อข้อความย่อจากการค้นหาไม่เพียงพอ) |
+| `microsoft_docs_search` | ค้นหา learn.microsoft.com — แนวคิด, คู่มือ, คำแนะนำ, การตั้งค่า |
+| `microsoft_code_sample_search` | ค้นหาโค้ดตัวอย่างที่ใช้งานได้จากเอกสาร Learn ส่ง `language` (`python`, `csharp`, ฯลฯ) เพื่อผลลัพธ์ที่ดีที่สุด |
+| `microsoft_docs_fetch` | รับเนื้อหาหน้าฉบับเต็มจาก URL เฉพาะ (เมื่อย่อหน้าในการค้นหาไม่เพียงพอ) |
 
-ใช้ `microsoft_docs_fetch` หลังการค้นหาเมื่อคุณต้องการบทแนะนำครบถ้วน ตัวเลือกการกำหนดค่าทั้งหมด หรือตอนที่ข้อความย่อจากการค้นหาถูกตัดทอนไป
+ใช้ `microsoft_docs_fetch` หลังการค้นหาเมื่อคุณต้องการบทเรียนครบถ้วน ตัวเลือกการตั้งค่าทั้งหมด หรือเมื่อย่อหน้าการค้นหาถูกตัดทอน
 
 ---
 
-## Exceptions: When to Use Other Tools
+## ข้อยกเว้น: เมื่อใช้เครื่องมืออื่น
 
-หมวดหมู่ต่อไปนี้อยู่ **นอก** learn.microsoft.com ให้ใช้เครื่องมือที่ระบุแทน
+หมวดหมู่ต่อไปนี้อยู่นอกเหนือ **learn.microsoft.com** โปรดใช้เครื่องมือที่ระบุแทน
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — ใช้ Aspire MCP Server (แนะนำ) หรือ Context7
 
-เอกสาร Aspire อยู่บน **aspire.dev** ไม่ใช่ Learn เครื่องมือที่ดีที่สุดขึ้นอยู่กับเวอร์ชัน Aspire CLI ของคุณ:
+เอกสาร Aspire อยู่บน **aspire.dev** ไม่ใช่ Learn เครื่องมือที่ดีที่สุดขึ้นกับเวอร์ชัน Aspire CLI ของคุณ:
 
 **CLI 13.2+** (แนะนำ) — เซิร์ฟเวอร์ Aspire MCP มีเครื่องมือค้นหาเอกสารในตัว:
 
-| MCP Tool | Description |
+| เครื่องมือ MCP | คำอธิบาย |
 |----------|-------------|
 | `list_docs` | แสดงรายการเอกสารทั้งหมดที่มีจาก aspire.dev |
-| `search_docs` | การค้นหาเชิงเล็กซิคอลแบบถ่วงน้ำหนักผ่านเนื้อหา aspire.dev |
-| `get_doc` | ดึงเอกสารเฉพาะโดยใช้ slug |
+| `search_docs` | ค้นหาคำแบบถ่วงน้ำหนักในเนื้อหา aspire.dev |
+| `get_doc` | ดึงเอกสารเฉพาะตาม slug |
 
-ฟีเจอร์เหล่านี้มาพร้อมกับ Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ในการอัปเดต: `aspire update --self --channel daily`. อ้างอิง: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+เครื่องมือเหล่านี้มาพร้อมกับ Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)) ในการอัปเดต: `aspire update --self --channel daily`
 
-**CLI 13.1** — เซิร์ฟเวอร์ MCP มีการค้นหาอินทิเกรชัน (`list_integrations`, `get_integration_docs`) แต่ **ไม่มี** การค้นหาเอกสาร ให้ถอยกลับไปใช้ Context7:
+**CLI 13.1** — เซิร์ฟเวอร์ MCP ให้บริการการค้นหาอินทิเกรชัน (`list_integrations`, `get_integration_docs`) แต่ **ไม่มี** การค้นหาเอกสาร ให้กลับไปใช้ Context7 แทน:
 
-| Library ID | Use for |
+| ID ไลบรารี | ใช้สำหรับ |
 |---|---|
-| `/microsoft/aspire.dev` | หลัก — คำแนะนำ, การผนวกรวม, เอกสารอ้างอิง CLI, การปรับใช้ |
-| `/dotnet/aspire` | แหล่งรันไทม์ — โครงสร้างภายใน API, รายละเอียดการใช้งาน |
-| `/communitytoolkit/aspire` | การผนวกรวมของชุมชน — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | หลัก — คู่มือ, การรวมระบบ, อ้างอิง CLI, การปรับใช้ |
+| `/microsoft/aspire` | แหล่งรันไทม์ — API ภายใน, รายละเอียดการใช้งาน |
+| `/communitytoolkit/aspire` | การรวมระบบจากชุมชน — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — ใช้ Context7
 
 เอกสาร VS Code อยู่บน **code.visualstudio.com** ไม่ใช่ Learn
 
-| Library ID | Use for |
+| ID ไลบรารี | ใช้สำหรับ |
 |---|---|
-| `/websites/code_visualstudio` | เอกสารผู้ใช้ — การตั้งค่า, คุณสมบัติ, การดีบัก, การพัฒนาแบบระยะไกล |
-| `/websites/code_visualstudio_api` | Extension API — webviews, TreeViews, คำสั่ง, จุดการขยาย |
+| `/websites/code_visualstudio` | เอกสารผู้ใช้ — การตั้งค่า, ฟีเจอร์, ดีบัก, การพัฒนาระยะไกล |
+| `/websites/code_visualstudio_api` | Extension API — เว็บวิว, TreeViews, คำสั่ง, จุดเชื่อมต่อ |
 
-### GitHub — Use Context7
+### GitHub — ใช้ Context7
 
 เอกสาร GitHub อยู่บน **docs.github.com** และ **cli.github.com**
 
-| Library ID | Use for |
+| ID ไลบรารี | ใช้สำหรับ |
 |---|---|
-| `/websites/github_en` | Actions, API, ที่เก็บ, ความปลอดภัย, การจัดการ, Copilot |
-| `/websites/cli_github` | คำสั่งและแฟล็กของ GitHub CLI (`gh`) |
+| `/websites/github_en` | Actions, API, repo, ความปลอดภัย, แอดมิน, Copilot |
+| `/websites/cli_github` | คำสั่งและแฟล็ก GitHub CLI (`gh`) |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — ใช้ Learn MCP + Context7
 
-บทแนะนำ Agent Framework อยู่บน learn.microsoft.com (ใช้ `microsoft_docs_search`) แต่ที่เก็บ **GitHub repo** มีรายละเอียดระดับ API ที่มักล้ำหน้ากว่าเอกสารที่เผยแพร่อยู่ — โดยเฉพาะ DevUI REST API reference, ตัวเลือก CLI, และการรวมกับ .NET
+บทเรียน Agent Framework อยู่ใน learn.microsoft.com (ใช้ `microsoft_docs_search`) แต่ **GitHub repo** มีรายละเอียด API ที่มักจะล้ำหน้ากว่าเอกสารที่เผยแพร่ — โดยเฉพาะ DevUI REST API อ้างอิง, ตัวเลือก CLI, และ การรวม .NET
 
-| Library ID | Use for |
+| ID ไลบรารี | ใช้สำหรับ |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | บทแนะนำ — คำแนะนำ DevUI, การติดตาม, การประสานงานเวิร์กโฟลว์ |
-| `/microsoft/agent-framework` | รายละเอียด API — จุดสิ้นสุด DevUI REST, แฟล็ก CLI, การยืนยันตัวตน, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | บทเรียน — คู่มือ DevUI, การติดตาม, การประสานงานเวิร์กโฟลว์ |
+| `/microsoft/agent-framework` | รายละเอียด API — DevUI REST endpoints, แฟล็ก CLI, การยืนยันตัวตน, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** ค้นหาแหล่งที่มาบนเว็บไซต์ Learn สำหรับคำแนะนำแบบ how-to แล้วดูแหล่งที่มาจาก repo สำหรับรายละเอียดระดับ API (schemas ของ endpoint, การกำหนดค่า proxy, โทเค็นการยืนยันตัวตน)
+**เคล็ดลับ DevUI:** คิวรีแหล่ง Learn สำหรับคู่มือวิธีใช้ แล้วคิวรีแหล่ง repo สำหรับรายละเอียดระดับ API (สคีมา endpoint, การตั้งพร็อกซี, โทเค็นการยืนยัน)
 
 ---
 
-## Context7 Setup
+## การตั้งค่า Context7
 
-สำหรับการค้นหา Context7 ใดๆ ให้ระบุ library ID ก่อน (ครั้งเดียวต่อเซสชัน):
+สำหรับคำถาม Context7 ใดๆ ให้แก้ไข ID ไลบรารีก่อน (ครั้งเดียวต่อเซสชัน):
 
-1. Call `mcp_context7_resolve-library-id` with the technology name
-2. Call `mcp_context7_query-docs` with the returned library ID and a specific query
+1. เรียก `mcp_context7_resolve-library-id` พร้อมชื่อเทคโนโลยี
+2. เรียก `mcp_context7_query-docs` ด้วย ID ไลบรารีที่ได้และคำถามเจาะจง
 
 ---
 
-## Writing Effective Queries
+## การเขียนคำถามให้ได้ผล
 
-การระบุให้ชัดเจน — รวมเวอร์ชัน เจตนา และภาษา:
+ระบุให้ชัดเจน — รวมเวอร์ชัน, ความตั้งใจ, และภาษา:
 
 ```
 # ❌ Too broad
@@ -108,14 +109,14 @@ description: ค้นหาเอกสารอย่างเป็นทา�
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Language** for polyglot docs (`Python`, `TypeScript`, `C#`)
+รวมบริบท:
+- **เวอร์ชัน** เมื่อเกี่ยวข้อง (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **ความตั้งใจงาน** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **ภาษา** สำหรับเอกสารหลายภาษา (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-ข้อปฏิเสธ:
-เอกสารฉบับนี้ได้รับการแปลโดยใช้บริการแปลด้วยปัญญาประดิษฐ์ [Co-op Translator](https://github.com/Azure/co-op-translator). แม้ว่าเราจะพยายามให้การแปลมีความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่แม่นยำ เอกสารต้นฉบับในภาษาเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่มีความสำคัญ ขอแนะนำให้ใช้การแปลโดยนักแปลมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดใด ๆ ที่เกิดจากการใช้การแปลฉบับนี้
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

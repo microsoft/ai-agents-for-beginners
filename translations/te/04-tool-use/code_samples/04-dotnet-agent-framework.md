@@ -1,108 +1,112 @@
-# 🛠️ GitHub మోడల్స్ (.NET) తో అధునాతన టూల్ వినియోగం
+# 🛠️ Azure OpenAI (Responses API)తో అడ్వాన్స్ చేయించిన టూల్ ఉపయోగం (.NET)
 
 ## 📋 నేర్చుకునే లక్ష్యాలు
 
-ఈ నోట్‌బుక్ Microsoft Agent Framework ను .NET లో GitHub మోడల్స్ తో ఉపయోగించి ఎంటర్‌ప్రైజ్-గ్రేడ్ టూల్ ఇంటిగ్రేషన్ ప్యాటర్న్స్‌ను చూపిస్తుంది. మీరు బహుళ ప్రత్యేక టూల్స్‌తో అధునాతన ఏజెంట్లను నిర్మించడం, C# యొక్క స్ట్రాంగ్ టైపింగ్ మరియు .NET యొక్క ఎంటర్‌ప్రైజ్ ఫీచర్లను ఉపయోగించడం నేర్చుకుంటారు.
+ఈ నోట్‌బుక్ Microsoft Agent Framework ని .NETలో Azure OpenAI (Responses API)తో ఉపయోగించి సంస్థ స్థాయి టూల్ ఇంటిగ్రేషన్ నమూనాలు చూపిస్తుంది. మీరు C# యొక్క బలమైన టైపింగ్ మరియు .NET యొక్క సంస్థల ఫీచర్లను ఉపయోగించి బహుళ ప్రత్యేక టూల్స్ ఉన్న సునిశిత ఏజెంట్లను నిర్మించడం నేర్చుకుంటారు.
 
-### మీరు నేర్చుకునే అధునాతన టూల్ సామర్థ్యాలు
+### మీరు అర్థం చేసుకునే అధునాతన టూల్ సామర్థ్యాలు
 
-- 🔧 **బహుళ-టూల్ ఆర్కిటెక్చర్**: బహుళ ప్రత్యేక సామర్థ్యాలతో ఏజెంట్లను నిర్మించడం
-- 🎯 **టైప్-సేఫ్ టూల్ ఎగ్జిక్యూషన్**: C# యొక్క కంపైల్-టైమ్ వాలిడేషన్‌ను ఉపయోగించడం
-- 📊 **ఎంటర్‌ప్రైజ్ టూల్ ప్యాటర్న్స్**: ప్రొడక్షన్-రెడీ టూల్ డిజైన్ మరియు ఎర్రర్ హ్యాండ్లింగ్
-- 🔗 **టూల్ కాంపోజిషన్**: క్లిష్టమైన వ్యాపార వర్క్‌ఫ్లోల కోసం టూల్స్‌ను కలపడం
+- 🔧 **బహుళ టూల్ ఆర్కిటెక్చర్**: బహుళ ప్రత్యేక సామర్థ్యాలతో ఏజెంట్ల నిర్మాణం
+- 🎯 **టైపు-సురక్షిత టూల్ అమలు**: C# యొక్క కంపైల్-టైమ్ చెల్లింపును ఉపయోగించడం
+- 📊 **సంస్థ స్థాయి టూల్ నమూనాలు**: ఉత్పత్తి-సిద్ధమైన టూల్ డిజైన్ మరియు లోప నిర్వహణ
+- 🔗 **టూల్ మిళితం**: సంక్లిష్ట వ్యాపార వర్క్‌ఫ్లోల కోసం టూల్స్‌ను కలుపుట
 
-## 🎯 .NET టూల్ ఆర్కిటెక్చర్ ప్రయోజనాలు
+## 🎯 .NET టూల్ ఆర్కిటెక్చర్ లాభాలు
 
-### ఎంటర్‌ప్రైజ్ టూల్ ఫీచర్లు
+### సంస్థ స్థాయి టూల్ లక్షణాలు
 
-- **కంపైల్-టైమ్ వాలిడేషన్**: స్ట్రాంగ్ టైపింగ్ టూల్ పరామితుల సరైనతను నిర్ధారిస్తుంది
-- **డిపెండెన్సీ ఇంజెక్షన్**: టూల్ మేనేజ్‌మెంట్ కోసం IoC కంటైనర్ ఇంటిగ్రేషన్
-- **అసింక్/అవైట్ ప్యాటర్న్స్**: సరైన వనరుల నిర్వహణతో నాన్-బ్లాకింగ్ టూల్ ఎగ్జిక్యూషన్
-- **స్ట్రక్చర్డ్ లాగింగ్**: టూల్ ఎగ్జిక్యూషన్ మానిటరింగ్ కోసం బిల్ట్-ఇన్ లాగింగ్ ఇంటిగ్రేషన్
+- **కంపైల్-టైమ్ చెల్లింపు**: బలమైన టైపింగ్ తో టూల్ పరామితుల సరైనత నిర్ధారణ
+- **డిపెండెన్సీ ఇంజెక్షన్**: టూల్ నిర్వహణ కోసమే IoC కంటైనర్ ఇంటిగ్రేషన్
+- **అసంక్ర‌మ / వేచి ఉండే నమూనాలు**: సరైన వనరు నిర్వహణతో నిరోధించని టూల్ అమలు
+- **స్థాపిత లాగింగ్**: టూల్ అమలు పర్యవేక్షణకు ఇన్‌బిల్ట్ లాగింగ్ ఇంటిగ్రేషన్
 
-### ప్రొడక్షన్-రెడీ ప్యాటర్న్స్
+### ఉత్పత్తి-సిద్ధమైన నమూనాలు
 
-- **ఎక్సెప్షన్ హ్యాండ్లింగ్**: టైప్డ్ ఎక్సెప్షన్స్‌తో సమగ్ర ఎర్రర్ మేనేజ్‌మెంట్
-- **వనరుల నిర్వహణ**: సరైన డిస్పోజల్ ప్యాటర్న్స్ మరియు మెమరీ మేనేజ్‌మెంట్
-- **పర్ఫార్మెన్స్ మానిటరింగ్**: బిల్ట్-ఇన్ మెట్రిక్స్ మరియు పర్ఫార్మెన్స్ కౌంటర్స్
-- **కాన్ఫిగరేషన్ మేనేజ్‌మెంట్**: వాలిడేషన్‌తో టైప్-సేఫ్ కాన్ఫిగరేషన్
+- **వినియోగ లోప నిర్వహణ**: టైప్డ్ ఎక్సెప్షన్లు తో సమగ్ర లోప నిర్వహణ
+- **వనరు నిర్వహణ**: సరైన వదిలివేత నమూనాలు మరియు మెమరీ నిర్వహణ
+- **ప్రదర్శన పర్యవేక్షణ**: ఇన్‌బిల్ట్ మెట్రిక్స్ మరియు పనితీరు కౌంటర్లు
+- **కాన్ఫిగరేషన్ నిర్వహణ**: ధృవీకరణతో టైపు-సురక్షిత కాన్ఫిగరేషన్
 
-## 🔧 టెక్నికల్ ఆర్కిటెక్చర్
+## 🔧 సాంకేతిక ఆర్కిటెక్చర్
 
-### కోర్ .NET టూల్ భాగాలు
+### ప్రధాన .NET టూల్ భాగాలు
 
-- **Microsoft.Extensions.AI**: యూనిఫైడ్ టూల్ అబ్స్ట్రాక్షన్ లేయర్
-- **Microsoft.Agents.AI**: ఎంటర్‌ప్రైజ్-గ్రేడ్ టూల్ ఆర్కెస్ట్రేషన్
-- **GitHub మోడల్స్ ఇంటిగ్రేషన్**: హై-పర్ఫార్మెన్స్ API క్లయింట్ కనెక్షన్ పూలింగ్‌తో
+- **Microsoft.Extensions.AI**: ఐక్య టూల్ అభిసారపు పొర
+- **Microsoft.Agents.AI**: సంస్థ స్థాయి టూల్ నిర్వహణ
+- **Azure OpenAI (Responses API)**: కనెక్షన్ పూలింగ్ సహా అధిక ప్రదర్శన API క్లయింట్
 
-### టూల్ ఎగ్జిక్యూషన్ పైప్‌లైన్
+### టూల్ అమలు పైప్‌లైన్
 
 ```mermaid
 graph LR
     A[వినియోగదారు అభ్యర్థన] --> B[ఏజెంట్ విశ్లేషణ]
-    B --> C[పరికరం ఎంపిక]
+    B --> C[సాధనం ఎంపిక]
     C --> D[రకం ధృవీకరణ]
-    B --> E[పారామీటర్ బైండింగ్]
-    E --> F[పరికరం అమలు]
+    B --> E[పారామితి బైండింగ్]
+    E --> F[సాధనం నిర్వహణ]
     C --> F
-    F --> G[ఫలితాల ప్రాసెసింగ్]
+    F --> G[ఫలిత ప్రాసెసింగ్]
     D --> G
-    G --> H[స్పందన]
+    G --> H[ప్రతిస్పందన]
 ```
-## 🛠️ టూల్ వర్గాలు & ప్యాటర్న్స్
+
+## 🛠️ టూల్ వర్గాలు & నమూనాలు
 
 ### 1. **డేటా ప్రాసెసింగ్ టూల్స్**
 
-- **ఇన్‌పుట్ వాలిడేషన్**: డేటా అనోటేషన్స్‌తో స్ట్రాంగ్ టైపింగ్
-- **ట్రాన్స్‌ఫార్మ్ ఆపరేషన్స్**: టైప్-సేఫ్ డేటా కన్వర్షన్ మరియు ఫార్మాటింగ్
-- **బిజినెస్ లాజిక్**: డొమైన్-స్పెసిఫిక్ కాలిక్యులేషన్ మరియు విశ్లేషణ టూల్స్
-- **అవుట్‌పుట్ ఫార్మాటింగ్**: స్ట్రక్చర్డ్ రెస్పాన్స్ జనరేషన్
+- **ఇన్పుట్ ధృవీకరణ**: డేటా సూచికలతో బలమైన టైపింగ్
+- **మార్పిడి ఆపరేషన్లు**: టైపు-సురక్షిత డేటా మార్పిడి మరియు ఫార్మాటింగ్
+- **వ్యాపార లాజిక్**: డొమయిన్-ప్రత్యేక లెక్కింపు మరియు విశ్లేషణ టూల్స్
+- **అవుట్‌పుట్ ఫార్మాటింగ్**: నిర్మిత స్పందన సృష్టి
 
 ### 2. **ఇంటిగ్రేషన్ టూల్స్**
 
-- **API కనెక్టర్స్**: RESTful సర్వీస్ ఇంటిగ్రేషన్ HttpClient తో
-- **డేటాబేస్ టూల్స్**: డేటా యాక్సెస్ కోసం Entity Framework ఇంటిగ్రేషన్
-- **ఫైల్ ఆపరేషన్స్**: వాలిడేషన్‌తో సురక్షితమైన ఫైల్ సిస్టమ్ ఆపరేషన్స్
-- **ఎక్స్‌టర్నల్ సర్వీసెస్**: థర్డ్-పార్టీ సర్వీస్ ఇంటిగ్రేషన్ ప్యాటర్న్స్
+- **API కనెక్టర్‌లు**: HttpClient తో RESTful సర్వీస్ ఇంటిగ్రేషన్
+- **డాటాబేస్ టూల్స్**: డేటా యాక్సెస్ కోసం Entity Framework ఇంటిగ్రేషన్
+- **ఫైల్ ఆపరేషన్లు**: ధృవీకరణతో సురక్షిత ఫైల్ సిస్టమ్ చర్యలు
+- **బాహ్య సర్వీసులు**: మూడవ పార్టీ సర్వీస్ ఇంటిగ్రేషన్ నమూనాలు
 
-### 3. **యుటిలిటీ టూల్స్**
+### 3. **ఉపయోగకర టూల్స్**
 
-- **టెక్స్ట్ ప్రాసెసింగ్**: స్ట్రింగ్ మానిప్యులేషన్ మరియు ఫార్మాటింగ్ యుటిలిటీస్
-- **తేదీ/సమయం ఆపరేషన్స్**: కల్చర్-అవేర్ తేదీ/సమయం లెక్కలు
-- **గణిత టూల్స్**: ఖచ్చితమైన లెక్కలు మరియు గణాంక ఆపరేషన్స్
-- **వాలిడేషన్ టూల్స్**: బిజినెస్ రూల్ వాలిడేషన్ మరియు డేటా వెరిఫికేషన్
+- **టెక్స్ట్ ప్రాసెసింగ్**: స్ట్రింగ్ నిర్వహణ మరియు ఫార్మాటింగ్ ఉపయోగకరాలు
+- **తేదీ/సమయం ఆపరేషన్లు**: సంస్కృతి-జాగ్రత్త తేదీ/సమయ గణనలు
+- **గణిత టూల్స్**: ఖచ్చితమైన లెక్కింపులు మరియు గణాంక చర్యలు
+- **ధృవీకరణ టూల్స్**: వ్యాపార నిబంధన ధృవీకరణ మరియు డేటా నిర్ధారణ
 
-ఎంటర్‌ప్రైజ్-గ్రేడ్ ఏజెంట్లను శక్తివంతమైన, టైప్-సేఫ్ టూల్ సామర్థ్యాలతో .NET లో నిర్మించడానికి సిద్ధంగా ఉన్నారా? ప్రొఫెషనల్-గ్రేడ్ సొల్యూషన్స్‌ను ఆర్కిటెక్ట్ చేద్దాం! 🏢⚡
+శక్తివంతమైన, టైపు-సురక్షిత టూల్ సామర్థ్యాలతో .NETలో సంస్థ స్థాయి ఏజెంట్లను నిర్మించడానికి సిద్ధంగా ఉన్నారా? మనం కొన్ని ప్రొఫెషనల్-గ్రేడ్ పరిష్కారాలను ఆర్కిటెక్ట్ చేద్దాం! 🏢⚡
 
-## 🚀 ప్రారంభించండి
+## 🚀 ప్రారంభికం
 
-### అవసరమైనవి
+### అవసరమైన ఖచ్చితతలు
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే ఎక్కువ
-- [GitHub మోడల్స్ API యాక్సెస్ టోకెన్](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే పై
+- Azure OpenAI వనరు మరియు ఒక నమూనా ప్రణాళికతో [Azure సబ్‌స్క్రిప్షన్](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login`తో సైన్ ఇన్ చేయండి
 
-### అవసరమైన ఎన్విరాన్‌మెంట్ వేరియబుల్స్
+### అవసరమైన వాతావరణ చలామణీలు
 
 ```bash
-# జెడ్‌ష్/బాష్
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# zsh/bash
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ఆ తరువాత AzureCliCredential టోకెన్ పొందేందుకు సైన్ ఇన్ అవ్వండి
+az login
 ```
 
 ```powershell
-# పవర్‌షెల్
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# పవర్ షెల్
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ఆపై AzureCliCredential టోకెన్ పొందడానికి సైన్ ఇన్ చేయండి
+az login
 ```
 
 ### నమూనా కోడ్
 
-కోడ్ ఉదాహరణను నడపడానికి,
+ఉదాహరణ కోడ్ నడపడానికి,
 
 ```bash
-# జెడ్‌ష్/బాష్
+# zsh/bash
 chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
@@ -113,21 +117,23 @@ chmod +x ./04-dotnet-agent-framework.cs
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-పూర్తి కోడ్ కోసం [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) చూడండి.
+సంపూర్ణ కోడ్ కోసం [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) చూడండి.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -159,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -204,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -236,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -247,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**అస్వీకరణ**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించారు. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలు తప్పులు లేదా అసమగ్రతలను కలిగి ఉండవచ్చు. దయచేసి, దాని స్వస్థల భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించండి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
+**అస్వీకరణ**:
+ఈ పత్రం AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలు తప్పులు లేదా అసమగ్రతలను కలిగి ఉండవచ్చు. దాని స్వదేశ భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించాలి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదం ఉపయోగం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

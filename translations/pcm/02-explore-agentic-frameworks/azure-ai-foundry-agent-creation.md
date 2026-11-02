@@ -1,42 +1,42 @@
-# Azure AI Agent Service Development
+# Microsoft Foundry Agent Service Development
 
-For dis exercise, you go use di Azure AI Agent service tools for di [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) to create agent for Flight Booking. Di agent go fit interact with users and give information about flights.
+For dis exercise, you go use Microsoft Foundry Agent Service tools for inside [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) to create agent for Flight Booking. Di agent go fit interact wit users plus give information about flights.
 
 ## Prerequisites
 
-To complete dis exercise, you need di next tins:
-1. Azure account wey get active subscription. [Create account for free](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. You need permission to create Microsoft Foundry hub or make dem create one for you.
-    - If your role be Contributor or Owner, you fit follow di steps for dis tutorial.
+To fit complete dis exercise, you need dis tins:
+1. Azure account wey dey active for subscription. [Create account for free](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. You gats get permissions to create Microsoft Foundry hub or make person create am for you.
+    - If your role na Contributor or Owner, you fit follow steps for dis tutorial.
 
 ## Create Microsoft Foundry hub
 
-> **Note:** Microsoft Foundry before na Azure AI Studio dem dey call am.
+> **Note:** Microsoft Foundry na im dem before dey call Azure AI Studio.
 
-1. Follow dis guideline from di [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post to create Microsoft Foundry hub.
-2. When your project don create, close any tips wey show and check di project page for Microsoft Foundry portal, e go look like dis picture:
+1. Follow dis guide straight from [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post wey show how to create Microsoft Foundry hub.
+2. After your project don ready, close any tip wey show and check the project page for Microsoft Foundry portal, e suppose be like dis picture:
 
     ![Microsoft Foundry Project](../../../translated_images/pcm/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Deploy model
 
-1. For di left pane for your project, for **My assets** section, select **Models + endpoints** page.
-2. For **Models + endpoints** page, for **Model deployments** tab, for **+ Deploy model** menu, select **Deploy base model**.
-3. Find di `gpt-4o-mini` model for di list, then select am and confirm.
+1. For the pane wey dey left for your project, for **My assets** section, choose **Models + endpoints** page.
+2. For **Models + endpoints** page, go **Model deployments** tab, inside **+ Deploy model** menu, select **Deploy base model**.
+3. Search for `gpt-5-mini` model for the list, then select am and confirm.
 
-    > **Note**: Make you reduce TPM so dat e no go consume too much quota wey your subscription get.
+    > **Note**: Lower the TPM to avoid you dey use pass the subscription quota wey dey for your use.
 
     ![Model Deployed](../../../translated_images/pcm/model-deployment.3749c53fb81e18fd.webp)
 
 ## Create agent
 
-Now wey you don deploy model, you fit create agent. Agent na conversational AI model wey fit interact with users.
+Now as you don deploy model, you fit create agent. Agent na conversational AI model wey fit talk with users.
 
-1. For di left pane for your project, for **Build & Customize** section, select **Agents** page.
-2. Click **+ Create agent** to create new agent. For **Agent Setup** dialog box:
-    - Put name for di agent, like `FlightAgent`.
-    - Make sure say di `gpt-4o-mini` model deployment wey you create before dey selected.
-    - Set **Instructions** base on di prompt wey you want di agent to follow. Example dey below:
+1. For the pane wey dey your project left side, for **Build & Customize** section, select **Agents** page.
+2. Click **+ Create agent** to make new agent. For **Agent Setup** dialog box:
+    - Put name for agent, like `FlightAgent`.
+    - Make sure say `gpt-5-mini` model deployment wey you create before don dey selected
+    - Set **Instructions** like how you want agent to follow prompt. Example dey below:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,39 +64,40 @@ Now wey you don deploy model, you fit create agent. Agent na conversational AI m
     
     ```
 > [!NOTE]
-> If you want detailed prompt, fit check [this repository](https://github.com/ShivamGoyal03/RoamMind) for more info.
+> If you want full detail prompt, you fit check [this repository](https://github.com/ShivamGoyal03/RoamMind) for more info.
     
-> You fit also add **Knowledge Base** and **Actions** to make di agent sabi more and fit do automated tasks based on wetin user request. For dis exercise, you fit skip dis steps.
+> Also, you fit add **Knowledge Base** and **Actions** to make agent get more power to give more info and do automatic work based on user requests. For dis exercise, you fit skip dis steps.
     
 ![Agent Setup](../../../translated_images/pcm/agent-setup.9bbb8755bf5df672.webp)
 
-3. To create new multi-AI agent, just click **New Agent**. Di new agent go show for Agents page.
+3. To create new multi-AI agent, just click **New Agent**. The new agent go show for Agents page.
+
 
 ## Test agent
 
-After you create di agent, you fit test am to see how e go respond to user questions for Microsoft Foundry portal playground.
+After you create agent, you fit test am to see how e respond to user questions for Microsoft Foundry portal playground.
 
-1. For di top of **Setup** pane of your agent, select **Try in playground**.
-2. For **Playground** pane, you fit yarn to di agent by typing questions for chat window. For example, fit ask di agent to find flights from Seattle to New York for 28th.
+1. For the top of **Setup** pane for your agent, choose **Try in playground**.
+2. For **Playground** pane, you fit type question inside chat window to talk with agent. For example, you fit ask agent to find flight from Seattle to New York for 28th.
 
-    > **Note**: Di agent no too dey give exact answer because no real-time data dey use for dis exercise. Di aim na to test how di agent fit understand and respond to user questions based on di instructions wey you give.
+    > **Note**: Agent fit no give exact correct answer, because no real-time data dey for dis exercise. Purpose na to test how agent sabi understand and respond to user questions base on instructions.
 
     ![Agent Playground](../../../translated_images/pcm/agent-playground.dc146586de715010.webp)
 
-3. After you test di agent, you fit still add more intents, training data, and actions to make am better.
+3. After testing, you fit add more intents, training data, and actions to make am dey more powerful.
 
 ## Clean up resources
 
-When you finish test di agent, you fit delete am make you no dey pay extra money.
-1. Open [Azure portal](https://portal.azure.com) and look di resource group wey you deploy di hub resources for dis exercise.
+After you finish with testing agent, you fit delete am to make you no pay extra money.
+1. Open [Azure portal](https://portal.azure.com) check the resource group wey you deploy hub resources wey you use for dis exercise.
 2. For toolbar, select **Delete resource group**.
-3. Put resource group name and confirm say you want delete am.
+3. Enter resource group name and confirm say you wan delete am.
 
 ## Resources
 
 - [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Getting Started with Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Getting Started with Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
 - [Fundamentals of AI agents on Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
@@ -104,5 +105,5 @@ When you finish test di agent, you fit delete am make you no dey pay extra money
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis document don translate by AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg make you sabi say machine translation fit get some mistakes or no too correct. Di original document wey dey im own language na im be correct source. For important matter, e better make human expert translate am. We no go responsible for any wrong understanding or wahala wey fit come from using dis translation.
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

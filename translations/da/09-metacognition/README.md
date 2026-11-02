@@ -1,6 +1,6 @@
 [![Multi-Agent Design](../../../translated_images/da/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Klik på billedet ovenfor for at se video af denne lektion)_
+> _(Klik på billedet ovenfor for at se videoen af denne lektion)_
 # Metakognition i AI-agenter
 
 ## Introduktion
@@ -11,41 +11,41 @@ Velkommen til lektionen om metakognition i AI-agenter! Dette kapitel er designet
 
 Efter at have gennemført denne lektion vil du kunne:
 
-1. Forstå konsekvenserne af ræsonnements-sløjfer i agentdefinitioner.
-2. Bruge planlægnings- og vurderingsteknikker til at hjælpe selvkorrigerende agenter.
+1. Forstå konsekvenserne af ræsonnementssløjfer i agentdefinitioner.
+2. Bruge planlægnings- og evalueringsmetoder til at hjælpe selvkorrigerende agenter.
 3. Skabe dine egne agenter, der er i stand til at manipulere kode for at udføre opgaver.
 
 ## Introduktion til Metakognition
 
-Metakognition henviser til højereordens kognitive processer, der involverer at tænke over sin egen tænkning. For AI-agenter betyder dette at kunne evaluere og justere deres handlinger baseret på selvbevidsthed og tidligere erfaringer. Metakognition, eller "tænkning om tænkning," er et vigtigt koncept i udviklingen af agentiske AI-systemer. Det involverer, at AI-systemer er bevidste om deres egne interne processer og er i stand til at overvåge, regulere og tilpasse deres adfærd derefter. Ligesom vi gør, når vi læser rummet eller ser på et problem. Denne selvbevidsthed kan hjælpe AI-systemer med at træffe bedre beslutninger, identificere fejl og forbedre deres præstation over tid – hvilket igen knytter sig til Turing-testen og debatten om, hvorvidt AI vil overtage.
+Metakognition henviser til de højere ordens kognitive processer, der involverer at tænke over ens egen tænkning. For AI-agenter betyder det at kunne evaluere og justere deres handlinger baseret på selvbevidsthed og tidligere erfaringer. Metakognition, eller "tænke over tænkning," er et vigtigt begreb i udviklingen af agentiske AI-systemer. Det involverer, at AI-systemer er bevidste om deres egne interne processer og er i stand til at overvåge, regulere og tilpasse deres adfærd i overensstemmelse hermed. Ligesom vi gør, når vi læser rummet eller kigger på et problem. Denne selvbevidsthed kan hjælpe AI-systemer med at træffe bedre beslutninger, identificere fejl og forbedre deres ydeevne over tid – igen forbundet med Turingtesten og debatten om, hvorvidt AI vil overtage.
 
-I konteksten af agentiske AI-systemer kan metakognition hjælpe med at løse flere udfordringer, såsom:
-- Gennemsigtighed: Sikre at AI-systemer kan forklare deres ræsonnement og beslutninger.
-- Ræsonnement: Forbedre AI-systemers evne til at syntetisere information og træffe velbegrundede beslutninger.
-- Tilpasning: Give AI-systemer mulighed for at justere sig til nye miljøer og skiftende betingelser.
-- Perception: Forbedre AI-systemers nøjagtighed i at genkende og fortolke data fra deres omgivelser.
+I konteksten af agentiske AI-systemer kan metakognition hjælpe med at håndtere flere udfordringer, såsom:
+- Gennemsigtighed: Sikre, at AI-systemer kan forklare deres ræsonnement og beslutninger.
+- Ræsonnement: Forbedre evnen for AI-systemer til at syntetisere information og træffe velbegrundede beslutninger.
+- Tilpasning: Tillade AI-systemer at justere sig til nye miljøer og skiftende betingelser.
+- Perception: Forbedre nøjagtigheden af AI-systemers genkendelse og fortolkning af data fra deres omgivelser.
 
 ### Hvad er Metakognition?
 
-Metakognition, eller "tænkning om tænkning," er en højereordens kognitiv proces, der involverer selvbevidsthed og selvregulering af ens kognitive processer. Indenfor AI-verdenen giver metakognition agenter mulighed for at evaluere og tilpasse deres strategier og handlinger, hvilket fører til forbedret problemløsning og beslutningstagning. Ved at forstå metakognition kan du designe AI-agenter, der ikke blot er mere intelligente, men også mere tilpasningsdygtige og effektive. I ægte metakognition ville du se AI’en eksplicit ræsonnere over sit eget ræsonnement.
+Metakognition, eller "tænke over tænkning," er en højere ordens kognitiv proces, der involverer selvbevidsthed og selvregulering af ens egne kognitive processer. Inden for AI giver metakognition agenter mulighed for at evaluere og tilpasse deres strategier og handlinger, hvilket fører til forbedrede problemløsnings- og beslutningsevner. Ved at forstå metakognition kan du designe AI-agenter, der ikke blot er mere intelligente, men også mere tilpasningsdygtige og effektive. I ægte metakognition ville man se, at AI eksplicit ræsonnerer over sit eget ræsonnement.
 
-Eksempel: "Jeg prioriterede billigere flyrejser fordi… jeg måske går glip af direkte fly, så lad mig tjekke igen."
-Holde styr på, hvordan eller hvorfor den valgte en bestemt rute.
-- Bemærke, at den lavede fejl fordi den stolede for meget på brugerpræferencer fra sidste gang, så den ændrer sin beslutningsstrategi, ikke kun den endelige anbefaling.
-- Diagnosticere mønstre som: "Når jeg ser brugeren nævne 'for overfyldt', skal jeg ikke blot fjerne visse attraktioner, men også reflektere over, at min metode til at vælge 'top attraktioner' er fejlagtig, hvis jeg altid rangerer efter popularitet."
+Eksempel: "Jeg prioriterede billigere fly fordi… jeg kan måske gå glip af direkte fly, så lad mig tjekke igen."
+Holde styr på hvordan eller hvorfor den valgte en bestemt rute.
+- Bemærke, at den lavede fejl, fordi den overbetroede brugerpræferencer fra sidste gang, så den ændrer sin beslutningstagningsstrategi, ikke kun den endelige anbefaling.
+- Diagnosticere mønstre som, "Når jeg ser brugeren nævne 'for overfyldt', bør jeg ikke kun fjerne visse attraktioner, men også reflektere over, at min metode til at vælge 'topattraktioner' er fejlagtig, hvis jeg altid rangerer efter popularitet."
 
-### Vigtigheden af Metakognition i AI-agenter
+### Betydningen af Metakognition i AI-agenter
 
-Metakognition spiller en afgørende rolle i design af AI-agenter af flere grunde:
+Metakognition spiller en afgørende rolle i designet af AI-agenter af flere årsager:
 
-![Vigtigheden af Metakognition](../../../translated_images/da/importance-of-metacognition.b381afe9aae352f7.webp)
+![Betydningen af Metakognition](../../../translated_images/da/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Selvrefleksion: Agenter kan vurdere deres egen præstation og identificere områder til forbedring.
-- Tilpasningsevne: Agenter kan ændre deres strategier baseret på tidligere erfaringer og ændrede miljøer.
-- Fejlretning: Agenter kan opdage og rette fejl selvstændigt, hvilket fører til mere præcise resultater.
-- Ressourcestyring: Agenter kan optimere brugen af ressourcer, såsom tid og beregningskraft, ved at planlægge og evaluere deres handlinger.
+- Selvrefleksion: Agenter kan vurdere deres egen ydeevne og identificere områder til forbedring.
+- Tilpasningsevne: Agenter kan ændre deres strategier baseret på tidligere erfaringer og skiftende miljøer.
+- Fejlretning: Agenter kan opdage og rette fejl autonomt, hvilket fører til mere præcise resultater.
+- Ressourcestyring: Agenter kan optimere brugen af ressourcer såsom tid og computational kapacitet ved at planlægge og evaluere deres handlinger.
 
-## Komponenter i en AI-Agent
+## Komponenter i en AI-agent
 
 Før vi dykker ned i metakognitive processer, er det vigtigt at forstå de grundlæggende komponenter i en AI-agent. En AI-agent består typisk af:
 
@@ -53,43 +53,43 @@ Før vi dykker ned i metakognitive processer, er det vigtigt at forstå de grund
 - Værktøjer: De kapaciteter og funktioner, som agenten kan udføre.
 - Færdigheder: Den viden og ekspertise, agenten besidder.
 
-Disse komponenter arbejder sammen for at skabe en "ekspertiseenhed," der kan udføre specifikke opgaver.
+Disse komponenter arbejder sammen for at skabe en "ekspertiseenhed", der kan udføre specifikke opgaver.
 
 **Eksempel**:
-Overvej en rejseagent, en agentservice der ikke blot planlægger din ferie, men også justerer sin rute baseret på realtidsdata og tidligere kunderejseoplevelser.
+Overvej en rejseagent, agenttjenester der ikke kun planlægger din ferie, men også justerer sin kurs baseret på realtidsdata og tidligere kunderejseoplevelser.
 
-### Eksempel: Metakognition i en Rejseagent-service
+### Eksempel: Metakognition i en rejseagenttjeneste
 
-Forestil dig, at du designer en rejseagent-service drevet af AI. Denne agent, "Rejseagent," assisterer brugere med at planlægge deres ferier. For at inkorporere metakognition skal Rejseagent evaluere og tilpasse sine handlinger baseret på selvbevidsthed og tidligere erfaringer. Sådan kan metakognition spille en rolle:
+Forestil dig, at du designer en rejseagenttjeneste drevet af AI. Denne agent, "Rejseagenten," hjælper brugere med at planlægge deres ferier. For at inkorporere metakognition skal Rejseagenten evaluere og justere sine handlinger baseret på selvbevidsthed og tidligere erfaringer. Her er, hvordan metakognition kunne spille en rolle:
 
-#### Nuværende Opgave
+#### Nuværende opgave
 
-Den aktuelle opgave er at hjælpe en bruger med at planlægge en tur til Paris.
+Den aktuelle opgave er at hjælpe en bruger med at planlægge en rejse til Paris.
 
-#### Trin for at Fuldføre Opgaven
+#### Trin til at fuldføre opgaven
 
-1. **Indsamle Brugerpræferencer**: Spørge brugeren om deres rejsedatoer, budget, interesser (fx museer, mad, shopping) og eventuelle specifikke krav.
-2. **Hente Information**: Søge efter flymuligheder, indkvartering, attraktioner og restauranter, der matcher brugerens præferencer.
-3. **Generere Anbefalinger**: Give en personlig rejseplan med flyoplysninger, hotelreservationer og foreslåede aktiviteter.
-4. **Justere Baseret på Feedback**: Spørge brugeren om feedback på anbefalingerne og foretage nødvendige justeringer.
+1. **Indsamle brugerpræferencer**: Spørg brugeren om deres rejsedatoer, budget, interesser (f.eks. museer, mad, shopping) og eventuelle specifikke krav.
+2. **Hente information**: Søg efter flymuligheder, overnatning, attraktioner og restauranter, der matcher brugerens præferencer.
+3. **Generere anbefalinger**: Giv en personlig rejseplan med flyinformation, hotelreservationer og foreslåede aktiviteter.
+4. **Justere baseret på feedback**: Spørg brugeren om feedback på anbefalingerne og foretag nødvendige justeringer.
 
-#### Krævede Ressourcer
+#### Nødvendige ressourcer
 
-- Adgang til databaser for fly- og hotelreservationer.
+- Adgang til fly- og hotelbooking-databaser.
 - Information om parisiske attraktioner og restauranter.
 - Brugerfeedbackdata fra tidligere interaktioner.
 
-#### Erfaring og Selvrefleksion
+#### Erfaring og selvrefleksion
 
-Rejseagent bruger metakognition til at evaluere sin præstation og lære af tidligere erfaringer. For eksempel:
+Rejseagenten bruger metakognition til at evaluere sin ydeevne og lære af tidligere erfaringer. For eksempel:
 
-1. **Analysere Brugerfeedback**: Rejseagent gennemgår brugerfeedback for at afgøre, hvilke anbefalinger der blev godt modtaget og hvilke ikke. Den justerer sine fremtidige forslag derefter.
-2. **Tilpasningsevne**: Hvis en bruger tidligere har nævnt, at de ikke kan lide overfyldte steder, undgår Rejseagent at anbefale populære turiststeder i myldretiden i fremtiden.
-3. **Fejlretning**: Hvis Rejseagent begik en fejl ved en tidligere booking, som fx at foreslå et hotel, der var fuldt booket, lærer den at tjekke tilgængelighed mere grundigt inden anbefaling.
+1. **Analysere brugerfeedback**: Rejseagenten gennemgår brugerfeedback for at afgøre, hvilke anbefalinger der blev godt modtaget, og hvilke der ikke blev. Den justerer sine fremtidige forslag derefter.
+2. **Tilpasningsevne**: Hvis en bruger tidligere har nævnt en modvilje mod overfyldte steder, vil Rejseagenten undgå at anbefale populære turiststeder i myldretiden fremover.
+3. **Fejlretning**: Hvis Rejseagenten lavede en fejl i en tidligere booking, såsom at foreslå et hotel, der var fuldt booket, lærer den at kontrollere tilgængeligheden mere grundigt, før den laver anbefalinger.
 
-#### Praktisk Udvikler-eksempel
+#### Praktisk udviklereksempel
 
-Her er et forenklet eksempel på, hvordan koden for Rejseagent kunne se ud, når metakognition integreres:
+Her er et forenklet eksempel på, hvordan Rejseagentens kode kunne se ud, når metakognition indarbejdes:
 
 ```python
 class Travel_Agent:
@@ -132,70 +132,71 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-#### Hvorfor Metakognition Betyder Noget
+#### Hvorfor Metakognition Har Betydning
 
-- **Selvrefleksion**: Agenter kan analysere deres præstation og identificere områder til forbedring.
-- **Tilpasningsevne**: Agenter kan ændre strategier baseret på feedback og skiftende betingelser.
-- **Fejlretning**: Agenter kan selvstændigt opdage og rette fejl.
-- **Ressourcestyring**: Agenter kan optimere ressourceanvendelse, såsom tid og beregningskraft.
+- **Selvrefleksion**: Agenter kan analysere deres præstation og identificere områder for forbedring.
+- **Tilpasningsevne**: Agenter kan ændre strategier baseret på feedback og skiftende forhold.
+- **Fejlretning**: Agenter kan opdage og rette fejl autonomt.
+- **Ressourcestyring**: Agenter kan optimere ressourceforbruget, såsom tid og beregningskraft.
 
-Ved at integrere metakognition kan Rejseagent tilbyde mere personlige og præcise rejseanbefalinger, hvilket forbedrer den samlede brugeroplevelse.
+Ved at inddrage metakognition kan Rejseagenten levere mere personlige og præcise rejseanbefalinger, hvilket forbedrer den samlede brugeroplevelse.
 
 ---
 
-## 2. Planlægning i Agenter
+## 2. Planlægning i agenter
 
-Planlægning er en kritisk komponent af AI-agenters adfærd. Det indebærer at skitsere de nødvendige trin for at nå et mål, med vægt på den nuværende tilstand, ressourcer og mulige forhindringer.
 
-### Elementer i Planlægning
+Planlægning er en kritisk komponent i AI-agentadfærd. Det involverer at skitsere de nødvendige trin for at opnå et mål, med hensyntagen til den nuværende tilstand, ressourcer og mulige forhindringer.
+
+### Elementer af Planlægning
 
 - **Nuværende Opgave**: Definer opgaven klart.
-- **Trin til at Fuldføre Opgaven**: Opdel opgaven i håndterbare trin.
-- **Krævede Ressourcer**: Identificer nødvendige ressourcer.
+- **Trin for at Fuldføre Opgaven**: Opdel opgaven i håndterbare trin.
+- **Nødvendige Ressourcer**: Identificer nødvendige ressourcer.
 - **Erfaring**: Brug tidligere erfaringer til at informere planlægningen.
 
 **Eksempel**:
-Her er de trin, Rejseagent skal følge for effektivt at hjælpe en bruger med at planlægge deres tur:
+Her er de trin, Rejseagenten skal tage for effektivt at hjælpe en bruger med at planlægge deres rejse:
 
 ### Trin for Rejseagent
 
-1. **Indsamle Brugerpræferencer**
-   - Spørg brugeren om detaljer vedrørende deres rejsedatoer, budget, interesser og specifikke krav.
-   - Eksempler: "Hvornår planlægger du at rejse?" "Hvad er dit budget?" "Hvilke aktiviteter nyder du på ferie?"
+1. **Indsaml Brugernes Præferencer**
+   - Spørg brugeren om detaljer om deres rejsedatoer, budget, interesser og eventuelle specifikke krav.
+   - Eksempler: "Hvornår planlægger du at rejse?" "Hvad er dit budget?" "Hvilke aktiviteter nyder du på ferien?"
 
-2. **Hente Information**
+2. **Hent Information**
    - Søg efter relevante rejsemuligheder baseret på brugerens præferencer.
-   - **Fly**: Find tilgængelige fly inden for brugerens budget og ønskede rejsedatoer.
-   - **Indkvartering**: Find hoteller eller lejeboliger, der matcher brugerens præferencer for beliggenhed, pris og faciliteter.
-   - **Attraktioner og Restauranter**: Identificer populære attraktioner, aktiviteter og spisesteder, der falder i tråd med brugerens interesser.
+   - **Fly**: Kig efter tilgængelige fly inden for brugerens budget og foretrukne rejsedatoer.
+   - **Indkvartering**: Find hoteller eller lejeboliger, der matcher brugerens præferencer for placering, pris og faciliteter.
+   - **Attraktioner og Restauranter**: Identificer populære attraktioner, aktiviteter og spisesteder, der passer til brugerens interesser.
 
-3. **Generere Anbefalinger**
-   - Saml de hentede oplysninger til en personlig rejseplan.
-   - Giv detaljer som flymuligheder, hotelreservationer og foreslåede aktiviteter, og sørg for at tilpasse anbefalingerne til brugerens præferencer.
+3. **Generer Anbefalinger**
+   - Sammensæt den hentede information til en personlig rejseplan.
+   - Giv detaljer som flymuligheder, hotelreservationer og foreslåede aktiviteter og skræddersy anbefalingerne til brugerens præferencer.
 
-4. **Præsentere Rejseplan for Brugeren**
-   - Del det foreslåede rejseprogram med brugeren til gennemgang.
-   - Eksempel: "Her er et foreslået rejseprogram til din tur til Paris. Det indeholder flyinformationer, hotelbookinger samt en liste over anbefalede aktiviteter og restauranter. Lad mig høre, hvad du synes!"
+4. **Præsenter Rejseplanen til Brugeren**
+   - Del det foreslåede rejseprogram med brugeren til deres gennemgang.
+   - Eksempel: "Her er et foreslået rejseprogram til din tur til Paris. Det inkluderer flydetaljer, hotelreservationer og en liste over anbefalede aktiviteter og restauranter. Lad mig høre, hvad du synes!"
 
-5. **Indsamle Feedback**
-   - Spørg brugeren om feedback på det foreslåede rejseprogram.
-   - Eksempler: "Kan du lide flymulighederne?" "Passer hotellet til dine behov?" "Er der aktiviteter, du gerne vil tilføje eller fjerne?"
+5. **Indsaml Feedback**
+   - Spørg brugeren om feedback på den foreslåede rejseplan.
+   - Eksempler: "Kan du lide flymulighederne?" "Er hotellet egnet til dine behov?" "Er der nogle aktiviteter, du gerne vil tilføje eller fjerne?"
 
-6. **Justere Baseret på Feedback**
-   - Tilpas rejseprogrammet ud fra brugerens feedback.
-   - Foretag nødvendige ændringer i anbefalingerne for fly, indkvartering og aktiviteter for bedre at matche brugerens ønsker.
+6. **Tilpas Basere på Feedback**
+   - Ændr rejseplanen baseret på brugerens feedback.
+   - Foretag nødvendige ændringer i fly-, indkvarterings- og aktivitetsanbefalingerne for bedre at matche brugerens præferencer.
 
 7. **Endelig Bekræftelse**
-   - Præsenter den opdaterede rejseplan for brugeren til endelig godkendelse.
-   - Eksempel: "Jeg har lavet justeringerne baseret på din feedback. Her er den opdaterede rejseplan. Ser det hele godt ud for dig?"
+   - Præsenter den opdaterede rejseplan for brugeren til endelig bekræftelse.
+   - Eksempel: "Jeg har lavet ændringerne baseret på din feedback. Her er den opdaterede rejseplan. Ser alt godt ud for dig?"
 
-8. **Booke og Bekræfte Reservationer**
-   - Når brugeren godkender rejseplanen, fortsæt med at booke fly, indkvartering og eventuelle planlagte aktiviteter.
+8. **Book og Bekræft Reservationer**
+   - Når brugeren godkender rejseplanen, fortsæt med at booke fly, overnatning og eventuelle forudplanlagte aktiviteter.
    - Send bekræftelsesdetaljer til brugeren.
 
-9. **Give Løbende Support**
-   - Vær tilgængelig for at hjælpe brugeren med ændringer eller yderligere ønsker før og under deres tur.
-   - Eksempel: "Hvis du har brug for yderligere hjælp under din rejse, er du altid velkommen til at kontakte mig!"
+9. **Giv Løbende Support**
+   - Vær tilgængelig for at assistere brugeren med ændringer eller yderligere anmodninger før og under deres rejse.
+   - Eksempel: "Hvis du behøver yderligere hjælp under din rejse, er du velkommen til at kontakte mig når som helst!"
 
 ### Eksempel på Interaktion
 
@@ -238,29 +239,29 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-## 3. Korrigerende RAG-System
+## 3. Korrigerende RAG System
 
-Lad os først forstå forskellen mellem RAG-værktøj og Pre-emptive Context Load.
+Først lad os starte med at forstå forskellen mellem RAG-værktøjet og Forudgående Kontekstindlæsning
 
 ![RAG vs Context Loading](../../../translated_images/da/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 
-RAG kombinerer et hentningssystem med en generativ model. Når der stilles en forespørgsel, henter hentningssystemet relevante dokumenter eller data fra en ekstern kilde, og denne hentede information bruges til at supplere input til den generative model. Dette hjælper modellen med at generere mere præcise og kontekstuelle relevante svar.
+RAG kombinerer et hentningssystem med en generativ model. Når der stilles en forespørgsel, henter hentningssystemet relevante dokumenter eller data fra en ekstern kilde, og denne hentede information bruges til at forbedre inputtet til den generative model. Dette hjælper modellen til at generere mere præcise og kontekstuelt relevante svar.
 
-I et RAG-system henter agenten relevant information fra en vidensbase og bruger den til at generere passende svar eller handlinger.
+I et RAG-system henter agenten relevant information fra en vidensbase og bruger det til at generere passende svar eller handlinger.
 
-### Korrigerende RAG-Tilgang
+### Korrigerende RAG Tilgang
 
 Den korrigerende RAG-tilgang fokuserer på at bruge RAG-teknikker til at rette fejl og forbedre nøjagtigheden af AI-agenter. Dette involverer:
 
 1. **Prompting Teknik**: Brug af specifikke prompts til at guide agenten i at hente relevant information.
-2. **Værktøj**: Implementering af algoritmer og mekanismer, der gør agenten i stand til at evaluere relevansen af den hentede information og generere korrekte svar.
-3. **Evaluering**: Løbende vurdering af agentens præstation og justeringer for at forbedre nøjagtighed og effektivitet.
+2. **Værktøj**: Implementering af algoritmer og mekanismer, der gør det muligt for agenten at vurdere relevansen af den hentede information og generere nøjagtige svar.
+3. **Evaluering**: Kontinuerlig vurdering af agentens præstation og foretage justeringer for at forbedre dens nøjagtighed og effektivitet.
 
 #### Eksempel: Korrigerende RAG i en Søgeagent
 
-Overvej en søgeagent, der henter information fra nettet for at besvare brugerforespørgsler. Den korrigerende RAG-tilgang kunne involvere:
+Overvej en søgeagent, der henter information fra internettet for at besvare brugerforespørgsler. Den korrigerende RAG-tilgang kan involvere:
 
 1. **Prompting Teknik**: Formulere søgeforespørgsler baseret på brugerens input.
 2. **Værktøj**: Brug af naturlig sprogbehandling og maskinlæringsalgoritmer til at rangere og filtrere søgeresultater.
@@ -268,18 +269,18 @@ Overvej en søgeagent, der henter information fra nettet for at besvare brugerfo
 
 ### Korrigerende RAG i Rejseagent
 
-Korrigerende RAG (Retrieval-Augmented Generation) forbedrer AI’s evne til at hente og generere information samtidig med at den retter eventuelle unøjagtigheder. Lad os se, hvordan Rejseagent kan bruge den korrigerende RAG-tilgang til at give mere præcise og relevante rejseanbefalinger.
+Korrigerende RAG (Retrieval-Augmented Generation) forbedrer en AIs evne til at hente og generere information samtidig med at rette eventuelle unøjagtigheder. Lad os se, hvordan Rejseagenten kan bruge den korrigerende RAG-tilgang til at give mere præcise og relevante rejseanbefalinger.
 
 Dette involverer:
 
 - **Prompting Teknik:** Brug af specifikke prompts til at guide agenten i at hente relevant information.
-- **Værktøj:** Implementering af algoritmer og mekanismer, der giver agenten mulighed for at evaluere relevansen af den hentede information og generere korrekte svar.
-- **Evaluering:** Løbende vurdering af agentens præstation og justeringer for at forbedre nøjagtighed og effektivitet.
+- **Værktøj:** Implementering af algoritmer og mekanismer, der gør det muligt for agenten at evaluere relevansen af den hentede information og generere nøjagtige svar.
+- **Evaluering:** Kontinuerlig vurdering af agentens præstation og foretage justeringer for at forbedre dens nøjagtighed og effektivitet.
 
 #### Trin til Implementering af Korrigerende RAG i Rejseagent
 
-1. **Initial Brugerinteraktion**
-   - Rejseagent indsamler brugerens indledende præferencer, såsom destination, rejsedatoer, budget og interesser.
+1. **Indledende Brugerinteraktion**
+   - Rejseagenten indsamler indledende præferencer fra brugeren, såsom destination, rejsedatoer, budget og interesser.
    - Eksempel:
 
      ```python
@@ -292,7 +293,7 @@ Dette involverer:
      ```
 
 2. **Hentning af Information**
-   - Rejseagent henter information om fly, indkvartering, attraktioner og restauranter baseret på brugerpræferencer.
+   - Rejseagenten henter information om fly, overnatning, attraktioner og restauranter baseret på brugerens præferencer.
    - Eksempel:
 
      ```python
@@ -302,7 +303,7 @@ Dette involverer:
      ```
 
 3. **Generering af Indledende Anbefalinger**
-   - Rejseagent bruger den hentede information til at generere en personlig rejseplan.
+   - Rejseagenten bruger den hentede information til at generere en personlig rejseplan.
    - Eksempel:
 
      ```python
@@ -311,7 +312,7 @@ Dette involverer:
      ```
 
 4. **Indsamling af Brugerfeedback**
-   - Rejseagent spørger brugeren om feedback på de indledende anbefalinger.
+   - Rejseagenten spørger brugeren om feedback på de indledende anbefalinger.
    - Eksempel:
 
      ```python
@@ -321,8 +322,8 @@ Dette involverer:
      }
      ```
 
-5. **Korrigerende RAG-Proces**
-   - **Prompting Teknik**: Rejseagent formulerer nye søgeforespørgsler baseret på brugerfeedback.
+5. **Korrigerende RAG Proces**
+   - **Prompting Teknik**: Rejseagenten formulerer nye søgeforespørgsler baseret på brugerfeedback.
      - Eksempel:
 
        ```python
@@ -330,7 +331,7 @@ Dette involverer:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Værktøj**: Rejseagent bruger algoritmer til at rangere og filtrere nye søgeresultater med vægt på relevans baseret på brugerfeedback.
+   - **Værktøj**: Rejseagenten bruger algoritmer til at rangere og filtrere nye søgeresultater med fokus på relevansen baseret på brugerfeedback.
      - Eksempel:
 
        ```python
@@ -339,7 +340,7 @@ Dette involverer:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Evaluering**: Rejseagent vurderer løbende relevansen og nøjagtigheden af sine anbefalinger ved at analysere brugerfeedback og foretage nødvendige justeringer.
+   - **Evaluering**: Rejseagenten vurderer løbende relevansen og nøjagtigheden af sine anbefalinger ved at analysere brugerfeedback og foretage nødvendige justeringer.
      - Eksempel:
 
        ```python
@@ -355,7 +356,7 @@ Dette involverer:
 
 #### Praktisk Eksempel
 
-Her er et forenklet Python-kodeeksempel, der inkorporerer den korrigerende RAG-tilgang i Rejseagent:
+Her er et forenklet Python-kodeeksempel, der inkorporerer den korrigerende RAG-tilgang i Rejseagenten:
 
 ```python
 class Travel_Agent:
@@ -383,7 +384,7 @@ class Travel_Agent:
         new_itinerary = self.generate_recommendations()
         return new_itinerary
 
-# Eksempel på anvendelse
+# Eksempel på brug
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -399,10 +400,12 @@ new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
 print("Updated Itinerary:", new_itinerary)
 ```
 
-### Pre-emptive Context Load
-Forhåndsindlæsning af kontekst involverer at indlæse relevant kontekst eller baggrundsinformation i modellen, før den behandler en forespørgsel. Det betyder, at modellen har adgang til denne information fra starten, hvilket kan hjælpe den med at generere mere informerede svar uden at skulle hente yderligere data under processen.
+### Forudgående Kontekstindlæsning
 
-Her er et forenklet eksempel på, hvordan en forhåndsindlæsning af kontekst kunne se ud for en rejseagent-applikation i Python:
+
+Forudindlæst kontekst involverer indlæsning af relevant kontekst eller baggrundsinformation i modellen, før der behandles en forespørgsel. Det betyder, at modellen har adgang til denne information fra starten, hvilket kan hjælpe den med at generere mere informerede svar uden at skulle hente yderligere data under processen.
+
+Her er et forenklet eksempel på, hvordan en forudindlæst kontekst kunne se ud for en rejseagentapplikation i Python:
 
 ```python
 class TravelAgent:
@@ -431,27 +434,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Forklaring
 
-1. **Initialisering (`__init__` metode)**: `TravelAgent`-klassen forindlæser en ordbog, der indeholder information om populære destinationer såsom Paris, Tokyo, New York og Sydney. Denne ordbog inkluderer detaljer som land, valuta, sprog og større seværdigheder for hver destination.
+1. **Initialisering (`__init__` metode)**: `TravelAgent` klassen forindlæser en ordbog, der indeholder information om populære destinationer som Paris, Tokyo, New York og Sydney. Denne ordbog indeholder detaljer som land, valuta, sprog og større attraktioner for hver destination.
 
-2. **Hentning af information (`get_destination_info` metode)**: Når en bruger spørger om en specifik destination, henter `get_destination_info`-metoden den relevante information fra den forhåndsindlæste kontekstordbog.
+2. **Hentning af Information (`get_destination_info` metode)**: Når en bruger spørger om en bestemt destination, henter metoden `get_destination_info` den relevante information fra den forudindlæste kontekstordbog.
 
-Ved at forindlæse konteksten kan rejseagent-applikationen hurtigt svare på brugerspørgsmål uden at skulle hente denne information fra en ekstern kilde i realtid. Dette gør applikationen mere effektiv og responsiv.
+Ved at forindlæse konteksten kan rejseagentapplikationen hurtigt svare på brugerforespørgsler uden at skulle hente denne information fra en ekstern kilde i realtid. Dette gør applikationen mere effektiv og responsiv.
 
-### Udvikling af planen med et mål før iteration
+### Opstart af Plan med et Mål før Iteration
 
-At udvikle en plan med et mål indebærer at starte med et klart mål eller ønsket resultat for øje. Ved at definere dette mål på forhånd kan modellen bruge det som en ledestjerne gennem hele den iterative proces. Dette hjælper med at sikre, at hver iteration bevæger sig tættere på at nå det ønskede resultat, hvilket gør processen mere effektiv og fokuseret.
+At opstarte en plan med et mål involverer at starte med et klart mål eller ønsket resultat i tankerne. Ved at definere dette mål på forhånd kan modellen bruge det som en ledetråd gennem hele den iterative proces. Dette sikrer, at hver iteration bevæger sig tættere på at opnå det ønskede resultat, hvilket gør processen mere effektiv og fokuseret.
 
-Her er et eksempel på, hvordan du kan udvikle en rejseplan med et mål, før du itererer, for en rejseagent i Python:
+Her er et eksempel på, hvordan du kan opstarte en rejseplan med et mål før iteration for en rejseagent i Python:
 
-### Scenarie
+### Scenario
 
-En rejseagent ønsker at planlægge en skræddersyet ferie til en klient. Målet er at skabe en rejseplan, der maksimerer klientens tilfredshed baseret på deres præferencer og budget.
+En rejseagent ønsker at planlægge en skræddersyet ferie for en klient. Målet er at skabe en rejseplan, der maksimerer klientens tilfredshed baseret på deres præferencer og budget.
 
 ### Trin
 
 1. Definer klientens præferencer og budget.
-2. Udvikl den indledende plan baseret på disse præferencer.
-3. Iterer for at forfine planen og optimere for klientens tilfredshed.
+2. Opstart af den indledende plan baseret på disse præferencer.
+3. Iterer for at forfine planen og optimere klientens tilfredshed.
 
 #### Python-kode
 
@@ -507,50 +510,50 @@ refined_plan = travel_agent.iterate_plan(initial_plan, preferences, budget)
 print("Refined Plan:", refined_plan)
 ```
 
-#### Forklaring af kode
+#### Kodeforklaring
 
-1. **Initialisering (`__init__` metode)**: `TravelAgent`-klassen initialiseres med en liste over potentielle destinationer, hver med attributter som navn, pris og aktivitetstype.
+1. **Initialisering (`__init__` metode)**: `TravelAgent` klassen initialiseres med en liste af potentielle destinationer, som hver har attributter som navn, pris og aktivitetstype.
 
-2. **Udvikling af plan (`bootstrap_plan` metode)**: Denne metode skaber en indledende rejseplan baseret på klientens præferencer og budget. Den itererer gennem listen over destinationer og tilføjer dem til planen, hvis de matcher klientens præferencer og passer inden for budgettet.
+2. **Opstart af Planen (`bootstrap_plan` metode)**: Denne metode skaber en indledende rejseplan baseret på klientens præferencer og budget. Den gennemgår listen af destinationer og tilføjer dem til planen, hvis de matcher klientens præferencer og passer inden for budgettet.
 
-3. **Matchning af præferencer (`match_preferences` metode)**: Denne metode tjekker, om en destination matcher klientens præferencer.
+3. **Matchende Præferencer (`match_preferences` metode)**: Denne metode tjekker, om en destination matcher klientens præferencer.
 
-4. **Iteration af plan (`iterate_plan` metode)**: Denne metode forfiner den indledende plan ved at forsøge at erstatte hver destination i planen med en bedre match, under hensyntagen til klientens præferencer og budgetbegrænsninger.
+4. **Iteration af Planen (`iterate_plan` metode)**: Denne metode forfiner den indledende plan ved at forsøge at erstatte hver destination i planen med et bedre match, under hensyntagen til klientens præferencer og budgetbegrænsninger.
 
-5. **Beregning af pris (`calculate_cost` metode)**: Denne metode beregner den samlede pris for den nuværende plan, inklusive en potentiel ny destination.
+5. **Beregning af Pris (`calculate_cost` metode)**: Denne metode beregner den samlede pris for den aktuelle plan, inklusive en potentiel ny destination.
 
-#### Eksempel på brug
+#### Eksempel på anvendelse
 
-- **Indledende plan**: Rejseagenten skaber en indledende plan baseret på klientens præferencer for sightseeing og et budget på $2000.
-- **Forfinet plan**: Rejseagenten itererer planen og optimerer for klientens præferencer og budget.
+- **Indledende Plan**: Rejseagenten skaber en indledende plan baseret på klientens præferencer for sightseeing og et budget på $2000.
+- **Forfinet Plan**: Rejseagenten itererer planen for at optimere klientens præferencer og budget.
 
-Ved at udvikle planen med et klart mål (f.eks. at maksimere klienttilfredsheden) og iterere for at forfine planen, kan rejseagenten skabe en skræddersyet og optimeret rejseplan til klienten. Denne tilgang sikrer, at rejseplanen stemmer overens med klientens præferencer og budget fra starten og forbedres med hver iteration.
+Ved at opstarte planen med et klart mål (f.eks. at maksimere kundetilfredshed) og iterere for at forfine planen kan rejseagenten skabe en skræddersyet og optimeret rejseplan for klienten. Denne tilgang sikrer, at rejseplanen stemmer overens med klientens præferencer og budget fra starten og forbedres med hver iteration.
 
-### Udnyttelse af LLM til omrangering og scoring
+### Udnyttelse af LLM til Re-rangering og Scoring
 
-Store sprogmodeller (LLMs) kan bruges til omrangering og scoring ved at vurdere relevansen og kvaliteten af hentede dokumenter eller genererede svar. Sådan fungerer det:
+Store sproglige modeller (LLM'er) kan bruges til re-rangering og scoring ved at evaluere relevansen og kvaliteten af indhentede dokumenter eller genererede svar. Sådan fungerer det:
 
-**Hentning:** Det indledende hentetrin henter et sæt af kandidatdokumenter eller svar baseret på forespørgslen.
+**Hentning:** Det indledende trin henter et sæt kandidatdokumenter eller svar baseret på forespørgslen.
 
-**Omrangering:** LLM’en vurderer disse kandidater og omarrangerer dem baseret på deres relevans og kvalitet. Dette trin sikrer, at den mest relevante og højkvalitetsinformation præsenteres først.
+**Re-rangering:** LLM'en evaluerer disse kandidater og re-rangerer dem baseret på deres relevans og kvalitet. Dette sikrer, at den mest relevante og højkvalitetsinformation præsenteres først.
 
-**Scoring:** LLM’en tildeler hver kandidat en score, som afspejler deres relevans og kvalitet. Dette hjælper med at vælge det bedste svar eller dokument til brugeren.
+**Scoring:** LLM'en tildeler scores til hver kandidat, der afspejler deres relevans og kvalitet. Dette hjælper med at vælge det bedste svar eller dokument til brugeren.
 
-Ved at udnytte LLM’er til omrangering og scoring kan systemet levere mere præcis og kontekstrelevant information, hvilket forbedrer brugeroplevelsen.
+Ved at udnytte LLM'er til re-rangering og scoring kan systemet give mere præcis og kontekstuel relevant information, hvilket forbedrer den samlede brugeroplevelse.
 
-Her er et eksempel på, hvordan en rejseagent kan bruge en stor sprogmodel (LLM) til omrangering og scoring af rejsedestinationer baseret på brugerpræferencer i Python:
+Her er et eksempel på, hvordan en rejseagent kan bruge en stor sproglig model (LLM) til at re-rangere og score rejsemål baseret på brugerpræferencer i Python:
 
-#### Scenarie – Rejser baseret på præferencer
+#### Scenario - Rejse baseret på præferencer
 
-En rejseagent ønsker at anbefale de bedste rejsedestinationer til en klient baseret på deres præferencer. LLM’en vil hjælpe med at omrangere og score destinationerne for at sikre, at de mest relevante muligheder præsenteres.
+En rejseagent ønsker at anbefale de bedste rejsemål til en kunde baseret på dennes præferencer. LLM'en hjælper med at re-rangere og score destinationerne for at sikre, at de mest relevante muligheder præsenteres.
 
 #### Trin:
 
-1. Indsaml brugerpræferencer.
-2. Hent en liste over potentielle rejsedestinationer.
-3. Brug LLM til at omrangere og score destinationerne baseret på brugerpræferencer.
+1. Indsamle brugerpræferencer.
+2. Hent en liste over potentielle rejsemål.
+3. Brug LLM'en til at re-rangere og score destinationerne baseret på brugerpræferencer.
 
-Her er hvordan du kan opdatere det tidligere eksempel til at bruge Azure OpenAI Services:
+Sådan kan du opdatere det tidligere eksempel til at bruge Azure OpenAI Services:
 
 #### Krav
 
@@ -571,7 +574,7 @@ class TravelAgent:
         # Generer en prompt til Azure OpenAI
         prompt = self.generate_prompt(preferences)
         
-        # Definer headers og payload til forespørgslen
+        # Definer overskrifter og payload til forespørgslen
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -582,11 +585,11 @@ class TravelAgent:
             "temperature": 0.7
         }
         
-        # Kald Azure OpenAI API'en for at få de omrangordnede og scorerede destinationer
+        # Kald Azure OpenAI API'en for at få de omplacerede og scorerede destinationer
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
-        # Ekstraher og returner anbefalingerne
+        # Udtræk og returner anbefalingerne
         recommendations = response_data['choices'][0]['text'].strip().split('\n')
         return recommendations
 
@@ -618,54 +621,54 @@ for rec in recommendations:
     print(rec)
 ```
 
-#### Forklaring af kode – Præferencebogholder
+#### Kodeforklaring - Præferencebooker
 
-1. **Initialisering**: `TravelAgent`-klassen initialiseres med en liste over potentielle rejsedestinationer, hver med attributter som navn og beskrivelse.
+1. **Initialisering**: `TravelAgent` klassen initialiseres med en liste af potentielle rejsemål, hver med attributter som navn og beskrivelse.
 
-2. **Hentning af anbefalinger (`get_recommendations` metode)**: Denne metode genererer et prompt for Azure OpenAI-tjenesten baseret på brugerens præferencer og foretager en HTTP POST-anmodning til Azure OpenAI API for at få områngerede og scorede destinationer.
+2. **Hentning af anbefalinger (`get_recommendations` metode)**: Denne metode genererer en prompt til Azure OpenAI-tjenesten baseret på brugerens præferencer og foretager et HTTP POST-kald til Azure OpenAI API'et for at få re-rangerede og scorable destinationer.
 
-3. **Generering af prompt (`generate_prompt` metode)**: Denne metode opbygger et prompt til Azure OpenAI, som inkluderer brugerens præferencer og listen over destinationer. Promptet guider modellen til at omrangere og score destinationerne baseret på de angivne præferencer.
+3. **Generering af prompt (`generate_prompt` metode)**: Denne metode konstruerer en prompt til Azure OpenAI, inklusiv brugerens præferencer og listen over destinationer. Prompten guider modellen til at re-rangere og score destinationerne baseret på de angivne præferencer.
 
-4. **API-kald**: `requests`-biblioteket bruges til at foretage en HTTP POST-anmodning til Azure OpenAI API-endpointet. Svaret indeholder de omrangede og scorede destinationer.
+4. **API-kald**: `requests`-biblioteket bruges til at foretage et HTTP POST-kald til Azure OpenAI API-endpointet. Svaret indeholder de re-rangerede og scorende destinationer.
 
-5. **Eksempel på brug**: Rejseagenten indsamler brugerpræferencer (f.eks. interesse i sightseeing og varieret kultur) og bruger Azure OpenAI-tjenesten til at få omrangede og scorede anbefalinger for rejsedestinationer.
+5. **Eksempel på anvendelse**: Rejseagenten indsamler brugerens præferencer (f.eks. interesse for sightseeing og mangfoldig kultur) og bruger Azure OpenAI-tjenesten til at få re-rangerede og scorerede anbefalinger for rejsemål.
 
-Sørg for at erstatte `your_azure_openai_api_key` med din faktiske Azure OpenAI API-nøgle og `https://your-endpoint.com/...` med den faktiske endpoint-URL for din Azure OpenAI-udrulning.
+Husk at udskifte `your_azure_openai_api_key` med din faktiske Azure OpenAI API-nøgle og `https://your-endpoint.com/...` med det faktiske endpoint-URL for din Azure OpenAI-udrulning.
 
-Ved at udnytte LLM til omrangering og scoring kan rejseagenten levere mere personlige og relevante rejseanbefalinger til klienter og forbedre deres samlede oplevelse.
+Ved at udnytte LLM'en til re-rangering og scoring kan rejseagenten give mere personlige og relevante rejseanbefalinger til kunderne og forbedre deres samlede oplevelse.
 
-### RAG: Prompting-teknik vs. værktøj
+### RAG: Promptteknik vs Værktøj
 
-Retrieval-Augmented Generation (RAG) kan være både en prompting-teknik og et værktøj i udviklingen af AI-agenter. At forstå forskellen mellem de to kan hjælpe dig med at udnytte RAG mere effektivt i dine projekter.
+Retrieval-Augmented Generation (RAG) kan både være en promptteknik og et værktøj i udviklingen af AI-agenter. At forstå forskellen mellem de to kan hjælpe dig med at udnytte RAG mere effektivt i dine projekter.
 
-#### RAG som prompting-teknik
+#### RAG som en Promptteknik
 
 **Hvad er det?**
 
-- Som en prompting-teknik indebærer RAG formulering af specifikke forespørgsler eller prompts for at guide hentningen af relevant information fra en stor korpus eller database. Denne information bruges derefter til at generere svar eller handlinger.
+- Som en promptteknik involverer RAG at formulere specifikke forespørgsler eller prompts for at styre hentningen af relevant information fra et stort korpus eller en database. Denne information bruges derefter til at generere svar eller handlinger.
 
-**Hvordan det fungerer:**
+**Hvordan det virker:**
 
-1. **Formuler prompts**: Skab veldesignede prompts eller forespørgsler baseret på opgaven eller brugerens input.
-2. **Hent information**: Brug prompts til at søge efter relevant data i en eksisterende videnbase eller dataset.
-3. **Generer svar**: Kombiner den hentede information med generative AI-modeller for at producere et fyldestgørende og sammenhængende svar.
+1. **Formulering af Prompts**: Opret velstrukturerede prompts eller forespørgsler baseret på opgaven eller brugerens input.
+2. **Hentning af Information**: Brug prompts til at søge efter relevant data fra en eksisterende vidensbase eller datasæt.
+3. **Generering af Svar**: Kombiner den hentede information med generative AI-modeller for at producere et omfattende og sammenhængende svar.
 
 **Eksempel i rejseagent:**
 
 - Brugerinput: "Jeg vil besøge museer i Paris."
-- Prompt: "Find de bedste museer i Paris."
-- Hentet information: Detaljer om Louvre-museet, Musée d'Orsay osv.
-- Genereret svar: "Her er nogle af de bedste museer i Paris: Louvre-museet, Musée d'Orsay og Centre Pompidou."
+- Prompt: "Find top museer i Paris."
+- Hentet Information: Information om Louvre Museum, Musée d'Orsay, osv.
+- Genereret Svar: "Her er nogle top museer i Paris: Louvre Museum, Musée d'Orsay, og Centre Pompidou."
 
-#### RAG som værktøj
+#### RAG som et Værktøj
 
 **Hvad er det?**
 
 - Som et værktøj er RAG et integreret system, der automatiserer hentnings- og genereringsprocessen, hvilket gør det nemmere for udviklere at implementere komplekse AI-funktionaliteter uden manuelt at skulle udforme prompts for hver forespørgsel.
 
-**Hvordan det fungerer:**
+**Hvordan det virker:**
 
-1. **Integration**: Indbyg RAG i AI-agentens arkitektur, så den automatisk håndterer hentnings- og genereringsopgaver.
+1. **Integration**: Indbyg RAG i AI-agentens arkitektur, så den automatisk kan håndtere hentnings- og genereringsopgaver.
 2. **Automatisering**: Værktøjet styrer hele processen, fra modtagelse af brugerinput til generering af det endelige svar, uden at kræve eksplicitte prompts for hvert trin.
 3. **Effektivitet**: Forbedrer agentens ydeevne ved at strømline hentnings- og genereringsprocessen, hvilket muliggør hurtigere og mere præcise svar.
 
@@ -673,20 +676,20 @@ Retrieval-Augmented Generation (RAG) kan være både en prompting-teknik og et v
 
 - Brugerinput: "Jeg vil besøge museer i Paris."
 - RAG-værktøj: Henter automatisk information om museer og genererer et svar.
-- Genereret svar: "Her er nogle af de bedste museer i Paris: Louvre-museet, Musée d'Orsay og Centre Pompidou."
+- Genereret Svar: "Her er nogle top museer i Paris: Louvre Museum, Musée d'Orsay, og Centre Pompidou."
 
 ### Sammenligning
 
-| Aspekt                   | Prompting-teknik                                        | Værktøj                                                  |
-|--------------------------|--------------------------------------------------------|----------------------------------------------------------|
-| **Manuel vs Automatisk** | Manuel formulering af prompts for hver forespørgsel.   | Automatisk proces for hentning og generering.            |
-| **Kontrol**              | Tilbyder mere kontrol over hentningsprocessen.          | Strømliner og automatiserer hentning og generering.      |
-| **Fleksibilitet**        | Muliggør tilpassede prompts baseret på specifikke behov.| Mere effektiv til storskala-implementeringer.             |
-| **Kompleksitet**         | Kræver formulering og justering af prompts.             | Lettere at integrere i AI-agentens arkitektur.            |
+| Aspekt                 | Promptteknik                                                | Værktøj                                               |
+|------------------------|-------------------------------------------------------------|-------------------------------------------------------|
+| **Manuel vs Automatisk**| Manuel formulering af prompts for hver forespørgsel.        | Automatisk proces for hentning og generering.         |
+| **Kontrol**            | Tilbyder mere kontrol over hentningsprocessen.              | Strømliner og automatiserer hentning og generering.   |
+| **Fleksibilitet**       | Tillader tilpassede prompts baseret på specifikke behov.    | Mere effektiv til implementering i stor skala.         |
+| **Kompleksitet**        | Kræver udformning og justering af prompts.                  | Nemmere at integrere i en AI-agents arkitektur.        |
 
-### Praktiske eksempler
+### Praktiske Eksempler
 
-**Prompting-teknik eksempel:**
+**Eksempel på Promptteknik:**
 
 ```python
 def search_museums_in_paris():
@@ -698,7 +701,7 @@ museums = search_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-**Værktøjseksempel:**
+**Eksempel på Værktøj:**
 
 ```python
 class Travel_Agent:
@@ -715,32 +718,32 @@ museums = travel_agent.get_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-### Evaluering af relevans
+### Evaluering af Relevans
 
-Evaluering af relevans er et afgørende aspekt af AI-agenters ydeevne. Det sikrer, at den information, som agenten henter og genererer, er passende, nøjagtig og brugbar for brugeren. Lad os se på, hvordan man evaluerer relevans i AI-agenter, inklusive praktiske eksempler og teknikker.
+Evaluering af relevans er et afgørende aspekt af AI-agenters ydeevne. Det sikrer, at den information, der hentes og genereres af agenten, er passende, korrekt og nyttig for brugeren. Lad os udforske, hvordan man evaluerer relevans i AI-agenter, inklusive praktiske eksempler og teknikker.
 
-#### Centrale begreber i relevanseevaluering
+#### Centrale Begreber i Evaluering af Relevans
 
 1. **Kontekstbevidsthed**:
-   - Agenten skal forstå konteksten i brugerens forespørgsel for at hente og generere relevant information.
-   - Eksempel: Hvis en bruger spørger efter "bedste restauranter i Paris," bør agenten tage højde for brugerens præferencer som fx køkkentype og budget.
+   - Agenten skal forstå konteksten af brugerens forespørgsel for at hente og generere relevant information.
+   - Eksempel: Hvis en bruger spørger om "bedste restauranter i Paris," bør agenten tage højde for brugerens præferencer, såsom køkkentype og budget.
 
 2. **Nøjagtighed**:
-   - Den information, agenten leverer, skal være faktuelt korrekt og opdateret.
-   - Eksempel: Anbefale restauranter, der aktuelt er åbne og har gode anmeldelser, frem for forældede eller lukkede steder.
+   - Den information, agenten leverer, bør være faktuelt korrekt og opdateret.
+   - Eksempel: Anbefaling af restauranter, der er åbne og har gode anmeldelser, fremfor forældede eller lukkede steder.
 
 3. **Brugerintention**:
-   - Agenten bør kunne udlede brugerens intention bag forespørgslen for at levere den mest relevante information.
-   - Eksempel: Hvis en bruger spørger efter "budgetvenlige hoteller," bør agenten prioritere overkommelige muligheder.
+   - Agenten bør udlede brugerens intention bag forespørgslen for at give den mest relevante information.
+   - Eksempel: Hvis en bruger spørger om "budgetvenlige hoteller," bør agenten prioritere prisvenlige muligheder.
 
-4. **Feedback-loop**:
-   - Kontinuerlig indsamling og analyse af brugerfeedback hjælper agenten med at forfine sin relevanseevalueringsproces.
-   - Eksempel: Indarbejde brugervurderinger og feedback om tidligere anbefalinger for at forbedre fremtidige svar.
+4. **Feedback Loop**:
+   - Kontinuerlig indsamling og analyse af brugerfeedback hjælper agenten med at forfine sin evaluering af relevans.
+   - Eksempel: Indarbejdelse af brugerbedømmelser og feedback på tidligere anbefalinger for at forbedre fremtidige svar.
 
-#### Praktiske teknikker til evaluering af relevans
+#### Praktiske Teknikker til Evaluering af Relevans
 
-1. **Relevansscoring**:
-   - Tilknyt en relevansscore til hvert hentet element baseret på, hvor godt det matcher brugerens forespørgsel og præferencer.
+1. **Relevansscore**:
+   - Tildel en relevansscore til hvert hentet element baseret på, hvor godt det matcher brugerens forespørgsel og præferencer.
    - Eksempel:
 
      ```python
@@ -755,14 +758,14 @@ Evaluering af relevans er et afgørende aspekt af AI-agenters ydeevne. Det sikre
          return score
      ```
 
-2. **Filtrering og rangering**:
-   - Filtrer irrelevante elementer fra og ranger de resterende baseret på deres relevansscore.
+2. **Filtrering og Rangering**:
+   - Filtrer irrelevante elementer fra og ranger de tilbageværende baseret på deres relevansscore.
    - Eksempel:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Returner de 10 mest relevante elementer
+         return ranked_items[:10]  # Returner top 10 relevante elementer
      ```
 
 3. **Natural Language Processing (NLP)**:
@@ -776,8 +779,8 @@ Evaluering af relevans er et afgørende aspekt af AI-agenters ydeevne. Det sikre
          return processed_query
      ```
 
-4. **Integration af brugerfeedback**:
-   - Indsaml brugerfeedback på de givne anbefalinger og brug den til at justere fremtidige relevanseevalueringer.
+4. **Integration af Brugerfeedback**:
+   - Indsaml brugerfeedback på de givne anbefalinger og brug det til at justere fremtidige vurderinger af relevans.
    - Eksempel:
 
      ```python
@@ -790,7 +793,7 @@ Evaluering af relevans er et afgørende aspekt af AI-agenters ydeevne. Det sikre
          return items
      ```
 
-#### Eksempel: Evaluering af relevans i Travel Agent
+#### Eksempel: Evaluering af Relevans i Rejseagent
 
 Her er et praktisk eksempel på, hvordan Travel Agent kan evaluere relevansen af rejseanbefalinger:
 
@@ -817,7 +820,7 @@ class Travel_Agent:
 
     def filter_and_rank(self, items, query):
         ranked_items = sorted(items, key=lambda item: self.relevance_score(item, query), reverse=True)
-        return ranked_items[:10]  # Returner top 10 relevante elementer
+        return ranked_items[:10]  # Returner de 10 mest relevante elementer
 
     def relevance_score(self, item, query):
         score = 0
@@ -837,7 +840,7 @@ class Travel_Agent:
                 item['relevance'] -= 1
         return items
 
-# Eksempel på brug
+# Eksempel på anvendelse
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -853,32 +856,32 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Søge med intention
+### Søgn med Intention
 
-At søge med intention indebærer at forstå og tolke det underliggende formål eller mål bag en brugers forespørgsel for at hente og generere den mest relevante og nyttige information. Denne tilgang går ud over blot at matche nøgleord og fokuserer på at opfange brugerens egentlige behov og kontekst.
+At søge med intention involverer at forstå og fortolke det underliggende formål eller mål bag en brugers forespørgsel for at hente og generere den mest relevante og nyttige information. Denne tilgang går ud over blot at matche nøgleord og fokuserer på at gribe brugerens faktiske behov og kontekst.
 
-#### Centrale begreber i søgning med intention
+#### Centrale Begreber i Søgning med Intention
 
-1. **Forståelse af brugerens intention**:
-   - Brugerintention kan kategoriseres i tre hovedtyper: informationssøgning, navigationssøging og transaktionssøgning.
-     - **Informationssøgning**: Brugeren søger information om et emne (f.eks. "Hvad er de bedste museer i Paris?").
-     - **Navigationssøgning**: Brugeren ønsker at navigere til en bestemt hjemmeside eller side (f.eks. "Louvre Museums officielle hjemmeside").
-     - **Transaktionssøgning**: Brugeren ønsker at udføre en handling, såsom at booke en flyrejse eller foretage et køb (f.eks. "Book en flybillet til Paris").
+1. **Forståelse af Brugerintention**:
+   - Brugerintention kan kategoriseres i tre hovedtyper: informationssøgende, navigationssøgende og transaktionelle.
+     - **Informationssøgende Intention**: Brugeren søger information om et emne (f.eks. "Hvad er de bedste museer i Paris?").
+     - **Navigationssøgende Intention**: Brugeren vil navigere til en bestemt hjemmeside eller side (f.eks. "Louvre Museums officielle hjemmeside").
+     - **Transaktionel Intention**: Brugeren sigter mod at udføre en transaktion, såsom at booke en flyrejse eller foretage et køb (f.eks. "Book en flyrejse til Paris").
 
 2. **Kontekstbevidsthed**:
-   - Analyse af konteksten i brugerens forespørgsel hjælper med præcist at identificere deres intention. Dette inkluderer tidligere interaktioner, brugerpræferencer og de konkrete detaljer i den aktuelle forespørgsel.
+   - Analyse af konteksten for brugerens forespørgsel hjælper med præcist at identificere deres intention. Dette inkluderer tidligere interaktioner, brugerpræferencer og de specifikke detaljer i den aktuelle forespørgsel.
 
 3. **Natural Language Processing (NLP)**:
-   - NLP-teknikker anvendes til at forstå og fortolke de naturlige sprogforespørgsler, som brugerne giver. Dette omfatter opgaver som entity-genkendelse, sentimentanalyse og forespørgselsparsing.
+   - NLP-teknikker anvendes til at forstå og fortolke naturlige sprogforespørgsler fra brugere. Dette inkluderer opgaver som entitetsgenkendelse, sentimentanalyse og forespørgselsparsing.
 
 4. **Personalisering**:
-   - Personliggørelse af søgeresultater baseret på brugerens historik, præferencer og feedback forbedrer relevansen af den hentede information.
+   - Personaliserede søgeresultater baseret på brugerens historik, præferencer og feedback forbedrer relevansen af den hentede information.
 
-#### Praktisk eksempel: Søge med intention i Travel Agent
+#### Praktisk Eksempel: Søgn med Intention i Rejseagent
 
 Lad os tage Travel Agent som eksempel og se, hvordan søgning med intention kan implementeres.
 
-1. **Indsamling af brugerpræferencer**
+1. **Indsamling af Brugerpræferencer**
 
    ```python
    class Travel_Agent:
@@ -889,7 +892,7 @@ Lad os tage Travel Agent som eksempel og se, hvordan søgning med intention kan 
            self.user_preferences = preferences
    ```
 
-2. **Forståelse af brugerintention**
+2. **Forståelse af Brugerintention**
 
    ```python
    def identify_intent(query):
@@ -902,9 +905,11 @@ Lad os tage Travel Agent som eksempel og se, hvordan søgning med intention kan 
    ```
 
 3. **Kontekstbevidsthed**
+
+
    ```python
    def analyze_context(query, user_history):
-       # Kombiner den aktuelle forespørgsel med brugerens historik for at forstå konteksten
+       # Kombiner aktuel forespørgsel med brugerhistorik for at forstå kontekst
        context = {
            "current_query": query,
            "user_history": user_history
@@ -928,24 +933,24 @@ Lad os tage Travel Agent som eksempel og se, hvordan søgning med intention kan 
        return personalized_results
 
    def search_information(query, preferences):
-       # Eksempelsøgelogik for informativ hensigt
+       # Eksempel på søgelogik for informationsintention
        results = search_web(f"best {preferences['interests']} in {preferences['destination']}")
        return results
 
    def search_navigation(query):
-       # Eksempelsøgelogik for navigationshensigt
+       # Eksempel på søgelogik for navigationsintention
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Eksempelsøgelogik for transaktionel hensigt
+       # Eksempel på søgelogik for transaktionsintention
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
    def personalize_results(results, user_history):
        # Eksempel på personaliseringslogik
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Returner de 10 bedste personaliserede resultater
+       return personalized[:10]  # Returner top 10 personaliserede resultater
    ```
 
 5. **Eksempel på brug**
@@ -965,46 +970,46 @@ Lad os tage Travel Agent som eksempel og se, hvordan søgning med intention kan 
 
 ---
 
-## 4. Generering af kode som værktøj
+## 4. Generering af kode som et værktøj
 
-Kodegenererende agenter bruger AI-modeller til at skrive og køre kode, løse komplekse problemer og automatisere opgaver.
+Kodegenererende agenter bruger AI-modeller til at skrive og eksekvere kode, løse komplekse problemer og automatisere opgaver.
 
 ### Kodegenererende agenter
 
-Kodegenererende agenter bruger generative AI-modeller til at skrive og køre kode. Disse agenter kan løse komplekse problemer, automatisere opgaver og levere værdifulde indsigter ved at generere og køre kode i forskellige programmeringssprog.
+Kodegenererende agenter bruger generative AI-modeller til at skrive og eksekvere kode. Disse agenter kan løse komplekse problemer, automatisere opgaver og levere værdifuld indsigt ved at generere og køre kode i forskellige programmeringssprog.
 
 #### Praktiske anvendelser
 
-1. **Automatiseret kodegenerering**: Generer kodeudsnit til specifikke opgaver, som dataanalyse, web scraping eller maskinlæring.
+1. **Automatiseret kodegenerering**: Generer kodeuddrag til specifikke opgaver, såsom dataanalyse, web-scraping eller maskinlæring.
 2. **SQL som en RAG**: Brug SQL-forespørgsler til at hente og manipulere data fra databaser.
-3. **Problemløsning**: Opret og kør kode for at løse specifikke problemer, som at optimere algoritmer eller analysere data.
+3. **Problemløsning**: Opret og eksekver kode for at løse specifikke problemer, såsom optimering af algoritmer eller dataanalyse.
 
 #### Eksempel: Kodegenererende agent til dataanalyse
 
-Forestil dig, at du designer en kodegenererende agent. Sådan kan den fungere:
+Forestil dig, at du designer en kodegenererende agent. Her er, hvordan den kunne fungere:
 
 1. **Opgave**: Analysere et datasæt for at identificere trends og mønstre.
 2. **Trin**:
    - Indlæs datasættet i et dataanalysetool.
-   - Generer SQL-forespørgsler til at filtrere og aggregere data.
-   - Kør forespørgslerne og hent resultaterne.
-   - Brug resultaterne til at generere visualiseringer og indsigter.
+   - Generer SQL-forespørgsler for at filtrere og aggregere dataene.
+   - Eksekver forespørgslerne og hent resultaterne.
+   - Brug resultaterne til at generere visualiseringer og indsigt.
 3. **Nødvendige ressourcer**: Adgang til datasættet, dataanalysetools og SQL-kapaciteter.
-4. **Erfaring**: Brug tidligere analyseresultater til at forbedre nøjagtighed og relevans af fremtidige analyser.
+4. **Erfaring**: Brug tidligere analysedata til at forbedre nøjagtigheden og relevansen af fremtidige analyser.
 
-### Eksempel: Kodegenererende agent til rejseagent
+### Eksempel: Kodegenererende agent til rejsebureau
 
-I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper brugere med at planlægge deres rejse ved at generere og køre kode. Denne agent kan håndtere opgaver som at hente rejsemuligheder, filtrere resultater og samle en rejseplan ved hjælp af generativ AI.
+I dette eksempel designer vi en kodegenererende agent, Travel Agent, til at hjælpe brugere med at planlægge deres rejse ved at generere og eksekvere kode. Denne agent kan håndtere opgaver som at hente rejsemuligheder, filtrere resultater og sammensætte en rejseplan ved hjælp af generativ AI.
 
-#### Oversigt over kodegenererende agent
+#### Oversigt over den kodegenererende agent
 
 1. **Indsamling af brugerpræferencer**: Indsamler brugerinput som destination, rejsedatoer, budget og interesser.
-2. **Generering af kode til at hente data**: Genererer kodeudsnit til at hente data om fly, hoteller og seværdigheder.
-3. **Udførelse af genereret kode**: Kører den genererede kode for at hente realtidsinformation.
-4. **Generering af rejseplan**: Samler de hentede data til en personlig rejseplan.
-5. **Tilpasning baseret på feedback**: Modtager brugerfeedback og genererer koden igen om nødvendigt for at forbedre resultaterne.
+2. **Generering af kode til dataindsamling**: Genererer kodeuddrag til at hente data om fly, hoteller og attraktioner.
+3. **Eksekvering af genereret kode**: Kører den genererede kode for at hente realtidsinformation.
+4. **Generering af rejseplan**: Sammensætter de indhentede data til en personlig rejseplan.
+5. **Justering baseret på feedback**: Modtager brugerfeedback og genererer eventuelt koden igen for at forbedre resultaterne.
 
-#### Skridt-for-skridt implementering
+#### Trin-for-trin implementering
 
 1. **Indsamling af brugerpræferencer**
 
@@ -1017,7 +1022,7 @@ I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper 
            self.user_preferences = preferences
    ```
 
-2. **Generering af kode til at hente data**
+2. **Generering af kode til dataindsamling**
 
    ```python
    def generate_code_to_fetch_data(preferences):
@@ -1041,7 +1046,7 @@ I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper 
        return code
    ```
 
-3. **Udførelse af genereret kode**
+3. **Eksekvering af genereret kode**
 
    ```python
    def execute_code(code):
@@ -1085,7 +1090,7 @@ I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper 
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Tilpasning baseret på feedback**
+5. **Justering baseret på feedback**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
@@ -1099,7 +1104,7 @@ I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper 
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Generer og udfør kode igen med opdaterede præferencer
+   # Regenerer og kør kode med opdaterede præferencer
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1110,17 +1115,17 @@ I dette eksempel designer vi en kodegenererende agent, Rejseagent, som hjælper 
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Udnyttelse af miljøbevidsthed og ræsonnering
+### Udnyttelse af miljøbevidsthed og ræsonnement
 
-Baseret på skemaet for tabellen kan man forbedre forespørgselsgenereringsprocessen ved at udnytte miljøbevidsthed og ræsonnering.
+Baseret på skemaet for tabellen kan det faktisk forbedre forespørgselsgenereringsprocessen ved at udnytte miljøbevidsthed og ræsonnement.
 
 Her er et eksempel på, hvordan dette kan gøres:
 
-1. **Forståelse af skemaet**: Systemet forstår skemaet for tabellen og bruger denne information til at forankre forespørgselsgenereringen.
-2. **Tilpasning baseret på feedback**: Systemet tilpasser brugerpræferencer baseret på feedback og ræsonnerer om, hvilke felter i skemaet der skal opdateres.
-3. **Generering og udførelse af forespørgsler**: Systemet genererer og udfører forespørgsler for at hente opdaterede fly- og hoteldata baseret på de nye præferencer.
+1. **Forståelse af skemaet**: Systemet forstår tabellens skema og bruger denne information til at forankre genereringen af forespørgsler.
+2. **Justering baseret på feedback**: Systemet justerer brugerpræferencer baseret på feedback og ræsonnerer om, hvilke felter i skemaet der skal opdateres.
+3. **Generering og eksekvering af forespørgsler**: Systemet genererer og eksekverer forespørgsler for at hente opdaterede fly- og hoteldata baseret på de nye præferencer.
 
-Her er et opdateret Python-eksempel, der inkorporerer disse koncepter:
+Her er et opdateret Python-kodeeksempel, der inkorporerer disse koncepter:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
@@ -1129,14 +1134,14 @@ def adjust_based_on_feedback(feedback, preferences, schema):
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
         preferences["avoid"] = feedback["disliked"]
-    # Ræsonnere baseret på skema for at justere andre relaterede præferencer
+    # Begrænsning baseret på skema for at justere andre relaterede præferencer
     for field in schema:
         if field in preferences:
             preferences[field] = adjust_based_on_environment(feedback, field, schema)
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Brugerdefineret logik til at justere præferencer baseret på skema og feedback
+    # Tilpasset logik til at justere præferencer baseret på skema og feedback
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1152,7 +1157,7 @@ def generate_code_to_fetch_hotels(preferences):
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # Simuler eksekvering af kode og returner mock-data
+    # Simuler udførelse af kode og returner eksempeldata
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
@@ -1165,12 +1170,12 @@ schema = {
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Eksempel på anvendelse
+# Eksempelbrug
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Generer og eksekver kode med opdaterede præferencer igen
+# Generer og udfør kode igen med opdaterede præferencer
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1183,23 +1188,23 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Forklaring - Booking baseret på feedback
 
-1. **Skema-bevidsthed**: `schema`-ordbogen definerer, hvordan præferencer skal justeres baseret på feedback. Den inkluderer felter som `favorites` og `avoid` med tilhørende justeringer.
-2. **Tilpasning af præferencer (`adjust_based_on_feedback` metode)**: Denne metode justerer præferencer baseret på brugerfeedback og skemaet.
-3. **Miljøbaserede justeringer (`adjust_based_on_environment` metode)**: Denne metode tilpasser justeringerne baseret på skemaet og feedback.
-4. **Generering og udførelse af forespørgsler**: Systemet genererer kode til at hente opdaterede fly- og hoteldata baseret på de justerede præferencer og simulerer udførelsen af disse forespørgsler.
-5. **Generering af rejseplan**: Systemet opretter en opdateret rejseplan baseret på de nye fly-, hotel- og attraktiondata.
+1. **Skemabevidsthed**: Ordbogen `schema` definerer, hvordan præferencer skal justeres baseret på feedback. Den inkluderer felter som `favorites` og `avoid` med tilhørende justeringer.
+2. **Justering af præferencer (`adjust_based_on_feedback`-metoden)**: Denne metode justerer præferencer baseret på brugerfeedback og skemaet.
+3. **Miljøbaserede justeringer (`adjust_based_on_environment`-metoden)**: Denne metode tilpasser justeringerne baseret på skema og feedback.
+4. **Generering og eksekvering af forespørgsler**: Systemet genererer kode til at hente opdateret fly- og hoteldata baseret på de justerede præferencer og simulerer udførelsen af disse forespørgsler.
+5. **Generering af rejseplan**: Systemet laver en opdateret rejseplan baseret på de nye fly-, hotel- og attraktionsdata.
 
 Ved at gøre systemet miljøbevidst og ræsonnere baseret på skemaet kan det generere mere præcise og relevante forespørgsler, hvilket fører til bedre rejseanbefalinger og en mere personlig brugeroplevelse.
 
 ### Brug af SQL som Retrieval-Augmented Generation (RAG) teknik
 
-SQL (Structured Query Language) er et kraftfuldt værktøj til interaktion med databaser. Når det bruges som en del af en Retrieval-Augmented Generation (RAG) tilgang, kan SQL hente relevante data fra databaser for at informere og generere svar eller handlinger i AI-agenter. Lad os undersøge, hvordan SQL kan bruges som en RAG-teknik i konteksten af Rejseagent.
+SQL (Structured Query Language) er et kraftfuldt værktøj til at interagere med databaser. Når det bruges som en del af en Retrieval-Augmented Generation (RAG) tilgang, kan SQL hente relevante data fra databaser for at informere og generere svar eller handlinger i AI-agenter. Lad os se på, hvordan SQL kan bruges som en RAG-teknik i sammenhæng med Travel Agent.
 
-#### Nøglebegreber
+#### Nøglekoncepter
 
 1. **Databaseinteraktion**:
-   - SQL bruges til at forespørge databaser, hente relevante informationer og manipulere data.
-   - Eksempel: Hentning af flydetaljer, hotelinformation og seværdigheder fra en rejse database.
+   - SQL bruges til at forespørge databaser, hente relevant information og manipulere data.
+   - Eksempel: Hente flyoplysninger, hotelinformationer og attraktioner fra en rejsedatabase.
 
 2. **Integration med RAG**:
    - SQL-forespørgsler genereres baseret på brugerinput og præferencer.
@@ -1207,27 +1212,27 @@ SQL (Structured Query Language) er et kraftfuldt værktøj til interaktion med d
 
 3. **Dynamisk forespørgselsgenerering**:
    - AI-agenten genererer dynamiske SQL-forespørgsler baseret på kontekst og brugerbehov.
-   - Eksempel: Tilpasning af SQL-forespørgsler til at filtrere resultater baseret på budget, datoer og interesser.
+   - Eksempel: Tilpasning af SQL-forespørgsler for at filtrere resultater baseret på budget, datoer og interesser.
 
 #### Anvendelser
 
-- **Automatiseret kodegenerering**: Generer kodeudsnit til specifikke opgaver.
-- **SQL som RAG**: Brug SQL-forespørgsler til at manipulere data.
-- **Problemløsning**: Opret og kør kode for at løse problemer.
+- **Automatiseret kodegenerering**: Generer kodeuddrag til specifikke opgaver.
+- **SQL som en RAG**: Brug SQL-forespørgsler til at manipulere data.
+- **Problemløsning**: Opret og eksekver kode for at løse problemer.
 
 **Eksempel**:
-En dataanalyse-agent:
+En dataanalyseagent:
 
 1. **Opgave**: Analysere et datasæt for at finde trends.
 2. **Trin**:
    - Indlæs datasættet.
-   - Generer SQL-forespørgsler til at filtrere data.
-   - Udfør forespørgsler og hent resultater.
-   - Generer visualiseringer og indsigter.
+   - Generer SQL-forespørgsler for at filtrere data.
+   - Eksekver forespørgsler og hent resultater.
+   - Generer visualiseringer og indsigt.
 3. **Ressourcer**: Adgang til datasæt, SQL-kapaciteter.
 4. **Erfaring**: Brug tidligere resultater til at forbedre fremtidige analyser.
 
-#### Praktisk eksempel: Brug af SQL i Rejseagent
+#### Praktisk eksempel: Brug af SQL i Travel Agent
 
 1. **Indsamling af brugerpræferencer**
 
@@ -1252,7 +1257,7 @@ En dataanalyse-agent:
        return query
    ```
 
-3. **Udførelse af SQL-forespørgsler**
+3. **Eksekvering af SQL-forespørgsler**
 
    ```python
    import sqlite3
@@ -1305,7 +1310,7 @@ En dataanalyse-agent:
    SELECT * FROM flights WHERE destination='Paris' AND dates='2025-04-01 to 2025-04-10' AND budget='moderate';
    ```
 
-2. **Hotelforespørgsel**
+2. **Hotel-forespørgsel**
 
    ```sql
    SELECT * FROM hotels WHERE destination='Paris' AND budget='moderate';
@@ -1317,27 +1322,27 @@ En dataanalyse-agent:
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Ved at udnytte SQL som en del af Retrieval-Augmented Generation (RAG) teknikken kan AI-agenter som Rejseagent dynamisk hente og anvende relevante data for at give præcise og personlige anbefalinger.
+Ved at udnytte SQL som en del af Retrieval-Augmented Generation (RAG) teknikken kan AI-agenter som Travel Agent dynamisk hente og bruge relevante data til at levere nøjagtige og personlige anbefalinger.
 
 ### Eksempel på metakognition
 
-For at demonstrere en implementering af metakognition, lad os skabe en simpel agent, der *reflekterer over sin beslutningsproces* mens den løser et problem. Til dette eksempel bygger vi et system, hvor en agent forsøger at optimere valget af et hotel, men derefter evaluerer sin egen ræsonnering og justerer sin strategi, når den laver fejl eller suboptimale valg.
+For at demonstrere en implementering af metakognition, lad os skabe en simpel agent, der *reflekterer over sin beslutningsproces*, mens den løser et problem. I dette eksempel bygger vi et system, hvor en agent prøver at optimere valget af et hotel, men derefter evaluerer sin egen ræsonnering og justerer sin strategi, når den begår fejl eller laver suboptimale valg.
 
-Vi simulerer dette ved hjælp af et grundlæggende eksempel, hvor agenten vælger hoteller baseret på en kombination af pris og kvalitet, men den vil "reflektere" over sine beslutninger og justere sig derefter.
+Vi vil simulere dette med et grundlæggende eksempel, hvor agenten vælger hoteller baseret på en kombination af pris og kvalitet, men den vil "reflektere" over sine beslutninger og justere dem derefter.
 
 #### Hvordan dette illustrerer metakognition:
 
-1. **Indledende beslutning**: Agenten vælger det billigste hotel uden at forstå kvalitetens betydning.
-2. **Refleksion og evaluering**: Efter det indledende valg tjekker agenten, om hotellet var et "dårligt" valg baseret på brugerfeedback. Finder den, at hotellets kvalitet var for lav, reflekterer den over sin ræsonnering.
-3. **Justering af strategi**: Agenten tilpasser sin strategi baseret på refleksionen og skifter fra "billigst" til "højeste_kvalitet", hvilket forbedrer beslutningsprocessen i fremtidige iterationer.
+1. **Indledende beslutning**: Agenten vælger det billigste hotel uden at forstå kvalitetsindvirkningen.
+2. **Refleksion og evaluering**: Efter det indledende valg vil agenten tjekke, om hotellet var et "dårligt" valg ved hjælp af brugerfeedback. Hvis den finder ud af, at hotellets kvalitet var for lav, reflekterer den over sin ræsonnering.
+3. **Justering af strategi**: Agenten justerer sin strategi baseret på sin refleksion og skifter fra "billigst" til "højeste_kvalitet", hvilket forbedrer beslutningsprocessen i fremtidige iterationer.
 
 Her er et eksempel:
 
 ```python
 class HotelRecommendationAgent:
     def __init__(self):
-        self.previous_choices = []  # Gemmer de tidligere valgte hoteller
-        self.corrected_choices = []  # Gemmer de korrigerede valg
+        self.previous_choices = []  # Gemmer de hoteller, der tidligere er valgt
+        self.corrected_choices = []  # Gemmer de rettede valg
         self.recommendation_strategies = ['cheapest', 'highest_quality']  # Tilgængelige strategier
 
     def recommend_hotel(self, hotels, strategy):
@@ -1367,7 +1372,7 @@ class HotelRecommendationAgent:
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
-            # Juster strategi, hvis det forrige valg var utilfredsstillende
+            # Juster strategi, hvis det tidligere valg var utilfredsstillende
             new_strategy = 'highest_quality' if last_choice_strategy == 'cheapest' else 'cheapest'
             self.corrected_choices.append((new_strategy, last_choice))
             return f"Reflecting on choice. Adjusting strategy to {new_strategy}."
@@ -1402,26 +1407,26 @@ print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# Trin 3: Agenten anbefaler igen, denne gang med den justerede strategi
+# Trin 3: Agenten anbefaler igen, denne gang ved hjælp af den justerede strategi
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
 #### Agenters metakognitive evner
 
-Nøglen her er agentens evne til at:
+Det centrale her er agentens evne til at:
 - Evaluere sine tidligere valg og beslutningsproces.
 - Justere sin strategi baseret på denne refleksion, dvs. metakognition i praksis.
 
-Dette er en simpel form for metakognition, hvor systemet er i stand til at tilpasse sin ræsonneringsproces baseret på intern feedback.
+Dette er en simpel form for metakognition, hvor systemet er i stand til at justere sin ræsonneringsproces baseret på intern feedback.
 
 ### Konklusion
 
-Metakognition er et kraftfuldt værktøj, som markant kan forbedre AI-agenters evner. Ved at inkorporere metakognitive processer kan du designe agenter, der er mere intelligente, tilpasningsdygtige og effektive. Brug de ekstra ressourcer til yderligere at udforske den fascinerende verden af metakognition i AI-agenter.
+Metakognition er et kraftfuldt værktøj, som signifikant kan forbedre AI-agenters evner. Ved at inkorporere metakognitive processer kan du designe agenter, der er mere intelligente, tilpasningsdygtige og effektive. Brug de ekstra ressourcer til at udforske den fascinerende verden af metakognition i AI-agenter yderligere.
 
-### Har du flere spørgsmål om Metakognition-designmønsteret?
+### Har du flere spørgsmål om metakognitionsdesignmønsteret?
 
-Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre lærende, deltage i åbningstimer og få svar på dine AI Agent-spørgsmål.
+Deltag i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for at møde andre lærende, deltage i office hours og få svar på dine spørgsmål om AI-agenters design.
 
 ## Forrige lektion
 
@@ -1435,5 +1440,5 @@ Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at m�
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfraskrivelse**:
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi stræber efter nøjagtighed, bedes du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på originalsproget bør betragtes som den autoritative kilde. For vigtig information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, som måtte opstå ved brug af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

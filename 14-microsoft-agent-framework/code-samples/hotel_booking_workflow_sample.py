@@ -40,6 +40,7 @@ from agent_framework import (
     executor,
 )
 from agent_framework.openai import OpenAIChatClient
+from azure.identity import AzureCliCredential
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
@@ -181,11 +182,36 @@ async def main() -> None:
     print("🏨 HOTEL BOOKING CONDITIONAL WORKFLOW")
     print("=" * 80)
 
-    # GitHub Models or Azure OpenAI
+    # Provider selection: Azure OpenAI (Responses API), OpenAI, or MiniMax
+    # The OpenAIChatClient works with any OpenAI-compatible API, and targets the
+    # Azure OpenAI Responses API when given an azure_endpoint + credential.
+    minimax_api_key = os.getenv("MINIMAX_API_KEY")
+    azure_openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     openai_api_key = os.getenv("OPENAI_API_KEY")
-    github_token = os.getenv("GITHUB_TOKEN")
-    chat_client = OpenAIChatClient(base_url=os.environ.get(
-        "GITHUB_ENDPOINT"), api_key=os.environ.get("GITHUB_TOKEN"), model_id="gpt-4o")
+
+    if minimax_api_key:
+        # MiniMax: OpenAI-compatible API with large context window (up to 204K tokens).
+        # Defaults to MiniMax-M3; override MINIMAX_MODEL_ID if your account/region
+        # doesn't have access to it (e.g. set it to MiniMax-M2.7).
+        chat_client = OpenAIChatClient(
+            base_url=os.environ.get("MINIMAX_BASE_URL", "https://api.minimax.io/v1"),
+            api_key=minimax_api_key,
+            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M3"),
+        )
+        print("Using MiniMax provider")
+    elif azure_openai_endpoint:
+        # Azure OpenAI (Responses API). Sign in with `az login` for keyless Entra ID auth.
+        # GitHub Models is deprecated (retiring July 2026) and does not support the Responses API.
+        chat_client = OpenAIChatClient(
+            azure_endpoint=azure_openai_endpoint,
+            credential=AzureCliCredential(),
+            model_id=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini"),
+        )
+        print("Using Azure OpenAI (Responses API) provider")
+    else:
+        # Default: OpenAI
+        chat_client = OpenAIChatClient(model_id="gpt-5-mini")
+        print("Using OpenAI provider")
 
 
 

@@ -1,187 +1,200 @@
-[![Dizajn s viacerými agentmi](../../../translated_images/sk/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Návrhové vzory preViacagentný systém](../../../translated_images/sk/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa tejto lekcie)_
 
-# Dizajnové vzory s viacerými agentmi
+# Návrhové vzory pre viacagentné systémy
 
-Akonáhle začnete pracovať na projekte, ktorý zahŕňa viacerých agentov, budete musieť zvážiť dizajnový vzor s viacerými agentmi. Nie je však vždy okamžite jasné, kedy prejsť na viac agentov a aké sú výhody.
+Hneď ako začnete pracovať na projekte, ktorý zahŕňa viac agentov, budete musieť zvážiť návrhový vzor viacagentného systému. Nemusí však byť hneď jasné, kedy prejsť na viac agentov a aké výhody to prináša.
 
 ## Úvod
 
-V tejto lekcii sa snažíme zodpovedať nasledujúce otázky:
+V tejto lekcii sa pokúsime odpovedať na nasledujúce otázky:
 
-- V akých scenároch je použitie viacerých agentov vhodné?
-- Aké sú výhody použitia viacerých agentov oproti jednému agentovi vykonávajúcemu viac úloh?
-- Aké sú stavebné prvky implementácie dizajnového vzoru s viacerými agentmi?
-- Ako môžeme získať prehľad o tom, ako viacerí agenti navzájom spolupracujú?
+- V ktorých scenároch sú viacagentné systémy použiteľné?
+- Aké sú výhody používania viacerých agentov oproti jednému agentovi, ktorý vykonáva viac úloh?
+- Aké sú stavebné bloky implementácie návrhového vzoru viacagentného systému?
+- Ako získať prehľad o tom, ako viacerí agenti navzájom interagujú?
 
-## Ciele učenia
+## Ciele učenia sa
 
 Po tejto lekcii by ste mali byť schopní:
 
-- Identifikovať scenáre, kde je použitie viacerých agentov vhodné
-- Rozpoznať výhody použitia viacerých agentov oproti jednému agentovi
-- Pochopiť stavebné prvky implementácie dizajnového vzoru s viacerými agentmi
+- Identifikovať scenáre, v ktorých sú viacagentné systémy vhodné
+- Rozpoznať výhody používania viacerých agentov oproti jednému agentovi.
+- Pochopiť stavebné bloky implementácie viacagentného návrhového vzoru.
 
-Aký je širší kontext?
+Aký je širší obraz?
 
-*Viac agentov je dizajnový vzor, ktorý umožňuje viacerým agentom spolupracovať na dosiahnutí spoločného cieľa.*
+*Viacagentné systémy sú návrhový vzor, ktorý umožňuje viacerým agentom spolupracovať na dosiahnutí spoločného cieľa*.
 
-Tento vzor sa široko používa v rôznych oblastiach, vrátane robotiky, autonómnych systémov a distribuovaných výpočtov.
+Tento vzor sa široko používa v rôznych oblastiach, vrátane robotiky, autonómnych systémov a distribuovaného výpočtu.
 
-## Scenáre, kde je použitie viacerých agentov vhodné
+## Scenáre, kde sa viacagentné systémy využívajú
 
-Ktoré scenáre sú teda dobrým prípadom použitia viacerých agentov? Odpoveď je, že existuje mnoho scenárov, kde použitie viacerých agentov prináša výhody, hlavne v nasledujúcich prípadoch:
+Ktoré scenáre sú teda dobrým prípadom použitia viacagentných systémov? Odpoveďou je, že existuje mnoho prípadov, kde je výhodné použiť viac agentov, najmä v týchto prípadoch:
 
-- **Veľké pracovné zaťaženie**: Veľké pracovné zaťaženie sa môže rozdeliť na menšie úlohy a priradiť rôznym agentom, čo umožňuje paralelné spracovanie a rýchlejšie dokončenie. Príkladom je veľká úloha na spracovanie údajov.
-- **Zložité úlohy**: Podobne ako pri veľkom pracovnom zaťažení, zložité úlohy sa môžu rozdeliť na menšie podúlohy a priradiť rôznym agentom, ktorí sa špecializujú na konkrétne aspekty úlohy. Dobrou ukážkou sú autonómne vozidlá, kde rôzni agenti riadia navigáciu, detekciu prekážok a komunikáciu s inými vozidlami.
-- **Rôznorodá odbornosť**: Rôzni agenti môžu mať rôzne odborné znalosti, čo im umožňuje efektívnejšie riešiť rôzne aspekty úlohy než jeden agent. Príkladom je zdravotná starostlivosť, kde agenti spravujú diagnostiku, liečebné plány a monitorovanie pacientov.
+- **Veľké pracovné zaťaženie**: Veľké pracovné zaťaženie je možné rozdeliť na menšie úlohy a priradiť rôznym agentom, čo umožňuje paralelné spracovanie a rýchlejšie dokončenie. Príkladom je spracovanie veľkých dátových úloh.
+- **Zložité úlohy**: Zložité úlohy, podobne ako veľké pracovné zaťaženie, je možné rozložiť na menšie podúlohy a priradiť rôznym agentom, ktorí sa špecializujú na konkrétny aspekt úlohy. Dobrým príkladom sú autonómne vozidlá, kde rôzni agenti riadia navigáciu, detekciu prekážok a komunikáciu s ostatnými vozidlami.
+- **Rôznorodé znalosti**: Rôzni agenti môžu mať rôzne znalosti, čo im umožňuje efektívnejšie riešiť rôzne aspekty úlohy než jeden agent. Príkladom je zdravotná starostlivosť, kde agenti spravujú diagnostiku, liečebné plány a monitorovanie pacienta.
 
-## Výhody použitia viacerých agentov oproti jednému agentovi
+## Výhody používania viacerých agentov oproti jednému agentovi
 
-Jednoagentový systém môže fungovať dobre pre jednoduché úlohy, no pri zložitejších úlohách môže použitie viacerých agentov priniesť niekoľko výhod:
+Jednoagentový systém môže dobre fungovať pri jednoduchých úlohách, no pri zložitejších úlohách používanie viacerých agentov prináša niekoľko výhod:
 
-- **Špecializácia**: Každý agent môže byť špecializovaný na konkrétnu úlohu. Nedostatok špecializácie v jednom agentovi znamená, že má agent na starosť všetko, ale môže byť zmätený pri riešení zložitej úlohy. Môže napríklad skončiť pri úlohe, na ktorú nie je najvhodnejší.
-- **Škálovateľnosť**: Ľahšie je škálovať systémy pridaním ďalších agentov než preťažovaním jedného agenta.
-- **Odolnosť voči chybám**: Ak jeden agent zlyhá, ostatní môžu pokračovať v činnosti, čo zabezpečuje spoľahlivosť systému.
+- **Špecializácia**: Každý agent sa môže špecializovať na konkrétnu úlohu. Neschopnosť špecializácie v jednom agentovi znamená, že agent, ktorý robí všetko, môže byť zmätený, čo má robiť pri zložitých úlohách. Môže napríklad skončiť pri vykonávaní úlohy, na ktorú nie je najvhodnejší.
+- **Škálovateľnosť**: Je jednoduchšie škálovať systémy pridaním ďalších agentov ako preťažovaním jediného agenta.
+- **Odolnosť voči chybám**: Ak jeden agent zlyhá, ostatní môžu pokračovať v činnosti, čím sa zabezpečuje spoľahlivosť systému.
 
-Príkladom môže byť rezervácia výletu pre používateľa. Jednoagentový systém by musel riešiť všetky aspekty rezervácie, od hľadania letov, cez rezervovanie hotelov až po prenájom áut. Aby to zvládol, musel by mať agent nástroje na spracovanie všetkých týchto úloh. To by mohlo viesť ku komplikovanému a monolitickému systému, ktorý je ťažko udržiavateľný a škálovateľný. Multi-agentový systém by naopak mohol mať rôznych agentov špecializovaných na hľadanie letov, rezerváciu hotelov a prenájom áut. Takýto systém je modulárnejší, ľahšie sa udržiava a je škálovateľný.
+Uveďme príklad, rezervujme používateľovi výlet. Jednoagentový systém by musel zvládnuť všetky aspekty rezervácie výletu, od vyhľadania letov cez rezerváciu hotelov až po prenájom áut. Aby to zvládol, agent by potreboval nástroje na všetky tieto úlohy. To by mohlo viesť k zložitému a monolitickému systému, ktorý je ťažko udržiavateľný a škálovateľný. Naopak, viacagentový systém by mohol mať rôznych agentov špecializovaných na vyhľadávanie letov, rezerváciu hotelov a prenájom áut. To by systém spravilo modulárnejším, ľahšie udržiavateľným a škálovateľným.
 
-Porovnajte to s cestovnou kanceláriou prevádzkovanou ako malý rodinný podnik oproti kancelárii fungujúcej ako franšíza. Rodinný podnik by mal jednoliateho agenta, ktorý rieši všetky aspekty rezervácie výletu, zatiaľ čo franšíza by mala rôznych agentov, ktorí spravujú rozdielne časti procesu rezervácie.
+Porovnajte to s cestovnou kanceláriou prevádzkovanou ako malý rodinný obchod oproti cestovnej kancelárii prevádzkovanej ako franšíza. Rodinný obchod by mal jedného agenta spravujúceho všetky aspekty rezervácie výletu, zatiaľ čo franšíza by mala rôznych agentov riešiacich rôzne časti procesu.
 
-## Stavebné prvky implementácie dizajnového vzoru s viacerými agentmi
+## Stavebné bloky implementácie viacagentného návrhového vzoru
 
-Predtým, než implementujete dizajnový vzor s viacerými agentmi, musíte pochopiť, z akých prvkov sa skladá.
+Pred implementáciou viacagentného návrhového vzoru musíte pochopiť jeho stavebné bloky.
 
-Opäť si to konkretizujeme na príklade rezervácie výletu pre používateľa. Stavebné prvky by mohli obsahovať:
+Pre lepšiu predstavu sa znovu pozrime na príklad rezervácie výletu pre používateľa. V tomto prípade stavebné bloky zahŕňajú:
 
-- **Komunikácia agentov**: Agent pre hľadanie letov, agent pre rezerváciu hotelov a agent pre prenájom áut musia komunikovať a zdieľať informácie o používateľových preferenciách a obmedzeniach. Musíte rozhodnúť o protokoloch a metódach tejto komunikácie. Konkrétne to znamená, že agent pre hľadanie letov musí komunikovať s agentom pre rezerváciu hotelov, aby bol hotel rezervovaný na rovnaké dátumy ako let. To znamená, že agenti si musia vymeniť informácie o dátumoch cesty používateľa, teda musíte určiť *ktorí agenti si informácie zdieľajú a ako si ich zdieľajú*.
-- **Koordinačné mechanizmy**: Agenti musia koordinovať svoje činnosti, aby splnili preferencie a obmedzenia používateľa. Používateľ môže preferovať hotel blízko letiska, zatiaľ čo obmedzenie môže byť, že prenájom áut je možný len na letisku. To znamená, že agent pre rezerváciu hotelov musí koordinovať s agentom pre prenájom áut tak, aby boli splnené preferencie a obmedzenia používateľa. Musíte teda rozhodnúť *ako agenti koordinujú svoje činnosti*.
-- **Architektúra agenta**: Agenti musia mať vnútornú štruktúru na rozhodovanie a učenie sa zo svojich interakcií s používateľom. To znamená, že agent pre hľadanie letov musí mať štruktúru na rozhodovanie, ktoré lety odporučiť. Musíte teda určiť *ako agenti robia rozhodnutia a učia sa z interakcií s používateľom*. Príklady, ako sa agent učí a zlepšuje, môžu byť napríklad použitie modelu strojového učenia na odporúčanie letov na základe predchádzajúcich preferencií používateľa.
-- **Prehľad o interakciách viacerých agentov**: Musíte mať prehľad o tom, ako viacerí agenti spolupracujú. To znamená, že potrebujete nástroje a techniky na sledovanie aktivít a interakcií agentov. Môžu to byť nástroje na logovanie a monitorovanie, vizualizačné nástroje a metriky výkonu.
-- **Vzory viacerých agentov**: Existujú rôzne vzory implementácie multi-agentových systémov, ako sú centralizovaná, decentralizovaná a hybridná architektúra. Musíte vybrať vzor, ktorý najlepšie sedí vášmu prípadu použitia.
-- **Človek v slučke**: Vo väčšine prípadov bude človek v slučke a vy musíte inštruovať agentov, kedy majú požiadať o ľudský zásah. Môže to byť napríklad vtedy, keď používateľ požaduje konkrétny hotel alebo let, ktorý agenti neodporučili, alebo keď je potrebné potvrdenie pred rezerváciou letu či hotela.
+- **Komunikácia agentov**: Agenti zodpovední za vyhľadávanie letov, rezerváciu hotelov a prenájom áut musia komunikovať a zdieľať informácie o preferenciách a obmedzeniach používateľa. Konkrétne, agent pre vyhľadávanie letov musí komunikovať s agentom pre rezerváciu hotelov, aby sa zabezpečilo, že hotel je rezervovaný na rovnaké dátumy ako let. To znamená, že agenti musia zdieľať informácie o dátumoch cesty používateľa, takže musíte rozhodnúť *ktorí agenti zdieľajú aké informácie a ako*.
+- **Koordinačné mechanizmy**: Agenti musia koordinovať svoje činnosti, aby splnili preferencie a obmedzenia používateľa. Napríklad používateľ preferuje hotel blízko letiska, no obmedzením je, že prenájom áut je možný len na letisku. To znamená, že agent pre rezerváciu hotelov musí koordinovať s agentom pre prenájom áut, aby sa zabezpečilo splnenie preferencií a obmedzení. Musíte teda rozhodnúť *ako agenti koordinujú svoje akcie*.
+- **Architektúra agenta**: Agenti musia mať vnútornú štruktúru na rozhodovanie a učenie sa z interakcií s používateľom. Agent pre vyhľadávanie letov musí mať štruktúru na rozhodovanie o tom, ktoré lety odporučiť používateľovi. Musíte teda rozhodnúť *ako agenti robia rozhodnutia a učia sa z interakcií s používateľom*. Príkladom môže byť, že agent pre vyhľadávanie letov použije model strojového učenia na odporúčanie letov na základe minulých preferencií používateľa.
+- **Prehľad o interakciách viac agentov**: Musíte mať prehľad o tom, ako viacerí agenti medzi sebou interagujú. To znamená mať nástroje a techniky na sledovanie aktivít a interakcií agentov, ako sú nástroje na logovanie a monitorovanie, vizualizácie a výkonnostné metriky.
+- **Vzory viacagentných systémov**: Existujú rôzne vzory implementácie viacagentných systémov, ako sú centralizované, decentralizované a hybridné architektúry. Musíte si vybrať vzor, ktorý najlepšie vyhovuje vášmu prípadu použitia.
+- **Človek v slučke**: Vo väčšine prípadov bude človek v slučke a musíte agentov poučiť, kedy žiadať o zásah človeka. Môže to byť v podobe používateľa žiadajúceho o konkrétny hotel alebo let, ktorý agenti neodporučili, alebo požiadavka na potvrdenie pred rezerváciou letu či hotela.
 
-## Prehľad o interakciách viacerých agentov
+## Prehľad o interakciách viac agentov
 
-Je dôležité, aby ste mali prehľad o tom, ako viacerí agenti spolupracujú. Tento prehľad je nevyhnutný na ladenie, optimalizáciu a zabezpečenie efektívnosti celého systému. Na dosiahnutie tohto cieľa potrebujete nástroje a techniky na sledovanie aktivít a interakcií agentov. Môžu to byť nástroje na logovanie a monitorovanie, vizualizačné nástroje a metriky výkonu.
+Je dôležité mať prehľad o tom, ako viacerí agenti medzi sebou interagujú. Tento prehľad je nevyhnutný na ladenie, optimalizáciu a zaistenie efektívnosti celého systému. Na to potrebujete nástroje a techniky na sledovanie aktivít a interakcií agentov, ako sú nástroje na logovanie a monitorovanie, vizualizácie a výkonnostné metriky.
 
-Napríklad v prípade rezervácie výletu by ste mohli mať panel, ktorý zobrazuje stav každého agenta, používateľove preferencie a obmedzenia a interakcie medzi agentmi. Tento panel by mohol zobrazovať dátumy cesty používateľa, lety odporúčané agentom pre lety, hotely odporúčané agentom pre hotely a autopožičovne odporúčané agentom pre prenájom áut. To by vám poskytlo jasný prehľad o tom, ako agenti navzájom spolupracujú a či sú splnené preferencie a obmedzenia používateľa.
+Napríklad pri rezervácii výletu pre používateľa by ste mohli mať dashboard, ktorý ukazuje stav jednotlivých agentov, preferencie a obmedzenia používateľa a interakcie medzi agentmi. Tento dashboard by mohol zobraziť dátumy cesty používateľa, lety odporúčané agentom pre lety, hotely odporúčané hotelovým agentom a prenájom áut odporúčaný agentom pre prenájom áut. To by vám poskytlo jasný prehľad o tom, ako agenti medzi sebou interagujú a či sa dodržiavajú preferencie a obmedzenia používateľa.
 
 Pozrime sa na jednotlivé aspekty podrobnejšie.
 
-- **Nástroje na logovanie a monitorovanie**: Chcete, aby bol logovaný každý krok agenta. Záznam logu môže uložiť informácie o tom, ktorý agent vykonal akciu, akú akciu vykonal, kedy to bolo a ako dopadla. Tieto informácie možno použiť na ladenie, optimalizáciu a ďalšie účely.
+- **Nástroje na logovanie a monitorovanie**: Chcete logovať každú akciu agenta. Záznam môže obsahovať informácie o agentovi, ktorý akciu vykonal, akciu samotnú, čas vykonania a výsledok akcie. Tieto údaje je možné použiť na ladenie, optimalizáciu a iné účely.
 
-- **Vizualizačné nástroje**: Vizualizačné nástroje vám môžu pomôcť vidieť interakcie medzi agentmi intuitívnejším spôsobom. Napríklad graf, ktorý zobrazuje tok informácií medzi agentmi, môže pomôcť identifikovať úzke miesta, neefektivity a ďalšie problémy v systéme.
+- **Nástroje na vizualizáciu**: Vizualizácie vám pomôžu vidieť interakcie medzi agentmi intuitívnejším spôsobom. Napríklad graf, ktorý ukazuje tok informácií medzi agentmi, môže pomôcť identifikovať úzke miesta, neefektívnosť a iné problémy v systéme.
 
-- **Metriky výkonu**: Metriky výkonu vám pomôžu sledovať efektivitu multi-agentového systému. Môžete sledovať napríklad čas potrebný na dokončenie úlohy, počet dokončených úloh za jednotku času a presnosť odporúčaní agentov. Tieto informácie vám pomôžu identifikovať oblasti na zlepšenie a optimalizovať systém.
+- **Metriky výkonnosti**: Metriky výkonnosti pomáhajú sledovať efektívnosť viacagentného systému. Napríklad môžete sledovať čas potrebný na dokončenie úlohy, počet dokončených úloh za jednotku času a presnosť odporúčaní agentov. Tieto informácie vám pomôžu nájsť oblasti na zlepšenie a optimalizovať systém.
 
-## Vzory viacerých agentov
+## Vzory viacagentných systémov
 
-Pozrime sa na konkrétne vzory, ktoré môžeme použiť na vytvorenie aplikácií s viacerými agentmi. Tu sú niektoré zaujímavé vzory, ktoré stojí za zváženie:
+Poďme sa pozrieť na niektoré konkrétne vzory, ktoré môžeme použiť na vytvorenie viacagentných aplikácií. Tu sú niektoré zaujímavé vzory, ktoré stojí za zváženie:
 
 ### Skupinový chat
 
-Tento vzor je užitočný, keď chcete vytvoriť aplikáciu skupinového chatu, kde viacerí agenti môžu medzi sebou komunikovať. Typické prípady použitia zahŕňajú tímovú spoluprácu, zákaznícku podporu a sociálne siete.
+Tento vzor je užitočný, keď chcete vytvoriť aplikáciu skupinového chatu, kde si viacerí agenti môžu vymieňať správy. Typické použitia sú tímová spolupráca, zákaznícka podpora a sociálne siete.
 
-V tomto vzore každý agent predstavuje používateľa v skupinovom chate a správy sa medzi agentmi vymieňajú pomocou spravodajského protokolu. Agenti môžu posielať správy do skupiny, prijímať správy zo skupiny a odpovedať na správy od iných agentov.
+V tomto vzore každý agent predstavuje používateľa v skupinovom chate a správy sa vymieňajú medzi agentmi pomocou protokolu správy. Agenti môžu odosielať správy do chatu, prijímať správy zo skupiny a reagovať na správy od ostatných agentov.
 
-Tento vzor možno implementovať pomocou centralizovanej architektúry, kde sú všetky správy smerované cez centrálny server, alebo decentralizovanej architektúry, kde sa správy vymieňajú priamo.
+Tento vzor môže byť implementovaný centralizovanou architektúrou, kde všetky správy prechádzajú cez centrálny server, alebo decentralizovanou architektúrou, kde si agenti správy vymieňajú priamo.
 
 ![Skupinový chat](../../../translated_images/sk/multi-agent-group-chat.ec10f4cde556babd.webp)
 
-### Odovzdanie úlohy
+### Predávanie úloh
 
-Tento vzor je užitočný, keď chcete vytvoriť aplikáciu, kde si viacerí agenti môžu predávať úlohy medzi sebou.
+Tento vzor je užitočný, keď chcete vytvoriť aplikáciu, kde si viac agentov môže vzájomne predávať úlohy.
 
-Typické prípady použitia zahŕňajú zákaznícku podporu, správu úloh a automatizáciu pracovných postupov.
+Typické prípady použitia tohto vzoru sú zákaznícka podpora, riadenie úloh a automatizácia pracovných tokov.
 
-V tomto vzore každý agent predstavuje úlohu alebo krok v pracovnom postupe a agenti si môžu úlohy odovzdať na základe vopred definovaných pravidiel.
+V tomto vzore každý agent predstavuje úlohu alebo krok vo workflow a agenti si môžu podľa preddefinovaných pravidiel úlohy predávať.
 
-![Odovzdanie](../../../translated_images/sk/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
+![Predávanie úloh](../../../translated_images/sk/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
-### Spolupracujúce filtrovanie
+### Spolupráca na filtrovaní odporúčaní
 
 Tento vzor je užitočný, keď chcete vytvoriť aplikáciu, kde viacerí agenti spolupracujú na tvorbe odporúčaní pre používateľov.
 
-Prečo by ste chceli, aby viacerí agenti spolupracovali, je pretože každý agent môže mať inú odbornosť a prispievať do procesu odporúčania rôznymi spôsobmi.
+Dôvod, prečo by ste chceli, aby viacerí agenti spolupracovali, je ten, že každý agent má inú odbornosť a môže prispieť k odporúčaniam rôznymi spôsobmi.
 
-Príkladom môže byť používateľ, ktorý chce odporúčanie na najlepší akciový titul na burze.
+Pozrime sa na príklad, kde používateľ chce odporúčanie najlepšej akcie na nákup na burze.
 
-- **Odborník na priemysel**: Jeden agent môže byť odborníkom v konkrétnom odvetví.
-- **Technická analýza**: Ďalší agent môže byť odborníkom na technickú analýzu.
-- **Fundamentálna analýza**: Tretí agent môže byť odborníkom na fundamentálnu analýzu. Spoluprácou môžu títo agenti poskytnúť komplexnejšie odporúčanie používateľovi.
+- **Odborník v odvetví**: Jeden agent môže byť expertom na konkrétne odvetvie.
+- **Technická analýza**: Iný agent môže byť expertom na technickú analýzu.
+- **Fundamentálna analýza**: Ďalší agent môže byť odborníkom na fundamentálnu analýzu. Spoluprácou tieto agenti môžu používateľovi poskytnúť komplexnejšie odporúčania.
 
-![Odporúčania](../../../translated_images/sk/multi-agent-filtering.d959cb129dc9f608.webp)
+![Odporúčanie](../../../translated_images/sk/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenár: Proces vrátenia peňazí
 
-Zvážme scenár, kde zákazník sa snaží získať vrátenie peňazí za produkt. V tomto procese môže byť zapojených niekoľko agentov, ale rozdelíme ich na agentov špecifických pre tento proces a všeobecných agentov, ktorí môžu byť použiteľní aj v iných procesoch.
+Predstavme si situáciu, kde zákazník žiada vrátenie peňazí za produkt. Do tohto procesu môže byť zapojených niekoľko agentov, rozdelme ich však na agentov špecifických pre tento proces a všeobecných agentov, ktorí sa dajú využiť aj inde.
 
 **Agenti špecifickí pre proces vrátenia peňazí**:
 
-Nasledujú agenti, ktorí môžu byť zapojení do procesu vrátenia peňazí:
+Nižšie sú uvedení niektorí agenti, ktorí by mohli byť zapojení do procesu vrátenia peňazí:
 
-- **Agent zákazníka**: Tento agent reprezentuje zákazníka a je zodpovedný za iniciáciu procesu vrátenia peňazí.
-- **Agent predajcu**: Tento agent reprezentuje predajcu a spracováva vrátenie peňazí.
-- **Agent platby**: Tento agent reprezentuje platobný proces a zodpovedá za vrátenie platby zákazníkovi.
-- **Agent vyriešenia**: Tento agent spravuje riešenie akýchkoľvek problémov vzniknutých počas procesu vrátenia.
-- **Agent súladu**: Tento agent zabezpečuje, že proces vrátenia peňazí je v súlade s pravidlami a politikami.
+- **Agent zákazníka**: Tento agent zastupuje zákazníka a je zodpovedný za iniciovanie procesu vrátenia peňazí.
+- **Agent predajcu**: Tento agent zastupuje predajcu a spracováva vrátenie peňazí.
+- **Agent platby**: Tento agent spracúva platby a je zodpovedný za vrátenie platby zákazníkovi.
+- **Agent riešenia**: Tento agent rieši akékoľvek problémy, ktoré vzniknú počas procesu vrátenia peňazí.
+- **Agent dodržiavania pravidiel**: Tento agent zabezpečuje, že proces vrátenia peňazí je v súlade s predpismi a politikami.
 
 **Všeobecní agenti**:
 
-Títo agenti môžu byť použiteľní v iných častiach vášho podnikania.
+Títo agenti môžu byť používaní aj v iných oblastiach vášho podnikania.
 
-- **Agent dopravy**: Tento agent reprezentuje proces dopravy a zabezpečuje vrátenie produktu predajcovi. Môže byť použitý nielen v procese vrátenia peňazí, ale aj na bežnú dopravu produktov.
-- **Agent spätnej väzby**: Tento agent zodpovedá za zber spätnej väzby od zákazníka. Spätná väzba môže byť získavaná kedykoľvek, nielen počas procesu vrátenia.
-- **Agent eskalácie**: Tento agent rieši eskalácie problémov na vyššiu úroveň podpory. Tento agent možno použiť pri akomkoľvek procese, kde je potrebné eskalovať problém.
-- **Agent oznámení**: Tento agent zasiela oznámenia zákazníkovi v rôznych fázach procesu vrátenia.
-- **Agent analytiky**: Analyzuje dáta súvisiace s procesom vrátenia peňazí.
-- **Agent auditu**: Kontroluje, či je proces vrátenia správne vykonávaný.
-- **Agent reportingu**: Generuje správy o procese vrátenia peňazí.
-- **Agent znalostí**: Spravuje databázu znalostí súvisiacu s procesom vrátenia, môže mať znalosti aj o iných oblastiach vášho podnikania.
-- **Agent bezpečnosti**: Zodpovedá za zabezpečenie procesu vrátenia.
-- **Agent kvality**: Zabezpečuje kvalitu procesu vrátenia.
+- **Agent dopravy**: Tento agent spravuje prepravu a je zodpovedný za zaslanie produktu späť predajcovi. Môže byť používaný ako pre proces vrátenia peňazí, tak aj všeobecne na prepravu produktov v rámci predaja.
+- **Agent spätnej väzby**: Tento agent zhromažďuje spätnú väzbu od zákazníka. Spätnú väzbu možno zbierať kedykoľvek, nielen počas procesu vrátenia peňazí.
+- **Agent eskalácie**: Tento agent eskaluje problémy na vyššiu úroveň podpory. Tento typ agenta môžete použiť v akomkoľvek procese, kde je potrebné eskalovať problém.
+- **Agent notifikácií**: Tento agent zodpovedá za odosielanie notifikácií zákazníkovi v rôznych fázach procesu vrátenia peňazí.
+- **Agent analytiky**: Tento agent analyzuje dáta súvisiace s procesom vrátenia peňazí.
+- **Agent auditu**: Tento agent kontroluje proces vrátenia peňazí, aby zabezpečil, že prebieha správne.
+- **Agent reportovania**: Tento agent generuje správy o procese vrátenia peňazí.
+- **Agent znalostí**: Tento agent spravuje databázu vedomostí týkajúcich sa procesu vrátenia peňazí. Môže byť znalý nielen vrátení peňazí, ale aj iných častí vášho podnikania.
+- **Agent bezpečnosti**: Tento agent zabezpečuje bezpečnosť procesu vrátenia peňazí.
+- **Agent kvality**: Tento agent zabezpečuje kvalitu procesu vrátenia peňazí.
 
-Už uvedených agentov je dosť veľa, či už pre špecifický proces vrátenia, alebo pre všeobecných agentov, ktorí môžu byť využití v iných oblastiach vášho podnikania. Dúfame, že vám to poskytne predstavu o tom, ako sa rozhodnúť, ktorých agentov použiť vo vašom multi-agentovom systéme.
+Predošlý zoznam agentov obsahuje rôznych agentov pre špecifický proces vrátenia peňazí i všeobecných agentov použiteľných v iných oblastiach vášho podnikania. Dúfame, že vám to poskytuje predstavu, ako si vybrať agentov pre váš viacagentný systém.
 
 ## Zadanie
 
-Navrhnite multi-agentový systém pre proces zákazníckej podpory. Identifikujte agentov zapojených v procese, ich úlohy a zodpovednosti, a ako navzájom interagujú. Zvážte agentov špecifických pre proces zákazníckej podpory aj všeobecných agentov použiteľných v iných častiach vášho podnikania.
-> Premyslite si to, než si prečítate nasledujúce riešenie, možno budete potrebovať viac agentov, než si myslíte.
+Navrhnite viacagentný systém pre proces zákazníckej podpory. Identifikujte agentov zapojených do procesu, ich úlohy a zodpovednosti a spôsob, akým navzájom komunikujú. Zvážte agentov špecifických pre zákaznícku podporu aj všeobecných agentov použiteľných v iných oblastiach vášho podnikania.
 
-> TIP: Zamyslite sa nad jednotlivými fázami procesu zákazníckej podpory a tiež zvážte agentov potrebných pre akýkoľvek systém.
+
+> Počkajte a porozmýšľajte, než si prečítate nasledujúce riešenie, možno budete potrebovať viac agentov, než si myslíte.
+
+> TIP: Premyslite si rôzne etapy procesu zákazníckej podpory a zvážte aj agentov potrebných pre akýkoľvek systém.
 
 ## Riešenie
 
 [Riešenie](./solution/solution.md)
 
-## Kontrolya poznatkov
+## Overovanie znalostí
 
-Otázka: Kedy by ste mali zvážiť použitie viacerých agentov?
+### Otázka 1
 
-- [ ] A1: Keď máte malú pracovnú záťaž a jednoduchý úlohu.
-- [ ] A2: Keď máte veľkú pracovnú záťaž.
-- [ ] A3: Keď máte jednoduchý úlohu.
+Ktorý scenár najviac vyhovuje multi-agentnému systému?
 
-[Kvíz k riešeniu](./solution/solution-quiz.md)
+- [ ] A1: Podporný bot odpovedá na bežné otázky pomocou jednej databázy znalostí a malej sady nástrojov.
+- [ ] A2: Refundácia vyžaduje samostatné roly pre podvody, platby a dodržiavanie predpisov, každú s vlastnými nástrojmi, pričom ich výsledky musia byť koordinované.
+- [ ] A3: Tá istá jednoduchá klasifikačná požiadavka prichádza tisícky krát za hodinu.
+
+### Otázka 2
+
+Kedy je zvyčajne lepšou voľbou jeden agent?
+
+- [ ] A1: Úlohu je možné zvládnuť jednou sadou inštrukcií a nástrojov, bez špecializovaných odovzdaní.
+- [ ] A2: Agent má prístup k viac ako jednému nástroju.
+- [ ] A3: Pracovný postup vyžaduje samostatné roly s rôznymi oprávneniami a nezávislé audítorské záznamy.
+
+[Riešenie kvízu](./solution/solution-quiz.md)
 
 ## Zhrnutie
 
-V tejto lekcii sme sa pozreli na návrhový vzor viacerých agentov, vrátane scenárov, kde sú viacero agentov použiteľní, výhod používania viacerých agentov oproti jednému agentovi, základných stavebných blokov implementácie návrhového vzoru viacerých agentov a ako mať prehľad o tom, ako spolu viacerí agenti interagujú.
+V tejto lekcii sme sa pozreli na multi-agentný dizajnový vzor, vrátane scenárov, kde je použitie multi-agentov vhodné, výhod využívania multi-agentov oproti jednému agentovi, základné stavebné prvky implementácie multi-agentného dizajnového vzoru a ako mať prehľad o tom, ako viacerí agenti navzájom interagujú.
 
-### Máte viac otázok o návrhovom vzore viacerých agentov?
+### Máte ďalšie otázky o multi-agentnom dizajnovom vzore?
 
-Pridajte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde sa môžete stretnúť s ďalšími študentmi, zúčastniť sa úradných hodín a zodpovedať si svoje otázky o AI agentoch.
+Pripojte sa k [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), kde môžete stretnúť ďalších študentov, zúčastniť sa konzultačných hodín a získať odpovede na otázky o AI agentoch.
 
-## Ďalšie zdroje
+## Dodatočné zdroje
 
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">Návrhové vzory AutoGen</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentické návrhové vzory</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Dokumentácia Microsoft Agent Framework</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentné dizajnové vzory</a>
+
 
 ## Predchádzajúca lekcia
 
-[Plánovanie návrhu](../07-planning-design/README.md)
+[Plánovanie dizajnu](../07-planning-design/README.md)
 
 ## Nasledujúca lekcia
 
@@ -190,6 +203,6 @@ Pridajte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kd
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Upozornenie**:  
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, majte prosím na pamäti, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre dôležité informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

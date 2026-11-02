@@ -1,54 +1,55 @@
-[![ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿ](../../../translated_images/kn/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/kn/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(ಈ ಪಾಠದ ವೀಡಿಯೊವನ್ನು ನೋಡಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
+> _(ಈ ಪಾಠದ ವಿಡಿಯೋವನ್ನು ವೀಕ್ಷಿಸಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
 
 # ಯೋಜನೆ ವಿನ್ಯಾಸ
 
 ## ಪರಿಚಯ
 
-ಈ ಪಾಠದಲ್ಲಿ ನಾವು ಚರ್ಚಿಸುವುದು:
+ಈ ಪಾಠವು ಒಳಗೊಂಡಿದೆ
 
-* ಸ್ಪಷ್ಟವಾದ ಒಟ್ಟು ಗುರಿಯನ್ನು ನಿರ್ಧರಿಸಿ ಮತ್ತು ಸಂಕೀರ್ಣವಾದ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸಬಹುದಾದ ಕಾರ್ಯಗಳಲ್ಲಿ ವಿಭಜಿಸಿ.
-* ರಚಿತ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಬಳಸಿಕೊಂಡು ಹೆಚ್ಚು ನಂಬಬಹುದಾದ ಮತ್ತು ಯಂತ್ರ-ಓದಬಹುದಾದ ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಪಡೆಯುವುದು.
-* ಡೈನಾಮಿಕ್ ಕಾರ್ಯಗಳು ಮತ್ತು ಅಪ್ರತೀಕ್ಷಿತ ಇನ್‌ಪುಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಈವೆಂಟ್-ಚಾಲಿತ ವಿಧಾನವನ್ನು ಅನ್ವಯಿಸುವುದು.
+* ಸ್ಪಷ್ಟ ಒಟ್ಟು ಗುರಿಯನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುವುದು ಮತ್ತು ಸಂಕೀರ್ಣ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾದ ಕಾರ್ಯಗಳಲ್ಲಿ ಭಜಿಸುವುದು.
+* ಹೆಚ್ಚಿನ ನಂಬಿಗಸ್ತ ಮತ್ತು ಯಂತ್ರ ಓದಲು ಸಾಧ್ಯವಿರುವ ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಪಡೆಯಲು ಸಂಘಟಿತ ಔಟ್‌ಪುಟ್ ಬಳಸುವುದು.
+* ಡೈನಾಮಿಕ್ ಕಾರ್ಯಗಳು ಮತ್ತು ಅನಿರೀಕ್ಷಿತ ಇನ್‌ಪುಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಘಟನಾ-ಚಾಲಿತ ವಿಧಾನವನ್ನು ಅನ್ವಯಿಸುವುದು.
 
 ## ಕಲಿಕೆಯ ಗುರಿಗಳು
 
-ಈ ಪಾಠವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ, ನೀವು ಈ ವಿಷಯಗಳ ಬಗ್ಗೆ ತಿಳಿದುಕೊಳ್ಳುತ್ತೀರಿ:
+ಈ ಪಾಠವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ, ನೀವು ಈ ವಿಷಯಗಳ ಮೇಲೆ ಅರಿವು ಹೊಂದಿರುತ್ತೀರಿ:
 
-* AI ಏಜೆಂಟ್‌ಗೆ ಒಟ್ಟು ಗುರಿಯನ್ನು ಗುರುತಿಸಿ ಮತ್ತು ಹೊಂದಿಸಿ, ಅದು ಏನು ಸಾಧಿಸಬೇಕೆಂದು ಸ್ಪಷ್ಟವಾಗಿ ತಿಳಿಯುವಂತೆ ಮಾಡುವುದು.
-* ಸಂಕೀರ್ಣವಾದ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸಬಹುದಾದ ಉಪಕಾರ್ಯಗಳಲ್ಲಿ ವಿಭಜಿಸಿ ಮತ್ತು ಅವುಗಳನ್ನು ತಾರ್ಕಿಕ ಕ್ರಮದಲ್ಲಿ ಸಂಘಟಿಸುವುದು.
-* ಏಜೆಂಟ್‌ಗಳಿಗೆ ಸರಿಯಾದ ಸಾಧನಗಳನ್ನು (ಉದಾ., ಶೋಧನೆ ಸಾಧನಗಳು ಅಥವಾ ಡೇಟಾ ವಿಶ್ಲೇಷಣೆ ಸಾಧನಗಳು) ಒದಗಿಸಿ, ಅವುಗಳನ್ನು ಯಾವಾಗ ಮತ್ತು ಹೇಗೆ ಬಳಸಬೇಕು ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸಿ, ಮತ್ತು ಉಂಟಾಗುವ ಅಪ್ರತೀಕ್ಷಿತ ಪರಿಸ್ಥಿತಿಗಳನ್ನು ನಿರ್ವಹಿಸುವುದು.
-* ಉಪಕಾರ್ಯದ ಫಲಿತಾಂಶಗಳನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಿ, ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಅಳೆಯಿರಿ, ಮತ್ತು ಅಂತಿಮ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಸುಧಾರಿಸಲು ಕ್ರಮಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ.
+* ಎಐ ಏಜೆಂಟ್‌ಗೆ ಒಟ್ಟು ಗುರಿಯನ್ನು ಗುರುತಿಸಿ ಹಾಗೂ ಅದನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ಏನು ಸಾಧಿಸಬೇಕೆಂದು ತಿಳಿದುಕೊಳ್ಳುವಂತೆ ಇರಿಸಲು ನಿರ್ಧರಿಸಿ.
+* ಸಂಕೀರ್ಣ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾದ ಉಪಕಾರ್ಯಗಳಾಗಿ ವಿಭಜಿಸಿ ಹಾಗೂ ಅವುಗಳನ್ನು ತಾರ್ಕಿಕ ಕ್ರಮದಲ್ಲಿ ಸಂಘಟಿಸಿ.
+* ಏಜೆಂಟ್‌ಗಳಿಗೆ ಸರಿಯಾದ ಉಪಕರಣಗಳನ್ನು (ಉದಾಹರಣೆಗೆ, ಹುಡುಕಾಟ ಉಪಕರಣಗಳು ಅಥವಾ ಡೇಟಾ ವಿಶ್ಲೇಷಣೆ ಉಪಕರಣಗಳು) ಒದಗಿಸಿ, ಅವುಗಳನ್ನು ಯಾವಾಗ ಮತ್ತು ಹೇಗೆ ಬಳಸಬೇಕು ಎಂದು ತೀರ್ಮಾನಿಸಿ, ಮತ್ತು ಉಂಟಾಗುವ ಅನಿರೀಕ್ಷಿತ ಪರಿಸ್ಥಿತಿಗಳನ್ನು ನಿರ್ವಹಿಸಿ.
+* ಉಪಕಾರ್ಯಗಳ ಫಲಿತಾಂಶಗಳನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಿ, ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಅಳತೆ ಮಾಡಿ, ಮತ್ತು ಚದರಿಸಿದ ಕ್ರಿಯೆಗಳೊಂದಿಗೆ ಅಂತಿಮ ಔಟ್‌ಪುಟ್ ಉತ್ತಮಗೊಳಿಸಿ.
 
-## ಒಟ್ಟು ಗುರಿಯನ್ನು ನಿರ್ಧರಿಸುವುದು ಮತ್ತು ಕಾರ್ಯವನ್ನು ವಿಭಜಿಸುವುದು
+## ಒಟ್ಟು ಗುರಿಯನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುವುದು ಮತ್ತು ಕಾರ್ಯವನ್ನು ಬರೆಹವಾಗಿ ವಿಭಜಿಸುವುದು
 
-![ಗುರಿಗಳನ್ನು ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ನಿರ್ಧರಿಸುವುದು](../../../translated_images/kn/defining-goals-tasks.d70439e19e37c47a.webp)
+![Defining Goals and Tasks](../../../translated_images/kn/defining-goals-tasks.d70439e19e37c47a.webp)
 
-ಬಹುತೇಕ ನಿಜಜೀವನದ ಕಾರ್ಯಗಳು ಒಂದೇ ಹೆಜ್ಜೆಯಲ್ಲಿ ನಿರ್ವಹಿಸಲು ತುಂಬಾ ಸಂಕೀರ್ಣವಾಗಿರುತ್ತವೆ. AI ಏಜೆಂಟ್ ತನ್ನ ಯೋಜನೆ ಮತ್ತು ಕ್ರಿಯೆಗಳನ್ನು ಮಾರ್ಗದರ್ಶಿಸಲು ಸಂಕ್ಷಿಪ್ತ ಗುರಿಯನ್ನು ಅಗತ್ಯವಿದೆ. ಉದಾಹರಣೆಗೆ, ಈ ಗುರಿಯನ್ನು ಪರಿಗಣಿಸಿ:
+ಬಹುತೇಕ ನಿಜ ಜೀವನದ ಕಾರ್ಯಗಳು ಒಂದು ಹಂತದಲ್ಲಿ ನಿಭಾಯಿಸಲು ತುಂಬಾ ಸಂಕೀರ್ಣವಾಗಿವೆ. ಏಐ ಏಜೆಂಟ್‌ಗೆ ತನ್ನ ಯೋಜನೆ ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ಮಾರ್ಗದರ್ಶನ ಮಾಡಲು ಸಂಕ್ಷಿಪ್ತ ಗುರಿಯ ಅಗತ್ಯವಿದೆ. ಉದಾಹರಣೆಗೆ, ಗುರಿ ಪರಿಗಣಿಸಿ:
 
-    "3 ದಿನಗಳ ಪ್ರಯಾಣದ ಯೋಜನೆಯನ್ನು ರಚಿಸಿ."
+    "3-ದಿನಗಳ ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ರಚಿಸಿ."
 
-ಇದು ಹೇಳಲು ಸರಳವಾದರೂ, ಇನ್ನೂ ಹೆಚ್ಚು ಸ್ಪಷ್ಟೀಕರಣ ಅಗತ್ಯವಿದೆ. ಗುರಿ ಹೆಚ್ಚು ಸ್ಪಷ್ಟವಾಗಿದ್ದರೆ, ಏಜೆಂಟ್ (ಮತ್ತು ಯಾವುದೇ ಮಾನವ ಸಹಕರಿಸುವವರು) ಸರಿಯಾದ ಫಲಿತಾಂಶವನ್ನು ಸಾಧಿಸಲು ಹೆಚ್ಚು ಗಮನಹರಿಸಬಹುದು, ಉದಾಹರಣೆಗೆ ವಿಮಾನ ಆಯ್ಕೆಗಳು, ಹೋಟೆಲ್ ಶಿಫಾರಸುಗಳು, ಮತ್ತು ಚಟುವಟಿಕೆ ಸಲಹೆಗಳನ್ನು ಒಳಗೊಂಡ ಸಮಗ್ರ ಯೋಜನೆಯನ್ನು ರಚಿಸುವುದು.
+ಇದನ್ನು ಹೇಳುವುದೆಂದರೆ ಸರಳವಾಗಿದೆ, ಆದರೆ ಇನ್ನೂ ಸುಧಾರಣೆ ಅಗತ್ಯವಿದೆ. ಗುರಿ ಸ್ಪಷ್ಟವಾಗಿದ್ದರೆ, ಏಜೆಂಟ್ (ಮತ್ತು ಯಾವುದೇ ಮಾನವ ಸಹಯೋಗಿಗಳು) ಸರಿಯಾದ ಫಲಿತಾಂಶವನ್ನು ಸಾಧಿಸಲು ಹೆಚ್ಚು ಗಮನ ಹರಿಸಬಹುದು, ಉದಾಹರಣೆಗೆ ವಿಮಾನ ಆಯ್ಕೆ, ಹೋಟೆಲ್ ಶಿಫಾರಸುಗಳು ಮತ್ತು ಚಟುವಟಿಕೆಯ ಸಲಹೆಗಳೊಂದಿಗೆ ವಿಮರ್ಶಿತ ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ಸೃಷ್ಟಿಸುವುದು.
 
 ### ಕಾರ್ಯ ವಿಭಜನೆ
 
-ದೊಡ್ಡ ಅಥವಾ ಸಂಕೀರ್ಣವಾದ ಕಾರ್ಯಗಳು ಚಿಕ್ಕ, ಗುರಿ-ಆಧಾರಿತ ಉಪಕಾರ್ಯಗಳಲ್ಲಿ ವಿಭಜಿಸಿದಾಗ ಹೆಚ್ಚು ನಿರ್ವಹಿಸಬಹುದಾಗುತ್ತವೆ. ಪ್ರಯಾಣದ ಯೋಜನೆ ಉದಾಹರಣೆಗೆ, ನೀವು ಗುರಿಯನ್ನು ಈ ರೀತಿಯಾಗಿ ವಿಭಜಿಸಬಹುದು:
+ದೊಡ್ಡ ಅಥವಾ ಜಟಿಲ ಕಾರ್ಯಗಳು ಸಣ್ಣ, ಗುರಿ-ಮುಖಿವಾದ ಉಪಕಾರ್ಯಗಳಾಗಿ ವಿಭಜಿಸುವಾಗ ನಿರ್ವಹಿಸಲು ಸುಲಭವಾಗುತ್ತವೆ.
+ಪ್ರಯಾಣ ಯೋಜನೆಯ ಉದಾಹರಣೆಗೆ, ನೀವು ಗುರಿಯನ್ನು ಈ ಕೆಳಗಿನ ಉಪಕಾರ್ಯಗಳಾಗಿ ವಿಭಜಿಸಬಹುದು:
 
 * ವಿಮಾನ ಬುಕ್ಕಿಂಗ್
 * ಹೋಟೆಲ್ ಬುಕ್ಕಿಂಗ್
-* ಕಾರ್ ಬಾಡಿಗೆ
-* ವೈಯಕ್ತಿಕೀಕರಣ
+* ಕಾರು ಬಾಡಿಗೆ
+* ವೈಯಕ್ತೀಕರಣ
 
-ಪ್ರತಿ ಉಪಕಾರ್ಯವನ್ನು ನಂತರ ನಿಗದಿತ ಏಜೆಂಟ್‌ಗಳು ಅಥವಾ ಪ್ರಕ್ರಿಯೆಗಳಿಂದ ನಿರ್ವಹಿಸಬಹುದು. ಒಂದು ಏಜೆಂಟ್ ಉತ್ತಮ ವಿಮಾನ ಡೀಲ್‌ಗಳನ್ನು ಹುಡುಕುವಲ್ಲಿ ಪರಿಣತಿಯನ್ನು ಹೊಂದಿರಬಹುದು, ಇನ್ನೊಂದು ಹೋಟೆಲ್ ಬುಕ್ಕಿಂಗ್‌ಗಳಲ್ಲಿ ಗಮನಹರಿಸಬಹುದು, ಇತ್ಯಾದಿ. ಸಂಯೋಜಿಸುವ ಅಥವಾ "ಡೌನ್‌ಸ್ಟ್ರೀಮ್" ಏಜೆಂಟ್ ನಂತರ ಈ ಫಲಿತಾಂಶಗಳನ್ನು ಅಂತಿಮ ಬಳಕೆದಾರರಿಗೆ ಒಬ್ಬ ಸಮಗ್ರ ಯೋಜನೆಗೆ ಸಂಗ್ರಹಿಸಬಹುದು.
+ಪ್ರತಿಯೊಂದು ಉಪಕಾರ್ಯವನ್ನು ನಿಬಂಧಿತ ಏಜೆಂಟುಗಳು ಅಥವಾ ಪ್ರಕ್ರಿಯೆಗಳು ನಿಭಾಯಿಸಬಹುದು. ಒಬ್ಬ ಏಜೆಂಟ್ ಉತ್ತಮ ವಿಮಾನ ಡೀಲ್ಗಳಿಗಾಗಿ ಹುಡುಕುವಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿರಬಹುದು, ಇನ್ನೊಬ್ಬ ಹೋಟೆಲ್ ಬುಕ್ಕಿಂಗ್‌ಗಳನ್ನು ಗಮನಿಸುತ್ತದೆ, ಮತ್ತು ಹೀಗೇ ಮುಂದಾಗಿದೆ. ಸಮನ್ವಯ ಅಥವಾ "ಡೌನ್ ಸ್ಟ್ರೀಮ್" ಏಜೆಂಟ್ ನಂತರ ಈ ಫಲಿತಾಂಶಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಿ, ಅಂತಿಮ ಬಳಕೆದಾರರಿಗೆ ಒಕ್ಕೂಟ ರೀತಿಯ ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ನೀಡಬಹುದು.
 
-ಈ ಮಾದರಿಯ ವಿಧಾನವು ಹಂತ ಹಂತವಾಗಿ ಸುಧಾರಣೆಗಳನ್ನು ಮಾಡಲು ಸಹ ಅವಕಾಶವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ನೀವು ಆಹಾರ ಶಿಫಾರಸುಗಳು ಅಥವಾ ಸ್ಥಳೀಯ ಚಟುವಟಿಕೆ ಸಲಹೆಗಳಿಗೆ ಪರಿಣತ ಏಜೆಂಟ್‌ಗಳನ್ನು ಸೇರಿಸಬಹುದು ಮತ್ತು ಸಮಯದೊಂದಿಗೆ ಯೋಜನೆಯನ್ನು ಸುಧಾರಿಸಬಹುದು.
+ಈ ಘಟಕೀಕೃತ ವಿಧಾನವು ಕ್ರಮೇಣ ಸುಧಾರಣೆಗಳನ್ನು ಅನುಮತಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ಆಹಾರ ಶಿಫಾರಸುಗಳು ಅಥವಾ ಸ್ಥಳೀಯ ಚಟುವಟಿಕೆ ಸಲಹೆಗಳಿಗಾಗಿ ವಿಶೇಷ ಏಜೆಂಟ್‌ಗಳನ್ನು ಸೇರಿಸಬಹುದು ಮತ್ತು ಕಾಲಕ್ರಮೇಣ ಯೋಜನೆಯನ್ನು ಸುಧಾರಿಸಬಹುದು.
 
-### ರಚಿತ ಔಟ್‌ಪುಟ್
+### ಸಂಘಟಿತ ಔಟ್‌ಪುಟ್
 
-ಮಹತ್ವದ ಭಾಷಾ ಮಾದರಿಗಳು (LLMs) ರಚಿತ ಔಟ್‌ಪುಟ್ (ಉದಾ. JSON) ರಚಿಸಲು ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿವೆ, ಇದು ಡೌನ್‌ಸ್ಟ್ರೀಮ್ ಏಜೆಂಟ್‌ಗಳು ಅಥವಾ ಸೇವೆಗಳಿಗೆ ಪಾರ್ಸ್ ಮತ್ತು ಪ್ರಕ್ರಿಯೆ ಮಾಡಲು ಸುಲಭವಾಗುತ್ತದೆ. ಇದು ಬಹು-ಏಜೆಂಟ್ ಪ್ರಸ್ತಾವನೆಯಲ್ಲಿ ವಿಶೇಷವಾಗಿ ಉಪಯುಕ್ತವಾಗಿದೆ, ನಾವು ಯೋಜನೆ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಸ್ವೀಕರಿಸಿದ ನಂತರ ಈ ಕಾರ್ಯಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಬಹುದು. ಈ <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">ಬ್ಲಾಗ್‌ಪೋಸ್ಟ್</a> ಅನ್ನು ತ್ವರಿತ ಅವಲೋಕನಕ್ಕಾಗಿ ನೋಡಿ.
+ದೊಡ್ಡ ಭಾಷಾ ಮಾದರಿಗಳು (LLMs) downstream ಏಜೆಂಟ್‌ಗಳು ಅಥವಾ ಸೇವೆಗಳಿಗಾಗಿ ಸುಲಭವಾಗಿ ಪಾರ್ಸ್ ಮತ್ತು ಪ್ರಕ್ರಿಯೆ ಮಾಡಲು ಸಾಧ್ಯವಾದ JSON-ಸ್ಟೈಲ್ ಸಂಘಟಿತ ಔಟ್‌ಪುಟ್ ರಚಿಸಬಹುದು. ಇದು ಬಹು-ಏಜೆಂಟ್ ಸಂತೋಷದಲ್ಲಿ ಬಹಳ ಉಪಯುಕ್ತವಾಗಿದೆ, ಇಲ್ಲಿ ನಾವು ಯೋಜನಾ ಔಟ್‌ಪುಟ್ ಪಡೆದ ನಂತರ ಈ ಕಾರ್ಯಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಬಹುದು.
 
-ಕೆಳಗಿನ Python ಸ್ನಿಪ್ಪೆಟ್ ಒಂದು ಸರಳ ಯೋಜನೆ ಏಜೆಂಟ್ ಗುರಿಯನ್ನು ಉಪಕಾರ್ಯಗಳಲ್ಲಿ ವಿಭಜಿಸಿ ರಚಿತ ಯೋಜನೆಯನ್ನು ರಚಿಸುವುದನ್ನು ತೋರಿಸುತ್ತದೆ:
+ಕೆಳಗಿನ ಪೈಥಾನ್ ಸ್ನಿಪೆಟ್ ಗುರಿಯನ್ನು ಉಪಕಾರ್ಯಗಳಾಗಿ ವಿಭಜಿಸುವ ಮತ್ತು ಸಂಘಟಿತ ಯೋಜನೆಯನ್ನು ರಚಿಸುವ ಸರಳ ಯೋಜನಾ ಏಜೆಂಟನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ:
 
 ```python
 from pydantic import BaseModel
@@ -58,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -74,32 +74,23 @@ class AgentEnum(str, Enum):
 # ಪ್ರಯಾಣ ಉಪಕಾರ್ಯ ಮಾದರಿ
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # ನಾವು ಕಾರ್ಯವನ್ನು ಏಜೆಂಟ್‌ಗೆ ನಿಯೋಜಿಸಲು ಬಯಸುತ್ತೇವೆ
+    assigned_agent: AgentEnum  # ನಮಗೆ ಕಾರ್ಯವನ್ನು ಏಜೆಂಟ್‌ಗೆ ನಿಯೋಜಿಸಲು ಇಚ్ఛೆ ಇದೆ
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # ಮಾದರಿಯೊಂದಿಗೆ ದೃಢೀಕರಿಸಲು ನೀವು ನಿಮ್ಮ GitHub ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ವೈಯಕ್ತಿಕ ಪ್ರವೇಶ ಟೋಕನ್ (PAT) ರಚಿಸಬೇಕಾಗುತ್ತದೆ.
-    # ನಿಮ್ಮ PAT ಟೋಕನ್ ಅನ್ನು ಇಲ್ಲಿ ನೀಡಿರುವ ಸೂಚನೆಗಳನ್ನು ಅನುಸರಿಸಿ ರಚಿಸಿ: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 # ಬಳಕೆದಾರ ಸಂದೇಶವನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಿ
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -110,44 +101,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವು JSON ಸರಣಿ ಮಾನ್ಯವಾಗಿದೆಯೇ ಎಂದು ಲೋಡ್ ಮಾಡುವ ಮೊದಲು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# response_content None ಆಗಿದ್ದರೆ:
-#     ValueError("ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವು ಮಾನ್ಯವಾದ JSON ಸರಣಿ ಅಲ್ಲ") ಎಸೆದು
-
-# # JSON ಆಗಿ ಲೋಡ್ ಮಾಡಿದ ನಂತರ ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವನ್ನು ಮುದ್ರಿಸಿ
-# pprint(json.loads(response_content))
-
-# MathReasoning ಮಾದರಿಯೊಂದಿಗೆ ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವನ್ನು ಮಾನ್ಯಗೊಳಿಸಿ
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### ಬಹು-ಏಜೆಂಟ್ ಸಂಯೋಜನೆಯೊಂದಿಗೆ ಯೋಜನೆ ಏಜೆಂಟ್
+### ಬಹು-ಏಜೆಂಟ್ ವ್ಯವಸ್ಥಾಪನೆಯೊಂದಿಗೆ ಯೋಜನಾ ಏಜೆಂಟ್
 
-ಈ ಉದಾಹರಣೆಯಲ್ಲಿ, ಸೆಮ್ಯಾಂಟಿಕ್ ರೌಟರ್ ಏಜೆಂಟ್ ಬಳಕೆದಾರರ ವಿನಂತಿಯನ್ನು ಸ್ವೀಕರಿಸುತ್ತದೆ (ಉದಾ., "ನನ್ನ ಪ್ರಯಾಣಕ್ಕಾಗಿ ಹೋಟೆಲ್ ಯೋಜನೆ ಬೇಕು.").
+ಈ ಉದಾಹರಣೆಯಲ್ಲಿ, ಸಿಮೆಂಟಿಕ್ ರೂಟರ್ ಏಜೆಂಟ್ ಬಳಕೆದಾರ ವಿನಂತಿಯನ್ನು (ಉದಾ., "ನನಗೆ ನನ್ನ ಪ್ರವಾಸಕ್ಕೆ ಹೋಟೆಲ್ ಯೋಜನೆ ಬೇಕು.") ಸ್ವೀಕರಿಸುತ್ತದೆ.
 
-ಯೋಜನೆಕಾರ ನಂತರ:
+ನಂತರ ಯೋಜಕ:
 
-* ಹೋಟೆಲ್ ಯೋಜನೆಯನ್ನು ಸ್ವೀಕರಿಸುತ್ತದೆ: ಯೋಜನೆಕಾರ ಬಳಕೆದಾರರ ಸಂದೇಶವನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ ಮತ್ತು ಸಿಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್ (ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್ ವಿವರಗಳನ್ನು ಒಳಗೊಂಡಂತೆ) ಆಧರಿಸಿ ರಚಿತ ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ರಚಿಸುತ್ತದೆ.
-* ಏಜೆಂಟ್‌ಗಳು ಮತ್ತು ಅವರ ಸಾಧನಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ: ಏಜೆಂಟ್ ರಿಜಿಸ್ಟ್ರಿ ಏಜೆಂಟ್‌ಗಳ (ಉದಾ., ವಿಮಾನ, ಹೋಟೆಲ್, ಕಾರ್ ಬಾಡಿಗೆ, ಮತ್ತು ಚಟುವಟಿಕೆ) ಪಟ್ಟಿ ಮತ್ತು ಅವರು ನೀಡುವ ಕಾರ್ಯಗಳು ಅಥವಾ ಸಾಧನಗಳನ್ನು ಹೊಂದಿರುತ್ತದೆ.
-* ಯೋಜನೆಯನ್ನು ಸಂಬಂಧಿತ ಏಜೆಂಟ್‌ಗಳಿಗೆ ರೌಟ್ ಮಾಡುತ್ತದೆ: ಉಪಕಾರ್ಯಗಳ ಸಂಖ್ಯೆಯನ್ನು ಅವಲಂಬಿಸಿ, ಯೋಜನೆಕಾರ ಸಂದೇಶವನ್ನು ನಿಗದಿತ ಏಜೆಂಟ್‌ಗೆ (ಒಂದು-ಕಾರ್ಯ ಪರಿಸ್ಥಿತಿಗಳಿಗಾಗಿ) ನೇರವಾಗಿ ಕಳುಹಿಸುತ್ತದೆ ಅಥವಾ ಬಹು-ಏಜೆಂಟ್ ಸಹಯೋಗಕ್ಕಾಗಿ ಗುಂಪು ಚಾಟ್ ಮ್ಯಾನೇಜರ್ ಮೂಲಕ ಸಂಯೋಜಿಸುತ್ತದೆ.
-* ಫಲಿತಾಂಶವನ್ನು ಸಂಕ್ಷಿಪ್ತಗೊಳಿಸುತ್ತದೆ: ಕೊನೆಗೆ, ಯೋಜನೆಕಾರ ರಚಿತ ಯೋಜನೆಯನ್ನು ಸ್ಪಷ್ಟತೆಯಿಗಾಗಿ ಸಂಕ್ಷಿಪ್ತಗೊಳಿಸುತ್ತದೆ.
-ಕೆಳಗಿನ Python ಕೋಡ್ ಮಾದರಿ ಈ ಹಂತಗಳನ್ನು ಚಿತ್ರಿಸುತ್ತದೆ:
+* ಹೋಟೆಲ್ ಯೋಜನೆಯನ್ನು ಸ್ವೀಕರಿಸುತ್ತದೆ: ಬಳಕೆದಾರ ಸಂದೇಶವನ್ನು ಮತ್ತು ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್ ವಿವರಣೆಗಳನ್ನು ಒಳಗೊಂಡಿರುವ ಸಿಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್ ಆಧಾರದಲ್ಲಿ, ಯೋಜಕ ಸಂಘಟಿತ ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ರಚಿಸುತ್ತದೆ.
+* ಏಜೆಂಟ್‌ಗಳು ಮತ್ತು ಅವುಗಳ ಉಪಕರಣಗಳನ್ನು ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ: ಏಜೆಂಟ್ ರೆಜಿಸ್ಟ್ರಿ ವಿಮಾನ, ಹೋಟೆಲ್, ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಚಟುವಟಿಕೆಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಏಜೆಂಟ್‌ಗಳ ಪಟ್ಟಿ ಮತ್ತು ಅವರು ಒದಗಿಸುವ ಕಾರ್ಯಗಳು ಅಥವಾ ಉಪಕರಣಗಳನ್ನೊಳಗೊಂಡಿದೆ.
+* ಯೋಜನೆಯನ್ನು ಕ್ರಮಾಂಕದ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತದೆ: ಉಪಕಾರ್ಯದ ಸಂಖ್ಯೆ ಆಧರಿಸಿ, ಯೋಜಕ ಸಂದೇಶವನ್ನು ನೇರವಾಗಿ ನಿರ್ದಿಷ್ಟ ಏಜೆಂಟ್‌ಗೆ ಕಳುಹಿಸುತ್ತದೆ (ಒಂದು ಕಾರ್ಯದ ಸಂದರ್ಭಗಳಲ್ಲಿ) ಅಥವಾ ಬಹು-ಏಜೆಂಟ್ ಸಹಕಾರಕ್ಕಾಗಿ ಗುಂಪು ಚಾಟ್ ನಿರ್ವಾಹಕ ಮೂಲಕ ಸಂಯೋಜಿಸುತ್ತದೆ.
+* ಫಲಿತಾಂಶ ಸಂಕ್ಷಿಪ್ತವನ್ನು ಒದಗಿಸುತ್ತದೆ: ಕೊನೆಗೆ, ಯೋಜಕ ಸರ್ಷಿಪ್ತಗೊಳಿಸಿದ ಯೋಜನೆಯನ್ನು ಸ್ಪಷ್ಟತೆಗಾಗಿ ಒದಗಿಸುತ್ತದೆ.
+ಕೆಳಗಿನ ಪೈಥಾನ್ ಕೋಡ್ ಉದಾಹರಣೆ ಈ ಹಂತಗಳನ್ನು ತೋರಿಸುತ್ತದೆ:
 
 ```python
 
@@ -169,7 +143,7 @@ class AgentEnum(str, Enum):
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # ನಾವು ಕಾರ್ಯವನ್ನು ಏಜೆಂಟ್‌ಗೆ ನಿಯೋಜಿಸಲು ಬಯಸುತ್ತೇವೆ
+    assigned_agent: AgentEnum # ನಾವು ಟಾಸ್ಕ್ ಅನ್ನು ಏಜೆಂಟ್ ಗೆ ನೀಡಲು ಬಯಸುತ್ತೇವೆ
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -179,25 +153,22 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# ಪ್ರಕಾರ-ಪರಿಶೀಲಿತ ಪರಿಸರ ಚರಾಂಶಗಳೊಂದಿಗೆ ಗ್ರಾಹಕನನ್ನು ರಚಿಸಿ
+# ಗ್ರಾಹಕನನ್ನು ರಚಿಸಿ
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 from pprint import pprint
 
 # ಬಳಕೆದಾರ ಸಂದೇಶವನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಿ
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -205,24 +176,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# ಅದನ್ನು ಲೋಡ್ ಮಾಡುವ ಮೊದಲು ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವು ಮಾನ್ಯ JSON ಸ್ಟ್ರಿಂಗ್ ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# ಅದನ್ನು JSON ಆಗಿ ಲೋಡ್ ಮಾಡಿದ ನಂತರ ಪ್ರತಿಕ್ರಿಯಾ ವಿಷಯವನ್ನು ಮುದ್ರಿಸಿ
+# JSON ಆಗಿ ಲೋಡ್ ಮಾಡಿದ ನಂತರ ಪ್ರತಿಕ್ರಿಯೆಯ ವಿಷಯವನ್ನು ಮುದ್ರಿಸಿ
 
 pprint(json.loads(response_content))
 ```
 
-ಹಿಂದಿನ ಕೋಡ್‌ನ ಔಟ್‌ಪುಟ್ ಈ ಕೆಳಗಿನಂತಿದೆ ಮತ್ತು ನೀವು ಈ ರಚಿತ ಔಟ್‌ಪುಟ್ ಅನ್ನು `assigned_agent` ಗೆ ರೌಟ್ ಮಾಡಲು ಮತ್ತು ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ಅಂತಿಮ ಬಳಕೆದಾರರಿಗೆ ಸಂಕ್ಷಿಪ್ತಗೊಳಿಸಲು ಬಳಸಬಹುದು.
+ಮುಂದಿನ ವಿವರವು ಹಿಂದಿನ ಕೋಡ್‌ನ ಔಟ್‌ಪುಟ್ ಆಗಿದ್ದು ನಂತರ ನೀವು ಈ ಸಂಘಟಿತ ಔಟ್‌ಪುಟ್ ಅನ್ನು `assigned_agent` ಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡಲು ಮತ್ತು ಪ್ರಯಾಣದ ಯೋಜನೆಯನ್ನು ಅಂತಿಮ ಬಳಕೆದಾರರಿಗೆ ಸಾರಾಂಶ ಮಾಡಬಹುದು.
 
 ```json
 {
@@ -253,21 +220,23 @@ pprint(json.loads(response_content))
 }
 ```
 
-ಹಿಂದಿನ ಕೋಡ್ ಮಾದರಿಯೊಂದಿಗೆ ಉದಾಹರಣೆಯ ನೋಟುಬುಕ್ [ಇಲ್ಲಿ](07-autogen.ipynb) ಲಭ್ಯವಿದೆ.
+ಹಿಂದಿನ ಕೋಡ್ ಉದಾಹರಣೆಯೊಂದಿಗೆ ಒಂದು ನೋಟ್ಬುಕ್ [ಇಲ್ಲಿ](./code_samples/07-python-agent-framework.ipynb) ಲಭ್ಯವಿದೆ.
 
-### ಪುನರಾವರ್ತಿತ ಯೋಜನೆ
+### ಇಟರೇಟಿವ್ ಯೋಜನೆ
 
-ಕೆಲವು ಕಾರ್ಯಗಳು ಹಿಂದಿನಿಂದ ಮುಂದೆ ಅಥವಾ ಪುನರ್-ಯೋಜನೆ ಅಗತ್ಯವಿರುತ್ತದೆ, ಅಲ್ಲಿ ಒಂದು ಉಪಕಾರ್ಯದ ಫಲಿತಾಂಶ ಮುಂದಿನದನ್ನು ಪ್ರಭಾವಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ಏಜೆಂಟ್ ವಿಮಾನಗಳನ್ನು ಬುಕ್ ಮಾಡುವಾಗ ಅಪ್ರತೀಕ್ಷಿತ ಡೇಟಾ ಸ್ವರೂಪವನ್ನು ಕಂಡುಹಿಡಿದರೆ, ಅದು ತನ್ನ ತಂತ್ರವನ್ನು ಹೊಂದಿಸಲು ಅಗತ್ಯವಿರುತ್ತದೆ, ನಂತರ ಹೋಟೆಲ್ ಬುಕ್ಕಿಂಗ್‌ಗಳಿಗೆ ಮುಂದುವರಿಯುತ್ತದೆ.
+ಕೆಲವು ಕಾರ್ಯಗಳು ಒಂದರಿಂದ ಮತ್ತೊಂದಕ್ಕೆ ಫಲಿತಾಂಶ ಪ್ರಭಾವ ಬೀರುವಂತಾದ ಹಿಂತಿರುಗುವ ಅಥವಾ ಪುನರಾಯೋಜನೆಯ ಅಗತ್ಯವಿರಬಹುದು. ಉದಾಹರಣೆಗೆ, ಏಜೆಂಟ್ ವಿಮಾನ ಬುಕ್ಕಿಂಗ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸುವಾಗ ಅನಿರೀಕ್ಷಿತ ಡೇಟಾ ಫಾರ್ಮ್ಯಾಟ್ ಕಂಡುಹಿಡಿದರೆ, ಅದು ಹೋಟೆಲ್ ಬುಕ್ಕಿಂಗ್‌ಗೆ ಮುಂದಾಗುವುದಕ್ಕೆ ಮುಂಚೆ ತನ್ನ ತಂತ್ರವನ್ನು ಹೊಂದಿಕೊಳ್ಳಬೇಕು.
 
-ಅದರ ಜೊತೆಗೆ, ಬಳಕೆದಾರ ಪ್ರತಿಕ್ರಿಯೆ (ಉದಾ., ಮಾನವವು ಅವರು ಮುಂಚಿನ ವಿಮಾನವನ್ನು ಇಚ್ಛಿಸುತ್ತಾರೆ ಎಂದು ನಿರ್ಧರಿಸುವುದು) ಭಾಗಶಃ ಪುನರ್-ಯೋಜನೆಯನ್ನು ಪ್ರಾರಂಭಿಸಬಹುದು. ಈ ಡೈನಾಮಿಕ್, ಪುನರಾವರ್ತಿತ ವಿಧಾನವು ಅಂತಿಮ ಪರಿಹಾರವು ನಿಜಜೀವನದ ನಿರ್ಬಂಧಗಳು ಮತ್ತು ಬೆಳೆಯುತ್ತಿರುವ ಬಳಕೆದಾರರ ಆದ್ಯತೆಯೊಂದಿಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುವಂತೆ ಖಚಿತಪಡಿಸುತ್ತದೆ.
+ಜೊತೆಗೆ, ಬಳಕೆದಾರ ಪ್ರತಿಕ್ರಿಯೆ (ಉದಾ., ಮಾನವನು ಬೇಗಗಿನ ವಿಮಾನವನ್ನು ಆಯ್ಕೆಮಾಡಬೇಕೆಂದು ನಿರ್ಧರಿಸಿ) ಭಾಗಶಃ ಪುನರಾಯೋಜನೆಯನ್ನು ಪ್ರೇರೇಪಿಸಬಹುದು. ಈ ಡೈನಾಮಿಕ್, ಇಟರೇಟಿವ್ ವಿಧಾನವು ಅಂತಿಮ ಪರಿಹಾರವು ನಿಜ ಜೀವನದ ನಿಯಮಗಳು ಮತ್ತು ಬದಲಾಗುತ್ತಿರುವ ಬಳಕೆದಾರ priya ತೃಪ್ತತೆಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವಂತೆ ಮಾಡುತ್ತದೆ.
 
-ಉದಾ. ಮಾದರಿ ಕೋಡ್
+ಉದಾಹರಣಾ ಕೋಡ್
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. ಹಿಂದಿನ ಕೋಡ್‌ನಂತೆ ಮತ್ತು ಬಳಕೆದಾರರ ಇತಿಹಾಸ, ಪ್ರಸ್ತುತ ಯೋಜನೆಯನ್ನು ಪಾಸ್ ಮಾಡಿ
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+#.. ಮುಂಚಿನ ಕೋಡ್‌ನಂತೆ ಮತ್ತು ಬಳಕೆದಾರರ ಇತಿಹಾಸ, ಪ್ರಸ್ತುತ ಯೋಜನೆಯನ್ನು ಮುಂದುವರೆಸಿರಿ
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -275,30 +244,35 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. ಪುನಃ ಯೋಜನೆ ಮಾಡಿ ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ಸಂಬಂಧಿತ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಕಳುಹಿಸಿ
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. ಮರು-ಯೋಜನೆ ಮಾಡಿ ಹಾಗೂ ಕಾರ್ಯಗಳನ್ನು ಪ್ರತ್ಯೇಕ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಕಳುಹಿಸಿ
 ```
 
-ಸಂಕೀರ್ಣ ಕಾರ್ಯಗಳನ್ನು ಪರಿಹರಿಸಲು ಹೆಚ್ಚಿನ ಸಮಗ್ರ ಯೋಜನೆಗಾಗಿ Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">ಬ್ಲಾಗ್‌ಪೋಸ್ಟ್</a> ಅನ್ನು ಪರಿಶೀಲಿಸಿ.
+ಹೆಚ್ಚಿನ ಸಮಗ್ರ ಯೋಜನೆಗಾಗಿ ನಿಮ್ಮ ಪರಿಶೀಲನೆಗೆ Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">ಬ್ಲಾಗ್‌ಪೋಸ್ಟ್</a> ನೋಡಿ, ಇದು ಸಂಕೀರ್ಣ ಕಾರ್ಯಗಳನ್ನು ಪರಿಹರಿಸಲು ಒಂದು ಸಾಮಾನ್ಯ ಬಹು-ಏಜೆಂಟ್ ವ್ಯವಸ್ಥೆಯಾಗಿದೆ.
 
 ## ಸಾರಾಂಶ
 
-ಈ ಲೇಖನದಲ್ಲಿ ನಾವು ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್‌ಗಳನ್ನು ಡೈನಾಮಿಕ್‌ವಾಗಿ ಆಯ್ಕೆ ಮಾಡಬಹುದಾದ ಯೋಜನೆಕಾರವನ್ನು ರಚಿಸುವ ಉದಾಹರಣೆಯನ್ನು ನೋಡಿದ್ದೇವೆ. ಯೋಜನೆಕಾರದ ಔಟ್‌ಪುಟ್ ಕಾರ್ಯಗಳನ್ನು ವಿಭಜಿಸುತ್ತದೆ ಮತ್ತು ಏಜೆಂಟ್‌ಗಳಿಗೆ ನಿಯೋಜಿಸುತ್ತದೆ, ಆದ್ದರಿಂದ ಅವುಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಬಹುದು. ಏಜೆಂಟ್‌ಗಳು ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸಲು ಅಗತ್ಯವಿರುವ ಕಾರ್ಯಗಳು/ಸಾಧನಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿದ್ದಾರೆ ಎಂದು ಊಹಿಸಲಾಗಿದೆ. ಏಜೆಂಟ್‌ಗಳ ಜೊತೆಗೆ ನೀವು ಪ್ರತಿಬಿಂಬ, ಸಂಕ್ಷಿಪ್ತಗೊಳಿಸುವುದು, ಮತ್ತು ರೌಂಡ್ ರಾಬಿನ್ ಚಾಟ್ ಮಾದರಿಗಳನ್ನು ಸೇರಿಸಬಹುದು, ಇದರಿಂದಾಗಿ ಹೆಚ್ಚಿನ ವೈಯಕ್ತಿಕೀಕರಣವನ್ನು ಮಾಡಬಹುದು.
+ಈ ಲೇಖನದಲ್ಲಿ ನಾವು ಹೇಗೆ ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್‌ಗಳನ್ನು ಡೈನಾಮಿಕ್ ಆಗಿ ಆಯ್ಕೆಮಾಡುವ ಯೋಜಕವನ್ನು ರಚಿಸಬಹುದು ಎಂಬುದರ ಉದಾಹರಣೆಯನ್ನು ನೋಡಿದೆವು. ಯೋಜಕದ ಔಟ್‌ಪುಟ್ ಕಾರ್ಯಗಳನ್ನು ವಿಭಜಿಸಿ ಅವುಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಏಜೆಂಟ್‌ಗಳಿಗೆ ಕೊಡುಗೆ ಮಾಡುತ್ತದೆ. ಕಾರ್ಯಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಅಗತ್ಯವಿರುವ ಕಾರ್ಯಗಳು/ಪರಿಕರಗಳು ಏಜೆಂಟ್‌ಗಳ ಬಳಿ ಹೊಂದಿರುವ ನಿರೀಕ್ಷೆಯಿದೆ. ಏಜೆಂಟ್‌ಗಳ ಜೊತೆಗೆ, ಪ್ರತಿಬಿಂಬ, ಸಾರಾಂಶ ಕಾರಕ ಮತ್ತು ರೌಂಡ್ ರಾಬಿನ್ ಚಾಟ್ ಸೇರಿದಂತೆ ಇತರೆ ಮಾದರಿಗಳನ್ನು ಸೇರಿಸಿ ಹೆಚ್ಚಿನ ವೈಯಕ್ತೀಕರಣ ಮಾಡಬಹುದು.
 
-## ಹೆಚ್ಚುವರಿ ಸಂಪತ್ತುಗಳು
+## ಹೆಚ್ಚುವರಿ ಸಂಪನ್ಮೂಲಗಳು
 
-AutoGen Magnetic One - ಸಂಕೀರ್ಣ ಕಾರ್ಯಗಳನ್ನು ಪರಿಹರಿಸಲು ಸಾಮಾನ್ಯವಾದ ಬಹು-ಏಜೆಂಟ್ ವ್ಯವಸ್ಥೆ ಮತ್ತು ಹಲವಾರು ಸವಾಲಿನ ಏಜೆಂಟಿಕ್ ಬೆಂಚ್ಮಾರ್ಕ್‌ಗಳಲ್ಲಿ ಗಮನಾರ್ಹ ಫಲಿತಾಂಶಗಳನ್ನು ಸಾಧಿಸಿದೆ. ಉಲ್ಲೇಖ: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. ಈ ಅನುಷ್ಠಾನದಲ್ಲಿ ಸಂಯೋಜಕವು ಕಾರ್ಯ-ನಿರ್ದಿಷ್ಟ ಯೋಜನೆಯನ್ನು ರಚಿಸುತ್ತದೆ ಮತ್ತು ಈ ಕಾರ್ಯಗಳನ್ನು ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್‌ಗಳಿಗೆ ನಿಯೋಜಿಸುತ್ತದೆ. ಯೋಜನೆಗಿಂತಲೂ ಹೆಚ್ಚು, ಸಂಯೋಜಕವು ಕಾರ್ಯದ ಪ್ರಗತಿಯನ್ನು ನಿಗಾ ಮಾಡಲು ಟ್ರ್ಯಾಕಿಂಗ್ ತಂತ್ರವನ್ನು ಬಳಸುತ್ತದೆ ಮತ್ತು ಅಗತ್ಯವಿದ್ದರೆ ಪುನರ್-ಯೋಜನೆ ಮಾಡುತ್ತದೆ.
+Magnetic One - ಸಂಕೀರ್ಣ ಕಾರ್ಯಗಳನ್ನು ಪರಿಹರಿಸಲು ಸಾಮಾನ್ಯ ಬಹು-ಏಜೆಂಟ್ ವ್ಯವಸ್ಥೆ ಮತ್ತು ಅನೇಕ ಸವಾಲಿನ ಏಜೆಂಟ್ ಬೆಂಚ್‌ಮಾರ್ಕ್‌ಗಳಲ್ಲಿ ಸಾಧನೆಯನ್ನು ಸಾಧಿಸಿದೆ. ಉಲ್ಲೇಖ: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. ಈ ಅನುಷ್ಠಾನದಲ್ಲಿ ವ್ಯವಸ್ಥಾಪಕ ಕಾರ್ಯವಿಶೇಷ ಯೋಜನೆಗಳನ್ನು ಸೃಷ್ಟಿಸಿ ಲಭ್ಯವಿರುವ ಏಜೆಂಟ್‌ಗಳಿಗೆ ಆ ಕಾರ್ಯಗಳನ್ನು ನಿಯೋಜಿಸುತ್ತದೆ. ಯೋಜನೆಗೆ ಜೊತೆಗೆ, ವ್ಯವಸ್ಥಾಪಕ ಕಾರ್ಯದ ಪ್ರಗತಿಯನ್ನು מעקב ಮಾಡಲು ಟ್ರ್ಯಾಕಿಂಗ್ ವ್ಯವಸ್ಥೆಯನ್ನು ಉಪಯೋಗಿಸುತ್ತಾನೆ ಮತ್ತು ಅಗತ್ಯವಿದ್ದಲ್ಲಿ ಪುನರಾಯೋಜನೆ ಮಾಡುತ್ತಾನೆ.
 
-### ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿಯ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಪ್ರಶ್ನೆಗಳಿದೆಯೇ?
+### ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿಯ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ಪ್ರಶ್ನೆಗಳಿವೆಯಾ?
 
-ಇತರ ಕಲಿಯುವವರನ್ನು ಭೇಟಿಯಾಗಲು, ಆಫೀಸ್ ಅವರ್ಸ್‌ನಲ್ಲಿ ಭಾಗವಹಿಸಲು ಮತ್ತು ನಿಮ್ಮ AI ಏಜೆಂಟ್‌ಗಳ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರ ಪಡೆಯಲು [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) ಗೆ ಸೇರಿ.
+[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) ಸೇರಿ, ಇತರ ಕಲಿಕೆದಾರರೊಂದಿಗೆ ಭೇಟಿಯಾಗಲು, ಕಚೇರಿ ಸಮಯಗಳಲ್ಲಿ ಭಾಗವಹಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಎಐ ಏಜೆಂಟ್ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರ ಪಡೆಯಿರಿ.
 
 ## ಹಿಂದಿನ ಪಾಠ
 
-[ವಿಶ್ವಾಸಾರ್ಹ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವುದು](../06-building-trustworthy-agents/README.md)
+[ನಂಬಲಾಯಕ ಏಜೆಂಟ್‌ಗಳ ನಿರ್ಮಾಣ](../06-building-trustworthy-agents/README.md)
 
 ## ಮುಂದಿನ ಪಾಠ
 
@@ -307,6 +281,6 @@ AutoGen Magnetic One - ಸಂಕೀರ್ಣ ಕಾರ್ಯಗಳನ್ನು �
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸ್ವೀಕಾರ**:  
-ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಮಹತ್ವದ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳು ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳಿಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
+**ಅಸ್ವೀಕಾರ**:
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

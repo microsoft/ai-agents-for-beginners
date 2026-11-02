@@ -1,32 +1,32 @@
-# 🔍 Enterprise RAG s Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG s Microsoft Foundry (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj notebook pokazuje kako izgraditi sustave za dohvat uz proširenu generaciju (RAG) na razini poduzeća koristeći Microsoft Agent Framework u .NET-u s Azure AI Foundry. Naučit ćete kako kreirati agente spremne za produkciju koji mogu pretraživati dokumente i pružati točne, kontekstualno svjesne odgovore uz sigurnost i skalabilnost na razini poduzeća.
+Ovaj bilježnik prikazuje kako izgraditi sustave za generiranje s dodatnim pretraživanjem (Retrieval-Augmented Generation, RAG) razine enterprise koristeći Microsoft Agent Framework u .NET-u s Microsoft Foundry. Naučit ćete kako stvoriti agente spremne za produkciju koji mogu pretraživati kroz dokumente i pružati točne, kontekstualno osviještene odgovore s enterprise sigurnošću i skalabilnošću.
 
-**Mogućnosti Enterprise RAG sustava koje ćete izgraditi:**
-- 📚 **Inteligencija dokumenata**: Napredno procesiranje dokumenata s Azure AI uslugama
-- 🔍 **Semantičko pretraživanje**: Visokoučinkovito pretraživanje vektora s funkcijama za poduzeća
-- 🛡️ **Integracija sigurnosti**: Pristup temeljen na ulogama i obrasci zaštite podataka
-- 🏢 **Skalabilna arhitektura**: RAG sustavi spremni za produkciju s praćenjem
+**Enterprise RAG mogućnosti koje ćete izgraditi:**
+- 📚 **Inteligencija dokumenata**: Napredna obrada dokumenata koristeći Azure AI servise
+- 🔍 **Semantičko pretraživanje**: Visoko učinkovito vektorsko pretraživanje s enterprise značajkama
+- 🛡️ **Integracija sigurnosti**: Kontrola pristupa temeljena na ulogama i obrasci zaštite podataka
+- 🏢 **Skalabilna arhitektura**: Sistemi RAG spremni za produkciju s nadzorom
 
-## 🎯 Arhitektura Enterprise RAG-a
+## 🎯 Enterprise RAG arhitektura
 
-### Ključne komponente za poduzeća
-- **Azure AI Foundry**: Upravljana AI platforma za poduzeća sa sigurnošću i usklađenošću
-- **Persistentni agenti**: Agenti sa stanjem koji čuvaju povijest razgovora i upravljanje kontekstom
-- **Upravljanje vektorskom pohranom**: Indeksiranje i dohvat dokumenata na razini poduzeća
-- **Integracija identiteta**: Autentifikacija putem Azure AD-a i kontrola pristupa temeljenog na ulogama
+### Ključne enterprise komponente
+- **Microsoft Foundry**: Upravljačka AI platforma za poduzeća s sigurnošću i usklađenošću
+- **Persistent Agents**: Stanja svijesni agenti s poviješću razgovora i upravljanjem kontekstom
+- **Upravljanje vektorskom pohranom**: Indeksiranje i dohvat dokumenata enterprise razine
+- **Integracija identiteta**: Azure AD autentikacija i kontrola pristupa temeljena na ulogama
 
-### Prednosti .NET-a za poduzeća
-- **Sigurnost tipova**: Validacija u vrijeme kompilacije za RAG operacije i strukture podataka
-- **Asinkrona izvedba**: Ne-blokirajuće procesiranje dokumenata i operacije pretraživanja
-- **Upravljanje memorijom**: Učinkovito korištenje resursa za velike kolekcije dokumenata
-- **Integracijski obrasci**: Nativna integracija Azure usluga s ubrizgavanjem ovisnosti
+### .NET enterprise prednosti
+- **Sigurnost tipova**: Provjera u vrijeme kompilacije za RAG operacije i podatkovne strukture
+- **Asinkrona izvedba**: Neblokirajuća obrada dokumenata i operacije pretraživanja
+- **Upravljanje memorijom**: Učinkovito korištenje resursa za velike zbirke dokumenata
+- **Integracijski obrasci**: Izvorna integracija Azure servisa s ubrizgavanjem ovisnosti
 
 ## 🏗️ Tehnička arhitektura
 
-### Enterprise RAG cjevovod
+### Enterprise RAG pipeline
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
@@ -34,37 +34,37 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Ključne .NET komponente
-- **Azure.AI.Agents.Persistent**: Upravljanje agentima za poduzeća s trajnim stanjem
-- **Azure.Identity**: Integrirana autentifikacija za siguran pristup Azure uslugama
-- **Microsoft.Agents.AI.AzureAI**: Implementacija optimiziranog okvira za agente u Azureu
-- **System.Linq.Async**: Visokoučinkovite asinkrone LINQ operacije
+- **Azure.AI.Agents.Persistent**: Upravljanje agentima enterprise razine s očuvanjem stanja
+- **Azure.Identity**: Integrirana autentikacija za siguran pristup Azure servisima
+- **Microsoft.Agents.AI.AzureAI**: Azure-optimizirana implementacija agent frameworka
+- **System.Linq.Async**: Visoko učinkovite asinkrone LINQ operacije
 
-## 🔧 Značajke i prednosti za poduzeća
+## 🔧 Enterprise značajke i prednosti
 
 ### Sigurnost i usklađenost
-- **Integracija s Azure AD-om**: Upravljanje identitetima i autentifikacija za poduzeća
-- **Pristup temeljen na ulogama**: Fino podešene dozvole za pristup dokumentima i operacijama
-- **Zaštita podataka**: Šifriranje u mirovanju i tijekom prijenosa za osjetljive dokumente
-- **Dnevnik aktivnosti**: Sveobuhvatno praćenje aktivnosti za zahtjeve usklađenosti
+- **Integracija Azure AD-a**: Upravljanje identitetom i autentikacija na enterprise razini
+- **Kontrola pristupa temeljena na ulogama**: Precizna prava pristupa dokumentima i operacijama
+- **Zaštita podataka**: Šifriranje u mirovanju i prijenosu za osjetljive dokumente
+- **Evidencija revizije**: Sveobuhvatno praćenje aktivnosti radi usklađenosti
 
 ### Izvedba i skalabilnost
-- **Upravljanje vezama**: Učinkovito upravljanje vezama s Azure uslugama
-- **Asinkrono procesiranje**: Ne-blokirajuće operacije za scenarije visokog kapaciteta
-- **Strategije predmemoriranja**: Inteligentno predmemoriranje često pristupanih dokumenata
-- **Ravnoteža opterećenja**: Distribuirano procesiranje za implementacije velikih razmjera
+- **Povezivanje u pool**: Učinkovito upravljanje vezama prema Azure servisima
+- **Asinkrona obrada**: Neblokirajuće operacije za scenarije velike propusnosti
+- **Strategije cacheiranja**: Inteligentno keširanje često korištenih dokumenata
+- **Balansiranje opterećenja**: Raspodijeljena obrada za velike implementacije
 
-### Upravljanje i praćenje
-- **Provjere zdravlja**: Ugrađeno praćenje komponenti RAG sustava
-- **Metričke izvedbe**: Detaljna analitika kvalitete pretraživanja i vremena odgovora
-- **Upravljanje greškama**: Sveobuhvatno upravljanje iznimkama s politikama ponovnog pokušaja
-- **Upravljanje konfiguracijom**: Postavke specifične za okruženje s validacijom
+### Upravljanje i nadzor
+- **Provjere zdravlja**: Ugrađeni nadzor komponenti RAG sustava
+- **Mjerenje izvedbe**: Detaljne analitike kvalitete pretraživanja i vremena odziva
+- **Rukovanje greškama**: Sveobuhvatno upravljanje iznimkama s politikama ponovnog pokušaja
+- **Upravljanje konfiguracijom**: Okolišno specifične postavke s validacijom
 
 ## ⚙️ Preduvjeti i postavljanje
 
 **Razvojno okruženje:**
 - .NET 9.0 SDK ili noviji
 - Visual Studio 2022 ili VS Code s C# ekstenzijom
-- Azure pretplata s pristupom AI Foundry
+- Pretplata na Azure s pristupom Microsoft Foundry
 
 **Potrebni NuGet paketi:**
 ```xml
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Postavljanje autentifikacije za Azure:**
+**Postavljanje Azure autentikacije:**
 ```bash
-# Install Azure CLI and authenticate
+# Instalirajte Azure CLI i prijavite se
 az login
 az account set --subscription "your-subscription-id"
 ```
 
-**Konfiguracija okruženja:**
-* Konfiguracija Azure AI Foundry (automatski se postavlja putem Azure CLI-ja)
+**Konfiguracija okoline:**
+* Konfiguracija Microsoft Foundry (automatski preko Azure CLI)
 * Provjerite jeste li autentificirani na ispravnu Azure pretplatu
 
-## 📊 Obrasci Enterprise RAG-a
+## 📊 Enterprise RAG obrasci
 
 ### Obrasci upravljanja dokumentima
-- **Masovno učitavanje**: Učinkovito procesiranje velikih kolekcija dokumenata
+- **Masovno učitavanje**: Učinkovita obrada velikih zbirki dokumenata
 - **Inkrementalna ažuriranja**: Dodavanje i izmjena dokumenata u stvarnom vremenu
-- **Kontrola verzija**: Verzioniranje dokumenata i praćenje promjena
-- **Upravljanje metapodacima**: Bogati atributi dokumenata i taksonomija
+- **Kontrola verzija**: Verzije dokumenata i praćenje promjena
+- **Upravljanje metapodacima**: Bogata svojstva dokumenata i taksonomija
 
 ### Obrasci pretraživanja i dohvaćanja
-- **Hibridno pretraživanje**: Kombiniranje semantičkog i ključnog pretraživanja za optimalne rezultate
-- **Pretraživanje s fasetama**: Višedimenzionalno filtriranje i kategorizacija
-- **Podešavanje relevantnosti**: Prilagođeni algoritmi bodovanja za specifične domene
+- **Hibridno pretraživanje**: Kombinacija semantičkog i pretraživanja po ključnim riječima za optimalne rezultate
+- **Fasetirano pretraživanje**: Višedimenzionalno filtriranje i kategorizacija
+- **Podešavanje relevantnosti**: Prilagođeni algoritmi ocjenjivanja za domen-specifične potrebe
 - **Rangiranje rezultata**: Napredno rangiranje s integracijom poslovne logike
 
 ### Obrasci sigurnosti
-- **Sigurnost na razini dokumenta**: Fino podešena kontrola pristupa po dokumentu
+- **Sigurnost na razini dokumenata**: Precizna kontrola pristupa za svaki dokument
 - **Klasifikacija podataka**: Automatsko označavanje osjetljivosti i zaštita
-- **Dnevnici aktivnosti**: Sveobuhvatno bilježenje svih RAG operacija
-- **Zaštita privatnosti**: Otkrivanje i redakcija osobnih podataka (PII)
+- **Revizijski tragovi**: Sveobuhvatno evidentiranje svih RAG operacija
+- **Zaštita privatnosti**: Detekcija i zamjena PII podataka
 
-## 🔒 Značajke sigurnosti za poduzeća
+## 🔒 Enterprise značajke sigurnosti
 
-### Autentifikacija i autorizacija
+### Autentikacija i autorizacija
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -122,14 +122,14 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Zaštita podataka
-- **Šifriranje**: Šifriranje od kraja do kraja za dokumente i indekse pretraživanja
-- **Kontrole pristupa**: Integracija s Azure AD-om za dozvole korisnika i grupa
-- **Rezidencija podataka**: Kontrole lokacije podataka za usklađenost
-- **Sigurnosne kopije i oporavak**: Automatizirane sigurnosne kopije i postupci oporavka
+- **Šifriranje**: Krajnje do krajnjeg šifriranje dokumenata i indeksa za pretraživanje
+- **Kontrola pristupa**: Integracija s Azure AD za prava korisnika i grupa
+- **Geografski smještaj podataka**: Kontrole lokacije podataka radi usklađenosti
+- **Sigurnosne kopije i oporavak**: Automatizirano sigurnosno kopiranje i kapaciteti oporavka
 
 ## 📈 Optimizacija izvedbe
 
-### Obrasci asinkronog procesiranja
+### Obrasci asinkrone obrade
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -139,68 +139,68 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Upravljanje memorijom
-- **Procesiranje u streamu**: Obrada velikih dokumenata bez problema s memorijom
-- **Upravljanje resursima**: Učinkovito ponovno korištenje skupih resursa
-- **Sakupljanje smeća**: Optimizirani obrasci dodjele memorije
-- **Upravljanje vezama**: Pravilno upravljanje životnim ciklusom veze s Azure uslugama
+- **Obrada streamanjem**: Rukovanje velikim dokumentima bez problema s memorijom
+- **Pooling resursa**: Učinkovito ponovno korištenje skupih resursa
+- **Garbage Collection**: Optimizirani obrasci alokacije memorije
+- **Upravljanje vezama**: Ispravan životni ciklus veza prema Azure servisima
 
-### Strategije predmemoriranja
-- **Predmemoriranje upita**: Predmemoriranje često izvršenih pretraživanja
-- **Predmemoriranje dokumenata**: Predmemoriranje u memoriji za "vruće" dokumente
-- **Predmemoriranje indeksa**: Optimizirano predmemoriranje vektorskih indeksa
-- **Predmemoriranje rezultata**: Inteligentno predmemoriranje generiranih odgovora
+### Strategije cacheiranja
+- **Cacheiranje upita**: Keširanje često izvršavanih pretraživanja
+- **Cacheiranje dokumenata**: Cacheiranje u memoriji za „vruće“ dokumente
+- **Cacheiranje indeksa**: Optimizirano cacheiranje vektorskih indeksa
+- **Cacheiranje rezultata**: Inteligentno keširanje generiranih odgovora
 
-## 📊 Primjene za poduzeća
+## 📊 Enterprise primjeri uporabe
 
 ### Upravljanje znanjem
-- **Korporativni Wiki**: Inteligentno pretraživanje kroz baze znanja tvrtke
-- **Politike i procedure**: Automatizirano usklađivanje i smjernice za procedure
-- **Materijali za obuku**: Inteligentna pomoć u učenju i razvoju
-- **Baze podataka za istraživanje**: Sustavi za analizu akademskih i istraživačkih radova
+- **Korporativna wiki**: Inteligentno pretraživanje kroz baze znanja tvrtke
+- **Politike i procedure**: Automatizirana usklađenost i smjernice za procedure
+- **Materijali za obuku**: Inteligentna pomoć za učenje i razvoj
+- **Baze istraživanja**: Analiza akademskih i istraživačkih radova
 
 ### Korisnička podrška
-- **Baza znanja za podršku**: Automatizirani odgovori za korisničku podršku
-- **Dokumentacija proizvoda**: Inteligentno dohvaćanje informacija o proizvodima
+- **Baza znanja za podršku**: Automatizirani korisnički odgovori
+- **Dokumentacija proizvoda**: Inteligentno dohvaćanje podataka o proizvodu
 - **Vodiči za rješavanje problema**: Kontekstualna pomoć u rješavanju problema
-- **Sustavi FAQ-a**: Dinamičko generiranje FAQ-a iz kolekcija dokumenata
+- **Sustavi često postavljanih pitanja (FAQ)**: Dinamičko generiranje FAQ-a iz zbirki dokumenata
 
 ### Usklađenost s regulativama
-- **Analiza pravnih dokumenata**: Inteligencija za ugovore i pravne dokumente
-- **Praćenje usklađenosti**: Automatizirano provjeravanje usklađenosti s regulativama
-- **Procjena rizika**: Analiza i izvještavanje o rizicima temeljenim na dokumentima
-- **Podrška za revizije**: Inteligentno otkrivanje dokumenata za revizije
+- **Analiza pravnih dokumenata**: Inteligencija ugovora i pravnih dokumenata
+- **Praćenje usklađenosti**: Automatizirana provjera regulativne usklađenosti
+- **Procjena rizika**: Analiza i izvještavanje rizika na bazi dokumenata
+- **Podrška za reviziju**: Inteligentno pronalaženje dokumenata za revizije
 
 ## 🚀 Produkcijska implementacija
 
-### Praćenje i preglednost
-- **Application Insights**: Detaljna telemetrija i praćenje izvedbe
-- **Prilagođene metrike**: Praćenje i upozorenja za poslovno specifične KPI-jeve
-- **Distribuirano praćenje**: Praćenje zahtjeva od kraja do kraja kroz usluge
-- **Nadzorne ploče zdravlja**: Vizualizacija zdravlja i izvedbe sustava u stvarnom vremenu
+### Nadziranje i preglednost
+- **Application Insights**: Detaljna telemetrija i nadzor izvedbe
+- **Prilagođeni metrički podaci**: Praćenje i upozorenja specifičnih poslovnih KPI-jeva
+- **Distribuirano praćenje**: Praćenje zahtjeva od početka do kraja kroz servise
+- **Nadzorne ploče zdravlja sustava**: Vizualizacija zdravstvenog stanja i performansi u stvarnom vremenu
 
 ### Skalabilnost i pouzdanost
-- **Automatsko skaliranje**: Automatsko skaliranje na temelju opterećenja i metričkih izvedbi
-- **Visoka dostupnost**: Implementacija u više regija s mogućnostima prebacivanja
-- **Testiranje opterećenja**: Validacija izvedbe pod opterećenjem na razini poduzeća
-- **Oporavak od katastrofe**: Automatizirane sigurnosne kopije i postupci oporavka
+- **Automatsko skaliranje**: Automatsko skaliranje temeljem opterećenja i metrike izvedbe
+- **Visoka dostupnost**: Implementacija u više regija s mogućnostima preuzimanja u slučaju pogreške
+- **Testiranje opterećenja**: Validacija izvedbe pod enterprise opterećenjem
+- **Postupci oporavka od katastrofe**: Automatizirano sigurnosno kopiranje i oporavak
 
-Spremni za izgradnju RAG sustava na razini poduzeća koji mogu rukovati osjetljivim dokumentima u velikom opsegu? Idemo arhitektirati inteligentne sustave znanja za poduzeća! 🏢📖✨
+Spremni za izgradnju enterprise RAG sustava koji mogu obrađivati osjetljive dokumente u velikom opsegu? Krenimo s arhitekturom inteligentnih sustava znanja za poduzeća! 🏢📖✨
 
 ## Implementacija koda
 
-Potpuni radni primjer koda za ovu lekciju dostupan je u `05-dotnet-agent-framework.cs`. 
+Potpuni radni uzorak koda za ovu lekciju dostupan je u `05-dotnet-agent-framework.cs`. 
 
 Za pokretanje primjera:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Napravite skriptu izvršnom (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Pokreni .NET aplikaciju jedne datoteke
 ./05-dotnet-agent-framework.cs
 ```
 
-Ili koristite `dotnet run` direktno:
+Ili upotrijebite `dotnet run` izravno:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Kod demonstrira:
 
-1. **Instalacija paketa**: Instalacija potrebnih NuGet paketa za Azure AI agente
-2. **Konfiguracija okruženja**: Učitavanje postavki za Azure AI Foundry endpoint i model
-3. **Učitavanje dokumenata**: Učitavanje dokumenta za RAG procesiranje
-4. **Kreiranje vektorske pohrane**: Kreiranje vektorske pohrane za semantičko pretraživanje
-5. **Konfiguracija agenta**: Postavljanje AI agenta s mogućnostima pretraživanja datoteka
-6. **Izvršavanje upita**: Pokretanje upita na učitanom dokumentu
+1. **Instalaciju paketa**: Instalacija potrebnih NuGet paketa za Azure AI agente
+2. **Konfiguraciju okruženja**: Učitavanje Microsoft Foundry krajnjih točaka i postavki modela
+3. **Učitavanje dokumenta**: Učitavanje dokumenta za RAG obradu
+4. **Stvaranje vektorske pohrane**: Izrada vektorske pohrane za semantičko pretraživanje
+5. **Konfiguraciju agenta**: Postavka AI agenta s mogućnostima pretraživanja datoteka
+6. **Izvršavanje upita**: Pokretanje upita prema učitanom dokumentu
 
 ---
 
-**Izjava o odricanju odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

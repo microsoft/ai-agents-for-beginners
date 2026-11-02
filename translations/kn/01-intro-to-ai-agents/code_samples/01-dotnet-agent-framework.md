@@ -1,71 +1,75 @@
-# 🌍 Microsoft Agent Framework (.NET) ಬಳಸಿ AI ಪ್ರವಾಸ ಏಜೆಂಟ್
+# 🌍 ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ (.NET) ಜೊತೆಗೆ AI ಪ್ರಯಾಣ ಏಜೆಂಟ್
 
-## 📋 ದೃಶ್ಯಾವಲೋಕನ
+## 📋 ಸನ್ನಿವೇಶ ಅವಲೋಕನ
 
-ಈ ಉದಾಹರಣೆ Microsoft Agent Framework for .NET ಬಳಸಿ ಬುದ್ಧಿವಂತ ಪ್ರವಾಸ ಯೋಜನೆ ಏಜೆಂಟ್ ಅನ್ನು ಹೇಗೆ ನಿರ್ಮಿಸಬಹುದು ಎಂಬುದನ್ನು ತೋರಿಸುತ್ತದೆ. ಈ ಏಜೆಂಟ್ ವಿಶ್ವದ ವಿವಿಧ ಸ್ಥಳಗಳಿಗೆ ವೈಯಕ್ತಿಕ ದಿನ-ಪ್ರಯಾಣ ಯೋಜನೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರಚಿಸಬಹುದು.
+ಈ ಉದಾಹರಣೆ ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ಅನ್ನು .NET ನಲ್ಲಿ ಬಳಸಿ ಬುದ್ಧಿವಂತ ಪ್ರಯಾಣ ಯೋಜನೆ ಏಜೆಂಟ್ ಅನ್ನು ಹೇಗೆ ನಿರ್ಮಿಸುವುದು ಎಂದು ತೋರಿಸುತ್ತದೆ. ಏಜೆಂಟ್ ವಿಶ್ವದ ಅನಿಯಮಿತ ಗಂತವ್ಯ ಸ್ಥಳಗಳಿಗೆ ವೈಯಕ್ತಿಕೃತ ದಿವಸ-ಪ್ರಯಾಣ ಯೋಜನೆಗಳನ್ನು ಸ್ವಯಂಕರವಾಗಿ ರಚಿಸಬಹುದು.
 
-### ಪ್ರಮುಖ ಸಾಮರ್ಥ್ಯಗಳು:
+### ಮುಖ್ಯ ಸಾಮರ್ಥ್ಯಗಳು:
 
-- 🎲 **ಯಾದೃಚ್ಛಿಕ ಸ್ಥಳ ಆಯ್ಕೆ**: ರಜಾ ಸ್ಥಳಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಕಸ್ಟಮ್ ಟೂಲ್ ಬಳಸುತ್ತದೆ
-- 🗺️ **ಬುದ್ಧಿವಂತ ಪ್ರವಾಸ ಯೋಜನೆ**: ದಿನ-ದಿನದ ವಿವರವಾದ ಯೋಜನೆಗಳನ್ನು ರಚಿಸುತ್ತದೆ
-- 🔄 **ತಕ್ಷಣದ ಮತ್ತು ಸ್ಟ್ರೀಮಿಂಗ್ ಪ್ರತಿಕ್ರಿಯೆ**: ರಿಯಲ್-ಟೈಮ್ ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ
-- 🛠️ **ಕಸ್ಟಮ್ ಟೂಲ್ ಇಂಟಿಗ್ರೇಶನ್**: ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸುವುದನ್ನು ತೋರಿಸುತ್ತದೆ
+- 🎲 **ಯಾದೃಚ್ಛಿಕ ಗಂತವ್ಯ ಆಯ್ಕೆ**: ರಜೆ ಸ್ಥಳಗಳನ್ನು ಆರಿಸಲು ಕಸ್ಟಮ್ ಟೂಲನ್ನು ಬಳಸುವುದು
+- 🗺️ **ಬುದ್ಧಿವಂತ ಪ್ರಯಾಣ ಯೋಜನೆ**: ದಿನಾಂಕದ ಪ್ರತಿ ದಿನದ ವಿವರವಾದ ಯೋಜನೆಗಳನ್ನು ರಚಿಸುವುದು
+- 🔄 **ನಿಖರ ಸಮಯ ಸ್ಟ್ರೀಮಿಂಗ್**: ತಕ್ಷಣದ ಮತ್ತು ಸ್ಟ್ರೀಮಿಂಗ್ ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಬೆಂಬಲಿಸುವುದು
+- 🛠️ **ಕಸ್ಟಮ್ ಟೂಲ್ ಎন্টಿಗ್ರೇಷನ್**: ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸುವುದನ್ನು ತೋರಿಸುವುದು
 
-## 🔧 ತಾಂತ್ರಿಕ ಆರ್ಕಿಟೆಕ್ಚರ್
+## 🔧 ತಾಂತ್ರಿಕ ವಾಸ್ತುಶಿಲ್ಪ
 
-### ಮುಖ್ಯ ತಂತ್ರಜ್ಞಾನಗಳು
+### ಮೂಲ ತಂತ್ರಜ್ಞಾನಗಳು
 
-- **Microsoft Agent Framework**: .NET ನಲ್ಲಿ AI ಏಜೆಂಟ್ ಅಭಿವೃದ್ಧಿಗಾಗಿ ಇತ್ತೀಚಿನ ಅನುಷ್ಠಾನ
-- **GitHub Models Integration**: GitHub ನ AI ಮಾದರಿ ನಿರ್ವಚನಾ ಸೇವೆಯನ್ನು ಬಳಸುತ್ತದೆ
-- **OpenAI API Compatibility**: OpenAI ಕ್ಲೈಂಟ್ ಲೈಬ್ರರಿಗಳನ್ನು ಕಸ್ಟಮ್ ಎಂಡ್‌ಪಾಯಿಂಟ್‌ಗಳೊಂದಿಗೆ ಬಳಸುತ್ತದೆ
-- **ಸುರಕ್ಷಿತ ಸಂರಚನೆ**: ಪರಿಸರ-ಆಧಾರಿತ API ಕೀ ನಿರ್ವಹಣೆ
+- **ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್**: AI ಏಜೆಂಟ್ ಅಭಿವೃದ್ಧಿಗೆ ನವೀನ .NET ಅನುಷ್ಠಾನ
+- **ಅಜುರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API)**: ಮಾದರಿ ನಿರ್ಣಯಕ್ಕಾಗಿ ಅಜುರ್ ಓಪನ್‌ಎಐ ಪ್ರತಿಕ್ರಿಯೆಗಳು API ಅನ್ನು ಬಳಸುತ್ತದೆ
+- **ಅಜುರ್ ಐಡന്റಿಟಿ**: `AzureCliCredential` (`az login`) ಮೂಲಕ ಸುರಕ್ಷಿತ ಸೈನ್-ಇನ್
+- **ಸುರಕ್ಷಿತ ರಚನೆ**: ಪರಿಸರ ಆಧಾರಿತ ಎಂಡ್‌ಪಾಯಿಂಟ್ ನಿರ್ವಹಣೆ
 
 ### ಪ್ರಮುಖ ಘಟಕಗಳು
 
-1. **AIAgent**: ಸಂಭಾಷಣೆಯ ಹರಿವನ್ನು ನಿರ್ವಹಿಸುವ ಮುಖ್ಯ ಏಜೆಂಟ್
-2. **ಕಸ್ಟಮ್ ಟೂಲ್‌ಗಳು**: `GetRandomDestination()` ಕಾರ್ಯವನ್ನು ಏಜೆಂಟ್‌ಗೆ ಲಭ್ಯವಿದೆ
-3. **ಚಾಟ್ ಕ್ಲೈಂಟ್**: GitHub Models ಬೆಂಬಲಿತ ಸಂಭಾಷಣಾ ಇಂಟರ್ಫೇಸ್
-4. **ಸ್ಟ್ರೀಮಿಂಗ್ ಬೆಂಬಲ**: ರಿಯಲ್-ಟೈಮ್ ಪ್ರತಿಕ್ರಿಯೆ ರಚನೆ ಸಾಮರ್ಥ್ಯಗಳು
+1. **AIAgent**: ಸಂಭಾಷಣೆ ಪ್ರವರ್ತನೆಗಾಗಿ ಮುಖ್ಯ ಏಜೆಂಟ್ ಆರ್ಕೆಸ್ಟ್ರೇಟರ್
+2. **ಕಸ್ಟಮ್ ಟೂಲ್ಸ್**: ಏಜೆಂಟ್‌ಗೆ ಲಭ್ಯವಿರುವ `GetRandomDestination()` ಕಾರ್ಯ
+3. **ಪ್ರತಿಕ್ರಿಯೆಗಳು ಕ್ಲೈಂಟ್**: ಅಜುರ್ ಓಪನ್‌ಎಐ ಪ್ರತಿಕ್ರಿಯೆ ಆಧಾರಿತ ಸಂಭಾಷಣೆ ಇಂಟರ್ಫೇಸ್
+4. **ಸ್ಟ್ರೀಮಿಂಗ್ ಬೆಂಬಲ**: ನಿಖರ ಸಮಯ ಪ್ರತಿಕ್ರಿಯಾ ಉತ್ಪಾದನೆ ಸಾಮರ್ಥ್ಯಗಳು
 
-### ಇಂಟಿಗ್ರೇಶನ್ ಪ್ಯಾಟರ್ನ್
+### ಏಕೀಕರಣ ಮಾದರಿ
 
 ```mermaid
 graph LR
-    A[ಬಳಕೆದಾರ ವಿನಂತಿ] --> B[AI ಏಜೆಂಟ್]
-    B --> C[GitHub ಮಾದರಿಗಳ API]
-    B --> D[GetRandomDestination ಸಾಧನ]
-    C --> E[ಪ್ರಯಾಣ ಯೋಜನೆ]
+    A[ಬಳಕೆದಾರದ ವಿನಂತಿ] --> B[ಎಐ ಏಜೆಂಟ್]
+    B --> C[ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API)]
+    B --> D[GetRandomDestination ಉಪಕರಣ]
+    C --> E[ಪ್ರವಾಸ ಯೋಜನೆ]
     D --> E
 ```
-## 🚀 ಪ್ರಾರಂಭಿಸಲು
+
+## 🚀 ಪ್ರಾರಂಭಿಸುವುದು
 
 ### ಪೂರ್ವಾಪೇಕ್ಷಿತಗಳು
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚಿನದು
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚು
+- ಅಜುರ್ ಓಪನ್‌ಎಐ ಸಂಪನ್ಮೂಲ ಮತ್ತು ಮಾದರಿ ನಿಯೋಜನೆಯೊಂದಿಗೆ [ಅಜುರ್ ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್](https://azure.microsoft.com/free/)
+- [ಅಜುರ್ CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ಮೂಲಕ ಸೈನ್ ಇನ್ ಆಗಿ
 
-### ಅಗತ್ಯವಿರುವ ಪರಿಸರ ವ್ಯತ್ಯಾಸಗಳು
+### ಅಗತ್ಯವಿರುವ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ನಂತರ ಲಾಗಿನ್ ಮಾಡಿ যাতে AzureCliCredential ಟೋಕೆನ್ ಪಡೆಯಬಹುದು
+az login
 ```
 
 ```powershell
 # ಪವರ್‌ಶೆಲ್
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ನಂತರ ಚಂದಾ ನೀಡಿ, zodat AzureCliCredential ಟೋಕನ್ ಪಡೆದುಕೊಳ್ಳಬಹುದು
+az login
 ```
 
 ### ಮಾದರಿ ಕೋಡ್
 
-ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಲಾಯಿಸಲು,
+ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಾಲನೆ ಮಾಡಲು,
 
 ```bash
-# ಝೆಡ್‌ಎಸ್‌ಎಚ್/ಬ್ಯಾಶ್
+# zsh/bash
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
@@ -76,21 +80,23 @@ chmod +x ./01-dotnet-agent-framework.cs
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-ಪೂರ್ಣ ಕೋಡ್‌ಗಾಗಿ [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) ನೋಡಿ.
+ಪೂರ್ಣ ಕೋಡ್‌ಗೆ [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) ನೋಡಿ.
 
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -122,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -165,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 ಪ್ರಮುಖ ಪಾಠಗಳು
+## 🎓 ಪ್ರಮುಖ ಕೊಂಡಿತಣೆಗಳು
 
-1. **ಏಜೆಂಟ್ ಆರ್ಕಿಟೆಕ್ಚರ್**: Microsoft Agent Framework .NET ನಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸ್ವಚ್ಛ, ಪ್ರಕಾರ-ಸುರಕ್ಷಿತ ವಿಧಾನವನ್ನು ಒದಗಿಸುತ್ತದೆ
-2. **ಟೂಲ್ ಇಂಟಿಗ್ರೇಶನ್**: `[Description]` ಗುಣಲಕ್ಷಣಗಳೊಂದಿಗೆ ಅಲಂಕರಿಸಲಾದ ಕಾರ್ಯಗಳು ಏಜೆಂಟ್‌ಗೆ ಲಭ್ಯವಿರುವ ಟೂಲ್‌ಗಳಾಗುತ್ತವೆ
-3. **ಸಂರಚನೆ ನಿರ್ವಹಣೆ**: ಪರಿಸರ ವ್ಯತ್ಯಾಸಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ಕ್ರೆಡೆನ್ಷಿಯಲ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್ .NET ಉತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಅನುಸರಿಸುತ್ತದೆ
-4. **OpenAI ಹೊಂದಾಣಿಕೆ**: GitHub Models ಇಂಟಿಗ್ರೇಶನ್ OpenAI-ಸಹಜ APIಗಳ ಮೂಲಕ ಸುಲಭವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ
+1. **ಏಜೆಂಟ್ ವಾಸ್ತುಶಿಲ್ಪ**: ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ .NET ನಲ್ಲಿ AI ಏಜೆಂಟ್ಗಳ ನಿರ್ಮಾಣಕ್ಕೆ ಸ್ವಚ್ಛ, ಟೈಪ್-ಸೇಫ್ ವಿಧಾನವನ್ನು ಒದಗಿಸುತ್ತದೆ
+2. **ಟೂಲ್ ಏಕೀಕರಣ**: `[Description]` ಲಕ್ಷಣಗಳಿಂದ ಅಲಂಕರಿಸಿರುವ ಕಾರ್ಯಗಳು ಏಜೆಂಟ್‌ಗೆ ಲಭ್ಯವಿರುವ ಟೂಲ್ಗಳಾಗುತ್ತವೆ
+3. **ರಚನೆ ನಿರ್ವಹಣೆ**: ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ಕ್ರೆಡೆಶಿಯಲ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್ .NET ಅತ್ಯುತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಅನುಸರಿಸುತ್ತದೆ
+4. **ಅಜುರ್ ಓಪನ್‌ಎಐ ಪ್ರತಿಕ್ರಿಯೆಗಳು API**: ಏಜೆಂಟ್ ಅಜುರ್.AI.OpenAI SDK ಮೂಲಕ ಅಜುರ್ ಓಪನ್‌ಎಐ ಪ್ರತಿಕ್ರಿಯೆ API ಅನ್ನು ಬಳಸುತ್ತದೆ
 
-## 🔗 ಹೆಚ್ಚುವರಿ ಸಂಪತ್ತುಗಳು
+## 🔗 ಹೆಚ್ಚುವರಿ ಸಂಪನ್ಮೂಲಗಳು
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ಡಾಕ್ಯುಮೆಂಟೇಷನ್](https://learn.microsoft.com/agent-framework)
+- [ಮೈಕ್ರೋಸಾಫ್ಟ್ ಫೌಂಡ್ರಿಯಲ್ಲಿ ಅಜುರ್ ಓಪನ್‌ಎಐ](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET ಸಿಂಗಲ್ ಫೈಲ್ ಅಪ್‌ಗಳು](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸಮೀಕ್ಷೆ**:  
-ಈ ದಾಖಲೆ AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ಖಚಿತತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಮರ್ಪಕತೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಾಖಲೆ ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪುಅರ್ಥಗಳು ಅಥವಾ ತಪ್ಪುಅನ್ವಯಗಳುಗಾಗಿ ನಾವು ಹೊಣೆಗಾರರಾಗಿರುವುದಿಲ್ಲ.
+**ಅಸ್ವೀಕಾರ**:
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

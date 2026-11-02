@@ -1,145 +1,148 @@
-# 🎨 GitHub மாடல்களுடன் (.NET) Agentic வடிவமைப்பு முறை
+# 🎨 Azure OpenAI (Responses API) உடன் Agentic வடிவமைப்பு மாதிரிகள் (.NET)
 
-## 📋 கற்றல் நோக்கங்கள்
+## 📋 கற்றல் இலக்குகள்
 
-இந்த உதாரணம் Microsoft Agent Framework-ஐ .NET-இல் GitHub மாடல்களுடன் ஒருங்கிணைத்து நுண்ணறிவு முகவர்களை உருவாக்குவதற்கான நிறுவன தரமான வடிவமைப்பு முறைகளை விளக்குகிறது. உற்பத்தி-தயார், பராமரிக்கக்கூடிய மற்றும் விரிவாக்கக்கூடிய முகவர்களை உருவாக்குவதற்கான தொழில்முறை முறைகள் மற்றும் கட்டமைப்பு அணுகுமுறைகளை நீங்கள் கற்றுக்கொள்வீர்கள்.
+இந்த உதாரணம் Microsoft Agent Framework ஐ .NET உடன் Azure OpenAI (Responses API) ஒருங்கிணைப்புடன் பயன்படுத்தி நுண்ணறிவு முகவர்கள் உருவாக்குவதற்கான நிறுவன தரமான வடிவமைப்பு மாதிரிகளை விளக்குகிறது. முகவர்கள் உற்பத்திக்கு தயாரான, பராமரிக்கக்கூடிய மற்றும் பரிமாணக்கூடியவையாக மாற்றும் தொழில்முறை மாதிரிகள் மற்றும் கட்டமைப்பு நடைமுறைகளை நீங்கள் கற்றுக்கொள்ளுவீர்கள்.
 
-### நிறுவன வடிவமைப்பு முறைகள்
+### நிறுவன வடிவமைப்பு மாதிரிகள்
 
-- 🏭 **Factory Pattern**: சார்பு ஊடுருவலுடன் தரநிலைமிக்க முகவர் உருவாக்கம்
-- 🔧 **Builder Pattern**: Fluent முகவர் அமைப்பு மற்றும் அமைப்பு
-- 🧵 **Thread-Safe Patterns**: ஒரே நேரத்தில் உரையாடல் மேலாண்மை
-- 📋 **Repository Pattern**: ஒழுங்கமைக்கப்பட்ட கருவி மற்றும் திறன் மேலாண்மை
+- 🏭 **Factory Pattern**: சார்புகள் ஊடுருவலுடன் நிலையான முகவர் உருவாக்கம்
+- 🔧 **Builder Pattern**: மிதமான முகவர் அமைப்பு மற்றும் வடிவமைப்பு
+- 🧵 **Thread-Safe Patterns**: ஒரே சமய உரையாடல் நிர்வாகம்
+- 📋 **Repository Pattern**: ஸீரியான கருவி மற்றும் திறன் நிர்வாகம்
 
-## 🎯 .NET-க்கு தனித்துவமான கட்டமைப்பு நன்மைகள்
+## 🎯 .NET-இற்கான சிறப்பான கட்டமைப்புத் தன்மைகள்
 
 ### நிறுவன அம்சங்கள்
 
-- **Strong Typing**: தொகுப்பு நேர சரிபார்ப்பு மற்றும் IntelliSense ஆதரவு
-- **Dependency Injection**: உள்ளமைக்கப்பட்ட DI கொண்டெய்னர் ஒருங்கிணைப்பு
-- **Configuration Management**: IConfiguration மற்றும் Options முறைகள்
+- **வலுவான டைப்பிங்**: தொகுப்பு நேரத்தில் சரிபார்ப்பு மற்றும் IntelliSense ஆதரவு
+- **சார்பு ஊடுருவல்**: அடர்த்தியான DI கண்டெய்னர் ஒருங்கிணைப்பு
+- **கட்டமைப்பு நிர்வாகம்**: IConfiguration மற்றும் Options மாதிரிகள்
 - **Async/Await**: முதன்மை அசிங்க்ரோனஸ் நிரலாக்க ஆதரவு
 
-### உற்பத்தி-தயார் முறைகள்
+### உற்பத்திக்கு தயாரான மாதிரிகள்
 
-- **Logging Integration**: ILogger மற்றும் அமைக்கப்பட்ட பதிவு ஆதரவு
-- **Health Checks**: உள்ளமைக்கப்பட்ட கண்காணிப்பு மற்றும் நோயறிதல்
-- **Configuration Validation**: தரமான டைப்பிங் மற்றும் தரவுக் குறிப்பு
-- **Error Handling**: அமைக்கப்பட்ட தவறு மேலாண்மை
+- **சுற்றறிக்கை ஒருங்கிணைப்பு**: ILogger மற்றும் கட்டமைக்கப்பட்ட சுற்றறிக்கை ஆதரவு
+- **நிலைப்படுத்தல் சோதனைகள்**: அமைக்கப்பட்ட கண்காணிப்பு மற்றும் பகுப்பாய்வு
+- **கட்டமைப்பு சரிபார்ப்பு**: வலுவான டைப்பிங் மற்றும் தரவு குறியீடுகள்
+- **பிழை கையாண்டல்**: கட்டமைக்கப்பட்ட விளக்கம் நிர்வாகம்
 
 ## 🔧 தொழில்நுட்ப கட்டமைப்பு
 
-### முக்கிய .NET கூறுகள்
+### முதன்மை .NET கூறுகள்
 
-- **Microsoft.Extensions.AI**: ஒருங்கிணைந்த AI சேவை சுருக்கங்கள்
+- **Microsoft.Extensions.AI**: ஒருங்கிணைக்கப்பட்ட AI சேவை மாதிரிகள்
 - **Microsoft.Agents.AI**: நிறுவன முகவர் ஒருங்கிணைப்பு கட்டமைப்பு
-- **GitHub Models Integration**: உயர் செயல்திறன் API கிளையன்ட் முறைகள்
-- **Configuration System**: appsettings.json மற்றும் சூழல் ஒருங்கிணைப்பு
+- **Azure OpenAI (Responses API)**: உயர் செயல்திறன் API கிளையன்ட் மாதிரிகள்
+- **கட்டமைப்பு முறைமை**: appsettings.json மற்றும் சுற்றுச்சூழல் ஒருங்கிணைப்பு
 
-### வடிவமைப்பு முறை செயல்பாடு
+### வடிவமைப்பு மாதிரி செயலாக்கம்
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[முகவர் கட்டுப்பாடு]
+    B --> C[அமைப்பு]
+    C --> D[கருவி பதிவகம்]
+    D --> E[தொட்டி முகவர்]
 ```
 
-## 🏗️ நிறுவனம் தரமான முறைகள்
+## 🏗️ நிறுவனம் காட்டியுள்ள மாதிரிகள்
 
-### 1. **Creational Patterns**
+### 1. **உருவாக்கும் மாதிரிகள்**
 
-- **Agent Factory**: ஒரே மாதிரியான அமைப்புடன் மையப்படுத்தப்பட்ட முகவர் உருவாக்கம்
-- **Builder Pattern**: சிக்கலான முகவர் அமைப்புக்கான Fluent API
-- **Singleton Pattern**: பகிரப்பட்ட வளங்கள் மற்றும் அமைப்பு மேலாண்மை
-- **Dependency Injection**: தளர்வான இணைப்பு மற்றும் சோதிக்கக்கூடிய தன்மை
+- **Agent Factory**: ஒரேமுறையான கட்டமைப்புடன் மையமிட்ட முகவர் உருவாக்கம்
+- **Builder Pattern**: சிக்கலான முகவர் கட்டமைப்புக்கு மென்மையான API
+- **Singleton Pattern**: பகிரப்பட்ட வளங்கள் மற்றும் கட்டமைப்பு நிர்வாகம்
+- **Dependency Injection**: தவிர்க்கக்கூடிய கூட்டுரை மற்றும் சோதனைமுறைம்
 
-### 2. **Behavioral Patterns**
+### 2. **நடத்தும் மாதிரிகள்**
 
-- **Strategy Pattern**: மாற்றக்கூடிய கருவி செயல்படுத்தும் உத்திகள்
-- **Command Pattern**: Undo/Redo உடன் மூடப்பட்ட முகவர் செயல்பாடுகள்
-- **Observer Pattern**: நிகழ்வு சார்ந்த முகவர் வாழ்க்கைச்சுழற்சி மேலாண்மை
-- **Template Method**: தரநிலைமிக்க முகவர் செயல்பாட்டு வேலைகள்
+- **Strategy Pattern**: மாற்றக்கூடிய கருவி செயல்பாட்டு திட்டங்கள்
+- **Command Pattern**: மறுசீரமைப்பு/திருத்தத்துடன் முகவர் செயல்பாடுகள் அடுக்கம்
+- **Observer Pattern**: நிகழ்வு சார்ந்த முகவர் வாழ்க்கைச் சுழற்சி நிர்வாகம்
+- **Template Method**: ஒருங்குறும்பான முகவர் செயல்பாட்டு செயல்முறைகள்
 
-### 3. **Structural Patterns**
+### 3. **உடைத்தமைவு மாதிரிகள்**
 
-- **Adapter Pattern**: GitHub Models API ஒருங்கிணைப்பு அடுக்கு
+- **Adapter Pattern**: Azure OpenAI (Responses API) ஒருங்கிணைப்பு அடுக்கு
 - **Decorator Pattern**: முகவர் திறன் மேம்பாடு
-- **Facade Pattern**: எளிமையான முகவர் தொடர்பு இடைமுகங்கள்
-- **Proxy Pattern**: செயல்திறனுக்கான சோம்பேறி ஏற்றுதல் மற்றும் கேஷிங்
+- **Facade Pattern**: எளிமையான முகவர் இடைமுகங்கள்
+- **Proxy Pattern**: செயல்திறனை உயர்த்தும் மந்த நடவடிக்கை மற்றும் தேவைபூச்சி
 
-## 📚 .NET வடிவமைப்பு கொள்கைகள்
+## 📚 .NET வடிவமைப்பு கோட்பாடுகள்
 
-### SOLID கொள்கைகள்
+### SOLID கோட்பாடுகள்
 
-- **Single Responsibility**: ஒவ்வொரு கூறும் ஒரு தெளிவான நோக்கத்துடன்
-- **Open/Closed**: மாற்றமின்றி விரிவாக்கக்கூடியது
-- **Liskov Substitution**: இடைமுக அடிப்படையிலான கருவி செயல்பாடுகள்
-- **Interface Segregation**: கவனம் செலுத்திய, ஒருங்கிணைந்த இடைமுகங்கள்
-- **Dependency Inversion**: கான்கிரீஷன்களுக்குப் பதிலாக சுருக்கங்களை நம்புங்கள்
+- **ஒருமை பொறுப்பு**: ஒவ்வொரு கூறும் தெளிவான நோக்கத்துடன்
+- **திறந்த/மூடிய**: மாற்றமின்றி விரிவாக்கக்கூடியது
+- **Liskov நிலைபேறு**: இடைமுக அடிப்படையிலான கருவி செயல்பாடுகள்
+- **இடைமுக பிரிப்பாய்வு**: கவனிக்கப்பட்ட, ஒருங்கிணைந்த இடைமுகங்கள்
+- **சார்பு மாற்றம்**: வகைப்படுத்தலை அல்லாது குறிக்கப்பட்டவற்றை சாரவும்
 
-### சுத்தமான கட்டமைப்பு
+### தூய கட்டமைப்பு
 
-- **Domain Layer**: முக்கிய முகவர் மற்றும் கருவி சுருக்கங்கள்
-- **Application Layer**: முகவர் ஒருங்கிணைப்பு மற்றும் வேலைகள்
-- **Infrastructure Layer**: GitHub Models ஒருங்கிணைப்பு மற்றும் வெளிப்புற சேவைகள்
-- **Presentation Layer**: பயனர் தொடர்பு மற்றும் பதில் வடிவமைப்பு
+- **கோட்பாடு நிலை**: முதன்மை முகவர் மற்றும் கருவி மாதிரிகள்
+- **விண்ணப்ப நிலை**: முகவர் ஒருங்கிணைப்பு மற்றும் செயல்முறைகள்
+- **உயிர்க்கட்டமைப்பு நிலை**: Azure OpenAI (Responses API) ஒருங்கிணைப்பு மற்றும் வெளிப்புற சேவைகள்
+- **தொகுப்பு நிலை**: பயனர் தொடர்பு மற்றும் பதில் வடிவமைப்பு
 
-## 🔒 நிறுவன கருத்துக்கள்
+## 🔒 நிறுவன பரிசீலனைகள்
 
 ### பாதுகாப்பு
 
-- **Credential Management**: IConfiguration உடன் API விசை பாதுகாப்பான கையாளுதல்
-- **Input Validation**: தரமான டைப்பிங் மற்றும் தரவுக் குறிப்பு சரிபார்ப்பு
-- **Output Sanitization**: பாதுகாப்பான பதில் செயலாக்கம் மற்றும் வடிகட்டி
-- **Audit Logging**: விரிவான செயல்பாட்டு கண்காணிப்பு
+- **சான்றிதழ் நிர்வாகம்**: IConfiguration உடன் பாதுகாப்பான API முக்கியம் கையாள்தல்
+- **உள்ளீட்டுச் சரிபார்ப்பு**: வலுவான டைப்பிங் மற்றும் தரவு குறியீட்டு சரிபார்ப்பு
+- **வெளியீடு சுத்திகரிப்பு**: பாதுகாப்பான பதில் செயலாக்கம் மற்றும் வடிகட்டி
+- **ஆடிட் சுற்றறிக்கை**: முழுமையான செயல்பாட்டு கண்காணிப்பு
 
 ### செயல்திறன்
 
-- **Async Patterns**: Non-blocking I/O செயல்பாடுகள்
-- **Connection Pooling**: திறமையான HTTP கிளையன்ட் மேலாண்மை
-- **Caching**: செயல்திறனை மேம்படுத்த பதில் கேஷிங்
-- **Resource Management**: சரியான அகற்றல் மற்றும் சுத்தம் செய்யும் முறைகள்
+- **Async மாதிரிகள்**: தடை இல்லாத I/O செயல்பாடுகள்
+- **இணைப்பு குளியல்**: திறமையான HTTP கிளையன்ட் நிர்வாகம்
+- **தேவைபூச்சி**: மேம்படுத்தப்பட்ட செயல்திறனுக்கு பதில் தேவைபூச்சி
+- **வளம் நிர்வாகம்**: சரியான வெளியேற்றல் மற்றும் சுத்தம் வடிவமைப்புகள்
 
-### விரிவாக்கம்
+### பரிமாணக்கூடிய தன்மை
 
-- **Thread Safety**: ஒரே நேரத்தில் முகவர் செயல்பாட்டு ஆதரவு
-- **Resource Pooling**: திறமையான வள பயன்பாடு
-- **Load Management**: விகித வரையறை மற்றும் பின்செலுத்தல் கையாளுதல்
-- **Monitoring**: செயல்திறன் அளவுகள் மற்றும் ஆரோக்கிய சோதனைகள்
+- **தூடை பாதுகாப்பு**: ஒருங்கிணைந்த முகவர் செயல்பாடு ஆதரவு
+- **வளம் சேமிப்பு**: திறமையான வளப் பயன்பாடு
+- **பொதி நிர்வாகம்**: வீதக் கட்டுப்பாடு மற்றும் பின்னாம்பெருக்கு கையாள்தல்
+- **கண்காணிப்பு**: செயல்திறன் அளவுகோல்கள் மற்றும் நிலைப்படுத்தல் சோதனைகள்
 
-## 🚀 உற்பத்தி வெளியீடு
+## 🚀 உற்பத்தி சமர்ப்பிப்பு
 
-- **Configuration Management**: சூழல்-குறிப்பிட்ட அமைப்புகள்
-- **Logging Strategy**: அமைக்கப்பட்ட பதிவு மற்றும் தொடர்பு ஐடிகள்
-- **Error Handling**: சரியான மீட்புடன் உலகளாவிய தவறு கையாளுதல்
-- **Monitoring**: Application insights மற்றும் செயல்திறன் கவுண்டர்கள்
-- **Testing**: Unit tests, integration tests மற்றும் load testing முறைகள்
+- **கட்டமைப்பு நிர்வாகம்**: சூழல்-சரியான அமைப்புகள்
+- **சுற்றறிக்கை தந்திரம்**: ஒத்துழைப்பு IDகளுடன் கட்டமைக்கப்பட்ட சுற்றறிக்கை
+- **பிழை கையாள்தல்**: சர்வதேச விளக்கம் கையாள்தல் மற்றும் சரியான மீட்பு
+- **கண்காணிப்பு**: விண்ணப்பத் தகவல்கள் மற்றும் செயல்திறன் கணக்கீடுகள்
+- **சோதனை**: அலகு சோதனைகள், ஒருங்கிணைப்பு சோதனைகள் மற்றும் பொதி சோதனை மாதிரிகள்
 
-.NET-இல் நிறுவன தரமான நுண்ணறிவு முகவர்களை உருவாக்க தயாரா? வலுவான ஒன்றை வடிவமைக்கலாம்! 🏢✨
+.NET உடன் நிறுவன தரமான நுண்ணறிவு முகவர்களை உருவாக்க தயாரா? வலுவான கட்டமைப்பை உருவாக்குவோம்! 🏢✨
 
-## 🚀 தொடங்குதல்
+## 🚀 தொடங்குவதற்கான வழிமுறை
 
-### முன் தேவைகள்
+### முன் நிபந்தனைகள்
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) அல்லது அதற்கு மேல்
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) அல்லது மேலே
+- Azure OpenAI வளத்துடன் Azure சந்தா மற்றும் மாதிரி சமர்ப்பிப்பு
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` கொண்டு உள்நுழையவும்
 
-### தேவையான சூழல் மாறிகள்
+### தேவையான சுற்றுச்சூழல் மாறிகள்
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# பிறகு AzureCliCredential ஒரு டோக்கன் பெற உள்நுழைக
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# பவர்Shell
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# அதனால் AzureCliCredential ஒரு டோக்கன் பெற சைன் இன் செய்யவும்
+az login
 ```
 
 ### மாதிரி குறியீடு
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-அல்லது dotnet CLI-ஐப் பயன்படுத்தி:
+அல்லது dotnet CLI உபயோகித்தல்:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-முழு குறியீட்டிற்கான [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) ஐப் பார்க்கவும்.
+முழு குறியீட்டுக்கு [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) பார்க்கவும்.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**புறக்கணிப்பு**:  
-இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கிறோம், ஆனால் தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அதன் தாய்மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பல்ல.
+**மறுப்பு**:
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சி செய்துள்ளோம், ஆனால் தானாக செய்யப்படும் மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கலாம் என்பதை கவனத்தில் கொள்ளவும். அசல் ஆவணம் அதன் தாய்மொழியில் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்நுட்பமான மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கத்திற்கும் நாங்கள் பொறுப்பில்வில்லை.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

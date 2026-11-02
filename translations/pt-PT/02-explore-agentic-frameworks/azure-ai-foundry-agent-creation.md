@@ -1,42 +1,42 @@
-# Desenvolvimento do Azure AI Agent Service
+# Desenvolvimento do Serviço Microsoft Foundry Agent
 
-Neste exercício, utiliza as ferramentas do serviço Azure AI Agent no [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) para criar um agente de reserva de voos. O agente será capaz de interagir com os utilizadores e fornecer informação sobre voos.
+Neste exercício, utiliza as ferramentas do Microsoft Foundry Agent Service no [portal Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) para criar um agente para Reserva de Voos. O agente será capaz de interagir com os utilizadores e fornecer informações sobre voos.
 
 ## Pré-requisitos
 
 Para completar este exercício, necessita do seguinte:
 1. Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Necessita de permissões para criar um hub Microsoft Foundry ou que alguém o crie por si.
-    - Se o seu papel for Contributor ou Owner, pode seguir os passos neste tutorial.
+2. Permissões para criar um hub Microsoft Foundry ou que um seja criado para si.
+    - Se o seu papel é Contribuidor ou Proprietário, pode seguir os passos neste tutorial.
 
 ## Criar um hub Microsoft Foundry
 
 > **Nota:** O Microsoft Foundry era anteriormente conhecido como Azure AI Studio.
 
-1. Siga estas diretrizes do blogue [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) para criar um hub Microsoft Foundry.
-2.  Quando o seu projeto for criado, feche quaisquer dicas exibidas e reveja a página do projeto no portal Microsoft Foundry, que deverá ter uma aparência semelhante à imagem seguinte:
+1. Siga estas orientações do artigo do blog do [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) para criar um hub Microsoft Foundry.
+2. Quando o seu projeto for criado, feche quaisquer dicas que sejam exibidas e reveja a página do projeto no portal Microsoft Foundry, que deverá ser semelhante à imagem seguinte:
 
-    ![Projeto Microsoft Foundry](../../../translated_images/pt-PT/azure-ai-foundry.88d0c35298348c2f.webp)
+    ![Microsoft Foundry Project](../../../translated_images/pt-PT/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Implantar um modelo
+## Implementar um modelo
 
-1. No painel à esquerda do seu projeto, na secção **My assets**, selecione a página **Models + endpoints**.
-2. Na página **Models + endpoints**, no separador **Model deployments**, no menu **+ Deploy model**, selecione **Deploy base model**.
-3. Procure o modelo `gpt-4o-mini` na lista e, em seguida, selecione-o e confirme.
+1. No painel à esquerda do seu projeto, na secção **Os meus ativos**, selecione a página **Modelos + endpoints**.
+2. Na página **Modelos + endpoints**, na aba **Implementações de modelo**, no menu **+ Implementar modelo**, selecione **Implementar modelo base**.
+3. Procure pelo modelo `gpt-5-mini` na lista, em seguida selecione e confirme.
 
-    > **Nota**: Reduzir o TPM ajuda a evitar o uso excessivo da quota disponível na subscrição que está a utilizar.
+    > **Nota**: Reduzir o TPM ajuda a evitar a utilização excessiva da quota disponível na subscrição que está a usar.
 
-    ![Modelo Implementado](../../../translated_images/pt-PT/model-deployment.3749c53fb81e18fd.webp)
+    ![Model Deployed](../../../translated_images/pt-PT/model-deployment.3749c53fb81e18fd.webp)
 
 ## Criar um agente
 
-Agora que implantou um modelo, pode criar um agente. Um agente é um modelo de IA conversacional que pode ser usado para interagir com os utilizadores.
+Agora que implementou um modelo, pode criar um agente. Um agente é um modelo de IA conversacional que pode ser usado para interagir com os utilizadores.
 
-1. No painel à esquerda do seu projeto, na secção **Build & Customize**, selecione a página **Agents**.
-2. Clique em **+ Create agent** para criar um novo agente. No diálogo **Agent Setup**:
-    - Introduza um nome para o agente, por exemplo `FlightAgent`.
-    - Certifique-se de que a implantação do modelo `gpt-4o-mini` que criou anteriormente está selecionada
-    - Defina as **Instructions** conforme o prompt que pretende que o agente siga. Aqui está um exemplo:
+1. No painel à esquerda do seu projeto, na secção **Construir & Personalizar**, selecione a página **Agentes**.
+2. Clique em **+ Criar agente** para criar um novo agente. Na caixa de diálogo **Configuração do Agente**:
+    - Introduza um nome para o agente, tal como `FlightAgent`.
+    - Certifique-se de que a implementação do modelo `gpt-5-mini` que criou anteriormente está selecionada
+    - Defina as **Instruções** conforme o prompt que pretende que o agente siga. Aqui está um exemplo:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -66,44 +66,44 @@ Agora que implantou um modelo, pode criar um agente. Um agente é um modelo de I
 > [!NOTE]
 > Para um prompt detalhado, pode consultar [este repositório](https://github.com/ShivamGoyal03/RoamMind) para mais informações.
     
-> Além disso, pode adicionar **Knowledge Base** e **Actions** para ampliar as capacidades do agente de fornecer mais informação e executar tarefas automáticas com base nos pedidos dos utilizadores. Para este exercício, pode saltar estes passos.
+> Além disso, pode adicionar **Base de Conhecimento** e **Ações** para melhorar as capacidades do agente para fornecer mais informação e executar tarefas automatizadas baseadas em pedidos dos utilizadores. Para este exercício, pode pular estes passos.
     
-![Configuração do Agente](../../../translated_images/pt-PT/agent-setup.9bbb8755bf5df672.webp)
+![Agent Setup](../../../translated_images/pt-PT/agent-setup.9bbb8755bf5df672.webp)
 
-3. Para criar um novo agente multi-AI, clique em **New Agent**. O agente recém-criado será então apresentado na página Agents.
+3. Para criar um novo agente multi-IA, basta clicar em **Novo Agente**. O agente recém-criado será então exibido na página dos Agentes.
 
 
 ## Testar o agente
 
-Depois de criar o agente, pode testá-lo para ver como responde às perguntas dos utilizadores no playground do portal Microsoft Foundry.
+Depois de criar o agente, pode testá-lo para ver como responde às perguntas dos utilizadores na área de testes do portal Microsoft Foundry.
 
-1. No topo do painel **Setup** do seu agente, selecione **Try in playground**.
-2. No painel **Playground**, pode interagir com o agente escrevendo perguntas na janela de chat. Por exemplo, pode pedir ao agente para procurar voos de Seattle para Nova Iorque no dia 28.
+1. No topo do painel **Configuração** do seu agente, selecione **Testar no playground**.
+2. No painel **Playground**, pode interagir com o agente digitando perguntas na janela de chat. Por exemplo, pode pedir ao agente para procurar voos de Seattle para Nova Iorque no dia 28.
 
-    > **Nota**: O agente pode não fornecer respostas precisas, uma vez que não são utilizados dados em tempo real neste exercício. O objetivo é testar a capacidade do agente de entender e responder às questões dos utilizadores com base nas instruções fornecidas.
+    > **Nota**: O agente pode não fornecer respostas precisas, pois não está a ser usado dado em tempo real neste exercício. O objetivo é testar a capacidade do agente de entender e responder às perguntas dos utilizadores com base nas instruções fornecidas.
 
-    ![Playground do Agente](../../../translated_images/pt-PT/agent-playground.dc146586de715010.webp)
+    ![Agent Playground](../../../translated_images/pt-PT/agent-playground.dc146586de715010.webp)
 
-3. Após testar o agente, pode personalizá-lo mais adicionando mais intenções, dados de treino e ações para melhorar as suas capacidades.
+3. Após testar o agente, pode personalizá-lo ainda mais adicionando mais intenções, dados de treino e ações para melhorar as suas capacidades.
 
-## Limpar recursos
+## Limpar os recursos
 
-Quando terminar de testar o agente, pode eliminá-lo para evitar incorrer em custos adicionais.
-1. Abra o [Azure portal](https://portal.azure.com) e consulte o conteúdo do grupo de recursos onde implantou os recursos do hub usados neste exercício.
-2. Na barra de ferramentas, selecione **Delete resource group**.
+Quando terminar de testar o agente, pode eliminá-lo para evitar custos adicionais.
+1. Abra o [portal Azure](https://portal.azure.com) e veja o conteúdo do grupo de recursos onde implementou os recursos do hub usados neste exercício.
+2. Na barra de ferramentas, selecione **Eliminar grupo de recursos**.
 3. Introduza o nome do grupo de recursos e confirme que pretende eliminá-lo.
 
 ## Recursos
 
-- [Documentação do Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Documentação Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Portal Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Primeiros passos com o Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Fundamentos dos agentes de IA no Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
-- [Discord do Azure AI](https://aka.ms/AzureAI/Discord)
+- [Introdução ao Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Fundamentos dos agentes de IA na Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Discord Azure AI](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Aviso legal**:
-Este documento foi traduzido utilizando o serviço de tradução automática por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos empenhemos na exatidão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original, na sua língua nativa, deve ser considerado a fonte autoritativa. Para informação crítica, recomenda-se uma tradução humana profissional. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações erradas decorrentes da utilização desta tradução.
+**Aviso Legal**:
+Este documento foi traduzido utilizando o serviço de tradução automática [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas resultantes da utilização desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

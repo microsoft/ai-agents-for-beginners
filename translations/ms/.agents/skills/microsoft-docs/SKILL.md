@@ -1,97 +1,97 @@
 ---
 name: microsoft-docs
-description: Kueri dokumentasi rasmi Microsoft untuk mencari konsep, tutorial, dan
-  contoh kod merentas Azure, .NET, Agent Framework, Aspire, VS Code, GitHub, dan banyak
-  lagi. Menggunakan Microsoft Learn MCP sebagai lalai, dengan Context7 dan Aspire
-  MCP untuk kandungan yang berada di luar learn.microsoft.com.
+description: Dapatkan dokumentasi rasmi Microsoft untuk mencari konsep, tutorial,
+  dan contoh kod merentasi Azure, .NET, Agent Framework, Aspire, VS Code, GitHub,
+  dan banyak lagi. Menggunakan Microsoft Learn MCP sebagai lalai, dengan Context7
+  dan Aspire MCP untuk kandungan yang berada di luar learn.microsoft.com.
 ---
 # Microsoft Docs
 
-Kemahiran penyelidikan untuk ekosistem teknologi Microsoft. Merangkumi learn.microsoft.com dan dokumentasi yang berada di luarnya (repo VS Code, GitHub, Aspire, Agent Framework).
+Kemahiran penyelidikan untuk ekosistem teknologi Microsoft. Merangkumi learn.microsoft.com dan dokumentasi yang berada di luar daripadanya (VS Code, GitHub, Aspire, repos Kerangka Agen).
 
 ---
 
-## Default: Microsoft Learn MCP
+## Lalai: Microsoft Learn MCP
 
-Gunakan alat ini untuk **segala-galanya di learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows, dan lain-lain. Ini adalah alat utama untuk sebahagian besar pertanyaan dokumentasi Microsoft.
+Gunakan alat ini untuk **segala-galanya di learn.microsoft.com** — Azure, .NET, M365, Power Platform, Kerangka Agen, Semantic Kernel, Windows, dan banyak lagi. Ini adalah alat utama untuk kebanyakan pertanyaan dokumentasi Microsoft.
 
-| Tool | Purpose |
+| Alat | Tujuan |
 |------|---------|
-| `microsoft_docs_search` | Search learn.microsoft.com — concepts, guides, tutorials, configuration |
-| `microsoft_code_sample_search` | Find working code snippets from Learn docs. Pass `language` (`python`, `csharp`, etc.) for best results |
-| `microsoft_docs_fetch` | Get full page content from a specific URL (when search excerpts aren't enough) |
+| `microsoft_docs_search` | Cari learn.microsoft.com — konsep, panduan, tutorial, konfigurasi |
+| `microsoft_code_sample_search` | Cari kod snippet yang berfungsi dari dokumen Learn. Berikan `language` (`python`, `csharp`, dan lain-lain) untuk hasil terbaik |
+| `microsoft_docs_fetch` | Dapatkan kandungan halaman penuh dari URL tertentu (apabila petikan carian tidak mencukupi) |
 
 Gunakan `microsoft_docs_fetch` selepas carian apabila anda memerlukan tutorial lengkap, semua pilihan konfigurasi, atau apabila petikan carian dipendekkan.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Pengecualian: Bila Menggunakan Alat Lain
 
-Kategori berikut berada di **luar** learn.microsoft.com. Gunakan alat yang ditentukan sebaliknya.
+Kategori berikut berada **di luar** learn.microsoft.com. Gunakan alat yang ditetapkan sebaliknya.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Gunakan Aspire MCP Server (pilihan utama) atau Context7
 
-Dokumen Aspire berada di **aspire.dev**, bukan di Learn. Alat terbaik bergantung kepada versi Aspire CLI anda:
+Dokumen Aspire berada di **aspire.dev**, bukan Learn. Alat terbaik bergantung pada versi Aspire CLI anda:
 
-**CLI 13.2+** (disyorkan) — Pelayan Aspire MCP termasuk alat carian dokumen terbina dalam:
+**CLI 13.2+** (disyorkan) — Server Aspire MCP termasuk alat carian dokumen terbina dalam:
 
-| MCP Tool | Description |
+| Alat MCP | Penerangan |
 |----------|-------------|
-| `list_docs` | Menyenaraikan semua dokumentasi yang tersedia daripada aspire.dev |
-| `search_docs` | Carian leksikal berbobot merentasi kandungan aspire.dev |
+| `list_docs` | Senaraikan semua dokumentasi tersedia dari aspire.dev |
+| `search_docs` | Carian leksikal berwajaran merentasi kandungan aspire.dev |
 | `get_doc` | Mendapatkan dokumen tertentu berdasarkan slug |
 
-These ship in Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). To update: `aspire update --self --channel daily`. Ruj: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ini disertakan dalam Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Untuk mengemas kini: `aspire update --self --channel daily`.
 
-**CLI 13.1** — Pelayan MCP menyediakan carian integrasi (`list_integrations`, `get_integration_docs`) tetapi **bukan** carian dokumen. Gunakan Context7 sebagai ganti:
+**CLI 13.1** — Server MCP menyediakan carian integrasi (`list_integrations`, `get_integration_docs`) tetapi **tidak** carian dokumen. Gunakan Context7 sebagai gantian:
 
-| Library ID | Use for |
+| ID Perpustakaan | Digunakan untuk |
 |---|---|
 | `/microsoft/aspire.dev` | Utama — panduan, integrasi, rujukan CLI, penyebaran |
-| `/dotnet/aspire` | Sumber runtime — dalaman API, butiran pelaksanaan |
+| `/microsoft/aspire` | Sumber runtime — API dalaman, butiran pelaksanaan |
 | `/communitytoolkit/aspire` | Integrasi komuniti — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — Gunakan Context7
 
-Dokumen VS Code berada di **code.visualstudio.com**, bukan di Learn.
+Dokumen VS Code berada di **code.visualstudio.com**, bukan Learn.
 
-| Library ID | Use for |
+| ID Perpustakaan | Digunakan untuk |
 |---|---|
-| `/websites/code_visualstudio` | Dokumen pengguna — tetapan, ciri, penyahpepijatan, pembangunan jauh |
-| `/websites/code_visualstudio_api` | API sambungan — webviews, TreeViews, commands, contribution points |
+| `/websites/code_visualstudio` | Dokumen pengguna — tetapan, ciri, debug, pembangunan jauh |
+| `/websites/code_visualstudio_api` | API peluasan — webviews, TreeViews, arahan, titik sumbangan |
 
-### GitHub — Use Context7
+### GitHub — Gunakan Context7
 
 Dokumen GitHub berada di **docs.github.com** dan **cli.github.com**.
 
-| Library ID | Use for |
+| ID Perpustakaan | Digunakan untuk |
 |---|---|
-| `/websites/github_en` | Actions, API, repositori, keselamatan, pentadbiran, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) arahan dan flag |
+| `/websites/github_en` | Tindakan, API, repositori, keselamatan, pentadbiran, Copilot |
+| `/websites/cli_github` | Arahan dan bendera GitHub CLI (`gh`) |
 
-### Agent Framework — Use Learn MCP + Context7
+### Kerangka Agen — Gunakan Learn MCP + Context7
 
-Tutorial Agent Framework berada di learn.microsoft.com (gunakan `microsoft_docs_search`), tetapi **repo GitHub** mempunyai butiran peringkat API yang sering lebih terkini berbanding dokumen yang diterbitkan — terutamanya rujukan DevUI REST API, pilihan CLI, dan integrasi .NET.
+Tutorial Kerangka Agen berada di learn.microsoft.com (gunakan `microsoft_docs_search`), tetapi **repo GitHub** mempunyai butiran tahap API yang sering lebih terkini daripada dokumen yang diterbitkan — terutamanya rujukan REST API DevUI, pilihan CLI, dan integrasi .NET.
 
-| Library ID | Use for |
+| ID Perpustakaan | Digunakan untuk |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Tutorial — panduan DevUI, penjejakan, orkestrasi aliran kerja |
-| `/microsoft/agent-framework` | Butiran API — endpoint DevUI REST, flag CLI, pengesahan, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Tutorial — panduan DevUI, penjejakan, penataan aliran kerja |
+| `/microsoft/agent-framework` | Butiran API — titik akhir REST DevUI, bendera CLI, pengesahan, .NET `AddDevUI`/`MapDevUI` |
 
-**Petua DevUI:** Pertanyakan sumber laman Learn untuk panduan cara, kemudian sumber repo untuk perincian peringkat API (skema endpoint, konfigurasi proksi, token pengesahan).
+**Petua DevUI:** Tanyakan sumber laman Learn untuk panduan cara, kemudian sumber repo untuk spesifik tahap API (skema titik akhir, konfigurasi proxy, token pengesahan).
 
 ---
 
-## Context7 Setup
+## Persediaan Context7
 
-Untuk sebarang pertanyaan Context7, selesaikan ID perpustakaan terlebih dahulu (sekali per sesi):
+Untuk mana-mana pertanyaan Context7, selesaikan ID perpustakaan terlebih dahulu (sekali setiap sesi):
 
 1. Panggil `mcp_context7_resolve-library-id` dengan nama teknologi
-2. Panggil `mcp_context7_query-docs` dengan ID perpustakaan yang dikembalikan dan pertanyaan yang spesifik
+2. Panggil `mcp_context7_query-docs` dengan ID perpustakaan yang dikembalikan dan pertanyaan khusus
 
 ---
 
-## Writing Effective Queries
+## Menulis Pertanyaan Berkesan
 
 Jadilah spesifik — sertakan versi, niat, dan bahasa:
 
@@ -111,12 +111,12 @@ Jadilah spesifik — sertakan versi, niat, dan bahasa:
 
 Sertakan konteks:
 - **Versi** apabila relevan (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Niat tugas** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Bahasa** untuk dokumentasi pelbagai bahasa (`Python`, `TypeScript`, `C#`)
+- **Niat tugasan** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Bahasa** untuk dokumentasi poliglot (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Penafian:
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI Co-op Translator (https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk memastikan ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi ralat atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, disarankan agar terjemahan profesional oleh penterjemah manusia digunakan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsiran yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

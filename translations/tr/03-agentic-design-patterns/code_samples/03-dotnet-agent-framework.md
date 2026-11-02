@@ -1,150 +1,153 @@
-# 🎨 GitHub Modelleri (.NET) ile Etken Tasarım Kalıpları
+# 🎨 Azure OpenAI (Responses API) ile Agentik Tasarım Desenleri (.NET)
 
 ## 📋 Öğrenme Hedefleri
 
-Bu örnek, Microsoft Agent Framework'ü .NET ile GitHub Modelleri entegrasyonu kullanarak akıllı ajanlar oluşturmak için kurumsal düzeyde tasarım kalıplarını gösterir. Ajanları üretime hazır, sürdürülebilir ve ölçeklenebilir hale getiren profesyonel kalıpları ve mimari yaklaşımları öğreneceksiniz.
+Bu örnek, Azure OpenAI (Responses API) entegrasyonu ile .NET'te Microsoft Agent Framework kullanarak akıllı ajanlar oluşturmak için kurumsal düzeyde tasarım desenlerini göstermektedir. Ajanları üretime hazır, sürdürülebilir ve ölçeklenebilir hale getiren profesyonel desenleri ve mimari yaklaşımları öğreneceksiniz.
 
-### Kurumsal Tasarım Kalıpları
+### Kurumsal Tasarım Desenleri
 
-- 🏭 **Factory Pattern**: Bağımlılık enjeksiyonu ile standartlaştırılmış ajan oluşturma
-- 🔧 **Builder Pattern**: Akıcı ajan yapılandırma ve kurulum
-- 🧵 **Thread-Safe Patterns**: Eşzamanlı konuşma yönetimi
-- 📋 **Repository Pattern**: Düzenli araç ve yetenek yönetimi
+- 🏭 **Fabrika Deseni**: Bağımlılık enjeksiyonu ile standart ajans oluşturma
+- 🔧 **Kurucu Deseni**: Akıcı ajan yapılandırma ve kurulum
+- 🧵 **İş Parçacığı Güvenli Desenler**: Eşzamanlı konuşma yönetimi
+- 📋 **Depo Deseni**: Düzenli araç ve yetenek yönetimi
 
 ## 🎯 .NET'e Özgü Mimari Avantajlar
 
 ### Kurumsal Özellikler
 
-- **Güçlü Tipleme**: Derleme zamanı doğrulama ve IntelliSense desteği
-- **Bağımlılık Enjeksiyonu**: Dahili DI konteyner entegrasyonu
-- **Yapılandırma Yönetimi**: IConfiguration ve Options kalıpları
+- **Güçlü Tip Kontrolü**: Derleme zamanı doğrulaması ve IntelliSense desteği
+- **Bağımlılık Enjeksiyonu**: Yerleşik DI konteyner entegrasyonu
+- **Yapılandırma Yönetimi**: IConfiguration ve Options desenleri
 - **Async/Await**: Birinci sınıf asenkron programlama desteği
 
-### Üretime Hazır Kalıplar
+### Üretime Hazır Desenler
 
-- **Günlük Entegrasyonu**: ILogger ve yapılandırılmış günlük kaydı desteği
-- **Sağlık Kontrolleri**: Dahili izleme ve tanılama
-- **Yapılandırma Doğrulama**: Veri açıklamaları ile güçlü tipleme
+- **Kayıt Entegrasyonu**: ILogger ve yapılandırılmış kayıt desteği
+- **Sağlık Kontrolleri**: Yerleşik izleme ve tanılama
+- **Yapılandırma Doğrulaması**: Veri açıklamaları ile güçlü tip kontrolü
 - **Hata Yönetimi**: Yapılandırılmış istisna yönetimi
 
 ## 🔧 Teknik Mimari
 
 ### Temel .NET Bileşenleri
 
-- **Microsoft.Extensions.AI**: Birleşik AI hizmet soyutlamaları
+- **Microsoft.Extensions.AI**: Birleşik AI servis soyutlamaları
 - **Microsoft.Agents.AI**: Kurumsal ajan orkestrasyon çerçevesi
-- **GitHub Modelleri Entegrasyonu**: Yüksek performanslı API istemci kalıpları
+- **Azure OpenAI (Responses API)**: Yüksek performanslı API istemci desenleri
 - **Yapılandırma Sistemi**: appsettings.json ve ortam entegrasyonu
 
-### Tasarım Kalıbı Uygulaması
+### Tasarım Deseni Uygulaması
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Ajan Oluşturucu]
+    B --> C[Yapılandırma]
+    C --> D[Araç Kaydı]
+    D --> E[Yapay Zeka Ajanı]
 ```
 
-## 🏗️ Gösterilen Kurumsal Kalıplar
+## 🏗️ Gösterilen Kurumsal Desenler
 
-### 1. **Oluşturma Kalıpları**
+### 1. **Yaratıcı Desenler**
 
-- **Agent Factory**: Tutarlı yapılandırma ile merkezi ajan oluşturma
-- **Builder Pattern**: Karmaşık ajan yapılandırması için akıcı API
-- **Singleton Pattern**: Paylaşılan kaynaklar ve yapılandırma yönetimi
-- **Bağımlılık Enjeksiyonu**: Gevşek bağlama ve test edilebilirlik
+- **Ajan Fabrikası**: Tutarlı yapılandırma ile merkezi ajan oluşturma
+- **Kurucu Deseni**: Karmaşık ajan yapılandırması için akıcı API
+- **Tekil Desen**: Paylaşılan kaynaklar ve yapılandırma yönetimi
+- **Bağımlılık Enjeksiyonu**: Gevşek bağlılık ve test edilebilirlik
 
-### 2. **Davranışsal Kalıplar**
+### 2. **Davranışsal Desenler**
 
-- **Strategy Pattern**: Değiştirilebilir araç yürütme stratejileri
-- **Command Pattern**: Geri alma/yeniden yapma ile kapsüllenmiş ajan işlemleri
-- **Observer Pattern**: Olay odaklı ajan yaşam döngüsü yönetimi
-- **Template Method**: Standartlaştırılmış ajan yürütme iş akışları
+- **Strateji Deseni**: Değiştirilebilir araç yürütme stratejileri
+- **Komut Deseni**: Geri alma/yineleme ile kapsüllenmiş ajan işlemleri
+- **Gözlemci Deseni**: Olay tabanlı ajan yaşam döngüsü yönetimi
+- **Şablon Metot**: Standart ajan yürütme iş akışları
 
-### 3. **Yapısal Kalıplar**
+### 3. **Yapısal Desenler**
 
-- **Adapter Pattern**: GitHub Modelleri API entegrasyon katmanı
-- **Decorator Pattern**: Ajan yeteneklerini geliştirme
-- **Facade Pattern**: Basitleştirilmiş ajan etkileşim arayüzleri
-- **Proxy Pattern**: Performans için tembel yükleme ve önbellekleme
+- **Adaptör Deseni**: Azure OpenAI (Responses API) entegrasyon katmanı
+- **Dekoratör Deseni**: Ajan yeteneklerinin geliştirilmesi
+- **Fasade Deseni**: Basitleştirilmiş ajan etkileşim arayüzleri
+- **Vekil Deseni**: Performans için tembel yükleme ve önbellekleme
 
-## 📚 .NET Tasarım İlkeleri
+## 📚 .NET Tasarım Prensipleri
 
-### SOLID İlkeleri
+### SOLID Prensipleri
 
 - **Tek Sorumluluk**: Her bileşenin net bir amacı vardır
-- **Açık/Kapalı**: Değiştirilmeden genişletilebilir
+- **Açık/Kapalı**: Değişiklik yapmadan genişletilebilir
 - **Liskov Yerine Geçme**: Arayüz tabanlı araç uygulamaları
-- **Arayüz Ayrımı**: Odaklanmış, uyumlu arayüzler
-- **Bağımlılık Tersine Çevirme**: Somutlamalara değil soyutlamalara bağlılık
+- **Arayüz Ayrımı**: Odaklı, uyumlu arayüzler
+- **Bağımlılık Tersine Çevirme**: Somut değil soyutlara bağlı olun
 
 ### Temiz Mimari
 
-- **Domain Katmanı**: Temel ajan ve araç soyutlamaları
+- **Alan Katmanı**: Temel ajan ve araç soyutlamaları
 - **Uygulama Katmanı**: Ajan orkestrasyonu ve iş akışları
-- **Altyapı Katmanı**: GitHub Modelleri entegrasyonu ve harici hizmetler
+- **Altyapı Katmanı**: Azure OpenAI (Responses API) entegrasyonu ve dış servisler
 - **Sunum Katmanı**: Kullanıcı etkileşimi ve yanıt biçimlendirme
 
 ## 🔒 Kurumsal Hususlar
 
 ### Güvenlik
 
-- **Kimlik Bilgisi Yönetimi**: IConfiguration ile güvenli API anahtarı işleme
-- **Girdi Doğrulama**: Güçlü tipleme ve veri açıklaması doğrulama
+- **Kimlik Bilgisi Yönetimi**: IConfiguration ile güvenli API anahtarı işlemleri
+- **Girdi Doğrulaması**: Güçlü tip ve veri açıklaması doğrulaması
 - **Çıktı Temizleme**: Güvenli yanıt işleme ve filtreleme
-- **Denetim Günlüğü**: Kapsamlı işlem takibi
+- **Denetim Kaydı**: Kapsamlı işlem takibi
 
 ### Performans
 
-- **Asenkron Kalıplar**: Engellemeyen I/O işlemleri
-- **Bağlantı Havuzu**: Verimli HTTP istemci yönetimi
-- **Önbellekleme**: Performansı artırmak için yanıt önbellekleme
-- **Kaynak Yönetimi**: Uygun imha ve temizlik kalıpları
+- **Asenkron Desenler**: Engellemeyen G/Ç işlemleri
+- **Bağlantı Havuzu**: Etkin HTTP istemci yönetimi
+- **Önbellekleme**: İyileştirilmiş performans için yanıt önbellekleme
+- **Kaynak Yönetimi**: Doğru boşaltma ve temizleme desenleri
 
 ### Ölçeklenebilirlik
 
 - **İş Parçacığı Güvenliği**: Eşzamanlı ajan yürütme desteği
 - **Kaynak Havuzu**: Verimli kaynak kullanımı
-- **Yük Yönetimi**: Hız sınırlama ve geri basınç işleme
-- **İzleme**: Performans metrikleri ve sağlık kontrolleri
+- **Yük Yönetimi**: Oran sınırlama ve geri basınç yönetimi
+- **İzleme**: Performans ölçümleri ve sağlık kontrolleri
 
 ## 🚀 Üretim Dağıtımı
 
 - **Yapılandırma Yönetimi**: Ortama özgü ayarlar
-- **Günlük Stratejisi**: Korelasyon kimlikleri ile yapılandırılmış günlük kaydı
-- **Hata Yönetimi**: Uygun kurtarma ile genel istisna yönetimi
+- **Kayıt Stratejisi**: Korelasyon kimlikleri ile yapılandırılmış kayıt
+- **Hata Yönetimi**: Küresel istisna yönetimi ve doğru kurtarma
 - **İzleme**: Uygulama içgörüleri ve performans sayaçları
-- **Test**: Birim testleri, entegrasyon testleri ve yük testi kalıpları
+- **Test**: Birim testleri, entegrasyon testleri ve yük testi desenleri
 
-.NET ile kurumsal düzeyde akıllı ajanlar oluşturmaya hazır mısınız? Hadi sağlam bir şey tasarlayalım! 🏢✨
+.NET ile kurumsal düzeyde akıllı ajanlar oluşturmaya hazır mısınız? Hadi sağlam bir mimari kuralım! 🏢✨
 
 ## 🚀 Başlarken
 
-### Ön Koşullar
+### Önkoşullar
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha yüksek
-- [GitHub Modelleri API erişim anahtarı](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya üstü
+- Azure OpenAI kaynağı ve model dağıtımı olan bir [Azure aboneliği](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ile giriş yapın
 
 ### Gerekli Ortam Değişkenleri
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Sonra AzureCliCredential bir token alabilmesi için oturum açın
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# AzureCliCredential bir token alabilmesi için oturum açın
+az login
 ```
 
 ### Örnek Kod
 
-Kod örneğini çalıştırmak için,
+Kodu çalıştırmak için,
 
 ```bash
 # zsh/bash
@@ -152,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Ya da dotnet CLI kullanarak:
+Veya dotnet CLI kullanarak:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -165,14 +168,16 @@ Tam kod için [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-pat
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Feragatname**:  
-Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dilindeki hali yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul edilmez.
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

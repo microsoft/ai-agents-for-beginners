@@ -1,0 +1,50 @@
+[
+  {
+    "type": "agent.tool_call.v1",
+    "agent_id": "contoso-travel-bot",
+    "tool_name": "lookup_flights",
+    "tool_args_hash": "sha256:6b23306e65d36b71033768db5ddc02917ace3d93cc3b79039e2bafd11321dbc2",
+    "result_hash": "sha256:9c096fac92e1df080d08a5dfb75c301c289721e0d1aea15dd73ada98f2f5ae7d",
+    "policy_id": "contoso-travel-policy-v3",
+    "timestamp": "2026-04-25T14:30:00Z",
+    "sequence": 0,
+    "previous_receipt_hash": null,
+    "signature": {
+      "alg": "EdDSA",
+      "sig": "i6k11Rl6VvDSwjowvu15CDlK0rDZT6dU0JGc8dq52_HUA7lJ-7GWzPfb2nfLFP9zTEAEsHh01MH8idVjQ6q-Bw",
+      "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+    }
+  },
+  {
+    "type": "agent.tool_call.v1",
+    "agent_id": "contoso-travel-bot",
+    "tool_name": "hold_seat",
+    "tool_args_hash": "sha256:88661084df13196bd517c3b27567d0a4119cacc5e277cb9425003419ce217047",
+    "result_hash": "sha256:3e21b88f2e9056fcaab1cfd967debf51a5f059d9f06d012ab6c17c999cbc994f",
+    "policy_id": "contoso-travel-policy-v3",
+    "timestamp": "2026-04-25T14:30:00Z",
+    "sequence": 1,
+    "previous_receipt_hash": "sha256:66d8867fa8fa501e91e0ceaa1b75d0747c0f48b71cfb95d7255963098887d6fb",
+    "signature": {
+      "alg": "EdDSA",
+      "sig": "wRcwv6pCTwxDn_GtLFyO4skriw6pP_rS1siiCy8Ij9PXB496G4UmCxIzmY1hN12VtezuwkRKm33N73GBFgWOCg",
+      "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+    }
+  },
+  {
+    "type": "agent.tool_call.v1",
+    "agent_id": "contoso-travel-bot",
+    "tool_name": "confirm_booking",
+    "tool_args_hash": "sha256:808580d45edcb9738741896a55fa35c58f264951e38e526d7cba672fac53ae7e",
+    "result_hash": "sha256:4f5c18243e26b616c3f93cb000f887a3ad6f0994abaada8ad23f7e0a6cdd7328",
+    "policy_id": "contoso-travel-policy-v3",
+    "timestamp": "2026-04-25T14:30:00Z",
+    "sequence": 2,
+    "previous_receipt_hash": "sha256:3e4bbfab545ae67a2839fe3113bce1a3038b4eb77f9eaec59bc3926d048473d1",
+    "signature": {
+      "alg": "EdDSA",
+      "sig": "l3-EGdBRCPlZAs05aNesMef8PjWVLAfRhoZYNHwKeoStLBIxyLiJw8N0oW8bkBrzDlBlTe5seqrEld1XU7LECA",
+      "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+    }
+  }
+]

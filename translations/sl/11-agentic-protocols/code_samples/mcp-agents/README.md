@@ -1,210 +1,210 @@
-# Gradnja sistemov za komunikacijo med agenti z MCP
+# Gradnja sistemov komunikacije agent-agent z MCP
 
-> Na kratko - Ali lahko zgradite komunikacijo Agent2Agent na MCP? Da!
+> TL;DR - Ali lahko zgradite komunikacijo agent2agent na MCP? Da!
 
-MCP se je močno razvil onkraj svojega prvotnega cilja "zagotavljanja konteksta za LLM-je". Z nedavnimi izboljšavami, kot so [ponovno vzpostavljivi tokovi](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) in obvestila ([napredek](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) in [viri](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP zdaj ponuja robustno osnovo za gradnjo kompleksnih sistemov za komunikacijo med agenti.
+MCP se je razvila daleč preko svojega prvotnega cilja "nudenja konteksta LLM-jem". Z zadnjimi izboljšavami, vključno z [ponovnim vzpostavljanjem pretočnih podatkov](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [pridobivanjem informacij](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [vzorcev vzorčenja](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) in obvestili ([napredek](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) in [viri](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), MCP zdaj nudi trdno osnovo za gradnjo kompleksnih sistemov komunikacije agent-agent.
 
-## Napačno razumevanje agentov in orodij
+## Napačno razumevanje agenta orodja
 
-Ko vedno več razvijalcev raziskuje orodja z agentnimi vedenji (dolgotrajno delovanje, potreba po dodatnih vnosih med izvajanjem itd.), se pogosto pojavi napačno prepričanje, da MCP ni primeren, predvsem zato, ker so se zgodnji primeri njegovega orodja osredotočali na preproste vzorce zahteva-odgovor.
+Ker vse več razvijalcev raziskuje orodja z agentnimi vedenji (delujejo dolgo časa, lahko zahtevajo dodatne vnose med izvajanjem itd.), je pogosto napačno prepričanje, da MCP ni primeren, predvsem ker so prvi primeri orodij bili primitivni in osredotočeni na preproste vzorce zahteva-odgovor.
 
-To prepričanje je zastarelo. Specifikacija MCP je bila v zadnjih mesecih bistveno izboljšana z zmogljivostmi, ki zapolnjujejo vrzel za gradnjo dolgotrajnih agentnih vedenj:
+To dojemanje je zastarelo. Specifikacija MCP je bila v zadnjih mesecih bistveno nadgrajena z zmogljivostmi, ki zapolnjujejo vrzel za gradnjo dolgotrajnih agentnih vedenj:
 
-- **Tokovi in delni rezultati**: Posodobitve napredka v realnem času med izvajanjem
-- **Ponovna vzpostavitev**: Odjemalci se lahko ponovno povežejo in nadaljujejo po prekinitvi
-- **Trajnost**: Rezultati preživijo ponovni zagon strežnika (npr. prek povezav do virov)
-- **Večkratni obrati**: Interaktivni vnosi med izvajanjem prek elicitation in sampling
+- **Pretakanje & Delni rezultati**: Posodobitve napredka v realnem času med izvajanjem
+- **Ponovno vzpostavljanje**: Stranke se lahko ponovno povežejo in nadaljujejo po prekinitvi povezave
+- **Vzdržljivost**: Rezultati preživijo ponovni zagon strežnika (npr. preko povezav do virov)
+- **Večkrožni**: Interaktivni vnosi med izvajanjem z uporabo pridobivanja informacij in vzorčenja
 
-Te funkcije je mogoče sestaviti za omogočanje kompleksnih agentnih in večagentnih aplikacij, vse na MCP protokolu.
+Te funkcije se lahko združijo za omogočanje kompleksnih agentnih in multi-agentnih aplikacij, vse nameščene na protokolu MCP.
 
-Za referenco bomo agenta imenovali "orodje", ki je na voljo na MCP strežniku. To pomeni obstoj gostiteljske aplikacije, ki implementira MCP odjemalca, vzpostavi sejo z MCP strežnikom in lahko kliče agenta.
+Za referenco bomo agenta imenovali "orodje", ki je na voljo na MCP strežniku. To vključuje obstoj gostiteljske aplikacije, ki izvaja MCP klienta, ki vzpostavi sejo s MCP strežnikom in lahko kliče agenta.
 
-## Kaj naredi MCP orodje "agentno"?
+## Kaj naredi orodje MCP "agentno"?
 
-Preden se poglobimo v implementacijo, opredelimo, katere infrastrukturne zmogljivosti so potrebne za podporo dolgotrajnih agentov.
+Preden se potopimo v implementacijo, določimo, katere infrastrukturne zmogljivosti so potrebne za podporo dolgotrajnim agentom.
 
-> Agenta bomo opredelili kot entiteto, ki lahko deluje avtonomno daljše obdobje in je sposobna obravnavati kompleksne naloge, ki lahko zahtevajo več interakcij ali prilagoditev na podlagi povratnih informacij v realnem času.
+> Agenta bomo definirali kot entiteto, ki lahko deluje samostojno skozi daljša obdobja, sposobno izvajanja kompleksnih nalog, ki lahko zahtevajo več interakcij ali prilagoditev na podlagi povratnih informacij v realnem času.
 
-### 1. Tokovi in delni rezultati
+### 1. Pretakanje & Delni rezultati
 
-Tradicionalni vzorci zahteva-odgovor ne delujejo za dolgotrajne naloge. Agenti morajo zagotoviti:
+Tradicionalni vzorci zahteva-odgovor ne delujejo za dolgotrajne naloge. Agenti morajo nuditi:
 
 - Posodobitve napredka v realnem času
 - Vmesne rezultate
 
-**Podpora MCP**: Obvestila o posodobitvah virov omogočajo tokove delnih rezultatov, čeprav to zahteva skrbno načrtovanje, da se izognemo konfliktom z modelom 1:1 zahteva/odgovor JSON-RPC.
+**Podpora MCP**: Obvestila o posodobitvah virov omogočajo pretakanje delnih rezultatov, vendar to zahteva previdno zasnovo, da se izogne konfliktnim zahtevam modela JSON-RPC 1:1 zahteva/odgovor.
 
-| Funkcija                  | Primer uporabe                                                                                                                                                                       | Podpora MCP                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Posodobitve napredka v realnem času | Uporabnik zahteva nalogo migracije kode. Agent posreduje napredek: "10% - Analiziranje odvisnosti... 25% - Pretvarjanje TypeScript datotek... 50% - Posodabljanje uvozov..."          | ✅ Obvestila o napredku                                                                  |
-| Delni rezultati           | Naloga "Ustvari knjigo" posreduje delne rezultate, npr. 1) Oris zgodbe, 2) Seznam poglavij, 3) Vsako dokončano poglavje. Gostitelj lahko pregleda, prekliče ali preusmeri na kateri koli stopnji. | ✅ Obvestila je mogoče "razširiti", da vključujejo delne rezultate, glej predloge na PR 383, 776 |
+| Funkcija                   | Uporaba                                                                                                                                                                        | Podpora MCP                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Posodobitve napredka       | Uporabnik zahteva nalogo migracije baze kode. Agent pretaka napredek: "10 % - Analiza odvisnosti... 25 % - Pretvorba datotek TypeScript... 50 % - Posodabljanje uvozov..."         | ✅ Obvestila o napredku                                                                     |
+| Delni rezultati            | Naloga »Ustvari knjigo« pretaka delne rezultate, npr. 1) Osnutek zgodbe, 2) Seznam poglavij, 3) Vsako poglavje kot zaključeno. Gostitelj lahko kadarkoli pregleduje, prekliče ali preusmeri. | ✅ Obvestila se lahko »razširijo« za vključitev delnih rezultatov, glej predloge za PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Slika 1:</strong> Ta diagram prikazuje, kako MCP agent posreduje posodobitve napredka v realnem času in delne rezultate gostiteljski aplikaciji med dolgotrajno nalogo, kar omogoča uporabniku spremljanje izvajanja v realnem času.
+<strong>Slika 1:</strong> Ta diagram prikazuje, kako MCP agenti pretakajo posodobitve napredka v realnem času in delne rezultate gostiteljski aplikaciji med dolgotrajno nalogo, kar omogoča uporabniku spremljanje izvajanja v realnem času.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Gostiteljska aplikacija<br/>(MCP odjemalec)
+    participant Server as MCP strežnik<br/>(Agentovo orodje)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Začni dolgo opravilo
+    Host->>Server: Pokliči agent_tool()
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop Posodobitve napredka
+        Server-->>Host: Napredek + delni rezultati
+        Host-->>User: Pretakanje posodobitev
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Končni rezultat
+    Host-->>User: Končano
 ```
 
-### 2. Ponovna vzpostavitev
+### 2. Ponovno vzpostavljanje
 
-Agenti morajo obvladovati prekinitve omrežja brez težav:
+Agenti morajo spretno upravljati s prekinitvami omrežja:
 
-- Ponovna povezava po prekinitvi (odjemalca)
-- Nadaljevanje tam, kjer so končali (ponovna dostava sporočil)
+- Ponovno povezovanje po prekinitvi (stranka)
+- Nadaljevanje od točke prekinitve (ponovno pošiljanje sporočil)
 
-**Podpora MCP**: MCP StreamableHTTP transport danes podpira ponovno vzpostavitev sej in ponovno dostavo sporočil z ID-ji sej in ID-ji zadnjih dogodkov. Pomembno je, da mora strežnik implementirati EventStore, ki omogoča ponovitve dogodkov ob ponovni povezavi odjemalca.  
-Omeniti velja, da obstaja predlog skupnosti (PR #975), ki raziskuje transportno neodvisne ponovno vzpostavljive tokove.
+**Podpora MCP**: MCP StreamableHTTP prenos danes podpira nadaljevanje seje in ponovno pošiljanje sporočil z ID-ji sej in zadnjimi ID-ji dogodkov. Pomembno je, da mora strežnik implementirati EventStore, ki omogoča ponovne predvajanja dogodkov ob ponovni povezavi stranke.  
+Obstaja predlog skupnosti (PR #975), ki raziskuje transportno-agnostične pretočne podatke z možnostjo ponovnega vzpostavljanja.
 
-| Funkcija      | Primer uporabe                                                                                                                                                   | Podpora MCP                                                                |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Ponovna vzpostavitev | Odjemalec se prekine med dolgotrajno nalogo. Ob ponovni povezavi se seja nadaljuje z ponovitvijo zamujenih dogodkov, brezhibno nadaljuje tam, kjer je končala. | ✅ StreamableHTTP transport z ID-ji sej, ponovitvijo dogodkov in EventStore |
+| Funkcija       | Uporaba                                                                                                                                                     | Podpora MCP                                                               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Ponovno vzpostavljanje | Stranka prekine med dolgotrajno nalogo. Ob povezavi se seja nadaljuje, zamujeni dogodki se predvajajo, naloga teče nemoteno od tam, kjer je bila prekinjena. | ✅ StreamableHTTP prenos s sejskimi ID-ji, predvajanjem dogodkov in EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Slika 2:</strong> Ta diagram prikazuje, kako MCP-jev StreamableHTTP transport in EventStore omogočata brezhibno ponovno vzpostavitev sej: če se odjemalec prekine, se lahko ponovno poveže in ponovi zamujene dogodke, nadaljuje nalogo brez izgube napredka.
+<strong>Slika 2:</strong> Ta diagram prikazuje, kako MCPjev StreamableHTTP prenos in shramba dogodkov omogočata nemoteno ponovno vzpostavitev seje: če se klient prekine, se lahko ponovno poveže in predvaja zamujene dogodke, pri čemer naloga teče neprekinjeno brez izgube napredka.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as Gostiteljska aplikacija<br/>(MCP odjemalec)
+    participant Server as MCP strežnik<br/>(Orodje agenta)
+    participant Store as Shramba dogodkov
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Začni opravilo
+    Host->>Server: Pokliči orodje [seja: abc123]
+    Server->>Store: Shrani dogodke
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Povezava prekinjena
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Ponovno se poveži [seja: abc123]
+    Store-->>Server: Predvajaj dogodke
+    Server-->>Host: Dohiti + nadaljuj
+    Host-->>User: ✅ Dokončano
 ```
 
-### 3. Trajnost
+### 3. Vzdržljivost
 
 Dolgotrajni agenti potrebujejo trajno stanje:
 
 - Rezultati preživijo ponovni zagon strežnika
-- Stanje je mogoče pridobiti zunaj seje
-- Sledenje napredku med sejami
+- Status je mogoče pridobiti zunaj pasu
+- Spremljanje napredka čez seje
 
-**Podpora MCP**: MCP zdaj podpira vrsto vrnitve Resource link za klice orodij. Danes je možen vzorec zasnove orodja, ki ustvari vir in takoj vrne povezavo do vira. Orodje lahko nadaljuje z obravnavo naloge v ozadju in posodablja vir. Odjemalec lahko nato izbere, ali bo preverjal stanje tega vira za pridobitev delnih ali celotnih rezultatov (glede na to, katere posodobitve virov strežnik zagotavlja) ali se naročil na vir za obvestila o posodobitvah.
+**Podpora MCP**: MCP zdaj podpira vrsto povratka povezave do vira pri klicih orodij. Danes je možen vzorec, da orodje ustvari vir in takoj vrne povezavo do vira. Orodje lahko nadaljuje z obravnavo naloge v ozadju in posodablja vir. Stranka pa lahko izbere, da preverja stanje tega vira za delne ali celotne rezultate (odvisno od tega, katere posodobitve vira strežnik zagotavlja) ali se naroči na vir za obvestila o posodobitvah.
 
-Ena omejitev tukaj je, da lahko preverjanje virov ali naročanje na posodobitve porabi vire, kar ima posledice pri večjem obsegu. Obstaja odprt predlog skupnosti (vključno z #992), ki raziskuje možnost vključitve webhookov ali sprožilcev, ki jih strežnik lahko pokliče za obveščanje odjemalca/gostiteljske aplikacije o posodobitvah.
+Ena omejitev je, da požiranje virov ali naročanje na posodobitve lahko povzroči porabo virov s posledicami v merilu. Obstaja odprt predlog skupnosti (vključno s #992), ki raziskuje možnost vključitve spletnih kaveljčkov ali sprožilcev, ki jih strežnik lahko kliče za obveščanje stranke/gostiteljske aplikacije o posodobitvah.
 
-| Funkcija    | Primer uporabe                                                                                                                                        | Podpora MCP                                                        |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Trajnost    | Strežnik se zruši med nalogo migracije podatkov. Rezultati in napredek preživijo ponovni zagon, odjemalec lahko preveri stanje in nadaljuje iz trajnega vira. | ✅ Povezave do virov s trajnim shranjevanjem in obvestili o stanju |
+| Funkcija    | Uporaba                                                                                                                                               | Podpora MCP                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Vzdržljivost | Strežnik crkne med nalogo za migracijo podatkov. Rezultati in napredek preživijo ponovni zagon, stranka lahko preveri status in nadaljuje z vztrajnim virom. | ✅ Povezave do virov s trajnim shranjevanjem in statusnimi obvestili |
 
-Danes je pogost vzorec zasnove orodja, ki ustvari vir in takoj vrne povezavo do vira. Orodje lahko v ozadju obravnava nalogo, izdaja obvestila o virih, ki služijo kot posodobitve napredka ali vključujejo delne rezultate, in po potrebi posodablja vsebino v viru.
+Danes je pogost vzorec, da se oblikuje orodje, ki ustvari vir in takoj vrne povezavo do vira. Orodje lahko v ozadju obravnava nalogo, pošilja obvestila o virih, ki služijo kot posodobitve napredka ali vključujejo delne rezultate, in po potrebi posodablja vsebino vira.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Slika 3:</strong> Ta diagram prikazuje, kako MCP agenti uporabljajo trajne vire in obvestila o stanju za zagotavljanje, da dolgotrajne naloge preživijo ponovne zagone strežnika, kar omogoča odjemalcem preverjanje napredka in pridobivanje rezultatov tudi po napakah.
+<strong>Slika 3:</strong> Ta diagram prikazuje, kako MCP agenti uporabljajo trajne vire in statusna obvestila, da zagotavljajo, da dolgotrajne naloge preživijo ponovne zagone strežnika, kar strankam omogoča preverjanje napredka in pridobivanje rezultatov tudi po izpadih.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as Gostitelj Aplikacije<br/>(MCP odjemalec)
+    participant Server as MCP Strežnik<br/>(Orodje agent)
+    participant DB as Trajni pomnilnik
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: Začni nalogo
+    Host->>Server: Pokliči orodje
+    Server->>DB: Ustvari vir + posodobitve
+    Server-->>Host: 🔗 Povezava vira
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Ponovni zagon strežnika
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Preveri stanje
+    Host->>Server: Pridobi vir
+    Server->>DB: Naloži stanje
+    Server-->>Host: Trenutni napredek
+    Server->>DB: Dokončaj + obvesti
+    Host-->>User: ✅ Dokončano
 ```
 
-### 4. Večkratne interakcije
+### 4. Večkrožne interakcije
 
 Agenti pogosto potrebujejo dodatne vnose med izvajanjem:
 
-- Človeška pojasnila ali odobritve
-- AI pomoč pri kompleksnih odločitvah
+- Ljudsko pojasnilo ali odobritev
+- Pomoč AI za kompleksne odločitve
 - Dinamična prilagoditev parametrov
 
-**Podpora MCP**: Popolnoma podprto prek sampling (za AI vnose) in elicitation (za človeške vnose).
+**Podpora MCP**: Popolnoma podprto prek vzorčenja (za AI vnose) in pridobivanja informacij (za človeške vnose).
 
-| Funkcija                 | Primer uporabe                                                                                                                                     | Podpora MCP                                           |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Večkratne interakcije    | Agent za rezervacijo potovanj zahteva potrditev cene od uporabnika, nato pa prosi AI za povzetek podatkov o potovanju, preden dokonča transakcijo. | ✅ Elicitation za človeške vnose, sampling za AI vnose |
+| Funkcija                | Uporaba                                                                                                                                           | Podpora MCP                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| Večkrožne interakcije  | Agent za rezervacijo potovanja zahteva potrditev cene uporabnika, nato pa prosi AI za povzetek podatkov o potovanju, preden zaključi rezervacijo. | ✅ Pridobivanje informacij za človeške vnose, vzorčenje za AI vnose |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Slika 4:</strong> Ta diagram prikazuje, kako MCP agenti lahko interaktivno pridobijo človeške vnose ali zahtevajo AI pomoč med izvajanjem, kar podpira kompleksne, večkratne delovne tokove, kot so potrditve in dinamično odločanje.
+<strong>Slika 4:</strong> Ta diagram prikazuje, kako MCP agenti lahko interaktivno pridobivajo človeške vnose ali zahtevajo pomoč AI med izvajanjem, podpirajoč kompleksne večkrožne poteke dela, kot so potrditve in dinamično odločanje.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Gostiteljska aplikacija<br/>(MCP odjemalec)
+    participant Server as MCP strežnik<br/>(Orodje agenta)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Rezerviraj let
+    Host->>Server: Pokliči potovalnega_agenta
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Izvedba spraševanja: "Potrditi 500 $?"
+    Note over Host: Povratni klic za spraševanje (če je na voljo)
+    Host->>User: 💰 Potrditi ceno?
+    User->>Host: "Da"
+    Host->>Server: Potrjeno
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Vzorec: "Povzemi podatke"
+    Note over Host: AI povratni klic (če je na voljo)
+    Host->>Server: Poročilo povzetka
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Let rezerviran
 ```
 
 ## Implementacija dolgotrajnih agentov na MCP - Pregled kode
 
-Kot del tega članka ponujamo [repozitorij kode](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), ki vsebuje popolno implementacijo dolgotrajnih agentov z uporabo MCP Python SDK z StreamableHTTP transportom za ponovno vzpostavitev sej in ponovno dostavo sporočil. Implementacija prikazuje, kako je mogoče zmogljivosti MCP sestaviti za omogočanje sofisticiranih agentnih vedenj.
+V okviru tega članka zagotavljamo [shramba kode](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents), ki vsebuje popolno implementacijo dolgotrajnih agentov z uporabo MCP Python SDK in StreamableHTTP prenosa za nadaljevanje seje in ponovno pošiljanje sporočil. Implementacija prikazuje, kako se lahko zmogljivosti MCP sestavijo za omogočanje sofisticiranih vedenj, podobnih agentom.
 
-Specifično implementiramo strežnik z dvema glavnima agentnima orodjema:
+Natančneje, implementiramo strežnik z dvema glavnim agentnima orodjema:
 
-- **Agent za potovanja** - Simulira storitev rezervacije potovanj s potrditvijo cene prek elicitation
-- **Raziskovalni agent** - Izvaja raziskovalne naloge s povzetki, ki jih omogoča AI, prek sampling
+- **Agent za potovanja** - Simulira storitev rezervacije potovanj s potrditvijo cene prek pridobivanja informacij
+- **Agent za raziskave** - Izvaja raziskovalne naloge z AI-podprtimi povzetki prek vzorčenja
 
-Oba agenta prikazujeta posodobitve napredka v realnem času, interaktivne potrditve in popolne zmogljivosti ponovne vzpostavitve sej.
+Oba agenta prikazujeta posodobitve napredka v realnem času, interaktivne potrditve in popolne zmogljivosti nadaljevanja seje.
 
 ### Ključni koncepti implementacije
 
-Naslednji odseki prikazujejo implementacijo agenta na strani strežnika in obravnavo gostitelja na strani odjemalca za vsako zmogljivost:
+Naslednji razdelki prikazujejo implementacijo agentov na strani strežnika in ravnanje gostitelja na strani klienta za vsako zmogljivost:
 
-#### Tokovi in posodobitve napredka - Stanje naloge v realnem času
+#### Pretakanje & Posodobitve napredka - Status naloge v realnem času
 
-Tokovi omogočajo agentom, da med dolgotrajnimi nalogami posredujejo posodobitve napredka v realnem času, kar uporabnikom omogoča spremljanje stanja naloge in vmesnih rezultatov.
+Pretakanje omogoča agentom, da nudijo posodobitve napredka v realnem času med dolgotrajnimi nalogami, obveščajo uporabnike o statusu naloge in vmesnih rezultatih.
 
 **Implementacija na strežniku (agent pošilja obvestila o napredku):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Iz server/server.py - Potovalni agent pošilja posodobitve o napredku
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Simuliraj delo
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternativa: Zabeleži sporočila za podrobne korak za korakom posodobitve
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**Implementacija na odjemalcu (gostitelj prejema posodobitve napredka):**
+**Implementacija na klientu (gostitelj prejema posodobitve napredka):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Iz client/client.py - Odjemalec, ki obdeluje obvestila v realnem času
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registriraj upravljavca sporočil ob ustvarjanju seje
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - Zahteva za uporabniški vnos
+#### Pridobivanje informacij - Zahteva po uporabniškem vnosu
 
-Elicitation omogoča agentom, da med izvajanjem zahtevajo uporabniški vnos. To je bistveno za potrditve, pojasnila ali odobritve med dolgotrajnimi nalogami.
+Pridobivanje informacij omogoča agentom, da med izvajanjem zahtevajo uporabniški vnos. To je bistveno za potrditve, pojasnila ali odobritve med dolgotrajnimi nalogami.
 
 **Implementacija na strežniku (agent zahteva potrditev):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Iz server/server.py - Potovalni agent zahteva potrditev cene
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Nadaljuj z rezervacijo
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Prekliči rezervacijo
     booking_cancelled = True
 ```
 
-**Implementacija na odjemalcu (gostitelj zagotavlja povratni klic za elicitation):**
+**Implementacija na klientu (gostitelj zagotavlja povratni klic za pridobivanje informacij):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Iz client/client.py - upravljanje zahtev za pridobivanje podatkov s strani odjemalca
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Registrirajte povratni klic ob ustvarjanju seje
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - Zahteva za AI pomoč
+#### Vzorčenje - Zahteva po pomoči AI
 
-Sampling omogoča agentom, da med izvajanjem zahtevajo pomoč LLM za kompleksne odločitve ali generiranje vsebine. To omogoča hibridne delovne tokove človek-AI.
+Vzorčenje agentom omogoča, da zahtevajo pomoč LLM za kompleksne odločitve ali generiranje vsebin med izvajanjem. To omogoča hibridne človeško-AI poteke dela.
 
-**Implementacija na strežniku (agent zahteva AI pomoč):**
+**Implementacija na strežniku (agent zahteva pomoč AI):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Iz server/server.py - Agent raziskovalec zahteva AI povzetek
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Implementacija na odjemalcu (gostitelj zagotavlja povratni klic za sampling):**
+**Implementacija na klientu (gostitelj zagotavlja povratni klic za vzorčenje):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Iz client/client.py - Stranka obdeluje zahteve za vzorčenje
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # V pravi aplikaciji bi lahko to klicalo LLM API
+    # Za demonstracijske namene nudimo ponarejen odgovor
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Registrirajte povratni klic ob ustvarjanju seje
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Ponovna vzpostavitev - Kontinuiteta sej ob prekinitvah
+#### Ponovno vzpostavljanje - Neprekinjenost seje kljub prekinitvam
 
-Ponovna vzpostavitev zagotavlja, da dolgotrajne naloge agentov preživijo prekinitve odjemalca in se brezhibno nadaljujejo ob ponovni povezavi. To je implementirano prek shranjevanja dogodkov in žetonov za ponovno vzpostavitev.
+Ponovno vzpostavljanje zagotavlja, da dolgotrajne naloge agentov prenesejo prekinitve povezave klienta in nemoteno nadaljujejo ob ponovni povezavi. To se izvaja prek shramb dogodkov in tokenov za nadaljevanje.
 
-**Implementacija shranjevanja dogodkov (strežnik hrani stanje seje):**
+**Implementacija Event Store (strežnik hrani stanje seje):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Iz server/event_store.py - Preprost pomnilnik dogodkov v pomnilniku
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Predvajaj samo kasnejše dogodke iz izvirnega toka seje.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Iz server/server.py - Posredovanje pomnilnika dogodkov upravitelju sej
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Ustvari upravitelja sej s pomnilnikom dogodkov za nadaljevanje
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Pomnilnik dogodkov omogoča nadaljevanje seje
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Uporaba: Inicializirajte s pomnilnikom dogodkov
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Metapodatki odjemalca z žetonom za ponovno vzpostavitev (odjemalec se ponovno poveže z uporabo shranjenega stanja):**
+**Meta podatki klienta z tokenom za nadaljevanje (klient se ponovno povezuje z uporabljenim stanjem):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Iz client/client.py - Nadaljevanje stranke z metapodatki
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Uporabi obstoječi žeton za nadaljevanje, da nadaljujemo tam, kjer smo končali
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Ustvari povratni klic za shranjevanje žetona za nadaljevanje, ko je prejet
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Pošlji zahtevo z metapodatki za nadaljevanje
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,7 +437,7 @@ result = await session.send_request(
 )
 ```
 
-Gostiteljska aplikacija lokalno hrani ID-je sej in žetone za ponovno vzpostavitev, kar ji omogoča ponovno povezavo z obstoječimi sejami brez izgube napredka ali stanja.
+Gostiteljska aplikacija lokalno hrani ID-je sej in tokene za nadaljevanje, kar ji omogoča ponovno povezavo s trenutnimi sejami brez izgube napredka ali stanja.
 
 ### Organizacija kode
 
@@ -432,14 +447,14 @@ Gostiteljska aplikacija lokalno hrani ID-je sej in žetone za ponovno vzpostavit
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Uporabnik]) -->|"Opravilo"| Host["Gostitelj<br/>(MCP odjemalec)"]
+    Host -->|navedite orodja| Server[MCP strežnik]
+    Server -->|Razkriva| AgentsTools[Agenti kot orodja]
+    AgentsTools -->|Opravilo| AgentA[Potovalni agent]
+    AgentsTools -->|Opravilo| AgentB[Raziskovalni agent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Spremlja| StateUpdates[Napredek in posodobitve stanja]
+    Server -->|Objavlja| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,60 +463,68 @@ graph LR
 
 **Ključne datoteke:**
 
-- **`server/server.py`** - Ponovno vzpostavljiv MCP strežnik z agentoma za potovanja in raziskave, ki prikazujeta elicitation, sampling in posodobitve napredka
-- **`client/client.py`** - Interaktivna gostiteljska aplikacija s podporo za ponovno vzpostavitev, povratnimi klici in upravljanjem žetonov
-- **`server/event_store.py`** - Implementacija shranjevanja dogodkov, ki omogoča ponovno vzpostavitev sej in ponovno dostavo sporočil
+- **`server/server.py`** - Strežnik MCP z možnostjo nadaljevanja, agenti za potovanja in raziskave, ki prikazujejo pridobivanje informacij, vzorčenje in posodobitve napredka
+- **`client/client.py`** - Interaktivna gostiteljska aplikacija z podporo za nadaljevanje, upravljanjem povratnih klicev in tokenov
+- **`server/event_store.py`** - Implementacija shramb dogodkov za nadaljevanje sej in ponovno pošiljanje sporočil
 
-## Razširitev na komunikacijo med več agenti na MCP
+## Razširitev na multi-agentno komunikacijo na MCP
 
-Zgornjo implementacijo je mogoče razširiti na sisteme z več agenti z izboljšanjem inteligence in obsega gostiteljske aplikacije:
+Zgornjo implementacijo je mogoče razširiti na sisteme z več agenti s povečanjem inteligence in obsega gostiteljske aplikacije:
 
 - **Inteligentna razčlenitev nalog**: Gostitelj analizira kompleksne uporabniške zahteve in jih razdeli na podnaloge za različne specializirane agente
-- **Koordinacija več strežnikov**: Gostitelj vzdržuje povezave z več MCP strežniki, od katerih vsak ponuja različne zmogljivosti agentov
-- **Upravljanje stanja nalog**: Gostitelj sledi napredku več sočasnih nalog agentov, obravnava odvisnosti in zaporedja
-- **Odpornost in ponovitve**: Gostitelj upravlja napake, implementira logiko ponovitev in preusmerja naloge, ko agenti postanejo nedosegljivi
-- **Sinteza rezultatov**: Gostitelj združuje rezultate več agentov v koherentne končne rezultate
+- **Usklajevanje več strežnikov**: Gostitelj ohranja povezave do več MCP strežnikov, od katerih vsak razkriva različne zmogljivosti agentov
+- **Upravljanje stanja nalog**: Gostitelj spremlja napredek preko več hkratnih nalog agentov, obvladuje odvisnosti in zaporedje
+- **Odpornost in ponovni poskusi**: Gostitelj upravlja z napakami, izvaja logiko ponovnih poskusov in preusmerja naloge, ko agenti postanejo nedosegljivi
+- **Sintetiziranje rezultatov**: Gostitelj združuje izhode več agentov v koherentne končne rezultate
 
-Gostitelj se razvije iz preprostega odjemalca v inteligentnega orkestratorja, ki koordinira zmogljivosti razpršenih agentov, hkrati pa ohranja isto osnovo MCP protokola.
+Gostitelj se razvije iz preproste stranke v inteligentnega orkestratorja, ki usklajuje distribuirane zmogljivosti agentov ob ohranjanju iste osnovne MCP protokolarne baze.
 
 ## Zaključek
 
-Izboljšane zmogljivosti MCP - obvestila o virih, elicitation/sampling, ponovno vzpostavljivi tokovi in trajni viri - omogočajo kompleksne interakcije med agenti, hkrati pa ohranjajo preprostost protokola.
+Izboljšane zmogljivosti MCP - obvestila o virih, pridobivanje informacij/vzorčenje, pretočni podatki z možnostjo ponovnega vzpostavljanja in trajni viri - omogočajo kompleksne interakcije agent-agent ob ohranjanju enostavnosti protokola.
 
 ## Začetek
 
-Pripravljeni na gradnjo lastnega sistema agent2agent? Sledite tem korakom:
+Ste pripravljeni zgraditi svoj agent2agent sistem? Sledite tem korakom:
 
 ### 1. Zaženite demo
 
 ```bash
-# Start the server with event store for resumption
+# Zaženite strežnik z dnevnikom dogodkov za nadaljevanje
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# V drugem terminalu zaženite interaktivni odjemalec
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Razpoložljivi ukazi v interaktivnem načinu:**
+**Na voljo ukazi v interaktivnem načinu:**
 
-- `travel_agent` - Rezervirajte potovanje s potrditvijo cene prek elicitation
-- `research_agent` - Raziskujte teme s povzetki, ki jih omogoča AI, prek sampling
+- `travel_agent` - Rezervirajte potovanje s potrditvijo cene prek pridobivanja informacij
+- `research_agent` - Raziskujte teme z AI-podprtimi povzetki preko vzorčenja
 - `list` - Prikaži vsa razpoložljiva orodja
-- `clean-tokens` - Počisti žetone za ponovno vzpostavitev
+- `clean-tokens` - Počisti tokene za nadaljevanje
 - `help` - Prikaži podrobno pomoč za ukaze
-- `quit` - Izhod iz odjemalca
+- `quit` - Izhod iz klienta
 
-### 2. Preizkusite zmogljivosti ponovne vzpostavitve
+### 2. Preizkusite zmogljivosti nadaljevanja
 
-- Zaženite dolgotrajnega agenta (npr. `travel_agent`)
-- Prekinite odjemalca med izvajanjem (Ctrl+C)
-- Ponovno zaženite odjemalca - samodejno bo nadaljeval tam, kjer je končal
+- Začnite dolgotrajnega agenta (npr. `travel_agent`)
+- Prekini klienta med izvajanjem (Ctrl+C)
+- Ponovno zaženi klienta - ta se bo samodejno nadaljeval od tam, kjer je bil prekinjen
 
-### 3. Raziskujte in razširjajte
+### 3. Raziščite in razširite
 
-- **Raziskujte primere**: Oglejte si ta [mcp-agents](
+- **Raziščite primere**: Oglejte si [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
+- **Pridružite se skupnosti**: Sodelujte v razpravah MCP na GitHubu
+- **Eksperimentirajte**: Začnite z enostavno dolgotrajno nalogo in postopoma dodajajte pretakanje, ponovno vzpostavljanje in večagentno koordinacijo
+
+To prikazuje, kako MCP omogoča inteligentna vedenja agentov ob ohranjanju preprostosti na osnovi orodij.
+
+Na splošno se specifikacija MCP hitro razvija; bralcu priporočamo pregled uradne dokumentacijske spletne strani za najnovejše posodobitve - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitna nesporazumevanja ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

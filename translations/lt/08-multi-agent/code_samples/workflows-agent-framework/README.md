@@ -1,69 +1,69 @@
-# Kuriant daugiaveiksnius taikymus su Microsoft Agent Framework Workflow
+# Daugiaagentinių programų kūrimas naudojant Microsoft Agent Framework Workflow
 
-Šiame vadove sužinosite, kaip suprasti ir kurti daugiaveiksnius taikymus naudojant Microsoft Agent Framework. Mes nagrinėsime pagrindines daugiaveiksnių sistemų sąvokas, gilinsimės į Framework Workflow komponento architektūrą ir peržiūrėsime praktinius pavyzdžius Python ir .NET kalbomis, skirtus skirtingiems darbo eigos modeliams.
+Šis pamokymas padės suprasti ir sukurti daugiaagentines programas naudojant Microsoft Agent Framework. Išnagrinėsime daugiaagentinių sistemų pagrindines sąvokas, panirsime į sistemos Workflow komponento architektūrą ir peržiūrėsime praktinius pavyzdžius tiek Python, tiek .NET kalbomis įvairiems procesų modeliams.
 
-## 1\. Daugiaveiksnių sistemų supratimas
+## 1\. Daugiaagentinių sistemų supratimas
 
-Dirbtinio intelekto agentas yra sistema, kuri pranoksta standartinio didelio kalbos modelio (LLM) galimybes. Jis gali suvokti aplinką, priimti sprendimus ir atlikti veiksmus, siekdamas konkrečių tikslų. Daugiaveiksnė sistema apima kelis tokius agentus, kurie bendradarbiauja spręsdami problemą, kuri būtų sudėtinga arba neįmanoma vienam agentui.
+Dirbtinio intelekto agentas yra sistema, kuri viršija standartinio didelio kalbos modelio (LLM) gebėjimus. Jis gali suvokti savo aplinką, priimti sprendimus ir imtis veiksmų, siekdamas konkrečių tikslų. Daugiaagentinė sistema apima kelis tokius agentus, kurie bendradarbiauja spręsdami problemą, kurią būtų sunku ar neįmanoma išspręsti vienam agentui.
 
-### Dažniausi taikymo scenarijai
+### Dažni taikymo scenarijai
 
-  * **Sudėtingų problemų sprendimas**: Didelės užduoties (pvz., įmonės renginio planavimas) suskaidymas į mažesnes užduotis, kurias atlieka specializuoti agentai (pvz., biudžeto agentas, logistikos agentas, rinkodaros agentas).
-  * **Virtualūs asistentai**: Pagrindinis asistentas deleguoja užduotis, tokias kaip tvarkaraščių sudarymas, tyrimai ir rezervacijos, kitiems specializuotiems agentams.
-  * **Automatizuotas turinio kūrimas**: Darbo eiga, kurioje vienas agentas rengia turinį, kitas peržiūri jį dėl tikslumo ir tono, o trečias publikuoja.
+  * **Sudėtingų problemų sprendimas**: Didelio užduoties (pvz., įmonės renginio planavimo) skaidymas į mažesnes dalis, kurias atlieka specializuoti agentai (pvz., biudžeto agentas, logistikos agentas, rinkodaros agentas).
+  * **Virtualūs asistentai**: Pagrindinis asistentas, deleguojantis užduotis, tokias kaip planavimas, tyrimai ir rezervacijos, kitiems specializuotiems agentams.
+  * **Automatizuotas turinio kūrimas**: Procesas, kur vienas agentas rengia turinį, kitas peržiūri tikslumą ir toną, o trečias jį publikuoja.
 
-### Daugiaveiksnių sistemų modeliai
+### Daugiaagentinio bendradarbiavimo modeliai
 
-Daugiaveiksnės sistemos gali būti organizuotos pagal kelis modelius, kurie nustato jų sąveiką:
+Daugiaagentinės sistemos gali būti organizuotos pagal kelis modelius, kurie nusako, kaip jie tarpusavyje sąveikauja:
 
-  * **Sekvencinis**: Agentai dirba iš anksto nustatyta tvarka, kaip surinkimo linijoje. Vieno agento išvestis tampa kito agento įvestimi.
-  * **Lygiagretus**: Agentai dirba lygiagrečiai skirtingose užduoties dalyse, o jų rezultatai sujungiami pabaigoje.
-  * **Sąlyginis**: Darbo eiga seka skirtingais keliais, priklausomai nuo agento išvesties, panašiai kaip if-then-else teiginys.
+  * **Sekvenčių modelis**: Agentai dirba iš anksto nustatyta tvarka, tarsi surinkimo linijoje. Vieno agento išvestis tampa kito įvestimi.
+  * **Lygiagretus modelis**: Agentai vienu metu dirba su skirtingomis užduoties dalimis, o jų rezultatai galiausiai apjungiami.
+  * **Sąlyginis modelis**: Procesas vyksta skirtingais keliais, priklausomai nuo agentų išvesties, panašiai kaip if-then-else struktūra.
 
 ## 2\. Microsoft Agent Framework Workflow architektūra
 
-Agent Framework darbo eigos sistema yra pažangi orkestravimo variklis, skirtas valdyti sudėtingas sąveikas tarp daugelio agentų. Ji sukurta remiantis grafų architektūra, naudojančia [Pregel stiliaus vykdymo modelį](https://kowshik.github.io/JPregel/pregel_paper.pdf), kur apdorojimas vyksta sinchronizuotais žingsniais, vadinamais „superžingsniais“.
+Agent Framework workflow sistema yra pažangi orkestravimo sistema, skirta valdyti sudėtingas sąveikas tarp kelių agentų. Ji sukurta pagal grafų architektūrą, naudojančią [Pregel stiliaus vykdymo modelį](https://kowshik.github.io/JPregel/pregel_paper.pdf), kuriame apdorojimas vyksta sinchronizuotais žingsniais, vadinamais "supersteps".
 
 ### Pagrindiniai komponentai
 
 Architektūra susideda iš trijų pagrindinių dalių:
 
-1.  **Vykdytojai**: Tai pagrindiniai apdorojimo vienetai. Mūsų pavyzdžiuose `Agent` yra vykdytojo tipas. Kiekvienas vykdytojas gali turėti kelis pranešimų tvarkytojus, kurie automatiškai aktyvuojami pagal gauto pranešimo tipą.
-2.  **Kraštai**: Jie apibrėžia kelią, kuriuo pranešimai keliauja tarp vykdytojų. Kraštai gali turėti sąlygas, leidžiančias dinamiškai nukreipti informaciją per darbo eigos grafiką.
-3.  **Darbo eiga**: Šis komponentas organizuoja visą procesą, valdo vykdytojus, kraštus ir bendrą vykdymo eigą. Jis užtikrina, kad pranešimai būtų apdorojami tinkama tvarka ir transliuoja įvykius stebėjimui.
+1.  **Executoriai**: Tai pagrindiniai apdorojimo vienetai. Mūsų pavyzdžiuose `Agent` yra executoriumo tipas. Kiekvienas executoriumi gali turėti kelis žinučių tvarkytuvus, kurie automatiškai kviečiami pagal gautos žinutės tipą.
+2.  **Briaunos (Edges)**: Nustato kelią, kuriuo žinutės keliauja tarp executoriumi. Briaunos gali turėti sąlygas, leidžiančias dinamiškai nukreipti informaciją per procesų grafą.
+3.  **Workflow**: Šis komponentas koordinuoja visą procesą, valdydamas executoriumi, briaunas ir bendrą vykdymo srautą. Užtikrina, kad žinutės būtų apdorojamos teisinga tvarka ir srautina įvykius stebėjimui.
 
-*Diagramoje pavaizduoti pagrindiniai darbo eigos sistemos komponentai.*
+*Diagrama, iliustruojanti pagrindinius workflow sistemos komponentus.*
 
-Ši struktūra leidžia kurti patikimus ir mastelio keičiamus taikymus, naudojant pagrindinius modelius, tokius kaip sekvencinės grandinės, fan-out/fan-in lygiagrečiam apdorojimui ir switch-case logiką sąlyginiams srautams.
+Ši struktūra leidžia kurti patikimas ir horizontaliai išplečiamas programas, naudojant pagrindinius modelius, kaip sekos grandinės, fan-out/fan-in lygiagretų apdorojimą ir switch-case logiką sąlyginiams srautams.
 
 ## 3\. Praktiniai pavyzdžiai ir kodo analizė
 
-Dabar peržiūrėsime, kaip įgyvendinti skirtingus darbo eigos modelius naudojant Framework. Kiekvienam pavyzdžiui pateiksime Python ir .NET kodą.
+Dabar pažiūrėkime, kaip įgyvendinti skirtingus workflow modelius naudojant šį framework. Peržiūrėsime tiek Python, tiek .NET pavyzdžius kiekvienam atvejui.
 
-### Atvejis 1: Paprasta sekvencinė darbo eiga
+### Atvejis 1: Pagrindinis sekveninis workflow
 
-Tai paprasčiausias modelis, kai vieno agento išvestis tiesiogiai perduodama kitam. Mūsų scenarijuje dalyvauja viešbučio `FrontDesk` agentas, kuris pateikia kelionės rekomendaciją, kurią peržiūri `Concierge` agentas.
+Tai paprasčiausias modelis, kai vieno agento išvestis perduodama tiesiogiai kitam. Mūsų scenarijuje yra viešbučio `FrontDesk` agentas, kuris pateikia kelionių rekomendaciją, o ją peržiūri `Concierge` agentas.
 
-*Diagramoje pavaizduota paprasta FrontDesk -\> Concierge darbo eiga.*
+*Diagrama, atvaizduojanti bazinį FrontDesk -> Concierge workflow.*
 
-#### Scenarijaus fonas
+#### Scenarijaus kontekstas
 
-Kelionės prašytojas prašo rekomendacijos Paryžiuje.
+Keliautojas prašo rekomendacijos Paryžiuje.
 
-1.  `FrontDesk` agentas, orientuotas į trumpumą, siūlo aplankyti Luvro muziejų.
-2.  `Concierge` agentas, kuris teikia pirmenybę autentiškoms patirtims, gauna šį pasiūlymą. Jis peržiūri rekomendaciją ir pateikia atsiliepimą, siūlydamas vietinę, mažiau turistinę alternatyvą.
+1.  `FrontDesk` agentas, kuris siekia glaustumo, siūlo aplankyti Luvro muziejų.
+2.  `Concierge` agentas, kuris vertina autentiškas patirtis, gauna šį pasiūlymą. Jis peržiūri rekomendaciją ir pateikia atsiliepimą, siūlydamas labiau vietinį, mažiau turistinį variantą.
 
 #### Python įgyvendinimo analizė
 
-Python pavyzdyje pirmiausia apibrėžiame ir sukuriame du agentus, kiekvieną su konkrečiomis instrukcijomis.
+Python pavyzdyje pirmiausia apibrėžiame ir sukuriame abu agentus su specifinėmis instrukcijomis.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Apibrėžkite agentų vaidmenis ir nurodymus
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Sukurkite agentų egzempliorius
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Tada naudojamas `WorkflowBuilder`, kad būtų sukurtas grafikas. `front_desk_agent` nustatomas kaip pradinė taškas, o kraštas sukuriamas, kad sujungtų jo išvestį su `reviewer_agent`.
+Toliau naudojame `WorkflowBuilder` grafui sudaryti. `front_desk_agent` nustatomas kaip pradžios taškas, o briauna sujungiama jo išvestį su `reviewer_agent`.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Galiausiai darbo eiga vykdoma su pradiniu vartotojo prašymu.
+Galiausiai workflow paleidžiamas su pradiniu vartotojo užklausos tekstu.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run vykdo darbo eigą; get_outputs() grąžina rezultato vykdytojo išvestį.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) įgyvendinimo analizė
+#### .NET (C#) įgyvendinimo analizė
 
-.NET įgyvendinimas seka labai panašią logiką. Pirmiausia apibrėžiami konstantai agentų pavadinimams ir instrukcijoms.
+.NET įgyvendinimas seka labai panašią logiką. Pirmiausia apibrėžiami agentų vardai ir instrukcijos.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agentai sukuriami naudojant `OpenAIClient`, o tada `WorkflowBuilder` apibrėžia sekvencinį srautą, pridėdamas kraštą nuo `frontDeskAgent` iki `reviewerAgent`.
+Agentai kuriami naudojant `AzureOpenAIClient` (Responses API), o `WorkflowBuilder` apibrėžia sekveninį srautą pridedant briauną iš `frontDeskAgent` į `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Darbo eiga vykdoma su vartotojo pranešimu, o rezultatai transliuojami atgal.
+Workflow paleidžiamas su vartotojo žinute, o rezultatai srautu grąžinami atgal.
 
-### Atvejis 2: Daugiapakopė sekvencinė darbo eiga
+### Atvejis 2: Daugiaslavio sekveninis workflow
 
-Šis modelis išplečia paprastą sekvenciją, įtraukiant daugiau agentų. Jis idealus procesams, kuriems reikia kelių etapų tobulinimo ar transformacijos.
+Šis modelis išplečia bazinę seką, įtraukiant daugiau agentų. Tinka procesams, kuriems reikia kelių etapų apdorojimo ar transformacijos.
 
-#### Scenarijaus fonas
+#### Scenarijaus kontekstas
 
-Vartotojas pateikia svetainės nuotrauką ir prašo baldų kainos pasiūlymo.
+Vartotojas pateikia svetainės vaizdą ir prašo baldų kainos pasiūlymo.
 
-1.  **Sales-Agent**: Identifikuoja baldų elementus nuotraukoje ir sudaro sąrašą.
-2.  **Price-Agent**: Pateikia sąrašo elementų kainų detalizaciją, įskaitant biudžetines, vidutinės klasės ir prabangias parinktis.
-3.  **Quote-Agent**: Gautą kainų sąrašą paverčia oficialiu pasiūlymo dokumentu Markdown formatu.
+1.  **Pardavimo agentas**: Nustato baldų elementus vaizde ir sudaro sąrašą.
+2.  **Kainų agentas**: Priima sąrašą ir pateikia detalią kainų struktūrą, įskaitant biudžetinį, vidutinės klasės ir premium variantus.
+3.  **Pasiūlymo agentas**: Gautą kainų sąrašą suformuoja į oficialų pasiūlymo dokumentą Markdown formatu.
 
-*Diagramoje pavaizduota Sales -\> Price -\> Quote darbo eiga.*
+*Diagrama, atvaizduojanti Sales -> Price -> Quote workflow.*
 
 #### Python įgyvendinimo analizė
 
-Trys agentai apibrėžiami, kiekvienas su specializuotu vaidmeniu. Darbo eiga konstruojama naudojant `add_edge`, kad būtų sukurta grandinė: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Apibrėžiami trys agentai, kiekvienas su specialia funkcija. Workflow konstruojamas naudojant `add_edge` sukuriant grandinę: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Sukurkite tris specializuotus agentus
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Sukurkite nuoseklų darbo srautą
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Įvestis yra `ChatMessage`, kuri apima tekstą ir nuotraukos URI. Framework automatiškai perduoda kiekvieno agento išvestį kitam sekoje, kol sukuriamas galutinis pasiūlymas.
+Įvestis yra `ChatMessage`, apimanti tekstą ir vaizdo URI. Framework automatiškai perduoda kiekvieno agento išvestį į kitą sekoje, kol sugeneruojamas galutinis pasiūlymas.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Vartotojo žinutėje yra ir tekstas, ir paveikslėlis
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Vykdyti darbo eigą
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) įgyvendinimo analizė
+#### .NET (C#) įgyvendinimo analizė
 
-.NET pavyzdys atspindi Python versiją. Trys agentai (`salesagent`, `priceagent`, `quoteagent`) sukuriami. `WorkflowBuilder` juos sujungia sekvenciškai.
+.NET versija atitinka Python pavyzdį. Sukuriami trys agentai (`salesagent`, `priceagent`, `quoteagent`), o `WorkflowBuilder` juos sujungia sekveniniu būdu.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Vartotojo pranešimas sudaromas su nuotraukos duomenimis (kaip baitais) ir tekstiniu prašymu. `InProcessExecution.StreamAsync` metodas inicijuoja darbo eigą, o galutinis rezultatas gaunamas iš srauto.
+Vartotojo žinutė sudaryta iš vaizdo duomenų (baitais) ir teksto užklausos. Metodas `InProcessExecution.RunStreamingAsync` paleidžia workflow, o galutinė išvestis gaunama iš srauto.
 
-### Atvejis 3: Lygiagreti darbo eiga
+### Atvejis 3: Lygiagretus workflow
 
-Šis modelis naudojamas, kai užduotys gali būti atliekamos vienu metu, taupant laiką. Jis apima „fan-out“ keliems agentams ir „fan-in“ rezultatų sujungimui.
+Šis modelis taikomas, kai užduotys gali būti vykdomos vienu metu siekiant taupyti laiką. Tai apima „fan-out“ keliems agentams ir „fan-in“ rezultatų sujungimą.
 
-#### Scenarijaus fonas
+#### Scenarijaus kontekstas
 
-Vartotojas prašo suplanuoti kelionę į Sietlą.
+Vartotojas prašo suplanuoti kelionę į Seattlę.
 
-1.  **Dispatcher (Fan-Out)**: Vartotojo prašymas siunčiamas dviem agentams vienu metu.
-2.  **Researcher-Agent**: Tyrinėja lankytinas vietas, orus ir pagrindinius aspektus kelionei į Sietlą gruodžio mėnesį.
-3.  **Plan-Agent**: Nepriklausomai sudaro detalų dienos kelionės planą.
-4.  **Aggregator (Fan-In)**: Abu agentų rezultatai surenkami ir pateikiami kartu kaip galutinis rezultatas.
+1.  **Dispečeris (Fan-Out)**: Vartotojo prašymas vienu metu nukreipiamas dviems agentams.
+2.  **Tyrimų agentas**: Atliekami tyrimai apie lankytinas vietas, orą ir svarbius aspektus kelionei į Seattlę gruodį.
+3.  **Plano agentas**: Nepriklausomai sudaro detalų dienos kelionės planą.
+4.  **Agregatorius (Fan-In)**: Surenkami abiejų agentų rezultatai ir pateikiami kaip galutinis atsakymas.
 
-*Diagramoje pavaizduota lygiagreti Researcher ir Planner darbo eiga.*
+*Diagrama, atvaizduojanti lygiagretų Researcher ir Planner workflow.*
 
 #### Python įgyvendinimo analizė
 
-`ConcurrentBuilder` supaprastina šio modelio kūrimą. Jūs tiesiog nurodote dalyvaujančius agentus, o kūrėjas automatiškai sukuria reikalingą fan-out ir fan-in logiką.
+`ConcurrentBuilder` supaprastina šio modelio kūrimą. Pakanka išvardinti dalyvaujančius agentus, ir builderis automatiškai sukuria reikalingą fan-out ir fan-in logiką.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder valdo fan-out/fan-in logiką
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Vykdyti darbo eigą
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework užtikrina, kad `research_agent` ir `plan_agent` vykdytų lygiagrečiai, o jų galutiniai rezultatai būtų surinkti į sąrašą.
+Framework užtikrina, kad `research_agent` ir `plan_agent` vykdytųsi lygiagrečiai, o jų rezultatai sujungiami į sąrašą.
 
-#### .NET (C\#) įgyvendinimo analizė
+#### .NET (C#) įgyvendinimo analizė
 
-.NET versijoje šis modelis reikalauja aiškesnio apibrėžimo. Sukuriami specialūs vykdytojai (`ConcurrentStartExecutor` ir `ConcurrentAggregationExecutor`), kad būtų valdomas fan-out ir fan-in logika.
+.NET versijoje šį modelį reikia apibrėžti aiškiau. Sukuriami specialūs executoriumi (`ConcurrentStartExecutor` ir `ConcurrentAggregationExecutor`) fan-out ir fan-in logikai valdyti.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` tada naudoja `AddFanOutEdge` ir `AddFanInEdge`, kad sukurtų grafiką su šiais specialiais vykdytojais ir agentais.
+Tada `WorkflowBuilder` naudoja `AddFanOutEdge` ir `AddFanInEdge`, kad sudarytų grafą su minėtais specialiais executoriumi ir agentais.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Atvejis 4: Sąlyginė darbo eiga
+### Atvejis 4: Sąlyginis workflow
 
-Sąlyginės darbo eigos įveda šakos logiką, leidžiančią sistemai sekti skirtingais keliais, priklausomai nuo tarpinių rezultatų.
+Sąlyginiai workflow pritaiko šakų logiką, leidžiančią sistemai pasirinkti skirtingus kelius pagal tarpinį rezultatą.
 
-#### Scenarijaus fonas
+#### Scenarijaus kontekstas
 
-Ši darbo eiga automatizuoja techninio vadovo kūrimą ir publikavimą.
+Šis workflow automatizuoja techninio pamokymo kūrimą ir publikavimą.
 
-1.  **Evangelist-Agent**: Rašo vadovo juodraštį pagal pateiktą planą ir URL.
-2.  **ContentReviewer-Agent**: Peržiūri juodraštį. Tikrina, ar žodžių skaičius viršija 200.
+1.  **Evangelistas-agentas**: Rašo pamokymo juodraštį pagal pateiktą planą ir nuorodas.
+2.  **Turinio peržiūros agentas**: Peržiūri juodraštį. Patikrina, ar žodžių skaičius viršija 200.
 3.  **Sąlyginė šaka**:
-      * **Jei patvirtinta (`Yes`)**: Darbo eiga pereina prie `Publisher-Agent`.
-      * **Jei atmesta (`No`)**: Darbo eiga sustoja ir pateikia atmetimo priežastį.
+      * **Jei patvirtinta („Taip“) :** workflow tęsiasi prie `Publisher-Agent`.
+      * **Jei atmesta („Ne“) :** workflow sustoja ir pateikia atmetimo priežastį.
 4.  **Publisher-Agent**: Jei juodraštis patvirtintas, šis agentas išsaugo turinį Markdown faile.
 
 #### Python įgyvendinimo analizė
 
-Šiame pavyzdyje naudojama speciali funkcija `select_targets`, kad būtų įgyvendinta sąlyginė logika. Ši funkcija perduodama `add_multi_selection_edge_group` ir nukreipia darbo eigą pagal `review_result` lauką iš peržiūros agento išvesties.
+Šiame pavyzdyje naudojama vartotojo funkcija `select_targets`, įgyvendinanti sąlyginę logiką. Ši funkcija perduodama `add_multi_selection_edge_group` ir nukreipia workflow pagal `review_result` lauką iš reviewer agento išvesties.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Ši funkcija nustato kitą žingsnį pagal peržiūros rezultatą
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Jei patvirtinta, tęskite prie vykdytojo 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Jei atmesta, tęskite prie vykdytojo 'handle_review', kad praneštumėte apie nesėkmę
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Darbo eigos kūrėjas naudoja pasirinkimo funkciją maršrutizavimui
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Daugiapakopė pasirinkimo briauna įgyvendina sąlyginę logiką
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Specialūs vykdytojai, tokie kaip `to_reviewer_result`, naudojami JSON išvesties iš agentų analizavimui ir konvertavimui į stipriai tipizuotus objektus, kuriuos gali patikrinti pasirinkimo funkcija.
+Specialūs executoriumi, tokie kaip `to_reviewer_result`, naudojami JSON išvesties iš agentų atskaitai ir konvertavimui į stipriai tipizuotus objektus, kuriuos funkicja gali analizuoti.
 
-#### .NET (C\#) įgyvendinimo analizė
+#### .NET (C#) įgyvendinimo analizė
 
-.NET versija naudoja panašų požiūrį su sąlygos funkcija. Apibrėžiamas `Func<object?, bool>`, kad būtų patikrinta `Result` savybė iš `ReviewResult` objekto.
+.NET versija naudoja panašų metodą su sąlygos funkcija. Apibrėžiamas `Func<object?, bool>`, tikrinantis `ReviewResult` objekto `Result` savybę.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` metodo `condition` parametras leidžia `WorkflowBuilder` sukurti šakos kelią. Darbo eiga seks kraštą į `publishExecutor` tik tuo atveju, jei sąlyga `GetCondition(expectedResult: "Yes")` grąžins true. Priešingu atveju ji seks kelią į `sendReviewerExecutor`.
+Metodas `AddEdge` su `condition` parametru leidžia `WorkflowBuilder` sukurti šakotą kelią. Workflow eis per briauną į `publishExecutor` tik jei sąlyga `GetCondition(expectedResult: "Yes")` grąžina true. Kitu atveju keliu eis į `sendReviewerExecutor`.
 
-## Išvada
+## Išvados
 
-Microsoft Agent Framework Workflow suteikia patikimą ir lankstų pagrindą sudėtingų daugiaveiksnių sistemų orkestravimui. Naudodami jo grafų architektūrą ir pagrindinius komponentus, kūrėjai gali kurti ir įgyvendinti sudėtingas darbo eigas Python ir .NET kalbomis. Nesvarbu, ar jūsų taikymui reikia paprasto sekvencinio apdorojimo, lygiagretaus vykdymo, ar dinaminės sąlyginės logikos, Framework siūlo įrankius, leidžiančius kurti galingus, mastelio keičiamus ir tipų saugius AI sprendimus.
+Microsoft Agent Framework Workflow suteikia tvirtą ir lankstų pagrindą sudėtingų daugiaagentinių sistemų orkestravimui. Pasinaudojant grafinės architektūros ir pagrindinių komponentų galimybėmis, programuotojai gali kurti ir įgyvendinti sudėtingus procesus tiek Python, tiek .NET aplinkoje. Nesvarbu, ar jūsų programa reikalauja paprasto sekveninio apdorojimo, lygiagretaus vykdymo ar dinaminės sąlyginės logikos, šis framework’as siūlo įrankius galingiems, skalabiliems ir tipams saugiems DI sprendimams kurti.
 
 ---
 
-**Atsakomybės atsisakymas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus interpretavimus, atsiradusius dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,166 +1,188 @@
-# Kỹ thuật ngữ cảnh cho Tác nhân AI
+# Kỹ Thuật Ngữ Cảnh cho Đại Lý AI
 
-[![Kỹ thuật ngữ cảnh](../../../translated_images/vi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Kỹ Thuật Ngữ Cảnh](../../../translated_images/vi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Nhấp vào hình ảnh ở trên để xem video của bài học này)_
+> _(Nhấp vào hình ảnh trên để xem video bài học này)_
 
-Hiểu được mức độ phức tạp của ứng dụng mà bạn đang xây dựng cho một tác nhân AI là điều quan trọng để tạo ra một tác nhân đáng tin cậy. Chúng ta cần xây dựng các Tác nhân AI biết quản lý thông tin hiệu quả để giải quyết các nhu cầu phức tạp vượt ra ngoài việc thiết kế prompt.
+Hiểu được độ phức tạp của ứng dụng mà bạn đang xây dựng đại lý AI là điều quan trọng để tạo ra một đại lý đáng tin cậy. Chúng ta cần xây dựng các Đại Lý AI quản lý thông tin một cách hiệu quả để đáp ứng các nhu cầu phức tạp vượt ra ngoài kỹ thuật tạo lời nhắc (prompt engineering).
 
-Trong bài học này, chúng ta sẽ xem xét ngữ cảnh kỹ thuật (context engineering) là gì và vai trò của nó trong việc xây dựng các tác nhân AI.
+Trong bài học này, chúng ta sẽ xem xét kỹ thuật ngữ cảnh là gì và vai trò của nó trong việc xây dựng đại lý AI.
 
 ## Giới thiệu
 
-Bài học này sẽ bao gồm:
+Bài học này sẽ trình bày:
 
-• **Kỹ thuật ngữ cảnh là gì** và tại sao nó khác với thiết kế prompt.
+• **Kỹ thuật ngữ cảnh là gì** và tại sao nó khác với kỹ thuật tạo lời nhắc.
 
-• **Các chiến lược để thực hiện Kỹ thuật ngữ cảnh hiệu quả**, bao gồm cách viết, chọn lọc, nén và cô lập thông tin.
+• **Các chiến lược cho kỹ thuật ngữ cảnh hiệu quả**, bao gồm cách viết, chọn lọc, nén, và cô lập thông tin.
 
-• **Các lỗi ngữ cảnh thường gặp** có thể làm trật hướng tác nhân AI của bạn và cách khắc phục chúng.
+• **Các thất bại phổ biến về ngữ cảnh** có thể làm lệch hướng đại lý AI của bạn và cách để sửa chúng.
 
 ## Mục tiêu học tập
 
-Sau khi hoàn thành bài học này, bạn sẽ hiểu được cách:
+Sau khi hoàn thành bài học, bạn sẽ hiểu được cách:
 
-• **Định nghĩa kỹ thuật ngữ cảnh** và phân biệt nó với thiết kế prompt.
+• **Định nghĩa kỹ thuật ngữ cảnh** và phân biệt nó với kỹ thuật tạo lời nhắc.
 
-• **Xác định các thành phần chính của ngữ cảnh** trong các ứng dụng Mô hình Ngôn ngữ Lớn (LLM).
+• **Xác định các thành phần chính của ngữ cảnh** trong các ứng dụng mô hình ngôn ngữ lớn (LLM).
 
-• **Áp dụng các chiến lược để viết, chọn lọc, nén và cô lập ngữ cảnh** nhằm cải thiện hiệu suất tác nhân.
+• **Áp dụng các chiến lược viết, chọn lọc, nén và cô lập ngữ cảnh** để cải thiện hiệu suất đại lý.
 
-• **Nhận biết các lỗi ngữ cảnh phổ biến** như nhiễm độc, phân tâm, nhầm lẫn và mâu thuẫn, và triển khai các kỹ thuật giảm thiểu.
+• **Nhận diện các thất bại phổ biến về ngữ cảnh** như nhiễm độc, xao nhãng, nhầm lẫn và xung đột, và thực hiện các kỹ thuật giảm thiểu.
 
 ## Kỹ thuật ngữ cảnh là gì?
 
-Đối với Tác nhân AI, ngữ cảnh là thứ thúc đẩy việc lập kế hoạch để Tác nhân AI thực hiện các hành động nhất định. Kỹ thuật ngữ cảnh là thực hành đảm bảo rằng Tác nhân AI có thông tin phù hợp để hoàn thành bước tiếp theo của nhiệm vụ. Cửa sổ ngữ cảnh có kích thước giới hạn, vì vậy với tư cách là người xây dựng tác nhân, chúng ta cần xây dựng hệ thống và quy trình để quản lý việc thêm, xóa và cô đọng thông tin trong cửa sổ ngữ cảnh.
+Đối với các Đại Lý AI, ngữ cảnh là yếu tố thúc đẩy việc lập kế hoạch để đại lý AI thực hiện một hành động nào đó. Kỹ thuật ngữ cảnh là thực hành đảm bảo đại lý AI có thông tin đúng để hoàn thành bước tiếp theo của nhiệm vụ. Cửa sổ ngữ cảnh có kích thước giới hạn, vì vậy là người xây dựng đại lý, chúng ta cần tạo ra các hệ thống và quy trình để quản lý việc thêm, loại bỏ và cô đọng thông tin trong cửa sổ ngữ cảnh.
 
-### Thiết kế Prompt so với Kỹ thuật Ngữ cảnh
+### Kỹ thuật tạo lời nhắc vs Kỹ thuật ngữ cảnh
 
-Thiết kế prompt tập trung vào một bộ hướng dẫn tĩnh duy nhất để hướng dẫn Tác nhân AI hiệu quả với một bộ quy tắc. Kỹ thuật ngữ cảnh là cách quản lý một bộ thông tin động, bao gồm prompt ban đầu, để đảm bảo Tác nhân AI có những gì nó cần theo thời gian. Ý tưởng chính quanh kỹ thuật ngữ cảnh là làm cho quy trình này lặp lại được và đáng tin cậy.
+Kỹ thuật tạo lời nhắc tập trung vào một bộ hướng dẫn tĩnh đơn lẻ để hướng dẫn đại lý AI một cách hiệu quả bằng một tập hợp các quy tắc. Kỹ thuật ngữ cảnh là cách quản lý một tập hợp thông tin động, bao gồm lời nhắc ban đầu, để đảm bảo đại lý AI có những gì cần thiết theo thời gian. Ý tưởng chính của kỹ thuật ngữ cảnh là làm cho quá trình này trở nên lặp lại và đáng tin cậy.
 
-### Các loại Ngữ cảnh
+### Các loại ngữ cảnh
 
 [![Các loại ngữ cảnh](../../../translated_images/vi/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Điều quan trọng cần nhớ là ngữ cảnh không chỉ là một thứ duy nhất. Thông tin mà Tác nhân AI cần có thể đến từ nhiều nguồn khác nhau và trách nhiệm của chúng ta là đảm bảo tác nhân có quyền truy cập vào những nguồn này:
+Cần nhớ rằng ngữ cảnh không chỉ là một thứ duy nhất. Thông tin mà đại lý AI cần có thể đến từ nhiều nguồn khác nhau và chúng ta phải đảm bảo đại lý có quyền truy cập vào các nguồn này:
 
-Các loại ngữ cảnh mà một tác nhân AI có thể cần quản lý bao gồm:
+Các loại ngữ cảnh mà một đại lý AI có thể cần quản lý bao gồm:
 
-• **Hướng dẫn:** Đây giống như "quy tắc" của tác nhân – các prompt, tin nhắn hệ thống, few-shot examples (ví dụ cho AI biết cách thực hiện một việc), và mô tả các công cụ mà nó có thể sử dụng. Đây là nơi trọng tâm của thiết kế prompt kết hợp với kỹ thuật ngữ cảnh.
+• **Hướng dẫn:** Giống như "quy tắc" của đại lý – lời nhắc, tin nhắn hệ thống, ví dụ ít mẫu (giúp AI biết cách làm điều gì đó), và mô tả các công cụ mà nó có thể sử dụng. Đây là nơi kỹ thuật tạo lời nhắc kết hợp với kỹ thuật ngữ cảnh.
 
-• **Kiến thức:** Bao gồm các sự thật, thông tin truy xuất từ cơ sở dữ liệu, hoặc bộ nhớ dài hạn mà tác nhân đã tích lũy. Điều này bao gồm việc tích hợp một hệ thống Retrieval Augmented Generation (RAG) nếu một tác nhân cần truy cập vào các kho tri thức và cơ sở dữ liệu khác nhau.
+• **Kiến thức:** Bao gồm các sự kiện, thông tin lấy từ cơ sở dữ liệu, hoặc ký ức dài hạn mà đại lý đã tích lũy. Điều này bao gồm việc tích hợp hệ thống Tăng cường Truy xuất (Retrieval Augmented Generation - RAG) nếu đại lý cần truy cập vào các kho kiến thức và cơ sở dữ liệu khác nhau.
 
-• **Công cụ:** Đây là định nghĩa về các hàm bên ngoài, API và MCP Servers mà tác nhân có thể gọi, cùng với phản hồi (kết quả) mà nó nhận được khi sử dụng chúng.
+• **Công cụ:** Đây là định nghĩa các chức năng bên ngoài, API và Máy chủ MCP mà đại lý có thể gọi, cùng với phản hồi (kết quả) mà nó nhận được khi sử dụng chúng.
 
-• **Lịch sử cuộc trò chuyện:** Đối thoại đang diễn ra với người dùng. Khi thời gian trôi qua, các cuộc trò chuyện này trở nên dài hơn và phức tạp hơn, điều này có nghĩa là chúng chiếm không gian trong cửa sổ ngữ cảnh.
+• **Lịch sử hội thoại:** Cuộc đối thoại đang diễn ra với người dùng. Khi thời gian trôi đi, các cuộc hội thoại này trở nên dài hơn và phức tạp hơn, điều này làm chiếm không gian trong cửa sổ ngữ cảnh.
 
-• **Sở thích người dùng:** Thông tin học được về sở thích hay không thích của người dùng theo thời gian. Chúng có thể được lưu trữ và gọi ra khi ra quyết định quan trọng để hỗ trợ người dùng.
+• **Sở thích người dùng:** Thông tin được học về sở thích hoặc không thích của người dùng theo thời gian. Những thông tin này có thể được lưu trữ và sử dụng khi đưa ra các quyết định quan trọng để hỗ trợ người dùng.
 
-## Các chiến lược cho Kỹ thuật Ngữ cảnh hiệu quả
+## Các chiến lược cho kỹ thuật ngữ cảnh hiệu quả
 
 ### Chiến lược lập kế hoạch
 
-[![Thực hành tốt Kỹ thuật Ngữ cảnh](../../../translated_images/vi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Thực tiễn tốt nhất cho kỹ thuật ngữ cảnh](../../../translated_images/vi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Kỹ thuật ngữ cảnh tốt bắt đầu từ việc lập kế hoạch tốt. Đây là một cách tiếp cận sẽ giúp bạn bắt đầu suy nghĩ về cách áp dụng khái niệm kỹ thuật ngữ cảnh:
+Kỹ thuật ngữ cảnh tốt bắt đầu với lập kế hoạch tốt. Dưới đây là một cách tiếp cận giúp bạn bắt đầu suy nghĩ về cách áp dụng khái niệm kỹ thuật ngữ cảnh:
 
-1. **Xác định Kết quả Rõ ràng** - Kết quả của các nhiệm vụ mà Tác nhân AI sẽ được giao nên được định nghĩa rõ ràng. Trả lời câu hỏi - "Thế giới sẽ trông như thế nào khi Tác nhân AI hoàn thành nhiệm vụ của nó?" Nói cách khác, thay đổi, thông tin, hoặc phản hồi nào người dùng sẽ nhận được sau khi tương tác với Tác nhân AI.
+1. **Xác định kết quả rõ ràng** - Kết quả của các nhiệm vụ mà Đại Lý AI sẽ được giao nên được xác định rõ ràng. Trả lời câu hỏi - "Thế giới sẽ trông như thế nào khi Đại Lý AI hoàn thành nhiệm vụ?" Nói cách khác, sự thay đổi, thông tin hoặc phản hồi người dùng sẽ nhận được sau khi tương tác với Đại Lý AI.
+2. **Lập bản đồ ngữ cảnh** - Khi bạn đã xác định kết quả của Đại Lý AI, bạn cần trả lời câu hỏi "Đại Lý AI cần những thông tin gì để hoàn thành nhiệm vụ này?". Bằng cách này, bạn có thể bắt đầu lập bản đồ ngữ cảnh nơi mà thông tin đó có thể nằm.
+3. **Tạo các đường dẫn ngữ cảnh** - Bây giờ bạn biết được nơi thông tin nằm, bạn cần trả lời câu hỏi "Làm thế nào Đại Lý sẽ lấy được thông tin này?". Việc này có thể được thực hiện theo nhiều cách khác nhau bao gồm RAG, sử dụng máy chủ MCP và các công cụ khác.
 
-2. **Lập bản đồ Ngữ cảnh** - Khi bạn đã xác định được kết quả của Tác nhân AI, bạn cần trả lời câu hỏi "Tác nhân AI cần thông tin gì để hoàn thành nhiệm vụ này?". Bằng cách này bạn có thể bắt đầu lập bản đồ nơi thông tin đó có thể được tìm thấy.
+### Chiến lược thực tế
 
-3. **Tạo các đường ống Ngữ cảnh (Context Pipelines)** - Bây giờ bạn đã biết nơi có thông tin, bạn cần trả lời câu hỏi "Tác nhân sẽ lấy thông tin này như thế nào?". Điều này có thể được thực hiện bằng nhiều cách khác nhau bao gồm RAG, sử dụng MCP servers và các công cụ khác.
+Lập kế hoạch là quan trọng nhưng khi thông tin bắt đầu chảy vào cửa sổ ngữ cảnh của đại lý, chúng ta cần có các chiến lược thực tế để quản lý nó:
 
-### Chiến lược thực tiễn
+#### Quản lý ngữ cảnh
 
-Lập kế hoạch là quan trọng nhưng khi thông tin bắt đầu chảy vào cửa sổ ngữ cảnh của tác nhân, chúng ta cần có các chiến lược thực tiễn để quản lý nó:
+Trong khi một số thông tin sẽ được thêm vào cửa sổ ngữ cảnh tự động, kỹ thuật ngữ cảnh là việc chủ động hơn với thông tin này, điều này có thể được thực hiện bằng một số chiến lược sau:
 
-#### Quản lý Ngữ cảnh
+ 1. **Bảng ghi chú của đại lý**
+ Điều này cho phép Đại Lý AI ghi chú lại các thông tin liên quan đến nhiệm vụ hiện tại và tương tác người dùng trong một phiên làm việc. Điều này nên tồn tại bên ngoài cửa sổ ngữ cảnh trong một tập tin hoặc đối tượng runtime mà đại lý có thể truy xuất lại trong phiên nếu cần.
 
-Trong khi một số thông tin sẽ được thêm vào cửa sổ ngữ cảnh tự động, kỹ thuật ngữ cảnh là về việc đảm nhận vai trò tích cực hơn với thông tin này, điều này có thể thực hiện bằng một vài chiến lược:
+ 2. **Ký ức**
+ Bảng ghi chú tốt cho việc quản lý thông tin bên ngoài cửa sổ ngữ cảnh của một phiên làm việc đơn lẻ. Ký ức cho phép đại lý lưu trữ và truy xuất thông tin liên quan qua nhiều phiên làm việc. Điều này có thể bao gồm tóm tắt, sở thích người dùng và phản hồi để cải thiện trong tương lai.
 
- 1. **Ghi chú của Tác nhân (Agent Scratchpad)**
- Công cụ này cho phép một Tác nhân AI ghi lại các ghi chú về thông tin liên quan đến nhiệm vụ hiện tại và tương tác với người dùng trong một phiên duy nhất. Điều này nên tồn tại bên ngoài cửa sổ ngữ cảnh trong một tệp hoặc đối tượng runtime mà tác nhân có thể truy xuất lại trong phiên này nếu cần.
-
- 2. **Bộ nhớ**
- Scratchpad tốt để quản lý thông tin bên ngoài cửa sổ ngữ cảnh của một phiên đơn lẻ. Bộ nhớ cho phép các tác nhân lưu trữ và truy xuất thông tin liên quan qua nhiều phiên. Điều này có thể bao gồm tóm tắt, sở thích người dùng và phản hồi để cải thiện trong tương lai.
-
- 3. **Nén Ngữ cảnh**
- Khi cửa sổ ngữ cảnh tăng lên và gần tới giới hạn, các kỹ thuật như tóm tắt và cắt bớt có thể được sử dụng. Điều này bao gồm giữ lại chỉ những thông tin có liên quan nhất hoặc loại bỏ các tin nhắn cũ hơn.
+ 3. **Nén ngữ cảnh**
+  Khi cửa sổ ngữ cảnh lớn lên và gần đến giới hạn, các kỹ thuật như tóm tắt và cắt bỏ có thể được áp dụng. Điều này bao gồm giữ lại chỉ những thông tin quan trọng nhất hoặc loại bỏ các tin nhắn cũ hơn.
   
- 4. **Hệ thống đa tác nhân**
- Phát triển hệ thống đa tác nhân là một dạng kỹ thuật ngữ cảnh vì mỗi tác nhân có cửa sổ ngữ cảnh riêng. Cách ngữ cảnh đó được chia sẻ và truyền cho các tác nhân khác nhau là một điều cần lên kế hoạch khi xây dựng những hệ thống này.
+ 4. **Hệ thống đa đại lý**
+  Phát triển hệ thống đa đại lý là một hình thức của kỹ thuật ngữ cảnh vì mỗi đại lý có cửa sổ ngữ cảnh riêng. Cách ngữ cảnh được chia sẻ và truyền đến các đại lý khác nhau cũng là một điều cần lên kế hoạch khi xây dựng các hệ thống này.
   
  5. **Môi trường Sandbox**
- Nếu một tác nhân cần chạy mã hoặc xử lý một lượng lớn thông tin trong một tài liệu, điều này có thể tiêu tốn nhiều token để xử lý kết quả. Thay vì lưu tất cả vào cửa sổ ngữ cảnh, tác nhân có thể sử dụng một môi trường sandbox có khả năng chạy mã này và chỉ đọc kết quả cùng những thông tin có liên quan.
+  Nếu đại lý cần chạy một vài đoạn mã hoặc xử lý lượng lớn thông tin trong một tài liệu, điều này có thể tiêu tốn nhiều token để xử lý kết quả. Thay vì lưu trữ tất cả trong cửa sổ ngữ cảnh, đại lý có thể sử dụng môi trường sandbox để chạy mã này và chỉ đọc các kết quả và thông tin liên quan khác.
   
- 6. **Đối tượng trạng thái thời chạy (Runtime State Objects)**
-   Điều này được thực hiện bằng cách tạo các container thông tin để quản lý những tình huống khi Tác nhân cần truy cập vào một số thông tin nhất định. Đối với một nhiệm vụ phức tạp, điều này cho phép Tác nhân lưu kết quả của mỗi bước phụ nhiệm vụ theo từng bước, cho phép ngữ cảnh vẫn gắn kết chỉ với phụ nhiệm vụ cụ thể đó.
-  
-### Ví dụ về Kỹ thuật Ngữ cảnh
+ 6. **Đối tượng trạng thái runtime**
+   Việc này được thực hiện bằng cách tạo các vùng chứa thông tin để quản lý khi Đại Lý cần truy cập những thông tin nhất định. Đối với nhiệm vụ phức tạp, điều này cho phép đại lý lưu trữ kết quả của từng bước nhiệm vụ con, giữ cho ngữ cảnh chỉ liên kết với nhiệm vụ con đó.
 
-Giả sử chúng ta muốn một tác nhân AI **"Đặt chuyến đi đến Paris cho tôi."**
+#### Kiểm tra ngữ cảnh
 
-• Một tác nhân đơn giản chỉ sử dụng thiết kế prompt có thể chỉ trả lời: **"Được rồi, bạn muốn đi Paris khi nào?"**. Nó chỉ xử lý câu hỏi trực tiếp của bạn vào thời điểm người dùng hỏi.
+Sau khi áp dụng một trong những chiến lược này, xứng đáng kiểm tra xem cuộc gọi mô hình tiếp theo thực sự nhận được gì. Một câu hỏi gỡ lỗi hữu ích là:
 
-• Một tác nhân sử dụng các chiến lược kỹ thuật ngữ cảnh đã đề cập sẽ làm nhiều hơn thế. Trước khi phản hồi, hệ thống của nó có thể:
+> Đại lý đã tải quá nhiều ngữ cảnh, ngữ cảnh sai, hay thiếu ngữ cảnh cần thiết?
 
-  ◦ **Kiểm tra lịch của bạn** để tìm ngày trống (truy xuất dữ liệu thời gian thực).
+Bạn không cần ghi lại lời nhắc thô, đầu ra công cụ, hay nội dung ký ức để trả lời câu hỏi đó. Trong môi trường sản xuất, nên ưu tiên các bản ghi kiểm tra ngữ cảnh nhỏ, nắm bắt số lượng, id, hàm băm và nhãn chính sách:
 
-  ◦ **Nhớ lại sở thích du lịch trước đây** (từ bộ nhớ dài hạn) như hãng hàng không ưa thích, ngân sách, hoặc bạn có thích chuyến bay thẳng hay không.
+- **Lựa chọn:** Theo dõi số lượng các đoạn dữ liệu, công cụ hoặc ký ức được xem xét, số lượng được chọn và quy tắc hoặc điểm số làm loại bỏ các mục khác.
+- **Nén:** Ghi lại phạm vi nguồn hoặc id truy xuất, id tóm tắt, ước lượng số lượng token trước và sau nén, và liệu nội dung thô có bị loại khỏi cuộc gọi tiếp theo hay không.
+- **Cô lập:** Ghi chú các nhiệm vụ con chạy trong đại lý, phiên hoặc sandbox riêng biệt, tóm tắt có giới hạn được trả về, và liệu đầu ra công cụ lớn có giữ bên ngoài ngữ cảnh đại lý chính.
+- **Ký ức và RAG:** Lưu id tài liệu truy xuất, id ký ức, điểm số, id được chọn và trạng thái chỉnh sửa thay vì toàn bộ văn bản truy xuất.
+- **An toàn và riêng tư:** Ưu tiên hàm băm, id, token bucket và nhãn chính sách hơn là văn bản lời nhắc nhạy cảm, đối số công cụ, kết quả công cụ hoặc nội dung ký ức người dùng.
 
-  ◦ **Xác định các công cụ có sẵn** cho việc đặt vé máy bay và khách sạn.
+Mục tiêu không phải là giữ nhiều ngữ cảnh hơn. Mà là để lại đủ bằng chứng để nhà phát triển có thể biết chiến lược ngữ cảnh nào đã chạy và liệu nó có thay đổi cuộc gọi mô hình tiếp theo theo cách mong muốn hay không.
 
-- Sau đó, một phản hồi ví dụ có thể là:  "Chào [Your Name]! Tôi thấy bạn rảnh tuần đầu tháng Mười. Tôi có nên tìm chuyến bay thẳng đến Paris trên [Preferred Airline] trong ngân sách thường lệ của bạn là [Budget] không?". Phản hồi giàu ngữ cảnh này cho thấy sức mạnh của kỹ thuật ngữ cảnh.
+### Ví dụ về kỹ thuật ngữ cảnh
 
-## Các lỗi ngữ cảnh thường gặp
+Giả sử chúng ta muốn một đại lý AI **"Đặt cho tôi một chuyến đi đến Paris."**
 
-### Nhiễm độc Ngữ cảnh (Context Poisoning)
+• Một đại lý đơn giản chỉ sử dụng kỹ thuật tạo lời nhắc có thể chỉ phản hồi: **"Được rồi, bạn muốn đi Paris khi nào?"** Nó chỉ xử lý câu hỏi trực tiếp của bạn tại thời điểm người dùng hỏi.
 
-**Đó là gì:** Khi một ảo tưởng (thông tin sai do LLM tạo ra) hoặc một lỗi xâm nhập vào ngữ cảnh và bị tham chiếu lặp lại, khiến tác nhân theo đuổi các mục tiêu không thể hoặc phát triển các chiến lược vô nghĩa.
+• Một đại lý sử dụng các chiến lược kỹ thuật ngữ cảnh đã trình bày sẽ làm nhiều hơn thế. Trước khi phản hồi, hệ thống của nó có thể:
 
-**Cần làm gì:** Triển khai **xác thực ngữ cảnh** và **cách ly**. Xác thực thông tin trước khi nó được thêm vào bộ nhớ dài hạn. Nếu phát hiện khả năng nhiễm độc, bắt đầu các luồng ngữ cảnh mới để ngăn thông tin xấu lan rộng.
+  ◦ **Kiểm tra lịch của bạn** để xem ngày nào có sẵn (lấy dữ liệu thời gian thực).
 
-**Ví dụ Đặt chuyến:** Tác nhân của bạn ảo tưởng về một **chuyến bay thẳng từ một sân bay địa phương nhỏ đến một thành phố quốc tế xa xôi** mà thực tế không có chuyến quốc tế. Chi tiết chuyến bay không tồn tại này được lưu vào ngữ cảnh. Sau này, khi bạn yêu cầu tác nhân đặt vé, nó cứ cố gắng tìm vé cho tuyến đường không thể này, dẫn đến lỗi lặp lại.
+ ◦ **Nhớ các sở thích du lịch trước đây** (từ ký ức dài hạn) như hãng hàng không bạn ưu tiên, ngân sách, hoặc liệu bạn thích các chuyến bay thẳng.
 
-**Giải pháp:** Thực hiện một bước **xác thực sự tồn tại của chuyến bay và các tuyến đường với một API thời gian thực** _trước khi_ thêm chi tiết chuyến bay vào ngữ cảnh làm việc của tác nhân. Nếu xác thực thất bại, thông tin sai sẽ bị "cách ly" và không được sử dụng tiếp.
+ ◦ **Xác định các công cụ có sẵn** để đặt vé máy bay và khách sạn.
 
-### Phân tâm Ngữ cảnh (Context Distraction)
+- Sau đó, một phản hồi ví dụ có thể là: "Chào [Tên của bạn]! Tôi thấy bạn rảnh vào tuần đầu tiên của tháng Mười. Tôi có nên tìm các chuyến bay thẳng đến Paris trên [Hãng hàng không ưu tiên] trong ngân sách thường lệ của bạn [Ngân sách] không?" Phản hồi giàu ngữ cảnh này thể hiện sức mạnh của kỹ thuật ngữ cảnh.
 
-**Đó là gì:** Khi ngữ cảnh trở nên quá lớn khiến mô hình tập trung quá nhiều vào lịch sử tích lũy thay vì sử dụng những gì nó đã học trong quá trình huấn luyện, dẫn đến hành động lặp lại hoặc không hữu ích. Mô hình có thể bắt đầu mắc lỗi ngay cả trước khi cửa sổ ngữ cảnh đầy.
+## Các thất bại phổ biến về ngữ cảnh
 
-**Cần làm gì:** Sử dụng **tóm tắt ngữ cảnh**. Định kỳ nén thông tin tích lũy thành các tóm tắt ngắn hơn, giữ lại các chi tiết quan trọng trong khi loại bỏ lịch sử thừa. Điều này giúp "đặt lại" trọng tâm.
+### Nhiễm độc ngữ cảnh
 
-**Ví dụ Đặt chuyến:** Bạn đã thảo luận về nhiều điểm đến mơ ước trong một thời gian dài, bao gồm kể chi tiết chuyến đi bụi của bạn từ hai năm trước. Khi bạn cuối cùng yêu cầu **"tìm cho tôi một chuyến bay rẻ cho tháng tới"**, tác nhân bị sa lầy vào những chi tiết cũ, không liên quan và liên tục hỏi về đồ đạc đi bụi hoặc lộ trình cũ, bỏ qua yêu cầu hiện tại của bạn.
+**Đó là gì:** Khi một ảo tưởng (thông tin sai lệch do LLM sinh ra) hoặc lỗi xâm nhập vào ngữ cảnh và được tham chiếu nhiều lần, khiến đại lý theo đuổi các mục tiêu không thể hoặc phát triển các chiến lược vô nghĩa.
 
-**Giải pháp:** Sau một số lượt nhất định hoặc khi ngữ cảnh trở nên quá lớn, tác nhân nên **tóm tắt những phần gần đây và liên quan nhất của cuộc trò chuyện** – tập trung vào ngày đi và điểm đến hiện tại của bạn – và sử dụng bản tóm tắt cô đọng đó cho lần gọi LLM tiếp theo, loại bỏ phần trò chuyện lịch sử ít liên quan hơn.
+**Cách xử lý:** Triển khai **xác nhận ngữ cảnh** và **cách ly**. Xác nhận thông tin trước khi thêm vào ký ức dài hạn. Nếu phát hiện khả năng nhiễm độc, hãy bắt đầu các luồng ngữ cảnh mới để ngăn chặn thông tin xấu lan rộng.
 
-### Nhầm lẫn Ngữ cảnh (Context Confusion)
+**Ví dụ Đặt Chuyến Bay:** Đại lý của bạn tưởng tượng ra một **chuyến bay thẳng từ sân bay địa phương nhỏ đến một thành phố quốc tế xa xôi** thực tế không có các chuyến bay quốc tế. Chi tiết chuyến bay không tồn tại này được lưu vào ngữ cảnh. Sau đó khi bạn yêu cầu đại lý đặt vé, nó liên tục cố tìm vé cho tuyến đường không thể này, dẫn đến lỗi lặp đi lặp lại.
 
-**Đó là gì:** Khi ngữ cảnh không cần thiết, thường dưới dạng quá nhiều công cụ có sẵn, khiến mô hình tạo ra phản hồi xấu hoặc gọi các công cụ không liên quan. Các mô hình nhỏ hơn đặc biệt dễ bị điều này.
+**Giải pháp:** Thực hiện bước **xác minh sự tồn tại và lộ trình chuyến bay với API thời gian thực** _trước khi_ thêm thông tin chuyến bay vào ngữ cảnh làm việc của đại lý. Nếu xác minh không thành công, thông tin sai sẽ bị "cách ly" và không được sử dụng tiếp.
 
-**Cần làm gì:** Thực hiện **quản lý tải công cụ (tool loadout management)** bằng kỹ thuật RAG. Lưu mô tả công cụ trong cơ sở dữ liệu vector và chỉ chọn _những_ công cụ liên quan nhất cho từng nhiệm vụ cụ thể. Nghiên cứu cho thấy giới hạn lựa chọn công cụ dưới 30 là hợp lý.
+### Xao nhãng ngữ cảnh
 
-**Ví dụ Đặt chuyến:** Tác nhân của bạn có quyền truy cập vào hàng chục công cụ: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, v.v. Bạn hỏi, **"Cách tốt nhất để di chuyển ở Paris là gì?"** Do số lượng lớn công cụ, tác nhân bị nhầm lẫn và cố gọi `book_flight` _trong nội bộ_ Paris, hoặc `rent_car` mặc dù bạn ưa thích phương tiện công cộng, vì mô tả công cụ có thể chồng chéo hoặc nó đơn giản không phân biệt được công cụ nào là tốt nhất.
+**Đó là gì:** Khi ngữ cảnh trở nên quá lớn khiến mô hình tập trung quá mức vào lịch sử tích lũy thay vì dùng những gì đã học trong quá trình đào tạo, dẫn đến các hành động lặp đi lặp lại hoặc không hữu ích. Mô hình có thể bắt đầu sai sót ngay cả trước khi cửa sổ ngữ cảnh đầy.
 
-**Giải pháp:** Sử dụng **RAG trên mô tả công cụ**. Khi bạn hỏi về việc di chuyển ở Paris, hệ thống sẽ truy xuất động _chỉ_ những công cụ liên quan nhất như `rent_car` hoặc `public_transport_info` dựa trên truy vấn của bạn, trình bày một "loadout" tập trung các công cụ cho LLM.
+**Cách xử lý:** Sử dụng **tóm tắt ngữ cảnh**. Định kỳ nén thông tin tích lũy thành các bản tóm tắt ngắn hơn, giữ lại chi tiết quan trọng trong khi loại bỏ lịch sử dư thừa. Điều này giúp "đặt lại" sự tập trung.
 
-### Mâu thuẫn Ngữ cảnh (Context Clash)
+**Ví dụ Đặt Chuyến Bay:** Bạn đã thảo luận về nhiều điểm đến du lịch mơ ước trong một thời gian dài, bao gồm cả việc kể chi tiết chuyến đi ba lô cách đây hai năm. Khi bạn cuối cùng yêu cầu **"tìm cho tôi chuyến bay giá rẻ cho tháng tới,"** đại lý bị mắc kẹt trong các chi tiết cũ không liên quan và liên tục hỏi về đồ dùng ba lô hoặc lịch trình trước đây của bạn, bỏ qua yêu cầu hiện tại.
 
-**Đó là gì:** Khi tồn tại thông tin mâu thuẫn trong ngữ cảnh, dẫn đến suy luận không nhất quán hoặc phản hồi cuối cùng kém. Điều này thường xảy ra khi thông tin đến theo từng giai đoạn, và các giả định sai ban đầu vẫn còn trong ngữ cảnh.
+**Giải pháp:** Sau một số lượt đối thoại hoặc khi ngữ cảnh trở nên quá lớn, đại lý nên **tóm tắt phần gần đây và phù hợp nhất của cuộc trò chuyện** – tập trung vào ngày tháng và điểm đến hiện tại của bạn – và sử dụng bản tóm tắt cô đọng này cho lần gọi LLM tiếp theo, loại bỏ đoạn hội thoại lịch sử ít liên quan.
 
-**Cần làm gì:** Sử dụng **cắt tỉa ngữ cảnh (context pruning)** và **chuyển tải (offloading)**. Cắt tỉa có nghĩa là loại bỏ thông tin lỗi thời hoặc mâu thuẫn khi có chi tiết mới. Chuyển tải cung cấp cho mô hình một không gian làm việc "scratchpad" riêng để xử lý thông tin mà không làm lộn xộn ngữ cảnh chính.
+### Nhầm lẫn ngữ cảnh
 
-**Ví dụ Đặt chuyến:** Ban đầu bạn nói với tác nhân, **"Tôi muốn bay hạng phổ thông."** Sau đó trong cuộc trò chuyện, bạn thay đổi ý và nói, **"Thực ra, cho chuyến này, chúng ta đi hạng thương gia."** Nếu cả hai chỉ dẫn đều còn lại trong ngữ cảnh, tác nhân có thể nhận kết quả tìm kiếm mâu thuẫn hoặc bối rối về ưu tiên nên chọn hướng nào.
+**Đó là gì:** Khi ngữ cảnh không cần thiết, thường ở dạng quá nhiều công cụ có sẵn, khiến mô hình tạo ra câu trả lời sai hoặc gọi công cụ không liên quan. Các mô hình nhỏ hơn đặc biệt dễ bị vấn đề này.
 
-**Giải pháp:** Triển khai **cắt tỉa ngữ cảnh**. Khi một hướng dẫn mới mâu thuẫn với hướng dẫn cũ, hướng dẫn cũ sẽ bị xóa hoặc bị ghi đè rõ ràng trong ngữ cảnh. Ngoài ra, tác nhân có thể sử dụng một **scratchpad** để giải quyết các sở thích mâu thuẫn trước khi quyết định, đảm bảo chỉ có hướng dẫn cuối cùng, nhất quán dẫn dắt hành động của nó.
+**Cách xử lý:** Thực hiện **quản lý tải công cụ** sử dụng kỹ thuật RAG. Lưu mô tả công cụ trong cơ sở dữ liệu vector và chỉ chọn _chỉ_ những công cụ phù hợp nhất cho từng nhiệm vụ cụ thể. Nghiên cứu cho thấy giới hạn số công cụ dưới 30 là hiệu quả.
 
-## Còn câu hỏi gì về Kỹ thuật Ngữ cảnh không?
+**Ví dụ Đặt Chuyến Bay:** Đại lý của bạn có quyền truy cập vào hàng chục công cụ: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, v.v. Bạn hỏi, **"Cách tốt nhất để đi lại ở Paris là gì?"** Do quá nhiều công cụ, đại lý bị nhầm lẫn và cố gọi `book_flight` _trong_ Paris, hoặc `rent_car` mặc dù bạn ưu tiên giao thông công cộng, vì mô tả công cụ có thể chồng chéo hoặc nó không thể phân biệt được cái tốt nhất.
 
-Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ hỗ trợ và nhận câu trả lời cho các câu hỏi về Tác nhân AI của bạn.
+**Giải pháp:** Sử dụng **RAG trên mô tả công cụ**. Khi bạn hỏi về việc đi lại ở Paris, hệ thống tự động lấy _chỉ_ các công cụ phù hợp nhất như `rent_car` hoặc `public_transport_info` theo truy vấn của bạn, đưa ra một danh sách "tải" công cụ tập trung cho LLM.
+
+### Xung đột ngữ cảnh
+
+**Đó là gì:** Khi thông tin trái ngược tồn tại trong ngữ cảnh, dẫn đến suy luận không nhất quán hoặc phản hồi cuối cùng sai. Điều này thường xảy ra khi thông tin được đưa đến theo từng giai đoạn, và giả định sai sớm vẫn còn trong ngữ cảnh.
+
+**Cách xử lý:** Sử dụng **cắt tỉa ngữ cảnh** và **tách riêng**. Cắt tỉa có nghĩa là loại bỏ thông tin lỗi thời hoặc xung đột khi có chi tiết mới. Tách riêng cung cấp cho mô hình một "bảng ghi chú" riêng biệt để xử lý thông tin mà không làm rối ngữ cảnh chính.
+
+
+**Ví dụ Đặt Chuyến Đi:** Ban đầu bạn nói với đại lý của mình, **"Tôi muốn bay hạng phổ thông."** Sau đó trong cuộc trò chuyện, bạn đổi ý và nói, **"Thực ra, cho chuyến đi này, hãy chọn hạng thương gia."** Nếu cả hai hướng dẫn vẫn còn trong ngữ cảnh, đại lý có thể nhận được kết quả tìm kiếm mâu thuẫn hoặc bị nhầm lẫn về ưu tiên nào nên đặt trước.
+
+**Giải pháp:** Thực hiện **cắt tỉa ngữ cảnh**. Khi một hướng dẫn mới mâu thuẫn với hướng dẫn cũ, hướng dẫn cũ sẽ bị loại bỏ hoặc bị ghi đè rõ ràng trong ngữ cảnh. Ngoài ra, đại lý có thể sử dụng một **bảng ghi chú tạm** để giải quyết các ưu tiên mâu thuẫn trước khi quyết định, đảm bảo chỉ có hướng dẫn cuối cùng, nhất quán là hướng dẫn cho các hành động của mình.
+
+## Có Thắc Mắc Thêm Về Kỹ Thuật Xử Lý Ngữ Cảnh?
+
+Tham gia [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) để gặp gỡ những người học khác, tham dự giờ làm việc và được trả lời các câu hỏi về Đại lý AI của bạn.
+## Bài Học Trước
+
+[Agentic Protocols](../11-agentic-protocols/README.md)
+
+## Bài Học Tiếp Theo
+
+[Memory for AI Agents](../13-agent-memory/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Miễn trừ trách nhiệm:
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI Co-op Translator (https://github.com/Azure/co-op-translator). Mặc dù chúng tôi nỗ lực đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ ban đầu nên được coi là nguồn có thẩm quyền. Đối với những thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

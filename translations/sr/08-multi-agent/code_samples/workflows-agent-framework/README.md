@@ -1,69 +1,69 @@
-# Изградња апликација са више агената уз Microsoft Agent Framework Workflow
+# Прављење мулти-агентских апликација са Microsoft Agent Framework Workflow-ом
 
-Овај туторијал ће вас водити кроз разумевање и изградњу апликација са више агената користећи Microsoft Agent Framework. Истражићемо основне концепте система са више агената, дубље ући у архитектуру Workflow компонента оквира и проћи кроз практичне примере у Python-у и .NET-у за различите шаблоне радних токова.
+Овај туторијал ће вас провести кроз разумевање и изградњу мулти-агентских апликација користећи Microsoft Agent Framework. Истражићемо основне концепте мулти-агентских система, упознати се са архитектуром Workflow компонененте фрејмворка и проћи кроз практичне примере у Python-у и .NET-у за различите обрасце токова рада.
 
-## 1\. Разумевање система са више агената
+## 1\. Разумевање мулти-агентских система
 
-АИ агент је систем који превазилази могућности стандардног модела великог језика (LLM). Он може да перципира своје окружење, доноси одлуке и предузима акције како би постигао одређене циљеве. Систем са више агената укључује неколико ових агената који сарађују како би решили проблем који би био тежак или немогућ за једног агента.
+AI агент је систем који превазилази могућности стандардног Large Language Model-а (LLM). Он може перципирати своје окружење, доносити одлуке и предузимати акције да би постигао специфичне циљеве. Мулти-агентски систем укључује више оваквих агената који сарађују да реше проблем који би био тежак или немогућ једном агенту самостално.
 
 ### Уобичајени сценарији примене
 
-  * **Решавање сложених проблема**: Разбијање великог задатка (нпр. планирање догађаја на нивоу компаније) на мање подзадатке које обрађују специјализовани агенти (нпр. агент за буџет, агент за логистику, агент за маркетинг).
-  * **Виртуелни асистенти**: Примарни агент асистент делегира задатке као што су заказивање, истраживање и резервације другим специјализованим агентима.
-  * **Аутоматизовано креирање садржаја**: Радни ток где један агент пише нацрт садржаја, други га прегледа ради тачности и тона, а трећи га објављује.
+  * **Решавање сложених проблема**: Разлагање великог задатка (нпр. планирање догађаја за целу компанију) на мање подзадатке које обрађују специјализовани агенти (нпр. агент за буџет, агент за логистику, агент за маркетинг).
+  * **Виртуелни асистенти**: Примарни асистент агент који делегира задатке као што су заказивање, истраживање и резервација другим специјализованим агентима.
+  * **Аутоматска креирања садржаја**: Радни ток у којем један агент саставља нацрт садржаја, други га прегледа по тачности и тону, а трећи објављује.
 
-### Шаблони система са више агената
+### Обрасци мулти-агентских система
 
-Системи са више агената могу бити организовани у неколико шаблона који одређују како они међусобно интерагују:
+Мулти-агентски системи могу бити организовани у више образаца који одређују како агенти комуницирају:
 
-  * **Секвенцијално**: Агенти раде у унапред дефинисаном редоследу, као на производној линији. Излаз једног агента постаје улаз за следећег.
-  * **Паралелно**: Агенти раде истовремено на различитим деловима задатка, а њихови резултати се агрегирају на крају.
-  * **Условно**: Радни ток прати различите путеве на основу излаза агента, слично if-then-else изјави.
+  * **Секвенцијални**: Агенти раде у унапред дефинисаном редоследу, као на монтажној траци. Излаз једног агента постаје улаз за следећег.
+  * **Паралелни**: Агенти раде истовремено на различитим деловима задатка, а резултати се на крају агрегирају.
+  * **Условни**: Ток рада прати различите путање засноване на излазу агента, слично као if-then-else израз.
 
-## 2\. Архитектура Workflow компонента Microsoft Agent Framework-а
+## 2\. Архитектура Microsoft Agent Framework Workflow-а
 
-Систем радног тока оквира агента је напредни оркестрациони мотор дизајниран за управљање сложеним интеракцијама између више агената. Заснован је на архитектури заснованој на графу која користи [Pregel-style модел извршења](https://kowshik.github.io/JPregel/pregel_paper.pdf), где се обрада одвија у синхронизованим корацима названим "supersteps".
+Систем тока рада у Agent Framework-у је напредни мотор за оркестрацију дизајниран да управља сложеним интеракцијама између више агената. Заснован је на графској архитектури која користи [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf), где обрада тече у синхронизованим корацима названим „supersteps“.
 
 ### Основне компоненте
 
 Архитектура се састоји од три главна дела:
 
-1.  **Извршиоци**: Основне јединице за обраду. У нашим примерима, `Agent` је тип извршиоца. Сваки извршилац може имати више обрађивача порука који се аутоматски позивају на основу типа примљене поруке.
-2.  **Ивице**: Оне дефинишу пут којим поруке пролазе између извршилаца. Ивице могу имати услове, омогућавајући динамичко усмеравање информација кроз граф радног тока.
-3.  **Workflow**: Ова компонента оркестрира цео процес, управља извршиоцима, ивицама и целокупним током извршења. Она осигурава да се поруке обрађују у исправном редоследу и стримује догађаје ради посматрања.
+1.  **Извршиоци (Executors)**: Ово су основне јединице обраде. У нашим примерима, `Agent` је тип извршиоца. Сваки извршилац може имати више обрада порука који се аутоматски позивају на основу типа примљене поруке.
+2.  **Ивице (Edges)**: Оне дефинишу путању коју поруке следе између извршилаца. Ивице могу имати услове, омогућавајући динамичко усмеравање информација кроз граф тока рада.
+3.  **Workflow**: Ова компонента оркестрира цео процес, управљајући извршиоцима, ивицама и укупним током извршења. Обезбеђује да се поруке обрађују у исправном редоследу и емитује догађаје ради посматрања.
 
-*Дијаграм који илуструје основне компоненте система радног тока.*
+*Дијаграм који илуструје основне компоненте система тока рада.*
 
-Ова структура омогућава изградњу робусних и скалабилних апликација користећи основне шаблоне као што су секвенцијални ланци, fan-out/fan-in за паралелну обраду и switch-case логика за условне токове.
+Ова структура омогућава прављење робусних и скалабилних апликација користећи основне обрасце као што су секвенцијални ланци, фан-аути/фан-инови за паралелну обраду, као и switch-case логику за условне токове.
 
 ## 3\. Практични примери и анализа кода
 
-Сада ћемо истражити како имплементирати различите шаблоне радних токова користећи оквир. Погледаћемо Python и .NET код за сваки пример.
+Сада ћемо истражити како имплементирати различите обрасце тока рада користећи овај фрејмворк. Погледаћемо примерe и у Python-у и у .NET-у за сваки случај.
 
-### Случај 1: Основни секвенцијални радни ток
+### Случај 1: Основни секвенцијални ток рада
 
-Ово је најједноставнији шаблон, где се излаз једног агента директно прослеђује другом. Наш сценарио укључује хотелског агента `FrontDesk` који даје препоруку за путовање, коју затим прегледа агент `Concierge`.
+Ово је најједноставнији образац у којем се излаз једног агента директно прослеђује другом. Наш сценарио укључује хотелског агента `FrontDesk` који даје препоруку за путовање, коју затим прегледа агент `Concierge`.
 
-*Дијаграм основног FrontDesk -\> Concierge радног тока.*
+*Дијаграм основног FrontDesk -> Concierge тока рада.*
 
 #### Позадина сценарија
 
 Путник тражи препоруку за Париз.
 
-1.  Агент `FrontDesk`, дизајниран за кратке одговоре, предлаже посету музеју Лувр.
-2.  Агент `Concierge`, који приоритет даје аутентичним искуствима, прима овај предлог. Он прегледа препоруку и даје повратну информацију, предлажући локалну, мање туристичку алтернативу.
+1.  Агент `FrontDesk`, дизајниран за концизност, предлаже посету Лувру.
+2.  Агент `Concierge`, који придаје значај аутентичним искуствима, прегледа ову препоруку и даје повратну информацију, предлажући локалнију, мање туристичку алтернативу.
 
-#### Анализа имплементације у Python-у
+#### Анализа Python имплементације
 
-У Python примеру, прво дефинишемо и креирамо два агента, сваки са специфичним упутствима.
+У Python примеру најпре дефинишемо и креирамо два агента, сваки са својим специфичним инструкцијама.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Дефинишите улоге агената и упутства
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Креирајте инстанце агената
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Затим се користи `WorkflowBuilder` за конструисање графа. `front_desk_agent` се поставља као почетна тачка, а креира се ивица која повезује његов излаз са `reviewer_agent`.
+Затим користимо `WorkflowBuilder` за конструисање графа. `front_desk_agent` је почетна тачка, и креира се ивица која повезује његов излаз са `reviewer_agent`.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# 01.python-agent-framework-radni-proces-ghmodel-osnovni.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-На крају, радни ток се извршава са почетним упитом корисника.
+На крају, ток рада се извршава са почетним корисничким упитом.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run извршава ток рада; get_outputs() враћа резултат извршиоца излаза.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### Анализа имплементације у .NET (C#)
+#### Анализа .NET (C#) имплементације
 
-Имплементација у .NET-у прати веома сличну логику. Прво се дефинишу константе за имена и упутства агената.
+.NET имплементација прати сличну логику. Прво су дефинисане константе за имена и инструкције агената.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Агенти се креирају користећи `OpenAIClient`, а затим `WorkflowBuilder` дефинише секвенцијални ток додавањем ивице од `frontDeskAgent` до `reviewerAgent`.
+Агенти се креирају коришћењем `AzureOpenAIClient` (Responses API), а затим `WorkflowBuilder` дефинише секвенцијални ток додавањем ивице између `frontDeskAgent` и `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Радни ток се затим покреће са поруком корисника, а резултати се стримују назад.
+Ток рада се покреће уз корисничку поруку, а резултати се емитују у реалном времену.
 
-### Случај 2: Секвенцијални радни ток са више корака
+### Случај 2: Мулти-степени секвенцијални ток рада
 
-Овај шаблон проширује основну секвенцу да укључи више агената. Идеалан је за процесе који захтевају више фаза рафинирања или трансформације.
+Овај образац проширује основну секвенцу да укључи више агената. Идеалан је за процес који захтева неколико фаза прецизирања или трансформације.
 
 #### Позадина сценарија
 
 Корисник доставља слику дневне собе и тражи понуду за намештај.
 
-1.  **Sales-Agent**: Идентификује ставке намештаја на слици и креира листу.
-2.  **Price-Agent**: Узима листу ставки и пружа детаљан ценовник, укључујући опције за буџет, средњи и премијум сегмент.
-3.  **Quote-Agent**: Прима листу са ценама и форматира је у формалну понуду у Markdown-у.
+1.  **Агент продаје**: Идентификује намештај на слици и прави листу.
+2.  **Агент за цену**: Прима листу и даје детаљан преглед цена укључујући буџетске, средње и премијум опције.
+3.  **Агент за понуде**: Прима оцењену листу и форматира је у формални понудни документ у Markdown формату.
 
-*Дијаграм Sales -\> Price -\> Quote радног тока.*
+*Дијаграм тока рада Sales -> Price -> Quote.*
 
-#### Анализа имплементације у Python-у
+#### Анализа Python имплементације
 
-Три агента су дефинисана, сваки са специјализованом улогом. Радни ток се конструише користећи `add_edge` за креирање ланца: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Дефинисано је три агента са специјализованим улогама. Ток рада је конструисан коришћењем `add_edge` да би се направио ланац: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Направите три специјализована агента
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Направите секвенцијални радни ток
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Улаз је `ChatMessage` који укључује текст и URI слике. Оквир обрађује прослеђивање излаза сваког агента следећем у секвенци све док се не генерише финална понуда.
+Улаз је `ChatMessage` који садржи текст и URI слике. Фрејмворк управља прослеђивањем излаза сваког агента следећем у низу док се не генерише коначна понуда.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Корисничка порука садржи и текст и слику
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Покрени ток рада
+events = await workflow.run(message)
 ```
 
-#### Анализа имплементације у .NET (C#)
+#### Анализа .NET (C#) имплементације
 
-.NET пример одражава Python верзију. Три агента (`salesagent`, `priceagent`, `quoteagent`) су креирана. `WorkflowBuilder` их повезује секвенцијално.
+.NET пример одражава Python верзију. Креирани су три агента (`salesagent`, `priceagent`, `quoteagent`). `WorkflowBuilder` их повезује секвенцијално.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Порука корисника се конструише са подацима о слици (као бајтовима) и текстуалним упитом. `InProcessExecution.StreamAsync` метода покреће радни ток, а финални излаз се хвата из стрима.
+Корисничка порука садржи податке о слици (у бајтовима) и текстуални упит. `InProcessExecution.RunStreamingAsync` покреће ток рада, а коначни излаз се хвата са стрима.
 
-### Случај 3: Паралелни радни ток
+### Случај 3: Паралелни ток рада
 
-Овај шаблон се користи када се задаци могу извршавати истовремено ради уштеде времена. Укључује "fan-out" ка више агената и "fan-in" за агрегирање резултата.
+Овај образац се користи када се задаци могу извршавати истовремено ради уштеде времена. Обухвата „fan-out“ ка више агената и „fan-in“ за агрегирање резултата.
 
 #### Позадина сценарија
 
-Корисник тражи планирање путовања у Сијетл.
+Корисник тражи да испланира путовање у Сијетл.
 
-1.  **Dispatcher (Fan-Out)**: Захтев корисника се шаље двојици агената истовремено.
-2.  **Researcher-Agent**: Истражује атракције, временске услове и кључне аспекте путовања у Сијетл у децембру.
-3.  **Plan-Agent**: Независно креира детаљан дневни план путовања.
-4.  **Aggregator (Fan-In)**: Излази истраживача и планера се прикупљају и представљају заједно као финални резултат.
+1.  **Диспетчер (Fan-Out)**: Кориснички захтев се истовремено шаље двојици агената.
+2.  **Агент за истраживање**: Истражује атракције, време и кључне аспекте путовања у Сијетл у децембру.
+3.  **Агент за план**: Самостално креира детаљни дневни план путовања.
+4.  **Агент за агрегирање (Fan-In)**: Резултати истраживача и планирача се прикупљају и приказују заједно као коначни резултат.
 
-*Дијаграм паралелног Researcher и Planner радног тока.*
+*Дијаграм паралелног тока рада Researcher и Planner агената.*
 
-#### Анализа имплементације у Python-у
+#### Анализа Python имплементације
 
-`ConcurrentBuilder` поједностављује креирање овог шаблона. Само наведете учеснике, а градитељ аутоматски креира потребну fan-out и fan-in логику.
+`ConcurrentBuilder` поједностављује креирање овог образаца. Једноставно наведете учесничке агенте, а билдера аутоматски прави fan-out и fan-in логику.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder управља логиком разгранавања и спајања
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Покрени ток рада
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Оквир осигурава да `research_agent` и `plan_agent` извршавају паралелно, а њихови финални излази се прикупљају у листу.
+Фрејмворк обезбеђује да `research_agent` и `plan_agent` истовремено извршавају задатке, а њихови коначни излази се прикупљају у листу.
 
-#### Анализа имплементације у .NET (C#)
+#### Анализа .NET (C#) имплементације
 
-У .NET-у, овај шаблон захтева експлицитнију дефиницију. Прилагођени извршиоци (`ConcurrentStartExecutor` и `ConcurrentAggregationExecutor`) се креирају за обраду fan-out и fan-in логике.
+У .NET-у овај образац захтева експлицитнију дефиницију. Креирани су прилагођени извршиоци (`ConcurrentStartExecutor` и `ConcurrentAggregationExecutor`) који обрађују fan-out и fan-in логику.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` затим користи `AddFanOutEdge` и `AddFanInEdge` за конструисање графа са овим прилагођеним извршиоцима и агентима.
+`WorkflowBuilder` користи `AddFanOutEdge` и `AddFanInEdge` за конструисање графа са овим прилагођеним извршиоцима и агентима.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Случај 4: Условни радни ток
+### Случај 4: Условни ток рада
 
-Условни радни токови уводе логичко гранање, омогућавајући систему да прати различите путеве на основу међурезултата.
+Условни токови рада уводе разгранату логику, омогућавајући систему да изабере различите путеве на основу резултата у току извршења.
 
 #### Позадина сценарија
 
-Овај радни ток аутоматизује креирање и објављивање техничког туторијала.
+Овај ток рада аутоматизује креирање и објављивање техничког туторијала.
 
-1.  **Evangelist-Agent**: Пише нацрт туторијала на основу датог оквира и URL-ова.
-2.  **ContentReviewer-Agent**: Прегледа нацрт. Проверава да ли је број речи већи од 200.
-3.  **Условно гранање**:
-      * **Ако је одобрено (`Yes`)**: Радни ток се наставља ка `Publisher-Agent`.
-      * **Ако је одбијено (`No`)**: Радни ток се зауставља и излази разлог одбијања.
-4.  **Publisher-Agent**: Ако је нацрт одобрен, овај агент чува садржај у Markdown фајлу.
+1.  **Агент евангелизатор**: Пише нацрт туторијала на основу датог плана и URL адреса.
+2.  **Агент рецензент садржаја**: Прегледа нацрт. Проверава да ли број речи прелази 200.
+3.  **Условно разгранaвање**:
+      * **Ако је одобрено (Да)**: Ток рада наставља ка агенту за објављивање.
+      * **Ако је одбачено (Не)**: Ток рада се зауставља и излаже разлог одбијања.
+4.  **Агент за објављивање**: Ако је нацрт одобрен, овај агент чува садржај у Markdown датотеку.
 
-#### Анализа имплементације у Python-у
+#### Анализа Python имплементације
 
-Овај пример користи прилагођену функцију, `select_targets`, за имплементацију условне логике. Ова функција се прослеђује `add_multi_selection_edge_group` и усмерава радни ток на основу поља `review_result` из излаза рецензента.
+Овај пример користи прилагођену функцију `select_targets` која имплементира условну логику. Она се прослеђује `add_multi_selection_edge_group` и усмеравa ток рада на основу поља `review_result` из излаза рецензента.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Ова функција одређује следећи корак на основу резултата прегледа
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Ако је одобрено, настави са извршиоцем 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Ако је одбијено, настави са извршиоцем 'handle_review' да пријавиш неуспех
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Креатор радног тока користи функцију одабира за усмеравање
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Вишестрани угао имплементира условну логику
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Прилагођени извршиоци као `to_reviewer_result` се користе за парсирање JSON излаза агената и конвертовање у јако типизоване објекте које функција селекције може да анализира.
+Прилагођени извршиоци као `to_reviewer_result` користе се за парсирање JSON излаза агената и претварање у јако типизиране објекте које функција за селекцију може да испита.
 
-#### Анализа имплементације у .NET (C#)
+#### Анализа .NET (C#) имплементације
 
-.NET верзија користи сличан приступ са функцијом услова. `Func<object?, bool>` је дефинисан за проверу својства `Result` објекта `ReviewResult`.
+.NET верзија користи сличан приступ са функцијом услова. Дефинисан је `Func<object?, bool>` који проверава `Result` својство објекта `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Параметар `condition` методе `AddEdge` омогућава `WorkflowBuilder`-у да креира гранајући пут. Радни ток ће пратити ивицу ка `publishExecutor` само ако услов `GetCondition(expectedResult: "Yes")` врати true. У супротном, прати пут ка `sendReviewerExecutor`.
+Параметар `condition` методе `AddEdge` омогућава `WorkflowBuilder`-у да створи разгранату путању. Ток рада ће следити ивицу ка `publishExecutor` само ако услов `GetCondition(expectedResult: "Yes")` врати true. У супротном, прати се пут ка `sendReviewerExecutor`.
 
 ## Закључак
 
-Microsoft Agent Framework Workflow пружа робусну и флексибилну основу за оркестрацију сложених система са више агената. Користећи његову архитектуру засновану на графу и основне компоненте, програмери могу дизајнирати и имплементирати софистициране радне токове у Python-у и .NET-у. Без обзира да ли ваша апликација захтева једноставну секвенцијалну обраду, паралелно извршење или динамичку условну логику, оквир нуди алате за изградњу моћних, скалабилних и типизованих решења заснованих на АИ.
+Microsoft Agent Framework Workflow пружа робусну и флексибилну основу за оркестрацију сложених мулти-агентских система. Користећи графску архитектуру и основне компоненте, програмери могу дизајнирати и имплементирати сложене токове рада и у Python-у и у .NET-у. Без обзира да ли ваша апликација захтева једноставну секвенцијалну обраду, паралелно извршење или динамичку условну логику, овај фрејмворк нуди алате за прављење моћних, скалабилних и типски-сигурних AI решења.
 
 ---
 
-**Одрицање од одговорности**:  
-Овај документ је преведен коришћењем услуге за превођење помоћу вештачке интелигенције [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да обезбедимо тачност, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални превод од стране људи. Не преузимамо одговорност за било каква погрешна тумачења или неспоразуме који могу произаћи из коришћења овог превода.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Изјава о одрицању одговорности**:
+Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

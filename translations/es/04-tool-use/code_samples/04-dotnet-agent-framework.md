@@ -1,104 +1,107 @@
-# 🛠️ Uso Avanzado de Herramientas con Modelos de GitHub (.NET)
+# 🛠️ Uso avanzado de herramientas con Azure OpenAI (Responses API) (.NET)
 
-## 📋 Objetivos de Aprendizaje
+## 📋 Objetivos de aprendizaje
 
-Este cuaderno demuestra patrones de integración de herramientas de nivel empresarial utilizando el Microsoft Agent Framework en .NET con Modelos de GitHub. Aprenderás a construir agentes sofisticados con múltiples herramientas especializadas, aprovechando la tipificación fuerte de C# y las características empresariales de .NET.
+Este cuaderno demuestra patrones de integración de herramientas a nivel empresarial usando el Microsoft Agent Framework en .NET con Azure OpenAI (Responses API). Aprenderás a construir agentes sofisticados con múltiples herramientas especializadas, aprovechando la tipificación fuerte de C# y las características empresariales de .NET.
 
-### Capacidades Avanzadas de Herramientas que Dominarás
+### Capacidades avanzadas de herramientas que dominarás
 
-- 🔧 **Arquitectura Multi-Herramienta**: Construcción de agentes con múltiples capacidades especializadas
-- 🎯 **Ejecución de Herramientas con Tipos Seguros**: Aprovechando la validación en tiempo de compilación de C#
-- 📊 **Patrones de Herramientas Empresariales**: Diseño de herramientas listas para producción y manejo de errores
-- 🔗 **Composición de Herramientas**: Combinación de herramientas para flujos de trabajo empresariales complejos
+- 🔧 **Arquitectura multi-herramienta**: Construcción de agentes con múltiples capacidades especializadas
+- 🎯 **Ejecución de herramientas con seguridad de tipo**: Aprovechando la validación en tiempo de compilación de C#
+- 📊 **Patrones empresariales de herramientas**: Diseño de herramientas listas para producción y manejo de errores
+- 🔗 **Composición de herramientas**: Combinando herramientas para flujos de trabajo empresariales complejos
 
-## 🎯 Beneficios de la Arquitectura de Herramientas en .NET
+## 🎯 Beneficios de la arquitectura de herramientas en .NET
 
-### Características de Herramientas Empresariales
+### Características empresariales de herramientas
 
-- **Validación en Tiempo de Compilación**: La tipificación fuerte asegura la corrección de los parámetros de las herramientas
-- **Inyección de Dependencias**: Integración de contenedores IoC para la gestión de herramientas
-- **Patrones Async/Await**: Ejecución de herramientas sin bloqueo con gestión adecuada de recursos
-- **Registro Estructurado**: Integración de registro incorporado para monitoreo de la ejecución de herramientas
+- **Validación en tiempo de compilación**: La tipificación fuerte asegura la corrección de los parámetros de las herramientas
+- **Inyección de dependencias**: Integración de contenedores IoC para la gestión de herramientas
+- **Patrones Async/Await**: Ejecución no bloqueante de herramientas con una correcta gestión de recursos
+- **Registro estructurado**: Integración incorporada de logging para monitoreo de la ejecución de herramientas
 
-### Patrones Listos para Producción
+### Patrones listos para producción
 
-- **Manejo de Excepciones**: Gestión integral de errores con excepciones tipadas
-- **Gestión de Recursos**: Patrones adecuados de eliminación y gestión de memoria
-- **Monitoreo de Rendimiento**: Métricas incorporadas y contadores de rendimiento
-- **Gestión de Configuración**: Configuración con tipos seguros y validación
+- **Manejo de excepciones**: Gestión exhaustiva de errores con excepciones tipadas
+- **Gestión de recursos**: Patrones adecuados de disposición y manejo de memoria
+- **Monitoreo de rendimiento**: Métricas y contadores de rendimiento integrados
+- **Gestión de configuración**: Configuración segura con validación
 
-## 🔧 Arquitectura Técnica
+## 🔧 Arquitectura técnica
 
-### Componentes Principales de Herramientas en .NET
+### Componentes principales de herramientas en .NET
 
-- **Microsoft.Extensions.AI**: Capa de abstracción unificada para herramientas
-- **Microsoft.Agents.AI**: Orquestación de herramientas de nivel empresarial
-- **Integración de Modelos de GitHub**: Cliente API de alto rendimiento con agrupación de conexiones
+- **Microsoft.Extensions.AI**: Capa unificada de abstracción de herramientas
+- **Microsoft.Agents.AI**: Orquestación de herramientas a nivel empresarial
+- **Azure OpenAI (Responses API)**: Cliente API de alto rendimiento con agrupación de conexiones
 
-### Pipeline de Ejecución de Herramientas
+### Pipeline de ejecución de herramientas
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Solicitud del Usuario] --> B[Análisis del Agente]
+    B --> C[Selección de Herramienta]
+    C --> D[Validación de Tipo]
+    B --> E[Vinculación de Parámetros]
+    E --> F[Ejecución de la Herramienta]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Procesamiento de Resultados]
     D --> G
-    G --> H[Response]
+    G --> H[Respuesta]
 ```
 
-## 🛠️ Categorías y Patrones de Herramientas
+## 🛠️ Categorías y patrones de herramientas
 
-### 1. **Herramientas de Procesamiento de Datos**
+### 1. **Herramientas de procesamiento de datos**
 
-- **Validación de Entrada**: Tipificación fuerte con anotaciones de datos
-- **Operaciones de Transformación**: Conversión y formato de datos con tipos seguros
-- **Lógica Empresarial**: Herramientas de cálculo y análisis específicas del dominio
-- **Formato de Salida**: Generación estructurada de respuestas
+- **Validación de entrada**: Tipificación fuerte con anotaciones de datos
+- **Operaciones de transformación**: Conversión y formateo de datos con seguridad de tipo
+- **Lógica de negocio**: Herramientas de cálculo y análisis específicos del dominio
+- **Formateo de salida**: Generación estructurada de respuestas
 
-### 2. **Herramientas de Integración**
+### 2. **Herramientas de integración**
 
 - **Conectores API**: Integración de servicios RESTful con HttpClient
-- **Herramientas de Base de Datos**: Integración de Entity Framework para acceso a datos
-- **Operaciones de Archivos**: Operaciones seguras en el sistema de archivos con validación
-- **Servicios Externos**: Patrones de integración con servicios de terceros
+- **Herramientas de bases de datos**: Integración con Entity Framework para acceso a datos
+- **Operaciones de archivos**: Operaciones seguras en el sistema de archivos con validación
+- **Servicios externos**: Patrones de integración con servicios de terceros
 
-### 3. **Herramientas Utilitarias**
+### 3. **Herramientas utilitarias**
 
-- **Procesamiento de Texto**: Utilidades de manipulación y formato de cadenas
-- **Operaciones de Fecha/Hora**: Cálculos de fecha/hora sensibles a la cultura
-- **Herramientas Matemáticas**: Cálculos de precisión y operaciones estadísticas
-- **Herramientas de Validación**: Validación de reglas empresariales y verificación de datos
+- **Procesamiento de texto**: Utilidades para manipulación y formateo de cadenas
+- **Operaciones de fecha/hora**: Cálculos de fecha/hora con consciencia cultural
+- **Herramientas matemáticas**: Cálculos de precisión y operaciones estadísticas
+- **Herramientas de validación**: Validación de reglas de negocio y verificación de datos
 
-¿Listo para construir agentes de nivel empresarial con capacidades de herramientas poderosas y seguras en .NET? ¡Vamos a diseñar soluciones de nivel profesional! 🏢⚡
+¿Listo para construir agentes a nivel empresarial con potentes capacidades de herramientas con seguridad de tipo en .NET? ¡Vamos a diseñar soluciones de nivel profesional! 🏢⚡
 
 ## 🚀 Comenzando
 
-### Requisitos Previos
+### Requisitos previos
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o superior
-- [Token de acceso a la API de Modelos de GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Una [suscripción de Azure](https://azure.microsoft.com/free/) con un recurso Azure OpenAI y un despliegue de modelo
+- La [CLI de Azure](https://learn.microsoft.com/cli/azure/install-azure-cli) — inicia sesión con `az login`
 
-### Variables de Entorno Requeridas
+### Variables de entorno requeridas
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Luego inicia sesión para que AzureCliCredential pueda obtener un token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Luego inicia sesión para que AzureCliCredential pueda obtener un token
+az login
 ```
 
-### Código de Ejemplo
+### Código de ejemplo
 
 Para ejecutar el ejemplo de código,
 
@@ -121,14 +124,16 @@ Consulta [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/0
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

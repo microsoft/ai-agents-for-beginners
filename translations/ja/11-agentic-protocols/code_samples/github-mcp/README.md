@@ -1,70 +1,70 @@
-# Github MCP Server Example
+# Github MCP Server の例
 
 ## 説明
 
-これは、Microsoft Reactorが主催したAIエージェントハッカソンのために作成されたデモです。
+これは Microsoft Reactor で開催された AI Agents ハッカソンのために作成されたデモです。
 
-このツールは、ユーザーのGithubリポジトリに基づいてハッカソンプロジェクトを推薦するためのものです。以下の手順で実現します：
+このツールはユーザーの Github リポジトリに基づいてハッカソンプロジェクトを推奨するために使用されます。
+これは次の方法で行われます:
 
-1. **Githubエージェント** - Github MCPサーバーを使用してリポジトリやその情報を取得します。
-2. **ハッカソンエージェント** - Githubエージェントから得たデータを基に、ユーザーのプロジェクトや使用言語、AIエージェントハッカソンのプロジェクトトラックに基づいて創造的なハッカソンプロジェクトのアイデアを考案します。
-3. **イベントエージェント** - ハッカソンエージェントの提案に基づき、AIエージェントハッカソンシリーズの関連イベントを推薦します。
+1. **Github Agent** - Github MCP Server を使ってリポジトリとそれらの情報を取得します。
+2. **Hackathon Agent** - Github Agent からのデータを受け取り、ユーザーが使用しているプロジェクトや言語、AI Agents ハッカソンのプロジェクトトラックに基づいて創造的なハッカソンプロジェクトのアイデアを考案します。
+3. **Events Agent** - Hackathon Agent の提案に基づいて、Events Agent は AI Agent ハッカソンシリーズの関連イベントを推奨します。
 
-## コードの実行方法
+## コードの実行 
 
 ### 環境変数
 
-このデモでは、Azure Open AI Service、Semantic Kernel、Github MCPサーバー、Azure AI Searchを使用します。
+このデモは Microsoft Agent Framework、Azure OpenAI Service、Github MCP Server、Azure AI Search を使用します。
 
-これらのツールを使用するために、適切な環境変数を設定してください：
+これらのツールを使用するために、適切な環境変数が設定されていることを確認してください:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Chainlitサーバーの実行
+## Chainlit サーバーの実行
 
-MCPサーバーに接続するために、このデモではChainlitをチャットインターフェースとして使用します。
+MCP サーバーに接続するために、このデモではチャットインターフェイスとして Chainlit を使用します。 
 
-サーバーを実行するには、ターミナルで以下のコマンドを使用してください：
+サーバーを実行するには、ターミナルで次のコマンドを使用してください:
 
 ```bash
 chainlit run app.py -w
 ```
 
-これにより、`localhost:8000`でChainlitサーバーが起動し、`event-descriptions.md`の内容がAzure AI Search Indexに登録されます。
+これにより `localhost:8000` 上で Chainlit サーバーが起動し、`event-descriptions.md` の内容で Azure AI Search インデックスが登録されるはずです。 
 
-## MCPサーバーへの接続
+## MCP サーバーへの接続
 
-Github MCPサーバーに接続するには、「Type your message here..」チャットボックスの下にある「プラグ」アイコンを選択してください：
+Github MCP Server に接続するには、チャットボックスの "Type your message here.." の下にある「plug」アイコンを選択してください:
 
-![MCP Connect](../../../../../translated_images/ja/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![MCP 接続](../../../../../translated_images/ja/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-そこから「Connect an MCP」をクリックして、Github MCPサーバーに接続するコマンドを追加します：
+そこから "Connect an MCP" をクリックして、Github MCP Server に接続するコマンドを追加できます:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-"[YOUR PERSONAL ACCESS TOKEN]"を実際のPersonal Access Tokenに置き換えてください。
+"[YOUR PERSONAL ACCESS TOKEN]" を実際の Personal Access Token に置き換えてください。 
 
-接続が成功すると、プラグアイコンの横に(1)が表示され、接続が確認されます。表示されない場合は、`chainlit run app.py -w`でChainlitサーバーを再起動してみてください。
+接続後、接続が確認できるようにプラグアイコンの横に (1) が表示されるはずです。表示されない場合は、`chainlit run app.py -w` で chainlit サーバーを再起動してみてください。
 
-## デモの使用方法
+## デモの使用方法 
 
-ハッカソンプロジェクトを推薦するエージェントワークフローを開始するには、以下のようなメッセージを入力してください：
+ハッカソンプロジェクトを推奨するエージェントワークフローを開始するには、次のようなメッセージを入力できます: 
 
-"Githubユーザーkoreyspaceのためにハッカソンプロジェクトを推薦してください"
+"Github ユーザー koreyspace のためにハッカソンプロジェクトを推奨してください"
 
-ルーターエージェントがリクエストを分析し、どのエージェント（GitHub、ハッカソン、イベント）の組み合わせが最適かを判断します。エージェントは協力して、Githubリポジトリの分析、プロジェクトのアイデア出し、関連する技術イベントに基づいた包括的な推薦を提供します。
+Router Agent はリクエストを分析し、どの組み合わせのエージェント（GitHub、Hackathon、Events）がクエリに最適かを判断します。エージェントは協力して、GitHub リポジトリの分析、プロジェクトのアイデア化、および関連する技術イベントに基づいた包括的な推奨を提供します。
 
 ---
 
-**免責事項**:  
-この文書は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知ください。元の言語で記載された文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤認について、当方は一切の責任を負いません。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+免責事項：
+本書は AI 翻訳サービス「[Co-op Translator](https://github.com/Azure/co-op-translator)」を用いて翻訳されました。正確性には努めていますが、自動翻訳には誤りや不正確な箇所が含まれる可能性があることをご了承ください。原文（原言語での文書）を正式な出典と見なしてください。重要な情報については専門の人間による翻訳を推奨します。本翻訳の利用に起因するいかなる誤解や誤訳についても責任を負いません。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

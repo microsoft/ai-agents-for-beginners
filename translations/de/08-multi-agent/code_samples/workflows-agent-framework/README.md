@@ -1,69 +1,69 @@
-# Aufbau von Multi-Agenten-Anwendungen mit Microsoft Agent Framework Workflow
+# Multi-Agent-Anwendungen mit Microsoft Agent Framework Workflow entwickeln
 
-Dieses Tutorial führt Sie durch das Verständnis und die Entwicklung von Multi-Agenten-Anwendungen mit dem Microsoft Agent Framework. Wir werden die Kernkonzepte von Multi-Agenten-Systemen erkunden, die Architektur der Workflow-Komponente des Frameworks untersuchen und praktische Beispiele in Python und .NET für verschiedene Workflow-Muster durchgehen.
+Dieses Tutorial führt Sie durch das Verständnis und den Aufbau von Multi-Agent-Anwendungen mit dem Microsoft Agent Framework. Wir werden die Kernkonzepte von Multi-Agent-Systemen erkunden, uns die Architektur der Workflow-Komponente des Frameworks ansehen und praktische Beispiele sowohl in Python als auch in .NET für verschiedene Workflow-Muster durchgehen.
 
-## 1\. Verständnis von Multi-Agenten-Systemen
+## 1\. Verständnis von Multi-Agent-Systemen
 
-Ein KI-Agent ist ein System, das über die Fähigkeiten eines standardmäßigen Large Language Models (LLM) hinausgeht. Es kann seine Umgebung wahrnehmen, Entscheidungen treffen und Maßnahmen ergreifen, um bestimmte Ziele zu erreichen. Ein Multi-Agenten-System umfasst mehrere dieser Agenten, die zusammenarbeiten, um ein Problem zu lösen, das für einen einzelnen Agenten schwierig oder unmöglich zu bewältigen wäre.
+Ein KI-Agent ist ein System, das über die Fähigkeiten eines Standard-Large-Language-Models (LLM) hinausgeht. Es kann seine Umgebung wahrnehmen, Entscheidungen treffen und Aktionen ausführen, um bestimmte Ziele zu erreichen. Ein Multi-Agent-System umfasst mehrere dieser Agenten, die zusammenarbeiten, um ein Problem zu lösen, das für einen einzelnen Agenten allein schwer oder unmöglich zu bewältigen wäre.
 
 ### Häufige Anwendungsszenarien
 
-  * **Komplexe Problemlösung**: Aufteilung einer großen Aufgabe (z. B. Planung einer unternehmensweiten Veranstaltung) in kleinere Teilaufgaben, die von spezialisierten Agenten bearbeitet werden (z. B. ein Budget-Agent, ein Logistik-Agent, ein Marketing-Agent).
-  * **Virtuelle Assistenten**: Ein Hauptassistent-Agent delegiert Aufgaben wie Terminplanung, Recherche und Buchungen an andere spezialisierte Agenten.
-  * **Automatisierte Inhaltserstellung**: Ein Workflow, bei dem ein Agent Inhalte erstellt, ein anderer sie auf Genauigkeit und Ton überprüft und ein dritter sie veröffentlicht.
+  * **Komplexe Problemlösung**: Eine große Aufgabe (z. B. Planung einer firmenweiten Veranstaltung) wird in kleinere Teilaufgaben aufgeteilt, die von spezialisierten Agenten bearbeitet werden (z. B. ein Budget-Agent, ein Logistik-Agent, ein Marketing-Agent).
+  * **Virtuelle Assistenten**: Ein Hauptassistent- Agent delegiert Aufgaben wie Terminplanung, Recherche und Buchungen an andere spezialisierte Agenten.
+  * **Automatisierte Inhaltserstellung**: Ein Workflow, bei dem ein Agent Inhalte entwirft, ein anderer sie auf Genauigkeit und Ton überprüft und ein dritter sie veröffentlicht.
 
-### Multi-Agenten-Muster
+### Multi-Agent-Muster
 
-Multi-Agenten-Systeme können in verschiedenen Mustern organisiert werden, die bestimmen, wie sie interagieren:
+Multi-Agent-Systeme können in verschiedenen Mustern organisiert sein, die bestimmen, wie sie interagieren:
 
-  * **Sequenziell**: Agenten arbeiten in einer vordefinierten Reihenfolge, ähnlich einer Produktionslinie. Die Ausgabe eines Agenten wird zur Eingabe des nächsten.
-  * **Parallel**: Agenten arbeiten gleichzeitig an verschiedenen Teilen einer Aufgabe, und ihre Ergebnisse werden am Ende zusammengeführt.
-  * **Bedingt**: Der Workflow folgt unterschiedlichen Pfaden basierend auf der Ausgabe eines Agenten, ähnlich einer Wenn-Dann-Sonst-Anweisung.
+  * **Sequenziell**: Agenten arbeiten in einer vordefinierten Reihenfolge, wie eine Fließbandarbeit. Die Ausgabe eines Agenten wird zur Eingabe für den nächsten.
+  * **Parallel**: Agenten arbeiten gleichzeitig an verschiedenen Teilen einer Aufgabe, und deren Ergebnisse werden am Ende zusammengeführt.
+  * **Bedingt**: Der Workflow folgt unterschiedlichen Pfaden basierend auf der Ausgabe eines Agenten, ähnlich einer if-dann-sonst-Anweisung.
 
-## 2\. Die Workflow-Architektur des Microsoft Agent Frameworks
+## 2\. Die Microsoft Agent Framework Workflow-Architektur
 
-Das Workflow-System des Agent Frameworks ist eine fortschrittliche Orchestrierungs-Engine, die komplexe Interaktionen zwischen mehreren Agenten verwaltet. Es basiert auf einer graphbasierten Architektur, die ein [Pregel-ähnliches Ausführungsmodell](https://kowshik.github.io/JPregel/pregel_paper.pdf) verwendet, bei dem die Verarbeitung in synchronisierten Schritten, sogenannten "Supersteps", erfolgt.
+Das Workflow-System des Agent Frameworks ist eine fortschrittliche Orchestrierungs-Engine, die entwickelt wurde, um komplexe Interaktionen zwischen mehreren Agenten zu steuern. Es basiert auf einer graphbasierten Architektur, die ein [Pregel-ähnliches Ausführungsmodell](https://kowshik.github.io/JPregel/pregel_paper.pdf) verwendet, bei dem die Verarbeitung in synchronisierten Schritten, sogenannten „Supersteps“, erfolgt.
 
 ### Kernkomponenten
 
 Die Architektur besteht aus drei Hauptteilen:
 
-1.  **Executors**: Dies sind die grundlegenden Verarbeitungseinheiten. In unseren Beispielen ist ein `Agent` eine Art Executor. Jeder Executor kann mehrere Nachrichtenhandler haben, die automatisch basierend auf der Art der empfangenen Nachricht aufgerufen werden.
-2.  **Edges**: Diese definieren den Pfad, den Nachrichten zwischen den Executoren nehmen. Edges können Bedingungen haben, die eine dynamische Weiterleitung von Informationen durch den Workflow-Graphen ermöglichen.
-3.  **Workflow**: Diese Komponente orchestriert den gesamten Prozess, verwaltet die Executors, Edges und den gesamten Ablauf der Ausführung. Sie stellt sicher, dass Nachrichten in der richtigen Reihenfolge verarbeitet werden und streamt Ereignisse für die Beobachtbarkeit.
+1.  **Executor**: Dies sind die grundlegenden Verarbeitungseinheiten. In unseren Beispielen ist ein `Agent` eine Art Executor. Jeder Executor kann mehrere Nachrichten-Handler haben, die automatisch je nach empfangenem Nachrichtentyp aufgerufen werden.
+2.  **Kanten**: Diese definieren den Pfad, den Nachrichten zwischen Executoren nehmen. Kanten können Bedingungen haben, die eine dynamische Weiterleitung von Informationen durch den Workflow-Graphen ermöglichen.
+3.  **Workflow**: Diese Komponente orchestriert den gesamten Prozess, verwaltet die Executor, Kanten und den Gesamtfluss der Ausführung. Sie stellt sicher, dass Nachrichten in der richtigen Reihenfolge verarbeitet werden und streamt Events für die Beobachtbarkeit.
 
-*Eine Diagramm-Darstellung der Kernkomponenten des Workflow-Systems.*
+*Eine Abbildung, die die Kernkomponenten des Workflow-Systems veranschaulicht.*
 
-Diese Struktur ermöglicht den Aufbau robuster und skalierbarer Anwendungen mit grundlegenden Mustern wie sequenziellen Ketten, Fan-Out/Fan-In für parallele Verarbeitung und Switch-Case-Logik für bedingte Abläufe.
+Diese Struktur ermöglicht den Aufbau robuster und skalierbarer Anwendungen mithilfe grundlegender Muster wie sequenziellen Ketten, Fan-Out/Fan-In für parallele Verarbeitung und Switch-Case-Logik für bedingte Abläufe.
 
 ## 3\. Praktische Beispiele und Code-Analyse
 
-Nun schauen wir uns an, wie verschiedene Workflow-Muster mit dem Framework implementiert werden können. Wir betrachten sowohl Python- als auch .NET-Code für jedes Beispiel.
+Nun sehen wir uns an, wie verschiedene Workflow-Muster mit dem Framework implementiert werden können. Wir betrachten jeweils Python- und .NET-Code für jedes Beispiel.
 
-### Fall 1: Basis-Sequenzieller Workflow
+### Fall 1: Einfacher sequenzieller Workflow
 
-Dies ist das einfachste Muster, bei dem die Ausgabe eines Agenten direkt an einen anderen weitergegeben wird. Unser Szenario umfasst einen Hotel-`FrontDesk`-Agenten, der eine Reiseempfehlung gibt, die anschließend von einem `Concierge`-Agenten überprüft wird.
+Dies ist das einfachste Muster, bei dem die Ausgabe eines Agenten direkt an einen anderen weitergegeben wird. Unser Szenario beinhaltet einen Hotel-`FrontDesk`-Agenten, der eine Reiseempfehlung ausspricht, die anschließend von einem `Concierge`-Agenten geprüft wird.
 
-*Diagramm des Basis-Workflows FrontDesk -\> Concierge.*
+*Diagramm des einfachen FrontDesk -> Concierge-Workflows.*
 
 #### Szenario-Hintergrund
 
 Ein Reisender fragt nach einer Empfehlung in Paris.
 
-1.  Der `FrontDesk`-Agent, der auf Kürze ausgelegt ist, schlägt vor, das Louvre-Museum zu besuchen.
-2.  Der `Concierge`-Agent, der authentische Erlebnisse priorisiert, erhält diesen Vorschlag. Er überprüft die Empfehlung und gibt Feedback, indem er eine lokalere, weniger touristische Alternative vorschlägt.
+1.  Der `FrontDesk`-Agent, der für kurze Antworten ausgelegt ist, empfiehlt einen Besuch im Louvre.
+2.  Der `Concierge`-Agent, der authentische Erlebnisse priorisiert, erhält diesen Vorschlag, prüft ihn und gibt Feedback, wobei er eine lokalere, weniger touristische Alternative vorschlägt.
 
-#### Python-Implementierungsanalyse
+#### Analyse der Python-Implementierung
 
 Im Python-Beispiel definieren und erstellen wir zunächst die beiden Agenten, jeweils mit spezifischen Anweisungen.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Agentenrollen und Anweisungen definieren
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,39 +71,39 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Agenteninstanzen erstellen
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Anschließend wird der `WorkflowBuilder` verwendet, um den Graphen zu erstellen. Der `front_desk_agent` wird als Ausgangspunkt festgelegt, und eine Edge wird erstellt, um dessen Ausgabe mit dem `reviewer_agent` zu verbinden.
+Danach wird der `WorkflowBuilder` verwendet, um den Graphen zu konstruieren. Der `front_desk_agent` wird als Startpunkt festgelegt, und es wird eine Kante erstellt, die seine Ausgabe mit dem `reviewer_agent` verbindet.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Schließlich wird der Workflow mit der anfänglichen Benutzeraufforderung ausgeführt.
+Abschließend wird der Workflow mit der ursprünglichen Benutzeranfrage ausgeführt.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run führt den Arbeitsablauf aus; get_outputs() gibt das Ergebnis des Ausführenden zurück.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) Implementierungsanalyse
+#### Analyse der .NET (C#) Implementierung
 
 Die .NET-Implementierung folgt einer sehr ähnlichen Logik. Zunächst werden Konstanten für die Namen und Anweisungen der Agenten definiert.
 
@@ -112,22 +112,22 @@ Die .NET-Implementierung folgt einer sehr ähnlichen Logik. Zunächst werden Kon
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Die Agenten werden mit einem `OpenAIClient` erstellt, und dann definiert der `WorkflowBuilder` den sequenziellen Ablauf, indem eine Edge vom `frontDeskAgent` zum `reviewerAgent` hinzugefügt wird.
+Die Agenten werden mit einem `AzureOpenAIClient` (Responses API) erstellt, und dann definiert der `WorkflowBuilder` den sequenziellen Fluss, indem er eine Kante vom `frontDeskAgent` zum `reviewerAgent` hinzufügt.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Der Workflow wird dann mit der Nachricht des Benutzers ausgeführt, und die Ergebnisse werden zurückgestreamt.
+Der Workflow wird danach mit der Nachricht des Benutzers ausgeführt, und die Ergebnisse werden zurückgestreamt.
 
-### Fall 2: Mehrstufiger Sequenzieller Workflow
+### Fall 2: Mehrstufiger sequenzieller Workflow
 
-Dieses Muster erweitert die Basis-Sequenz, um mehr Agenten einzubeziehen. Es eignet sich ideal für Prozesse, die mehrere Stufen der Verfeinerung oder Transformation erfordern.
+Dieses Muster erweitert die einfache Reihenfolge um weitere Agenten. Es eignet sich ideal für Prozesse, die mehrere Verfeinerungs- oder Transformationsschritte erfordern.
 
 #### Szenario-Hintergrund
 
-Ein Benutzer stellt ein Bild eines Wohnzimmers bereit und fragt nach einem Möbelangebot.
+Ein Benutzer liefert ein Bild eines Wohnzimmers und bittet um ein Möbelangebot.
 
 1.  **Sales-Agent**: Identifiziert die Möbelstücke im Bild und erstellt eine Liste.
-2.  **Price-Agent**: Nimmt die Liste der Artikel und liefert eine detaillierte Preisübersicht, einschließlich Budget-, Mittelklasse- und Premium-Optionen.
-3.  **Quote-Agent**: Erhält die preislich bewertete Liste und formatiert sie in ein formales Angebotsdokument in Markdown.
+2.  **Price-Agent**: Nimmt die Liste der Artikel und erstellt eine detaillierte Preisaufstellung mit Budget-, Mittelklasse- und Premiumoptionen.
+3.  **Quote-Agent**: Erhält die Preise und formatiert sie in ein formales Angebotsdokument im Markdown-Format.
 
-*Diagramm des Workflows Sales -\> Price -\> Quote.*
+*Diagramm des Sales -> Price -> Quote-Workflows.*
 
-#### Python-Implementierungsanalyse
+#### Analyse der Python-Implementierung
 
-Drei Agenten werden definiert, jeder mit einer spezialisierten Rolle. Der Workflow wird mit `add_edge` erstellt, um eine Kette zu bilden: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Drei Agenten werden definiert, jeder mit einer spezialisierten Rolle. Der Workflow wird mit `add_edge` erstellt, um eine Kette zu bilden: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Erstellen Sie drei spezialisierte Agenten
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Erstellen Sie den sequentiellen Arbeitsablauf
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Die Eingabe ist eine `ChatMessage`, die sowohl Text als auch die Bild-URI enthält. Das Framework übernimmt die Weitergabe der Ausgabe jedes Agenten an den nächsten in der Sequenz, bis das endgültige Angebot erstellt ist.
+Die Eingabe ist eine `ChatMessage`, die sowohl Text als auch die Bild-URI enthält. Das Framework sorgt dafür, dass die Ausgabe jedes Agenten an den nächsten in der Sequenz weitergegeben wird, bis das finale Angebot erstellt ist.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Die Benutzernachricht enthält sowohl Text als auch ein Bild
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,12 +182,11 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Führen Sie den Workflow aus
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) Implementierungsanalyse
+#### Analyse der .NET (C#) Implementierung
 
 Das .NET-Beispiel spiegelt die Python-Version wider. Drei Agenten (`salesagent`, `priceagent`, `quoteagent`) werden erstellt. Der `WorkflowBuilder` verknüpft sie sequenziell.
 
@@ -195,9 +194,9 @@ Das .NET-Beispiel spiegelt die Python-Version wider. Drei Agenten (`salesagent`,
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Die Nachricht des Benutzers wird mit den Bilddaten (als Bytes) und der Textaufforderung erstellt. Die Methode `InProcessExecution.StreamAsync` startet den Workflow, und die endgültige Ausgabe wird aus dem Stream erfasst.
+Die Nachricht des Benutzers wird mit den Bilddaten (als Bytes) und dem Textprompt erstellt. Die Methode `InProcessExecution.RunStreamingAsync` startet den Workflow, und die finale Ausgabe wird aus dem Stream erfasst.
 
-### Fall 3: Paralleler Workflow
+### Fall 3: Parallel-Workflow
 
-Dieses Muster wird verwendet, wenn Aufgaben gleichzeitig ausgeführt werden können, um Zeit zu sparen. Es umfasst ein "Fan-Out" zu mehreren Agenten und ein "Fan-In", um die Ergebnisse zu aggregieren.
+Dieses Muster wird verwendet, wenn Aufgaben gleichzeitig ausgeführt werden können, um Zeit zu sparen. Es beinhaltet einen „Fan-Out“ zu mehreren Agenten und einen „Fan-In“ zur Zusammenführung der Ergebnisse.
 
 #### Szenario-Hintergrund
 
 Ein Benutzer bittet um die Planung einer Reise nach Seattle.
 
 1.  **Dispatcher (Fan-Out)**: Die Anfrage des Benutzers wird gleichzeitig an zwei Agenten gesendet.
-2.  **Researcher-Agent**: Recherchiert Attraktionen, Wetter und wichtige Überlegungen für eine Reise nach Seattle im Dezember.
-3.  **Plan-Agent**: Erstellt unabhängig einen detaillierten Tagesablauf für die Reise.
-4.  **Aggregator (Fan-In)**: Die Ausgaben von sowohl dem Researcher als auch dem Planner werden gesammelt und zusammen als Endergebnis präsentiert.
+2.  **Researcher-Agent**: Recherchiert Sehenswürdigkeiten, Wetter und wichtige Überlegungen für eine Reise nach Seattle im Dezember.
+3.  **Plan-Agent**: Erstellt unabhängig eine detaillierte Tagesplanung der Reise.
+4.  **Aggregator (Fan-In)**: Die Ausgaben von Researcher und Planer werden gesammelt und zusammen als Endergebnis präsentiert.
 
-*Diagramm des parallelen Workflows Researcher und Planner.*
+*Diagramm des parallelen Researcher- und Planer-Workflows.*
 
-#### Python-Implementierungsanalyse
+#### Analyse der Python-Implementierung
 
-Der `ConcurrentBuilder` vereinfacht die Erstellung dieses Musters. Sie listen einfach die teilnehmenden Agenten auf, und der Builder erstellt automatisch die notwendige Fan-Out- und Fan-In-Logik.
+Der `ConcurrentBuilder` erleichtert die Erstellung dieses Musters. Man listet einfach die beteiligten Agenten auf, und der Builder erstellt automatisch die notwendige Fan-Out- und Fan-In-Logik.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder verwaltet die Fan-out/Fan-in-Logik
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Führe den Workflow aus
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Das Framework stellt sicher, dass der `research_agent` und der `plan_agent` parallel ausgeführt werden, und ihre endgültigen Ausgaben werden in einer Liste gesammelt.
+Das Framework stellt sicher, dass `research_agent` und `plan_agent` parallel ausgeführt werden und ihre finalen Ausgaben in einer Liste gesammelt werden.
 
-#### .NET (C\#) Implementierungsanalyse
+#### Analyse der .NET (C#) Implementierung
 
-In .NET erfordert dieses Muster eine explizitere Definition. Benutzerdefinierte Executors (`ConcurrentStartExecutor` und `ConcurrentAggregationExecutor`) werden erstellt, um die Fan-Out- und Fan-In-Logik zu handhaben.
+In .NET erfordert dieses Muster eine explizitere Definition. Eigene Executor (`ConcurrentStartExecutor` und `ConcurrentAggregationExecutor`) werden erstellt, um die Fan-Out- und Fan-In-Logik zu handhaben.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-Der `WorkflowBuilder` verwendet dann `AddFanOutEdge` und `AddFanInEdge`, um den Graphen mit diesen benutzerdefinierten Executors und den Agenten zu erstellen.
+Der `WorkflowBuilder` verwendet dann `AddFanOutEdge` und `AddFanInEdge`, um den Graphen mit diesen benutzerdefinierten Executoren und den Agenten zu erstellen.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -292,43 +291,43 @@ var workflow = new WorkflowBuilder(startExecutor)
 
 ### Fall 4: Bedingter Workflow
 
-Bedingte Workflows führen Verzweigungslogik ein, die es dem System ermöglicht, basierend auf Zwischenergebnissen unterschiedliche Pfade einzuschlagen.
+Bedingte Workflows führen Verzweigungslogik ein und ermöglichen es dem System, je nach Zwischenergebnissen unterschiedliche Pfade zu nehmen.
 
 #### Szenario-Hintergrund
 
 Dieser Workflow automatisiert die Erstellung und Veröffentlichung eines technischen Tutorials.
 
-1.  **Evangelist-Agent**: Schreibt einen Entwurf des Tutorials basierend auf einer gegebenen Gliederung und URLs.
-2.  **ContentReviewer-Agent**: Überprüft den Entwurf. Es wird geprüft, ob die Wortanzahl über 200 Wörter liegt.
-3.  **Bedingte Verzweigung**:
-      * **Wenn genehmigt (`Ja`)**: Der Workflow geht zum `Publisher-Agent` weiter.
-      * **Wenn abgelehnt (`Nein`)**: Der Workflow stoppt und gibt den Grund für die Ablehnung aus.
-4.  **Publisher-Agent**: Wenn der Entwurf genehmigt wird, speichert dieser Agent den Inhalt in einer Markdown-Datei.
+1.  **Evangelist-Agent**: Schreibt einen Entwurf des Tutorials basierend auf einer vorgegebenen Gliederung und URLs.
+2.  **ContentReviewer-Agent**: Prüft den Entwurf. Es wird überprüft, ob der Wortumfang 200 Wörter übersteigt.
+3.  **Bedingter Zweig**:
+      * **Wenn genehmigt (`Ja`)**: Der Workflow fährt mit dem `Publisher-Agent` fort.
+      * **Wenn abgelehnt (`Nein`)**: Der Workflow stoppt und gibt den Ablehnungsgrund aus.
+4.  **Publisher-Agent**: Wenn der Entwurf genehmigt ist, speichert dieser Agent den Inhalt in einer Markdown-Datei.
 
-#### Python-Implementierungsanalyse
+#### Analyse der Python-Implementierung
 
-Dieses Beispiel verwendet eine benutzerdefinierte Funktion, `select_targets`, um die bedingte Logik zu implementieren. Diese Funktion wird an `add_multi_selection_edge_group` übergeben und leitet den Workflow basierend auf dem Feld `review_result` aus der Ausgabe des Reviewers.
+Dieses Beispiel verwendet eine benutzerdefinierte Funktion `select_targets`, um die bedingte Logik zu implementieren. Diese Funktion wird an `add_multi_selection_edge_group` übergeben und lenkt den Workflow basierend auf dem Feld `review_result` aus der Ausgabe des Reviewers.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Diese Funktion bestimmt den nächsten Schritt basierend auf dem Prüfergebnis
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Wenn genehmigt, fahre mit dem Executor 'save_draft' fort
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Wenn abgelehnt, fahre mit dem Executor 'handle_review' fort, um den Fehler zu melden
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Der Workflow-Builder verwendet die Auswahlfunktion zur Steuerung
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Die Mehrfachauswahl-Kante implementiert die Bedingungslogik
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Benutzerdefinierte Executors wie `to_reviewer_result` werden verwendet, um die JSON-Ausgabe der Agenten zu analysieren und in stark typisierte Objekte umzuwandeln, die die Auswahlfunktion inspizieren kann.
+Benutzerdefinierte Executor wie `to_reviewer_result` werden verwendet, um die JSON-Ausgabe der Agenten zu parsen und in stark typisierte Objekte umzuwandeln, die die Auswahlfunktion inspizieren kann.
 
-#### .NET (C\#) Implementierungsanalyse
+#### Analyse der .NET (C#) Implementierung
 
-Die .NET-Version verwendet einen ähnlichen Ansatz mit einer Bedingungsfunktion. Eine `Func<object?, bool>` wird definiert, um die Eigenschaft `Result` des `ReviewResult`-Objekts zu überprüfen.
+Die .NET-Version verwendet einen ähnlichen Ansatz mit einer Bedingungsfunktion. Ein `Func<object?, bool>` wird definiert, um die `Result`-Eigenschaft des `ReviewResult`-Objekts zu prüfen.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Der Parameter `condition` der Methode `AddEdge` ermöglicht es dem `WorkflowBuilder`, einen Verzweigungspfad zu erstellen. Der Workflow folgt nur der Edge zu `publishExecutor`, wenn die Bedingung `GetCondition(expectedResult: "Yes")` wahr ist. Andernfalls folgt er dem Pfad zu `sendReviewerExecutor`.
+Der `AddEdge`-Methode wird der `condition`-Parameter übergeben, der es dem `WorkflowBuilder` erlaubt, einen Verzweigungspfad zu erstellen. Der Workflow folgt nur dann der Kante zum `publishExecutor`, wenn die Bedingung `GetCondition(expectedResult: "Yes")` true ergibt. Andernfalls folgt er dem Pfad zum `sendReviewerExecutor`.
 
 ## Fazit
 
-Das Microsoft Agent Framework Workflow bietet eine robuste und flexible Grundlage für die Orchestrierung komplexer Multi-Agenten-Systeme. Durch die Nutzung seiner graphbasierten Architektur und Kernkomponenten können Entwickler anspruchsvolle Workflows in Python und .NET entwerfen und implementieren. Egal, ob Ihre Anwendung einfache sequenzielle Verarbeitung, parallele Ausführung oder dynamische bedingte Logik erfordert, das Framework bietet die Werkzeuge, um leistungsstarke, skalierbare und typensichere KI-gestützte Lösungen zu erstellen.
+Das Microsoft Agent Framework Workflow bietet eine robuste und flexible Basis für die Orchestrierung komplexer Multi-Agent-Systeme. Durch die Nutzung der graphbasierten Architektur und Kernkomponenten können Entwickler anspruchsvolle Workflows sowohl in Python als auch in .NET gestalten und implementieren. Egal, ob Ihre Anwendung einfache sequenzielle Verarbeitung, parallele Ausführung oder dynamische bedingte Logik benötigt, das Framework bietet die Werkzeuge, um leistungsstarke, skalierbare und typsichere KI-gestützte Lösungen zu erstellen.
 
 ---
 
-**Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Haftungsausschluss**:
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache gilt als maßgebliche Quelle. Bei kritischen Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

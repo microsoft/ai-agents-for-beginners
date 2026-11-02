@@ -1,99 +1,99 @@
 ---
 name: microsoft-docs
-description: आधिकारिक Microsoft दस्तावेजहरूमा सोधपुछ गरेर Azure, .NET, Agent Framework,
-  Aspire, VS Code, GitHub र अन्य थुप्रै क्षेत्रमा लाग्ने अवधारणाहरू, ट्युटोरियलहरू
-  र कोड उदाहरणहरू फेला पार्नुहोस्। डिफल्ट रूपमा Microsoft Learn MCP प्रयोग गरिन्छ,
-  र learn.microsoft.com बाहिर रहेका सामग्रीका लागि Context7 र Aspire MCP प्रयोग गरिन्छ।
+description: आधिकारिक Microsoft कागजातहरूमा खोजी गर्नुहोस् ताकि Azure, .NET, Agent
+  Framework, Aspire, VS Code, GitHub, र थप कुराहरू सम्बन्धित अवधारणा, ट्यूटोरियलहरू,
+  र कोड उदाहरणहरू फेला पार्न सकियोस्। डिफल्ट रूपमा Microsoft Learn MCP प्रयोग गर्दछ,
+  साथै learn.microsoft.com बाहिरको सामग्रीको लागि Context7 र Aspire MCP प्रयोग गर्छ।
 ---
-# Microsoft Docs
+# माइक्रोसफ्ट डोक्स
 
-Microsoft प्रविधि इकोसिस्टमका लागि अनुसन्धान सिप। learn.microsoft.com र त्यसबाहिर बस्ने दस्तावेजहरू (VS Code, GitHub, Aspire, Agent Framework रिपोजिटरीहरू) समेट्छ।
+माइक्रोसफ्ट प्रविधि इकोसिस्टमका लागि अनुसन्धान कौशल। learn.microsoft.com र त्यस भन्दा बाहिरको डोकुमेन्टेसन (VS Code, GitHub, Aspire, Agent Framework रेकपोहरू) समेट्छ।
 
 ---
 
-## पूर्वनिर्धारित: Microsoft Learn MCP
+## पूर्वनिर्धारित: माइक्रोसफ्ट लर्न MCP
 
-यी उपकरणहरू प्रयोग गर्नुहोस् **learn.microsoft.com मा भएका सबै चीजहरूको** लागि — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows, र थप। यो Microsoft दस्तावेज क्वेरीहरूको ठूलो भागका लागि प्राथमिक उपकरण हो।
+यी उपकरणहरू प्रयोग गर्नुहोस् **learn.microsoft.com मा सबै कुराको लागि** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows, र थप। यो Microsoft डोकुमेन्टेसन प्रश्नहरूको विशाल बहुमतका लागि मुख्य उपकरण हो।
 
 | उपकरण | उद्देश्य |
 |------|---------|
-| `microsoft_docs_search` | Search learn.microsoft.com — अवधारणाहरू, गाइडहरू, ट्युटोरियलहरू, कन्फिगरेसन |
-| `microsoft_code_sample_search` | Learn डक्‍सबाट काम गर्ने कोड स्निपेटहरू फेला पार्नुहोस्। सर्वश्रेष्ठ नतिजाका लागि `language` (`python`, `csharp`, आदि) पास गर्नुहोस् |
-| `microsoft_docs_fetch` | विशेष URL बाट पूर्ण पृष्ठ सामग्री प्राप्त गर्नुहोस् (जब खोज अंशहरू पर्याप्त हुँदैन) |
+| `microsoft_docs_search` | learn.microsoft.com खोज्नुहोस् — अवधारणाहरू, मार्गदर्शनहरू, ट्युटोरियलहरू, कन्फिगरेसन |
+| `microsoft_code_sample_search` | लर्न डकुमेन्ट्सबाट कार्यरत कोड उदाहरणहरू पत्ता लगाउनुहोस्। सबैभन्दा राम्रो नतिजा लागि `language` (`python`, `csharp`, आदि) प्रदान गर्नुहोस् |
+| `microsoft_docs_fetch` | विशेष URL बाट पूर्ण पृष्ठ सामग्री पाउनुहोस् (जब खोज अंशहरू पर्याप्त नभए) |
 
-पूरा ट्युटोरियल, सबै कन्फिग विकल्पहरू, वा जब खोज अंशहरू काटिएका हुन्छन् त्यतिबेला खोजपछि `microsoft_docs_fetch` प्रयोग गर्नुहोस्।
+खोज पछि `microsoft_docs_fetch` प्रयोग गर्नुहोस् जब तपाईंलाई पूर्ण ट्युटोरियलहरू, सबै कन्फिग विकल्पहरू आवश्यक पर्दछन्, वा जब खोज अंशहरू छोट्याइएका हुन्छन्।
 
 ---
 
 ## अपवादहरू: अन्य उपकरणहरू कहिले प्रयोग गर्ने
 
-तलका वर्गहरू **learn.microsoft.com भन्दा बाहिर** बस्छन्। साटोमा निर्दिष्ट उपकरण प्रयोग गर्नुहोस्।
+तलका वर्गीकरणहरू **learn.microsoft.com बाहिर** छन्। निर्दिष्ट उपकरणहरू प्रयोग गर्नुहोस्।
 
-### .NET Aspire — Aspire MCP Server (सिफारिश गरिएको) वा Context7 प्रयोग गर्नुहोस्
+### Aspire — Aspire MCP सर्भर (प्राथमिक) वा Context7 प्रयोग गर्नुहोस्
 
-Aspire दस्तावेजहरू **aspire.dev** मा बस्छन्, Learn मा होइन। उत्कृष्ट उपकरण तपाईंको Aspire CLI संस्करणमा निर्भर गर्दछ:
+Aspire डोक्सहरू **aspire.dev** मा हुन्छन्, Learn मा होइन। उत्तम उपकरण तपाईंको Aspire CLI संस्करणमा निर्भर गर्दछ:
 
-**CLI 13.2+** (सिफारिश) — Aspire MCP सर्वरमा बिल्ट-इन डक्‍स खोज उपकरणहरू समावेश छन्:
+**CLI 13.2+** (सिफारिस गरिएको) — Aspire MCP सर्भरमा निर्मित डोक्स खोज उपकरणहरू छन्:
 
-| MCP Tool | विवरण |
+| MCP उपकरण | विवरण |
 |----------|-------------|
-| `list_docs` | aspire.dev बाट उपलब्ध सबै दस्तावेज सूचीबद्ध गर्दछ |
-| `search_docs` | aspire.dev सामग्रीमा भारित लेक्सिकल खोज |
-| `get_doc` | एक विशिष्ट कागजात slug द्वारा प्राप्त गर्दछ |
+| `list_docs` | aspire.dev बाट सबै उपलब्ध डोकुमेन्टेसन सूचीबद्ध गर्दछ |
+| `search_docs` | aspire.dev सामग्रीमा भारी शब्द खोज |
+| `get_doc` | स्लग द्वारा विशेष कागजात प्राप्त गर्दछ |
 
-यी Aspire CLI 13.2 मा समावेश छन् ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). अपडेट गर्न: `aspire update --self --channel daily`. सन्दर्भ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+यी Aspire CLI 13.2 मा सामेल छन् ([PR #14028](https://github.com/microsoft/aspire/pull/14028))। अपडेट गर्न: `aspire update --self --channel daily` प्रयोग गर्नुहोस्।
 
-**CLI 13.1** — MCP सर्वरले integration lookup (`list_integrations`, `get_integration_docs`) प्रदान गर्छ तर **not** docs search। Context7 मा फर्किनुहोस्:
+**CLI 13.1** — MCP सर्भर इंटिग्रेशन लुकअप (`list_integrations`, `get_integration_docs`) दिन्छ तर डोक्स खोज **दिंदैन**। Context7 मा फर्कनुहोस्:
 
-| Library ID | Use for |
+| लाइब्रेरी ID | प्रयोग गर्ने उद्देश्य |
 |---|---|
-| `/microsoft/aspire.dev` | Primary — guides, integrations, CLI reference, deployment |
-| `/dotnet/aspire` | Runtime source — API internals, implementation details |
-| `/communitytoolkit/aspire` | Community integrations — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | मुख्य — मार्गदर्शनहरू, इंटिग्रेशनहरू, CLI संदर्भ, डिप्लोयमेन्ट |
+| `/microsoft/aspire` | रनटाइम स्रोत — API भित्री कुरा, कार्यान्वयन विवरणहरू |
+| `/communitytoolkit/aspire` | समुदाय इंटिग्रेशनहरू — Go, Java, Node.js, Ollama |
 
 ### VS Code — Context7 प्रयोग गर्नुहोस्
 
-VS Code दस्तावेजहरू **code.visualstudio.com** मा बस्छन्, Learn मा होइन।
+VS Code डोक्सहरू **code.visualstudio.com** मा छन्, Learn मा होइन।
 
-| Library ID | Use for |
+| लाइब्रेरी ID | प्रयोग गर्ने उद्देश्य |
 |---|---|
-| `/websites/code_visualstudio` | User docs — settings, features, debugging, remote dev |
-| `/websites/code_visualstudio_api` | Extension API — webviews, TreeViews, commands, contribution points |
+| `/websites/code_visualstudio` | प्रयोगकर्ता डोक्स — सेटिङहरू, सुविधाहरू, डिबगिङ, रिमोट विकास |
+| `/websites/code_visualstudio_api` | एक्सटेन्सन API — वेबव्यूहरू, ट्रीभ्यूहरू, कमाण्डहरू, योगदान बिन्दुहरू |
 
 ### GitHub — Context7 प्रयोग गर्नुहोस्
 
-GitHub दस्तावेजहरू **docs.github.com** र **cli.github.com** मा बस्छन्।
+GitHub डोक्सहरू **docs.github.com** र **cli.github.com** मा छन्।
 
-| Library ID | Use for |
+| लाइब्रेरी ID | प्रयोग गर्ने उद्देश्य |
 |---|---|
-| `/websites/github_en` | Actions, API, रिपोजिटरीहरू, सुरक्षा, प्रशासन, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) commands and flags |
+| `/websites/github_en` | एक्टन्स, API, रिपोज, सुरक्षा, प्रशासक, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) कमाण्ड र फ्ल्यागहरू |
 
 ### Agent Framework — Learn MCP + Context7 प्रयोग गर्नुहोस्
 
-Agent Framework ट्युटोरियलहरू learn.microsoft.com मा छन् ( `microsoft_docs_search` प्रयोग गर्नुहोस्), तर **GitHub रिपो** मा API-स्तरीय विवरण हुन्छ जुन प्राय: प्रकाशित डकुमेन्टहरू भन्दा अगाडि हुन्छ — विशेष गरी DevUI REST API सन्दर्भ, CLI विकल्पहरू, र .NET एकीकरण।
+Agent Framework ट्युटोरियलहरू learn.microsoft.com मा छन् (`microsoft_docs_search` प्रयोग गर्नुहोस्), तर GitHub रेकपोमा API-स्तरको विवरण हुन्छ जुन प्रायः प्रकाशित डोक्सभन्दा अघि हुन्छ — विशेष गरी DevUI REST API सन्दर्भ, CLI विकल्पहरू, र .NET इंटिग्रेशन।
 
-| Library ID | Use for |
+| लाइब्रेरी ID | उपयोगका लागि |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Tutorials — DevUI guides, tracing, workflow orchestration |
-| `/microsoft/agent-framework` | API detail — DevUI REST endpoints, CLI flags, auth, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | ट्युटोरियलहरू — DevUI मार्गदर्शनहरू, ट्रेसिङ, वर्कफ्लो अोरकेस्ट्रेशन |
+| `/microsoft/agent-framework` | API विवरण — DevUI REST endpoints, CLI फ्ल्यागहरू, प्रमाणीकरण, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI सुझाव:** कसरी-गर्न गाइडहरूको लागि Learn वेबसाइट स्रोत सोध्नुहोस्, त्यसपछि API-स्तरीय विशिष्टताहरू (endpoint schemas, proxy config, auth tokens) का लागि रिपो स्रोत हेर्नुहोस्।
+**DevUI सुझाव:** Learn वेबसाइट स्रोतबाट हाउ-टु गाइडहरूको लागि खोज गर्नुहोस्, त्यसपछि API-स्तर विशिष्टताका लागि रेकपो स्रोत (एन्डपोइन्ट स्किमाहरू, प्रोक्सी कन्फिग, प्रमाणीकरण टोकनहरू) खोज्नुहोस्।
 
 ---
 
 ## Context7 सेटअप
 
-कुनै पनि Context7 क्वेरीको लागि, पहिले library ID समाधान गर्नुहोस् (प्रति सत्र एक पटक):
+कुनै पनि Context7 क्वेरीको लागि, पहिले लाइब्रेरी ID निर्णय गर्नुहोस् (प्रत्येक सत्रका लागि एकपटक मात्र):
 
-1. प्रविधि नामसँग `mcp_context7_resolve-library-id` कल गर्नुहोस्
-2. फर्किएको library ID र एउटा विशिष्ट क्वेरीसँग `mcp_context7_query-docs` कल गर्नुहोस्
+1. प्राविधिक नामसँग `mcp_context7_resolve-library-id` कल गर्नुहोस्
+2. फिर्ता गरिएको लाइब्रेरी ID र विशेष क्वेरीसँग `mcp_context7_query-docs` कल गर्नुहोस्
 
 ---
 
 ## प्रभावकारी क्वेरी लेख्ने तरिका
 
-विशिष्ट हुनुहोस् — संस्करण, उद्देश्य, र भाषा समावेश गर्नुहोस्:
+स्पष्ट हुनुहोस् — संस्करण, उद्देश्य, र भाषा समावेश गर्नुहोस्:
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ Agent Framework ट्युटोरियलहरू learn.microsoft.com म�
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **संस्करण** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+सन्दर्भ समावेश गर्नुहोस्:
+- **सही अवस्थाको संस्करण** (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
 - **कार्य उद्देश्य** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **भाषा** for polyglot docs (`Python`, `TypeScript`, `C#`)
+- **भाषा** बहुभाषिक डकुमेन्टहरूका लागि (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-अस्वीकरण:
-यो दस्तावेज AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) प्रयोग गरेर अनुवाद गरिएको हो। हामी सटीकताको प्रयास गर्छौं, तर कृपया ध्यान दिनुहोस् कि स्वचालित अनुवादमा त्रुटि वा अशुद्धि हुन सक्छ। मूल दस्तावेजलाई यसको मूल भाषामा नै अधिकारिक स्रोत मानिनु पर्छ। महत्वपूर्ण जानकारीको लागि पेशेवर मानव अनुवाद सिफारिश गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न हुने कुनै पनि गलतफहमी वा दुरव्याख्याका लागि हामी उत्तरदायी छैनौं।
+**अस्वीकरण**:
+यो दस्तावेज़ AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) प्रयोग गरेर अनुवाद गरिएको हो। हामी सही हुन प्रयास गर्छौं, तर कृपया जानकार हुनुस् कि स्वचालित अनुवादमा त्रुटिहरू वा अशुद्धताहरू हुन सक्छन्। मूल दस्तावेज़ यसको मूल भाषामा आधिकारिक स्रोत मानिनुपर्छ। महत्वपूर्ण जानकारीका लागि व्यावसायिक मानव अनुवाद सिफारिस गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न कुनै पनि गलत बुझाइ वा त्रुटिको लागि हामी जिम्मेवार छैनौं।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

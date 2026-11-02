@@ -1,146 +1,144 @@
-[![Как проектировать хороших агентов ИИ](../../../translated_images/ru/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Как проектировать хорошие AI-агенты](../../../translated_images/ru/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 
-# Паттерн использования инструментов
+# Паттерн дизайна использования инструментов
 
-Инструменты интересны тем, что они позволяют агентам ИИ обладать более широким набором возможностей. Вместо того, чтобы агент имел ограниченный набор действий, которые он может выполнять, добавляя инструмент, агент теперь может выполнять широкий спектр действий. В этой главе мы рассмотрим паттерн использования инструментов, который описывает, как агенты ИИ могут использовать конкретные инструменты для достижения своих целей.
+Инструменты интересны тем, что они позволяют AI-агентам иметь более широкий спектр возможностей. Вместо того чтобы агент имел ограниченный набор действий, добавляя инструмент, агент теперь может выполнять широкий спектр действий. В этой главе мы рассмотрим паттерн дизайна использования инструментов, который описывает, как AI-агенты могут использовать конкретные инструменты для достижения своих целей.
 
 ## Введение
 
-В этом уроке мы постараемся ответить на следующие вопросы:
+В этом уроке мы хотим ответить на следующие вопросы:
 
-- Что такое паттерн использования инструментов?
-- Для каких сценариев его можно применить?
-- Какие элементы/строительные блоки необходимы для реализации паттерна?
-- Какие специальные соображения существуют при использовании паттерна использования инструментов для создания заслуживающих доверия агентов ИИ?
+- Что такое паттерн дизайна использования инструментов?
+- К каким случаям применения он подходит?
+- Какие элементы/строительные блоки необходимы для реализации паттерна дизайна?
+- Какие особые соображения при использовании паттерна дизайна использования инструментов для создания надежных AI-агентов?
 
 ## Цели обучения
 
-После завершения этого урока вы сможете:
+После прохождения этого урока вы сможете:
 
-- Определить паттерн использования инструментов и его назначение.
-- Определить случаи использования, где применим паттерн использования инструментов.
+- Определить паттерн дизайна использования инструментов и его назначение.
+- Выявить случаи применения, где паттерн дизайна использования инструментов уместен.
 - Понять ключевые элементы, необходимые для реализации паттерна.
-- Распознать аспекты обеспечения надежности агентов ИИ, использующих этот паттерн.
+- Осознать соображения для обеспечения надежности AI-агентов, использующих этот паттерн дизайна.
 
-## Что такое паттерн использования инструментов?
+## Что такое паттерн дизайна использования инструментов?
 
-Паттерн использования инструментов делает акцент на предоставлении LLM возможности взаимодействовать с внешними инструментами для достижения конкретных целей. Инструменты — это код, который агент может выполнить для выполнения действий. Инструментом может быть простая функция, такая как калькулятор, или вызов API к стороннему сервису, например, получение цены акций или прогноза погоды. В контексте агентов ИИ инструменты разработаны для выполнения агентами в ответ на **сгенерированные моделью вызовы функций**.
+**Паттерн дизайна использования инструментов** сосредоточен на предоставлении LLM возможностей взаимодействовать с внешними инструментами для достижения конкретных целей. Инструменты — это код, который агент может выполнять для выполнения действий. Инструментом может быть простая функция, например калькулятор, или вызов API стороннего сервиса, такого как поиск цен акций или прогноз погоды. В контексте AI-агентов инструменты разработаны для выполнения агентами в ответ на **вызовы функций, сгенерированные моделью**.
 
-## Для каких сценариев его можно применить?
+## К каким случаям его можно применять?
 
-Агенты ИИ могут использовать инструменты для выполнения сложных задач, получения информации или принятия решений. Паттерн использования инструментов часто применяется в сценариях, требующих динамического взаимодействия с внешними системами, такими как базы данных, веб-сервисы или интерпретаторы кода. Эта возможность полезна для ряда различных случаев использования, включая:
+AI-агенты могут использовать инструменты для выполнения сложных задач, получения информации или принятия решений. Паттерн дизайна использования инструментов часто применяется в сценариях, требующих динамического взаимодействия с внешними системами, такими как базы данных, веб-сервисы или интерпретаторы кода. Эта возможность полезна для различных случаев использования, включая:
 
-- **Динамический сбор информации:** агенты могут запрашивать внешние API или базы данных, чтобы получить актуальные данные (например, запрос к базе данных SQLite для анализа данных, получение цен на акции или информации о погоде).
-- **Выполнение и интерпретация кода:** агенты могут выполнять код или скрипты для решения математических задач, генерации отчетов или проведения симуляций.
-- **Автоматизация рабочих процессов:** автоматизация повторяющихся или многошаговых процессов путем интеграции инструментов, таких как планировщики задач, службы электронной почты или конвейеры данных.
-- **Поддержка клиентов:** агенты могут взаимодействовать с CRM-системами, платформами тикетов или базами знаний для разрешения пользовательских запросов.
-- **Создание и редактирование контента:** агенты могут использовать инструменты, такие как проверка грамматики, суммаризация текста или оценщики безопасности контента, чтобы помогать в задачах создания контента.
+- **Динамическое получение информации:** агенты могут запрашивать внешние API или базы данных для получения актуальных данных (например, запросы к базе данных SQLite для анализа данных, получение цен на акции или информации о погоде).
+- **Выполнение и интерпретация кода:** агенты могут запускать код или скрипты для решения математических задач, генерации отчетов или проведения симуляций.
+- **Автоматизация рабочих процессов:** автоматизация повторяющихся или многошаговых рабочих процессов с помощью интеграции инструментов, таких как планировщики задач, почтовые сервисы или конвейеры данных.
+- **Поддержка клиентов:** агенты могут взаимодействовать с CRM-системами, платформами тикетов или базами знаний для решения запросов пользователей.
+- **Генерация и редактирование контента:** агенты могут использовать инструменты, такие как проверка грамматики, резюмирование текста или оценка безопасности контента для помощи в создании контента.
 
 ## Какие элементы/строительные блоки необходимы для реализации паттерна использования инструментов?
 
-Эти строительные блоки позволяют агенту ИИ выполнять широкий круг задач. Рассмотрим ключевые элементы, необходимые для реализации паттерна использования инструментов:
+Эти строительные блоки позволяют AI-агенту выполнять широкий спектр задач. Рассмотрим ключевые элементы, необходимые для реализации паттерна дизайна использования инструментов:
 
-- **Схемы функций/инструментов:** подробные определения доступных инструментов, включая имя функции, назначение, обязательные параметры и ожидаемые результаты. Эти схемы позволяют LLM понять, какие инструменты доступны и как формировать корректные запросы.
+- **Схемы функций/инструментов**: подробные определения доступных инструментов, включая название функции, назначение, необходимые параметры и ожидаемые выходные данные. Эти схемы дают LLM понимание, какие инструменты доступны и как формировать корректные запросы.
 
-- **Логика выполнения функций:** управляет тем, как и когда инструменты вызываются на основе намерений пользователя и контекста разговора. Это может включать модули планирования, механизмы маршрутизации или условные потоки, которые динамически определяют использование инструментов.
+- **Логика выполнения функций**: управляет тем, как и когда вызываются инструменты на основе намерений пользователя и контекста беседы. Это может включать модули планировщика, механизмы маршрутизации или условные потоки, определяющие динамическое использование инструментов.
 
-- **Система обработки сообщений:** компоненты, которые управляют разговорным потоком между вводом пользователя, ответами LLM, вызовами инструментов и результатами инструментов.
+- **Система обработки сообщений**: компоненты, управляющие потоком беседы между вводом пользователя, ответами LLM, вызовами инструментов и их результатами.
 
-- **Фреймворк интеграции инструментов:** инфраструктура, которая подключает агента к различным инструментам, будь то простые функции или сложные внешние сервисы.
+- **Фреймворк интеграции инструментов**: инфраструктура, которая связывает агента с различными инструментами, будь то простые функции или сложные внешние сервисы.
 
-- **Обработка ошибок и валидация:** механизмы для обработки сбоев при выполнении инструментов, валидации параметров и управления неожиданными ответами.
+- **Обработка ошибок и валидация**: механизмы для обработки сбоев при выполнении инструментов, проверки параметров и управления непредвиденными ответами.
 
-- **Управление состоянием:** отслеживает контекст разговора, предыдущие взаимодействия с инструментами и постоянные данные, чтобы обеспечить согласованность в многошаговых взаимодействиях.
+- **Управление состоянием**: отслеживает контекст разговора, предыдущие взаимодействия с инструментами и постоянные данные для обеспечения согласованности в многоходовых взаимодействиях.
 
-Далее рассмотрим вызов функций/инструментов более подробно.
+Далее рассмотрим вызовы функций/инструментов подробнее.
  
 ### Вызов функций/инструментов
 
-Вызов функций — это основной способ, с помощью которого мы даем возможность крупным языковым моделям (LLM) взаимодействовать с инструментами. Вы часто увидите, что «Function» и «Tool» используются взаимозаменяемо, потому что «functions» (блоки повторно используемого кода) — это «инструменты», которые агенты используют для выполнения задач. Чтобы код функции был вызван, LLM должен сопоставить запрос пользователя с описанием функций. Для этого схема, содержащая описания всех доступных функций, отправляется в LLM. Затем LLM выбирает наиболее подходящую функцию для задачи и возвращает ее имя и аргументы. Выбранная функция вызывается, ее ответ отправляется обратно в LLM, который использует полученную информацию для ответа на запрос пользователя.
+Вызов функций — основной способ, позволяющий большим языковым моделям (LLM) взаимодействовать с инструментами. Вы часто увидите, что «функция» и «инструмент» используются взаимозаменяемо, поскольку «функции» (блоки переиспользуемого кода) — это «инструменты», которые агенты используют для выполнения задач. Чтобы код функции был вызван, LLM должен сопоставить запрос пользователя с описанием функции. Для этого схема с описаниями всех доступных функций отправляется LLM. Затем LLM выбирает наиболее подходящую функцию для задачи и возвращает её имя и аргументы. Выбранная функция вызывается, её ответ отправляется обратно LLM, который использует эту информацию для ответа на запрос пользователя.
 
-Чтобы разработчики реализовали вызов функций для агентов, потребуется:
+Чтобы разработчики могли реализовать вызовы функций для агентов, вам понадобятся:
 
-1. Модель LLM, которая поддерживает вызов функций
+1. Модель LLM, поддерживающая вызов функций
 2. Схема, содержащая описания функций
 3. Код для каждой описанной функции
 
-Рассмотрим пример получения текущего времени в городе:
+Приведем пример получения текущего времени в городе:
 
-1. **Инициализировать LLM, который поддерживает вызов функций:**
+1. **Инициализировать LLM, поддерживающий вызов функций:**
 
-    Не все модели поддерживают вызов функций, поэтому важно проверить, что используемая вами LLM это поддерживает.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> поддерживает вызов функций. Мы можем начать с инициализации клиента Azure OpenAI. 
+    Не все модели поддерживают вызов функций, поэтому важно проверить, что выбранная вами LLM это делает.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> поддерживает вызов функций. Мы можем начать с инициализации OpenAI клиента через Azure OpenAI **Responses API** (стабильная конечная точка `/openai/v1/` — без необходимости `api_version`). 
 
     ```python
-    # Инициализировать клиента Azure OpenAI
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
 1. **Создать схему функции**:
 
-    Далее мы определим JSON-схему, которая содержит имя функции, описание того, что функция делает, и имена и описания параметров функции.
-    Затем мы передадим эту схему клиенту, созданному ранее, вместе с запросом пользователя о времени в Сан-Франциско. Важно отметить, что **возвращается вызов инструмента**, **а не** окончательный ответ на вопрос. Как упоминалось ранее, LLM возвращает имя функции, выбранной для задачи, и аргументы, которые будут ей переданы.
+    Далее мы определим JSON-схему, содержащую имя функции, описание того, что она делает, и имена с описаниями параметров функции.
+    Затем мы передадим эту схему клиенту, созданному ранее, вместе с запросом пользователя на получение времени в Сан-Франциско. Важно отметить, что результатом является **вызов инструмента**, **а не** окончательный ответ на вопрос. Как упоминалось ранее, LLM возвращает имя выбранной функции и аргументы, которые будут переданы ей.
 
     ```python
-    # Описание функции для чтения моделью
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # Исходное сообщение пользователя
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # Первый вызов API: Попросить модель использовать функцию
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Обработать ответ модели
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
 1. **Код функции, необходимый для выполнения задачи:**
 
-    Теперь, когда LLM выбрала, какая функция должна быть запущена, необходимо реализовать и выполнить код, выполняющий задачу.
-    Мы можем реализовать код для получения текущего времени на Python. Нам также потребуется написать код для извлечения имени и аргументов из response_message, чтобы получить окончательный результат.
+    Теперь, когда LLM выбрала, какую функцию нужно выполнить, необходимо реализовать и запустить код, выполняющий задачу.
+    Мы можем реализовать код для получения текущего времени на Python. Также потребуется написать код для извлечения имени функции и аргументов из response_message, чтобы получить конечный результат.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@
     ```
 
      ```python
-     # Обрабатывать вызовы функций
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Второй запрос к API: получить окончательный ответ от модели
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@
       The current time in San Francisco is 09:24 AM.
      ```
 
-Вызов функций лежит в основе большинства, если не всех, стратегий использования инструментов в дизайне агентов, однако реализация этого с нуля иногда может быть сложной.
-Как мы узнали в [Lesson 2](../../../02-explore-agentic-frameworks) агентные фреймворки предоставляют нам готовые строительные блоки для реализации использования инструментов.
+Вызов функций лежит в основе большинства, если не всех, паттернов использования инструментов в дизайне агентов, однако реализовать его с нуля иногда бывает непросто.
+Как мы узнали в [Уроке 2](../../../02-explore-agentic-frameworks), агентские фреймворки предоставляют готовые строительные блоки для реализации использования инструментов.
  
-## Примеры использования инструментов с агентными фреймворками
+## Примеры использования инструментов с агентскими фреймворками
 
-Ниже приведены примеры того, как вы можете реализовать паттерн использования инструментов с помощью разных агентных фреймворков:
+Вот несколько примеров того, как можно реализовать паттерн дизайна использования инструментов с помощью различных агентских фреймворков:
 
-### Semantic Kernel
+### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> — это фреймворк с открытым исходным кодом для разработчиков на .NET, Python и Java, работающих с крупными языковыми моделями (LLM). Он упрощает процесс использования вызова функций, автоматически описывая ваши функции и их параметры модели через процесс, называемый <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">сериализацией</a>. Он также обрабатывает двустороннюю коммуникацию между моделью и вашим кодом. Еще одним преимуществом использования агентного фреймворка, такого как Semantic Kernel, является то, что он позволяет получить доступ к готовым инструментам, таким как <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> и <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> — это открытый фреймворк для создания AI-агентов. Он упрощает процесс использования вызова функций, позволяя определять инструменты как Python-функции с декоратором `@tool`. Фреймворк обрабатывает двустороннее взаимодействие между моделью и вашим кодом. Он также предоставляет доступ к готовым инструментам, таким как поиск файлов и интерпретатор кода через `FoundryChatClient`.
 
-Следующая диаграмма иллюстрирует процесс вызова функций с Semantic Kernel:
+Следующая диаграмма иллюстрирует процесс вызова функций с Microsoft Agent Framework:
 
-![вызов функции](../../../translated_images/ru/functioncalling-diagram.a84006fc287f6014.webp)
+![вызов функций](../../../translated_images/ru/functioncalling-diagram.a84006fc287f6014.webp)
 
-В Semantic Kernel функции/инструменты называются <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Мы можем преобразовать функцию `get_current_time`, которую видели ранее, в плагин, превратив её в класс с этой функцией внутри. Мы также можем импортировать декоратор `kernel_function`, который принимает описание функции. Когда вы затем создаете kernel с GetCurrentTimePlugin, kernel автоматически сериализует функцию и её параметры, создавая схему для отправки в LLM в процессе.
+В Microsoft Agent Framework инструменты определяются как декорированные функции. Мы можем преобразовать функцию `get_current_time`, виденную ранее, в инструмент, используя декоратор `@tool`. Фреймворк автоматически сериализует функцию и её параметры, создавая схему для отправки LLM.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### Инструменты с MCP сервера
+
+Инструменты не обязательно должны быть функциями в вашем собственном коде. Сервер, поддерживающий протокол Model Context Protocol (MCP, рассмотренный в [Уроке 11](../11-agentic-protocols/README.md)), публикует свои инструменты вместе с их схемами, и фреймворк может загружать их так же, как сериализует декорированную функцию. `MCPStreamableHTTPTool` подключается к такому серверу через HTTP, читает схемы инструментов и предлагает их модели вместе с любыми локальными инструментами.
+
+Пример ниже использует сервер веб-поиска, размещённый <a href="https://keenable.ai" target="_blank">Keenable</a>. Он бесплатен и не требует аккаунта или ключа API (запросы ограничены по скорости на IP), поэтому единственные учетные данные — это данные вашей модели. Как и с любым удалённым инструментом, запросы, которые пишет модель, отправляются на этот сервер.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# Создать ядро
-kernel = Kernel()
-
-# Создать плагин
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# Добавить плагин в ядро
-kernel.add_plugin(get_current_time_plugin)
-```
+Сервер публикует два инструмента, `search_web_pages` и `fetch_page_content`. Когда требуется актуальная информация, модель вызывает `search_web_pages`, получает заголовки, URL и текстовые фрагменты, и формирует ответ из них, по тому же циклу, что и в примере `get_current_time` выше.
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> — это более новый агентный фреймворк, разработанный для того, чтобы дать разработчикам возможность безопасно создавать, развертывать и масштабировать качественных и расширяемых агентов ИИ без необходимости управлять базовыми вычислительными и хранилищными ресурсами. Он особенно полезен для корпоративных приложений, поскольку является полностью управляемым сервисом с корпоративным уровнем безопасности.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> — более новый агентский фреймворк, разработанный для того, чтобы позволить разработчикам безопасно создавать, развертывать и масштабировать высококачественных и расширяемых AI-агентов без необходимости управлять вычислительными и хранилищными ресурсами. Особенно полезен для корпоративных приложений, так как является полностью управляемым сервисом с корпоративным уровнем безопасности.
 
-По сравнению с разработкой с использованием LLM API напрямую, Azure AI Agent Service предоставляет некоторые преимущества, в том числе:
+По сравнению с разработкой напрямую через LLM API Microsoft Foundry Agent Service предоставляет такие преимущества, как:
 
-- Автоматический вызов инструментов — нет необходимости анализировать вызов инструмента, вызывать инструмент и обрабатывать ответ; все это теперь выполняется на стороне сервера
-- Безопасно управляемые данные — вместо управления собственным состоянием разговора вы можете полагаться на threads для хранения всей необходимой информации
-- Инструменты из коробки — инструменты, которые можно использовать для взаимодействия с вашими источниками данных, такие как Bing, Azure AI Search и Azure Functions.
+- Автоматический вызов инструментов — нет необходимости разбирать вызов инструмента, вызывать инструмент и обрабатывать ответ; всё это теперь делается на стороне сервера
+- Безопасно управляемые данные — вместо управления собственным состоянием беседы можно использовать потоки, чтобы хранить всю необходимую информацию
+- Инструменты «из коробки» — инструменты, которые позволяют взаимодействовать с вашими источниками данных, такими как Bing, Azure AI Search и Azure Functions.
 
-Инструменты, доступные в Azure AI Agent Service, можно разделить на две категории:
+Инструменты, доступные в Microsoft Foundry Agent Service, можно разделить на две категории:
 
 1. Инструменты знаний:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Поддержка через Bing Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Поиск файлов</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. Инструменты действий:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Function Calling</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI defined tools</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Вызов функций</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Интерпретатор кода</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Инструменты, определённые OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service позволяет нам использовать эти инструменты вместе как `toolset`. Он также использует `threads`, которые отслеживают историю сообщений конкретного разговора.
+Сервис агента позволяет нам использовать эти инструменты вместе как `toolset`. Он также использует `threads`, которые отслеживают историю сообщений конкретного разговора.
 
-Представьте, что вы торговый представитель в компании под названием Contoso. Вы хотите разработать разговорного агента, который может отвечать на вопросы о ваших данных о продажах.
+Представьте, что вы торговый агент в компании Contoso. Вы хотите разработать разговорного агента, который сможет отвечать на вопросы о ваших данных продаж.
 
-Следующее изображение иллюстрирует, как можно использовать Azure AI Agent Service для анализа данных о продажах:
+Следующее изображение иллюстрирует, как можно использовать Microsoft Foundry Agent Service для анализа данных о продажах:
 
-![Agentic Service In Action](../../../translated_images/ru/agent-service-in-action.34fb465c9a84659e.webp)
+![Работа агентского сервиса](../../../translated_images/ru/agent-service-in-action.34fb465c9a84659e.webp)
 
-Чтобы использовать любой из этих инструментов с сервисом, мы можем создать клиент и определить инструмент или набор инструментов. Для практической реализации мы можем использовать следующий код на Python. LLM сможет просмотреть toolset и решить, использовать ли пользовательскую функцию `fetch_sales_data_using_sqlite_query` или предустановленный Code Interpreter в зависимости от запроса пользователя.
+Чтобы использовать любой из этих инструментов с сервисом, мы можем создать клиент и определить инструмент или набор инструментов. Для практической реализации можно использовать следующий код на Python. LLM сможет просмотреть набор инструментов и решить, использовать ли пользовательскую функцию `fetch_sales_data_using_sqlite_query` или предустановленный Интерпретатор кода в зависимости от запроса пользователя.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # Функция fetch_sales_data_using_sqlite_query, которую можно найти в файле fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,44 +310,46 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Инициализировать набор инструментов
+# Initialize toolset
 toolset = ToolSet()
 
-# Инициализировать агент вызова функций с функцией fetch_sales_data_using_sqlite_query и добавить его в набор инструментов
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Инициализировать инструмент Code Interpreter и добавить его в набор инструментов.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## Какие специальные соображения существуют при использовании паттерна использования инструментов для создания заслуживающих доверия агентов ИИ?
+## Какие особые соображения при использовании паттерна дизайна использования инструментов для создания надежных AI-агентов?
 
-Распространенная проблема с динамически генерируемым SQL от LLM — это безопасность, в частности риск SQL-инъекций или злонамеренных действий, таких как удаление или искажение базы данных. Хотя эти опасения обоснованы, их можно эффективно смягчить путем правильной настройки прав доступа к базе данных. Для большинства баз данных это включает настройку базы данных в режиме только для чтения. Для сервисов баз данных, таких как PostgreSQL или Azure SQL, приложению следует назначить роль только для чтения (SELECT).
+Частая проблема с динамически генерируемым LLM SQL — это безопасность, особенно риск SQL-инъекции или злонамеренных действий, таких как удаление или повреждение базы данных. Хотя эти опасения обоснованы, их можно эффективно минимизировать, правильно настроив права доступа к базе данных. Для большинства баз данных это означает конфигурацию базы как доступной только для чтения. Для сервисов баз данных, таких как PostgreSQL или Azure SQL, приложению следует назначить роль только для чтения (SELECT).
 
-Запуск приложения в безопасной среде дополнительно повышает защиту. В корпоративных сценариях данные обычно извлекают и преобразуют из операционных систем в базу данных или хранилище данных только для чтения с удобной схемой. Этот подход обеспечивает безопасность данных, оптимизацию производительности и доступности, а также ограниченный доступ приложения в режиме только для чтения.
+Запуск приложения в защищённой среде дополнительно повышает уровень защиты. В корпоративных сценариях данные обычно извлекаются и преобразуются из оперативных систем в базу данных или хранилище данных с режимом только для чтения и удобной схемой. Такой подход гарантирует безопасность данных, оптимизацию производительности и доступность, а также ограниченный доступ приложения с возможностью только чтения.
 
 ## Примеры кода
-- Python: [Фреймворк агентов](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [Фреймворк агентов](./code_samples/04-dotnet-agent-framework.md)
 
-## Есть ещё вопросы о шаблонах проектирования использования инструментов?
+- Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-Присоединяйтесь к [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), чтобы встретиться с другими учащимися, посетить часы консультаций и получить ответы на ваши вопросы по AI Agents.
+## Есть вопросы о паттерне дизайна использования инструментов?
+
+Присоединяйтесь к [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), чтобы встретиться с другими обучающимися, посетить офисные часы и получить ответы на вопросы по AI-агентам.
 
 ## Дополнительные ресурсы
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Мастерская Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Мастерская Contoso Creative Writer с несколькими агентами</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Учебник по вызову функций Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Интерпретатор кода Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Инструменты Autogen</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Мастерская по Azure AI Agents Service</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Мастерская по созданию мультиагентных творческих систем Contoso</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Обзор фреймворка Microsoft Agent</a>
+
+## Тестирование агента (по желанию)
+
+После того как вы научитесь развертывать агентов в [Уроке 16](../16-deploying-scalable-agents/README.md), вы можете провести дымовое тестирование `TravelToolAgent` этого урока (вызывает ли он ещё свои инструменты и отвечает?) с помощью [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). См. [`tests/README.md`](../tests/README.md) для инструкций по запуску.
 
 ## Предыдущий урок
 
@@ -337,6 +362,6 @@ agent = project_client.agents.create_agent(
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Отказ от ответственности:
-Этот документ был переведён с помощью сервиса автоматического перевода на базе ИИ [Co-op Translator](https://github.com/Azure/co-op-translator). Хотя мы стремимся к точности, имейте в виду, что автоматические переводы могут содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для критически важной информации рекомендуется воспользоваться услугами профессионального переводчика. Мы не несем ответственности за любые недоразумения или искажения смысла, возникшие в результате использования данного перевода.
+**Отказ от ответственности**:
+Этот документ был переведен с использованием сервиса машинного перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия по обеспечению точности, имейте в виду, что автоматический перевод может содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется обратиться к профессиональному человеческому переводу. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования этого перевода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

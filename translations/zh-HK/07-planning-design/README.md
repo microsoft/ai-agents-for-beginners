@@ -1,55 +1,55 @@
-[![規劃設計模式](../../../translated_images/zh-HK/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/zh-HK/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(按上方圖片以觀看本課影片)_
+> _(點擊上方圖片觀看本課堂影片)_
 
 # 規劃設計
 
-## 簡介
+## 介紹
 
-本課將涵蓋
+本課程將涵蓋
 
-* 定義清晰的整體目標，並將複雜任務拆解為可管理的子任務。
-* 利用結構化輸出以獲得更可靠和機器可讀的回應。
-* 採用事件驅動的方法來處理動態任務和意外輸入。
+* 定義明確的整體目標並將複雜任務拆解為可管理的任務。
+* 利用結構化輸出以獲得更可靠且機器可讀的回應。
+* 採用事件驅動方式應對動態任務和意外輸入。
 
 ## 學習目標
 
-完成本課後，你將會了解：
+完成本課程後，你將了解：
 
-* 為 AI 代理識別並設定整體目標，確保其清楚知道需要達成什麼。
-* 將複雜任務分解為可管理的子任務，並按邏輯順序組織。
-* 為代理配備合適的工具（例如：搜尋工具或數據分析工具），決定何時及如何使用，並處理出現的意外情況。
-* 評估子任務結果、衡量表現，並反覆調整行動以改進最終輸出。
+* 識別並設定 AI 代理的整體目標，確保其清楚了解需要達成的事項。
+* 將複雜任務拆分為可管理的子任務並將其組織為合邏輯的順序。
+* 為代理配備適當的工具（如搜尋工具或數據分析工具），並決定其使用時機與方式，且應對意外狀況。
+* 評估子任務成果、衡量效能，並對行動進行迭代以提升最終輸出。
 
-## 定義整體目標並拆解任務
+## 定義整體目標與任務拆解
 
 ![定義目標與任務](../../../translated_images/zh-HK/defining-goals-tasks.d70439e19e37c47a.webp)
 
-大多數真實世界的任務過於複雜，無法一步完成。AI 代理需要一個簡潔的目標來指導其規劃與行動。例如，考慮目標：
+大多數現實任務過於複雜，無法一步完成。AI 代理需要一個簡明的目標來指導其規劃與行動。例如，考慮目標：
 
-    "生成一個 3 日旅遊行程。"
+    "產生一個三天的旅遊行程。"
 
-雖然陳述起來很簡單，但仍需要進一步細化。目標越清晰，代理（以及任何人類協作者）就越能專注於達成正確的結果，例如建立包含航班選項、酒店推薦及活動建議的完整行程。
+雖然敘述簡單，但仍需細化。目標越清晰，代理（及任何人類協作者）越能專注於達成正確成果，例如建立包含航班選項、住宿推薦和活動建議的完整行程。
 
 ### 任務拆解
 
-將大型或複雜任務拆分為較小、以目標為導向的子任務，可使任務更易管理。
+大型或複雜任務透過拆解為較小、以目標為導向的子任務，可以更易於管理。
 以旅遊行程為例，你可以將目標拆解為：
 
-* 機票預訂
+* 航班預訂
 * 酒店預訂
 * 租車
-* 個人化
+* 個人化需求
 
-每個子任務都可以由專責的代理或流程處理。一個代理可能專注於搜尋最划算的航班交易，另一個則專注於酒店預訂，依此類推。一個協調或「下游」代理可以將這些結果彙整成一個對最終使用者一致的行程。
+然後每個子任務可由專責代理或流程處理。有代理專注於搜尋最佳航班優惠，另一個負責酒店預訂，以此類推。一個協調或「下游」代理則整合這些結果，向最終使用者呈現一個完整行程。
 
-這種模組化的方法也允許逐步增強。例如，你可以新增專門提供餐飲推薦或本地活動建議的代理，並隨時間持續優化行程內容。
+此模組化方法也允許逐步增強。例如，你可以新增專門的代理負責美食推薦或本地活動建議，並隨時間調整行程。
 
 ### 結構化輸出
 
-大型語言模型（LLMs）能產生結構化輸出（例如 JSON），下游代理或服務更容易解析與處理。這在多代理情境中特別有用，當我們在接收到規劃輸出後可以據此執行這些任務。參考這篇 <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">文章</a> 以獲取快速概述。
+大型語言模型（LLMs）可產生結構化輸出（例如 JSON），下游代理或服務更易分析與處理。這在多代理場景中特別有用，我們可在取得規劃輸出後立即執行相關任務。
 
-以下 Python 範例展示一個簡單的規劃代理，將目標分解為子任務並產生結構化計劃：
+以下 Python 範例展示了一個簡單規劃代理將目標拆解為子任務並產生結構化計劃的流程：
 
 ```python
 from pydantic import BaseModel
@@ -59,103 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
-
-class AgentEnum(str, Enum):
-    FlightBooking = "flight_booking"
-    HotelBooking = "hotel_booking"
-    CarRental = "car_rental"
-    ActivitiesBooking = "activities_booking"
-    DestinationInfo = "destination_info"
-    DefaultAgent = "default_agent"
-    GroupChatManager = "group_chat_manager"
-
-# 旅遊子任務模型
-class TravelSubTask(BaseModel):
-    task_details: str
-    assigned_agent: AgentEnum  # 我們想把任務分配給代理人
-
-class TravelPlan(BaseModel):
-    main_task: str
-    subtasks: List[TravelSubTask]
-    is_greeting: bool
-
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # 要對模型進行驗證，你需要在 GitHub 設定中產生個人存取權杖 (PAT)。
-    # 按照以下說明建立你的 PAT 令牌： https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
-
-# 定義使用者訊息
-messages = [
-    SystemMessage(content="""You are an planner agent.
-    Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
-{'main_task': 'Plan a family trip from Singapore to Melbourne.',
- 'subtasks': [{'assigned_agent': 'flight_booking',
-               'task_details': 'Book round-trip flights from Singapore to '
-                               'Melbourne.'}
-    Below are the available agents specialised in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
-
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
-
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
-
-pprint(json.loads(response_content))
-
-# # 在載入前確保回應內容為有效的 JSON 字串
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Response content is not a valid JSON string")
-
-# # 在以 JSON 載入後印出回應內容
-# pprint(json.loads(response_content))
-
-# 使用 MathReasoning 模型驗證回應內容
-# TravelPlan.model_validate(json.loads(response_content))
-```
-
-### 具多代理協同的規劃代理
-
-在此範例中，一個語意路由代理（Semantic Router Agent）接收使用者請求（例如：「我需要一個旅行的酒店計劃。」）。
-
-規劃器接著會：
-
-* 接收酒店計劃：規劃器接收使用者訊息，並根據系統提示（包括可用代理的詳細資訊）產生結構化的旅遊計劃。
-* 列出代理及其工具：代理註冊表保存代理清單（例如：航班、酒店、租車和活動）以及它們提供的函數或工具。
-* 將計劃路由給相應代理：根據子任務數量，規劃器要麼直接將訊息發送給專門代理（單一任務情境），要麼透過群組聊天管理器協調多代理合作。
-* 總結結果：最後，規劃器會將產生的計劃進行總結以便說明。
-以下 Python 範例程式碼說明這些步驟：
-
-```python
-
-from pydantic import BaseModel
-
-from enum import Enum
-from typing import List, Optional, Union
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -167,10 +72,78 @@ class AgentEnum(str, Enum):
     GroupChatManager = "group_chat_manager"
 
 # 旅行子任務模型
+class TravelSubTask(BaseModel):
+    task_details: str
+    assigned_agent: AgentEnum  # 我們想將任務分配給代理
+
+class TravelPlan(BaseModel):
+    main_task: str
+    subtasks: List[TravelSubTask]
+    is_greeting: bool
+
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# 定義用戶信息
+system_prompt = """You are a planner agent.
+    Your job is to decide which agents to run based on the user's request.
+    Provide your response in JSON format with the following structure:
+{'main_task': 'Plan a family trip from Singapore to Melbourne.',
+ 'subtasks': [{'assigned_agent': 'flight_booking',
+               'task_details': 'Book round-trip flights from Singapore to '
+                               'Melbourne.'}
+    Below are the available agents specialised in different tasks:
+    - FlightBooking: For booking flights and providing flight information
+    - HotelBooking: For booking hotels and providing hotel information
+    - CarRental: For booking cars and providing car rental information
+    - ActivitiesBooking: For booking activities and providing activity information
+    - DestinationInfo: For providing information about destinations
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(input=user_message, instructions=system_prompt)
+
+response_content = response.output_text
+pprint(json.loads(response_content))
+```
+
+### 多代理協調的規劃代理
+
+在此範例中，語意路由代理接收使用者需求（例如「我需要一份旅遊酒店計劃。」）。
+
+規劃者接著：
+
+* 接收酒店計劃：規劃者根據系統提示（包含可用代理細節）生成結構化旅遊計劃。
+* 列出代理與其工具：代理註冊表包含代理清單（如航班、酒店、租車與活動）及其功能或工具。
+* 路由計劃給對應代理：依子任務數量，規劃者或直接發送訊息給專責代理（單任務情境），或透過群組聊天管理員協調多代理合作。
+* 彙整結果：最終，規劃者對產生計劃進行摘要說明以增進清晰度。
+以下 Python 範例程式碼示範這些步驟：
+
+```python
+
+from pydantic import BaseModel
+
+from enum import Enum
+from typing import List, Optional, Union
+
+class AgentEnum(str, Enum):
+    FlightBooking = "flight_booking"
+    HotelBooking = "hotel_booking"
+    CarRental = "car_rental"
+    ActivitiesBooking = "activities_booking"
+    DestinationInfo = "destination_info"
+    DefaultAgent = "default_agent"
+    GroupChatManager = "group_chat_manager"
+
+# 旅遊子任務模型
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # 我們想把任務指派給代理人
+    assigned_agent: AgentEnum # 我們想將任務分配給代理
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +153,22 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# 使用經過型別檢查的環境變數建立客戶端
+# 建立客戶端
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 from pprint import pprint
 
-# 定義使用者訊息
+# 定義用戶訊息
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +176,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# 在載入之前確保回應內容是有效的 JSON 字串
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# 在以 JSON 載入後印出回應內容
+# 在將回應內容載入為 JSON 後列印出來
 
 pprint(json.loads(response_content))
 ```
 
-接下來是先前程式碼的輸出，你可以使用這個結構化輸出來路由到 `assigned_agent` 並向最終使用者總結旅遊計劃。
+接下來是上一段程式的輸出，你可以使用此結構化輸出將任務分派給 `assigned_agent` 並向最終用戶總結旅遊計劃。
 
 ```json
 {
@@ -254,21 +220,23 @@ pprint(json.loads(response_content))
 }
 ```
 
-包含先前程式碼範例的示例 notebook 可在 [這裡](07-autogen.ipynb) 取得。
+先前程式範例的筆記本示例可於[此處](./code_samples/07-python-agent-framework.ipynb)取得。
 
 ### 迭代規劃
 
-有些任務需要來回反覆或重新規劃，其中一個子任務的結果會影響下一步。例如，若代理在訂航班時發現意外的資料格式，可能需要在繼續處理酒店預訂前調整策略。
+某些任務需要來回溝通或重新規劃，其中一個子任務結果會影響下一步。例如，代理在預訂航班時發現意外的資料格式，可能得先調整策略，才能繼續安排酒店預訂。
 
-此外，使用者反饋（例如人類決定偏好較早的班機）也會觸發部分重新規劃。這種動態、迭代的方法可確保最終解決方案與實際限制及不斷變化的使用者偏好一致。
+此外，使用者回饋（如有人決定偏好較早航班）也會觸發部分重新規劃。這種動態、迭代方法可確保最終方案符合現實限制與不斷變化的使用者偏好。
 
-e.g sample code
+例如範例程式碼
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. 與之前的程式相同，並傳遞用戶的歷史紀錄及當前計劃
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+#.. 同以前嘅代碼一樣，並傳遞用戶歷史、當前計劃
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,30 +244,35 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. 重新規劃並將任務發送給各自的代理
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. 重新計劃並將任務發送到相應嘅代理
 ```
 
-如需更全面的規劃，請參閱 Magnetic One 的 <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">文章</a>，以解決複雜任務。
+若需更全面的規劃，請參見 Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">部落格文章</a>，介紹其用於解決複雜任務的系統。
 
-## 總結
+## 小結
 
-在本文中，我們示範了如何建立一個能動態選擇定義好之可用代理的規劃器。規劃器的輸出會將任務拆解並指派給代理，以便執行。假設代理能存取執行任務所需的函數/工具。除了代理之外，你還可以加入其他模式，如反思（reflection）、總結器（summarizer）以及輪詢聊天（round robin chat）來進一步自訂流程。
+本文展示了如何創建一個能動態選擇已定義代理的規劃器。規劃器的輸出將任務拆解並分派給代理執行，前提是假設代理具備執行任務所需功能／工具。除代理外，你還能結合反思模式、摘要器和循環聊天等方式進一步自訂。
 
-## 其他資源
+## 附加資源
 
-AutoGen Magentic One - 一個通用的多代理系統，用於解決複雜任務，並在多個具有挑戰性的代理基準上取得令人印象深刻的成果。參考：<a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>。在此實作中，協調者會建立任務特定的計劃並將這些任務委派給可用的代理。除了規劃之外，協調者還採用追蹤機制來監控任務進度並在需要時重新規劃。
+Magnetic One - 一個通用多代理系統，用於解決複雜任務，在多個挑戰性代理基準測試中取得傑出成果。參考資料：<a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>。本實作的協調者會創建特定任務計劃並將任務委派給可用代理。此外，協調者還會採用追蹤機制監控任務進度並按需重新規劃。
 
-### 想進一步了解規劃設計模式嗎？
+### 對規劃設計模式有更多問題嗎？
 
-加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流、參加辦公時段，並獲得有關 AI 代理的問題解答。
+加入 [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D)，與其他學習者交流，參加辦公時間，並獲得 AI 代理相關問題的解答。
 
-## 前一課
+## 上一課
 
-[建立值得信賴的 AI 代理](../06-building-trustworthy-agents/README.md)
+[打造可信賴的 AI 代理](../06-building-trustworthy-agents/README.md)
 
 ## 下一課
 
@@ -309,5 +282,5 @@ AutoGen Magentic One - 一個通用的多代理系統，用於解決複雜任務
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：
-本文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們力求準確，但請注意自動翻譯可能包含錯誤或不準確之處。原文應視為具權威性的版本。對於關鍵資訊，建議採用專業人工翻譯。對於因使用此翻譯而引致的任何誤解或曲解，我們概不負責。
+本文件由 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻譯而成。雖然我們致力於確保準確性，但請注意，機器自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要資訊，建議進行專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

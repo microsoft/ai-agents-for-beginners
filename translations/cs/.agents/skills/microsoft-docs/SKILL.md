@@ -1,99 +1,99 @@
 ---
 name: microsoft-docs
-description: Prohledávejte oficiální dokumentaci Microsoftu, abyste našli koncepty,
-  návody a ukázky kódu napříč Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  a dalšími. Jako výchozí používá Microsoft Learn MCP; pro obsah, který se nachází
-  mimo learn.microsoft.com, používá Context7 a Aspire MCP.
+description: Prohledávejte oficiální dokumentaci Microsoftu a najděte koncepty, návody
+  a ukázky kódu napříč Azure, .NET, Agent Framework, Aspire, VS Code, GitHub a dalšími.
+  Používá Microsoft Learn MCP jako výchozí, s Context7 a Aspire MCP pro obsah, který
+  se nachází mimo learn.microsoft.com.
 ---
 # Microsoft Docs
 
-Výzkumná dovednost pro ekosystém technologií Microsoft. Pokrývá learn.microsoft.com a dokumentaci, která existuje mimo něj (repozitáře VS Code, GitHub, Aspire, Agent Framework).
+Výzkumná dovednost pro ekosystém technologií Microsoft. Pokrývá learn.microsoft.com a dokumentaci mimo něj (VS Code, GitHub, Aspire, repozitáře Agent Framework).
 
 ---
 
 ## Výchozí: Microsoft Learn MCP
 
-Použijte tyto nástroje pro **vše na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows a další. Toto je primární nástroj pro drtivou většinu dotazů ohledně dokumentace Microsoftu.
+Používejte tyto nástroje pro **vše na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows a více. Toto je hlavní nástroj pro naprostou většinu dotazů na dokumentaci Microsoft.
 
-| Tool | Purpose |
+| Nástroj | Účel |
 |------|---------|
-| `microsoft_docs_search` | Hledání na learn.microsoft.com — koncepty, průvodci, tutoriály, konfigurace |
-| `microsoft_code_sample_search` | Najděte funkční ukázky kódu z Learn dokumentů. Zadejte `language` (`python`, `csharp`, etc.) pro nejlepší výsledky |
-| `microsoft_docs_fetch` | Získejte celý obsah stránky z konkrétní URL (když výpisy z hledání nestačí) |
+| `microsoft_docs_search` | Vyhledávání na learn.microsoft.com — koncepty, průvodci, návody, konfigurace |
+| `microsoft_code_sample_search` | Najděte funkční ukázky kódu z dokumentace Learn. Pro nejlepší výsledky použijte `language` (`python`, `csharp` atd.) |
+| `microsoft_docs_fetch` | Získejte obsah celé stránky z konkrétní URL (když výňatky z vyhledávání nestačí) |
 
-Použijte `microsoft_docs_fetch` po hledání, když potřebujete kompletní tutoriály, všechny možnosti konfigurace nebo když jsou výpisy z hledání zkrácené.
+Použijte `microsoft_docs_fetch` po vyhledávání, když potřebujete kompletní návody, všechny možnosti konfigurace, nebo když jsou výňatky z vyhledávání zkrácené.
 
 ---
 
 ## Výjimky: Kdy použít jiné nástroje
 
-Následující kategorie žijí **mimo** learn.microsoft.com. Použijte místo toho určený nástroj.
+Následující kategorie se nacházejí **mimo** learn.microsoft.com. Použijte místo toho specifikovaný nástroj.
 
-### .NET Aspire — Použijte Aspire MCP Server (preferováno) nebo Context7
+### Aspire — Použijte Aspire MCP Server (preferováno) nebo Context7
 
-Aspire dokumentace žije na **aspire.dev**, ne na Learn. Nejlepší nástroj závisí na vaší verzi Aspire CLI:
+Dokumentace Aspire je na **aspire.dev**, ne na Learn. Nejlepší nástroj závisí na vaší verzi Aspire CLI:
 
-**CLI 13.2+** (doporučeno) — Aspire MCP server obsahuje vestavěné nástroje pro vyhledávání dokumentace:
+**CLI 13.2+** (doporučeno) — Aspire MCP server zahrnuje vestavěné nástroje pro vyhledávání v dokumentaci:
 
-| MCP Tool | Description |
+| MCP nástroj | Popis |
 |----------|-------------|
-| `list_docs` | Vypíše veškerou dostupnou dokumentaci z aspire.dev |
-| `search_docs` | Vážené lexikální vyhledávání napříč obsahem aspire.dev |
+| `list_docs` | Vypisuje veškerou dostupnou dokumentaci z aspire.dev |
+| `search_docs` | Vážené lexikální vyhledávání v obsahu aspire.dev |
 | `get_doc` | Získá konkrétní dokument podle slug |
 
-Tyto nástroje jsou součástí Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Aktualizace: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Tyto nástroje jsou součástí Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Pro aktualizaci: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP server poskytuje integraci lookup (`list_integrations`, `get_integration_docs`) ale **ne** vyhledávání dokumentace. Použijte jako zálohu Context7:
+**CLI 13.1** — MCP server poskytuje vyhledávání integrací (`list_integrations`, `get_integration_docs`), ale **ne** vyhledávání v dokumentaci. Použijte naopak Context7:
 
-| Library ID | Use for |
+| ID knihovny | Použití |
 |---|---|
-| `/microsoft/aspire.dev` | Primárně — průvodci, integrace, reference CLI, nasazení |
-| `/dotnet/aspire` | Zdroj runtime — interní API, implementační detaily |
+| `/microsoft/aspire.dev` | Hlavní — průvodci, integrace, reference CLI, nasazení |
+| `/microsoft/aspire` | Zdroj běhového prostředí — vnitřnosti API, detaily implementace |
 | `/communitytoolkit/aspire` | Komunitní integrace — Go, Java, Node.js, Ollama |
 
 ### VS Code — Použijte Context7
 
-VS Code dokumentace žije na **code.visualstudio.com**, ne na Learn.
+Dokumentace VS Code je na **code.visualstudio.com**, ne na Learn.
 
-| Library ID | Use for |
+| ID knihovny | Použití |
 |---|---|
 | `/websites/code_visualstudio` | Uživatelská dokumentace — nastavení, funkce, ladění, vzdálený vývoj |
-| `/websites/code_visualstudio_api` | Rozhraní pro rozšíření — webview, TreeViews, příkazy, body přispění |
+| `/websites/code_visualstudio_api` | API rozšíření — webviews, TreeViews, příkazy, přispívající body |
 
 ### GitHub — Použijte Context7
 
-GitHub dokumentace žije na **docs.github.com** a **cli.github.com**.
+Dokumentace GitHub je na **docs.github.com** a **cli.github.com**.
 
-| Library ID | Use for |
+| ID knihovny | Použití |
 |---|---|
-| `/websites/github_en` | Actions, API, repozitáře, bezpečnost, administrace, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) příkazy a přepínače |
+| `/websites/github_en` | Akce, API, repozitáře, zabezpečení, správa, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) příkazy a příznaky |
 
 ### Agent Framework — Použijte Learn MCP + Context7
 
-Agent Framework tutoriály jsou na learn.microsoft.com (použijte `microsoft_docs_search`), ale **GitHub repo** má detail na úrovni API, který často předbíhá publikované dokumenty — zejména DevUI REST API reference, volby CLI a .NET integrace.
+Návody Agent Framework jsou na learn.microsoft.com (použijte `microsoft_docs_search`), ale **GitHub repozitář** má detaily na úrovni API, které jsou často aktuálnější než publikovaná dokumentace — zejména reference DevUI REST API, možnosti CLI a integrace .NET.
 
-| Library ID | Use for |
+| ID knihovny | Použití |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Tutoriály — DevUI průvodci, trasování, orchestraci workflow |
-| `/microsoft/agent-framework` | API detaily — DevUI REST endpointy, CLI přepínače, auth, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | Návody — průvodci DevUI, trasování, orchestraci workflow |
+| `/microsoft/agent-framework` | Detail API — DevUI REST endpointy, příznaky CLI, autentizace, .NET `AddDevUI`/`MapDevUI` |
 
-**Tip pro DevUI:** Nejprve prohow-to průvodce konzultujte zdroj webu Learn, poté zdroj repozitáře pro specifika na úrovni API (schémata endpointů, proxy konfigurace, auth tokeny).
+**Tip DevUI:** Nejprve dotazujte zdroj Learn webu pro návody, pak zdroj repozitáře pro API specifika (schémata endpointů, proxy konfigurace, autentizační tokeny).
 
 ---
 
-## Context7 Nastavení
+## Nastavení Context7
 
-Pro jakýkoli dotaz do Context7 nejprve vyřešte ID knihovny (jednorázově za sezení):
+Pro jakýkoli dotaz v Context7 nejprve vyhledejte ID knihovny (jednorázově za relaci):
 
 1. Zavolejte `mcp_context7_resolve-library-id` s názvem technologie
 2. Zavolejte `mcp_context7_query-docs` s vráceným ID knihovny a konkrétním dotazem
 
 ---
 
-## Psaní efektivních dotazů
+## Jak psát efektivní dotazy
 
-Buďte konkrétní — uveďte verzi, záměr a jazyk:
+Buďte konkrétní — zahrňte verzi, účel a jazyk:
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ Buďte konkrétní — uveďte verzi, záměr a jazyk:
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`rychlý start`, `tutoriál`, `přehled`, `limity`, `referenční dokumentace API`)
-- **Language** for polyglot docs (`Python`, `TypeScript`, `C#`)
+Zahrňte kontext:
+- **Verzi** pokud je relevantní (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Účel úkolu** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Jazyk** pro polyglot dokumentaci (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Prohlášení o vyloučení odpovědnosti:
-Tento dokument byl přeložen pomocí služby pro automatický překlad AI (Co-op Translator) (https://github.com/Azure/co-op-translator). Ačkoli usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nezodpovídáme za jakákoliv nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

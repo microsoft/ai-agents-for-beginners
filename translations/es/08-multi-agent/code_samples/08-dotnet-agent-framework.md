@@ -1,84 +1,89 @@
-# 🤝 Sistemas de flujo de trabajo multiagente para empresas (.NET)
+# 🤝 Sistemas de Flujo de Trabajo Multiagente Empresariales (.NET)
 
-## 📋 Objetivos de aprendizaje
+## 📋 Objetivos de Aprendizaje
 
-Este cuaderno demuestra cómo construir sistemas multiagente sofisticados de nivel empresarial utilizando el Microsoft Agent Framework en .NET con Modelos de GitHub. Aprenderás a orquestar múltiples agentes especializados trabajando juntos a través de flujos de trabajo estructurados, aprovechando las características empresariales de .NET para soluciones listas para producción.
+Este cuaderno demuestra cómo construir sistemas multiagente sofisticados de nivel empresarial usando el Microsoft Agent Framework en .NET con Azure OpenAI (API de respuestas). Aprenderás a orquestar múltiples agentes especializados trabajando juntos mediante flujos de trabajo estructurados, aprovechando las características empresariales de .NET para soluciones listas para producción.
 
-**Capacidades multiagente empresariales que desarrollarás:**
-- 👥 **Colaboración entre agentes**: Coordinación de agentes con validación en tiempo de compilación
-- 🔄 **Orquestación de flujos de trabajo**: Definición declarativa de flujos de trabajo con patrones asincrónicos de .NET
-- 🎭 **Especialización de roles**: Personalidades de agentes fuertemente tipadas y dominios de especialización
-- 🏢 **Integración empresarial**: Patrones listos para producción con monitoreo y manejo de errores
+**Capacidades Multiagente Empresariales que Construirás:**
+- 👥 **Colaboración de Agentes**: Coordinación de agentes con tipado seguro y validación en tiempo de compilación
+- 🔄 **Orquestación de Flujos de Trabajo**: Definición declarativa de flujos de trabajo con patrones async de .NET
+- 🎭 **Especialización de Roles**: Personalidades de agentes fuertemente tipadas y dominios de experiencia
+- 🏢 **Integración Empresarial**: Patrones listos para producción con monitoreo y manejo de errores
 
-## ⚙️ Requisitos previos y configuración
+## ⚙️ Requisitos y Configuración
 
-**Entorno de desarrollo:**
+**Entorno de Desarrollo:**
 - SDK de .NET 9.0 o superior
-- Visual Studio 2022 o VS Code con la extensión de C#
-- Suscripción a Azure (para agentes persistentes)
+- Visual Studio 2022 o VS Code con extensión de C#
+- Suscripción de Azure (para agentes persistentes)
 
-**Paquetes NuGet requeridos:**
+**Paquetes NuGet Requeridos:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
-## Ejemplo de código
+## Ejemplo de Código
 
-El código completo para esta lección está disponible en el archivo C# adjunto: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+El código completo y funcional para esta lección está disponible en el archivo C# adjunto: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
 Para ejecutar el ejemplo:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Hacer el archivo ejecutable (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Ejecutar el ejemplo
 ./08-dotnet-agent-framework.cs
 ```
 
-O utilizando la CLI de .NET:
+O usando la CLI de .NET:
 
 ```bash
 dotnet run 08-dotnet-agent-framework.cs
 ```
 
-## Qué demuestra este ejemplo
+## Qué Demuestra Este Ejemplo
 
-Este sistema de flujo de trabajo multiagente crea un servicio de recomendaciones de viajes para hoteles con dos agentes especializados:
+Este sistema de flujo de trabajo multiagente crea un servicio de recomendación de viajes para hoteles con dos agentes especializados:
 
-1. **Agente FrontDesk**: Un agente de viajes que proporciona recomendaciones de actividades y ubicaciones
-2. **Agente Concierge**: Revisa las recomendaciones para garantizar experiencias auténticas y no turísticas
+1. **Agente de Recepción**: Un agente de viajes que proporciona recomendaciones de actividades y ubicaciones
+2. **Agente Concierge**: Revisa las recomendaciones para asegurar experiencias auténticas y no turísticas
 
 Los agentes trabajan juntos en un flujo de trabajo donde:
-- El agente FrontDesk recibe la solicitud inicial de viaje
+- El agente de Recepción recibe la solicitud de viaje inicial
 - El agente Concierge revisa y refina la recomendación
 - El flujo de trabajo transmite respuestas en tiempo real
 
-## Conceptos clave
+## Conceptos Clave
 
-### Coordinación entre agentes
-El ejemplo demuestra la coordinación de agentes con validación en tiempo de compilación utilizando el Microsoft Agent Framework.
+### Coordinación de Agentes
+El ejemplo demuestra la coordinación de agentes con tipado seguro usando el Microsoft Agent Framework con validación en tiempo de compilación.
 
-### Orquestación de flujos de trabajo
-Utiliza la definición declarativa de flujos de trabajo con patrones asincrónicos de .NET para conectar múltiples agentes en una canalización.
+### Orquestación de Flujos de Trabajo
+Usa definición declarativa de flujos de trabajo con patrones async de .NET para conectar múltiples agentes en un pipeline.
 
-### Respuestas en tiempo real
-Implementa la transmisión en tiempo real de respuestas de agentes utilizando enumerables asincrónicos y arquitectura basada en eventos.
+### Transmisión de Respuestas
+Implementa transmisión en tiempo real de respuestas de agentes usando enumerables async y arquitectura orientada a eventos.
 
-### Integración empresarial
-Muestra patrones listos para producción, incluyendo:
-- Configuración de variables de entorno
+### Integración Empresarial
+Muestra patrones listos para producción incluyendo:
+- Configuración mediante variables de entorno
 - Gestión segura de credenciales
 - Manejo de errores
-- Procesamiento de eventos asincrónicos
+- Procesamiento asíncrono de eventos
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

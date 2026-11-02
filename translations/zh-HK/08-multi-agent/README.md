@@ -1,195 +1,208 @@
 [![多代理設計](../../../translated_images/zh-HK/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(按上方圖片查看本課影片)_
+> _(點擊上方圖片觀看本課程影片)_
 
 # 多代理設計模式
 
-As soon as you start working on a project that involves multiple agents, you will need to consider the multi-agent design pattern. However, it might not be immediately clear when to switch to multi-agents and what the advantages are.
+一旦你開始從事涉及多代理的項目，就需要考慮多代理設計模式。然而，何時切換到多代理及其優勢可能並非立刻明朗。
 
-## Introduction
+## 介紹
 
-In this lesson, we're looking to answer the following questions:
+在本課程中，我們將嘗試回答以下問題：
 
-- What are the scenarios where multi-agents are applicable to?
-- What are the advantages of using multi-agents over just one singular agent doing multiple tasks?
-- What are the building blocks of implementing the multi-agent design pattern?
-- How do we have visibility to how the multiple agents are interacting with each other?
+- 哪些情境適合使用多代理？
+- 使用多代理相比只用一個代理執行多個任務有哪些優勢？
+- 實現多代理設計模式的構建要素是什麼？
+- 如何監控多個代理之間的互動？
 
-## Learning Goals
+## 學習目標
 
-After this lesson, you should be able to:
+完成本課後，你應該能夠：
 
-- Identify scenarios where multi-agents are applicable
-- Recognize the advantages of using multi-agents over a singular agent.
-- Comprehend the building blocks of implementing the multi-agent design pattern.
+- 辨識適合使用多代理的情境
+- 認識使用多代理優於單一代理的好處
+- 理解實現多代理設計模式的構建基石
 
-What's the bigger picture?
+更大的視角是什麼？
 
-*Multi agents are a design pattern that allows multiple agents to work together to achieve a common goal*.
+*多代理是一種設計模式，允許多個代理共同協作達成共同目標*。
 
-This pattern is widely used in various fields, including robotics, autonomous systems, and distributed computing.
+這種模式廣泛應用於機器人技術、自主系統及分散式計算等領域。
 
-## Scenarios Where Multi-Agents Are Applicable
+## 適合多代理的情境
 
-So what scenarios are a good use case for using multi-agents? The answer is that there are many scenarios where employing multiple agents is beneficial especially in the following cases:
+那些情境適合使用多代理？答案是多種狀況下使用多代理皆有好處，尤其是以下情況：
 
-- **Large workloads**: Large workloads can be divided into smaller tasks and assigned to different agents, allowing for parallel processing and faster completion. An example of this is in the case of a large data processing task.
-- **Complex tasks**: Complex tasks, like large workloads, can be broken down into smaller subtasks and assigned to different agents, each specializing in a specific aspect of the task. A good example of this is in the case of autonomous vehicles where different agents manage navigation, obstacle detection, and communication with other vehicles.
-- **Diverse expertise**: Different agents can have diverse expertise, allowing them to handle different aspects of a task more effectively than a single agent. For this case, a good example is in the case of healthcare where agents can manage diagnostics, treatment plans, and patient monitoring.
+- <strong>大量工作量</strong>：可以將大量工作拆分成較小任務分配給不同代理，同時處理以加快完成速度。例如大型數據處理任務。
+- <strong>複雜任務</strong>：如大量工作量一樣，複雜任務可以拆分成不同子任務交由專長各異的代理執行。如自主車輛中不同代理負責導航、障礙物偵測和與其它車輛的通訊。
+- <strong>多元專長</strong>：不同代理擁有不同專長，可以更有效處理任務不同方面，遠優於單代理。比如醫療領域，不同代理負責診斷、治療計劃及病患監控。
 
-## Advantages of Using Multi-Agents Over a Singular Agent
+## 使用多代理優於單代理的優點
 
-A single agent system could work well for simple tasks, but for more complex tasks, using multiple agents can provide several advantages:
+單代理系統在簡單任務上表現良好，但面對更複雜任務，使用多代理具有多項優勢：
 
-- **Specialization**: Each agent can be specialized for a specific task. Lack of specialization in a single agent means you have an agent that can do everything but might get confused on what to do when faced with a complex task. It might for example end up doing a task that it is not best suited for.
-- **Scalability**: It is easier to scale systems by adding more agents rather than overloading a single agent.
-- **Fault Tolerance**: If one agent fails, others can continue functioning, ensuring system reliability.
+- <strong>專業化</strong>：每個代理可專責特定任務。單一代理缺乏專業可能使其在複雜任務上混淆方向，可能會執行不適合自己能力的任務。
+- <strong>擴充性</strong>：透過增加更多代理來擴展系統，比單一代理過載更容易。
+- <strong>容錯性</strong>：若一代理失效，其他代理可繼續運作，確保系統可靠性。
 
-Let's take an example, let's book a trip for a user. A single agent system would have to handle all aspects of the trip booking process, from finding flights to booking hotels and rental cars. To achieve this with a single agent, the agent would need to have tools for handling all these tasks. This could lead to a complex and monolithic system that is difficult to maintain and scale. A multi-agent system, on the other hand, could have different agents specialized in finding flights, booking hotels, and rental cars. This would make the system more modular, easier to maintain, and scalable.
+舉例來說，為用戶訂旅程。單代理需涵蓋從尋找航班到訂飯店及租車的所有面向。為此代理需要包含處理所有任務的工具，導致系統複雜且難以維護和擴展。相反，多代理系統可由專責尋找航班、訂飯店和租車的不同代理組成，使系統更模組化、易維護且具擴展性。
 
-Compare this to a travel bureau run as a mom-and-pop store versus a travel bureau run as a franchise. The mom-and-pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
+比較獨立經營的旅行社與以加盟方式經營的旅行社。獨立店面由一代理負責全部訂程流程，而加盟體系由多個代理分別負責流程不同面向。
 
-## Building Blocks of Implementing the Multi-Agent Design Pattern
+## 多代理設計模式的構建基石
 
-Before you can implement the multi-agent design pattern, you need to understand the building blocks that make up the pattern.
+在實作多代理設計模式前，需要了解構成該模式的基石。
 
-Let's make this more concrete by again looking at the example of booking a trip for a user. In this case, the building blocks would include:
+再以為用戶訂旅程為例，基石包含：
 
-- **Agent Communication**: Agents for finding flights, booking hotels, and rental cars need to communicate and share information about the user's preferences and constraints. You need to decide on the protocols and methods for this communication. What this means concretely is that the agent for finding flights needs to communicate with the agent for booking hotels to ensure that the hotel is booked for the same dates as the flight. That means that the agents need to share information about the user's travel dates, meaning that you need to decide *which agents are sharing info and how they are sharing info*.
-- **Coordination Mechanisms**: Agents need to coordinate their actions to ensure that the user's preferences and constraints are met. A user preference could be that they want a hotel close to the airport whereas a constraint could be that rental cars are only available at the airport. This means that the agent for booking hotels needs to coordinate with the agent for booking rental cars to ensure that the user's preferences and constraints are met. This means that you need to decide *how the agents are coordinating their actions*.
-- **Agent Architecture**: Agents need to have the internal structure to make decisions and learn from their interactions with the user. This means that the agent for finding flights needs to have the internal structure to make decisions about which flights to recommend to the user. This means that you need to decide *how the agents are making decisions and learning from their interactions with the user*. Examples of how an agent learns and improves could be that the agent for finding flights could use a machine learning model to recommend flights to the user based on their past preferences.
-- **Visibility into Multi-Agent Interactions**: You need to have visibility into how the multiple agents are interacting with each other. This means that you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
-- **Multi-Agent Patterns**: There are different patterns for implementing multi-agent systems, such as centralized, decentralized, and hybrid architectures. You need to decide on the pattern that best fits your use case.
-- **Human in the loop**: In most cases, you will have a human in the loop and you need to instruct the agents when to ask for human intervention. This could be in the form of a user asking for a specific hotel or flight that the agents have not recommended or asking for confirmation before booking a flight or hotel.
+- <strong>代理通訊</strong>：尋找航班、訂飯店和租車的代理需交流用戶偏好和限制。具體而言，尋找航班代理需與訂飯店代理通訊，確保飯店訂於與航班相符的日期。需決定 <em>哪些代理互相交流資訊及如何交流</em>。
+- <strong>協調機制</strong>：代理需協同動作，符合用戶偏好與限制。用戶偏好可能是想訂靠近機場的飯店，限制則是租車僅能在機場取得。這表示訂飯店代理需與訂租車代理協調。需決定 <em>代理如何協調行動</em>。
+- <strong>代理架構</strong>：代理需具備內部機制決策並從與用戶互動中學習。如尋找航班代理需有架構判斷推薦何種航班。需決定 <em>代理如何決策及從互動學習</em>。舉例，航班代理可用機器學習模型根據用戶過往偏好推薦航班。
+- <strong>多代理互動可視化</strong>：需能觀察多代理間互動。需具備追蹤代理活動與互動的工具與技術，如日誌監控、視覺化工具及效能指標。
+- <strong>多代理模式</strong>：實作多代理系統有數種模式，如集中式、分散式與混合架構。需選擇最適合用例的模式。
+- <strong>人員介入</strong>：多數情況下會有人員介入，需要指示代理何時請求人工干預，如用戶指定特定尚未被推薦的飯店或航班，或需預訂前確認等。
 
-## Visibility into Multi-Agent Interactions
+## 多代理互動的可視化
 
-It's important that you have visibility into how the multiple agents are interacting with each other. This visibility is essential for debugging, optimizing, and ensuring the overall system's effectiveness. To achieve this, you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
+了解多代理如何互動非常重要，這是除錯、優化及確保系統整體效能的關鍵。為此，你需要具備追蹤代理活動與互動的工具與技術，如日誌監控、視覺化工具及效能指標。
 
-For example, in the case of booking a trip for a user, you could have a dashboard that shows the status of each agent, the user's preferences and constraints, and the interactions between agents. This dashboard could show the user's travel dates, the flights recommended by the flight agent, the hotels recommended by the hotel agent, and the rental cars recommended by the rental car agent. This would give you a clear view of how the agents are interacting with each other and whether the user's preferences and constraints are being met.
+以為用戶訂旅程為例，可有一儀表板顯示各代理狀態、用戶偏好與限制及代理間互動。儀表板可展示旅行日期、航班代理推薦航班、飯店代理推薦飯店及租車代理推薦車輛。這樣可清晰觀察代理互動狀況及用戶偏好限制是否滿足。
 
-Let's look at each of these aspects more in detail.
+讓我們更仔細看看這些面向。
 
-- **Logging and Monitoring Tools**: You want to have logging done for each action taken by an agent. A log entry could store information on the agent that took the action, the action taken, the time the action was taken, and the outcome of the action. This information can then be used for debugging, optimizing and more.
+- <strong>日誌監控工具</strong>：需為每項代理動作記錄日誌。日誌包含採取動作的代理、動作內容、時間及結果，幫助除錯與優化。
 
-- **Visualization Tools**: Visualization tools can help you see the interactions between agents in a more intuitive way. For example, you could have a graph that shows the flow of information between agents. This could help you identify bottlenecks, inefficiencies, and other issues in the system.
+- <strong>視覺化工具</strong>：視覺化工具能更直觀呈現代理間互動。例如資訊流的圖形展示，有助發現瓶頸、效率問題及其他系統缺陷。
 
-- **Performance Metrics**: Performance metrics can help you track the effectiveness of the multi-agent system. For example, you could track the time taken to complete a task, the number of tasks completed per unit of time, and the accuracy of the recommendations made by the agents. This information can help you identify areas for improvement and optimize the system.
+- <strong>效能指標</strong>：追蹤多代理系統效能，如完成任務時間、單位時間完成數及代理推薦準確度。這些資訊幫助辨識改進空間，優化系統。
 
-## Multi-Agent Patterns
+## 多代理模式
 
-Let's dive into some concrete patterns we can use to create multi-agent apps. Here are some interesting patterns worth considering:
+讓我們探討可用於建立多代理應用的具體模式。以下是值得考慮的模式：
 
 ### 群組聊天
 
-This pattern is useful when you want to create a group chat application where multiple agents can communicate with each other. Typical use cases for this pattern include team collaboration, customer support, and social networking.
+想構建多代理可相互通訊的群組聊天應用時，此模式很實用。典型用例包括團隊協作、客服支持及社交網絡。
 
-In this pattern, each agent represents a user in the group chat, and messages are exchanged between agents using a messaging protocol. The agents can send messages to the group chat, receive messages from the group chat, and respond to messages from other agents.
+在此模式中，每個代理代表群組聊天中的一個用戶，代理間透過訊息協議交換訊息。代理可發送訊息至群組、接收群組訊息及回覆其他代理訊息。
 
-This pattern can be implemented using a centralized architecture where all messages are routed through a central server, or a decentralized architecture where messages are exchanged directly.
+此模式可用集中式架構實現，所有訊息經由中央伺服器轉發，或用分散式架構直接交換訊息。
 
 ![群組聊天](../../../translated_images/zh-HK/multi-agent-group-chat.ec10f4cde556babd.webp)
 
-### 交接
+### 任務轉交
 
-This pattern is useful when you want to create an application where multiple agents can hand off tasks to each other.
+當需要多代理可互相轉交任務的應用時，此模式相當適用。
 
-Typical use cases for this pattern include customer support, task management, and workflow automation.
+典型用例包括客戶支援、任務管理及工作流程自動化。
 
-In this pattern, each agent represents a task or a step in a workflow, and agents can hand off tasks to other agents based on predefined rules.
+在此模式中，每個代理代表工作流程中的一個任務或步驟，代理可根據預定規則將任務轉交給其他代理。
 
-![Hand off](../../../translated_images/zh-HK/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
+![任務轉交](../../../translated_images/zh-HK/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### 協同過濾
 
-This pattern is useful when you want to create an application where multiple agents can collaborate to make recommendations to users.
+當想建立多代理協同推薦給用戶的應用時，此模式非常有用。
 
-Why you would want multiple agents to collaborate is because each agent can have different expertise and can contribute to the recommendation process in different ways.
+多代理協同的原因是各代理具備不同專長，可從不同面向為推薦過程作出貢獻。
 
-Let's take an example where a user wants a recommendation on the best stock to buy on the stock market.
+以用戶想要股市最佳買入股票推薦為例：
 
-- **Industry expert**:. One agent could be an expert in a specific industry.
-- **Technical analysis**: Another agent could be an expert in technical analysis.
-- **Fundamental analysis**: and another agent could be an expert in fundamental analysis. By collaborating, these agents can provide a more comprehensive recommendation to the user.
+- <strong>行業專家</strong>: 一代理專精某行業。
+- <strong>技術分析</strong>: 另一代理擅長技術分析。
+- <strong>基本面分析</strong>: 還有一代理專注基本面分析。透過合作，這些代理能提供更全面的推薦。
 
-![Recommendation](../../../translated_images/zh-HK/multi-agent-filtering.d959cb129dc9f608.webp)
+![推薦](../../../translated_images/zh-HK/multi-agent-filtering.d959cb129dc9f608.webp)
 
-## Scenario: Refund process
+## 情境：退款流程
 
-Consider a scenario where a customer is trying to get a refund for a product, there can be quite a few agents involved in this process but let's divide it up between agents specific for this process and general agents that can be used in other processes.
+假設顧客嘗試申請產品退款，過程中可能牽涉多位代理，我們將代理分為專責退款流程的代理與可應用於其他流程的一般代理。
 
-**Agents specific for the refund process**:
+<strong>專責退款流程的代理</strong>：
 
-Following are some agents that could be involved in the refund process:
+可能參與退款流程的代理如下：
 
-- **Customer agent**: This agent represents the customer and is responsible for initiating the refund process.
-- **Seller agent**: This agent represents the seller and is responsible for processing the refund.
-- **Payment agent**: This agent represents the payment process and is responsible for refunding the customer's payment.
-- **Resolution agent**: This agent represents the resolution process and is responsible for resolving any issues that arise during the refund process.
-- **Compliance agent**: This agent represents the compliance process and is responsible for ensuring that the refund process complies with regulations and policies.
+- <strong>顧客代理</strong>: 代表顧客，負責啟動退款流程。
+- <strong>賣家代理</strong>: 代表賣家，負責處理退款事宜。
+- <strong>付款代理</strong>: 代表付款流程，負責退款給顧客。
+- <strong>解決代理</strong>: 代表問題解決流程，負責退款過程中出現問題的解決。
+- <strong>合規代理</strong>: 代表合規流程，確保退款流程符合法規與政策。
 
-**General agents**:
+<strong>一般代理</strong>：
 
-These agents can be used by other parts of your business.
+這些代理可供業務其他部分共用。
 
-- **Shipping agent**: This agent represents the shipping process and is responsible for shipping the product back to the seller. This agent can be used both for the refund process and for general shipping of a product via a purchase for example.
-- **Feedback agent**: This agent represents the feedback process and is responsible for collecting feedback from the customer. Feedback could be had at any time and not just during the refund process.
-- **Escalation agent**: This agent represents the escalation process and is responsible for escalating issues to a higher level of support. You can use this type of agent for any process where you need to escalate an issue.
-- **Notification agent**: This agent represents the notification process and is responsible for sending notifications to the customer at various stages of the refund process.
-- **Analytics agent**: This agent represents the analytics process and is responsible for analyzing data related to the refund process.
-- **Audit agent**: This agent represents the audit process and is responsible for auditing the refund process to ensure that it is being carried out correctly.
-- **Reporting agent**: This agent represents the reporting process and is responsible for generating reports on the refund process.
-- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. This agent could be knowledgeable both on refunds and other parts of your business.
-- **Security agent**: This agent represents the security process and is responsible for ensuring the security of the refund process.
-- **Quality agent**: This agent represents the quality process and is responsible for ensuring the quality of the refund process.
+- <strong>運送代理</strong>: 代表運送流程，負責將產品寄回給賣家。此代理可用於退款流程及一般購買產品的運送。
+- <strong>反饋代理</strong>: 代表反饋流程，負責收集顧客反饋。反饋可於任何時候進行，不限退款期間。
+- <strong>升級代理</strong>: 代表升級流程，負責將問題提升至更高級別支援。適用於需提升問題的各種流程。
+- <strong>通知代理</strong>: 代表通知流程，負責在退款流程的各階段向顧客發送通知。
+- <strong>分析代理</strong>: 代表分析流程，負責分析與退款流程相關的數據。
+- <strong>審計代理</strong>: 代表審計流程，確保退款流程正確執行。
+- <strong>報告代理</strong>: 代表報告流程，負責生成退款流程相關報告。
+- <strong>知識代理</strong>: 代表知識管理流程，維護與退款及業務其他部分相關的知識庫。
+- <strong>安全代理</strong>: 代表安全流程，確保退款流程安全性。
+- <strong>品質代理</strong>: 代表品質管理流程，確保退款流程品質。
 
-There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi-agent system.
+上述代理不僅涵蓋退款專用，亦包含可用於業務其他部分的一般代理。希望你能由此了解如何決定多代理系統中應使用哪些代理。
 
-## Assignment
+## 作業
 
-Design a multi-agent system for a customer support process. Identify the agents involved in the process, their roles and responsibilities, and how they interact with each other. Consider both agents specific to the customer support process and general agents that can be used in other parts of your business.
-> 在閱讀以下解答前先想一想，你可能需要比想像中更多的代理。
-> 提示：想想客戶支援流程的不同階段，並同時考慮任何系統所需要的代理。
-
-## Solution
-
-[解答](./solution/solution.md)
-
-## Knowledge checks
-
-Question: When should you consider using multi-agents?
-
-- [ ] A1: 當你有少量工作負載和一個簡單任務時。
-- [ ] A2: 當你有大量工作負載時。
-- [ ] A3: 當你有一個簡單任務時。
-
-[解答小測驗](./solution/solution-quiz.md)
-
-## Summary
-
-在本課中，我們探討了多代理設計模式（multi-agent design pattern），包括適用於多代理的情境、使用多代理相對於單一代理的優勢、實作多代理設計模式的構建模組，以及如何監察多個代理之間互動的可見性。
-
-### Got More Questions about the Multi-Agent Design Pattern?
-
-加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流、參加辦公時間，並獲得 AI 代理相關問題的解答。
-
-## Additional resources
-
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen 設計模式</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentic 設計模式</a>
+設計一個用於客戶支援流程的多代理系統。識別流程中涉及的代理，他們的角色與職責，以及彼此間的互動。請考量既有專屬客戶支援流程的代理，也有業務其他部分共用的通用代理。
 
 
-## Previous Lesson
+> 在閱讀以下解決方案前，先想一想，你可能需要比預期更多的代理人。
+
+> 提示：思考客服支援流程的不同階段，並且考慮任何系統所需的代理人。
+
+## 解決方案
+
+[解決方案](./solution/solution.md)
+
+## 知識檢測
+
+### 問題 1
+
+哪個情境最適合多代理人系統？
+
+- [ ] A1：一個支援機械人使用一個知識庫和一小組工具回答常見問題。
+- [ ] A2：退款工作流程需要獨立的詐欺、支付和合規角色，各自有自己的工具，且其結果必須被協調。
+- [ ] A3：同一簡單分類請求每小時到達數千次。
+
+### 問題 2
+
+何時通常單一代理人是較佳選擇？
+
+- [ ] A1：任務可以用一組指令和工具處理，無需專家轉交。
+- [ ] A2：該代理人可存取不只一種工具。
+- [ ] A3：工作流程需要不同權限且獨立審計軌跡的不同角色。
+
+[測驗解答](./solution/solution-quiz.md)
+
+## 總結
+
+在本課程中，我們探討了多代理人設計模式，包括多代理人適用的情境、使用多代理人優於單一代理人的優點、實作多代理人設計模式的組成元件，以及如何掌握多個代理人之間的互動情形。
+
+### 對多代理人設計模式有更多疑問嗎？
+
+加入 [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) ，與其他學習者交流、參加辦公時間並獲得你的 AI 代理人問題解答。
+
+## 延伸資源
+
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft 代理人框架文件</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">代理設計模式</a>
+
+
+## 上一課程
 
 [規劃設計](../07-planning-design/README.md)
 
-## Next Lesson
+## 下一課程
 
-[AI 代理的後設認知](../09-metacognition/README.md)
+[AI 代理人的元認知](../09-metacognition/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-免責聲明：
-本文件經由 AI 翻譯服務「Co-op Translator」(https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們致力於確保準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始語言的文件應視為具權威性的版本；如涉及重要資訊，建議採用專業人工翻譯。我們不就因使用此翻譯而產生的任何誤解或錯誤詮釋承擔責任。
+**免責聲明**：
+本文件由 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻譯而成。雖然我們致力於確保準確性，但請注意，機器自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於重要資訊，建議進行專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

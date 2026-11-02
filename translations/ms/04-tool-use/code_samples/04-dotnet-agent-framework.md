@@ -1,60 +1,60 @@
-# 🛠️ Penggunaan Alat Lanjutan dengan Model GitHub (.NET)
+# 🛠️ Penggunaan Alat Lanjutan dengan Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Objektif Pembelajaran
 
-Notebook ini menunjukkan corak integrasi alat bertaraf perusahaan menggunakan Microsoft Agent Framework dalam .NET dengan Model GitHub. Anda akan belajar membina agen canggih dengan pelbagai alat khusus, memanfaatkan kelebihan strong typing dalam C# dan ciri-ciri perusahaan .NET.
+Buku nota ini menunjukkan corak integrasi alat tahap perusahaan menggunakan Microsoft Agent Framework dalam .NET dengan Azure OpenAI (Responses API). Anda akan belajar membina ejen canggih dengan pelbagai alat khusus, memanfaatkan jenis yang kuat C# dan ciri perusahaan .NET.
 
 ### Keupayaan Alat Lanjutan yang Akan Anda Kuasai
 
-- 🔧 **Seni Bina Multi-Alat**: Membina agen dengan pelbagai keupayaan khusus
-- 🎯 **Pelaksanaan Alat Selamat Jenis**: Memanfaatkan validasi masa kompilasi C#
-- 📊 **Corak Alat Perusahaan**: Reka bentuk alat bersedia untuk produksi dan pengendalian ralat
-- 🔗 **Komposisi Alat**: Menggabungkan alat untuk aliran kerja perniagaan yang kompleks
+- 🔧 **Senibina Multi-Alat**: Membina ejen dengan pelbagai keupayaan khusus
+- 🎯 **Pelaksanaan Alat Selamat Jenis**: Memanfaatkan pengesahan masa kompilasi C#
+- 📊 **Corak Alat Perusahaan**: Reka bentuk alat siap produksi dan pengurusan ralat
+- 🔗 **Komposisi Alat**: Menggabungkan alat untuk aliran kerja perniagaan kompleks
 
-## 🎯 Kelebihan Seni Bina Alat .NET
+## 🎯 Kelebihan Senibina Alat .NET
 
-### Ciri-Ciri Alat Perusahaan
+### Ciri Alat Perusahaan
 
-- **Validasi Masa Kompilasi**: Strong typing memastikan ketepatan parameter alat
-- **Dependency Injection**: Integrasi IoC container untuk pengurusan alat
-- **Corak Async/Await**: Pelaksanaan alat tanpa blok dengan pengurusan sumber yang betul
-- **Logging Berstruktur**: Integrasi logging terbina untuk pemantauan pelaksanaan alat
+- **Pengesahan Masa Kompilasi**: Jenis kuat memastikan ketepatan parameter alat
+- **Suntikan Kebergantungan**: Integrasi bekas IoC untuk pengurusan alat
+- **Corak Async/Await**: Pelaksanaan alat tanpa blokir dengan pengurusan sumber yang betul
+- **Log Berstruktur**: Integrasi log terbina dalam untuk pemantauan pelaksanaan alat
 
-### Corak Bersedia untuk Produksi
+### Corak Sedia Produksi
 
-- **Pengendalian Pengecualian**: Pengurusan ralat menyeluruh dengan pengecualian jenis
+- **Pengurusan Pengecualian**: Pengurusan ralat menyeluruh dengan pengecualian berjenis
 - **Pengurusan Sumber**: Corak pelupusan yang betul dan pengurusan memori
-- **Pemantauan Prestasi**: Metrik terbina dan kaunter prestasi
-- **Pengurusan Konfigurasi**: Konfigurasi selamat jenis dengan validasi
+- **Pemantauan Prestasi**: Metrik terbina dalam dan penunjuk prestasi
+- **Pengurusan Konfigurasi**: Konfigurasi selamat jenis dengan pengesahan
 
-## 🔧 Seni Bina Teknikal
+## 🔧 Senibina Teknikal
 
 ### Komponen Alat Teras .NET
 
-- **Microsoft.Extensions.AI**: Lapisan abstraksi alat yang bersatu
-- **Microsoft.Agents.AI**: Orkestrasi alat bertaraf perusahaan
-- **Integrasi Model GitHub**: Klien API berprestasi tinggi dengan pooling sambungan
+- **Microsoft.Extensions.AI**: Lapisan abstraksi alat bersatu
+- **Microsoft.Agents.AI**: Orkestrasi alat tahap perusahaan
+- **Azure OpenAI (Responses API)**: Klien API berprestasi tinggi dengan penyaluran sambungan
 
 ### Saluran Pelaksanaan Alat
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Permintaan Pengguna] --> B[Analisis Ejen]
+    B --> C[Pemilihan Alat]
+    C --> D[Pengesahan Jenis]
+    B --> E[Pengikatan Parameter]
+    E --> F[Pelaksanaan Alat]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Pemprosesan Keputusan]
     D --> G
-    G --> H[Response]
+    G --> H[Respons]
 ```
 
 ## 🛠️ Kategori & Corak Alat
 
 ### 1. **Alat Pemprosesan Data**
 
-- **Validasi Input**: Strong typing dengan anotasi data
+- **Pengesahan Input**: Jenis kuat dengan anotasi data
 - **Operasi Transformasi**: Penukaran dan pemformatan data selamat jenis
 - **Logik Perniagaan**: Alat pengiraan dan analisis khusus domain
 - **Pemformatan Output**: Penjanaan respons berstruktur
@@ -63,39 +63,42 @@ graph LR
 
 - **Penyambung API**: Integrasi perkhidmatan RESTful dengan HttpClient
 - **Alat Pangkalan Data**: Integrasi Entity Framework untuk akses data
-- **Operasi Fail**: Operasi sistem fail yang selamat dengan validasi
+- **Operasi Fail**: Operasi sistem fail selamat dengan pengesahan
 - **Perkhidmatan Luaran**: Corak integrasi perkhidmatan pihak ketiga
 
 ### 3. **Alat Utiliti**
 
-- **Pemprosesan Teks**: Manipulasi dan pemformatan string
-- **Operasi Tarikh/Masa**: Pengiraan tarikh/masa yang peka budaya
-- **Alat Matematik**: Pengiraan tepat dan operasi statistik
-- **Alat Validasi**: Validasi peraturan perniagaan dan pengesahan data
+- **Pemprosesan Teks**: Utiliti manipulasi dan pemformatan rentetan
+- **Operasi Tarikh/Masa**: Pengiraan tarikh/masa peka budaya
+- **Alat Matematik**: Pengiraan ketepatan dan operasi statistik
+- **Alat Pengesahan**: Pengesahan peraturan perniagaan dan pengesahan data
 
-Bersedia untuk membina agen bertaraf perusahaan dengan keupayaan alat selamat jenis yang hebat dalam .NET? Mari kita arkitekkan penyelesaian bertaraf profesional! 🏢⚡
+Sedia untuk membina ejen tahap perusahaan dengan keupayaan alat selamat jenis yang berkuasa dalam .NET? Mari kita rancang beberapa penyelesaian tahap profesional! 🏢⚡
 
-## 🚀 Memulakan
+## 🚀 Bermula
 
 ### Prasyarat
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
-- [Token akses API Model GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
+- [Langganan Azure](https://azure.microsoft.com/free/) dengan sumber Azure OpenAI dan penyebaran model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — log masuk dengan `az login`
 
 ### Pembolehubah Persekitaran Diperlukan
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Kemudian daftar masuk supaya AzureCliCredential boleh mendapatkan token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Kemudian log masuk supaya AzureCliCredential dapat memperoleh token
+az login
 ```
 
 ### Kod Contoh
@@ -121,14 +124,16 @@ Lihat [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-d
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat penting, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,32 +1,31 @@
 # AGENTS.md
 
-## Project Overview
+## Aperçu du projet
 
-This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
+Ce dépôt contient "Agents IA pour Débutants" - un cours éducatif complet enseignant tout ce qui est nécessaire pour construire des agents IA. Le cours se compose de 18 leçons (numérotées 00-18) couvrant les fondamentaux, les modèles de conception, les frameworks, le déploiement en production, les agents locaux/sur appareil, et la sécurité des agents IA.
 
-**Key Technologies:**
+**Technologies clés :**
 - Python 3.12+
-- Jupyter Notebooks for interactive learning
-- AI Frameworks: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI Services: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (free tier available)
+- Jupyter Notebooks pour un apprentissage interactif
+- Frameworks d'IA : Microsoft Agent Framework (MAF)
+- Services Azure AI : Microsoft Foundry, Microsoft Foundry Agent Service V2
 
-**Architecture:**
-- Lesson-based structure (00-15+ directories)
-- Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
-- Multi-language support via automated translation system
-- Multiple framework options per lesson (Semantic Kernel, AutoGen, Azure AI Agent Service)
+**Architecture :**
+- Structure basée sur les leçons (répertoires 00-18)
+- Chaque leçon contient : documentation README, exemples de code (notebooks Jupyter), et images
+- Support multilingue via système de traduction automatisé
+- Un notebook Python par leçon utilisant Microsoft Agent Framework
 
-## Setup Commands
+## Commandes d'installation
 
-### Prerequisites
-- Python 3.12 or higher
-- GitHub account (for GitHub Models - free tier)
-- Azure subscription (optional, for Azure AI services)
+### Prérequis
+- Python 3.12 ou supérieur
+- Abonnement Azure (pour Microsoft Foundry)
+- CLI Azure installé et authentifié (`az login`)
 
-### Initial Setup
+### Configuration initiale
 
-1. **Clone or fork the repository:**
+1. **Clonez ou forkez le dépôt :**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # OU
@@ -34,308 +33,286 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
    cd ai-agents-for-beginners
    ```
 
-2. **Create and activate Python virtual environment:**
+2. **Créez et activez un environnement virtuel Python :**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Sous Windows: venv\Scripts\activate
+   source venv/bin/activate  # Sous Windows : venv\Scripts\activate
    ```
 
-3. **Install dependencies:**
+3. **Installez les dépendances :**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables:**
+4. **Configurez les variables d'environnement :**
    ```bash
    cp .env.example .env
-   # Modifiez le fichier .env avec vos clés API et vos points de terminaison
+   # Modifiez le fichier .env avec vos clés API et points de terminaison
    ```
 
-### Required Environment Variables
+### Variables d'environnement requises
 
-For **GitHub Models (Free)**:
-- `GITHUB_TOKEN` - Personal access token from GitHub
+Pour **Microsoft Foundry** (obligatoire) :
+- `AZURE_AI_PROJECT_ENDPOINT` - point de terminaison du projet Microsoft Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - nom du déploiement de modèle (ex. : gpt-5-mini)
 
-For **Azure AI Services** (optional):
-- `PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API key
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Deployment name for chat model
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Deployment name for embeddings
-- Additional Azure configuration as shown in `.env.example`
+Pour **Azure AI Search** (Leçon 05 - RAG) :
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - point de terminaison Azure AI Search
+- `AZURE_SEARCH_API_KEY` - clé API Azure AI Search
 
-## Development Workflow
+Authentification : Exécutez `az login` avant d'exécuter les notebooks (utilise `AzureCliCredential`).
 
-### Running Jupyter Notebooks
+## Flux de travail de développement
 
-Each lesson contains multiple Jupyter notebooks for different frameworks:
+### Exécution des notebooks Jupyter
 
-1. **Start Jupyter:**
+Chaque leçon contient plusieurs notebooks Jupyter pour différents frameworks :
+
+1. **Démarrez Jupyter :**
    ```bash
    jupyter notebook
    ```
 
-2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
+2. **Naviguez vers un répertoire de leçon** (ex. : `01-intro-to-ai-agents/code_samples/`)
 
-3. **Open and run notebooks:**
-   - `*-semantic-kernel.ipynb` - Using Semantic Kernel framework
-   - `*-autogen.ipynb` - Using AutoGen framework
-   - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
-   - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Using Azure AI Agent Service
+3. **Ouvrez et exécutez les notebooks :**
+   - `*-python-agent-framework.ipynb` - Utilisation de Microsoft Agent Framework (Python)
+   - `*-dotnet-agent-framework.ipynb` - Utilisation de Microsoft Agent Framework (.NET)
 
-### Working with Different Frameworks
+### Travail avec Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Free tier available with GitHub account
-- Good for learning and experimentation
-- File pattern: `*-semantic-kernel*.ipynb`
+**Microsoft Agent Framework + Microsoft Foundry :**
+- Nécessite un abonnement Azure
+- Utilise `FoundryChatClient` pour Agent Service V2 (agents visibles dans le portail Foundry)
+- Prêt pour la production avec observabilité intégrée
+- Modèle de fichier : `*-python-agent-framework.ipynb`
 
-**AutoGen + GitHub Models:**
-- Free tier available with GitHub account
-- Multi-agent orchestration capabilities
-- File pattern: `*-autogen.ipynb`
+## Instructions de test
 
-**Microsoft Agent Framework (MAF):**
-- Latest framework from Microsoft
-- Available in Python and .NET
-- File pattern: `*-agent-framework.ipynb`
+Il s'agit d'un dépôt éducatif avec du code d'exemple plutôt qu'un code de production avec tests automatisés. Pour vérifier votre configuration et vos modifications :
 
-**Azure AI Agent Service:**
-- Requires Azure subscription
-- Production-ready features
-- File pattern: `*-azureaiagent.ipynb`
+### Tests manuels
 
-## Testing Instructions
-
-This is an educational repository with example code rather than production code with automated tests. To verify your setup and changes:
-
-### Manual Testing
-
-1. **Test Python environment:**
+1. **Testez l'environnement Python :**
    ```bash
-   python --version  # Doit être 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   python --version  # Devrait être 3.12+
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Test notebook execution:**
+2. **Testez l'exécution des notebooks :**
    ```bash
-   # Convertir le notebook en script et l'exécuter (imports des tests)
+   # Convertir le carnet en script et l'exécuter (teste les importations)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Verify environment variables:**
+3. **Vérifiez les variables d'environnement :**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Running Individual Notebooks
+### Exécution des notebooks individuels
 
-Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-contained and includes:
-- Import statements
-- Configuration loading
-- Example agent implementations
-- Expected outputs in markdown cells
+Ouvrez les notebooks dans Jupyter et exécutez les cellules séquentiellement. Chaque notebook est autonome et inclut :
+- Instructions d'importation
+- Chargement de la configuration
+- Exemples d'implémentations d'agents
+- Sorties attendues dans les cellules markdown
 
-## Code Style
+### Test rapide des agents déployés
 
-### Python Conventions
+Pour les leçons où un agent est déployé en tant qu'agent hébergé Microsoft Foundry (01, 04, 05, 16), le dépôt fournit des catalogues de test rapide sous `tests/` qui sont exécutés par le workflow `.github/workflows/smoke-test.yml` via l'action [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test). Ce sont des contrôles légers post-déploiement (l'agent est-il accessible et respecte-t-il les attentes basiques du prompt ?), complémentant la pipeline d'évaluation dans les Leçons 10 et 16. Voir [tests/README.md](./tests/README.md) pour la correspondance catalogue-leçon-agent. La leçon 17 s'exécute localement avec Foundry Local et n'a pas de point d'accès hébergé, elle est donc validée en exécutant directement son notebook.
 
-- **Python Version**: 3.12+
-- **Code Style**: Follow standard Python PEP 8 conventions
-- **Notebooks**: Use clear markdown cells to explain concepts
-- **Imports**: Group by standard library, third-party, local imports
+## Style de code
 
-### Jupyter Notebook Conventions
+### Conventions Python
 
-- Include descriptive markdown cells before code cells
-- Add output examples in notebooks for reference
-- Use clear variable names that match lesson concepts
-- Keep notebook execution order linear (cell 1 → 2 → 3...)
+- **Version Python** : 3.12+
+- **Style de code** : Respecter les conventions standard Python PEP 8
+- **Notebooks** : Utiliser des cellules markdown claires pour expliquer les concepts
+- **Imports** : Grouper par bibliothèque standard, tierce partie, et imports locaux
 
-### File Organization
+### Conventions Jupyter Notebook
+
+- Inclure des cellules markdown descriptives avant les cellules de code
+- Ajouter des exemples de sorties dans les notebooks à titre de référence
+- Utiliser des noms de variables clairs correspondant aux concepts de la leçon
+- Garder l’ordre d’exécution linéaire du notebook (cellule 1 → 2 → 3...)
+
+### Organisation des fichiers
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Build and Deployment
+## Construction et déploiement
 
-### Building Documentation
+### Construction de la documentation
 
-This repository uses Markdown for documentation:
-- README.md files in each lesson folder
-- Main README.md at repository root
-- Automated translation system via GitHub Actions
+Ce dépôt utilise Markdown pour la documentation :
+- Fichiers README.md dans chaque dossier de leçon
+- README.md principal à la racine du dépôt
+- Système de traduction automatisé via GitHub Actions
 
-### CI/CD Pipeline
+### Pipeline CI/CD
 
-Located in `.github/workflows/`:
+Située dans `.github/workflows/` :
 
-1. **co-op-translator.yml** - Automatic translation to 50+ languages
-2. **welcome-issue.yml** - Welcomes new issue creators
-3. **welcome-pr.yml** - Welcomes new pull request contributors
+1. **co-op-translator.yml** - Traduction automatique en 50+ langues
+2. **welcome-issue.yml** - Accueil des créateurs de tickets
+3. **welcome-pr.yml** - Accueil des contributeurs de pull requests
 
-### Deployment
+### Déploiement
 
-This is an educational repository - no deployment process. Users:
-1. Fork or clone the repository
-2. Run notebooks locally or in GitHub Codespaces
-3. Learn by modifying and experimenting with examples
+Il s'agit d'un dépôt éducatif - pas de processus de déploiement. Les utilisateurs :
+1. Forkent ou clonent le dépôt
+2. Exécutent les notebooks localement ou dans GitHub Codespaces
+3. Apprennent en modifiant et expérimentant avec les exemples
 
-## Pull Request Guidelines
+## Guide des Pull Requests
 
-### Before Submitting
+### Avant soumission
 
-1. **Test your changes:**
-   - Run affected notebooks completely
-   - Verify all cells execute without errors
-   - Check that outputs are appropriate
+1. **Testez vos modifications :**
+   - Exécutez complètement les notebooks concernés
+   - Vérifiez que toutes les cellules s'exécutent sans erreurs
+   - Assurez-vous que les sorties sont appropriées
 
-2. **Documentation updates:**
-   - Update README.md if adding new concepts
-   - Add comments in notebooks for complex code
-   - Ensure markdown cells explain the purpose
+2. **Mises à jour de la documentation :**
+   - Mettez à jour README.md si vous ajoutez de nouveaux concepts
+   - Ajoutez des commentaires dans les notebooks pour le code complexe
+   - Assurez-vous que les cellules markdown expliquent le but
 
-3. **File changes:**
-   - Avoid committing `.env` files (use `.env.example`)
-   - Don't commit `venv/` or `__pycache__/` directories
-   - Keep notebook outputs when they demonstrate concepts
-   - Remove temporary files and backup notebooks (`*-backup.ipynb`)
+3. **Modifications de fichiers :**
+   - Évitez de commiter les fichiers `.env` (utilisez `.env.example`)
+   - Ne committez pas les répertoires `venv/` ou `__pycache__/`
+   - Gardez les sorties des notebooks lorsqu'elles démontrent des concepts
+   - Supprimez les fichiers temporaires et notebooks de sauvegarde (`*-backup.ipynb`)
 
-### PR Title Format
+### Format des titres de PR
 
-Use descriptive titles:
-- `[Lesson-XX] Add new example for <concept>`
-- `[Fix] Correct typo in lesson-XX README`
-- `[Update] Improve code sample in lesson-XX`
-- `[Docs] Update setup instructions`
+Utilisez des titres descriptifs :
+- `[Lesson-XX] Ajout d'un nouvel exemple pour <concept>`
+- `[Fix] Correction de faute dans README de la leçon-XX`
+- `[Update] Amélioration de l'exemple de code dans la leçon-XX`
+- `[Docs] Mise à jour des instructions d'installation`
 
-### Required Checks
+### Vérifications requises
 
-- Notebooks should execute without errors
-- README files should be clear and accurate
-- Follow existing code patterns in the repository
-- Maintain consistency with other lessons
+- Les notebooks doivent s'exécuter sans erreurs
+- Les fichiers README doivent être clairs et précis
+- Respecter les modèles de code existants dans le dépôt
+- Maintenir la cohérence avec les autres leçons
 
-## Additional Notes
+## Notes complémentaires
 
-### Common Gotchas
+### Pièges courants
 
-1. **Python version mismatch:**
-   - Ensure Python 3.12+ is used
-   - Some packages may not work with older versions
-   - Use `python3 -m venv` to specify Python version explicitly
+1. **Incompatibilité de version Python :**
+   - Assurez-vous d'utiliser Python 3.12+
+   - Certains paquets peuvent ne pas fonctionner avec des versions plus anciennes
+   - Utilisez `python3 -m venv` pour spécifier explicitement la version Python
 
-2. **Environment variables:**
-   - Always create `.env` from `.env.example`
-   - Don't commit `.env` file (it's in `.gitignore`)
-   - GitHub token needs appropriate permissions
+2. **Variables d'environnement :**
+   - Créez toujours `.env` à partir de `.env.example`
+   - Ne commitez pas le fichier `.env` (il est dans `.gitignore`)
+   - Connectez-vous avec `az login` pour une authentification Entra ID sans clé
 
-3. **Package conflicts:**
-   - Use a fresh virtual environment
-   - Install from `requirements.txt` rather than individual packages
-   - Some notebooks may require additional packages mentioned in their markdown cells
+3. **Conflits de paquets :**
+   - Utilisez un environnement virtuel propre
+   - Installez depuis `requirements.txt` plutôt que paquets individuels
+   - Certains notebooks peuvent nécessiter des paquets additionnels mentionnés dans leurs cellules markdown
 
-4. **Azure services:**
-   - Azure AI services require active subscription
-   - Some features are region-specific
-   - Free tier limitations apply to GitHub Models
+4. **Services Azure :**
+   - Les services Azure AI nécessitent un abonnement actif
+   - Certaines fonctionnalités sont spécifiques aux régions
+   - Assurez-vous que votre déploiement de modèle Azure OpenAI supporte l'API Responses
 
-### Learning Path
+### Parcours d'apprentissage
 
-Recommended progression through lessons:
-1. **00-course-setup** - Start here for environment setup
-2. **01-intro-to-ai-agents** - Understand AI agent fundamentals
-3. **02-explore-agentic-frameworks** - Learn about different frameworks
-4. **03-agentic-design-patterns** - Core design patterns
-5. Continue through numbered lessons sequentially
+Progression recommandée à travers les leçons :
+1. **00-course-setup** - Commencez ici pour la configuration de l'environnement
+2. **01-intro-to-ai-agents** - Comprenez les fondamentaux des agents IA
+3. **02-explore-agentic-frameworks** - Apprenez sur différents frameworks
+4. **03-agentic-design-patterns** - Modèles de conception principaux
+5. Continuez les leçons numérotées séquentiellement
 
-### Framework Selection
+### Choix du framework
 
-Choose framework based on your goals:
-- **Learning/Prototyping**: Semantic Kernel + GitHub Models (free)
-- **Multi-agent systems**: AutoGen
-- **Latest features**: Microsoft Agent Framework (MAF)
-- **Production deployment**: Azure AI Agent Service
+Choisissez un framework selon vos objectifs :
+- **Toutes les leçons** : Microsoft Agent Framework (MAF) avec `FoundryChatClient`
+- **Les agents s'enregistrent côté serveur** dans Microsoft Foundry Agent Service V2 et sont visibles dans le portail Foundry
 
-### Getting Help
+### Obtenir de l'aide
 
-- Join the [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Review lesson README files for specific guidance
-- Check the main [README.md](./README.md) for course overview
-- Refer to [Course Setup](./00-course-setup/README.md) for detailed setup instructions
+- Rejoignez le [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Consultez les fichiers README des leçons pour des conseils spécifiques
+- Consultez le [README.md](./README.md) principal pour un aperçu du cours
+- Reportez-vous à [Course Setup](./00-course-setup/README.md) pour des instructions détaillées d'installation
 
-### Contributing
+### Contributions
 
-This is an open educational project. Contributions welcome:
-- Improve code examples
-- Fix typos or errors
-- Add clarifying comments
-- Suggest new lesson topics
-- Translate to additional languages
+Il s'agit d'un projet éducatif ouvert. Contributions bienvenues :
+- Améliorer les exemples de code
+- Corriger les fautes ou erreurs
+- Ajouter des commentaires clarifiants
+- Suggérer de nouveaux sujets de leçon
+- Traduire vers d’autres langues
 
-See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for current needs.
+Voir les [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) pour les besoins actuels.
 
-## Project-Specific Context
+## Contexte spécifique au projet
 
-### Multi-Language Support
+### Support multilingue
 
-This repository uses an automated translation system:
-- 50+ languages supported
-- Translations in `/translations/<lang-code>/` directories
-- GitHub Actions workflow handles translation updates
-- Source files are in English at repository root
+Ce dépôt utilise un système de traduction automatisé :
+- 50+ langues supportées
+- Traductions dans les répertoires `/translations/<lang-code>/`
+- Workflow GitHub Actions qui gère les mises à jour des traductions
+- Les fichiers sources sont en anglais à la racine du dépôt
 
-### Lesson Structure
+### Structure des leçons
 
-Each lesson follows a consistent pattern:
-1. Video thumbnail with link
-2. Written lesson content (README.md)
-3. Code samples in multiple frameworks
-4. Learning objectives and prerequisites
-5. Extra learning resources linked
+Chaque leçon suit un schéma cohérent :
+1. Vignette vidéo avec lien
+2. Contenu écrit de la leçon (README.md)
+3. Exemples de code dans plusieurs frameworks
+4. Objectifs d'apprentissage et prérequis
+5. Ressources d'apprentissage supplémentaires liées
 
-### Code Sample Naming
+### Nommage des exemples de code
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lesson 4, Semantic Kernel
-- `07-autogen.ipynb` - Lesson 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lesson 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lesson 14, MAF .NET
+Format : `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Leçon 1, MAF Python
+- `14-sequential.ipynb` - Leçon 14, modèles avancés MAF
+- `16-python-agent-framework.ipynb` - Leçon 16, agent support client en production
+- `17-local-agent-foundry-local.ipynb` - Leçon 17, agent local avec Foundry Local + Qwen
 
-### Special Directories
+### Répertoires spéciaux
 
-- `translated_images/` - Localized images for translations
-- `images/` - Original images for English content
-- `.devcontainer/` - VS Code development container configuration
-- `.github/` - GitHub Actions workflows and templates
+- `translated_images/` - Images localisées pour traductions
+- `images/` - Images originales pour contenu en anglais
+- `.devcontainer/` - Configuration du conteneur de développement VS Code
+- `.github/` - Workflows et modèles GitHub Actions
 
-### Dependencies
+### Dépendances
 
-Key packages from `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen framework
-- `semantic-kernel` - Semantic Kernel framework
+Paquets clés depuis `requirements.txt` :
 - `agent-framework` - Microsoft Agent Framework
-- `azure-ai-inference`, `azure-ai-projects` - Azure AI services
-- `azure-search-documents` - Azure AI Search integration
-- `chromadb` - Vector database for RAG examples
-- `chainlit` - Chat UI framework
-- `browser_use` - Browser automation for agents
-- `mcp[cli]` - Model Context Protocol support
-- `mem0ai` - Memory management for agents
+- `a2a-sdk` - Support du protocole Agent-to-Agent
+- `azure-ai-inference`, `azure-ai-projects` - Services Azure AI
+- `azure-identity` - Authentification Azure (AzureCliCredential)
+- `azure-search-documents` - Intégration Azure AI Search
+- `mcp[cli]` - Support du Model Context Protocol
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Avertissement :
-Ce document a été traduit à l'aide du service de traduction par IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d'être précis, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des inexactitudes. Le document original, dans sa langue d'origine, doit être considéré comme la source faisant foi. Pour les informations critiques, une traduction professionnelle réalisée par un humain est recommandée. Nous n'assumons aucune responsabilité pour les malentendus ou les mauvaises interprétations résultant de l'utilisation de cette traduction.
+**Avertissement** :
+Ce document a été traduit à l'aide du service de traduction automatique [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforçions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue native doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction professionnelle réalisée par un humain. Nous ne saurions être tenus responsables des malentendus ou erreurs d'interprétation découlant de l'utilisation de cette traduction.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

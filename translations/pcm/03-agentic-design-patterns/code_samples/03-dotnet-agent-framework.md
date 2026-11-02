@@ -1,42 +1,42 @@
-# 🎨 Agentic Design Patterns wit GitHub Models (.NET)
+# 🎨 Agentic Design Patterns wit Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Wetin You Go Learn
 
-Dis example dey show enterprise-level design patterns wey you fit use build smart agents wit Microsoft Agent Framework for .NET wey dey work wit GitHub Models. You go sabi professional patterns and architectural ways wey go make agents ready for production, easy to maintain, and fit grow well.
+Dis example dey show enterprise-level design patterns wey dem dey use build intelligent agents wit Microsoft Agent Framework for .NET plus Azure OpenAI (Responses API) integration. You go learn professional patterns and architecture ways wey fit make agents ready for production, easy to maintain, and fit grow well.
 
 ### Enterprise Design Patterns
 
-- 🏭 **Factory Pattern**: Way to create agents wey dey standard wit dependency injection
-- 🔧 **Builder Pattern**: Smooth way to configure and set up agents
-- 🧵 **Thread-Safe Patterns**: Manage conversations wey dey happen at the same time
-- 📋 **Repository Pattern**: Arrange tools and manage wetin agents fit do
+- 🏭 **Factory Pattern**: Standard way to create agent wit dependency injection
+- 🔧 **Builder Pattern**: Fluent way to configure and set up agent
+- 🧵 **Thread-Safe Patterns**: How to manage concurrent conversation well
+- 📋 **Repository Pattern**: Organized tool and ability management
 
-## 🎯 Benefits of .NET Architecture
+## 🎯 .NET-Specific Architectural Benefits
 
 ### Enterprise Features
 
-- **Strong Typing**: Validation wey dey happen when you dey compile and IntelliSense support
-- **Dependency Injection**: Built-in DI container wey dey work well
+- **Strong Typing**: Compile-time check and IntelliSense support
+- **Dependency Injection**: Built-in DI container join
 - **Configuration Management**: IConfiguration and Options patterns
-- **Async/Await**: First-class support for asynchronous programming
+- **Async/Await**: Correct support for asynchronous programming
 
-### Patterns wey fit Production
+### Production-Ready Patterns
 
 - **Logging Integration**: ILogger and structured logging support
-- **Health Checks**: Built-in monitoring and diagnostics
+- **Health Checks**: Built-in monitoring and diagnostic tools
 - **Configuration Validation**: Strong typing wit data annotations
-- **Error Handling**: Structured way to manage exceptions
+- **Error Handling**: Structured way to handle exceptions
 
 ## 🔧 Technical Architecture
 
 ### Core .NET Components
 
 - **Microsoft.Extensions.AI**: Unified AI service abstractions
-- **Microsoft.Agents.AI**: Framework wey dey manage enterprise agents
-- **GitHub Models Integration**: High-performance API client patterns
-- **Configuration System**: appsettings.json and environment integration
+- **Microsoft.Agents.AI**: Enterprise agent orchestration framework
+- **Azure OpenAI (Responses API)**: High-performance API client patterns
+- **Configuration System**: appsettings.json and environment join
 
-### How Design Patterns dey Work
+### Design Pattern Implementation
 
 ```mermaid
 graph LR
@@ -46,105 +46,108 @@ graph LR
     D --> E[AI Agent]
 ```
 
-## 🏗️ Enterprise Patterns wey Dem Show
+## 🏗️ Enterprise Patterns Wey Dem Show
 
 ### 1. **Creational Patterns**
 
-- **Agent Factory**: Central place to create agents wit consistent configuration
-- **Builder Pattern**: Smooth API for complex agent configuration
-- **Singleton Pattern**: Manage shared resources and configuration
-- **Dependency Injection**: Make am easy to test and reduce tight coupling
+- **Agent Factory**: Centralized agent creation wit consistent configuration
+- **Builder Pattern**: Fluent API for complex agent configuration
+- **Singleton Pattern**: Shared resources and configuration management
+- **Dependency Injection**: Loose coupling and easy to test
 
 ### 2. **Behavioral Patterns**
 
-- **Strategy Pattern**: Changeable ways to execute tools
-- **Command Pattern**: Encapsulate agent operations wit undo/redo
-- **Observer Pattern**: Manage agent lifecycle wit events
-- **Template Method**: Standard way to execute agent workflows
+- **Strategy Pattern**: Different ways to run tools
+- **Command Pattern**: Encapsulated agent operations wit undo/redo
+- **Observer Pattern**: Event-driven agent lifecycle management
+- **Template Method**: Standard way to run agent workflows
 
 ### 3. **Structural Patterns**
 
-- **Adapter Pattern**: Layer wey dey integrate GitHub Models API
-- **Decorator Pattern**: Add more capabilities to agents
-- **Facade Pattern**: Make agent interaction simple
+- **Adapter Pattern**: Azure OpenAI (Responses API) integration layer
+- **Decorator Pattern**: Agent ability enhancement
+- **Facade Pattern**: Simplified agent interaction interfaces
 - **Proxy Pattern**: Lazy loading and caching for better performance
 
 ## 📚 .NET Design Principles
 
 ### SOLID Principles
 
-- **Single Responsibility**: Make sure each component get one clear job
-- **Open/Closed**: Fit extend am without changing original code
-- **Liskov Substitution**: Use interface-based tool implementations
-- **Interface Segregation**: Make interfaces focused and cohesive
-- **Dependency Inversion**: Depend on abstractions, no be concrete implementations
+- **Single Responsibility**: Each component get one clear job
+- **Open/Closed**: Fit extend without change the original code
+- **Liskov Substitution**: Interface-based tool implementations
+- **Interface Segregation**: Focused, cohesive interfaces
+- **Dependency Inversion**: Depend on abstractions, no concretes
 
 ### Clean Architecture
 
 - **Domain Layer**: Core agent and tool abstractions
-- **Application Layer**: Manage agent workflows
-- **Infrastructure Layer**: Integrate GitHub Models and external services
+- **Application Layer**: Agent orchestration and workflows
+- **Infrastructure Layer**: Azure OpenAI (Responses API) integration and external services
 - **Presentation Layer**: User interaction and response formatting
 
-## 🔒 Enterprise Considerations
+## 🔒 Enterprise Things Wey You Go Need Consider
 
 ### Security
 
-- **Credential Management**: Handle API keys securely wit IConfiguration
-- **Input Validation**: Use strong typing and data annotation validation
-- **Output Sanitization**: Process and filter responses securely
-- **Audit Logging**: Track operations well
+- **Credential Management**: Secure API key handling wit IConfiguration
+- **Input Validation**: Strong typing and data annotation check
+- **Output Sanitization**: Secure response processing and filtering
+- **Audit Logging**: Complete operation tracking
 
 ### Performance
 
 - **Async Patterns**: Non-blocking I/O operations
-- **Connection Pooling**: Manage HTTP clients efficiently
-- **Caching**: Cache responses to improve performance
-- **Resource Management**: Dispose and clean up resources properly
+- **Connection Pooling**: Efficient HTTP client management
+- **Caching**: Response caching for better performance
+- **Resource Management**: Correct disposal and cleanup patterns
 
 ### Scalability
 
-- **Thread Safety**: Support agents wey dey run at the same time
-- **Resource Pooling**: Use resources well
-- **Load Management**: Handle rate limiting and backpressure
-- **Monitoring**: Check performance metrics and health
+- **Thread Safety**: Support to run agents concurrently
+- **Resource Pooling**: Efficient resource use
+- **Load Management**: Rate limiting and backpressure handling
+- **Monitoring**: Performance metrics and health checks
 
 ## 🚀 Production Deployment
 
-- **Configuration Management**: Settings wey dey specific to environment
+- **Configuration Management**: Environment-specific settings
 - **Logging Strategy**: Structured logging wit correlation IDs
-- **Error Handling**: Manage exceptions globally wit recovery
-- **Monitoring**: Use Application Insights and performance counters
+- **Error Handling**: Global exception handling wit proper recovery
+- **Monitoring**: Application insights and performance counters
 - **Testing**: Unit tests, integration tests, and load testing patterns
 
-Ready to build enterprise-level smart agents wit .NET? Make we architect something wey strong! 🏢✨
+Ready to build enterprise-level intelligent agents wit .NET? Make we design something wey strong! 🏢✨
 
 ## 🚀 How to Start
 
-### Wetin You Need
+### Wetin You Go Need First
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or newer
+- An [Azure subscription](https://azure.microsoft.com/free/) wit Azure OpenAI resource and model deployment
+- The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sign in wit `az login`
 
-### Environment Variables wey You Need
+### Required Environment Variables
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Den sign in make AzureCliCredential fit get token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Den sign in make AzureCliCredential fit get token
+az login
 ```
 
 ### Sample Code
 
-To run the code example,
+To run the example code,
 
 ```bash
 # zsh/bash
@@ -152,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Or use dotnet CLI:
+Or use the dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -165,14 +168,16 @@ Check [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/co
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even as we dey try make sure say e correct, abeg make you sabi say machine translation fit get mistake or no dey accurate well. Di original dokyument for im native language na di main correct source. For important information, e good make you use professional human translation. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

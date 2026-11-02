@@ -1,114 +1,118 @@
-# 🔍 Paggalugad sa Microsoft Agent Framework - Basic Agent (.NET)
+# 🔍 Pagsusuri sa Microsoft Agent Framework - Basic Agent (.NET)
 
-## 📋 Mga Layunin sa Pagkatuto
+## 📋 Mga Layunin ng Pagkatuto
 
-Ang halimbawang ito ay naglalaman ng mga pangunahing konsepto ng Microsoft Agent Framework sa pamamagitan ng isang simpleng implementasyon ng agent sa .NET. Matututuhan mo ang mga pangunahing pattern ng agentic at mauunawaan kung paano gumagana ang mga intelligent agents gamit ang C# at ang .NET ecosystem.
+Tinutuklas ng halimbawang ito ang mga pangunahing konsepto ng Microsoft Agent Framework sa pamamagitan ng isang basic agent implementation sa .NET. Matututuhan mo ang mga pangunahing pattern ng mga ahente at maunawaan kung paano gumagana ang mga intelligent agents sa likod ng eksena gamit ang C# at ang .NET ecosystem.
 
 ### Ano ang Iyong Matutuklasan
 
-- 🏗️ **Arkitektura ng Agent**: Pag-unawa sa pangunahing istruktura ng AI agents sa .NET  
-- 🛠️ **Integrasyon ng Tool**: Paano ginagamit ng mga agent ang mga panlabas na function upang mapalawak ang kakayahan  
-- 💬 **Daloy ng Usapan**: Pamamahala ng multi-turn na usapan at konteksto gamit ang thread management  
-- 🔧 **Mga Pattern ng Konfigurasyon**: Mga pinakamahusay na kasanayan para sa pag-setup at pamamahala ng agent sa .NET  
+- 🏗️ **Arkitektura ng Ahente**: Pag-unawa sa pangunahing istruktura ng mga AI agent sa .NET
+- 🛠️ **Integrasyon ng Tool**: Kung paano ginagamit ng mga ahente ang mga panlabas na function para palawakin ang kakayahan  
+- 💬 **Daloy ng Usapan**: Pamamahala ng mga multi-turn na pag-uusap at konteksto gamit ang thread management
+- 🔧 **Mga Pattern ng Konfigurasyon**: Pinakamahuhusay na kasanayan para sa setup at pamamahala ng ahente sa .NET
 
-## 🎯 Mga Pangunahing Konseptong Tinalakay
+## 🎯 Mga Pangunahing Konsepto na Tinalakay
 
 ### Mga Prinsipyo ng Agentic Framework
 
-- **Autonomy**: Paano gumagawa ng mga independiyenteng desisyon ang mga agent gamit ang .NET AI abstractions  
-- **Reactivity**: Pagtugon sa mga pagbabago sa kapaligiran at input ng user  
-- **Proactivity**: Pagsasagawa ng inisyatibo batay sa mga layunin at konteksto  
-- **Social Ability**: Pakikipag-ugnayan gamit ang natural na wika sa mga thread ng usapan  
+- **Autonomiya**: Kung paano gumagawa ang mga ahente ng independiyenteng mga desisyon gamit ang .NET AI abstractions
+- **Reaktibidad**: Pagtugon sa mga pagbabago sa kapaligiran at mga input ng user
+- **Proaktibidad**: Pagsisimula ng aksyon batay sa mga layunin at konteksto
+- **Kakayahang Panlipunan**: Pakikipag-ugnayan gamit ang natural na wika sa mga thread ng pag-uusap
 
 ### Mga Teknikal na Komponent
 
-- **AIAgent**: Pangunahing orkestrasyon ng agent at pamamahala ng usapan (.NET)  
-- **Tool Functions**: Pagpapalawak ng kakayahan ng agent gamit ang mga C# method at attribute  
-- **OpenAI Integration**: Paggamit ng mga language model sa pamamagitan ng standardized .NET APIs  
-- **Secure Configuration**: Pamamahala ng API key batay sa environment  
+- **AIAgent**: Pangunahing orchestration ng ahente at pamamahala ng pag-uusap (.NET)
+- **Mga Tool na Function**: Pagpapalawak ng kakayahan ng ahente gamit ang mga C# method at attribute
+- **Integrasyon ng Azure OpenAI**: Paggamit ng mga language model sa pamamagitan ng Azure OpenAI Responses API
+- **Secure Configuration**: Pamamahala ng endpoint batay sa kapaligiran
 
 ## 🔧 Teknikal na Stack
 
-### Mga Pangunahing Teknolohiya
+### Pangunahing Teknolohiya
 
-- Microsoft Agent Framework (.NET)  
-- Integrasyon ng GitHub Models API  
-- Mga pattern ng OpenAI-compatible client  
-- Konfigurasyon batay sa environment gamit ang DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Integrasyon ng Azure OpenAI (Responses API)
+- Patterns ng Azure.AI.OpenAI client
+- Konfigurasyon batay sa kapaligiran gamit ang DotNetEnv
 
-### Mga Kakayahan ng Agent
+### Mga Kakayahan ng Ahente
 
-- Pag-unawa at pagbuo ng natural na wika  
-- Pagtawag ng function at paggamit ng tool gamit ang mga C# attribute  
-- Mga tugon na may kamalayan sa konteksto gamit ang mga thread ng usapan  
-- Extensible na arkitektura gamit ang mga pattern ng dependency injection  
+- Pag-unawa at paglikha ng natural na wika
+- Pagtawag ng function at paggamit ng tool gamit ang mga C# attribute
+- Mga tugon na may kaalaman sa konteksto gamit ang mga sesyon ng pag-uusap
+- Extensible na arkitektura gamit ang mga dependency injection pattern
 
 ## 📚 Paghahambing ng Framework
 
-Ipinapakita ng halimbawang ito ang diskarte ng Microsoft Agent Framework kumpara sa iba pang mga agentic framework:
+Ipinapakita ng halimbawang ito ang approach ng Microsoft Agent Framework kumpara sa ibang mga agentic framework:
 
-| Tampok | Microsoft Agent Framework | Iba Pang Framework |
-|--------|---------------------------|--------------------|
-| **Integrasyon** | Katutubong Microsoft ecosystem | Iba-ibang compatibility |
-| **Kalinawan** | Malinis, intuitive na API | Madalas komplikadong setup |
-| **Extensibility** | Madaling integrasyon ng tool | Depende sa framework |
-| **Handa para sa Enterprise** | Ginawa para sa produksyon | Nag-iiba depende sa framework |
+| Feature | Microsoft Agent Framework | Ibang Framework |
+|---------|-------------------------|------------------|
+| **Integrasyon** | Katutubong Microsoft ecosystem | Iba-ibang compatible |
+| **Simple** | Malinis, intuitive na API | Kadalasang komplikadong setup |
+| **Extensibility** | Madaling integrasyon ng tool | Nakadepende sa framework |
+| **Handa para sa Enterprise** | Ginawa para sa produksyon | Nagbabago depende sa framework |
 
 ## 🚀 Pagsisimula
 
 ### Mga Kinakailangan
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o mas mataas  
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o mas mataas
+- Isang [Azure subscription](https://azure.microsoft.com/free/) na may Azure OpenAI resource at model deployment
+- Ang [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — mag-sign in gamit ang `az login`
 
-### Kinakailangang Environment Variables
+### Mga Kinakailangang Environment Variable
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Pagkatapos mag-sign in upang makakuha ang AzureCliCredential ng token
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Pagkatapos mag-sign in upang makakuha ng token ang AzureCliCredential
+az login
 ```
-  
 
-### Halimbawang Code
+### Sample Code
 
-Upang patakbuhin ang halimbawa ng code,  
+Para patakbuhin ang code example,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-O gamit ang dotnet CLI:  
+
+O gamit ang dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-Tingnan ang [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) para sa kumpletong code.  
+
+Tingnan ang [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) para sa kumpletong code.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -217,33 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
-  
 
 ## 🎓 Mga Pangunahing Aral
 
-1. **Arkitektura ng Agent**: Ang Microsoft Agent Framework ay nagbibigay ng malinis, type-safe na diskarte sa paggawa ng AI agents sa .NET  
-2. **Integrasyon ng Tool**: Ang mga function na may `[Description]` attributes ay nagiging magagamit na mga tool para sa agent  
-3. **Konteksto ng Usapan**: Ang thread management ay nagbibigay-daan sa multi-turn na usapan na may ganap na kamalayan sa konteksto  
-4. **Pamamahala ng Konfigurasyon**: Ang mga environment variable at secure na paghawak ng kredensyal ay sumusunod sa pinakamahusay na kasanayan ng .NET  
-5. **OpenAI Compatibility**: Ang integrasyon ng GitHub Models ay gumagana nang maayos sa pamamagitan ng OpenAI-compatible APIs  
+1. **Arkitektura ng Ahente**: Nagbibigay ang Microsoft Agent Framework ng malinis, type-safe na paraan para gumawa ng AI agents sa .NET
+2. **Integrasyon ng Tool**: Ang mga function na decorated ng `[Description]` attributes ay nagiging available na tool para sa ahente
+3. **Konteksto ng Pag-uusap**: Pinapahintulutan ng session management ang multi-turn na pag-uusap na may buong kaalaman sa konteksto
+4. **Pamamahala ng Konfigurasyon**: Sinusunod ang mga environment variable at secure na paghawak ng kredensyal ng pinakamahuhusay na kasanayan ng .NET
+5. **Azure OpenAI Responses API**: Ginagamit ng ahente ang Azure OpenAI Responses API sa pamamagitan ng Azure.AI.OpenAI SDK
 
-## 🔗 Karagdagang Mga Mapagkukunan
+## 🔗 Karagdagang Mga Sanggunian
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, mangyaring tandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
+**Pagtatanggi**:
+Ang dokumentong ito ay isinalin gamit ang serbisyo ng AI translation na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't nagsusumikap kami para sa katumpakan, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang maling pagkakaintindi o maling interpretasyon na nagmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

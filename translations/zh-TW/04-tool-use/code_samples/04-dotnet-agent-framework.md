@@ -1,106 +1,109 @@
-# 🛠️ 使用 GitHub 模型進行進階工具操作 (.NET)
+# 🛠️ 使用 Azure OpenAI（Responses API）進行進階工具使用 (.NET)
 
 ## 📋 學習目標
 
-本筆記本展示了使用 Microsoft Agent Framework 與 GitHub 模型在 .NET 中進行企業級工具整合的模式。您將學習如何使用 C# 的強型別和 .NET 的企業功能，建立具有多種專業工具的高級代理。
+此筆記本示範如何使用 .NET 中的 Microsoft Agent Framework 與 Azure OpenAI（Responses API）進行企業級工具整合模式。您將學會構建具有多重專用工具的複雜代理人，利用 C# 的強型別及 .NET 的企業特性。
 
-### 您將掌握的進階工具功能
+### 您將掌握的進階工具能力
 
-- 🔧 **多工具架構**：建立具有多種專業能力的代理
-- 🎯 **型別安全的工具執行**：利用 C# 的編譯時驗證
-- 📊 **企業工具模式**：生產級工具設計與錯誤處理
-- 🔗 **工具組合**：結合工具以實現複雜的業務工作流程
+- 🔧 <strong>多工具架構</strong>：構建具有多重專用功能的代理人
+- 🎯 <strong>型別安全工具執行</strong>：利用 C# 的編譯時驗證
+- 📊 <strong>企業工具模式</strong>：可生產環境使用的工具設計與錯誤處理
+- 🔗 <strong>工具組合</strong>：結合工具以實現複雜的業務流程
 
-## 🎯 .NET 工具架構的優勢
+## 🎯 .NET 工具架構的優點
 
-### 企業工具功能
+### 企業工具特性
 
-- **編譯時驗證**：強型別確保工具參數的正確性
-- **相依性注入**：IoC 容器整合以管理工具
-- **非同步模式**：使用 Async/Await 進行非阻塞工具執行並妥善管理資源
-- **結構化日誌**：內建日誌整合以監控工具執行
+- <strong>編譯時驗證</strong>：強型別確保工具參數正確
+- <strong>依賴注入</strong>：IoC 容器整合以管理工具
+- **非同步/等待模式**：非阻塞工具執行與適當資源管理
+- <strong>結構化日誌</strong>：內建日誌整合以監控工具執行
 
-### 生產級模式
+### 生產就緒模式
 
-- **例外處理**：使用型別化例外進行全面的錯誤管理
-- **資源管理**：妥善的資源釋放模式與記憶體管理
-- **效能監控**：內建指標與效能計數器
-- **配置管理**：型別安全的配置與驗證
+- <strong>例外處理</strong>：使用型別例外進行全面錯誤管理
+- <strong>資源管理</strong>：正確的處置模式與記憶體管理
+- <strong>效能監控</strong>：內建度量和效能計數器
+- <strong>設定管理</strong>：型別安全配置與驗證
 
 ## 🔧 技術架構
 
 ### 核心 .NET 工具元件
 
-- **Microsoft.Extensions.AI**：統一的工具抽象層
+- **Microsoft.Extensions.AI**：統一工具抽象層
 - **Microsoft.Agents.AI**：企業級工具編排
-- **GitHub 模型整合**：高效能 API 客戶端與連線池
+- **Azure OpenAI (Responses API)**：高效能 API 用戶端與連接池
 
-### 工具執行管線
+### 工具執行管道
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[使用者請求] --> B[代理分析]
+    B --> C[工具選擇]
+    C --> D[類型驗證]
+    B --> E[參數綁定]
+    E --> F[工具執行]
     C --> F
-    F --> G[Result Processing]
+    F --> G[結果處理]
     D --> G
-    G --> H[Response]
+    G --> H[回應]
 ```
 
 ## 🛠️ 工具類別與模式
 
-### 1. **資料處理工具**
+### 1. <strong>資料處理工具</strong>
 
-- **輸入驗證**：使用資料註解進行強型別驗證
-- **轉換操作**：型別安全的資料轉換與格式化
-- **業務邏輯**：特定領域的計算與分析工具
-- **輸出格式化**：結構化的回應生成
+- <strong>輸入驗證</strong>：使用資料標註的強型別
+- <strong>轉換操作</strong>：型別安全的資料轉換與格式化
+- <strong>業務邏輯</strong>：領域專用的計算與分析工具
+- <strong>輸出格式化</strong>：結構化回應產生
 
-### 2. **整合工具**
+### 2. <strong>整合工具</strong> 
 
 - **API 連接器**：使用 HttpClient 進行 RESTful 服務整合
-- **資料庫工具**：使用 Entity Framework 進行資料存取
-- **檔案操作**：安全的檔案系統操作與驗證
-- **外部服務**：第三方服務整合模式
+- <strong>資料庫工具</strong>：使用 Entity Framework 的資料存取
+- <strong>檔案操作</strong>：帶驗證的安全檔案系統操作
+- <strong>外部服務</strong>：第三方服務整合模式
 
-### 3. **實用工具**
+### 3. <strong>實用工具</strong>
 
-- **文字處理**：字串操作與格式化工具
-- **日期/時間操作**：文化敏感的日期/時間計算
-- **數學工具**：精確計算與統計操作
-- **驗證工具**：業務規則驗證與資料檢核
+- <strong>文字處理</strong>：字串操作與格式化工具
+- **日期/時間操作**：文化感知的日期/時間計算
+- <strong>數學工具</strong>：精確計算與統計操作
+- <strong>驗證工具</strong>：業務規則驗證與資料核查
 
-準備好使用 .NET 建立企業級代理，並擁有強大的型別安全工具功能了嗎？讓我們一起設計專業級解決方案吧！ 🏢⚡
+準備好在 .NET 中建立具有強型別工具功能的企業級代理人了嗎？讓我們一起架構專業級解決方案吧！🏢⚡
 
-## 🚀 開始使用
+## 🚀 快速開始
 
 ### 先決條件
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本
-- [GitHub Models API 存取權杖](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更新版本
+- 具備 Azure OpenAI 資源與模型部署的 [Azure 訂閱](https://azure.microsoft.com/free/)
+- 已登入的 [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — 使用 `az login`
 
-### 必需的環境變數
+### 必要的環境變數
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# 然後登入以便 AzureCliCredential 可以取得權杖
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# 然後登入，以便 AzureCliCredential 可以取得權杖
+az login
 ```
 
 ### 範例程式碼
 
-要執行範例程式碼，
+執行範例程式碼，
 
 ```bash
 # zsh/bash
@@ -114,21 +117,23 @@ chmod +x ./04-dotnet-agent-framework.cs
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-請參閱 [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) 以獲取完整程式碼。
+請參閱完整程式碼 [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs)。
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**免責聲明**：  
-本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原文文件作為權威來源。對於關鍵資訊，建議尋求專業人工翻譯。我們對因使用本翻譯而引起的任何誤解或誤釋不承擔責任。
+**免責聲明**：
+此文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們努力追求準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應視為權威來源。對於關鍵資訊，建議採用專業人工翻譯。我們不對因使用此翻譯所產生的任何誤解或誤譯承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

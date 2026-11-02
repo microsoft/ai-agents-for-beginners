@@ -1,63 +1,66 @@
-# 🎯 GitHub Models (.NET) ဖြင့် အစီအစဉ်ရေးဆွဲခြင်းနှင့် ဒီဇိုင်းပုံစံများ
+# 🎯 Azure OpenAI (Responses API) ( .NET) ဖြင့် စီမံကိန်းချမှတ်ခြင်းနှင့် ဒီဇိုင်းပုံစံများ
 
-## 📋 သင်ယူရမည့် ရည်ရွယ်ချက်များ
+## 📋 သင်ယူရမည့် ရည်မှန်းချက်များ
 
-ဒီ notebook သည် Microsoft Agent Framework ကို .NET နှင့် GitHub Models အသုံးပြု၍ ဉာဏ်ရည်ရှိသော Agent များကို တည်ဆောက်ရန်အတွက် စီးပွားရေးအဆင့်အစီအစဉ်ရေးဆွဲခြင်းနှင့် ဒီဇိုင်းပုံစံများကို ပြသသည်။ သင်သည် ရှုပ်ထွေးသော ပြဿနာများကို ခွဲခြမ်းစိတ်ဖြာနိုင်သော Agent များကို ဖန်တီးခြင်း၊ အဆင့်များစွာဖြင့် ဖြေရှင်းရန်အစီအစဉ်ရေးဆွဲခြင်းနှင့် .NET ၏ စီးပွားရေးအင်္ဂါရပ်များဖြင့် အလုပ်လုပ်ဆောင်နိုင်သော Workflow များကို ဖန်တီးခြင်းကို သင်ယူနိုင်ပါမည်။
+ဒီနုတ်ဘုတ်ရွက်သည် .NET တွင် Microsoft Agent Framework ကိုအသုံးပြုကာ Azure OpenAI (Responses API) ဖြင့် စျေးကွက်အဆင့်မီ စီမံကိန်းခြင်းနှင့် ဒီဇိုင်းပုံစံများကို ဆောက်လုပ်ရာတွင် ကိုယ်ပိုင်ဗဟုသုတ Agents များဖန်တီးနည်းကို ပြသသည်။ သင်သည် ပြဿနာရှုပ်ထွေးမှုများကိုခွဲခြမ်းစိတ်ဖြာနိုင်သော၊ နောက်တစ်ဆင့်တွင်ဖြေရှင်းချက်များ စီစဉ်နိုင်သော နှင့် .NET ၏စျေးကွက်အဆင့်အင်္ဂါရပ်များဖြင့် ရှုပ်ထွေးသောလုပ်ငန်းစဉ်များကို ဆောင်ရွက်နိုင်သော Agent များ ဖန်တီးနည်းကို သင်ယူမည်ဖြစ်သည်။
 
-## ⚙️ လိုအပ်ချက်များနှင့် Setup
+## ⚙️ မလိုအပ်သော အချက်အလက်များနှင့် ပြင်ဆင်မှု
 
-**ဖွံ့ဖြိုးရေးပတ်ဝန်းကျင်:**
-- .NET 9.0 SDK သို့မဟုတ် အထက်
-- Visual Studio 2022 သို့မဟုတ် VS Code (C# extension ဖြင့်)
-- GitHub Models API အထောက်အပံ့
+**တိုးတက်မှု ပတ်ဝန်းကျင်:**
+- .NET 9.0 SDK သို့မဟုတ် အထက်တန်း
+- Visual Studio 2022 သို့မဟုတ် VS Code C# extension ဖြင့်
+- Azure subscription တစ်ခု၊ Azure OpenAI resource နှင့် မော်ဒယ် တပ်ဆင်မှုတစ်ခု
+- Azure CLI — `az login` ဖြင့် ဝင်ရောက်ချိတ်ဆက်ခြင်း
 
-**လိုအပ်သော Dependencies:**
+**လိုအပ်သော စဉ်ဆက်အလိုက်များ:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**ပတ်ဝန်းကျင်ဖိုင် (.env file) ကို ပြင်ဆင်ခြင်း:**
+**ပတ်ဝန်းကျင် တပ်ဆင်မှု (.env ဖိုင်):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## ကုဒ်ကို အလုပ်လုပ်စေခြင်း
+## ကုဒ်ကို ပြေးဆွဲခြင်း
 
-ဒီသင်ခန်းစာတွင် .NET Single File App အကောင်အထည်ဖော်မှု ပါဝင်သည်။ အလုပ်လုပ်စေရန်:
+ဒီသင်ခန်းစာတွင် .NET Single File App အသုံးပြုထားသည်။ အသုံးပြုရန်:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# ဖိုင်ကို အလုပ်လုပ်နိုင်အောင် ပြုလုပ်ပါ (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# အပလီကေးရှင်းကို ပြေးပါ
 ./07-dotnet-agent-framework.cs
 ```
 
-သို့မဟုတ် dotnet run command ကို အသုံးပြုပါ:
+ဒါမှမဟုတ် dotnet run command ကို သုံးပါ:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## ကုဒ်အကောင်အထည်ဖော်မှု
+## ကုဒ် အကောင်အထည်ဖော်ခြင်း
 
-`07-dotnet-agent-framework.cs` တွင် အပြည့်အစုံအကောင်အထည်ဖော်မှုကို တွေ့နိုင်ပြီး အောက်ပါအရာများကို ပြသသည်-
+အကောင်အထည်ဖော်မှု အပြည့်အစုံကို `07-dotnet-agent-framework.cs` တွင် ရနိုင်ပြီး၊ မည်သို့မှ:
 
-- DotNetEnv ဖြင့် ပတ်ဝန်းကျင်ဖိုင်ကို Load လုပ်ခြင်း
-- GitHub Models အတွက် OpenAI client ကို Configure လုပ်ခြင်း
-- JSON serialization ဖြင့် structured data models (Plan နှင့် TravelPlan) ကို သတ်မှတ်ခြင်း
-- JSON schema အသုံးပြု structured output ဖြင့် AI agent တစ်ခုကို ဖန်တီးခြင်း
-- Type-safe responses ဖြင့် planning requests ကို အကောင်အထည်ဖော်ခြင်း
+- DotNetEnv ဖြင့် ပတ်ဝန်းကျင် တပ်ဆင်မှုကို တင်သွင်းခြင်း
+- Azure OpenAI client ကို တပ်ဆင်ပြီး `GetChatClient().AsAIAgent()` ဖြင့် AI agent ဖန်တီးခြင်း
+- JSON serialization ဖြင့် ဖွဲ့စည်းထားသော ဒေတာ မော်ဒယ်များ (Plan နှင့် TravelPlan) ကို သတ်မှတ်ခြင်း
+- JSON schema အသုံးပြု၍ ဖွဲ့စည်းထားသော ထုတ်လွှင့်ချက်ရှိ AI agent တစ်ခုဖန်တီးခြင်း
+- အမျိုးအစား-လုံခြုံသော ပြန်ကြားချက်များဖြင့် စီမံကိန်း တောင်းဆိုမှုများ ဆောင်ရွက်ခြင်း
 
-## အဓိကအကြောင်းအရာများ
+## အဓိက သဘောအယူများ
 
-### Type-Safe Models ဖြင့် Structured Planning
+### အမျိုးအစား-လုံခြုံသော မော်ဒယ်များဖြင့် ဖွဲ့စည်းထားသော စီမံကိန်းချမှတ်ခြင်း
 
-Agent သည် planning outputs ၏ ဖွဲ့စည်းပုံကို သတ်မှတ်ရန် C# classes ကို အသုံးပြုသည်-
+Agent တွင် C# class များကို အသုံးပြုကာ စီမံကိန်းထုတ်လွှင့်ချက်ဖွဲ့စည်းမှုကို သတ်မှတ်သည်။
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### Structured Outputs အတွက် JSON Schema
+### ဖွဲ့စည်းထားသော ထုတ်လွှင့်ချက်များအတွက် JSON Schema
 
-Agent သည် TravelPlan schema ကို ကိုက်ညီသော response များကို ပြန်ပေးရန် Configure လုပ်ထားသည်-
+Agent သည် TravelPlan schema နှင့် ကိုက်ညီသော ပြန်ကြားချက်များ ပေးပို့ရန် တပ်ဆင်ထားသည်။
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planning Agent အညွှန်းများ
+### စီမံကိန်း Agent ၏ ညွှန်ကြားချက်များ
 
-Agent သည် အထူး sub-agents များကို တာဝန်ပေးအပ်သော Coordinator အဖြစ် လုပ်ဆောင်သည်-
+Agent သည် အုပ်ချုပ်ကူညီသူအဖြစ် လုပ်ဆောင်ကာ အထူးပြု sub-agent များအား တာဝန်ပေးအပ်သည်-
 
-- FlightBooking: လေယာဉ်များကို Booking လုပ်ခြင်းနှင့် လေယာဉ်အချက်အလက်ပေးခြင်း
-- HotelBooking: ဟိုတယ်များကို Booking လုပ်ခြင်းနှင့် ဟိုတယ်အချက်အလက်ပေးခြင်း
-- CarRental: ကားများကို ငှားခြင်းနှင့် ကားငှားခြင်းအချက်အလက်ပေးခြင်း
-- ActivitiesBooking: လှုပ်ရှားမှုများကို Booking လုပ်ခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်ပေးခြင်း
-- DestinationInfo: သွားရောက်မည့်နေရာများအကြောင်းအချက်အလက်ပေးခြင်း
-- DefaultAgent: အထွေထွေတောင်းဆိုမှုများကို ကိုင်တွယ်ခြင်း
+- FlightBooking: လေကြောင်းလက်မှတ်စာရင်းသွင်းခြင်းနှင့် လေကြောင်းအချက်အလက်ပေးခြင်း
+- HotelBooking: ဟိုတယ်လက်မှတ်စာရင်းသွင်းခြင်း နှင့် ဟိုတယ်အချက်အလက်ပေးခြင်း
+- CarRental: ကားငှားရန် စာရင်းသွင်းခြင်းနှင့် ကားငှားမှုအချက်အလက်ပေးခြင်း
+- ActivitiesBooking: လုပ်ဆောင်မှုများစာရင်းသွင်းခြင်းနှင့် လုပ်ဆောင်မှုအချက်အလက်ပေးခြင်း
+- DestinationInfo: ခရီးသွားရာနေရာအကြောင်းအချက်အလက် ပေးခြင်း
+- DefaultAgent: အထွေထွေတောင်းဆိုမှုများကို ကိုင်တွယ်သည်
 
-## မျှော်လင့်ရသော Output
+## မျှော်မှန်းထားသော ရလဒ်
 
-Travel planning request တစ်ခုဖြင့် Agent ကို အလုပ်လုပ်စေသောအခါ၊ အဆိုပါ request ကို ခွဲခြမ်းစိတ်ဖြာပြီး TravelPlan schema ကို ကိုက်ညီသော JSON အဖြစ် ဖွဲ့စည်းထားသော အစီအစဉ်တစ်ခုကို ဖန်တီးပြီး အထူး sub-agents များကို သင့်တော်သော Task Assignment များပေးအပ်ပါမည်။
+ခရီးသွားစီမံကိန်း တောင်းဆိုမှုနှင့် Agent ကို ပြေးဆွဲသောအခါ၊ တောင်းဆိုမှုကို ခွဲခြမ်းစိစစ်ပြီး အထူးပြု agent များကို တာဝန်နှင့် ထပ်ဆောင်းထားသော ဖွဲ့စည်းထားသော စီမံကိန်းတစ်ခုကို ထုတ်ပေးမည်ဖြစ်ပြီး၊ TravelPlan schema ဖြင့် ကိုက်ညီသော JSON ပုံစံဖြင့် ဖော်ပြပါမည်။
 
 ---
 
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မမှန်ကန်မှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရားရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

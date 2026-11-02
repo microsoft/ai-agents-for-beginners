@@ -1,99 +1,99 @@
 ---
 name: microsoft-docs
-description: Poizvedujte v uradni Microsoftovi dokumentaciji, da poiščete koncepte,
-  vodiče in primere kode za Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  in še več. Privzeto uporablja Microsoft Learn MCP, za vsebino, ki se nahaja zunaj
-  learn.microsoft.com, pa Context7 in Aspire MCP.
+description: Poizvedovanje uradne Microsoftove dokumentacije za iskanje konceptov,
+  vodičev in primerov kode v Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+  in še več. Kot privzeto uporablja Microsoft Learn MCP, za vsebino, ki je zunaj learn.microsoft.com,
+  pa Context7 in Aspire MCP.
 ---
 # Microsoft Docs
 
-Raziskovalna veščina za Microsoftov tehnološki ekosistem. Vključuje learn.microsoft.com in dokumentacijo, ki živi izven njega (VS Code, GitHub, Aspire, Agent Framework repozitoriji).
+Spretnost raziskovanja za Microsoftov tehnološki ekosistem. Vsebuje learn.microsoft.com in dokumentacijo, ki živi zunaj njega (VS Code, GitHub, Aspire, Agent Framework repozitoriji).
 
 ---
 
 ## Privzeto: Microsoft Learn MCP
 
-Uporabite ta orodja za **vse na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows in več. To je primarno orodje za veliko večino poizvedb glede Microsoftove dokumentacije.
+Uporabite ta orodja za **vse na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows in več. To je glavno orodje za velikansko večino poizvedb o Microsoftovi dokumentaciji.
 
-| Tool | Purpose |
+| Orodje | Namen |
 |------|---------|
-| `microsoft_docs_search` | Išči learn.microsoft.com — koncepti, vodiči, vadnice, konfiguracije |
-| `microsoft_code_sample_search` | Poiščite delujoče primere kode iz Learn dokumentacije. Posredujte `language` (`python`, `csharp`, itd.) za najboljše rezultate |
-| `microsoft_docs_fetch` | Pridobi celotno vsebino strani z določene URL (ko izvlečki iskanja niso dovolj) |
+| `microsoft_docs_search` | Iskanje na learn.microsoft.com — koncepti, vodniki, vadnice, konfiguracija |
+| `microsoft_code_sample_search` | Iskanje delujočih izvlečkov kode iz Learn dokumentacije. Podajte `language` (`python`, `csharp`, itd.) za najboljše rezultate |
+| `microsoft_docs_fetch` | Dobite celotno vsebino strani z določenega URL-ja (ko izvlečki iskanja niso dovolj) |
 
-Uporabite `microsoft_docs_fetch` po iskanju, ko potrebujete celotne vodiče, vse možnosti konfiguracije, ali ko so izvlečki iskanja skrajšani.
+Uporabite `microsoft_docs_fetch` po iskanju, ko potrebujete popolne vadnice, vse konfiguracijske možnosti ali ko so izvlečki iskanja skrajšani.
 
 ---
 
 ## Izjeme: Kdaj uporabiti druga orodja
 
-Naslednje kategorije obstajajo **izven** learn.microsoft.com. Namesto tega uporabite navedeno orodje.
+Naslednje kategorije so **izven** learn.microsoft.com. Namesto tega uporabite določeno orodje.
 
-### .NET Aspire — Uporabite Aspire MCP Server (priporočeno) ali Context7
+### Aspire — uporabite Aspire MCP strežnik (priporočeno) ali Context7
 
-Dokumentacija Aspire je na **aspire.dev**, ne na Learn. Najboljše orodje je odvisno od različice vašega Aspire CLI:
+Aspire dokumentacija je na **aspire.dev**, ne na Learn. Najboljše orodje je odvisno od vaše Aspire CLI različice:
 
-**CLI 13.2+** (priporočeno) — Aspire MCP strežnik vključuje vgrajena orodja za iskanje dokumentacije:
+**CLI 13.2+** (priporočeno) — Aspire MCP strežnik vključuje vgrajena orodja za iskanje v dokumentaciji:
 
-| MCP Tool | Description |
+| MCP orodje | Opis |
 |----------|-------------|
-| `list_docs` | Našteje vso razpoložljivo dokumentacijo z aspire.dev |
-| `search_docs` | Uteženo leksikalno iskanje po vsebini aspire.dev |
+| `list_docs` | Prikaže vse na voljo dokumente z aspire.dev |
+| `search_docs` | Neuravnoteženo leksikalno iskanje v vsebini aspire.dev |
 | `get_doc` | Pridobi določen dokument po slugu |
 
-Te so v Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Za posodobitev: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Ta so vključena v Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Za posodobitev: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP strežnik zagotavlja iskanje integracij (`list_integrations`, `get_integration_docs`) vendar **ne** iskanje dokumentacije. Uporabite Context7:
+**CLI 13.1** — MCP strežnik ponuja iskanje integracij (`list_integrations`, `get_integration_docs`) vendar **ne** iskanje dokumentacije. Vrnite se na Context7:
 
-| Library ID | Use for |
+| ID knjižnice | Uporaba za |
 |---|---|
-| `/microsoft/aspire.dev` | Primarno — vodiči, integracije, referenca CLI, uvajanje |
-| `/dotnet/aspire` | Izvor za izvajanje — API-ja notranjosti, podrobnosti implementacije |
+| `/microsoft/aspire.dev` | Primarno — vodniki, integracije, CLI referenca, namestitev |
+| `/microsoft/aspire` | Izvor izvajanja — API notranjosti, podrobnosti implementacije |
 | `/communitytoolkit/aspire` | Skupnostne integracije — Go, Java, Node.js, Ollama |
 
-### VS Code — Uporabite Context7
+### VS Code — uporabi Context7
 
-Dokumentacija VS Code je na **code.visualstudio.com**, ne na Learn.
+VS Code dokumentacija je na **code.visualstudio.com**, ne na Learn.
 
-| Library ID | Use for |
+| ID knjižnice | Uporaba za |
 |---|---|
-| `/websites/code_visualstudio` | Uporabniška dokumentacija — nastavitve, funkcije, razhroščevanje, oddaljeni razvoj |
-| `/websites/code_visualstudio_api` | API za razširitve — webviews, TreeViews, ukazi, prispevne točke |
+| `/websites/code_visualstudio` | Uporabniška dokumentacija — nastavitve, funkcije, odpravljanje napak, oddaljen razvoj |
+| `/websites/code_visualstudio_api` | Razširitev API — spletni prikazi, TreeViews, ukazi, prispevne točke |
 
-### GitHub — Uporabite Context7
+### GitHub — uporabi Context7
 
-Dokumentacija GitHub je na **docs.github.com** in **cli.github.com**.
+GitHub dokumentacija je na **docs.github.com** in **cli.github.com**.
 
-| Library ID | Use for |
+| ID knjižnice | Uporaba za |
 |---|---|
-| `/websites/github_en` | Actions, API, repozitoriji, varnost, administracija, Copilot |
-| `/websites/cli_github` | Ukazi in zastavice GitHub CLI (`gh`) |
+| `/websites/github_en` | Actions, API, repozitoriji, varnost, upravljanje, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) ukazi in zastavice |
 
-### Agent Framework — Uporabite Learn MCP + Context7
+### Agent Framework — uporabi Learn MCP + Context7
 
-Vodiči za Agent Framework so na learn.microsoft.com (uporabite `microsoft_docs_search`), vendar ima **GitHub repozitorij** podrobnosti na ravni API, ki so pogosto pred objavljenimi dokumenti — zlasti referenca DevUI REST API, možnosti CLI in integracija .NET.
+Vadnice za Agent Framework so na learn.microsoft.com (uporabite `microsoft_docs_search`), vendar ima **GitHub repozitorij** podrobnosti na nivoju API, ki pogosto prednjačijo pred objavljeno dokumentacijo — predvsem DevUI REST API referenco, možnosti CLI in .NET integracijo.
 
-| Library ID | Use for |
+| ID knjižnice | Uporaba za |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Vodiči — DevUI vodiči, sledenje, orkestracija delovnih tokov |
+| `/websites/learn_microsoft_en-us_agent-framework` | Vadnice — DevUI vodniki, sledljivost, orkestracija potekov dela |
 | `/microsoft/agent-framework` | Podrobnosti API — DevUI REST končne točke, CLI zastavice, avtentikacija, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** Poizvedujte po izvoru spletne strani Learn za vodnike 'how-to', nato pa po izvoru repozitorija za podrobnosti na ravni API (sheme končnih točk, proxy konfiguracija, avtentikacijski žetoni).
+**Nasvet za DevUI:** Poizvedujte Learn spletno mesto za kako vodnike, nato pa repozitorij za API podrobnosti (sheme končnih točk, konfiguracija proxyja, avtorizacijski žetoni).
 
 ---
 
-## Context7 Setup
+## Nastavitev Context7
 
-Za vsako poizvedbo Context7 najprej razrešite ID knjižnice (enkrat na sejo):
+Za katerokoli Context7 poizvedbo najprej razjasnite ID knjižnice (eno na sejo):
 
 1. Pokličite `mcp_context7_resolve-library-id` z imenom tehnologije
-2. Pokličite `mcp_context7_query-docs` z vrnjenim ID-jem knjižnice in specifično poizvedbo
+2. Pokličite `mcp_context7_query-docs` z vrnjenim ID knjižnice in določeno poizvedbo
 
 ---
 
 ## Pisanje učinkovitih poizvedb
 
-Bodite konkretni — vključite različico, namen in jezik:
+Bodite specifični — vključite različico, namen in jezik:
 
 ```
 # ❌ Too broad
@@ -109,14 +109,14 @@ Bodite konkretni — vključite različico, namen in jezik:
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Različica** ko je relevantno (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+Vključite kontekst:
+- **Različica** kjer je pomembno (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
 - **Namen naloge** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Jezik** za poliglotsko dokumentacijo (`Python`, `TypeScript`, `C#`)
+- **Jezik** za poliglotske dokumente (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Izjava o omejitvi odgovornosti:
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, upoštevajte, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvor­nem jeziku velja za avtoritativni vir. Za kritične informacije priporočamo strokovni prevod, opravljen s strani človeka. Ne odgovarjamo za morebitna nerazumevanja ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,43 +1,46 @@
-# 🎯 Pagpaplano at Mga Disenyo ng Pattern gamit ang GitHub Models (.NET)
+# 🎯 Mga Pattern sa Pagpaplano at Disenyo gamit ang Azure OpenAI (Responses API) (.NET)
 
-## 📋 Mga Layunin sa Pag-aaral
+## 📋 Mga Layunin sa Pagkatuto
 
-Ipinapakita ng notebook na ito ang mga disenyo ng pattern at pagpaplano na pang-enterprise para sa paggawa ng mga intelligent agents gamit ang Microsoft Agent Framework sa .NET na may GitHub Models. Matutunan mong gumawa ng mga agent na kayang mag-decompose ng mga komplikadong problema, magplano ng mga solusyong multi-step, at magpatupad ng mga sopistikadong workflow gamit ang mga enterprise features ng .NET.
+Ipinapakita ng notebook na ito ang mga enterprise-grade na pattern sa pagpaplano at disenyo para sa paggawa ng mga intelligent agents gamit ang Microsoft Agent Framework sa .NET kasama ang Azure OpenAI (Responses API). Matututuhan mong gumawa ng mga agent na kayang hatiin ang mga komplikadong problema, magplano ng multi-step na mga solusyon, at magpatupad ng sopistikadong mga workflows gamit ang mga enterprise na tampok ng .NET.
 
-## ⚙️ Mga Kinakailangan at Setup
+## ⚙️ Mga Kinakailangan at Pagsisimula
 
-**Kapaligiran sa Pag-develop:**
-- .NET 9.0 SDK o mas mataas
+**Development Environment:**
+- .NET 9.0 SDK o mas mataas pa
 - Visual Studio 2022 o VS Code na may C# extension
-- Access sa GitHub Models API
+- Isang Azure subscription na may Azure OpenAI resource at deployment ng modelo
+- Ang Azure CLI — mag-sign in gamit ang `az login`
 
 **Mga Kinakailangang Dependency:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Konpigurasyon ng Kapaligiran (.env file):**
+**Kumpigurasyon ng Kapaligiran (.env file):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Pagpapatakbo ng Code
+## Pagpatakbo ng Code
 
-Kasama sa araling ito ang isang .NET Single File App na implementasyon. Para patakbuhin ito:
+Kasama sa araling ito ang implementasyon ng .NET Single File App. Para patakbuhin ito:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Gawing executable ang file (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Patakbuhin ang aplikasyon
 ./07-dotnet-agent-framework.cs
 ```
 
-O gamitin ang utos na dotnet run:
+O gamitin ang dotnet run command:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -45,19 +48,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Implementasyon ng Code
 
-Ang kumpletong implementasyon ay makikita sa `07-dotnet-agent-framework.cs`, na nagpapakita ng:
+Ang kompletong implementasyon ay makikita sa `07-dotnet-agent-framework.cs`, na nagpapakita ng:
 
-- Pag-load ng konpigurasyon ng kapaligiran gamit ang DotNetEnv
-- Pag-configure ng OpenAI client para sa GitHub Models
-- Pagde-define ng mga structured data model (Plan at TravelPlan) gamit ang JSON serialization
+- Pag-load ng configuration ng kapaligiran gamit ang DotNetEnv
+- Pag-configure ng Azure OpenAI client at paggawa ng AI agent gamit ang `GetChatClient().AsAIAgent()`
+- Pagdeklara ng mga structured data model (Plan at TravelPlan) gamit ang JSON serialization
 - Paglikha ng AI agent na may structured output gamit ang JSON schema
-- Pagpapatupad ng mga planning request na may type-safe na mga tugon
+- Pagpapatupad ng mga plano ng request na may type-safe na mga sagot
 
 ## Mga Pangunahing Konsepto
 
-### Structured Planning gamit ang Type-Safe Models
+### Structured na Pagpaplano gamit ang Type-Safe na Mga Models
 
-Gumagamit ang agent ng mga C# class para idefine ang istruktura ng mga planning output:
+Ginagamit ng agent ang mga klase sa C# upang tukuyin ang istruktura ng output ng pagpaplano:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### JSON Schema para sa Structured Outputs
 
-Ang agent ay naka-configure upang magbalik ng mga tugon na tumutugma sa TravelPlan schema:
+Ang agent ay naka-configure upang magbalik ng mga tugon na tugma sa TravelPlan schema:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Mga Instruksyon para sa Planning Agent
+### Mga Tagubilin para sa Planning Agent
 
-Ang agent ay kumikilos bilang isang coordinator, na nag-aatas ng mga gawain sa mga espesyal na sub-agent:
+Gumaganap ang agent bilang coordinator, na nagdedelegate ng mga gawain sa mga specialized sub-agent:
 
-- FlightBooking: Para sa pag-book ng mga flight at pagbibigay ng impormasyon sa flight
-- HotelBooking: Para sa pag-book ng mga hotel at pagbibigay ng impormasyon sa hotel
-- CarRental: Para sa pag-book ng mga kotse at pagbibigay ng impormasyon sa car rental
-- ActivitiesBooking: Para sa pag-book ng mga aktibidad at pagbibigay ng impormasyon sa aktibidad
+- FlightBooking: Para sa pag-book ng mga flight at pagbibigay ng impormasyon tungkol sa mga flight
+- HotelBooking: Para sa pag-book ng mga hotel at pagbibigay ng impormasyon tungkol sa mga hotel
+- CarRental: Para sa pag-book ng mga kotse at pagbibigay ng impormasyon tungkol sa car rental
+- ActivitiesBooking: Para sa pag-book ng mga aktibidad at pagbibigay ng impormasyon tungkol sa mga aktibidad
 - DestinationInfo: Para sa pagbibigay ng impormasyon tungkol sa mga destinasyon
-- DefaultAgent: Para sa paghawak ng mga pangkalahatang kahilingan
+- DefaultAgent: Para sa paghawak ng mga pangkalahatang request
 
 ## Inaasahang Output
 
-Kapag pinatakbo mo ang agent gamit ang isang travel planning request, susuriin nito ang kahilingan at gagawa ng isang structured na plano na may naaangkop na mga task assignment sa mga espesyal na agent, na naka-format bilang JSON na tumutugma sa TravelPlan schema.
+Kapag pinatakbo mo ang agent gamit ang request sa pagpaplano ng paglalakbay, susuriin nito ang kahilingan at gagawa ng isang structured na plano na may angkop na pagtatalaga ng mga gawain sa mga specialized agents, at naka-format bilang JSON na sumusunod sa TravelPlan schema.
 
 ---
 
-**Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, mangyaring tandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na pinagmulan. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Pagtatanggi**:
+Ang dokumentong ito ay isinalin gamit ang serbisyo ng AI translation na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't nagsusumikap kami para sa katumpakan, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang maling pagkakaintindi o maling interpretasyon na nagmula sa paggamit ng pagsasaling ito.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

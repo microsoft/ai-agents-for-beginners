@@ -1,83 +1,89 @@
 # AI-agentit tuotannossa: havaittavuus ja arviointi
 
-[![AI-agentit tuotannossa](../../../translated_images/fi/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/fi/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Kun AI-agentit siirtyvät kokeiluprojekteista todellisiin käyttötapauksiin, kyky ymmärtää niiden käyttäytymistä, seurata suorituskykyä ja arvioida tuloksia järjestelmällisesti muuttuu tärkeäksi.
+Kun AI-agentit siirtyvät kokeiluversioista todellisiin sovelluksiin, niiden käyttäytymisen ymmärtäminen, suorituskyvyn seuranta ja systemaattinen tuotosten arviointi muuttuvat tärkeiksi.
 
 ## Oppimistavoitteet
 
-Tämän oppitunnin jälkeen tiedät/ymmärrät:
+Tämän oppitunnin jälkeen osaat/ymmärrät:
 - Agenttien havaittavuuden ja arvioinnin keskeiset käsitteet
-- Tekniikoita agenttien suorituskyvyn, kustannusten ja tehokkuuden parantamiseen
-- Mitä ja miten arvioida AI-agenttejasi järjestelmällisesti
-- Kuinka hallita kustannuksia AI-agenttien tuotantokäytössä
-- Kuinka instrumentoida agentteja, jotka on rakennettu AutoGenillä
+- Tekniikat agenttien suorituskyvyn, kustannusten ja tehokkuuden parantamiseen
+- Mitä ja miten AI-agentteja arvioidaan systemaattisesti
+- Kuinka hallita kustannuksia AI-agenttien tuotantoon käyttöönotossa
+- Kuinka instrumentoida Microsoft Agent Frameworkilla rakennettuja agentteja
 
-Tavoitteena on antaa sinulle tieto muuttaa "mustat laatikot" läpinäkyviksi, hallittaviksi ja luotettaviksi järjestelmiksi.
+Tavoite on varustaa sinut tiedolla, jolla voit muuttaa "mustat laatikko" -agenttisi läpinäkyviksi, hallittaviksi ja luotettaviksi järjestelmiksi.
 
-_**Huom:** On tärkeää ottaa tuotantoon turvallisia ja luotettavia AI-agentteja. Tutustu myös oppituntiin [Luotettavien AI-agenttien rakentaminen](./06-building-trustworthy-agents/README.md)._
+_**Huom:** On tärkeää ottaa käyttöön AI-agentteja, jotka ovat turvallisia ja luotettavia. Tutustu myös oppituntiin [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
-## Tracet ja spanit
+## Jäljet ja jaksot
 
-Havaittavuustyökalut, kuten [Langfuse](https://langfuse.com/) tai [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), esittävät yleensä agentin suoritukset trace- ja span-rakenteina.
+Havaittavuustyökalut kuten [Langfuse](https://langfuse.com/) tai [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kuvaavat yleensä agentin ajokerrat jälkinä (traces) ja jaksoina (spans).
 
-- **Trace** edustaa kokonaista agentin tehtävää alusta loppuun (esim. käyttäjäkyselyn käsittelyä).
-- **Spans** ovat yksittäisiä askeleita tracessa (esim. kielimallin kutsu tai tiedon hakeminen).
+- **Jälki (Trace)** kuvaa täydellistä agentin tehtävää alusta loppuun (esim. käyttäjän kyselyn käsittely).
+- **Jaksot (Spans)** ovat yksittäisiä vaiheita jäljen sisällä (esim. kielimallin kutsu tai datan nouto).
 
-![Trace-puu Langfusessa](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-Ilman havaittavuutta AI-agentti voi tuntua "musta laatikolta" — sen sisäinen tila ja päättely ovat läpinäkymättömiä, mikä vaikeuttaa vikojen diagnosointia tai suorituskyvyn optimointia. Havaittavuuden avulla agentit muuttuvat "lasisiksi laatikoiksi", tarjoten läpinäkyvyyttä, joka on välttämätöntä luottamuksen rakentamiseksi ja sen varmistamiseksi, että ne toimivat tarkoitetulla tavalla.
+Ilman havaittavuutta AI-agentti voi tuntua "mustalta laatikolta" – sen sisäinen tila ja päättely ovat läpinäkymättömiä, mikä vaikeuttaa ongelmien diagnosointia tai suorituskyvyn optimointia. Havaittavuuden avulla agentit muuttuvat "lasi-laatikoiksi", jotka tarjoavat läpinäkyvyyttä, mikä on välttämätöntä luottamuksen rakentamiseksi ja toimintavarmuuden varmistamiseksi. 
 
 ## Miksi havaittavuus on tärkeää tuotantoympäristöissä
 
-AI-agenttien siirtäminen tuotantoon tuo mukanaan uuden joukon haasteita ja vaatimuksia. Havaittavuus ei ole enää "kiva lisä", vaan kriittinen ominaisuus:
+Siirtyminen AI-agenteilla tuotantoympäristöihin tuo mukanaan uusia haasteita ja vaatimuksia. Havaittavuus ei ole enää "kiva lisä", vaan kriittinen ominaisuus:
 
-*   **Debuggaus ja juurisyiden analyysi**: Kun agentti epäonnistuu tai tuottaa odottamattoman tuloksen, havaittavuustyökalut tarjoavat tracet, joiden avulla virheen lähde voidaan paikantaa. Tämä on erityisen tärkeää monimutkaisissa agenteissa, joissa voi olla useita LLM-kutsuja, työkalujen vuorovaikutuksia ja ehdollista logiikkaa.
-*   **Viiveen ja kustannusten hallinta**: AI-agentit luottavat usein LLM:iin ja muihin ulkoisiin rajapintoihin, joista laskutetaan token-perusteisesti tai kutsua kohden. Havaittavuus mahdollistaa näiden kutsujen tarkan seurannan, mikä auttaa tunnistamaan liian hitaita tai kalliita operaatioita. Tämä antaa tiimeille mahdollisuuden optimoida kehotteita, valita tehokkaampia malleja tai suunnitella työnkulkuja uudelleen hallitakseen käyttökustannuksia ja varmistaa hyvä käyttäjäkokemus.
-*   **Luottamus, turvallisuus ja vaatimustenmukaisuus**: Monissa sovelluksissa on tärkeää varmistaa, että agentit käyttäytyvät turvallisesti ja eettisesti. Havaittavuus tarjoaa agentin toimien ja päätösten tarkastuspolun. Sitä voidaan käyttää esimerkiksi prompt injectionin, haitallisen sisällön generoinnin tai henkilötietojen (PII) väärinkäsittelyn havaitsemiseen ja lieventämiseen. Voit esimerkiksi tarkastella traceja ymmärtääksesi, miksi agentti antoi tietyn vastauksen tai käytti tiettyä työkalua.
-*   **Jatkuvan parantamisen silmukat**: Havaittavuustiedot muodostavat iteratiivisen kehitysprosessin perustan. Seuraamalla, miten agentit toimivat todellisessa maailmassa, tiimit voivat tunnistaa parannuskohteita, kerätä tietoa mallien hienosäätöä varten ja validoida muutosten vaikutuksia. Tämä luo palautesilmukan, jossa tuotannon online-arvioinnista saadut havainnot ohjaavat offline-kokeilua ja hienosäätöä, johtuen vähitellen parempaan agentin suorituskykyyn.
+*   **Virheenkorjaus ja syynmäärittely:** Kun agentti epäonnistuu tai tuottaa odottamattoman tuloksen, havaittavuustyökalut tarjoavat jäljet virheen lähteen paikantamiseen. Tämä on erityisen tärkeää monimutkaisissa agenteissa, joissa voi olla useita LLM-kutsuja, työkalujen vuorovaikutuksia ja ehtologista logiikkaa.
+*   **Viive ja kustannusten hallinta:** AI-agentit käyttävät usein LLM-malleja ja muita ulkoisia API-kutsuja, jotka veloitetaan tokenista tai kutsusta. Havaittavuus mahdollistaa näiden kutsujen tarkan seurannan, auttaen tunnistamaan liiallisen hitaita tai kalliita operaatioita. Tämä mahdollistaa kehotteiden optimoinnin, tehokkaampien mallien valinnan tai työnkulkujen uudelleensuunnittelun operatiivisten kustannusten hallitsemiseksi ja käyttäjäkokemuksen varmistamiseksi.
+*   **Luottamus, turvallisuus ja vaatimustenmukaisuus:** Monissa sovelluksissa on tärkeää varmistaa, että agentit toimivat turvallisesti ja eettisesti. Havaittavuus tarjoaa agenttien toimien ja päätösten tarkistajäljen. Tätä voidaan käyttää havaitsemaan ja lieventämään ongelmia kuten kehotteiden manipulointia, haitallisen sisällön tuottamista tai henkilötietojen väärinkäsittelyä. Esimerkiksi voit tarkastella jälkiä ymmärtääksesi, miksi agentti antoi tietyn vastauksen tai käytti tiettyä työkalua.
+*   **Jatkuvan parantamisen silmukat:** Havaittavuustiedot ovat toistuvan kehitysprosessin perusta. Seuraamalla agenttien suorituskykyä todellisessa käytössä tiimit voivat tunnistaa parannuskohteita, kerätä tietoa mallien hienosäätöön ja validoida muutosten vaikutuksia. Tämä luo palautesilmukan, jossa tuotantoympäristön oheisarviointi ohjaa offline-kokeiluja ja hiomista, mikä johtaa asteittain parempaan agenttien suorituskykyyn.
 
 ## Keskeiset seurattavat mittarit
 
-Agentin käyttäytymisen seuraamiseksi ja ymmärtämiseksi tulisi mitata useita mittareita ja signaaleja. Vaikka tarkat mittarit voivat vaihdella agentin tehtävän mukaan, osa on yleisesti tärkeitä.
+Agenttien käyttäytymisen seuraamiseksi ja ymmärtämiseksi tulisi seurata useita mittareita ja signaaleja. Vaikka tarkat mittarit voivat vaihdella agentin tarkoituksen mukaan, jotkut ovat yleisesti tärkeitä.
 
-Tässä ovat yleisimmät mittarit, joita havaittavuustyökalut seuraavat:
+Tässä muutamia yleisimmistä mittareista, joita havaittavuustyökalut seuraavat:
 
-**Viive (Latency):** Kuinka nopeasti agentti vastaa? Pitkät odotusajat heikentävät käyttäjäkokemusta. Mittaa viivettä tehtävien ja yksittäisten vaiheiden osalta tracerunien avulla. Esimerkiksi agentti, joka tarvitsee 20 sekuntia kaikkiin mallikutsuihin, voitaisiin nopeuttaa käyttämällä nopeampaa mallia tai suorittamalla mallikutsut rinnakkain.
+**Viive:** Kuinka nopeasti agentti vastaa? Pitkät odotusajat heikentävät käyttäjäkokemusta. Viivettä tulisi mitata tehtävien ja yksittäisten vaiheiden osalta jälkiä seuraamalla. Esimerkiksi agentti, joka käyttää 20 sekuntia kaikkiin mallikutsuihin, voisi olla nopeampi käyttämällä nopeampaa mallia tai suorittamalla kutsut rinnakkain.
 
-**Kustannukset:** Paljonko kustannus per agentin suoritus? AI-agentit käyttävät LLM-kutsuja tai ulkoisia API:ita, joista laskutetaan token- tai kutsuperusteisesti. Työkalujen usein toistuva käyttö tai useat kehotteet voivat nopeasti kasvattaa kustannuksia. Esimerkiksi jos agentti kutsuu LLM:ää viisi kertaa marginaalisen laadun parantamiseksi, on arvioitava, onko kustannus perusteltu vai voisiko kutsujen määrää vähentää tai käyttää halvempaa mallia. Reaaliaikainen seuranta voi myös auttaa tunnistamaan odottamattomat piikit (esim. bugit, jotka aiheuttavat liiallisia API-silmukoita).
+**Kustannukset:** Mikä on kustannus per agentin ajo? AI-agentit käyttävät LLM-kutsuja, jotka veloitetaan tokenista tai ulkoisista API-kutsuista. Tiheä työkalujen käyttö tai useat kehotteet voivat nopeasti nostaa kustannuksia. Esimerkiksi jos agentti kutsuu LLM:ää viisi kertaa laadun marginal parantamiseksi, on harkittava, onko kustannus oikeutettu vai voisiko kutsujen määrää vähentää tai käyttää halvempaa mallia. Reaaliaikainen seuranta voi myös auttaa havaitsemaan odottamattomia piikkejä (esimerkiksi bugit, jotka aiheuttavat liiallisia API-silmukoita).
 
-**Pyyntövirheet:** Kuinka monessa pyynnössä agentti epäonnistui? Tämä voi sisältää API-virheitä tai epäonnistuneita työkalukutsuja. Tehdäksesi agentistasi kestävämmän tuotannossa, voit ottaa käyttöön varatoimenpiteitä tai uudelleenyrittämisiä. Esim. jos LLM-palveluntarjoaja A on alhaalla, vaihdat varalla olevaan LLM-palveluntarjoajaan B.
+**Pyyntövirheet:** Kuinka monta pyyntöä agentti epäonnistui käsittelemään? Tämä voi sisältää API-virheitä tai epäonnistuneita työkalukutsuja. Tehdäksesi agentista vikasietoisemman tuotannossa, voit määrittää varajärjestelmiä tai uudelleenkokeiluja. Esimerkiksi jos LLM-palveluntarjoaja A on poissa käytöstä, voit vaihtaa palveluntarjoajaan B varajärjestelmänä.
 
-**Käyttäjäpalautteet:** Suorat käyttäjäarvioinnit antavat arvokkaita tietoja. Tämä voi sisältää eksplisiittisiä luokituksia (👍peukku ylös/👎peukku alas, ⭐1-5 tähteä) tai tekstimuotoisia kommentteja. Johdonmukainen negatiivinen palaute tulisi ottaa hälytyksenä, koska se kertoo, että agentti ei toimi odotetulla tavalla.
+**Käyttäjäpalautteet:** Suorat käyttäjäarvioinnit tarjoavat arvokasta tietoa. Tämä voi sisältää selkeitä arvioita (👍peukku ylös / 👎 alas, ⭐1-5 tähteä) tai tekstimuotoisia kommentteja. Jatkuvasti negatiivinen palaute tulee huomioida varoituksena siitä, että agentti ei toimi odotetusti.
 
-**Implisiittinen käyttäjäpalautteen:** Käyttäjäkäyttäytyminen antaa epäsuoraa palautetta ilman eksplisiittisiä arvioita. Tämä voi sisältää välittömän kysymyksen uudelleenmuotoilun, toistuvia kyselyjä tai uudelleenyrittopainikkeen klikkauksen. Esim. jos näet, että käyttäjät kysyvät samaa kysymystä toistuvasti, se on merkki siitä, että agentti ei toimi odotetusti.
+**Epäsuora käyttäjäpalautteet:** Käyttäjäkäyttäytyminen tarjoaa epäsuoraa palautetta ilman suoria arvosteluja. Tämä voi olla välitöntä kysymyksen uudelleenmuotoilua, toistuvia kyselyjä tai uudelleenkokeilupainikkeen klikkaamista. Esimerkiksi jos havaitaan, että käyttäjät kysyvät usein samaa kysymystä uudelleen, se on merkki siitä, että agentti ei toimi odotetusti.
 
-**Tarkkuus (Accuracy):** Kuinka usein agentti tuottaa oikeita tai toivottavia vastauksia? Tarkkuuden määritelmät vaihtelevat (esim. ongelmanratkaisun oikeellisuus, tiedonhakutarkkuus, käyttäjätyytyväisyys). Ensimmäinen askel on määritellä, miltä menestys näyttää agentillesi. Voit seurata tarkkuutta automaattisilla tarkistuksilla, arviointipisteillä tai tehtävän suorittamisen tunnuksilla. Esimerkiksi merkitsemällä traceja "onnistunut" tai "epäonnistunut".
+**Tarkkuus:** Kuinka usein agentti tuottaa oikein tai toivottuja vastauksia? Tarkkuuden määritelmät vaihtelevat (esim. ongelmanratkaisun oikeellisuus, tiedonhaku, käyttäjätyytyväisyys). Ensimmäinen askel on määritellä, mitä menestys tarkoittaa agentillesi. Voit seurata tarkkuutta automaattisten tarkistusten, arviointipisteiden tai tehtävän valmistumismerkkien kautta. Esimerkiksi merkitsemällä jäljet "onnistuneiksi" tai "epäonnistuneiksi".
 
-**Automaattiset arviointimittarit:** Voit myös rakentaa automaattisia arviointeja. Esimerkiksi voit käyttää LLM:ää pisteyttämään agentin tuotosta, esim. onko se hyödyllinen, tarkka tai ei. On myös useita avoimen lähdekoodin kirjastoja, jotka auttavat pisteyttämään eri osa-alueita agentista. Esim. [RAGAS](https://docs.ragas.io/) RAG-agenteille tai [LLM Guard](https://llm-guard.com/) haitallisen kielen tai prompt injectionin havaitsemiseen.
+**Automaattiset arviointimittarit:** Voit myös tehdä automaattisia arviointeja. Esimerkiksi voit käyttää LLM:ää arvioimaan agentin tuottaman tuloksen hyödyllisyyden, tarkkuuden tai muutoin. Lisäksi useat avoimen lähdekoodin kirjastot auttavat arvioimaan eri näkökulmia, esim. [RAGAS](https://docs.ragas.io/) RAG-agentteihin tai [LLM Guard](https://github.com/protectai/llm-guard) haitallisen kielen tai kehotteen manipuloinnin tunnistamiseen.
 
-Käytännössä näiden mittareiden yhdistelmä antaa parhaan yleiskuvan AI-agentin tilasta. Tässä luvussa oleva [esimerkkimuistio](./code_samples/10_autogen_evaluation.ipynb) näyttää, miltä nämä mittarit näyttävät todellisissa esimerkeissä, mutta ensin opitaan, millainen tyypillinen arviointityönkulku on.
+Käytännössä näiden mittarien yhdistelmä antaa parhaan kuvan AI-agentin terveydestä. Tässä luvussa [esimerkkimuistikirja](./code_samples/10-expense_claim-demo.ipynb) näyttää, miltä nämä mittarit näyttävät käytännössä, mutta ensin opimme, miltä tyypillinen arviointityönkulku näyttää.
 
 ## Instrumentoi agenttisi
 
-Tracedatan keräämiseksi sinun täytyy instrumentoida koodisi. Tavoitteena on instrumentoida agenttikoodi lähettämään traceja ja mittareita, jotka voidaan kaapata, käsitellä ja visualisoida havaittavuusalustalla.
+Jälkitietojen keräämiseksi sinun täytyy instrumentoida koodisi. Tavoitteena on tehdä agentin koodista sellainen, että se tuottaa jälkiä ja mittareita, jotka havaittavuusalusta voi kerätä, käsitellä ja visualisoida.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) on noussut LLM-havaittavuuden teollisuuden standardiksi. Se tarjoaa joukon API:ita, SDK:ita ja työkaluja telemetriadatan generointiin, keräämiseen ja vientiin.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) on noussut alan standardiksi LLM-havaittavuudelle. Se tarjoaa joukko API-rajapintoja, SDK:ita ja työkaluja telemetriadatan generointiin, keräykseen ja vientiin.
 
-On olemassa monia instrumentointikirjastoja, jotka kääreltäviä olemassa olevien agenttikehysten päälle ja helpottavat OpenTelemetry-spanien vientiä havaittavuustyökaluun. Alla on esimerkki AutoGen-agentin instrumentoinnista käyttäen [OpenLit-instrumentointikirjastoa](https://github.com/openlit/openlit):
+On olemassa monia instrumentointikirjastoja, jotka kääriytyvät olemassa olevien agenttikehysten ympärille ja helpottavat OpenTelemetry-jaksojen vientiä havaittavuustyökaluun. Microsoft Agent Framework tukee OpenTelemetria natiivisti. Alla on esimerkki MAF-agentin instrumentoinnista:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Agent execution is traced automatically
+    pass
 ```
 
-Tämän luvun [esimerkkimuistio](./code_samples/10_autogen_evaluation.ipynb) näyttää, kuinka instrumentoit AutoGen-agenttisi.
+Tässä luvun [esimerkkimuistikirjassa](./code_samples/10-expense_claim-demo.ipynb) näytetään, kuinka instrumentoida MAF-agenttisi.
 
-**Manuaalinen spanien luominen:** Vaikka instrumentointikirjastot tarjoavat hyvän peruslähestymistavan, usein tarvitaan yksityiskohtaisempaa tai mukautettua tietoa. Voit luoda spanit manuaalisesti lisätäksesi mukautettua sovelluslogiikkaa. Vielä tärkeämpää, voit rikastaa automaattisesti tai manuaalisesti luotuja span:eja mukautetuilla attribuuteilla (tunnetaan myös tageina tai metatietoina). Nämä attribuutit voivat sisältää liiketoimintasovelluksen tietoja, välivaiheen laskelmia tai mitä tahansa kontekstia, joka voi olla hyödyllistä debuggausta tai analyysiä varten, kuten `user_id`, `session_id`, tai `model_version`.
+**Manuaalinen jaksojen luonti:** Vaikka instrumentointikirjastot tarjoavat hyvän perustan, joskus tarvitaan yksityiskohtaisempaa tai räätälöityä tietoa. Voit luoda jaksoja manuaalisesti lisätäksesi mukautettua sovelluslogiikkaa. Tärkeämpää on, että voit rikastaa automaattisesti tai manuaalisesti luotuja jaksoja omilla ominaisuuksilla (tunnetaan myös tageina tai metadatana). Nämä ominaisuudet voivat sisältää liiketoimintaan liittyvää dataa, välivaiheen laskelmia tai mitä tahansa kontekstia, joka voi olla hyödyllistä virheiden etsinnässä tai analyysissä, kuten `user_id`, `session_id` tai `model_version`.
 
-Esimerkki tracejen ja spanien luomisesta manuaalisesti [Langfuse Python SDK:n](https://langfuse.com/docs/sdk/python/sdk-v3) avulla:
+Esimerkki jälkien ja jaksojen manuaalisesta luomisesta [Langfuse Python SDK]:lla (https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -91,69 +97,71 @@ span.end()
 
 ## Agentin arviointi
 
-Havaittavuus antaa meille mittareita, mutta arviointi on prosessi, jossa analysoidaan niitä tietoja (ja suoritetaan testejä) määrittääksesi, kuinka hyvin AI-agentti suoriutuu ja miten sitä voi parantaa. Toisin sanoen, kun sinulla on ne tracet ja mittarit, miten käytät niitä agentin arvosteluun ja päätöksentekoon?
+Havaittavuus antaa meille mittareita, mutta arviointi on prosessi, jossa analysoidaan nämä tiedot (ja suoritetaan testejä) määritelläksemme, kuinka hyvin AI-agentti toimii ja kuinka sitä voidaan parantaa. Toisin sanoen, kun sinulla on nuo jäljet ja mittarit, miten käytät niitä agentin arviointiin ja päätösten tekemiseen?
 
-Säännöllinen arviointi on tärkeää, koska AI-agentit ovat usein ei-deterministisiä ja voivat kehittyä (päivitysten tai mallin käyttäytymisen siirtymien kautta) – ilman arviointia et tietäisi, tekeekö "älykäs agenttisi" tehtävänsä hyvin vai onko sen suoritus heikentynyt.
+Säännöllinen arviointi on tärkeää, koska AI-agentit ovat usein ei-deterministisiä ja voivat kehittyä (päivitysten tai mallin käyttäytymisen muuttumisen kautta) – ilman arviointia et tietäisi, tekeekö "älykäs agenttisi" todella tavoitteensa mukaisesti vai onko se heikentynyt.
 
-Arvioinnit jaetaan kahteen kategoriaan: **online-arviointi** ja **offline-arviointi**. Molemmat ovat arvokkaita ja täydentävät toisiaan. Yleensä aloitetaan offline-arvioinnilla, koska se on vähimmäisvaatimus ennen agentin käyttöönottoa.
+AI-agenttien arviointiin on kaksi kategoriaa: **verkkopohjainen arviointi (online evaluation)** ja **offline-arviointi**. Molemmat ovat arvokkaita ja täydentävät toisiaan. Aloitamme yleensä offline-arvioinnista, sillä se on vähimmäisvaatimus ennen agentin käyttöönottoa.
 
 ### Offline-arviointi
 
-![Aineiston kohteet Langfusessa](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Tämä tarkoittaa agentin arviointia kontrolloidussa ympäristössä, tyypillisesti käyttämällä testiaineistoja, ei live-käyttäjäkyselyjä. Käytät kuratoituja aineistoja, joissa tiedät odotetun tuloksen tai oikean käyttäytymisen, ja ajat agenttisi niiden läpi.
+Tämä tarkoittaa agentin arviointia kontrolloidussa ympäristössä, yleensä testaamalla aiemman aineiston avulla, ei live-käyttäjäkyselyillä. Käytät huolellisesti valittuja aineistoja, joissa tiedetään odotettu tulos tai oikea toimintatapa, ja ajat agenttisi niiden päällä.
 
-Esimerkiksi, jos olet rakentanut matematiikan sanatehtäväagentin, saatat omata [testiaineiston](https://huggingface.co/datasets/gsm8k) 100 ongelmalla, joiden vastaukset ovat tiedossa. Offline-arviointi tehdään usein kehityksen aikana (ja se voi olla osa CI/CD-putkea) tarkistamaan parannukset tai suojata regressioilta. Hyöty on, että se on **toistettavissa ja saat selkeät tarkkuusmittarit, koska sinulla on ground truth**. Saatat myös simuloida käyttäjäkyselyjä ja mitata agentin vastauksia ihanteellisia vastauksia vastaan tai käyttää automaattisia mittareita kuten yllä on kuvattu.
+Esimerkiksi, jos olet rakentanut matemaattisten sanatehtävien agentin, sinulla saattaa olla [testiaineisto](https://huggingface.co/datasets/openai/gsm8k) 100 tunnetulla vastauksella. Offline-arviointi tehdään usein kehityksen aikana (ja voi olla osa CI/CD-putkia) parannusten tarkistamiseen tai taantumien estämiseen. Hyöty on siinä, että se on **toistettavissa ja voit saada selkeät tarkkuusmittarit, koska sinulla on totuusvertailu**. Voit myös simuloida käyttäjäkyselyjä ja mitata agentin vastauksia ihanteellisiin vastauksiin tai käyttää automaattisia mittareita kuten yllä kuvattiin.
 
-Offline-arvioinnin keskeinen haaste on varmistaa, että testiaineisto on kattava ja pysyy relevanttina – agentti saattaa suoriutua hyvin kiinteässä testijoukossa mutta kohdata hyvin erilaisia kyselyjä tuotannossa. Siksi testijoukkoja tulisi päivittää uusilla reunatapauksilla ja esimerkeillä, jotka heijastavat todellisia skenaarioita​. Pieniä "pikatestejä" ja suurempia arviointisettejä yhdistävä lähestymistapa on hyödyllinen: pienet setit nopeisiin tarkistuksiin ja suuremmat laajempien suorituskykymittareiden saamiseksi​.
+Offline-arvioinnin suurin haaste on varmistaa, että testiaineisto on kattava ja pysyy ajantasaisena – agentti voi onnistua hyvin kiinteällä testiaineistolla, mutta kohdata hyvin erilaisia kyselyitä tuotannossa. Siksi testiaineistot tulisi pitää päivitettyinä uusilla rajatapauksilla ja aidoista tilanteista. Pieni "savutesti" ja laajemmat arviointiaineistot ovat hyödyllisiä: pienet aineistot nopeisiin tarkistuksiin ja suuremmat laajempiin suorituskykymittauksiin.
 
 ### Online-arviointi
 
-![Havaittavuusmittareiden yleiskatsaus](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Tämä viittaa agentin arviointiin live-ympäristössä, eli todellisen tuotantokäytön aikana. Online-arviointi sisältää agentin suorituskyvyn seuraamisen todellisissa käyttäjävuorovaikutuksissa ja jatkuvan tulosten analysoinnin.
+Tämä tarkoittaa agentin arviointia reaaliajassa tosielämän ympäristössä, eli tuotannossa sen oikean käytön aikana. Online-arviointi sisältää agentin suorituskyvyn seurantaa aidossa käyttäjävuorovaikutuksessa ja tulosten jatkuvaa analysointia.
 
-Esimerkiksi saatat seurata onnistumisprosentteja, käyttäjätyytyväisyysarvioita tai muita mittareita live-liikenteessä. Online-arvioinnin etu on, että se **paljastaa asioita, joita et välttämättä osannut odottaa laboratoriotilanteessa** – voit havaita mallin siirtymän ajan myötä (jos agentin tehokkuus heikkenee syötteiden muuttumisen myötä) ja havaita odottamattomia kyselyjä tai tilanteita, joita ei ollut testidatassa​. Se tarjoaa todellisen kuvan siitä, miten agentti käyttäytyy todellisessa ympäristössä.
+Esimerkiksi saatat seurata onnistumisprosentteja, käyttäjätyytyväisyyspisteitä tai muita mittareita live-liikenteessä. Online-arvioinnin etuna on, että se **paljastaa asioita, joita et ehkä odottanut laboratorioympäristössä** – voit havaita mallin ajallisen heikkenemisen (jos agentin tehokkuus heikkenee syötteiden muuttuessa) ja poikkeavia kyselyitä tai tilanteita, joita testiaineistossa ei ollut. Se antaa todenmukaisen kuvan agentin käyttäytymisestä luonnossa.
 
-Online-arviointi sisältää usein implisiittisen ja eksplisiittisen käyttäjäpalautteen keruun, kuten aiemmin kuvattu, ja mahdollisesti shadow-testien tai A/B-testien suorittamisen (missä uusi agenttiversio ajetaan rinnakkain vanhan kanssa vertailua varten). Haasteena on, että live-vuorovaikutuksille voi olla vaikea saada luotettavia merkintöjä tai pisteitä – saatat joutua tukeutumaan käyttäjäpalautteeseen tai välillisiin mittareihin (kuten klikattiinko tulosta).
+Online-arviointi sisältää usein niin piilotettua kuin suoraakin käyttäjäpalautetta, kuten aikaisemmin keskusteltiin, ja mahdollisesti varjotestauksia tai A/B-testausta (missä agentin uusi versio ajetaan rinnakkain vanhan kanssa vertailua varten). Haasteena on, että luotettavan luokittelun tai pisteytyksen saaminen livenäkökohdasta voi olla hankalaa – voit joutua luottamaan käyttäjäpalautteeseen tai jälkiseurannan mittareihin (esim. klikkasiko käyttäjä tulosta).
 
-### Yhdistäminen
+### Näiden yhdistäminen
 
-Online- ja offline-arvioinnit eivät ole toisiaan poissulkevia; ne täydentävät toisiaan. Online-seurannasta saadut havainnot (esim. uudet käyttäjäkyselytyypit, joissa agentti suoriutuu huonosti) voidaan käyttää offline-testiaineistojen laajentamiseen ja parantamiseen. Vastaavasti agentit, jotka menestyvät hyvin offline-testeissä, voidaan ottaa luottavaisemmin käyttöön ja valvoa online-ympäristössä.
+Online- ja offline-arvioinnit eivät ole toisensa poissulkevia; ne tukevat hyvin toisiaan. Online-seurannan havainnot (esim. uudet käyttäjäkyselyt, joissa agentti toimii huonosti) voidaan käyttää offline-testausaineistojen täydentämiseen ja parantamiseen. Vastaavasti hyvin offline-testeissä menestyvät agentit voidaan luottavaisemmin ottaa käyttöön ja seurata online-ympäristössä.
 
-Monet tiimit käyttävät itse asiassa silmukkaa:
+Monet tiimit käyttävät kiertoa:
 
-_arvioi offline -> ota käyttöön -> valvo online-tilassa -> kerää uudet virhetilanteet -> lisää offline-datasettiin -> hienosäädä agenttia -> toista_.
+_arvioi offlinessa -> ota käyttöön -> seuraa onlinessa -> kerää uudet epäonnistumistapaukset -> lisää offline-aineistoon -> hienosäädä agenttia -> toista_.
 
 ## Yleisiä ongelmia
 
-Kun siirrät AI-agentteja tuotantoon, voit kohdata erilaisia haasteita. Tässä on joitakin yleisiä ongelmia ja niiden mahdollisia ratkaisuja:
+Kun otat AI-agentteja tuotantoon, kohtaat monia haasteita. Tässä on joitain yleisiä ongelmia ja niiden mahdollisia ratkaisuja:
 
 | **Ongelma**    | **Mahdollinen ratkaisu**   |
 | ------------- | ------------------ |
-| AI-agentti ei suorita tehtäviä johdonmukaisesti | - Hienosäädä agentille annettua promptia; ole selkeä tavoitteiden kanssa.<br>- Tunnista, missä tehtävät kannattaa jakaa alitehtäviin ja antaa useammalle agentille. |
-| AI-agentti ajautuu jatkuviin silmukoihin  | - Varmista, että sinulla on selkeät lopetusehdot, jotta agentti tietää, milloin prosessi tulee lopettaa.<br>- Monimutkaisissa tehtävissä, jotka vaativat päättelyä ja suunnittelua, käytä suurempaa mallia, joka on erikoistunut päättelytehtäviin. |
-| AI-agentin työkalukutsut eivät toimi hyvin   | - Testaa ja validoi työkalun tuotosta agenttijärjestelmän ulkopuolella.<br>- Hienosäädä määriteltyjä parametreja, kehotteita ja työkalujen nimeämistä.  |
-| Moniagenttijärjestelmä ei toimi johdonmukaisesti | - Hienosäädä kullekin agentille annettuja kehotteita varmistaaksesi, että ne ovat spesifisiä ja erottuvat toisistaan.<br>- Rakenna hierarkkinen järjestelmä käyttämällä "reititys-" tai ohjausagenttia määrittämään, mikä agentti on oikea. |
+| AI-agentti ei tee tehtäviä johdonmukaisesti | - Paranna agentille annettua kehotetta; ole selkeä tavoitteiden suhteen.<br>- Tunnista, missä tehtävät voidaan jakaa alatehtäviin ja hoitaa useamman agentin yhteistyöllä. |
+| AI-agentti joutuu jatkuviin silmukoihin  | - Varmista selkeät lopettamiskriteerit, jotta agentti tietää, milloin prosessi loppuu.<br>- Monimutkaisissa tehtävissä, joissa tarvitaan päättelyä ja suunnittelua, käytä isompaa mallia, joka on erikoistunut päättelyyn. |
+| AI-agentin työkalukutsut eivät toimi hyvin   | - Testaa ja validoi työkalun tulos agenttijärjestelmän ulkopuolella.<br>- Paranna työkalujen parametreja, kehotteita ja nimeämiskäytäntöjä.  |
+| Moniagenttijärjestelmä ei toimi johdonmukaisesti | - Paranna jokaiselle agentille annettuja kehotteita varmistaaksesi, että ne ovat spesifisiä ja erillisiä toisistaan.<br>- Rakenna hierarkkinen järjestelmä, jossa "reititys"- tai ohjuriagentti päättää, mikä agentti on oikea. |
 
-Monet näistä ongelmista voidaan tunnistaa tehokkaammin, kun havaittavuus on paikoillaan. Aiemmin käsitellyt traced ja mittarit auttavat paikantamaan täsmälleen, missä agentin työnkulussa ongelmat ilmenevät, mikä tekee debuggaamisesta ja optimoinnista paljon tehokkaampaa.
+Monet näistä ongelmista voidaan tunnistaa tehokkaammin, kun havaittavuus on käytössä. Aiemmin käsitellyt jäljet ja mittarit auttavat paikantamaan ongelmien tarkan sijainnin agentin työnkulussa, mikä tekee virheenkorjauksesta ja optimoinnista paljon tehokkaampaa.
 
 ## Kustannusten hallinta
-Tässä on joitain strategioita tekoälyagenttien käyttöönoton kustannusten hallintaan tuotannossa:
 
-**Pienempien mallien käyttö:** Pienet kielimallit (SLMs) voivat suoriutua hyvin tietyissä agenttipohjaisissa käyttötapauksissa ja vähentävät kustannuksia merkittävästi. Kuten aiemmin mainittiin, arviointijärjestelmän rakentaminen suorituskyvyn määrittämiseksi ja vertailuksi suurempiin malleihin on paras tapa ymmärtää, miten hyvin pieni kielimalli suoriutuu omassa käyttötapauksessasi. Harkitse pienten kielimallien käyttämistä yksinkertaisempiin tehtäviin, kuten aikomuksen luokitteluun tai parametrien poimintaan, ja varaa suuremmat mallit monimutkaiseen päättelyyn.
+Tässä joitain strategioita AI-agenttien tuotantoon käyttöönoton kustannusten hallintaan:
 
-**Reititysmallin käyttäminen:** Samankaltainen strategia on käyttää erilaisia malleja ja kokoja. Voit käyttää LLM/SLM:ää tai palvelimettomia funktioita reitittääksesi pyyntöjä kompleksisuuden mukaan parhaiten sopiville malleille. Tämä auttaa myös vähentämään kustannuksia ja varmistamaan suorituskyvyn oikeissa tehtävissä. Esimerkiksi reititä yksinkertaiset kyselyt pienemmille, nopeammille malleille, ja käytä kalliita suuria malleja vain monimutkaisiin päättelytehtäviin.
+**Pienten mallien käyttäminen:** Pienet kielimallit (SLM) voivat suoriutua hyvin tietyissä agenttiperustaisissa käyttötapauksissa ja vähentävät kustannuksia merkittävästi. Kuten aiemmin mainittiin, arviointijärjestelmän rakentaminen suorituskyvyn määrittämiseksi ja vertailuksi suurempiin malleihin on paras tapa ymmärtää, kuinka hyvin SLM suoriutuu omassa käyttötapauksessasi. Harkitse SLM:ien käyttöä yksinkertaisempiin tehtäviin, kuten intention luokitteluun tai parametrien poimintaan, ja varaa suuremmat mallit monimutkaiseen päättelyyn.
 
-**Vastausten välimuistiin tallentaminen:** Yleisten pyyntöjen ja tehtävien tunnistaminen ja vastausten tarjoaminen ennen kuin ne kulkevat agenttipohjaisen järjestelmäsi läpi on hyvä tapa vähentää samanlaisten pyyntöjen määrää. Voit jopa toteuttaa työnkulun, joka tunnistaa, kuinka samanlainen pyyntö on välimuistiisi tallennettuihin pyyntöihin käyttäen yksinkertaisempia tekoälymalleja. Tämä strategia voi merkittävästi vähentää kustannuksia usein kysyttyjen kysymysten tai yleisten työnkulkujen kohdalla.
+**Reititinmallin käyttäminen:** Samankaltainen strategia on käyttää erilaisia malleja ja kokoja. Voit käyttää LLM:ää/SLM:ää tai palvelintonta funktiota reitittämään pyynnöt monimutkaisuuden perusteella parhaiten sopiviin malleihin. Tämä auttaa myös vähentämään kustannuksia samalla kun varmistetaan suorituskyky oikeissa tehtävissä. Esimerkiksi ohjaa yksinkertaiset kyselyt pienemmille, nopeammille malleille ja käytä kalliita suuria malleja vain monimutkaisiin päättelytehtäviin.
+
+**Vastausten välimuistitus:** Tavallisten pyyntöjen ja tehtävien tunnistaminen ja vastausten tarjoaminen ennen niiden kulkua agenttijärjestelmän läpi on hyvä tapa vähentää samanlaisten pyyntöjen määrää. Voit jopa toteuttaa prosessin, jossa tunnistetaan, kuinka samanlainen pyyntö on välimuistitetuille pyynnöillesi käyttämällä perustason tekoälymalleja. Tämä strategia voi merkittävästi vähentää kustannuksia usein kysyttyjen kysymysten tai yleisten työnkulkujen kohdalla.
 
 ## Katsotaan, miten tämä toimii käytännössä
 
-Tämän osion [esimerkkimuistikirjassa](./code_samples/10_autogen_evaluation.ipynb) näemme esimerkkejä siitä, miten voimme käyttää havaittavuustyökaluja agenttimme valvomiseen ja arviointiin.
+[Tämän osion esimerkkimuistiossa](./code_samples/10-expense_claim-demo.ipynb) näemme esimerkkejä siitä, miten voimme käyttää havaittavuustyökaluja agenttimme seurantaan ja arviointiin.
 
-### Onko sinulla lisää kysymyksiä tekoälyagenteista tuotannossa?
 
-Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan toimistoaikoihin ja saamaan vastauksia tekoälyagentteja koskeviin kysymyksiisi.
+### Lisää kysymyksiä tekoälyagenttien tuotannosta?
+
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tapaamaan muita oppijoita, osallistumaan aukioloaikoihin ja saamaan vastauksia tekoälyagenttieksiin.
 
 ## Edellinen oppitunti
 
@@ -166,6 +174,6 @@ Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaamaan mu
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastuuvapauslauseke:
-Tämä asiakirja on käännetty tekoälykäännöspalvelulla [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattisissa käännöksissä voi esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä on pidettävä auktoritatiivisena lähteenä. Tärkeää tietoa varten suositellaan ammattimaisen ihmiskääntäjän tekemää käännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai virheellisistä tulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

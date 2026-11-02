@@ -1,149 +1,153 @@
-# 🎨 GitHub ಮಾದರಿಗಳೊಂದಿಗೆ (.NET) ಏಜೆಂಟಿಕ್ ಡಿಸೈನ್ ಪ್ಯಾಟರ್ನ್ಸ್
+# 🎨 ಏಜೆಂಟಿಕ್ ವಿನ್ಯಾಸ ಮಾದರಿಗಳು ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API) (.NET)
 
-## 📋 ಕಲಿಕೆಯ ಉದ್ದೇಶಗಳು
+## 📋 ಕಲಿಕೆ ಉದ್ದೇಶಗಳು
 
-ಈ ಉದಾಹರಣೆ .NET ನಲ್ಲಿ Microsoft Agent Framework ಬಳಸಿ GitHub ಮಾದರಿಗಳ ಸಂಯೋಜನೆಯೊಂದಿಗೆ ಬುದ್ಧಿವಂತ ಏಜೆಂಟಗಳನ್ನು ನಿರ್ಮಿಸಲು ಎಂಟರ್‌ಪ್ರೈಸ್-ಗ್ರೇಡ್ ಡಿಸೈನ್ ಪ್ಯಾಟರ್ನ್ಸ್ ಅನ್ನು ತೋರಿಸುತ್ತದೆ. ಏಜೆಂಟಗಳನ್ನು ಉತ್ಪಾದನೆಗೆ ತಯಾರಾಗುವಂತೆ, ನಿರ್ವಹಣೀಯ ಮತ್ತು ವಿಸ್ತರಿಸಬಹುದಾದಂತೆ ಮಾಡುವ ವೃತ್ತಿಪರ ಪ್ಯಾಟರ್ನ್ಸ್ ಮತ್ತು ಆರ್ಕಿಟೆಕ್ಚರಲ್ ವಿಧಾನಗಳನ್ನು ನೀವು ಕಲಿಯುತ್ತೀರಿ.
+ಈ ಉದಾಹರಣೆ ಉದ್ಯಮ ಪ್ರಮಾಣದ ಬುದ್ಧಿವಂತ ಏಜೆಂಟುಗಳನ್ನು ನಿರ್ಮಿಸಲು ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ ಅನ್ನು .NET ನಲ್ಲಿ ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API) ಸಂಯೋಜನೆಯೊಂದಿಗೆ ಬಳಸುವ ವಿನ್ಯಾಸ ಮಾದರಿಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. ನೀವು ವೃತ್ತಿಪರ ಮಾದರಿಗಳು ಮತ್ತು ವಾಸ್ತುಶಿಲ್ಪಿಕ ವಿಧಾನಗಳನ್ನು ಕಲಿಯುತ್ತೀರಿ, ಇದು ಏಜೆಂಟುಗಳನ್ನು ಉತ್ಪಾದನಾ-ತಯಾರಾಗುವ, ನಿರ್ವಹಣೆಯಾದ ಮತ್ತು ವಿಸ್ತರಿಸಬಹುದಾದ ರೂಪದಲ್ಲಿ ಮಾಡುತ್ತದೆ.
 
-### ಎಂಟರ್‌ಪ್ರೈಸ್ ಡಿಸೈನ್ ಪ್ಯಾಟರ್ನ್ಸ್
+### ಉದ್ಯಮ ವಿನ್ಯಾಸ ಮಾದರಿಗಳು
 
-- 🏭 **ಫ್ಯಾಕ್ಟರಿ ಪ್ಯಾಟರ್ನ್**: ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್ ಮೂಲಕ ಏಜೆಂಟ್ ರಚನೆ
-- 🔧 **ಬಿಲ್ಡರ್ ಪ್ಯಾಟರ್ನ್**: ಏಜೆಂಟ್ ಕಾನ್ಫಿಗರೇಶನ್ ಮತ್ತು ಸೆಟಪ್
-- 🧵 **ಥ್ರೆಡ್-ಸೇಫ್ ಪ್ಯಾಟರ್ನ್ಸ್**: ಸಮಕಾಲೀನ ಸಂಭಾಷಣೆ ನಿರ್ವಹಣೆ
-- 📋 **ರಿಪೊಸಿಟರಿ ಪ್ಯಾಟರ್ನ್**: ಸಾಧನ ಮತ್ತು ಸಾಮರ್ಥ್ಯ ನಿರ್ವಹಣೆ
+- 🏭 **ಫ್ಯಾಕ್ಟರಿ ಮಾದರಿ**: ಅವಲಂಬನೆ ಇಂಜೆಕ್ಷನ್ ಹೊಂದಿದ ಮಾನ್ಯತೆಯ ಏಜೆಂಟ್ ರಚನೆ
+- 🔧 **ಬಿಲ್ಡರ್ ಮಾದರಿ**: ಸುಗಮ ಏಜೆಂಟ್ ಸಂರಚನೆ ಮತ್ತು ಸ್ಥಾಪನೆ
+- 🧵 **ತರಮುಖ-ಸುರಕ್ಷಿತ ಮಾದರಿಗಳು**: ಸಮಕಾಲೀನ ಸಂಭಾಷಣೆ ನಿರ್ವಹಣೆ
+- 📋 **ದಿನದರ್ಶಕ ಮಾದರಿ**: ಸರಿಯಾದ ಉಪಕರಣ ಮತ್ತು ಸಾಮರ್ಥ್ಯ ನಿರ್ವಹಣೆ
 
-## 🎯 .NET-ನ ವಿಶೇಷ ಆರ್ಕಿಟೆಕ್ಚರಲ್ ಲಾಭಗಳು
+## 🎯 .NET ನಿಗದಿತ ವಾಸ್ತುಶಿಲ್ಪ ಲಾಭಗಳು
 
-### ಎಂಟರ್‌ಪ್ರೈಸ್ ವೈಶಿಷ್ಟ್ಯಗಳು
+### ಉದ್ಯಮ ವೈಶಿಷ್ಟ್ಯಗಳು
 
-- **ಸ್ಟ್ರಾಂಗ್ ಟೈಪಿಂಗ್**: ಕಂಪೈಲ್-ಟೈಮ್ ಮಾನ್ಯತೆ ಮತ್ತು IntelliSense ಬೆಂಬಲ
-- **ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್**: ಬಿಲ್ಟ್-ಇನ್ DI ಕಂಟೈನರ್ ಸಂಯೋಜನೆ
-- **ಕಾನ್ಫಿಗರೇಶನ್ ನಿರ್ವಹಣೆ**: IConfiguration ಮತ್ತು Options ಪ್ಯಾಟರ್ನ್ಸ್
-- **Async/Await**: ಪ್ರಥಮ-ಶ್ರೇಣಿಯ ಅಸಿಂಕ್ರೋನಸ್ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಬೆಂಬಲ
+- **ದೃಢ ಟೈಪಿಂಗ್**: ಸಂಯೋಜನೆ ಸಮಯದ ಪರಿಶೀಲನೆ ಮತ್ತು ಇಂಟೆಲಿಸೆನ್ಸ್ ಬೆಂಬಲ
+- **ಅವಲಂಬನೆ ಇಂಜೆಕ್ಷನ್**: ಹೊತ್ತಾಣಿಕೆ DI ಕಂಟೇನರ್ ಸಂಯೋಜನೆ
+- **Конфಿಗರೇಶನ್ ನಿರ್ವಹಣೆ**: IConfiguration ಮತ್ತು ಆಯ್ಕೆ ಮಾದರಿಗಳು
+- **ಅಸಿಂಕ್ರೋನಸ್/ವೈಟ್**: ಅತ್ಯುತ್ತಮ ಅಸಿಂಕ್ರೋನಸ್ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಬೆಂಬಲ
 
-### ಉತ್ಪಾದನೆಗೆ ತಯಾರಾದ ಪ್ಯಾಟರ್ನ್ಸ್
+### ಉತ್ಪಾದನಾ-ಸಿದ್ಧ ಮಾದರಿಗಳು
 
-- **ಲಾಗಿಂಗ್ ಇಂಟಿಗ್ರೇಶನ್**: ILogger ಮತ್ತು ಸಂರಚಿತ ಲಾಗಿಂಗ್ ಬೆಂಬಲ
-- **ಹೆಲ್ತ್ ಚೆಕ್ಸ್**: ಬಿಲ್ಟ್-ಇನ್ ಮಾನಿಟರಿಂಗ್ ಮತ್ತು ಡಯಾಗ್ನೋಸ್ಟಿಕ್ಸ್
-- **ಕಾನ್ಫಿಗರೇಶನ್ ಮಾನ್ಯತೆ**: ಡೇಟಾ ಅನೋಟೇಶನ್‌ಗಳೊಂದಿಗೆ ಸ್ಟ್ರಾಂಗ್ ಟೈಪಿಂಗ್
-- **ಎರರ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್**: ಸಂರಚಿತ ಅಪವಾದ ನಿರ್ವಹಣೆ
+- **ಲಾಗಿಂಗ್ ಸಂಯೋಜನೆ**: ILogger ಮತ್ತು ರಚನಾತ್ಮಕ ಲಾಗಿಂಗ್ ಬೆಂಬಲ
+- **ಆರೋಗ್ಯ ಪರಿಶೀಲನೆಗಳು**: ಒಳಗೊಳ್ಳುವ ಗಮನವಿದ್ಯೆ ಮತ್ತು ರೋಗನಿದಾನ
+- **Конфಿಗರೇಶನ್ ಪರಿಶೀಲನೆ**: ದಟ್ಟ ಟೈಪಿಂಗ್ ಮತ್ತು ಡೇಟಾ ಅನೋಟೇಶನ್
+- **ದೋಷ ನಿರ್ವಹಣೆ**: ರಚನಾತ್ಮಕ ವೈಪರೀತ್ಯ ನಿರ್ವಹಣೆ
 
-## 🔧 ತಾಂತ್ರಿಕ ಆರ್ಕಿಟೆಕ್ಚರ್
+## 🔧 ತಾಂತ್ರಿಕ ವಾಸ್ತುಶಿಲ್ಪ
 
-### ಕೋರ್ .NET ಘಟಕಗಳು
+### ಪ್ರಮುಖ .NET ಘಟಕಗಳು
 
-- **Microsoft.Extensions.AI**: ಏಕೀಕೃತ AI ಸೇವಾ ಅಬ್ಸ್ಟ್ರಾಕ್ಷನ್‌ಗಳು
-- **Microsoft.Agents.AI**: ಎಂಟರ್‌ಪ್ರೈಸ್ ಏಜೆಂಟ್ ಆರ್ಕೆಸ್ಟ್ರೇಷನ್ ಫ್ರೇಮ್‌ವರ್ಕ್
-- **GitHub Models Integration**: ಹೆಚ್ಚಿನ ಕಾರ್ಯಕ್ಷಮ API ಕ್ಲೈಂಟ್ ಪ್ಯಾಟರ್ನ್ಸ್
-- **ಕಾನ್ಫಿಗರೇಶನ್ ಸಿಸ್ಟಮ್**: appsettings.json ಮತ್ತು ಪರಿಸರ ಸಂಯೋಜನೆ
+- **Microsoft.Extensions.AI**: ಏಕೀಕೃತ AI ಸೇವಾ ಅಭ್ಯಾಸಗಳು
+- **Microsoft.Agents.AI**: ಉದ್ಯಮ ಏಜೆಂಟ್ ಸಮನ್ವಯ ಫ್ರೇಮ್ವರ್ಕ್
+- **ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API)**: ಅತ್ಯುಚ್ಚ ಕಾರ್ಯಕ್ಷಮತೆಯ API ಗ್ರಾಹಕ ಮಾದರಿಗಳು
+- **Конфಿಗರೇಶನ್ ವ್ಯವಸ್ಥೆ**: appsettings.json ಮತ್ತು ಪರಿಸರ ಸಂಯೋಜನೆ
 
-### ಡಿಸೈನ್ ಪ್ಯಾಟರ್ನ್ ಅನುಷ್ಠಾನ
+### ವಿನ್ಯಾಸ ಮಾದರಿ ಜಾರಿಗೆ
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[ಏಜೆಂಟ್ ಬಿಲ್ಡರ್]
-    B --> C[ಕಾನ್ಫಿಗರೇಶನ್]
-    C --> D[ಟೂಲ್ ರಿಜಿಸ್ಟ್ರಿ]
-    D --> E[ಎಐ ಏಜೆಂಟ್]
+    A[IServiceCollection] --> B[ಏಜೆಂಟ್ ನಿರ್ಮಾಪಕ]
+    B --> C[ಸಂರಚನೆ]
+    C --> D[ಸಾಧನ ರಿಜಿಸ್ಟ್ರಿ]
+    D --> E[AI ಏಜೆಂಟ್]
 ```
-## 🏗️ ಎಂಟರ್‌ಪ್ರೈಸ್ ಪ್ಯಾಟರ್ನ್ಸ್ ತೋರಿಸಲಾಗಿದೆ
 
-### 1. **ಕ್ರಿಯೇಷನಲ್ ಪ್ಯಾಟರ್ನ್ಸ್**
+## 🏗️ ಪ್ರದರ್ಶಿಸಿದ ಉದ್ಯಮ ಮಾದರಿಗಳು
 
-- **ಏಜೆಂಟ್ ಫ್ಯಾಕ್ಟರಿ**: ಸತತ ಕಾನ್ಫಿಗರೇಶನ್‌ನೊಂದಿಗೆ ಕೇಂದ್ರೀಕೃತ ಏಜೆಂಟ್ ರಚನೆ
-- **ಬಿಲ್ಡರ್ ಪ್ಯಾಟರ್ನ್**: ಸಂಕೀರ್ಣ ಏಜೆಂಟ್ ಕಾನ್ಫಿಗರೇಶನ್‌ಗಾಗಿ ಫ್ಲುವೆಂಟ್ API
-- **ಸಿಂಗಲ್‌ಟನ್ ಪ್ಯಾಟರ್ನ್**: ಹಂಚಿದ ಸಂಪತ್ತು ಮತ್ತು ಕಾನ್ಫಿಗರೇಶನ್ ನಿರ್ವಹಣೆ
-- **ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್**: ಲೂಸ್ ಕಪ್ಲಿಂಗ್ ಮತ್ತು ಟೆಸ್ಟಬಿಲಿಟಿ
+### 1. **ರಚನಾತ್ಮಕ ಮಾದರಿಗಳು**
 
-### 2. **ಬಿಹೇವಿಯರಲ್ ಪ್ಯಾಟರ್ನ್ಸ್**
+- **ಏಜೆಂಟ್ ಫ್ಯಾಕ್ಟರಿ**: ಸಮ್ಮಿಳಿತ ಸಂರಚನೆಯೊಂದಿಗೆ ಕೇಂದ್ರಿಕೃತ ಏಜೆಂಟ್ ಸೃಷ್ಟಿ
+- **ಬಿಲ್ಡರ್ ಮಾದರಿ**: ಸಂಕೀರ್ಣ ಏಜೆಂಟ್ ಸಂರಚನೆಗೆ ಸುಗಮ API
+- **ಸಿಂಗಲ್ಟನ್ ಮಾದರಿ**: ಹಂಚಿಕೊಂಡ ಸಂಪನ್ಮೂಲಗಳು ಮತ್ತು ಸಂರಚನಾ ನಿರ್ವಹಣೆ
+- **ಅವಲಂಬನೆ ಇಂಜೆಕ್ಷನ್**: ಖುಲ್ ಜೋಡಣೆ ಮತ್ತು ಪರೀಕ್ಷಿಸುವ ಸಾಮರ್ಥ್ಯ
 
-- **ಸ್ಟ್ರಾಟೆಜಿ ಪ್ಯಾಟರ್ನ್**: ಪರಿವರ್ತನೀಯ ಸಾಧನ ಕಾರ್ಯಾಚರಣೆ ತಂತ್ರಗಳು
-- **ಕಮಾಂಡ್ ಪ್ಯಾಟರ್ನ್**: ಅನ್‌ಡೂ/ರೀಡೂ ಸಹಿತ ಏಜೆಂಟ್ ಕಾರ್ಯಾಚರಣೆಗಳನ್ನು ಎನ್‌ಕ್ಯಾಪ್ಸುಲೇಟೆಡ್ ಮಾಡಲಾಗಿದೆ
-- **ಆಬ್ಸರ್ವರ್ ಪ್ಯಾಟರ್ನ್**: ಈವೆಂಟ್-ಚಾಲಿತ ಏಜೆಂಟ್ ಜೀವನಚಕ್ರ ನಿರ್ವಹಣೆ
-- **ಟೆಂಪ್ಲೇಟ್ ಮೆತೋಡ್**: ಏಜೆಂಟ್ ಕಾರ್ಯಾಚರಣೆಗಳ ಸ್ಟಾಂಡರ್ಡೈಜ್ಡ್ ವರ್ಕ್‌ಫ್ಲೋಗಳು
+### 2. **ನಡವಳಿಕೆ ಮಾದರಿಗಳು**
 
-### 3. **ಸ್ಟ್ರಕ್ಚರಲ್ ಪ್ಯಾಟರ್ನ್ಸ್**
+- **ಯುಜನೆತಂತ್ರ ಮಾದರಿ**: ಬದಲಾಯಿಸಬಹುದಾದ ಉಪಕರಣ ಕಾರ್ಯೋನ್ಮುಖತೆ ಯುಜನೆತಂತ್ರಗಳು
+- **ಕಮಾಂಡ್ ಮಾದರಿ**: ಹಿಂಪಡೆಯುವ/ಮರುಮಾಡುವ ಚಾಲನೆಗಳೊಂದಿಗೆ ಏಜೆಂಟ್ ಕಾರ್ಯಾಚರಣೆಗಳು
+- **ಅವಲೋಕಕ ಮಾದರಿ**: ಘಟನೆ ನಡೆಸುವ ಏಜೆಂಟ್ ಪಾರಂಪರ್ಯ ನಿರ್ವಹಣೆ
+- **ಟೆಂಪ್ಲೇಟು ವಿಧಾನ**: ಮಾನ್ಯತೆಯ ಏಜೆಂಟ್ ಕಾರ್ಯಾಚರಣೆ ಕಾರ್ಯಪ್ರವಾಹಗಳು
 
-- **ಅಡಾಪ್ಟರ್ ಪ್ಯಾಟರ್ನ್**: GitHub Models API ಸಂಯೋಜನೆ ಲೇಯರ್
-- **ಡೆಕೋರೇಟರ್ ಪ್ಯಾಟರ್ನ್**: ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯ ವೃದ್ಧಿ
-- **ಫಸಾಡ್ ಪ್ಯಾಟರ್ನ್**: ಸರಳೀಕೃತ ಏಜೆಂಟ್ ಸಂವಹನ ಇಂಟರ್ಫೇಸ್‌ಗಳು
-- **ಪ್ರಾಕ್ಸಿ ಪ್ಯಾಟರ್ನ್**: ಕಾರ್ಯಕ್ಷಮತೆಯಿಗಾಗಿ ಲೇಜಿ ಲೋಡಿಂಗ್ ಮತ್ತು ಕ್ಯಾಶಿಂಗ್
+### 3. **ರಚನಾಮೂಲಕ ಮಾದರಿಗಳು**
 
-## 📚 .NET ಡಿಸೈನ್ ತತ್ವಗಳು
+- **ಅಡಾಪ್ಟರ್ ಮಾದರಿ**: ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API) ಸಂಯೋಜನೆ ಪದರ
+- **ಡೆಕೊರೆಟರ್ ಮಾದರಿ**: ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯ ವೃದ್ಧಿ
+- **ಫೇಸಡೆಯ್ ಮಾದರಿ**: ಸರಳೀಕೃತ ಏಜೆಂಟ್ ಪರಸ್ಪರ ಕ್ರಿಯಾಶೀಲತೆಯ ಮುಖಪುಟಗಳು
+- **ಪ್ರಾಕ್ಸಿ ಮಾದರಿ**: ಕಾರ್ಯಕ್ಷಮತೆಗಾಗಿ ನಿಶ್ಚಿತ ಶೇಖರಣೆ ಮತ್ತು ಲೇಜಿ ಲೋಡಿಂಗ್
 
-### SOLID ತತ್ವಗಳು
+## 📚 .NET ವಿನ್ಯಾಸ ಸಿದ್ಧಾಂತಗಳು
 
-- **ಸಿಂಗಲ್ ರೆಸ್ಪಾನ್ಸಿಬಿಲಿಟಿ**: ಪ್ರತಿ ಘಟಕವು ಒಂದು ಸ್ಪಷ್ಟ ಉದ್ದೇಶವನ್ನು ಹೊಂದಿದೆ
-- **ಓಪನ್/ಕ್ಲೋಸ್ಡ್**: ತಿದ್ದುಪಡಿ ಇಲ್ಲದೆ ವಿಸ್ತರಿಸಬಹುದಾಗಿದೆ
-- **ಲಿಸ್ಕೋವ್ ಸಬ್‌ಸ್ಟಿಟ್ಯೂಷನ್**: ಇಂಟರ್ಫೇಸ್-ಆಧಾರಿತ ಸಾಧನ ಅನುಷ್ಠಾನಗಳು
-- **ಇಂಟರ್ಫೇಸ್ ಸೆಗ್ರಿಗೇಶನ್**: ಕೇಂದ್ರೀಕೃತ, ಸಮ್ಮಿಳಿತ ಇಂಟರ್ಫೇಸ್‌ಗಳು
-- **ಡಿಪೆಂಡೆನ್ಸಿ ಇನ್‌ವರ್ಷನ್**: ಅಬ್ಸ್ಟ್ರಾಕ್ಷನ್‌ಗಳ ಮೇಲೆ ಅವಲಂಬಿಸು, ಕಾನ್ಕ್ರೀಷನ್‌ಗಳ ಮೇಲೆ ಅಲ್ಲ
+### SOLID ಸಿದ್ಧಾಂತಗಳು
 
-### ಕ್ಲೀನ್ ಆರ್ಕಿಟೆಕ್ಚರ್
+- **ಘಟಕದ ಒತ್ತಾಯಗಾರಿಕೆ**: ಪ್ರತಿ ಘಟಕಕ್ಕೆ ಒಂದೇ ಸ್ಪಷ್ಟ ಗುರಿ
+- **ತೆರೆ/ಮುಚ್ಚು**: ಬದಲಾವಣೆಗಳಿಲ್ಲದೇ ವಿಸ್ತರಣೆ
+- **ಲಿಸ್ಕೋವ್ ಬದಲಾವಣೆ**: ಇಂಟರ್ಫೇಸ್ ಆಧಾರಿತ ಉಪಕರಣ ಅನುಷ್ಠಾನಗಳು
+- **ಇಂಟರ್ಫೇಸ್ ವಿಭಜನ**: ಕೇಂದ್ರೀಕೃತ, ಸಮ್ಮಿಳಿತ ಇಂಟರ್ಫೇಸುಗಳು
+- **ಅವಲಂಬನೆ ಬಿಡಿಲು**: ಖಚಿತತೆಗಳ ಮೇಲೆ ಅವಲಂಬನೆ ಇಟ್ಟುಕೊಳ್ಳುವುದು, ಕಥನಗಳಲ್ಲ
 
-- **ಡೊಮೈನ್ ಲೇಯರ್**: ಕೋರ್ ಏಜೆಂಟ್ ಮತ್ತು ಸಾಧನ ಅಬ್ಸ್ಟ್ರಾಕ್ಷನ್‌ಗಳು
-- **ಅಪ್ಲಿಕೇಶನ್ ಲೇಯರ್**: ಏಜೆಂಟ್ ಆರ್ಕೆಸ್ಟ್ರೇಷನ್ ಮತ್ತು ವರ್ಕ್‌ಫ್ಲೋಗಳು
-- **ಇನ್‌ಫ್ರಾಸ್ಟ್ರಕ್ಚರ್ ಲೇಯರ್**: GitHub Models ಸಂಯೋಜನೆ ಮತ್ತು ಬಾಹ್ಯ ಸೇವೆಗಳು
-- **ಪ್ರೆಸೆಂಟೇಶನ್ ಲೇಯರ್**: ಬಳಕೆದಾರ ಸಂವಹನ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆ ಫಾರ್ಮ್ಯಾಟಿಂಗ್
+### ಸ್ವಚ್ಛ ವಾಸ್ತುಶಿಲ್ಪ
 
-## 🔒 ಎಂಟರ್‌ಪ್ರೈಸ್ ಪರಿಗಣನೆಗಳು
+- **ಡೊಮೇನ್ ಪದರ**: ಮೂಲ ಏಜೆಂಟ್ ಮತ್ತು ಉಪಕರಣ ಖಚಿತತೆಗಳು
+- **ಅಪ್ಲಿಕೇಶನ್ ಪದರ**: ಏಜೆಂಟ್ ಸಮನ್ವಯ ಮತ್ತು ಕಾರ್ಯಪ್ರವಾಹಗಳು
+- **ಸೌಕರ್ಯ ಪದರ**: ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರತಿಕ್ರಿಯೆಗಳು API) ಸಂಯೋಜನೆ ಮತ್ತು ಹೊರಗಿನ ಸೇವೆಗಳು
+- **ಪ್ರದೇಶ ಪದರ**: ಬಳಕೆದಾರ ಪರಸ್ಪರ ಕ್ರಿಯೆ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆ ರೂಪಗೊಳಿಸುವಿಕೆ
 
-### ಭದ್ರತೆ
+## 🔒 ಉದ್ಯಮ ಪರಿಶೀಲನೆಗಳು
 
-- **ಕ್ರೆಡೆನ್ಷಿಯಲ್ ನಿರ್ವಹಣೆ**: IConfiguration ಮೂಲಕ ಸುರಕ್ಷಿತ API ಕೀ ಹ್ಯಾಂಡ್ಲಿಂಗ್
-- **ಇನ್‌ಪುಟ್ ಮಾನ್ಯತೆ**: ಸ್ಟ್ರಾಂಗ್ ಟೈಪಿಂಗ್ ಮತ್ತು ಡೇಟಾ ಅನೋಟೇಶನ್ ಮಾನ್ಯತೆ
-- **ಔಟ್‌ಪುಟ್ ಸ್ಯಾನಿಟೈಸೇಶನ್**: ಸುರಕ್ಷಿತ ಪ್ರತಿಕ್ರಿಯೆ ಪ್ರಕ್ರಿಯೆ ಮತ್ತು ಫಿಲ್ಟರಿಂಗ್
-- **ಆಡಿಟ್ ಲಾಗಿಂಗ್**: ಸಮಗ್ರ ಕಾರ್ಯಾಚರಣೆ ಟ್ರ್ಯಾಕಿಂಗ್
+### ಸುರಕ್ಷತೆ
+
+- **ಅಂಗೀಕಾರ ನಿರ್ವಹಣೆ**: IConfiguration ನೊಂದಿಗೆ ಸುರಕ್ಷಿತ API ಕೀ ಹ್ಯಾಂಡ್ಲಿಂಗ್
+- **ನೀಡಿಕೆ ಪರಿಶೀಲನೆ**: ದೃಢ ಟೈಪಿಂಗ್ ಮತ್ತು ಡೇಟಾ ಅನೋಟೇಶನ್ ಪರಿಶೀಲನೆ
+- **ಔಟ್‌ಪುಟ್ ಶುದ್ಧೀಕರಣ**: ಸುರಕ್ಷಿತ ಪ್ರತಿಕ್ರಿಯೆ ಪ್ರಕ್ರಿಯೆ ಮತ್ತು ಶೋಧನೆ
+- **ಆಡಿಟ್ ಲಾಗಿಂಗ್**: ಸಮಗ್ರ ಕಾರ್ಯಾಚರಣೆ ಹಂದಿ
 
 ### ಕಾರ್ಯಕ್ಷಮತೆ
 
-- **ಅಸಿಂಕ್ ಪ್ಯಾಟರ್ನ್ಸ್**: ನಾನ್-ಬ್ಲಾಕಿಂಗ್ I/O ಕಾರ್ಯಾಚರಣೆಗಳು
-- **ಕನೆಕ್ಷನ್ ಪೂಲಿಂಗ್**: ಪರಿಣಾಮಕಾರಿ HTTP ಕ್ಲೈಂಟ್ ನಿರ್ವಹಣೆ
-- **ಕ್ಯಾಶಿಂಗ್**: ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಸುಧಾರಿಸಲು ಪ್ರತಿಕ್ರಿಯೆ ಕ್ಯಾಶಿಂಗ್
-- **ಸಂಪತ್ತು ನಿರ್ವಹಣೆ**: ಸರಿಯಾದ ಡಿಸ್ಪೋಸಲ್ ಮತ್ತು ಕ್ಲೀನ್‌ಅಪ್ ಪ್ಯಾಟರ್ನ್ಸ್
+- **ಅಸಿಂಕ್ರೋನಸ್ ಮಾದರಿಗಳು**: ಅಡ್ಡಿತಿಲ್ಲದ I/O ಕಾರ್ಯಗಳು
+- **ಸಂಪರ್ಕ ಪೂಲಿಂಗ್**: ಪರಿಣಾಮಕಾರಿ HTTP ಗ್ರಾಹಕ ನಿರ್ವಹಣೆ
+- **ಶೇಖರಣೆ**: ಉತ್ತಮ ಕಾರ್ಯಕ್ಷಮತೆಯಿಗಾಗಿ ಪ್ರತಿಕ್ರಿಯೆ ಶೇಖರಣೆ
+- **ಸಂಪನ್ಮೂಲ ನಿರ್ವಹಣೆ**: ಯೋಗ್ಯ ವಿ‍ನ್ಯಾಸ ಮತ್ತು ಸ್ವಚ್ಛತೆ ಮಾದರಿಗಳು
 
-### ವಿಸ್ತರಣೀಯತೆ
+### ವಿಸ್ತರಣೆ
 
-- **ಥ್ರೆಡ್ ಸೆಫ್ಟಿ**: ಸಮಕಾಲೀನ ಏಜೆಂಟ್ ಕಾರ್ಯಾಚರಣೆ ಬೆಂಬಲ
-- **ಸಂಪತ್ತು ಪೂಲಿಂಗ್**: ಪರಿಣಾಮಕಾರಿ ಸಂಪತ್ತು ಬಳಕೆ
-- **ಲೋಡ್ ನಿರ್ವಹಣೆ**: ದರ ಮಿತಿಮೀರು ಮತ್ತು ಬ್ಯಾಕ್‌ಪ್ರೆಶರ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್
-- **ಮಾನಿಟರಿಂಗ್**: ಕಾರ್ಯಕ್ಷಮತೆ ಮೆಟ್ರಿಕ್ಸ್ ಮತ್ತು ಹೆಲ್ತ್ ಚೆಕ್ಸ್
+- **ತರಮುಖ್ಯ ಸುರಕ್ಷತೆ**: ಸಮಕಾಲೀನ ಏಜೆಂಟ್ ನಿರ್ವಹಣೆ ಬೆಂಬಲ
+- **ಸಂಪನ್ಮೂಲ ಪೂಲಿಂಗ್**: ಪರಿಣಾಮಕಾರಿ ಸಂಪನ್ಮೂಲ ಬಳಕೆ
+- **ಲೋಡ್ ನಿರ್ವಹಣೆ**: ದರ ನಿಯಂತ್ರಣ ಮತ್ತು ಬ್ಯಾಕ್‌ಪ್ರೆಶರ್ ನಿರ್ವಹಣೆ
+- **ನಿಗಾವಳಿ**: ಕಾರ್ಯಕ್ಷಮತಾ ಮಾನದಂಡಗಳು ಮತ್ತು ಆರೋಗ್ಯ ಪರಿಶೀಲನೆಗಳು
 
-## 🚀 ಉತ್ಪಾದನೆ ನಿಯೋಜನೆ
+## 🚀 ಉತ್ಪಾದನಾ ನಿಯೋಜನೆ
 
-- **ಕಾನ್ಫಿಗರೇಶನ್ ನಿರ್ವಹಣೆ**: ಪರಿಸರ-ನಿರ್ದಿಷ್ಟ ಸೆಟ್ಟಿಂಗ್‌ಗಳು
-- **ಲಾಗಿಂಗ್ ತಂತ್ರ**: ಸಂರಚಿತ ಲಾಗಿಂಗ್ ಮತ್ತು ಸಂಬಂಧಿತ IDಗಳು
-- **ಎರರ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್**: ಸರಿಯಾದ ಪುನಃಪ್ರಾಪ್ತಿಯೊಂದಿಗೆ ಗ್ಲೋಬಲ್ ಅಪವಾದ ನಿರ್ವಹಣೆ
-- **ಮಾನಿಟರಿಂಗ್**: ಅಪ್ಲಿಕೇಶನ್ ಇನ್‌ಸೈಟ್ಸ್ ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತೆ ಕೌಂಟರ್‌ಗಳು
-- **ಟೆಸ್ಟಿಂಗ್**: ಯುನಿಟ್ ಟೆಸ್ಟ್‌ಗಳು, ಇಂಟಿಗ್ರೇಶನ್ ಟೆಸ್ಟ್‌ಗಳು, ಮತ್ತು ಲೋಡ್ ಟೆಸ್ಟಿಂಗ್ ಪ್ಯಾಟರ್ನ್ಸ್
+- **Конфिगರೇಶನ್ ನಿರ್ವಹಣೆ**: ಪರಿಸರ-ನಿಗದಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು
+- **ಲಾಗಿಂಗ್ ತಂತ್ರಜ್ಞಾನ**: ಹೊಂದಾಣಿಕೆಯ ಲಾಗಿಂಗ್ ಸಹಿತ
+- **ದೋಷ ನಿರ್ವಹಣೆ**: ಜಾಗತಿಕ ವೈಪರೀತ್ಯ ನಿರ್ವಹಣೆ ಮತ್ತು ಸಮರ್ಪಕ ಪುನಶ್ಚೇತನ
+- **ನಿಗಾವಳಿ**: ಅಪ್ಲಿಕೇಶನ್ ಒಳನೋಟ ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತಾ ಗಣಕಗಳು
+- **ಪರೀಕ್ಷಣೆ**: ಘಟಕ, ಸಮಾದಾನ ಮತ್ತು ಲೋಡ್ ಪರೀಕ್ಷೆ ಮಾದರಿಗಳು
 
-.NET ಬಳಸಿ ಎಂಟರ್‌ಪ್ರೈಸ್-ಗ್ರೇಡ್ ಬುದ್ಧಿವಂತ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸಿದ್ಧವೇ? ಬಲವಾದ ಆರ್ಕಿಟೆಕ್ಚರ್ ನಿರ್ಮಿಸೋಣ! 🏢✨
+.NET ನೊಂದಿಗೆ ಉದ್ಯಮ ದೃಢವಾದ ಬುದ್ಧಿವಂತ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸಿದ್ಧರಾಗಿದ್ದೀರಾ? ಬನ್ನಿ, ದೊಡ್ಡದಾಗಿ ವಾಸ್ತುಶಿಲ್ಪ ಮಾಡೋಣ! 🏢✨
 
-## 🚀 ಪ್ರಾರಂಭಿಸಲು
+## 🚀 ಪ್ರಾರಂಭಿಸುತ್ತಿರುವುದು
 
-### ಪೂರ್ವಶರತ್ತುಗಳು
+### ಪೂರ್ವಾಪೇಕ್ಷಿತಗಳು
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚಿನದು
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೈಯರ್
+- ಅಜೂರ್ ಓಪನ್‌ಎಐ ಸಂಪನ್ಮೂಲ ಮತ್ತು ಮಾದರಿ ನಿಯೋಜನೆಯೊಂದಿಗೆ [ಅಜೂರ್ ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್](https://azure.microsoft.com/free/)
+- [ಅಜೂರ್ CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — with `az login` ನೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಆಗಿ
 
-### ಅಗತ್ಯವಿರುವ ಪರಿಸರ ವ್ಯತ್ಯಾಸಗಳು
+### ಅಗತ್ಯಪಡುವ ಪರಿಸರ_VARIABLES
 
 ```bash
-# ಝೆಡ್‌ಎಸ್‌ಎಚ್/ಬ್ಯಾಶ್
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# zsh/bash
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ನಂತರ ಸೈನ್ ಇನ್ ಮಾಡಿ, ಆಗ AzureCliCredential ಟೋಕನ್ ಪಡೆಯಬಹುದು
+az login
 ```
 
 ```powershell
 # ಪವರ್‌ಶೆಲ್
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ನಂತರ ಶೈನ್ ಇನ್ ಮಾಡಿ ताकि AzureCliCredential ಟೋಕನ್ ಪಡೆಯಬಹುದು
+az login
 ```
 
 ### ಮಾದರಿ ಕೋಡ್
 
-ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಲಾಯಿಸಲು,
+ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ರನ್ ಮಾಡಲು,
 
 ```bash
 # zsh/bash
@@ -151,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-ಅಥವಾ dotnet CLI ಬಳಸಿ:
+ಅಥವಾ ಡಾಟ್‌ನೆಟ್ CLI ಬಳಸಿ:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-ಪೂರ್ಣ ಕೋಡ್‌ಗಾಗಿ [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) ನೋಡಿ.
+ಪೂರ್ಣ ಕೋಡ್‌ಗೆ [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) ನೋಡಿ.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -203,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -248,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -280,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -291,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸಮೀಕ್ಷೆ**:  
-ಈ ದಸ್ತಾವೇಜನ್ನು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಮರ್ಪಕತೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜನ್ನು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪುಅರ್ಥಗಳು ಅಥವಾ ತಪ್ಪುಅರ್ಥೈಸುವಿಕೆಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
+**ಅಸ್ವೀಕಾರ**:
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

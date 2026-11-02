@@ -400,6 +400,8 @@ print("Updated Itinerary:", new_itinerary)
 ```
 
 ### Pre-emptive Context Load
+
+
 Pre-emptive Context Load involves loading relevant context or background information into the model before processing a query. This means the model has access to this information from the start, which can help it generate more informed responses without needing to retrieve additional data during the process.
 
 Here's a simplified example of how a pre-emptive context load might look for a travel agent application in Python:
@@ -488,7 +490,7 @@ class TravelAgent:
     def calculate_cost(self, plan, new_destination):
         return sum(destination['cost'] for destination in plan) + new_destination['cost']
 
-# Example usage
+# Exemplo de uso
 destinations = [
     {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
     {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
@@ -1091,7 +1093,7 @@ In this example, we'll design a code generating agent, Travel Agent, to assist u
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Ajustar preferencias según la retroalimentación del usuario
+       # Adjust preferences based on user feedback
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1101,7 +1103,7 @@ In this example, we'll design a code generating agent, Travel Agent, to assist u
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Regenerar y ejecutar el código con las preferencias actualizadas
+   # Regenerate and execute code with updated preferences
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1321,9 +1323,9 @@ A data analysis agent:
 
 By leveraging SQL as part of the Retrieval-Augmented Generation (RAG) technique, AI agents like Travel Agent can dynamically retrieve and utilize relevant data to provide accurate and personalized recommendations.
 
-### Example of Metacongition
+### Example of Metacognition
 
-So to demonstrate an implementation of metacongition, let's create a simple agent that *reflects on its decision-making process* while solving a problem. For this example, we'll build a system where an agent tries to optimize the choice of a hotel, but then evaluates its own reasoning and adjusts its strategy when it makes errors or suboptimal choices.
+So to demonstrate an implementation of metacognition, let's create a simple agent that *reflects on its decision-making process* while solving a problem. For this example, we'll build a system where an agent tries to optimize the choice of a hotel, but then evaluates its own reasoning and adjusts its strategy when it makes errors or suboptimal choices.
 
 We'll simulate this using a basic example where the agent selects hotels based on a combination of price and quality, but it will "reflect" on its decisions and adjust accordingly.
 
@@ -1423,7 +1425,7 @@ Metacognition is a powerful tool that can significantly enhance the capabilities
 
 ### Got More Questions about the Metacognition Design Pattern?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 
@@ -1437,5 +1439,5 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its original language should be regarded as the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

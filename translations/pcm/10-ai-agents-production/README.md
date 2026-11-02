@@ -1,83 +1,89 @@
-# AI Agents Wey Dey Production: Observability & Evaluation
+# AI Agents for Production: How to See and Check Dem Work Well
 
-[![AI Agents Wey Dey Production](../../../translated_images/pcm/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/pcm/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-As AI agents dey move from experimental prototypes go real-world applications, the ability to sabi dia behavior, monitor dia performance, and systematically evaluate dia outputs dey important.
+As AI agents dey comot from experimental prototyp dem go do real work for world, e dey important to sabi how dem dey behave, dey watch how dem dey perform, and dey check how dem dey do work well well.
 
 ## Wetin You Go Learn
 
-After you don complete this lesson, you go sabi how to/understand:
-- Main concepts about agent observability and evaluation
-- Ways to improve how agents dey perform, cost, and effectiveness
-- Wetin and how to evaluate your AI agents systematically
-- How to control cost when you deploy AI agents go production
-- How to instrument agents wey dem build with AutoGen
+After you finish this lesson, you go sabi how to/understand:
+- Main tori about how to see and check AI agents
+- Ways to make agents perform better, reduce cost, and dey effective
+- How and wetin to check for your AI agents on top their work
+- How to control cost when you dey run AI agents for production
+- How to add instruments to agents wey you build with Microsoft Agent Framework
 
-The goal na to give you the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
+The koko be to make you get better knowledge to turn your "black box" agents to clear, easy to manage, and reliable systems.
 
-_**Note:** E important make you deploy AI Agents wey safe and trustworthy. Check out the [How to build AI Agents wey you fit trust](./06-building-trustworthy-agents/README.md) lesson as well._
+_**Note:** E important to put AI Agents wey safe and people fit trust. Make sure say you check the [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) lesson too._
 
 ## Traces and Spans
 
-Observability tools such as [Langfuse](https://langfuse.com/) or [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) usually represent agent runs as traces and spans.
+Tools wey dem use watch how things dey go like [Langfuse](https://langfuse.com/) or [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) dey usually show agent runs as traces and spans.
 
-- **Trace** mean a complete agent task from start to finish (like handling a user query).
-- **Spans** na individual steps within the trace (like calling a language model or retrieving data).
+- **Trace** na the full work wey agent do from beginning to end (like answering user question).
+- **Spans** na the small steps inside the trace (like calling language model or get data).
 
-![Trace tree wey dey Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-If no observability dey, an AI agent fit dey feel like "black box" - im internal state and reasoning dey opaque, e dey hard to diagnose issues or optimize performance. With observability, agents go turn "glass boxes," dem go give transparency wey important for building trust and to make sure dem dey operate as intended. 
+If no observational tools dey, AI agent fit be like "black box" - you no dey see inside how e dey think or run, so e hard to find wahala or make am better. But if you get observational tools, agents go be like "glass box," wey clear and transparent, and dis one dey important for trust and to make sure dem dey do wetin dem supposed do.
 
-## Why Observability Matter for Production Environments
+## Why E Dey Important to Observe for Production Places
 
-When you dey move AI agents go production, e dey bring new challenges and requirements. Observability no be "nice-to-have" again, na critical capability:
+When AI agents shift go production, e bring new wahala and wetin you go need. Observability no be luxury again but na important power:
 
-*   **Debugging and Root-Cause Analysis**: When an agent fail or produce unexpected output, observability tools dey provide the traces wey you need to pinpoint the source of the error. Dis one especially important for complex agents wey fit involve multiple LLM calls, tool interactions, and conditional logic.
-*   **Latency and Cost Management**: AI agents dey rely on LLMs and other external APIs wey dem dey bill per token or per call. Observability make you fit track these calls precisely, e go help identify operations wey dey excessively slow or expensive. E allow teams to optimize prompts, choose more efficient models, or redesign workflows to manage operational costs and make user experience better.
-*   **Trust, Safety, and Compliance**: For many applications, e important make sure agents dey behave safely and ethically. Observability dey provide audit trail of agent actions and decisions. You fit use am to detect and mitigate issues like prompt injection, generation of harmful content, or wrong handling of personally identifiable information (PII). For example, you fit review traces to sabi why an agent give a certain response or why e use specific tool.
-*   **Continuous Improvement Loops**: Observability data na foundation for iterative development. By monitoring how agents dey perform for real world, teams fit identify areas for improvement, gather data for fine-tuning models, and validate the impact of changes. This create feedback loop where production insights from online evaluation inform offline experimentation and refinement, e go lead to progressively better agent performance.
+*   **Debugging and Root-Cause Analysis**: When agent fail or give wahala output, observation tools go give you traces to find where error dey come from. Dis one important especially if agent get plenty LLM calls, tool work, and logic issues.
+*   **Latency and Cost Management**: AI agents use LLMs and other API wey dem dey charge every time dem call or every token. Observability dey help track all these calls so you fit find any wey slow or too costly. E fit help team optimize prompts, choose better models, or change workflow to reduce cost and give better user experience.
+*   **Trust, Safety, and Compliance**: For many work, e important make sure say agents dey behave safely and morally. Observability get audit trail for wetin agent dey do and decide. E fit help find problem like prompt injection, bad content generation, or bad handling of personal info (PII). For example, you fit check traces to know why agent give particular answer or why e use particular tool.
+*   **Continuous Improvement Loops**: Observability data na the base for continuous improvement. If you dey watch how agents perform for real world, team fit find areas to fix, gather data to improve models, and check if changes make better difference. Dis one dey form feedback loop where production info from online evaluation go inform offline tests and improvement, to make agent perform better and better.
 
-## Key Metrics to Track
+## Important Metrics to Track
 
-To monitor and understand agent behavior, you suppose track plenty metrics and signals. Specific metrics fit vary based on the agent's purpose, but some ones de universally important.
+To watch and understand agent behavior, you must track different metrics and signals. Some metrics fit change based on agent purpose, but some dey important for everybody.
 
-Below na some of the most common metrics wey observability tools dey monitor:
+Here be some common metrics wey observation tools dey watch:
 
-**Latency:** How quick the agent dey respond? Long waiting times dey affect user experience. You suppose measure latency for tasks and individual steps by tracing agent runs. For example, if an agent dey take 20 seconds for all model calls, you fit make am faster by using a quicker model or by running model calls in parallel.
+**Latency:** How fast agent dey answer? If e dey take long, user experience go bad. You suppose measure latency for tasks and for each step by tracing agent runs. For example, if agent dey take 20 seconds to finish all model calls, you fit speed am up by using faster model or run model calls for same time.
 
-**Costs:** How much e dey cost per agent run? AI agents dey rely on LLM calls wey dem bill per token or external APIs. Plenty tool usage or multiple prompts fit quickly increase costs. For instance, if an agent calls an LLM five times for small quality improvement, you need check if the cost worth am or if you fit reduce the number of calls or use a cheaper model. Real-time monitoring fit also help identify unexpected spikes (e.g., bugs wey dey cause excessive API loops).
+**Costs:** How much e cost per run? AI agents use LLM calls wey charge per token or outside APIs. If tools dey use plenty or many prompts, cost go jump. For example, if agent dey call LLM five times for small improvement, you fit check if e worth or if you fit reduce calls or use cheaper model. Real-time monitoring fit also find surprise cost spikes (e.g., bugs wey dey cause too many API calls).
 
-**Request Errors:** How many requests the agent fail? This fit include API errors or failed tool calls. To make your agent more robust for production, you fit set up fallbacks or retries. E.g. if LLM provider A down, you fit switch to LLM provider B as backup.
+**Request Errors:** How many requests agent no succeed? E fit include API wahala or tool calls wey fail. To make agent strong for production, you fit set fallback or retry plans. Like if LLM provider A no dey, you switch go LLM provider B as backup.
 
-**User Feedback:** Direct user evaluations dey give valuable insights. This fit include explicit ratings (👍thumbs-up/👎down, ⭐1-5 stars) or textual comments. If consistent negative feedback show, e suppose alert you say the agent no dey work as expected. 
+**User Feedback:** Make direct user reviews dey give better info. This fit be clear ratings (👍thumbs up/👎down, ⭐1-5 stars) or written comments. Plenty bad feedback suppose warn you say agent no dey work as e suppose.
 
-**Implicit User Feedback:** User behavior fit give indirect feedback even if dem no give explicit ratings. This fit include immediate question rephrasing, repeated queries or clicking a retry button. E.g. if you see users dey ask the same question again and again, na sign say the agent no dey work as expected.
+**Implicit User Feedback:** User behavior fit give indirect feedback even if no clear rating. Dis fit be quick rephrasing of question, repeating questions or pressing retry button. For example, if you see say users dey ask same question many times, na sign say agent no dey work as e suppose.
 
-**Accuracy:** How often the agent produce correct or desirable outputs? Accuracy definitions fit vary (e.g., problem-solving correctness, information retrieval accuracy, user satisfaction). The first step na to define wetin success look like for your agent. You fit track accuracy via automated checks, evaluation scores, or task completion labels. For example, marking traces as "succeeded" or "failed". 
+**Accuracy:** How often agent dey produce correct or good outputs? Accuracy mean different things (like correctness for problem-solving, info accuracy, or user satisfaction). The first step be to define wetin success mean for your agent. You fit track accuracy with automated checks, scores, or task completion label. For example, mark traces like "succeeded" or "failed".
 
-**Automated Evaluation Metrics:** You fit also set up automated evals. For instance, you fit use an LLM to score the output of the agent — whether e helpful, accurate, or not. There are also several open source libraries wey go help you score different aspects of the agent. E.g. [RAGAS](https://docs.ragas.io/) for RAG agents or [LLM Guard](https://llm-guard.com/) to detect harmful language or prompt injection. 
+**Automated Evaluation Metrics:** You fit also set automated evals. For example, use LLM to score agent output like if e helpful, correct, or no. Plenty open source libraries dey to help score different parts of agent. For example, [RAGAS](https://docs.ragas.io/) for RAG agents or [LLM Guard](https://github.com/protectai/llm-guard) to find harmful language or prompt injection.
 
-For practice, combination of these metrics dey give the best coverage of an AI agent’s health. In this chapter's [example notebook](./code_samples/10_autogen_evaluation.ipynb), we go show you how these metrics dey look for real examples but first, we go learn how a typical evaluation workflow dey look like.
+For real work, combination of these metrics go give best check of AI agent health. For this chapter [example notebook](./code_samples/10-expense_claim-demo.ipynb), we go show you how these metrics dey look for real examples but first, we go learn how typical evaluation process dey.
 
-## Instrument your Agent
+## Add Instrument for Your Agent
 
-To gather tracing data, you go need to instrument your code. The goal na to instrument the agent code to emit traces and metrics wey an observability platform fit capture, process, and visualize.
+To collect tracing data, you need to add instrument for your code. The aim na to make agent code send traces and metrics wey observability platform fit catch, process, and show.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) don emerge as an industry standard for LLM observability. E provide a set of APIs, SDKs, and tools for generating, collecting, and exporting telemetry data. 
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) don become industry standard for LLM observability. E get APIs, SDKs, and tools wey help make, collect, and export telemetry data.
 
-There are many instrumentation libraries wey wrap existing agent frameworks and make am easy to export OpenTelemetry spans to an observability tool. Below na an example on instrumenting an AutoGen agent with the [OpenLit instrumentation library](https://github.com/openlit/openlit):
+Many instrumentation libraries dey wey fit wrap existing agent frameworks and make am easy to export OpenTelemetry spans to observability tools. Microsoft Agent Framework dey integrate with OpenTelemetry naturally. Below na example how to instrument MAF agent:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Agent execution is traced automatically
+    pass
 ```
 
-The [example notebook](./code_samples/10_autogen_evaluation.ipynb) for this chapter go demonstrate how to instrument your AutoGen agent.
+The [example notebook](./code_samples/10-expense_claim-demo.ipynb) for this chapter go show how to instrument your MAF agent.
 
-**Manual Span Creation:** Even though instrumentation libraries dey give a good baseline, plenty times you go need more detailed or custom information. You fit manually create spans to add custom application logic. More importantly, dem fit enrich automatically or manually created spans with custom attributes (also known as tags or metadata). These attributes fit include business-specific data, intermediate computations, or any context wey fit be useful for debugging or analysis, such as `user_id`, `session_id`, or `model_version`.
+**Manual Span Creation:** Even though instrumentation libraries dey good, sometimes you need more detailed or custom info. You fit create spans manually to add your own app logic. More important, you fit add custom attributes (tags or metadata) to spans wey automatic or manual created. These attributes fit include business info, middle calculations, or any context useful for debugging or analysis, like `user_id`, `session_id`, or `model_version`.
 
-Example on creating traces and spans manually with the [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
+Example how to create traces and spans manually with [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
 
 ```python
 from langfuse import get_client
@@ -91,83 +97,83 @@ span.end()
 
 ## Agent Evaluation
 
-Observability dey give us metrics, but evaluation na the process of analyzing that data (and performing tests) to determine how well an AI agent dey perform and how e fit improve. In other words, once you get those traces and metrics, how you go use them to judge the agent and make decisions? 
+Observability give us metrics, but evaluation na to analyze the data (and do tests) to know how well AI agent dey perform and how to improve am. In other words, after you get those traces and metrics, how you go take judge agent and take decisions?
 
-Regular evaluation dey important because AI agents often dey non-deterministic and fit evolve (through updates or drifting model behavior) – without evaluation, you no go know if your “smart agent” dey actually do im job well or if e don regress.
+Regular evaluation important because AI agents no dey always act same way and fit change (update or model behavior drift) – without evaluation, you no go sabi if your “smart agent” dey do im work well or if e don worsen.
 
-There are two categories of evaluations for AI agents: **online evaluation** and **offline evaluation**. Both dey valuable, and dem complement each other. We usually begin with offline evaluation, as this one na the minimum necessary step before deploying any agent.
+Two kinds evaluation dey for AI agents: **online evaluation** and **offline evaluation**. Both dey important and dem dey support each other. We usually start with offline evaluation, e be the minimum step before you deploy any agent.
 
 ### Offline Evaluation
 
-![Dataset items wey dey Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-This one involve evaluating the agent for controlled setting, typically using test datasets, no be live user queries. You go use curated datasets wey you sabi wetin the expected output or correct behavior be, then run your agent on those. 
+Na to evaluate agent for controlled place, usually using test datasets, not live user questions. You use special datasets wey you sabi wetin correct output or proper behavior be, and run your agent on top them.
 
-For instance, if you build a math word-problem agent, you fit get a [test dataset](https://huggingface.co/datasets/gsm8k) of 100 problems with known answers. Offline evaluation dey often do during development (and fit be part of CI/CD pipelines) to check improvements or guard against regressions. The benefit na say e **repeatable and you fit get clear accuracy metrics since you get ground truth**. You fit also simulate user queries and measure the agent’s responses against ideal answers or use automated metrics as we describe above. 
+Like if you build math word-problem agent, you fit get [test dataset](https://huggingface.co/datasets/openai/gsm8k) of 100 problems wey answer dey known. Offline evaluation dey usually done for development (fit dey part of CI/CD pipelines) to check improvement or avoid going back. Benefit be say e **repeatable and you go get clear accuracy because you get ground truth**. You fit still simulate user questions and check agent answers with best answers or use automated metrics as we talk before.
 
-The key challenge with offline eval na to make sure your test dataset comprehensive and stay relevant – the agent fit perform well on fixed test set but encounter very different queries in production. Therefore, you suppose keep test sets updated with new edge cases and examples wey reflect real-world scenarios​. A mix of small “smoke test” cases and larger evaluation sets dey useful: small sets for quick checks and larger ones for broader performance metrics​.
+Main wahala for offline eval na to make sure test dataset complete and dey fresh – agent fit do well for fixed test set but face different questions for production. So, you suppose dey update test sets with new edge cases and examples wey show real-world. Mixing small “smoke test” cases and bigger evaluation sets dey useful: small ones for quick check, large ones for wide performance check.
 
 ### Online Evaluation 
 
 ![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-This one mean evaluating the agent for live, real-world environment, i.e. during actual usage for production. Online evaluation involve monitoring the agent’s performance on real user interactions and analyzing outcomes continuously. 
+Na to evaluate agent for live, real-world environment, during real use for production. Online evaluation mean dey watch agent performance for actual user interactions and dey analyze results all the time.
 
-For example, you fit track success rates, user satisfaction scores, or other metrics on live traffic. The advantage of online evaluation na say e **capture things wey you no fit anticipate in lab setting** – you fit observe model drift over time (if the agent’s effectiveness dey degrade as input patterns shift) and catch unexpected queries or situations wey no dey your test data​. E give true picture of how the agent dey behave for the wild. 
+For example, you fit track success rates, user satisfaction scores, or other metrics on live traffic. Advantage of online evaluation be say e **catch things wey you no fit guess for lab** – you fit see model drift over time (if agent effectiveness reduce as input style change) and find surprise questions or situations wey no dey test data. E dey show true picture of how agent dey behave for real life.
 
-Online evaluation often involve collecting implicit and explicit user feedback, as discussed, and possibly running shadow tests or A/B tests (where new version of the agent run in parallel to compare against the old). The challenge be say e fit tricky to get reliable labels or scores for live interactions – you fit rely on user feedback or downstream metrics (like whether the user click the result). 
+Online evaluation dey collect implicit and explicit user feedback as we talk before, and fit run shadow tests or A/B tests (where new agent version dey run alongside old one to compare). Problem be say e fit hard to get reliable labels or scores for live interaction – you fit depend on user feedback or downstream metrics (like if user click result).
 
-### Combining the two
+### Combine the two
 
-Online and offline evaluations no be mutually exclusive; dem dey highly complementary. Insights from online monitoring (e.g., new types of user queries where the agent perform poorly) fit be used to augment and improve offline test datasets. Conversely, agents wey perform well on offline tests fit then be more confidently deployed and monitored online. 
+Online and offline evaluations no be to oppose; dem dey support each other well. Insight from online monitoring (like new kind of user questions where agent no perform well) fit help add and improve offline test datasets. Agents wey perform well for offline test fit then deploy confidently and monitor for online.
 
-In fact, many teams adopt a loop: 
+Many teams dey follow this loop: 
 
-_evaluate offline -> deploy -> monitor online -> collect new failure cases -> add to offline dataset -> refine agent -> repeat_.
+_evaluate offline -> deploy -> monitor online -> collect new failure cases -> add to offline dataset -> fix agent -> repeat_.
 
-## Common Issues
+## Common Wahala
 
-As you deploy AI agents to production, you fit encounter various challenges. Here are some common issues and their potential solutions:
+As you deploy AI agents to production, you fit meet different wahala. Here be some common issues and how to fix dem:
 
-| **Problem**    | **Possible Solution**   |
+| **Issue**    | **Possible Fix**   |
 | ------------- | ------------------ |
-| AI Agent not performing tasks consistently | - Refine the prompt wey you give the AI Agent; make objectives clear.<br>- Find places where you fit divide the tasks into subtasks and make multiple agents handle dem. |
-| AI Agent running into continuous loops  | - Make sure you get clear termination terms and conditions so the Agent sabi when to stop the process.<br>- For complex tasks wey require reasoning and planning, use a larger model wey specialize for reasoning tasks. |
-| AI Agent tool calls are not performing well   | - Test and validate the tool output outside of the agent system.<br>- Refine the defined parameters, prompts, and names of tools.  |
-| Multi-Agent system not performing consistently | - Refine prompts given to each agent to make sure dem specific and distinct from one another.<br>- Build a hierarchical system using a "routing" or controller agent to determine which agent be the correct one. |
+| AI Agent no dey do tasks steady | - Improve the prompt wey you dey give AI Agent; make objectives clear.<br>- Find where to divide tasks into small parts and use many agents handle dem. |
+| AI Agent dey do continuous loops  | - Make sure say you get clear conditions to stop process so Agent go know when to stop.<br>- For complex tasks where reasoning and planning dey, use bigger model wey sabi do reasoning better. |
+| AI Agent tool calls no dey perform well   | - Test and check tool output outside agent system.<br>- Improve parameters, prompts, and tool names.  |
+| Multi-Agent system no dey steady | - Improve prompts wey each agent get to make them clear and different from each other.<br>- Build hierarchical system with "routing" or controller agent to decide which agent suppose work. |
 
-Many of these issues you fit identify more effectively if observability dey. The traces and metrics wey we discuss earlier go help pinpoint exactly where for the agent workflow problems dey occur, making debugging and optimization much more efficient.
+Plenty of these wahala fit show well if you get observability. Traces and metrics wey we talk before go help you find exactly where for agent workflow the problem occur, making debugging and fix easy and fast.
 
-## Managing Costs
-Below na some strategies to manage the costs of deploying AI agents to production:
+## How to Manage Cost
 
-**Using Smaller Models:** Small Language Models (SLMs) fit do well for some agentic use-cases and dem go reduce cost wella. Like we talk before, to build an evaluation system wey go determine and compare performance with larger models na the best way to sabi how well an SLM go perform for your use case. Think about to use SLMs for simpler tasks like intent classification or parameter extraction, and keep larger models for complex reasoning.
+Here be some ways to manage cost of deploying AI agents for production:
 
-**Using a Router Model:** Similar strategy na to use different models and sizes. You fit use an LLM/SLM or serverless function to route requests based on complexity to the models wey best for dem. Dis go still help reduce cost and at the same time make sure say performance dey for the correct tasks. For example, send simple queries to smaller, faster models, and only use expensive large models for complex reasoning tasks.
+**Using Smaller Models:** Small Language Models (SLMs) fit well for some agentic use-cases and dem go reduce cost well-well. Like we talk before, to build evaluation system to check performance and compare am with bigger models na the best way to sabi how SLM go perform for your use case. Think say SLMs dey good for easy tasks like intent classification or parameter extraction, make you save bigger models for the wahala reasoning ones.  
 
-**Caching Responses:** Identify common requests and tasks and give the responses before dem enter your agentic system na beta way to reduce the number of similar requests. You fit even implement a flow wey go check how similar one request be to wetin dey your cache using more basic AI models. Dis strategy fit sharply reduce cost for frequently asked questions or common workflows.
+**Using a Router Model:** Another way na to use different models wey get different sizes. You fit use LLM/SLM or serverless function to direct requests based on how e complex reach the correct model. This one go reduce cost and still make sure say performance dey on point for correct tasks. For example, send small small questions go smaller, fast models, and use big expensive ones only for complex reasoning tasks.  
 
-## Make we see how dis dey work for practice
+**Caching Responses:** To sabi common requests and tasks before dem enter your agentic system na good way to reduce the number of same kind requests. You fit even put flow to check how request take match your cached requests using simple AI models. Dis strategy fit reduce cost gidigba for questions wey dey asked often or common workflows.  
 
-In the [example notebook of this section](./code_samples/10_autogen_evaluation.ipynb), we go see examples of how we fit use observability tools to monitor and evaluate our agent.
+## Make we see how dis work for real life  
+
+For the [example notebook of this section](./code_samples/10-expense_claim-demo.ipynb), we go see examples of how we fit use observability tools take monitor and evaluate our agent.  
 
 
-### You get more questions about AI Agents for Production?
+### You Get More Questions About AI Agents for Production?  
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) make you meet other learners, attend office hours and make dem answer your AI Agents questions.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) make you meet other learners, join office hours and get your AI Agents questions answer.  
 
-## Leson Wey Pass
+## Previous Lesson  
 
-[Metacognition Design Pattern](../09-metacognition/README.md)
+[Metacognition Design Pattern](../09-metacognition/README.md)  
 
-## Next Leson
+## Next Lesson  
 
-[Agentic Protocols](../11-agentic-protocols/README.md)
+[Agentic Protocols](../11-agentic-protocols/README.md)  
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-
-Dis dokument don translate by AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). Even though we dey try make everything correct, make you sabi say automatic translations fit get mistakes or no too correct. The original dokument wey dey im own language na im you suppose take as the correct/main source. If na important information, we recommend make professional human translator check am. We no go be liable for any misunderstanding or wrong interpretation wey fit arise from using this translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,70 +1,70 @@
-# 🔍 RAG pentru Enterprise cu Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG cu Microsoft Foundry (.NET)
 
-## 📋 Obiective de Învățare
+## 📋 Obiective de învățare
 
-Acest notebook demonstrează cum să construiești sisteme RAG (Retrieval-Augmented Generation) de nivel enterprise folosind Microsoft Agent Framework în .NET cu Azure AI Foundry. Vei învăța să creezi agenți pregătiți pentru producție care pot căuta în documente și oferi răspunsuri precise, conștiente de context, cu securitate și scalabilitate pentru enterprise.
+Acest notebook demonstrează cum să construiești sisteme Retrieval-Augmented Generation (RAG) de nivel enterprise folosind Microsoft Agent Framework în .NET cu Microsoft Foundry. Vei învăța să creezi agenți gata pentru producție care pot căuta prin documente și pot oferi răspunsuri precise, conștiente de context, cu securitate și scalabilitate enterprise.
 
-**Capabilități RAG pentru Enterprise pe care le vei construi:**
-- 📚 **Inteligența Documentelor**: Procesare avansată a documentelor cu serviciile Azure AI
-- 🔍 **Căutare Semantică**: Căutare vectorială de înaltă performanță cu funcții enterprise
+**Capabilități Enterprise RAG pe care le vei construi:**
+- 📚 **Inteligență Documentară**: Procesare avansată de documente cu servicii Azure AI
+- 🔍 **Căutare Semantică**: Căutare vectorială de înaltă performanță cu funcționalități enterprise
 - 🛡️ **Integrare Securitate**: Acces bazat pe roluri și modele de protecție a datelor
-- 🏢 **Arhitectură Scalabilă**: Sisteme RAG pregătite pentru producție cu monitorizare
+- 🏢 **Arhitectură Scalabilă**: Sisteme RAG gata pentru producție cu monitorizare
 
-## 🎯 Arhitectura RAG pentru Enterprise
+## 🎯 Arhitectura Enterprise RAG
 
-### Componentele de Bază pentru Enterprise
-- **Azure AI Foundry**: Platformă AI gestionată pentru enterprise, cu securitate și conformitate
-- **Agenți Persistenți**: Agenți cu stare, istoric conversațional și gestionare a contextului
-- **Managementul Magazinului de Vectori**: Indexare și recuperare de documente la nivel enterprise
-- **Integrare Identitate**: Autentificare Azure AD și control de acces bazat pe roluri
+### Componente Enterprise de Bază
+- **Microsoft Foundry**: Platformă AI enterprise gestionată cu securitate și conformitate
+- **Agenți Persistenți**: Agenți cu stare, cu istoric de conversații și gestionare a contextului
+- **Gestionare Vector Store**: Indexare și recuperare documente de nivel enterprise
+- **Integrare Identitate**: Autentificare Azure AD și control acces bazat pe roluri
 
-### Beneficii .NET pentru Enterprise
+### Beneficii .NET Enterprise
 - **Siguranța Tipurilor**: Validare la compilare pentru operațiuni RAG și structuri de date
-- **Performanță Async**: Procesare de documente și operațiuni de căutare non-blocante
-- **Managementul Memoriei**: Utilizare eficientă a resurselor pentru colecții mari de documente
-- **Modele de Integrare**: Integrare nativă cu serviciile Azure prin injecție de dependențe
+- **Performanță Async**: Procesare documente și operațiuni de căutare fără blocare
+- **Management Memorie**: Utilizare eficientă a resurselor pentru colecții mari de documente
+- **Modele de Integrare**: Integrare nativă servicii Azure cu injecție de dependență
 
-## 🏗️ Arhitectura Tehnică
+## 🏗️ Arhitectură Tehnică
 
-### Fluxul RAG pentru Enterprise
+### Pipeline Enterprise RAG
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Componentele de Bază .NET
-- **Azure.AI.Agents.Persistent**: Managementul agenților enterprise cu persistența stării
-- **Azure.Identity**: Autentificare integrată pentru acces securizat la serviciile Azure
-- **Microsoft.Agents.AI.AzureAI**: Implementare optimizată pentru agenți în Azure
+### Componente de Bază .NET
+- **Azure.AI.Agents.Persistent**: Managementul agenților enterprise cu persistență de stare
+- **Azure.Identity**: Autentificare integrată pentru acces sigur la servicii Azure
+- **Microsoft.Agents.AI.AzureAI**: Implementare cadru agent optimizat pentru Azure
 - **System.Linq.Async**: Operațiuni LINQ asincrone de înaltă performanță
 
-## 🔧 Funcționalități și Beneficii pentru Enterprise
+## 🔧 Funcționalități Enterprise & Beneficii
 
-### Securitate și Conformitate
-- **Integrare Azure AD**: Managementul identității și autentificării pentru enterprise
-- **Acces Bazat pe Roluri**: Permisiuni detaliate pentru accesul la documente și operațiuni
-- **Protecția Datelor**: Criptare la repaus și în tranzit pentru documente sensibile
-- **Jurnalizare Audit**: Urmărire detaliată a activităților pentru cerințele de conformitate
+### Securitate & Conformitate
+- **Integrare Azure AD**: Gestionare de identitate enterprise și autentificare
+- **Acces Bazat pe Roluri**: Permisiuni detaliate pentru acces și operațiuni asupra documentelor
+- **Protecția Datelor**: Criptare în repaus și în tranzit pentru documente sensibile
+- **Audit Logging**: Monitorizare completă a activităților pentru cerințe de conformitate
 
-### Performanță și Scalabilitate
-- **Pooling de Conexiuni**: Management eficient al conexiunilor la serviciile Azure
-- **Procesare Async**: Operațiuni non-blocante pentru scenarii de debit ridicat
+### Performanță & Scalabilitate
+- **Pooling Conexiuni**: Management eficient al conexiunilor către serviciile Azure
+- **Procesare Async**: Operațiuni fără blocare pentru scenarii cu throughput ridicat
 - **Strategii de Caching**: Caching inteligent pentru documentele accesate frecvent
-- **Balansare de Sarcină**: Procesare distribuită pentru implementări la scară largă
+- **Echilibrare Sarcină**: Procesare distribuită pentru implementări la scară largă
 
-### Management și Monitorizare
-- **Verificări de Sănătate**: Monitorizare integrată pentru componentele sistemului RAG
-- **Metrice de Performanță**: Analize detaliate ale calității căutării și timpilor de răspuns
-- **Gestionarea Erorilor**: Management cuprinzător al excepțiilor cu politici de retry
-- **Managementul Configurației**: Setări specifice mediului cu validare
+### Management & Monitorizare
+- **Verificări de Sănătate**: Monitorizare încorporată pentru componentele sistemului RAG
+- **Metrici de Performanță**: Analize detaliate asupra calității căutării și timpilor de răspuns
+- **Gestionare Erori**: Management cuprinzător al excepțiilor cu politici de retry
+- **Management Configurație**: Setări specifice mediului cu validare
 
-## ⚙️ Cerințe Prealabile și Configurare
+## ⚙️ Cerințe & Configurare
 
 **Mediu de Dezvoltare:**
-- SDK .NET 9.0 sau mai recent
-- Visual Studio 2022 sau VS Code cu extensia C#
-- Abonament Azure cu acces la AI Foundry
+- SDK .NET 9.0 sau versiune superioară
+- Visual Studio 2022 sau VS Code cu extensie C#
+- Abonament Azure cu acces la Microsoft Foundry
 
 **Pachete NuGet Necesare:**
 ```xml
@@ -77,38 +77,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Configurare Autentificare Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Instalează Azure CLI și autentifică-te
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Configurare Mediu:**
-* Configurarea Azure AI Foundry (gestionată automat prin Azure CLI)
-* Asigură-te că ești autentificat la abonamentul Azure corect
+* Configurarea Microsoft Foundry (gestionată automat prin Azure CLI)
+* Asigură-te că ești autentificat în abonamentul Azure corect
 
-## 📊 Modele RAG pentru Enterprise
+## 📊 Modele Enterprise RAG
 
-### Modele de Management al Documentelor
-- **Încărcare în Masă**: Procesare eficientă a colecțiilor mari de documente
-- **Actualizări Incrementale**: Adăugare și modificare de documente în timp real
-- **Controlul Versiunilor**: Versiuni ale documentelor și urmărirea modificărilor
-- **Managementul Metadatelor**: Atribute bogate ale documentelor și taxonomie
+### Modele de Gestionare a Documentelor
+- **Încărcare în Bulk**: Procesare eficientă a colecțiilor mari de documente
+- **Actualizări Incrementale**: Adăugare și modificare documente în timp real
+- **Control Versiuni**: Versionarea documentelor și urmărirea modificărilor
+- **Gestionare Metadata**: Atribute bogate ale documentelor și taxonomie
 
-### Modele de Căutare și Recuperare
+### Modele de Căutare & Recuperare
 - **Căutare Hibridă**: Combinarea căutării semantice și pe cuvinte cheie pentru rezultate optime
-- **Căutare Facetată**: Filtrare și categorisire multidimensională
-- **Ajustarea Relevanței**: Algoritmi de scor personalizați pentru nevoi specifice domeniului
-- **Clasificarea Rezultatelor**: Clasificare avansată cu integrarea logicii de afaceri
+- **Căutare Facetată**: Filtrare și categorizare multidimensională
+- **Ajustare Relevanță**: Algoritmi personalizați de scor pentru nevoi specifice domeniului
+- **Clasare Rezultate**: Clasare avansată cu integrare logică de business
 
 ### Modele de Securitate
-- **Securitate la Nivel de Document**: Control detaliat al accesului pentru fiecare document
+- **Securitate la Nivel de Document**: Control acces detaliat per document
 - **Clasificarea Datelor**: Etichetare automată a sensibilității și protecție
-- **Urme de Audit**: Jurnalizare cuprinzătoare a tuturor operațiunilor RAG
-- **Protecția Confidențialității**: Detectarea și redactarea automată a informațiilor personale
+- **Trasee Audit**: Înregistrare completă a tuturor operațiunilor RAG
+- **Protecția Confidențialității**: Detectare și redactare PII
 
-## 🔒 Funcționalități de Securitate pentru Enterprise
+## 🔒 Funcționalități Enterprise de Securitate
 
-### Autentificare și Autorizare
+### Autentificare & Autorizare
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -122,12 +122,12 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Protecția Datelor
-- **Criptare**: Criptare end-to-end pentru documente și indici de căutare
-- **Controale de Acces**: Integrare cu Azure AD pentru permisiuni utilizator și grup
-- **Rezidența Datelor**: Controale geografice ale locației datelor pentru conformitate
-- **Backup și Recuperare**: Capacități automate de backup și recuperare în caz de dezastru
+- **Criptare**: Criptare end-to-end pentru documente și indicii de căutare
+- **Controale Acces**: Integrare cu Azure AD pentru permisiuni utilizatori și grupuri
+- **Rezidența Datelor**: Control geografic al localizării datelor pentru conformitate
+- **Backup & Recuperare**: Capacități automate de backup și recuperare după dezastru
 
-## 📈 Optimizarea Performanței
+## 📈 Optimizare Performanță
 
 ### Modele de Procesare Async
 ```csharp
@@ -138,69 +138,69 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 }
 ```
 
-### Managementul Memoriei
+### Management Memorie
 - **Procesare Streaming**: Gestionarea documentelor mari fără probleme de memorie
-- **Pooling de Resurse**: Reutilizarea eficientă a resurselor costisitoare
-- **Colectare de Gunoi**: Modele optimizate de alocare a memoriei
-- **Managementul Conexiunilor**: Ciclu de viață corect al conexiunilor la serviciile Azure
+- **Pooling Resurse**: Reutilizare eficientă a resurselor costisitoare
+- **Garbage Collection**: Modele optimizate pentru alocarea memoriei
+- **Management Conexiuni**: Ciclu de viață corect al conexiunilor către servicii Azure
 
 ### Strategii de Caching
 - **Caching Interogări**: Cache pentru căutările executate frecvent
-- **Caching Documente**: Caching în memorie pentru documentele accesate frecvent
-- **Caching Indici**: Caching optimizat al indicilor vectoriali
+- **Caching Documente**: Caching în memorie pentru documentele fierbinți
+- **Caching Index**: Caching optimizat al indicilor vectoriali
 - **Caching Rezultate**: Caching inteligent al răspunsurilor generate
 
-## 📊 Utilizări pentru Enterprise
+## 📊 Cazuri de Utilizare Enterprise
 
 ### Managementul Cunoștințelor
 - **Wiki Corporativ**: Căutare inteligentă în bazele de cunoștințe ale companiei
-- **Politici și Proceduri**: Ghid automatizat pentru conformitate și proceduri
+- **Politici & Proceduri**: Conformitate automată și ghidare în procese
 - **Materiale de Training**: Asistență inteligentă pentru învățare și dezvoltare
-- **Baze de Date de Cercetare**: Sisteme de analiză a lucrărilor academice și de cercetare
+- **Baze de Date pentru Cercetare**: Sisteme de analiză pentru lucrări academice și de cercetare
 
-### Suport pentru Clienți
-- **Bază de Cunoștințe pentru Suport**: Răspunsuri automate pentru serviciul clienți
-- **Documentație Produs**: Recuperare inteligentă a informațiilor despre produse
+### Suport Clienți
+- **Bază de Cunoștințe Suport**: Răspunsuri automate pentru serviciul clienți
+- **Documentație Produs**: Recuperare inteligentă a informațiilor despre produs
 - **Ghiduri de Depanare**: Asistență contextuală pentru rezolvarea problemelor
 - **Sisteme FAQ**: Generare dinamică de FAQ din colecții de documente
 
-### Conformitate Regulatorie
-- **Analiza Documentelor Legale**: Inteligență pentru contracte și documente legale
+### Conformitate Reglementară
+- **Analiză Documente Legale**: Inteligență pentru contracte și documentație legală
 - **Monitorizare Conformitate**: Verificare automată a conformității reglementare
-- **Evaluarea Riscurilor**: Analiză și raportare a riscurilor bazate pe documente
-- **Suport pentru Audit**: Descoperire inteligentă de documente pentru audituri
+- **Evaluare Riscuri**: Analiză și raportare a riscurilor bazate pe documente
+- **Suport Audit**: Descoperire inteligentă de documente pentru audituri
 
 ## 🚀 Implementare în Producție
 
-### Monitorizare și Observabilitate
-- **Application Insights**: Telemetrie detaliată și monitorizare a performanței
-- **Metrice Personalizate**: Urmărirea KPI-urilor specifice afacerii și alerte
-- **Trasare Distribuită**: Urmărirea cererilor de la un capăt la altul între servicii
-- **Tablouri de Bord pentru Sănătate**: Vizualizare în timp real a sănătății și performanței sistemului
+### Monitorizare & Observabilitate
+- **Application Insights**: Telemetrie detaliată și monitorizare performanță
+- **Metrici Personalizate**: Urmărire și alertare KPI specifice business-ului
+- **Distributed Tracing**: Urmărire completă a cererilor prin servicii
+- **Dashboard-uri de Sănătate**: Vizualizare în timp real a sănătății și performanței sistemului
 
-### Scalabilitate și Fiabilitate
-- **Auto-Scaling**: Scalare automată bazată pe sarcină și metrice de performanță
-- **Disponibilitate Ridicată**: Implementare multi-regională cu capacități de failover
-- **Testare de Sarcină**: Validarea performanței sub condiții de sarcină enterprise
-- **Recuperare în Caz de Dezastru**: Proceduri automate de backup și recuperare
+### Scalabilitate & Fiabilitate
+- **Auto-Scaling**: Scalare automată bazată pe sarcină și metrici de performanță
+- **High Availability**: Implementare multi-regiune cu capabilități failover
+- **Testare de Sarcină**: Validarea performanței în condiții enterprise de încărcare
+- **Disaster Recovery**: Proceduri automate de backup și recuperare
 
-Ești pregătit să construiești sisteme RAG de nivel enterprise care pot gestiona documente sensibile la scară? Hai să arhitectăm sisteme inteligente de cunoștințe pentru enterprise! 🏢📖✨
+Ești gata să construiești sisteme RAG de nivel enterprise care să gestioneze documente sensibile la scară largă? Hai să arhitectăm sisteme inteligente de cunoaștere pentru enterprise! 🏢📖✨
 
-## Implementare Cod
+## Implementarea Codului
 
-Exemplul complet de cod funcțional pentru această lecție este disponibil în `05-dotnet-agent-framework.cs`. 
+Exemplul complet funcțional al codului pentru această lecție este disponibil în `05-dotnet-agent-framework.cs`.
 
 Pentru a rula exemplul:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Fă scriptul executabil (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Rulează aplicația .NET Single File
 ./05-dotnet-agent-framework.cs
 ```
 
-Sau folosește `dotnet run` direct:
+Sau folosește direct `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
@@ -209,13 +209,15 @@ dotnet run 05-dotnet-agent-framework.cs
 Codul demonstrează:
 
 1. **Instalarea Pachetelor**: Instalarea pachetelor NuGet necesare pentru Azure AI Agents
-2. **Configurarea Mediului**: Încărcarea punctului final și setărilor modelului Azure AI Foundry
-3. **Încărcarea Documentelor**: Încărcarea unui document pentru procesarea RAG
-4. **Crearea Magazinului de Vectori**: Crearea unui magazin de vectori pentru căutare semantică
-5. **Configurarea Agentului**: Configurarea unui agent AI cu capacități de căutare în fișiere
-6. **Executarea Interogărilor**: Rularea interogărilor pe documentul încărcat
+2. **Configurarea Mediului**: Încărcarea endpoint-ului Microsoft Foundry și setările modelului
+3. **Încărcare Document**: Încărcarea unui document pentru procesarea RAG
+4. **Creare Vector Store**: Crearea unui vector store pentru căutare semantică
+5. **Configurare Agent**: Setarea unui agent AI cu capabilități de căutare în fișiere
+6. **Executare Interogări**: Rularea de interogări pe documentul încărcat
 
 ---
 
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru neînțelegerile sau interpretările greșite care pot apărea din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,69 +1,69 @@
-# 使用 Microsoft Agent Framework Workflow 构建多代理应用程序
+# 使用 Microsoft Agent Framework 工作流构建多智能体应用
 
-本教程将引导您了解并使用 Microsoft Agent Framework 构建多代理应用程序。我们将探讨多代理系统的核心概念，深入研究框架 Workflow 组件的架构，并通过 Python 和 .NET 的实际示例演示不同的工作流模式。
+本教程将引导您理解并构建使用 Microsoft Agent Framework 的多智能体应用。我们将探索多智能体系统的核心概念，深入了解框架的工作流组件架构，并通过 Python 和 .NET 中的实际示例演示不同的工作流模式。
 
-## 1\. 了解多代理系统
+## 1\. 理解多智能体系统
 
-AI 代理是一种超越标准大型语言模型（LLM）能力的系统。它能够感知环境、做出决策并采取行动以实现特定目标。多代理系统涉及多个代理协作解决单个代理难以处理的问题。
+AI 智能体是一个超越标准大型语言模型（LLM）能力的系统。它可以感知环境、做出决策并采取行动以实现特定目标。多智能体系统涉及多个这样的智能体协作解决单个智能体难以或无法独立处理的问题。
 
 ### 常见应用场景
 
-  * **复杂问题解决**：将一个大型任务（例如规划公司范围的活动）分解为由专业代理处理的小任务（例如预算代理、物流代理、营销代理）。
-  * **虚拟助手**：一个主助手代理将任务（如日程安排、研究和预订）委派给其他专业代理。
-  * **自动内容创建**：一个代理起草内容，另一个代理审查内容的准确性和语气，第三个代理发布内容。
+  * <strong>复杂问题解决</strong>：将一个大型任务（例如规划公司范围内的活动）拆分为多个由专门智能体处理的子任务（如预算智能体、物流智能体、市场营销智能体）。
+  * <strong>虚拟助理</strong>：一个主助理智能体将调度、研究和预订等任务委托给其他专门智能体。
+  * <strong>自动内容创作</strong>：一个智能体起草内容，另一个审查其准确性和语气，再由第三个智能体发布内容的工作流。
 
-### 多代理模式
+### 多智能体模式
 
-多代理系统可以按照不同的模式组织，这些模式决定了代理之间的交互方式：
+多智能体系统可通过多种模式组织，这些模式决定了它们如何交互：
 
-  * **顺序模式**：代理按照预定顺序工作，类似于流水线。一个代理的输出成为下一个代理的输入。
-  * **并发模式**：代理并行处理任务的不同部分，最终将结果汇总。
-  * **条件模式**：工作流根据代理的输出遵循不同的路径，类似于 if-then-else 语句。
+  * <strong>顺序型</strong>：智能体按照预定义顺序工作，像装配线一样。一个智能体的输出成为下一个的输入。
+  * <strong>并发型</strong>：智能体并行处理任务的不同部分，最终汇总结果。
+  * <strong>条件型</strong>：工作流根据智能体的输出决定不同路径，类似 if-then-else 语句。
 
-## 2\. Microsoft Agent Framework Workflow 架构
+## 2\. Microsoft Agent Framework 工作流架构
 
-Agent Framework 的工作流系统是一个高级编排引擎，旨在管理多个代理之间的复杂交互。它基于图形架构，使用 [Pregel 风格的执行模型](https://kowshik.github.io/JPregel/pregel_paper.pdf)，其中处理在称为“超级步骤”的同步步骤中进行。
+Agent Framework 的工作流系统是一个先进的编排引擎，用于管理多个智能体之间的复杂交互。它基于图形架构，采用[Pregel 风格的执行模型](https://kowshik.github.io/JPregel/pregel_paper.pdf)，处理在称为“超步骤（supersteps）”的同步步骤中进行。
 
 ### 核心组件
 
-该架构由三个主要部分组成：
+架构由三个主要部分组成：
 
-1.  **执行器**：这些是基本的处理单元。在我们的示例中，`Agent` 是一种执行器。每个执行器可以有多个消息处理器，这些处理器会根据接收到的消息类型自动调用。
-2.  **边**：定义消息在执行器之间传递的路径。边可以设置条件，从而允许信息动态路由通过工作流图。
-3.  **工作流**：负责编排整个过程，管理执行器、边以及整体执行流程。它确保消息按正确顺序处理，并流式传输事件以便于观察。
+1.  <strong>执行器</strong>：这是基本的处理单元。在我们的示例中，`Agent` 是一种执行器。每个执行器可以有多个消息处理器，基于接收的消息类型自动调用。
+2.  **边（Edges）**：定义消息在执行器之间的传递路径。边可以带有条件，实现信息在工作流图中的动态路由。
+3.  <strong>工作流</strong>：协调整个流程，管理执行器、边及整体执行流。确保消息按正确顺序处理，并流式传输事件以便观察。
 
-*一个展示工作流系统核心组件的图示。*
+*一张展示工作流系统核心组件的图示。*
 
-这种结构允许使用基本模式（如顺序链、并行处理的扇出/扇入以及条件流的 switch-case 逻辑）构建强大且可扩展的应用程序。
+该结构允许通过基本模式如顺序链、并行处理的分发汇聚（fan-out/fan-in）以及条件分支逻辑，构建健壮且可扩展的应用。
 
-## 3\. 实际示例和代码分析
+## 3\. 实际示例与代码解析
 
-接下来，我们将探索如何使用框架实现不同的工作流模式。我们将分别查看每个示例的 Python 和 .NET 代码。
+接下来，我们将探讨如何使用该框架实现不同的工作流模式。每个示例将包括 Python 和 .NET 代码。
 
-### 案例 1：基本顺序工作流
+### 案例 1：基础顺序工作流
 
-这是最简单的模式，其中一个代理的输出直接传递给另一个代理。我们的场景涉及一个酒店 `FrontDesk` 代理提供旅行推荐，然后由 `Concierge` 代理进行审查。
+这是最简单的模式，一个智能体的输出直接传递给另一个。场景中，一个酒店的 `FrontDesk` 智能体给出旅行推荐，随后由 `Concierge` 智能体审查。
 
-*一个展示基本 FrontDesk -\> Concierge 工作流的图示。*
+*基础 FrontDesk -> Concierge 工作流的图示。*
 
 #### 场景背景
 
-一位旅客询问巴黎的推荐活动。
+旅行者询问巴黎的推荐。
 
-1.  `FrontDesk` 代理设计简洁，建议参观卢浮宫。
-2.  `Concierge` 代理优先考虑真实体验，接收建议后进行审查，并提供更本地化、非游客化的替代方案。
+1.  设计简洁的 `FrontDesk` 智能体建议参观卢浮宫博物馆。
+2.  注重真实体验的 `Concierge` 智能体接收建议，审查并反馈，推荐更接地气、不那么游客化的替代方案。
 
 #### Python 实现分析
 
-在 Python 示例中，我们首先定义并创建两个代理，每个代理都有特定的指令。
+在 Python 示例中，我们首先定义并创建两个智能体，各自带有具体指令。
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# 定义代理角色和指令
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# 创建代理实例
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-接下来，使用 `WorkflowBuilder` 构建图。将 `front_desk_agent` 设置为起点，并创建一条边将其输出连接到 `reviewer_agent`。
+接着使用 `WorkflowBuilder` 构建图。将 `front_desk_agent` 设为起点，并创建边将其输出连接到 `reviewer_agent`。
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-最后，使用初始用户提示执行工作流。
+最后，执行工作流并传入初始用户提示。
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run 执行工作流程；get_outputs() 返回输出执行器的结果。
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C#) 实现分析
+#### .NET (C\#) 实现分析
 
-.NET 实现遵循非常类似的逻辑。首先，为代理的名称和指令定义常量。
+.NET 实现遵循相似逻辑。首先定义智能体名称和指令的常量。
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-使用 `OpenAIClient` 创建代理，然后通过 `WorkflowBuilder` 定义顺序流程，添加一条边从 `frontDeskAgent` 到 `reviewerAgent`。
+使用 `AzureOpenAIClient`（Responses API）创建智能体，然后用 `WorkflowBuilder` 通过添加一个从 `frontDeskAgent` 到 `reviewerAgent` 的边，定义顺序流程。
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-工作流随后运行用户消息，并将结果流式传输回。
+之后运行工作流，传入用户消息，并将结果流式返回。
 
-### 案例 2：多步骤顺序工作流
+### 案例 2：多步顺序工作流
 
-此模式扩展了基本顺序模式，包含更多代理。它非常适合需要多个阶段的精炼或转换的流程。
+此模式在基础顺序上扩展更多智能体，适合需要多阶段优化或转换的流程。
 
 #### 场景背景
 
-用户提供了一张客厅的图片，并要求提供家具报价。
+用户提供一张客厅图片，要求给出家具报价。
 
-1.  **Sales-Agent**：识别图片中的家具项目并创建列表。
-2.  **Price-Agent**：根据项目列表提供详细的价格细分，包括预算、中档和高端选项。
-3.  **Quote-Agent**：接收定价列表并将其格式化为 Markdown 格式的正式报价文档。
+1.  **Sales-Agent**：识别图中家具项目并列出清单。
+2.  **Price-Agent**：根据清单给出详细价格分解，包含经济型、中档、豪华选项。
+3.  **Quote-Agent**：接收价格清单并格式化为 Markdown 格式的正式报价文件。
 
-*一个展示 Sales -\> Price -\> Quote 工作流的图示。*
+*销售 -> 价格 -> 报价 工作流的图示。*
 
 #### Python 实现分析
 
-定义三个代理，每个代理都有专门的角色。使用 `add_edge` 构建工作流链：`sales_agent` -\> `price_agent` -\> `quote_agent`。
+定义三个智能体，各自专责一个环节。使用 `add_edge` 构造链条：`sales_agent` -> `price_agent` -> `quote_agent`。
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# 创建三个专门代理
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# 构建顺序工作流
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-输入是一个包含文本和图片 URI 的 `ChatMessage`。框架处理每个代理的输出并将其传递给下一个代理，直到生成最终报价。
+输入是包含文本和图片 URI 的 `ChatMessage`。框架负责将每个智能体的输出传给下一个，直至生成最终报价。
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# 用户消息包含文本和图像
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# 运行工作流
+events = await workflow.run(message)
 ```
 
-#### .NET (C#) 实现分析
+#### .NET (C\#) 实现分析
 
-.NET 示例与 Python 版本类似。创建三个代理（`salesagent`、`priceagent`、`quoteagent`）。使用 `WorkflowBuilder` 将它们按顺序链接。
+.NET 示例与 Python 版本类似。创建三个智能体（`salesagent`，`priceagent`，`quoteagent`）。使用 `WorkflowBuilder` 顺序连接。
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-用户消息包含图片数据（以字节形式）和文本提示。使用 `InProcessExecution.StreamAsync` 方法启动工作流，并从流中捕获最终输出。
+用户消息包含图片数据（以字节形式）和文本提示。调用 `InProcessExecution.RunStreamingAsync` 启动工作流，最终输出从流中获取。
 
 ### 案例 3：并发工作流
 
-此模式用于任务可以同时执行以节省时间的情况。它包括“扇出”到多个代理和“扇入”以汇总结果。
+当任务可同时执行以节省时间时，使用此模式。它涉及“分发”到多个智能体和“汇总”结果。
 
 #### 场景背景
 
-用户要求规划一次去西雅图的旅行。
+用户请求规划一次西雅图旅行。
 
-1.  **Dispatcher (扇出)**：用户请求同时发送给两个代理。
-2.  **Researcher-Agent**：研究西雅图 12 月的景点、天气和关键注意事项。
-3.  **Plan-Agent**：独立创建详细的每日旅行行程。
-4.  **Aggregator (扇入)**：收集研究员和规划员的输出，并将其作为最终结果一起呈现。
+1.  **调度器（分发）**：用户请求同时发送给两个智能体。
+2.  **Researcher-Agent**：研究西雅图十二月的景点、天气和关键注意事项。
+3.  **Plan-Agent**：独立制定详细的日程旅行计划。
+4.  **汇总器（汇总）**：收集研究者和规划者的输出，共同呈现最终结果。
 
-*一个展示并发 Researcher 和 Planner 工作流的图示。*
+*并发的 Researcher 和 Planner 工作流图示。*
 
 #### Python 实现分析
 
-`ConcurrentBuilder` 简化了此模式的创建。只需列出参与的代理，构建器会自动创建必要的扇出和扇入逻辑。
+`ConcurrentBuilder` 简化了此模式的创建。只需列出参与智能体，构建器自动创建必要的分发和汇聚逻辑。
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder 处理扇出/扇入逻辑
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# 运行工作流
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-框架确保 `research_agent` 和 `plan_agent` 并行执行，并将它们的最终输出汇总到一个列表中。
+框架确保 `research_agent` 和 `plan_agent` 并行执行，最终输出汇总为列表。
 
-#### .NET (C#) 实现分析
+#### .NET (C\#) 实现分析
 
-在 .NET 中，此模式需要更明确的定义。创建自定义执行器（`ConcurrentStartExecutor` 和 `ConcurrentAggregationExecutor`）以处理扇出和扇入逻辑。
+在 .NET 中，此模式需要更明确的定义。创建自定义执行器（`ConcurrentStartExecutor` 和 `ConcurrentAggregationExecutor`）处理分发和汇聚逻辑。
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-然后，`WorkflowBuilder` 使用 `AddFanOutEdge` 和 `AddFanInEdge` 构建图，包含这些自定义执行器和代理。
+之后，`WorkflowBuilder` 通过 `AddFanOutEdge` 和 `AddFanInEdge` 使用这些自定义执行器和智能体构建图。
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -292,43 +291,43 @@ var workflow = new WorkflowBuilder(startExecutor)
 
 ### 案例 4：条件工作流
 
-条件工作流引入分支逻辑，允许系统根据中间结果采取不同路径。
+条件工作流引入分支逻辑，允许系统基于中间结果选择不同路径。
 
 #### 场景背景
 
-此工作流自动创建并发布技术教程。
+该工作流自动创建和发布技术教程。
 
-1.  **Evangelist-Agent**：根据给定的大纲和 URL 编写教程草稿。
-2.  **ContentReviewer-Agent**：审查草稿，检查字数是否超过 200 字。
-3.  **条件分支**：
+1.  **Evangelist-Agent**：根据给定大纲和 URL 草拟教程。
+2.  **ContentReviewer-Agent**：审查草稿。检查字数是否超过 200 字。
+3.  <strong>条件分支</strong>：
       * **如果通过（`Yes`）**：工作流继续到 `Publisher-Agent`。
-      * **如果拒绝（`No`）**：工作流停止并输出拒绝原因。
-4.  **Publisher-Agent**：如果草稿通过审核，此代理将内容保存为 Markdown 文件。
+      * **如果未通过（`No`）**：工作流停止并输出拒绝原因。
+4.  **Publisher-Agent**：若草稿通过，该智能体将内容保存为 Markdown 文件。
 
 #### Python 实现分析
 
-此示例使用自定义函数 `select_targets` 实现条件逻辑。该函数传递给 `add_multi_selection_edge_group`，并根据审查者输出的 `review_result` 字段指导工作流。
+示例中使用自定义函数 `select_targets` 实现条件逻辑。该函数传递给 `add_multi_selection_edge_group`，根据审阅者输出的 `review_result` 字段指导工作流。
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# 此函数根据审核结果确定下一步
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # 如果审核通过，继续执行 'save_draft' 执行器
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # 如果审核不通过，继续执行 'handle_review' 执行器以报告失败
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# 工作流构建器使用选择函数进行路由
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # 多选择边实现条件逻辑
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-使用自定义执行器（如 `to_reviewer_result`）解析代理的 JSON 输出，并将其转换为强类型对象供选择函数检查。
+使用诸如 `to_reviewer_result` 的自定义执行器解析智能体的 JSON 输出，转换为强类型对象供选择函数检视。
 
-#### .NET (C#) 实现分析
+#### .NET (C\#) 实现分析
 
-.NET 版本使用类似的方法，通过条件函数实现逻辑。定义一个 `Func<object?, bool>` 来检查 `ReviewResult` 对象的 `Result` 属性。
+.NET 版本采用类似方法，定义了一个 `Func<object?, bool>` 来检查 `ReviewResult` 对象的 `Result` 属性。
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` 方法的 `condition` 参数允许 `WorkflowBuilder` 创建分支路径。工作流仅在条件 `GetCondition(expectedResult: "Yes")` 返回 true 时遵循到 `publishExecutor` 的边，否则遵循到 `sendReviewerExecutor` 的路径。
+`AddEdge` 方法的 `condition` 参数使 `WorkflowBuilder` 能创建分支路径。只有当条件 `GetCondition(expectedResult: "Yes")` 返回真时，工作流才会执行到 `publishExecutor`，否则走向 `sendReviewerExecutor`。
 
 ## 结论
 
-Microsoft Agent Framework Workflow 提供了一个强大且灵活的基础，用于编排复杂的多代理系统。通过利用其基于图形的架构和核心组件，开发者可以在 Python 和 .NET 中设计和实现复杂的工作流。无论您的应用程序需要简单的顺序处理、并行执行还是动态条件逻辑，框架都提供了构建强大、可扩展且类型安全的 AI 驱动解决方案的工具。
+Microsoft Agent Framework 工作流为编排复杂多智能体系统提供了强大且灵活的基础。通过其基于图形的架构和核心组件，开发者可以在 Python 和 .NET 中设计并实现复杂工作流。无论应用需求是简单的顺序处理、并行执行，还是动态的条件逻辑，该框架均提供构建强大、可扩展且类型安全 AI 驱动解决方案的工具。
 
 ---
 
-**免责声明**：  
-本文档使用AI翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 进行翻译。尽管我们努力确保翻译的准确性，但请注意，自动翻译可能包含错误或不准确之处。原始语言的文档应被视为权威来源。对于关键信息，建议使用专业人工翻译。因使用本翻译而产生的任何误解或误读，我们概不负责。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免责声明**：
+本文件由 AI 翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻译完成。尽管我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。原始语言版文件应视为权威来源。对于重要信息，建议使用专业人工翻译。我们对因使用本翻译而产生的任何误解或误释不承担责任。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

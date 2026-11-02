@@ -1,28 +1,28 @@
-# 🔍 Enterprise RAG med Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG med Microsoft Foundry (.NET)
 
 ## 📋 Læringsmål
 
-Denne notatboken viser hvordan man bygger bedriftsklare Retrieval-Augmented Generation (RAG)-systemer ved hjelp av Microsoft Agent Framework i .NET med Azure AI Foundry. Du vil lære å lage produksjonsklare agenter som kan søke gjennom dokumenter og gi nøyaktige, kontekstbevisste svar med bedriftsnivå sikkerhet og skalerbarhet.
+Denne notatboken demonstrerer hvordan man bygger RAG-systemer i bedriftsklasse (Retrieval-Augmented Generation) ved å bruke Microsoft Agent Framework i .NET med Microsoft Foundry. Du vil lære å lage produksjonsklare agenter som kan søke gjennom dokumenter og gi nøyaktige, kontekstbevisste svar med bedriftsikkerhet og skalerbarhet.
 
-**Enterprise RAG-funksjoner du vil bygge:**
+**Enterprise RAG-funksjonaliteter du vil bygge:**
 - 📚 **Dokumentintelligens**: Avansert dokumentbehandling med Azure AI-tjenester
 - 🔍 **Semantisk søk**: Høyytelses vektorsøk med bedriftsfunksjoner
-- 🛡️ **Sikkerhetsintegrasjon**: Rollebasert tilgang og mønstre for databeskyttelse
+- 🛡️ **Sikkerhetsintegrasjon**: Rollebasert tilgang og databeskyttelsesmønstre
 - 🏢 **Skalerbar arkitektur**: Produksjonsklare RAG-systemer med overvåking
 
 ## 🎯 Enterprise RAG-arkitektur
 
 ### Kjernekomponenter for bedrifter
-- **Azure AI Foundry**: Administrert AI-plattform for bedrifter med sikkerhet og samsvar
-- **Vedvarende agenter**: Tilstandsfulle agenter med samtalehistorikk og kontekststyring
-- **Vektorlagringsadministrasjon**: Bedriftsnivå dokumentindeksering og gjenfinning
+- **Microsoft Foundry**: Administrert enterprise AI-plattform med sikkerhet og samsvar
+- **Vedvarende agenter**: Tilstandsbevarende agenter med samtalehistorikk og kontekststyring
+- **Vektorlagerstyring**: Enterprise-nivå dokumentindeksering og henting
 - **Identitetsintegrasjon**: Azure AD-autentisering og rollebasert tilgangskontroll
 
 ### Fordeler med .NET for bedrifter
-- **Type-sikkerhet**: Validering av RAG-operasjoner og datastrukturer ved kompilering
+- **Typsikkerhet**: Kompileringstid validering for RAG-operasjoner og datastrukturer
 - **Asynkron ytelse**: Ikke-blokkerende dokumentbehandling og søkeoperasjoner
-- **Minnehåndtering**: Effektiv ressursutnyttelse for store dokumentkolleksjoner
-- **Integrasjonsmønstre**: Naturlig integrasjon med Azure-tjenester via avhengighetsinjeksjon
+- **Minnehåndtering**: Effektiv ressursutnyttelse for store dokumentsamlinger
+- **Integrasjonsmønstre**: Nativ Azure-tjenesteintegrasjon med dependency injection
 
 ## 🏗️ Teknisk arkitektur
 
@@ -33,40 +33,40 @@ Document Upload → Security Validation → Vector Processing → Index Creation
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Kjernekomponenter i .NET
-- **Azure.AI.Agents.Persistent**: Administrasjon av bedriftsagenter med tilstandslagring
-- **Azure.Identity**: Integrert autentisering for sikker tilgang til Azure-tjenester
-- **Microsoft.Agents.AI.AzureAI**: Azure-optimalisert implementering av agentrammeverket
+### Kjerne .NET-komponenter
+- **Azure.AI.Agents.Persistent**: Enterprise agentstyring med tilstandsbevaring
+- **Azure.Identity**: Integrert autentisering for sikker Azure-tjenestetilgang
+- **Microsoft.Agents.AI.AzureAI**: Azure-optimalisert agentrammeverkimplementering
 - **System.Linq.Async**: Høyytelses asynkrone LINQ-operasjoner
 
-## 🔧 Enterprise-funksjoner og fordeler
+## 🔧 Enterprise-funksjoner & fordeler
 
-### Sikkerhet og samsvar
-- **Azure AD-integrasjon**: Identitetsadministrasjon og autentisering for bedrifter
-- **Rollebasert tilgang**: Finkornet tillatelse for dokumenttilgang og operasjoner
+### Sikkerhet & samsvar
+- **Azure AD-integrasjon**: Enterprise identitetsstyring og autentisering
+- **Rollebasert tilgang**: Finkornede tillatelser for dokumenttilgang og operasjoner
 - **Databeskyttelse**: Kryptering i ro og under overføring for sensitive dokumenter
-- **Revisjonslogging**: Omfattende aktivitetsregistrering for samsvarskrav
+- **Revisjonslogging**: Omfattende aktivitetsloggføring for samsvarskrav
 
-### Ytelse og skalerbarhet
-- **Tilkoblingspooling**: Effektiv administrasjon av Azure-tjenestetilkoblinger
+### Ytelse & skalerbarhet
+- **Tilkoblingspooling**: Effektiv administrasjon av Azure tjenestetilkoblinger
 - **Asynkron behandling**: Ikke-blokkerende operasjoner for høy gjennomstrømning
-- **Cache-strategier**: Intelligent caching for ofte brukte dokumenter
+- **Caching-strategier**: Intelligent caching for hyppig brukte dokumenter
 - **Lastbalansering**: Distribuert behandling for storskala distribusjoner
 
-### Administrasjon og overvåking
+### Administrasjon & overvåking
 - **Helsetester**: Innebygd overvåking av RAG-systemkomponenter
-- **Ytelsesmetrikker**: Detaljert analyse av søkekvalitet og responstider
-- **Feilhåndtering**: Omfattende unntakshåndtering med gjenforsøkspolicyer
-- **Konfigurasjonsadministrasjon**: Miljøspesifikke innstillinger med validering
+- **Ytelsesmetrikk**: Detaljerte analyser av søkekvalitet og svartider
+- **Feilhåndtering**: Omfattende unntakshåndtering med retry-policyer
+- **Konfigurasjonsstyring**: Miljøspesifikke innstillinger med validering
 
-## ⚙️ Forutsetninger og oppsett
+## ⚙️ Forutsetninger & oppsett
 
 **Utviklingsmiljø:**
 - .NET 9.0 SDK eller nyere
 - Visual Studio 2022 eller VS Code med C#-utvidelse
-- Azure-abonnement med tilgang til AI Foundry
+- Azure-abonnement med Microsoft Foundry-tilgang
 
-**Påkrevde NuGet-pakker:**
+**Nødvendige NuGet-pakker:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -77,38 +77,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Azure-autentiseringsoppsett:**
 ```bash
-# Install Azure CLI and authenticate
+# Installer Azure CLI og autentiser
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Miljøkonfigurasjon:**
-* Konfigurasjon av Azure AI Foundry (automatisk håndtert via Azure CLI)
-* Sørg for at du er autentisert til riktig Azure-abonnement
+* Microsoft Foundry-konfigurasjon (automatisk håndtert via Azure CLI)
+* Sørg for at du er autentisert mot riktig Azure-abonnement
 
 ## 📊 Enterprise RAG-mønstre
 
-### Dokumentadministrasjonsmønstre
-- **Bulkopplasting**: Effektiv behandling av store dokumentkolleksjoner
+### Dokumentstyringsmønstre
+- **Bulkopplasting**: Effektiv behandling av store dokumentsamlinger
 - **Inkrementelle oppdateringer**: Sanntids tillegg og modifikasjon av dokumenter
-- **Versjonskontroll**: Dokumentversjonering og endringssporing
-- **Metadataadministrasjon**: Rike dokumentattributter og taksonomi
+- **Versjonskontroll**: Versjonering og endringssporing av dokumenter
+- **Metadatahåndtering**: Rike dokumentattributter og taksonomi
 
-### Søke- og gjenfinningsmønstre
-- **Hybrid søk**: Kombinering av semantisk og nøkkelordssøk for optimale resultater
-- **Fasettert søk**: Multidimensjonal filtrering og kategorisering
-- **Relevansjustering**: Tilpassede rangeringsalgoritmer for spesifikke domener
-- **Resultatrangering**: Avansert rangering med integrasjon av forretningslogikk
+### Søke- & hentemønstre
+- **Hybrid søk**: Kombinasjon av semantisk og nøkkelordssøk for optimale resultater
+- **Fasettert søk**: Multidimensjonale filtreringer og kategorisering
+- **Relevanstilpasning**: Tilpassede scorealgoritmer for domene-spesifikke behov
+- **Resultatrangering**: Avansert rangering med forretningslogikkintegrasjon
 
 ### Sikkerhetsmønstre
-- **Dokumentnivå sikkerhet**: Finkornet tilgangskontroll per dokument
+- **Dokumentnivåsikkerhet**: Finkornet tilgangskontroll per dokument
 - **Dataklassifisering**: Automatisk sensitivitetsetikettering og beskyttelse
 - **Revisjonsspor**: Omfattende logging av alle RAG-operasjoner
-- **Personvern**: PII-deteksjon og redigeringsfunksjoner
+- **Personvernvern**: Deteksjon og maskering av personopplysninger (PII)
 
 ## 🔒 Enterprise sikkerhetsfunksjoner
 
-### Autentisering og autorisasjon
+### Autentisering & autorisasjon
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -122,10 +122,10 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Databeskyttelse
-- **Kryptering**: Ende-til-ende kryptering for dokumenter og søkeindekser
-- **Tilgangskontroller**: Integrasjon med Azure AD for bruker- og gruppeautorisasjon
-- **Dataresidens**: Geografisk datalokasjonskontroll for samsvar
-- **Backup og gjenoppretting**: Automatiserte backup- og katastrofegjenopprettingsfunksjoner
+- **Kryptering**: End-to-end-kryptering for dokumenter og søkeindekser
+- **Tilgangskontroller**: Integrasjon med Azure AD for bruker- og gruppetillatelser
+- **Dataresidens**: Geografisk dataplasseringskontroll for samsvar
+- **Backup & gjenoppretting**: Automatiserte backup- og katastrofegjenopprettingsfunksjoner
 
 ## 📈 Ytelsesoptimalisering
 
@@ -139,64 +139,64 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Minnehåndtering
-- **Streaming-behandling**: Håndtering av store dokumenter uten minneproblemer
+- **Strømmingbehandling**: Håndter store dokumenter uten minneproblemer
 - **Ressurspooling**: Effektiv gjenbruk av kostbare ressurser
-- **Søppelsamling**: Optimaliserte mønstre for minneallokering
-- **Tilkoblingsadministrasjon**: Riktig livssyklus for Azure-tjenestetilkoblinger
+- **Garbage Collection**: Optimaliserte minnetildelingsmønstre
+- **Tilkoblingsstyring**: Korrekt Azure tjenestetilkoblingslivssyklus
 
-### Cache-strategier
-- **Spørringscache**: Cache ofte utførte søk
-- **Dokumentcache**: Minnebasert caching for populære dokumenter
-- **Indekscache**: Optimalisert vektorindekscaching
+### Caching-strategier
+- **Spørringscache**: Cache for hyppig utførte søk
+- **Dokumentcache**: In-memory caching for varme dokumenter
+- **Indekscache**: Optimalisert caching av vektorindekser
 - **Resultatcache**: Intelligent caching av genererte svar
 
 ## 📊 Enterprise brukstilfeller
 
-### Kunnskapsadministrasjon
-- **Bedriftswiki**: Intelligent søk i bedriftens kunnskapsbaser
-- **Policyer og prosedyrer**: Automatisert samsvar og veiledning for prosedyrer
-- **Opplæringsmateriale**: Intelligent lærings- og utviklingsassistanse
-- **Forskningsdatabaser**: Analyse av akademiske og forskningsartikler
+### Kunnskapsstyring
+- **Bedriftswiki**: Intelligent søk på tvers av bedrifts kunnskapsbaser
+- **Policy & prosedyrer**: Automatisert samsvar og prosedyreveiledning
+- **Opplæringsmateriell**: Intelligent lærings- og utviklingsstøtte
+- **Forskningsdatabaser**: Akademiske og forskningspapiranalyssystemer
 
 ### Kundestøtte
-- **Støttekunnskapsbase**: Automatiserte kundeserviceresponser
-- **Produktdokumentasjon**: Intelligent gjenfinning av produktinformasjon
-- **Feilsøkingsveiledninger**: Kontekstuell problemløsningsassistanse
-- **FAQ-systemer**: Dynamisk FAQ-generering fra dokumentkolleksjoner
+- **Support kunnskapsbase**: Automatiserte kundeserviceresponser
+- **Produktdokumentasjon**: Intelligent produktinformasjonsgjenfinning
+- **Feilsøkingsguider**: Kontekstuell problemløsing assistanse
+- **FAQ-systemer**: Dynamisk FAQ-generering fra dokumentsamlinger
 
 ### Regulatorisk samsvar
-- **Analyse av juridiske dokumenter**: Intelligens for kontrakter og juridiske dokumenter
-- **Samsvarsovervåking**: Automatisert kontroll av regulatorisk samsvar
+- **Juridisk doku-mentanalyse**: Kontrakt- og juridisk dokumentintelligens
+- **Samsvarsovervåking**: Automatisert regulatorisk samsvarssjekk
 - **Risikovurdering**: Dokumentbasert risikoanalyse og rapportering
-- **Revisjonsstøtte**: Intelligent dokumentgjenfinning for revisjoner
+- **Revisjonsstøtte**: Intelligent dokumentfunn for revisjoner
 
 ## 🚀 Produksjonsdistribusjon
 
-### Overvåking og observasjon
+### Overvåking & observabilitet
 - **Application Insights**: Detaljert telemetri og ytelsesovervåking
-- **Egendefinerte metrikker**: Spesifikke KPI-sporing og varsling
-- **Distribuert sporing**: Ende-til-ende forespørselssporing på tvers av tjenester
-- **Helsetavler**: Sanntids visualisering av systemhelse og ytelse
+- **Egendefinerte metrikker**: Forretningsspesifikk KPI-overvåking og varsling
+- **Distribuert sporing**: End-to-end forespørselssporing på tvers av tjenester
+- **Helsedashbord**: Sanntids visualisering av systemhelse og ytelse
 
-### Skalerbarhet og pålitelighet
-- **Auto-skalering**: Automatisk skalering basert på belastning og ytelsesmetrikker
-- **Høy tilgjengelighet**: Distribusjon på tvers av regioner med failover-funksjoner
-- **Lasttesting**: Ytelsesvalidering under bedriftsbelastning
+### Skalerbarhet & pålitelighet
+- **Autoskalering**: Automatisk skalering basert på belastning og ytelsesmetrikker
+- **Høy tilgjengelighet**: Multi-region distribusjon med failover-funksjoner
+- **Lasttesting**: Ytelsesvalidering under enterprise belastningsforhold
 - **Katastrofegjenoppretting**: Automatiserte backup- og gjenopprettingsprosedyrer
 
-Klar til å bygge bedriftsklare RAG-systemer som kan håndtere sensitive dokumenter i stor skala? La oss arkitektere intelligente kunnskapssystemer for bedrifter! 🏢📖✨
+Klar til å bygge RAG-systemer i bedriftsklasse som kan håndtere sensitive dokumenter i stor skala? La oss arkitektere intelligente kunnskapssystemer for bedrifter! 🏢📖✨
 
-## Kodeimplementering
+## Kodeimplementasjon
 
-Den komplette fungerende kodeeksempelet for denne leksjonen er tilgjengelig i `05-dotnet-agent-framework.cs`. 
+Det komplette fungerende kodeeksemplet for denne leksjonen er tilgjengelig i `05-dotnet-agent-framework.cs`. 
 
-For å kjøre eksempelet:
+For å kjøre eksemplet:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Gjør skriptet kjørbart (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Kjør .NET Single File Appen
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -209,13 +209,15 @@ dotnet run 05-dotnet-agent-framework.cs
 Koden demonstrerer:
 
 1. **Pakkeinstallasjon**: Installering av nødvendige NuGet-pakker for Azure AI-agenter
-2. **Miljøkonfigurasjon**: Laste inn Azure AI Foundry-endepunkt og modellinnstillinger
+2. **Miljøkonfigurasjon**: Lasting av Microsoft Foundry-endepunkt og modellinnstillinger
 3. **Dokumentopplasting**: Opplasting av et dokument for RAG-behandling
-4. **Vektorlageroppretting**: Oppretting av et vektorlager for semantisk søk
-5. **Agentkonfigurasjon**: Oppsett av en AI-agent med filsøkemuligheter
-6. **Spørringsutførelse**: Kjøre spørringer mot det opplastede dokumentet
+4. **Opprettelse av vektorlager**: Opprettelse av vektorlager for semantisk søk
+5. **Agentkonfigurasjon**: Oppsett av en AI-agent med fil-søkemuligheter
+6. **Kjøring av spørring**: Utføre spørringer mot det opplastede dokumentet
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,44 +1,44 @@
-[![Patikimi AI agentai](../../../translated_images/lt/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Patikimi DI Agentai](../../../translated_images/lt/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Spustelėkite aukščiau esančią nuotrauką, norėdami peržiūrėti šios pamokos vaizdo įrašą)_
+> _(Spustelėkite aukščiau esantį paveikslėlį, kad peržiūrėtumėte vaizdo įrašą apie šią pamoką)_
 
-# Patikimų AI agentų kūrimas
+# Patikimų DI Agentų kūrimas
 
 ## Įvadas
 
 Šioje pamokoje bus aptariama:
 
-- Kaip kurti ir diegti saugius ir efektyvius AI agentus
-- Svarbūs saugumo aspektai kuriant AI agentus.
-- Kaip užtikrinti duomenų ir vartotojų privatumo apsaugą kuriant AI agentus.
+- Kaip sukurti ir diegti saugius ir efektyvius DI Agentus
+- Svarbūs saugumo aspektai kuriant DI Agentus.
+- Kaip užtikrinti duomenų ir vartotojų privatumą kuriant DI Agentus.
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką, jūs žinosite, kaip:
+Baigę šią pamoką, žinosite, kaip:
 
-- Nustatyti ir sumažinti rizikas kuriant AI agentus.
+- Nustatyti ir sumažinti rizikas kuriant DI Agentus.
 - Įgyvendinti saugumo priemones, kad duomenys ir prieiga būtų tinkamai valdomi.
-- Kurti AI agentus, kurie užtikrina duomenų privatumą ir kokybišką vartotojo patirtį.
+- Kurti DI Agentus, kurie palaiko duomenų privatumo apsaugą ir suteikia kokybišką vartotojo patirtį.
 
 ## Saugumas
 
-Pirmiausia pažvelkime, kaip kurti saugias agentines programas. Sauga reiškia, kad AI agentas veikia pagal numatytą paskirtį. Kaip agentinių programų kūrėjai, turime metodus ir įrankius, leidžiančius maksimaliai padidinti saugumą:
+Pirmiausia pažvelkime į saugių agentinių programų kūrimą. Saugumas reiškia, kad DI agentas veikia pagal numatytą paskirtį. Kaip agentinių programų kūrėjai, turime metodus ir įrankius saugumui maksimizuoti:
 
-### Sistemos pranešimų sistemos kūrimas
+### Sisteminės žinutės struktūros kūrimas
 
-Jeigu kada nors kūrėte AI programą naudodami didelius kalbos modelius (LLM), jūs žinote, kaip svarbu sukurti tvirtą sistemos raginimą ar sistemos pranešimą. Šie raginimai nustato metareglus, instrukcijas ir gairės, kaip LLM bendrauja su vartotoju ir duomenimis.
+Jei kada nors kūrėte DI programą, naudodami didelius kalbos modelius (LLM), žinote, kokia svarbi yra patikima sistemos užklausa arba sistemos žinutė. Šios užklausos nustato meta taisykles, nurodymus ir gaires, kaip LLM bendraus su vartotoju ir duomenimis.
 
-AI agentams sistemos raginimas yra dar svarbesnis, nes AI agentams reikės itin specifinių instrukcijų, kad galėtų įvykdyti mums skirtas užduotis.
+DI Agentams sistemos užklausa yra dar svarbesnė, nes agentams reikės labai specifinių nurodymų, kad jie įvykdytų mums skirtas užduotis.
 
-Norėdami sukurti keičiamus sistemos raginimus, galime naudoti sistemos pranešimų sistemą, skirtą sukurti vieną ar daugiau agentų mūsų programoje:
+Norėdami sukurti mastelio sistemines užklausas, galime naudoti sistemos žinučių struktūros sistemą, skirtą vienam ar daugiau agentų kurti mūsų programoje:
 
-![Sistemos pranešimų sistemos kūrimas](../../../translated_images/lt/system-message-framework.3a97368c92d11d68.webp)
+![Sistemos žinutės struktūros kūrimas](../../../translated_images/lt/system-message-framework.3a97368c92d11d68.webp)
 
-#### 1 žingsnis: Sukurkite metakomandos sistemos pranešimą
+#### 1 žingsnis: Sukurkite meta sistemos žinutę
 
-Meta raginimą naudos LLM, kad generuotų sistemos raginimus agentams, kuriuos kuriame. Jį projektuojame kaip šabloną, kad galėtume efektyviai kurti kelis agentus, jei prireiks.
+Meta užklausa bus naudojama LLM generuoti sistemos užklausoms agentams, kuriuos kuriame. Ją suprojektuojame kaip šabloną, kad galėtume efektyviai kurti kelis agentus, jei reikia.
 
-Štai pavyzdys metakomandos sistemos pranešimo, kurį pateiktume LLM:
+Štai pavyzdys meta sistemos žinutės, kurią suteiktume LLM:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -47,9 +47,9 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### 2 žingsnis: Sukurkite pagrindinį raginimą
+#### 2 žingsnis: Sukurkite pagrindinę užklausą
 
-Kitas žingsnis – sukurti pagrindinį raginimą AI agentui apibūdinti. Reikia įtraukti agento vaidmenį, užduotis, kurias agentas atliks, ir kitas agento atsakomybes.
+Kitas žingsnis yra sukurti pagrindinę užklausą, apibūdinančią DI Agentą. Reikėtų įtraukti agento vaidmenį, užduotis, kurias agentas atliks, ir kitas agento atsakomybes.
 
 Štai pavyzdys:
 
@@ -57,11 +57,11 @@ Kitas žingsnis – sukurti pagrindinį raginimą AI agentui apibūdinti. Reikia
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### 3 žingsnis: Pateikite pagrindinį sistemos pranešimą LLM
+#### 3 žingsnis: Pateikite pagrindinę sistemos žinutę LLM
 
-Dabar galime optimizuoti šį sistemos pranešimą, pateikdami metakomandos sistemos pranešimą kaip sistemos pranešimą kartu su mūsų pagrindiniu sistemos pranešimu.
+Dabar galime optimizuoti šią sistemos žinutę, pateikdami meta sistemos žinutę kaip sistemos žinutę ir mūsų pagrindinę sistemos žinutę.
 
-Šis procesas sukurs geriau suprojektuotą sistemos pranešimą, kuris geriau nukreips mūsų AI agentus:
+Tai sukurs geriau pritaikytą sistemos žinutę, skirtą vadovauti mūsų DI agentams:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,100 +113,112 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### 4 žingsnis: Iteruokite ir tobulinkite
+#### 4 žingsnis: Kartokite ir tobulinkite
 
-Šios sistemos pranešimų sistemos vertė yra ta, kad galime lengviau kurti sistemos pranešimus keliems agentams ir laikui bėgant tobulinti pranešimus. Retai pasitaiko, kad iš karto turėtumėte tinkantį sistemos pranešimą visam jūsų atvejui. Gebėjimas daryti mažus pakeitimus ir tobulinimus keičiant pagrindinį sistemos pranešimą ir paleidžiant jį per sistemą leis jums palyginti ir įvertinti rezultatus.
+Šios sistemos žinučių struktūros vertė yra ta, kad galime mastelio keisti sistemines žinutes iš kelių agentų ir laikui bėgant jas tobulinti. Retai pasitaiko, kad sistemos žinutė iš karto veiktų jūsų visiškam naudojimo atvejui. Galimybė atlikti mažus patikslinimus ir tobulinimus keičiant pagrindinę sistemos žinutę ir ją praleidžiant per sistemą leis palyginti ir įvertinti rezultatus.
 
 ## Grėsmių supratimas
 
-Norint sukurti patikimus AI agentus, svarbu suprasti ir sumažinti rizikas bei grėsmes jūsų AI agentui. Pažvelkime į keletą skirtingų grėsmių AI agentams ir kaip geriau jas suplanuoti bei pasiruošti.
+Norint sukurti patikimus DI agentus, svarbu suprasti ir sumažinti rizikas bei grėsmes jūsų DI agentui. Pažvelkime į kelias grėsmes DI agentams ir kaip galite geriau suplanuoti bei pasiruošti joms.
 
 ![Grėsmių supratimas](../../../translated_images/lt/understanding-threats.89edeada8a97fc0f.webp)
 
-### Užduotis ir instrukcija
+### Užduotis ir nurodymai
 
-**Aprašymas:** Užpuolikai bando pakeisti AI agento instrukcijas ar tikslus naudodamiesi raginimu ar manipuliuodami įvestimis.
+**Aprašymas:** Užpuolikai bando pakeisti DI agento nurodymus ar tikslus per užklausas arba manipuliuodami įėjimais.
 
-**Sumažinimas:** Atlikite patikrinimus ir įvesties filtrus, kad aptiktumėte potencialiai pavojingus raginimus prieš juos apdorojant AI agentui. Kadangi tokie išpuoliai dažnai reikalauja dažnos sąveikos su agentu, pokalbio apsukų ribojimas yra dar vienas būdas apsisaugoti nuo šių išpuolių.
+**Sumažinimas:** Atlikite patikrinimus ir įėjimų filtrus, kad aptiktumėte galimai pavojingas užklausas prieš jas apdorojant DI Agentui. Kadangi tokie atakai dažnai reikalauja dažnos sąveikos su Agentu, apribojant pokalbio etapų skaičių, galima užkirsti kelią tokioms atakoms.
 
 ### Prieiga prie kritinių sistemų
 
-**Aprašymas:** Jei AI agentas turi prieigą prie sistemų ir paslaugų, kuriose saugomi jautrūs duomenys, užpuolikai gali pažeisti ryšį tarp agento ir šių paslaugų. Tai gali būti tiesioginiai išpuoliai arba netiesioginės pastangos gauti informaciją apie šias sistemas per agentą.
+**Aprašymas:** Jei DI agentas turi prieigą prie sistemų ir paslaugų, kuriose saugomi jautrūs duomenys, užpuolikai gali pažeisti ryšį tarp agento ir šių paslaugų. Tai gali būti tiesioginės atakos arba netiesioginės bandymai gauti informaciją apie šias sistemas per agentą.
 
-**Sumažinimas:** AI agentų prieiga prie sistemų turėtų būti suteikta tik esant poreikiui, kad būtų išvengta tokių išpuolių. Taip pat ryšys tarp agento ir sistemos turi būti saugus. Taikyti autentifikaciją ir prieigos kontrolę taip pat padeda apsaugoti šią informaciją.
+**Sumažinimas:** DI agentai turėtų turėti prieigą prie sistemų tik pagal poreikį, kad būtų išvengta tokių atakų. Ryšys tarp agento ir sistemos taip pat turėtų būti saugus. Autentifikacijos ir prieigos valdymo įgyvendinimas yra dar vienas būdas apsaugoti šią informaciją.
 
-### Ištekliai ir paslaugų perkrova
+### Išteklių ir paslaugų perkrova
 
-**Aprašymas:** AI agentai gali naudotis įvairiais įrankiais ir paslaugomis užduotims atlikti. Užpuolikai gali pasinaudoti šia galimybe užpulti šias paslaugas siųsdami daug užklausų per AI agentą, dėl ko gali kilti sistemos gedimai ar didelės išlaidos.
+**Aprašymas:** DI agentai gali naudotis įvairiais įrankiais ir paslaugomis užduotims atlikti. Užpuolikai gali išnaudoti šią galimybę atakuodami šias paslaugas siųsdami didelį užklausų kiekį per DI Agentą, kas gali sukelti sistemos gedimus arba dideles išlaidas.
 
-**Sumažinimas:** Įgyvendinkite politiką, ribojančią užklausų skaičių, kurias AI agentas gali siųsti paslaugai. Taip pat pokalbio apsukų ir užklausų ribojimas AI agentui yra dar vienas būdas išvengti tokių išpuolių.
+**Sumažinimas:** Įgyvendinkite taisykles, ribojančias užklausų, kurias DI agentas gali siųsti paslaugai, skaičių. Pokalbio etapų skaičiaus ir užklausų apribojimas jūsų DI agentui yra dar vienas būdas užkirsti kelią tokioms atakoms.
 
-### Žinių bazės užnuodijimas
+### Žinių bazės užteršimas
 
-**Aprašymas:** Šio tipo išpuolis nėra nukreiptas tiesiogiai į AI agentą, bet į žinių bazę ir kitas paslaugas, kurias AI agentas naudos. Tai gali apimti duomenų ar informacijos sugadinimą, kurią AI agentas panaudos užduočiai atlikti, dėl ko vartotojui gali būti pateikti šališki arba netikslūs atsakymai.
+**Aprašymas:** Šio tipo ataka tiesiogiai nepuola DI agento, bet taikosi į žinių bazę ir kitas paslaugas, kurias agentas naudos. Tai gali apimti duomenų ar informacijos sugadinimą, kurią DI agentas naudos užduočiai atlikti, o tai lemia šališkus ar netikėtus atsakymus vartotojui.
 
-**Sumažinimas:** Atlikite reguliarią duomenų, kuriuos AI agentas naudos savo veiklos procese, patikrą. Užtikrinkite, kad prieiga prie šių duomenų būtų saugi ir juos galėtų keisti tik patikimi asmenys, kad būtų išvengta šio tipo išpuolių.
+**Sumažinimas:** Reguliariai tikrinkite duomenis, kuriuos DI agentas naudos savo veikloje. Užtikrinkite, kad prieiga prie šių duomenų būtų saugi ir juos keistų tik patikimi asmenys, kad išvengtumėte tokių atakų.
 
-### Kaskadinis klaidų efektas
+### Sekančios klaidos
 
-**Aprašymas:** AI agentai naudoja įvairius įrankius ir paslaugas užduotims atlikti. Užpuolėjų sukeltos klaidos gali sukelti gedimus kitose sistemose, prijungtose prie AI agento, dėl ko išpuolis išplinta ir jį sunkiau išspręsti.
+**Aprašymas:** DI agentai pasiekia įvairius įrankius ir paslaugas vykdydami užduotis. Užpuolikų sukeltos klaidos gali sukelti kitų su agentu susijusių sistemų gedimus, dėl ko ataka išplinta ir tampa sunkiau aptinkama bei taisoma.
 
-**Sumažinimas:** Vienas būdas to išvengti – leisti AI agentui veikti ribotoje aplinkoje, pavyzdžiui, atlikti užduotis Docker konteineryje, kad būtų išvengta tiesioginių sistemos išpuolių. Taip pat sukurti atsarginio veikimo mechanizmus ir pakartotinio bandymo logiką, kai tam tikros sistemos grąžina klaidą, padeda išvengti didesnių sistemos gedimų.
+**Sumažinimas:** Vienas būdas to išvengti – leisti DI Agentui veikti ribotoje aplinkoje, pavyzdžiui, vykdyti užduotis Docker konteineryje, kad būtų išvengta tiesioginių sistemų atakų. Sukurkite atsarginio veikimo mechanizmus ir pakartotino bandymo logiką, kai tam tikros sistemos atsako klaidomis, tai padės užkirsti kelią didesniems sistemos gedimams.
 
-## Žmogus valdyme
+## Žmogus cikle
 
-Kitas veiksmingas būdas kurti patikimas AI agentų sistemas yra naudoti žmogų valdyme (Human-in-the-loop). Tai sukuria procesą, kai vartotojai gali teikti atsiliepimus agentams vykdymo metu. Vartotojai iš esmės veikia kaip agentai daugiaagentėje sistemoje ir gali patvirtinti ar nutraukti vykdomą procesą.
+Dar vienas veiksmingas būdas kurti patikimus DI Agentų sistemas yra naudoti žmogiškąją sąsają (human-in-the-loop). Tai sukuria srautą, kuriame vartotojai gali pateikti atsiliepimus Agentams vykdymo metu. Vartotojai iš esmės veikia kaip agentai daugiaagentėje sistemoje, patvirtindami arba nutraukdami vykdomą procesą.
 
-![Žmogus grandinėje](../../../translated_images/lt/human-in-the-loop.5f0068a678f62f4f.webp)
+![Žmogus cikle](../../../translated_images/lt/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Čia yra kodo fragmentas, naudojant AutoGen, kuris parodo, kaip įgyvendintas šis konceptas:
+Čia yra kodo fragmentas, naudojantis Microsoft Agent Framework, parodydamas, kaip įgyvendinama ši koncepcija:
 
 ```python
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# Sukurkite agentus.
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Naudokite input() įvesti vartotojo duomenis iš konsolės.
+# Sukurkite paslaugų teikėją su žmogaus patvirtinimo žingsniu
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
-# Sukurkite nutraukimo sąlygą, kuri užbaigs pokalbį, kai vartotojas sakys "PATVIRTINTI".
-termination = TextMentionTermination("APPROVE")
+# Sukurkite agentą su žmogaus patvirtinimo žingsniu
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# Sukurkite komandą.
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# Vykdykite pokalbį ir srautu parodykite konsolėje.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Naudokite asyncio.run(...), kai vykdote skriptą.
-await Console(stream)
-
+# Vartotojas gali peržiūrėti ir patvirtinti atsakymą
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
-## Išvados
+## Išvada
 
-Kurti patikimus AI agentus reikalauja kruopštaus projektavimo, tvirtų saugumo priemonių ir nuolatinio tobulinimo. Įdiegę struktūrizuotus metaraginimo metodus, supratę galimas grėsmes ir taikydami rizikos mažinimo strategijas, kūrėjai gali sukurti saugius ir veiksmingus AI agentus. Be to, įtraukdami žmogaus valdymo metodą, užtikrinsite, kad AI agentai išliktų suderinti su vartotojų poreikiais ir sumažintų rizikas. Kadangi AI nuolat vystosi, proaktyvus požiūris į saugumą, privatumo ir etikos klausimus bus pagrindinis veiksnys užtikrinant pasitikėjimą ir patikimumą AI valdomose sistemose.
+Patikimų DI agentų kūrimas reikalauja atidžios projektavimo, tvirtų saugumo priemonių ir nuolatinio tobulinimo. Įgyvendindami struktūruotas meta užklausų sistemas, suprasdami galimas grėsmes ir taikydami jų mažinimo strategijas, kūrėjai gali sukurti saugius ir veiksmingus DI agentus. Be to, įtraukdami žmogų cikle užtikrina, kad DI agentai išliktų suderinti su vartotojų poreikiais ir sumažintų rizikas. Kadangi DI toliau vystosi, aktyvus požiūris į saugumą, privatumą ir etinius aspektus bus esminis kuriant pasitikėjimą ir patikimumą DI valdomose sistemose.
 
-### Turite daugiau klausimų apie patikimų AI agentų kūrimą?
+## Kodo pavyzdžiai
 
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kad susitiktumėte su kitais besimokančiais, dalyvautumėte konsultacijose ir gautumėte atsakymus į savo AI agentų klausimus.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Metaužklausų sistemos žinučių struktūros žingsnis po žingsnio demonstracija.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Veiksmų patvirtinimo vartai, rizikos lyginimas ir veiklos audito registravimas patikimiems agentams.
+
+### Turite daugiau klausimų apie patikimų DI agentų kūrimą?
+
+Prisijunkite prie [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), susitikite su kitais besimokančiais, dalyvaukite biuro valandomis ir gaukite atsakymus į savo DI Agentų klausimus.
 
 ## Papildomi ištekliai
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Atsakingas AI naudojimas – apžvalga</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatyvių AI modelių ir AI programų vertinimo metodai</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Saugumo sistemos pranešimai</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Atsakingo DI apžvalga</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatyvių DI modelių ir DI programų vertinimas</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Saugumo sistemos žinutės</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Rizikos vertinimo šablonas</a>
 
 ## Ankstesnė pamoka
 
-[Agentinis RAG](../05-agentic-rag/README.md)
+[Agentinė RAG](../05-agentic-rag/README.md)
 
-## Kitas pamoka
+## Kitoji pamoka
 
 [Planavimo dizaino šablonas](../07-planning-design/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas oficilia ir pagrindine informacijos versija. Dėl svarbios informacijos rekomenduojama kreiptis į profesionalius žmogaus vertėjus. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kylančius dėl šio vertimo naudojimo.
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

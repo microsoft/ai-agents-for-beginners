@@ -1,40 +1,40 @@
-# 🌍 عامل سفر هوشمند با Microsoft Agent Framework (.NET)
+# 🌍 نماینده سفر هوش مصنوعی با چهارچوب Microsoft Agent (.NET)
 
-## 📋 نمای کلی سناریو
+## 📋 مرور سناریو
 
-این مثال نشان می‌دهد که چگونه می‌توان یک عامل برنامه‌ریزی سفر هوشمند با استفاده از Microsoft Agent Framework برای .NET ساخت. این عامل می‌تواند برنامه‌های سفر روزانه شخصی‌سازی شده برای مقاصد تصادفی در سراسر جهان ایجاد کند.
+این مثال نشان می‌دهد چگونه یک نماینده هوشمند برنامه‌ریزی سفر با استفاده از چهارچوب Microsoft Agent برای .NET بسازید. نماینده می‌تواند به طور خودکار برنامه‌های روزانه سفر شخصی‌سازی شده برای مقاصد تصادفی در سراسر جهان تولید کند.
 
 ### قابلیت‌های کلیدی:
 
-- 🎲 **انتخاب مقصد تصادفی**: از یک ابزار سفارشی برای انتخاب مکان‌های تعطیلات استفاده می‌کند
-- 🗺️ **برنامه‌ریزی سفر هوشمند**: برنامه‌های دقیق روزانه ایجاد می‌کند
-- 🔄 **پخش زنده در زمان واقعی**: از پاسخ‌های فوری و پخش زنده پشتیبانی می‌کند
-- 🛠️ **ادغام ابزار سفارشی**: نشان می‌دهد که چگونه قابلیت‌های عامل را گسترش دهید
+- 🎲 **انتخاب مقصد تصادفی**: استفاده از ابزار سفارشی برای انتخاب نقاط تعطیلات
+- 🗺️ **برنامه‌ریزی هوشمند سفر**: ایجاد برنامه‌های روز به روز دقیق
+- 🔄 **پخش زنده در زمان واقعی**: پشتیبانی از پاسخ‌های فوری و پخش زنده
+- 🛠️ **یکپارچه‌سازی ابزار سفارشی**: نمایش نحوه گسترش قابلیت‌های نماینده
 
 ## 🔧 معماری فنی
 
 ### فناوری‌های اصلی
 
-- **Microsoft Agent Framework**: آخرین پیاده‌سازی .NET برای توسعه عامل‌های هوش مصنوعی
-- **ادغام مدل‌های GitHub**: از سرویس استنتاج مدل‌های هوش مصنوعی GitHub استفاده می‌کند
-- **سازگاری با OpenAI API**: از کتابخانه‌های مشتری OpenAI با نقاط پایانی سفارشی بهره می‌برد
-- **پیکربندی امن**: مدیریت کلیدهای API بر اساس محیط
+- **چارچوب Microsoft Agent**: آخرین پیاده‌سازی .NET برای توسعه نماینده‌های هوش مصنوعی
+- **Azure OpenAI (API پاسخ‌ها)**: استفاده از API پاسخ‌های Azure OpenAI برای استنتاج مدل
+- **Azure Identity**: ورود امن با `AzureCliCredential` (`az login`)
+- **پیکربندی امن**: مدیریت نقطه پایانی مبتنی بر محیط
 
-### اجزای کلیدی
+### مؤلفه‌های کلیدی
 
-1. **AIAgent**: هماهنگ‌کننده اصلی عامل که جریان مکالمه را مدیریت می‌کند
-2. **ابزارهای سفارشی**: تابع `GetRandomDestination()` که برای عامل در دسترس است
-3. **کلاینت چت**: رابط مکالمه پشتیبانی شده توسط مدل‌های GitHub
-4. **پشتیبانی از پخش زنده**: قابلیت‌های تولید پاسخ در زمان واقعی
+1. **AIAgent**: هماهنگ‌کننده اصلی نماینده که جریان مکالمه را اداره می‌کند
+2. **ابزارهای سفارشی**: تابع `GetRandomDestination()` که در دسترس نماینده است
+3. **کلاینت پاسخ‌ها**: رابط مکالمه مبتنی بر پاسخ‌های Azure OpenAI
+4. **پشتیبانی از پخش زنده**: قابلیت تولید پاسخ در زمان واقعی
 
-### الگوی ادغام
+### الگوی یکپارچه‌سازی
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[درخواست کاربر] --> B[عامل هوش مصنوعی]
+    B --> C[آزور اوپن‌ای‌آی (API پاسخ‌ها)]
+    B --> D[ابزار مقصد تصادفی]
+    C --> E[برنامه سفر]
     D --> E
 ```
 
@@ -43,22 +43,25 @@ graph LR
 ### پیش‌نیازها
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) یا بالاتر
-- [توکن دسترسی API مدل‌های GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- اشتراک [Azure](https://azure.microsoft.com/free/) با منبع Azure OpenAI و استقرار مدل
+- نصب [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ورود با `az login`
 
 ### متغیرهای محیطی مورد نیاز
 
 ```bash
-# zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# زد شل/باش
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# سپس وارد شوید تا AzureCliCredential بتواند یک توکن دریافت کند
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# پاورشل
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# سپس وارد شوید تا AzureCliCredential بتواند یک توکن دریافت کند
+az login
 ```
 
 ### نمونه کد
@@ -66,32 +69,34 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 برای اجرای نمونه کد،
 
 ```bash
-# zsh/bash
+# زد‌اِس‌اچ/بَش
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-یا با استفاده از CLI دات‌نت:
+یا با استفاده از dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-فایل [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) را برای کد کامل مشاهده کنید.
+برای کد کامل به [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) مراجعه کنید.
 
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -168,21 +159,21 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 نکات کلیدی
 
-1. **معماری عامل**: Microsoft Agent Framework رویکردی تمیز و نوع-ایمن برای ساخت عامل‌های هوش مصنوعی در .NET ارائه می‌دهد
-2. **ادغام ابزار**: توابعی که با ویژگی‌های `[Description]` تزئین شده‌اند به عنوان ابزارهای در دسترس عامل تبدیل می‌شوند
-3. **مدیریت پیکربندی**: متغیرهای محیطی و مدیریت امن اعتبارنامه‌ها از بهترین شیوه‌های .NET پیروی می‌کنند
-4. **سازگاری با OpenAI**: ادغام مدل‌های GitHub به طور یکپارچه از طریق API‌های سازگار با OpenAI کار می‌کند
+1. **معماری نماینده**: چارچوب Microsoft Agent رویکردی پاک و ایمن از نظر نوع برای ساخت نماینده‌های هوش مصنوعی در .NET فراهم می‌کند
+2. **یکپارچه‌سازی ابزارها**: توابعی که با ویژگی `[Description]` تزئین شده‌اند، ابزارهای در دسترس برای نماینده می‌شوند
+3. **مدیریت پیکربندی**: متغیرهای محیطی و مدیریت ایمن اعتبارنامه‌ها بهترین شیوه‌های .NET را دنبال می‌کنند
+4. **API پاسخ‌های Azure OpenAI**: نماینده از API پاسخ‌های Azure OpenAI از طریق SDK Azure.AI.OpenAI استفاده می‌کند
 
 ## 🔗 منابع اضافی
 
-- [مستندات Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [بازار مدل‌های GitHub](https://github.com/marketplace?type=models)
+- [مستندات چارچوب Microsoft Agent](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI در Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [برنامه‌های تک‌فایل .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**سلب مسئولیت**:  
-این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما برای دقت تلاش می‌کنیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است شامل خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان اصلی آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئولیتی در قبال هرگونه سوءتفاهم یا تفسیر نادرست ناشی از استفاده از این ترجمه نداریم.
+**سلب مسئولیت**:
+این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است شامل خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان مادری خود باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما در قبال هرگونه سوء تفاهم یا برداشت نادرست ناشی از استفاده از این ترجمه مسئولیتی نداریم.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

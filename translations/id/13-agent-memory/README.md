@@ -1,170 +1,179 @@
 # Memori untuk Agen AI 
-[![Memori Agen](../../../translated_images/id/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/id/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-When discussing the unique benefits of creating AI Agents, two things are mainly discussed: the ability to call tools to complete tasks and the ability to improve over time. Memory is at the foundation of creating self-improving agent that can create better experiences for our users.
+Saat membahas manfaat unik dari pembuatan Agen AI, dua hal yang terutama dibahas: kemampuan untuk memanggil alat untuk menyelesaikan tugas dan kemampuan untuk meningkatkan diri seiring waktu. Memori adalah dasar dari pembuatan agen yang dapat meningkatkan diri sendiri yang dapat menciptakan pengalaman yang lebih baik bagi pengguna kami.
 
-In this lesson, we will look at what memory is for AI Agents and how we can manage it and use it for the benefit of our applications.
+Dalam pelajaran ini, kita akan melihat apa itu memori untuk Agen AI dan bagaimana kita dapat mengelolanya serta menggunakannya untuk keuntungan aplikasi kita.
 
-## Introduction
+## Pendahuluan
 
-This lesson will cover:
+Pelajaran ini akan membahas:
 
-• **Understanding AI Agent Memory**: What memory is and why it's essential for agents.
+• **Memahami Memori Agen AI**: Apa itu memori dan mengapa itu penting bagi agen.
 
-• **Implementing and Storing Memory**: Practical methods for adding memory capabilities to your AI agents, focusing on short-term and long-term memory.
+• **Mengimplementasikan dan Menyimpan Memori**: Metode praktis untuk menambahkan kemampuan memori pada agen AI Anda, dengan fokus pada memori jangka pendek dan jangka panjang.
 
-• **Making AI Agents Self-Improving**: How memory enables agents to learn from past interactions and improve over time.
+• **Membuat Agen AI Meningkatkan Diri Sendiri**: Bagaimana memori memungkinkan agen untuk belajar dari interaksi masa lalu dan meningkat seiring waktu.
 
-## Available Implementations
+## Implementasi yang Tersedia
 
-This lesson includes two comprehensive notebook tutorials:
+Pelajaran ini mencakup dua tutorial notebook yang komprehensif:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Semantic Kernel framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Mengimplementasikan memori menggunakan Mem0 dan Azure AI Search dengan Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically building knowledge graph backed by embeddings, visualizing graph, and intelligent retrieval
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Mengimplementasikan memori terstruktur menggunakan Cognee, secara otomatis membangun grafik pengetahuan yang didukung oleh embeddings, memvisualisasikan grafik, dan pengambilan cerdas
 
-## Learning Goals
+## Tujuan Pembelajaran
 
-After completing this lesson, you will know how to:
+Setelah menyelesaikan pelajaran ini, Anda akan mengetahui cara untuk:
 
-• **Differentiate between various types of AI agent memory**, including working, short-term, and long-term memory, as well as specialized forms like persona and episodic memory.
+• **Membedakan antara berbagai jenis memori agen AI**, termasuk memori kerja, jangka pendek, dan jangka panjang, serta bentuk khusus seperti persona dan memori episodik.
 
-• **Implement and manage short-term and long-term memory for AI agents** using the Semantic Kernel framework, leveraging tools like Mem0, Cognee, Whiteboard memory, and integrating with Azure AI Search.
+• **Mengimplementasikan dan mengelola memori jangka pendek dan jangka panjang untuk agen AI** menggunakan Microsoft Agent Framework, memanfaatkan alat seperti Mem0, Cognee, memori Whiteboard, dan integrasi dengan Azure AI Search.
 
-• **Understand the principles behind self-improving AI agents** and how robust memory management systems contribute to continuous learning and adaptation.
+• **Memahami prinsip di balik agen AI yang meningkatkan diri sendiri** dan bagaimana sistem manajemen memori yang kuat berkontribusi pada pembelajaran dan adaptasi yang berkelanjutan.
 
-## Understanding AI Agent Memory
+## Memahami Memori Agen AI
 
-At its core, **memory for AI agents refers to the mechanisms that allow them to retain and recall information**. This information can be specific details about a conversation, user preferences, past actions, or even learned patterns.
+Pada intinya, **memori untuk agen AI merujuk pada mekanisme yang memungkinkan mereka menyimpan dan mengingat informasi**. Informasi ini bisa berupa detail spesifik tentang percakapan, preferensi pengguna, tindakan sebelumnya, atau bahkan pola yang dipelajari.
 
-Without memory, AI applications are often stateless, meaning each interaction starts from scratch. This leads to a repetitive and frustrating user experience where the agent "forgets" previous context or preferences.
+Tanpa memori, aplikasi AI sering kali tidak menyimpan status, artinya setiap interaksi dimulai dari awal. Ini menyebabkan pengalaman pengguna yang berulang dan membuat frustrasi di mana agen "melupakan" konteks atau preferensi sebelumnya.
 
-### Why is Memory Important?
+### Mengapa Memori Penting?
 
-an agent's intelligence is deeply tied to its ability to recall and utilize past information. Memory allows agents to be:
+kecerdasan agen sangat terkait dengan kemampuannya untuk mengingat dan memanfaatkan informasi masa lalu. Memori memungkinkan agen untuk menjadi:
 
-• **Reflective**: Learning from past actions and outcomes.
+• **Reflektif**: Belajar dari tindakan dan hasil masa lalu.
 
-• **Interactive**: Maintaining context over an ongoing conversation.
+• **Interaktif**: Mempertahankan konteks selama percakapan yang sedang berlangsung.
 
-• **Proactive and Reactive**: Anticipating needs or responding appropriately based on historical data.
+• **Proaktif dan Reaktif**: Mengantisipasi kebutuhan atau merespons secara tepat berdasarkan data historis.
 
-• **Autonomous**: Operating more independently by drawing on stored knowledge.
+• **Otonom**: Beroperasi lebih mandiri dengan memanfaatkan pengetahuan yang tersimpan.
 
-The goal of implementing memory is to make agents more **reliable and capable**.
+Tujuan pengimplementasian memori adalah untuk membuat agen lebih **andal dan kapabel**.
 
-### Types of Memory
+### Jenis Memori
 
-#### Working Memory
+#### Memori Kerja
 
-Think of this as a piece of scratch paper an agent uses during a single, ongoing task or thought process. It holds immediate information needed to compute the next step.
+Anggap ini sebagai selembar kertas coret-coret yang digunakan agen selama satu tugas atau proses berpikir yang berlangsung. Memori ini menyimpan informasi langsung yang diperlukan untuk menghitung langkah selanjutnya.
 
-For AI agents, working memory often captures the most relevant information from a conversation, even if the full chat history is long or truncated. It focuses on extracting key elements like requirements, proposals, decisions, and actions.
+Untuk agen AI, memori kerja sering menangkap informasi yang paling relevan dari sebuah percakapan, bahkan jika riwayat obrolan penuh sangat panjang atau terpotong. Fokusnya adalah mengekstrak elemen kunci seperti kebutuhan, proposal, keputusan, dan tindakan.
 
-**Working Memory Example**
+**Contoh Memori Kerja**
 
-In a travel booking agent, working memory might capture the user's current request, such as "I want to book a trip to Paris". This specific requirement is held in the agent's immediate context to guide the current interaction.
+Dalam agen pemesanan perjalanan, memori kerja mungkin menangkap permintaan saat ini dari pengguna, seperti "Saya ingin memesan perjalanan ke Paris". Kebutuhan spesifik ini disimpan dalam konteks langsung agen untuk memandu interaksi saat ini.
 
-#### Short Term Memory
+#### Memori Jangka Pendek
 
-This type of memory retains information for the duration of a single conversation or session. It's the context of the current chat, allowing the agent to refer back to previous turns in the dialogue.
+Jenis memori ini menyimpan informasi selama durasi satu percakapan atau sesi. Ini adalah konteks obrolan saat ini, memungkinkan agen merujuk kembali ke giliran sebelumnya dalam dialog.
 
-**Short Term Memory Example**
+Dalam contoh SDK Python [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), ini dipetakan ke `AgentSession`, yang dibuat dengan `agent.create_session()`. Sesi ini adalah memori jangka pendek bawaan framework: ia menjaga konteks percakapan tetap tersedia selama sesi yang sama digunakan kembali, tetapi konteks itu tidak dipertahankan ketika sesi berakhir atau aplikasi di-restart. Gunakan memori jangka panjang untuk fakta dan preferensi yang perlu bertahan antar sesi, biasanya melalui basis data, indeks vektor, atau penyimpanan persisten lainnya.
 
-If a user asks, "How much would a flight to Paris cost?" and then follows up with "What about accommodation there?", short-term memory ensures the agent knows "there" refers to "Paris" within the same conversation.
+**Contoh Memori Jangka Pendek**
 
-#### Long Term Memory
+Jika seorang pengguna bertanya, "Berapa biaya penerbangan ke Paris?" dan kemudian melanjutkan dengan "Bagaimana dengan akomodasi di sana?", memori jangka pendek memastikan agen tahu bahwa "di sana" merujuk pada "Paris" dalam percakapan yang sama.
 
-This is information that persists across multiple conversations or sessions. It allows agents to remember user preferences, historical interactions, or general knowledge over extended periods. This is important for personalization.
+#### Memori Jangka Panjang
 
-**Long Term Memory Example**
+Ini adalah informasi yang bertahan selama beberapa percakapan atau sesi. Memori ini memungkinkan agen mengingat preferensi pengguna, interaksi historis, atau pengetahuan umum dalam jangka waktu yang lama. Ini penting untuk personalisasi.
 
-A long-term memory might store that "Ben enjoys skiing and outdoor activities, likes coffee with a mountain view, and wants to avoid advanced ski slopes due to a past injury". This information, learned from previous interactions, influences recommendations in future travel planning sessions, making them highly personalized.
+**Contoh Memori Jangka Panjang**
 
-#### Persona Memory
+Memori jangka panjang mungkin menyimpan bahwa "Ben menyukai ski dan aktivitas luar ruangan, suka kopi dengan pemandangan gunung, dan ingin menghindari jalur ski tingkat lanjut karena cedera sebelumnya". Informasi ini, yang dipelajari dari interaksi sebelumnya, mempengaruhi rekomendasi dalam sesi perencanaan perjalanan berikutnya, menjadikannya sangat personal.
 
-This specialized memory type helps an agent develop a consistent "personality" or "persona". It allows the agent to remember details about itself or its intended role, making interactions more fluid and focused.
+#### Memori Persona
 
-**Persona Memory Example**
-If the travel agent is designed to be an "expert ski planner," persona memory might reinforce this role, influencing its responses to align with an expert's tone and knowledge.
+Jenis memori khusus ini membantu agen mengembangkan "kepribadian" atau "persona" yang konsisten. Memori ini memungkinkan agen mengingat detail tentang dirinya sendiri atau perannya yang dimaksudkan, sehingga interaksi menjadi lebih lancar dan terfokus.
 
-#### Workflow/Episodic Memory
+**Contoh Memori Persona**
+Jika agen perjalanan dirancang sebagai "perencana ski ahli," memori persona mungkin memperkuat peran ini, mempengaruhi responsnya agar selaras dengan nada dan pengetahuan seorang ahli.
 
-This memory stores the sequence of steps an agent takes during a complex task, including successes and failures. It's like remembering specific "episodes" or past experiences to learn from them.
+#### Memori Workflow/Episodik
 
-**Episodic Memory Example**
+Memori ini menyimpan urutan langkah yang diambil agen selama tugas kompleks, termasuk keberhasilan dan kegagalan. Ini seperti mengingat "episode" khusus atau pengalaman masa lalu untuk belajar darinya.
 
-If the agent attempted to book a specific flight but it failed due to unavailability, episodic memory could record this failure, allowing the agent to try alternative flights or inform the user about the issue in a more informed way during a subsequent attempt.
+**Contoh Memori Episodik**
 
-#### Entity Memory
+Jika agen mencoba memesan penerbangan tertentu tapi gagal karena ketidaktersediaan, memori episodik dapat merekam kegagalan ini, memungkinkan agen mencoba alternatif penerbangan atau memberi tahu pengguna tentang masalah dengan cara yang lebih tepat pada usaha berikutnya.
 
-This involves extracting and remembering specific entities (like people, places, or things) and events from conversations. It allows the agent to build a structured understanding of key elements discussed.
+#### Memori Entitas
 
-**Entity Memory Example**
+Ini melibatkan ekstraksi dan penyimpanan entitas spesifik (seperti orang, tempat, atau benda) dan peristiwa dari percakapan. Memori ini memungkinkan agen membangun pemahaman terstruktur tentang elemen kunci yang dibahas.
 
-From a conversation about a past trip, the agent might extract "Paris," "Eiffel Tower," and "dinner at Le Chat Noir restaurant" as entities. In a future interaction, the agent could recall "Le Chat Noir" and offer to make a new reservation there.
+**Contoh Memori Entitas**
+
+Dari percakapan mengenai perjalanan sebelumnya, agen mungkin mengekstraksi "Paris," "Menara Eiffel," dan "makan malam di restoran Le Chat Noir" sebagai entitas. Dalam interaksi berikutnya, agen dapat mengingat "Le Chat Noir" dan menawarkan untuk membuat reservasi baru di sana.
 
 #### Structured RAG (Retrieval Augmented Generation)
 
-While RAG is a broader technique, "Structured RAG" is highlighted as a powerful memory technology. It extracts dense, structured information from various sources (conversations, emails, images) and uses it to enhance precision, recall, and speed in responses. Unlike classic RAG that relies solely on semantic similarity, Structured RAG works with the inherent structure of information.
+Meskipun RAG adalah teknik yang lebih luas, "Structured RAG" disorot sebagai teknologi memori yang kuat. Teknik ini mengekstrak informasi padat dan terstruktur dari berbagai sumber (percakapan, email, gambar) dan menggunakannya untuk meningkatkan presisi, recall, dan kecepatan dalam respons. Berbeda dengan RAG klasik yang hanya mengandalkan kesamaan semantik, Structured RAG bekerja dengan struktur inheren dari informasi.
 
-**Structured RAG Example**
+**Contoh Structured RAG**
 
-Instead of just matching keywords, Structured RAG could parse flight details (destination, date, time, airline) from an email and store them in a structured way. This allows precise queries like "What flight did I book to Paris on Tuesday?"
+Alih-alih hanya mencocokkan kata kunci, Structured RAG dapat mem-parsing detail penerbangan (tujuan, tanggal, waktu, maskapai) dari email dan menyimpannya secara terstruktur. Ini memungkinkan pertanyaan yang tepat seperti "Penerbangan apa yang saya pesan ke Paris pada hari Selasa?"
 
-## Implementing and Storing Memory
+## Mengimplementasikan dan Menyimpan Memori
 
-Implementing memory for AI agents involves a systematic process of **memory management**, which includes generating, storing, retrieving, integrating, updating, and even "forgetting" (or deleting) information. Retrieval is a particularly crucial aspect.
+Mengimplementasikan memori untuk agen AI melibatkan proses sistematis **manajemen memori**, yang mencakup pembuatan, penyimpanan, pengambilan, integrasi, pembaruan, dan bahkan "lupa" (atau penghapusan) informasi. Pengambilan adalah aspek yang sangat penting.
 
-### Specialized Memory Tools
+### Alat Memori Khusus
 
 #### Mem0
 
-One way to store and manage agent memory is using specialized tools like Mem0. Mem0 works as a persistent memory layer, allowing agents to recall relevant interactions, store user preferences and factual context, and learn from successes and failures over time. The idea here is that stateless agents turn into stateful ones.
+Salah satu cara untuk menyimpan dan mengelola memori agen adalah dengan menggunakan alat khusus seperti Mem0. Mem0 berfungsi sebagai lapisan memori persisten, memungkinkan agen mengingat interaksi relevan, menyimpan preferensi pengguna dan konteks faktual, serta belajar dari keberhasilan dan kegagalan dari waktu ke waktu. Ide di sini adalah bahwa agen tanpa status berubah menjadi agen dengan status.
 
-It works through a **two-phase memory pipeline: extraction and update**. First, messages added to an agent's thread are sent to the Mem0 service, which uses a Large Language Model (LLM) to summarize conversation history and extract new memories. Subsequently, an LLM-driven update phase determines whether to add, modify, or delete these memories, storing them in a hybrid data store that can include vector, graph, and key-value databases. This system also supports various memory types and can incorporate graph memory for managing relationships between entities.
+Ini bekerja melalui **pipeline memori dua fase: ekstraksi dan pembaruan**. Pertama, pesan yang ditambahkan ke utas agen dikirim ke layanan Mem0, yang menggunakan Large Language Model (LLM) untuk meringkas riwayat percakapan dan mengekstrak memori baru. Selanjutnya, fase pembaruan yang digerakkan oleh LLM menentukan apakah memori ini akan ditambahkan, dimodifikasi, atau dihapus, menyimpannya dalam penyimpanan data hibrid yang bisa mencakup database vektor, grafik, dan key-value. Sistem ini juga mendukung berbagai jenis memori dan dapat memasukkan memori grafik untuk mengelola hubungan antar entitas.
 
 #### Cognee
 
-Another powerful approach is using **Cognee**, an open-source semantic memory for AI agents that transforms structured and unstructured data into queryable knowledge graphs backed by embeddings. Cognee provides a **dual-store architecture** combining vector similarity search with graph relationships, enabling agents to understand not just what information is similar, but how concepts relate to each other.
+Pendekatan kuat lainnya adalah menggunakan **Cognee**, memori semantik sumber terbuka untuk agen AI yang mengubah data terstruktur dan tidak terstruktur menjadi grafik pengetahuan yang dapat diquery dengan didukung oleh embeddings. Cognee menyediakan **arsitektur penyimpanan ganda** yang menggabungkan pencarian kesamaan vektor dengan hubungan grafik, memungkinkan agen memahami tidak hanya informasi apa yang mirip, tetapi bagaimana konsep saling berhubungan.
 
-It excels at **hybrid retrieval** that blends vector similarity, graph structure, and LLM reasoning - from raw chunk lookup to graph-aware question answering. The system maintains **living memory** that evolves and grows while remaining queryable as one connected graph, supporting both short-term session context and long-term persistent memory.
+Cognee unggul dalam **pengambilan hybrid** yang memadukan kesamaan vektor, struktur grafik, dan penalaran LLM - mulai dari pencarian potongan mentah hingga tanya jawab yang sadar grafik. Sistem mempertahankan **memori hidup** yang berkembang dan tumbuh sementara tetap bisa diquery sebagai satu grafik yang terhubung, mendukung konteks sesi jangka pendek dan memori persisten jangka panjang.
 
-The Cognee notebook tutorial ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrates building this unified memory layer, with practical examples of ingesting diverse data sources, visualizing the knowledge graph, and querying with different search strategies tailored to specific agent needs.
+Tutorial notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) menunjukkan bagaimana membangun lapisan memori terpadu ini, dengan contoh praktis mengimpor berbagai sumber data, memvisualisasikan grafik pengetahuan, dan melakukan query dengan strategi pencarian berbeda yang disesuaikan dengan kebutuhan agen tertentu.
 
-### Storing Memory with RAG
+### Menyimpan Memori dengan RAG
 
-Beyond specialized memory tools like mem0 , you can leverage robust search services like **Azure AI Search as a backend for storing and retrieving memories**, especially for structured RAG.
+Selain alat memori khusus seperti Mem0, Anda dapat memanfaatkan layanan pencarian yang kuat seperti **Azure AI Search sebagai backend untuk menyimpan dan mengambil memori**, terutama untuk Structured RAG.
 
-This allows you to ground your agent's responses with your own data, ensuring more relevant and accurate answers. Azure AI Search can be used to store user-specific travel memories, product catalogs, or any other domain-specific knowledge.
+Ini memungkinkan Anda mengaitkan respons agen dengan data Anda sendiri, memastikan jawaban lebih relevan dan akurat. Azure AI Search dapat digunakan untuk menyimpan memori perjalanan spesifik pengguna, katalog produk, atau pengetahuan domain lainnya.
 
-Azure AI Search supports capabilities like **Structured RAG**, which excels at extracting and retrieving dense, structured information from large datasets like conversation histories, emails, or even images. This provides "superhuman precision and recall" compared to traditional text chunking and embedding approaches.
+Azure AI Search mendukung kemampuan seperti **Structured RAG**, yang unggul dalam mengekstrak dan mengambil informasi padat dan terstruktur dari kumpulan data besar seperti riwayat percakapan, email, atau bahkan gambar. Ini memberikan "presisi dan recall superhuman" dibandingkan pendekatan teks chunking dan embedding tradisional.
 
-## Making AI Agents Self-Improve
+## Membuat Agen AI Meningkatkan Diri Sendiri
 
-A common pattern for self-improving agents involves introducing a **"knowledge agent"**. This separate agent observes the main conversation between the user and the primary agent. Its role is to:
+Pola umum untuk agen yang meningkatkan diri sendiri melibatkan pengenalan **"agen pengetahuan"**. Agen terpisah ini mengamati percakapan utama antara pengguna dan agen utama. Perannya adalah:
 
-1. **Identify valuable information**: Determine if any part of the conversation is worth saving as general knowledge or a specific user preference.
+1. **Mengidentifikasi informasi berharga**: Menentukan apakah bagian percakapan layak disimpan sebagai pengetahuan umum atau preferensi pengguna spesifik.
 
-2. **Extract and summarize**: Distill the essential learning or preference from the conversation.
+2. **Ekstrak dan ringkas**: Mencairkan pembelajaran atau preferensi penting dari percakapan.
 
-3. **Store in a knowledge base**: Persist this extracted information, often in a vector database, so it can be retrieved later.
+3. **Simpan di basis pengetahuan**: Mempertahankan informasi yang diambil ini, sering kali dalam database vektor, agar dapat diambil kembali nanti.
 
-4. **Augment future queries**: When the user initiates a new query, the knowledge agent retrieves relevant stored information and appends it to the user's prompt, providing crucial context to the primary agent (similar to RAG).
+4. **Lengkapi kueri masa depan**: Ketika pengguna memulai kueri baru, agen pengetahuan mengambil informasi yang relevan dan menambahkannya ke prompt pengguna, memberikan konteks penting kepada agen utama (mirip RAG).
 
-### Optimizations for Memory
+### Optimalisasi untuk Memori
 
-• **Latency Management**: To avoid slowing down user interactions, a cheaper, faster model can be used initially to quickly check if information is valuable to store or retrieve, only invoking the more complex extraction/retrieval process when necessary.
+• **Manajemen Latensi**: Untuk menghindari memperlambat interaksi pengguna, model yang lebih murah dan lebih cepat dapat digunakan awalnya untuk dengan cepat memeriksa apakah informasi layak disimpan atau diambil, baru kemudian memanggil proses ekstraksi/pengambilan yang lebih kompleks jika perlu.
 
-• **Knowledge Base Maintenance**: For a growing knowledge base, less frequently used information can be moved to "cold storage" to manage costs.
+• **Pemeliharaan Basis Pengetahuan**: Untuk basis pengetahuan yang terus berkembang, informasi yang jarang digunakan dapat dipindahkan ke "cold storage" untuk mengelola biaya.
 
-## Got More Questions About Agent Memory?
+## Punya Pertanyaan Lebih Lanjut Tentang Memori Agen?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Bergabunglah dengan [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, mengikuti jam kantor, dan mendapatkan jawaban atas pertanyaan Anda tentang Agen AI.
+## Pelajaran Sebelumnya
+
+[Context Engineering for AI Agents](../12-context-engineering/README.md)
+
+## Pelajaran Berikutnya
+
+[Exploring Microsoft Agent Framework](../14-microsoft-agent-framework/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Penafian:
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya agar akurat, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang otoritatif. Untuk informasi yang bersifat krusial, disarankan menggunakan terjemahan profesional oleh penerjemah manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau salah tafsir yang timbul dari penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

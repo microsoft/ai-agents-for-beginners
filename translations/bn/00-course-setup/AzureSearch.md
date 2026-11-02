@@ -1,89 +1,108 @@
-# Azure AI Search সেটআপ গাইড
+# অ্যাজুর AI সার্চ সেটআপ গাইড
 
-এই গাইডটি আপনাকে Azure পোর্টাল ব্যবহার করে Azure AI Search সেটআপ করতে সাহায্য করবে। Azure AI Search সার্ভিস তৈরি এবং কনফিগার করার জন্য নিচের ধাপগুলো অনুসরণ করুন।
+এই গাইডটি আপনাকে অ্যাজুর পোর্টালের সাহায্যে অ্যাজুর AI সার্চ সেটআপ করতে সাহায্য করবে। আপনার অ্যাজুর AI সার্চ সার্ভিস তৈরি এবং কনফিগার করতে নিচের ধাপগুলি অনুসরণ করুন।
 
 ## প্রয়োজনীয়তা
 
-শুরু করার আগে নিশ্চিত করুন যে আপনার কাছে নিম্নলিখিত জিনিসগুলো রয়েছে:
+শুরু করার আগে, নিশ্চিত করুন আপনার কাছে নিচেরগুলো আছে:
 
-- একটি Azure সাবস্ক্রিপশন। যদি আপনার Azure সাবস্ক্রিপশন না থাকে, তাহলে [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) এ একটি ফ্রি অ্যাকাউন্ট তৈরি করতে পারেন।
+- একটি অ্যাজুর সাবস্ক্রিপশন। যদি আপনার অ্যাজুর সাবস্ক্রিপশন না থাকে, আপনি [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) এ একটি বিনামূল্যের অ্যাকাউন্ট তৈরি করতে পারেন।
 
-## ধাপ ১: একটি Azure Storage অ্যাকাউন্ট তৈরি করুন
+## ধাপ ১: একটি অ্যাজুর স্টোরেজ অ্যাকাউন্ট তৈরি করুন
 
-1. একটি নতুন Azure Storage অ্যাকাউন্ট তৈরি করতে এই নির্দেশনা অনুসরণ করুন: [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)।
-   **NOTE**: নিশ্চিত করুন যে Storage অ্যাকাউন্টের ধরন Standard General Purpose V2।
+১. এই নির্দেশিকা অনুসরণ করুন, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), একটি নতুন অ্যাজুর স্টোরেজ অ্যাকাউন্ট তৈরি করার জন্য।
+   **NOTICE**: নিশ্চিত করুন স্টোরেজ অ্যাকাউন্টের ধরন Standard General Purpose V2 হচ্ছে।
 
-## ধাপ ২: একটি Azure AI Search সার্ভিস তৈরি করুন
+## ধাপ ২: একটি অ্যাজুর AI সার্চ সার্ভিস তৈরি করুন
 
-1. [Azure পোর্টাল](https://portal.azure.com/?wt.mc_id=studentamb_258691)-এ সাইন ইন করুন।
-2. বাম পাশের নেভিগেশন প্যানেলে **Create a resource**-এ ক্লিক করুন।
-3. সার্চ বক্সে "Azure AI Search" টাইপ করুন এবং ফলাফলের তালিকা থেকে **Azure AI Search** নির্বাচন করুন।
-4. **Create** বোতামে ক্লিক করুন।
-5. **Basics** ট্যাবে নিম্নলিখিত তথ্য প্রদান করুন:
-   - **Subscription**: আপনার Azure সাবস্ক্রিপশন নির্বাচন করুন।
+১. [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691) এ সাইন ইন করুন।
+২. বাম দিকের ন্যাভিগেশন প্যানেলে, **Create a resource** ক্লিক করুন।
+৩. সার্চ বক্সে "Azure AI Search" টাইপ করুন এবং ফলাফলের তালিকা থেকে **Azure AI Search** নির্বাচন করুন।
+৪. **Create** বোতামে ক্লিক করুন।
+৫. **Basics** ট্যাবে নিচের তথ্য প্রদান করুন:
+   - **Subscription**: আপনার অ্যাজুর সাবস্ক্রিপশন নির্বাচন করুন।
    - **Resource group**: একটি নতুন রিসোর্স গ্রুপ তৈরি করুন অথবা বিদ্যমান একটি নির্বাচন করুন।
-   - **Resource name**: আপনার সার্চ সার্ভিসের জন্য একটি ইউনিক নাম দিন।
-   - **Region**: আপনার ব্যবহারকারীদের কাছাকাছি একটি অঞ্চল নির্বাচন করুন।
-   - **Pricing tier**: আপনার প্রয়োজন অনুযায়ী একটি প্রাইসিং টিয়ার নির্বাচন করুন। টেস্টিংয়ের জন্য আপনি Free টিয়ার দিয়ে শুরু করতে পারেন।
-6. **Review + create**-এ ক্লিক করুন।
-7. সেটিংস পর্যালোচনা করুন এবং সার্চ সার্ভিস তৈরি করতে **Create**-এ ক্লিক করুন।
+   - **Resource name**: আপনার সার্চ সার্ভিসের জন্য একটি অনন্য নাম লিখুন।
+   - **Region**: আপনার ব্যবহারকারীদের সবচেয়ে কাছের অঞ্চল নির্বাচন করুন।
+   - **Pricing tier**: আপনার প্রয়োজন অনুযায়ী একটি মূল্য নির্ধারণ স্তর নির্বাচন করুন। পরীক্ষা করার জন্য ফ্রি স্তর দিয়ে শুরু করতে পারেন।
+৬. **Review + create** ক্লিক করুন।
+৭. সেটিংস পর্যালোচনা করুন এবং সার্চ সার্ভিস তৈরি করতে **Create** ক্লিক করুন।
 
-## ধাপ ৩: Azure AI Search ব্যবহার শুরু করুন
+## ধাপ ৩: অ্যাজুর AI সার্চ দিয়ে শুরু করুন
 
-1. ডিপ্লয়মেন্ট সম্পন্ন হলে, Azure পোর্টালে আপনার সার্চ সার্ভিসে যান।
-2. সার্চ সার্ভিসের ওভারভিউ প্যান থেকে URL কপি করুন। এটি দেখতে এমন হবে `https://<service-name>.search.windows.net`।
-3. Settings > Keys প্যান থেকে কুয়েরি কী কপি করুন।
-4. [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) পেজের ধাপগুলো অনুসরণ করে একটি ইনডেক্স তৈরি করুন, ডেটা আপলোড করুন এবং সার্চ কুয়েরি সম্পাদন করুন।
+১. ডিপ্লয়মেন্ট সম্পন্ন হওয়ার পর, অ্যাজুর পোর্টালে আপনার সার্চ সার্ভিসে যান।
+২. সার্চ সার্ভিস ওভারভিউ প্যানেলে URL কপি করুন। এটি দেখতে হবে `https://<service-name>.search.windows.net` এর মতো।
+৩. **(প্রস্তাবিত)** Microsoft Entra ID (RBAC) সহ কীবিহীন অ্যাক্সেস সক্ষম করুন যেমন নিচের ধাপ ৪ তে দেখানো হয়েছে — কোন কি লাগবে না। এই গাইডের উদাহরণগুলি ইনডেক্স তৈরি/আপডেট করে এবং ডকুমেন্ট আপলোড করে, যা **Search Service Contributor** এবং **Search Index Data Contributor** রোল প্রয়োজন (অথবা, কীভিত্তিক অথেন্টিকেশনের জন্য, **primary admin key** — কুয়েরি কি নয়)। শুধুমাত্র যদি আপনি RBAC ব্যবহার করতে না পারেন, তাহলে **Settings > Keys** প্যানেল খুলুন এবং **primary admin key** কপি করুন।
+৪. একটি ইনডেক্স তৈরি করতে, ডেটা আপলোড করতে এবং সার্চ চালাতে [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) পৃষ্ঠার ধাপগুলি অনুসরণ করুন।
 
-## ধাপ ৪: Azure AI Search টুলস ব্যবহার করুন
+## ধাপ ৪: অ্যাজুর AI সার্চ টুলস ব্যবহার করুন
 
-Azure AI Search বিভিন্ন টুলের সাথে ইন্টিগ্রেট করে আপনার সার্চ সক্ষমতাকে উন্নত করে। আপনি Azure CLI, Python SDK, .NET SDK এবং অন্যান্য টুল ব্যবহার করতে পারেন উন্নত কনফিগারেশন এবং অপারেশনের জন্য।
+অ্যাজুর AI সার্চ বিভিন্ন টুলের সাথে সংহত করা হয়েছে যা আপনার সার্চ ক্ষমতাকে উন্নত করে। উন্নত কনফিগারেশন এবং অপারেশনের জন্য আপনি Azure CLI, Python SDK, .NET SDK এবং অন্যান্য টুল ব্যবহার করতে পারেন।
 
-### Azure CLI ব্যবহার করা
+### Azure CLI ব্যবহার
 
-1. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) নির্দেশনা অনুসরণ করে Azure CLI ইনস্টল করুন।
-2. নিম্নলিখিত কমান্ড ব্যবহার করে Azure CLI-তে সাইন ইন করুন:
+১. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) এ নির্দেশনা অনুসরণ করে Azure CLI ইনস্টল করুন।
+২. কমান্ড দিয়ে Azure CLI তে সাইন ইন করুন:
 
    ```bash
    az login
    ```
-
-3. Azure AI Search ইনস্ট্যান্সের এন্ডপয়েন্ট এবং API কী এনভায়রনমেন্ট ভেরিয়েবল হিসেবে সংরক্ষণ করুন।
+3. **(প্রস্তাবিত) Microsoft Entra ID (RBAC) সহ কীবিহীন অ্যাক্সেস সক্ষম করুন:**
 
     ```bash
-    # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    ```powershell
-    # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+    RBAC সক্রিয় হলে, নিচের Python এবং .NET SDK এর উদাহরণগুলি `DefaultAzureCredential` দিয়ে অথেন্টিকেট করে, যা আপনার `az login` সেশনটি লোকাল ডেভেলপমেন্টের সময় ব্যবহার করে — কোন অ্যাডমিন কি দরকার নেই। দেখুন [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac)।
 
-### Python SDK ব্যবহার করা
+৪. **(বিকল্প) কীভিত্তিক অথেন্টিকেশন** — শুধুমাত্র যদি আপনি RBAC ব্যবহার করতে না পারেন, অ্যাডমিন কি সংরক্ষণ করুন:
 
-1. Azure Cognitive Search ক্লায়েন্ট লাইব্রেরি Python-এর জন্য ইনস্টল করুন:
+#### Azure AI Search ইনস্ট্যান্সের জন্য শেষবিন্দু এবং API কী উভয়ই পরিবেশ ভেরিয়েবলে সংরক্ষণ করুন।
+
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+### Python SDK ব্যবহার
+
+১. Azure Cognitive Search ক্লায়েন্ট লাইব্রেরি এবং Azure Identity for Python ইনস্টল করুন:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. নিম্নলিখিত Python কোড ব্যবহার করে একটি ইনডেক্স তৈরি করুন এবং ডকুমেন্ট আপলোড করুন:
+২. ইনডেক্স তৈরি করতে এবং ডকুমেন্ট আপলোড করতে নিচের Python কোড ব্যবহার করুন:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -105,30 +124,38 @@ Azure AI Search বিভিন্ন টুলের সাথে ইন্ট�
     search_client.upload_documents(documents)
     ```
 
-### .NET SDK ব্যবহার করা
+### .NET SDK ব্যবহার
 
-1. নিম্নলিখিত কমান্ড চালিয়ে একটি ইনডেক্স তৈরি করুন এবং ডকুমেন্ট আপলোড করুন:
+১. ইনডেক্স তৈরি এবং ডকুমেন্ট আপলোড করতে নিচের কমান্ডটি চালান:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-2. এখানে `AzureSearch.cs` এর .NET কোড রয়েছে:
+    নিচের .NET উদাহরণটি `DefaultAzureCredential` ব্যবহার করে, যা আপনার অ্যাজুর CLI সাইন-ইন থেকে `az login` এর সময় ব্যবহার করতে পারে লোকাল ডেভেলপমেন্টে।
+
+২. এখানে `AzureSearch.cs` এর .NET কোড দেওয়া হলো:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -162,11 +189,13 @@ Azure AI Search বিভিন্ন টুলের সাথে ইন্ট�
 
 ## উপসংহার
 
-আপনি সফলভাবে Azure পোর্টাল ব্যবহার করে Azure AI Search সেটআপ করেছেন এবং টুলস ইন্টিগ্রেট করেছেন। এখন আপনি Azure AI Search-এর আরও উন্নত ফিচার এবং সক্ষমতা অন্বেষণ করতে পারেন আপনার সার্চ সলিউশন উন্নত করার জন্য।
+আপনি সফলভাবে অ্যাজুর পোর্টাল ব্যবহার করে অ্যাজুর AI সার্চ সেটআপ করেছেন এবং সংহত টুলগুলি ব্যবহার শুরু করেছেন। এখন আপনি অ্যাজুর AI সার্চের আরও উন্নত বৈশিষ্ট্য এবং ক্ষমতা অন্বেষণ করতে পারেন আপনার সার্চ সলিউশন উন্নত করার জন্য।
 
-আরও সহায়তার জন্য, [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) দেখুন।
+অতিরিক্ত সহায়তার জন্য, দেখুন [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691)।
 
 ---
 
-**অস্বীকৃতি**:  
-এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনুবাদ করা হয়েছে। আমরা যথাসাধ্য সঠিকতার জন্য চেষ্টা করি, তবে অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল ভাষায় থাকা নথিটিকে প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য, পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদ ব্যবহারের ফলে কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যা হলে আমরা দায়বদ্ধ থাকব না।
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**অস্বীকৃতি**:
+এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনূদিত হয়েছে। যদিও আমরা শুদ্ধতার জন্য চেষ্টা করি, অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল নথিটি তার স্বভাষায় কর্তৃত্বপূর্ণ উৎস হিসেবে বিবেচিত হওয়া উচিত। গুরুত্বপূর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদের ব্যবহারে প্রয়োজনীয় ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়বদ্ধ নই।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

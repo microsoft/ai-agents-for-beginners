@@ -1,81 +1,87 @@
-# Mga AI Agent sa Produksyon: Observability at Pagsusuri
+# AI Agents sa Produksyon: Observability at Pagsusuri
 
-[![Mga AI Agent sa Produksyon](../../../translated_images/tl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents sa Produksyon](../../../translated_images/tl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Habang lumilipat ang mga AI agent mula sa mga experimental na prototype patungo sa mga totoong aplikasyon, nagiging mahalaga ang kakayahang maunawaan ang kanilang kilos, subaybayan ang kanilang pagganap, at sistematikong suriin ang kanilang mga output.
+Habang ang mga AI agent ay lumilipat mula sa mga experimental na prototype patungo sa mga aplikasyon sa totoong mundo, nagiging mahalaga ang kakayahang maunawaan ang kanilang pag-uugali, subaybayan ang kanilang performance, at sistematikong suriin ang kanilang mga resulta.
 
 ## Mga Layunin sa Pagkatuto
 
-Pagkatapos makumpleto ang araling ito, malalaman/mo mauunawaan mo:
-- Mga pangunahing konsepto ng observability at pagsusuri ng agent
-- Mga teknik para mapabuti ang pagganap, gastos, at bisa ng mga agent
+Pagkatapos makumpleto ang araling ito, malalaman/mauunawaan mo kung paano:
+- Mga pangunahing konsepto ng agent observability at pagsusuri
+- Mga teknik para mapabuti ang performance, gastos, at bisa ng mga agent
 - Ano at paano sistematikong susuriin ang iyong mga AI agent
-- Paano kontrolin ang gastos kapag nagde-deploy ng mga AI agent sa produksyon
-- Paano i-instrument ang mga agent na binuo gamit ang AutoGen
+- Paano makokontrol ang gastos kapag nag-deploy ng mga AI agent sa produksyon
+- Paano i-instrument ang mga agent na ginawa gamit ang Microsoft Agent Framework
 
-Ang layunin ay bigyan ka ng kaalaman para gawing transparent, madaling pamahalaan, at mapagkakatiwalaan ang iyong mga "black box" na agent.
+Ang layunin ay bigyan ka ng kaalaman upang gawing transparent, napamamahalaan, at mapagkakatiwalaang mga sistema ang iyong mga "black box" agent.
 
-_**Tandaan:** Mahalaga na mag-deploy ng mga AI Agent na ligtas at mapagkakatiwalaan. Tingnan din ang araling [Pagbuo ng Mapagkakatiwalaang AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Tandaan:** Mahalaga na mag-deploy ng mga ligtas at mapagkakatiwalaang AI Agent. Tignan din ang araling [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
-## Traces and Spans
+## Traces at Spans
 
-Ang mga tool sa observability tulad ng [Langfuse](https://langfuse.com/) o [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kadalasan ay kumakatawan sa mga takbo ng agent bilang traces at spans.
+Karaniwang inilalarawan ng mga tool para sa observability tulad ng [Langfuse](https://langfuse.com/) o [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) ang mga agent run bilang mga trace at span.
 
-- **Trace** kumakatawan sa isang kumpletong gawain ng agent mula sa simula hanggang sa katapusan (hal., paghawak ng tanong ng user).
-- **Spans** ay mga indibidwal na hakbang sa loob ng trace (hal., pagtawag sa isang language model o pagkuha ng data).
+- **Trace** ay kumakatawan sa kumpletong gawain ng agent mula umpisa hanggang matapos (katulad ng pag-handle ng tanong ng user).
+- **Spans** ay mga indibidwal na hakbang sa loob ng trace (halimbawa, pagtawag sa language model o pagkuha ng data).
 
-![Puno ng trace sa Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree sa Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-Kung walang observability, ang isang AI agent ay maaaring magmukhang isang "black box" — ang panloob nitong estado at pangangatwiran ay hindi maliwanag, na nagpapahirap mag-diagnose ng mga isyu o mag-optimize ng pagganap. Sa observability, nagiging "glass box" ang mga agent, nagbibigay ng transparency na mahalaga para bumuo ng tiwala at matiyak na gumagana sila ayon sa inaasahan. 
+Kung walang observability, ang isang AI agent ay maaaring magmukhang isang "black box" - ang panloob nitong estado at pamamaraan ay hindi malinaw, kaya mahirap tuklasin ang mga isyu o ayusin ang performance. Sa observability, ang mga agent ay nagiging "glass boxes," na nag-aalok ng transparency na mahalaga para sa pagtitiwala at tiyakin na gumagana sila ayon sa inaasahan.
 
-## Bakit Mahalaga ang Observability sa Mga Kapaligiran ng Produksyon
+## Bakit Mahalaga ang Observability sa Production Environments
 
-Ang paglipat ng mga AI agent sa produksyon ay nagdudulot ng bagong hanay ng mga hamon at kinakailangan. Ang observability ay hindi na isang "magandang meron lamang" kundi isang kritikal na kakayahan:
+Ang paglipat ng mga AI agent sa mga production environment ay nagdudulot ng mga bagong hamon at pangangailangan. Hindi na "nice-to-have" ang observability kundi isang kritikal na kakayahan:
 
-*   **Pag-debug at Pagsusuri ng Ugat ng Suliranin:** Kapag nabigo ang isang agent o naglabas ng hindi inaasahang output, nagbibigay ang mga tool ng observability ng mga trace na kailangan upang tukuyin ang pinagmulan ng error. Ito ay lalong mahalaga sa mga komplikadong agent na maaaring gumamit ng maraming LLM call, pakikipag-ugnayan sa mga tool, at kondisyunal na lohika.
-*   **Pamamahala ng Latency at Gastos:** Madalas umaasa ang mga AI agent sa mga LLM at iba pang external API na sinisingil batay sa token o bawat tawag. Pinapayagan ng observability ang tumpak na pagsubaybay sa mga tawag na ito, na tumutulong tukuyin ang mga operasyon na labis ang bagal o mahal. Nakakatulong ito sa mga koponan na i-optimize ang mga prompt, pumili ng mas episyenteng modelo, o muling idisenyo ang mga workflow upang pamahalaan ang operational na gastos at matiyak ang magandang karanasan ng user.
-*   **Tiwala, Kaligtasan, at Pagsunod:** Sa maraming aplikasyon, mahalaga na matiyak na kumikilos ang mga agent nang ligtas at etikal. Nagbibigay ang observability ng audit trail ng mga aksyon at desisyon ng agent. Magagamit ito upang matukoy at mabawasan ang mga isyu tulad ng prompt injection, pagbuo ng nakapipinsalang nilalaman, o maling paghawak ng personally identifiable information (PII). Halimbawa, maaari mong repasuhin ang mga trace para maunawaan kung bakit nagbigay ang agent ng isang partikular na tugon o gumamit ng isang tiyak na tool.
-*   **Tuloy-tuloy na Loop ng Pagpapabuti:** Ang data ng observability ang pundasyon ng isang iterative na proseso ng pag-develop. Sa pamamagitan ng pagmamanman kung paano nagpe-perform ang mga agent sa totoong mundo, maaaring tukuyin ng mga koponan ang mga lugar na nangangailangan ng pagpapabuti, mangalap ng data para sa fine-tuning ng mga modelo, at beripikahin ang epekto ng mga pagbabago. Lumilikha ito ng feedback loop kung saan ang mga insight mula sa online evaluation sa produksyon ay nag-iinform sa offline na eksperimento at pagbuti, na humahantong sa unti-unting pagtaas ng pagganap ng agent.
+*   **Debugging at Root-Cause Analysis**: Kapag pumalya ang isang agent o nagbigay ng di-inaasahang resulta, nagbibigay ang mga tool sa observability ng mga trace upang matukoy ang pinagmulan ng error. Lalo itong mahalaga sa mga komplikadong agent na maaaring may maraming LLM call, interaksyon sa tool, at kondisyunal na lohika.
+*   **Pagkontrol ng Latency at Gastos**: Kadalasang nakadepende ang mga AI agent sa mga LLM at iba pang external API na sinisingil bawat token o bawat tawag. Pinapayagan ng observability ang tumpak na pagsubaybay sa mga tawag, na tumutulong tuklasin ang mga operasyong mabagal o mahal. Nakakatulong ito sa mga koponan na i-optimize ang mga prompt, pumili ng mas epektibong modelo, o baguhin ang workflow para kontrolin ang gastusin at matiyak ang magandang karanasan ng user.
+*   **Tiwala, Kaligtasan, at Pagsunod**: Sa maraming aplikasyon, mahalaga na tiyakin na ang mga agent ay kumikilos nang ligtas at etikal. Nagbibigay ang observability ng audit trail ng mga aksyon at desisyon ng agent. Maaari itong gamitin upang matukoy at mabawasan ang mga isyu gaya ng prompt injection, paggawa ng nakakapinsalang nilalaman, o maling paghawak ng personal na impormasyon (PII). Halimbawa, maaari mong suriin ang mga trace para maunawaan kung bakit nagbigay ang agent ng partikular na tugon o gumamit ng partikular na tool.
+*   **Patuloy na Loop ng Pagbuti**: Ang datos mula sa observability ang pundasyon ng proseso ng iterative development. Sa pamamagitan ng pagsubaybay kung paano gumagana ang mga agent sa totoong mundo, maaaring tuklasin ng mga koponan ang mga bahagi na dapat paunlarin, mangalap ng datos para sa fine-tuning ng mga modelo, at patunayan ang epekto ng mga pagbabago. Lumilikha ito ng feedback loop kung saan ang mga insight mula sa production online evaluation ay nagbibigay-daan para sa offline experimentation at refinement, na nagreresulta sa mas mahusay na performance ng agent.
 
-## Mga Pangunahing Metrik na Sundan
+## Mga Pangunahing Sukatan na Dapat Subaybayan
 
-Upang subaybayan at maunawaan ang kilos ng agent, dapat subaybayan ang iba't ibang metrik at signal. Habang maaaring mag-iba ang partikular na metrik depende sa layunin ng agent, ang ilan ay pangkalahatang mahalaga.
+Upang masubaybayan at maunawaan ang pag-uugali ng agent, maraming sukatan at signal ang dapat i-track. Bagama't maaaring mag-iba ang mga partikular na sukatan depende sa layunin ng agent, may ilang mga sukatan na pangkalahatang mahalaga.
 
-Narito ang ilan sa mga pinakakaraniwang metrik na sinusubaybayan ng mga tool sa observability:
+Narito ang ilan sa mga karaniwang sukatan na sinusubaybayan ng mga tool ng observability:
 
-**Latency:** Gaano kabilis tumugon ang agent? Ang mahabang paghihintay ay negatibong nakakaapekto sa karanasan ng user. Dapat sukatin ang latency para sa mga gawain at indibidwal na hakbang sa pamamagitan ng pag-trace ng mga takbo ng agent. Halimbawa, ang isang agent na kumukuha ng 20 segundo para sa lahat ng model calls ay maaaring pabilisin sa pamamagitan ng paggamit ng mas mabilis na modelo o pagpapatakbo ng mga tawag sa modelo nang sabay-sabay.
+**Latency:** Gaano kabilis ang tugon ng agent? Ang mahabang paghihintay ay negatibong nakakaapekto sa karanasan ng user. Dapat sukatin ang latency para sa mga gawain at indibidwal na hakbang sa pamamagitan ng pagsubaybay ng mga agent run. Halimbawa, ang isang agent na nangangailangan ng 20 segundo para sa lahat ng tawag ng modelo ay maaaring pabilisin gamit ang mas mabilis na modelo o pagpapatakbo ng mga tawag ng modelo nang sabay-sabay.
 
-**Costs:** Magkano ang gastos kada takbo ng agent? Umaasa ang mga AI agent sa mga LLM call na sinisingil kada token o sa mga external API. Ang madalas na paggamit ng tool o maraming prompt ay maaaring mabilis magpataas ng gastos. Halimbawa, kung tumatawag ang agent sa LLM ng limang beses para sa bara-bara lamang na pagbuti ng kalidad, kailangang suriin kung makatwiran ang gastos o maaari mong bawasan ang bilang ng tawag o gumamit ng mas murang modelo. Makakatulong din ang real-time monitoring upang tuklasin ang hindi inaasahang pagtaas (hal., bugs na nagdudulot ng labis na API loops).
+**Gastos:** Magkano ang ginastos bawat pagtakbo ng agent? Nakadepende ang mga AI agent sa mga LLM call na sinisingil bawat token o external API. Madalas na paggamit ng tool o maraming prompt ay mabilis magpataas ng gastusin. Halimbawa, kung ang isang agent ay tumatawag ng LLM nang limang beses para sa bahagyang pagbuti ng kalidad, kailangan mong suriin kung karapat-dapat ang gastos o kung maaari mong bawasan ang bilang ng tawag o gumamit ng mas murang modelo. Makakatulong din ang real-time monitoring para matukoy ang di-inaasahang pagtaas (hal. bugs na nagdudulot ng sobra-sobrang API loops).
 
-**Request Errors:** Ilan ang mga request na nabigo ang agent? Maaari itong kabilang ang mga API error o nabigong tawag sa tool. Upang gawing mas matatag ang iyong agent sa produksyon laban sa mga ito, maaari kang mag-set up ng fallbacks o retries. Hal., kung down ang LLM provider A, maaari kang mag-switch sa LLM provider B bilang backup.
+**Mga Error sa Request:** Ilan ang nabigong kahilingan ng agent? Maaaring kabilang dito ang mga error sa API o nabigong tawag sa tool. Para gawing mas matatag ang iyong agent laban sa mga ito sa produksyon, maaari kang mag-set up ng fallback o retries. Halimbawa, kung bumagsak ang LLM provider A, maaari kang lumipat sa LLM provider B bilang backup.
 
-**User Feedback:** Ang pagpapatupad ng direktang pagsusuri ng user ay nagbibigay ng mahahalagang insight. Kasama rito ang mga tahasang rating (👍thumbs-up/👎down, ⭐1-5 stars) o tekstuwal na komento. Ang patuloy na negatibong feedback ay dapat mag-alerto sa iyo dahil senyales ito na hindi gumagana ang agent ayon sa inaasahan. 
+**Feedback ng User:** Ang paggamit ng direktang pagsusuri mula sa user ay nagbibigay ng mahalagang pananaw. Maaaring ito ay mga explicit na rating (👍thumbs-up/👎down, ⭐1-5 stars) o mga komentaryo sa teksto. Ang palaging negatibong feedback ay dapat mag-alerto sa iyo dahil ito ay senyales na hindi gumagana ang agent ayon sa inaasahan.
 
-**Implicit User Feedback:** Nagbibigay ng di-tuwirang feedback ang kilos ng user kahit wala silang tahasang rating. Maaaring kabilang dito ang agarang pag-rephrase ng tanong, paulit-ulit na query, o pag-click sa retry button. Hal., kung nakikita mong paulit-ulit na tinatanong ng mga user ang parehong tanong, ito ay senyales na hindi gumagana ang agent ayon sa inaasahan.
+**Implicit User Feedback:** Nagbibigay ang mga kilos ng user ng di-tuwirang feedback kahit walang explicit na rating. Maaaring kabilang dito ang agarang pagbabago ng tanong, paulit-ulit na pagtatanong, o pag-click sa retry button. Halimbawa, kung napapansin mong paulit-ulit na nire-request ng mga user ang parehong tanong, ito ay senyales na hindi gumagana ang agent ayon sa inaasahan.
 
-**Accuracy:** Gaano kadalas nagbibigay ang agent ng tama o kanais-nais na mga output? Nag-iiba ang mga depinisyon ng katumpakan (hal., kawastuhan sa paglutas ng problema, kawastuhan sa information retrieval, kasiyahan ng user). Ang unang hakbang ay tukuyin kung ano ang hitsura ng tagumpay para sa iyong agent. Maaari mong subaybayan ang accuracy sa pamamagitan ng automated checks, evaluation scores, o mga label ng pagkumpleto ng gawain. Halimbawa, pagmamarka sa mga trace bilang "succeeded" o "failed". 
+**Katumpakan:** Gaano kadalas nagpo-produce ang agent ng tamang o kanais-nais na output? Nagkakaiba-iba ang depinisyon ng katumpakan (halimbawa, katumpakan sa paglutas ng problema, katumpakan sa retrieval ng impormasyon, kasiyahan ng user). Ang unang hakbang ay tukuyin kung ano ang itsura ng tagumpay para sa iyong agent. Maaari mong subaybayan ang katumpakan gamit ang automated checks, evaluation scores, o labels ng task completion. Halimbawa, pagmamarka ng traces bilang "succeeded" o "failed".
 
-**Automated Evaluation Metrics:** Maaari mo ring i-set up ang automated evals. Halimbawa, maaari mong gamitin ang isang LLM upang i-score ang output ng agent hal., kung ito ay nakakatulong, tama, o hindi. Mayroon ding ilang open source na library na tumutulong i-score ang iba't ibang aspeto ng agent. Hal., [RAGAS](https://docs.ragas.io/) para sa RAG agents o [LLM Guard](https://llm-guard.com/) para tuklasin ang nakapipinsalang wika o prompt injection. 
+**Automated Evaluation Metrics:** Maaari ka ring mag-set up ng automated evaluation. Halimbawa, maaari mong gamitin ang LLM para bigyan ng score ang output ng agent, kung ito ba ay kapaki-pakinabang, tumpak, o hindi. Mayroon ding ilang open source libraries na tumutulong sa pag-score ng iba't ibang aspeto ng agent. Halimbawa, [RAGAS](https://docs.ragas.io/) para sa mga RAG agent o [LLM Guard](https://github.com/protectai/llm-guard) na nagdedetect ng nakapanghihina o mapanlinlang na wika o prompt injection.
 
-Sa praktika, ang kumbinasyon ng mga metrik na ito ang nagbibigay ng pinakamainam na saklaw ng kalusugan ng isang AI agent. Sa kabanatang ito [halimbawang notebook](./code_samples/10_autogen_evaluation.ipynb), ipapakita namin kung paano lumilitaw ang mga metrik na ito sa mga tunay na halimbawa pero una, pag-aaralan muna natin kung ano ang karaniwang itsura ng isang evaluation workflow.
+Sa praktis, ang kombinasyon ng mga sukatan na ito ang nagbibigay ng pinakamagandang coverage ng kalusugan ng AI agent. Sa [example notebook](./code_samples/10-expense_claim-demo.ipynb) sa kabanatang ito, ipapakita namin sa iyo kung paano ito nakakakita sa totoong mga halimbawa ngunit una, pag-aaralan muna natin kung ano ang tipikal na workflow ng pagsusuri.
 
-## I-instrument ang iyong AI Agent
+## I-instrument ang iyong Agent
 
-Upang makakalap ng tracing data, kailangan mong i-instrument ang iyong code. Ang layunin ay i-instrument ang code ng agent upang mag-output ng mga trace at metrik na maaaring makuha, maproseso, at ma-visualize ng isang observability platform.
+Para makalikom ng tracing data, kailangan mong i-instrument ang iyong code. Ang layunin ay i-instrument ang agent code upang maglabas ng mga trace at metrics na maaaring makuha, maproseso, at makita sa isang observability platform.
 
-**OpenTelemetry (OTel):** Ang [OpenTelemetry](https://opentelemetry.io/) ay umusbong bilang isang industry standard para sa LLM observability. Nagbibigay ito ng set ng mga API, SDK, at tool para sa pag-generate, pagkolekta, at pag-export ng telemetry data. 
+**OpenTelemetry (OTel):** Ang [OpenTelemetry](https://opentelemetry.io/) ay naging industry standard para sa LLM observability. Nagbibigay ito ng mga set ng API, SDK, at tools para sa paggawa, pagkolekta, at pag-export ng telemetry data.
 
-Maraming instrumentation library ang bumabalot sa umiiral na mga framework ng agent at nagpapadali para i-export ang OpenTelemetry spans sa isang observability tool. Nasa ibaba ang isang halimbawa ng pag-i-instrument ng isang AutoGen agent gamit ang [OpenLit instrumentation library](https://github.com/openlit/openlit):
+Maraming mga instrumentation library ang naga-wrap ng mga umiiral na agent framework at pinadadali ang pag-export ng OpenTelemetry spans sa isang observability tool. Native na nag-iintegrate ang Microsoft Agent Framework sa OpenTelemetry. Narito ang halimbawa ng pag-instrument ng MAF agent:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Agent execution is traced automatically
+    pass
 ```
 
-Ang [halimbawang notebook](./code_samples/10_autogen_evaluation.ipynb) sa kabanatang ito ay magpapakita kung paano i-instrument ang iyong AutoGen agent.
+Ang [example notebook](./code_samples/10-expense_claim-demo.ipynb) sa kabanatang ito ay magpapakita ng paraan kung paano i-instrument ang iyong MAF agent.
 
-**Manual Span Creation:** Habang nagbibigay ang mga instrumentation library ng magandang panimulang antas, madalas may mga kaso kung saan kailangan ang mas detalyado o pasadyang impormasyon. Maaari kang manu-manong gumawa ng spans upang magdagdag ng pasadyang lohika ng aplikasyon. Mas mahalaga, maaari nilang pagyamanin ang awtomatikong o manu-manong nagawang spans ng pasadyang attributes (kilala rin bilang tags o metadata). Kasama sa mga attribute na ito ang business-specific na data, mga intermediate na kalkulasyon, o anumang konteksto na maaaring maging kapaki-pakinabang para sa pag-debug o analisis, gaya ng `user_id`, `session_id`, o `model_version`.
+**Manwal na Paglikha ng Span:** Habang nagbibigay ng magandang baseline ang mga instrumentation library, may mga kaso kung saan kailangan ang mas detalyado o custom na impormasyon. Maaari kang manu-manong gumawa ng span upang magdagdag ng custom na application logic. Mas mahalaga, maaari nilang payabungin ang awtomatiko o manu-manong ginawang span gamit ang custom attributes (kilala rin bilang tags o metadata). Kasama sa mga attribute na ito ang business-specific na datos, intermediate computations, o anumang konteksto na maaaring makatulong sa debugging o pagsusuri, tulad ng `user_id`, `session_id`, o `model_version`.
 
 Halimbawa ng manu-manong paggawa ng traces at spans gamit ang [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
 
@@ -91,81 +97,83 @@ span.end()
 
 ## Pagsusuri ng Agent
 
-Nagbibigay ang observability ng mga metrik, ngunit ang pagsusuri ay ang proseso ng pag-aanalisa ng mga datos na iyon (at pagsasagawa ng mga test) upang matukoy kung gaano kahusay ang pagganap ng isang AI agent at kung paano ito mapapabuti. Sa ibang salita, kapag nakuha mo na ang mga trace at metrik na iyon, paano mo gagamitin ang mga ito upang hatulan ang agent at gumawa ng mga desisyon? 
+Nagbibigay ang observability sa atin ng mga sukatan, ngunit ang pagsusuri ay ang proseso ng pagsusuri sa datos (at pagsasagawa ng mga test) upang matukoy kung gaano kahusay ang performance ng isang AI agent at kung paano ito mapapabuti. Sa madaling salita, kapag nakuha mo na ang mga trace at sukatan, paano mo sila gagamitin upang husgahan ang agent at gumawa ng mga desisyon?
 
-Mahalaga ang regular na pagsusuri dahil madalas na hindi deterministic ang mga AI agent at maaaring mag-evolve (sa pamamagitan ng mga update o pagbabago sa pag-uugali ng modelo) – kung walang pagsusuri, hindi mo malalaman kung ang iyong "matalinong agent" ay talagang gumagawa ng maayos na trabaho o nagkaroon ng regression.
+Mahalaga ang regular na pagsusuri dahil ang mga AI agent ay kadalasang non-deterministic at maaaring magbago (sa pamamagitan ng updates o drifting model behavior) – kung walang pagsusuri, hindi mo malalaman kung ang iyong “smart agent” ay talagang gumagawa ng maayos o bumagsak ang performance nito.
 
-May dalawang kategorya ng pagsusuri para sa mga AI agent: **evaluasyong online** at **evaluasyong offline**. Pareho silang mahalaga at nagko-komplemento sa isa't isa. Kadalasan nagsisimula tayo sa evaluasyong offline, dahil ito ang minimum na kinakailangang hakbang bago mag-deploy ng anumang agent.
+May dalawang kategorya ng pagsusuri para sa AI agents: **online evaluation** at **offline evaluation**. Mahalaga ang pareho, at magkatuwang silang gumagana. Karaniwan naming sinisimulan sa offline evaluation dahil ito ang minimum na kinakailangang hakbang bago mag-deploy ng anumang agent.
 
-### Evaluasyong Offline
+### Offline Evaluation
 
-![Mga item ng dataset sa Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Mga item sa dataset sa Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Kasama rito ang pagsusuri ng agent sa isang kontroladong setting, karaniwang gamit ang mga test dataset, hindi mga live na query ng user. Gumagamit ka ng mga curated na dataset kung saan alam mo ang inaasahang output o tamang kilos, at saka pinapatakbo ang iyong agent sa mga ito. 
+Ito ay tumutukoy sa pagsusuri ng agent sa kontroladong kapaligiran, karaniwang gamit ang test datasets, hindi mula sa live na user queries. Ginagamit mo ang mga curated dataset kung saan alam mo ang inaasahang output o tamang kilos, at saka pinapatakbo ang iyong agent dito.
 
-Halimbawa, kung gumawa ka ng agent para sa mga math word-problem, maaari kang magkaroon ng isang [halimbawang dataset](https://huggingface.co/datasets/gsm8k) ng 100 problema na may kilalang sagot. Kadalasang ginagawa ang evaluasyong offline habang nasa development (at maaaring bahagi ng CI/CD pipelines) upang suriin ang mga pagbuti o pigilan ang mga regression. Ang bentahe ay ito ay **nauulit at makakakuha ka ng malinaw na accuracy metrics dahil mayroon kang ground truth**. Maaari mo ring i-simulate ang mga tanong ng user at sukatin ang mga tugon ng agent laban sa ideal na mga sagot o gumamit ng automated na metrik tulad ng nabanggit sa itaas. 
+Halimbawa, kung gumawa ka ng math word-problem agent, maaaring mayroon kang [test dataset](https://huggingface.co/datasets/openai/gsm8k) na may 100 problemang may kilalang sagot. Madalas ginagawa ang offline evaluation habang nagde-develop (at maaaring bahagi ng CI/CD pipeline) upang suriin ang mga pagbuti o maiwasan ang regresyon. Ang benepisyo nito ay **ulang-ulitin ito at makakakuha ka ng malinaw na accuracy metric dahil may ground truth ka**. Maaari mo ring i-simulate ang user queries at sukatin ang mga sagot ng agent laban sa ideal na sagot o gumamit ng automated metric gaya ng nabanggit sa itaas.
 
-Ang pangunahing hamon sa offline eval ay ang tiyakin na komprehensibo at nananatiling may kaugnayan ang iyong test dataset – maaaring mag-perform nang mabuti ang agent sa isang fixed na test set ngunit makatagpo ng ibang uri ng query sa produksyon. Samakatuwid, dapat mong panatilihing updated ang mga test set ng mga bagong edge case at mga halimbawa na sumasalamin sa mga totoong senaryo​. Makatutulong ang halo ng maliit na “smoke test” na mga kaso at mas malalaking evaluation set: maliit para sa mabilisang tseke at malaki para sa mas malawak na metrik ng pagganap​.
+Ang pangunahing hamon sa offline eval ay ang pagtitiyak na ang iyong test dataset ay komprehensibo at nananatiling may kaugnayan – maaaring magpakitang-gilas ang agent sa fixed test set pero makaharap ng ibang query sa produksyon. Kaya dapat panatilihing updated ang test sets ng mga bagong kaso at halimbawa na sumasalamin sa totoong mundo​. Makabubuti ang halo ng maliit na “smoke test” na kaso at mas malalaking evaluation set: maliit para sa mabilisang check at malalaki para sa mas malawak na sukatan ng performance​.
 
-### Evaluasyong Online 
+### Online Evaluation 
 
-![Pangkalahatang-ideya ng mga metrik ng obserbabilidad](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Pangkalahatang-ideya ng metrics sa observability](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Ito ay tumutukoy sa pagsusuri ng agent sa isang live, totoong kapaligiran, ibig sabihin sa aktwal na paggamit sa produksyon. Kasama sa online evaluation ang pagmamanman ng pagganap ng agent sa mga totoong interaksyon ng user at patuloy na pag-aanalisa ng mga resulta. 
+Ito ay tumutukoy sa pagsusuri ng agent sa isang live at totoong kapaligiran, i.e. habang talagang ginagamit sa produksyon. Kabilang sa online evaluation ang pagmamasid sa performance ng agent sa tunay na interaksyon ng user at tuloy-tuloy na pagsusuri sa mga resulta.
 
-Halimbawa, maaari mong subaybayan ang success rates, user satisfaction scores, o iba pang metrik sa live traffic. Ang kalamangan ng evaluasyong online ay na **nahuhuli nito ang mga bagay na maaaring hindi mo inaasahan sa lab setting** – maaari mong obserbahan ang model drift sa paglipas ng panahon (kung bumababa ang bisa ng agent habang nagbabago ang pattern ng input) at mahuli ang mga hindi inaasahang query o sitwasyon na wala sa iyong test data​. Nagbibigay ito ng totoong larawan kung paano kumikilos ang agent sa totoong mundo. 
+Halimbawa, maaari mong subaybayan ang success rates, user satisfaction score, o iba pang sukatan sa live na traffic. Ang bentahe ng online evaluation ay **nakukunan nito ang mga bagay na maaaring hindi mo asahan sa lab** – makikita mo ang model drift sa paglipas ng panahon (kung bumababa ang bisa ng agent habang nagbabago ang input patterns) at matutuklasan ang mga di-inaasahang query o sitwasyon na wala sa test data mo​. Nagbibigay ito ng totoong larawan kung paano kumikilos ang agent sa totoong mundo.
 
-Kadalasan kasama sa online evaluation ang pagkolekta ng implicit at explicit user feedback, tulad ng napag-usapan, at posibleng pagpapatakbo ng shadow tests o A/B tests (kung saan tumatakbo ang isang bagong bersyon ng agent nang kasabay para ikumpara sa luma). Ang hamon ay maaaring maging mahirap makakuha ng maaasahang labels o score para sa live interactions – maaaring umasa ka sa feedback ng user o downstream metrics (hal., nag-click ba ang user sa resulta). 
+Kadalasang kasama sa online evaluation ang pangongolekta ng implicit at explicit na feedback ng user, gaya ng napag-usapan, at posibleng pagpapatakbo ng shadow tests o A/B tests (kung saan ang bagong bersyon ay tumatakbo nang kasabay para mailahad ang pagkakaiba sa lumang bersyon). Ang hamon ay maaaring mahirap makakuha ng maaasahang label o score para sa live na interaksyon – maaaring umasa ka sa feedback ng user o downstream metrics (halimbawa, kung na-click ba ng user ang resulta).
 
 ### Pagsasama ng dalawa
 
-Ang evaluasyong online at offline ay hindi magkaibang mundo; lubhang komplementaryo ang mga ito. Ang mga insight mula sa online monitoring (hal., bagong uri ng query ng user kung saan mahina ang agent) ay magagamit upang palawakin at pagandahin ang mga offline test dataset. Sa kabilang banda, ang mga agent na mahusay sa offline tests ay mas may kumpiyansang ma-deploy at mamamanman online. 
+Hindi nag-aalisan ang online at offline na pagsusuri; maganda ang pinagsamang gamit ng mga ito. Maaaring gamitin ang mga insight mula sa online monitoring (hal., mga bagong uri ng tanong ng user kung saan mahina ang agent) upang dagdagan at pagbutihin ang offline test dataset. Sa kabilang banda, ang mga agent na mahusay sa offline test ay maaari nang mas tiwaliang ideploy at i-monitor sa online.
 
-Sa katunayan, maraming koponan ang gumagamit ng isang loop: 
+Sa katunayan, maraming koponan ang gumagamit ng isang loop:
 
-_suriin offline -> ideploy -> imonitor online -> kolektahin ang mga bagong kaso ng pagkabigo -> idagdag sa offline dataset -> pinuhin ang agent -> ulitin_.
+_offline evaluation -> deploy -> online monitoring -> kolektahin ang mga bagong failure case -> idagdag sa offline dataset -> pagandahin ang agent -> ulitin_.
 
 ## Mga Karaniwang Isyu
 
-Habang dine-deploy mo ang mga AI agent sa produksyon, maaari kang makatagpo ng iba't ibang hamon. Narito ang ilang karaniwang isyu at ang kanilang posibleng solusyon:
+Habang nagde-deploy ng mga AI agent sa produksyon, maaari kang makatagpo ng iba't ibang hamon. Narito ang ilang karaniwang isyu at posibleng solusyon:
 
 | **Isyu**    | **Posibleng Solusyon**   |
 | ------------- | ------------------ |
-| Hindi palaging gumaganap nang pare-pareho ang AI Agent sa mga gawain | - Pinuhin ang prompt na ibinibigay sa AI Agent; maging malinaw sa mga layunin.<br>- Tukuyin kung saan makatutulong ang paghahati ng mga gawain sa mga subtasks at paghawak ng mga ito ng maraming agent. |
-| Paulit-ulit na pag-uulit (continuous loops) na nangyayari sa AI Agent  | - Siguruhing mayroon kang malinaw na mga kondisyon ng pagtatapos upang malaman ng Agent kung kailan titigil sa proseso.<br>- Para sa mga komplikadong gawain na nangangailangan ng pangangatwiran at pagpaplano, gumamit ng mas malaking modelo na espesyalista sa mga reasoning task. |
-| Hindi maganda ang pagganap ng mga tawag sa mga tool ng AI Agent   | - Subukan at beripikahin ang output ng tool sa labas ng system ng agent.<br>- Pinuhin ang mga tinukoy na parameter, mga prompt, at pagbibigay-ngalan ng mga tool.  |
-| Hindi pare-parehong pagganap ng Multi-Agent system | - Pinuhin ang mga prompt na ibinibigay sa bawat agent upang matiyak na sila ay tiyak at magkakaiba sa isa’t isa.<br>- Bumuo ng hierarchical system gamit ang "routing" o controller agent upang tukuyin kung aling agent ang tama. |
+| Hindi consistent ang performance ng AI Agent sa mga gawain | - Puhin ang prompt na ibinibigay sa AI Agent; maging malinaw sa mga layunin.<br>- Tukuyin kung saan makatutulong ang paghahati ng gawain sa mga subtask at paggamit ng maraming agent. |
+| Naiikot nang paulit-ulit ang AI Agent | - Siguraduhing may malinaw na termination terms and conditions para malaman ng Agent kung kailan titigil.<br>- Para sa komplikadong gawain na nangangailangan ng reasoning at planning, gumamit ng mas malaking modelo na eksperto sa mga reasoning task. |
+| Hindi maganda ang pagganap ng mga tawag sa tool ng AI Agent | - Subukan at patunayan ang output ng tool sa labas ng system ng agent.<br>- Puhin ang mga defined na parameter, prompt, at pangalan ng tools. |
+| Hindi consistent ang performance ng Multi-Agent system | - Puhin ang mga prompt na ibinibigay sa bawat agent upang matiyak na sila ay tiyak at iba-iba sa isa't isa.<br>- Bumuo ng hierarchical system gamit ang "routing" o controller agent para tukuyin kung aling agent ang tamang tutugon. |
 
-Marami sa mga isyung ito ay maaaring mas madaling matukoy kapag may observability. Nakakatulong ang mga trace at metrik na napag-usapan natin upang eksaktong matukoy kung saan sa workflow ng agent nagaganap ang mga problema, na nagpapadali sa pag-debug at optimisasyon.
+Maraming isyu ang mas madaling matukoy kapag may observability. Ang mga trace at metrics na napag-usapan ay tumutulong tukuyin nang eksakto kung saang bahagi ng workflow may problema, kaya mas episyente ang pag-debug at pag-optimize.
 
 ## Pamamahala ng Gastos
-Narito ang ilang estratehiya para pamahalaan ang mga gastos sa pag-deploy ng mga AI agent sa produksyon:
 
-**Paggamit ng Mas Maliit na Modelo:** Small Language Models (SLMs) ay maaaring mag-perform nang mahusay sa ilang agentic na use-case at makabuluhang magbabawas ng gastos. Tulad ng nabanggit kanina, ang paggawa ng isang evaluation system para tukuyin at ihambing ang performance kumpara sa mas malalaking modelo ay ang pinakamahusay na paraan para maunawaan kung gaano kahusay mag-perform ang isang SLM sa iyong use case. Isaalang-alang ang paggamit ng SLMs para sa mas simpleng gawain tulad ng pag-uuri ng intensyon o pagkuha ng mga parameter, habang inireserba ang mas malalaking modelo para sa kumplikadong reasoning.
+Narito ang ilang estratehiya para pamahalaan ang gastos sa pag-deploy ng mga AI agent sa produksyon:
 
-**Paggamit ng Router Model:** Katulad na estratehiya ang paggamit ng iba't ibang modelo at laki. Maaari kang gumamit ng LLM/SLM o serverless function para i-route ang mga kahilingan batay sa pagiging kumplikado papunta sa pinaka-angkop na mga modelo. Makakatulong din ito na bawasan ang gastos habang tinitiyak ang performance sa tamang gawain. Halimbawa, i-route ang mga simpleng query sa mas maliliit, mas mabilis na mga modelo, at gamitin lamang ang mamahaling malalaking modelo para sa mga gawain na nangangailangan ng kumplikadong pag-iisip.
+**Paggamit ng Mas Maliit na Modelo:** Ang Maliit na Language Models (SLMs) ay maaaring mag-perform nang mabuti sa ilang agentic na use-cases at makakatipid nang malaki sa gastos. Tulad ng nabanggit kanina, ang paggawa ng evaluation system para tukuyin at ikumpara ang performance kumpara sa mas malalaking modelo ang pinakamabisang paraan para maunawaan kung gaano kahusay ang SLM sa iyong use case. Isaalang-alang ang paggamit ng SLM para sa mga simpleng gawain tulad ng intent classification o parameter extraction, habang inilalaan ang mas malalaking modelo para sa komplikadong pag-iisip.
 
-**Caching Responses:** Ang pagtukoy ng mga karaniwang kahilingan at gawain at pagbibigay ng mga sagot bago pa man dumaan sa iyong agentic system ay isang mahusay na paraan para bawasan ang dami ng magkakatulad na kahilingan. Maaari mo ring ipatupad ang isang daloy upang tukuyin kung gaano pagkakahawig ang isang kahilingan sa iyong mga naka-cache na kahilingan gamit ang mas simpleng mga AI model. Malaki ang maitutulong ng estratehiyang ito sa pagbabawas ng gastos para sa madalas na tinatanong o karaniwang mga workflow.
+**Paggamit ng Router Model:** Isang magkatulad na diskarte ay ang paggamit ng iba't ibang modelo at sukat. Maaari kang gumamit ng LLM/SLM o serverless function para i-route ang mga request base sa komplikasyon papunta sa pinakamahusay na modelong angkop. Makakatulong din ito na mabawasan ang gastos habang tiniyak ang performance sa tamang gawain. Halimbawa, i-route ang mga simple na query sa mas maliit at mas mabilis na mga modelo, at gamitin lamang ang mahal na malalaking modelo para sa mga komplikadong reasoning tasks.
 
-## Tingnan natin kung paano ito gumagana sa praktika
+**Pag-cache ng mga Tugon:** Ang pagtukoy ng mga karaniwang request at gawain at pagbibigay ng mga tugon bago pa man dumaan sa iyong agentic system ay isang magandang paraan para mabawasan ang dami ng magkakatulad na mga request. Maaari ka ring magpatupad ng flow para tukuyin kung gaano kahawig ang isang request sa iyong mga naka-cache na request gamit ang mas simpleng AI models. Ang stratehiyang ito ay makakatulong nang malaki sa pagbabawas ng gastos para sa madalas itanong na mga tanong o common workflows.
 
-Sa [example notebook of this section](./code_samples/10_autogen_evaluation.ipynb), makikita natin ang mga halimbawa kung paano natin magagamit ang mga observability tool para subaybayan at suriin ang ating agent.
+## Tingnan natin kung paano ito gumagana sa praktis
 
-### May Mga Karagdagang Tanong tungkol sa mga AI Agent sa Produksyon?
+Sa [example notebook ng seksyong ito](./code_samples/10-expense_claim-demo.ipynb), makikita natin ang mga halimbawa kung paano natin magagamit ang mga observability tool para subaybayan at suriin ang ating ahente.
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para makipagkita sa iba pang mga nag-aaral, dumalo sa office hours at masagot ang iyong mga tanong tungkol sa AI Agents.
+
+### May Karagdagang Tanong tungkol sa AI Agents sa Produksyon?
+
+Sumali sa [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) para makipagkita sa ibang mga nag-aaral, dumalo sa office hours, at sagutin ang iyong mga tanong tungkol sa AI Agents.
 
 ## Nakaraang Aralin
 
-[Pattern ng Disenyo ng Metacognition](../09-metacognition/README.md)
+[Metacognition Design Pattern](../09-metacognition/README.md)
 
 ## Susunod na Aralin
 
-[Mga Agentic Protocol](../11-agentic-protocols/README.md)
+[Agentic Protocols](../11-agentic-protocols/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Paunawa:
-Ang dokumentong ito ay isinalin gamit ang AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami na maging tumpak, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na paglalahad. Ang orihinal na dokumento sa katutubong wika nito ang dapat ituring na opisyal na sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasaling‑tao ng isang tao. Hindi kami mananagot para sa anumang hindi pagkakaunawaan o maling interpretasyon na nagmumula sa paggamit ng pagsasaling ito.
+**Pagtatanggi**:
+Ang dokumentong ito ay isinalin gamit ang serbisyo ng AI translation na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't nagsusumikap kami para sa katumpakan, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang maling pagkakaintindi o maling interpretasyon na nagmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

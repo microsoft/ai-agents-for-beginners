@@ -1,146 +1,144 @@
-[![כיצד לעצב סוכני בינה מלאכותית טובים](../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![כיצד לעצב סוכני AI טובים](../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(לחץ על התמונה למעלה לצפייה בווידאו של השיעור)_
+> _(לחץ על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
 # תבנית עיצוב לשימוש בכלים
 
-כלים מעניינים כי הם מאפשרים לסוכני בינה מלאכותית יכולות רחבות יותר. במקום שהסוכן יוכל לבצע רק סט מוגבל של פעולות, על ידי הוספת כלי, הסוכן יכול כעת לבצע מגוון רחב של פעולות. בפרק זה נבחן את תבנית העיצוב לשימוש בכלים, המתארת כיצד סוכני בינה מלאכותית יכולים להשתמש בכלים ספציפיים כדי להשיג את מטרותיהם.
+כלים הם מעניינים מכיוון שהם מאפשרים לסוכני AI מגוון רחב יותר של יכולות. במקום שלסוכן יהיה סט מצומצם של פעולות שהוא יכול לבצע, על ידי הוספת כלי, הסוכן יכול כעת לבצע מגוון רחב של פעולות. בפרק זה נבחן את תבנית העיצוב לשימוש בכלים, שמתארת כיצד סוכני AI יכולים להשתמש בכלים ספציפיים כדי להשיג את המטרות שלהם.
 
 ## מבוא
 
-בשיעור זה ננסה לענות על השאלות הבאות:
+בשיעור זה, אנו שואפים לענות על השאלות הבאות:
 
 - מהי תבנית העיצוב לשימוש בכלים?
-- באילו מקרי שימוש ניתן להחיל אותה?
-- מהן האבני בניין/הרכיבים הנדרשים ליישום תבנית העיצוב?
-- אילו שיקולים מיוחדים קיימים בעת השימוש בתבנית העיצוב לשימוש בכלים על מנת לבנות סוכני בינה אמינים?
+- מהם המקרים בהם ניתן להשתמש בה?
+- מהם האלמנטים/בלוקים הבנויים הדרושים ליישום תבנית העיצוב?
+- מהם השיקולים המיוחדים לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
 
-## מטרות למידה
+## מטרות הלמידה
 
-לאחר השלמת שיעור זה, תוכל/י:
+לאחר סיום השיעור תוכלו:
 
-- להגדיר את תבנית העיצוב לשימוש בכלים ומטרתה.
-- לזהות מקרי שימוש שבהם תבנית העיצוב לשימוש בכלים מתקיימת.
-- להבין את המרכיבים המרכזיים הנדרשים ליישום תבנית העיצוב.
-- לזהות שיקולים להבטחת אמינות בסוכני בינה שמשתמשים בתבנית עיצוב זו.
+- להגדיר את תבנית העיצוב לשימוש בכלים ואת מטרתה.
+- לזהות מקרים בהם ניתן ליישם את תבנית העיצוב לשימוש בכלים.
+- להבין את האלמנטים המרכזיים הדרושים ליישום תבנית העיצוב.
+- להכיר שיקולים להבטחת אמינות של סוכני AI המשתמשים בתבנית עיצוב זו.
 
 ## מהי תבנית העיצוב לשימוש בכלים?
 
-תבנית העיצוב לשימוש בכלים מתמקדת במתן היכולת למודלים לשפה גדולים (LLMs) באינטראקציה עם כלים חיצוניים כדי להשיג מטרות ספציפיות. כלים הם קוד שניתן להפעיל על ידי סוכן כדי לבצע פעולות. כלי יכול להיות פונקציה פשוטה כגון מחשבון, או קריאת API לשירות צד שלישי כמו בדיקת מחירי מניות או תחזית מזג אוויר. בהקשר של סוכני בינה מלאכותית, כלים מתוכננים כך שיהיו ניתנים להפעלה על ידי סוכנים בתגובה ל-**קריאות לפונקציות שנוצרו על ידי המודל**.
+**תבנית העיצוב לשימוש בכלים** מתמקדת בכך לתת למודלים שפתיים גדולים (LLMs) את היכולת לאינטראקציה עם כלים חיצוניים להשגת מטרות ספציפיות. כלים הם קוד שניתן להריץ על ידי סוכן לביצוע פעולות. כלי יכול להיות פונקציה פשוטה כגון מחשבון, או קריאת API לשירות צד שלישי כמו חיפוש מחירי מניות או תחזית מזג אוויר. בהקשר של סוכני AI, כלים מעוצבים לריצה על ידי סוכנים בתגובה ל**קריאות פונקציה שנוצרו על ידי המודל**.
 
-## באילו מקרים ניתן להחיל אותה?
+## מהם המקרים בהם ניתן להשתמש בה?
 
-סוכני בינה מלאכותית יכולים להיעזר בכלים כדי להשלים משימות מורכבות, לשלוף מידע או לקבל החלטות. תבנית העיצוב לשימוש בכלים משמשת לעיתים קרובות בתרחישים הדורשים אינטראקציה דינמית עם מערכות חיצוניות, כגון מאגרי נתונים, שירותי אינטרנט או מפרשי קוד. יכולת זו שימושית למגוון רחב של מקרי שימוש כולל:
+סוכני AI יכולים להשתמש בכלים לביצוע משימות מורכבות, לאחזור מידע, או לקבלת החלטות. תבנית העיצוב לשימוש בכלים משמשת לעיתים קרובות בתרחישים הדורשים אינטראקציה דינמית עם מערכות חיצוניות, כגון בסיסי נתונים, שירותי רשת, או מפרשים של קוד. יכולת זו שימושית למספר מקרים שונים הכוללים:
 
-- **שליפת מידע דינמית:** סוכנים יכולים לשאול APIs חיצוניים או מאגרי נתונים כדי לקבל נתונים מעודכנים (למשל, שאילתא למסד נתונים SQLite לניתוח נתונים, שליפת מחירי מניות או מידע על מזג אוויר).
-- **הרצת קוד ופרשנות:** סוכנים יכולים להריץ קוד או סקריפטים כדי לפתור בעיות מתמטיות, ליצור דוחות או לבצע סימולציות.
-- **אוטומציה של תהליכי עבודה:** אוטומציה של משימות חזרתיות או רב-שלביות על ידי אינטגרציה של כלים כמו מתזמני משימות, שירותי דוא״ל או צינורות נתונים.
-- **שירות לקוחות:** סוכנים יכולים לאינטראקציה עם מערכות CRM, פלטפורמות כרטיסי תמיכה או מאגרי ידע כדי לפתור פניות משתמשים.
-- **יצירה ועריכת תוכן:** סוכנים יכולים להיעזר בכלים כמו בודקי דקדוק, מסכמי טקסט או מעריכי בטיחות תוכן כדי לסייע במשימות יצירת תוכן.
+- **אחזור מידע דינמי:** סוכנים יכולים לשאול APIs חיצוניים או בסיסי נתונים כדי לקבל נתונים מעודכנים (למשל, שאילתא למסד נתונים SQLite לצורך ניתוח נתונים, קבלת מחירי מניות או מידע על מזג האוויר).
+- **הרצת ופירוש קוד:** סוכנים יכולים להריץ קוד או סקריפטים לפתרון בעיות מתמטיות, יצירת דוחות או ביצוע סימולציות.
+- **אוטומציה של זרימות עבודה:** אוטומציה של תהליכים חוזרים או מרובי שלבים על ידי שילוב כלים כמו מתזמנים למשימות, שירותי דואר אלקטרוני, או צינורות נתונים.
+- **תמיכת לקוחות:** סוכנים יכולים לתקשר עם מערכות CRM, פלטפורמות כרטיסים, או מאגרי ידע לפתרון שאלות משתמשים.
+- **יצירה ועריכת תוכן:** סוכנים יכולים להשתמש בכלים כמו בודקי דקדוק, מסכמי טקסט, או מעריכים לבטיחות תוכן כדי לסייע במשימות יצירת תוכן.
 
-## מהם המרכיבים/אבני הבניין הנדרשים ליישום תבנית העיצוב לשימוש בכלים?
+## מהם האלמנטים/בלוקים הבנויים הנדרשים ליישום תבנית העיצוב לשימוש בכלים?
 
-אבני בניין אלה מאפשרות לסוכן הבינה המלאכותית לבצע מגוון רחב של מטלות. נבחן את המרכיבים המרכזיים הנדרשים ליישום תבנית העיצוב לשימוש בכלים:
+בלוקים אלו מאפשרים לסוכן ה-AI לבצע מגוון רחב של משימות. נבחן את האלמנטים המרכזיים הנדרשים ליישום תבנית העיצוב לשימוש בכלים:
 
-- **סכימות פונקציה/כלי**: הגדרות מפורטות של הכלים הזמינים, כולל שם הפונקציה, המטרה, הפרמטרים הנדרשים והתוצרים הצפויים. סכימות אלה מאפשרות ל-LLM להבין אילו כלים זמינים וכיצד לבנות בקשות תקפות.
+- **סכמות פונקציה/כלי**: הגדרות מפורטות של הכלים הזמינים, הכוללות שם פונקציה, מטרתה, הפרמטרים הנדרשים, והפלטים הצפויים. סכמות אלו מאפשרות ל-LLM להבין אילו כלים זמינים וכיצד לבנות בקשות תקינות.
 
-- **לוגיקת הרצת פונקציות**: מגדירה כיצד ומתי כלים מופעלים בהתבסס על כוונת המשתמש והקשר השיחה. זה יכול לכלול מודולי תכנון, מנגנוני ניתוב או זרימות מותנות שקובעות שימוש בכלים בצורה דינמית.
+- **לוגיקת הרצת הפונקציה**: מגדירה כיצד ומתי נקראים כלים בהתבסס על כוונת המשתמש והקשר השיחה. זה עשוי לכלול מודולי תכנון, מנגנוני ניתוב, או זרימות מותנות שקובעות שימוש דינמי בכלים.
 
-- **מערכת ניהול הודעות**: רכיבים שמנהלים את הזרימה השיחתית בין קלטי משתמש, תגובות LLM, קריאות לכלים ותשומות כלי.
+- **מערכת ניהול הודעות**: רכיבים שמנהלים את זרימת השיחה בין קלטים מהמשתמש, תגובות LLM, קריאות לכלים, ופלטים מכלים.
 
-- **מסגרת אינטגרציה לכלים**: תשתית שמחברת את הסוכן לכלים שונים, בין אם הם פונקציות פשוטות או שירותים חיצוניים מורכבים.
+- **מסגרת שילוב כלים**: תשתית שמחברת את הסוכן לכלים שונים, בין אם פונקציות פשוטות או שירותים חיצוניים מורכבים.
 
-- **טיפול בשגיאות ואימות**: מנגנונים לטיפול בכשלונות בהרצת כלים, אימות פרמטרים וניהול תגובות בלתי צפויות.
+- **טיפול בשגיאות ואימות**: מנגנונים לטיפול בכשלים בהרצת כלים, אימות פרמטרים וניהול תגובות בלתי צפויות.
 
-- **ניהול מצב**: מעקב אחר הקשר השיחה, אינטראקציות קודמות עם כלים ונתונים מתמשכים כדי להבטיח עקביות לאורך אינטראקציות מרובות-סבבים.
+- **ניהול מצב**: עוקב אחרי הקשר השיחה, אינטראקציות קודמות עם כלים ונתונים מתמשכים כדי להבטיח עקביות לאורך אינטראקציות מרובות סבבים.
 
-Next, let's look at Function/Tool Calling in more detail.
+לאחר מכן, נבחן את קריאת פונקציה/כלי ביתר פירוט.
  
-### קריאה לפונקציות/כלים
+### קריאת פונקציה/כלי
 
-קריאה לפונקציות היא הדרך העיקרית שאנו מאפשרים למודלים לשפה גדולים (LLMs) באינטראקציה עם כלים. לעיתים תראו את המונחים 'Function' ו-'Tool' משמשים לסירוגין כיוון ש'functions' (בלוקים של קוד שניתן לשימוש חוזר) הם ה'כלים' שסוכנים משתמשים בהם לביצוע משימות. כדי שקוד של פונקציה ייקרא, על ה-LLM להשוות את בקשת המשתמש לתיאור הפונקציות. לשם כך נשלחת למודל סכימה המכילה את תיאורי כל הפונקציות הזמינות. ה-LLM בוחר אז את הפונקציה המתאימה ביותר למשימה ומחזיר את שמה והארגומנטים שלה. הפונקציה שנבחרה מופעלת, התגובה שלה נשלחת חזרה ל-LLM, וה-LLM משתמש במידע כדי להגיב לבקשת המשתמש.
+קריאת פונקציה היא הדרך העיקרית בה אנו מאפשרים למודלים שפתיים גדולים (LLMs) לאינטראקציה עם כלים. לעיתים תראו 'פונקציה' ו'כלי' משמשים להחלפה זה את זה מכיוון ש'פונקציות' (בלוקים של קוד שניתן להשתמש בהם מחדש) הן ה'כלים' שהסוכנים משתמשים בהם לביצוע משימות. כדי שקוד הפונקציה יופעל, יש ש-LLM ישווה את בקשת המשתמש לתיאור הפונקציות. לשם כך, סכימה הכוללת את תיאורי כל הפונקציות הזמינות נשלחת ל-LLM. ה-LLM לאחר מכן בוחר את הפונקציה המתאימה ביותר למשימה ומחזיר את שם הפונקציה והארגומנטים. הפונקציה שנבחרה מופעלת, תגובתה נשלחת חזרה ל-LLM, שמשתמש במידע זה כדי להגיב לבקשת המשתמש.
 
-למפתחי תוכנה שמעוניינים ליישם קריאת פונקציות עבור סוכנים, תצטרכו:
+למפתחים המעוניינים ליישם קריאת פונקציה עבור סוכנים דרושים:
 
-1. An LLM model that supports function calling
-2. A schema containing function descriptions
-3. The code for each function described
+1. מודל LLM שתומך בקריאת פונקציה
+2. סכימה המכילה תיאורים של פונקציות
+3. הקוד עבור כל פונקציה שמתואר
 
-נשתמש בדוגמה של קבלת הזמן הנוכחי בעיר כדי להמחיש:
+נשתמש בדוגמה של קבלת הזמן הנוכחי בעיר להמחשה:
 
-1. **Initialize an LLM that supports function calling:**
+1. **הפעל מודל LLM שתומך בקריאת פונקציה:**
 
-    לא כל המודלים תומכים בקריאת פונקציות, לכן חשוב לבדוק שה-LLM שבו אתם משתמשים אכן תומך בכך.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> תומך בקריאת פונקציות. נוכל להתחיל על ידי יזום לקוח ה-Azure OpenAI. 
+    לא כל הדגמים תומכים בקריאת פונקציה, לכן חשוב לבדוק שה-LLM בו אתה משתמש תומך בכך. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> תומך בקריאת פונקציה. נוכל להתחיל בהפעלת לקוח OpenAI מול <b>API לתגובות</b> של Azure OpenAI (נקודת הקצה היציבה `/openai/v1/` — ללא צורך ב-`api_version`).
 
     ```python
-    # אתחל את לקוח ה-Azure OpenAI
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **Create a Function Schema**:
+1. **צור סכמת פונקציה**:
 
-    לאחר מכן נגדיר סכימת JSON שמכילה את שם הפונקציה, תיאור מה שהפונקציה עושה, ושמות ותיאורים של פרמטרי הפונקציה.
-    לאחר מכן נעביר סכימה זו אל הלקוח שנוצר קודם, יחד עם בקשת המשתמש למצוא את השעה בסן פרנסיסקו. מה שחשוב לציין הוא שהחזרת המודל תהיה **קריאת כלי**, **ולא** התשובה הסופית לשאלה. כפי שצויין לעיל, ה-LLM מחזיר את שם הפונקציה שהוא בחר למשימה ואת הארגומנטים שיועברו אליה.
+    לאחר מכן נגדיר סכמת JSON הכוללת את שם הפונקציה, תיאור מה הפונקציה עושה, ואת שמות ותיאורי הפרמטרים של הפונקציה.
+    לאחר מכן נעביר סכימה זו ללקוח שיצרנו קודם, יחד עם בקשת המשתמש לקבל את הזמן בסן פרנסיסקו. חשוב לציין שמה שמוחזר הוא **קריאת כלי**, **ולא** התשובה הסופית לשאלה. כמו שהוזכר קודם, ה-LLM מחזיר את שם הפונקציה שנבחרה ואת הארגומנטים שייעברו אליה.
 
     ```python
-    # תיאור הפונקציה לקריאה על-ידי המודל
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # הודעת המשתמש ההתחלתית
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # קריאת ה-API הראשונה: בקש מהמודל להשתמש בפונקציה
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # עיבוד תגובת המודל
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **The function code required to carry out the task:**
+1. **קוד הפונקציה הנדרש לביצוע המשימה:**
 
-    כעת שה-LLM בחר איזו פונקציה יש להריץ, יש לממש ולהריץ את הקוד שמבצע את המשימה.
-    נוכל לממש את הקוד לקבלת השעה הנוכחית ב-Python. נצטרך גם לכתוב את הקוד לחילוץ השם והארגומנטים מתוך ה-response_message כדי לקבל את התוצאה הסופית.
+    עכשיו כש-LLM בחר איזו פונקציה יש להפעיל, יש ליישם ולבצע את הקוד שמבצע את המשימה.
+    נוכל ליישם את הקוד לקבלת הזמן הנוכחי בפייתון. כמו כן, נצטרך לכתוב קוד שיחלץ את השם והארגומנטים מתוך ה-response_message כדי לקבל את התוצאה הסופית.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ Next, let's look at Function/Tool Calling in more detail.
     ```
 
      ```python
-     # טפל בקריאות לפונקציות
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # קריאה שנייה ל-API: קבל את התשובה הסופית מהמודל
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@ Next, let's look at Function/Tool Calling in more detail.
       The current time in San Francisco is 09:24 AM.
      ```
 
-Function Calling נמצא בלב רוב, אם לא כל, עיצוב השימוש בכלים עבור סוכנים, אך מימושו מאפס עלול להיות מאתגר לפעמים.
-כפי שלמדנו ב-[שיעור 2](../../../02-explore-agentic-frameworks) מסגרות סוכנים (agentic frameworks) מספקות לנו אבני בניין מוכנות ליישום שימוש בכלים.
+קריאת פונקציה היא לב רוב תבניות העיצוב לשימוש בכלים לסוכנים, אך יישום שלה מאפס עלול להיות מאתגר לפעמים.
+כפי שלמדנו ב-[שיעור 2](../../../02-explore-agentic-frameworks), מסגרות agentic מספקות לנו בלוקים בנויים מראש ליישום שימוש בכלים.
  
-## דוגמאות לשימוש בכלים עם מסגרות סוכנים
+## דוגמאות לשימוש בכלים עם מסגרות agentic
 
-להלן כמה דוגמאות לאופן שבו ניתן ליישם את תבנית העיצוב לשימוש בכלים באמצעות מסגרות סוכנים שונות:
+הנה כמה דוגמאות כיצד ניתן ליישם את תבנית העיצוב לשימוש בכלים באמצעות מסגרות agentic שונות:
 
-### Semantic Kernel
+### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> היא מסגרת AI קוד פתוח למפתחי .NET, Python ו-Java שעובדים עם מודלים לשפה גדולים (LLMs). היא מפשטת את תהליך השימוש בקריאת פונקציות על ידי תיאור אוטומטי של הפונקציות והפרמטרים שלהן למודל בתהליך שנקרא <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">סיריאליזציה</a>. היא גם מטפלת בתקשורת הלוך ושוב בין המודל לבין הקוד שלכם. יתרון נוסף בשימוש במסגרת סוכנים כמו Semantic Kernel הוא שהיא מאפשרת לכם גישה לכלים מוכנים מראש כמו <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">חיפוש קבצים</a> ו-<a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">מפרש קוד</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> היא מסגרת AI בקוד פתוח לבניית סוכני AI. היא מפשטת את התהליך של שימוש בקריאת פונקציות על ידי הגדרת כלים כפונקציות פייתון עם הדקורטור `@tool`. המסגרת מנהלת את התקשורת הלוך וחזור בין המודל לבין הקוד שלך. היא גם מספקת גישה לכלים שבנויים מראש כמו חיפוש בקבצים ומפרש קוד באמצעות `FoundryChatClient`.
 
-התמונה הבאה ממחישה את תהליך קריאת הפונקציות עם Semantic Kernel:
+התרשים הבא ממחיש את תהליך קריאת הפונקציה במסגרת Microsoft Agent Framework:
 
-![קריאה לפונקציות](../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
 
-ב-Semantic Kernel פונקציות/כלים נקראים <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">תוספים</a>. נוכל להפוך את הפונקציה `get_current_time` שראינו קודם לתוסף על ידי הפיכתה למחלקה שמכילה את הפונקציה. כמו כן נוכל לייבא את הדקורטור `kernel_function`, שמקבל בתוכו את תיאור הפונקציה. כאשר תייצרו kernel עם ה-GetCurrentTimePlugin, ה-kernel יסיראילז את הפונקציה ואת הפרמטרים שלה בצורה אוטומטית, וייצור את הסכימה שתישלח ל-LLM בתהליך.
+במסגרת Microsoft Agent Framework הכלים מוגדרים כפונקציות עם דקורטורים. נוכל להמיר את הפונקציה `get_current_time` שראינו קודם לכלי על ידי שימוש בדקורטור `@tool`. המסגרת תסדר אוטומטית את הפונקציה ופרמטריה, ותיצור את הסכמה לשליחה ל-LLM.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### כלים משרת MCP
+
+כלים לא חייבים להיות פונקציות בקוד שלך. שרת שמדבר את פרוטוקול הקשר של הדגם (Model Context Protocol - MCP, שנלמד ב[שיעור 11](../11-agentic-protocols/README.md)) מפרסם את הכלים שלו יחד עם הסכמות שלהם, והמסגרת יכולה לטעון אותם באותה הדרך שהיא מסדרת פונקציה עם דקורטור. `MCPStreamableHTTPTool` מתחבר לשרת כזה דרך HTTP, קורא את סכמות הכלים, ומציע אותם למודל יחד עם כלים מקומיים.
+
+הדוגמה הבאה משתמשת בשרת חיפוש באינטרנט המתארח על ידי <a href="https://keenable.ai" target="_blank">Keenable</a>. זה בחינם לשימוש ללא חשבון או מפתח API (הבקשות מוגבלות לפי כתובת IP), כך שהאישורים היחידים שתצטרך הם לאלה של המודל שלך. כמו בכל כלי מרוחק, השאילתות שהמודל כותב נשלחות לאותו שרת.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# צור את הליבה
-kernel = Kernel()
-
-# צור את התוסף
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# הוסף את התוסף לליבה
-kernel.add_plugin(get_current_time_plugin)
-```
+השרת מפרסם שני כלים, `search_web_pages` ו-`fetch_page_content`. כשהשאלה דורשת מידע עדכני, המודל קורא ל-`search_web_pages`, מקבל כותרות, כתובות URL וקטעי טקסט, וכותב את התשובה שלו מהם, בלופ זהה לדוגמה `get_current_time` למעלה.
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> היא מסגרת סוכנים חדשה שנועדה להעצים מפתחים לבנות, לפרוס ולמתג סוכני AI איכותיים, ניתנים להרחבה ובטוחים ללא צורך לניהול המשאבים הבסיסיים של חישוב ואחסון. היא שימושית במיוחד ליישומי ארגון מכיוון שהיא שירות מנוהל לחלוטין עם אבטחת ארגונית ברמה גבוהה.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> היא מסגרת Agentic חדשה שנועדה להעצים מפתחים לבנות, לפרוס ולהרחיב סוכני AI איכותיים ובטוחים ללא צורך לנהל את המשאבים הבסיסיים של מחשוב ואחסון. היא שימושית במיוחד לאפליקציות ארגוניות מכיוון שהיא שירות מנוהל מלא עם אבטחה ברמה ארגונית.
 
-בהשוואה לפיתוח ישיר דרך ממשק ה-LLM, Azure AI Agent Service מספקת כמה יתרונות, לרבות:
+בהשוואה לפיתוח ישיר עם ה-API של LLM, Microsoft Foundry Agent Service מספקת מספר יתרונות, ביניהם:
 
-- קריאת כלים אוטומטית – אין צורך לנתח קריאת כלי, להפעיל את הכלי ולטפל בתשומה; כל אלה מטופלים כעת בצד השרת
-- ניהול נתונים מאובטח – במקום לנהל את מצב השיחה בעצמכם, ניתן להסתמך על threads לאחסון כל המידע הנדרש
-- כלים מוכנים לשימוש – כלים שניתן להשתמש בהם כדי לאינטראקציה עם מקורות הנתונים שלכם, כגון Bing, Azure AI Search ו-Azure Functions.
+- קריאה אוטומטית לכלי – אין צורך לנתח קריאת כלי, להפעיל את הכלי ולטפל בתגובה; כל זה נעשה כעת בצד השרת
+- נתונים מנוהלים בבטחה – במקום לנהל מצב שיחה בעצמך, תוכל להסתמך על threads לאחסון כל המידע הנדרש
+- כלים מוכנים לשימוש – כלים שניתן להשתמש בהם לאינטראקציה עם מקורות הנתונים שלך, כגון Bing, Azure AI Search ו-Azure Functions.
 
-הכלים הזמינים ב-Azure AI Agent Service ניתנים לחלוקה לשתי קטגוריות:
+הכלים הזמינים בשירות Microsoft Foundry Agent ניתן לחלק לשתי קטגוריות:
 
 1. כלים לידע:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">עיגון באמצעות חיפוש Bing</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">עיגון עם חיפוש Bing</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">חיפוש קבצים</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. כלים לפעולה:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">קריאת פונקציות</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">מפרש קוד</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">כלים המוגדרים באמצעות OpenAPI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">כלים המוגדרים על ידי OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-שירות הסוכנים מאפשר לנו להשתמש בכלים אלה יחד כ-`toolset`. הוא גם משתמש ב-`threads` שעוקבים אחרי היסטוריית ההודעות משיחה מסוימת.
+שירות הסוכנים מאפשר לנו להשתמש בכלים אלה יחד כ-`toolset`. הוא גם מנצל `threads` שעוקבים אחרי היסטוריית ההודעות משיחה מסוימת.
 
-דמיינו שאתם סוכן מכירות בחברה בשם Contoso. אתם רוצים לפתח סוכן שיח שיכול לענות על שאלות לגבי נתוני המכירות שלכם.
+דמיינו שאתם סוכן מכירות בחברה בשם Contoso. אתם רוצים לפתח סוכן שיחה שיכול לענות על שאלות בנוגע לנתוני המכירות שלכם.
 
-התמונה הבאה ממחישה כיצד ניתן להשתמש ב-Azure AI Agent Service לניתוח נתוני המכירות:
+התמונה הבאה מדגימה כיצד ניתן להשתמש בשירות Microsoft Foundry Agent לניתוח נתוני המכירות:
 
-![שירות סוכני בפעולה](../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
 
-כדי להשתמש בכלים אלה עם השירות, נוכל ליצור לקוח ולהגדיר כלי או toolset. ליישום פרקטי נוכל להשתמש בקוד ה-Python הבא. ה-LLM יוכל לבחון את ה-toolset ולקבוע האם להשתמש בפונקציה שיצר המשתמש, `fetch_sales_data_using_sqlite_query`, או במפרש הקוד המוכן תלוי בבקשת המשתמש.
+לשימוש בכל אחד מהכלים הללו עם השירות נוכל ליצור לקוח ולהגדיר כלי או קבוצת כלים. ליישום מעשי נשתמש בקוד הפייתון הבא. ה-LLM יוכל להסתכל על קבוצת הכלים ולהחליט האם להשתמש בפונקציה שיצר המשתמש, `fetch_sales_data_using_sqlite_query`, או במפרש הקוד הבנוי מראש לפי בקשת המשתמש.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # הפונקציה fetch_sales_data_using_sqlite_query שנמצאת בקובץ fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,57 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# אתחול ערכת הכלים
+# Initialize toolset
 toolset = ToolSet()
 
-# אתחול סוכן הקריאה לפונקציות עם הפונקציה fetch_sales_data_using_sqlite_query והוספתו לערכת הכלים
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# אתחול כלי מפרש הקוד והוספתו לערכת הכלים.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## אילו שיקולים מיוחדים קיימים בעת שימוש בתבנית העיצוב לשימוש בכלים על מנת לבנות סוכני בינה אמינים?
+## מהם השיקולים המיוחדים לשימוש בתבנית העיצוב לשימוש בכלים לבניית סוכני AI אמינים?
 
-חשש נפוץ עם SQL שנוצר דינמית על ידי LLMs הוא אבטחה, בפרט הסיכון של הזרקת SQL או פעולות זדוניות, כגון מחיקה או פגיעה במסד הנתונים. בעוד שחששות אלה תקפים, ניתן להקטין אותם באופן יעיל על ידי קביעת הרשאות גישה למסד הנתונים בצורה נכונה. עבור רוב מסדי הנתונים זה כולל קביעת הגישה כקריאה בלבד. עבור שירותי מסדי נתונים כמו PostgreSQL או Azure SQL, יש להקצות לאפליקציה תפקיד לקריאה בלבד (SELECT).
+חשש נפוץ עם SQL שנוצר דינמית על ידי LLM הוא אבטחה, במיוחד הסיכון להזרקת SQL או פעולות זדוניות כמו מחיקה או שינוי מסד הנתונים. אמנם חששות אלו נכונים, ניתן למנוע אותן ביעילות על ידי קביעת הרשאות גישה למסד הנתונים באופן נכון. ברוב בסיסי הנתונים זה כולל קביעת מסד הנתונים כקריאה בלבד. עבור שירותי מסד נתונים כגון PostgreSQL או Azure SQL, יש להקצות לאפליקציה תפקיד קריאה בלבד (SELECT).
 
-הרצת האפליקציה בסביבה מאובטחת מחזקת עוד יותר את ההגנה. בתרחישי ארגון, בדרך כלל מחלץ ומעבד נתונים ממערכות תפעוליות אל מסד נתונים לקריאה בלבד או למחסן נתונים (data warehouse) עם סכמה ידידותית למשתמש. גישה זו מבטיחה שהנתונים מאובטחים, מותאמים לביצועים ונגישים, וכי לאפליקציה יש גישה מוגבלת לקריאה בלבד.
+הפעלת האפליקציה בסביבה מאובטחת מחזקת עוד יותר את ההגנה. בתרחישים ארגוניים, המידע בדרך כלל מיוצא ומועבר ממערכות מבצעיות למסד נתונים או מחסן נתונים בקריאה בלבד עם סכימה ידידותית למשתמש. גישה זו מבטיחה שהמידע מאובטח, מותאם לביצועים ונגישות, והאפליקציה מקבלת גישה מוגבלת לקריאה בלבד.
 
 ## דוגמאות קוד
-- Python: [מסגרת סוכנים](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [מסגרת סוכנים](./code_samples/04-dotnet-agent-framework.md)
 
-## יש לכם עוד שאלות לגבי דפוסי העיצוב לשימוש בכלים?
+- פייתון: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-הצטרפו ל-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) כדי לפגוש לומדים אחרים, להשתתף בשעות קבלה ולקבל תשובות לשאלות שלכם על סוכני ה-AI.
+## יש לכם עוד שאלות לגבי תבניות עיצוב לשימוש בכלים?
+
+הצטרפו ל-[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) כדי להיפגש עם לומדים אחרים, להשתתף בשעות הפעילות ולקבל תשובות לשאלות על סוכני ה-AI שלכם.
 
 ## משאבים נוספים
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">סדנה ל-Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">סדנת רב-סוכנים של Contoso Creative Writer</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">מדריך לקריאה לפונקציות ב-Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">מפרש קוד של Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">כלי Autogen</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">סדנת שירות סוכני ה-AI של Azure</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">סדנת סוכנים מרובים של סופר יצירתי Contoso</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">סקירת מסגרת הסוכן של מיקרוסופט</a>
 
-## השיעור הקודם
+## בדיקת עשן לסוכן זה (אופציונלי)
 
-[הבנת דפוסי עיצוב סוכניים](../03-agentic-design-patterns/README.md)
+לאחר שלמדתם לפרוס סוכנים ב[שיעור 16](../16-deploying-scalable-agents/README.md), תוכלו לבצע בדיקת עשן ל`TravelToolAgent` של השיעור הזה (האם הוא עדיין קורא לכלים שלו ועונה?) עם [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). ראו [`tests/README.md`](../tests/README.md) כיצד להפעיל אותו.
+
+## שיעור קודם
+
+[הבנת דפוסי עיצוב סוכני](../03-agentic-design-patterns/README.md)
 
 ## השיעור הבא
 
-[RAG סוכני](../05-agentic-rag/README.md)
+[Agentic RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-הצהרת אי-אחריות:
-
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להביא בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפת המקור כמקור הסמכות. עבור מידע קריטי, מומלץ להיעזר בתרגום מקצועי שבוצע על ידי מתרגם אנושי. איננו נושאים באחריות עבור אי-הבנות או פרשנויות שגויות הנובעות משימוש בתרגום זה.
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

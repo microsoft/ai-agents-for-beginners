@@ -1,104 +1,107 @@
-# 🛠️ Utilizarea Avansată a Uneltelor cu Modelele GitHub (.NET)
+# 🛠️ Utilizarea avansată a uneltelor cu Azure OpenAI (Responses API) (.NET)
 
-## 📋 Obiective de Învățare
+## 📋 Obiective de învățare
 
-Acest notebook demonstrează modele de integrare a uneltelor la nivel enterprise folosind Microsoft Agent Framework în .NET cu Modelele GitHub. Vei învăța să construiești agenți sofisticați cu multiple unelte specializate, valorificând tipizarea puternică a C# și caracteristicile enterprise ale .NET.
+Acest notebook demonstrează modele de integrare a uneltelor la nivel enterprise folosind Microsoft Agent Framework în .NET cu Azure OpenAI (Responses API). Veți învăța să construiți agenți sofisticați cu multiple unelte specializate, valorificând tiparea puternică a limbajului C# și funcționalitățile enterprise ale .NET.
 
-### Capacități Avansate ale Uneltelor pe care le vei Stăpâni
+### Capacități avansate ale uneltelor pe care le veți stăpâni
 
-- 🔧 **Arhitectură Multi-Unelte**: Construirea agenților cu multiple capabilități specializate
-- 🎯 **Execuție Tip-Safe a Uneltelor**: Valorificarea validării la compilare a C#
-- 📊 **Modele de Unelte Enterprise**: Design de unelte pregătit pentru producție și gestionarea erorilor
-- 🔗 **Compoziția Uneltelor**: Combinarea uneltelor pentru fluxuri de lucru complexe de afaceri
+- 🔧 **Arhitectură multi-unealtă**: Construirea agenților cu multiple capacități specializate
+- 🎯 **Executare tip-safe a uneltelor**: Folosirea validării la compilare în C#
+- 📊 **Modele enterprise de unealtă**: Design și gestionare a erorilor gata de producție
+- 🔗 **Compoziția uneltelor**: Combinarea uneltelor pentru fluxuri de lucru complexe de business
 
-## 🎯 Beneficiile Arhitecturii Uneltelor în .NET
+## 🎯 Beneficiile arhitecturii .NET pentru unelte
 
-### Caracteristici ale Uneltelor Enterprise
+### Funcționalități enterprise ale uneltelor
 
-- **Validare la Compilare**: Tipizarea puternică asigură corectitudinea parametrilor uneltelor
-- **Injecție de Dependențe**: Integrarea containerului IoC pentru gestionarea uneltelor
-- **Modele Async/Await**: Execuție non-blocantă a uneltelor cu gestionarea corectă a resurselor
-- **Logare Structurată**: Integrare de logare încorporată pentru monitorizarea execuției uneltelor
+- **Validare la compilare**: Tipare puternice asigură corectitudinea parametrilor uneltelor
+- **Injecție de dependențe**: Integrare cu container IoC pentru gestionarea uneltelor
+- **Pattern-uri Async/Await**: Executare neblocantă a uneltelor cu gestionarea corespunzătoare a resurselor
+- **Jurnalizare structurată**: Integrare încorporată pentru monitorizarea execuției uneltelor
 
-### Modele Pregătite pentru Producție
+### Modele gata de producție
 
-- **Gestionarea Excepțiilor**: Management complet al erorilor cu excepții tipizate
-- **Gestionarea Resurselor**: Modele corecte de eliminare și gestionare a memoriei
-- **Monitorizarea Performanței**: Metrici încorporate și contoare de performanță
-- **Gestionarea Configurației**: Configurație tip-safe cu validare
+- **Gestionarea excepțiilor**: Management complet al erorilor cu excepții tipate
+- **Gestionarea resurselor**: Modele corecte de eliminare și managementul memoriei
+- **Monitorizarea performanței**: Metrici și contoare de performanță încorporate
+- **Managementul configurației**: Configurație tip-safe cu validare
 
-## 🔧 Arhitectura Tehnică
+## 🔧 Arhitectura tehnică
 
-### Componentele de Bază ale Uneltelor în .NET
+### Componentele principale ale uneltelor .NET
 
-- **Microsoft.Extensions.AI**: Strat de abstractizare unificat pentru unelte
-- **Microsoft.Agents.AI**: Orchestrare de unelte la nivel enterprise
-- **Integrarea Modelelor GitHub**: Client API de înaltă performanță cu pooling de conexiuni
+- **Microsoft.Extensions.AI**: Strat unificat de abstractizare a uneltelor
+- **Microsoft.Agents.AI**: Orchestrare la nivel enterprise a uneltelor
+- **Azure OpenAI (Responses API)**: Client API de înaltă performanță cu pooling de conexiuni
 
-### Pipeline-ul de Execuție al Uneltelor
+### Pipeline-ul de execuție al uneltelor
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Cerere utilizator] --> B[Analiza agentului]
+    B --> C[Selecția instrumentului]
+    C --> D[Validarea tipului]
+    B --> E[Legarea parametrilor]
+    E --> F[Executarea instrumentului]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Prelucrarea rezultatului]
     D --> G
-    G --> H[Response]
+    G --> H[Răspuns]
 ```
 
-## 🛠️ Categorii și Modele de Unelte
+## 🛠️ Categorii și modele de unelte
 
-### 1. **Unelte de Procesare a Datelor**
+### 1. **Unelte pentru procesarea datelor**
 
-- **Validarea Input-ului**: Tipizare puternică cu adnotări de date
-- **Operațiuni de Transformare**: Conversie și formatare a datelor tip-safe
-- **Logica de Afaceri**: Unelte de calcul și analiză specifice domeniului
-- **Formatarea Output-ului**: Generarea de răspunsuri structurate
+- **Validarea intrărilor**: Tipare puternice cu adnotări de date
+- **Operații de transformare**: Conversie și formatare de date tip-safe
+- **Logică de business**: Unelte de calcul și analiză specifice domeniului
+- **Formatarea ieșirilor**: Generarea structurată a răspunsurilor
 
-### 2. **Unelte de Integrare**
+### 2. **Unelte de integrare**
 
-- **Conectori API**: Integrare cu servicii RESTful folosind HttpClient
-- **Unelte pentru Baze de Date**: Integrare cu Entity Framework pentru accesul la date
-- **Operațiuni pe Fișiere**: Operațiuni sigure pe sistemul de fișiere cu validare
-- **Servicii Externe**: Modele de integrare cu servicii terțe
+- **Conectori API**: Integrare servicii RESTful cu HttpClient
+- **Unelte pentru baze de date**: Integrare Entity Framework pentru accesul la date
+- **Operații pe fișiere**: Operații securizate pe sistemul de fișiere cu validare
+- **Servicii externe**: Modele de integrare a serviciilor terțe
 
-### 3. **Unelte Utilitare**
+### 3. **Unelte utilitare**
 
-- **Procesarea Textului**: Utilitare pentru manipularea și formatarea șirurilor de caractere
-- **Operațiuni cu Date/Timp**: Calculații de date/timp sensibile la cultură
-- **Unelte Matematice**: Calculații de precizie și operațiuni statistice
-- **Unelte de Validare**: Validarea regulilor de afaceri și verificarea datelor
+- **Prelucrarea textului**: Utilitare pentru manipulare și formatare stringuri
+- **Operații Data/Ora**: Calculuri ce țin cont de cultură pentru date/ore
+- **Unelte matematice**: Calcule de precizie și operații statistice
+- **Unelte de validare**: Validarea regulilor de business și verificarea datelor
 
-Ești pregătit să construiești agenți la nivel enterprise cu capabilități puternice și tip-safe în .NET? Hai să arhitecturăm soluții profesionale! 🏢⚡
+Gata să construiți agenți la nivel enterprise cu capabilități puternice, tip-safe în .NET? Hai să arhitectăm soluții profesionale! 🏢⚡
 
-## 🚀 Începe
+## 🚀 Începeți
 
-### Cerințe Prealabile
+### Cerințe preliminare
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau o versiune mai recentă
-- [Token de acces API pentru Modelele GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau mai nou
+- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și o implementare de model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificați-vă cu `az login`
 
-### Variabile de Mediu Necesare
+### Variabile de mediu necesare
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+az login
 ```
 
-### Cod Exemplu
+### Cod exemplu
 
 Pentru a rula exemplul de cod,
 
@@ -108,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Sau folosind CLI-ul dotnet:
+Sau folosind dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -121,14 +124,16 @@ Vezi [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-do
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru neînțelegerile sau interpretările greșite care pot apărea din utilizarea acestei traduceri.
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

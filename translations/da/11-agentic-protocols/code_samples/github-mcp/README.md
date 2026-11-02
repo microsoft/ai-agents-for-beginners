@@ -1,36 +1,33 @@
-# Github MCP Server Eksempel
+# Github MCP Server Example
 
-## Beskrivelse
+## Description
 
-Dette er en demo, der blev skabt til AI Agents Hackathon, arrangeret af Microsoft Reactor.
+Dette var en demo oprettet til AI Agents Hackathonet afholdt gennem Microsoft Reactor.
 
-Værktøjet bruges til at anbefale hackathon-projekter baseret på en brugers Github-repos. Dette gøres ved hjælp af:
+Værktøjet bruges til at anbefale hackathonprojekter baseret på en brugers Github-repos.
+Dette gøres ved:
 
-1. **Github Agent** - Bruger Github MCP Server til at hente repos og information om disse repos.
-2. **Hackathon Agent** - Tager data fra Github Agent og udarbejder kreative hackathon-projektidéer baseret på projekterne, de anvendte programmeringssprog og projektsporene for AI Agents Hackathon.
-3. **Events Agent** - Baseret på Hackathon Agents forslag vil Events Agent anbefale relevante events fra AI Agent Hackathon-serien.
+1. **Github Agent** - Ved at bruge Github MCP Serveren til at hente repositories og information om disse repositories.
+2. **Hackathon Agent** - Tager data fra Github Agenten og finder på kreative hackathon-projektidéer baseret på projekterne, de sprog brugeren benytter, og projektsporene for AI Agents hackathonet.
+3. **Events Agent** - Baseret på Hackathon Agentens forslag anbefaler Events Agent relevante events fra AI Agent Hackathon-serien.
+## Running the code 
 
-## Kørsel af koden
+### Environment Variables
 
-### Miljøvariabler
+Denne demo bruger Microsoft Agent Framework, Azure OpenAI Service, Github MCP Serveren og Azure AI Search.
 
-Denne demo bruger Azure Open AI Service, Semantic Kernel, Github MCP Server og Azure AI Search.
-
-Sørg for, at du har de korrekte miljøvariabler sat op for at bruge disse værktøjer:
+Sørg for, at du har de korrekte miljøvariabler sat for at bruge disse værktøjer:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Kørsel af Chainlit Server
+## Running the Chainlit Server
 
-For at forbinde til MCP-serveren bruger denne demo Chainlit som en chatgrænseflade.
+For at oprette forbindelse til MCP-serveren bruger denne demo Chainlit som en chatgrænseflade. 
 
 For at køre serveren skal du bruge følgende kommando i din terminal:
 
@@ -38,33 +35,35 @@ For at køre serveren skal du bruge følgende kommando i din terminal:
 chainlit run app.py -w
 ```
 
-Dette bør starte din Chainlit-server på `localhost:8000` og samtidig udfylde din Azure AI Search Index med indholdet fra `event-descriptions.md`.
+Dette burde starte din Chainlit-server på `localhost:8000` samt udfylde din Azure AI Search Index med indholdet fra `event-descriptions.md`. 
 
-## Forbindelse til MCP Server
+## Connecting to the MCP Server
 
-For at forbinde til Github MCP Server skal du vælge "stik"-ikonet under chatboksen "Type your message here..":
+For at oprette forbindelse til Github MCP Serveren skal du vælge "stik"-ikonet under chatboksen "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/da/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![MCP-forbindelse](../../../../../translated_images/da/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Herfra kan du klikke på "Connect an MCP" for at tilføje kommandoen til at forbinde til Github MCP Server:
+Derfra kan du klikke på "Connect an MCP" for at tilføje kommandoen til at forbinde til Github MCP Serveren:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Erstat "[YOUR PERSONAL ACCESS TOKEN]" med din faktiske personlige adgangstoken.
+Erstat "[YOUR PERSONAL ACCESS TOKEN]" med dit faktiske Personal Access Token. 
 
-Efter tilslutning bør du se et (1) ved siden af stik-ikonet for at bekræfte, at forbindelsen er oprettet. Hvis ikke, prøv at genstarte Chainlit-serveren med `chainlit run app.py -w`.
+Efter tilslutning bør du se et (1) ved siden af stik-ikonet for at bekræfte, at det er forbundet. Hvis ikke, så prøv at genstarte chainlit-serveren med `chainlit run app.py -w`.
 
-## Brug af demoen
+## Using the Demo 
 
-For at starte agentarbejdsgangen med at anbefale hackathon-projekter kan du skrive en besked som:
+For at starte agentworkflowet med at anbefale hackathonprojekter kan du skrive en besked som for eksempel: 
 
-"Anbefal hackathon-projekter til Github-brugeren koreyspace"
+"Anbefal hackathonprojekter for Github-brugeren koreyspace"
 
-Router Agent vil analysere din forespørgsel og afgøre, hvilken kombination af agenter (GitHub, Hackathon og Events) der bedst kan håndtere din forespørgsel. Agenterne arbejder sammen for at levere omfattende anbefalinger baseret på analyse af Github-repositories, projektidéer og relevante teknologibegivenheder.
+Router Agenten vil analysere din forespørgsel og afgøre, hvilken kombination af agenter (GitHub, Hackathon og Events) der er bedst egnet til at håndtere din forespørgsel. Agentene arbejder sammen for at give omfattende anbefalinger baseret på analyse af GitHub-repositories, idéudvikling til projekter og relevante teknologiske events.
 
 ---
 
-**Ansvarsfraskrivelse**:  
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os ikke ansvar for eventuelle misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Ansvarsfraskrivelse:
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten Co-op Translator (https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, bedes du være opmærksom på, at automatiske oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på originalsproget bør betragtes som den autoritative kilde. For kritiske oplysninger anbefales en professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der måtte opstå ved brug af denne oversættelse.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

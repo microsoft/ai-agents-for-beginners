@@ -1,32 +1,32 @@
-# 🔍 Azure AI Foundry ile Kurumsal RAG (.NET)
+# 🔍 Microsoft Foundry (.NET) ile Kurumsal RAG
 
 ## 📋 Öğrenme Hedefleri
 
-Bu not defteri, Microsoft Agent Framework'ü .NET ile kullanarak kurumsal düzeyde Geri Alımlı Üretim (RAG) sistemleri oluşturmayı gösterir. Belgeler arasında arama yapabilen ve kurumsal güvenlik ve ölçeklenebilirlik ile doğru, bağlama duyarlı yanıtlar sağlayabilen üretime hazır ajanlar oluşturmayı öğreneceksiniz.
+Bu not defteri, Microsoft Foundry ile .NET'te Microsoft Agent Framework kullanarak kurumsal düzeyde Retrieval-Augmented Generation (RAG) sistemlerinin nasıl oluşturulacağını göstermektedir. Üretim hazır ajanlar oluşturmayı öğreneceksiniz; bu ajanlar belgelerde arama yapabilir ve kurumsal güvenlik ve ölçeklenebilirlikle doğru, bağlama duyarlı yanıtlar sağlayabilir.
 
 **Oluşturacağınız Kurumsal RAG Özellikleri:**
-- 📚 **Belge Zekası**: Azure AI hizmetleri ile gelişmiş belge işleme
-- 🔍 **Semantik Arama**: Kurumsal özelliklere sahip yüksek performanslı vektör arama
+- 📚 **Belge Zekası**: Azure AI servisleriyle gelişmiş belge işleme
+- 🔍 **Anlamsal Arama**: Kurumsal özelliklerle yüksek performanslı vektör araması
 - 🛡️ **Güvenlik Entegrasyonu**: Rol tabanlı erişim ve veri koruma desenleri
-- 🏢 **Ölçeklenebilir Mimari**: İzleme ile üretime hazır RAG sistemleri
+- 🏢 **Ölçeklenebilir Mimari**: İzlemeli üretim hazır RAG sistemleri
 
 ## 🎯 Kurumsal RAG Mimarisi
 
 ### Temel Kurumsal Bileşenler
-- **Azure AI Foundry**: Güvenlik ve uyumluluk ile yönetilen kurumsal AI platformu
-- **Kalıcı Ajanlar**: Konuşma geçmişi ve bağlam yönetimi ile durum bilgisi olan ajanlar
-- **Vektör Deposu Yönetimi**: Kurumsal düzeyde belge indeksleme ve alma
-- **Kimlik Entegrasyonu**: Azure AD kimlik doğrulama ve rol tabanlı erişim kontrolü
+- **Microsoft Foundry**: Güvenlik ve uyumluluk ile yönetilen kurumsal AI platformu
+- **Kalıcı Ajanlar**: Konuşma geçmişi ve bağlam yönetimine sahip durumlu ajanlar
+- **Vektör Deposu Yönetimi**: Kurumsal düzeyde belge indeksleme ve erişim
+- **Kimlik Entegrasyonu**: Azure AD kimlik doğrulaması ve rol tabanlı erişim kontrolü
 
 ### .NET Kurumsal Avantajları
-- **Tip Güvenliği**: RAG işlemleri ve veri yapıları için derleme zamanı doğrulama
-- **Asenkron Performans**: Bloklama yapmayan belge işleme ve arama işlemleri
+- **Tip Güvenliği**: RAG işlemleri ve veri yapıları için derleme zamanı doğrulaması
+- **Async Performans**: Engellemeyen belge işleme ve arama işlemleri
 - **Bellek Yönetimi**: Büyük belge koleksiyonları için verimli kaynak kullanımı
-- **Entegrasyon Desenleri**: Bağımlılık enjeksiyonu ile yerel Azure hizmet entegrasyonu
+- **Entegrasyon Desenleri**: Bağımlılık enjeksiyonlu yerel Azure servis entegrasyonu
 
 ## 🏗️ Teknik Mimari
 
-### Kurumsal RAG Boru Hattı
+### Kurumsal RAG İş Akışı
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
@@ -34,37 +34,37 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Temel .NET Bileşenleri
-- **Azure.AI.Agents.Persistent**: Durum kalıcılığı ile kurumsal ajan yönetimi
-- **Azure.Identity**: Güvenli Azure hizmet erişimi için entegre kimlik doğrulama
-- **Microsoft.Agents.AI.AzureAI**: Azure'a optimize edilmiş ajan çerçeve uygulaması
+- **Azure.AI.Agents.Persistent**: Durum kalıcılığıyla kurumsal ajan yönetimi
+- **Azure.Identity**: Güvenli Azure servis erişimi için entegre kimlik doğrulama
+- **Microsoft.Agents.AI.AzureAI**: Azure'a optimize edilmiş ajan çerçevesi uygulaması
 - **System.Linq.Async**: Yüksek performanslı asenkron LINQ işlemleri
 
-## 🔧 Kurumsal Özellikler ve Avantajlar
+## 🔧 Kurumsal Özellikler & Avantajlar
 
-### Güvenlik ve Uyumluluk
+### Güvenlik & Uyumluluk
 - **Azure AD Entegrasyonu**: Kurumsal kimlik yönetimi ve kimlik doğrulama
-- **Rol Tabanlı Erişim**: Belge erişimi ve işlemleri için ince ayarlı izinler
-- **Veri Koruma**: Hassas belgeler için dinlenme ve aktarım sırasında şifreleme
-- **Denetim Günlüğü**: Uyumluluk gereksinimleri için kapsamlı etkinlik takibi
+- **Rol Tabanlı Erişim**: Belge erişimi ve işlemler için ince detaylı izinler
+- **Veri Koruma**: Hassas belgeler için dinamik ve beklemede şifreleme
+- **Denetim Kaydı**: Uyumluluk gereksinimleri için kapsamlı etkinlik takibi
 
-### Performans ve Ölçeklenebilirlik
-- **Bağlantı Havuzu**: Verimli Azure hizmet bağlantı yönetimi
-- **Asenkron İşleme**: Yüksek verim senaryoları için bloklama yapmayan işlemler
-- **Önbellek Stratejileri**: Sık erişilen belgeler için akıllı önbellekleme
-- **Yük Dengeleme**: Büyük ölçekli dağıtımlar için dağıtılmış işleme
+### Performans & Ölçeklenebilirlik
+- **Bağlantı Havuzu**: Verimli Azure servis bağlantısı yönetimi
+- **Asenkron İşleme**: Yüksek verimli senaryolar için engellemeyen işlemler
+- **Önbellekleme Stratejileri**: Sık erişilen belgeler için akıllı önbellekleme
+- **Yük Dengeleme**: Büyük ölçekli dağıtımlar için dağıtık işlem
 
-### Yönetim ve İzleme
+### Yönetim & İzleme
 - **Sağlık Kontrolleri**: RAG sistem bileşenleri için yerleşik izleme
-- **Performans Metrikleri**: Arama kalitesi ve yanıt süreleri hakkında ayrıntılı analiz
-- **Hata Yönetimi**: Yeniden deneme politikaları ile kapsamlı istisna yönetimi
-- **Yapılandırma Yönetimi**: Doğrulama ile ortam spesifik ayarlar
+- **Performans Ölçümleri**: Arama kalitesi ve yanıt sürelerine detaylı analizler
+- **Hata Yönetimi**: Tekrar deneme politikaları ile kapsamlı istisna yönetimi
+- **Konfigürasyon Yönetimi**: Doğrulamalı ortam bazlı ayarlar
 
-## ⚙️ Ön Koşullar ve Kurulum
+## ⚙️ Ön Gereksinimler & Kurulum
 
 **Geliştirme Ortamı:**
-- .NET 9.0 SDK veya üstü
+- .NET 9.0 SDK veya üzeri
 - Visual Studio 2022 veya C# uzantılı VS Code
-- Azure AI Foundry erişimi olan Azure aboneliği
+- Microsoft Foundry erişimi olan Azure aboneliği
 
 **Gerekli NuGet Paketleri:**
 ```xml
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Azure Kimlik Doğrulama Ayarı:**
+**Azure Kimlik Doğrulaması Kurulumu:**
 ```bash
-# Install Azure CLI and authenticate
+# Azure CLI'yi yükleyin ve kimlik doğrulaması yapın
 az login
 az account set --subscription "your-subscription-id"
 ```
 
-**Ortam Yapılandırması:**
-* Azure AI Foundry yapılandırması (Azure CLI aracılığıyla otomatik olarak işlenir)
-* Doğru Azure aboneliğine kimlik doğrulaması yapıldığından emin olun
+**Ortam Konfigürasyonu:**
+* Microsoft Foundry yapılandırması (Azure CLI ile otomatik yönetilir)
+* Doğru Azure aboneliğine kimlik doğruladığınızdan emin olun
 
 ## 📊 Kurumsal RAG Desenleri
 
 ### Belge Yönetimi Desenleri
 - **Toplu Yükleme**: Büyük belge koleksiyonlarının verimli işlenmesi
-- **Artımlı Güncellemeler**: Gerçek zamanlı belge ekleme ve değiştirme
-- **Sürüm Kontrolü**: Belge sürümlendirme ve değişiklik takibi
-- **Meta Veri Yönetimi**: Zengin belge öznitelikleri ve taksonomi
+- **Artımlı Güncellemeler**: Gerçek zamanlı belge ekleme ve değişiklikler
+- **Sürüm Kontrolü**: Belge sürümlendirme ve değişim takibi
+- **Meta Veri Yönetimi**: Zengin belge özellikleri ve taksonomi
 
-### Arama ve Alma Desenleri
-- **Hibrit Arama**: Optimal sonuçlar için semantik ve anahtar kelime aramasını birleştirme
-- **Fasetsel Arama**: Çok boyutlu filtreleme ve kategorilendirme
-- **Alaka Ayarı**: Alan spesifik ihtiyaçlar için özel puanlama algoritmaları
-- **Sonuç Sıralama**: İş mantığı entegrasyonu ile gelişmiş sıralama
+### Arama & Erişim Desenleri
+- **Hibrit Arama**: Optimal sonuçlar için anlamsal ve anahtar kelime aramasının birleşimi
+- **Faceted Arama**: Çok boyutlu filtreleme ve kategorilendirme
+- **Alaka Ayarı**: Alan bazlı özel puanlama algoritmaları
+- **Sonuç Sıralama**: İş mantığı entegrasyonlu gelişmiş sıralama
 
 ### Güvenlik Desenleri
-- **Belge Düzeyinde Güvenlik**: Her belge için ince ayarlı erişim kontrolü
+- **Belge Düzeyi Güvenlik**: Belge başına ince ayrıntılı erişim kontrolü
 - **Veri Sınıflandırması**: Otomatik hassasiyet etiketleme ve koruma
-- **Denetim İzleri**: Tüm RAG işlemlerinin kapsamlı günlüğü
-- **Gizlilik Koruması**: Kişisel Bilgi Tespiti ve sansürleme yetenekleri
+- **Denetim İzleri**: Tüm RAG işlemlerinin kapsamlı kaydı
+- **Gizlilik Koruması**: Kişisel kimlik bilgisi tespiti ve sansürleme yetenekleri
 
 ## 🔒 Kurumsal Güvenlik Özellikleri
 
-### Kimlik Doğrulama ve Yetkilendirme
+### Kimlik Doğrulama & Yetkilendirme
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -125,7 +125,7 @@ if (!await ValidateUserPermissions(user, documentId))
 - **Şifreleme**: Belgeler ve arama indeksleri için uçtan uca şifreleme
 - **Erişim Kontrolleri**: Kullanıcı ve grup izinleri için Azure AD entegrasyonu
 - **Veri Yerleşimi**: Uyumluluk için coğrafi veri konumu kontrolleri
-- **Yedekleme ve Kurtarma**: Otomatik yedekleme ve felaket kurtarma yetenekleri
+- **Yedekleme & Kurtarma**: Otomatik yedekleme ve felaket kurtarma yetenekleri
 
 ## 📈 Performans Optimizasyonu
 
@@ -139,83 +139,85 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Bellek Yönetimi
-- **Akış İşleme**: Büyük belgeleri bellek sorunları olmadan işleme
+- **Akış İşleme**: Bellek sorunları olmadan büyük belgelerin işlenmesi
 - **Kaynak Havuzu**: Pahalı kaynakların verimli yeniden kullanımı
 - **Çöp Toplama**: Optimize edilmiş bellek tahsis desenleri
-- **Bağlantı Yönetimi**: Doğru Azure hizmet bağlantı yaşam döngüsü
+- **Bağlantı Yönetimi**: Doğru Azure servis bağlantı yaşam döngüsü
 
-### Önbellek Stratejileri
-- **Sorgu Önbelleği**: Sıkça yapılan aramaları önbelleğe alma
-- **Belge Önbelleği**: Sık kullanılan belgeler için bellek içi önbellekleme
-- **İndeks Önbelleği**: Optimize edilmiş vektör indeks önbellekleme
-- **Sonuç Önbelleği**: Üretilen yanıtların akıllı önbelleklemesi
+### Önbellekleme Stratejileri
+- **Sorgu Önbellekleme**: Sık yürütülen aramaları önbelleğe alma
+- **Belge Önbellekleme**: "Sıcak" belgeler için bellek içi önbellekleme
+- **İndeks Önbellekleme**: Optimize edilmiş vektör indeks önbellekleme
+- **Sonuç Önbellekleme**: Üretilen yanıtların akıllı önbelleklemesi
 
 ## 📊 Kurumsal Kullanım Senaryoları
 
 ### Bilgi Yönetimi
 - **Kurumsal Wiki**: Şirket bilgi tabanlarında akıllı arama
-- **Politika ve Prosedürler**: Otomatik uyumluluk ve prosedür rehberliği
-- **Eğitim Materyalleri**: Akıllı öğrenme ve geliştirme yardımı
+- **Politika & Prosedürler**: Otomatik uyumluluk ve prosedür rehberliği
+- **Eğitim Materyalleri**: Akıllı öğrenme ve geliştirme desteği
 - **Araştırma Veritabanları**: Akademik ve araştırma makalesi analiz sistemleri
 
 ### Müşteri Desteği
 - **Destek Bilgi Tabanı**: Otomatik müşteri hizmetleri yanıtları
-- **Ürün Belgeleri**: Akıllı ürün bilgisi alma
-- **Sorun Giderme Kılavuzları**: Bağlama duyarlı problem çözme yardımı
+- **Ürün Dokümantasyonu**: Akıllı ürün bilgi alma
+- **Sorun Giderme Kılavuzları**: Bağlamsal sorun çözme yardımı
 - **SSS Sistemleri**: Belge koleksiyonlarından dinamik SSS oluşturma
 
 ### Düzenleyici Uyumluluk
 - **Hukuki Belge Analizi**: Sözleşme ve hukuki belge zekası
 - **Uyumluluk İzleme**: Otomatik düzenleyici uyumluluk kontrolü
-- **Risk Değerlendirme**: Belge tabanlı risk analizi ve raporlama
+- **Risk Değerlendirmesi**: Belge tabanlı risk analizi ve raporlama
 - **Denetim Desteği**: Denetimler için akıllı belge keşfi
 
 ## 🚀 Üretim Dağıtımı
 
-### İzleme ve Görünürlük
-- **Application Insights**: Ayrıntılı telemetri ve performans izleme
-- **Özel Metrikler**: İşe özel KPI takibi ve uyarılar
-- **Dağıtılmış İzleme**: Hizmetler arasında uçtan uca istek takibi
-- **Sağlık Panoları**: Gerçek zamanlı sistem sağlığı ve performans görselleştirme
+### İzleme & Gözlemlenebilirlik
+- **Application Insights**: Detaylı telemetri ve performans izleme
+- **Özel Ölçümler**: İşe özel KPI izleme ve uyarılar
+- **Dağıtık İzleme**: Hizmetler arası uçtan uca istek takibi
+- **Sağlık Panelleri**: Gerçek zamanlı sistem sağlık ve performans görselleştirme
 
-### Ölçeklenebilirlik ve Güvenilirlik
-- **Otomatik Ölçeklendirme**: Yük ve performans metriklerine dayalı otomatik ölçeklendirme
-- **Yüksek Erişilebilirlik**: Çok bölgeli dağıtım ve hata toleransı
-- **Yük Testi**: Kurumsal yük koşulları altında performans doğrulama
+### Ölçeklenebilirlik & Güvenilirlik
+- **Otomatik Ölçeklendirme**: Yük ve performans metriklerine göre otomatik ölçeklendirme
+- **Yüksek Erişilebilirlik**: Hata geçiş özellikli çok bölge dağıtımı
+- **Yük Testi**: Kurumsal yük koşullarında performans doğrulaması
 - **Felaket Kurtarma**: Otomatik yedekleme ve kurtarma prosedürleri
 
-Hassas belgeleri ölçekli olarak işleyebilecek kurumsal düzeyde RAG sistemleri oluşturmaya hazır mısınız? Haydi, kurumsal için akıllı bilgi sistemleri tasarlayalım! 🏢📖✨
+Hassas belgeleri ölçekle yönetebilen kurumsal sınıf RAG sistemleri oluşturmaya hazır mısınız? Haydi kurumsal için akıllı bilgi sistemleri tasarlayalım! 🏢📖✨
 
 ## Kod Uygulaması
 
-Bu ders için tam çalışan kod örneği `05-dotnet-agent-framework.cs` dosyasında mevcuttur.
+Bu ders için tam işleyen kod örneği `05-dotnet-agent-framework.cs` dosyasında mevcuttur. 
 
 Örneği çalıştırmak için:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Betiği çalıştırılabilir yap (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# .NET Tek Dosya Uygulamasını çalıştır
 ./05-dotnet-agent-framework.cs
 ```
 
-Ya da doğrudan `dotnet run` kullanın:
+Veya doğrudan `dotnet run` kullanabilirsiniz:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
 ```
 
-Kod şunları gösterir:
+Kod şunları göstermektedir:
 
-1. **Paket Kurulumu**: Azure AI Agents için gerekli NuGet paketlerini yükleme
-2. **Ortam Yapılandırması**: Azure AI Foundry uç noktası ve model ayarlarını yükleme
-3. **Belge Yükleme**: RAG işleme için bir belge yükleme
-4. **Vektör Deposu Oluşturma**: Semantik arama için bir vektör deposu oluşturma
-5. **Ajan Yapılandırması**: Dosya arama yetenekleri ile bir AI ajanı kurma
-6. **Sorgu Yürütme**: Yüklenen belgeye karşı sorgular çalıştırma
+1. **Paket Kurulumu**: Azure AI Ajanları için gerekli NuGet paketlerini kurma
+2. **Ortam Yapılandırması**: Microsoft Foundry uç noktası ve model ayarlarını yükleme
+3. **Belge Yükleme**: RAG işleme için belge yükleme
+4. **Vektör Deposu Oluşturma**: Anlamsal arama için vektör deposu oluşturma
+5. **Ajan Yapılandırması**: Dosya arama yetenekleriyle AI ajanı kurma
+6. **Sorgu Çalıştırma**: Yüklenen belgeler üzerinde sorgular çalıştırma
 
 ---
 
-**Feragatname**:  
-Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul etmiyoruz.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Feragatname**:
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalardan veya yanlış yorumlamalardan sorumlu değiliz.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

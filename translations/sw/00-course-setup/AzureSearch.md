@@ -1,89 +1,108 @@
-# Mwongozo wa Kuweka Azure AI Search
+# Mwongozo wa Kuanzisha Azure AI Search
 
-Mwongozo huu utakusaidia kuweka Azure AI Search kwa kutumia Azure portal. Fuata hatua zilizo hapa chini kuunda na kusanidi huduma yako ya Azure AI Search.
+Mwongozo huu utakusaidia kuanzisha Azure AI Search ukitumia Azure portal. Fuata hatua zilizo hapa chini kuunda na kusanidi huduma yako ya Azure AI Search.
 
 ## Mahitaji ya Awali
 
-Kabla ya kuanza, hakikisha unayo yafuatayo:
+Kabla hujaanza, hakikisha una yafuatayo:
 
-- Usajili wa Azure. Ikiwa huna usajili wa Azure, unaweza kuunda akaunti ya bure kwenye [Akaunti ya Bure ya Azure](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Usajili wa Azure. Ikiwa huna usajili wa Azure, unaweza kuunda akaunti ya bure katika [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Hatua ya 1: Unda Akaunti ya Hifadhi ya Azure
 
-1. Fuata maelekezo haya, [Unda akaunti ya hifadhi ya Azure](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), kuunda Akaunti mpya ya Hifadhi ya Azure.
+1. Fuata maelekezo haya, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), kuunda Akaunti mpya ya Hifadhi ya Azure.
    **NOTE**: Hakikisha aina ya Akaunti ya Hifadhi ni Standard General Purpose V2.
 
 ## Hatua ya 2: Unda Huduma ya Azure AI Search
 
 1. Ingia kwenye [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. Katika paneli ya urambazaji upande wa kushoto, bonyeza **Create a resource**.
-3. Katika kisanduku cha utafutaji, andika "Azure AI Search" na uchague **Azure AI Search** kutoka kwenye orodha ya matokeo.
-4. Bonyeza kitufe cha **Create**.
-5. Katika kichupo cha **Basics**, toa maelezo yafuatayo:
+2. Katika sehemu ya urambazaji upande wa kushoto, bofya **Create a resource**.
+3. Katika kisanduku cha utafutaji, andika "Azure AI Search" na chagua **Azure AI Search** kutoka kwenye orodha ya matokeo.
+4. Bofya kitufe cha **Create**.
+5. Katika kichupo cha **Basics**, toa taarifa zifuatazo:
    - **Subscription**: Chagua usajili wako wa Azure.
-   - **Resource group**: Unda kikundi kipya cha rasilimali au chagua kilichopo.
-   - **Resource name**: Weka jina la kipekee kwa huduma yako ya utafutaji.
-   - **Region**: Chagua eneo lililo karibu na watumiaji wako.
-   - **Pricing tier**: Chagua kiwango cha bei kinachokidhi mahitaji yako. Unaweza kuanza na kiwango cha Bure kwa majaribio.
-6. Bonyeza **Review + create**.
-7. Kagua mipangilio na bonyeza **Create** kuunda huduma ya utafutaji.
+   - **Resource group**: Unda kundi la rasilimali jipya au chagua lililopo.
+   - **Resource name**: Ingiza jina la kipekee kwa huduma yako ya utafutaji.
+   - **Region**: Chagua eneo lililo karibu zaidi na watumiaji wako.
+   - **Pricing tier**: Chagua kiwango cha bei kinachokufaa mahitaji yako. Unaweza kuanza na kiwango cha Bure kwa majaribio.
+6. Bofya **Review + create**.
+7. Pitia mipangilio na bofya **Create** kuunda huduma ya utafutaji.
 
-## Hatua ya 3: Anza na Azure AI Search
+## Hatua ya 3: Anza Kutumia Azure AI Search
 
-1. Mara baada ya usanidi kukamilika, nenda kwenye huduma yako ya utafutaji katika Azure portal.
-2. Katika paneli ya muhtasari wa huduma ya utafutaji, nakili URL. Inapaswa kuonekana kama `https://<service-name>.search.windows.net`.
-3. Katika Settings > Keys, nakili funguo ya maswali.
-4. Fuata hatua kwenye ukurasa wa [Mwongozo wa Haraka](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) kuunda faharasa, kupakia data, na kufanya maswali ya utafutaji.
+1. Mara mchakato wa utekelezaji ukimalizika, nenda kwenye huduma yako ya utafutaji katika Azure portal.
+2. Katika sehemu ya muhtasari wa huduma ya utafutaji, nakili URL. Inapaswa kuonekana kama `https://<service-name>.search.windows.net`.
+3. **(Inapendekezwa)** Wezesha ufikiaji bila kitufe ukitumia Microsoft Entra ID (RBAC) kama ilivyoonyeshwa katika Hatua ya 4 hapa chini — hakuna kitufe kinachohitajika. Sampuli katika mwongozo huu huunda/hujenga upya viashiria na kupakia hati, ambavyo vinahitaji majukumu ya **Search Service Contributor** na **Search Index Data Contributor** (au, kwa uthibitishaji wa kitufe, **kitufe kikuu cha msimamizi** — si kitufe cha kuuliza). Ikiwa hutaweza kutumia RBAC, fungua pane ya **Settings > Keys** na nakili **kitufe kikuu cha msimamizi**.
+4. Fuata hatua katika ukurasa wa [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) kuunda kiashiria, kupakia data, na kufanya utafutaji.
 
 ## Hatua ya 4: Tumia Zana za Azure AI Search
 
-Azure AI Search inaunganishwa na zana mbalimbali ili kuboresha uwezo wako wa utafutaji. Unaweza kutumia Azure CLI, Python SDK, .NET SDK na zana nyingine kwa usanidi wa hali ya juu na operesheni.
+Azure AI Search inaunganisha na zana mbalimbali ili kuongeza uwezo wa utafutaji wako. Unaweza kutumia Azure CLI, Python SDK, .NET SDK na zana nyingine kwa usanidi na shughuli za hali ya juu.
 
 ### Kutumia Azure CLI
 
-1. Sakinisha Azure CLI kwa kufuata maelekezo kwenye [Sakinisha Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. Sakinisha Azure CLI kwa kufuata maelekezo katika [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Ingia kwenye Azure CLI kwa kutumia amri:
 
    ```bash
    az login
    ```
-
-3. Hifadhi endpoint na API key ya Azure AI Search kwenye vigezo vya mazingira.
+3. **(Inapendekezwa) Wezesha ufikiaji bila kitufe ukitumia Microsoft Entra ID (RBAC):**
 
     ```bash
-    # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    ```powershell
-    # PowerShell
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+    Kwa RBAC kuwezeshwa, sampuli za Python na .NET SDK hapa chini huingia kwa `DefaultAzureCredential`, ambayo hutumia kikao chako cha `az login` wakati wa maendeleo ya ndani — hakuna kitufe cha msimamizi kinachohitajika. Angalia [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+4. **(Kama mbadala) Uthibitishaji unaotegemea kitufe** — ni kwamba tu kama huwezi kutumia RBAC, hifadhi pia kitufe cha msimamizi:
+
+#### Hifadhi mwisho wa huduma na kitufe cha API kwa kifurushi cha Azure AI Search kwenye mabadiliko ya mazingira.
+
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Kutumia Python SDK
 
-1. Sakinisha maktaba ya mteja ya Azure Cognitive Search kwa Python:
+1. Sakinisha maktaba ya mteja wa Azure Cognitive Search na Azure Identity kwa Python:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. Tumia msimbo wa Python ufuatao kuunda faharasa na kupakia nyaraka:
+2. Tumia msimbo wa Python ufuatao kuunda kiashiria na kupakia hati:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -107,28 +126,36 @@ Azure AI Search inaunganishwa na zana mbalimbali ili kuboresha uwezo wako wa uta
 
 ### Kutumia .NET SDK
 
-1. Endesha amri ifuatayo kuunda faharasa na kupakia nyaraka:
+1. Endesha amri ifuatayo kuunda kiashiria na kupakia hati:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-2. Huu hapa ni msimbo wa .NET wa `AzureSearch.cs`:
+    Sampuli ya .NET hapa chini hutumia `DefaultAzureCredential`, ambayo inaweza kutumia kuingia kwa Azure CLI yako kutoka `az login` wakati wa maendeleo ya ndani.
+
+2. Huu ni msimbo wa .NET wa `AzureSearch.cs`:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -154,19 +181,21 @@ Azure AI Search inaunganishwa na zana mbalimbali ili kuboresha uwezo wako wa uta
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-Kwa maelezo zaidi, rejelea nyaraka zifuatazo:
+Kwa maelezo ya kina, rejea nyaraka zifuatazo:
 
-- [Unda huduma ya Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Anza na Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Zana za Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Hitimisho
 
-Umefanikiwa kuweka Azure AI Search kwa kutumia Azure portal na zana zilizounganishwa. Sasa unaweza kuchunguza vipengele vya hali ya juu na uwezo wa Azure AI Search ili kuboresha suluhisho zako za utafutaji.
+Umefanikiwa kuanzisha Azure AI Search ukitumia Azure portal na zana zilizojumuishwa. Sasa unaweza kuchunguza vipengele na uwezo wa hali ya juu wa Azure AI Search ili kuimarisha suluhisho zako za utafutaji.
 
-Kwa msaada zaidi, tembelea [Nyaraka za Azure Cognitive Search](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+Kwa msaada zaidi, tembelea [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

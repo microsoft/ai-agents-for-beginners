@@ -1,83 +1,89 @@
-# AI agenti v produkci: pozorovatelnost a hodnocení
+# AI Agent v Produkci: Sledovatelnost a Hodnocení
 
-[![AI agenti v produkci](../../../translated_images/cs/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/cs/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Jak se AI agenti přesouvají z experimentálních prototypů do reálných aplikací, schopnost porozumět jejich chování, sledovat jejich výkon a systematicky hodnotit jejich výstupy se stává důležitou.
+Jak se AI agenti posouvají od experimentálních prototypů k reálným aplikacím, stává se důležitou schopnost pochopit jejich chování, sledovat jejich výkon a systematicky hodnotit jejich výstupy.
 
 ## Cíle učení
 
-Po dokončení této lekce budete umět/porozumíte:
-- Základním konceptům pozorovatelnosti a hodnocení agentů
-- Technikám pro zlepšení výkonu, nákladů a efektivity agentů
-- Co a jak systematicky hodnotit u vašich AI agentů
-- Jak kontrolovat náklady při nasazování AI agentů do produkce
-- Jak instrumentovat agenty postavené s AutoGen
+Po dokončení této lekce budete vědět, jak/rozumět:
+- Základní pojmy sledovatelnosti a hodnocení agentů
+- Techniky pro zlepšení výkonu, nákladů a efektivity agentů
+- Co a jak systematicky hodnotit své AI agenty
+- Jak kontrolovat náklady při nasazení AI agentů do produkce
+- Jak instrumentovat agenty vytvořené pomocí Microsoft Agent Frameworku
 
-Cílem je vybavit vás znalostmi, které přemění vaše „černé skříňky“ agentů na transparentní, spravovatelné a spolehlivé systémy.
+Cílem je vybavit vás znalostmi, které přemění vaše "černé skříňky" agentů na průhledné, spravovatelné a spolehlivé systémy.
 
-_**Poznámka:** Je důležité nasazovat AI agenty, kteří jsou bezpeční a důvěryhodní. Podívejte se také na lekci [Budování důvěryhodných AI agentů](./06-building-trustworthy-agents/README.md)._
+_**Poznámka:** Je důležité nasadit AI agenty, kteří jsou bezpeční a důvěryhodní. Podívejte se také na lekci [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
-## Sledy a úseky
+## Sledy a rozmezí
 
-Nástroje pro pozorovatelnost, jako je [Langfuse](https://langfuse.com/) nebo [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), obvykle reprezentují běhy agenta jako sledy a úseky.
+Nástroje pro sledovatelnost, jako jsou [Langfuse](https://langfuse.com/) nebo [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), obvykle zobrazují běhy agentů jako stopy a rozmezí.
 
-- **Sled** představuje kompletní úkol agenta od začátku do konce (např. zpracování uživatelského dotazu).
-- **Úseky** jsou jednotlivé kroky uvnitř sledu (např. volání jazykového modelu nebo získávání dat).
+- **Stopa (Trace)** představuje kompletní úkol agenta od začátku do konce (například zpracování uživatelského dotazu).
+- **Rozmezí (Spans)** jsou jednotlivé kroky uvnitř stopy (například volání jazykového modelu nebo získávání dat).
 
 ![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-Bez pozorovatelnosti může AI agent působit jako „černá skříňka“ – jeho vnitřní stav a uvažování jsou neprůhledné, což ztěžuje diagnostiku problémů nebo optimalizaci výkonu. S pozorovatelností se agenti stávají „skleněnými skříňkami“, které nabízejí transparentnost nezbytnou pro budování důvěry a zajištění, že fungují podle očekávání.
+Bez sledovatelnosti může AI agent působit jako "černá skříňka" – jeho vnitřní stav a uvažování jsou neprůhledné, což ztěžuje diagnostiku problémů nebo optimalizaci výkonu. Se sledovatelností se agenti stávají "skleněnými skříňkami", nabízející průhlednost, která je zásadní pro budování důvěry a zajištění, že fungují podle očekávání.
 
-## Proč je pozorovatelnost důležitá v produkčním prostředí
+## Proč je sledovatelnost důležitá v produkčním prostředí
 
-Přechod AI agentů do produkčního prostředí přináší novou sadu výzev a požadavků. Pozorovatelnost už není jen „příjemným doplňkem“, ale kritickou schopností:
+Přechod AI agentů do produkčního prostředí přináší novou sadu výzev a požadavků. Sledovatelnost už není pouhým „hezkým doplňkem“, ale kritickou schopností:
 
-*   **Ladění a analýza kořenové příčiny:** Když agent selže nebo vygeneruje neočekávaný výstup, nástroje pro pozorovatelnost poskytují sledy potřebné k určení zdroje chyby. To je obzvlášť důležité u složitých agentů, které mohou zahrnovat více volání LLM, interakcí s nástroji a podmíněné logiky.
-*   **Řízení latence a nákladů:** AI agenti často spoléhají na LLM a jiné externí API, které jsou účtovány za token nebo za volání. Pozorovatelnost umožňuje přesné sledování těchto volání a pomáhá identifikovat operace, které jsou nadměrně pomalé nebo drahé. To umožňuje týmům optimalizovat promptování, vybrat efektivnější modely nebo přepracovat pracovní postupy tak, aby lépe řídily provozní náklady a zajistily dobrý uživatelský zážitek.
-*   **Důvěra, bezpečnost a shoda:** V mnoha aplikacích je důležité zajistit, aby se agenti chovali bezpečně a eticky. Pozorovatelnost poskytuje auditní stopu akcí a rozhodnutí agenta. To lze využít k detekci a zmírnění problémů, jako je prompt injection, generování škodlivého obsahu nebo nesprávné nakládání s osobně identifikovatelnými údaji (PII). Například můžete zkontrolovat sledy, abyste pochopili, proč agent poskytl určitou odpověď nebo použil konkrétní nástroj.
-*   **Cykly kontinuálního zlepšování:** Data z pozorovatelnosti jsou základem iterativního vývojového procesu. Monitorováním toho, jak si agenti vedou v reálném světě, mohou týmy identifikovat oblasti pro zlepšení, sbírat data pro doladění modelů a ověřovat dopad změn. To vytváří zpětnou vazbu, kde produkční poznatky z online hodnocení informují offline experimentování a zdokonalování, což vede k postupně lepším výkonům agentů.
+*   **Ladění a analýza příčin chyb:** Když agent selže nebo vygeneruje neočekávaný výstup, nástroje pro sledovatelnost poskytují stopy potřebné k lokalizaci zdroje chyby. To je zvláště důležité u komplexních agentů, kteří mohou zahrnovat více volání LLM, interakce s nástroji a podmíněnou logiku.
+*   **Řízení latence a nákladů:** AI agenti často využívají LLM a další externí API, která jsou účtována za token nebo volání. Sledovatelnost umožňuje přesné sledování těchto volání, pomáhá identifikovat operace, které jsou příliš pomalé nebo drahé. To umožňuje týmům optimalizovat promptování, vybrat efektivnější modely nebo přepracovat pracovní postupy pro řízení provozních nákladů a zajištění dobré uživatelské zkušenosti.
+*   **Důvěra, bezpečnost a shoda:** V mnoha aplikacích je důležité zajistit, aby agenti jednali bezpečně a eticky. Sledovatelnost poskytuje auditní záznam akcí a rozhodnutí agentů. To lze použít k detekci a zmírnění problémů, jako jsou prompt injection, generování škodlivého obsahu nebo nesprávné zacházení s osobními údaji (PII). Například můžete prohlédnout stopy, abyste pochopili, proč agent poskytl určitou odpověď nebo použil konkrétní nástroj.
+*   **Smyčky nepřetržitého zlepšování:** Data o sledovatelnosti jsou základem iterativního vývojového procesu. Sledováním výkonu agentů v reálném světě mohou týmy identifikovat oblasti ke zlepšení, sbírat data pro doladění modelů a ověřovat dopad změn. To vytváří zpětnovazební smyčku, kde poznatky z produkce získané online hodnocením informují offline experimenty a dolaďování, což vede k postupnému zlepšování výkonu agentů.
 
 ## Klíčové metriky ke sledování
 
-Pro sledování a porozumění chování agenta by měla být sledována řada metrik a signálů. Konkrétní metriky se mohou lišit podle účelu agenta, ale některé jsou univerzálně důležité.
+Pro sledování a pochopení chování agentů by měla být sledována řada metrik a signálů. Specifické metriky se mohou lišit podle účelu agenta, ale některé jsou univerzálně důležité.
 
-Zde jsou některé z nejběžnějších metrik, které sledují nástroje pro pozorovatelnost:
+Zde jsou některé z nejběžnějších metrik, které nástroje pro sledovatelnost monitorují:
 
-**Latency:** Jak rychle agent odpovídá? Dlouhé čekání negativně ovlivňuje uživatelský zážitek. Latenci byste měli měřit pro úkoly a jednotlivé kroky sledováním běhů agenta. Například agent, který potřebuje 20 sekund na všechna volání modelu, by mohl být urychlen použitím rychlejšího modelu nebo paralelním prováděním volání modelů.
+**Latence:** Jak rychle agent odpovídá? Dlouhé čekací doby negativně ovlivňují uživatelskou zkušenost. Měli byste měřit latenci pro úkoly a jednotlivé kroky sledováním běhů agentů. Například agent, který potřebuje 20 sekund na všechna volání modelu, může být zrychlen použitím rychlejšího modelu nebo paralelním voláním modelů.
 
-**Costs:** Jaké jsou náklady na jeden běh agenta? AI agenti spoléhají na volání LLM účtovaná za token nebo externí API. Časté používání nástrojů nebo více promptů může rychle zvýšit náklady. Například pokud agent volá LLM pětkrát za marginální zlepšení kvality, musíte zvážit, zda je to oprávněné, nebo zda můžete snížit počet volání nebo použít levnější model. Monitorování v reálném čase také může pomoci identifikovat neočekávané špičky (např. chyby způsobující nadměrné smyčky API).
+**Náklady:** Jaké jsou náklady na jeden běh agenta? AI agenti spoléhají na volání LLM účtovaná za token nebo externí API. Časté používání nástrojů nebo více promptů může náklady rychle zvýšit. Například pokud agent volá LLM pětkrát kvůli marginálnímu zlepšení kvality, musíte posoudit, zda jsou náklady opodstatněné, nebo zda lze snížit počet volání nebo použít levnější model. Sledování v reálném čase může také pomoci identifikovat neočekávané špičky (např. chyby způsobující nadměrné smyčky API).
 
-**Request Errors:** Kolik požadavků agent nezpracoval? To může zahrnovat chyby API nebo neúspěšná volání nástrojů. Aby byl váš agent v produkci robustnější vůči těmto situacím, můžete nastavit fallbacky nebo opakování. Např. pokud LLM poskytovatel A padne, přepněte na LLM poskytovatele B jako zálohu.
+**Chyby požadavků:** Kolik požadavků agent nezvládl? To může zahrnovat chyby API nebo selhání volání nástrojů. Aby byl váš agent robustnější v produkci, můžete nastavit záložní plány nebo opakování. Například, pokud je poskytovatel LLM A nedostupný, přepnete na poskytovatele LLM B jako zálohu.
 
-**User Feedback:** Implementace přímého uživatelského hodnocení poskytuje cenné poznatky. To může zahrnovat explicitní hodnocení (👍palec nahoru/👎dolů, ⭐1-5 hvězdiček) nebo textové komentáře. Konzistentně negativní zpětná vazba by vás měla varovat, protože je to znamení, že agent nefunguje podle očekávání.
+**Uživatelská zpětná vazba:** Zavedení přímého hodnocení uživateli poskytuje cenné informace. Může jít o explicitní hodnocení (👍palec nahoru/👎dolů, ⭐1-5 hvězd) nebo textové komentáře. Konzistentní negativní zpětná vazba by vás měla varovat, protože je to znak, že agent nefunguje podle očekávání.
 
-**Implicit User Feedback:** Chování uživatelů poskytuje nepřímou zpětnou vazbu i bez explicitních hodnocení. To může zahrnovat okamžité přeformulování dotazu, opakované dotazy nebo klikání na tlačítko „znovu“. Např. pokud vidíte, že uživatelé opakovaně pokládají stejnou otázku, je to známka toho, že agent nefunguje podle očekávání.
+**Implicitní uživatelská zpětná vazba:** Chování uživatelů poskytuje nepřímou zpětnou vazbu i bez explicitního hodnocení. Může zahrnovat okamžité přeformulování otázky, opakované dotazy nebo klikání na tlačítko opakovat. Například pokud vidíte, že uživatelé opakovaně pokládají stejnou otázku, je to znak, že agent nefunguje podle očekávání.
 
-**Accuracy:** Jak často agent generuje správné nebo žádoucí výstupy? Definice přesnosti se liší (např. správnost řešení úloh, přesnost vyhledávání informací, spokojenost uživatele). Prvním krokem je definovat, jak vypadá úspěch pro vašeho agenta. Přesnost můžete sledovat pomocí automatických kontrol, hodnotících skóre nebo štítků dokončení úkolů. Například označování sledů jako „succeeded“ nebo „failed“.
+**Přesnost:** Jak často agent produkuje správné nebo žádoucí výstupy? Definice přesnosti se liší (např. správnost řešení problémů, přesnost vyhledávání informací, spokojenost uživatelů). Prvním krokem je definovat, jaký úspěch pro vašeho agenta znamená. Přesnost můžete sledovat automatickými kontrolami, hodnoticími skóre nebo štítky dokončení úkolů. Například označovat stopy jako „úspěšné“ nebo „neúspěšné“.
 
-**Automated Evaluation Metrics:** Můžete také nastavit automatizované evaluace. Například můžete použít LLM k ohodnocení výstupu agenta, např. zda je užitečný, přesný či nikoli. Existuje také několik open source knihoven, které vám pomohou skórovat různé aspekty agenta. Např. [RAGAS](https://docs.ragas.io/) pro RAG agenty nebo [LLM Guard](https://llm-guard.com/) k detekci škodlivého jazyka nebo prompt injection.
+**Automatizované hodnoticí metriky:** Můžete také nastavit automatické hodnocení. Například můžete použít LLM k hodnocení výstupu agenta, jestli je užitečný, přesný nebo ne. Existuje také několik open source knihoven, které pomáhají hodnotit různé aspekty agenta. Např. [RAGAS](https://docs.ragas.io/) pro RAG agenty nebo [LLM Guard](https://github.com/protectai/llm-guard) k detekci škodlivého jazyka nebo prompt injection.
 
-V praxi dává kombinace těchto metrik nejlepší pokrytí "zdraví" AI agenta. V tomto kapitole v [ukázkovém notebooku](./code_samples/10_autogen_evaluation.ipynb) vám ukážeme, jak tyto metriky vypadají v reálných příkladech, ale nejprve se naučíme, jak typický evaluační workflow vypadá.
+V praxi je kombinace těchto metrik nejlepší pokrytí zdraví AI agenta. V [příkladovém sešitu](./code_samples/10-expense_claim-demo.ipynb) v této kapitole vám ukážeme, jak tyto metriky vypadají v reálných příkladech, ale nejprve se naučíme, jak vypadá typický proces hodnocení.
 
-## Instrumentujte svého agenta
+## Instrumentujte svého Agenta
 
-K získávání dat o sledování budete muset instrumentovat svůj kód. Cílem je instrumentovat kód agenta tak, aby emitoval sledy a metriky, které může zachytit, zpracovat a vizualizovat platforma pro pozorovatelnost.
+Pro sběr dat o sledování budete muset instrumentovat svůj kód. Cílem je instrumentovat kód agenta tak, aby emitoval stopy a metriky, které mohou být zachyceny, zpracovány a vizualizovány platformou pro sledovatelnost.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) se stal průmyslovým standardem pro pozorovatelnost LLM. Poskytuje sadu API, SDK a nástrojů pro generování, sběr a export telemetrických dat.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) se etabloval jako průmyslový standard pro sledovatelnost LLM. Poskytuje sadu API, SDK a nástrojů pro generování, sběr a export telemetrických dat.
 
-Existuje mnoho instrumentačních knihoven, které obalují existující frameworky agentů a usnadňují export OpenTelemetry úseků do nástroje pro pozorovatelnost. Níže je příklad instrumentace AutoGen agenta pomocí knihovny [OpenLit instrumentation](https://github.com/openlit/openlit):
+Existuje mnoho knihoven pro instrumentaci, které obalují existující frameworky agentů a usnadňují export OpenTelemetry spanů do nástroje pro sledovatelnost. Microsoft Agent Framework se nativně integruje s OpenTelemetry. Níže je příklad instrumentace MAF agenta:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Agent execution is traced automatically
+    pass
 ```
 
-Ukázkový [notebook](./code_samples/10_autogen_evaluation.ipynb) v této kapitole předvede, jak instrumentovat vašeho AutoGen agenta.
+[příkladový sešit](./code_samples/10-expense_claim-demo.ipynb) v této kapitole demonstruje, jak instrumentovat svého MAF agenta.
 
-**Ruční vytváření úseků:** I když instrumentační knihovny poskytují dobré výchozí nastavení, často nastanou případy, kdy jsou potřeba podrobnější nebo vlastní informace. Můžete ručně vytvářet úseky pro přidání vlastní aplikační logiky. Co je důležitější, mohou obohatit automaticky nebo ručně vytvořené úseky o vlastní atributy (také známé jako tagy nebo metadata). Tyto atributy mohou zahrnovat obchodně specifická data, mezilehlé výpočty nebo jakýkoli kontext, který může být užitečný pro ladění nebo analýzu, jako jsou `user_id`, `session_id` nebo `model_version`.
+**Manuální vytváření spanů:** Zatímco knihovny pro instrumentaci poskytují dobrý základ, často jsou potřeba podrobnější nebo vlastní informace. Můžete manuálně vytvářet spany pro přidání vlastní aplikační logiky. Důležitější je, že mohou obohatit automaticky nebo manuálně vytvořené spany o vlastní atributy (také známé jako tagy nebo metadata). Tyto atributy mohou zahrnovat obchodně specifická data, mezilehlé výpočty nebo jakýkoliv kontext, který může být užitečný pro ladění nebo analýzu, jako například `user_id`, `session_id`, nebo `model_version`.
 
-Příklad ručního vytváření sledů a úseků s [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
+Příklad manuálního vytváření stop a spanů s [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -89,84 +95,85 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Hodnocení agentů
+## Hodnocení Agenta
 
-Pozorovatelnost nám dává metriky, ale hodnocení je proces analýzy těchto dat (a provádění testů) za účelem zjištění, jak dobře AI agent funguje a jak ho lze zlepšit. Jinými slovy, až budete mít sledy a metriky, jak je použijete k posouzení agenta a k rozhodování?
+Sledovatelnost nám dává metriky, ale hodnocení je proces analýzy těchto dat (a provádění testů) k určení, jak dobře AI agent funguje a jak může být zlepšen. Jinými slovy, jakmile máte ty stopy a metriky, jak je použít k posouzení agenta a rozhodování?
 
-Pravidelné hodnocení je důležité, protože AI agenti jsou často nedeterminističtí a mohou se vyvíjet (prostřednictvím aktualizací nebo driftu chování modelu) – bez hodnocení byste nevěděli, zda váš „chytrý agent“ skutečně odvádí dobrou práci nebo zda regresoval.
+Pravidelné hodnocení je důležité, protože AI agenti jsou často nedeterminističtí a mohou se vyvíjet (prostřednictvím aktualizací nebo driftu modelového chování) – bez hodnocení byste nevěděli, jestli váš „chytrý agent“ skutečně plní svou práci dobře nebo zda došlo ke zhoršení.
 
-Existují dvě kategorie hodnocení AI agentů: **online hodnocení** a **offline hodnocení**. Obě jsou cenné a vzájemně se doplňují. Obvykle začínáme offline hodnocením, protože to je minimální nutný krok před nasazením jakéhokoli agenta.
+Existují dvě kategorie hodnocení AI agentů: **online hodnocení** a **offline hodnocení**. Obě jsou cenné a doplňují se navzájem. Obvykle začínáme offline hodnocením, protože to je minimální nezbytný krok před nasazením jakéhokoli agenta.
 
 ### Offline hodnocení
 
 ![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-To zahrnuje hodnocení agenta v kontrolovaném prostředí, typicky s použitím testovacích datasetů, nikoli živých uživatelských dotazů. Používáte kurátované datové sady, kde znáte očekávaný výstup nebo správné chování, a pak spustíte svého agenta na těchto datech.
+To zahrnuje hodnocení agenta v kontrolovaném prostředí, typicky použitím testovacích datasetů, nikoli živými uživatelskými dotazy. Používáte kurátorské datasetové sady, kde znáte očekávaný výstup nebo správné chování, a pak agentovi tyto datasety spustíte.
 
-Například pokud jste vytvořili agenta na slovní matematické úlohy, můžete mít [testovací dataset](https://huggingface.co/datasets/gsm8k) 100 problémů se známými odpověďmi. Offline hodnocení se často provádí během vývoje (a může být součástí CI/CD pipeline) ke kontrole zlepšení nebo ochraně proti regresím. Výhodou je, že je to **opakovatelný proces a můžete získat jasné metriky přesnosti, protože máte ground truth**. Můžete také simulovat uživatelské dotazy a měřit odpovědi agenta vůči ideálním odpovědím nebo použít automatizované metriky, jak bylo popsáno výše.
+Například pokud jste vytvořili agenta na řešení slovních matematických úloh, možná máte [testovací dataset](https://huggingface.co/datasets/openai/gsm8k) se 100 problémy s známými odpověďmi. Offline hodnocení se často provádí během vývoje (a může být součástí CI/CD pipeline) pro kontrolu zlepšení nebo zabránění regresím. Výhoda je, že je **opakovatelný a můžete získat jasné metriky přesnosti, protože máte „ground truth“**. Můžete také simulovat uživatelské dotazy a měřit odpovědi agenta vůči ideálním odpovědím či využít automatizované metriky, jak bylo popsáno výše.
 
-Klíčovou výzvou offline eval je zajistit, aby byl váš testovací dataset komplexní a zůstal relevantní – agent může na fixním testovacím souboru podávat dobrý výkon, ale v produkci může narážet na velmi odlišné dotazy. Proto byste měli udržovat testovací sady aktualizované o nové okrajové případy a příklady, které odrážejí reálné scénáře​. Kombinace malých „smoke testů“ a větších evaluačních sad je užitečná: malé sady pro rychlé kontroly a větší pro širší metriky výkonu​.
+Klíčovou výzvou offline hodnocení je zajistit, že váš testovací dataset je komplexní a zůstává relevantní – agent může na fixované testovací sadě fungovat dobře, ale v produkci může narazit na velmi odlišné dotazy. Proto byste měli testovací sady aktualizovat s novými okrajovými případy a příklady odrážejícími reálné scénáře. Kombinace malých „smoke testů“ a větších evaluačních sad je užitečná: malé sady pro rychlé kontroly a větší pro širší metriky výkonu.
 
 ### Online hodnocení
 
 ![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-To se týká hodnocení agenta v živém, reálném prostředí, tj. během skutečného nasazení v produkci. Online hodnocení zahrnuje monitorování výkonu agenta na reálných uživatelských interakcích a průběžnou analýzu výsledků.
+To znamená hodnocení agenta v živém, reálném prostředí, tj. během skutečného používání v produkci. Online hodnocení zahrnuje sledování výkonu agenta na reálných uživatelských interakcích a kontinuální analýzu výsledků.
 
-Například můžete sledovat míry úspěšnosti, skóre spokojenosti uživatelů nebo jiné metriky na živém provozu. Výhodou online hodnocení je, že **zachycuje věci, které byste v laboratorním prostředí nemuseli předvídat** – můžete pozorovat drift modelu v čase (pokud účinnost agenta klesá se změnou vzorců vstupů) a zachytit neočekávané dotazy nebo situace, které nebyly v testovacích datech​. Poskytuje skutečný obrázek toho, jak se agent chová v reálném světě.
+Například můžete sledovat úspěšnost, skóre spokojenosti uživatelů nebo jiné metriky na živém provozu. Výhodou online hodnocení je, že **zachytí věci, které byste v laboratorním prostředí nečekali** – můžete pozorovat modelový drift v čase (pokud se efektivita agenta zhoršuje, jak se mění vzory vstupů) a odhalit neočekávané dotazy nebo situace, které nebyly ve vašich testovacích datech. Poskytuje skutečný obraz toho, jak agent funguje v reálném provozu.
 
-Online hodnocení často zahrnuje sběr implicitní a explicitní uživatelské zpětné vazby, jak bylo popsáno, a případně provádění shadow testů nebo A/B testů (kde nová verze agenta běží paralelně pro porovnání se starou). Výzvou je, že může být obtížné získat spolehlivé štítky nebo skóre pro živé interakce – možná se budete spoléhat na uživatelskou zpětnou vazbu nebo metriky downstream (např. zda uživatel klikl na výsledek).
+Online hodnocení často zahrnuje sběr implicitní a explicitní uživatelské zpětné vazby, jak bylo uvedeno, a případně provozování shadow testů nebo A/B testů (kde nová verze agenta běží paralelně, aby se mohla porovnat se starou). Výzvou může být získání spolehlivých štítků nebo skóre pro živé interakce – můžete se spoléhat na uživatelskou zpětnou vazbu nebo downstream metriky (např. jestli uživatel kliknul na výsledek).
 
 ### Kombinace obou
 
-Online a offline hodnocení se nevylučují; jsou vysoce doplňující. Poznatky z online monitorování (např. nové typy uživatelských dotazů, kde agent podává slabý výkon) lze využít k rozšíření a vylepšení offline testovacích datasetů. Naopak agenti, kteří si vedou dobře v offline testech, mohou být s větší důvěrou nasazeni a monitorováni online.
+Online a offline hodnocení nejsou vzájemně si vylučující; naopak se velmi doplňují. Poznatky z online sledování (např. nové typy uživatelských dotazů, kde agent selhává) lze využít k obohacení a zlepšení offline testovacích datasetů. Naopak agenti, kteří si vedou dobře v offline testech, mohou být pak s větší jistotou nasazeni a sledováni online.
 
 Ve skutečnosti mnoho týmů přijímá smyčku:
 
-_evaluate offline -> deploy -> monitor online -> collect new failure cases -> add to offline dataset -> refine agent -> repeat_.
+_offline hodnocení -> nasazení -> online monitoring -> sběr nových selhání -> doplnění offline datasetu -> vylepšení agenta -> opakování_.
 
 ## Běžné problémy
 
-Při nasazování AI agentů do produkce se můžete setkat s různými výzvami. Zde jsou některé běžné problémy a jejich možná řešení:
+Při nasazování AI agentů do produkce se můžete setkat s různými výzvami. Zde jsou některé běžné problémy a potenciální řešení:
 
-| **Issue**    | **Potential Solution**   |
+| **Problém**    | **Možné řešení**   |
 | ------------- | ------------------ |
-| AI Agent not performing tasks consistently | - Upřesněte prompt, který je dán AI agentovi; buďte jasní v cílech.<br>- Identifikujte, kde může rozdělení úkolů na podúkoly a jejich zpracování více agenty pomoci. |
-| AI Agent running into continuous loops  | - Zajistěte, abyste měli jasné podmínky ukončení, aby agent věděl, kdy zastavit proces.<br>- Pro složité úkoly vyžadující uvažování a plánování použijte větší model specializovaný na řešení úloh. |
-| AI Agent tool calls are not performing well   | - Otestujte a ověřte výstup nástroje mimo systém agenta.<br>- Zjemněte definované parametry, prompty a pojmenování nástrojů.  |
-| Multi-Agent system not performing consistently | - Upřesněte prompty předávané jednotlivým agentům, aby byly konkrétní a navzájem odlišné.<br>- Postavte hierarchický systém s „routing“ nebo kontrolním agentem, který určí, který agent je ten správný. |
+| AI agent neplní úkoly konzistentně | - Upřesněte prompt daný AI agentovi; buďte jasní v cílech.<br>- Identifikujte situace, kde rozdělení úkolů na dílčí úkoly a jejich řešení více agenty může pomoci. |
+| AI agent se dostává do nekonečných smyček | - Zajistěte jasné ukončovací podmínky, aby agent věděl, kdy proces ukončit.<br>- Pro složité úkoly vyžadující uvažování a plánování použijte větší model specializovaný na tyto úlohy. |
+| Volání nástrojů AI agentem nefungují dobře | - Testujte a ověřujte výstupy nástrojů mimo systém agenta.<br>- Upřesněte parametry, prompty a pojmenování nástrojů. |
+| Multi-agentní systém nefunguje konzistentně | - Upřesněte prompty každému agentovi, aby byly specifické a odlišné.<br>- Postavte hierarchický systém s „routing“ nebo řídícím agentem, který rozhoduje, který agent je správný. |
 
-Mnoho z těchto problémů lze efektivněji identifikovat s nasazenou pozorovatelností. Sledy a metriky, o kterých jsme mluvili výše, pomáhají přesně určit, kde v pracovním toku agenta k problémům dochází, což značně zrychluje ladění a optimalizaci.
+Mnoho těchto problémů lze efektivněji identifikovat se sledovatelností. Stopy a metriky, které jsme diskutovali dříve, pomáhají přesně určit, kde ve workflow agenta se problémy vyskytují, což výrazně ulehčuje ladění a optimalizaci.
 
 ## Řízení nákladů
-Zde je několik strategií, jak řídit náklady na nasazení AI agentů do produkce:
 
-**Using Smaller Models:** Malé jazykové modely (SLMs) mohou v určitých agentních případech fungovat dobře a výrazně sníží náklady. Jak bylo zmíněno dříve, nejlepší způsob, jak pochopit, jak dobře se SLM osvědčí pro váš případ použití, je vybudovat evaluační systém k určení a porovnání výkonu vůči větším modelům. Zvažte použití SLMs pro jednodušší úkoly, jako je klasifikace záměru nebo extrakce parametrů, a větší modely ponechte pro složité odvozování.
+Zde jsou některé strategie pro řízení nákladů při nasazování AI agentů do produkce:
 
-**Using a Router Model:** Podobnou strategií je používat rozmanitost modelů a velikostí. Můžete použít LLM/SLM nebo serverless funkci k směrování požadavků podle složitosti na nejvhodnější modely. To také pomůže snížit náklady a zároveň zajistí výkon u správných úkolů. Například směrujte jednoduché dotazy na menší, rychlejší modely a drahé velké modely používejte pouze pro složité odvozovací úlohy.
+**Používání menších modelů:** Malé jazykové modely (SLM) mohou dobře fungovat u určitých agentních případů použití a výrazně sníží náklady. Jak již bylo zmíněno dříve, nejlepší způsob, jak pochopit, jak dobře SLM na vašem použití bude fungovat, je postavit hodnoticí systém, který určí a porovná výkon s většími modely. Zvažte použití SLM pro jednodušší úkoly, jako je klasifikace záměrů nebo extrakce parametrů, přičemž větší modely vyhraďte pro složité uvažování.
 
-**Caching Responses:** Identifikace běžných požadavků a úkolů a poskytování odpovědí dříve, než projdou vaším agentním systémem, je dobrý způsob, jak snížit objem podobných požadavků. Můžete dokonce implementovat tok, který pomocí jednodušších AI modelů určí, jak podobný je požadavek vašim uloženým (cached) požadavkům. Tato strategie může výrazně snížit náklady u často kladených dotazů nebo běžných pracovních postupů.
+**Použití routerového modelu:** Podobnou strategií je využití rozmanitosti modelů a velikostí. Můžete použít LLM/SLM nebo bezserverovou funkci pro směrování požadavků na základě složitosti k nejvhodnějším modelům. To také pomůže snížit náklady a zároveň zajistit výkon pro správné úkoly. Například směrujte jednoduché dotazy na menší, rychlejší modely a drahé velké modely používejte pouze pro složité úlohy uvažování.
+
+**Ukládání odpovědí do vyrovnávací paměti:** Identifikace běžných požadavků a úkolů a poskytování odpovědí ještě předtím, než projdou vaším agentním systémem, je dobrý způsob, jak snížit objem podobných požadavků. Můžete dokonce implementovat tok, který pomocí jednodušších AI modelů zjistí, jak moc je požadavek podobný již uloženým požadavkům. Tato strategie může výrazně snížit náklady u často kladených dotazů nebo běžných pracovních postupů.
 
 ## Podívejme se, jak to funguje v praxi
 
-V [example notebook of this section](./code_samples/10_autogen_evaluation.ipynb) uvidíme příklady toho, jak můžeme použít nástroje pro observabilitu k monitorování a vyhodnocování našeho agenta.
+V [ukázkovém notebooku této sekce](./code_samples/10-expense_claim-demo.ipynb) uvidíme příklady, jak můžeme použít nástroje pro observabilitu k monitorování a hodnocení našeho agenta.
 
 
-### Máte další otázky týkající se AI agentů v produkci?
+### Máte další otázky ohledně AI agentů v produkci?
 
-Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), setkejte se s ostatními studenty, zúčastněte se konzultačních hodin a získejte odpovědi na své otázky o AI agentech.
+Připojte se k [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), setkejte se s dalšími studenty, navštěvujte konzultace a získejte odpovědi na své otázky týkající se AI agentů.
 
 ## Předchozí lekce
 
-[Návrhový vzor metakognice](../09-metacognition/README.md)
+[Metacognition Design Pattern](../09-metacognition/README.md)
 
 ## Další lekce
 
-[Agentické protokoly](../11-agentic-protocols/README.md)
+[Agentic Protocols](../11-agentic-protocols/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Prohlášení o vyloučení odpovědnosti:
-Tento dokument byl přeložen pomocí AI překladatelské služby Co-op Translator (https://github.com/Azure/co-op-translator). I když usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro zásadní informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoliv nedorozumění nebo nesprávné výklady vzniklé v důsledku použití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,117 +1,147 @@
-[![Introduktion till AI-agenter](../../../translated_images/sv/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro till AI-agenter](../../../translated_images/sv/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Klicka på bilden ovan för att se videon till den här lektionen)_
-
+> _(Klicka på bilden ovan för att titta på videon för denna lektion)_
 
 # Introduktion till AI-agenter och agentanvändningsfall
 
-Välkommen till kursen "AI-agenter för nybörjare"! Denna kurs ger grundläggande kunskap och praktiska exempel för att bygga AI-agenter.
+Välkommen till kursen **AI Agents for Beginners**! Denna kurs ger dig grundläggande kunskap — och riktig fungerande kod — för att börja bygga AI-agenter från grunden.
 
-Gå med i <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord-community</a> för att träffa andra deltagare och AI-agentbyggare och ställa eventuella frågor om den här kursen.
+Kom och säg hej i <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> — det är fullt av elever och AI-byggare som gärna svarar på frågor.
 
-För att påbörja kursen börjar vi med att få en bättre förståelse för vad AI-agenter är och hur vi kan använda dem i de applikationer och arbetsflöden vi bygger.
+Innan vi börjar bygga, låt oss försäkra oss om att vi faktiskt förstår vad en AI-agent *är* och när det är meningsfullt att använda en.
+
+---
 
 ## Introduktion
 
-Denna lektion täcker:
+Denna lektion behandlar:
 
-- Vad är AI-agenter och vilka olika typer av agenter finns det?
-- Vilka användningsfall passar bäst för AI-agenter och hur kan de hjälpa oss?
-- Vilka är några av de grundläggande byggstenarna när man utformar agentiska lösningar?
+- Vad AI-agenter är och de olika typer som finns
+- Vilka typer av uppgifter AI-agenter är bäst lämpade för
+- De grundläggande byggstenarna du använder när du designar en agentlösning
 
 ## Lärandemål
-Efter att ha slutfört denna lektion bör du kunna:
 
-- Förstå konceptet AI-agenter och hur de skiljer sig från andra AI-lösningar.
-- Tillämpa AI-agenter på ett så effektivt sätt som möjligt.
-- Utforma agentiska lösningar produktivt för både användare och kunder.
+I slutet av denna lektion ska du kunna:
 
-## Definition av AI‑agenter och typer av AI‑agenter
+- Förklara vad en AI-agent är och hur den skiljer sig från en vanlig AI-lösning
+- Veta när du ska använda en AI-agent (och när du inte ska)
+- Skissa på en grundläggande agentlösningsdesign för ett verkligt problem
 
-### Vad är AI‑agenter?
+---
 
-AI‑agenter är **system** som möjliggör för **Large Language Models(LLMs)** att **utföra åtgärder** genom att utöka deras kapaciteter genom att ge LLM:er **åtkomst till verktyg** och **kunskap**.
+## Definiera AI-agenter och typer av AI-agenter
 
-Låt oss dela upp denna definition i mindre delar:
+### Vad är AI-agenter?
 
-- **System** - Det är viktigt att se agenter inte bara som en enskild komponent utan som ett system av många komponenter. På grundläggande nivå är komponenterna i en AI‑agent:
-  - **Environment** - Det definierade utrymmet där AI‑agenten verkar. Till exempel, om vi hade en reseboknings‑AI‑agent, skulle miljön kunna vara resebokningssystemet som AI‑agenten använder för att slutföra uppgifter.
-  - **Sensors** - Miljöer har information och ger återkoppling. AI‑agenter använder sensorer för att samla in och tolka denna information om miljöns aktuella tillstånd. I exemplet med resebokningsagenten kan resebokningssystemet tillhandahålla information såsom hotellens tillgänglighet eller flygpriser.
-  - **Actuators** - När AI‑agenten har fått miljöns aktuella tillstånd bestämmer agenten för den aktuella uppgiften vilken åtgärd som ska utföras för att förändra miljön. För resebokningsagenten kan det vara att boka ett tillgängligt rum åt användaren.
+Här är ett enkelt sätt att tänka på det:
 
-![Vad är AI‑agenter?](../../../translated_images/sv/what-are-ai-agents.1ec8c4d548af601a.webp)
+> **AI-agenter är system som låter stora språkmodeller (LLMs) faktiskt *göra saker* — genom att ge dem verktyg och kunskap för att agera i världen, inte bara svara på frågor.**
 
-**Large Language Models** - Konceptet med agenter fanns innan skapandet av LLMs. Fördelen med att bygga AI‑agenter med LLMs är deras förmåga att tolka mänskligt språk och data. Denna förmåga gör det möjligt för LLMs att tolka miljöinformation och definiera en plan för att förändra miljön.
+Låt oss bryta ner det lite:
 
-**Perform Actions** - Utanför AI‑agentsystem är LLMs begränsade till situationer där handlingen är att generera innehåll eller information baserat på en användares uppmaning. Inom AI‑agentsystem kan LLMs utföra uppgifter genom att tolka användarens begäran och använda verktyg som finns tillgängliga i deras miljö.
+- **System** — En AI-agent är inte bara en sak. Det är en samling delar som arbetar tillsammans. I kärnan har varje agent tre delar:
+  - **Miljö** — Den plats agenten arbetar i. För en resebokningsagent skulle detta vara bokningsplattformen själv.
+  - **Sensorer** — Hur agenten läser av det aktuella tillståndet i sin miljö. Vår reseagent kan kolla hotell tillgänglighet eller flygpriser.
+  - **Aktuatorer** — Hur agenten agerar. Resagenten kan boka ett rum, skicka en bekräftelse eller avboka en reservation.
 
-**Access To Tools** - Vilka verktyg LLM:en har åtkomst till definieras av 1) den miljö den verkar i och 2) utvecklaren av AI‑agenten. I vårt exempel med reseagenten begränsas agentens verktyg av de operationer som finns tillgängliga i bokningssystemet, och/eller kan utvecklaren begränsa agentens verktygsåtkomst till flyg.
+![Vad är AI-agenter?](../../../translated_images/sv/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Memory+Knowledge** - Minne kan vara kortsiktigt i kontexten av konversationen mellan användaren och agenten. På lång sikt, utöver informationen som tillhandahålls av miljön, kan AI‑agenter också hämta kunskap från andra system, tjänster, verktyg och till och med andra agenter. I reseagentexemplet kan denna kunskap vara information om användarens resepreferenser som finns i en kunddatabas.
+- **Stora språkmodeller** — Agenter fanns innan LLMs, men LLMs är det som gör moderna agenter så kraftfulla. De kan förstå naturligt språk, resonera om kontext, och omvandla en vag användarförfrågan till en konkret handlingsplan.
 
-### De olika typerna av agenter
+- **Utföra åtgärder** — Utan ett agentsystem genererar en LLM bara text. Inom ett agentsystem kan LLM verkligen *utföra* steg — söka i databas, anropa API, skicka ett meddelande.
 
-Nu när vi har en allmän definition av AI‑agenter, låt oss titta på några specifika agenttyper och hur de skulle tillämpas på en reseboknings‑AI‑agent.
+- **Tillgång till verktyg** — Vilka verktyg agenten kan använda beror på (1) miljön den körs i och (2) vad utvecklaren valt att ge den. En reseagent kan söka flyg men inte redigera kundregister — det handlar om vad du kopplar in.
 
-| **Agenttyp**                | **Beskrivning**                                                                                                                       | **Exempel**                                                                                                                                                                                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Enkla reflexagenter**     | Utför omedelbara åtgärder baserat på fördefinierade regler.                                                                             | Reseagent tolkar e-postens sammanhang och vidarebefordrar reseklagomål till kundtjänst.                                                                                                                                       |
-| **Modellbaserade reflexagenter** | Utför åtgärder baserat på en modell av världen och förändringar i den modellen.                                                              | Reseagent prioriterar rutter med betydande prisförändringar baserat på tillgång till historisk prisdata.                                                                                                                     |
-| **Målbaserade agenter**     | Skapar planer för att uppnå specifika mål genom att tolka målet och bestämma åtgärder för att nå det.                                  | Reseagent bokar en resa genom att bestämma nödvändiga researrangemang (bil, kollektivtrafik, flyg) från nuvarande plats till destinationen.                                                                                  |
-| **Nyttebaserade agenter**   | Tar hänsyn till preferenser och väger avvägningar numeriskt för att avgöra hur mål ska uppnås.                                           | Reseagent maximerar nytta genom att väga bekvämlighet mot kostnad vid bokning.                                                                                                                                               |
-| **Lärande agenter**         | Förbättras över tiden genom att svara på återkoppling och justera åtgärder därefter.                                                      | Reseagent förbättras genom att använda kundåterkoppling från enkäter efter resan för att göra justeringar i framtida bokningar.                                                                                              |
-| **Hierarkiska agenter**     | Innehåller flera agenter i ett flernivåsystem, där högre nivåer delar upp uppgifter i deluppgifter för lägre nivåer att slutföra.        | Reseagent avbokar en resa genom att dela upp uppgiften i deluppgifter (t.ex. avbokning av specifika bokningar) och låta lägre nivåers agenter slutföra dem och rapportera tillbaka till den högre nivån.                         |
-| **Fleragentsystem (MAS)**   | Agenter utför uppgifter oberoende, antingen kooperativt eller konkurrerande.                                                           | Kooperativt: Flera agenter bokar specifika resetjänster såsom hotell, flyg och underhållning. Konkurrerande: Flera agenter hanterar och konkurrerar om en gemensam hotellbokningskalender för att boka kunder till hotellet. |
+- **Minne + Kunskap** — Agenter kan ha korttidsminne (det aktuella samtalet) och långtidsminne (en kunddatabas, tidigare interaktioner). Resagenten kan "komma ihåg" att du föredrar fönsterplatser.
 
-## När man ska använda AI‑agenter
+---
 
-I det tidigare avsnittet använde vi användningsfallet reseagent för att förklara hur de olika agenttyperna kan användas i olika scenarier för resebokning. Vi kommer att fortsätta använda denna applikation genom hela kursen.
+### De olika typerna av AI-agenter
 
-Låt oss titta på vilka typer av användningsfall som AI‑agenter lämpar sig bäst för:
+Inte alla agenter är byggda likadant. Här är en sammanställning av de huvudsakliga typerna, med en resebokningsagent som exempel:
 
-![När ska man använda AI‑agenter?](../../../translated_images/sv/when-to-use-ai-agents.54becb3bed74a479.webp)
+| **Agenttyp** | **Vad den gör** | **Exempel med reseagent** |
+|---|---|---|
+| **Simple Reflex Agents** | Följer hårdkodade regler — inget minne, ingen planering. | Ser ett klagomail → vidarebefordrar det till kundtjänst. Det är allt. |
+| **Model-Based Reflex Agents** | Har en intern modell av världen och uppdaterar den när saker förändras. | Spårar historiska flygpriser och flaggar rutter som plötsligt blivit dyra. |
+| **Goal-Based Agents** | Har ett mål i sikte och räknar ut hur det nås steg för steg. | Bokar en komplett resa (flyg, bil, hotell) från din nuvarande plats till destinationen. |
+| **Utility-Based Agents** | Hittar inte bara *en* lösning — hittar *den bästa* genom att väga för- och nackdelar. | Väger kostnad mot bekvämlighet för att hitta resan som bäst matchar dina preferenser. |
+| **Learning Agents** | Blir bättre med tiden genom att lära av feedback. | Justerar framtida bokningsförslag baserat på enkätsvar efter resan. |
+| **Hierarchical Agents** | En agent på hög nivå delar upp arbetet i deluppgifter och delegerar till underordnade agenter. | En begäran om "avboka resa" delas upp i: avboka flyg, avboka hotell, avboka hyrbil — var och en hanteras av en underagent. |
+| **Multi-Agent Systems (MAS)** | Flera oberoende agenter som arbetar tillsammans (eller konkurrerar). | Samarbetande: separata agenter hanterar hotell, flyg och underhållning. Konkurrerande: flera agenter tävlar om att fylla hotellrum till bäst pris. |
 
+---
 
-- **Open-Ended Problems** - att låta LLM bestämma nödvändiga steg för att slutföra en uppgift eftersom det inte alltid går att hårdkoda i ett arbetsflöde.
-- **Multi-Step Processes** - uppgifter som kräver en nivå av komplexitet där AI‑agenten behöver använda verktyg eller information över flera interaktioner istället för enkelhämtning.  
-- **Improvement Over Time** - uppgifter där agenten kan förbättras över tid genom att få återkoppling från antingen sin miljö eller användare för att ge bättre nytta.
+## När ska man använda AI-agenter
 
-Vi går igenom fler överväganden kring användning av AI‑agenter i lektionen Bygga pålitliga AI‑agenter.
+Bara för att du *kan* använda en AI-agent betyder det inte att du alltid *ska*. Här är situationer där agenter verkligen utmärker sig:
 
-## Grundläggande om agentiska lösningar
+![När ska du använda AI-agenter?](../../../translated_images/sv/when-to-use-ai-agents.54becb3bed74a479.webp)
+
+- **Öppna problem** — När stegen för att lösa ett problem inte kan förprogrammeras. Du behöver att LLM dynamiskt listar ut vägen.
+- **Flera steg-processer** — Uppgifter som kräver att använda verktyg över flera steg, inte bara en enkel sökning eller generering.
+- **Förbättring över tid** — När du vill att systemet ska bli smartare baserat på användarfeedback eller miljösignaler.
+
+Vi går djupare in på när (och när *inte*) man ska använda AI-agenter i lektionen **Bygga pålitliga AI-agenter** senare i kursen.
+
+---
+
+## Grunderna i agentlösningar
 
 ### Agentutveckling
 
-Det första steget i att utforma ett AI‑agentsystem är att definiera verktyg, åtgärder och beteenden. I den här kursen fokuserar vi på att använda **Azure AI Agent Service** för att definiera våra agenter. Den erbjuder funktioner som:
+Det första du gör när du bygger en agent är att definiera *vad den kan göra* — dess verktyg, handlingar och beteenden.
 
-- Val av öppna modeller såsom OpenAI, Mistral och Llama
-- Användning av licensierad data via leverantörer som Tripadvisor
-- Användning av standardiserade OpenAPI 3.0-verktyg
+I denna kurs använder vi **Microsoft Foundry Agent Service** som huvudplattform. Den stödjer:
+
+- Modeller från leverantörer som OpenAI, Mistral och Meta (Llama)
+- Licensierad data från leverantörer som Tripadvisor
+- Standardiserade OpenAPI 3.0-verktygsdefinitioner
 
 ### Agentiska mönster
 
-Kommunikation med LLMs sker genom prompts. Givet AI‑agenternas semi‑autonoma natur är det inte alltid möjligt eller nödvändigt att manuellt ge LLM:en en ny prompt efter en förändring i miljön. Vi använder **Agentic Patterns** som tillåter oss att prompta LLM:en över flera steg på ett mer skalbart sätt.
+Du kommunicerar med LLMs via prompts. Med agenter kan du inte alltid skapa varje prompt manuellt — agenten behöver agera över många steg. Där kommer **agentiska mönster** in. Det är återanvändbara strategier för att prompta och orkestrera LLMs på ett mer skalbart och pålitligt sätt.
 
-Denna kurs är uppdelad i några av de för närvarande populära agentiska mönstren.
+Denna kurs är strukturerad runt de vanligaste och mest användbara agentiska mönstren.
 
 ### Agentiska ramverk
 
-Agentiska ramverk tillåter utvecklare att implementera agentiska mönster genom kod. Dessa ramverk erbjuder mallar, plugins och verktyg för bättre AI‑agent­samarbete. Dessa fördelar ger möjligheter till bättre observerbarhet och felsökning av AI‑agentsystem.
+Agentiska ramverk ger utvecklare färdiga mallar, verktyg och infrastruktur för att bygga agenter. De gör det enklare att:
 
-I denna kurs kommer vi att utforska det forskningsdrivna AutoGen‑ramverket och det produktionsredo Agent‑ramverket från Semantic Kernel.
+- Koppla upp verktyg och funktioner
+- Observera vad agenten gör (och felsöka när det går fel)
+- Samarbeta över flera agenter
+
+I denna kurs fokuserar vi på **Microsoft Agent Framework (MAF)** för att bygga agentklara för produktion.
+
+---
 
 ## Kodexempel
 
-- Python: [Agentramverk](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Agentramverk](./code_samples/01-dotnet-agent-framework.md)
+Redo att se det i aktion? Här är kodexemplen för denna lektion:
 
-## Har du fler frågor om AI‑agenter?
+- 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
-Gå med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) för att träffa andra deltagare, delta i kontorstider och få svar på dina frågor om AI‑agenter.
+---
+
+## Har du frågor?
+
+Gå med i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) för att koppla upp dig med andra elever, delta i kontorstid, och få dina AI-agentfrågor besvarade av communityn.
+
+
+---
+
+## Snabbtest av denna agent (frivilligt)
+
+När du lärt dig att distribuera agenter i [Lektion 16](../16-deploying-scalable-agents/README.md), kan du lägga till en snabb efter-distribution hälsokontroll för denna lektions `TravelAgent` med den färdiga katalogen [`tests/lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json). Se [`tests/README.md`](../tests/README.md) för hur du kör den.
+
+---
 
 ## Föregående lektion
 
-[Kursuppsättning](../00-course-setup/README.md)
+[Kursinställning](../00-course-setup/README.md)
 
 ## Nästa lektion
 
@@ -120,6 +150,6 @@ Gå med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) för att
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Ansvarsfriskrivning:
-Detta dokument har översatts med hjälp av AI-översättningstjänsten Co-op Translator (https://github.com/Azure/co-op-translator). Vi strävar efter noggrannhet, men var medveten om att automatiska översättningar kan innehålla fel eller brister. Originaldokumentet på dess ursprungsspråk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår till följd av användningen av denna översättning.
+**Ansvarsfriskrivning**:
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, var vänlig notera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår till följd av användningen av denna översättning.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

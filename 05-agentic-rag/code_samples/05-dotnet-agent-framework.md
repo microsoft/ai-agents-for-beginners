@@ -1,8 +1,8 @@
-# 🔍 Enterprise RAG with Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG with Microsoft Foundry (.NET)
 
 ## 📋 Learning Objectives
 
-This notebook demonstrates how to build enterprise-grade Retrieval-Augmented Generation (RAG) systems using the Microsoft Agent Framework in .NET with Azure AI Foundry. You'll learn to create production-ready agents that can search through documents and provide accurate, context-aware responses with enterprise security and scalability.
+This notebook demonstrates how to build enterprise-grade Retrieval-Augmented Generation (RAG) systems using the Microsoft Agent Framework in .NET with Microsoft Foundry. You'll learn to create production-ready agents that can search through documents and provide accurate, context-aware responses with enterprise security and scalability.
 
 **Enterprise RAG Capabilities You'll Build:**
 - 📚 **Document Intelligence**: Advanced document processing with Azure AI services
@@ -13,7 +13,7 @@ This notebook demonstrates how to build enterprise-grade Retrieval-Augmented Gen
 ## 🎯 Enterprise RAG Architecture
 
 ### Core Enterprise Components
-- **Azure AI Foundry**: Managed enterprise AI platform with security and compliance
+- **Microsoft Foundry**: Managed enterprise AI platform with security and compliance
 - **Persistent Agents**: Stateful agents with conversation history and context management
 - **Vector Store Management**: Enterprise-grade document indexing and retrieval
 - **Identity Integration**: Azure AD authentication and role-based access control
@@ -64,7 +64,7 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 **Development Environment:**
 - .NET 9.0 SDK or higher
 - Visual Studio 2022 or VS Code with C# extension
-- Azure subscription with AI Foundry access
+- Azure subscription with Microsoft Foundry access
 
 **Required NuGet Packages:**
 ```xml
@@ -83,7 +83,7 @@ az account set --subscription "your-subscription-id"
 ```
 
 **Environment Configuration:**
-* Azure AI Foundry configuration (automatically handled via Azure CLI)
+* Microsoft Foundry configuration (automatically handled via Azure CLI)
 * Ensure you're authenticated to the correct Azure subscription
 
 ## 📊 Enterprise RAG Patterns
@@ -209,7 +209,7 @@ dotnet run 05-dotnet-agent-framework.cs
 The code demonstrates:
 
 1. **Package Installation**: Installing required NuGet packages for Azure AI Agents
-2. **Environment Configuration**: Loading Azure AI Foundry endpoint and model settings
+2. **Environment Configuration**: Loading Microsoft Foundry endpoint and model settings
 3. **Document Upload**: Uploading a document for RAG processing
 4. **Vector Store Creation**: Creating a vector store for semantic search
 5. **Agent Configuration**: Setting up an AI agent with file search capabilities

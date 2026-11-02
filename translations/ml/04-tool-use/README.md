@@ -1,146 +1,144 @@
-[![എങ്ങനെ നല്ല AI ഏജന്റ്മാർ ഡിസൈൻ ചെയ്യാം](../../../translated_images/ml/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![നല്ല AI ഏജൻറുകൾ എങ്ങനെ രൂപകൽപ്പന ചെയ്യാം](../../../translated_images/ml/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(ഈ പാഠത്തിന്റെ വീഡിയോ കാണാൻ മുകളിൽ ചിത്രത്തിൽ ക്ലിക്ക് ചെയ്യുക)_
+> _(ഈ പാഠത്തിന്റെ വീഡിയൊ കാണാൻ മുകളിൽ ചിത്രത്തിൽ ക്ലിക്ക് ചെയ്യുക)_
 
-# ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ
+# ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക
 
-ടൂളുകൾ അത്രയും രസകലമാണ് കാരണം അവ AI ഏജന്റ്മാർക്ക് വൈവിധ്യമാർന്ന കഴിവുകൾ നൽകുന്നു. ഏജന്റിന് നിർബന്ധിതമായ കുറച്ചു പ്രവർത്തനങ്ങൾ മാത്രം ചെയ്യാനാവാങ്ങൾക്കാതെ, ഒരു ടൂൾ ചേർത്തുകൊണ്ട്, ഏജന്റ് ഇപ്പോൾ വിപുലമായ പ്രവർത്തനങ്ങൾ നടത്താൻ കഴിയും. ഈ അധ്യായത്തിൽ, നാം ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ പരിശോധിക്കാം, ഇത് AI ഏജന്റ്മാർ പ്രത്യേകമായ ടൂളുകൾ ഉപയോഗിച്ച് അവരുടെ ലക്ഷ്യങ്ങൾ കൈവരിക്കാൻ എങ്ങനെ കഴിയും എന്ന് വിവരണം നൽകുന്നു.
+ടൂളുകൾ രസകരമാണ് കാരണം അവ AI ഏജന്റുകൾക്ക് വിപുലമായ കഴിവുകൾ നൽകുന്നു. ഏജന്റിന് നിർവഹിക്കാനാവുന്ന പ്രവർത്തനങ്ങളുടെ നിർബന്ധിത സെറ്റ് ഉണ്ടാവുന്നതിന് പകരം, ഒരു ടൂൾ ചേർത്താൽ, ഏജന്റ് ഇപ്പോൾ വിപുലമായ പ്രവർത്തനങ്ങൾ ചെയ്യാൻ കഴിയും. ഈ അദ്ധ്യായത്തിൽ, നാം ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃകയെ കുറിച്ച് നോക്കും, ഇത് എങ്ങനെ AI ഏജന്റ്‌ಗಳು അവരുടെ ലക്ഷ്യങ്ങൾക്ക് എത്താൻ പ്രത്യേക ടൂളുകൾ ഉപയോഗിക്കാമെന്ന് വിവരിക്കുന്നു.
 
 ## പരിചയം
 
-ഈ പാഠത്തിൽ, നമുക്ക് താഴെ പറയുന്ന ചോദ്യങ്ങൾക്ക് മറുപടി തേടുകയാണ്:
+ഈ പാഠത്തിൽ, നാം താഴെയുള്ള ചോദ്യങ്ങൾക്ക് ഉത്തരമണയാൻ ശ്രമിക്കുന്നു:
 
-- ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ എന്താണ്?
-- ഇത് ഏത് ഉപയോഗ കേസുകളിൽ പ്രയോഗിക്കാമെന്ന്?
-- ഡിസൈൻ പാറ്റേൺ നടപ്പിലാക്കാൻ ആവശ്യമായ ഘടകങ്ങൾ/നിർമാണഘടകങ്ങൾ എന്തൊക്കെയാണ്?
-- വിശ്വസനീയമായ AI ഏജന്റ്മാർ നിർമ്മിക്കാൻ ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ ഉപയോഗിക്കുമ്പോൾ ഉണ്ടാകുന്ന പ്രത്യേക പരിഗണനകൾ എന്തൊക്കെയാണ്?
+- ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക എന്താണ്?
+- ഇത് ഏതു ഉപയോഗക്കേസുകൾക്ക് പ്രയോഗിക്കാം?
+- രൂപകൽപ്പന മാതൃക നടപ്പിലാക്കാൻ ആവശ്യമായ ഘടകങ്ങൾ/നിർമാണ ഘടകങ്ങൾ എന്തെല്ലാം ആണ്?
+- വിശ്വസനീയമായ AI ഏജന്റുകൾ നിർമ്മിക്കാൻ ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക ഉപയോഗിക്കുമ്പോൾ പ്രത്യേക പരിഗണനകൾ എന്തെല്ലാം ആണ്?
 
 ## പഠന ലക്ഷ്യങ്ങൾ
 
-ഈ പാഠം പൂർത്തിയാക്കിയപ്പോൾ, നിങ്ങൾ കഴിയും:
+ഈ പാഠം പൂർത്തിയാക്കിയ ശേഷം, നിങ്ങൾക്ക് സാധിക്കേണ്ടതുണ്ട്:
 
-- ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേണിന്റെ വ്യാഖ്യാനം നൽകാനും അതിന്റെ ലക്ഷ്യം തിരിച്ചറിയാനുമാകുക.
-- ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ പ്രയോഗിക്കാൻ കഴിയുന്ന ഉപയോഗ കേസുകൾ തിരിച്ചറിയുക.
-- ഡിസൈൻ പാറ്റേൺ നടപ്പിലാക്കുന്നതിനുള്ള പ്രധാന ഘടകങ്ങൾ മനസ്സിലാക്കുക.
-- ഈ ഡിസൈൻ പാറ്റേൺ ഉപയോഗിക്കുന്ന AI ഏജന്റ്മാരിൽ വിശ്വസനീയത ഉറപ്പാക്കുന്നതിനുള്ള പരിഗണനകൾ തിരിച്ചറിയുക.
+- ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃകയും അതിന്റെ ഉദ്ദേശ്യവും നിർവ്വചിക്കുക.
+- ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക ആരംഭിക്കാവുന്ന ഉപയോഗക്കേസുകൾ തിരിച്ചറിയുക.
+- രൂപകൽപ്പന മാതൃക നടപ്പിലാക്കാൻ ആവശ്യമായ പ്രധാന ഘടകങ്ങൾ മനസ്സിലാക്കുക.
+- ഈ രൂപകൽപ്പന മാതൃക ഉപയോഗിക്കുന്ന AI ഏജൻറുകളുടെ വിശ്വസനീയത ഉറപ്പാക്കുന്നതിനുള്ള പരിഗണനകൾ തിരിച്ചറിയുക.
 
-## ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൻ എന്താണ്?
+## ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക എന്താണ്?
 
-**ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ** LLM-കൾക്ക് (വലുതും ഭാഷാ മോഡലുകൾ) പ്രത്യേക ലക്ഷ്യങ്ങൾ കൈവരിക്കാൻ ബാഹ്യ ടൂളുകളുമായി ഇടപഴകാനുള്ള കഴിവ് നൽകുന്നതിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുന്നു. ടൂളുകൾ ഒരു ഏജന്റ് പ്രവർത്തനങ്ങൾ നടത്താൻ ഓടിക്കാൻ കഴിയുന്ന കോഡുകളാണ്. ഒരു ടൂൾ ലളിതമായ ഒരു ഫങ്ഷൻ ആയി കാണുന്നതാകാം – ഉദാഹരണത്തിന്, കലക്ഷൻ രണ്ടു സംഖ്യകൾ കൂട്ടിയത്, അല്ലെങ്കിൽ എപ്പോഴോ സ്റ്റോക്ക് വില നോക്കൽ പോലുള്ള മൂന്നാം പാർട്ടി സേവനങ്ങൾക്ക് API കോൾ ആയിരിക്കാം. AI ഏജന്റുകളുടെ സੰਦਰഭത്തിലാണ് ടൂളുകൾ പ്രധാനമായും **മോഡൽ-ജനിത ഫങ്ഷൻ കോൾസ്** ന്റെ മറുപടിയോടുകൂടി ഏജന്റുകൾക്ക് പ്രവർത്തൻ നടത്താൻ രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്നത്.
+**ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക** LLM-കൾക്ക് പ്രത്യേക ലക്ഷ്യങ്ങൾ പൂർത്തിയാക്കാൻ ബാഹ്യ ടൂളുകളുമായി ഇടപഴകാനുള്ള കഴിവ് നൽകുന്നതിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുന്നു. ടൂളുകൾ കോഡ് ആണ്, ഏജൻറ് പ്രവർത്തനങ്ങൾ നിർവഹിക്കാൻ പ്രവർത്തിപ്പിക്കാവുന്നതാണ്. ഒരു ടൂൾ കാൽക്കുലേറ്റർ പോലുള്ള ലഘുഫംഗ്ഷൻ ആകാമോ, സ്റ്റോക്ക് വില കണ്ടെത്തൽ അല്ലെങ്കിൽ കാലാവസ്ഥ പ്രവചനത്തിനായുള്ള മൂന്നാം കക്ഷി സേവനത്തിന് API കോളായിരിക്കും. AI ഏജന്റുകളുടെ സന്ദർഭത്തിൽ, ടൂളുകൾ **മോഡൽ-ജനിത പ്രവർത്തന കോളുകൾ**ക്കായി ഏജൻറുകൾ നിർവഹിച്ചു തുടങ്ങുന്നു.
 
-## ഏത് ഉപയോഗ കവിതകൾക്ക് ഇത് പ്രയോഗിക്കാമെന്ന്?
+## ഇത് ഏതു ഉപയോഗക്കേസുകൾക്ക് പ്രയോഗിക്കാം?
 
-AI ഏജന്റ്മാർ ടൂളുകൾ ഉപയോഗിച്ച് സങ്കീർണ്ണമായ പ്രവർത്തനങ്ങൾ പൂർത്തിയാക്കാൻ, വിവരങ്ങൾ പുനരുദ്ധരിക്കാൻ, അല്ലെങ്കിൽ തീരുമാനങ്ങൾ എടുക്കാൻ കഴിയും. ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ ബാഹ്യ സംവിധാനങ്ങളുമായി സാരവുമായ ഇടപെടൽ ആവശ്യമായ സാഹചര്യങ്ങളിൽ പതിവായി ഉപയോഗിക്കുന്നു, ഉദാഹരണത്തിന് ഡേറ്റാബേസുകൾ, വെബ് സേവനങ്ങൾ, അല്ലെങ്കിൽ കോഡ് വ്യാഖ്യാനകർ. ഈ കഴിവ് പല വിധത്തിലുള്ള ഉപയോഗ കേസുകൾക്കാണ് ഉപയോഗയോഗ്യമായിത്തീർക്കുന്നത്, അതിനാൽ:
+AI ഏജന്റുകൾ സങ്കീർണമായ കാര്യങ്ങൾ പൂർത്തിയാക്കാൻ, വിവരങ്ങൾ ശേഖരിക്കാൻ, അല്ലെങ്കിൽ തീരുമാനങ്ങൾ എടുക്കാൻ ടൂളുകൾ പ്രയോജനപ്പെടുത്താം. ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക ബാഹ്യ സിസ്റ്റങ്ങളുമായി ഡൈനാമിക് ഇടപെടൽ ആവശ്യമുള്ള സാഹചര്യങ്ങളിൽ, ഉദാഹരണത്തിന് ഡാറ്റാബേസുകൾ, വെബ് സർവീസുകൾ അല്ലെങ്കിൽ കോഡ് വ്യാഖ്യാതാക്കൾ പോലുള്ളവയിൽ വ്യാപകമായി ഉപയോഗിക്കുന്നു. ഇതുവഴി പല വേറിട്ട സന്ദർഭങ്ങളിലുണ്ടാക്കാവുന്നതാണ്, ഉദാഹരണങ്ങൾ:
 
-- **ഡൈനാമിക് വിവര പുനരുദ്ധരണം:** ഏജന്റുകൾ ബാഹ്യ API-കൾ അല്ലെങ്കിൽ ഡാറ്റാബേസുകൾ ചേർന്ന് പുതിയ വിവരങ്ങൾ ശേഖരിക്കാൻ കഴിയും (ഉദാ: SQLite ഡാറ്റാബേസ് ക്വഡറി ചെയ്ത് ഡാറ്റാ വിശകലനം, സ്റ്റോക്ക് വിലകൾ അല്ലെങ്കിൽ കാലാവസ്ഥ വിവരങ്ങൾ ശേഖരണം).
-- **കോഡ് പ്രവർത്തനം, വ്യാഖ്യാനം:** ഗണിതപ്രശ്നങ്ങൾ പരിഹരിക്കാൻ, റിപ്പോർട്ടുകൾ ഉണ്ടാക്കാൻ അല്ലെങ്കിൽ സിമുലേഷൻ നടത്താൻ ഏജന്റുകൾ കോഡ് എഴുതാനും ഓടിക്കാനും കഴിയും.
-- **പ്രവൃത്തിപ്രവാഹം സ്വയം><![CDATA[ലാമെന്റേഷൻ**: ടാസ്‌ക് ഷെഡ്യൂളർ, ഇമെയിൽ സേവനങ്ങൾ അല്ലെങ്കിൽ ഡാറ്റ പൈപ്പ്ലൈനുകൾ പോലുള്ള ടൂളുകൾ സംയോജിപ്പിച്ച് ആവർത്തന അല്ലെങ്കിൽ ബഹു-പടി പ്രവൃത്തികളെ സ്വയം നിയന്ത്രിക്കൽ.
-- **ഗ്രാഹക പിന്തുണ:** ഏജന്റുകൾ CRM സംവിധാനങ്ങൾ, ടിക്കറ്റ് പ്ലാറ്റ്‌ഫോമുകൾ അല്ലെങ്കിൽ വിജ്ഞാനശേഖരങ്ങൾ വഴി ഉപഭോക്തൃ ചോദ്യങ്ങൾ പരിഹരിക്കാം.
-- **കോൺടेंटൊഴുക്ക് നിർമ്മാണവും തിരുത്തലും:** വ്യാകരണപരിശോധകങ്ങൾ, ടെക്സ്റ്റ് സംഗ്രഹകരികൾ അല്ലെങ്കിൽ ഉള്ളടക്ക സുരക്ഷാ നിരീക്ഷകങ്ങൾ പോലുള്ള ടൂളുകൾ ഉപയോഗിച്ച് ഉള്ളടക്കം നിർമ്മാണ പ്രവർത്തനങ്ങളിൽ സഹായിക്കുന്നത്.
+- **ഡൈനാമിക് വിവര ശേഖരണം:** ഏജന്റുകൾ ഏറ്റവും പുതിയ ഡാറ്റ നേടാൻ ബാഹ്യ APIകൾ അല്ലെങ്കിൽ ഡാറ്റാബേസുകൾ ചോദ്യം ചെയ്യാം (ഉദാ. ഡാറ്റാ വിശകലനത്തിന് SQLite ഡാറ്റാബേസ് ചോദ്യം ചെയ്യൽ, സ്റ്റോക്ക് വിലകൾ അല്ലെങ്കിൽ കാലാവസ്ഥ വിവരങ്ങൾ പിടിക്കൽ).
+- **കോഡ് നിർവ്വഹണവും വ്യാഖ്യാനവും:** ഗണിത പ്രശ്‌നങ്ങൾ പരിഹരിക്കാനോ റിപ്പോർട്ടുകൾ സൃഷ്ടിക്കാനോ സിമുലേഷനുകൾ നടത്താനോ ഏജന്റുകൾ കോഡ് അല്ലെങ്കിൽ സ്‌ക്രിപ്റ്റുകൾ പ്രവർത്തിപ്പിക്കാം.
+- **വർക്ക്‌ഫ്ലോ ഓട്ടോമേഷൻ:** ടാസ്‌ക് ഷെഡ്യൂളറുകൾ, ഇമെയിൽ സർവീസുകൾ, ഡാറ്റ പൈപ്പ്‌ലൈനുകൾ പോലുള്ള ടൂളുകൾ സംയോജിപ്പിച്ച് പുനരാവൃതമായ അല്ലെങ്കിൽ ബഹു പട അവലോകന പ്രവർത്തനങ്ങൾ ഓട്ടോമേറ്റ് ചെയ്യൽ.
+- **കസ്റ്റമർ പിന്തുണ:** CRM സിസ്റ്റങ്ങളും ടിക്കറ്റ് പ്ലാറ്റ്‌ഫോമുകളും അറിവ് ബേസുകളും ചേർന്ന് ഉപഭോക്തൃ ചോദ്യങ്ങൾ പരിഹരിക്കാൻ ഏജന്റുകൾ ഇടപഴകുന്നു.
+- **ഉള്ളടക്കം സൃഷ്ടിയിലും എഡിറ്റിംഗിലും:** വ്യാകരണ പരിശോധന, ആശയം സംക്ഷേപণ, അല്ലെങ്കിൽ ഉള്ളടക്കം സുരക്ഷാ തരം പരിശോധിക്കൽ പോലുള്ള ടൂളുകൾ എജന്റുകൾ പ്രയോജനപ്പെടുത്തി ഉള്ളടക്കം സൃഷ്ടിയിൽ സഹായം നൽകുന്നു.
 
-## ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ നടപ്പിലാക്കാൻ ആവശ്യമുള്ള ഘടകങ്ങൾ/നിർമ്മാണഘടകങ്ങൾ
+## ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക നടപ്പിലാക്കാൻ ആവശ്യമായ ഘടകങ്ങൾ/നിർമ്മാണ ഘടകങ്ങൾ എന്തെല്ലാം?
 
-ഈ നിർമാണ ഘടകങ്ങൾ AI ഏജന്റിന് വ്യാപകമായ പ്രവർത്തനങ്ങൾ നടത്താൻ സഹായിക്കുന്നു. ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ നടപ്പിലാക്കാനുള്ള പ്രധാന ഘടകങ്ങൾ നോക്കാം:
+ഈ നിർമ്മാണ ഘടകങ്ങൾ AI ഏജന്റിന വിലയിരുത്താവുന്ന പല പ്രവർത്തനങ്ങളും സാധ്യമാക്കുന്നു. ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക നടപ്പിലാക്കാൻ ആവശ്യമായ പ്രധാന ഘടകങ്ങൾ ഇവിടെ പരിശോധിക്കാം:
 
-- **ഫങ്ഷൻ/ടൂൾ സ്കീമകൾ:** ലഭ്യമായ ടൂളുകളുടെ വിശദമായ നിർവചനങ്ങൾ, ഫങ്ഷൻ പേര്, ലക്ഷ്യം, ആവശ്യമായ പാരാമീറ്ററുകൾ, പ്രതീക്ഷിച്ച ഔട്ട്‌പുട്ട് എന്നിവ ഉൾപ്പെടുന്നു. ഈ സ്കീമകൾ LLM-കൊരു ലഭ്യമായ ടൂളുകൾ മനസ്സിലാക്കാനും സാധുവായ അഭ്യർത്ഥനകൾ നിർമ്മിക്കാനും സഹായിക്കും.
+- **ഫംഗ്ഷൻ/ടൂൾ സ്കീമകൾ**: ലഭ്യമായ ടൂളുകളുടെ വിശദമായ നിർവചനങ്ങൾ, ഫംഗ്ഷൻ പേര്, ഉദ്ദേശ്യം, ആവശ്യമായ പാരാമീറ്ററുകൾ, പ്രതീക്ഷിക്കുന്ന ഔട്ട്പുട്ടുകൾ എന്നിവ ഉൾപ്പെടുന്നു. ഈ സ്കീമകൾ LLM-ക്ക് ലഭ്യമായ ടൂളുകൾ മനസിലാക്കാനും സാധുവായ അഭ്യർത്ഥനകൾ നിർമ്മിക്കാനുമുള്ള സഹായം നൽകുന്നു.
 
-- **ഫങ്ഷൻ നിർവ്വഹണ ലോജിക്ക്:** ഉപയോക്താവിന്റെ إرادہ സംസാര സാന്ദർഭം അനുസരിച്ച് ടൂളുകൾ എപ്പോഴെത്തെ, എങ്ങനെ വിളിക്കണം എന്ന് നിയന്ത്രിക്കുന്നു. പ്ലാനർ മഡ്യൂളുകൾ, റൂട്ടിംഗ് മെക്കാനിസങ്ങൾ, അല്ലെങ്കിൽ ടൂൾ ഉപയോഗം നിർണ്ണയിക്കുന്ന വ്യവസ്ഥാപിത പ്രവാഹങ്ങൾ ഇതിൽ ഉൾപ്പെടാം.
+- **ഫംഗ്ഷൻ നിർവഹണ തർക്കശാസ്ത്രം**: ഉപയോക്താവിന്റെ ഉദ്ദേശവും സംവാദ സാന്ദർഭവും അടിസ്ഥാനമാക്കി ടൂളുകൾ എപ്പോൾ, എങ്ങനെ വിളിക്കപ്പെടും എന്ന് നിയന്ത്രിക്കുന്നു. പ്ലാനർ മോഡ്യൂളുകൾ, റൂട്ടിംഗ് സംവിധാനം, അല്ലെങ്കിൽ സന്ധിഗ്ധ പ്രവാഹങ്ങൾ ഉൾപ്പെടാം ഇത്.
 
-- **സന്ദേശ കൈകാര്യം എടുക്കൽ സിസ്റ്റം:** ഉപയോക്താവിന്റെ ഇൻപുട്ട്, LLM ප්‍රതിക്രിയകൾ, ടൂൾ കോൾസ്, ടൂൾ ഔട്ട്‌പുട്ടുകൾ എന്നിവ തമ്മിലുള്ള സംവാദ പ്രവാഹം നിയന്ത്രിയ്ക്കുന്ന ഘടകങ്ങൾ.
+- **സന്ദേശ ചിക ്കര ണവണ സംവിധാന ം**: ഉപയോക്തൃ ഇൻപുട്ടുകൾ, LLM പ്രതികരണങ്ങൾ, ടൂൾ കോളുകൾ, ടൂൾ ഔട്ട്പുട്ടുകൾ എന്നിവ തമ്മിലുള്ള സംവാദ പ്രവാഹം നിയന്ത്രിക്കുന്ന ഘടകങ്ങൾ.
 
-- **ടൂൾ ഇന്റിഗ്രേഷൻ ഫീറംവർക്ക്:** ഏജന്റിനെ വിവിധ ടൂളുകളുമായി ബന്ധിപ്പിക്കുന്നത്, ആ ടൂളുകൾ ലളിതമായ ഫങ്ഷനുകളായിരിക്കാം അല്ലെങ്കിൽ ജടിലമായ വലിയ ബാഹ്യ സേവനങ്ങളായിരിക്കാം.
+- **ടൂൾ ഇന്റഗ്രേഷൻ ഫ്രെയിംവർക്ക്**: ഏജന്റിനെ വിവിധ ടൂളുകളുമായി ബന്ധിപ്പിക്കുന്ന അദ്ധിഹിതം, ലളിതമായ ഫംഗ്ഷനുകളായാലും സങ്കീർണ്ണമായ ബാഹ്യ സേവനങ്ങളായാലും.
 
-- **ഭged്: എന്തെങ്കിലും സാമർത്ഥ്യക്ഷമമല്ലാതെ മോച്ചിച്ചുപോകുകയോ ടൂൾ പ്രവർത്തനത്തിലെ പരാജയങ്ങൾ കൈകാര്യം ചെയ്യുക, പാരാമീറ്ററുകൾ പരിശോധിക്കുക, അനിഷ്ട പ്രതികരണങ്ങൾ നിയന്ത്രിക്കുക.
+- **പിശക് കൈകാര്യം & സാധുത പരിശോധന:** ടൂൾ നിർവഹണത്തിലെ പൊട്ടിപ്പോകലുകൾ കൈകാര്യം ചെയ്യാനുള്ള, പാരാമീറ്ററുകൾ സാധുത പരിശോധിക്കൽ, അവിശ്വാസകരമായ പ്രതികരണങ്ങൾ നിയന്ത്രിക്കുന്ന യന്ത്രങ്ങൾ.
 
-- **സ്റ്റേറ്റ് മാനേജ്മെന്റ്:** സംവാദ സാന്ദർഭം, കഴിഞ്ഞ ടൂൾ ഇടപെടലുകൾ, സ്ഥിരമായ ഡാറ്റ നിയന്ത്രിച്ച് പല ടേൺ സംവാദങ്ങളിലും ഉറച്ച നിലനിർത്തൽ ചെയ്യുന്നു.
+- **സ്റ്റേറ്റ് മാനേജ്‌മെന്റ്**: സംവാദ സാന്ദർഭം, മുമ്പുള്ള ടൂൾ ഇടപെടലുകൾ, സ്ഥിരമായ ഡാറ്റ എന്നിവ ട്രാക്ക് ചെയ്യുന്നു, ബഹു ടേൺ ഇടപെടലുകളിൽ സ്ഥിരത ഉറപ്പാക്കുന്നു.
 
-ഇനി, ഫങ്ഷൻ/ടൂൾ കോൾ കൂടുതൽ വിശദമായി പരിഗണിക്കാം.
+അടുത്തതായി, ഫംഗ്ഷൻ/ടൂൾ കോളിങ് കൂടുതൽ വിശദമായി നോക്കാം.
+ 
+### ഫംഗ്ഷൻ/ടൂൾ കോളിംഗ്
 
-### ഫങ്ഷൻ/ടൂൾ കോൾ
+ഫംഗ്ഷൻ കോളിംഗ് ആണ് വലിയ ഭാഷാ മാതൃകകൾ (LLMs) ടൂളുകളുമായി ഇടപഴകാൻ ഉപയോഗിക്കുന്ന പ്രധാന മാർഗം. 'ഫംഗ്ഷൻ' ഉം 'ടൂൾ' ഉം പലപ്പോഴും പരസ്പരം ഉപയോഗിക്കുന്നത് കാണാം കാരണം 'ഫംഗ്ഷനുകൾ' (പുനരുപയോഗിക്കാവുന്ന കോഡിന്റെ ബ്ലോക്കുകൾ) എജന്റുകൾ പ്രവർത്തനങ്ങൾ നടത്താൻ ഉപയോഗിക്കുന്ന 'ടൂളുകളാണ്'. ഒരു ഫംഗ്ഷന്റെ കോഡ് പ്രവർത്തിപ്പിക്കാൻ, ഒരു LLM-ഓം ഉപയോക്താവിന്റെ അഭ്യർത്ഥന ഫംഗ്ഷൻ വിവരണത്തിൻെറോട് താരതമ്യം ചെയ്യണം. ഇതിനു എല്ലാ ലഭ്യമായ ഫംഗ്ഷനുകളുടെ വിവരണങ്ങൾ അടങ്ങിയ ഒരു സ്കീമ LLM-ට അയക്കപ്പെടുന്നു. LLM തുടർന്ന് ഏറ്റവും അനുയോജ്യമായ ഫംഗ്ഷൻ തിരഞ്ഞെടുത്ത് അതിന്റെ പേര്, പാരാമീറ്ററുകൾ തിരിച്ചുകൊടുക്കും. തിരഞ്ഞെടുത്ത ഫംഗ്ഷൻ പ്രവർത്തിപ്പിച്ച്, അതിന്റെ പ്രതികരണം LLM-യിലേക്ക് ആക്കുമ്പോൾ ഉപയോക്താവിന്റെ അഭ്യർത്ഥനയ്ക്ക് പ്രതികരിക്കാൻ ഉപയോഗിക്കും.
 
-ഫങ്ഷൻ കോൾ കേസുകളാണ് വികസിപ്പിച്ച വലുതും ഭാഷാ മോഡലുകൾ (LLM) ടൂളുമായി ഇടപഴകാൻ സാദ്ധ്യമാക്കുന്ന പ്രധാന മാർഗം. ‘ഫങ്ഷൻ’ എന്നും ‘ടൂൾ’ എന്നും ഉണ്ടായേക്കാം കാരണം 'ഫങ്ഷൻ' (പുനരുപയോഗയോഗ്യമായ കോഡ് ബ്ലോക്കുകൾ) എന്നതാണ് ഏജന്റുകൾക്ക് പ്രവർത്തനങ്ങൾ നടത്താൻ ഉപയോഗിക്കുന്ന 'ടൂൾ'. ഒരു ഫങ്ഷന്റെ കോഡ് പ്രവർത്തിപ്പിക്കാനായി, LLM ഉപയോക്താവിന്റെ അഭ്യർത്ഥനയെ ഫങ്ഷനം വിശദീകരണവുമായി താരതമ്യം ചെയ്യണം. ഇതിനായി എല്ലാ ലഭ്യമായ ഫങ്ഷനുകൾ വിശദീകരിച്ചിരിക്കുന്ന ഒരു സ്കീമ LLM-൯ അയയ്ക്കുന്നു. തുടർന്ന് LLM ഏറ്റവും അനുയോജ്യമായ ഫങ്ഷനെ തിരഞ്ഞെടുക്കുകയും അതിന്റെ പേര്, പാരാമീറ്ററുകൾ തിരിച്ചയയ്ക്കുകയും ചെയ്യുന്നു. തിരഞ്ഞെടുക്കപ്പെട്ട ഫങ്ഷൻ പ്രവർത്തിപ്പിക്കുകയും, അതിന്റെ പ്രതികരണം LLM-നു വേണ്ടി പറക്കുകയും LLM അതു ഉപയോക്തൃ അഭ്യർത്ഥനയ്ക്ക് മറുപടി നൽകാൻ ഉപയോഗിക്കുകയും ചെയ്യുന്നു.
+ഏജന്റുകൾക്കായി ഫംഗ്ഷൻ കോളിംഗ് നടപ്പിലാക്കാൻ നിങ്ങളുടെ ആവശ്യങ്ങൾ:
 
-ഫങ്ഷൻ കോൾ ഏജന്റുകൾക്ക് നടപ്പിലാക്കാൻ നിങ്ങള്ക്ക് ആവശ്യമുള്ളത്:
+1. ഫംഗ്ഷൻ കോളിംഗ് പിന്തുണയുള്ള LLM മോഡൽ
+2. ഫംഗ്ഷൻ വിവരണങ്ങൾ അടങ്ങിയ സ്കീമ
+3. ഓരോ ഫംഗ്ഷനിലും നിർവഹിക്കേണ്ട കോഡ്
 
-1. ഫങ്ഷൻ കോൾ പിന്തുണയുള്ള LLM മോഡൽ
-2. ഫങ്ഷൻ വിശദീകരണങ്ങൾ ഉൾക്കൊള്ളുന്ന ഒരു സ്കീമ
-3. ഓരോ ഫങ്ഷനു വേണ്ട കോഡ്
+ഒരു നഗരത്തിലെ നിലവിലെ സമയം എടുക്കാനുള്ള ഉദാഹരണം ഉപയോഗിക്കാം:
 
-നഗരത്തിലെ നിലവിലെ സമയം അറിയാനുള്ള ഉദാഹരണമായി ഇത് എടുത്തുകൊണ്ട് കാണിക്കാം:
+1. **ഫംഗ്ഷൻ കോളിംഗ് പിന്തുണയുള്ള LLM ആരംഭിക്കുക:**
 
-1. **ഫങ്ഷൻ കോൾ പിന്തുണയുള്ള LLM ആരംഭിക്കുക:**
-
-    എല്ലാ മോഡലുകളും ഫങ്ഷൻ കോൾ പിന്തുണയുള്ളതല്ല, അതിനാൽ നിങ്ങൾ ഉപയോഗിക്കുന്ന LLM ഇത് поддерживает എന്ന് പരിശോധിക്കുക. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> ഫങ്ഷൻ കോൾ പിന്തുണക്കുന്നു. ആദ്യം Azure OpenAI ക്ലയന്റ് പ്രാരംഭപ്പെടുത്താം.
+    എല്ലാ മോഡലുകളും ഫംഗ്ഷൻ കോളിംഗ് പിന്തുണയ്ക്കുന്നില്ല, അതിനാൽ നിങ്ങൾ ഉപയോഗിക്കുന്ന LLM പിന്തുണയാണെന്ന് ഉറപ്പാക്കുക. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> ഫംഗ്ഷൻ കോളിംഗ് പിന്തുണയ്ക്കുന്നു. നാം Azure OpenAI **Responses API** (സ്ഥിരമായ `/openai/v1/` എണ്ട്പോയിന്റ് — `api_version` ആവശ്യമില്ല) എതിർവശത്തിരിച്ച് OpenAI ക്ലയന്റ് ആരംഭിക്കാം.
 
     ```python
-    # അസ്യൂർ ഓപ്പൺഎഐ ക്ലയന്റിനെ ആരംഭിക്കുക
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-1. **ഫങ്ഷൻ സ്കീമ സൃഷ്ടിക്കുക:**
+1. **ഫംഗ്ഷൻ സ്കീമ സൃഷ്ടിക്കുക**:
 
-    ഫങ്ഷൻ പേര്, ഫങ്ഷൻ ചെയ്യുന്നത് വിശദീകരണം, ഫങ്ഷൻ പാരാമീറ്ററുകളുടെ പേര്, വിവരണം എന്നിവ ഉള്‍പ്പെടുത്തുന്ന JSON സ്കീമ നിർവചിക്കുന്നു.
-    പിന്നീട് ഈ സ്കീമ മുമ്പ് സൃഷ്ടിച്ച ക്ലയന്റിനും, ഉപയോക്താവിന്റെ അഭ്യർത്ഥനയെയും (സാൻ ഫ്രാൻസിസ്കോയിൽ സമയം കാണിക്കൽ) അയയ്ക്കും. ശ്രദ്ധിക്കാനുള്ള കാര്യം: **ടൂൾ കോൾ** ആണ് മടക്കമാകുന്നത്, ചോദ്യത്തിന് തുകത്തിലുള്ള മറുപടി അല്ല. മുൻപ് പറഞ്ഞതുപോലെ, LLM ഫങ്ഷൻലെ തുടർവാർത്തയും അതിന്റെ_ARGUMENTസും തിരിച്ചയയ്ക്കുന്നു.
+    അടുത്തതായി ഫംഗ്ഷൻ പേര്, ഫംഗ്ഷൻ എന്താണ് ചെയ്യുന്നത് എന്ന വിവരണം, ഫംഗ്ഷൻ പാരാമീറ്ററുകളുടെ പേര്, വിവരണം എന്നിവ അടങ്ങിയ JSON സ്കീമ നിർവചിക്കും.
+    തുടർന്ന് ഈ സ്കീമ മുൻപുതന്നെ സൃഷ്ടിച്ച ക്ലയന്റിന് ഉൾപ്പെടുത്തും, ഉപയോക്താവ് San Francisco-യിൽ സമയം കാണിക്കുന്ന അഭ്യർത്ഥനയുമായി കൂടി അയയ്ക്കും. ശ്രദ്ധിക്കേണ്ടത്, **ടൂൾ കോളാണ്** മറുപടി, **അടുത്തുപ്പോലെ അവസാന ഉത്തരമല്ല**. മുൻപ് പറഞ്ഞതുപോലെ, LLM ആ പ്രവർത്തനത്തിന് തിരഞ്ഞെടുത്ത ഫംഗ്ഷന്റെ പേര്, പാരാമീറ്ററുകൾ തിരിച്ചുകൊടുക്കുന്നു.
 
     ```python
-    # മോഡൽ വായിക്കാൻ പ്രവർത്തനം വിവരണം
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # ആദ്യ ഉപയോക്തൃ സന്ദേശം
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # ആദ്യ API کال്: മോഡലോട് ഫംഗ്ഷൻ ഉപയോഗിക്കാൻ ആവശ്യപ്പെടുക
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # മോഡലിന്റെ പ്രതികരണം പ്രോസസ്സ് ചെയ്യുക
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **ഈ ഫങ്ഷൻ പ്രവർത്തിപ്പിക്കുന്ന കോഡ്:**
+1. **പണി നിർവഹിക്കാൻ ആവശ്യമായ ഫംഗ്ഷൻ കോഡ്:**
 
-    LLM സ്ഥിതിമാറ്റിപ്പിച്ചതിനുശേഷം, ഫങ്ഷൻ പ്രവർത്തിപ്പിക്കുന്ന കോഡ് നടപ്പിലാക്കുകയും ഓടിക്കുകയും വേണം.
-    നാം Python-ൽ സിറ്റി നിലവിലെ സമയം എടുക്കുന്ന കോഡ് നടപ്പിലാക്കാം. മറുപടി സന്ദേശത്തിൽ നിന്ന് പേര്,_ARGUMENTസ് പിടിച്ച് അവസാന ഫലം ലഭിക്കുന്ന കോഡും എഴുതണം.
+    ഇനി LLM തിരഞ്ഞെടുത്ത ഫംഗ്ഷൻ പ്രവർത്തിപ്പിക്കേണ്ട കോഡ് നടപ്പിലാക്കുകയും പ്രവർത്തിപ്പിക്കുകയും ചെയ്യും.
+    Python-ലിൽ നിലവിലെ സമയം എടുക്കാനുള്ള കോഡ് എഴുതാം. ഫംഗ്ഷൻ സ്ഥിരീകരണ വിവരങ്ങൾ response_message-ൽ നിന്നെടുക്കും വിധം കോഡ് എഴുതേണ്ടിവരും.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ AI ഏജന്റ്മാർ ടൂളുകൾ ഉപയോഗിച്ച്
     ```
 
      ```python
-     # ഫംഗ്ഷന്‍ വിളികളെ കൈകാര്യം ചെയ്യുക
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # രണ്ടാം API വിളി: മോഡലിൽ നിന്ന് അന്തിമ പ്രതികരണം നേടുക
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@ AI ഏജന്റ്മാർ ടൂളുകൾ ഉപയോഗിച്ച്
       The current time in San Francisco is 09:24 AM.
      ```
 
-ഫങ്ഷൻ കോൾ ഏജന്റുകളുടെ ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേണിന്റെ മൂള കിണറാണ്, എങ്കിലും ഇത് ഒന്നൊന്നായി ആരാഞ്ഞ് നിർമ്മിക്കുമ്പോൾ ചിലപ്പോൾ വെല്ലുവിളികളുണ്ടാകാം.
-[Lesson 2](../../../02-explore-agentic-frameworks) ൽ പഠിച്ച പോലെ, ഏജന്റിക് ഫ്രെയിമ്വർക്കുകൾ നമുക്ക് ടൂൾ ഉപയോഗത്തിൽ ആവശ്യമായ നിർമ്മാണഘടകങ്ങൾ മുൻകൈ അധിഷ്ഠിതമായി നൽകുന്നു.
+ഫംഗ്ഷൻ കോളിംഗ് ടൂൾ ഉപയോഗ രൂപകൽപ്പനയിലെ ഹൃദയമാണ്, എന്നാൽ ഇത് തൊട്ടടുത്ത് അടിസ്ഥാനത്തിൽ ആരംഭിക്കുന്നത് ചിലപ്പോൾ സങ്കീർണ്ണമാണാകാം.
+നാം [അദ്ധ്യായം 2](../../../02-explore-agentic-frameworks) ൽ പഠിച്ചതു പോലെ, ഏജന്റിക് ഫ്രെയിംവർക്ക്‌ಗಳು ടൂൾ ഉപയോഗത്തിന് പൂരക നിർമ്മാണഘടകങ്ങൾ നൽകുന്നു.
+ 
+## ഏജന്റിക് ഫ്രെയിംവർക്ക് ഉപയോഗിച്ചുള്ള ടൂൾ ഉപയോഗ ഉദാഹരണങ്ങൾ
 
-## ഏജന്റിക് ഫ്രെയിംവർക്കുകളുമായി ടൂൾ ഉപയോഗ ഉദാഹരണങ്ങൾ
+വിവിധ ഏജന്റിക് ഫ്രെയിംവർക്ക് ഉപയോഗിച്ച് ടൂൾ ഉപയോഗ രൂപകൽപ്പന മാതൃക എങ്ങനെ നടപ്പിലാക്കാം എന്നതിനുള്ള ചില ഉദാഹരണങ്ങൾ:
 
-വിവിധ ഏജന്റിക് ഫ്രെയിംവർക്കുകൾ ഉപയോഗിച്ച് ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ എങ്ങനെ നടപ്പിലാക്കാമെന്ന് ചില ഉദാഹരണങ്ങൾ:
+### Microsoft ഏജന്റ് ഫ്രെയിംവർക്ക്
 
-### സെമാന്റിക് കർണൽ
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft ഏജന്റ് ഫ്രെയിംവർക്ക്</a> AI ഏജന്റുകൾ നിർമ്മിക്കാൻ ഒരു ഓപ്പൺ സോഴ്സ് ഫ്രെയിംവർക്ക് ആണ്. ഫംഗ്ഷൻ കോളിംഗ് പ്രക്രിയ ലളിതമാക്കുന്നു, ടൂളുകൾ Python ഫംഗ്ഷനുകളായി `@tool` ഡെക്കറേറ്റർ ഉപയോഗിച്ച് നിർവചിക്കാം. മോഡൽ, കോഡ് തമ്മിലുള്ള സംവാദം ഫ്രെയിംവർക്ക് കൈകാര്യം ചെയ്യുന്നു. File Search, Code Interpreter പോലുള്ള പൂർവ്വ നിർമിത ടൂളുകൾ `FoundryChatClient` വഴി ലഭ്യമാക്കുന്നു.
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">സെമാന്റിക് കർണൽ</a> .NET, Python, Java ഡെവലപ്പർമാർക്കായി LLM എളുപ്പമായ ഫങ്ഷൻ കോൾ ഉപയോഗത്തിന് രൂപകൽപ്പന ചെയ്‌ത ഒരു ഓപ്പൺ സോഴ്‌സ് AI ഫ്രെയിംവർക്ക് ആണ്. ഫങ്ഷനുകൾ, അവയുടെ പാരാമീറ്ററുകൾ മോഡലിലേക്ക് <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">സീരിയലൈസ്</a> എന്ന പ്രക്രിയ വഴി സ്വയം വിവരിക്കുകയും മോഡലും നിങ്ങളുടെ കോഡും തമ്മിലുള്ള ആശയവിനിമയം സ്വകൃതമായി കൈകാര്യം ചെയ്യുകയും ചെയ്യുന്നു. സെമാന്റിക് കർണൽ പോലുള്ള ഏജന്റിക് ഫ്രെയിംവർക്ക് ഉപയോഗിക്കുന്ന മറ്റൊരു ഗുണം, <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">ഫയൽ ശോധന</a>, <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">കോഡ് വ്യാഖ്യാനകർ</a> പോലുള്ള മുൻകൈ ടൂളുകൾ ലഭ്യമാകുന്നു.
-
-താഴെ കൊടുത്ത ചിത്രം സെമാന്റിക് കർണലിൽ ഫങ്ഷൻ കോൾ പ്രക്രിയയെ വിശദീകരിക്കുന്നു:
+താഴെ കാണുന്ന ചിത്രം Microsoft ഏജന്റ് ഫ്രെയിംവർക്ക് ഉപയോഗിച്ച് ഫംഗ്ഷൻ കോളിംഗിന്റെ പ്രക്രിയ വ്യാഖ്യാനിക്കുന്നു:
 
 ![function calling](../../../translated_images/ml/functioncalling-diagram.a84006fc287f6014.webp)
 
-സെമാന്റിക് കർണൽ-ൽ ഫങ്ഷനുകൾ/ടൂളുകൾ <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">പ്ലഗിൻ</a>സ് എന്നറിയപ്പെടുന്നു. മുൻപ് കണ്ട `get_current_time` ഫങ്ഷൻ ക്ലാസ്സാക്ഷരമായ പ്ലഗിനായി മാറ്റാം. `kernel_function` ഡെക്കറേറ്ററെയും ഇറക്കുമതി ചെയ്യാം, അത് ഫങ്ഷന്റെ വിവരണം സ്വീകരിക്കുന്നു. GetCurrentTimePlugin ഉപയോഗിച്ച് കർണൽ രൂപപ്പെടുത്തുമ്പോൾ, കർണൽ സ്വയമേവ ഫങ്ഷനും പാരാമീറ്ററുകളും സീരിയലൈസ് ചെയ്ത് LLM-നയയ്ക്കേണ്ട സ്കീമ നിർമ്മിക്കും.
+Microsoft ഏജന്റ് ഫ്രെയിംവർക്കിൽ, ടൂളുകൾ ഡെക്കറേറ്റുചെയ്ത ഫംഗ്ഷനുകളായി നിർവചിക്കുന്നു. മുൻപ് കണ്ട `get_current_time` ഫംഗ്ഷൻ ടൂൾ ആക്കി മാറ്റാൻ `@tool` ഡെക്കറേറ്റർ ഉപയോഗിക്കാം. ഫ്രെയിംവർക്ക് ഫംഗ്ഷൻ, പാരാമീറ്ററുകൾ സീരിയലൈസ് ചെയ്ത് LLM-ന് അയയ്ക്കാനുള്ള സ്കീമ സൃഷ്ടിക്കും.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### MCP സർവറിൽ നിന്നുള്ള ടൂളുകൾ
+
+ടൂളുകൾ നിങ്ങളുടെ സ്വന്തം കോഡിലെ ഫംഗ്ഷനുകളാകേണ്ടതില്ല. മോഡൽ കോൺടെക്സ്റ്റ് പ്രോട്ടോക്കോൾ (MCP, [അദ്ധ്യായം 11](../11-agentic-protocols/README.md) ൽ പഠിച്ചതുപോലെ) സംസാരിക്കുന്ന ഒരു സർവർ തന്റെ ടൂളുകൾ സ്കീമുകളുമായി പ്രസിദ്ധീകരിക്കുന്നു, ഫ്രെയിംവർക്ക് അത് ഡെക്കറേറ്റുചെയ്ത ഫംഗ്ഷൻ പോലെ സീരിയലൈസ് ചെയ്ത് ഉപയോഗിക്കാനാകും. `MCPStreamableHTTPTool` HTTP വഴി MCP സർവറുമായി ബന്ധിപ്പിച്ച് ടൂൾ സ്കീമകൾ വായിച്ച്, മോഡലിന് പ്രാദേശിക ടൂളുകളെ പുറമേ നൽകുന്നു.
+
+താഴെയുള്ള ഉദാഹരണം <a href="https://keenable.ai" target="_blank">Keenable</a> പോർവെച്ചു നടത്തുന്ന വെബ് സേർച്ച് സർവർ ഉപയോഗിക്കുന്നു. അക്കൗണ്ട് അല്ലെങ്കിൽ API കീ ഇല്ലാതെใช้ฟรี (IP അടിസ്ഥാനത്തിൽ റേറ്റ് ലിമിറ്റേഷൻ ഉണ്ട്), അതിനാൽ മോഡലിനുള്ള ക്രെഡൻഷ്യലുകൾ മാത്രം ആവശ്യമാണ്. ഏതെങ്കിലും ദൂരെ ടൂൾ പോലെയുള്ള, മോഡൽ എഴുതുന്ന അന്വേഷണങ്ങൾ ആ സർവറിലേക്ക് അയയ്ക്കുന്നു.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# കർണൽ സൃഷ്ടിക്കുക
-kernel = Kernel()
-
-# പ്ലഗിൻ സൃഷ്ടിക്കുക
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# പ്ലഗിൻ കർണലിൽ ചേർക്കുക
-kernel.add_plugin(get_current_time_plugin)
-```
+സർവർ രണ്ട് ടൂളുകൾ പ്രസിദ്ധീകരിക്കുന്നു, `search_web_pages`, `fetch_page_content`. ഇപ്പോഴുള്ള വിവരങ്ങൾ ആവശ്യമായപ്പോൾ, മോഡൽ `search_web_pages` വിളിക്കുന്നു, ടൈറ്റിലുകൾ, URLs, ടെക്സ്റ്റ് സ്‌നിപ്പറ്റുകൾ ലഭിക്കുന്നു, അവയിൽനിന്ന് മറുപടി എഴുതുന്നു, മുകളിലെ `get_current_time` ഉദാഹരണത്തിലെ പോലെ.
   
-### Azure AI Agent Service
+### Microsoft ഫൗണ്ട്രി ഏജന്റ് സർവീസ്
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> പുതിയ ഒരു ഏജന്റിക് ഫ്രെയിംവർക്ക് ആണ്, വികസിപ്പകർക്ക് സുരക്ഷിതമായി ഉയർന്ന നിലവാരമുള്ള, വിപുലീകരണ സാധ്യമായ AI ഏജന്റുകൾ നിർമ്മിക്കുകയും വിനിയോഗിക്കുകയും സ്കെയിൽ ചെയ്യുകയും ചെയ്യാൻ സഹായിക്കുന്നു. അടിസ്ഥാന കമ്പ്യൂട്ട്, സ്റ്റോറേജ് വിഭവങ്ങൾ കൈകാര്യം ചെയ്യേണ്ടതില്ല. ഇത് എന്റർപ്രൈസ് ആപ്ലിക്കേഷനുകൾക്ക് ഏറെ പ്രയോജനകരമാണ്, സ്ഥാപന നിലവാരമുള്ള സുരക്ഷയോട് കൂടിയിരിക്കുന്ന മൊത്തം മാനേജ്ചെയ്ത സേവനമാണ്.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft ഫൗണ്ട്രി ഏജന്റ് സർവീസ്</a> ഒരു പുതിയ ഏജന്റിക് ഫ്രെയിംവർക്ക് ആണ്, ഇത് റുത്തിക്കാർക്ക് ഉയർന്ന നിലവാരമുള്ള, വിശാലമായ AI ഏജന്റുകൾ സുരക്ഷിതമായി നിർമ്മിക്കാനും വിന്യസിക്കാനും സ്കെയിൽ ചെയ്യാനും സഹായിക്കുന്നു, അടിസ്ഥാന കംപ്യൂട്ട്- памяти വിഭവങ്ങൾ കൈകാര്യം ചെയ്യേണ്ട ആവശ്യമില്ലാതെ. പ്രത്യേകിച്ച് എന്റർപ്രൈസ് അപ്ലിക്കേഷനുകൾക്കു ഇത് പ്രയോജനപ്രദമാണ്, കാരണം ഇത് പൂർണ്ണമായും മാനേജു ചെയ്‌തിരിക്കുന്ന സർവീസ് ആൻഡ് എന്റർപ്രൈസ് ഗ്രേഡ് സുരക്ഷയുണ്ട്.
 
-നേരിട്ട് LLM API ഉപയോഗിക്കുന്നതുമായി താരതമ്യപ്പെടുത്തുമ്പോൾ, Azure AI Agent Service ചില നേട്ടങ്ങൾ നൽകുന്നു:
+LLM API നേരിട്ട് വികസിപ്പിക്കുന്നതോടുള്ള താരതമ്യത്തിൽ Microsoft ഫൗണ്ട്രി ഏജന്റ് സർവീസ് ചില അനുകൂലതകൾ നൽകുന്നു:
 
-- സ്വയം ടൂൾ കോൾ ചെയ്യൽ – ടൂൾ കോൾ വിശകലനം ചെയ്ത്, ടൂൾ വിളിച്ച്, മറുപടി കൈകാര്യം ചെയ്യുന്നതിനുള്ള പ്രക്രിയകൾ എല്ലാ സെർവർ-ഭാഗത്തായി നടപ്പിലാക്കുന്നു
-- സുരക്ഷിതമായി കൈകാര്യം ചെയ്‌ത ഡേറ്റ – നിങ്ങളുടെ സംവാദ നില മാനേജ്ജ് ചെയ്യലിന് പകരം, ട്രെഡ്‌സ് ഉപയോഗിച്ച് എല്ലാ ആവശ്യമായ വിവരങ്ങളും സൂക്ഷിക്കുന്നു
-- പുറംണുകളിൽ ടൂളുകൾ – Bing, Azure AI Search, Azure Functions തുടങ്ങിയ ഡാറ്റയുമായി സംവദിക്കാൻ ഉപയോഗിക്കാവുന്ന ടൂളുകൾ
+- ഓട്ടോമാറ്റിക് ടൂൾ കോളിംഗ് – ടൂൾ കോളിനെ വിശകലനം ചെയ്യാനും ടൂൾ പ്രവർത്തിപ്പിക്കാനും മറുപടി കൈകാര്യം ചെയ്യാനും ആവശ്യമില്ല; ഇവ എല്ലാം സർവർ-അവശ്യമായി നടക്കുന്നു.
+- സുരക്ഷിതമായി മാനേജുചെയ്യപ്പെടുന്ന ഡാറ്റ – നിങ്ങളുടെ സ്വന്തം സംവാദ നില കൈകാര്യം ചെയ്യുന്നതിന് പകരം എല്ലാ വിവരങ്ങളും സൂക്ഷിക്കാൻ ത്രെഡുകൾ ആശ്രയിക്കാം.
+- പുറമേ തന്നെ ലഭ്യമാകുന്ന ടൂളുകൾ – Bing, Azure AI Search, Azure Functions പോലുള്ള ഡാറ്റാ ഉറവിടങ്ങളുമായി ഇടപഴകാൻ ഉപയോഗിക്കുന്ന ടൂളുകൾ.
 
-Azure AI Agent Service ഉള്ള ടൂളുകൾ ഈ രണ്ട് വിഭാഗങ്ങളായി വിഭജിക്കാം:
+Microsoft ഫൗണ്ട്രി ഏജന്റ് സർവീസ് ലഭ്യമാക്കിയ ടൂളുകൾ രണ്ട് വിഭാഗങ്ങളായി അറിയാം:
 
 1. അറിവ് ടൂളുകൾ:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing Search-ൽ ഗ്രൗണ്ടിംഗ്</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">ഫയൽ ശോധന</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing Search-ന്റെ ഗ്രൗണ്ടിംഗ്</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">ഫയൽ തിരയൽ</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. പ്രവർത്തന ടൂളുകൾ:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">ഫങ്ഷൻ കോൾ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">കോഡ് വ്യാഖ്യാനകൻ</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI നിർവ്വചിച്ച ടൂളുകൾ</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">ഫംഗ്ഷൻ കോളിംഗ്</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">കോഡ് വ്യാഖ്യാതാവ്</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI നിർവചിച്ച ടൂളുകൾ</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service ഈ ടൂളുകൾ `toolset` ആയി ഒരുസഹിതമാക്കി ഉപയോഗിക്കാനാകും. നിഗമനമായി, `threads` ഉപയോഗിച്ച് ഒരു പ്രത്യേക സംവാദത്തിലെ സന്ദേശപ്പശ്ചാത്തല ചരിത്രം സൂക്ഷിക്കുകയും ചെയ്യും.
+ഏജന്റ് സർവീസ് ഈ ടൂളുകൾ ആദ്യത്തെ `toolset` ആയി ചേർത്ത് ഉപയോഗിക്കാൻ അനുവദിക്കുന്നു. അത് കൂടാതെ, പ്രത്യേക സംവാദത്തിലെ സന്ദേശങ്ങളുടെ ചരിത്രം പിന്തുടരാൻ `threads` ഉപയോഗിക്കുന്നു.
 
-നിങ്ങൾ Contoso എന്ന കമ്പനിയിൽ ഒരു സെയിൽസ് ഏജന്റാണ് എന്നു കരുതുക. നിങ്ങളുടെ സെയിൽസ് ഡാറ്റയെക്കുറിച്ച് ചോദ്യങ്ങൾക്ക് മറുപടി നൽകാൻ കഴിവുള്ള ഒരു സംവാദ ഏജന്റ് വികസിപ്പിക്കാൻ ആഗ്രഹിക്കുന്നു.
+നിങ്ങളൊരു Contoso എന്ന കമ്പനി സെയിൽസ് ഏജന്റ് ആണെന്നും കരുതുക. നിങ്ങളുടെ സെയിൽസ് ഡാറ്റയെക്കുറിച്ചുള്ള ചോദ്യങ്ങൾക്ക് മറുപടി നൽകുന്ന ഒരു സംവാദ ഏജന്റ് വികസിപ്പിക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നു.
 
-താഴെ കാണുന്ന ചിത്രം Azure AI Agent Service ഉപയോഗിച്ച് സെയിൽസ് ഡാറ്റ ആനാലിസിസ് എങ്ങനെ നടത്താമെന്ന് കാണിക്കുന്നു:
+Microsoft ഫൗണ്ട്രി ഏജന്റ് സർവീസ് ഉപയോഗിച്ച് സെയിൽസ് ഡാറ്റ വിശകലനം ചെയ്യുന്ന രീതിയെ കുറിച്ചുള്ള ചിത്രം താഴെ കാണിക്കുന്നു:
 
-![Agentic Service In Action](../../../translated_images/ml/agent-service-in-action.34fb465c9a84659e.webp)
+![എജന്റിക് സർവീസ് പ്രവർത്തനത്തിൽ](../../../translated_images/ml/agent-service-in-action.34fb465c9a84659e.webp)
 
-ഈ ടൂളുകൾ ഏത് ഉപയോഗിച്ച് സേവനം ഉപയോഗിക്കാൻ, ക്ലയന്റ് സൃഷ്ടിക്കുകയും ഒരു ടൂൾ അല്ലെങ്കിൽ ടൂൾസെറ്റ് നിർവചിക്കുകയും ചെയ്യാം. പ്രായോഗികമായി നടപ്പിലാക്കാൻ താഴെയുള്ള Python കോഡ് ഉപയോഗിക്കാം. LLM ടൂൾസെറ്റ് പരിശോധിച്ച് ഉപയോക്താവ് സൃഷ്ടിച്ച `fetch_sales_data_using_sqlite_query` ഫങ്ഷൻ ആണോ, മുൻകൈ കോഡ് വ്യാഖ്യാനകരാണോ ഉപയോഗിക്കേണ്ടത് തീരുമാനിക്കും.
+ഈ സേവനത്തോടൊപ്പം ഈ ഉപകരണങ്ങളിൽ ഏതൊരു ഉപകരണം ഉപയോഗിക്കാൻ ഞങ്ങൾ ഒരു ക്ലയന്റ് സൃഷ്ടിച്ച് ഒരു ഉപകരണം അല്ലെങ്കിൽ ഉപകരണസമാഹാരം നിർവചിക്കാം. ഇത് പ്രായോഗികമായി നടപ്പിലാക്കാൻ ഞങ്ങൾ താഴെ കൊടുത്തിരിക്കുന്ന Python കോഡ് ഉപയോഗിക്കാം. LLM ഉപകരണസമാഹാരം പരിശോധിച്ച് ഉപയോക്താവിന്റെ അഭ്യർത്ഥന അനുസരിച്ച് ഉപയോക്താവും നിർമിച്ച ഫംഗ്ഷൻ, `fetch_sales_data_using_sqlite_query`, അല്ലെങ്കിൽ മുൻകൂട്ടി നിർമ്മിച്ച കോഡ് ഇൻറർപ്രിറ്റർ ഉപയോഗിക്കണമെന്ന് തീരുമാനിക്കാനാകും.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query ഫംഗ്ഷൻ, അത് fetch_sales_data_functions.py ഫയലിൽ കാണാം.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# ടൂൾസെറ്റ് ആമുഖപ്പെടുത്തുക
+# Initialize toolset
 toolset = ToolSet()
 
-# fetch_sales_data_using_sqlite_query ഫംഗ്ഷനോടൊപ്പം ഫംഗ്ഷൻ കോളിംഗ് ഏജന്റ് ആമുഖപ്പെടുത്തുകയും അത് ടൂൾസെറ്റിൽ ചേർക്കുക.
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# കോഡ് ഇൻറർപ്രീറ്റർ ടൂൾ ആമുഖപ്പെടുത്തുകയും അതിനെ ടൂൾസെറ്റിൽ ചേർക്കുകയും ചെയ്യുക.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## വിശ്വസനീയമായ AI ഏജന്റ്മാർ നിർമ്മിക്കാൻ ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ ഉപയോഗിക്കുമ്പോൾ പ്രത്യേക പരിഗണനകൾ എന്തൊക്കെയാണ്?
+## വിശ്വസ്തമായ AI ഏജന്റുകളെ നിര്‍മ്മിക്കുന്നതിന് ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേൺ ഉപയോഗിക്കുമ്പോഴുള്ള പ്രത്യേക പരിഗണനകൾ എന്തെല്ലാമാണെന്ന്?
 
-LLM-കൾ വഴി ഡൈനാമിക് ആയി ജനറേറ്റ് ചെയ്യുന്ന SQL-ലുള്ള സാധാരണ ആശങ്ക സെകയ്യൂരിറ്റിയാണ്, പ്രത്യേകിച്ച് SQL എൻജക്ഷൻ അല്ലെങ്കിൽ ദുഷ്പ്രഭാവങ്ങൾ (ഡേറ്റാബേസ് ഡ്രോപ്പ് ചെയ്യൽ അല്ലെങ്കിൽ കൃത്രിമം) പോലുള്ള അപകടങ്ങൾ. ഈ ആശങ്കകൾ വാസ്തവമാണ്, എങ്കിലും ശരിയായ ഡേറ്റാബേസ് ആക്‌സസ് അനുവാദങ്ങൾ ക്രമീകരിച്ചാൽ ഫലപ്രദമായി നിയന്ത്രിക്കാവുന്നതാണ്. അധികം ഡേറ്റാബേസുകൾ റീഡ്-ഓൺലി ആകാൻ ക്രമീകരിക്കപ്പെടുന്നുണ്ട്. PostgreSQL അല്ലെങ്കിൽ Azure SQL പോലുള്ള ഡേറ്റാബേസ് സർവീസുകൾക്കായി, ആപ്പ് റീഡ്-ഓൺലി (SELECT) റോളുകൾ നൽകണം.
-ആപ്ലിക്കേഷൻ സുരക്ഷിതമായ അന്തരീക്ഷത്തിൽ പ്രവർത്തിപ്പിക്കുന്നത് സംരക്ഷണം കൂടുതൽ മെച്ചപ്പെടുത്തുന്നു. സംരംഭ ഘടകങ്ങളിൽ, ഡാറ്റ സാധാരണയായി ഓപ്പറേഷണൽ സിസ്റ്റങ്ങൾ മുതലായവയിൽ നിന്ന് എടുത്ത് മാറ്റി, വായിക്ക-only ഡാറ്റാബേസ് അല്ലെങ്കിൽ ഡാറ്റാ വെർഹൗസിലോ, ഉപയോക്തൃ സൗഹൃദ സ്കീമയിലോ മാറ്റാവുന്ന രീതിയിൽ പരിവർത്തനം ചെയ്യപ്പെടുന്നു. ഈ സമീപനം ഡാറ്റ സുരക്ഷിതവും പ്രകടനക്ഷമവുമായിരിക്കും എന്നു ഉറപ്പാക്കുക എന്നതോടൊപ്പം ആപ്പിന് പരിധിയിട്ട, വായിക്ക-only ആക്‌സസ് ലഭിക്കും.
+LLM-കൾ സൃഷ്ടിക്കുന്ന ഡൈനാമിക് SQL-ൽ സാധാരണയായി ഉയരുന്ന പ്രശ്നം സുരക്ഷയാണ്, പ്രത്യേകിച്ച് SQL ഇഞ്ചക്ഷൻ അഥവാ മാലിഷ്യസ് പ്രവർത്തനങ്ങൾ പോലുള്ള അപകടം, ഉദാഹരണത്തിന് ഡാറ്റാബേസ് ഡ്രോപ് ചെയ്യുക അല്ലെങ്കിൽ തട്ടിപ്പ് നടത്തുക എന്നിവ. ഈ ആശങ്കകൾ ശരിയാണ്, പക്ഷേ, ഡാറ്റാബേസ് ആക്സസ് പെർമിഷനുകൾ ശരിയായി ക്രമീകരിച്ചാൽ അത് കാര്യക്ഷമമായി തടയാം. അധികപക്ഷം ഡാറ്റാബേസുകൾക്കായി ഇത് വായന മാത്രം (read-only) ആയി ക്രമീകരിക്കുന്നതാണ്. PostgreSQL അല്ലെങ്കിൽ Azure SQL പോലുള്ള ഡാറ്റാബേസ് സേവനങ്ങളിൽ, ആപ്പ് ഒരു വായനാ മാത്രം (SELECT) റോളുംകൊടുക്കണം.
+
+ആപ്പ് ഒരു സുരക്ഷിതമായ പരിസരത്തിൽ പ്രവർത്തിപ്പിക്കുന്നത് കൂടുതൽ സംരക്ഷണം സജ്ജമാക്കുന്നു. എന്റർപ്രൈസ് സാഹചര്യങ്ങളിൽ, ഡാറ്റ സാധാരണയായി ഓപ്പറേഷണൽ സിസ്റ്റങ്ങളിൽ നിന്നും എടുത്ത് മാറ്റിമറിച്ച് ഒരു വായനാ മാത്രം ഡാറ്റാബേസ് അല്ലെങ്കിൽ ഡാറ്റാ വെയർഹൗസിലേക്ക് മാറ്റും, ഒരു ഉപയോക്തൃ സൗഹൃദമുള്ള സ്കീമയോടെ. ഈ രീതിയിൽ ഡാറ്റ സുരക്ഷിതമാക്കി, പ്രകടനം മെച്ചപ്പെടുത്തി, ആക്സസ് സുലഭമാക്കി, ആപ്പിന് നിയന്ത്രിതമായ, വായനാ മാത്രം ആക്സസ് നൽകുന്നു.
 
 ## സാമ്പിൾ കോഡുകൾ
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## ഉപകരണ ഉപയോഗ ഡിസൈൻ പാറ്റേണുകളെക്കുറിച്ചുള്ള കൂടുതൽ ചോദ്യങ്ങളുണ്ടോ?
+## ടൂൾ ഉപയോഗ ഡിസൈൻ പാറ്റേണുകൾ സംബന്ധിച്ച് കൂടുതൽ ചോദ്യങ്ങളോ?
 
-മറ്റുള്ള പഠനാർത്ഥികളോടൊപ്പം കൂടാന്‍, ഓഫീസ് മണിക്കൂറുകളിൽ പങ്കെടുക്കാനും നിങ്ങളുടെ AI ഏജന്റുകളുമായി ബന്ധപ്പെട്ട ചോദ്യങ്ങൾക്ക് മറുപടി അറിയാനും [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) ൽ ചേരുക.
+[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) ൽ ചേരുക, മറ്റുള്ള പഠിതാക്കളെ കാണുക, ഓഫീസിനോടുള്ള സമയങ്ങളിൽ പങ്കെടുക്കുക, നിങ്ങളുടെ AI ഏജന്റുകളുമായി ബന്ധപ്പെട്ട ചോതയറുകൾക്ക് ഉത്തരം കണ്ടെത്തുക.
 
-## അധിക വിഭവങ്ങൾ
+## അധിക സ്രോതസുകൾ
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Semantic Kernel Function Calling Tutorial</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Code Interpreter</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Tools</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">കണ്ടോസോ ക്രിയേറ്റീവ് റൈറ്റർ മൾട്ടി-ഏജന്റ് വർക്ക്ഷോപ്പ്</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">മൈക്രോസോഫ്‌റ്റ് ഏജന്റ് ഫ്രെയിംവർക്കിന്റെ അവലോകനം</a>
 
-## നാജ പ്രധാന പാഠം
+## ഈ ഏജന്റ് സ്‌മോക്ക്-ടെസ്റ്റിംഗ് (ഐച്ഛികം)
 
-[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+[പാഠം 16](../16-deploying-scalable-agents/README.md) ലെ ഏജന്റുകൾ വിന്യസിക്കുന്നത് പഠിച്ചശേഷം, നിങ്ങൾക്ക് ഈ പാഠത്തിലെ `TravelToolAgent` (ഇത് ഇനിയും അതിന്റെ ടൂളുകൾ വിളിക്കുന്നുണ്ടോ, ഉത്തരം നൽകുന്നുണ്ടോ?) [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json) ഉപയോഗിച്ച് സ്‌മോക്ക്-ടെസ്റ്റ് ചെയ്യാവുന്നതാണ്. ഇതു എങ്ങനെ നടത്താമെന്നു കാണുക [`tests/README.md`](../tests/README.md).
+
+## മുൻപത്തെ പാഠം
+
+[ഏജന്റിക് ഡിസൈൻ പാറ്റേണുകൾ മനസ്സിലാക്കൽ](../03-agentic-design-patterns/README.md)
 
 ## അടുത്ത പാഠം
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[ഏജന്റിക് RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**അസാധുവാക്കൽ**:  
-ഈ ഡോക്യൂമെന്റ് AI വിവർത്തന സേവനായ [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്തതാണ്. ഞങ്ങൾ കൃത്യത ലക്ഷ്യമിടുന്നുവെങ്കിലും, സ്വയമേറ്റ വിവർത്തനങ്ങളിൽ പിശകുകളോ അംഗീകരിക്കാത്ത അസ്ഥിരതകളോ ഉണ്ടാകാം എന്ന് ദയവായി ശ്രദ്ധിക്കുക. മൂലഭാഷയിലെ യഥാര്‍ഥ ഡോക്യൂമെന്റേയാണ് അധികാരപരമായി അംഗീകരിക്കേണ്ടതെന്നും ശ്രദ്ധിക്കുക. പ്രധാന വിവരങ്ങൾക്ക് പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം നിർദ്ദേശിക്കപ്പെടുന്നു. ഈ വിവർത്തനത്തിന്റെ ഉപയോഗത്തിൽ നിന്നുണ്ടാകുന്ന തെറ്റായ ബോധ്യങ്ങളോ അർത്ഥകല്പനകളോ സംബന്ധിച്ച് ഞങ്ങൾ ഉത്തരവാദിത്വം വഹിക്കുന്നതല്ല.
+**അറിയിപ്പ്**:
+ഈ രേഖ AI പരിഭാഷാ സേവനം [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് പരിഭാഷപ്പെടുത്തിയതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് പരിഭാഷകളിൽ പിഴവുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. അതിന്റെ സ്വാഭാവിക ഭാഷയിലുള്ള അസൽ രേഖയാണ് പ്രാമാണികമായ ഉറവിടമായി പരിഗണിക്കേണ്ടത്. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ പരിഭാഷ ശുപാർശ ചെയ്യുന്നു. ഈ പരിഭാഷ ഉപയോഗിച്ച് ഉണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾ അല്ലെങ്കിൽ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കായി ഞങ്ങൾ ഉത്തരവാദികളല്ല.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

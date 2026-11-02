@@ -1,70 +1,69 @@
-# Github MCP Server Example
+# Github MCP Server Ukázka
 
 ## Popis
 
-Toto je demo vytvořené pro hackathon AI Agents pořádaný prostřednictvím Microsoft Reactor.
+Toto byla ukázka vytvořená pro AI Agents Hackathon pořádaný prostřednictvím Microsoft Reactor.
 
-Nástroj slouží k doporučování projektů pro hackathon na základě Github repozitářů uživatele. To se provádí pomocí:
+The tools is used to recommend hackathon projects based on a user's Github repos.
+This is done by:
 
-1. **Github Agent** - Používá Github MCP Server k získání repozitářů a informací o těchto repozitářích.
-2. **Hackathon Agent** - Využívá data od Github Agenta a přichází s kreativními nápady na projekty pro hackathon na základě projektů, jazyků používaných uživatelem a témat hackathonu AI Agents.
-3. **Events Agent** - Na základě návrhů Hackathon Agenta doporučuje Events Agent relevantní události ze série AI Agent Hackathon.
+1. **Github Agent** - Používá Github MCP Server k získávání repozitářů a informací o těchto repozitářích.
+2. **Hackathon Agent** - Bere data od Github Agenta a vymýšlí kreativní nápady na hackathon projekty na základě projektů, jazyků používaných uživatelem a tématických okruhů pro AI Agents hackathon.
+3. **Events Agent** - Na základě návrhů Hackathon Agenta Events Agent doporučí relevantní události ze série AI Agent Hackathon.
+## Running the code 
 
-## Spuštění kódu 
+### Environment Variables
 
-### Proměnné prostředí
+This demo uses Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Toto demo využívá Azure Open AI Service, Semantic Kernel, Github MCP Server a Azure AI Search.
-
-Ujistěte se, že máte správně nastavené proměnné prostředí pro použití těchto nástrojů:
+Make sure that you have the proper environment variables set to use these tools:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Spuštění Chainlit Serveru
+## Running the Chainlit Server
 
-Pro připojení k MCP serveru toto demo používá Chainlit jako chatovací rozhraní.
+To connect to the MCP server, this demo use Chainlit as a chat interface. 
 
-Pro spuštění serveru použijte následující příkaz ve vašem terminálu:
+To run the server, use the following command in your terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Tím by se měl spustit váš Chainlit server na `localhost:8000` a zároveň naplnit váš Azure AI Search Index obsahem souboru `event-descriptions.md`.
+This should start your Chainlit server on `localhost:8000` as well as populate your Azure AI Search Index with the `event-descriptions.md` content. 
 
-## Připojení k MCP Serveru
+## Connecting to the MCP Server
 
-Pro připojení k Github MCP Serveru klikněte na ikonu "zástrčky" pod chatovacím polem "Type your message here..":
+To connect to the Github MCP Server, select the "plug" icon underneath the "Type your message here.." chat box:
 
-![MCP Connect](../../../../../translated_images/cs/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Připojení MCP](../../../../../translated_images/cs/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Odtud můžete kliknout na "Connect an MCP" a přidat příkaz pro připojení k Github MCP Serveru:
+From there you can click on the "Connect an MCP" to add the command to connect to the Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Nahraďte "[YOUR PERSONAL ACCESS TOKEN]" vaším skutečným osobním přístupovým tokenem.
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-Po připojení byste měli vidět (1) vedle ikony zástrčky, což potvrzuje, že je připojeno. Pokud ne, zkuste restartovat Chainlit server pomocí `chainlit run app.py -w`.
+After connecting, you should see a (1) next to the plug icon to confirm that its connected. If not, try restarting the chainlit server with `chainlit run app.py -w`.
 
-## Použití dema 
+## Using the Demo 
 
-Pro zahájení pracovního postupu agenta, který doporučuje projekty pro hackathon, můžete napsat zprávu jako:
+To start the agent workflow of recommending hackathon projects, you can type a message like: 
 
-"Doporuč projekty pro hackathon pro Github uživatele koreyspace"
+"Doporučte projekty na hackathon pro uživatele Github koreyspace"
 
-Router Agent analyzuje váš požadavek a určí, která kombinace agentů (GitHub, Hackathon a Events) je nejvhodnější pro zpracování vašeho dotazu. Agenti spolupracují, aby poskytli komplexní doporučení na základě analýzy Github repozitářů, návrhů projektů a relevantních technologických událostí.
+The Router Agent will analyze your request and determine which combination of agents (GitHub, Hackathon, and Events) is best suited to handle your query. The agents work together to provide comprehensive recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
 
 ---
 
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Prohlášení o vyloučení odpovědnosti:
+Tento dokument byl přeložen pomocí služby pro překlad využívající umělou inteligenci [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, berte prosím na vědomí, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za rozhodující zdroj. U kritických informací doporučujeme využít profesionální lidský překlad. Nejsme odpovědní za žádná nedorozumění nebo mylné výklady vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

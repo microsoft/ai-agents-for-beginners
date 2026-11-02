@@ -1,69 +1,69 @@
-# Microsoft Agent Framework Workflow ব্যবহার করে মাল্টি-এজেন্ট অ্যাপ্লিকেশন তৈরি করা
+# Microsoft Agent Framework Workflow দিয়ে মাল্টি-এজেন্ট অ্যাপ্লিকেশন তৈরি
 
-এই টিউটোরিয়ালটি আপনাকে Microsoft Agent Framework ব্যবহার করে মাল্টি-এজেন্ট অ্যাপ্লিকেশন তৈরি এবং বুঝতে সাহায্য করবে। আমরা মাল্টি-এজেন্ট সিস্টেমের মূল ধারণাগুলি অন্বেষণ করব, ফ্রেমওয়ার্কের Workflow কম্পোনেন্টের স্থাপত্য বিশ্লেষণ করব এবং Python এবং .NET-এ বিভিন্ন workflow প্যাটার্নের ব্যবহারিক উদাহরণ দেখব।
+এই টিউটোরিয়ালটি আপনাকে Microsoft Agent Framework ব্যবহার করে মাল্টি-এজেন্ট অ্যাপ্লিকেশন বুঝতে এবং তৈরি করতে সাহায্য করবে। আমরা মাল্টি-এজেন্ট সিস্টেমের মূল ধারণাগুলি অন্বেষণ করব, ফ্রেমওয়ার্কের Workflow উপাদানের স্থাপত্যে ডুব দেব, এবং বিভিন্ন ওয়ার্কফ্লো প্যাটার্নের জন্য Python এবং .NET-এ ব্যবহারিক উদাহরণগুলি পর্যায়ক্রমে দেখব।
 
-## ১। মাল্টি-এজেন্ট সিস্টেম বোঝা
+## 1\. মাল্টি-এজেন্ট সিস্টেম বোঝা
 
-একটি AI Agent হলো একটি সিস্টেম যা একটি সাধারণ Large Language Model (LLM)-এর ক্ষমতার বাইরে কাজ করে। এটি তার পরিবেশ উপলব্ধি করতে পারে, সিদ্ধান্ত নিতে পারে এবং নির্দিষ্ট লক্ষ্য অর্জনের জন্য পদক্ষেপ নিতে পারে। একটি মাল্টি-এজেন্ট সিস্টেমে একাধিক এজেন্ট একসঙ্গে কাজ করে এমন সমস্যার সমাধান করে যা একটি একক এজেন্টের পক্ষে সমাধান করা কঠিন বা অসম্ভব।
+একটি AI এজেন্ট হলো এমন একটি সিস্টেম যা একটি সাধারণ লার্জ ল্যাংগুয়েজ মডেল (LLM)-এর ক্ষমতার বাইরে যায়। এটি তার পরিবেশকে অনুধাবন করতে পারে, সিদ্ধান্ত নিতে পারে এবং নির্দিষ্ট লক্ষ্য অর্জনে কার্যক্রম নিতে পারে। একটি মাল্টি-এজেন্ট সিস্টেমে কয়েকটি এজেন্ট একসাথে কাজ করে এমন একটি সমস্যা সমাধান করে যা একক এজেন্টের পক্ষে একা হারানো বা অসম্ভব হতে পারে।
 
-### সাধারণ অ্যাপ্লিকেশন দৃশ্যপট
+### সাধারণ অ্যাপ্লিকেশন পরিস্থিতি
 
-  * **জটিল সমস্যা সমাধান**: একটি বড় কাজকে (যেমন, একটি কোম্পানি-ব্যাপী ইভেন্ট পরিকল্পনা) ছোট ছোট উপ-কার্যে ভাগ করা, যা বিশেষায়িত এজেন্ট দ্বারা পরিচালিত হয় (যেমন, বাজেট এজেন্ট, লজিস্টিক্স এজেন্ট, মার্কেটিং এজেন্ট)।
-  * **ভার্চুয়াল অ্যাসিস্ট্যান্ট**: একটি প্রধান অ্যাসিস্ট্যান্ট এজেন্ট অন্যান্য বিশেষায়িত এজেন্টদের কাছে কাজ যেমন সময়সূচি তৈরি, গবেষণা এবং বুকিং অর্পণ করে।
-  * **স্বয়ংক্রিয় কন্টেন্ট তৈরি**: একটি workflow যেখানে একটি এজেন্ট কন্টেন্ট ড্রাফট করে, অন্যটি সঠিকতা এবং টোন পর্যালোচনা করে, এবং তৃতীয়টি এটি প্রকাশ করে।
+  * **জটিল সমস্যা সমাধান**: একটি বড় কাজকে (যেমন, একটি কোম্পানি-ব্যাপী ইভেন্ট পরিকল্পনা) ছোট ছোট উপ-কার্যগুলিতে ভাঙ্গা যা বিশেষায়িত এজেন্টরা পরিচালনা করে (যেমন, বাজেট এজেন্ট, লজিস্টিক্স এজেন্ট, মার্কেটিং এজেন্ট)।
+  * **ভার্চুয়াল সহকারী**: একটি প্রধান সহকারী এজেন্ট বিভিন্ন কাজ যেমন সময়সূচি নির্ধারণ, গবেষণা এবং বুকিং অন্য বিশেষায়িত এজেন্টদের কাছে বরাদ্দ করে।
+  * **স্বয়ংক্রিয় বিষয়বস্তু তৈরি**: একটি ওয়ার্কফ্লো যেখানে একটি এজেন্ট কনটেন্ট খসড়া করে, অন্যটি যথার্থতা এবং টোন যাচাই করে, এবং তৃতীয়টি এটি প্রকাশ করে।
 
 ### মাল্টি-এজেন্ট প্যাটার্ন
 
-মাল্টি-এজেন্ট সিস্টেম বিভিন্ন প্যাটার্নে সংগঠিত হতে পারে, যা তাদের পারস্পরিক ক্রিয়ার ধরন নির্ধারণ করে:
+মাল্টি-এজেন্ট সিস্টেমগুলি বিভিন্ন প্যাটার্নে সংগঠিত হতে পারে, যা নির্ধারণ করে তারা কিভাবে ইন্টারঅ্যাক্ট করে:
 
-  * **Sequential**: এজেন্টরা পূর্বনির্ধারিত ক্রমে কাজ করে, যেমন একটি অ্যাসেম্বলি লাইন। একটি এজেন্টের আউটপুট পরবর্তী এজেন্টের ইনপুট হয়ে যায়।
-  * **Concurrent**: এজেন্টরা একটি কাজের বিভিন্ন অংশে সমান্তরালভাবে কাজ করে, এবং তাদের ফলাফল শেষে একত্রিত করা হয়।
-  * **Conditional**: workflow বিভিন্ন পথে চলে এজেন্টের আউটপুটের উপর ভিত্তি করে, যেমন একটি if-then-else বিবৃতি।
+  * **ক্রমাগত**: এজেন্টরা একটি পূর্বনির্ধারিত ক্রমে কাজ করে, যেমন একটি অ্যাসেম্বলি লাইন। একটি এজেন্টের আউটপুট পরবর্তী এজেন্টের ইনপুট হয়।
+  * **সমলয়ীন (Concurrent)**: এজেন্টরা একটি কাজের বিভিন্ন অংশে সমান্তরালে কাজ করে এবং তাদের ফলাফল একত্রিত করা হয় শেষ পর্যন্ত।
+  * **শর্তাধীন**: ওয়ার্কফ্লো একটি এজেন্টের আউটপুটের ভিত্তিতে বিভিন্ন পথ অনুসরণ করে, যেমন if-then-else বিবৃতির মতো।
 
-## ২। Microsoft Agent Framework Workflow স্থাপত্য
+## 2\. Microsoft Agent Framework Workflow স্থাপত্য
 
-Agent Framework-এর workflow সিস্টেম একটি উন্নত অর্কেস্ট্রেশন ইঞ্জিন যা একাধিক এজেন্টের মধ্যে জটিল ইন্টারঅ্যাকশন পরিচালনা করতে ডিজাইন করা হয়েছে। এটি একটি গ্রাফ-ভিত্তিক স্থাপত্যের উপর নির্মিত যা একটি [Pregel-স্টাইল এক্সিকিউশন মডেল](https://kowshik.github.io/JPregel/pregel_paper.pdf) ব্যবহার করে, যেখানে প্রক্রিয়াকরণ "supersteps" নামে পরিচিত সিঙ্ক্রোনাইজড ধাপে ঘটে।
+Agent Framework-এর ওয়ার্কফ্লো সিস্টেম হল একটি উন্নত অর্কেস্ট্রেশন ইঞ্জিন যা একাধিক এজেন্টের জটিল ইন্টারঅ্যাকশন পরিচালনা করার জন্য ডিজাইন করা হয়েছে। এটি একটি গ্রাফ-ভিত্তিক স্থাপত্যের উপরে নির্মিত যা [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ব্যবহার করে, যেখানে প্রসেসিং "সুপারস্টেপ" নামে সমন্বিত ধাপে ঘটে।
 
-### মূল উপাদান
+### মূল উপাদানসমূহ
 
 স্থাপত্যটি তিনটি প্রধান অংশ নিয়ে গঠিত:
 
-1.  **Executors**: এগুলো হলো মৌলিক প্রসেসিং ইউনিট। আমাদের উদাহরণে, একটি `Agent` হলো একটি executor-এর ধরন। প্রতিটি executor-এর একাধিক মেসেজ হ্যান্ডলার থাকতে পারে যা প্রাপ্ত মেসেজের ধরন অনুযায়ী স্বয়ংক্রিয়ভাবে আহ্বান করা হয়।
-2.  **Edges**: এগুলো executor-এর মধ্যে মেসেজ যাওয়ার পথ নির্ধারণ করে। Edges-এ শর্ত থাকতে পারে, যা workflow গ্রাফের মাধ্যমে তথ্যের গতিপথকে গতিশীলভাবে রাউট করতে দেয়।
-3.  **Workflow**: এই কম্পোনেন্ট পুরো প্রক্রিয়াটি অর্কেস্ট্রেট করে, executors, edges এবং সামগ্রিক execution flow পরিচালনা করে। এটি নিশ্চিত করে যে মেসেজগুলি সঠিক ক্রমে প্রক্রিয়াকৃত হয় এবং পর্যবেক্ষণের জন্য ইভেন্ট স্ট্রিম করে।
+1.  **Executors**: এগুলো মৌলিক প্রসেসিং ইউনিট। আমাদের উদাহরণগুলোতে, `Agent` হলো executor-এর একটি ধরনের। প্রতিটি executor-এর একাধিক মেসেজ হ্যান্ডলার থাকতে পারে যা মেসেজের প্রকারের উপর ভিত্তি করে স্বয়ংক্রিয়ভাবে আহ্বান করা হয়।
+2.  **Edges**: এগুলো executor-গুলির মধ্যে মেসেজ যাওয়ার পথ নির্ধারণ করে। Edges-এ শর্ত থাকতে পারে, যা workflow গ্রাফের মাধ্যমে তথ্যের গতিপথ গতিশীলভাবে রুটিং করার সুযোগ দেয়।
+3.  **Workflow**: এই উপাদানটি পুরো প্রক্রিয়াটিকে অর্কেস্ট্রেট করে, executors, edges এবং কার্য সম্পাদনের সামগ্রিক প্রবাহ পরিচালনা করে। এটি নিশ্চিত করে যে মেসেজ সঠিক ক্রমে প্রক্রিয়াকৃত হচ্ছে এবং পর্যবেক্ষণের জন্য ইভেন্ট স্ট্রিম করে।
 
-*workflow সিস্টেমের মূল উপাদানগুলির একটি চিত্র।*
+*ওয়ার্কফ্লো সিস্টেমের মূল উপাদানগুলির একটি চিত্র।*
 
-এই কাঠামোটি sequential চেইন, parallel প্রসেসিংয়ের জন্য fan-out/fan-in এবং conditional flows-এর জন্য switch-case লজিকের মতো মৌলিক প্যাটার্ন ব্যবহার করে শক্তিশালী এবং স্কেলযোগ্য অ্যাপ্লিকেশন তৈরি করতে দেয়।
+এই কাঠামোটি মৌলিক প্যাটার্ন যেমন ক্রমাগত চেইন, সমান্তরাল প্রক্রিয়াকরণের জন্য fan-out/fan-in, এবং শর্তাধীন প্রবাহের জন্য switch-case লজিক ব্যবহার করে দৃঢ় এবং স্কেলেবল অ্যাপ্লিকেশন তৈরি করতে দেয়।
 
-## ৩। ব্যবহারিক উদাহরণ এবং কোড বিশ্লেষণ
+## 3\. ব্যবহারিক উদাহরণ ও কোড বিশ্লেষণ
 
-এখন, আমরা framework ব্যবহার করে বিভিন্ন workflow প্যাটার্ন বাস্তবায়নের উদাহরণ দেখব। প্রতিটি উদাহরণের জন্য আমরা Python এবং .NET কোড বিশ্লেষণ করব।
+এখন, ফ্রেমওয়ার্ক ব্যবহার করে বিভিন্ন ওয়ার্কফ্লো প্যাটার্ন কিভাবে বাস্তবায়ন করবেন তা দেখি। প্রতিটি উদাহরণের জন্য আমরা Python এবং .NET কোড উভয়ই দেখব।
 
-### কেস ১: Basic Sequential Workflow
+### কেস 1: মূল Sequential Workflow
 
-এটি সবচেয়ে সহজ প্যাটার্ন, যেখানে একটি এজেন্টের আউটপুট সরাসরি অন্য এজেন্টে পাঠানো হয়। আমাদের দৃশ্যপট একটি হোটেল `FrontDesk` এজেন্টকে নিয়ে, যা একটি ভ্রমণ সুপারিশ করে এবং এটি `Concierge` এজেন্ট দ্বারা পর্যালোচনা করা হয়।
+এটি সবচেয়ে সহজ প্যাটার্ন, যেখানে একটি এজেন্টের আউটপুট সরাসরি অন্যটির কাছে পাঠানো হয়। আমাদের পরিস্থিতিতে একটি হোটেলের `FrontDesk` এজেন্ট যেটি ভ্রমণ সুপারিশ করে, যেটি পরের `Concierge` এজেন্ট দ্বারা পর্যালোচিত হয়।
 
-*Basic FrontDesk -> Concierge workflow-এর একটি চিত্র।*
+*মূল FrontDesk -> Concierge ওয়ার্কফ্লো-এর চিত্র।*
 
-#### দৃশ্যপটের পটভূমি
+#### পরিস্থিতির পটভূমি
 
-একজন ভ্রমণকারী প্যারিসে একটি সুপারিশ চান।
+একজন ভ্রমণকারী প্যারিসে একটি সুপারিশ চাইছেন।
 
-1.  `FrontDesk` এজেন্ট, যা সংক্ষিপ্ততার জন্য ডিজাইন করা হয়েছে, লুভর মিউজিয়াম পরিদর্শনের সুপারিশ করে।
-2.  `Concierge` এজেন্ট, যা প্রামাণিক অভিজ্ঞতাকে অগ্রাধিকার দেয়, এই সুপারিশটি গ্রহণ করে। এটি সুপারিশটি পর্যালোচনা করে এবং একটি আরও স্থানীয়, কম পর্যটকপূর্ণ বিকল্প প্রস্তাব করে।
+1.  `FrontDesk` এজেন্ট, সংক্ষিপ্ততার জন্য ডিজাইন করা, Louvre Museum পরিদর্শনের পরামর্শ দেয়।
+2.  `Concierge` এজেন্ট, যিনি প্রাধান্য দেন বাস্তব অভিজ্ঞতাকে, এই পরামর্শ গ্রহণ করেন, পর্যালোচনা করেন এবং আরও স্থানীয়, কম পর্যটকসদৃশ বিকল্প প্রস্তাব দেন।
 
 #### Python বাস্তবায়ন বিশ্লেষণ
 
-Python উদাহরণে, আমরা প্রথমে দুটি এজেন্ট সংজ্ঞায়িত এবং তৈরি করি, প্রতিটি নির্দিষ্ট নির্দেশনা সহ।
+Python উদাহরণে, আমরা প্রথমে দুইটি এজেন্ট নির্ধারণ এবং তৈরি করি, প্রত্যেকের বিশেষ নির্দেশনা সহ।
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# এজেন্টের ভূমিকা এবং নির্দেশাবলী নির্ধারণ করুন
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# এজেন্টের ইনস্টেন্স তৈরি করুন
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-এরপর, `WorkflowBuilder` ব্যবহার করে গ্রাফ তৈরি করা হয়। `front_desk_agent`-কে প্রারম্ভিক পয়েন্ট হিসেবে সেট করা হয় এবং এর আউটপুট `reviewer_agent`-এর সাথে সংযোগ করতে একটি edge তৈরি করা হয়।
+এরপর, `WorkflowBuilder` দিয়ে গ্রাফ তৈরি করা হয়। `front_desk_agent` শুরু পয়েন্ট হিসেবে নির্ধারণ করা হয় এবং একটি edge তৈরি করে এর আউটপুট `reviewer_agent`-এর সাথে সংযুক্ত করা হয়।
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# ০১.পাইথন-এজেন্ট-ফ্রেমওয়ার্ক-ওয়ার্কফ্লো-ঘিমডেল-বেসিক.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-অবশেষে, workflow ব্যবহারকারীর প্রাথমিক প্রম্পট দিয়ে কার্যকর করা হয়।
+অবশেষে, ওয়ার্কফ্লোটি প্রাথমিক ব্যবহারকারী প্রম্পট নিয়ে চালানো হয়।
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run ওয়ার্কফ্লো চালায়; get_outputs() আউটপুট নির্বাহকের ফলাফল ফেরত দেয়।
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C#) বাস্তবায়ন বিশ্লেষণ
+#### .NET (C\#) বাস্তবায়ন বিশ্লেষণ
 
-.NET বাস্তবায়ন খুবই অনুরূপ যুক্তি অনুসরণ করে। প্রথমে, এজেন্টের নাম এবং নির্দেশনার জন্য constants সংজ্ঞায়িত করা হয়।
+.NET বাস্তবায়ন খুবই অনুরূপ যুক্তি অনুসরণ করে। প্রথমে এজেন্ট নাম এবং নির্দেশনার জন্য কনস্ট্যান্ট নির্ধারণ করা হয়।
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-`OpenAIClient` ব্যবহার করে এজেন্ট তৈরি করা হয়, এবং তারপর `WorkflowBuilder` sequential flow সংজ্ঞায়িত করে `frontDeskAgent` থেকে `reviewerAgent`-এ একটি edge যোগ করে।
+এজেন্টগুলো `AzureOpenAIClient` (Responses API) ব্যবহার করে তৈরি করা হয়, এবং `WorkflowBuilder` ক্রমাগত প্রবাহ সংজ্ঞায়িত করে `frontDeskAgent` থেকে `reviewerAgent`-এ একটি edge যোগ করে।
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-workflow ব্যবহারকারীর বার্তা দিয়ে চালানো হয়, এবং ফলাফল স্ট্রিম করা হয়।
+ব্যবহারকারীর মেসেজ দিয়ে ওয়ার্কফ্লো চালানো হয় এবং ফলাফলগুলো স্ট্রিম করে ফেরত দেওয়া হয়।
 
-### কেস ২: Multi-Step Sequential Workflow
+### কেস 2: মাল্টি-স্টেপ Sequential Workflow
 
-এই প্যাটার্নটি মৌলিক ক্রমকে প্রসারিত করে আরও এজেন্ট অন্তর্ভুক্ত করে। এটি এমন প্রক্রিয়ার জন্য আদর্শ যা একাধিক পর্যায়ে refinement বা transformation প্রয়োজন।
+এই প্যাটার্নটি মৌলিক ক্রমকে বাড়িয়ে আরও বেশি এজেন্ট অন্তর্ভুক্ত করে। এটি আদর্শ এমন প্রক্রিয়াগুলির জন্য যেগুলিতে বহু ধাপের পরিমার্জন বা রুপান্তর প্রয়োজন।
 
-#### দৃশ্যপটের পটভূমি
+#### পরিস্থিতির পটভূমি
 
-একজন ব্যবহারকারী একটি লিভিং রুমের ছবি প্রদান করেন এবং একটি আসবাবপত্র কোট চান।
+একজন ব্যবহারকারী একটি লিভিং রুমের ছবি দেয় এবং আসবাবপত্রের এক মূল্যছাড় চান।
 
-1.  **Sales-Agent**: ছবিতে থাকা আসবাবপত্র আইটেমগুলি সনাক্ত করে এবং একটি তালিকা তৈরি করে।
-2.  **Price-Agent**: আইটেমগুলির তালিকা নিয়ে বাজেট, মধ্যম-শ্রেণী এবং প্রিমিয়াম বিকল্প সহ বিস্তারিত মূল্য বিশ্লেষণ প্রদান করে।
-3.  **Quote-Agent**: মূল্যযুক্ত তালিকা গ্রহণ করে এবং Markdown-এ একটি আনুষ্ঠানিক কোট ডকুমেন্টে রূপান্তর করে।
+1.  **Sales-Agent**: ছবির আসবাবপত্র শনাক্ত করে এবং একটি তালিকা তৈরি করে।
+2.  **Price-Agent**: তালিকাভুক্ত আইটেমগুলোর বিস্তারিত মূল্য বিবরণ প্রদান করে — বাজেট, মধ্যম, এবং প্রিমিয়াম বিকল্প সহ।
+3.  **Quote-Agent**: মূল্য নির্ধারিত তালিকা গ্রহণ করে এবং Markdown ফরম্যাটে একটি আনুষ্ঠানিক কোটেশন ডকুমেন্ট তৈরি করে।
 
-*Sales -> Price -> Quote workflow-এর একটি চিত্র।*
+*Sales -> Price -> Quote ওয়ার্কফ্লো-এর চিত্র।*
 
 #### Python বাস্তবায়ন বিশ্লেষণ
 
-তিনটি এজেন্ট সংজ্ঞায়িত করা হয়, প্রতিটি একটি বিশেষ ভূমিকা সহ। workflow তৈরি করা হয় `add_edge` ব্যবহার করে একটি চেইন তৈরি করতে: `sales_agent` -> `price_agent` -> `quote_agent`।
+তিনটি এজেন্ট নির্ধারণ করা হয়, প্রত্যেকের বিশেষায়িত ভূমিকা রয়েছে। `add_edge` ব্যবহার করে একটি চেইন তৈরি করা হয়: `sales_agent` -> `price_agent` -> `quote_agent`।
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# তিনটি বিশেষায়িত এজেন্ট তৈরি করুন
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# ধাপে ধাপে কর্মপ্রবাহ তৈরি করুন
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-ইনপুটটি একটি `ChatMessage` যা টেক্সট এবং ছবির URI অন্তর্ভুক্ত করে। framework প্রতিটি এজেন্টের আউটপুট পরবর্তী এজেন্টে পাঠানোর প্রক্রিয়া পরিচালনা করে যতক্ষণ না চূড়ান্ত কোট তৈরি হয়।
+ইনপুট একটি `ChatMessage` যা পাঠ্য এবং ইমেজ URI উভয়ই অন্তর্ভুক্ত করে। ফ্রেমওয়ার্ক প্রতিটি এজেন্টের আউটপুট পরবর্তী এজেন্টের কাছে সরবরাহ করার কাজ পরিচালনা করে যতক্ষণ পর্যন্ত চূড়ান্ত কোটেশন তৈরি হয়।
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# ব্যবহারকারীর মেসেজে পাঠ্য এবং একটি চিত্র উভয়ই রয়েছে
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# ওয়ার্কফ্লো চালান
+events = await workflow.run(message)
 ```
 
-#### .NET (C#) বাস্তবায়ন বিশ্লেষণ
+#### .NET (C\#) বাস্তবায়ন বিশ্লেষণ
 
-.NET উদাহরণটি Python সংস্করণকে প্রতিফলিত করে। তিনটি এজেন্ট (`salesagent`, `priceagent`, `quoteagent`) তৈরি করা হয়। `WorkflowBuilder` তাদের sequentially সংযুক্ত করে।
+.NET উদাহরণটি Python সংস্করণের প্রতিফলন। তিনটি এজেন্ট (`salesagent`, `priceagent`, `quoteagent`) তৈরি করা হয়। `WorkflowBuilder` তাদের ক্রমাগত সংযুক্ত করে।
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-ব্যবহারকারীর বার্তা ছবির ডেটা (bytes হিসেবে) এবং টেক্সট প্রম্পট সহ তৈরি করা হয়। `InProcessExecution.StreamAsync` পদ্ধতি workflow শুরু করে, এবং চূড়ান্ত আউটপুট স্ট্রিম থেকে সংগ্রহ করা হয়।
+ব্যবহারকারীর মেসেজটি উভয় ইমেজ তথ্য (বাইট আকারে) এবং টেক্সট প্রম্পটের সাথে তৈরি হয়। `InProcessExecution.RunStreamingAsync` মেথড ওয়ার্কফ্লো আরম্ভ করে এবং চূড়ান্ত আউটপুট স্ট্রীম থেকে ক্যাপচার করে।
 
-### কেস ৩: Concurrent Workflow
+### কেস 3: Concurrent Workflow
 
-এই প্যাটার্নটি ব্যবহার করা হয় যখন কাজগুলি একসঙ্গে সম্পন্ন করা যায় সময় বাঁচানোর জন্য। এটি "fan-out" করে একাধিক এজেন্টে এবং "fan-in" করে ফলাফল একত্রিত করে।
+এই প্যাটার্নটি তখন ব্যবহৃত হয় যখন কাজগুলি একসাথে করা যায় সময় বাঁচাতে। এতে "fan-out" থাকে বহু এজেন্টের কাছে এবং "fan-in" থাকে ফলাফলসমূহ একত্রিত করার জন্য।
 
-#### দৃশ্যপটের পটভূমি
+#### পরিস্থিতির পটভূমি
 
-একজন ব্যবহারকারী সিয়াটলে একটি ভ্রমণ পরিকল্পনা করতে চান।
+একজন ব্যবহারকারী সিয়াটল ভ্রমণের পরিকল্পনা করতে চান।
 
-1.  **Dispatcher (Fan-Out)**: ব্যবহারকারীর অনুরোধ একসঙ্গে দুটি এজেন্টে পাঠানো হয়।
-2.  **Researcher-Agent**: সিয়াটলে ডিসেম্বর মাসে আকর্ষণ, আবহাওয়া এবং গুরুত্বপূর্ণ বিবেচনা নিয়ে গবেষণা করে।
-3.  **Plan-Agent**: স্বাধীনভাবে একটি বিস্তারিত দিন-প্রতি-দিন ভ্রমণ পরিকল্পনা তৈরি করে।
-4.  **Aggregator (Fan-In)**: গবেষক এবং পরিকল্পনাকারীর আউটপুট সংগ্রহ করে এবং একসঙ্গে চূড়ান্ত ফলাফল হিসেবে উপস্থাপন করে।
+1.  **Dispatcher (Fan-Out)**: ব্যবহারকারীর অনুরোধ দুটি এজেন্টকে একই সময়ে পাঠানো হয়।
+2.  **Researcher-Agent**: সিয়াটল-এর দর্শনীয় স্থান, আবহাওয়া, এবং ডিসেম্বরের জন্য মূল বিষয়সমূহ গবেষণা করে।
+3.  **Plan-Agent**: স্বতন্ত্রভাবে একটি বিস্তারিত দিনের প্রতিদিনের ভ্রমণসূচি তৈরি করে।
+4.  **Aggregator (Fan-In)**: গবেষক এবং পরিকল্পনাকারীর উভয় আউটপুট সংগ্রহ করে একত্রে চূড়ান্ত ফলাফল হিসেবে উপস্থাপন করা হয়।
 
-*Concurrent Researcher এবং Planner workflow-এর একটি চিত্র।*
+*Concurrent Researcher এবং Planner ওয়ার্কফ্লো-এর চিত্র।*
 
 #### Python বাস্তবায়ন বিশ্লেষণ
 
-`ConcurrentBuilder` এই প্যাটার্ন তৈরি করা সহজ করে তোলে। আপনি শুধু অংশগ্রহণকারী এজেন্টদের তালিকা দেন, এবং builder স্বয়ংক্রিয়ভাবে প্রয়োজনীয় fan-out এবং fan-in লজিক তৈরি করে।
+`ConcurrentBuilder` এই প্যাটার্ন তৈরিকে সহজ করে তোলে। শুধু অংশগ্রহণকারী এজেন্ট গুলো তালিকাভুক্ত করুন, এবং বিল্ডার স্বয়ংক্রিয়ভাবে প্রয়োজনীয় fan-out এবং fan-in লজিক তৈরি করে।
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder ফ্যান-আউট/ফ্যান-ইন লজিক পরিচালনা করে
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# কর্মপ্রবাহ চালান
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-framework নিশ্চিত করে যে `research_agent` এবং `plan_agent` সমান্তরালভাবে কার্যকর হয়, এবং তাদের চূড়ান্ত আউটপুট একটি তালিকায় সংগ্রহ করা হয়।
+ফ্রেমওয়ার্ক নিশ্চিত করে যে `research_agent` এবং `plan_agent` সমান্তরালে কাজ করে, এবং তাদের চূড়ান্ত আউটপুট একটি তালিকায় সংগৃহীত হয়।
 
-#### .NET (C#) বাস্তবায়ন বিশ্লেষণ
+#### .NET (C\#) বাস্তবায়ন বিশ্লেষণ
 
-.NET-এ এই প্যাটার্নটি আরও স্পষ্ট সংজ্ঞা প্রয়োজন। কাস্টম executors (`ConcurrentStartExecutor` এবং `ConcurrentAggregationExecutor`) fan-out এবং fan-in লজিক পরিচালনা করতে তৈরি করা হয়।
+.NET-এ এই প্যাটার্নের জন্য আরও স্পষ্ট সংজ্ঞা প্রয়োজন। কাস্টম executors (`ConcurrentStartExecutor` এবং `ConcurrentAggregationExecutor`) তৈরি করা হয় fan-out এবং fan-in লজিক পরিচালনার জন্য।
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` তারপর `AddFanOutEdge` এবং `AddFanInEdge` ব্যবহার করে গ্রাফ তৈরি করে এই কাস্টম executors এবং এজেন্টদের সাথে।
+এরপর `WorkflowBuilder` এই কাস্টম executors এবং এজেন্টের সাথে গ্রাফ তৈরির জন্য `AddFanOutEdge` এবং `AddFanInEdge` ব্যবহার করে।
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### কেস ৪: Conditional Workflow
+### কেস 4: Conditional Workflow
 
-Conditional workflow-এ branching logic অন্তর্ভুক্ত থাকে, যা সিস্টেমকে মধ্যবর্তী ফলাফলের উপর ভিত্তি করে বিভিন্ন পথে যেতে দেয়।
+শর্তাধীন ওয়ার্কফ্লো শাখা লজিক প্রবর্তন করে, যা সিস্টেমের মধ্যবর্তী ফলাফলের উপর ভিত্তি করে বিভিন্ন পথ গ্রহণের অনুমতি দেয়।
 
-#### দৃশ্যপটের পটভূমি
+#### পরিস্থিতির পটভূমি
 
-এই workflow একটি টেকনিক্যাল টিউটোরিয়াল তৈরি এবং প্রকাশের প্রক্রিয়া স্বয়ংক্রিয় করে।
+এই ওয়ার্কফ্লো একটি প্রযুক্তিগত টিউটোরিয়ালের তৈরি এবং প্রকাশ স্বয়ংক্রিয় করে।
 
-1.  **Evangelist-Agent**: প্রদত্ত outline এবং URLs-এর উপর ভিত্তি করে টিউটোরিয়ালের একটি ড্রাফট লেখে।
-2.  **ContentReviewer-Agent**: ড্রাফট পর্যালোচনা করে। এটি চেক করে যে শব্দ সংখ্যা ২০০-এর বেশি কিনা।
+1.  **Evangelist-Agent**: একটি নির্দিষ্ট আউটলাইন এবং URL এর ভিত্তিতে টিউটোরিয়ালের খসড়া লেখে।
+2.  **ContentReviewer-Agent**: খসড়াটি পর্যালোচনা করে। চেক করে শব্দ সংখ্যা ২০০ এর বেশি কিনা।
 3.  **Conditional Branch**:
-      * **If Approved (`Yes`)**: workflow `Publisher-Agent`-এ এগিয়ে যায়।
-      * **If Rejected (`No`)**: workflow থেমে যায় এবং প্রত্যাখ্যানের কারণ আউটপুট করে।
-4.  **Publisher-Agent**: যদি ড্রাফট অনুমোদিত হয়, এই এজেন্ট কন্টেন্টটি Markdown ফাইলে সংরক্ষণ করে।
+      * **যদি অনুমোদিত (`Yes`)**: ওয়ার্কফ্লো `Publisher-Agent` এর দিকে এগিয়ে যায়।
+      * **যদি প্রত্যাখ্যাত (`No`)**: ওয়ার্কফ্লো বন্ধ হয়ে যায় এবং প্রত্যাখ্যানের কারণ প্রকাশ করে।
+4.  **Publisher-Agent**: খসড়া অনুমোদিত হলে, এই এজেন্ট বিষয়বস্তু Markdown ফাইলে সংরক্ষণ করে।
 
 #### Python বাস্তবায়ন বিশ্লেষণ
 
-এই উদাহরণে একটি কাস্টম ফাংশন, `select_targets`, conditional logic বাস্তবায়নের জন্য ব্যবহার করা হয়। এই ফাংশনটি `add_multi_selection_edge_group`-এ পাস করা হয় এবং `review_result` ফিল্ডের উপর ভিত্তি করে workflow পরিচালনা করে।
+এই উদাহরণে একটি কাস্টম ফাংশন `select_targets` ব্যবহার করা হয়েছে শর্তাধীন লজিক বাস্তবায়নের জন্য। এই ফাংশনটি `add_multi_selection_edge_group` এ পাস করা হয় এবং রিভিউअर এর আউটপুটের `review_result` ক্ষেত্রের ভিত্তিতে ওয়ার্কফ্লো পরিচালিত হয়।
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# এই ফাংশন পর্যালোচনা ফলাফলের ভিত্তিতে পরবর্তী ধাপ নির্ধারণ করে
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # অনুমোদিত হলে, 'save_draft' executor এ অগ্রসর হন
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # প্রত্যাখ্যাত হলে, ব্যর্থতার প্রতিবেদন করার জন্য 'handle_review' executor এ অগ্রসর হন
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# ওয়ার্কফ্লো বিল্ডার রাউটিংয়ের জন্য নির্বাচন ফাংশন ব্যবহার করে
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # মাল্টি-সিলেকশন এজ শর্তাধীন লজিক প্রয়োগ করে
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-কাস্টম executors যেমন `to_reviewer_result` এজেন্টদের JSON আউটপুট পার্স করতে এবং এটি শক্তভাবে টাইপ করা অবজেক্টে রূপান্তর করতে ব্যবহার করা হয় যা selection ফাংশন পরিদর্শন করতে পারে।
+`to_reviewer_result` মত কাস্টম executors এজেন্ট থেকে JSON আউটপুট পার্স করে তা শক্তিশালী-টাইপযুক্ত অবজেক্টে রূপান্তর করে যা নির্বাচন ফাংশন পর্যবেক্ষণ করতে পারে।
 
-#### .NET (C#) বাস্তবায়ন বিশ্লেষণ
+#### .NET (C\#) বাস্তবায়ন বিশ্লেষণ
 
-.NET সংস্করণে একটি condition ফাংশন ব্যবহার করে একই পদ্ধতি অনুসরণ করা হয়। একটি `Func<object?, bool>` সংজ্ঞায়িত করা হয় `ReviewResult` অবজেক্টের `Result` প্রপার্টি চেক করতে।
+.NET সংস্করণেও অনুরূপ পন্থা ব্যবহার করে একটি শর্ত ফাংশন। একটি `Func<object?, bool>` সংজ্ঞায়িত করা হয়েছে `ReviewResult` অবজেক্টের `Result` প্রপার্টি পরীক্ষা করার জন্য।
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` পদ্ধতির `condition` প্যারামিটার `WorkflowBuilder`-কে একটি branching path তৈরি করতে দেয়। workflow শুধুমাত্র `publishExecutor`-এ edge অনুসরণ করবে যদি condition `GetCondition(expectedResult: "Yes")` true ফেরত দেয়। অন্যথায়, এটি `sendReviewerExecutor`-এর পথে চলে।
+`AddEdge` মেথডের `condition` প্যারামিটার `WorkflowBuilder` কে শাখা পথ তৈরি করতে দেয়। যদি `GetCondition(expectedResult: "Yes")` শর্ত সত্য হয়, ওয়ার্কফ্লো `publishExecutor` তে চলে যাবে। অন্যথায়, এটি `sendReviewerExecutor` এর দিকে যাবে।
 
 ## উপসংহার
 
-Microsoft Agent Framework Workflow মাল্টি-এজেন্ট সিস্টেম অর্কেস্ট্রেট করার জন্য একটি শক্তিশালী এবং নমনীয় ভিত্তি প্রদান করে। এর গ্রাফ-ভিত্তিক স্থাপত্য এবং মূল উপাদানগুলিকে কাজে লাগিয়ে, ডেভেলপাররা Python এবং .NET-এ উন্নত workflow ডিজাইন এবং বাস্তবায়ন করতে পারে। আপনার অ্যাপ্লিকেশন যদি সহজ sequential প্রসেসিং, parallel execution বা dynamic conditional logic প্রয়োজন করে, framework শক্তিশালী, স্কেলযোগ্য এবং টাইপ-সেফ AI-চালিত সমাধান তৈরি করার জন্য প্রয়োজনীয় সরঞ্জাম সরবরাহ করে।
+Microsoft Agent Framework Workflow জটিল, মাল্টি-এজেন্ট সিস্টেম অর্কেস্ট্রেট করার জন্য একটি দৃঢ় এবং নমনীয় ভিত্তি প্রদান করে। এর গ্রাফ-ভিত্তিক স্থাপত্য এবং মূল উপাদানগুলি ব্যবহার করে, বিকাশকারীরা Python এবং .NET উভয় ভাষায় উন্নত ওয়ার্কফ্লো ডিজাইন এবং বাস্তবায়ন করতে পারেন। আপনার অ্যাপ্লিকেশন সহজ ক্রমাগত প্রক্রিয়াকরণ, সমান্তরাল কার্যকরী, অথবা গতিশীল শর্তাধীন লজিক প্রয়োজন হোক, ফ্রেমওয়ার্কটি শক্তিশালী, স্কেলেবল, এবং টাইপ-সুরক্ষিত AI-চালিত সমাধান নির্মাণের জন্য সরঞ্জাম সরবরাহ করে।
 
 ---
 
-**অস্বীকৃতি**:  
-এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনুবাদ করা হয়েছে। আমরা যথাসাধ্য সঠিকতার জন্য চেষ্টা করি, তবে অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল ভাষায় থাকা নথিটিকে প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য, পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদ ব্যবহারের ফলে কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যা হলে আমরা দায়বদ্ধ থাকব না।
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**অস্বীকৃতি**:
+এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনূদিত হয়েছে। যদিও আমরা শুদ্ধতার জন্য চেষ্টা করি, অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল নথিটি তার স্বভাষায় কর্তৃত্বপূর্ণ উৎস হিসেবে বিবেচিত হওয়া উচিত। গুরুত্বপূর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদের ব্যবহারে প্রয়োজনীয় ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়বদ্ধ নই।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

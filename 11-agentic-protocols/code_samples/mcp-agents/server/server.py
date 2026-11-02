@@ -10,7 +10,7 @@ import argparse
 import asyncio
 import logging
 import re
-from turtle import st
+
 from typing import Optional
 
 import anyio

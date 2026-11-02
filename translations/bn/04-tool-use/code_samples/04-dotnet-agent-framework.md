@@ -1,109 +1,112 @@
-# 🛠️ GitHub মডেলের সাথে উন্নত টুল ব্যবহারের কৌশল (.NET)
+# 🛠️ Azure OpenAI (Responses API) (.NET) সহ উন্নত টুল ব্যবহারের কৌশল
 
-## 📋 শেখার লক্ষ্যসমূহ
+## 📋 শেখার উদ্দেশ্য
 
-এই নোটবুকটি Microsoft Agent Framework ব্যবহার করে .NET-এ GitHub মডেলের সাথে এন্টারপ্রাইজ-গ্রেড টুল ইন্টিগ্রেশন প্যাটার্ন প্রদর্শন করে। আপনি একাধিক বিশেষায়িত টুল সহ উন্নত এজেন্ট তৈরি করতে শিখবেন, যেখানে C#-এর শক্তিশালী টাইপিং এবং .NET-এর এন্টারপ্রাইজ বৈশিষ্ট্যগুলো কাজে লাগানো হবে।
+এই নোটবুকটি .NET এ Microsoft Agent Framework ব্যবহার করে Azure OpenAI (Responses API) সহ এন্টারপ্রাইজ-গ্রেড টুল ইন্টিগ্রেশন প্যাটার্নগুলি প্রদর্শন করে। আপনি শেখবেন আধুনিক এজেন্ট তৈরি করতে যাদের মধ্যে একাধিক বিশেষায়িত টুল থাকবে, C# এর স্ট্রং টাইপিং এবং .NET এর এন্টারপ্রাইজ ফিচারগুলি কাজে লাগিয়ে।
 
-### উন্নত টুলের সক্ষমতা যা আপনি আয়ত্ত করবেন
+### আপনি যে উন্নত টুল সক্ষমতা আয়ত্ত করবেন
 
-- 🔧 **মাল্টি-টুল আর্কিটেকচার**: একাধিক বিশেষায়িত ক্ষমতা সহ এজেন্ট তৈরি
-- 🎯 **টাইপ-সেফ টুল এক্সিকিউশন**: C#-এর কম্পাইল-টাইম যাচাইকরণ ব্যবহার
-- 📊 **এন্টারপ্রাইজ টুল প্যাটার্ন**: প্রোডাকশন-রেডি টুল ডিজাইন এবং ত্রুটি পরিচালনা
-- 🔗 **টুল কম্পোজিশন**: জটিল ব্যবসায়িক কার্যপ্রবাহের জন্য টুল সমন্বয়
+- 🔧 **মাল্টি-টুল আর্কিটেকচার**: একাধিক বিশেষায়িত ক্ষমতাসম্পন্ন এজেন্ট তৈরি
+- 🎯 **টাইপ-সেফ টুল এক্সিকিউশন**: C# এর কম্পাইল-টাইম ভ্যালিডেশন ব্যবহার
+- 📊 **এন্টারপ্রাইজ টুল প্যাটার্ন**: প্রোডাকশন-রেডি টুল ডিজাইন এবং এরর হ্যান্ডলিং
+- 🔗 **টুল কম্পোজিশন**: জটিল ব্যবসায়িক ওয়ার্কফ্লোর জন্য টুল সংমিশ্রণ
 
-## 🎯 .NET টুল আর্কিটেকচারের সুবিধা
+## 🎯 .NET টুল আর্কিটেকচারের সুবিধাসমূহ
 
-### এন্টারপ্রাইজ টুল বৈশিষ্ট্য
+### এন্টারপ্রাইজ টুল ফিচারস
 
-- **কম্পাইল-টাইম যাচাইকরণ**: শক্তিশালী টাইপিং টুল প্যারামিটারের সঠিকতা নিশ্চিত করে
-- **ডিপেনডেন্সি ইনজেকশন**: টুল ব্যবস্থাপনার জন্য IoC কন্টেইনার ইন্টিগ্রেশন
-- **অ্যাসিঙ্ক/অ্যাওয়েট প্যাটার্ন**: সঠিক রিসোর্স ব্যবস্থাপনার সাথে নন-ব্লকিং টুল এক্সিকিউশন
-- **স্ট্রাকচার্ড লগিং**: টুল এক্সিকিউশন পর্যবেক্ষণের জন্য বিল্ট-ইন লগিং ইন্টিগ্রেশন
+- **কম্পাইল-টাইম ভ্যালিডেশন**: স্ট্রং টাইপিং টুল প্যারামিটার সঠিকতা নিশ্চিত করে
+- **ডিপেন্ডেন্সি ইনজেকশন**: টুল ব্যবস্থাপনার জন্য IoC কন্টেইনার ইন্টিগ্রেশন
+- **অ্যাসিঙ্ক/অ্যাওয়েট প্যাটার্ন**: যথাযথ রিসোর্স ব্যবস্থাপনাসহ নন-ব্লকিং টুল এক্সিকিউশন
+- **স্ট্রাকচার্ড লগিং**: টুল এক্সিকিউশন মনিটরিংয়ের জন্য বিল্ট-ইন লগিং ইন্টিগ্রেশন
 
 ### প্রোডাকশন-রেডি প্যাটার্ন
 
-- **এক্সসেপশন হ্যান্ডলিং**: টাইপড এক্সসেপশন সহ বিস্তৃত ত্রুটি ব্যবস্থাপনা
-- **রিসোর্স ব্যবস্থাপনা**: সঠিক ডিসপোজাল প্যাটার্ন এবং মেমোরি ব্যবস্থাপনা
-- **পারফরম্যান্স মনিটরিং**: বিল্ট-ইন মেট্রিক্স এবং পারফরম্যান্স কাউন্টার
-- **কনফিগারেশন ব্যবস্থাপনা**: যাচাইকরণ সহ টাইপ-সেফ কনফিগারেশন
+- **এক্সসেপশন হ্যান্ডলিং**: টাইপড এক্সসেপশন সহ ব্যাপক ত্রুটি ব্যবস্থাপনা
+- **রিসোর্স ব্যবস্থাপনা**: সঠিক ডিসপোজাল প্যাটার্ন এবং মেমরি ব্যবস্থাপনা
+- **পারফরম্যান্স মনিটরিং**: বিল্ট-ইন মেট্রিক এবং পারফরম্যান্স কাউন্টারস
+- **কনফিগারেশন ব্যবস্থাপনা**: যাচাইকরণের সাথে টাইপ-সেফ কনফিগারেশন
 
-## 🔧 টেকনিক্যাল আর্কিটেকচার
+## 🔧 প্রযুক্তিগত আর্কিটেকচার
 
-### মূল .NET টুল উপাদান
+### মূল .NET টুল কম্পোনেন্টসমূহ
 
-- **Microsoft.Extensions.AI**: ইউনিফাইড টুল অ্যাবস্ট্রাকশন লেয়ার
+- **Microsoft.Extensions.AI**: সমন্বিত টুল অ্যাবস্ট্রাকশন লেয়ার
 - **Microsoft.Agents.AI**: এন্টারপ্রাইজ-গ্রেড টুল অর্কেস্ট্রেশন
-- **GitHub মডেল ইন্টিগ্রেশন**: উচ্চ-দক্ষতার API ক্লায়েন্ট কনেকশন পুলিং সহ
+- **Azure OpenAI (Responses API)**: সংযোগ পুলিং সহ উচ্চ-পারফরম্যান্স API ক্লায়েন্ট
 
 ### টুল এক্সিকিউশন পাইপলাইন
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[ব্যবহারকারী অনুরোধ] --> B[এজেন্ট বিশ্লেষণ]
+    B --> C[টুল নির্বাচন]
+    C --> D[ধরন বৈধতা]
+    B --> E[প্যারামিটার বাইন্ডিং]
+    E --> F[টুল কার্যকরী করণ]
     C --> F
-    F --> G[Result Processing]
+    F --> G[ফলাফল প্রক্রিয়াকরণ]
     D --> G
-    G --> H[Response]
+    G --> H[প্রতিক্রিয়া]
 ```
 
-## 🛠️ টুল ক্যাটাগরি এবং প্যাটার্ন
+## 🛠️ টুল বিভাগ ও প্যাটার্ন
 
-### 1. **ডেটা প্রসেসিং টুল**
+### ১. **ডেটা প্রসেসিং টুলস**
 
-- **ইনপুট যাচাইকরণ**: ডেটা অ্যানোটেশন সহ শক্তিশালী টাইপিং
-- **ট্রান্সফর্ম অপারেশন**: টাইপ-সেফ ডেটা রূপান্তর এবং ফরম্যাটিং
-- **ব্যবসায়িক লজিক**: ডোমেইন-নির্দিষ্ট গণনা এবং বিশ্লেষণ টুল
-- **আউটপুট ফরম্যাটিং**: কাঠামোবদ্ধ প্রতিক্রিয়া তৈরি
+- **ইনপুট ভ্যালিডেশন**: ডেটা অ্যানোটেশনের মাধ্যমে স্ট্রং টাইপিং
+- **ট্রান্সফর্ম অপারেশনস**: টাইপ-সেফ ডেটা রূপান্তর এবং ফরম্যাটিং
+- **বিজনেস লজিক**: ডোমেইন-নির্দিষ্ট হিসাব এবং বিশ্লেষণ টুলস
+- **আউটপুট ফরম্যাটিং**: কাঠামোগত রেসপন্স জেনারেশন
 
-### 2. **ইন্টিগ্রেশন টুল**
+### ২. **ইন্টিগ্রেশন টুলস**
 
-- **API কানেক্টর**: HttpClient সহ RESTful সার্ভিস ইন্টিগ্রেশন
-- **ডেটাবেস টুল**: ডেটা অ্যাক্সেসের জন্য Entity Framework ইন্টিগ্রেশন
-- **ফাইল অপারেশন**: যাচাইকরণ সহ নিরাপদ ফাইল সিস্টেম অপারেশন
-- **বাহ্যিক পরিষেবা**: তৃতীয় পক্ষের পরিষেবা ইন্টিগ্রেশন প্যাটার্ন
+- **এপিআই কানেক্টরস**: HttpClient সহ RESTful সার্ভিস ইন্টিগ্রেশন
+- **ডেটাবেস টুলস**: ডেটা অ্যাক্সেসের জন্য Entity Framework ইন্টিগ্রেশন
+- **ফাইল অপারেশনস**: যাচাইকরণের সাথে সুরক্ষিত ফাইল সিস্টেম অপারেশন
+- **বাহ্যিক সার্ভিসেস**: তৃতীয় পক্ষের সার্ভিস ইন্টিগ্রেশন প্যাটার্ন
 
-### 3. **ইউটিলিটি টুল**
+### ৩. **ইউটিলিটি টুলস**
 
 - **টেক্সট প্রসেসিং**: স্ট্রিং ম্যানিপুলেশন এবং ফরম্যাটিং ইউটিলিটি
-- **তারিখ/সময় অপারেশন**: কালচার-অবগত তারিখ/সময় গণনা
-- **গাণিতিক টুল**: সুনির্দিষ্ট গণনা এবং পরিসংখ্যান অপারেশন
-- **যাচাইকরণ টুল**: ব্যবসায়িক নিয়ম যাচাইকরণ এবং ডেটা যাচাইকরণ
+- **তারিখ/সময় অপারেশনস**: সংস্কৃতি-সচেতন তারিখ/সময় হিসাব
+- **গাণিতিক টুলস**: прিসিশন হিসাব এবং স্ট্যাটিস্টিক্যাল অপারেশনস
+- **ভ্যালিডেশন টুলস**: ব্যবসায়িক নিয়ম যাচাইকরণ এবং ডেটা যাচাই
 
-এখন কি এন্টারপ্রাইজ-গ্রেড এজেন্ট তৈরি করতে প্রস্তুত, যেখানে শক্তিশালী, টাইপ-সেফ টুল ক্ষমতা রয়েছে .NET-এ? চলুন পেশাদার-গ্রেড সমাধান তৈরি করি! 🏢⚡
+শক্তিশালী, টাইপ-সেফ টুল সক্ষমতাসহ এন্টারপ্রাইজ-গ্রেড এজেন্ট তৈরির জন্য প্রস্তুত? চলুন কিছু পেশাদার-গ্রেড সমাধান ডিজাইন করি! 🏢⚡
 
 ## 🚀 শুরু করা যাক
 
-### প্রয়োজনীয়তা
+### প্রাথমিক শর্তাবলী
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) বা তার উপরে
-- [GitHub মডেল API অ্যাক্সেস টোকেন](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- একটি [Azure সাবস্ক্রিপশন](https://azure.microsoft.com/free/) যার সাথে Azure OpenAI রিসোর্স এবং একটি মডেল ডিপ্লয়মেন্ট আছে
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` দিয়ে সাইন ইন করুন
 
-### প্রয়োজনীয় পরিবেশ ভেরিয়েবল
+### প্রয়োজনীয় পরিবেশ ভেরিয়েবলসমূহ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# তারপর সাইন ইন করুন যাতে AzureCliCredential একটি টোকেন পেতে পারে
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# পাওয়ারশেল
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# তারপর সাইন ইন করুন যাতে AzureCliCredential একটি টোকেন পেতে পারে
+az login
 ```
 
-### নমুনা কোড
+### উদাহরণ কোড
 
-কোড উদাহরণ চালানোর জন্য,
+কোডটি চালাতে,
 
 ```bash
-# zsh/bash
+# জেডএসএইচ/ব্যাশ
 chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
@@ -121,14 +124,16 @@ dotnet run ./04-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**অস্বীকৃতি**:  
-এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনুবাদ করা হয়েছে। আমরা যথাসম্ভব সঠিক অনুবাদের চেষ্টা করি, তবে দয়া করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। নথিটির মূল ভাষায় থাকা সংস্করণটিকে প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য, পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদ ব্যবহারের ফলে সৃষ্ট কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়ী নই।
+**অস্বীকৃতি**:
+এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনূদিত হয়েছে। যদিও আমরা শুদ্ধতার জন্য চেষ্টা করি, অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল নথিটি তার স্বভাষায় কর্তৃত্বপূর্ণ উৎস হিসেবে বিবেচিত হওয়া উচিত। গুরুত্বপূর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদের ব্যবহারে প্রয়োজনীয় ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়বদ্ধ নই।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

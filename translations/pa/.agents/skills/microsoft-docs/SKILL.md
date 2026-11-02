@@ -1,95 +1,99 @@
 ---
 name: microsoft-docs
+description: ਅਧਿਕਾਰਿਕ Microsoft ਦਸਤਾਵੇਜ਼ੀਕਰਨ ਨੂੰ ਪੁੱਛਤਾਛ ਕਰੋ ਤਾਂ ਕਿ Azure, .NET, Agent
+  Framework, Aspire, VS Code, GitHub, ਅਤੇ ਹੋਰ ਵਿੱਚ ਧਾਰਣਾਵਾਂ, ਟਿਊਟੋਰਿਅਲ ਅਤੇ ਕੋਡ ਉਦਾਹਰਨਾਂ
+  ਲੱਭ ਸਕੋ। ਡਿਫੌਲਟ ਵਜੋਂ Microsoft Learn MCP ਵਰਤਦਾ ਹੈ, ਜਦਕਿ ਇਸ ਤੋਂ ਬਾਹਰ ਰਹਿਣ ਵਾਲੇ ਸਮੱਗਰੀ
+  ਲਈ Context7 ਅਤੇ Aspire MCP ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ।
 ---
-# Microsoft Docs
+# Microsoft ਦਸਤਾਵੇਜ਼
 
-Microsoft ਤਕਨਾਲੋਜੀ ਇਕੋਸਿਸਟਮ ਲਈ ਰਿਸਰਚ ਸਕਿਲ। ਇਹ learn.microsoft.com ਅਤੇ ਉਸ ਤੋਂ ਬਾਹਰ ਰਹਿਣ ਵਾਲੀ ਦਸਤਾਵੇਜ਼ੀਕਰਨ ਨੂੰ ਕਵਰ ਕਰਦਾ ਹੈ (VS Code, GitHub, Aspire, Agent Framework ਰੇਪੋਜ਼).
+Microsoft ਤਕਨਾਲੋਜੀ ਪਰਿਆਵਰਨ ਲਈ ਸਰਗਰਮੀ ਹੁਨਰ। learn.microsoft.com ਅਤੇ ਇਸ ਤੋਂ ਬਾਹਰ ਮੌਜੂਦ ਦਸਤਾਵੇਜ਼ (VS ਕੋਡ, GitHub, Aspire, Agent Framework ਰਿਪੋਜ਼) ਨੂੰ ਕਵਰ ਕਰਦਾ ਹੈ।
 
 ---
 
-## Default: Microsoft Learn MCP
+## ਡਿਫੌਲਟ: Microsoft Learn MCP
 
-ਇਹ ਟੂਲ ਵਰਤੋ ਲਈ **learn.microsoft.com ਉਤੇ ਸਭ ਕੁਝ** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows, ਅਤੇ ਹੋਰ। ਇਹ ਜ਼ਿਆਦਾਤਰ Microsoft ਡੌਕਯੂਮੈਂਟੇਸ਼ਨ ਪੁੱਛਗਿੱਛ ਲਈ ਮੁੱਖ ਟੂਲ ਹੈ।
+ਇਨ੍ਹਾਂ ਟੂਲਜ਼ ਨੂੰ **learn.microsoft.com ਉੱਤੇ ਸਭ ਕੁਝ ਲਈ** ਵਰਤੋਂ ਕਰੋ — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows, ਅਤੇ ਹੋਰ। ਇਹ ਮਾਇਕ੍ਰੋਸਾਫਟ ਦਸਤਾਵੇਜ਼ ਪ੍ਰਸ਼ਨਾਂ ਦੀ ਬਹੁਤ ਜ਼ਿਆਦਾ ਸਾਂਝ ਲਈ ਮੁੱਖ ਟੂਲ ਹੈ।
 
-| Tool | Purpose |
+| ਟੂਲ | ਮਕਸਦ |
 |------|---------|
-| `microsoft_docs_search` | Search learn.microsoft.com — ਸੰਕਲਪ, ਗਾਈਡ, ਟਿਊਟੋਰਿਅਲ, ਕਨਫਿਗਰੇਸ਼ਨ |
-| `microsoft_code_sample_search` | Learn ਡੌਕਸ ਵਿਚੋਂ ਕੰਮ ਕਰਨ ਵਾਲੇ ਕੋਡ ਸਨਿਪੇਟ ਲੱਭੋ। ਸਭ ਤੋਂ ਵਧੀਆ ਨਤੀਜਿਆਂ ਲਈ `language` (`python`, `csharp`, ਆਦਿ) ਪਾਸ ਕਰੋ |
-| `microsoft_docs_fetch` | ਕਿਸੇ ਨਿਰਧਾਰਿਤ URL ਤੋਂ ਪੂਰਾ ਪੰਨਾ ਦੀ ਸਮੱਗਰੀ ਪ੍ਰਾਪਤ ਕਰੋ (ਜਦੋਂ ਖੋਜ ਦੇ ਉਲਲੇਖ ਕਾਫੀ ਨਹੀਂ ਹੁੰਦੇ) |
+| `microsoft_docs_search` | learn.microsoft.com ਤਲਾਸ਼ ਕਰੋ — ਧਾਰਨਾ, ਗਾਈਡ, ਟਿਊਟੋਰਿਯਲ, ਸੰਰਚਨਾ |
+| `microsoft_code_sample_search` | Learn ਦਸਤਾਵੇਜ਼ਾਂ ਵਿਚੋਂ ਕੰਮ ਕਰਨ ਵਾਲੇ ਕੋਡ ਸਨਿੱਪੇਟ ਲੱਭੋ। ਵਧੀਆ ਨਤੀਜੇ ਲਈ `language` (`python`, `csharp`, ਆਦਿ) ਪਾਸ ਕਰੋ |
+| `microsoft_docs_fetch` | ਇੱਕ ਖ਼ਾਸ URL ਤੋਂ ਪੂਰਾ ਪੰਨਾ ਸਮੱਗਰੀ ਪ੍ਰਾਪਤ ਕਰੋ (ਜਦੋਂ ਤਲਾਸ਼ ਨੰੂ ਛੋਟੇ ਅੰਸ਼ ਹੀ ਮਿਲਦੇ ਹਨ) |
 
-ਜਦੋਂ ਤੁਹਾਨੂੰ ਪੂਰੇ ਟਿਊਟੋਰਿਅਲ, ਸਾਰੇ ਕਨਫਿਗ ਵਿਕਲਪਾਂ ਦੀ ਲੋੜ ਹੋਵੇ ਜਾਂ ਖੋਜ ਦੇ ਉਲਲੇਖ ਕੱਟ ਦਿੱਤੇ ਜਾਣ, ਤਾਂ ਖੋਜ ਤੋਂ ਬਾਅਦ `microsoft_docs_fetch` ਵਰਤੋਂ ਕਰੋ।
+ਜਦੋਂ ਤੁਹਾਨੂੰ ਪੂਰੇ ਟਿਊਟੋਰਿਯਲ, ਸਾਰੀ ਸੰਰਚਨਾ ਵਿਕਲਪਾਂ ਦੀ ਲੋੜ ਹੋਵੇ ਜਾਂ ਜਦੋਂ ਤਲਾਸ਼ ਅੰਸ਼ ਕੱਟੇ ਜਾਣ, ਤਾਂ ਤਲਾਸ਼ ਤੋਂ ਬਾਅਦ `microsoft_docs_fetch` ਵਰਤੋਂ।
 
 ---
 
-## Exceptions: When to Use Other Tools
+## ਛੂਟ: ਕਿਹੜੇ ਸਮੇਂ ਹੋਰ ਟੂਲ ਵਰਤਣੇ
 
-ਹੇਠਾਂ ਦਿੱਤੀਆਂ ਸ਼੍ਰੇਣੀਆਂ **learn.microsoft.com ਦੇ ਬਾਹਰ** ਰਹਿੰਦੀਆਂ ਹਨ। ਇਸ ਦੀ ਬਜਾਇ ਨਿਰਧਾਰਿਤ ਟੂਲ ਵਰਤੋ।
+ਹੇਠ ਲਿਖੀਆਂ ਸ਼੍ਰੇਣੀਆਂ **learn.microsoft.com ਤੋਂ ਬਾਹਰ** ਹਨ। ਇਨ੍ਹਾਂ ਲਈ ਦਿੱਤੇ ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Aspire MCP ਸਰਵਰ (ਪਸੰਦੀਦਾ) ਜਾਂ Context7 ਵਰਤੋ
 
-Aspire ਡੌਕਸ **aspire.dev** 'ਤੇ ਹੁੰਦੇ ਹਨ, Learn 'ਤੇ ਨਹੀਂ। ਸਭ ਤੋਂ ਵਧੀਆ ਟੂਲ ਤੁਹਾਡੇ Aspire CLI ਸੰਸਕਰਣ 'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ:
+Aspire ਦਸਤਾਵੇਜ਼ **aspire.dev** 'ਤੇ ਹਨ, Learn ਉੱਤੇ ਨਹੀਂ। ਸਭ ਤੋਂ ਵਧੀਆ ਟੂਲ ਤੁਹਾਡੇ Aspire CLI ਵਰਜਨ 'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ:
 
-**CLI 13.2+** (ਸਿਫਾਰਸ਼ ਕੀਤੀ) — Aspire MCP ਸਰਵਰ ਵਿੱਚ ਇੰਬਿਲਟ ਡੌਕਸ ਖੋਜ ਟੂਲ ਸ਼ਾਮਿਲ ਹਨ:
+**CLI 13.2+** (ਸੁਝਾਅਕਾਰ) — Aspire MCP ਸਰਵਰ ਵਿੱਚ ਬਿਲਟ-ਇਨ ਦਸਤਾਵੇਜ਼ ਤਲਾਸ਼ ਟੂਲ ਸ਼ਾਮਲ ਹਨ:
 
-| MCP Tool | Description |
+| MCP ਟੂਲ | ਵੇਰਵਾ |
 |----------|-------------|
-| `list_docs` | aspire.dev ਤੋਂ ਸਾਰੀ ਉਪਲਬਧ ਦਸਤਾਵੇਜ਼ੀਕਰਨ ਦੀ ਸੂਚੀ ਦਿਖਾਉਂਦਾ ਹੈ |
-| `search_docs` | aspire.dev ਸਮੱਗਰੀ 'ਤੇ ਵਜ਼ਨੀ ਸ਼ਬਦਿਕ ਖੋਜ |
-| `get_doc` | ਇੱਕ ਖ਼ਾਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ slug ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ |
+| `list_docs` | aspire.dev ਤੋਂ ਸਾਰਾ ਦਸਤਾਵੇਜ਼ ਦਿਖਾਉਂਦਾ ਹੈ |
+| `search_docs` | aspire.dev ਸਮੱਗਰੀ ‘ਤੇ ਵਜ਼ਨੀ ਲੈਕਸੀਕਲ ਤਲਾਸ਼ |
+| `get_doc` | ਕਿਸੇ ਖ਼ਾਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਸਲੱਗ ਦੁਆਰਾ ਲਿਆਉਂਦਾ ਹੈ |
 
-ਇਹ Aspire CLI 13.2 ਨਾਲ ਸ਼ਿਪ ਹੁੰਦੇ ਹਨ ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). ਅਪਡੇਟ ਕਰਨ ਲਈ: `aspire update --self --channel daily`. ਸੰਦਰਭ: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+ਇਹ Aspire CLI 13.2 ਵਿੱਚ ਆਉਂਦੇ ਹਨ ([PR #14028](https://github.com/microsoft/aspire/pull/14028))। ਅਪਡੇਟ ਕਰਨ ਲਈ: `aspire update --self --channel daily`।
 
-**CLI 13.1** — MCP ਸਰਵਰ ਇੰਟੀਗ੍ਰੇਸ਼ਨ ਲੁੱਕਅਪ (`list_integrations`, `get_integration_docs`) ਮੁਹੱਈਆ ਕਰਦਾ ਹੈ ਪਰ ਡੌਕਸ ਖੋਜ ਨਹੀਂ। Context7 ਨੂੰ ਵਰਤੋ:
+**CLI 13.1** — MCP ਸਰਵਰ ਇੰਟੀਗ੍ਰੇਸ਼ਨ ਲੁੱਕਅੱਪ (`list_integrations`, `get_integration_docs`) ਦਿੰਦਾ ਹੈ ਪਰ ਦਸਤਾਵੇਜ਼ ਤਲਾਸ਼ ਨਹੀ। ਇਸ ਲਈ Context7 ਤੇ ਵਾਪਸ ਜਾਓ:
 
-| Library ID | Use for |
+| ਲਾਇਬ੍ਰੇਰੀ ID | ਇਸ ਲਈ ਵਰਤੋਂ ਕਰੋ |
 |---|---|
-| `/microsoft/aspire.dev` | ਮੁੱਖ — ਗਾਈਡ, ਇੰਟੀਗ੍ਰੇਸ਼ਨ, CLI ਰੈਫਰੈਂਸ, ਡਿਪਲੋਇਮੈਂਟ |
-| `/dotnet/aspire` | ਰਨਟਾਈਮ ਸੋਰਸ — API ਅੰਦਰੂਨੀ ਹਿੱਸੇ, ਇੰਪਲੀਮੇੰਟੇਸ਼ਨ ਵੇਰਵੇ |
-| `/communitytoolkit/aspire` | ਕਮਿਊਨਿਟੀ ਇੰਟੀਗ੍ਰੇਸ਼ਨ — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | ਮੁੱਖ —ਗਾਈਡ, ਇੰਟੀਗ੍ਰੇਸ਼ਨ, CLI ਰੈਫਰੈਂਸ, ਡਿਪਲੋਇਮੈਂਟ |
+| `/microsoft/aspire` | ਰਨਟਾਈਮ ਸਰੋਤ — API ਅੰਦਰੂਨੀ ਵੇਰਵਾ, ਅਮਲ ਦਰਜਾ |
+| `/communitytoolkit/aspire` | ਕਮਿਉਨਿਟੀ ਇੰਟੀਗ੍ਰੇਸ਼ਨ — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS ਕੋਡ — Context7 ਵਰਤੋਂ
 
-VS Code ਡੌਕਸ **code.visualstudio.com** 'ਤੇ ਹਨ, Learn 'ਤੇ ਨਹੀਂ।
+VS ਕੋਡ ਦਸਤਾਵੇਜ਼ **code.visualstudio.com** 'ਤੇ ਹਨ, Learn 'ਤੇ ਨਹੀਂ।
 
-| Library ID | Use for |
+| ਲਾਇਬ੍ਰੇਰੀ ID | ਇਸ ਲਈ ਵਰਤੋਂ ਕਰੋ |
 |---|---|
-| `/websites/code_visualstudio` | ਯੂਜ਼ਰ ਡੌਕਸ — ਸੈਟਿੰਗਜ਼, ਫੀਚਰ, ਡੀਬੱਗਿੰਗ, ਰਿਮੋਟ ਡਿਵੈਲਪਮੈਂਟ |
-| `/websites/code_visualstudio_api` | ਐਕਸਟੈਂਸ਼ਨ API — webviews, TreeViews, ਕਮਾਂਡ, ਯੋਗਦਾਨ ਦੇ ਨੁਕਤੇ |
+| `/websites/code_visualstudio` | ਯੂਜ਼ਰ ਦਸਤਾਵੇਜ਼ — ਸੈਟਿੰਗ, ਫੀਚਰ, ਡੀਬੱਗਿੰਗ, ਰਿਮੋਟ ਡੈਵ |
+| `/websites/code_visualstudio_api` | ਐਕਸਟੈਂਸ਼ਨ API — ਵੈਬਵਿਊ, ਟ੍ਰੀਵਿਊ, ਕਮਾਂਡ, ਯੋਗਦਾਨ ਪੁਆਇੰਟ |
 
-### GitHub — Use Context7
+### GitHub — Context7 ਵਰਤੋਂ
 
-GitHub ਡੌਕਸ **docs.github.com** ਅਤੇ **cli.github.com** 'ਤੇ ਹਨ।
+GitHub ਦਸਤਾਵੇਜ਼ **docs.github.com** ਅਤੇ **cli.github.com** ਉੱਤੇ ਹਨ।
 
-| Library ID | Use for |
+| ਲਾਇਬ੍ਰੇਰੀ ID | ਇਸ ਲਈ ਵਰਤੋਂ ਕਰੋ |
 |---|---|
-| `/websites/github_en` | Actions, API, ਰਿਪੋਜ਼, ਸੁਰੱਖਿਆ, ਪ੍ਰਸ਼ਾਸਨ, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) ਦੇ ਕਮਾਂਡ ਅਤੇ ਫਲੈਗ |
+| `/websites/github_en` | ਐਕਸ਼ਨ, API, ਰਿਪੋ, ਸੁਰੱਖਿਆ, ਐਡਮਿਨ, Copilot |
+| `/websites/cli_github` | GitHub CLI (`gh`) ਕਮਾਂਡ ਅਤੇ ਫਲੈਗ |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — Learn MCP + Context7 ਵਰਤੋਂ
 
-Agent Framework ਟਿਊਟੋਰਿਅਲ learn.microsoft.com 'ਤੇ ਹਨ (ਮਾਈਕ੍ਰੋਸੋਫਟ ਲਈ `microsoft_docs_search` ਵਰਤੋਂ), ਪਰ **GitHub repo** ਵਿੱਚ ਅਕਸਰ ਪ੍ਰਕਾਸ਼ਿਤ ਡੌਕਸ ਤੋਂ ਆਗੇ API-ਸਤਰ ਦੇ ਵੇਰਵੇ ਹੁੰਦੇ ਹਨ — ਖਾਸ ਕਰਕੇ DevUI REST API ਰੈਫਰੈਂਸ, CLI ਵਿਕਲਪ, ਅਤੇ .NET ਇੰਟਿਗ੍ਰੇਸ਼ਨ।
+Agent Framework ਟਿਊਟੋਰਿਯਲ learn.microsoft.com ਉੱਤੇ ਹਨ (`microsoft_docs_search` ਵਰਤੋਂ ਕਰੋ), ਪਰ **GitHub ਰਿਪੋ** ਵਿੱਚ API-ਸਤਰ ਦੇ ਵੇਰਵਿਆਂ ਹਨ ਜੋ ਅਕਸਰ ਪ੍ਰਕਾਸ਼ਿਤ ਦਸਤਾਵੇਜ਼ਾਂ ਤੋਂ ਅੱਗੇ ਹੁੰਦੇ ਹਨ — ਖ਼ਾਸ ਕਰਕੇ DevUI REST API ਸੰਦਰਭ, CLI ਵਿਕਲਪ, ਅਤੇ .NET ਇੰਟੀਗ੍ਰੇਸ਼ਨ।
 
-| Library ID | Use for |
+| ਲਾਇਬ੍ਰੇਰੀ ID | ਇਸ ਲਈ ਵਰਤੋਂ ਕਰੋ |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | ਟਿਊਟੋਰਿਅਲ — DevUI ਗਾਈਡ, ਟਰੇਸਿੰਗ, ਵਰਕਫਲੋ ਆਰਕੈਸਟ੍ਰੇਸ਼ਨ |
-| `/microsoft/agent-framework` | API ਵੇਰਵੇ — DevUI REST ਏਂਡਪੌਇੰਟ, CLI ਫਲੈਗ, auth, .NET `AddDevUI`/`MapDevUI` |
+| `/websites/learn_microsoft_en-us_agent-framework` | ਟਿਊਟੋਰਿਯਲ — DevUI ਗਾਈਡ, ਟਰੇਸਿੰਗ, ਵਰਕਫਲੋ ਆਰਕੈसਟਰੈਸ਼ਨ |
+| `/microsoft/agent-framework` | API ਵੇਰਵਾ — DevUI REST ਐਂਡਪੌਇੰਟ, CLI ਫਲੈਗ, ਪ੍ਰਮਾਣਿਕਤਾ, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI ਸਲਾਹ:** ਹਾਊ-ਟੂ ਗਾਈਡਾਂ ਲਈ Learn ਵੈੱਬਸਾਈਟ ਸਰੋਤ ਨੂੰ ਪੁੱਛੋ, ਫਿਰ API-ਸਤਰ ਦੇ ਵਿਸਥਾਰਾਂ ਲਈ ਰੇਪੋ ਸਰੋਤ (ਏਂਡਪੌਇੰਟ ਸਕੀਮਾਂ, ਪ੍ਰਾਕਸੀ ਕੰਫਿਗ, auth ਟੋਕਨ) ਦੇਖੋ।
+**DevUI ਸੁਝਾਅ:** Learn ਵੈਬਸਾਈਟ ਸਰੋਤ ਤੋਂ ਕਿਵੇਂ-ਕਰਣਾ ਗਾਈਡ ਲਈ ਪੁੱਛਗਿੱਛ ਕਰੋ, ਫਿਰ API-ਸਤਰ ਦੇ ਵਿਸ਼ੇਸ਼ਤਾ (ਐਂਡਪੌਇੰਟ ਸਕੀਮਾ, ਪ੍ਰਾਕਸੀ ਸੰਰਚਨਾ, ਪ੍ਰਮਾਣਿਕਤਾ ਟੋਕਨ) ਲਈ ਰਿਪੋ ਸਰੋਤ ਨੂੰ ਵੇਖੋ।
 
 ---
 
-## Context7 Setup
+## Context7 ਸੈੱਟਅਪ
 
-ਕੋਈ ਵੀ Context7 ਕਵੈਰੀ ਲਈ, ਪਹਿਲਾਂ ਲਾਇਬ੍ਰੇਰੀ ID ਨੂੰ ਰਿਜ਼ੋਲਵ ਕਰੋ (ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਇੱਕ ਵਾਰੀ):
+ਕਿਸੇ ਵੀ Context7 ਪੁੱਛਗਿੱਛ ਲਈ, ਪਹਿਲਾਂ ਲਾਇਬ੍ਰੇਰੀ ID ਨਿਰਧਾਰਿਤ ਕਰੋ (ਹਰ ਸੈਸ਼ਨ ਵਿੱਚ ਇੱਕ ਵਾਰੀ):
 
-1. `mcp_context7_resolve-library-id` ਨੂੰ ਤਕਨਾਲੋਜੀ ਨਾਮ ਦੇ ਨਾਲ ਕਾਲ ਕਰੋ
-2. `mcp_context7_query-docs` ਨੂੰ ਵਾਪਸ ਮਿਲੀ ਲਾਇਬ੍ਰੇਰੀ ID ਅਤੇ ਇੱਕ ਨਿਰਧਾਰਿਤ ਕਵੈਰੀ ਦੇ ਨਾਲ ਕਾਲ ਕਰੋ
+1. `mcp_context7_resolve-library-id` ਨੂੰ ਟੈਕਨਾਲੋਜੀ ਨਾਮ ਦੇ ਕੇ ਕਾਲ ਕਰੋ
+2. ਪਰਤਾਇਆ ਲਾਇਬ੍ਰੇਰੀ ID ਅਤੇ ਖ਼ਾਸ ਪੁੱਛਗਿੱਛ ਨਾਲ `mcp_context7_query-docs` ਕਾਲ ਕਰੋ
 
 ---
 
-## Writing Effective Queries
+## ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਪੁੱਛਗਿੱਛਾਂ ਲਿਖਣਾ
 
-ਵਿਸ਼ੇਸ਼ ਹੋਵੋ — ਸੰਸਕਰਣ, ਮਕਸਦ, ਅਤੇ ਭਾਸ਼ਾ ਸ਼ਾਮਿਲ ਕਰੋ:
+ਵਿਸ਼ੇਸ਼ ਬਣੋ — ਵਰਜਨ, ਨੀਤੀ, ਅਤੇ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰੋ:
 
 ```
 # ❌ Too broad
@@ -105,14 +109,14 @@ Agent Framework ਟਿਊਟੋਰਿਅਲ learn.microsoft.com 'ਤੇ ਹਨ (
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **ਸੰਸਕਰਣ** ਜਦੋਂ ਲਾਗੂ ਹੋਵੇ (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **ਕਾਰਜ ਦਾ ਉਦੇਸ਼** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **ਭਾਸ਼ਾ** ਬਹੁਭਾਸ਼ੀ ਡੌਕਸ ਲਈ (`Python`, `TypeScript`, `C#`)
+ਸੰਦਰਭ ਸ਼ਾਮਲ ਕਰੋ:
+- ਲੋੜ ਮੁਤਾਬਕ **ਵਰਜਨ** (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **ਕੰਮ ਦੀ ਨੀਤੀ** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- ਪੌਲੀਗਲੌਟ ਦਸਤਾਵੇਜ਼ ਲਈ **ਭਾਸ਼ਾ** (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ਅਸਵੀਕਾਰ**:
-ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਹਾਲਾਂਕਿ ਅਸੀਂ ਸਹੀਤਾ ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਆਟੋਮੈਟਿਕ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਪਸ਼ਟਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਇਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਅਧਿਕਾਰਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਿਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਕਾਰਨ ਪੈਦਾ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਵਾਂ ਲਈ ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+**ਅਸਵੀਕਾਰੋਪਣ**:
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ ਏਆਈ ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਤਾਵਾਂ ਲਈ ਯਤਨਸ਼ੀਲ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਮੱਤਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਅਧਿਕਾਰਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜਰੂਰੀ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੇ ਉਪਯੋਗ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਵਾਂ ਲਈ ਜਵਾਬਦੇਹ ਨਹੀਂ ਹਾਂ।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

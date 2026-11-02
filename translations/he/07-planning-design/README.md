@@ -1,55 +1,55 @@
-[![דפוס תכנון](../../../translated_images/he/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![תבנית תכנון עיצוב](../../../translated_images/he/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(לחץ על התמונה למעלה כדי לצפות בסרטון של השיעור)_
 
-# תכנון
+# תכנון עיצוב
 
 ## הקדמה
 
-בשיעור זה נסקור
+שיעור זה יעסוק ב
 
-* הגדרת מטרה כללית ברורה וחלוקת משימה מורכבת למשימות ניתנות לניהול.
-* ניצול פלט מובנה לתגובות אמינות יותר וקריאות למכונה.
-* יישום גישה מבוססת-אירועים כדי לטפל במשימות דינמיות ובקלטים בלתי צפויים.
+* הגדרת מטרה ברורה כוללת ופירוק משימה מורכבת למשימות ניתנות לניהול.
+* שימוש ביציאה מובנית לתגובות אמינות וקריאות למכונה.
+* יישום גישה מונחית אירועים לטיפול במשימות דינמיות וקלטים בלתי צפויים.
 
-## מטרות למידה
+## מטרות הלמידה
 
-בסיום השיעור, יהיה לך/לך הבנה לגבי:
+לאחר השלמת שיעור זה, יהיו לך הבנות לגבי:
 
-* לזהות ולקבוע מטרה כללית לסוכן בינה מלאכותית, ולהבטיח שהוא יודע במפורש מה יש להשיג.
-* לפרק משימה מורכבת לתתי-משימות ניתנות לניהול ולארגן אותן ברצף לוגי.
-* לצייד סוכנים בכלים המתאימים (למשל, כלי חיפוש או כלי ניתוח נתונים), להחליט מתי וכיצד להשתמש בהם, ולנהל מצבים בלתי צפויים שעשויים להתעורר.
-* להעריך את תוצאות תתי-המשימות, למדוד ביצועים ולחזור על פעולות כדי לשפר את הפלט הסופי.
+* זיהוי והגדרת מטרה כוללת לסוכן בינה מלאכותית, תוך הבטחת ידיעתו הברורה מה יש להשיג.
+* פירוק משימה מורכבת למשימות משנה ניתנות לניהול וארגון שלהן ברצף לוגי.
+* הציידה של סוכנים בכלים הנכונים (לדוגמה, כלי חיפוש או כלי ניתוח נתונים), קבלת החלטות מתי וכיצד להשתמש בהם, וטיפול במצבים בלתי צפויים העולים.
+* הערכת תוצאות משימות המשנה, מדידת ביצועים, וחזרה על פעולות לשיפור התוצאה הסופית.
 
-## הגדרת המטרה הכוללת וחלוקת המשימה
+## הגדרת מטרה כוללת ופירוק משימה
 
 ![הגדרת מטרות ומשימות](../../../translated_images/he/defining-goals-tasks.d70439e19e37c47a.webp)
 
-רוב המשימות בעולם האמיתי מורכבות מדי כדי לטפל בהן בצעד אחד. סוכן בינה מלאכותית זקוק למטרה תמציתית שתנחה את התכנון והפעולות שלו. לדוגמה, שקול את המטרה:
+רוב המשימות במציאות מורכבות מדי לטיפול בצעד אחד בלבד. סוכן בינה מלאכותית זקוק למטרה מתומצתת כדי להנחות את התכנון והפעולות שלו. לדוגמה, שקול את המטרה:
 
-    "צור תוכנית נסיעה ל-3 ימים."
+    "יצירת תוכנית טיול ל-3 ימים."
 
-אמנם קל לומר זאת בפשטות, אך יש צורך לדייק. ככל שהמטרה ברורה יותר, כך הסוכן (וכולל העמיתים האנושיים) יוכלו להתמקד בהשגת התוצאה הנכונה, כמו יצירת מסלול מקיף הכולל אפשרויות טיסה, המלצות על מלונות והצעות לפעילויות.
+למרות שמדובר בהצהרה פשוטה, היא עדיין דורשת עיבוד נוסף. ככל שהמטרה תהיה ברורה יותר, הסוכן (וכל משתף פעולה אנושי) יוכל להתמקד טוב יותר בהשגת התוצאה הנכונה, כמו יצירת תוכנית טיול מקיפה עם אפשרויות טיסה, המלצות על מלונות והצעות לפעילויות.
 
-### פירוק המשימה
+### פירוק משימה
 
-משימות גדולות או מורכבות נהיות ניתנות לניהול יותר כשמפרקים אותן לתת-משימות ממוקדות מטרה.
-בדוגמת מסלול הטיול, ניתן לפרק את המטרה ל:
+משימות גדולות או מורכבות נעשות ניתנות לניהול יותר כאשר מחלקים אותן למשימות משנה קטנות וממוקדות מטרה.
+בדוגמה של תוכנית הטיול, אפשר לפרק את המטרה ל:
 
-* הזמנת טיסות
+* הזמנת טיסה
 * הזמנת מלון
 * השכרת רכב
 * התאמה אישית
 
-כל תת-משימה יכולה להיות מטופלת על ידי סוכנים או תהליכים ייעודיים. סוכן אחד עשוי להתמחות בחיפוש דילים לטיסות, אחר יתמקד בהזמנת מלונות, וכך הלאה. סוכן מתאם או "downstream" יכול לאסוף לאחר מכן את התוצאות הללו למסלול אחד ומקיף למשתמש הסופי.
+כל משימת משנה כזו יכולה להתבצע על ידי סוכנים או תהליכים ייעודיים. סוכן אחד יכול להתמחות בחיפוש העסקאות הטובות ביותר בטיסות, אחר יתמקד בהזמנת מלונות, וכן הלאה. סוכן מתאם או "להלן" יכול להרכיב את התוצאות הללו לתוכנית מסודרת למשתמש הסופי.
 
-גישה מודולרית זו מאפשרת גם שיפורים הדרגתיים. לדוגמה, ניתן להוסיף סוכנים מתמחים בהמלצות אוכל או בהצעות לפעילויות מקומיות ולדייק את המסלול לאורך הזמן.
+גישה מודולרית זו מאפשרת גם שיפורים הדרגתיים. לדוגמה, אפשר להוסיף סוכנים ייחודיים להמלצות אוכל או הצעות לפעילויות מקומיות ולשפר את התוכנית עם הזמן.
 
 ### פלט מובנה
 
-מודלים לשוניים גדולים (LLMs) יכולים ליצור פלט מובנה (למשל JSON) שקל יותר לפרסר ולעבד על ידי סוכנים או שירותים המורכבים לאחר מכן. הדבר שימושי במיוחד בהקשר רב-סוכני, שבו ניתן לפעול על המשימות לאחר קבלת פלט התכנון. עיין ב-<a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">פוסט בבלוג</a> לתמצית מהירה.
+מודלים לשוניים גדולים (LLMs) יכולים ליצור פלט מובנה (למשל JSON) שקל יותר עבור סוכנים או שירותים בהמשך לנתח ולמעבד. זה שימושי במיוחד בהקשר מרובה סוכנים, בו ניתן לבצעה את המשימות לאחר קבלת הפלט מתהליך התכנון.
 
-קטע ה-Python הבא מדגים סוכן תכנון פשוט המפרק מטרה לתת-משימות ויוצר תוכנית מובנית:
+קטע הקוד בפייתון הבא מדגים סוכן תכנון פשוט מפצל מטרה למשימות משנה ומייצר תוכנית מובנית:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,35 +71,26 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# מודל תת-משימה של נסיעה
+# מודל משימת משנה לטיול
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # אנחנו רוצים להקצות את המשימה לסוכן
+    assigned_agent: AgentEnum  # אנו רוצים להקצות את המשימה לסוכן
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # כדי לאמת מול המודל תצטרך ליצור אסימון גישה אישי (PAT) בהגדרות GitHub שלך.
-    # ליצירת אסימון ה-PAT שלך עקוב אחר ההוראות כאן: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 # הגדר את הודעת המשתמש
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +101,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # ודא שתוכן התגובה הוא מחרוזת JSON חוקית לפני טעינתה
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("תוכן התגובה אינו מחרוזת JSON חוקית")
-
-# # הדפס את תוכן התגובה לאחר טעינתו כ-JSON
-# pprint(json.loads(response_content))
-
-# אמת את תוכן התגובה באמצעות המודל MathReasoning
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### סוכן תכנון עם תזמור רב-סוכני
+### סוכן תכנון עם אורקסטרציה מרובת סוכנים
 
-בדוגמה זו, סוכן ניתוב סמנטי מקבל בקשת משתמש (למשל, "אני צריך תוכנית מלון עבור הנסיעה שלי.").
+בדוגמה זו, סוכן ניתוב סמנטי מקבל בקשת משתמש (למשל, "אני צריך תוכנית למלון בטיול שלי.").
 
-המתכנן לאחר מכן:
+התכנן ואז:
 
-* מקבל את תוכנית המלון: המתכנן לוקח את הודעת המשתמש ובהתבסס על פסקת מערכת (כולל פרטי סוכנים זמינים), מייצר תוכנית נסיעה מובנית.
-* מפרט סוכנים וכלים שלהם: רישום הסוכנים מכיל רשימה של סוכנים (למשל, לטיסות, מלונות, השכרת רכב ופעילויות) יחד עם הפונקציות או הכלים שהם מציעים.
-* מנתב את התוכנית לסוכנים המתאימים: בהתאם למספר תתי-המשימות, המתכנן או שולח את ההודעה ישירות לסוכן ייעודי (בסצנריונים של משימה אחת) או מתאם דרך מנהל צ'אט קבוצתי לשיתוף פעולה רב-סוכני.
-* מסכם את התוצאה: לבסוף, המתכנן מסכם את התוכנית שנוצרה לשם בהירות.
-דוגמת הקוד של Python להלן מראה שלבים אלו:
+* מקבל את תוכנית המלון: התכנן לוקח את הודעת המשתמש, ובהתבסס על פקודת מערכת (כולל פרטים על סוכנים זמינים), מייצר תוכנית טיול מובנית.
+* מפרט סוכנים וכלים שלהם: רישום הסוכנים מכיל רשימה של סוכנים (למשל לטיסות, מלונות, השכרת רכב ופעילויות) יחד עם הפונקציות או הכלים שהם מציעים.
+* מנתב את התוכנית לסוכנים המתאימים: בהתאם למספר משימות המשנה, התכנן שולח את ההודעה ישירות לסוכן ייעודי (בסיטואציות של משימה אחת) או מתאם באמצעות מנהל צ'אט קבוצתי לשיתוף פעולה רב-סוכני.
+* מסכם את התוצאה: לבסוף, התכנן מסכם את התוכנית שנוצרה לשם בהירות.
+דוגמת קוד בפייתון הבאה ממחישה צעדים אלה:
 
 ```python
 
@@ -166,11 +139,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# מודל תת-משימה לטיול
+# דגם משימה משנית לנסיעה
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # אנו רוצים להקצות את המשימה לסוכן
+    assigned_agent: AgentEnum # אנחנו רוצים להקצות את המשימה לסוכן
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +153,22 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# צור את הלקוח עם משתני סביבה שעברו בדיקת טיפוסים
+# צור את הלקוח
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 from pprint import pprint
 
 # הגדר את הודעת המשתמש
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +176,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# וודא שתוכן התשובה הוא מחרוזת JSON תקינה לפני טעינתו
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# הדפס את תוכן התשובה לאחר טעינתו כ-JSON
+# הדפס את תוכן התגובה לאחר טעינתו כ-JSON
 
 pprint(json.loads(response_content))
 ```
 
-מה שמוצג להלן הוא הפלט מהקוד הקודם ואתה יכול להשתמש בפלט המובנה הזה כדי לנתב לפי `assigned_agent` ולסכם את תוכנית הנסיעה למשתמש הסופי.
+מה שמגיע לאחר מכן הוא הפלט מהקוד הקודם ואתה יכול להשתמש בפלט המובנה הזה כדי לנווט אל `assigned_agent` ולסכם את תוכנית הטיול למשתמש.
 
 ```json
 {
@@ -254,21 +220,23 @@ pprint(json.loads(response_content))
 }
 ```
 
-דוגמה למחברת עם דוגמת הקוד הקודמת זמינה [כאן](07-autogen.ipynb).
+מחברת לדוגמה עם קוד הקודם זמינה [כאן](./code_samples/07-python-agent-framework.ipynb).
 
 ### תכנון איטרטיבי
 
-חלק מהמשימות דורשות חילופי דברים או תכנון מחדש, כאשר תוצאת תת-משימה אחת משפיעה על הבאה. לדוגמה, אם הסוכן מגלה פורמט נתונים בלתי צפוי בעת הזמנת טיסות, יתכן שיהיה עליו להתאים את האסטרטגיה שלו לפני המעבר להזמנת מלונות.
+חלק מהמשימות דורשות תהליך חזרה או תכנון מחדש, שבו תוצאת משימת משנה אחת משפיעה על הבאה. לדוגמה, אם הסוכן מגלה פורמט נתונים בלתי צפוי בעת הזמנת טיסות, הוא עשוי להזדקק להתאים את האסטרטגיה לפני המשך להזמנת מלונות.
 
-בנוסף, משוב משתמש (למשל, החלטה אנושית שהם מעדיפים טיסה מוקדמת יותר) יכול להפעיל תכנון חוזר חלקי. גישה דינמית ואיטרטיבית זו מבטיחה שהפתרון הסופי יתיישר עם מגבלות העולם האמיתי והעדפות המשתמש המשתנות.
+בנוסף, משוב משתמש (למשל, אדם שמחליט שהוא מעדיף טיסה מוקדמת יותר) יכול לגרום לתכנון חלקי מחדש. גישה דינמית ואיטרטיבית זו מבטיחה שהפתרון הסופי מתאים למגבלות מציאותיות ולהעדפות המשתמש שמשתנות.
 
-למשל קוד
+לדוגמה, קוד
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. כמו בקוד הקודם, והעבר את היסטוריית המשתמש ואת התוכנית הנוכחית
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+#.. אותו דבר כמו הקוד הקודם והעבר את היסטוריית המשתמש, התוכנית הנוכחית
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +244,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. תכנן מחדש ושלח את המשימות לסוכנים המתאימים
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. לתכנן מחדש ולשלוח את המשימות לסוכנים המתאימים
 ```
 
-לתכנון מקיף יותר עיינו ב-Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">פוסט בבלוג</a> לפתרון משימות מורכבות.
+לתכנון מקיף יותר יש לבדוק את Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">פוסט בבלוג</a> לפתרון משימות מורכבות.
 
 ## סיכום
 
-במאמר זה הסתכלנו על דוגמה לאופן שבו ניתן ליצור מתכנן שבאופן דינמי בוחר את הסוכנים הזמינים המוגדרים. פלט המתכנן מפרק את המשימות ומקצה את הסוכנים כדי שניתן יהיה לבצע אותן. מניחים שלסוכנים יש גישה לפונקציות/כלים הנדרשים לביצוע המשימה. בנוסף לסוכנים ניתן לכלול דפוסים נוספים כמו רפלקציה, מסכם וסיבוב-שיחה (round robin chat) להתאמה נוספת.
+במאמר זה הצגנו דוגמה לאופן בו ניתן ליצור מתכנן שבוחר באופן דינמי את הסוכנים הזמינים שהוגדרו. פלט המתכנן מפצל את המשימות ומקצה את הסוכנים כדי שניתן יהיה לבצע אותן. מניחים שלסוכנים יש גישה לפונקציות/כלים הדרושים לביצוע המשימה. בנוסף לסוכנים ניתן להוסיף דפוסים נוספים כמו רפלקציה, מסכם וצ'אט בסבב כדי להתאים את המערכת עוד יותר.
 
 ## משאבים נוספים
 
-AutoGen Magentic One - מערכת רב-סוכנית כללית (A Generalist multi-agent system) לפתרון משימות מורכבות שהשיגה תוצאות מרשימות במבחנים מאתגרים שונים של סוכנים. הפנייה: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. ביישום זה המנצח יוצר תוכנית ספציפית למשימה ומפנה את המשימות הללו לסוכנים הזמינים. בנוסף לתכנון, המנצח גם משתמש במנגנון מעקב כדי לפקח על התקדמות המשימה ולבצע תכנון מחדש לפי הצורך.
+Magnetic One - מערכת רב-סוכנים כללית לפתרון משימות מורכבות שהשיגה תוצאות מרשימות במספר מבחני ביצוע אתגריים של סוכנים. מקור: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. במימוש זה, האורקסטרטור יוצר תוכניות משימה ספציפיות ומעביר את המשימות לסוכנים הזמינים. בנוסף לתכנון, האורקסטרטור משתמש במנגנון מעקב כדי לפקח על התקדמות המשימה ומבצע תכנון מחדש לפי הצורך.
 
-### יש לך עוד שאלות לגבי דפוס התכנון?
+### יש לך שאלות נוספות לגבי תבנית עיצוב התכנון?
 
-הצטרף ל-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) כדי לפגוש לומדים אחרים, להשתתף בשעות קבלה ולקבל תשובות לשאלות שלך על סוכני בינה מלאכותית.
+הצטרף ל[Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) כדי להיפגש עם לומדים אחרים, להשתתף בשעות משרד ולקבל מענה על שאלותיך בנוגע לסוכני AI.
 
 ## שיעור קודם
 
-[בניית סוכני AI אמינים](../06-building-trustworthy-agents/README.md)
+[בניית סוכני בינה מלאכותית אמינים](../06-building-trustworthy-agents/README.md)
 
 ## שיעור הבא
 
-[דפוס רב-סוכני](../08-multi-agent/README.md)
+[תבנית עיצוב רב-סוכנית](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-הצהרת אי-אחריות:
-המסמך תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לשים לב כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי־דיוקים. על המסמך המקורי בשפתו המקורית להיחשב כמקור הסמכות. עבור מידע קריטי מומלץ להסתייע בתרגום מקצועי על ידי מתרגם אנושי. איננו אחראים לכל אי־הבנה או פרשנות שגויה הנובעת מהשימוש בתרגום זה.
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

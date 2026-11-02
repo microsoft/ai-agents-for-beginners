@@ -1,164 +1,188 @@
-# Contextengineering voor AI-agenten
+# Context Engineering voor AI-agenten
 
-[![Contextengineering](../../../translated_images/nl/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/nl/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
-Het begrijpen van de complexiteit van de toepassing waarvoor je een AI-agent bouwt is belangrijk om er een betrouwbare van te maken. We moeten AI-agenten bouwen die informatie effectief beheren om complexe behoeften aan te pakken, verder dan prompt-engineering.
+Het begrijpen van de complexiteit van de toepassing waarvoor je een AI-agent bouwt, is belangrijk om er een betrouwbare te maken. We moeten AI-agenten bouwen die effectief informatie beheren om complexe behoeften aan te pakken, verder dan alleen promptengineering.
 
-In deze les bekijken we wat contextengineering is en welke rol het speelt bij het bouwen van AI-agenten.
+In deze les bekijken we wat context engineering is en welke rol het speelt bij het bouwen van AI-agenten.
 
-## Introductie
+## Inleiding
 
 Deze les behandelt:
 
-• **Wat contextengineering is** en waarom het anders is dan prompt-engineering.
+• **Wat context engineering is** en waarom het anders is dan promptengineering.
 
-• **Strategieën voor effectieve contextengineering**, inclusief hoe je informatie schrijft, selecteert, comprimeert en isoleert.
+• **Strategieën voor effectieve context engineering**, inclusief hoe je informatie schrijft, selecteert, comprimeert en isoleert.
 
-• **Veelvoorkomende contextfouten** die je AI-agent kunnen doen ontsporen en hoe je ze oplost.
+• **Veelvoorkomende contextfouten** die je AI-agent kunnen tegenwerken en hoe je ze kunt oplossen.
 
 ## Leerdoelen
 
 Na het voltooien van deze les weet je hoe je:
 
-• **Contextengineering definiëren** en onderscheiden van prompt-engineering.
+• **Context engineering definieert** en het onderscheidt van promptengineering.
 
-• **De belangrijkste componenten van context identificeren** in toepassingen met Large Language Models (LLM).
+• **De belangrijkste componenten van context** in toepassingen met Large Language Models (LLM) identificeert.
 
-• **Strategieën toepassen voor het schrijven, selecteren, comprimeren en isoleren van context** om de prestaties van de agent te verbeteren.
+• **Strategieën toepast voor het schrijven, selecteren, comprimeren en isoleren van context** om de prestaties van agenten te verbeteren.
 
-• **Veelvoorkomende contextfouten herkennen** zoals vergiftiging, afleiding, verwarring en botsing, en mitigerende technieken implementeren.
+• **Veelvoorkomende contextfouten herkent**, zoals vergiftiging, afleiding, verwarring en botsingen, en mitigatietechnieken implementeert.
 
-## Wat is contextengineering?
+## Wat is Context Engineering?
 
-Voor AI-agenten is context wat de planning van een AI-agent aanstuurt om bepaalde acties te ondernemen. Contextengineering is de praktijk om ervoor te zorgen dat de AI-agent de juiste informatie heeft om de volgende stap van de taak te voltooien. Het contextvenster is beperkt in grootte, dus als ontwikkelaars van agenten moeten we systemen en processen bouwen om het toevoegen, verwijderen, en condenseren van de informatie in het contextvenster te beheren.
+Voor AI-agenten is context hetgeen de planning aandrijft om bepaalde acties te ondernemen. Context engineering is de praktijk om ervoor te zorgen dat de AI-agent de juiste informatie heeft om de volgende stap van de taak te voltooien. Het contextvenster is beperkt in grootte, dus als bouwer van agenten moeten we systemen en processen maken om het toevoegen, verwijderen en condenseren van informatie in het contextvenster te beheren.
 
-### Prompt-engineering vs contextengineering
+### Prompt Engineering vs Context Engineering
 
-Prompt-engineering richt zich op één set statische instructies om AI-agenten effectief te begeleiden met een reeks regels.  Contextengineering gaat over het beheren van een dynamische set informatie, inclusief de initiële prompt, om ervoor te zorgen dat de AI-agent over tijd heeft wat hij nodig heeft. Het belangrijkste idee achter contextengineering is om dit proces herhaalbaar en betrouwbaar te maken.
+Prompt engineering richt zich op een enkele set statische instructies om de AI-agenten effectief met regels te sturen. Context engineering gaat over het beheren van een dynamische set informatie, inclusief de initiële prompt, om ervoor te zorgen dat de AI-agent in de loop van de tijd heeft wat hij nodig heeft. Het kernidee van context engineering is dit proces herhaalbaar en betrouwbaar te maken.
 
-### Soorten context
+### Soorten Context
 
-[![Soorten context](../../../translated_images/nl/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
+[![Soorten Context](../../../translated_images/nl/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Het is belangrijk te onthouden dat context niet slechts één ding is. De informatie  die de AI-agent nodig heeft kan uit verschillende bronnen komen en het is aan ons om ervoor te zorgen dat de agent toegang heeft tot deze bronnen:
+Het is belangrijk te onthouden dat context niet slechts één ding is. De informatie die de AI-agent nodig heeft, kan uit verschillende bronnen komen en het is aan ons om ervoor te zorgen dat de agent toegang heeft tot deze bronnen:
 
-De typen context die een AI-agent mogelijk moet beheren omvatten:
+De soorten context die een AI-agent mogelijk moet beheren zijn:
 
-• **Instructies:** Dit zijn als het ware de "regels" van de agent – prompts, systeemberichten, few-shot voorbeelden (die de AI laten zien hoe iets te doen), en beschrijvingen van tools die de agent kan gebruiken. Dit is waar de focus van prompt-engineering samenkomt met contextengineering.
+• **Instructies:** Dit zijn de "regels" voor de agent – prompts, systeemberichten, few-shot voorbeelden (laten zien hoe de AI iets moet doen) en beschrijvingen van tools die het kan gebruiken. Hier combineert het focusgebied van promptengineering zich met context engineering.
 
-• **Kennis:** Dit omvat feiten, informatie opgehaald uit databases, of langetermijnherinneringen die de agent heeft opgebouwd. Dit omvat het integreren van een Retrieval Augmented Generation (RAG)-systeem als een agent toegang nodig heeft tot verschillende kennisopslagplaatsen en databases.
+• **Kennis:** Dit omvat feiten, informatie opgehaald uit databases, of langetermijnherinneringen die de agent heeft verzameld. Dit omvat ook het integreren van een Retrieval Augmented Generation (RAG) systeem als een agent toegang nodig heeft tot verschillende kennisopslagplaatsen en databases.
 
-• **Tools:** Dit zijn de definities van externe functies, API's en MCP Servers die de agent kan aanroepen, samen met de feedback (resultaten) die het krijgt van het gebruik ervan.
+• **Tools:** Dit zijn definities van externe functies, API's en MCP-servers die de agent kan aanroepen, samen met de feedback (resultaten) die het krijgt bij het gebruik ervan.
 
-• **Gesprekshistorie:** De lopende dialoog met een gebruiker. Naarmate de tijd verstrijkt, worden deze gesprekken langer en complexer, wat betekent dat ze ruimte in het contextvenster innemen.
+• **Gespreksgeschiedenis:** De lopende dialoog met een gebruiker. Naarmate de tijd verstrijkt, worden deze gesprekken langer en complexer, wat betekent dat ze ruimte innemen in het contextvenster.
 
-• **Gebruikersvoorkeuren:** Informatie die in de loop van de tijd wordt geleerd over iemands voorkeuren of afkeuren. Deze kunnen worden opgeslagen en opgevraagd bij het nemen van belangrijke beslissingen om de gebruiker te helpen.
+• **Gebruikersvoorkeuren:** Informatie die in de loop van de tijd is geleerd over de voorkeuren en afkeuren van een gebruiker. Deze kunnen worden opgeslagen en opgevraagd worden bij het nemen van belangrijke beslissingen om de gebruiker te helpen.
 
-## Strategieën voor effectieve contextengineering
+## Strategieën voor Effectieve Context Engineering
 
 ### Planningsstrategieën
 
-[![Best practices voor contextengineering](../../../translated_images/nl/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Best Practices Context Engineering](../../../translated_images/nl/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Goede contextengineering begint met goede planning. Hier is een benadering die je zal helpen na te denken over hoe je het concept contextengineering kunt toepassen:
+Goede context engineering begint met goede planning. Hier is een benadering die je helpt na te denken over hoe je het concept van context engineering kunt toepassen:
 
-1. **Definieer duidelijke resultaten** - De resultaten van de taken die aan AI-agenten worden toegewezen moeten duidelijk worden gedefinieerd. Beantwoord de vraag - "Hoe ziet de wereld eruit wanneer de AI-agent klaar is met zijn taak?" Met andere woorden, welke verandering, informatie, of reactie moet de gebruiker hebben na interactie met de AI-agent.
-2. **Breng de context in kaart** - Zodra je de resultaten van de AI-agent hebt gedefinieerd, moet je de vraag beantwoorden van "Welke informatie heeft de AI-agent nodig om deze taak te voltooien?". Op deze manier kun je beginnen de context in kaart te brengen van waar die informatie zich kan bevinden.
-3. **Maak contextpijplijnen** - Nu je weet waar de informatie is, moet je de vraag beantwoorden "Hoe krijgt de agent deze informatie?". Dit kan op verschillende manieren worden gedaan, waaronder RAG, gebruik van MCP-servers en andere tools.
+1. **Definieer duidelijke resultaten** - De resultaten van de taken die AI-agenten moeten uitvoeren, moeten duidelijk worden gedefinieerd. Beantwoord de vraag: "Hoe ziet de wereld eruit wanneer de AI-agent klaar is met zijn taak?" Met andere woorden, welke verandering, informatie of reactie moet de gebruiker hebben na interactie met de AI-agent.
+2. **Breng de context in kaart** - Zodra je de resultaten van de AI-agent hebt gedefinieerd, moet je de vraag beantwoorden: "Welke informatie heeft de AI-agent nodig om deze taak te voltooien?". Zo kun je beginnen met het in kaart brengen van waar die informatie te vinden is.
+3. **Creëer contextpijplijnen** - Nu je weet waar de informatie is, moet je beantwoorden: "Hoe krijgt de agent deze informatie?". Dit kan op verschillende manieren, waaronder RAG, het gebruik van MCP-servers en andere tools.
 
-### Praktische strategieën
+### Praktische Strategieën
 
-Planning is belangrijk maar zodra de informatie in het contextvenster van onze agent begint binnen te stromen, hebben we praktische strategieën nodig om het te beheren:
+Planning is belangrijk, maar zodra de informatie begint binnen te komen in het contextvenster van onze agent, moeten we praktische strategieën hebben om dit te beheren:
 
 #### Context beheren
 
-Terwijl sommige informatie automatisch aan het contextvenster wordt toegevoegd, gaat contextengineering over het aannemen van een meer actieve rol ten aanzien van deze informatie, wat kan worden gedaan met een paar strategieën:
+Hoewel sommige informatie automatisch aan het contextvenster wordt toegevoegd, gaat context engineering over het actief beheren van deze informatie, wat met een paar strategieën kan worden gedaan:
 
- 1. **Agent Scratchpad**
- Dit maakt het voor een AI-agent mogelijk om aantekeningen te maken van relevante informatie over de huidige taken en gebruikersinteracties gedurende een enkele sessie. Dit moet buiten het contextvenster bestaan in een bestand of runtime-object dat de agent later tijdens deze sessie kan ophalen indien nodig.
+ 1. **Agent Scratchpad**  
+ Dit stelt een AI-agent in staat aantekeningen te maken van relevante informatie over de huidige taken en gebruikersinteracties tijdens een sessie. Dit moet buiten het contextvenster bestaan, bijvoorbeeld in een bestand of runtime-object dat de agent later tijdens deze sessie kan ophalen indien nodig.
 
- 2. **Herinneringen**
-  Scratchpads zijn goed voor het beheren van informatie buiten het contextvenster van een enkele sessie. Herinneringen stellen agenten in staat om relevante informatie op te slaan en op te halen over meerdere sessies. Dit kan samenvattingen, gebruikersvoorkeuren en feedback omvatten voor toekomstige verbeteringen.
+ 2. **Herinneringen**  
+ Scratchpads zijn goed voor het beheren van informatie buiten het contextvenster van een enkele sessie. Herinneringen stellen agenten in staat relevante informatie over meerdere sessies op te slaan en op te halen. Dit kan samenvattingen, gebruikersvoorkeuren en feedback voor toekomstige verbeteringen omvatten.
 
- 3. **Context comprimeren**
-  Zodra het contextvenster groeit en bijna aan zijn limiet komt, kunnen technieken zoals samenvatting en trimmen worden gebruikt. Dit omvat ofwel het alleen behouden van de meest relevante informatie of het verwijderen van oudere berichten.
+ 3. **Context comprimeren**  
+  Zodra het contextvenster groeit en het limiet nadert, kunnen technieken zoals samenvatten en inkorten worden gebruikt. Dit houdt in dat alleen de meest relevante informatie wordt bewaard of oudere berichten worden verwijderd.
   
- 4. **Multi-agentsystemen**
-  Het ontwikkelen van multi-agentsystemen is een vorm van contextengineering omdat elke agent zijn eigen contextvenster heeft. Hoe die context wordt gedeeld en doorgegeven aan verschillende agenten is iets anders om te plannen bij het bouwen van deze systemen.
+ 4. **Multi-Agent-systemen**  
+  Het ontwikkelen van multi-agent-systemen is een vorm van context engineering omdat elke agent zijn eigen contextvenster heeft. Hoe die context wordt gedeeld en doorgegeven aan andere agenten is iets om uit te denken bij het bouwen van deze systemen.
   
- 5. **Sandbox-omgevingen**
-  Als een agent code moet uitvoeren of grote hoeveelheden informatie in een document moet verwerken, kan dit veel tokens vergen om de resultaten te verwerken. In plaats van dit allemaal in het contextvenster op te slaan, kan de agent een sandbox-omgeving gebruiken die in staat is om deze code uit te voeren en alleen de resultaten en andere relevante informatie te lezen.
+ 5. **Sandbox-omgevingen**  
+  Als een agent code moet uitvoeren of grote hoeveelheden informatie in een document moet verwerken, kan dit veel tokens kosten om de resultaten te verwerken. In plaats van dit allemaal in het contextvenster op te slaan, kan de agent een sandbox-omgeving gebruiken die deze code kan uitvoeren en alleen de resultaten en andere relevante informatie kan lezen.
   
- 6. **Runtime-statusobjecten**
-   Dit gebeurt door containers van informatie te creëren om situaties te beheren waarin de agent toegang tot bepaalde informatie nodig heeft. Voor een complexe taak stelt dit een agent in staat om de resultaten van elk subtaken stap voor stap op te slaan, waardoor de context alleen verbonden blijft met die specifieke subtaak.
-  
-### Voorbeeld van contextengineering
+ 6. **Runtime-statusobjecten**  
+   Dit wordt gedaan door containers van informatie te maken om situaties te beheren wanneer de agent toegang nodig heeft tot bepaalde informatie. Voor een complexe taak kan dit een agent in staat stellen de resultaten van elk subtakketap stap voor stap op te slaan, zodat de context alleen verbonden blijft met die specifieke subtaak.
 
-Stel dat we een AI-agent willen die **"Boek voor mij een reis naar Parijs."**
+#### Context inspecteren
 
-• Een eenvoudige  agent die alleen prompt-engineering gebruikt zou misschien gewoon reageren: **"Oké, wanneer wil je naar Parijs gaan?**". Het verwerkte alleen je directe vraag op het moment dat de gebruiker vroeg.
+Nadat je een van deze strategieën hebt toegepast, is het de moeite waard om te controleren wat de volgende modelaanroep daadwerkelijk ontving. Een nuttige debugvraag is:
 
-• Een agent die  de contextengineeringstrategieën toepast zou veel meer doen. Voordat hij zelfs maar antwoordt, zou zijn systeem het volgende kunnen doen:
+> Heeft de agent te veel context geladen, de verkeerde context, of context gemist die hij nodig had?
 
-  ◦ **Controleer je agenda** op beschikbare data (het ophalen van realtimegegevens).
+Je hoeft geen ruwe prompts, tool-uitvoer of geheugeninhoud te loggen om die vraag te beantwoorden. In productie geef je de voorkeur aan kleine contextinspectie-records die aantallen, id's, hashes en beleidslabels vastleggen:
 
-  ◦ **Haal eerdere reisvoorkeuren op** (uit langetermijngeheugen), zoals je favoriete luchtvaartmaatschappij, budget of de voorkeur voor directe vluchten.
+- **Selectie:** Houd bij hoeveel kandidaatstukken, tools of herinneringen werden overwogen, hoeveel werden geselecteerd, en welke regel of score ervoor zorgde dat de anderen werden gefilterd.
+- **Compressie:** Leg de bronbereik of trace-id vast, de samenvatting-id, een geschatte tokentelling voor en na compressie, en of de ruwe inhoud werd uitgesloten van de volgende aanroep.
+- **Isolatie:** Noteer welke subtaak in een aparte agent, sessie of sandbox draaide, welke begrensde samenvatting werd teruggegeven, en of grote tool-uitvoer buiten de context van de hoofdagent bleef.
+- **Geheugen en RAG:** Sla id's van opgevraagde documenten, geheugen-id's, scores, geselecteerde id's en redactiestatus op in plaats van de volledige opgehaalde tekst.
+- **Veiligheid en privacy:** Geef de voorkeur aan hashes, id's, tokenbuckets en beleidslabels boven gevoelige prompttekst, toolargumenten, toolresultaten of gebruikersgeheugeninhoud.
 
-  ◦ **Identificeer beschikbare tools** voor het boeken van vluchten en hotels.
+Het doel is niet om meer context te bewaren. Het is om genoeg bewijs achter te laten zodat een ontwikkelaar kan zien welke contextstrategie is uitgevoerd en of dit de volgende modelaanroep op de bedoelde wijze heeft veranderd.
 
-- Vervolgens zou een voorbeeldantwoord kunnen zijn:  "Hey [Your Name]! Ik zie dat je vrij bent de eerste week van oktober. Zal ik zoeken naar directe vluchten naar Parijs met [Preferred Airline] binnen je gebruikelijke budget van [Budget]?". Dit rijkere, contextbewuste antwoord toont de kracht van contextengineering aan.
+### Voorbeeld van Context Engineering
 
-## Veelvoorkomende contextfouten
+Stel dat we een AI-agent willen die **"Boek een reis voor mij naar Parijs."**
 
-### Contextvergiftiging
+• Een eenvoudige agent die alleen promptengineering gebruikt, zou misschien gewoon reageren: **"Oké, wanneer wil je naar Parijs gaan?"** Hij verwerkte alleen je directe vraag op het moment dat de gebruiker die stelde.
 
-**Wat het is:** Wanneer een hallucinatie (valse informatie gegenereerd door het LLM) of een fout de context binnendringt en herhaaldelijk wordt aangehaald, waardoor de agent onmogelijke doelen nastreeft of onzinstrategieën ontwikkelt.
+• Een agent die de context engineering-strategieën toepast die we bespraken, zou veel meer doen. Voordat hij zelfs reageert, kan zijn systeem bijvoorbeeld:
 
-**Wat te doen:** Implementeer **contextvalidatie** en **isolatie**. Valideer informatie voordat deze aan het langetermijngeheugen wordt toegevoegd. Als potentiële vergiftiging wordt gedetecteerd, begin dan nieuwe contextthreads om te voorkomen dat de foutieve informatie zich verspreidt.
+  ◦ **Je agenda checken** voor beschikbare data (real-time gegevens ophalen).
 
-**Voorbeeld reisboeking:** Je agent hallucinereert een **directe vlucht van een klein lokaal vliegveld naar een verre internationale stad** die in werkelijkheid geen internationale vluchten aanbiedt. Deze niet-bestaande vluchtgegevens worden in de context opgeslagen. Later, wanneer je de agent vraagt te boeken, blijft hij proberen tickets te vinden voor deze onmogelijke route, wat leidt tot herhaalde fouten.
+ ◦ **Eerdere reisvoorkeuren ophalen** (uit het langetermijngeheugen) zoals je favoriete luchtvaartmaatschappij, budget, of of je directe vluchten prefereert.
 
-**Oplossing:** Implementeer een stap die **de bestaan van vluchten en routes valideert met een realtime-API** _voordat_ je de vluchtgegevens toevoegt aan de werkcontext van de agent. Als de validatie faalt, wordt de foutieve informatie "geïsoleerd" en niet verder gebruikt.
+ ◦ **Beschikbare tools identificeren** voor het boeken van vluchten en hotels.
 
-### Contextafleiding
+- Een voorbeeldantwoord kan zijn: "Hey [Jouw Naam]! Ik zie dat je de eerste week van oktober vrij bent. Zal ik zoeken naar directe vluchten naar Parijs met [Voorkeursluchtvaartmaatschappij] binnen je gebruikelijke budget van [Budget]?" Dit rijkere, contextbewuste antwoord toont de kracht van context engineering aan.
 
-**Wat het is:** Wanneer de context zo groot wordt dat het model te veel focust op de opgebouwde geschiedenis in plaats van te gebruiken wat het tijdens de training leerde, wat leidt tot repetitieve of niet-helpende acties. Modellen kunnen fouten beginnen te maken zelfs voordat het contextvenster vol is.
+## Veelvoorkomende Contextfouten
 
-**Wat te doen:** Gebruik **contextsamenvatting**. Periodiek comprimeer je geaccumuleerde informatie tot kortere samenvattingen, waarbij je belangrijke details behoudt en redundante geschiedenis verwijdert. Dit helpt de focus te "resetten".
+### Context Vergiftiging
 
-**Voorbeeld reisboeking:** Je hebt lange tijd verschillende droomreisbestemmingen besproken, inclusief een gedetailleerde verslaglegging van je backpackreis van twee jaar geleden. Wanneer je uiteindelijk vraagt om **"vind voor mij een goedkope vlucht voor** **volgende maand****,"** raakt de agent verstrikt in de oude, irrelevante details en blijft vragen stellen over je backpackuitrusting of eerdere reisschema's, waarbij hij je huidige verzoek verwaarloost.
+**Wat het is:** Wanneer een hallucinatie (valse informatie gegenereerd door het LLM) of een fout in de context komt en herhaaldelijk wordt genoemd, waardoor de agent onmogelijke doelen nastreeft of onzinstrategieën ontwikkelt.
 
-**Oplossing:** Na een bepaald aantal beurten of wanneer de context te groot wordt, zou de agent de **meest recente en relevante delen van het gesprek moeten samenvatten** – met de nadruk op je huidige reisdata en bestemming – en die compacte samenvatting gebruiken voor de volgende LLM-aanroep, waarbij minder relevante historische chat wordt weggegooid.
+**Wat te doen:** Implementeer **contextvalidatie** en **quarantaine**. Valideer informatie voordat deze wordt toegevoegd aan het langetermijngeheugen. Als mogelijke vergiftiging wordt gedetecteerd, start dan nieuwe contextthreads om te voorkomen dat de slechte informatie zich verspreidt.
 
-### Contextverwarring
+**Voorbeeld Reisboeking:** Je agent hallucinereert een **directe vlucht van een kleine lokale luchthaven naar een verre internationale stad** die eigenlijk geen internationale vluchten aanbiedt. Dit niet-bestaande vluchtgegeven wordt opgeslagen in de context. Later, wanneer je de agent vraagt om te boeken, blijft hij proberen tickets te vinden voor deze onmogelijke route, wat leidt tot herhaalde fouten.
 
-**Wat het is:** Wanneer onnodige context, vaak in de vorm van te veel beschikbare tools, ertoe leidt dat het model slechte antwoorden genereert of irrelevante tools aanroept. Kleinere modellen zijn hier vooral vatbaar voor.
+**Oplossing:** Implementeer een stap die **de vluchtbestaan en routes valideert met een real-time API** _voordat_ het vluchtdetail aan de werkcontext van de agent wordt toegevoegd. Als de validatie faalt, wordt de foutieve informatie "geïnterneerd" en niet verder gebruikt.
 
-**Wat te doen:** Implementeer **tool-loadoutbeheer** met behulp van RAG-technieken. Sla toolbeschrijvingen op in een vector database en selecteer _alleen_ de meest relevante tools voor elke specifieke taak. Onderzoek toont aan dat het beperken van toolselecties tot minder dan 30 effectief is.
+### Context Afleiding
 
-**Voorbeeld reisboeking:** Je agent heeft toegang tot tientallen tools: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, etc. Je vraagt: **"Wat is de beste manier om je te verplaatsen in Parijs?"** Vanwege het grote aantal tools raakt de agent in de war en probeert hij `book_flight` _binnen_ Parijs aan te roepen, of `rent_car` hoewel je de voorkeur geeft aan het openbaar vervoer, omdat de toolbeschrijvingen elkaar kunnen overlappen of hij simpelweg niet kan bepalen welke de beste is.
+**Wat het is:** Wanneer de context zo groot wordt dat het model te veel op de opgebouwde geschiedenis focust in plaats van op wat het tijdens training leerde, wat leidt tot repetitieve of niet-helpende acties. Modellen kunnen fouten beginnen te maken nog voordat het contextvenster vol is.
 
-**Oplossing:** Gebruik **RAG over toolbeschrijvingen**. Wanneer je vraagt hoe je je in Parijs kunt verplaatsen, haalt het systeem dynamisch _alleen_ de meest relevante tools op zoals `rent_car` of `public_transport_info` op basis van je vraag, en presenteert een gerichte "loadout" van tools aan de LLM.
+**Wat te doen:** Gebruik **contextsummarizatie**. Periode komprimeren zich opeenhopende informatie in kortere samenvattingen, waarbij belangrijke details worden bewaard en overbodige geschiedenis wordt verwijderd. Dit helpt om de focus te "resetten".
 
-### Contextbotsing
+**Voorbeeld Reisboeking:** Je hebt al lang gesproken over verschillende droomreisbestemmingen, inclusief een gedetailleerd verslag van je rugzakreis van twee jaar geleden. Als je uiteindelijk vraagt om een **"goedkope vlucht voor volgende maand te vinden,"** raakt de agent verstrikt in de oude, irrelevante details en blijft hij vragen over je rugzakuitrusting of oude reisschema's, en negeert hij je actuele verzoek.
 
-**Wat het is:** Wanneer tegenstrijdige informatie binnen de context aanwezig is, wat leidt tot inconsistente redenering of slechte eindantwoorden. Dit gebeurt vaak wanneer informatie in fasen binnenkomt en vroege, onjuiste aannames in de context blijven staan.
+**Oplossing:** Na een bepaald aantal interacties of als de context te groot wordt, moet de agent **de meest recente en relevante gedeelten van het gesprek samenvatten** – gericht op je actuele reisdata en bestemming – en die gecondenseerde samenvatting voor de volgende LLM-aanroep gebruiken, terwijl minder relevante historische chat wordt weggegooid.
 
-**Wat te doen:** Gebruik **context pruning** en **offloading**. Pruning betekent het verwijderen van verouderde of tegenstrijdige informatie zodra nieuwe details binnenkomen. Offloading geeft het model een aparte "scratchpad" werkruimte om informatie te verwerken zonder de hoofdcontext te verrommelen.
+### Context Verwarring
 
-**Voorbeeld reisboeking:** Je vertelt je agent aanvankelijk: **"Ik wil in economy class vliegen."** Later in het gesprek verander je van gedachten en zeg je: **"Eigenlijk, voor deze reis, laten we business class nemen."** Als beide instructies in de context blijven, kan de agent tegenstrijdige zoekresultaten krijgen of in de war raken over welke voorkeur prioriteit moet krijgen.
+**Wat het is:** Wanneer onnodige context, vaak in de vorm van te veel beschikbare tools, ervoor zorgt dat het model slechte reacties genereert of irrelevante tools aanroept. Kleinere modellen zijn hier bijzonder vatbaar voor.
 
-**Oplossing:** Implementeer **context pruning**. Wanneer een nieuwe instructie in tegenspraak is met een oude, wordt de oudere instructie verwijderd of expliciet overschreven in de context. Als alternatief kan de agent een **scratchpad** gebruiken om tegenstrijdige voorkeuren te verzoenen voordat hij beslist, zodat alleen de uiteindelijke, consistente instructie zijn acties stuurt.
+**Wat te doen:** Implementeer **tool loadout management** met behulp van RAG-technieken. Bewaar toolbeschrijvingen in een vectordatabase en selecteer _alleen_ de meest relevante tools voor elke specifieke taak. Onderzoek toont aan dat het beperken van toolselecties tot minder dan 30 effectief is.
 
-## Heb je meer vragen over contextengineering?
+**Voorbeeld Reisboeking:** Je agent heeft toegang tot tientallen tools: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, enzovoort. Je vraagt, **"Wat is de beste manier om in Parijs rond te reizen?"** Door het grote aantal tools raakt de agent in de war en probeert hij `book_flight` _binnen_ Parijs aan te roepen, of `rent_car` terwijl jij liever openbaar vervoer gebruikt, omdat toolbeschrijvingen mogelijk overlappen of hij simpelweg niet kan bepalen welke de beste is.
 
-Sluit je aan bij de [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) om andere deelnemers te ontmoeten, spreekuren bij te wonen en je vragen over AI-agenten beantwoord te krijgen.
+**Oplossing:** Gebruik **RAG over toolbeschrijvingen**. Wanneer je vraagt over het rondreizen in Parijs, haalt het systeem dynamisch _alleen_ de meest relevante tools op zoals `rent_car` of `public_transport_info` op basis van je query, en presenteert een gerichte "loadout" van tools aan het LLM.
+
+### Context Botsing
+
+**Wat het is:** Wanneer conflicterende informatie binnen de context bestaat, wat leidt tot inconsistente redenering of slechte eindantwoorden. Dit gebeurt vaak wanneer informatie in fases aankomt en vroege, onjuiste aannames in de context blijven staan.
+
+**Wat te doen:** Gebruik **context pruning** en **offloading**. Pruning betekent het verwijderen van verouderde of conflicterende informatie zodra er nieuwe details binnenkomen. Offloading geeft het model een aparte "scratchpad"-werkruimte om informatie te verwerken zonder het hoofdcontext te vervuilen.
+
+
+**Voorbeeld van reisboeking:** Je vertelt aanvankelijk aan je agent, **"Ik wil economy class vliegen."** Later in het gesprek verander je van gedachten en zeg je, **"Eigenlijk, voor deze reis, laten we business class nemen."** Als beide instructies in de context blijven, kan de agent tegenstrijdige zoekresultaten krijgen of in de war raken over welke voorkeur voorrang moet krijgen.
+
+**Oplossing:** Implementeer **context pruning**. Wanneer een nieuwe instructie een oude tegenspreekt, wordt de oudere instructie verwijderd of expliciet overschreven in de context. Alternatief kan de agent een **scratchpad** gebruiken om tegenstrijdige voorkeuren te verzoenen voordat hij beslist, zodat alleen de uiteindelijke, consistente instructie zijn acties stuurt.
+
+## Nog meer vragen over Context Engineering?
+
+Word lid van de [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) om andere lerenden te ontmoeten, deel te nemen aan spreekuren en je vragen over AI Agents beantwoord te krijgen.
+## Vorige les
+
+[Agentic Protocols](../11-agentic-protocols/README.md)
+
+## Volgende les
+
+[Memory for AI Agents](../13-agent-memory/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het oorspronkelijke document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor kritieke informatie wordt een professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

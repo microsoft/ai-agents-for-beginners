@@ -1,146 +1,144 @@
-[![Како дизајнирати добре AI агенте](../../../translated_images/sr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Како дизајнирати добре АИ агенте](../../../translated_images/sr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Кликните на слику изнад да бисте погледали видео о овој лекцији)_
+> _(Кликните на слику изнад да бисте погледали видео о овом лекцији)_
 
-# Обрасци коришћења алата
+# Образац дизајна коришћења алата
 
-Алатке су занимљиве јер омогућавају AI агентима шире могућности. Уместо да агент има ограничен скуп акција које може извршити, додавањем алатке он сада може извршити широк спектар радњи. У овом поглављу ћемо погледати Образац коришћења алата, који описује како AI агенти могу да користе специфичне алатке да би постигли своје циљеве.
+Алати су занимљиви јер омогућавају АИ агентима да имају ширии спектар способности. Уместо да агент има ограничен скуп акција које може извршити, додавањем алата, агент може сада извршити широк спектар акција. У овом поглављу ћемо погледати Образац дизајна коришћења алата, који описује како АИ агенти могу користити специфичне алате да би постигли своје циљеве.
 
 ## Увод
 
-У овој лекцији желимо да одговоримо на следећа питања:
+У овој лекцији, покушавамо да одговоримо на следећа питања:
 
-- Шта је образац коришћења алата?
-- За које случајеве коришћења се може применити?
-- Који су елементи/грађевински блокови потребни за имплементацију обрасца?
-- Које су посебне мере за коришћење Обрасца коришћења алата за изградњу поузданих AI агената?
+- Шта је образац дизајна коришћења алата?
+- За које случајеве употребе се може применити?
+- Који су елементи/компоненте потребни за имплементацију тог обрасца дизајна?
+- Који су посебни аспекти приликом коришћења обрасца дизајна коришћења алата за израду поузданих АИ агената?
 
 ## Циљеви учења
 
 Након завршетка ове лекције, моћи ћете да:
 
-- Дефинишете Образац коришћења алата и његову сврху.
-- Идентификујете случајеве коришћења где је Образац применљив.
-- Разумете кључне елементе потребне за имплементацију обрасца.
-- Препознате мере за обезбеђење поузданости AI агената који користе овај образац.
+- Дефинишете образац дизајна коришћења алата и његову сврху.
+- Препознате случајеве употребе где је образац дизајна коришћења алата примењив.
+- Разумете кључне елементе потребне за имплементацију обрасца дизајна.
+- Препознате аспекте за обезбеђивање поузданости АИ агената који користе овај образац дизајна.
 
-## Шта је Образац коришћења алата?
+## Шта је образац дизајна коришћења алата?
 
-**Образац коришћења алата** фокусира се на пружање Large Language Models (LLM) могућности да интерагују са спољним алаткама ради постизања специфичних циљева. Алатке су код који агент може извршити да би обавио задатке. Алатка може бити једноставна функција као што је калкулатор, или позив API-ју треће стране као што су преглед цена акција или временска прогноза. У контексту AI агената, алатке су дизајниране да их агенти извршавају као одговор на **функцијске позиве генерисане моделом**.
+**Образац дизајна коришћења алата** фокусира се на давање могућности LLM моделима да интерагују са спољним алатима како би постигли одређене циљеве. Алати су код који агент може извршити да би обавио акције. Алат може бити једноставна функција као што је калкулатор, или позив API-ја треће стране, попут претраге цена акција или прогноза времена. У контексту АИ агената, алати су дизајнирани да се извршавају од стране агената као одговор на **позиве функција генерисаних од стране модела**.
 
-## За које случајеве коришћења се може применити?
+## За које случајеве употребе се може применити?
 
-AI агенти могу користити алатке за завршетак сложених задатака, преузимање информација или доношење одлука. Образац коришћења алата често се примењује у сценаријима који захтевају динамичку интеракцију са спољним системима, као што су базе података, веб сервисе или интерпретатори кода. Ова способност је корисна у различитим случајевима укључујући:
+АИ агенти могу користити алате за завршетак сложених задатака, проналажење информација или доношење одлука. Образац дизајна коришћења алата често се користи у сценаријима који захтевају динамичку интеракцију са спољним системима, као што су базе података, веб сервиси или интерпретатори кода. Ова способност је корисна за низ различитих случајева употребе као што су:
 
-- **Динамичко преузимање информација:** Агенти могу захтевати спољне API-је или базе података ради добијања актуелних података (нпр. упити у SQLite базу ради анализе података, преузимање цена акција или временских информација).
-- **Извршавање и тумачење кода:** Агенти могу извршавати код или скрипте ради решавања математичких проблема, генерације извештаја или извођења симулација.
-- **Аутоматизација радних токова:** Аутоматизација понављајућих или вишестепених радних токова интегрисањем алата као што су распоредивачи задатака, услуге е-поште или цевоводи за податке.
-- **Корисничка подршка:** Агенти могу да интерагују са CRM системима, платформама за подршку или базама знања да реше корисничке упите.
-- **Генерација и уређивање садржаја:** Агенти могу користити алате као што су проверавачи граматике, резимирање текста или процена безбедности садржаја да помогну у задацима креирања садржаја.
+- **Динамично проналажење информација:** Агенти могу упитати спољне API-је или базе података како би повукли ажуриране податке (нпр. упит за SQLite базу ради анализе података, повлачење цена акција или информација о времену).
+- **Извршавање и тумачење кода:** Агенти могу извршавати код или скрипте за решавање математичких проблема, генерисање извештаја или извођење симулација.
+- **Аутоматизација радног тока:** Аутоматизација понављајућих или вишестепених радних токова интеграцијом алата као што су планери задатака, сервисе за е-пошту или цевоводе за податке.
+- **Корисничка подршка:** Агенти могу комуницирати са CRM системима, платформама за улазнице или базама знања како би решили корисничке упите.
+- **Генерисање и уређивање садржаја:** Агенти могу користити алате као што су провера граматике, резимирање текста или процена безбедности садржаја да помогну у задацима креирања садржаја.
 
-## Који су елементи/грађевински блокови потребни за имплементацију обрасца коришћења алата?
+## Који су елементи/компоненте потребни за имплементацију обрасца дизајна коришћења алата?
 
-Ови грађевински блокови омогућавају AI агенту да обави широк спектар задатака. Погледајмо кључне елементе потребне за имплементацију Обрасца коришћења алата:
+Ове компоненте омогућавају АИ агенту да обави широк спектар задатака. Погледајмо кључне елементе потребне за имплементацију Обрасца дизајна коришћења алата:
 
-- **Шеме функција/алата**: Детаљни описи доступних алата, укључујући име функције, сврху, потребне параметре и очекиване излазне вредности. Ове шеме омогућавају LLM да разуме које су алатке доступне и како да конструише валидне захтеве.
+- **Схеме функција/алата**: Детаљни описи доступних алата, укључујући назив функције, сврху, потребне параметре и очекиване излазе. Ове шеме омогућавају LLM моделу да разуме које су алате доступне и како да конструише валидне захтеве.
 
-- **Логика извршавања функција**: Прописује како и када се алатке позивају у зависности од намере корисника и контекста разговора. Ово може укључивати модуле планирања, механизме усмеравања или условне токове који динамички одређују употребу алата.
+- **Логика извршавања функција**: Управља како и када се алати позивају на основу намере корисника и контекста разговора. Ово може укључивати модуле планера, механизме усмеравања или условне токове који динамички одређују коришћење алата.
 
-- **Систем управљања порукама**: Компоненте које управљају током разговора између уноса корисника, одговора LLM, позива алата и резултата алата.
+- **Систем за руковање порукама**: Компоненте које управљају течењем разговора између уноса корисника, одговора LLM, позива алата и излаза алата.
 
-- **Интеграциони оквир за алате**: Инфраструктура која повезује агента са различитим алаткама, било да су то једноставне функције или сложени спољни сервиси.
+- **Интеграциони оквир за алате**: Инфраструктура која повезује агента са разним алатима, без обзира да ли су то једноставне функције или сложене спољне услуге.
 
-- **Обрада грешака и провера валидности**: Механизми за управљање неуспесима у извршењу алата, проверу параметара и обраду неочекиваних одговора.
+- **Руцијавање грешака и валидација**: Механизми за управљање неуспесима у извршавању алата, проверу параметара и управљање неочекиваним одговорима.
 
-- **Управљање стањем**: Праћење контекста разговора, претходних интеракција са алатима и упорних података како би се обезбедила конзистентност кроз вишекратно коришћење.
+- **Управљање стањем**: Праћење контекста разговора, претходних интеракција са алатима и постојаних података како би се обезбедила конзистентност у вишекратним интеракцијама.
 
-Следеће, погледајмо детаљније позивање функција/алата.
+Следеће, погледајмо позивање функција/алата детаљније.
+ 
+### Позивање функције/алата
 
-### Позивање функција/алата
+Позивање функције је основни начин на који омогућавамо Великим језичким моделима (LLM) да интерагују са алатима. Често ћете видети да се „функција“ и „алат“ користе наизменично јер су „функције“ (блокови поновно употребљивог кода) „алати“ које агенти користе за обављање задатака. Да би се извршио код функције, LLM мора упоредити захтев корисника са описом функције. За ово се шаље шема која садржи описе свих доступних функција LLM-у. Онда LLM одабере најприкладнију функцију за задатак и враћа њен назив и аргументе. Одабрана функција се позива, њен одговор се шаље назад LLM-у, који користи те информације да одговори на захтев корисника.
 
-Позивање функција је примарни начин на који омогућавамо Large Language Models (LLM) да интерагују са алатима. Често ће се "функција" и "алат" користити наизменично јер су "функције" (блокови поново употребљивог кода) ти "алати" које агенти користе за извршавање задатака. Да би се код функције позвао, LLM мора упоредити захтев корисника са описом функције. Да би то урадио, шаље се шема која садржи описе свих доступних функција LLM-у. LLM затим бира најприкладнију функцију за задатак и враћа њено име и аргументе. Изабрана функција се извршава, њен одговор се шаље назад LLM-у који користи те информације да одговори на кориснички захтев.
-
-За програмере који желе да имплементирају позивање функција за агенте, потребно је:
+Да би програмери имплементирали позивање функције за агенте, биће вам потребно:
 
 1. LLM модел који подржава позивање функција
 2. Шема која садржи описе функција
-3. Код за сваку од описаних функција
+3. Код за сваку описану функцију
 
-Погледајмо пример добијања тренутног времена у граду као илустрацију:
+Узмимо пример добијања тренутног времена у граду као илустрацију:
 
 1. **Иницијализујте LLM који подржава позивање функција:**
 
-    Ни сви модели не подржавају позивање функција, па је важно проверити да ли модел који користите то ради. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> подржава позивање функција. Можемо започети иницијализацијом Azure OpenAI клијента. 
+    Ни сви модели не подржавају позивање функција, па је важно проверити да ли модел који користите то чини. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> подржава позивање функција. Можемо почети иницијализацијом OpenAI клијента преко Azure OpenAI **Responses API** (стабилна `/openai/v1/` тачка — није потребан `api_version`). 
 
     ```python
-    # Инициализујте Azure OpenAI клијента
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
 1. **Креирајте шему функције**:
 
-    Следеће ћемо дефинисати JSON шему која садржи име функције, опис шта функција ради и имена и описе параметара функције.
-    Потом ћемо послати ову шему клијенту који смо раније направили заједно са корисничким захтевом да пронађе време у Сан Франциску. Важно је напоменути да се враћа **позив алата**, а **не** коначни одговор на питање. Као што је раније поменуто, LLM враћа име функције коју је изабрао за задатак и аргументе који ће јој бити прослеђени.
+    Следеће ћемо дефинисати JSON шему која садржи назив функције, опис шта функција ради, као и имена и опсеге параметара функције.
+    Потом ћемо ову шему проследити клијенту који смо претходно креирали, заједно са корисничким захтевом за добијање времена у Сан Франциску. Важно је напоменути да је резултат **позив алата**, а **не** коначни одговор на питање. Као што је раније поменуто, LLM враћа назив функције коју је изабрао за задатак и аргументе које ће јој проследити.
 
     ```python
-    # Опис функције за читање модела
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # Почетна порука корисника
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # Први позив API-ја: Замолити модел да користи функцију
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Обрадити одговор модела
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **Код функције потребан за извршење задатка:**
+1. **Код функције потребан за обављање задатка:**
 
-    Сада када је LLM изабрао коју функцију треба покренути, код који обавља задатак мора бити имплементиран и извршен.
-    Можемо имплементирати код за добијање тренутног времена у Python-у. Такође ћемо морати написати код за издвајање имена и аргумената из response_message да бисмо добили коначни резултат.
+    Сада када је LLM изабрао коју функцију треба извршити, потребно је имплементирати и извршити код који обавља задатак.
+    Можемо имплементирати код за добијање тренутног времена у Питону. Такође ћемо писати код за издвајање имена и аргумената из response_message ради добијања коначног резултата.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ AI агенти могу користити алатке за завршетак
     ```
 
      ```python
-     # Обрада позива функција
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Други позив API-ју: Добијање коначног одговора од модела
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@ AI агенти могу користити алатке за завршетак
       The current time in San Francisco is 09:24 AM.
      ```
 
-Позивање функција је у срцу већине, ако не и свих обрасца коришћења алата, међутим његова имплементација од нуле понекад може бити изазовна.
-Као што смо научили у [Лекцији 2](../../../02-explore-agentic-frameworks) агенцијски оквири нам пружају унапред састављене грађевинске блокове за имплементацију коришћења алата.
+Позивање функција је у сржи већине, ако не и свих, образаца дизајна коришћења алата агената, али његова имплементација од почетка понекад може бити изазов.
+Као што смо научили у [Лекцији 2](../../../02-explore-agentic-frameworks), агентски оквири нам пружају унапред изграђене блокове за имплементацију коришћења алата.
  
-## Примери коришћења алата са агенцијским оквирима
+## Примери коришћења алата са агентским оквирима
 
-Ево неколико примера како можете имплементирати Образац коришћења алата користећи различите агенцијске оквире:
+Ево неколико примера како можете имплементирати образац дизајна коришћења алата користећи различите агентске оквире:
 
-### Semantic Kernel
+### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> је open-source AI оквир за .NET, Python и Java програмере који раде са Large Language Models (LLM). Поједностављује процес коришћења позивања функција аутоматским описивањем ваших функција и њихових параметара моделу кроз процес назван <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">серилизацијом</a>. Такође управља комуникацијом у оба смера између модела и вашег кода. Још једна предност коришћења агенцијског оквира као Semantic Kernel је што омогућава приступ унапред изграђеним алатима као што су <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Претрага фајлова</a> и <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Интерпретатор кода</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> је отворени АИ оквир за изградњу АИ агената. Поједностављује процес коришћења позивања функција омогућавајући вам да дефинишете алате као Питон функције са `@tool` декоратором. Оквир управља двосмерном комуникацијом између модела и вашег кода. Такође пружа приступ унапред изграђеним алатима као што су Претрага фајлова и Интерпретатор кода путем `FoundryChatClient`.
 
-Следећа шема илуструје процес позивања функција са Semantic Kernel:
+Следећа дијаграм илуструје процес позивања функција са Microsoft Agent Framework:
 
-![function calling](../../../translated_images/sr/functioncalling-diagram.a84006fc287f6014.webp)
+![позивање функције](../../../translated_images/sr/functioncalling-diagram.a84006fc287f6014.webp)
 
-У Semantic Kernel функције/алати се зову <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Можемо претворити функцију `get_current_time` коју смо раније видели у plugin претварањем у класу са функцијом унутар. Такође можемо импортирати `kernel_function` декоратор који прихвата опис функције. Када онда креирате kernel са GetCurrentTimePlugin-ом, kernel аутоматски серилизује функцију и њене параметре, стварајући шему коју шаље LLM-у у том процесу.
+У Microsoft Agent Framework, алати су дефинисани као декорисане функције. Можемо претворити `get_current_time` функцију коју смо видели раније у алат коришћењем `@tool` декоратора. Оквир ће аутоматски серијализовати функцију и њене параметре, креирајући шему коју шаље LLM-у.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### Алати са MCP сервера
+
+Алати не морају бити функције у вашем коду. Сервер који говори Протокол Контекста Модела (MCP, обрађен у [Лекцији 11](../11-agentic-protocols/README.md)) објављује своје алате заједно са њиховим шемама, а оквир их може учитати на исти начин на који серијализује декорисану функцију. `MCPStreamableHTTPTool` се повезује на такав сервер преко HTTP-а, чита шеме алата и нуди их моделу заједно са локалним алатима.
+
+Испод је пример који користи веб претраживачки сервер који је хостовао <a href="https://keenable.ai" target="_blank">Keenable</a>. Бесплатан је за коришћење без налога или API кључа (захтеви су ограничени по IP-ју), тако да су једини креденцијали који су вам потребни они за ваш модел. Као и са било којим удаљеним алатом, упити које модел пише се шаљу том серверу.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# Креирај језгро
-kernel = Kernel()
-
-# Креирај додатак
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# Додај додатак у језгро
-kernel.add_plugin(get_current_time_plugin)
-```
+Сервер објављује два алата, `search_web_pages` и `fetch_page_content`. Када је потребна актуелна информација, модел позива `search_web_pages`, добија наслове, URL-ове и одломке текста, и пише свој одговор из њих, исти процес као у `get_current_time` примеру горе.
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> је новији агенцијски оквир дизајниран да омогући програмерима сигурно креирање, постављање и скалирање квалитетних и проширивих AI агената без потребе за управљањем основним рачунарским и складишним ресурсима. Посебно је користан за корпоративне апликације јер је то потпуно управљана услуга са корпоративним нивоом безбедности.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> је новији агентски оквир који је дизајниран да омогући програмерима безбедно изградњу, постављање и скалирање висококвалитетних и проширивих АИ агената без потребе управљања основним ресурсима за рачунарство и складиштење. Посебно је користан за пословне апликације, јер је потпуно управљана услуга са sigurnošћу корпоративног нивоа.
 
-У поређењу са директним развојем преко LLM API-ја, Azure AI Agent Service нуди неке предности, укључујући:
+У поређењу са развојем директно преко LLM API-ја, Microsoft Foundry Agent Service пружа неке предности, укључујући:
 
-- Аутоматско позивање алата – нема потребе за парсирањем позива алата, извршавањем алата и обрадом одговора; све је то сада обављено на серверу
-- Сигурно управљани подаци – уместо да сами управљате стањем разговора, можете се ослонити на thread-ове који чувају све потребне информације
-- Алати који раде "одмах" – алатке за интеракцију са вашим изворима података, као што су Bing, Azure AI Search и Azure Functions.
+- Аутоматско позивање алата – није потребно ручно анализирати позив алата, позивати алат и управљати одговором; све је то сада на серверској страни
+- Безбедно управљани подаци – уместо да управљате сопственим стањем разговора, можете се ослонити на нити које чувају све потребне информације
+- Алати који су спремни за употребу – алати које можете користити за интеракцију са вашим изворима података, као што су Bing, Azure AI Search и Azure Functions.
 
-Алатке доступне у Azure AI Agent Service могу се поделити у две категорије:
+Алати доступни у Microsoft Foundry Agent Service могу се поделити у две категорије:
 
 1. Алати за знање:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Повезивање са Bing претрагом</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Покретање претраге са Bing</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Претрага фајлова</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Акциони алати:
+2. Алати за акцију:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Позивање функција</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Интерпретатор кода</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI дефинисани алати</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Алатке дефинисане OpenAPI-јем</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service нам омогућава коришћење ових алата заједно као `toolset`. Такође користи `thread` који прате историју порука из конкретног разговора.
+Agent Service нам омогућава да користимо ове алате заједно као `toolset`. Такође користи `threads` који прате историју порука из одређеног разговора.
 
-Замислите да сте продајни агент у компанији Contoso. Желите да развијете конверзацијалног агента који може да одговара на питања о вашим подацима о продаји.
+Замислите да сте продајни агент у компанији Contoso. Желите да развијете разговорног агента који може одговарати на питања о вашим продајним подацима.
 
-Следећа слика илуструје како можете користити Azure AI Agent Service за анализу ваших продајних података:
+Следећа слика илуструје како бисте могли користити Microsoft Foundry Agent Service за анализу ваших продајних података:
 
-![Agentic Service In Action](../../../translated_images/sr/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service у акцији](../../../translated_images/sr/agent-service-in-action.34fb465c9a84659e.webp)
 
-Да бисте користили било који од ових алата са сервисом, можете креирати клијента и дефинисати алат или скуп алата. За практичну имплементацију можемо користити следећи Python код. LLM ће моћи да погледа скуп алата и одлучи да ли ће користити функцију коју је креирао корисник, `fetch_sales_data_using_sqlite_query`, или унапред направљени интерпретатор кода у зависности од захтева корисника.
+Да бисмо користили било који од ових алата у сервису, можемо креирати клијента и дефинисати алат или скуп алата. Да бисмо то практично имплементирали, можемо користити следећи Python код. LLM ће моћи да погледа скуп алата и одлучи да ли да користи кориснички креирану функцију, `fetch_sales_data_using_sqlite_query`, или унапред изграђени Интерпретатор кода, у зависности од корисничког захтева.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # функција fetch_sales_data_using_sqlite_query која се може пронаћи у фајлу fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Иницијализуј алатке
+# Initialize toolset
 toolset = ToolSet()
 
-# Иницијализуј агента за позивање функција са функцијом fetch_sales_data_using_sqlite_query и додај га алаткама
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Иницијализуј Code Interpreter алатку и додај је алаткама.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## Које су посебне мере при коришћењу Обрасца коришћења алата ради изградње поузданих AI агената?
+## Који су посебни аспекти приликом коришћења обрасца дизајна коришћења алата за израду поузданих АИ агената?
 
-Често питање у вези са SQL упитима динамички генерисаним од стране LLM јесте безбедност, нарочито ризик од SQL инјекција или злонамерних акција, као што су брисање или мењање базе података. Иако су ове бриге валидне, могу се ефикасно ублажити правилним конфигурисањем приступних дозвола базе података. За већину база података то укључује конфигурисање базе као само за читање. За базне сервисе као PostgreSQL или Azure SQL, апликацији треба доделити улогу само за читање (SELECT).
+Честа брига у вези са динамички генерисаним SQL од стране LLM-а је сигурност, посебно ризик од SQL инјекције или злонамерних акција, као што је брисање или измена базе података. Иако су ове бриге валидне, могу се ефикасно ублажити правилном конфигурацијом дозвола за приступ бази података. За већину база то укључује конфигурисање базе као само за читање. За сервисе база као што су PostgreSQL или Azure SQL, апликацији треба доделити улогу само за читање (SELECT).
 
-Покретање апликације у сигурном окружењу додатно појачава заштиту. У корпоративним сценаријима, подаци се типично издвајају и трансформишу из оперативних система у базу или складиште података само за читање са кориснички пријатељском шемом. Овај приступ осигурава да су подаци безбедни, оптимизовани за перформансе и доступност, и да апликација има ограничен приступ само за читање.
+Покретање апликације у безбедном окружењу додатно повећава заштиту. У пословним сценаријима, подаци се обично извлаче и трансформишу из оперативних система у базу података или складиште података са приступом само за читање и кориснички прилагођеном шемом. Овај приступ осигурава да су подаци безбедни, оптимизовани за перформансе и приступачност, и да апликација има ограничен приступ само за читање.
 
 ## Пример кода
+
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Имате још питања о коришћењу образаца дизајна алата?
+## Имате ли још питања о Обрасцима дизајна коришћења алата?
 
-Придружите се [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) да упознате друге учеснике, присуствујете канцеларијским сатима и добијете одговоре на ваша питања о AI агентима.
+Придружите се [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) да се упознате са другим полазницима, присуствујете офис сате и добијете одговоре на ваша питања о АИ агентима.
 
 ## Додатни ресурси
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Semantic Kernel Function Calling Tutorial</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Code Interpreter</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Tools</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Радионца са више агената у Contoso Creative Writer-у</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Преглед Microsoft Agent Framework-а</a>
 
-## Претходна лекција
+## Тестирање овог агента (опционо)
 
-[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+Након што научите како да разврстате агенте у [Lesson 16](../16-deploying-scalable-agents/README.md), можете да тестирате да ли овај `TravelToolAgent` из овог часа и даље позива своје алате и одговара помоћу [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). Погледајте [`tests/README.md`](../tests/README.md) за упутства како то да покренете.
 
-## Следећа лекција
+## Претходни час
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Разумевање агенцијских дизајн шаблона](../03-agentic-design-patterns/README.md)
+
+## Следећи час
+
+[Агенцијски RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Одрицање одговорности**:
-Овај документ је преведен користећи AI услугу за превођење [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Изворни документ на његовом изворном језику треба сматрати ауторитетним извором. За критичне информације препоручује се професионални превод од стране човека. Нисмо одговорни за било каква неспоразума или погрешне тумачења која проистичу из коришћења овог превода.
+**Изјава о одрицању одговорности**:
+Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

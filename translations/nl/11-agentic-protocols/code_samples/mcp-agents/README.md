@@ -1,123 +1,123 @@
 # Agent-naar-Agent Communicatiesystemen Bouwen met MCP
 
-> TL;DR - Kun je Agent2Agent-communicatie bouwen op MCP? Ja!
+> TL;DR - Kun je Agent2Agent-communicatie op MCP bouwen? Ja!
 
-MCP is aanzienlijk geëvolueerd voorbij zijn oorspronkelijke doel van "context bieden aan LLM's". Met recente verbeteringen zoals [hervatbare streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), en notificaties ([voortgang](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) en [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), biedt MCP nu een robuuste basis voor het bouwen van complexe agent-naar-agent communicatiesystemen.
+MCP is aanzienlijk geëvolueerd voorbij zijn oorspronkelijke doel van "context bieden aan LLM's". Met recente verbeteringen waaronder [hersteldbare streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), en notificaties ([voortgang](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) en [middelen](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)), biedt MCP nu een robuuste basis voor het bouwen van complexe agent-naar-agent communicatiesystemen.
 
-## Het Misverstand over Agent/Tool
+## De Agent/Gereedschap Misvatting
 
-Naarmate meer ontwikkelaars tools met agentgedrag verkennen (langdurige uitvoering, aanvullende input nodig tijdens uitvoering, etc.), ontstaat vaak het misverstand dat MCP ongeschikt is, voornamelijk omdat vroege voorbeelden van de tools-primitief zich richtten op eenvoudige vraag-en-antwoordpatronen.
+Naarmate meer ontwikkelaars tools met agent-gedrag onderzoeken (lange looptijden, mogelijk extra input halverwege nodig, etc.), bestaat een veelvoorkomende misvatting dat MCP ongeschikt is omdat vroege voorbeelden van zijn tools primitief gericht waren op eenvoudige request-response patronen.
 
-Deze perceptie is achterhaald. De MCP-specificatie is de afgelopen maanden aanzienlijk verbeterd met mogelijkheden die de kloof dichten voor het bouwen van langdurig agentgedrag:
+Deze perceptie is achterhaald. De MCP-specificatie is de afgelopen maanden aanzienlijk verbeterd met mogelijkheden die de kloof dichten voor het bouwen van langlopende agent-gedrag:
 
-- **Streaming & Tussentijdse Resultaten**: Realtime voortgangsupdates tijdens uitvoering
-- **Hervatbaarheid**: Clients kunnen opnieuw verbinden en doorgaan na een onderbreking
-- **Duurzaamheid**: Resultaten blijven behouden na serverherstarts (bijv. via resource-links)
-- **Multi-turn**: Interactieve input tijdens uitvoering via elicitation en sampling
+- **Streaming & Gedeeltelijke Resultaten**: Real-time voortgangsupdates tijdens uitvoering
+- **Herstelbaarheid**: Clients kunnen opnieuw verbinden en doorgaan na een onderbreking
+- **Duurzaamheid**: Resultaten overleven serverherstarts (bijv. via resource links)
+- **Multi-turn**: Interactieve input halverwege uitvoering via elicitation en sampling
 
-Deze functies kunnen worden gecombineerd om complexe agentgedreven en multi-agent toepassingen mogelijk te maken, allemaal geïmplementeerd op het MCP-protocol.
+Deze functies kunnen worden gecombineerd om complexe agent- en multi-agent applicaties mogelijk te maken, allemaal geïmplementeerd op het MCP-protocol.
 
-Voor referentie zullen we een agent aanduiden als een "tool" die beschikbaar is op een MCP-server. Dit impliceert het bestaan van een hostapplicatie die een MCP-client implementeert, een sessie met de MCP-server opzet en de agent kan aanroepen.
+Voor de duidelijkheid noemen we een agent een "tool" die beschikbaar is op een MCP-server. Dit impliceert het bestaan van een hostapplicatie die een MCP-client implementeert die een sessie met de MCP-server tot stand brengt en de agent kan aanroepen.
 
-## Wat Maakt een MCP Tool "Agentgedreven"?
+## Wat Maakt een MCP Tool "Agentisch"?
 
-Voordat we ingaan op de implementatie, laten we vaststellen welke infrastructuurcapaciteiten nodig zijn om langdurige agents te ondersteunen.
+Voordat we in de implementatie duiken, laten we vaststellen welke infrastructuurmogelijkheden nodig zijn om langlopende agenten te ondersteunen.
 
-> We definiëren een agent als een entiteit die autonoom kan opereren over langere perioden, in staat om complexe taken uit te voeren die meerdere interacties of aanpassingen vereisen op basis van realtime feedback.
+> We definiëren een agent als een entiteit die autonoom kan functioneren over langere periodes, in staat om complexe taken aan te pakken die meerdere interacties of aanpassingen vereisen op basis van realtime feedback.
 
-### 1. Streaming & Tussentijdse Resultaten
+### 1. Streaming & Gedeeltelijke Resultaten
 
-Traditionele vraag-en-antwoordpatronen werken niet voor langdurige taken. Agents moeten kunnen:
+Traditionele request-response patronen werken niet voor langlopende taken. Agenten moeten bieden:
 
-- Realtime voortgangsupdates geven
-- Tussentijdse resultaten leveren
+- Real-time voortgangsupdates
+- Tussentijdse resultaten
 
-**MCP Ondersteuning**: Resource-update notificaties maken streaming van tussentijdse resultaten mogelijk, hoewel dit zorgvuldig ontwerp vereist om conflicten met het 1:1 vraag/antwoordmodel van JSON-RPC te vermijden.
+**MCP-ondersteuning**: Resource update notificaties maken streaming van gedeeltelijke resultaten mogelijk, hoewel dit een zorgvuldige opzet vereist om conflicten met het 1:1 request/response-model van JSON-RPC te voorkomen.
 
-| Functie                   | Gebruikssituatie                                                                                                                                                                | MCP Ondersteuning                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| Realtime Voortgangsupdates | Gebruiker vraagt een codebase-migratietaak aan. De agent streamt voortgang: "10% - Afhankelijkheden analyseren... 25% - TypeScript-bestanden converteren... 50% - Imports bijwerken..." | ✅ Voortgangsnotificaties                                                                 |
-| Tussentijdse Resultaten   | "Boek genereren"-taak streamt tussentijdse resultaten, bijv. 1) Verhaallijnschema, 2) Hoofdstuklijst, 3) Elk voltooid hoofdstuk. Host kan inspecteren, annuleren of omleiden. | ✅ Notificaties kunnen worden "uitgebreid" om tussentijdse resultaten op te nemen, zie voorstellen in PR 383, 776 |
+| Kenmerk                   | Gebruikssituatie                                                                                                                                                               | MCP-ondersteuning                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| Real-time Voortgangsupdates | Een gebruiker vraagt een codebase migratietaak aan. De agent streamt voortgang: "10% - Afhankelijkheden analyseren... 25% - Typescript-bestanden converteren... 50% - Imports bijwerken..." | ✅ Voortgangsnotificaties                                                                   |
+| Gedeeltelijke Resultaten   | "Genereer een boek" taak streamt gedeeltelijke resultaten, bv. 1) Verhaallijn overzicht, 2) Hoofdstukkenlijst, 3) Elk hoofdstuk bij voltooiing. Host kan op elk moment inspecteren, annuleren, of wijzigen. | ✅ Notificaties kunnen worden "uitgebreid" om gedeeltelijke resultaten op te nemen, zie voorstellen in PR 383, 776 |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figuur 1:</strong> Dit diagram illustreert hoe een MCP-agent realtime voortgangsupdates en tussentijdse resultaten naar de hostapplicatie streamt tijdens een langdurige taak, zodat de gebruiker de uitvoering in realtime kan volgen.
+<strong>Figuur 1:</strong> Dit diagram illustreert hoe een MCP-agent realtime voortgangsupdates en gedeeltelijke resultaten naar de hostapplicatie streamt tijdens een langlopende taak, waardoor de gebruiker de uitvoering realtime kan volgen.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
+    participant Host as Gast App<br/>(MCP Client)
     participant Server as MCP Server<br/>(Agent Tool)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: Start lange taak
+    Host->>Server: Roep agent_tool() aan
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
+    loop Voortgang updates
+        Server-->>Host: Voortgang + gedeeltelijke resultaten
         Host-->>User: Stream updates
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ Eindresultaat
+    Host-->>User: Voltooid
 ```
 
-### 2. Hervatbaarheid
+### 2. Herstelbaarheid
 
-Agents moeten netwerkonderbrekingen soepel kunnen afhandelen:
+Agenten moeten netwerkinstallaties gracieus afhandelen:
 
-- Opnieuw verbinden na (client) onderbreking
-- Doorgaan waar ze gebleven waren (berichtherlevering)
+- Opnieuw verbinden na (client) disconnectie
+- Doorgaan vanaf waar ze zijn gestopt (herlevering van berichten)
 
-**MCP Ondersteuning**: MCP StreamableHTTP-transport ondersteunt vandaag sessiehervatting en berichtherlevering met sessie-ID's en laatste gebeurtenis-ID's. Belangrijk hierbij is dat de server een EventStore moet implementeren die gebeurtenisherhalingen mogelijk maakt bij client-herverbinding.  
-Let op dat er een communityvoorstel is (PR #975) dat transportonafhankelijke hervatbare streams verkent.
+**MCP-ondersteuning**: De MCP StreamableHTTP transport ondersteunt momenteel sessieherstel en berichtherlevering met sessie-ID's en laatste event-ID's. Belangrijk is dat de server een EventStore implementeert die event-replays bij client-herverbinding mogelijk maakt.
+Let op: er is een communityvoorstel (PR #975) dat transport-agnostische hersteldbare streams onderzoekt.
 
-| Functie       | Gebruikssituatie                                                                                                                                         | MCP Ondersteuning                                                        |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Hervatbaarheid | Client verbreekt verbinding tijdens langdurige taak. Bij herverbinding wordt de sessie hervat met gemiste gebeurtenissen die worden herhaald, naadloos doorgaan. | ✅ StreamableHTTP-transport met sessie-ID's, gebeurtenisherhaling en EventStore |
+| Kenmerk       | Gebruikssituatie                                                                                                                                      | MCP-ondersteuning                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Herstelbaarheid | Client wordt verbroken tijdens langlopende taak. Bij herverbinding wordt de sessie hervat met herhaalde gemiste events, naadloos voortgaand vanaf waar het stopte. | ✅ StreamableHTTP transport met sessie-ID's, event replay, en EventStore |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figuur 2:</strong> Dit diagram toont hoe MCP's StreamableHTTP-transport en event store naadloze sessiehervatting mogelijk maken: als de client de verbinding verbreekt, kan deze opnieuw verbinden en gemiste gebeurtenissen herhalen, waardoor de taak zonder voortgangsverlies doorgaat.
+<strong>Figuur 2:</strong> Dit diagram laat zien hoe MCP's StreamableHTTP-transport en event store naadloos sessieherstel mogelijk maken: als de client wordt verbroken, kan deze opnieuw verbinden en gemiste evenementen afspelen, en de taak zonder verlies van voortgang voortzetten.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
+    participant Host as Host App<br/>(MCP-client)
     participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Store as Evenementenopslag
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: Taak starten
+    Host->>Server: Roep tool aan [sessie: abc123]
+    Server->>Store: Sla gebeurtenissen op
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 Verbinding verbroken
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: Maak opnieuw verbinding [sessie: abc123]
+    Store-->>Server: Geef gebeurtenissen opnieuw af
+    Server-->>Host: Inhalen + doorgaan
+    Host-->>User: ✅ Voltooid
 ```
 
 ### 3. Duurzaamheid
 
-Langdurige agents hebben een persistente staat nodig:
+Langlopende agenten hebben een persistent staat nodig:
 
-- Resultaten blijven behouden na serverherstarts
-- Status kan buiten de sessie worden opgevraagd
-- Voortgangsregistratie over sessies heen
+- Resultaten overleven serverherstarts
+- Status kan buiten bandbreedte worden opgevraagd
+- Voortgangsbewaking over sessies heen
 
-**MCP Ondersteuning**: MCP ondersteunt nu een Resource-link als retourtype voor toolaanroepen. Een mogelijk patroon is om een tool te ontwerpen die een resource creëert en onmiddellijk een resource-link retourneert. De tool kan doorgaan met de taak op de achtergrond en de resource bijwerken. De client kan ervoor kiezen om de status van deze resource te polleren om gedeeltelijke of volledige resultaten te krijgen (afhankelijk van welke resource-updates de server biedt) of zich abonneren op de resource voor update-notificaties.
+**MCP-ondersteuning**: MCP ondersteunt nu een Resource link return type voor tool-aanroepen. Een gangbaar patroon is een tool ontwerpen die een resource aanmaakt en direct een resource link retourneert. De tool kan de taak op de achtergrond verder uitvoeren en de resource bijwerken. De client kan deze status opvragen door de resource te poll'en voor gedeeltelijke of volledige resultaten (afhankelijk van welke resource-updates de server levert) of zich abonneren op de resource voor update notificaties.
 
-Een beperking hier is dat het polleren van resources of abonneren op updates middelen kan verbruiken met implicaties op schaal. Er is een open communityvoorstel (inclusief #992) dat de mogelijkheid verkent om webhooks of triggers op te nemen waarmee de server de client/hostapplicatie kan informeren over updates.
+Een beperking is dat het poll'en van resources of abonneren op updates middelen kan verbruiken met consequenties op schaalniveau. Er is een open communityvoorstel (inclusief #992) dat de mogelijkheid onderzoekt voor webhooks of triggers die de server kan aanroepen om de client/hostapplicatie van updates te informeren.
 
-| Functie     | Gebruikssituatie                                                                                                                                       | MCP Ondersteuning                                                   |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| Duurzaamheid | Server crasht tijdens datamigratietaak. Resultaten en voortgang blijven behouden na herstart, client kan status controleren en doorgaan vanuit persistente resource. | ✅ Resource-links met persistente opslag en statusnotificaties      |
+| Kenmerk   | Gebruikssituatie                                                                                                                                                  | MCP-ondersteuning                                                       |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Duurzaamheid | Server crasht tijdens data-migratietaak. Resultaten en voortgang overleven herstart, client kan status checken en doorgaan met persistente resource. | ✅ Resource links met persistente opslag en statusnotificaties        |
 
-Vandaag is een gangbaar patroon om een tool te ontwerpen die een resource creëert en onmiddellijk een resource-link retourneert. De tool kan op de achtergrond de taak uitvoeren, resource-notificaties uitgeven die dienen als voortgangsupdates of tussentijdse resultaten bevatten, en de inhoud in de resource bijwerken indien nodig.
+Het gangbare patroon is om een tool te ontwerpen die een resource aanmaakt en onmiddellijk een resource link retourneert. De tool adresseert de taak op de achtergrond, geeft resource notificaties die dienen als voortgangsupdates of gedeeltelijke resultaten, en werkt de inhoud in de resource bij wanneer nodig.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figuur 3:</strong> Dit diagram toont hoe MCP-agents persistente resources en statusnotificaties gebruiken om ervoor te zorgen dat langdurige taken serverherstarts overleven, zodat clients voortgang kunnen controleren en resultaten kunnen ophalen, zelfs na storingen.
+<strong>Figuur 3:</strong> Dit diagram toont hoe MCP-agents gebruikmaken van persistente resources en statusnotificaties om te garanderen dat langlopende taken serverherstarts overleven, waardoor clients voortgang kunnen controleren en resultaten kunnen ophalen zelfs na fouten.
 </div>
 
 ```mermaid
@@ -125,86 +125,86 @@ sequenceDiagram
     participant User
     participant Host as Host App<br/>(MCP Client)
     participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant DB as Persistente Opslag
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
+    User->>Host: Taak starten
+    Host->>Server: Roep tool aan
+    Server->>DB: Maak resource + updates
     Server-->>Host: 🔗 Resource link
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 Server herstart
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: Controleer status
+    Host->>Server: Haal resource op
+    Server->>DB: Laad status
+    Server-->>Host: Huidige voortgang
+    Server->>DB: Voltooien + melden
+    Host-->>User: ✅ Voltooid
 ```
 
 ### 4. Multi-Turn Interacties
 
-Agents hebben vaak aanvullende input nodig tijdens de uitvoering:
+Agenten hebben vaak extra input halverwege nodig:
 
 - Menselijke verduidelijking of goedkeuring
-- AI-assistentie voor complexe beslissingen
-- Dynamische parameteraanpassing
+- AI assistentie voor complexe beslissingen
+- Dynamische parameter aanpassing
 
-**MCP Ondersteuning**: Volledig ondersteund via sampling (voor AI-input) en elicitation (voor menselijke input).
+**MCP-ondersteuning**: Volledig ondersteund via sampling (voor AI-input) en elicitation (voor menselijke input).
 
-| Functie                  | Gebruikssituatie                                                                                                                              | MCP Ondersteuning                                    |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| Multi-Turn Interacties   | Reisboekingsagent vraagt prijsbevestiging van gebruiker, vraagt vervolgens AI om reisgegevens samen te vatten voordat de boeking wordt voltooid. | ✅ Elicitation voor menselijke input, sampling voor AI-input |
+| Kenmerk                | Gebruikssituatie                                                                                                                                           | MCP-ondersteuning                                      |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Multi-Turn Interacties  | Reisbureau agent vraagt prijsbevestiging aan gebruiker, vraagt vervolgens AI om reisgegevens samen te vatten vóór het afronden van de boeking.            | ✅ Elicitation voor menselijke input, sampling voor AI-input |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figuur 4:</strong> Dit diagram toont hoe MCP-agents interactief menselijke input kunnen opvragen of AI-assistentie kunnen aanvragen tijdens de uitvoering, wat complexe, multi-turn workflows zoals bevestigingen en dynamische besluitvorming ondersteunt.
+<strong>Figuur 4:</strong> Dit diagram toont hoe MCP-agents interactief menselijke input kunnen eliciteren of AI-hulp kunnen vragen halverwege uitvoering, wat complexe, multi-turn workflows ondersteunt zoals bevestigingen en dynamische besluitvorming.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as Host-app<br/>(MCP-client)
+    participant Server as MCP-server<br/>(Agenttool)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: Vliegticket boeken
+    Host->>Server: Bel travel_agent
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: Bevraging: "Bevestig $500?"
+    Note over Host: Callback bevraging (indien beschikbaar)
+    Host->>User: 💰 Prijs bevestigen?
+    User->>Host: "Ja"
+    Host->>Server: Bevestigd
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: Sampling: "Gegevens samenvatten"
+    Note over Host: AI-callback (indien beschikbaar)
+    Host->>Server: Rapport samenvatting
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ Vlucht geboekt
 ```
 
-## Implementatie van Langdurige Agents op MCP - Codeoverzicht
+## Implementeren van Langlopende Agenten op MCP - Codeoverzicht
 
-Als onderdeel van dit artikel bieden we een [coderepository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) met een volledige implementatie van langdurige agents met behulp van de MCP Python SDK met StreamableHTTP-transport voor sessiehervatting en berichtherlevering. De implementatie laat zien hoe MCP-mogelijkheden kunnen worden gecombineerd om geavanceerd agentgedrag mogelijk te maken.
+Als onderdeel van dit artikel bieden we een [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) die een volledige implementatie bevat van langlopende agenten met de MCP Python SDK en StreamableHTTP transport voor sessieherstel en berichtherlevering. De implementatie toont hoe MCP-mogelijkheden kunnen worden gecombineerd om geavanceerde agentachtige gedragingen te ondersteunen.
 
-Specifiek implementeren we een server met twee primaire agenttools:
+We implementeren specifiek een server met twee primaire agentalgereedschappen:
 
-- **Reisagent** - Simuleert een reisboekingsservice met prijsbevestiging via elicitation
-- **Onderzoeksagent** - Voert onderzoekstaken uit met AI-ondersteunde samenvattingen via sampling
+- **Travel Agent** - Simuleert een reisboekingservice met prijsbevestiging via elicitation
+- **Research Agent** - Voert onderzoekstaken uit met AI-ondersteunde samenvattingen via sampling
 
-Beide agents demonstreren realtime voortgangsupdates, interactieve bevestigingen en volledige sessiehervattingsmogelijkheden.
+Beide agenten demonstreren realtime voortgangsupdates, interactieve bevestigingen en volledige sessieherstelcapaciteiten.
 
 ### Belangrijke Implementatieconcepten
 
-De volgende secties tonen server-side agentimplementatie en client-side hostafhandeling voor elke mogelijkheid:
+De volgende secties tonen server-side agentimplementatie en client-side hostafhandeling voor elke capaciteit:
 
-#### Streaming & Voortgangsupdates - Realtime Taakstatus
+#### Streaming & Voortgangsupdates - Real-time Taakstatus
 
-Streaming stelt agents in staat om realtime voortgangsupdates te geven tijdens langdurige taken, zodat gebruikers op de hoogte blijven van de taakstatus en tussentijdse resultaten.
+Streaming maakt het mogelijk dat agenten realtime voortgangsupdates geven tijdens langlopende taken, waardoor gebruikers op de hoogte blijven van taakstatus en tussentijdse resultaten.
 
 **Serverimplementatie (agent stuurt voortgangsnotificaties):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# Van server/server.py - Reisagent die voortgangsupdates verzendt
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # Werk simuleren
 
-# Alternative: Log messages for detailed step-by-step updates
+# Alternatief: Logberichten voor gedetailleerde stap-voor-stap updates
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -227,7 +227,7 @@ await ctx.session.send_log_message(
 **Clientimplementatie (host ontvangt voortgangsupdates):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# Vanuit client/client.py - Client die real-time meldingen afhandelt
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# Registreer berichtverwerker bij het aanmaken van een sessie
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - Gebruikersinput Opvragen
+#### Elicitation - Gebruikersinput aanvragen
 
-Elicitation stelt agents in staat om gebruikersinput op te vragen tijdens de uitvoering. Dit is essentieel voor bevestigingen, verduidelijkingen of goedkeuringen tijdens langdurige taken.
+Elicitation stelt agenten in staat om halverwege uitvoering gebruikersinput aan te vragen. Dit is essentieel voor bevestigingen, verduidelijkingen of goedkeuringen tijdens langlopende taken.
 
-**Serverimplementatie (agent vraagt bevestiging):**
+**Serverimplementatie (agent vraagt om bevestiging):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# Van server/server.py - Reisagent vraagt prijsbevestiging
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # Ga door met boeken
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # Annuleer de boeking
     booking_cancelled = True
 ```
 
-**Clientimplementatie (host biedt elicitation-callback):**
+**Clientimplementatie (host voorziet elicitation callback):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# Van client/client.py - Client die verzoeken tot opheldering afhandelt
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# Registreer de callback bij het aanmaken van de sessie
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - AI-Assistentie Aanvragen
+#### Sampling - AI-assistentie aanvragen
 
-Sampling stelt agents in staat om LLM-assistentie aan te vragen voor complexe beslissingen of contentgeneratie tijdens de uitvoering. Dit maakt hybride mens-AI-workflows mogelijk.
+Sampling maakt het mogelijk dat agenten LLM-assistentie aanvragen voor complexe beslissingen of contentgeneratie tijdens uitvoering. Dit ondersteunt hybride mens-AI workflows.
 
 **Serverimplementatie (agent vraagt AI-assistentie):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# Van server/server.py - Onderzoeksagent die AI-samenvatting opvraagt
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**Clientimplementatie (host biedt sampling-callback):**
+**Clientimplementatie (host voorziet sampling callback):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# Van client/client.py - Client die sampling verzoeken afhandelt
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # In een echte applicatie zou dit een LLM API kunnen aanroepen
+    # Voor demonstratiedoeleinden geven we een mock antwoord
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# Registreer de callback bij het aanmaken van de sessie
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Hervatbaarheid - Sessiedoorlopendheid bij Onderbrekingen
+#### Herstelbaarheid - Sessietrouw bij Verbrekingen
 
-Hervatbaarheid zorgt ervoor dat langdurige agenttaken clientonderbrekingen kunnen overleven en naadloos kunnen doorgaan bij herverbinding. Dit wordt geïmplementeerd via event stores en hervattingstokens.
+Herstelbaarheid zorgt ervoor dat langlopende agenttaken clientverbrekingen kunnen overleven en na herverbinding naadloos kunnen doorgaan. Dit wordt geïmplementeerd met event stores en herstel tokens.
 
-**Event Store Implementatie (server bewaart sessiestatus):**
+**Event Store implementatie (server houdt sessiestatus bij):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# Van server/event_store.py - Eenvoudige in-memory gebeurtenisopslag
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # Speel alleen latere gebeurtenissen af van de oorspronkelijke stroom van de sessie.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# Van server/server.py - Doorgeven van gebeurtenisopslag aan sessiebeheerder
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # Maak een sessiebeheerder aan met gebeurtenisopslag voor hervatting
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # Gebeurtenisopslag maakt sessiehervatting mogelijk
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# Gebruik: Initialiseer met gebeurtenisopslag
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**Client Metadata met Hervattingstoken (client herverbindt met opgeslagen status):**
+**Client Metadata met Herstel Token (client verbindt opnieuw met opgeslagen status):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# Vanuit client/client.py - Client hervatting met metadata
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # Gebruik bestaand hervattings-token om door te gaan waar we gestopt zijn
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # Maak een callback om het hervattings-token op te slaan wanneer ontvangen
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# Verzend verzoek met hervattingsmetadata
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,24 +437,24 @@ result = await session.send_request(
 )
 ```
 
-De hostapplicatie bewaart lokaal sessie-ID's en hervattingstokens, zodat deze opnieuw verbinding kan maken met bestaande sessies zonder voortgang of status te verliezen.
+De hostapplicatie bewaart sessie-ID's en herstel tokens lokaal, waardoor deze kan reconnecten met bestaande sessies zonder voortgang of status te verliezen.
 
-### Codeorganisatie
+### Code-organisatie
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>Figuur 5:</strong> MCP-gebaseerde agentsysteemarchitectuur
+<strong>Figuur 5:</strong> MCP-gebaseerde agent-systeemarchitectuur
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([Gebruiker]) -->|"Taak"| Host["Host<br/>(MCP Client)"]
+    Host -->|lijst hulpmiddelen| Server[MCP Server]
+    Server -->|Biedt aan| AgentsTools[Agenten als Hulpmiddelen]
+    AgentsTools -->|Taak| AgentA[Reisagent]
+    AgentsTools -->|Taak| AgentB[Onderzoeksagent]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|Houdt in de gaten| StateUpdates[Voortgang & Statusupdates]
+    Server -->|Publiceert| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,37 +463,37 @@ graph LR
 
 **Belangrijke Bestanden:**
 
-- **`server/server.py`** - Hervatbare MCP-server met reis- en onderzoeksagents die elicitation, sampling en voortgangsupdates demonstreren
-- **`client/client.py`** - Interactieve hostapplicatie met hervattingsondersteuning, callbackhandlers en tokenbeheer
-- **`server/event_store.py`** - Event store-implementatie die sessiehervatting en berichtherlevering mogelijk maakt
+- **`server/server.py`** - Herstelbare MCP-server met reis- en onderzoekagents die elicitation, sampling en voortgangsupdates demonstreren
+- **`client/client.py`** - Interactieve hostapplicatie met ondersteuning voor herstel, callbackhandlers en tokenbeheer
+- **`server/event_store.py`** - Event store implementatie die sessieherstel en berichtherlevering mogelijk maakt
 
-## Uitbreiden naar Multi-Agent Communicatie op MCP
+## Uitbreiding naar Multi-Agent Communicatie op MCP
 
 De bovenstaande implementatie kan worden uitgebreid naar multi-agent systemen door de intelligentie en reikwijdte van de hostapplicatie te vergroten:
 
-- **Intelligente Taakontleding**: Host analyseert complexe gebruikersverzoeken en splitst deze op in subtaken voor verschillende gespecialiseerde agents
-- **Multi-Server Coördinatie**: Host onderhoudt verbindingen met meerdere MCP-servers, elk met verschillende agentmogelijkheden
-- **Taakstatusbeheer**: Host volgt voortgang van meerdere gelijktijdige agenttaken, behandelt afhankelijkheden en sequenties
-- **Veerkracht & Herhalingen**: Host beheert storingen, implementeert herhalingslogica en leidt taken om wanneer agents niet beschikbaar zijn
+- **Intelligente Taakdecompositie**: Host analyseert complexe gebruikersverzoeken en verdeelt ze in subtaken voor verschillende gespecialiseerde agents
+- **Multi-Server Coördinatie**: Host onderhoudt verbindingen met meerdere MCP-servers, elke met verschillende agentmogelijkheden
+- **Taak Statusbeheer**: Host volgt voortgang over meerdere gelijktijdige agenttaken, beheert afhankelijkheden en volgorde
+- **Veerkracht & Herhalingen**: Host beheert fouten, implementeert herhaal-logica en herleidt taken wanneer agents niet beschikbaar zijn
 - **Resultaatsynthese**: Host combineert outputs van meerdere agents tot coherente eindresultaten
 
-De host evolueert van een eenvoudige client naar een intelligente orkestrator, die gedistribueerde agentmogelijkheden coördineert terwijl dezelfde MCP-protocolbasis behouden blijft.
+De host evolueert van een simpele client naar een intelligente orkestrator, die gedistribueerde agentmogelijkheden coördineert terwijl de MCP-protocolbasis behouden blijft.
 
 ## Conclusie
 
-De verbeterde mogelijkheden van MCP - resource-notificaties, elicitation/sampling, hervatbare streams en persistente resources - maken complexe agent-naar-agent interacties mogelijk, terwijl de eenvoud van het protocol behouden blijft.
+De verbeterde mogelijkheden van MCP - resource notificaties, elicitation/sampling, hersteldbare streams en persistente resources - maken complexe agent-naar-agent interacties mogelijk zonder complexiteit van het protocol te verliezen.
 
 ## Aan de Slag
 
-Klaar om je eigen agent2agent-systeem te bouwen? Volg deze stappen:
+Klaar om je eigen agent2agent systeem te bouwen? Volg deze stappen:
 
-### 1. Voer de Demo uit
+### 1. Start de Demo
 
 ```bash
-# Start the server with event store for resumption
+# Start de server met event store voor hervatting
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# Voer in een andere terminal de interactieve client uit
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
@@ -487,27 +502,29 @@ python -m client.client --url http://127.0.0.1:8006/mcp
 - `travel_agent` - Boek reizen met prijsbevestiging via elicitation
 - `research_agent` - Onderzoek onderwerpen met AI-ondersteunde samenvattingen via sampling
 - `list` - Toon alle beschikbare tools
-- `clean-tokens` - Wis hervattingstokens
-- `help` - Toon gedetailleerde commando-hulp
-- `quit` - Sluit de client
+- `clean-tokens` - Maak hersteltokens leeg
+- `help` - Toon gedetailleerde commandohelp
+- `quit` - Verlaat de client
 
-### 2. Test Hervattingsmogelijkheden
+### 2. Test Herstelmogelijkheden
 
-- Start een langdurige agent (bijv. `travel_agent`)
-- Onderbreek de client tijdens de uitvoering (Ctrl+C)
-- Herstart de client - deze hervat automatisch waar deze gebleven was
+- Start een langlopende agent (bijv. `travel_agent`)
+- Onderbreek de client tijdens uitvoering (Ctrl+C)
+- Herstart de client - hij hervat automatisch vanaf waar het stopte
 
 ### 3. Verken en Breid Uit
 
 - **Verken de voorbeelden**: Bekijk deze [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)
-- **Doe mee met de community**: Neem deel aan MCP-discussies op GitHub
-- **Experimenteer**: Begin met een eenvoudige langdurige taak en voeg geleidelijk streaming, hervatbaarheid en multi-agent coördinatie toe
+- **Word lid van de community**: Neem deel aan MCP-discussies op GitHub
+- **Experimenteer**: Begin met een eenvoudige langlopende taak en voeg geleidelijk streaming, herstelbaarheid en multi-agent coördinatie toe
 
-Dit laat zien hoe MCP intelligente agentgedragingen mogelijk maakt, terwijl de eenvoud van tools behouden blijft.
+Dit demonstreert hoe MCP intelligente agentgedragingen mogelijk maakt terwijl het eenvoud behoudt gebaseerd op tools.
 
-Over het algemeen evolueert de MCP-protocolspecificatie snel; de lezer wordt aangemoedigd om de officiële documentatiewebsite te bekijken voor de meest recente updates - https://modelcontextprotocol.io/introduction
+Over het geheel genomen ontwikkelt de MCP-protocolspec snel; de lezer wordt aangemoedigd de officiële documentatiewebsite te raadplegen voor de meest recente updates - https://modelcontextprotocol.io/introduction
 
 ---
 
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in zijn oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

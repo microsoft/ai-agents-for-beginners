@@ -1,99 +1,95 @@
 ---
 name: microsoft-docs
-description: Przeszukaj oficjalną dokumentację Microsoft, aby znaleźć koncepcje, samouczki
-  i przykłady kodu dotyczące Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  i innych. Domyślnie używa Microsoft Learn MCP, a dla treści znajdujących się poza
-  learn.microsoft.com korzysta z Context7 i Aspire MCP.
 ---
 # Microsoft Docs
 
-Umiejętność wyszukiwania informacji dla ekosystemu technologii Microsoft. Obejmuje learn.microsoft.com oraz dokumentację znajdującą się poza nim (repozytoria VS Code, GitHub, Aspire, Agent Framework).
+Umiejętność wyszukiwania w ekosystemie technologii Microsoft. Obejmuje learn.microsoft.com oraz dokumentację znajdującą się poza nim (VS Code, GitHub, Aspire, repozytoria Agent Framework).
 
 ---
 
-## Default: Microsoft Learn MCP
+## Domyślnie: Microsoft Learn MCP
 
-Użyj tych narzędzi dla **wszystkiego na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows i inne. To jest podstawowe narzędzie dla zdecydowanej większości zapytań dotyczących dokumentacji Microsoft.
+Używaj tych narzędzi do **wszystkiego na learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows i więcej. To podstawowe narzędzie do zdecydowanej większości zapytań o dokumentację Microsoft.
 
-| Tool | Purpose |
+| Narzędzie | Cel |
 |------|---------|
-| `microsoft_docs_search` | Wyszukaj w learn.microsoft.com — koncepcje, przewodniki, samouczki, konfiguracja |
-| `microsoft_code_sample_search` | Znajdź działające przykłady kodu w dokumentacji Learn. Przekaż `language` (`python`, `csharp`, etc.) dla najlepszych rezultatów |
-| `microsoft_docs_fetch` | Pobierz pełną zawartość strony z określonego URL (gdy fragmenty z wyszukiwania nie wystarczają) |
+| `microsoft_docs_search` | Przeszukaj learn.microsoft.com — koncepcje, przewodniki, samouczki, konfigurację |
+| `microsoft_code_sample_search` | Znajdź działające fragmenty kodu z dokumentacji Learn. Przekaż `language` (`python`, `csharp` itd.) dla najlepszych wyników |
+| `microsoft_docs_fetch` | Pobierz pełną zawartość strony z określonego URL (gdy fragmenty z wyszukiwania są niewystarczające) |
 
-Użyj `microsoft_docs_fetch` po wyszukiwaniu, gdy potrzebujesz kompletnych samouczków, wszystkich opcji konfiguracji lub gdy fragmenty wyników wyszukiwania są obcięte.
+Używaj `microsoft_docs_fetch` po wyszukiwaniu, gdy potrzebujesz kompletnych samouczków, wszystkich opcji konfiguracji lub gdy fragmenty w wynikach są obcięte.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Wyjątki: kiedy używać innych narzędzi
 
-Następujące kategorie znajdują się **poza** learn.microsoft.com. Użyj zamiast tego wskazanego narzędzia.
+Następujące kategorie znajdują się **poza** learn.microsoft.com. Użyj wtedy wskazanego narzędzia.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — używaj Aspire MCP Server (preferowane) lub Context7
 
-Dokumentacja Aspire znajduje się na **aspire.dev**, a nie w Learn. Najlepsze narzędzie zależy od wersji Aspire CLI:
+Dokumentacja Aspire znajduje się na **aspire.dev**, a nie na Learn. Najlepsze narzędzie zależy od wersji Aspire CLI:
 
-**CLI 13.2+** (zalecane) — Aspire MCP server zawiera wbudowane narzędzia do wyszukiwania w dokumentacji:
+**CLI 13.2+** (zalecane) — Serwer Aspire MCP zawiera wbudowane narzędzia do wyszukiwania w dokumentacji:
 
-| MCP Tool | Description |
+| Narzędzie MCP | Opis |
 |----------|-------------|
-| `list_docs` | Wyświetla wszystkie dostępne dokumenty z aspire.dev |
+| `list_docs` | Wyświetla listę wszystkich dostępnych dokumentów z aspire.dev |
 | `search_docs` | Ważone wyszukiwanie leksykalne w zawartości aspire.dev |
 | `get_doc` | Pobiera konkretny dokument po slug |
 
-Są dostarczane w Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Aby zaktualizować: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Te narzędzia są dostępne w Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Aby zaktualizować: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP server zapewnia przeszukiwanie integracji (`list_integrations`, `get_integration_docs`), ale **nie** wyszukiwanie dokumentacji. Wróć do Context7:
+**CLI 13.1** — Serwer MCP umożliwia przegląd integracji (`list_integrations`, `get_integration_docs`) ale **nie** wyszukiwanie dokumentów. Wróć wtedy do Context7:
 
-| Library ID | Use for |
+| ID biblioteki | Do użycia do |
 |---|---|
-| `/microsoft/aspire.dev` | Główne — przewodniki, integracje, dokumentacja CLI, wdrożenie |
-| `/dotnet/aspire` | Źródło runtime — szczegóły wewnętrzne API, implementacji |
-| `/communitytoolkit/aspire` | Integracje społecznościowe — Go, Java, Node.js, Ollama |
+| `/microsoft/aspire.dev` | Podstawowe — przewodniki, integracje, referencja CLI, wdrożenia |
+| `/microsoft/aspire` | Źródło runtime — szczegóły API, implementacja |
+| `/communitytoolkit/aspire` | Integracje społeczności — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — użyj Context7
 
-Dokumentacja VS Code znajduje się na **code.visualstudio.com**, a nie w Learn.
+Dokumentacja VS Code znajduje się na **code.visualstudio.com**, a nie na Learn.
 
-| Library ID | Use for |
+| ID biblioteki | Do użycia do |
 |---|---|
 | `/websites/code_visualstudio` | Dokumentacja użytkownika — ustawienia, funkcje, debugowanie, zdalny rozwój |
-| `/websites/code_visualstudio_api` | API rozszerzeń — webviews, TreeViews, polecenia, punkty rozszerzeń |
+| `/websites/code_visualstudio_api` | API rozszerzeń — webview, TreeView, komendy, punkty rozszerzeń |
 
-### GitHub — Use Context7
+### GitHub — użyj Context7
 
 Dokumentacja GitHub znajduje się na **docs.github.com** i **cli.github.com**.
 
-| Library ID | Use for |
+| ID biblioteki | Do użycia do |
 |---|---|
-| `/websites/github_en` | Actions, API, repozytoria, bezpieczeństwo, administracja, Copilot |
-| `/websites/cli_github` | GitHub CLI (`gh`) — polecenia i flagi |
+| `/websites/github_en` | Actions, API, repozytoria, bezpieczeństwo, admin, Copilot |
+| `/websites/cli_github` | Komendy i flagi GitHub CLI (`gh`) |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — użyj Learn MCP + Context7
 
-Samouczki Agent Framework znajdują się na learn.microsoft.com (użyj `microsoft_docs_search`), ale **repozytorium GitHub** zawiera szczegóły na poziomie API, które często są bardziej aktualne niż opublikowane dokumenty — zwłaszcza odniesienie do DevUI REST API, opcje CLI i integracja z .NET.
+Samouczki Agent Framework są na learn.microsoft.com (użyj `microsoft_docs_search`), ale **repozytorium GitHub** zawiera szczegóły na poziomie API, często wyprzedzające opublikowaną dokumentację — szczególnie referencje DevUI REST API, opcje CLI oraz integrację .NET.
 
-| Library ID | Use for |
+| ID biblioteki | Do użycia do |
 |---|---|
 | `/websites/learn_microsoft_en-us_agent-framework` | Samouczki — przewodniki DevUI, śledzenie, orkiestracja przepływów pracy |
 | `/microsoft/agent-framework` | Szczegóły API — endpointy DevUI REST, flagi CLI, uwierzytelnianie, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** Najpierw sprawdź źródło Learn dla przewodników "jak to zrobić", a następnie źródło repozytorium dla szczegółów na poziomie API (schematy endpointów, konfiguracja proxy, tokeny uwierzytelniania).
+**Wskazówka DevUI:** Najpierw zapytaj źródło Learn o przewodniki "how-to", następnie repozytorium o szczegóły API (schematy endpointów, konfiguracja proxy, tokeny uwierzytelniania).
 
 ---
 
-## Context7 Setup
+## Konfiguracja Context7
 
-Dla każdego zapytania do Context7 najpierw rozwiąż identyfikator biblioteki (jednorazowo na sesję):
+Dla dowolnego zapytania w Context7 najpierw ustal ID biblioteki (jednorazowo na sesję):
 
 1. Wywołaj `mcp_context7_resolve-library-id` z nazwą technologii
-2. Wywołaj `mcp_context7_query-docs` z otrzymanym identyfikatorem biblioteki i konkretnym zapytaniem
+2. Wywołaj `mcp_context7_query-docs` z otrzymanym ID biblioteki i konkretnym zapytaniem
 
 ---
 
-## Writing Effective Queries
+## Pisanie skutecznych zapytań
 
-Bądź konkretny — uwzględnij wersję, zamiar i język:
+Bądź precyzyjny — uwzględnij wersję, zamiar i język:
 
 ```
 # ❌ Too broad
@@ -109,14 +105,14 @@ Bądź konkretny — uwzględnij wersję, zamiar i język:
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Wersja** gdy istotne (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Cel zadania** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Język** dla dokumentacji wielojęzycznej (`Python`, `TypeScript`, `C#`)
+Uwzględnij kontekst:
+- **Wersja** jeśli istotna (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Zamiar zadania** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Język** dla dokumentacji poliglotycznej (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zastrzeżenie**:
-Ten dokument został przetłumaczony przy użyciu usługi tłumaczenia opartej na sztucznej inteligencji [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy starań, aby zapewnić dokładność, prosimy pamiętać, że tłumaczenia automatyczne mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym należy uznawać za dokument autorytatywny. W przypadku informacji istotnych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w jego języku źródłowym należy uznawać za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

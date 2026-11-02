@@ -1,89 +1,108 @@
-# Azure AI Search സെറ്റപ്പ് ഗൈഡ്
+# ആസ്യൂർ AI സെർച്ച് സെറ്റ് അപ്പ് ഗൈഡ്
 
-ഈ ഗൈഡ് ഉപയോഗിച്ച് Azure പോർട്ടൽ വഴി Azure AI Search സജ്ജമാക്കാൻ നിങ്ങളെ സഹായിക്കും. Azure AI Search സേവനം സൃഷ്ടിക്കുകയും ക്രമീകരിക്കുകയും ചെയ്യാൻ താഴെ നൽകിയിരിക്കുന്ന ഘട്ടങ്ങൾ പിന്തുടരുക.
+ഈ ഗൈഡ് ആസ്യൂർ പോർട്ടൽ ഉപയോഗിച്ച് ആസ്യൂർ AI സെർച്ച് സജ്ജമാക്കുന്നതിൽ സഹായിക്കും. താഴെ നൽകിയിരിക്കുന്ന ദശകഷണങ്ങൾ പിന്തുടർന്ന് നിങ്ങളുടെ ആസ്യൂർ AI സെർച്ച് സേവനം സൃഷ്ടിച്ച് കോൺഫിഗർ ചെയ്യുക.
 
-## മുൻ‌വശരൂപങ്ങൾ
+## മുൻപുപോസണം
 
-തുടങ്ങുന്നതിന് മുമ്പ്, നിങ്ങൾക്ക് താഴെ പറയുന്നവ ഉണ്ടെന്ന് ഉറപ്പാക്കുക:
+ആരംഭിക്കുന്നതിന് മുമ്പ്, നിങ്ങൾക്ക് താഴെപ്പറയുന്നവ ഉണ്ടെന്ന് ഉറപ്പാക്കുക:
 
-- ഒരു Azure സബ്സ്ക്രിപ്ഷൻ. നിങ്ങൾക്ക് Azure സബ്സ്ക്രിപ്ഷൻ ഇല്ലെങ്കിൽ, [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) ലിങ്ക് വഴി ഒരു സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കാം.
+- ഒരു ആസ്യൂർ സബ്സ്ക്രിപ്ഷൻ. നിങ്ങൾക്ക് ആസ്യൂർ സബ്സ്ക്രിപ്ഷൻ ഇല്ലെങ്കിൽ, നിങ്ങൾക്ക് [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) ൽ സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കാം.
 
-## ഘട്ടം 1: Azure സ്റ്റോറേജ് അക്കൗണ്ട് സൃഷ്ടിക്കുക
+## ഘട്ടം 1: ആസ്യൂർ സ്റ്റോറേജ് അക്കൗണ്ട് സൃഷ്ടിക്കുക
 
-1. പുതിയ Azure സ്റ്റോറേജ് അക്കൗണ്ട് സൃഷ്ടിക്കാൻ [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) എന്ന നിർദ്ദേശം പിന്തുടരുക.  
-   **NOTE**: സ്റ്റോറേജ് അക്കൗണ്ടിന്റെ തരം Standard General Purpose V2 ആണെന്ന് ഉറപ്പാക്കുക.
+1. ഈ നിർദ്ദേശം പിന്തുടരുക, [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), പുതിയ ആസ്യൂർ സ്റ്റോറേജ് അക്കൗണ്ട് സൃഷ്ടിക്കാൻ.
+   **കുറിപ്പ്**: സ്റ്റോറേജ് അക്കൗണ്ട് തരം Standard General Purpose V2 ആകുന്നതായി ഉറപ്പാക്കുക.
 
-## ഘട്ടം 2: Azure AI Search സേവനം സൃഷ്ടിക്കുക
+## ഘട്ടം 2: ആസ്യൂർ AI സെർച്ച് സേവനം സൃഷ്ടിക്കുക
 
-1. [Azure പോർട്ടൽ](https://portal.azure.com/?wt.mc_id=studentamb_258691) ലോഗിൻ ചെയ്യുക.
-2. ഇടത് വശത്തെ നാവിഗേഷൻ പാനലിൽ **Create a resource** ക്ലിക്കുചെയ്യുക.
-3. തിരയൽ ബോക്സിൽ "Azure AI Search" ടൈപ്പ് ചെയ്യുക, ഫലങ്ങളിൽ നിന്ന് **Azure AI Search** തിരഞ്ഞെടുക്കുക.
-4. **Create** ബട്ടൺ ക്ലിക്കുചെയ്യുക.
+1. [ആസ്യൂർ പോർട്ടലിൽ സൈൻ ഇൻ](https://portal.azure.com/?wt.mc_id=studentamb_258691) ചെയ്യുക.
+2. ഇടതു നാവിക പശ്ചാത്തലത്തിൽ **Create a resource** ക്ലിക്ക് ചെയ്യുക.
+3. തിരയൽ ബോക്സ്‌യിൽ "Azure AI Search" എന്ന് ടൈപ്പ് ചെയ്ത് ഫലങ്ങളിലുള്ള **Azure AI Search** തിരഞ്ഞെടുക്കുക.
+4. **Create** ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.
 5. **Basics** ടാബിൽ താഴെ പറയുന്ന വിവരങ്ങൾ നൽകുക:
-   - **Subscription**: നിങ്ങളുടെ Azure സബ്സ്ക്രിപ്ഷൻ തിരഞ്ഞെടുക്കുക.
-   - **Resource group**: ഒരു പുതിയ റിസോഴ്‌സ് ഗ്രൂപ്പ് സൃഷ്ടിക്കുക അല്ലെങ്കിൽ നിലവിലുള്ളത് തിരഞ്ഞെടുക്കുക.
-   - **Resource name**: നിങ്ങളുടെ സെർച്ച് സേവനത്തിന് ഒരു യുണീക് പേര് നൽകുക.
-   - **Region**: നിങ്ങളുടെ ഉപയോക്താക്കൾക്ക് ഏറ്റവും അടുത്തുള്ള പ്രദേശം തിരഞ്ഞെടുക്കുക.
-   - **Pricing tier**: നിങ്ങളുടെ ആവശ്യങ്ങൾക്കനുസരിച്ച് ഒരു പ്രൈസിംഗ് ടയർ തിരഞ്ഞെടുക്കുക. ടെസ്റ്റിംഗിനായി Free ടയർ ഉപയോഗിച്ച് തുടങ്ങാം.
-6. **Review + create** ക്ലിക്കുചെയ്യുക.
-7. ക്രമീകരണങ്ങൾ പരിശോധിച്ച് **Create** ക്ലിക്കുചെയ്ത് സെർച്ച് സേവനം സൃഷ്ടിക്കുക.
+   - **Subscription**: നിങ്ങളുടെ ആസ്യൂർ സബ്സ്ക്രിപ്ഷൻ തിരഞ്ഞെടുക്കുക.
+   - **Resource group**: പുതിയത് സൃഷ്ടിക്കുക അല്ലെങ്കിൽ നിലവിലുള്ള ഒരു റിസോഴ്‌സ് ഗ്രൂപ്പ് തിരഞ്ഞെടുക്കുക.
+   - **Resource name**: നിങ്ങളുടെ സെർച്ച് സേവനത്തിന് ഇൻകോടയായ ഒരു പേര് നൽകുക.
+   - **Region**: ഉപയോക്താക്കളുടെ ഏറ്റവും അടുത്ത മേഖലയെ തെരഞ്ഞെടുക്കുക.
+   - **Pricing tier**: നിങ്ങളുടെ ആവശ്യങ്ങൾക്കനുസരിച്ച് ഒരു വിലനിരക്ക് തിരഞ്ഞെടുക്കുക. പരിശോധനയ്ക്കായി സൗജന്യ നിരക്ക് ആരംഭിക്കാം.
+6. **Review + create** ക്ലിക്ക് ചെയ്യുക.
+7. ക്രമീകരണങ്ങൾ പരിശോധിച്ച് **Create** ക്ലിക്ക് ചെയ്ത് സെർച്ച് സേവനം സൃഷ്ടിക്കുക.
 
-## ഘട്ടം 3: Azure AI Search ഉപയോഗിച്ച് ആരംഭിക്കുക
+## ഘട്ടം 3: ആസ്യൂർ AI സെർച്ച് ഉപയോഗം ആരംഭിക്കുക
 
-1. ഡിപ്ലോയ്മെന്റ് പൂർത്തിയായ ശേഷം, Azure പോർട്ടലിൽ നിങ്ങളുടെ സെർച്ച് സേവനത്തിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക.
-2. സെർച്ച് സേവനത്തിന്റെ ഓവർവ്യൂ പാനലിൽ URL കോപ്പി ചെയ്യുക. ഇത് `https://<service-name>.search.windows.net` എന്ന രൂപത്തിൽ കാണപ്പെടും.
-3. Settings > Keys പാനലിൽ, query key കോപ്പി ചെയ്യുക.
-4. [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) പേജിലെ ഘട്ടങ്ങൾ പിന്തുടർന്ന് ഒരു ഇൻഡക്സ് സൃഷ്ടിക്കുക, ഡാറ്റ അപ്‌ലോഡ് ചെയ്യുക, സെർച്ച് ക്വറി നടത്തുക.
+1. ഡിപ്ലോയ്‌മെന്റ് പൂർത്തിയാകുമ്പോൾ, ആസ്യൂർ പോർട്ടലിലെ നിങ്ങളുടെ സെർച്ച് സേവനത്തിലേക്ക് പോവുക.
+2. സേർച്ച് സേവനത്തിന്റെ അവലോകന പേജ് തുറന്ന് URL പകർത്തുക. ഇത് `https://<service-name>.search.windows.net` പോലെയിരിക്കണം.
+3. **(പരാമർശിച്ചിരിക്കുന്നത്)** Microsoft Entra ID (RBAC) ഉപയോഗിച്ച് കീ ഇല്ലാത്ത ആക്‌സസ്സ് പ്രവർത്തിപ്പിക്കുക — കീ വേണ്ട. ഈ ഗൈഡിലെ ഉദാഹരണമോഡലുകൾ ഇൻഡെക്സുകൾ സൃഷ്ടിക്കുകയും അപ്‌ലോഡ് ഡോക്യുമെന്റുകളും ചെയ്യുകയും ചെയ്യുന്നു, ഇവയ്ക്ക് **Search Service Contributor** & **Search Index Data Contributor** റോളുകൾ ആവശ്യമാണ് (അല്ലെങ്കിൽ കീ അടിസ്ഥാനത്തിലുള്ള ഓത്ത് ഉപയോഗിക്കുന്നെങ്കിൽ **പ്രധാന അഡ്മിൻ കീ** — ക്വറി കീ അല്ല). RBAC ഉപയോഗിക്കാനാകാത്ത പക്ഷം മാത്രം **Settings > Keys** പേജ് തുറന്ന് **പ്രധാന അഡ്മിൻ കീ** പകർത്തുക.
+4. [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) ൽ പറയുന്നവ പാലിച്ച് ഇൻഡെക്സ് സൃഷ്ടിക്കുക, ഡാറ്റ അപ്‌ലോഡ് ചെയ്യുക, സെർച്ച് നടത്തുക.
 
-## ഘട്ടം 4: Azure AI Search ടൂളുകൾ ഉപയോഗിക്കുക
+## ഘട്ടം 4: ആസ്യൂർ AI സെർച്ച് ടൂളുകൾ ഉപയോഗിക്കുക
 
-Azure AI Search വിവിധ ടൂളുകളുമായി സംയോജിപ്പിച്ച് നിങ്ങളുടെ സെർച്ച് കഴിവുകൾ മെച്ചപ്പെടുത്തുന്നു. Azure CLI, Python SDK, .NET SDK എന്നിവ ഉപയോഗിച്ച് ഉയർന്ന തലത്തിലുള്ള ക്രമീകരണങ്ങളും പ്രവർത്തനങ്ങളും നടത്താം.
+ആസ്യൂർ AI സെർച്ച് വിവിധ ടൂളുകളുമായി സമന്വയം പുലർത്തുന്നു, നിങ്ങളുടെ സെർച്ച് ശേഷി വർദ്ധിപ്പിക്കാൻ. ആസ്യൂർ CLI, Python SDK, .NET SDK തുടങ്ങി മറ്റു ടൂളുകൾ പരിഗണിuvan സഞ്ചാരണങ്ങൾക്കും പ്രവർത്തനങ്ങൾക്കും ഉപയോഗിക്കാം.
 
-### Azure CLI ഉപയോഗിച്ച്
+### ആസ്യൂർ CLI ഉപയോഗിച്ച്
 
-1. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) ലിങ്ക് വഴി Azure CLI ഇൻസ്റ്റാൾ ചെയ്യുക.
-2. താഴെ കാണുന്ന കമാൻഡ് ഉപയോഗിച്ച് Azure CLI ലോഗിൻ ചെയ്യുക:
+1. [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) ൽ കൊടുത്തിരിക്കുന്ന നിർദ്ദേശങ്ങൾ പാലിച്ചാണ് ആസ്യൂർ CLI ഇൻസ്റ്റാൾ ചെയ്യുക.
+2. താഴെയുള്ള കമാൻഡ് ഉപയോഗിച്ച് ആസ്യൂർ CLI ലേക്ക് സൈൻ ഇൻ ചെയ്യുക:
 
    ```bash
    az login
    ```
-
-3. Azure AI Search ഇൻസ്റ്റൻസിന്റെ എൻഡ്പോയിന്റും API കീയും എൻവയോൺമെന്റ് വേരിയബിളുകളിലേക്ക് സംഭരിക്കുക.
+3. **(പരാമർശിച്ചിരിക്കുന്നത്) Microsoft Entra ID (RBAC) ഉപയോഗിച്ച് കീ ഇല്ലാത്ത ആക്‌സസ് പ്രവർത്തിക്കുക:**
 
     ```bash
-    # zsh/bash
-    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
-    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    # az search service show has no "endpoint" field; build the URL from the service name.
+    export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
     ```
 
-    ```powershell
-    # പവർഷെൽ
-    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
-    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
-    ```
+    RBAC പ്രവർത്തനക്ഷമമാകുമ്പോൾ, Python & .NET SDK ഉദാഹരണങ്ങൾ താഴെ പറയുന്ന `DefaultAzureCredential` ഉപയോഗിച്ച് ഓതന്റിക്കേറ്റ് ചെയ്യുന്നു, ഇത് നിങ്ങളുടെ `az login` സെഷന്‍ ലോക്കൽ ഡെവലപ്പ്മെന്റ് സമയത്ത് ഉപയോഗിക്കുന്നു — അഡ്മിൻ കീ ആവശ്യമില്ല. [Connect to Azure AI Search using roles](https://learn.microsoft.com/azure/search/search-security-rbac) കാണുക.
+
+4. **(ഫാൾബാക്ക്) കീ അടിസ്ഥാനത്തിലുള്ള ഓത്ത്** — RBAC ഉപയോഗിക്കാനാകാത്ത പക്ഷം മാത്രമേ, അഡ്മിൻ കീയും സൂക്ഷിക്കുക:
+
+#### ആസ്യൂർ AI സെർച്ച് ഇൻസ്റ്റൻസിന്റെ എൻഡ്‌പോയിന്റും API കീയും പരിസ്ഥിതി വേരിയബിൾസ് ആയി സ്റ്റോർ ചെയ്യുക.
+
+   * **zsh / bash**
+     ```bash
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     export AZURE_SEARCH_SERVICE_ENDPOINT="https://<service-name>.search.windows.net"
+     export AZURE_SEARCH_API_KEY=$(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
+
+   * **PowerShell**
+     ```powershell
+     # az search service show has no "endpoint" field; build the URL from the service name.
+     $env:AZURE_SEARCH_SERVICE_ENDPOINT = "https://<service-name>.search.windows.net"
+     $env:AZURE_SEARCH_API_KEY = $(az search admin-key show -g <resource-group> --service-name <service-name> --query "primaryKey" -o tsv)
+     ```
 
 ### Python SDK ഉപയോഗിച്ച്
 
-1. Python-നായി Azure Cognitive Search ക്ലയന്റ് ലൈബ്രറി ഇൻസ്റ്റാൾ ചെയ്യുക:
+1. Python-ക്കുള്ള ആസ്യൂർ കോഗ്നിറ്റീവ് സെർച്ച് ക്ലയന്റ് ലൈബ്രറിയും ആസ്യൂർ ഐഡന്റിറ്റിയും ഇൻസ്റ്റാൾ ചെയ്യുക:
 
    ```bash
-   pip install azure-search-documents
+   pip install azure-search-documents azure-identity
    ```
 
-2. താഴെ കാണുന്ന Python കോഡ് ഉപയോഗിച്ച് ഒരു ഇൻഡക്സ് സൃഷ്ടിക്കുകയും ഡോക്യുമെന്റുകൾ അപ്‌ലോഡ് ചെയ്യുകയും ചെയ്യുക:
+2. ഇൻഡെക്സ് സൃഷ്ടിച്ച് ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യാൻ താഴെക്കാണുന്ന Python കോഡ് ഉപയോഗിക്കുക:
 
     ```python
     import os
-    from azure.core.credentials import AzureKeyCredential
+    from azure.identity import DefaultAzureCredential
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
     service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
-    api_key = os.getenv("AZURE_SEARCH_API_KEY")
     index_name = "sample-index"
 
-    credential = AzureKeyCredential(api_key)
+    # Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    # Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    credential = DefaultAzureCredential()
+    # Fallback (key-based auth):
+    # from azure.core.credentials import AzureKeyCredential
+    # credential = AzureKeyCredential(os.getenv("AZURE_SEARCH_API_KEY"))
     index_client = SearchIndexClient(service_endpoint, credential)
 
     fields = [
@@ -107,28 +126,36 @@ Azure AI Search വിവിധ ടൂളുകളുമായി സംയോ�
 
 ### .NET SDK ഉപയോഗിച്ച്
 
-1. ഒരു ഇൻഡക്സ് സൃഷ്ടിക്കുകയും ഡോക്യുമെന്റുകൾ അപ്‌ലോഡ് ചെയ്യുകയും ചെയ്യാൻ താഴെ കാണുന്ന കമാൻഡ് പ്രവർത്തിപ്പിക്കുക:
+1. ഇൻഡെക്സ് സൃഷ്ടിച്ച് ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യാൻ താഴെയുള്ള കമാൻഡ് റൺ ചെയ്യുക:
 
     ```bash
     dotnet run ./AzureSearch.cs
     ```
 
-2. `AzureSearch.cs` എന്ന .NET കോഡ് ഇതാ:
+    താഴെപ്പറയുന്ന .NET ഉദാഹരണം `DefaultAzureCredential` ഉപയോഗിക്കുന്നു, ഇത് ലോക്കൽ ഡെവലപ്പ്മെന്റിൽ നിങ്ങളുടെ ആസ്യൂർ CLI സൈൻ ഇൻ അറിയിപ്പ് `az login` ഉപയോഗിക്കാം.
+
+2. `AzureSearch.cs` ന്റെ .NET കോഡ് ഇവിടെയാണ്:
 
     ```csharp
     #:package Azure.Search.Documents@11.*
+    #:package Azure.Identity@1.21.0
     #:property PublishAot=false
 
     using Azure;
+    using Azure.Identity;
     using Azure.Search.Documents;
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
 
     var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
-    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
     var indexName = "sample-index";
 
-    var credential = new AzureKeyCredential(apiKey);
+    // Keyless (recommended): uses your `az login` identity via Entra ID RBAC.
+    // Requires the "Search Service Contributor" and "Search Index Data Contributor" roles.
+    var credential = new DefaultAzureCredential();
+    // Fallback (key-based auth): the `using Azure;` directive above already imports
+    // AzureKeyCredential; replace the credential line above with:
+    // var credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!);
     var indexClient = new SearchIndexClient(serviceEndpoint, credential);
 
     var fields = new List<SearchField>()
@@ -154,7 +181,7 @@ Azure AI Search വിവിധ ടൂളുകളുമായി സംയോ�
     Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
     ```
 
-കൂടുതൽ വിശദമായ വിവരങ്ങൾക്ക്, താഴെ പറയുന്ന ഡോക്യുമെന്റേഷൻ കാണുക:
+കൂടുതൽ വിശദമായ വിവരങ്ങൾക്ക്, താഴെപ്പറയുന്ന ഡോക്യുമെന്റേഷൻ കാണുക:
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -162,13 +189,13 @@ Azure AI Search വിവിധ ടൂളുകളുമായി സംയോ�
 
 ## സമാപനം
 
-Azure പോർട്ടൽ ഉപയോഗിച്ച് Azure AI Search വിജയകരമായി സജ്ജമാക്കി, ടൂളുകൾ സംയോജിപ്പിച്ചു. നിങ്ങളുടെ സെർച്ച് സൊല്യൂഷനുകൾ മെച്ചപ്പെടുത്താൻ Azure AI Search-ന്റെ കൂടുതൽ ഉയർന്ന തലത്തിലുള്ള സവിശേഷതകളും കഴിവുകളും നിങ്ങൾക്ക് ഇപ്പോൾ അന്വേഷിക്കാം.
+നിങ്ങൾ ആസ്യൂർ പോർട്ടൽ ഉപയോഗിച്ച് ആസ്യൂർ AI സെർച്ച് വിജയകരമായി സജ്ജമാക്കി, സംയോജിത ടൂളുകൾ ഉപയോഗിച്ചും പ്രവർത്തിപ്പിച്ചു. ഇനി കൂടുതൽ മികവാർന്ന ഫീച്ചറുകളും കഴിവുകളുമായി നിങ്ങളുടെ സെർച്ച് പരിഹാരങ്ങൾ മെച്ചപ്പെടുത്തുവാനും പരീക്ഷിക്കാം.
 
-കൂടുതൽ സഹായത്തിനായി, [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) സന്ദർശിക്കുക.
+കൂടുതല് സഹായത്തിന്, [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691) സന്ദർശിക്കുക.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**അസത്യവാദം**:  
-ഈ രേഖ AI വിവർത്തന സേവനമായ [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്തതാണ്. കൃത്യതയ്ക്കായി ഞങ്ങൾ ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് വിവർത്തനങ്ങളിൽ പിശകുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. അതിന്റെ സ്വാഭാവിക ഭാഷയിലുള്ള മൗലിക രേഖ പ്രാമാണികമായ ഉറവിടമായി കണക്കാക്കണം. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം ശുപാർശ ചെയ്യുന്നു. ഈ വിവർത്തനം ഉപയോഗിക്കുന്നതിൽ നിന്നുണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾക്കോ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കോ ഞങ്ങൾ ഉത്തരവാദികളല്ല.
+**അറിയിപ്പ്**:
+ഈ രേഖ AI പരിഭാഷാ സേവനം [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് പരിഭാഷപ്പെടുത്തിയതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് പരിഭാഷകളിൽ പിഴവുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. അതിന്റെ സ്വാഭാവിക ഭാഷയിലുള്ള അസൽ രേഖയാണ് പ്രാമാണികമായ ഉറവിടമായി പരിഗണിക്കേണ്ടത്. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ പരിഭാഷ ശുപാർശ ചെയ്യുന്നു. ഈ പരിഭാഷ ഉപയോഗിച്ച് ഉണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾ അല്ലെങ്കിൽ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കായി ഞങ്ങൾ ഉത്തരവാദികളല്ല.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

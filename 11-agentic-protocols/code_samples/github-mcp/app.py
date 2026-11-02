@@ -1,7 +1,7 @@
 import os
 import json
 import logging
-logging.getLogger("agent_framework.azure").setLevel(logging.ERROR)
+logging.getLogger("agent_framework.foundry").setLevel(logging.ERROR)
 from typing import Annotated
 from dotenv import load_dotenv
 import requests
@@ -11,7 +11,7 @@ import chainlit as cl
 from mcp import ClientSession
 
 from agent_framework import tool, AgentResponseUpdate, WorkflowBuilder
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 from azure.core.credentials import AzureKeyCredential
 
@@ -172,7 +172,7 @@ Hackathon prize categories:
 - Best Agent in Java ($5,000)
 - Best Agent in JavaScript/TypeScript ($5,000)
 - Best Copilot Agent using Microsoft Copilot Studio or Microsoft 365 Agents SDK ($5,000)
-- Best Azure AI Agent Service Usage ($5,000)
+- Best Microsoft Foundry Agent Service Usage ($5,000)
         
 """
 
@@ -267,21 +267,25 @@ async def call_tool(tool_use):
 @cl.on_chat_start
 async def on_chat_start():
 
-    # Create the Azure AI Foundry Agent Service provider
-    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+    # Create the Microsoft Foundry Agent Service provider
+    provider = FoundryChatClient(
+        project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+        model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+        credential=AzureCliCredential(),
+    )
 
     # Create agents using MAF
-    github_agent = await provider.create_agent(
+    github_agent = provider.as_agent(
         name="GithubAgent",
         instructions=GITHUB_INSTRUCTIONS,
     )
 
-    hackathon_agent = await provider.create_agent(
+    hackathon_agent = provider.as_agent(
         name="HackathonAgent",
         instructions=HACKATHON_AGENT,
     )
 
-    events_agent = await provider.create_agent(
+    events_agent = provider.as_agent(
         name="EventsAgent",
         instructions=EVENTS_AGENT,
     )

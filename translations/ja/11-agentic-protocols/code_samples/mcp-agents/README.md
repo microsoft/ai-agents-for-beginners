@@ -1,210 +1,210 @@
 # MCPを使ったエージェント間通信システムの構築
 
-> TL;DR - MCPでエージェント間通信を構築できるか？答えは「はい」です！
+> TL;DR - MCPでAgent2Agentコミュニケーションは構築できますか？はい！
 
-MCPは、元々の「LLMにコンテキストを提供する」という目的を大きく超えて進化しました。最近の改良には、[再開可能なストリーム](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery)、[エリシテーション](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation)、[サンプリング](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling)、および通知（[進捗](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress)や[リソース](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)）が含まれています。これにより、MCPは複雑なエージェント間通信システムを構築するための強力な基盤を提供します。
+MCPは「LLMに文脈を提供する」という当初の目的を大幅に超えて進化しています。最近の強化には、[再開可能なストリーム](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery)、[エリシテーション](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation)、[サンプリング](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling)、および通知（[進捗](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress)や[リソース](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)）が含まれます。これにより、MCPは複雑なエージェント間通信システムを構築するための堅牢な基盤を提供しています。
 
-## エージェント/ツールに関する誤解
+## エージェント/ツールの誤解
 
-エージェント的な動作を持つツール（長時間実行される、実行中に追加の入力が必要になる場合があるなど）を探求する開発者が増える中で、MCPが不適切だという誤解が広まっています。これは、初期のツールの例が単純なリクエスト-レスポンスパターンに焦点を当てていたためです。
+より多くの開発者がエージェンティックな行動（長時間実行、実行中に追加入力が必要になることがあるなど）を持つツールを探求するにつれて、MCPは初期の単純なリクエスト-レスポンスパターンに焦点を当てた例が主だったため不適切だという誤解が一般的になっています。
 
-この認識は時代遅れです。MCP仕様は過去数か月で大幅に強化され、長時間実行されるエージェント的な動作を構築するためのギャップを埋める機能が追加されました：
+この認識はもはや時代遅れです。MCP仕様は、長時間実行のエージェンティックな行動構築のギャップを埋める能力でここ数ヶ月で大幅に強化されました：
 
-- **ストリーミングと部分的な結果**：実行中のリアルタイム進捗更新
-- **再開可能性**：クライアントが切断後に再接続して続行可能
-- **耐久性**：サーバー再起動後も結果が保持される（例：リソースリンクを介して）
-- **マルチターン**：エリシテーションやサンプリングを介した実行中のインタラクティブな入力
+- **ストリーミング＆部分結果**：実行中のリアルタイム進捗更新
+- <strong>再開可能性</strong>：クライアントが切断後に再接続して継続可能
+- <strong>耐久性</strong>：結果はサーバー再起動後も保持される（例：リソースリンクによる）
+- <strong>マルチターン</strong>：エリシテーションおよびサンプリングを通じた実行中の双方向入力
 
-これらの機能を組み合わせることで、MCPプロトコル上で複雑なエージェント的およびマルチエージェントアプリケーションを構築できます。
+これらの機能を組み合わせることで、MCPプロトコル上で複雑なエージェンティックかつマルチエージェントのアプリケーションを実現できます。
 
-参考として、MCPサーバー上で利用可能な「ツール」をエージェントと呼びます。これは、MCPクライアントを実装するホストアプリケーションが存在し、MCPサーバーとセッションを確立してエージェントを呼び出すことを意味します。
+参考として、ここでは「エージェント」をMCPサーバー上で利用可能な「ツール」と定義します。これは、MCPクライアントを実装しMCPサーバーとセッションを確立してエージェントを呼び出せるホストアプリケーションの存在を意味します。
 
-## MCPツールが「エージェント的」であるための条件
+## MCPツールを「エージェンティック」にする要素とは？
 
-実装に進む前に、長時間実行されるエージェントをサポートするために必要なインフラストラクチャの能力を確認しましょう。
+実装に入る前に、長時間稼働するエージェントを支えるために必要なインフラ機能を確認しましょう。
 
-> エージェントとは、長期間にわたって自律的に動作し、複雑なタスクを処理し、リアルタイムのフィードバックに基づいて複数回のインタラクションや調整を必要とするエンティティと定義します。
+> エージェントを、長期間自律的に動作し、複数回の対話やリアルタイムフィードバックに基づく調整が必要な複雑なタスクを処理可能な存在と定義します。
 
-### 1. ストリーミングと部分的な結果
+### 1. ストリーミング＆部分結果
 
-従来のリクエスト-レスポンスパターンは、長時間実行されるタスクには適していません。エージェントは以下を提供する必要があります：
+従来のリクエスト-レスポンスは長期タスクには不適です。エージェントは以下を提供する必要があります：
 
 - リアルタイムの進捗更新
 - 中間結果
 
-**MCPのサポート**：リソース更新通知により部分的な結果のストリーミングが可能ですが、JSON-RPCの1:1リクエスト/レスポンスモデルとの競合を避けるための慎重な設計が必要です。
+**MCPサポート**：リソース更新通知により部分結果のストリーミングが可能ですが、JSON-RPCの1:1リクエスト/レスポンスモデルとの競合を避ける慎重な設計が必要です。
 
-| 機能                      | ユースケース                                                                                                                                                                       | MCPのサポート                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| リアルタイム進捗更新       | ユーザーがコードベース移行タスクをリクエスト。エージェントが進捗をストリーム配信：「10% - 依存関係を分析中... 25% - TypeScriptファイルを変換中... 50% - インポートを更新中...」          | ✅ 進捗通知                                                                                  |
-| 部分的な結果              | 「本を生成する」タスクが部分的な結果をストリーム配信。例：1) ストーリーアークの概要、2) 章のリスト、3) 完成した各章。ホストは任意の段階で検査、キャンセル、またはリダイレクト可能。 | ✅ 通知は部分的な結果を含むように「拡張」可能。PR 383, 776の提案を参照。                     |
+| 機能                      | ユースケース                                                                                                                                        | MCPのサポート                                                                             |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| リアルタイム進捗更新     | ユーザーがコードベースの移行タスクを依頼。エージェントが進捗をストリーム： "10% - 依存関係分析中... 25% - TypeScriptファイル変換中... 50% - インポート更新中..." | ✅ 進捗通知                                                                                |
+| 部分結果                   | 「本を生成」するタスクが部分的結果をストリーム、例：1) ストーリー概要、2) 章リスト、3) 各章完成。ホストは任意に確認、中断、再指示可能。                      | ✅ 通知は部分結果を含めるよう拡張可能（PR 383、776参照）                                   |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>図1:</strong> この図は、MCPエージェントが長時間実行されるタスク中にホストアプリケーションにリアルタイム進捗更新と部分的な結果をストリーム配信する方法を示しています。これにより、ユーザーは実行状況をリアルタイムで監視できます。
+<strong>図1：</strong> この図は、MCPエージェントが長期タスクの実行中にホストアプリケーションへリアルタイムの進捗と部分結果をストリームし、ユーザーが実行状況をリアルタイムで監視できることを示しています。
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as ホストアプリ<br/>(MCP クライアント)
+    participant Server as MCP サーバー<br/>(エージェントツール)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: 長時間タスクを開始
+    Host->>Server: agent_tool() を呼び出す
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop 進行状況の更新
+        Server-->>Host: 進行状況 + 部分結果
+        Host-->>User: 更新のストリーム
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ 最終結果
+    Host-->>User: 完了
 ```
 
 ### 2. 再開可能性
 
-エージェントはネットワークの中断を適切に処理する必要があります：
+エージェントはネットワーク障害を優雅に処理する必要があります：
 
-- （クライアントの）切断後に再接続
-- 中断した場所から続行（メッセージの再配信）
+- （クライアントの）切断後の再接続
+- 途切れた箇所からの継続（メッセージの再配信）
 
-**MCPのサポート**：MCPのStreamableHTTPトランスポートは現在、セッションIDと最後のイベントIDを使用してセッションの再開とメッセージの再配信をサポートしています。ここで重要なのは、サーバーがクライアント再接続時にイベントを再生できるEventStoreを実装する必要があることです。  
-なお、トランスポートに依存しない再開可能なストリームを探るコミュニティ提案（PR #975）があります。
+**MCPサポート**：現在のMCP StreamableHTTPトランスポートは、セッションIDと最終イベントIDによるセッション再開とメッセージ再配信をサポートしています。重要な点は、サーバーがクライアント再接続時にイベントの再生を可能にするEventStoreを実装しなければならないことです。
+コミュニティ提案（PR #975）でトランスポート非依存の再開可能ストリームも検討されています。
 
-| 機能          | ユースケース                                                                                                                                                   | MCPのサポート                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| 再開可能性   | 長時間実行されるタスク中にクライアントが切断。再接続時にセッションが再開され、失われたイベントが再生され、シームレスに続行可能。                                 | ✅ StreamableHTTPトランスポート（セッションID、イベント再生、EventStore）     |
+| 機能        | ユースケース                                                                                                                                             | MCPサポート                                                               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| 再開可能性   | クライアントが長時間タスク中に切断。再接続時にセッションが再開し、失われたイベントは再生され、中断地点からシームレスに継続。                        | ✅ StreamableHTTPトランスポート（セッションID、イベント再生およびEventStore付） |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>図2:</strong> この図は、MCPのStreamableHTTPトランスポートとイベントストアがどのようにシームレスなセッション再開を可能にするかを示しています。クライアントが切断した場合でも、再接続して失われたイベントを再生し、進捗を失うことなくタスクを続行できます。
+<strong>図2：</strong> この図は、MCPのStreamableHTTPトランスポートとイベントストアがどのようにシームレスなセッション再開を可能にするかを示しています。クライアントが切断されても再接続して失われたイベントを再生し、進捗の損失なくタスクを継続できます。
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as ホストアプリ<br/>(MCPクライアント)
+    participant Server as MCPサーバー<br/>(エージェントツール)
+    participant Store as イベントストア
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: タスク開始
+    Host->>Server: ツール呼び出し [セッション: abc123]
+    Server->>Store: イベント保存
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 接続が切断されました
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: 再接続 [セッション: abc123]
+    Store-->>Server: イベント再生
+    Server-->>Host: 追いつき + 続行
+    Host-->>User: ✅ 完了
 ```
 
 ### 3. 耐久性
 
-長時間実行されるエージェントには永続的な状態が必要です：
+長期実行するエージェントは永続的な状態を必要とします：
 
-- サーバー再起動後も結果が保持される
-- 状態を外部から取得可能
-- セッションをまたいだ進捗追跡
+- 結果はサーバー再起動後も維持される
+- ステータスは非同期に取得可能
+- セッションを越えた進捗追跡
 
-**MCPのサポート**：MCPは現在、ツール呼び出しに対してリソースリンクの戻り値タイプをサポートしています。今日の可能なパターンとして、リソースを作成し、すぐにリソースリンクを返すツールを設計することが挙げられます。ツールはバックグラウンドでタスクを処理し、リソースを更新します。一方、クライアントはこのリソースの状態をポーリングして部分的または完全な結果を取得する（サーバーが提供するリソース更新に基づく）か、リソースの更新通知を購読することができます。
+**MCPサポート**：MCPはツール呼び出しのためのリソースリンク返却型をサポートしています。現在の一般的なパターンは、ツールがリソースを作成し即座にリソースリンクを返し、タスクをバックグラウンドで続けリソースを更新するよう設計することです。クライアントはリソースの状態をポーリングして部分または全結果を取得したり、リソースの更新通知を購読したりします。
 
-ここでの制限は、リソースのポーリングや更新通知の購読がリソースを消費し、スケールに影響を与える可能性があることです。サーバーがクライアント/ホストアプリケーションに更新を通知するためのWebhookやトリガーを含む可能性を探るコミュニティ提案（#992を含む）があります。
+ただし、リソースのポーリングや更新購読は規模が大きくなるとリソース消費が大きいため、サーバーが更新をクライアント/ホストに通知するウェブフックやトリガー含めた提案（#992など）がコミュニティで検討されています。
 
-| 機能        | ユースケース                                                                                                                                        | MCPのサポート                                                        |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| 耐久性     | データ移行タスク中にサーバーがクラッシュ。結果と進捗が再起動後も保持され、クライアントが状態を確認して永続的なリソースから続行可能。                     | ✅ リソースリンク（永続的なストレージと状態通知）                     |
+| 機能      | ユースケース                                                                                                                                    | MCPサポート                                                    |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| 耐久性     | データ移行タスク中にサーバークラッシュ。結果と進捗は再起動後も保持され、クライアントは状態を確認し永続リソースから処理継続可能。                 | ✅ 永続ストレージ付きリソースリンクとステータス通知            |
 
-今日の一般的なパターンとして、リソースを作成し、すぐにリソースリンクを返すツールを設計することが挙げられます。ツールはバックグラウンドでタスクを処理し、進捗更新や部分的な結果として機能するリソース通知を発行し、必要に応じてリソースの内容を更新します。
+現在一般的なパターンとして、ツールはリソースを作成し即座にリソースリンクを返し、バックグラウンドでタスク処理を続行し、進捗更新や部分結果を通知するリソース通知を発行し、必要に応じてリソース内容を更新します。
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>図3:</strong> この図は、MCPエージェントが永続的なリソースと状態通知を使用して、長時間実行されるタスクがサーバー再起動後も保持される方法を示しています。これにより、クライアントは進捗を確認し、障害後でも結果を取得できます。
+<strong>図3：</strong> この図は、MCPエージェントが耐久的リソースとステータス通知を使用して長期タスクがサーバー再起動に耐えられることを示しており、クライアントが進捗を確認し失敗後にも結果を取得できることを説明しています。
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as ホストアプリ<br/>(MCPクライアント)
+    participant Server as MCPサーバー<br/>(エージェントツール)
+    participant DB as 永続ストレージ
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: タスク開始
+    Host->>Server: ツール呼び出し
+    Server->>DB: リソース作成 + 更新
+    Server-->>Host: 🔗 リソースリンク
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 サーバー再起動
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: 状態確認
+    Host->>Server: リソース取得
+    Server->>DB: 状態読み込み
+    Server-->>Host: 現在の進行状況
+    Server->>DB: 完了 + 通知
+    Host-->>User: ✅ 完了
 ```
 
-### 4. マルチターンインタラクション
+### 4. マルチターン対話
 
-エージェントは実行中に追加の入力を必要とする場合があります：
+エージェントは実行中に追加入力を必要とすることが多いです：
 
-- 人間による確認や承認
-- 複雑な決定のためのAI支援
-- 動的なパラメータ調整
+- 人間の確認や承認
+- 複雑な判断に対するAI支援
+- 動的パラメータ調整
 
-**MCPのサポート**：サンプリング（AI入力用）とエリシテーション（人間入力用）を介して完全にサポートされています。
+**MCPサポート**：サンプリング（AI入力）とエリシテーション（人間入力）によって完全にサポートされています。
 
-| 機能                 | ユースケース                                                                                                                                     | MCPのサポート                                           |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| マルチターンインタラクション | 旅行予約エージェントがユーザーに価格確認を求め、その後AIに旅行データを要約させて予約取引を完了する。                                         | ✅ エリシテーション（人間入力）、サンプリング（AI入力） |
+| 機能                      | ユースケース                                                                                                                                        | MCPサポート                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| マルチターン対話          | 旅行代理エージェントがユーザーに価格確認を求め、その後AIに旅行データを要約させて予約完了を行う。                                            | ✅ 人間入力のエリシテーション、AI入力のサンプリング |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>図4:</strong> この図は、MCPエージェントが実行中に人間の入力をインタラクティブに引き出したり、AI支援を要求したりする方法を示しています。これにより、確認や動的な意思決定を含む複雑なマルチターンワークフローをサポートします。
+<strong>図4：</strong> この図は、MCPエージェントが実行中に人間の入力を対話的に引き出すかAI支援を要求し、確認や動的意思決定のような複雑なマルチターンワークフローをサポートする様子を示しています。
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as ホストアプリ<br/>(MCPクライアント)
+    participant Server as MCPサーバー<br/>(エージェントツール)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: 航空券を予約する
+    Host->>Server: travel_agentを呼び出す
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: エリシテーション:「500ドルでよろしいですか？」
+    Note over Host: エリシテーションコールバック（利用可能な場合）
+    Host->>User: 💰 価格を確認しますか？
+    User->>Host: 「はい」
+    Host->>Server: 確認済み
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: サンプリング:「データを要約する」
+    Note over Host: AIコールバック（利用可能な場合）
+    Host->>Server: レポートの要約
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ 航空券を予約しました
 ```
 
-## MCPで長時間実行されるエージェントを実装する - コード概要
+## MCPで長期エージェントを実装する - コード概要
 
-この記事の一環として、[コードリポジトリ](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)を提供します。このリポジトリには、MCP Python SDKを使用してStreamableHTTPトランスポートでセッション再開とメッセージ再配信を実現する長時間実行されるエージェントの完全な実装が含まれています。この実装は、MCPの機能を組み合わせて高度なエージェント的な動作を可能にする方法を示しています。
+本記事では、セッション再開とメッセージ再配信に対応したStreamableHTTPトランスポート付きMCP Python SDKを使い、長期エージェントの完全実装を含む[コードリポジトリ](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)を提供します。実装例はMCP機能を組み合わせて高度なエージェント的挙動を実現する方法を示しています。
 
-具体的には、以下の2つの主要なエージェントツールを備えたサーバーを実装します：
+具体的には、サーバーに2つの主要なエージェントツールを実装しています：
 
-- **旅行エージェント** - エリシテーションを介した価格確認をシミュレートする旅行予約サービス
-- **リサーチエージェント** - サンプリングを介したAI支援の要約を伴うリサーチタスク
+- <strong>旅行代理</strong> - エリシテーションによる価格確認付き旅行予約サービスをシミュレート
+- <strong>リサーチエージェント</strong> - サンプリングによるAI支援要約付き研究タスクを実行
 
-両エージェントはリアルタイム進捗更新、インタラクティブな確認、完全なセッション再開機能を示します。
+両エージェントはリアルタイム進捗更新、対話的確認、完全なセッション再開機能を示します。
 
-### 主要な実装コンセプト
+### 主要実装コンセプト
 
-以下のセクションでは、各機能に対するサーバー側エージェントの実装とクライアント側ホストの処理を示します：
+以下の各機能に対するサーバー側エージェント実装とクライアント側ホスト処理を示します：
 
-#### ストリーミングと進捗更新 - リアルタイムタスクステータス
+#### ストリーミング＆進捗更新 - タスク状態のリアルタイム
 
-ストリーミングにより、エージェントは長時間実行されるタスク中にリアルタイムの進捗更新を提供し、ユーザーにタスクの状態と中間結果を通知します。
+ストリーミングによりエージェントは長期タスクの進捗をリアルタイムに更新し、ユーザーに状態や中間結果を知らせます。
 
 **サーバー実装（エージェントが進捗通知を送信）：**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# サーバー/server.py から - 進行状況を送信する旅行代理店
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # 作業をシミュレートする
 
-# Alternative: Log messages for detailed step-by-step updates
+# 代替案: 詳細なステップバイステップの更新のためのログメッセージ
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -227,7 +227,7 @@ await ctx.session.send_log_message(
 **クライアント実装（ホストが進捗更新を受信）：**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# client/client.pyから - リアルタイム通知を処理するクライアント
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# セッション作成時にメッセージハンドラを登録する
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### エリシテーション - ユーザー入力の要求
+#### エリシテーション - ユーザー入力要求
 
-エリシテーションにより、エージェントは実行中にユーザー入力を要求できます。これは、長時間実行されるタスク中の確認、明確化、または承認に不可欠です。
+エリシテーションはエージェントが実行中にユーザー入力を要求する機能で、長期タスクでの確認、明確化、承認に必須です。
 
 **サーバー実装（エージェントが確認を要求）：**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# サーバー/server.pyから - 旅行代理店が価格確認を要求
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # 予約を続ける
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # 予約をキャンセルする
     booking_cancelled = True
 ```
 
 **クライアント実装（ホストがエリシテーションコールバックを提供）：**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# client/client.py から - クライアントがエリシテーション要求を処理
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# セッション作成時にコールバックを登録する
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### サンプリング - AI支援の要求
+#### サンプリング - AI支援要求
 
-サンプリングにより、エージェントは実行中に複雑な決定やコンテンツ生成のためにLLM支援を要求できます。これにより、人間とAIのハイブリッドワークフローが可能になります。
+サンプリングはエージェントが複雑な判断やコンテンツ生成のためにLLMの支援を要求でき、ハイブリッドな人間・AIワークフローを可能にします。
 
 **サーバー実装（エージェントがAI支援を要求）：**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# server/server.py から - 研究エージェントがAIの要約を要求しています
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -321,13 +321,13 @@ if sampling_result and sampling_result.content:
 **クライアント実装（ホストがサンプリングコールバックを提供）：**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# client/client.py から - サンプリングリクエストを処理するクライアント
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # 実際のアプリケーションでは、ここで LLM API を呼び出す可能性があります
+    # デモ用に、モックレスポンスを提供します
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# セッション作成時にコールバックを登録する
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### 再開可能性 - 切断後のセッション継続
+#### 再開可能性 - 切断後のセッション連続性
 
-再開可能性により、長時間実行されるエージェントタスクがクライアントの切断を生き延び、再接続時にシームレスに続行できます。これはイベントストアと再開トークンを通じて実装されます。
+再開可能性により、長時間実行のエージェントタスクはクライアントの切断に耐え、再接続時にシームレスに継続可能となります。これはイベントストアと再開トークンで実装されます。
 
 **イベントストア実装（サーバーがセッション状態を保持）：**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# server/event_store.py から - 単純なインメモリイベントストア
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # セッションの元のストリームから後のイベントのみをリプレイします。
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# server/server.py から - イベントストアをセッションマネージャに渡す
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # 再開用のイベントストアでセッションマネージャを作成する
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # イベントストアはセッションの再開を可能にします
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# 使用法: イベントストアで初期化する
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**クライアントメタデータと再開トークン（クライアントが保存された状態を使用して再接続）：**
+**再開トークン付きクライアントメタデータ（クライアントが保存状態で再接続）：**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# client/client.py から - メタデータを使用したクライアントの再開
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # 既存の再開トークンを使用して中断したところから続行する
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # 受信時に再開トークンを保存するためのコールバックを作成する
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# 再開メタデータを含むリクエストを送信する
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,24 +437,24 @@ result = await session.send_request(
 )
 ```
 
-ホストアプリケーションはセッションIDと再開トークンをローカルに保持し、進捗や状態を失うことなく既存のセッションに再接続できます。
+ホストアプリケーションはセッションIDと再開トークンをローカルに保持し、進捗や状態を失うことなく既存セッションへ再接続します。
 
 ### コード構成
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>図5:</strong> MCPベースのエージェントシステムアーキテクチャ
+<strong>図5：</strong> MCPベースのエージェントシステムアーキテクチャ
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([ユーザー]) -->|"タスク"| Host["ホスト<br/>(MCP クライアント)"]
+    Host -->|ツールをリストする| Server[MCP サーバー]
+    Server -->|公開する| AgentsTools[ツールとしてのエージェント]
+    AgentsTools -->|タスク| AgentA[旅行代理人]
+    AgentsTools -->|タスク| AgentB[リサーチエージェント]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|監視する| StateUpdates[進行状況と状態の更新]
+    Server -->|公開する| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,21 +463,68 @@ graph LR
 
 **主要ファイル：**
 
-- **`server/server.py`** - 旅行およびリサーチエージェントを備えた再開可能なMCPサーバー。エリシテーション、サンプリング、進捗更新を示します。
-- **`client/client.py`** - 再開サポート、コールバックハンドラ、トークン管理を備えたインタラクティブなホストアプリケーション
+- **`server/server.py`** - エリシテーション、サンプリング、進捗更新を備えた旅行およびリサーチエージェントを持つ再開可能MCPサーバー
+- **`client/client.py`** - セッション再開サポート、コールバックハンドラー、トークン管理を備えた対話型ホストアプリケーション
 - **`server/event_store.py`** - セッション再開とメッセージ再配信を可能にするイベントストア実装
 
-## MCPでのマルチエージェント通信への拡張
+## MCPにおけるマルチエージェント通信への拡張
 
-上記の実装は、ホストアプリケーションの知能と範囲を拡張することでマルチエージェントシステムに拡張できます：
+上記実装は、ホストアプリケーションのインテリジェンスと範囲を強化することでマルチエージェントシステムに拡張可能です：
 
-- **インテリジェントなタスク分解**：ホストが複雑なユーザーリクエストを分析し、異なる専門エージェント向けにサブタスクに分解
-- **マルチサーバー調整**：ホストが複数のMCPサーバーに接続し、それぞれ異なるエージェント機能を公開
-- **タスク状態管理**：ホストが複数の同時エージェントタスク間の進捗を追跡し、依存関係とシーケンシングを処理
-- **回復力とリトライ**：ホストが障害を管理し、リトライロジックを実装し、エージェントが利用できなくなった場合にタスクを再ルート
-- **結果の統合**：ホストが複数のエージェントからの出力
+- <strong>インテリジェントなタスク分解</strong>：ホストが複雑なユーザー要求を分析し、異なる専門エージェントへのサブタスクに分解
+- <strong>マルチサーバー連携</strong>：ホストが複数のMCPサーバーに接続し、それぞれ異なるエージェント機能を公開
+- <strong>タスク状態管理</strong>：ホストが複数の同時進行エージェントタスクの進捗を追跡し、依存関係と順序を管理
+- **耐障害性＆リトライ**：ホストが障害を管理し、リトライロジックを実装し、エージェントが利用不可時にタスクを再ルーティング
+- <strong>結果統合</strong>：ホストが複数エージェントの出力を統合して一貫した最終結果を生成
+
+ホストは単純なクライアントから分散エージェント機能を調整するインテリジェントなオーケストレーターへ進化し、同時にMCPプロトコル基盤を維持します。
+
+## 結論
+
+MCPの強化された機能 - リソース通知、エリシテーション/サンプリング、再開可能ストリーム、および永続リソース - は複雑なエージェント間インタラクションを可能にしつつ、プロトコルの単純さを保ちます。
+
+## はじめに
+
+独自のエージェント2エージェントシステムを構築する準備はできましたか？次のステップに従ってください：
+
+### 1. デモを動かす
+
+```bash
+# 再開のためにイベントストア付きでサーバーを起動します
+python -m server.server --port 8006
+
+# もう一つの端末でインタラクティブクライアントを実行します
+python -m client.client --url http://127.0.0.1:8006/mcp
+```
+
+**対話モードで使用可能なコマンド：**
+
+- `travel_agent` - エリシテーションによる価格確認付き旅行予約
+- `research_agent` - サンプリングによるAI支援要約付き研究トピック調査
+- `list` - 利用可能なツールを一覧表示
+- `clean-tokens` - 再開トークンをクリア
+- `help` - 詳細なコマンドヘルプを表示
+- `quit` - クライアントを終了
+
+### 2. 再開機能をテスト
+
+- 長時間エージェントを開始（例：`travel_agent`）
+- 実行中にクライアントを中断（Ctrl+C）
+- クライアントを再起動 - 自動的に中断箇所から再開します
+
+### 3. 探索と拡張
+
+- <strong>例を探る</strong>: この[mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents)を確認
+- <strong>コミュニティに参加</strong>: GitHubのMCP議論に参加
+- <strong>実験する</strong>: シンプルな長期タスクから始めて徐々にストリーミング、再開可能性、マルチエージェント調整を追加
+
+これは、MCPがどのようにインテリジェントなエージェント動作を可能にしつつツールベースの単純さを維持しているかのデモです。
+
+全体としてMCPプロトコル仕様は急速に進化しており、読者には最新情報のために公式ドキュメントサイト https://modelcontextprotocol.io/introduction を参照することを推奨します。
 
 ---
 
-**免責事項**:  
-この文書は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知ください。元の言語で記載された文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤った解釈について、当方は一切の責任を負いません。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**：
+本書類は AI 翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知おきください。原文の原語版が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や解釈違いについても、当方は責任を負いかねます。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

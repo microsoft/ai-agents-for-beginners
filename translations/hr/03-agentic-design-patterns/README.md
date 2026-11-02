@@ -1,28 +1,28 @@
 [![Kako dizajnirati dobre AI agente](../../../translated_images/hr/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Kliknite gornju sliku za pregled videa ovog lekcija)_
+> _(Kliknite na gornju sliku za pogledati video ovog poglavlja)_
 # Principi dizajna AI agenata
 
 ## Uvod
 
-Postoji mnogo načina razmišljanja o izgradnji AI agentnih sustava. Budući da je nejasnoća značajka, a ne greška u dizajnu generativne AI, ponekad je inženjerima teško shvatiti odakle početi. Stvorili smo skup korisnički usmjerenih principa dizajna UX-a kako bismo developerima omogućili izgradnju korisnički usmjerenih agentnih sustava za rješavanje njihovih poslovnih potreba. Ovi principi dizajna nisu propisna arhitektura nego polazna točka za timove koji definiraju i razvijaju agentna iskustva.
+Postoji mnogo načina za razmišljanje o izgradnji AI agentnih sustava. Budući da je dvosmislenost značajka, a ne greška u dizajnu generativne AI, ponekad je inženjerima teško odrediti gdje uopće početi. Stvorili smo skup principa dizajna usmjerenih na korisnika kako bismo omogućili developerima da grade agentne sustave usmjerene na korisnika za rješavanje njihovih poslovnih potreba. Ovi principi dizajna nisu propisna arhitektura, već početna točka za timove koji definiraju i razvijaju agentna iskustva.
 
 Općenito, agenti bi trebali:
 
-- Proširivati i skalirati ljudske sposobnosti (bujanje ideja, rješavanje problema, automatizacija itd.)
-- Popunjavati praznine u znanju (dovesti me do brzog upoznavanja s područjima znanja, prevođenje itd.)
-- Omogućavati i podržavati suradnju na načine na koje mi kao pojedinci preferiramo surađivati s drugima
-- Činiti nas boljim verzijama sebe samih (npr. životni trener/zadatkovni majstor, pomažući nam učiti emocionalnu regulaciju i vještine pažljivosti, graditi otpornost itd.)
+- Proširiti i skalirati ljudske sposobnosti (razmišljanje, rješavanje problema, automatizacija, itd.)
+- Popuniti praznine u znanju (dovesti me do razine znanja o domenama, prijevod, itd.)
+- Omogućiti i podržavati suradnju na načinima na koje kao pojedinci volimo raditi s drugima
+- Učiniti nas boljim verzijama sebe samih (npr. životni trener/vođa zadataka, pomažući nam naučiti emocionalnu regulaciju i vještine pažljivosti, gradnju otpornosti, itd.)
 
-## Ova lekcija će obuhvatiti
+## Ovo poglavlje pokriva
 
 - Što su principi agentnog dizajna
-- Koje su smjernice za implementaciju ovih principa dizajna
-- Primjeri primjene principa dizajna
+- Koje smjernice slijediti prilikom implementacije ovih principa dizajna
+- Neki primjeri korištenja principa dizajna
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije, moći ćete:
+Nakon dovršetka ovog poglavlja moći ćete:
 
 1. Objasniti što su principi agentnog dizajna
 2. Objasniti smjernice za korištenje principa agentnog dizajna
@@ -32,87 +32,87 @@ Nakon završetka ove lekcije, moći ćete:
 
 ![Principi agentnog dizajna](../../../translated_images/hr/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
-### Agent (Prostor)
+### Agent (Prostorni)
 
-To je okruženje u kojem agent djeluje. Ovi principi informiraju kako dizajniramo agente za angažman u fizičkim i digitalnim svjetovima.
+Ovo je okruženje u kojem agent djeluje. Ovi principi informiraju kako dizajniramo agente za interakciju u fizičkim i digitalnim svjetovima.
 
-- **Povezivanje, ne kolapsiranje** – pomažu povezati ljude s drugim ljudima, događajima i djelotvornim znanjem kako bi omogućili suradnju i povezivanje.
-- Agenti pomažu povezati događaje, znanja i ljude.
-- Agenti zbližavaju ljude. Nisu dizajnirani da zamijene ili umanje ljude.
-- **Lako dostupni, a povremeno nevidljivi** – agent većinom djeluje u pozadini i potiče nas samo kada je relevantno i prikladno.
-  - Agent je lako otkriven i dostupan autoriziranim korisnicima na bilo kojem uređaju ili platformi.
-  - Agent podržava multimodalne ulaze i izlaze (zvuk, glas, tekst itd.).
-  - Agent može neprimjetno prelaziti između prvog plana i pozadine; između proaktivnog i reaktivnog, ovisno o svojoj percepciji potreba korisnika.
-  - Agent može djelovati u nevidljivom obliku, no njegov proces u pozadini i suradnja s drugim agentima su transparentni i korisnik ih može kontrolirati.
+- **Povezivanje, a ne kolapsiranje** – pomažu povezati ljude s drugim ljudima, događajima i djelotvornim znanjem za omogućavanje suradnje i povezanosti.
+- Agentima pomažu povezati događaje, znanje i ljude.
+- Agent približava ljude jedne drugima. Nisu dizajnirani za zamjenu ili omalovažavanje ljudi.
+- **Lako dostupni, a povremeno nevidljivi** – agent uglavnom djeluje u pozadini i lagano nas potiče kada je to relevantno i prikladno.
+  - Agent je lako otkriven i dostupan ovlaštenim korisnicima na bilo kojem uređaju ili platformi.
+  - Agent podržava višemodalne unose i izlaze (zvuk, glas, tekst, itd.).
+  - Agent može neprimjetno prelaziti između prvog i drugog plana; između proaktivnog i reaktivnog, ovisno o procjeni korisničkih potreba.
+  - Agent može djelovati nevidljivo, ali procesi u pozadini i suradnja s drugim agentima su pregledni i kontrolirani od strane korisnika.
 
-### Agent (Vrijeme)
+### Agent (Vremenski)
 
-To je način na koji agent djeluje tijekom vremena. Ovi principi informiraju kako dizajniramo agente koji djeluju u prošlosti, sadašnjosti i budućnosti.
+Ovo je način na koji agent djeluje tijekom vremena. Ovi principi informiraju kako dizajniramo agente koji komuniciraju preko prošlosti, sadašnjosti i budućnosti.
 
-- **Prošlost**: Razmišljanje o povijesti koja uključuje i stanje i kontekst.
-  - Agent pruža relevantnije rezultate na temelju analize bogatijih povijesnih podataka, ne samo događaja, ljudi ili stanja.
-  - Agent stvara veze iz prošlih događaja i aktivno razmišlja o sjećanju kako bi se angažirao u trenutačnim situacijama.
-- **Sadašnjost**: Podsticaj više nego obavještavanje.
-  - Agent utjelovljuje sveobuhvatan pristup interakciji s ljudima. Kad se događaj dogodi, Agent ne ostaje samo pri statičnoj obavijesti ili drugoj formi formalnosti. Agent može pojednostavniti tijekove ili dinamički generirati znakove za usmjeravanje pažnje korisnika u pravi trenutak.
-  - Agent isporučuje informacije bazirane na kontekstualnom okruženju, društvenim i kulturnim promjenama i prilagođava se namjerama korisnika.
-  - Interakcija s agentom može biti postupna, razvijajuća se/rastuća u složenosti kako bi dugoročno osnažila korisnike.
+- **Prošlost**: Promišljanje povijesti koja uključuje stanje i kontekst.
+  - Agent pruža relevantnije rezultate na temelju analize bogatijih povijesnih podataka, osim samog događaja, ljudi ili stanja.
+  - Agent stvara veze iz prošlih događaja i aktivno se oslanja na memoriju za angažman u trenutačnim situacijama.
+- **Sadašnjost**: Poticaj više nego obavještavanje.
+  - Agent utjelovljuje sveobuhvatan pristup interakciji s ljudima. Kad se dogodi događaj, agent nadilazi statičnu obavijest ili druge statične formalnosti. Agent može pojednostaviti tokove ili dinamički generirati signale za usmjeravanje pažnje korisnika u pravom trenutku.
+  - Agent prenosi informacije na temelju kontekstualnog okruženja, društvenih i kulturnih promjena te ih prilagođava korisničkoj namjeri.
+  - Interakcija s agentom može biti postepena, razvijajuća se/rastuća u složenosti kako bi osnažila korisnike na duži rok.
 - **Budućnost**: Prilagodba i evolucija.
   - Agent se prilagođava različitim uređajima, platformama i modalitetima.
-  - Agent se prilagođava ponašanju korisnika, potrebama pristupačnosti i slobodno je prilagodljiv.
-  - Agent je oblikovan i razvija se kroz kontinuiranu interakciju s korisnikom.
+  - Agent se prilagođava korisničkom ponašanju, potrebama pristupačnosti i slobodno je prilagodljiv.
+  - Agent je oblikovan i evoluira kroz kontinuiranu interakciju s korisnikom.
 
 ### Agent (Jezgra)
 
-To su ključni elementi u jezgru dizajna agenta.
+Ovo su ključni elementi u jezgru dizajna agenta.
 
-- **Prihvatite neizvjesnost, ali uspostavite povjerenje**.
-  - Očekuje se određena razina neizvjesnosti kod Agenta. Neizvjesnost je ključni element dizajna agenta.
+- **Prigrliti nesigurnost, ali uspostaviti povjerenje**.
+  - Očekuje se određena razina nesigurnosti kod agenta. Nesigurnost je ključni element dizajna agenta.
   - Povjerenje i transparentnost su temeljni slojevi dizajna agenta.
-  - Ljudi imaju kontrolu nad uključenjem/isključenjem Agenta, a status agenta je uvijek jasno vidljiv.
+  - Ljudi kontroliraju kad je agent uključen/isključen i status agenta je u svakom trenutku jasno vidljiv.
 
 ## Smjernice za implementaciju ovih principa
 
-Kad koristite navedene principe dizajna, koristite sljedeće smjernice:
+Kada koristite prethodne principe dizajna, koristite sljedeće smjernice:
 
-1. **Transparentnost**: Obavijestite korisnika da je AI uključen, kako funkcionira (uključujući prošle radnje) te kako dati povratne informacije i modificirati sustav.
-2. **Kontrola**: Omogućite korisniku prilagodbu, specificiranje preferencija i personalizaciju te kontrolu nad sustavom i njegovim atributima (uključujući mogućnost zaborava).
-3. **Konzistentnost**: Težite dosljednim, multimodalnim iskustvima preko uređaja i krajnjih točaka. Koristite poznate UI/UX elemente gdje je moguće (npr. ikona mikrofona za glasovnu interakciju) i maksimalno smanjite kognitivno opterećenje korisnika (npr. težite sažetim odgovorima, vizualnim pomagalima i sadržaju „Saznajte više“).
+1. **Transparentnost**: Informirajte korisnika da AI sudjeluje, kako funkcionira (uključujući prošle akcije) i kako dati povratnu informaciju te mijenjati sustav.
+2. **Kontrola**: Omogućite korisniku prilagodbu, specificiranje preferencija i personalizaciju, te kontrolu nad sustavom i njegovim atributima (uključujući mogućnost zaboravljanja).
+3. **Dosljednost**: Ciljajte na dosljedna, višemodalna iskustva na uređajima i krajnjim točkama. Koristite poznate UI/UX elemente gdje je moguće (npr. ikona mikrofona za glasovnu interakciju) i smanjite kognitivno opterećenje korisnika što je više moguće (npr. ciljanje na sažete odgovore, vizualna pomagala i sadržaje "Saznaj više").
 
 ## Kako dizajnirati putničkog agenta koristeći ove principe i smjernice
 
-Zamislite da dizajnirate Putničkog agenta, evo kako biste mogli razmišljati o korištenju Principa dizajna i Smjernica:
+Zamislite da dizajnirate Putničkog agenta, evo kako biste mogli razmišljati o korištenju principa dizajna i smjernica:
 
-1. **Transparentnost** – Obavijestite korisnika da je Putnički agent AI omogućen agent. Pružite osnovne upute za početak (npr. poruka „Pozdrav“, primjeri naredbi). Javno dokumentirajte to na stranici proizvoda. Prikažite popis pitanja koje je korisnik postavljao ranije. Jasno naznačite kako dati povratne informacije (palčevi gore/dolje, gumb Pošalji povratnu informaciju itd.). Jasno navedite ima li agent ograničenja u korištenju ili temama.
-2. **Kontrola** – Neka bude jasno kako korisnik može modificirati agenta nakon kreiranja, npr. pomoću sistemskih naredbi. Omogućite korisniku izbor koliko detaljan agent treba biti, stil pisanja i eventualne teme o kojima agent ne bi trebao razgovarati. Dopustite korisniku pregled i brisanje povezanih datoteka, podataka, naredbi i prošlih razgovora.
-3. **Konzistentnost** – Pobrinite se da su ikone za Dijeli naredbu, dodaj datoteku ili fotografiju i označi nekoga ili nešto standardne i prepoznatljive. Koristite ikonu spajalice za označavanje prijenosa/dijeljenja datoteka s agentom, a ikonu slike za prijenos grafike.
+1. **Transparentnost** – Obavijestite korisnika da je Putnički agent AI-om omogućeni agent. Osigurajte osnovne upute o početku rada (npr. poruka "Pozdrav", primjeri upita). Jasno dokumentirajte ovo na stranici proizvoda. Prikažite popis upita koje je korisnik postavio u prošlosti. Jasno objasnite kako dati povratnu informaciju (palac gore/dolje, gumb Pošalji povratnu informaciju itd.). Jasno navedite ako agent ima ograničenja u korištenju ili temama.
+2. **Kontrola** – Pobrinite se da je jasno kako korisnik može mijenjati agenta nakon što je stvoren, s stvarima kao što je Sistemski upit. Omogućite korisniku da odabere koliko opširan agent treba biti, njegov stil pisanja i bilo koje rezerve o temama o kojima agent ne bi trebao razgovarati. Dopustite korisniku pregled i brisanje bilo kojih pridruženih datoteka ili podataka, upita i prethodnih razgovora.
+3. **Dosljednost** – Osigurajte da ikone za Dijeljenje upita, dodavanje datoteke ili fotografije te označavanje nekoga ili nečega budu standardne i prepoznatljive. Koristite ikonu spajalice za označavanje prijenosa/dijeljenja datoteke s agentom, a ikonu slike za prijenos grafike.
 
-## Primjeri koda
+## Primjerni kodovi
 
 - Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## Imate li dodatnih pitanja o AI agentnim dizajnerskim obrascima?
+## Imate li dodatna pitanja o AI agentnim dizajnerskim obrascima?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kako biste se upoznali s drugim učenicima, sudjelovali na konzultacijama i dobili odgovore na pitanja o AI agentima.
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) da biste se susreli s drugim učenicima, sudjelovali na radnim satima i dobili odgovore na svoja pitanja o AI agentima.
 
 ## Dodatni resursi
 
-- <a href="https://openai.com" target="_blank">Prakse upravljanja Agentnim AI sustavima | OpenAI</a>
+- <a href="https://openai.com" target="_blank">Prakse za upravljanje agentnim AI sustavima | OpenAI</a>
 - <a href="https://microsoft.com" target="_blank">Projekt HAX Toolkit - Microsoft Research</a>
 - <a href="https://responsibleaitoolbox.ai" target="_blank">Responsible AI Toolbox</a>
 
-## Prethodna lekcija
+## Prethodno poglavlje
 
-[Pregled agentnih okvira](../02-explore-agentic-frameworks/README.md)
+[Istraživanje agentnih okvira](../02-explore-agentic-frameworks/README.md)
 
-## Sljedeća lekcija
+## Sljedeće poglavlje
 
-[Obrazac dizajna korištenja alata](../04-tool-use/README.md)
+[Obrazac dizajna za korištenje alata](../04-tool-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:
-Ovaj dokument je preveden korištenjem AI usluge za prijevod [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo postići točnost, imajte na umu da automatizirani prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na njegovu izvornom jeziku treba smatrati službenim izvorom. Za važne informacije preporučuje se profesionalni ljudski prijevod. Ne prihvaćamo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizađu iz korištenja ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

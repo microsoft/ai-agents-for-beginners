@@ -1,64 +1,64 @@
-# Ρύθμιση μαθήματος
+# Ρύθμιση Μαθήματος
 
 ## Εισαγωγή
 
-Το μάθημα αυτό θα καλύψει πώς να εκτελείτε τα παραδείγματα κώδικα αυτού του μαθήματος.
+Αυτό το μάθημα θα καλύψει το πώς να εκτελέσετε τα δείγματα κώδικα αυτού του μαθήματος.
 
-## Ενταχθείτε σε άλλους μαθητές και λάβετε βοήθεια
+## Ενταχθείτε σε Άλλους Μαθητευόμενους και Λάβετε Βοήθεια
 
-Πριν ξεκινήσετε να κλωνοποιείτε το repo σας, ενταχθείτε στο [κανάλι Discord “AI Agents For Beginners”](https://aka.ms/ai-agents/discord) για να λάβετε βοήθεια με τη ρύθμιση, ερωτήσεις σχετικά με το μάθημα ή για να συνδεθείτε με άλλους μαθητές.
+Πριν ξεκινήσετε να κλωνοποιείτε το αποθετήριο σας, ενταχθείτε στο [AI Agents For Beginners Discord κανάλι](https://aka.ms/ai-agents/discord) για να λάβετε οποιαδήποτε βοήθεια με τη ρύθμιση, ερωτήσεις σχετικά με το μάθημα ή για να συνδεθείτε με άλλους μαθητευόμενους.
 
-## Κλωνοποίηση ή Φόρκ αυτού του αποθετηρίου
+## Κλωνοποιήστε ή Φορκάρετε αυτό το Αποθετήριο
 
-Για να ξεκινήσετε, παρακαλούμε κλωνοποιήστε ή κάντε fork το GitHub αποθετήριο. Αυτό θα δημιουργήσει τη δική σας έκδοση του υλικού του μαθήματος ώστε να μπορείτε να εκτελείτε, να δοκιμάζετε και να τροποποιείτε τον κώδικα!
+Για να ξεκινήσετε, παρακαλώ κλωνοποιήστε ή φορκάρετε το GitHub Αποθετήριο. Αυτό θα δημιουργήσει τη δική σας έκδοση του υλικού του μαθήματος ώστε να μπορείτε να εκτελέσετε, να δοκιμάσετε και να τροποποιήσετε τον κώδικα!
 
-This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">κάντε fork το αποθετήριο</a>
+Αυτό μπορεί να γίνει κάνοντας κλικ στον σύνδεσμο για <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">φορκάρισμα του αποθετηρίου</a>
 
-You should now have your own forked version of this course in the following link:
+Πλέον θα πρέπει να έχετε τη δική σας φορκάρισμένη έκδοση αυτού του μαθήματος στον ακόλουθο σύνδεσμο:
 
-![Φορκαρισμένο αποθετήριο](../../../translated_images/el/forked-repo.33f27ca1901baa6a.webp)
+![Forked Repo](../../../translated_images/el/forked-repo.33f27ca1901baa6a.webp)
 
-### Επιφανειακή κλωνοποίηση (προτεινόμενη για εργαστήριο / Codespaces)
+### Επιφανειακό Κλωνάρισμα (συνιστάται για εργαστήρια / Codespaces)
 
-  >Το πλήρες αποθετήριο μπορεί να είναι μεγάλο (~3 GB) όταν κατεβάσετε ολόκληρο το ιστορικό και όλα τα αρχεία. Αν παρακολουθείτε μόνο το εργαστήριο ή χρειάζεστε μόνο μερικούς φακέλους μαθημάτων, μια επιφανειακή κλωνοποίηση (ή μια αραιή κλωνοποίηση) αποφεύγει το μεγαλύτερο μέρος αυτού του κατεβάσματος περιορίζοντας το ιστορικό και/ή παραλείποντας blobs.
+  >Ολόκληρο το αποθετήριο μπορεί να είναι μεγάλο (~3 GB) όταν κατεβάζετε όλη την ιστορία και όλα τα αρχεία. Αν παρακολουθείτε μόνο το εργαστήριο ή χρειάζεστε μόνο μερικούς φακέλους μαθημάτων, ένα επιφανειακό κλωνάρισμα (ή ένα αραιό κλωνάρισμα) κατεβάζει πολύ λιγότερα.
 
-#### Γρήγορη επιφανειακή κλωνοποίηση — ελάχιστο ιστορικό, όλα τα αρχεία
+#### Γρήγορο επιφανειακό κλωνάρισμα — ελάχιστο ιστορικό, όλα τα αρχεία
 
-Replace `<your-username>` in the below commands with your fork URL (or the upstream URL if you prefer).
+Αντικαταστήστε το `<your-username>` στις παρακάτω εντολές με το URL του φορκ σας (ή το upstream URL αν προτιμάτε).
 
-To clone only the latest commit history (small download):
+Για να κλωνοποιήσετε μόνο το πιο πρόσφατο ιστορικό κωδικών (μικρό λήψη):
 
-```bash|powershell
+```bash
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-To clone a specific branch:
+Για να κλωνοποιήσετε ένα συγκεκριμένο branch:
 
-```bash|powershell
+```bash
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Μερική (sparse) κλωνοποίηση — ελάχιστα blobs + μόνο επιλεγμένοι φάκελοι
+#### Μερικό (αραιό) κλωνάρισμα — ελάχιστα blobs + μόνο επιλεγμένοι φάκελοι
 
-This uses partial clone and sparse-checkout (requires Git 2.25+ and recommended modern Git with partial clone support):
+Αυτό χρησιμοποιεί μερικό κλωνάρισμα και sparse-checkout (απαιτεί Git 2.25+ και συνιστάται σύγχρονο Git με υποστήριξη μερικού κλωναρίσματος):
 
-```bash|powershell
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Traverse into the repo folder:
+Πλοηγηθείτε στον φάκελο του αποθετηρίου:
 
-```bash|powershell
+```bash
 cd ai-agents-for-beginners
 ```
 
-Then specify which folders you want (example below shows two folders):
+Έπειτα ορίστε ποιοι φάκελοι θέλετε (το παράδειγμα παρακάτω δείχνει δύο φακέλους):
 
-```bash|powershell
+```bash
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
+Μετά το κλωνάρισμα και την επαλήθευση των αρχείων, αν χρειάζεστε μόνο αρχεία και θέλετε να ελευθερώσετε χώρο (χωρίς ιστορικό git), διαγράψτε τα μεταδεδομένα του αποθετηρίου (💀μη αναστρέψιμο — θα χάσετε όλη τη λειτουργικότητα του Git):
 
 ```bash
 # zsh/bash
@@ -70,51 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### Χρήση GitHub Codespaces (συνιστάται για να αποφύγετε μεγάλες τοπικές λήψεις)
+#### Χρήση GitHub Codespaces (συνιστάται για αποφυγή μεγάλων τοπικών λήψεων)
 
 - Δημιουργήστε ένα νέο Codespace για αυτό το αποθετήριο μέσω του [GitHub UI](https://github.com/codespaces).  
 
-- Στο τερματικό του πρόσφατα δημιουργημένου codespace, εκτελέστε μία από τις παραπάνω εντολές shallow/sparse clone για να φέρετε μόνο τους φακέλους μαθημάτων που χρειάζεστε στο workspace του Codespace.
-- Προαιρετικό: αφού κλωνοποιήσετε μέσα στο Codespaces, καταργήστε το .git για να ανακτήσετε επιπλέον χώρο (βλ. εντολές αφαίρεσης παραπάνω).
-- Σημείωση: Αν προτιμάτε να ανοίξετε το αποθετήριο απευθείας στα Codespaces (χωρίς επιπλέον κλωνοποίηση), να γνωρίζετε ότι τα Codespaces θα κατασκευάσουν το περιβάλλον devcontainer και μπορεί ακόμα να παρέχουν περισσότερα από όσα χρειάζεστε. Η κλωνοποίηση μιας επιφανειακής αντιγραφής μέσα σε ένα καινούργιο Codespace σας δίνει μεγαλύτερο έλεγχο στη χρήση δίσκου.
+- Στο τερματικό του νέου codespace, τρέξτε μία από τις εντολές για επιφανειακό/αραιό κλωνάρισμα παραπάνω για να φέρετε μόνο τους φακέλους μαθημάτων που χρειάζεστε στο χώρο εργασίας Codespace.
+- Προαιρετικά: μετά το κλωνάρισμα μέσα σε Codespaces, αφαιρέστε το .git για να ανακτήσετε επιπλέον χώρο (δείτε τις εντολές αφαίρεσης παραπάνω).
+- Σημείωση: Αν προτιμάτε να ανοίξετε το αποθετήριο απευθείας σε Codespaces (χωρίς επιπλέον κλωνάρισμα), να γνωρίζετε ότι το Codespaces θα δημιουργήσει το περιβάλλον devcontainer και μπορεί να παραμετροποιήσει περισσότερα απ' όσα χρειάζεστε.
 
 #### Συμβουλές
 
-- Πάντα αντικαθιστάτε το URL κλωνοποίησης με το fork σας αν θέλετε να επεξεργαστείτε/κάνετε commit.
-- Αν αργότερα χρειαστείτε περισσότερο ιστορικό ή αρχεία, μπορείτε να τα φέρετε (fetch) ή να προσαρμόσετε το sparse-checkout για να συμπεριλάβετε επιπλέον φακέλους.
+- Πάντα αντικαταστήστε το URL του κλώνου με αυτό του φορκ σας αν θέλετε να επεξεργαστείτε/κάνετε commit.
+- Αν αργότερα χρειαστείτε περισσότερο ιστορικό ή αρχεία, μπορείτε να τα κατεβάσετε ή να προσαρμόσετε το sparse-checkout για να συμπεριλάβετε επιπλέον φακέλους.
 
 ## Εκτέλεση του Κώδικα
 
-This course offers a series of Jupyter Notebooks that you can run with to get hands-on experience building AI Agents.
+Αυτό το μάθημα προσφέρει μια σειρά από Jupyter Notebooks που μπορείτε να εκτελέσετε για να αποκτήσετε πρακτική εμπειρία στην κατασκευή AI Agents.
 
-The code samples use either:
+Τα δείγματα κώδικα χρησιμοποιούν το **Microsoft Agent Framework (MAF)** με τον `FoundryChatClient`, που συνδέεται με την **Microsoft Foundry Agent Service V2** (το Responses API) μέσα από τη **Microsoft Foundry**.
 
-**Απαιτεί Λογαριασμό GitHub - Δωρεάν**:
-
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Επισημασμένο ως (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Επισημασμένο ως (autogen.ipynb)
-
-**Απαιτεί Συνδρομή Azure**:
-3) Azure AI Foundry + Azure AI Agent Service. Επισημασμένο ως (azureaiagent.ipynb)
-
-We encourage you to try out all three types of examples to see which one works best for you.
-
-Whichever option you choose, it will determine which setup steps you need to follow below:
+Όλα τα Python notebooks είναι επισημασμένα με `*-python-agent-framework.ipynb`.
 
 ## Απαιτήσεις
 
 - Python 3.12+
-  - **ΣΗΜΕΙΩΣΗ**: Αν δεν έχετε εγκατεστημένο Python3.12, βεβαιωθείτε ότι το εγκαθιστάτε. Στη συνέχεια δημιουργήστε το venv χρησιμοποιώντας python3.12 για να διασφαλίσετε ότι οι σωστές εκδόσεις εγκαθίστανται από το αρχείο requirements.txt.
+  - **ΣΗΜΕΙΩΣΗ**: Αν δεν έχετε εγκαταστήσει το Python3.12, βεβαιωθείτε ότι το εγκαθιστάτε. Έπειτα δημιουργήστε το venv σας χρησιμοποιώντας python3.12 για να εξασφαλίσετε ότι οι σωστές εκδόσεις εγκαθίστανται από το αρχείο requirements.txt.
   
     >Παράδειγμα
 
-    Δημιουργία καταλόγου Python venv:
+    Δημιουργία φακέλου Python venv:
 
-    ```bash|powershell
+    ```bash
     python -m venv venv
     ```
 
-    Στη συνέχεια ενεργοποιήστε το περιβάλλον venv για:
+    Έπειτα ενεργοποιήστε το περιβάλλον venv για:
 
     ```bash
     # zsh/bash
@@ -126,115 +116,84 @@ Whichever option you choose, it will determine which setup steps you need to fol
     venv\Scripts\activate
     ```
 
-- .NET 10+: Για τα δείγματα κώδικα που χρησιμοποιούν .NET, βεβαιωθείτε ότι έχετε εγκαταστήσει το [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ή νεότερο. Στη συνέχεια, ελέγξτε την εγκατεστημένη έκδοση του .NET SDK:
+- .NET 10+: Για τα δείγματα κώδικα που χρησιμοποιούν .NET, βεβαιωθείτε ότι εγκαθιστάτε το [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ή νεότερο. Έπειτα ελέγξτε την έκδοση του εγκατεστημένου σας .NET SDK:
 
-    ```bash|powershell
+    ```bash
     dotnet --list-sdks
     ```
 
-- A GitHub Account - For Access to the GitHub Models Marketplace
-- Azure Subscription - For Access to Microsoft Foundry
-- Microsoft Foundry Account - For Access to the Azure AI Agent Service
+- **Azure CLI** — Απαραίτητο για αυθεντικοποίηση. Εγκαταστήστε από [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure Συνδρομή** — Για πρόσβαση στη Microsoft Foundry και Microsoft Foundry Agent Service.
+- **Microsoft Foundry Project** — Ένα έργο με αναπτυγμένο μοντέλο (π.χ., `gpt-5-mini`). Δείτε το [Βήμα 1](#βήμα-1-δημιουργία-έργου-microsoft-foundry) παρακάτω.
 
-Στη ρίζα αυτού του αποθετηρίου έχουμε συμπεριλάβει ένα αρχείο `requirements.txt` που περιέχει όλα τα απαιτούμενα πακέτα Python για να εκτελέσετε τα δείγματα κώδικα.
+Περιλαμβάνουμε ένα αρχείο `requirements.txt` στον ριζικό φάκελο αυτού του αποθετηρίου που περιέχει όλα τα απαιτούμενα πακέτα Python για την εκτέλεση των δειγμάτων κώδικα.
 
-Μπορείτε να τα εγκαταστήσετε εκτελώντας την ακόλουθη εντολή στο τερματικό σας στη ρίζα του αποθετηρίου:
+Μπορείτε να τα εγκαταστήσετε τρέχοντας την ακόλουθη εντολή στο τερματικό σας στον ριζικό φάκελο του αποθετηρίου:
 
-```bash|powershell
+```bash
 pip install -r requirements.txt
 ```
 
-Συνιστούμε τη δημιουργία ενός εικονικού περιβάλλοντος Python για να αποφύγετε συγκρούσεις και προβλήματα.
+Συνιστούμε να δημιουργήσετε ένα εικονικό περιβάλλον Python για να αποφύγετε τυχόν συγκρούσεις και προβλήματα.
 
 ## Ρύθμιση VSCode
 
 Βεβαιωθείτε ότι χρησιμοποιείτε τη σωστή έκδοση Python στο VSCode.
 
-![εικόνα](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Ρύθμιση για δείγματα που χρησιμοποιούν GitHub Models 
+## Ρύθμιση Microsoft Foundry και Microsoft Foundry Agent Service
 
-### Βήμα 1: Λήψη του Προσωπικού Token Πρόσβασης GitHub (PAT)
+### Βήμα 1: Δημιουργία Έργου Microsoft Foundry
 
-Αυτό το μάθημα αξιοποιεί το GitHub Models Marketplace, προσφέροντας δωρεάν πρόσβαση σε Μεγάλα Γλωσσικά Μοντέλα (LLMs) που θα χρησιμοποιήσετε για να χτίσετε AI Agents.
+Χρειάζεστε ένα **hub** και **έργο** στο Microsoft Foundry με ένα αναπτυγμένο μοντέλο για να τρέξετε τα notebooks.
 
-Για να χρησιμοποιήσετε τα GitHub Models, θα χρειαστεί να δημιουργήσετε ένα [Προσωπικό Token Πρόσβασης GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. Πηγαίνετε στο [ai.azure.com](https://ai.azure.com) και συνδεθείτε με τον λογαριασμό σας Azure.
+2. Δημιουργήστε ένα **hub** (ή χρησιμοποιήστε ένα υπάρχον). Δείτε: [Βασικοί πόροι hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. Μέσα στο hub, δημιουργήστε ένα **έργο**.
+4. Αναπτύξτε ένα μοντέλο (π.χ., `gpt-5-mini`) από **Models + Endpoints** → **Deploy model**.
 
-Αυτό μπορεί να γίνει πηγαίνοντας στις <a href="https://github.com/settings/personal-access-tokens" target="_blank">Ρυθμίσεις Προσωπικών Token Πρόσβασης</a> στον λογαριασμό GitHub σας.
+### Βήμα 2: Λήψη του Σημείου Τερματισμού Έργου και του Ονόματος Ανάπτυξης Μοντέλου
 
-Παρακαλώ ακολουθήστε την [Αρχή Ελαχιστοποίησης Δικαιωμάτων](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) όταν δημιουργείτε το token. Αυτό σημαίνει ότι θα πρέπει να δώσετε στο token μόνο τα δικαιώματα που χρειάζεται για να εκτελέσει τα δείγματα κώδικα σε αυτό το μάθημα.
+Από το έργο σας στην πύλη Microsoft Foundry:
 
-1. Επιλέξτε την επιλογή `Fine-grained tokens` στην αριστερή πλευρά της οθόνης σας πηγαίνοντας στις **Ρυθμίσεις προγραμματιστή**
+- **Project Endpoint** — Μεταβείτε στη σελίδα **Overview** και αντιγράψτε το URL του τελικού σημείου.
 
-   ![Ρυθμίσεις προγραμματιστή](../../../translated_images/el/profile_developer_settings.410a859fe749c755.webp)
+![Project Connection String](../../../translated_images/el/project-endpoint.8cf04c9975bbfbf1.webp)
 
-   Στη συνέχεια επιλέξτε `Generate new token`.
+- **Model Deployment Name** — Μεταβείτε σε **Models + Endpoints**, επιλέξτε το αναπτυγμένο μοντέλο σας, και σημειώστε το **Όνομα Ανάπτυξης** (π.χ., `gpt-5-mini`).
 
-   ![Generate Token](../../../translated_images/el/fga_new_token.1c1a234afe202ab3.webp)
+### Βήμα 3: Συνδεθείτε στο Azure με `az login`
 
-2. Εισάγετε ένα περιγραφικό όνομα για το token που αντικατοπτρίζει τον σκοπό του, ώστε να είναι εύκολο να το αναγνωρίσετε αργότερα.
+Τα περισσότερα notebooks αυθεντικοποιούνται μέσω της **Azure CLI σύνδεσης σας** — χρησιμοποιώντας `AzureCliCredential` ή `DefaultAzureCredential` (και τα δύο αντλούν τη συνεδρία `az login`) από το πακέτο `azure-identity` — οπότε δεν απαιτούνται API κλειδιά. Μερικά μαθήματα και προαιρετικές ενσωματώσεις χρησιμοποιούν API κλειδιά· ελέγξτε τις προϋποθέσεις κάθε μαθήματος για πρόσθετες μεταβλητές περιβάλλοντος. Αυτό απαιτεί να είστε συνδεδεμένοι μέσω της Azure CLI.
 
-    🔐 Σύσταση διάρκειας token
+1. **Εγκαταστήστε το Azure CLI** αν δεν το έχετε ήδη: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-    Συνιστώμενη διάρκεια: 30 ημέρες
-    Για μεγαλύτερη ασφάλεια, μπορείτε να επιλέξετε μικρότερη περίοδο—όπως 7 ημέρες 🛡️
-    Είναι ένας εξαιρετικός τρόπος να ορίσετε έναν προσωπικό στόχο και να ολοκληρώσετε το μάθημα ενώ η μαθησιακή σας δυναμική είναι υψηλή 🚀.
+2. **Συνδεθείτε** εκτελώντας:
 
-    ![Όνομα Token και Λήξη](../../../translated_images/el/token-name-expiry-date.a095fb0de6386864.webp)
+    ```bash
+    az login
+    ```
 
-3. Περιορίστε το πεδίο εφαρμογής του token στο fork αυτού του αποθετηρίου.
+    Ή αν βρίσκεστε σε απομακρυσμένο περιβάλλον/Codespace χωρίς πρόγραμμα περιήγησης:
 
-    ![Περιορίστε το πεδίο στο fork αποθετήριο](../../../translated_images/el/token_repository_limit.924ade5e11d9d8bb.webp)
+    ```bash
+    az login --use-device-code
+    ```
 
-4. Περιορίστε τα δικαιώματα του token: κάτω από τις **Permissions**, κάντε κλικ στην καρτέλα **Account**, και πατήστε το κουμπί "+ Add permissions". Θα εμφανιστεί ένα αναπτυσσόμενο μενού. Αναζητήστε το **Models** και τσεκάρετε το κουτάκι για αυτό.
+3. **Επιλέξτε τη συνδρομή σας** αν ζητηθεί — επιλέξτε αυτή που περιέχει το έργο Foundry σας.
 
-    ![Προσθήκη Δικαιώματος Models](../../../translated_images/el/add_models_permissions.c0c44ed8b40fc143.webp)
+4. **Επαληθεύστε** ότι είστε συνδεδεμένοι:
 
-5. Επαληθεύστε τα απαιτούμενα δικαιώματα πριν δημιουργήσετε το token. ![Επαλήθευση Δικαιωμάτων](../../../translated_images/el/verify_permissions.06bd9e43987a8b21.webp)
+    ```bash
+    az account show
+    ```
 
-6. Πριν δημιουργήσετε το token, βεβαιωθείτε ότι είστε έτοιμοι να αποθηκεύσετε το token σε ασφαλές μέρος, όπως θησαυροφυλάκιο διαχειριστή κωδικών (password manager), καθώς δεν θα εμφανιστεί ξανά μετά τη δημιουργία του. ![Αποθήκευση Token με Ασφάλεια](../../../translated_images/el/store_token_securely.08ee2274c6ad6caf.webp)
+> **Γιατί `az login`;** Τα notebooks αυθεντικοποιούνται χρησιμοποιώντας `AzureCliCredential` (ή `DefaultAzureCredential`, που επίσης αντλεί τη σύνδεση Azure CLI) από το πακέτο `azure-identity`. Αυτό σημαίνει ότι η συνεδρία Azure CLI παρέχει τα διαπιστευτήρια — δεν χρειάζονται API κλειδιά ή μυστικά στο αρχείο `.env`. Αυτή είναι μία [καλύτερη πρακτική ασφαλείας](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-Αντιγράψτε το νέο token που μόλις δημιουργήσατε. Τώρα θα το προσθέσετε στο αρχείο `.env` που περιλαμβάνεται σε αυτό το μάθημα.
+### Βήμα 4: Δημιουργήστε το αρχείο `.env` σας
 
-### Βήμα 2: Δημιουργία του αρχείου `.env` σας
-
-Για να δημιουργήσετε το αρχείο `.env`, εκτελέστε την ακόλουθη εντολή στο τερματικό σας.
-
-```bash
-# zsh/bash
-cp .env.example .env
-```
-
-```powershell
-# ΠάουερΣέλ
-Copy-Item .env.example .env
-```
-
-Αυτό θα αντιγράψει το αρχείο παραδείγματος και θα δημιουργήσει ένα `.env` στον κατάλογό σας όπου θα συμπληρώσετε τις τιμές για τις μεταβλητές περιβάλλοντος.
-
-Με το token αντιγραμμένο, ανοίξτε το αρχείο `.env` στον αγαπημένο σας επεξεργαστή κειμένου και επικολλήστε το token στο πεδίο `GITHUB_TOKEN`.
-
-![Πεδίο Token GitHub](../../../translated_images/el/github_token_field.20491ed3224b5f4a.webp)
-
-Τώρα θα πρέπει να μπορείτε να εκτελέσετε τα δείγματα κώδικα αυτού του μαθήματος.
-
-## Ρύθμιση για δείγματα που χρησιμοποιούν Microsoft Foundry και Azure AI Agent Service
-
-### Βήμα 1: Λήψη του Endpoint του έργου Azure σας
-
-
-Ακολουθήστε τα βήματα για τη δημιουργία hub και έργου στο Azure AI Foundry που βρίσκονται εδώ: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
-
-Αφού δημιουργήσετε το έργο σας, θα χρειαστεί να λάβετε τη συμβολοσειρά σύνδεσης (connection string) για το έργο σας.
-
-Αυτό μπορεί να γίνει πηγαίνοντας στη σελίδα **Overview** του έργου σας στο portal του Microsoft Foundry.
-
-![Συμβολοσειρά σύνδεσης έργου](../../../translated_images/el/project-endpoint.8cf04c9975bbfbf1.webp)
-
-### Βήμα 2: Δημιουργία του αρχείου `.env` σας
-
-Για να δημιουργήσετε το αρχείο `.env`, εκτελέστε την ακόλουθη εντολή στο τερματικό σας.
+Αντιγράψτε το αρχείο παραδείγματος:
 
 ```bash
 # zsh/bash
@@ -246,79 +205,222 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-Αυτό θα αντιγράψει το αρχείο παραδείγματος και θα δημιουργήσει ένα `.env` στον κατάλογό σας όπου θα συμπληρώσετε τις τιμές για τις μεταβλητές περιβάλλοντος.
+Ανοίξτε το `.env` και συμπληρώστε αυτές τις δύο τιμές:
 
-Με το token αντιγραμμένο, ανοίξτε το αρχείο `.env` στον αγαπημένο σας επεξεργαστή κειμένου και επικολλήστε το token στο πεδίο `PROJECT_ENDPOINT`.
-
-### Βήμα 3: Σύνδεση στο Azure
-
-Ως βέλτιστη πρακτική ασφαλείας, θα χρησιμοποιήσουμε [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) για να αυθεντικοποιηθούμε στο Azure OpenAI με Microsoft Entra ID. 
-
-Στη συνέχεια, ανοίξτε ένα τερματικό και εκτελέστε `az login --use-device-code` για να συνδεθείτε στον λογαριασμό Azure σας.
-
-Αφού συνδεθείτε, επιλέξτε τη συνδρομή σας στο τερματικό.
-
-## Επιπλέον μεταβλητές περιβάλλοντος - Azure Search και Azure OpenAI 
-
-Για το μάθημα Agentic RAG - Μάθημα 5 - υπάρχουν δείγματα που χρησιμοποιούν Azure Search και Azure OpenAI.
-
-Αν θέλετε να εκτελέσετε αυτά τα δείγματα, θα χρειαστεί να προσθέσετε τις ακόλουθες μεταβλητές περιβάλλοντος στο αρχείο `.env` σας:
-
-### Σελίδα επισκόπησης (Project)
-
-- `AZURE_SUBSCRIPTION_ID` - Check **Project details** on the **Overview** page of your project.
-
-- `AZURE_AI_PROJECT_NAME` - Look at the top of the **Overview** page for your project.
-
-- `AZURE_OPENAI_SERVICE` - Find this in the **Included capabilities** tab for **Azure OpenAI Service** on the **Overview** page.
-
-### Κέντρο Διαχείρισης
-
-- `AZURE_OPENAI_RESOURCE_GROUP` - Go to **Project properties** on the **Overview** page of the **Management Center**.
-
-- `GLOBAL_LLM_SERVICE` - Under **Connected resources**, find the **Azure AI Services** connection name. If not listed, check the **Azure portal** under your resource group for the AI Services resource name.
-
-### Models + Endpoints Page
-
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Select your embedding model (e.g., `text-embedding-ada-002`) and note the **Deployment name** from the model details.
-
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Select your chat model (e.g., `gpt-4o-mini`) and note the **Deployment name** from the model details.
-
-### Azure Portal
-
-- `AZURE_OPENAI_ENDPOINT` - Look for **Azure AI services**, click on it, then go to **Resource Management**, **Keys and Endpoint**, scroll down to the "Azure OpenAI endpoints", and copy the one that says "Language APIs".
-
-- `AZURE_OPENAI_API_KEY` - From the same screen, copy KEY 1 or KEY 2.
-
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Find your **Azure AI Search** resource, click it, and see **Overview**.
-
-- `AZURE_SEARCH_API_KEY` - Then go to **Settings** and then **Keys** to copy the primary or secondary admin key.
-
-### Εξωτερική ιστοσελίδα
-
-- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
-
-### Ρύθμιση αυθεντικοποίησης χωρίς κλειδί
-
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
-
-```python
-# Πάιθον
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-5-mini
 ```
 
-## Κολλήσατε κάπου;
-Αν έχετε οποιαδήποτε προβλήματα κατά την εκτέλεση αυτής της ρύθμισης, επισκεφθείτε το <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord της Κοινότητας Azure AI</a> ή <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">δημιουργήστε ένα θέμα</a>.
+| Μεταβλητή | Πού να την βρείτε |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Πύλη Foundry → το έργο σας → σελίδα **Overview** |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Πύλη Foundry → **Models + Endpoints** → όνομα του αναπτυγμένου μοντέλου |
+
+Αυτό είναι για τα περισσότερα μαθήματα! Τα notebooks θα αυθεντικοποιηθούν αυτόματα μέσω της συνεδρίας `az login`.
+
+### Βήμα 5: Εγκατάσταση Εξαρτήσεων Python
+
+```bash
+pip install -r requirements.txt
+```
+
+Συνιστούμε να τρέξετε αυτό μέσα στο εικονικό περιβάλλον που δημιουργήσατε νωρίτερα.
+
+## Προαιρετική Ρύθμιση: Azure AI Search (Μαθήματα 5 και 16)
+
+Τα notebooks του Μαθήματος 5 (Agentic RAG) και Μαθήματος 16 τρέχουν απ’ ευθείας με μία **εσωτερική βάση γνώσης στη μνήμη** — δεν απαιτούνται επιπλέον πόροι Azure. Αν θέλετε να τα υποστηρίξετε με έναν πραγματικό **δείκτη Azure AI Search**, σημειώστε ότι **το notebook του Μαθήματος 16 χρησιμοποιεί προς το παρόν αυθεντικοποίηση με κλειδί**: αλλάζει από την αναζήτηση στη μνήμη στην Azure AI Search μόνο όταν **και οι δύο** `AZURE_SEARCH_SERVICE_ENDPOINT` **και** `AZURE_SEARCH_API_KEY` είναι ορισμένες, αλλιώς παραμένει στην αναζήτηση στη μνήμη — οπότε για να το τρέξετε με πραγματικό δείκτη πρέπει να ορίσετε και το κλειδί διαχειριστή. Η αυθεντικοποίηση χωρίς κλειδιά με το Microsoft Entra ID (RBAC) είναι η συνιστώμενη προσέγγιση για τον δικό σας κώδικα παραγωγής, σύμφωνη με τη ροή `az login` που χρησιμοποιείται σε όλο το μάθημα.
+
+Τα βήματα RBAC παρακάτω ισχύουν για τα δείγματα οδηγού ρύθμισης και τον δικό σας κώδικα. Δεν ενεργοποιούν αυθεντικοποίηση χωρίς κλειδιά στο notebook του Μαθήματος 16· αυτό εξακολουθεί να απαιτεί τόσο το endpoint όσο και το κλειδί διαχειριστή για χρήση Azure AI Search.
+
+1. **Ενεργοποιήστε πρόσβαση βάσει ρόλων** στην υπηρεσία αναζήτησης σας:
+
+    ```bash
+    az search service update --name <service-name> --resource-group <resource-group> --auth-options aadOrApiKey
+    ```
+
+2. **Αναθέστε στον εαυτό σας τους απαιτούμενους ρόλους** (δημιουργία/φόρτωση δεικτών και ερώτημα):
+
+    ```bash
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Service Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    az role assignment create --assignee <your-user-or-principal-id> --role "Search Index Data Contributor" --scope $(az search service show -g <resource-group> -n <service-name> --query id -o tsv)
+    ```
+
+3. **Προσθέστε το endpoint** στο αρχείο `.env` σας:
+
+| Μεταβλητή | Πού να την βρείτε |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Πύλη Azure → ο πόρος σας **Azure AI Search** → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Απαραίτητο (μαζί με το endpoint) για ενεργοποίηση Azure AI Search στο notebook του Μαθήματος 16, που χρησιμοποιεί αυθεντικοποίηση με κλειδί. Πύλη Azure → **Settings** → **Keys** → πρωτεύον κλειδί διαχειριστή |
+
+> **Γιατί χωρίς κλειδιά;** Τα κλειδιά διαχειριστή παρέχουν πλήρη πρόσβαση εγγραφής στην υπηρεσία αναζήτησης και μπορούν να διαρρεύσουν μέσω αρχείων `.env`. Με RBAC, χρησιμοποιείται η ταυτότητα σύνδεσης `az login` — το ίδιο πρότυπο χωρίς κλειδιά Entra ID που χρησιμοποιούν τα notebooks του μαθήματος (μέσω `AzureCliCredential` / `DefaultAzureCredential`). Δείτε [Σύνδεση στο Azure AI Search χρησιμοποιώντας ρόλους](https://learn.microsoft.com/azure/search/search-security-rbac).
+
+Δείτε τον [οδηγό ρύθμισης Azure AI Search](./AzureSearch.md) για πλήρη δείγματα δημιουργίας δεικτών σε Python και .NET.
+
+## Επιπλέον Ρύθμιση για Μαθήματα που Καλούν απευθείας Azure OpenAI (Μαθήματα 6 και 8)
+
+Μερικά notebooks στα μαθήματα 6 και 8 καλούν το **Azure OpenAI** απευθείας (χρησιμοποιώντας το **Responses API**) αντί να περάσουν μέσω έργου Microsoft Foundry. Αυτά τα δείγματα χρησιμοποιούσαν προηγουμένως GitHub Models, που καταργήθηκε και δεν υποστηρίζει το Responses API. Προσθέστε αυτές τις μεταβλητές στο αρχείο `.env` σας:
+
+| Μεταβλητή | Πού να την βρείτε |
+|----------|-----------------|
+| `AZURE_OPENAI_ENDPOINT` | Πύλη Azure → πόρος σας **Azure OpenAI** → **Keys and Endpoint** → Endpoint (π.χ. `https://<your-resource>.openai.azure.com`) |
+| `AZURE_OPENAI_DEPLOYMENT` | Το όνομα του αναπτυγμένου μοντέλου σας (π.χ. `gpt-5-mini`) που υποστηρίζει το Responses API |
+| `AZURE_OPENAI_API_KEY` | Προαιρετικό — μόνο αν χρησιμοποιείτε αυθεντικοποίηση με κλειδί αντί για `az login` / Entra ID |
+
+> Το Responses API χρησιμοποιεί το σταθερό endpoint `/openai/v1/`, οπότε δεν απαιτείται `api-version`. Κάντε σύνδεση με `az login` για να χρησιμοποιήσετε αυθεντικοποίηση χωρίς κλειδιά Entra ID.
+
+## Εναλλακτικός Πάροχος: MiniMax (Συμβατό με OpenAI)
+
+[MiniMax](https://platform.minimaxi.com/) παρέχει μοντέλα με μεγάλο πλαίσιο συμφραζομένων (έως 204K tokens) μέσω συμβατού με OpenAI API. Επειδή το Microsoft Agent Framework's `OpenAIChatClient` λειτουργεί με οποιοδήποτε συμβατό με OpenAI endpoint, μπορείτε να χρησιμοποιήσετε το MiniMax ως λύση αντικατάστασης για μαθήματα που χρησιμοποιούν `OpenAIChatClient`.
+
+Προσθέστε αυτές τις μεταβλητές στο αρχείο `.env` σας:
+
+| Μεταβλητή | Πού να την βρείτε |
+|----------|-----------------|
+| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
+| `MINIMAX_BASE_URL` | Χρησιμοποιήστε `https://api.minimax.io/v1` (προεπιλεγμένη τιμή) |
+| `MINIMAX_MODEL_ID` | Το όνομα του μοντέλου για χρήση (π.χ., `MiniMax-M3`) |
+
+**Παραδείγματα μοντέλων**: `MiniMax-M3` (συνιστώμενο), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (ταχύτερες απαντήσεις). Τα ονόματα μοντέλων και η διαθεσιμότητα μπορεί να αλλάζουν με την πάροδο του χρόνου, και η πρόσβαση σε κάθε μοντέλο μπορεί να εξαρτάται από τον λογαριασμό σας.
+
+Τα δείγματα κώδικα που χρησιμοποιούν `OpenAIChatClient` (π.χ., λειτουργία κράτησης ξενοδοχείου του Μαθήματος 14) θα εντοπίσουν και θα χρησιμοποιήσουν αυτόματα τη διαμόρφωση MiniMax σας όταν το `MINIMAX_API_KEY` είναι ορισμένο.
+
+
+## Εναλλακτικός Πάροχος: Novita AI (Συμβατό με OpenAI)
+
+[Novita AI](https://novita.ai/llm-api) παρέχει ένα API συμβατό με OpenAI για ανοιχτού κώδικα και frontier LLMs (DeepSeek, Llama, Qwen, και άλλα). Εφόσον το `OpenAIChatClient` του Microsoft Agent Framework λειτουργεί με οποιοδήποτε endpoint συμβατό με OpenAI, μπορείτε να χρησιμοποιήσετε το Novita AI ως εναλλακτική λύση αντικατάστασης για το Azure OpenAI ή OpenAI.
+
+Προσθέστε αυτές τις μεταβλητές στο αρχείο `.env` σας:
+
+| Μεταβλητή | Πού να τη βρείτε |
+|----------|-----------------|
+| `NOVITA_API_KEY` | [Novita AI Dashboard](https://novita.ai/settings/key-management) → API Keys |
+| `NOVITA_BASE_URL` | Χρησιμοποιήστε `https://api.novita.ai/openai/v1` (προεπιλεγμένη τιμή) |
+| `NOVITA_MODEL_ID` | Όνομα μοντέλου προς χρήση (π.χ., `moonshotai/kimi-k3`) |
+
+**Παραδείγματα μοντέλων**: `moonshotai/kimi-k3`, `zai-org/glm-5.2`, `deepseek/deepseek-v4-flash-0731`. Το Novita AI φιλοξενεί επίσης πολλές άλλες οικογένειες ανοιχτού κώδικα μοντέλων (Llama, Qwen, GLM, και άλλα) — ελέγξτε τη [βιβλιοθήκη μοντέλων Novita AI](https://novita.ai/llm-api) για την τρέχουσα λίστα διαθέσιμων μοντέλων και τα IDs τους.
+
+Τα τρέχοντα δείγματα δεν καταναλώνουν αυτόματα τις μεταβλητές `NOVITA_*`. Για να χρησιμοποιήσετε το Novita AI, περάστε αυτές τις τιμές ρητά κατά την κατασκευή του `OpenAIChatClient` στο δείγμα που τρέχετε.
+
+## Εναλλακτικός Πάροχος: Foundry Local (Εκτέλεση Μοντέλων στη Συσκευή)
+
+[Foundry Local](https://foundrylocal.ai) είναι ένα ελαφρύ runtime που κατεβάζει, διαχειρίζεται και εξυπηρετεί γλωσσικά μοντέλα **εντελώς στο δικό σας μηχάνημα** μέσω ενός API συμβατού με OpenAI — χωρίς σύννεφο.
+
+Εφόσον το `OpenAIChatClient` του Microsoft Agent Framework λειτουργεί με οποιοδήποτε endpoint συμβατό με OpenAI, το Foundry Local είναι μια τοπική εναλλακτική λύση αντικατάστασης για το Azure OpenAI.
+
+**1. Εγκαταστήστε το Foundry Local**
+
+```bash
+# Windows
+winget install Microsoft.FoundryLocal
+
+# macOS
+brew install foundrylocal
+```
+
+**2. Κατεβάστε και τρέξτε ένα μοντέλο** (αυτό ξεκινάει επίσης την τοπική υπηρεσία):
+
+```bash
+foundry model list          # δείτε διαθέσιμα μοντέλα
+foundry model run phi-4-mini
+```
+
+**3. Εγκαταστήστε το Python SDK** που χρησιμοποιείται για την ανακάλυψη τοπικού endpoint:
+
+```bash
+pip install foundry-local-sdk
+```
+
+**4. Κατευθύνετε το Microsoft Agent Framework στο τοπικό σας μοντέλο:**
+
+```python
+from foundry_local import FoundryLocalManager
+from agent_framework.openai import OpenAIChatClient
+
+# Κατεβάζει (αν χρειάζεται) και εξυπηρετεί το μοντέλο τοπικά, στη συνέχεια εντοπίζει το endpoint/port.
+manager = FoundryLocalManager("phi-4-mini")
+
+chat_client = OpenAIChatClient(
+    base_url=manager.endpoint,      # π.χ. http://localhost:<port>/v1
+    api_key=manager.api_key,        # πάντα "not-required" για Foundry Local
+    model_id=manager.get_model_info("phi-4-mini").id,
+)
+
+agent = chat_client.as_agent(
+    name="LocalAgent",
+    instructions="You are a helpful assistant running fully on-device.",
+)
+```
+
+> **Σημείωση:** Το Foundry Local εκθέτει ένα συμβατό με OpenAI endpoint **Chat Completions**. Χρησιμοποιήστε το για τοπική ανάπτυξη και σενάρια εκτός σύνδεσης. Για το πλήρες σύνολο λειτουργιών του **Responses API** (καταστάσεις συνομιλιών, κλπ.), χρησιμοποιήστε Azure OpenAI ή ένα έργο Microsoft Foundry.
+
+## Πρόσθετη Ρύθμιση για το Μάθημα 8 (Workflow Bing Grounding)
+
+Το notebook workflow υπό όρους στο μάθημα 8 χρησιμοποιεί **Bing grounding** μέσω Microsoft Foundry. Αν σκοπεύετε να τρέξετε αυτό το δείγμα, προσθέστε αυτή τη μεταβλητή στο αρχείο `.env` σας:
+
+| Μεταβλητή | Πού να τη βρείτε |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Πύλη Microsoft Foundry → το έργο σας → **Management** → **Connected resources** → σύνδεση Bing σας → αντιγράψτε το connection ID |
+
+## Επίλυση Προβλημάτων
+
+### Σφάλματα Επαλήθευσης Πιστοποιητικού SSL σε macOS
+
+Αν είστε σε macOS και συναντήσετε ένα σφάλμα όπως:
+
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
+
+Αυτό είναι ένα γνωστό ζήτημα με το Python σε macOS όπου τα συστήματα πιστοποιητικά SSL δεν εμπιστεύονται αυτόματα. Δοκιμάστε τις ακόλουθες λύσεις με τη σειρά:
+
+**Επιλογή 1: Εκτελέστε το script Install Certificates του Python (συνιστάται)**
+
+```bash
+# Αντικαταστήστε το 3.XX με την εγκατεστημένη έκδοση Python σας (π.χ., 3.12 ή 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
+```
+
+**Επιλογή 2: Χρήση `connection_verify=False` στο notebook σας (μόνο για notebooks GitHub Models)**
+
+Στο notebook του Μαθήματος 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), υπάρχει ήδη μια σχολιασμένη προσωρινή λύση. Αποσχολιάστε το `connection_verify=False` όταν συναντήσετε σφάλματα πιστοποιητικών:
+
+```python
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # Απενεργοποιήστε την επαλήθευση SSL αν συναντήσετε σφάλματα πιστοποιητικού
+)
+```
+
+> **⚠️ Προειδοποίηση:** Η απενεργοποίηση της επαλήθευσης SSL (`connection_verify=False`) μειώνει την ασφάλεια παρακάμπτοντας την επικύρωση πιστοποιητικών. Χρησιμοποιήστε το μόνο ως προσωρινή λύση σε αναπτυξιακά περιβάλλοντα. Μην το χρησιμοποιείτε ποτέ στην παραγωγή.
+
+**Επιλογή 3: Εγκαταστήστε και χρησιμοποιήστε το `truststore`**
+
+```bash
+pip install truststore
+```
+
+Στη συνέχεια προσθέστε το παρακάτω στην αρχή του notebook ή του script σας πριν κάνετε οποιαδήποτε κλήση δικτύου:
+
+```python
+import truststore
+truststore.inject_into_ssl()
+```
+
+## Κολλήσατε Κάπου;
+
+Αν έχετε οποιοδήποτε πρόβλημα με αυτή τη ρύθμιση, μπείτε στο <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> ή <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">δημιουργήστε ένα issue</a>.
 
 ## Επόμενο Μάθημα
 
-Τώρα είστε έτοιμοι να εκτελέσετε τον κώδικα για αυτό το μάθημα. Καλή συνέχεια στην εκμάθηση περισσότερων για τον κόσμο των πρακτόρων τεχνητής νοημοσύνης! 
+Είστε τώρα έτοιμοι να τρέξετε τον κώδικα για αυτό το μάθημα. Καλή εκμάθηση περισσότερων για τον κόσμο των AI Agents! 
 
-[Εισαγωγή στους Πράκτορες Τεχνητής Νοημοσύνης και Περιπτώσεις Χρήσης](../01-intro-to-ai-agents/README.md)
+[Εισαγωγή στους AI Agents και Περιπτώσεις Χρήσης](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Αποποίηση ευθυνών:
-Αυτό το έγγραφο έχει μεταφραστεί με χρήση υπηρεσίας αυτόματης μετάφρασης με τεχνητή νοημοσύνη Co-op Translator (https://github.com/Azure/co-op-translator). Παρότι επιδιώκουμε την ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτοματοποιημένες μεταφράσεις ενδέχεται να περιέχουν σφάλματα ή ανακρίβειες. Το πρωτότυπο έγγραφο στη γλώσσα του πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
+**Αποποίηση ευθυνών**:
+Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία μετάφρασης με τεχνητή νοημοσύνη [Co-op Translator](https://github.com/Azure/co-op-translator). Ενώ επιδιώκουμε την ακρίβεια, παρακαλούμε να έχετε υπόψη ότι οι αυτοματοποιημένες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

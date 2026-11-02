@@ -1,148 +1,151 @@
-# 🎨 Mẫu Thiết Kế Tác Nhân với GitHub Models (.NET)
+# 🎨 Mẫu Thiết Kế Agentic với Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Mục Tiêu Học Tập
 
-Ví dụ này trình bày các mẫu thiết kế cấp doanh nghiệp để xây dựng các tác nhân thông minh sử dụng Microsoft Agent Framework trong .NET với tích hợp GitHub Models. Bạn sẽ học các mẫu chuyên nghiệp và cách tiếp cận kiến trúc giúp các tác nhân sẵn sàng cho sản xuất, dễ bảo trì và có khả năng mở rộng.
+Ví dụ này trình bày các mẫu thiết kế cấp doanh nghiệp để xây dựng các agent thông minh sử dụng Microsoft Agent Framework trong .NET với tích hợp Azure OpenAI (Responses API). Bạn sẽ học các mẫu chuyên nghiệp và cách tiếp cận kiến trúc giúp agent sẵn sàng cho sản xuất, dễ bảo trì và mở rộng.
 
-### Mẫu Thiết Kế Doanh Nghiệp
+### Mẫu Thiết Kế Cấp Doanh Nghiệp
 
-- 🏭 **Factory Pattern**: Tạo tác nhân chuẩn hóa với dependency injection
-- 🔧 **Builder Pattern**: Cấu hình và thiết lập tác nhân một cách linh hoạt
-- 🧵 **Thread-Safe Patterns**: Quản lý hội thoại đồng thời
-- 📋 **Repository Pattern**: Quản lý công cụ và khả năng một cách có tổ chức
+- 🏭 **Mẫu Factory**: Tạo agent chuẩn hóa với dependency injection
+- 🔧 **Mẫu Builder**: Cấu hình và thiết lập agent theo phong cách fluent
+- 🧵 **Mẫu An Toàn Luồng**: Quản lý hội thoại đồng thời
+- 📋 **Mẫu Repository**: Quản lý công cụ và khả năng một cách tổ chức
 
-## 🎯 Lợi Ích Kiến Trúc Đặc Thù của .NET
+## 🎯 Lợi Ích Kiến Trúc Đặc Thù cho .NET
 
-### Tính Năng Doanh Nghiệp
+### Tính Năng Cấp Doanh Nghiệp
 
-- **Strong Typing**: Xác thực tại thời điểm biên dịch và hỗ trợ IntelliSense
-- **Dependency Injection**: Tích hợp container DI sẵn có
-- **Quản Lý Cấu Hình**: Các mẫu IConfiguration và Options
+- **Kiểu Mạnh**: Kiểm tra tại thời điểm biên dịch và hỗ trợ IntelliSense
+- **Dependency Injection**: Tích hợp container DI có sẵn
+- **Quản lý Cấu hình**: Các mẫu IConfiguration và Options
 - **Async/Await**: Hỗ trợ lập trình bất đồng bộ hàng đầu
 
 ### Mẫu Sẵn Sàng Cho Sản Xuất
 
-- **Tích Hợp Logging**: Hỗ trợ ILogger và logging có cấu trúc
-- **Kiểm Tra Sức Khỏe**: Giám sát và chẩn đoán tích hợp
-- **Xác Thực Cấu Hình**: Kiểu mạnh với chú thích dữ liệu
-- **Xử Lý Lỗi**: Quản lý ngoại lệ có cấu trúc
+- **Tích hợp Ghi nhật ký**: Hỗ trợ ILogger và ghi nhật ký cấu trúc
+- **Kiểm tra Sức khỏe**: Giám sát và chẩn đoán tích hợp
+- **Xác thực Cấu hình**: Kiểu mạnh với chú thích dữ liệu
+- **Xử lý Lỗi**: Quản lý ngoại lệ có cấu trúc
 
 ## 🔧 Kiến Trúc Kỹ Thuật
 
-### Thành Phần Cốt Lõi của .NET
+### Các Thành Phần .NET Cốt Lõi
 
-- **Microsoft.Extensions.AI**: Các trừu tượng dịch vụ AI thống nhất
-- **Microsoft.Agents.AI**: Framework điều phối tác nhân cấp doanh nghiệp
-- **Tích Hợp GitHub Models**: Các mẫu client API hiệu suất cao
-- **Hệ Thống Cấu Hình**: Tích hợp appsettings.json và môi trường
+- **Microsoft.Extensions.AI**: Trừu tượng dịch vụ AI hợp nhất
+- **Microsoft.Agents.AI**: Khung điều phối agent cấp doanh nghiệp
+- **Azure OpenAI (Responses API)**: Mẫu client API hiệu suất cao
+- **Hệ thống Cấu hình**: Tích hợp appsettings.json và môi trường
 
-### Triển Khai Mẫu Thiết Kế
+### Triển khai Mẫu Thiết Kế
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Trình tạo đại lý]
+    B --> C[Cấu hình]
+    C --> D[Đăng ký công cụ]
+    D --> E[Đại lý AI]
 ```
 
-## 🏗️ Các Mẫu Doanh Nghiệp Được Minh Họa
+## 🏗️ Các Mẫu Doanh Nghiệp Đã Thể Hiện
 
-### 1. **Mẫu Tạo**
+### 1. **Mẫu Tạo Dựng**
 
-- **Agent Factory**: Tạo tác nhân tập trung với cấu hình nhất quán
-- **Builder Pattern**: API linh hoạt cho cấu hình tác nhân phức tạp
-- **Singleton Pattern**: Quản lý tài nguyên và cấu hình chia sẻ
-- **Dependency Injection**: Giảm sự phụ thuộc và tăng khả năng kiểm thử
+- **Agent Factory**: Tạo agent tập trung với cấu hình nhất quán
+- **Mẫu Builder**: API fluent cho cấu hình agent phức tạp
+- **Mẫu Singleton**: Chia sẻ tài nguyên và quản lý cấu hình
+- **Dependency Injection**: Kết nối lỏng lẻo và khả năng kiểm thử
 
 ### 2. **Mẫu Hành Vi**
 
-- **Strategy Pattern**: Các chiến lược thực thi công cụ có thể thay đổi
-- **Command Pattern**: Các thao tác tác nhân được đóng gói với undo/redo
-- **Observer Pattern**: Quản lý vòng đời tác nhân dựa trên sự kiện
-- **Template Method**: Quy trình thực thi tác nhân chuẩn hóa
+- **Mẫu Chiến Lược**: Chiến lược thi hành công cụ có thể thay thế
+- **Mẫu Command**: Các thao tác agent đóng gói với hoàn tác/làm lại
+- **Mẫu Observer**: Quản lý vòng đời agent dựa theo sự kiện
+- **Mẫu Template Method**: Quy trình thực thi agent tiêu chuẩn hóa
 
 ### 3. **Mẫu Cấu Trúc**
 
-- **Adapter Pattern**: Lớp tích hợp API GitHub Models
-- **Decorator Pattern**: Nâng cao khả năng của tác nhân
-- **Facade Pattern**: Giao diện tương tác tác nhân đơn giản hóa
-- **Proxy Pattern**: Tải chậm và caching để cải thiện hiệu suất
+- **Mẫu Adapter**: Lớp tích hợp Azure OpenAI (Responses API)
+- **Mẫu Decorator**: Nâng cao khả năng agent
+- **Mẫu Facade**: Giao diện tương tác agent đơn giản hóa
+- **Mẫu Proxy**: Tải lười và bộ nhớ đệm tăng hiệu năng
 
 ## 📚 Nguyên Tắc Thiết Kế .NET
 
 ### Nguyên Tắc SOLID
 
-- **Single Responsibility**: Mỗi thành phần có một mục đích rõ ràng
-- **Open/Closed**: Có thể mở rộng mà không cần sửa đổi
-- **Liskov Substitution**: Triển khai công cụ dựa trên giao diện
-- **Interface Segregation**: Giao diện tập trung, mạch lạc
-- **Dependency Inversion**: Phụ thuộc vào trừu tượng, không phải cụ thể
+- **Đơn trách nhiệm**: Mỗi thành phần có một mục đích rõ ràng
+- **Mở/Đóng**: Mở rộng mà không sửa đổi
+- **Thay thế Liskov**: Triển khai công cụ dựa trên giao diện
+- **Phân tách Giao diện**: Giao diện tập trung, liên kết chặt
+- **Đảo ngược Phụ thuộc**: Phụ thuộc vào các trừu tượng, không phải phần cụ thể
 
 ### Kiến Trúc Sạch
 
-- **Domain Layer**: Các trừu tượng tác nhân và công cụ cốt lõi
-- **Application Layer**: Điều phối tác nhân và quy trình làm việc
-- **Infrastructure Layer**: Tích hợp GitHub Models và các dịch vụ bên ngoài
-- **Presentation Layer**: Tương tác người dùng và định dạng phản hồi
+- **Lớp Domain**: Trừu tượng cốt lõi cho agent và công cụ
+- **Lớp Ứng dụng**: Điều phối agent và luồng công việc
+- **Lớp Hạ tầng**: Tích hợp Azure OpenAI (Responses API) và dịch vụ ngoài
+- **Lớp Trình bày**: Tương tác người dùng và định dạng phản hồi
 
-## 🔒 Các Cân Nhắc Doanh Nghiệp
+## 🔒 Các Lưu Ý Cấp Doanh Nghiệp
 
 ### Bảo Mật
 
-- **Quản Lý Thông Tin Đăng Nhập**: Xử lý khóa API an toàn với IConfiguration
-- **Xác Thực Đầu Vào**: Kiểu mạnh và xác thực chú thích dữ liệu
-- **Lọc Đầu Ra**: Xử lý và lọc phản hồi an toàn
-- **Audit Logging**: Theo dõi hoạt động toàn diện
+- **Quản lý Thông tin đăng nhập**: Xử lý khóa API an toàn với IConfiguration
+- **Xác thực Đầu vào**: Kiểu mạnh và xác thực chú thích dữ liệu
+- **Làm sạch Đầu ra**: Xử lý và lọc phản hồi an toàn
+- **Ghi nhật ký Kiểm toán**: Theo dõi hoạt động toàn diện
 
-### Hiệu Suất
+### Hiệu Năng
 
-- **Mẫu Async**: Các thao tác I/O không chặn
-- **Connection Pooling**: Quản lý client HTTP hiệu quả
-- **Caching**: Caching phản hồi để cải thiện hiệu suất
-- **Quản Lý Tài Nguyên**: Các mẫu xử lý và dọn dẹp đúng cách
+- **Mẫu Async**: Thao tác I/O không chặn
+- **Pooling Kết nối**: Quản lý client HTTP hiệu quả
+- **Bộ nhớ đệm**: Bộ nhớ đệm phản hồi cải thiện hiệu năng
+- **Quản lý Tài nguyên**: Mẫu hủy và dọn dẹp đúng cách
 
 ### Khả Năng Mở Rộng
 
-- **Thread Safety**: Hỗ trợ thực thi tác nhân đồng thời
-- **Resource Pooling**: Sử dụng tài nguyên hiệu quả
-- **Quản Lý Tải**: Giới hạn tốc độ và xử lý áp lực ngược
-- **Giám Sát**: Các chỉ số hiệu suất và kiểm tra sức khỏe
+- **An toàn Luồng**: Hỗ trợ thực thi agent đồng thời
+- **Pooling Tài nguyên**: Sử dụng tài nguyên hiệu quả
+- **Quản lý Tải**: Giới hạn tần suất và xử lý áp lực ngược
+- **Giám sát**: Chỉ số hiệu năng và kiểm tra sức khỏe
 
 ## 🚀 Triển Khai Sản Xuất
 
-- **Quản Lý Cấu Hình**: Cài đặt cụ thể theo môi trường
-- **Chiến Lược Logging**: Logging có cấu trúc với ID tương quan
-- **Xử Lý Lỗi**: Xử lý ngoại lệ toàn cầu với khôi phục phù hợp
-- **Giám Sát**: Application insights và bộ đếm hiệu suất
-- **Kiểm Thử**: Các mẫu kiểm thử đơn vị, kiểm thử tích hợp và kiểm thử tải
+- **Quản lý Cấu hình**: Cài đặt theo môi trường cụ thể
+- **Chiến lược Ghi nhật ký**: Ghi nhật ký cấu trúc với ID tương quan
+- **Xử lý Lỗi**: Quản lý ngoại lệ toàn cục với khôi phục thích hợp
+- **Giám sát**: Application insights và bộ đếm hiệu năng
+- **Kiểm thử**: Mẫu kiểm thử đơn vị, tích hợp và tải
 
-Sẵn sàng xây dựng các tác nhân thông minh cấp doanh nghiệp với .NET? Hãy cùng kiến trúc một thứ gì đó mạnh mẽ! 🏢✨
+Sẵn sàng xây dựng các agent thông minh cấp doanh nghiệp với .NET? Hãy cùng kiến trúc một giải pháp vững chắc! 🏢✨
 
 ## 🚀 Bắt Đầu
 
-### Yêu Cầu Trước
+### Yêu Cầu Tiền Đề
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) hoặc cao hơn
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) hoặc phiên bản cao hơn
+- Một [đăng ký Azure](https://azure.microsoft.com/free/) với tài nguyên Azure OpenAI và triển khai mô hình
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — đăng nhập bằng `az login`
 
-### Các Biến Môi Trường Cần Thiết
+### Biến Môi Trường Yêu Cầu
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Sau đó đăng nhập để AzureCliCredential có thể lấy token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Sau đó đăng nhập để AzureCliCredential có thể lấy token
+az login
 ```
 
-### Mã Mẫu
+### Mẫu Mã
 
 Để chạy ví dụ mã,
 
@@ -165,14 +168,16 @@ Xem [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

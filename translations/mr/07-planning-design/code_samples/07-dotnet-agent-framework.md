@@ -1,43 +1,46 @@
-# 🎯 GitHub मॉडेल्स (.NET) सह नियोजन आणि डिझाइन पॅटर्न
+# 🎯 Azure OpenAI (Responses API) सह नियोजन आणि डिझाइन पॅटर्न (.NET)
 
-## 📋 शिकण्याची उद्दिष्टे
+## 📋 शिकण्याचे उद्दिष्टे
 
-हे नोटबुक Microsoft Agent Framework वापरून GitHub मॉडेल्ससह बुद्धिमान एजंट तयार करण्यासाठी एंटरप्राइझ-ग्रेड नियोजन आणि डिझाइन पॅटर्न प्रदर्शित करते. तुम्ही जटिल समस्या विघटित करणारे, बहु-चरणीय उपाय योजना करणारे आणि .NET च्या एंटरप्राइझ वैशिष्ट्यांसह प्रगत कार्यप्रवाह अंमलात आणणारे एजंट तयार करणे शिकाल.
+हा नोटबुक Microsoft Agent Framework सह .NET मध्ये Azure OpenAI (Responses API) वापरून बुद्धिमान एजंट तयार करण्यासाठी एंटरप्राइझ-ग्रेड नियोजन आणि डिझाइन पॅटर्न दाखवतो. तुम्ही जटिल समस्या विघटित करू शकणारे, अनेक टप्प्यांच्या उपाययोजना आखू शकणारे, आणि .NET च्या एंटरप्राइझ वैशिष्ट्यांसह प्रगत कार्यप्रवाह पार पडणारे एजंट कसे तयार करायचे ते शिकाल.
 
-## ⚙️ पूर्वअट आणि सेटअप
+## ⚙️ आवश्यक तयारी आणि सेटअप
 
-**विकासाचे वातावरण:**
+**विकास पर्यावरण:**
 - .NET 9.0 SDK किंवा त्याहून अधिक
-- Visual Studio 2022 किंवा VS Code C# विस्तारासह
-- GitHub Models API प्रवेश
+- Visual Studio 2022 किंवा C# विस्तारासह VS Code
+- Azure OpenAI स्रोत आणि मॉडेल डिप्लॉयमेंटसह Azure सदस्यता
+- Azure CLI — `az login` सह साइन इन करा
 
-**आवश्यक अवलंबित्व:**
+**आवश्यक अवलंबित्वे:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **पर्यावरण कॉन्फिगरेशन (.env फाइल):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## कोड चालवणे
+## कोड चालविणे
 
-या धड्यात .NET सिंगल फाइल अॅप अंमलबजावणी समाविष्ट आहे. ते चालवण्यासाठी:
+या धड्यात .NET सिंगल फाइल अॅप अंमलबजावणी समाविष्ट आहे. ते चालविण्यासाठी:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# फाइल executable करा (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# ऍप्लिकेशन चालवा
 ./07-dotnet-agent-framework.cs
 ```
 
-किंवा dotnet run कमांड वापरा:
+किंवा dotnet run आदेश वापरा:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -45,19 +48,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## कोड अंमलबजावणी
 
-पूर्ण अंमलबजावणी `07-dotnet-agent-framework.cs` मध्ये उपलब्ध आहे, जी खालील गोष्टी प्रदर्शित करते:
+संपूर्ण अंमलबजावणी `07-dotnet-agent-framework.cs` मध्ये उपलब्ध आहे, जे दाखवते:
 
-- DotNetEnv वापरून पर्यावरण कॉन्फिगरेशन लोड करणे
-- GitHub मॉडेल्ससाठी OpenAI क्लायंट कॉन्फिगर करणे
-- JSON सिरियलायझेशनसह संरचित डेटा मॉडेल्स (Plan आणि TravelPlan) परिभाषित करणे
-- JSON स्कीमाचा वापर करून संरचित आउटपुटसह AI एजंट तयार करणे
-- टाइप-सुरक्षित प्रतिसादांसह नियोजन विनंत्या अंमलात आणणे
+- DotNetEnv सह पर्यावरण कॉन्फिगरेशन लोड करणे
+- Azure OpenAI क्लायंट कॉन्फिगर करणे आणि `GetChatClient().AsAIAgent()` वापरून AI एजंट तयार करणे
+- JSON serialization सह संरचित डेटा मॉडेल्स (Plan आणि TravelPlan) परिभाषित करणे
+- JSON स्कीमा वापरून संरचित आउटपुटसह AI एजंट तयार करणे
+- प्रकार-सुरक्षित प्रतिसादांसह नियोजन विनंत्या पार पाडणे
 
 ## मुख्य संकल्पना
 
-### टाइप-सुरक्षित मॉडेल्ससह संरचित नियोजन
+### प्रकार-सुरक्षित मॉडेल्ससह संरचित नियोजन
 
-एजंट नियोजन आउटपुटची रचना परिभाषित करण्यासाठी C# वर्गांचा वापर करतो:
+एजंट नियोजन आउटपुट्सचा स्ट्रक्चर परिभाषित करण्यासाठी C# क्लासेस वापरतो:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### संरचित आउटपुटसाठी JSON स्कीमा
 
-एजंट TravelPlan स्कीमाशी जुळणारे प्रतिसाद परत करण्यासाठी कॉन्फिगर केलेला आहे:
+एजंट TravelPlan स्कीमाशी सुसंगत उत्तर देण्यासाठी कॉन्फिगर केला गेला आहे:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### नियोजन एजंट सूचना
+### नियोजन एजंट निर्देश
 
-एजंट समन्वयक म्हणून कार्य करतो, विशेष उप-एजंट्सना कार्ये सोपवतो:
+एजंट एक समन्वयक म्हणून कार्य करतो, खासगी उप-एजंट्सना कार्य सौपतो:
 
-- FlightBooking: फ्लाइट बुकिंग आणि फ्लाइट माहिती प्रदान करण्यासाठी
-- HotelBooking: हॉटेल बुकिंग आणि हॉटेल माहिती प्रदान करण्यासाठी
-- CarRental: कार भाड्याने घेणे आणि कार भाड्याने घेण्याची माहिती प्रदान करण्यासाठी
-- ActivitiesBooking: उपक्रम बुकिंग आणि उपक्रम माहिती प्रदान करण्यासाठी
-- DestinationInfo: गंतव्यस्थानांबद्दल माहिती प्रदान करण्यासाठी
-- DefaultAgent: सामान्य विनंत्यांसाठी हाताळण्यासाठी
+- FlightBooking: फ्लाइट बुकिंगसाठी आणि फ्लाइट माहिती पुरवण्यासाठी
+- HotelBooking: हॉटेल बुकिंगसाठी आणि हॉटेल माहिती पुरवण्यासाठी
+- CarRental: कार भाड्याने देण्यासाठी आणि कार भाडे माहिती पुरवण्यासाठी
+- ActivitiesBooking: क्रियाकलाप बुकिंगसाठी आणि क्रियाकलाप माहिती पुरवण्यासाठी
+- DestinationInfo: ठिकाणांची माहिती पुरवण्यासाठी
+- DefaultAgent: सर्वसाधारण विनंत्यांना हाताळण्यासाठी
 
 ## अपेक्षित आउटपुट
 
-जेव्हा तुम्ही प्रवास नियोजन विनंतीसह एजंट चालवता, तेव्हा तो विनंतीचे विश्लेषण करेल आणि TravelPlan स्कीमाशी जुळणाऱ्या JSON स्वरूपात संरचित योजना तयार करेल, ज्यामध्ये विशेष एजंट्सना योग्य कार्ये सोपवली जातील.
+जेव्हा तुम्ही प्रवास नियोजन विनंती सह एजंट चालवाल, तेव्हा तो विनंतीचे विश्लेषण करून योग्य कार्यांची विशेष एजंट्सना नेमणूक करणारा संरचित योजना तयार करेल, जी TravelPlan स्कीमाशी सुसंगत JSON स्वरूपात असेल.
 
 ---
 
-**अस्वीकरण**:  
-हा दस्तऐवज AI भाषांतर सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) वापरून भाषांतरित करण्यात आला आहे. आम्ही अचूकतेसाठी प्रयत्नशील असलो तरी, कृपया लक्षात ठेवा की स्वयंचलित भाषांतरे त्रुटी किंवा अचूकतेच्या अभावाने युक्त असू शकतात. मूळ भाषेतील दस्तऐवज हा अधिकृत स्रोत मानला जावा. महत्त्वाच्या माहितीसाठी व्यावसायिक मानवी भाषांतराची शिफारस केली जाते. या भाषांतराचा वापर करून उद्भवलेल्या कोणत्याही गैरसमज किंवा चुकीच्या अर्थासाठी आम्ही जबाबदार राहणार नाही.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**अस्वीकरण**:
+हा दस्तऐवज AI भाषांतर सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) चा वापर करून अनुवादित केला आहे. जरी आम्ही अचूकतेसाठी प्रयत्न करतो, तरी कृपया लक्षात घ्या की स्वयंचलित भाषांतरांमध्ये त्रुटी किंवा अचूकतेची कमतरता असू शकते. मूळ दस्तऐवज त्याच्या मूळ भाषेत अधिकृत स्रोत मानला पाहिजे. महत्त्वाची माहिती असल्यास, व्यावसायिक मानवी भाषांतराची शिफारस केली जाते. या भाषांतराच्या वापरामुळे उद्भवणाऱ्या कोणत्याही गैरसमज किंवा चुकीच्या अर्थलावणीसाठी आम्ही जबाबदार नाही.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

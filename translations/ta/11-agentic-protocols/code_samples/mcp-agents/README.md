@@ -1,210 +1,210 @@
-# MCP மூலம் முகவர்-முகவர் தொடர்பு அமைப்புகளை உருவாக்குதல்
+# MCP இயக்கியில் முகவர்-முகவர் தொடர்பு அமைப்புகளை கட்டமைத்தல்
 
-> TL;DR - MCP-ல் Agent2Agent தொடர்பு அமைக்க முடியுமா? முடியும்!
+> சுருக்கம் - நீங்கள் MCP இல் முகவர்2முகவர் தொடர்பை கட்டியமைக்க முடியுமா? ஆம்!
 
-MCP அதன் ஆரம்ப நோக்கமான "LLMs-க்கு சூழலை வழங்குதல்" என்பதைக் கடந்துவிட்டது. சமீபத்திய மேம்பாடுகள், [resumable streams](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), மற்றும் அறிவிப்புகள் ([progress](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) மற்றும் [resources](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) ஆகியவற்றுடன் MCP இப்போது சிக்கலான முகவர்-முகவர் தொடர்பு அமைப்புகளை உருவாக்குவதற்கான வலுவான அடித்தளத்தை வழங்குகிறது.
+MCP தனது ஆரம்ப நோக்கமான "LLM களைச் சூழலில் வழங்குதல்" என்பதை மீறி பெரியதாக வளர்ந்துள்ளது. சமீபத்திய மேம்பாடுகளில் [மீண்டும் தொடக்கக்கூடிய ஸ்ட்ரீம்கள்](https://modelcontextprotocol.io/docs/concepts/transports#resumability-and-redelivery), [அழைப்பு](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), [மாதிரிப்பெற்று](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling), மற்றும் அறிவிப்புகள் ([முன்னேற்றம்](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress) மற்றும் [வளங்கள்](https://modelcontextprotocol.io/specification/2025-06-18/schema#resourceupdatednotification)) ஆகியவையும் அடங்கியுள்ளன. இவை கலந்த MCP இல் சிக்கலான முகவர்-முகவர் தொடர்பு அமைப்புகளை உருவாக்க ஒரு வலுவான அடித்தளத்தை வழங்குகின்றன.
 
-## முகவர்/கருவி குறைபாடு
+## முகவர்/கருவி தவறான புரிதல்
 
-முகவர் செயல்பாடுகளுடன் கருவிகளை (நீண்ட நேரம் இயங்குதல், செயல்பாட்டின் நடுவில் கூடுதல் உள்ளீடு தேவைப்படுதல் போன்றவை) ஆராயும் மேம்பாட்டாளர்கள் அதிகரித்துள்ளதால், MCP எளிய கோரிக்கை-பதில் முறைமைகளில் கவனம் செலுத்தியதால் இது பொருத்தமற்றது என்ற தவறான கருத்து உருவாகியுள்ளது.
+முகவர் பண்புகளுடன் கூடிய கருவிகளை (நீண்ட காலம் இயங்கும், நடுவில் கூடுதல் உள்ளீடுகள் தேவைப்படலாம் என்ற பாணியில்) ஆராய developers அதிகமாக உள்ளதால், ஒரு பொதுவான தவறான புரிதல் என்னவென்றால், MCP தொலைபேசி நிரல் முன்மாதிரிகள் சாத்தியமான கேட்கை-பதிவுக்கு மட்டும் செறித்திருந்ததால் MCP பொருத்தமில்லையென்று நினைக்கப்படுகிறார்கள்.
 
-இந்த பார்வை பழமையானது. MCP விவரக்குறிப்பு கடந்த சில மாதங்களில் நீண்ட நேரம் இயங்கும் முகவர் செயல்பாடுகளை உருவாக்குவதற்கான இடைவெளியை மூடுவதற்கான திறன்களுடன் குறிப்பிடத்தக்க அளவில் மேம்படுத்தப்பட்டுள்ளது:
+இந்த கருத்து பழையது. கடந்த சில மாதங்களில் MCP குறிப்புரு முக்கியமாக மேம்படுத்தப்பட்டு, நீண்டகால முகவர் பண்புகளை உருவாக்க வேறு திறன்கள் சேர்க்கப்பட்டுள்ளன:
 
-- **Streaming & Partial Results**: செயல்பாட்டின் போது நேரடி முன்னேற்றம்
-- **Resumability**: வாடிக்கையாளர்கள் துண்டிப்பு பிறகு மீண்டும் இணைந்து தொடர முடியும்
-- **Durability**: முடிவுகள் சர்வர் மீண்டும் தொடங்கிய பிறகும் நிலைத்திருக்கும் (உதாரணமாக, resource links மூலம்)
-- **Multi-turn**: செயல்பாட்டின் நடுவில் தொடர்பாடல் மூலம் உள்ளீடு
+- **ஸ்ட்ரீமிங் மற்றும் பகுதி முடிவுகள்**: செயல்படுத்தும் போது நேரடி முன்னேற்ற அறிவிப்புகள்
+- **மீண்டும் தொடக்கக்கூடிய தன்மை**: இணைப்பு துண்டித்த பிறகு மீண்டும் இணைந்து தொடரும் திறன்
+- **திடத்தன்மை**: முடிவுகள் சர்வர் மறுபடியும் துவங்குவதையும் தாண்டி உயிர்வாழும் (உதாரணமாக வள பகுதியின் இணைப்புகள் மூலம்)
+- **பல சுற்றுகள்**: நடுவில் வெளிப்படுத்தும் மற்றும் மாதிரிப்பெற்ற மூலம் தொடர்புடைய உள்ளீடு
 
-இந்த அம்சங்கள் MCP நெறிமுறையில் சிக்கலான முகவர் மற்றும் பல-முகவர் பயன்பாடுகளை இயக்குவதற்காக இணைக்கப்படலாம்.
+இந்த அம்சங்கள் ஒன்று சேர்ந்து சிக்கலான முகவர்களின் மற்றும் பல முகவர் செயல்முறைகளை உருவாக்க MCP இல் பயன்படுத்தப்படுகின்றன.
 
-உதாரணமாக, MCP சர்வரில் கிடைக்கும் "கருவி" என ஒரு முகவரை குறிப்பிடுவோம். இது MCP வாடிக்கையாளர் செயல்படுத்தும் ஒரு ஹோஸ்ட் பயன்பாட்டின் இருப்பை குறிக்கிறது, இது MCP சர்வருடன் ஒரு அமர்வை நிறுவி முகவரியை அழைக்க முடியும்.
+குறிப்பு: ஒரு முகவரியை MCP சர்வரில் கிடைக்கும் ஒரு "கருவி" எனக் கருதுவோம். இதன் மூலம் ஒரு ஹோஸ்ட் செயலி MCP கிளையண்ட்டை செயல்படுத்தி ஒரு அமர்வை MCP சர்வருடன் நிறுவி அந்த முகவரியை அழைக்க முடிகிறது என்பதைக் குறிக்கிறது.
 
-## MCP கருவி "Agentic" ஆக என்ன செய்கிறது?
+## MCP கருவி எப்போது "முகவராக" கருதப்படுகிறது?
 
-செயல்படுத்துவதற்கு முன், நீண்ட நேரம் இயங்கும் முகவர்களை ஆதரிக்க தேவையான அடித்தள திறன்களை நிறுவுவோம்.
+செயலாக்கத்தில் ஆழமாக நுழையாமலேயே, நீண்டகால முகவர்களை ஆதரிக்க எந்த அடித்தள திறன்கள் தேவை என்பதை தெளிவுபடுத்துவோம்.
 
-> நீண்ட நேரம் தன்னாட்சி செயல்படக்கூடிய, பல தொடர்பாடல்கள் அல்லது நேரடி பின்னூட்டத்தின் அடிப்படையில் சரிசெய்தல் தேவைப்படும் சிக்கலான பணிகளை கையாளக்கூடிய ஒரு முகவரை நாம் வரையறுக்கிறோம்.
+> நீண்டகாலமாக சுயமாக இயங்கும், பல தொடர்புகள் அல்லது நேரடிக் கருத்தறிவுகளை அடிப்படையாக்கொண்டு சிக்கலான பணிகளை கையாளும் ஒரு சார்பான உறுப்பினராக முகவரை வரையறுக்கிறோம்.
 
-### 1. Streaming & Partial Results
+### 1. ஸ்ட்ரீமிங் & பகுதி முடிவுகள்
 
-சாதாரண கோரிக்கை-பதில் முறைமைகள் நீண்ட நேரம் இயங்கும் பணிகளுக்கு பொருத்தமற்றவை. முகவர்களுக்கு தேவையானவை:
+பாரம்பரிய கேட்கை-பதிவு முறைகள் நீண்ட நாள்கள் இயங்கும் பணிகளுக்கு பொருத்தமில்லை. முகவர்களுக்கு தேவை:
 
-- நேரடி முன்னேற்றம்
-- இடைநிலை முடிவுகள்
+- நேரடி முன்னேற்ற அறிவிப்புகள்
+- இடைக்கால முடிவுகள்
 
-**MCP ஆதரவு**: Resource update notifications மூலம் streaming partial results-ஐ இயக்க முடியும், ஆனால் இது JSON-RPC இன் 1:1 கோரிக்கை/பதில் மாடலுடன் முரண்பாடுகளை தவிர்க்க கவனமாக வடிவமைக்க வேண்டும்.
+**MCP ஆதரவு**: வள மேம்பாட்டு அறிவிப்புகள் பகுதி முடிவுகளை ஸ்ட்ரீம் செய்ய உதவுகிறது, ஆனால் JSON-RPC இன் 1:1 கேட்கை/பதிவு மாதிரியுடன் மோதாமலிருக்க கவனமாக வடிவமைக்க வேண்டும்.
 
-| அம்சம்                     | பயன்பாட்டு நிலை                                                                                                                                                                       | MCP ஆதரவு                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| நேரடி முன்னேற்றம் | பயனர் ஒரு codebase மாற்றும் பணியை கோருகிறார். முகவர் முன்னேற்றத்தை stream செய்கிறது: "10% - Dependencies ஆய்வு... 25% - TypeScript கோப்புகளை மாற்றுதல்... 50% - Imports புதுப்பித்தல்..."          | ✅ Progress notifications                                                                  |
-| இடைநிலை முடிவுகள்            | "Generate a book" பணியை stream செய்கிறது, உதாரணமாக, 1) கதை வளைவு வரைபடம், 2) அத்தியாய பட்டியல், 3) ஒவ்வொரு அத்தியாயமும் முடிக்கப்பட்டது. ஹோஸ்ட் ஆய்வு செய்ய, ரத்து செய்ய அல்லது மாற்ற முடியும். | ✅ Notifications "extended" செய்ய முடியும், PR 383, 776 இல் முன்மொழிவுகளைப் பார்க்கவும் |
+| அம்சம்                   | பயன்பாட்டு நிலை                                                                                                  | MCP ஆதரவு                                                                |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| நேரடி முன்னேற்ற அறிவிப்புகள் | பயனர் கோடு மாற்றும் பணியை கோருகிறது. முகவர் முன்னேற்றம் ஸ்ட்ரீம் செய்கிறது: "10% - சார்புகளை பகுப்பாய்வு... 25% - TypeScript கோப்புகளை மாற்றுவது... 50% - இறக்குமதி புதுப்பிப்பு..." | ✅ முன்னேற்ற அறிவிப்புகள்                                                   |
+| பகுதி முடிவுகள்           | "ஒரு புத்தகத்தை உருவாக்குக" பணி பகுதி முடிவுகள் ஸ்ட்ரீம் செய்கிறது, உதாரணமாக: 1) கதை கட்டமைப்பு, 2) அத்தியாய பட்டியல், 3) ஒவ்வொரு அத்தியாயமும் முடிந்தவாறு. ஹோஸ்ட் எந்தவொரு கட்டத்திலும் ஆய்வு செய்யவும், ரத்து செய்யவும், மறுமுறை இயக்கவும் முடியும். | ✅ அறிவிப்புகள் பகுதி முடிவுகளுடன் விரிவாக்கமுடியும், PR 383, 776 இலுள்ள முன்மொழிவைப் பார்க்கவும் |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>படம் 1:</strong> இந்த வரைபடம் MCP முகவர் நீண்ட நேரம் இயங்கும் பணியின் போது ஹோஸ்ட் பயன்பாட்டிற்கு நேரடி முன்னேற்றம் மற்றும் இடைநிலை முடிவுகளை stream செய்கிறது, பயனர் செயல்பாட்டை நேரடியாக கண்காணிக்க அனுமதிக்கிறது.
+<strong>அங்கம் 1:</strong> இந்த வரைபடம் MCP முகவர் நீண்டகால பணிக்காலத்தில் நேரடி முன்னேற்ற அறிவிப்புகள் மற்றும் பகுதி முடிவுகளை ஹோஸ்ட் செயலியில் ஸ்ட்ரீம் செய்வதை விளக்குகிறது, பயனாளர் செயல்பாட்டை நேரடி முறையில் கண்காணிக்க உதவுகிறது.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as ஹோஸ்ட் செயலி<br/>(MCP கிளையன்ட்)
+    participant Server as MCP சேவையகம்<br/>(ஏஜென்ட் தொழில்நுட்பம்)
 
-    User->>Host: Start long task
-    Host->>Server: Call agent_tool()
+    User->>Host: நீண்ட பணி தொடக்கம்
+    Host->>Server: agent_tool()ஐ அழைக்கவும்
 
-    loop Progress Updates
-        Server-->>Host: Progress + partial results
-        Host-->>User: Stream updates
+    loop முன்னேற்றப் புதுப்பிப்புகள்
+        Server-->>Host: முன்னேற்றம் + பகுதி முடிவுகள்
+        Host-->>User: ஸ்ட்ரீம் புதுப்பிப்புகள்
     end
 
-    Server-->>Host: ✅ Final result
-    Host-->>User: Complete
+    Server-->>Host: ✅ இறுதி முடிவு
+    Host-->>User: முடிந்தது
 ```
 
-### 2. Resumability
+### 2. மீண்டும் தொடக்கக்கூடிய தன்மை
 
-முகவர்கள் நெட்வொர்க் இடையூறுகளை சீராக கையாள வேண்டும்:
+முகவர்கள் நெட்வொர்க் துண்டிப்புகளை மென்மையாக கையாள வேண்டும்:
 
-- (வாடிக்கையாளர்) துண்டிப்பு பிறகு மீண்டும் இணைப்பு
-- தாங்கள் நிறுத்திய இடத்திலிருந்து தொடருதல் (message redelivery)
+- துண்டித்த பிறகு மீண்டும் இணைக
+- முன்னதாக இருந்த இடத்தில் இருந்து தொடர
 
-**MCP ஆதரவு**: MCP StreamableHTTP transport இன்று session resumption மற்றும் message redelivery-ஐ session IDs மற்றும் last event IDs மூலம் ஆதரிக்கிறது. இங்கு முக்கியமானது, சர்வர் EventStore-ஐ செயல்படுத்த வேண்டும், இது வாடிக்கையாளர் மீண்டும் இணைப்பு செய்யும் போது நிகழ்வுகளை மீண்டும் இயக்க அனுமதிக்கிறது.  
-சமூக முன்மொழிவு (PR #975) transport-agnostic resumable streams-ஐ ஆராய்கிறது.
+**MCP ஆதரவு**: MCP StreamableHTTP போக்குவரத்து இப்போது அமர்வு மீண்டும் தொடக்கம் மற்றும் குறுஞ்செய்தி மீண்டும் வழங்கலை அமர்வு ஐடிக்கள் மற்றும் கடைசி நிகழ்வு ஐடிக்களை கொண்டு ஆதரிக்கிறது. முக்கியமானது, சர்வர் ஒரு EventStore ஐ செயல்படுத்த வேண்டும், இது கிளையண்ட் மீண்டும் இணைக்கும் போது நிகழ்வை மீண்டும் இயக்க உதவும்.  
+சமுதாய முன்மொழிவு (PR #975) போக்குவரத்திற்கு பொதுக்கொள்கையை ஆராய்கிறது.
 
-| அம்சம்      | பயன்பாட்டு நிலை                                                                                                                                                   | MCP ஆதரவு                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Resumability | நீண்ட நேரம் இயங்கும் பணியின் போது வாடிக்கையாளர் துண்டிக்கிறது. மீண்டும் இணைப்பு செய்யும் போது, session IDs மற்றும் EventStore மூலம் நிகழ்வுகளை மீண்டும் இயக்கி seamless-ஆக தொடருகிறது. | ✅ StreamableHTTP transport session IDs, event replay, மற்றும் EventStore |
+| அம்சம்        | பயன்பாட்டு நிலை                                                                                                    | MCP ஆதரவு                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| மீண்டும் தொடக்கக்கூடிய தன்மை | நீண்டகால பணி நடுவில் கிளையண்ட் துண்டிப்பு. மீண்டும் இணைப்பில், அமர்வு தொடருதல் மற்றும் தவறவிட்ட நிகழ்வுகள் மீண்டும் ஓடல், பணி பாதிப்பின்றி தொடர்கிறது. | ✅ StreamableHTTP போக்குவரத்து அமர்வு ஐடிகள், நிகழ்வு மீண்டும் ஓட்டல் மற்றும் EventStore கொண்டது |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>படம் 2:</strong> இந்த வரைபடம் MCP இன் StreamableHTTP transport மற்றும் EventStore session resumption-ஐ எவ்வாறு சீராக செயல்படுத்துகிறது என்பதை காட்டுகிறது: வாடிக்கையாளர் துண்டிக்கும்போது, அது மீண்டும் இணைப்பு செய்து, நிகழ்வுகளை மீண்டும் இயக்கி, செயல்பாட்டை இழப்பின்றி தொடர முடியும்.
+<strong>அங்கம் 2:</strong> MCP இன் StreamableHTTP போக்குவரத்து மற்றும் நிகழ்வுப் பதிவு எவ்வாறு அமர்வு தொடர்ந்து மீண்டும் தொடங்க ஆக்குகிறது என்பதை விளக்கும் வரைபடம்: கிளையண்ட் துண்டித்தால் மீண்டும் இணைத்து தவறவிட்ட நிகழ்வுகளை மீண்டும் ஓட்டி, பணி பாதிப்பின்றி தொடர்கிறது.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant Store as Event Store
+    participant Host as ஹோஸ்ட் செயலி<br/>(MCP கிளையண்ட்)
+    participant Server as MCP சேவையகம்<br/>(எஜிண்ட் கருவி)
+    participant Store as நிகழ்வு சேமிப்பு
 
-    User->>Host: Start task
-    Host->>Server: Call tool [session: abc123]
-    Server->>Store: Save events
+    User->>Host: பணியை தொடங்கு
+    Host->>Server: கருவி அழைப்பு [அமர்வு: abc123]
+    Server->>Store: நிகழ்வுகளை சேமி
 
-    Note over Host,Server: 💥 Connection lost
+    Note over Host,Server: 💥 இணைப்பு இழந்து விட்டது
 
-    Host->>Server: Reconnect [session: abc123]
-    Store-->>Server: Replay events
-    Server-->>Host: Catch up + continue
-    Host-->>User: ✅ Complete
+    Host->>Server: மீண்டும் இணை [அமர்வு: abc123]
+    Store-->>Server: நிகழ்வுகளை மீள்வாய்ப்பு செய்
+    Server-->>Host: பிடிபட்டு தொடர்க
+    Host-->>User: ✅ முடிந்தது
 ```
 
-### 3. Durability
+### 3. திடத்தன்மை
 
-நீண்ட நேரம் இயங்கும் முகவர்களுக்கு நிலையான நிலை தேவை:
+நீண்டக்கால முகவர்கள் நிலையான மாநிலம் தேவை:
 
-- முடிவுகள் சர்வர் மீண்டும் தொடங்கிய பிறகும் நிலைத்திருக்கும்
-- நிலையை out-of-band-ல் பெற முடியும்
-- session-களுக்கு இடையே முன்னேற்றத்தை கண்காணித்தல்
+- முடிவுகள் சர்வர் மறுபடியும் துவக்கம் கடந்தும் உயிர்வாழும்
+- நிலையை வெளிப்புறமாகக் பெற முடியும்
+- அமர்வுகளில் முன்னேற்றத்தைத் தொடர்க
 
-**MCP ஆதரவு**: MCP இப்போது Resource link return type-ஐ tool calls-க்கு ஆதரிக்கிறது. இன்று, ஒரு resource-ஐ உருவாக்கி resource link-ஐ உடனடியாக திருப்பி அனுப்பும் tool-ஐ வடிவமைப்பது ஒரு சாத்தியமான முறை. இந்த tool பின்னணியில் பணியை தொடர முடியும் மற்றும் resource-ஐ புதுப்பிக்க முடியும். இதனால், வாடிக்கையாளர் resource-இன் நிலையை poll செய்ய partial அல்லது முழு முடிவுகளைப் பெற முடியும் (சர்வர் வழங்கும் resource updates அடிப்படையில்) அல்லது resource-க்கு update notifications-ஐ subscribe செய்ய முடியும்.
+**MCP ஆதரவு**: MCP இப்போது கருவிக் அழைப்புகளுக்கு வள இணைப்பு (--resource link--) திரும்பவும் வகையை ஆதரிக்கிறது. இன்றைய நடைமுறை ஒரு கருவி ஒரு வளத்தை உருவாக்கி உடனடியாக வள இணைப்பை திரும்ப வழங்குவது. கருவி பின்னணி பணி தொடரவும், வளத்தை புதுப்பிக்கவும் முடியும். கிளையண்ட் இந்த வளத்தின் நிலையை ஆராய அல்லது அறிவுக்கான சந்தாவைப் பெற முடியும்.
 
-இங்கு ஒரு வரம்பு என்னவென்றால், resources-ஐ poll செய்வது அல்லது updates-க்கு subscribe செய்வது resources-ஐ பயன்படுத்துவதுடன், அளவிலான விளைவுகளை ஏற்படுத்தும். இதற்கான community proposal (உள்ளடக்கம் #992) webhooks அல்லது triggers-ஐ சேர்க்கும் சாத்தியத்தை ஆராய்கிறது, இது updates-ஐ client/host application-க்கு அறிவிக்க சர்வர் அழைக்க அனுமதிக்கிறது.
+ஒரு வரம்பு என்னவென்றால் வலைத்தள சங்கிலிஸ் அல்லது அறிவுக்கான சந்தா பற்றி விவாதங்கள் இருக்கிறது, பரிமாணத்தில் திறமையுடன் பயன்படுத்த கூடுதல் கவனம் தேவை.
 
-| அம்சம்    | பயன்பாட்டு நிலை                                                                                                                                        | MCP ஆதரவு                                                        |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Durability | சர்வர் data migration task-இல் crash ஆகிறது. முடிவுகள் மற்றும் முன்னேற்றம் restart-க்கு பிறகும் நிலைத்திருக்கும், client நிலையைச் சரிபார்த்து நிலையான resource-இல் இருந்து தொடர முடியும். | ✅ Resource links persistent storage மற்றும் status notifications |
+| அம்சம்     | பயன்பாட்டு நிலை                                                                                                       | MCP ஆதரவு                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| திடத்தன்மை | தரவுத் மாற்றும் பணியில் சர்வர் இடைநிறுத்தம். முடிவுகள், முன்னேற்றம் மறுபடியும் துவக்கத்திற்கு உயிர்வாழும்; கிளையண்ட் நிலையை சரிபார்த்து தொடர முடியும். | ✅ வள இணைப்புகள் நிலைத்த சேமிப்புடன் மற்றும் நிலை அறிவிப்புகள் உள்ளன |
 
-இன்று, resource-ஐ உருவாக்கி resource link-ஐ உடனடியாக திருப்பி அனுப்பும் tool-ஐ வடிவமைப்பது ஒரு பொதுவான முறை. இந்த tool பின்னணியில் task-ஐ address செய்து, resource notifications-ஐ progress updates-ஆக issue செய்து அல்லது partial results-ஐ சேர்த்து, resource-இல் உள்ளடக்கத்தை தேவையானபடி புதுப்பிக்க முடியும்.
+இன்றைய நடைமுறையானது ஒரு கருவி ஒரு வளத்தை உருவாக்கி உடனடியாக வள இணைப்பை திரும்ப வழங்குகிறது. பின்னணி பணி தொடர்ந்து வள அறிவிப்புகளை அல்லது பகுதி முடிவுகளை வழங்கி வள உள்ளடக்கத்தை புதுப்பிக்கிறது.
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>படம் 3:</strong> இந்த வரைபடம் MCP முகவர்கள் persistent resources மற்றும் status notifications-ஐ பயன்படுத்தி நீண்ட நேரம் இயங்கும் பணிகள் சர்வர் மீண்டும் தொடங்கிய பிறகும் நிலைத்திருக்கும், வாடிக்கையாளர்கள் முன்னேற்றத்தைச் சரிபார்த்து தோல்விகளுக்குப் பிறகும் முடிவுகளைப் பெற அனுமதிக்கிறது.
+<strong>அங்கம் 3:</strong> MCP முகவர்கள் நிலையான வளங்களையும் நிலை அறிவிப்புகளையும் பயன்படுத்தி நீண்டகால பணிகள் சர்வர் மறுதொடக்கம் கடந்தும் உயிர்வாழுவதை மற்றும் கிளையண்ட்கள் முன்னேற்றம் மற்றும் முடிவுகளை பெறச்செய்வதை காட்டும் வரைபடம்.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
-    participant DB as Persistent Storage
+    participant Host as ஹோஸ்ட் செயலி<br/>(MCP கிளையంట్)
+    participant Server as MCP சர்வர்<br/>(ஏஜென்ட் கருவி)
+    participant DB as நிரந்தர சேமிப்பு
 
-    User->>Host: Start task
-    Host->>Server: Call tool
-    Server->>DB: Create resource + updates
-    Server-->>Host: 🔗 Resource link
+    User->>Host: பணியை துவங்கு
+    Host->>Server: கருவியை அழை
+    Server->>DB: வளம் உருவாக்கு + புதுப்பிப்புகள்
+    Server-->>Host: 🔗 வளத்தின் இணைப்பு
 
-    Note over Server: 💥 Server restart
+    Note over Server: 💥 சர்வர் மீண்டும் துவக்கம்
 
-    User->>Host: Check status
-    Host->>Server: Get resource
-    Server->>DB: Load state
-    Server-->>Host: Current progress
-    Server->>DB: Complete + notify
-    Host-->>User: ✅ Complete
+    User->>Host: நிலையை சரி பாரு
+    Host->>Server: வளத்தை பெறு
+    Server->>DB: நிலையை ஏற்று
+    Server-->>Host: தற்போதைய முன்னேற்றம்
+    Server->>DB: முடிந்தது + அறிவி
+    Host-->>User: ✅ முடிந்தது
 ```
 
-### 4. Multi-Turn Interactions
+### 4. பல-சுற்று தொடர்புகள்
 
-முகவர்களுக்கு செயல்பாட்டின் நடுவில் கூடுதல் உள்ளீடு தேவைப்படும்:
+முகவர்கள் நடுவில் கூடுதல் உள்ளீடுகளை சமர்ப்பிக்க வேண்டிய நேரம் இருக்கிறது:
 
-- மனித விளக்கம் அல்லது ஒப்புதல்
+- மனித விளக்கம் அல்லது அனுமதி
 - சிக்கலான முடிவுகளுக்கு AI உதவி
-- மாறும் அளவுரு சரிசெய்தல்
+- இயக்கத் திறன் அளவுகோல் மாற்றம்
 
-**MCP ஆதரவு**: Sampling (AI input-க்கு) மற்றும் elicitation (மனித input-க்கு) மூலம் முழுமையாக ஆதரிக்கப்படுகிறது.
+**MCP ஆதரவு**: முழுமையாக மாதிரிப்பெற்று (AI உள்ளீடு үшін) மற்றும் அழைப்பிழைப்பு (மனித உள்ளீடு) மூலம் ஆதரிக்கப்படுகிறது.
 
-| அம்சம்                 | பயன்பாட்டு நிலை                                                                                                                                     | MCP ஆதரவு                                           |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Multi-Turn Interactions | பயண முன்பதிவு முகவர் பயனர் விலையை உறுதிப்படுத்த கோருகிறது, பின்னர் பயண தரவுகளை சுருக்க AI-ஐ கேட்கிறது, முன்பதிவு பரிவர்த்தனை முடிக்கிறது. | ✅ Elicitation மனித input-க்கு, sampling AI input-க்கு |
+| அம்சம்                | பயன்பாட்டு நிலை                                                                                                  | MCP ஆதரவு                                                  |
+| ----------------------| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| பல-சுற்று தொடர்புகள்   | பயண முகவர் பயனாளரை விலை உறுதிப்படுத்த கேட்டல், பின்னர் பயண தரவுகளைக் AI சார்ந்த சுருக்கம் கேட்டல் செய்து பதிவு செயல்திறனை முடிக்கும். | ✅ மனித உள்ளீடு அழைப்பிழைப்பு, AI உள்ளீடு மாதிரிப்பெற்று      |
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>படம் 4:</strong> இந்த வரைபடம் MCP முகவர்கள் செயல்பாட்டின் நடுவில் மனித input-ஐ interactively elicitation மூலம் அல்லது AI உதவியை கேட்க sampling மூலம், சிக்கலான, multi-turn workflows-ஐ ஆதரிக்கிறது, உதாரணமாக உறுதிப்பாடுகள் மற்றும் மாறும் முடிவெடுப்புகள்.
+<strong>அங்கம் 4:</strong> MCP முகவர்கள் செயலில் மத்தியில 인간 உள்ளீடு அழைப்பிழைப்பு அல்லது AI உதவியை கேட்டுக் கொள்ளும் முறையை விளக்கும் வரைபடம், உறுதிப்படுத்தல்கள் மற்றும் இயக்கத் திறன் முடிவெடுப்புகள் போன்ற சிக்கலான பல-சுற்று வேலைநிறுவங்கள் ஆதரிக்கப்படுகின்றன.
 </div>
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Host as Host App<br/>(MCP Client)
-    participant Server as MCP Server<br/>(Agent Tool)
+    participant Host as ஹோஸ்ட் செயலி<br/>(MCP கிளையண்ட்)
+    participant Server as MCP சேவையகம்<br/>(ஏஜென்ட் கருவி)
 
-    User->>Host: Book flight
-    Host->>Server: Call travel_agent
+    User->>Host: விமானம் பதிவு செய்தல்
+    Host->>Server: travel_agent ஐ அழைக்கவும்
 
-    Server->>Host: Elicitation: "Confirm $500?"
-    Note over Host: Elicitation callback (if available)
-    Host->>User: 💰 Confirm price?
-    User->>Host: "Yes"
-    Host->>Server: Confirmed
+    Server->>Host: கேள்வி: "$500 ஐ உறுதிப்படுத்துகிறீர்களா?"
+    Note over Host: கேள்வி பின்னுக்காணிப்பு (கிடைக்கும் என்றால்)
+    Host->>User: 💰 விலை உறுதிப்படுத்தவேண்டுமா?
+    User->>Host: "ஆம்"
+    Host->>Server: உறுதிப்படுத்தப்பட்டது
 
-    Server->>Host: Sampling: "Summarize data"
-    Note over Host: AI callback (if available)
-    Host->>Server: Report summary
+    Server->>Host: எடுத்துக்காட்டு: "தரவை சுருக்குங்கள்"
+    Note over Host: AI பின்னுக்காணிப்பு (கிடைக்கும் என்றால்)
+    Host->>Server: அறிக்கை சுருக்கம்
 
-    Server->>Host: ✅ Flight booked
+    Server->>Host: ✅ விமானம் பதிவு செய்யப்பட்டது
 ```
 
-## MCP-ல் நீண்ட நேரம் இயங்கும் முகவர்களை செயல்படுத்துதல் - குறியீட்டு கண்ணோட்டம்
+## MCP இல் நீண்டகால முகவர்கள் உருவாக்கல் - குறியீடு கண்ணோட்டம்
 
-இந்த கட்டுரையின் ஒரு பகுதியாக, [code repository](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) MCP Python SDK மற்றும் StreamableHTTP transport-ஐ session resumption மற்றும் message redelivery-க்கு பயன்படுத்தி நீண்ட நேரம் இயங்கும் முகவர்களை முழுமையாக செயல்படுத்தும் ஒரு செயல்பாட்டை கொண்டுள்ளது. MCP திறன்களை சிக்கலான முகவர் போன்ற செயல்பாடுகளை இயக்குவதற்காக எப்படி இணைக்க முடியும் என்பதை இந்த செயல்பாடு காட்டுகிறது.
+இந்த கட்டுரையின் ஒரு பகுதியாய், MCP Python SDK மூலம் நீண்டகால முகவர்களை உருவாக்கி StreamableHTTP போக்குவரத்துடன் அமர்வு மீண்டும் தொடக்கம் மற்றும் குறுஞ்செய்தி மீண்டும் வழங்கலை செயலாக்கிய [குறியீடு கொடுப்பகம்](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) வழங்கப்படுகிறது. MCP திறன்களை எப்படி கண்கானிக்க முடியும் என்பதையும் விளக்குகிறது.
 
 குறிப்பாக, இரண்டு முக்கிய முகவர் கருவிகளுடன் ஒரு சர்வரை செயல்படுத்துகிறோம்:
 
-- **Travel Agent** - elicitation மூலம் விலை உறுதிப்பாட்டுடன் பயண முன்பதிவு சேவையை simulation செய்கிறது
-- **Research Agent** - sampling மூலம் AI-assisted சுருக்கங்களைப் பயன்படுத்தி ஆராய்ச்சி பணிகளைச் செய்கிறது
+- **பயண முகவர்** - அழைப்பிழைப்பின் மூலம் விலை உறுதிப்படுத்தல் கொண்ட பயண முன்பதிவு சேவை
+- **ஆராய்ச்சி முகவர்** - மாதிரிப்பெற்றியால் AI உதவி சுருக்கங்களை கொண்ட ஆராய்ச்சி பணிகள்
 
-இரண்டு முகவர்களும் நேரடி முன்னேற்றம், interactive உறுதிப்பாடுகள், மற்றும் முழு session resumption திறன்களை காட்டுகின்றன.
+இரு முகவர்களும் நேரடி முன்னேற்ற அறிவிப்புகள், தொடர்புணர்வு உறுதிப்படுத்தல்கள் மற்றும் முழு அமர்வு மீண்டும் தொடக்கம் திறன்களை வெளிப்படுத்துகின்றன.
 
-### முக்கிய செயல்பாட்டு கருத்துக்கள்
+### முக்கிய செயலாக்க கருத்துக்கள்
 
-கீழே உள்ள பிரிவுகள் ஒவ்வொரு திறனுக்கும் சர்வர்-பக்கம் முகவர் செயல்படுத்தல் மற்றும் வாடிக்கையாளர்-பக்கம் ஹோஸ்ட் கையாளுதலைக் காட்டுகின்றன:
+கீழ்க்காணும் பகுதிகள் ஒவ்வொரு திறனுக்கும் சர்வர் பக்க முகவர் செயலாக்கம் மற்றும் கிளையண்ட் பக்க ஹோஸ்ட் கையாளுதலை காட்டுகின்றன:
 
-#### Streaming & Progress Updates - நேரடி பணியின் நிலை
+#### ஸ்ட்ரீமிங் & முன்னேற்ற அறிவிப்புகள் - நேரடி பணி நிலை
 
-Streaming நீண்ட நேரம் இயங்கும் பணிகளின் போது முகவர்களுக்கு real-time progress updates வழங்க அனுமதிக்கிறது, பயனர்களை task status மற்றும் இடைநிலை முடிவுகள் குறித்து தகவலளிக்கிறது.
+நீண்டகால பணிகளில் முகவர்கள் நேரடி முன்னேற்ற அறிவிப்புகளை வழங்க ஸ்ட்ரீமிங் பயன்படுத்துகின்றனர், பயனாளரை வேலை நிலை மற்றும் இடைக்கால முடிவுகளில் தொடர்ந்த தகவலுடன் வைத்திருக்க.
 
-**சர்வர் செயல்படுத்தல் (முகவர் progress notifications அனுப்புகிறது):**
+**சர்வர் செயலாக்கம் (முகவர் முன்னேற்ற அறிவிப்புகளை அனுப்புதல்):**
 
 ```python
-# From server/server.py - Travel agent sending progress updates
+# server/server.py இலிருந்து - பயண முகவர் முன்னேற்றத்தைப் புதுப்பிப்பதைக் காண்பிக்கிறார்
 for i, step in enumerate(steps):
     await ctx.session.send_progress_notification(
         progress_token=ctx.request_id,
@@ -213,9 +213,9 @@ for i, step in enumerate(steps):
         message=step,
         related_request_id=str(ctx.request_id)
     )
-    await anyio.sleep(2)  # Simulate work
+    await anyio.sleep(2)  # வேலை செய்முறைத் தானிமைப்படுத்துதல்
 
-# Alternative: Log messages for detailed step-by-step updates
+# மாற்று: விரிவான படி படியாக புதுப்பிப்புகளுக்கான பதிவு செய்திகளை பதிவுசெய்தல்
 await ctx.session.send_log_message(
     level="info",
     data=f"Processing step {current_step}/{steps} ({progress_percent}%)",
@@ -224,10 +224,10 @@ await ctx.session.send_log_message(
 )
 ```
 
-**வாடிக்கையாளர் செயல்படுத்தல் (ஹோஸ்ட் progress updates பெறுகிறது):**
+**கிளையண்ட் செயலாக்கம் (ஹோஸ்ட் முன்னேற்ற அறிவிப்புகளை பெறுதல்):**
 
 ```python
-# From client/client.py - Client handling real-time notifications
+# client/client.py இலிருந்து - திருப்பி அனுப்பும் நேரடி அறிவிப்புகளை கையாளும் கிளையன்ட்
 async def message_handler(message) -> None:
     if isinstance(message, types.ServerNotification):
         if isinstance(message.root, types.LoggingMessageNotification):
@@ -236,21 +236,21 @@ async def message_handler(message) -> None:
             progress = message.root.params
             console.print(f"🔄 [yellow]{progress.message} ({progress.progress}/{progress.total})[/yellow]")
 
-# Register message handler when creating session
+# கலந்தாய்வு உருவாக்கும்போது செய்தி ஹேண்ட்லரை பதிவு செய்கின்றது
 async with ClientSession(
     read_stream, write_stream,
     message_handler=message_handler
 ) as session:
 ```
 
-#### Elicitation - பயனர் input கோருதல்
+#### அழைப்பிழைப்பு - பயனர் உள்ளீடு கேட்கல்
 
-Elicitation நீண்ட நேரம் இயங்கும் பணிகளின் நடுவில் முகவர்களுக்கு பயனர் input-ஐ கோர அனுமதிக்கிறது. இது உறுதிப்பாடுகள், விளக்கங்கள், அல்லது approvals-க்கு அவசியமானது.
+அழைப்பிழைப்பு மூலமாக முகவர்கள் நடுவே பயனர் உள்ளீட்டை கோருகின்றனர். இது நீண்டகால பணியில் உறுதிப்படுத்தல், விளக்கம் அல்லது அனுமதி தேவைப்படும்போது அவசியம்.
 
-**சர்வர் செயல்படுத்தல் (முகவர் உறுதிப்பாட்டை கோருகிறது):**
+**சர்வர் செயலாக்கம் (முகவர் உறுதிப்படுத்தலை கேட்டல்):**
 
 ```python
-# From server/server.py - Travel agent requesting price confirmation
+# server/server.py இலிருந்து - பயண முகவர் விலை உறுதிப்படுத்தலை கேட்கின்றார்
 elicit_result = await ctx.session.elicit(
     message=f"Please confirm the estimated price of $1200 for your trip to {destination}",
     requestedSchema=PriceConfirmationSchema.model_json_schema(),
@@ -258,17 +258,17 @@ elicit_result = await ctx.session.elicit(
 )
 
 if elicit_result and elicit_result.action == "accept":
-    # Continue with booking
+    # முன்பதிவுடன் தொடரவும்
     logger.info(f"User confirmed price: {elicit_result.content}")
 elif elicit_result and elicit_result.action == "decline":
-    # Cancel the booking
+    # முன்பதிவை ரத்துசெய்க
     booking_cancelled = True
 ```
 
-**வாடிக்கையாளர் செயல்படுத்தல் (ஹோஸ்ட் elicitation callback வழங்குகிறது):**
+**கிளையண்ட் செயலாக்கம் (ஹோஸ்ட் அழைப்பிழைப்பு கால் பேக் வழங்குதல்):**
 
 ```python
-# From client/client.py - Client handling elicitation requests
+# client/client.py இலிருந்து - கிளையெண்ட் கையாளும் கேட்டல் கோரிக்கைகள்
 async def elicitation_callback(context, params):
     console.print(f"💬 Server is asking for confirmation:")
     console.print(f"   {params.message}")
@@ -286,21 +286,21 @@ async def elicitation_callback(context, params):
             content={"confirm": False, "notes": "Declined by user"}
         )
 
-# Register the callback when creating the session
+# அமர்வை உருவாக்கும்போது கல்ப்பேக் பதிவு செய்யவும்
 async with ClientSession(
     read_stream, write_stream,
     elicitation_callback=elicitation_callback
 ) as session:
 ```
 
-#### Sampling - AI உதவியை கோருதல்
+#### மாதிரிப்பெற்று - AI உதவி கோரல்
 
-Sampling முகவர்களுக்கு execution-இன் போது சிக்கலான முடிவுகள் அல்லது உள்ளடக்க உருவாக்கத்திற்கு LLM உதவியை கோர அனுமதிக்கிறது. இது மனித-AI இணைந்த workflows-ஐ இயக்குகிறது.
+மாதிரிப்பெற்று முகவர்களுக்கு சிக்கலான முடிவுகள் அல்லது உள்ளடக்கம் உருவாக்க AI உதவியை கேட்கவிட அனுமதிக்கிறது. இது மனித-AI கலவையாக வேலைநெறிகளை வடைத்து செய்கிறது.
 
-**சர்வர் செயல்படுத்தல் (முகவர் AI உதவியை கோருகிறது):**
+**சர்வர் செயலாக்கம் (முகவர் AI உதவி கேட்டல்):**
 
 ```python
-# From server/server.py - Research agent requesting AI summary
+# server/server.py-இலிருந்து - ஆராய்ச்சி முகவர் AI சுருக்கத்தைக் கோருகிறது
 sampling_result = await ctx.session.create_message(
     messages=[
         SamplingMessage(
@@ -318,16 +318,16 @@ if sampling_result and sampling_result.content:
         logger.info(f"Received sampling summary: {sampling_summary}")
 ```
 
-**வாடிக்கையாளர் செயல்படுத்தல் (ஹோஸ்ட் sampling callback வழங்குகிறது):**
+**கிளையண்ட் செயலாக்கம் (ஹோஸ்ட் மாதிரிப்பெற்று கால் பேக் வழங்குதல்):**
 
 ```python
-# From client/client.py - Client handling sampling requests
+# client/client.py இலிருந்து - கிளையண்ட் மாதிரித் தேவைகளை கையாளுதல்
 async def sampling_callback(context, params):
     message_text = params.messages[0].content.text if params.messages else 'No message'
     console.print(f"🧠 Server requested sampling: {message_text}")
 
-    # In a real application, this could call an LLM API
-    # For demo purposes, we provide a mock response
+    # ஒரு உண்மை பயன்பாட்டில், இது LLM API-ஐ அழைக்கலாம்
+    # காணொளி நோக்கத்திற்காக, நாங்கள் ஒரு மாதிரிப் பதிலை வழங்குகிறோம்
     mock_response = "Based on current research, MCP has evolved significantly..."
 
     return types.CreateMessageResult(
@@ -337,7 +337,7 @@ async def sampling_callback(context, params):
         stopReason="endTurn"
     )
 
-# Register the callback when creating the session
+# அமர்வை உருவாக்கும் போது callback ஐ பதிவு செய்யவும்
 async with ClientSession(
     read_stream, write_stream,
     sampling_callback=sampling_callback,
@@ -345,14 +345,14 @@ async with ClientSession(
 ) as session:
 ```
 
-#### Resumability - துண்டிப்புகளுக்கு இடையே session continuity
+#### மீண்டும் தொடக்கக்கூடிய தன்மை - துண்டிப்புகளுக்கு மீதான அமர்வு தொடர்ச்சி
 
-Resumability நீண்ட நேரம் இயங்கும் முகவர் பணிகள் வாடிக்கையாளர் துண்டிப்புகளைத் தாண்டி உயிர்வாழ்ந்து, மீண்டும் இணைப்பு செய்யும் போது seamless-ஆக தொடர அனுமதிக்கிறது. இது event stores மற்றும் resumption tokens மூலம் செயல்படுத்தப்படுகிறது.
+மீண்டும் தொடக்கக்கூடிய தன்மை மூலம் நீண்டகால முகவர் பணிகள் கிளையண்ட் துண்டிப்புகளுக்கு பிந்தைய மீண்டும் இணைப்புகளில் பாதிப்பின்றி தொடர்ந்து இயங்கும். இது நிகழ்வு சேமிப்புகள் மற்றும் தொடர்ச்சிப் பத்திரங்கள் மூலம் செய்யப்படுகிறது.
 
-**Event Store செயல்படுத்தல் (சர்வர் session state-ஐ வைத்திருக்கிறது):**
+**நிகழ்வு சேமிப்பு செயலாக்கம் (சர்வர் அமர்வு நிலையை கையாளும்):**
 
 ```python
-# From server/event_store.py - Simple in-memory event store
+# server/event_store.py இலிருந்து - எளிய நினைவக நிகழ்வு சேமிப்பகம்
 class SimpleEventStore(EventStore):
     def __init__(self):
         self._events: list[tuple[StreamId, EventId, JSONRPCMessage]] = []
@@ -367,40 +367,55 @@ class SimpleEventStore(EventStore):
 
     async def replay_events_after(self, last_event_id: EventId, send_callback: EventCallback) -> StreamId | None:
         """Replay events after the specified ID for resumption."""
-        # Find events after the last known event and replay them
-        for _, event_id, message in self._events[start_index:]:
+        start_index = None
+        stream_id = None
+        for index, (event_stream_id, event_id, _) in enumerate(self._events):
+            if event_id == last_event_id:
+                start_index = index + 1
+                stream_id = event_stream_id
+                break
+
+        if start_index is None:
+            return None
+
+        # அமர்வின் ஆரம்ப ஸ்ட்ரீமிலிருந்தும் பின்னர் நிகழ்ந்த நிகழ்வுகளை மட்டுமே மீண்டும் இயக்கவும்.
+        for event_stream_id, event_id, message in self._events[start_index:]:
+            if event_stream_id != stream_id:
+                continue
             await send_callback(EventMessage(message, event_id))
 
-# From server/server.py - Passing event store to session manager
+        return stream_id
+
+# server/server.py இலிருந்து - நிகழ்வு சேமிப்பகத்தை அமர்வு மேலாளகருக்கு அனுப்புதல்
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     server = ResumableServer()
 
-    # Create session manager with event store for resumption
+    # மீட்க அமர்வு மேலாளரை நிகழ்வு சேமிப்பகத்துடன் உருவாக்கவும்
     session_manager = StreamableHTTPSessionManager(
         app=server,
-        event_store=event_store,  # Event store enables session resumption
+        event_store=event_store,  # நிகழ்வு சேமிப்பகம் அமர்வு மீட்குதலை சாத்தியமாக்குகிறது
         json_response=False,
         security_settings=security_settings,
     )
 
     return Starlette(routes=[Mount("/mcp", app=session_manager.handle_request)])
 
-# Usage: Initialize with event store
+# பயன்பாடு: நிகழ்வு சேமிப்பகத்துடன் தொடங்கவும்
 event_store = SimpleEventStore()
 app = create_server_app(event_store)
 ```
 
-**வாடிக்கையாளர் Metadata resumption token-ஐ கொண்டு (stored state-ஐ பயன்படுத்தி client reconnect செய்கிறது):**
+**மீண்டும் தொடர்ச்சி சின்னத்துடன் கிளையண்ட் உருவாக்கிய மெட்டாடேட்டா (நிலை பயன்படுத்தி மீண்டும் இணைப்பு):**
 
 ```python
-# From client/client.py - Client resumption with metadata
+# client/client.py இலிருந்து - மெட்டாடேட்டாவுடன் கிளையண்ட் மீட்பு
 if existing_tokens and existing_tokens.get("resumption_token"):
-    # Use existing resumption token to continue where we left off
+    # நாம் நிறுத்திய இடத்தில் தொடர தோற்றாச்சியுள்ள மீட்பு டோக்கன் பயன்படுத்தவும்
     metadata = ClientMessageMetadata(
         resumption_token=existing_tokens["resumption_token"],
     )
 else:
-    # Create callback to save resumption token when received
+    # பெறப்படும் போது மீட்பு டோக்கனை சேமிக்க கால் பேக் உருவாக்கவும்
     def enhanced_callback(token: str):
         protocol_version = getattr(session, 'protocol_version', None)
         token_manager.save_tokens(session_id, token, protocol_version, command, args)
@@ -409,7 +424,7 @@ else:
         on_resumption_token_update=enhanced_callback,
     )
 
-# Send request with resumption metadata
+# மீட்பு மெட்டாடேட்டாவுடன் கோரிக்கை அனுப்பவும்
 result = await session.send_request(
     types.ClientRequest(
         types.CallToolRequest(
@@ -422,24 +437,24 @@ result = await session.send_request(
 )
 ```
 
-ஹோஸ்ட் பயன்பாடு session IDs மற்றும் resumption tokens-ஐ உள்ளடகமாக வைத்திருக்கிறது, இது progress அல்லது state இழக்காமல் உள்ள session-களுக்கு மீண்டும் இணைப்பு செய்ய அனுமதிக்கிறது.
+ஹோஸ்ட் செயலி அமர்வு ஐடி மற்றும் மீண்டும் தொடர்ச்சி சின்னங்களை உள்ளகமாக வைத்திருக்கிறது, இதனால் பராமரிப்புகள் இழக்காமல் தற்போதைய அமர்வுகளை மீண்டும் இணைக்க முடிகிறது.
 
-### குறியீட்டு அமைப்பு
+### குறியீடு அமைப்பு
 
 <div align="center" style="font-style: italic; font-size: 0.95em; margin-bottom: 0.5em;">
-<strong>படம் 5:</strong> MCP அடிப்படையிலான முகவர் அமைப்பு கட்டமைப்பு
+<strong>அங்கம் 5:</strong> MCP அடிப்படையிலான முகவர் அமைப்பின் கட்டமைப்பு
 </div>
 
 ```mermaid
 graph LR
-    User([User]) -->|"Task"| Host["Host<br/>(MCP Client)"]
-    Host -->|list tools| Server[MCP Server]
-    Server -->|Exposes| AgentsTools[Agents as Tools]
-    AgentsTools -->|Task| AgentA[Travel Agent]
-    AgentsTools -->|Task| AgentB[Research Agent]
+    User([பயனர்]) -->|"பணி"| Host["இடமமைப்பவர்<br/>(MCP கிளையன்ட்)"]
+    Host -->|கருவிகளை பட்டியலிடுங்கள்| Server[MCP சேவையகம்]
+    Server -->|வெளிப்படுத்துகிறது| AgentsTools[முகவர்கள் கருவிகளாக]
+    AgentsTools -->|பணி| AgentA[பயண முகவர்]
+    AgentsTools -->|பணி| AgentB[ஆராய்ச்சி முகவர்]
 
-    Host -->|Monitors| StateUpdates[Progress & State Updates]
-    Server -->|Publishes| StateUpdates
+    Host -->|கண்காணிக்கிறது| StateUpdates[முன்னேற்றம் & நிலையத் தகவல்களை புதுப்பிக்கிறது]
+    Server -->|வெளியிடுகிறது| StateUpdates
 
     class User user;
     class AgentA,AgentB agent;
@@ -448,53 +463,68 @@ graph LR
 
 **முக்கிய கோப்புகள்:**
 
-- **`server/server.py`** - Resumable MCP server பயண மற்றும் ஆராய்ச்சி முகவர்களுடன், elicitation, sampling, மற்றும் progress updates-ஐ காட்டுகிறது
-- **`client/client.py`** - Resumption ஆதரவு, callback handlers, மற்றும் token management கொண்ட interactive host application
-- **`server/event_store.py`** - Event store செயல்படுத்தல் session resumption மற்றும் message redelivery-ஐ இயக்குகிறது
+- **`server/server.py`** - பயண மற்றும் ஆராய்ச்சி முகவர்களுடன் மீண்டும் தொடக்கக்கூடிய MCP சர்வர், அழைப்பிழைப்பு, மாதிரிப்பெற்று மற்றும் முன்னேற்ற அறிவிப்புகள் செயல்படுத்தப்பட்டுள்ளன
+- **`client/client.py`** - தொடர்ச்சி ஆதரவு, கால் பேக் கையாளிகள் மற்றும் சின்ன நிர்வாகம் கொண்ட தொடர்பு நிலையான ஹோஸ்ட் செயலி
+- **`server/event_store.py`** - அமர்வு தொடர்ச்சி மற்றும் குறுஞ்செய்தி மீண்டும் வழங்கலை செயல்படுத்தும் நிகழ்வு சேமிப்பு
 
-## MCP-ல் பல-முகவர் தொடர்பு அமைப்புக்கு விரிவாக்கம்
+## MCP இல் பல முகவர் தொடர்பை விரிவாக்குதல்
 
-மேலே உள்ள செயல்பாட்டை host பயன்பாட்டின் நுண்ணறிவு மற்றும் பரப்பை மேம்படுத்துவதன் மூலம் பல-முகவர் அமைப்புகளுக்கு விரிவாக்க முடியும்:
+முன்னணி செயலாக்கத்தை(host application) மேம்படுத்தி மற்றும் பரப்பை விரித்து பல முகவர் அமைப்புகளுக்கு விரிவாக்கம் செய்யலாம்:
 
-- **Intelligent Task Decomposition**: Host சிக்கலான பயனர் கோரிக்கைகளை பகுப்பாய்வு செய்து, பல சிறப்பு முகவர்களுக்கு துண்டு பணிகளை பிரிக்கிறது
-- **Multi-Server Coordination**: Host பல MCP சர்வர்களுடன் இணைப்புகளை பராமரிக்கிறது, ஒவ்வொன்றும் வேறுபட்ட முகவர் திறன்களை வெளிப்படுத்துகிறது
-- **Task State Management**: Host பல ஒரே நேரத்தில் இயங்கும் முகவர் பணிகளின் முன்னேற்றத்தை கண்காணிக்கிறது, சார்புகளை மற்றும் வரிசையை கையாளுகிறது
-- **Resilience & Retries**: Host தோல்விகளை நிர்வகிக்கிறது, retry logic-ஐ செயல்படுத்துகிறது, மற்றும் முகவர்கள் கிடைக்காதபோது பணிகளை reroute செய்கிறது
-- **Result Synthesis**: Host பல முகவர்களிடமிருந்து output-களை ஒருங்கிணைத்து cohesive முடிவுகளை உருவாக்குகிறது
+- **திறமையான பணி உடைப்பு**: ஹோஸ்ட் சிக்கலான பயனர் கோரிக்கைகளை பகிர்ந்து வல்ல முகவர்களுக்கு உடைபுரியும் துணைத்தோட்ட வேலைகளை வழங்கும்
+- **பல சர்வர் ஒருங்கிணைப்பு**: MCP பல சர்வர்களுடன் இணைப்பை நிலைநாடு, ஒவ்வொரு சர்வரும் வேறு முகவர் திறன்களை வெளிப்படுத்தும்
+- **பணி நிலை மேலாண்மை**: பல ஒரே நேர முகவர் பணிகளின் முன்னேற்றத்தை பின்தொடர்தல், தடைகள் மற்றும் வரிசைப்படுத்தல் கையாள்தல்
+- **நிலைத்தன்மையும் முயற்சிகளும்**: தோல்விகள் முகாமை, மீண்டும் முயற்சி நடைமுறைகள் மற்றும் முகவர்கள் கிடைக்காதபோது பணிகள் மாற்றி அனுப்புதல்
+- **முடிவு சங்கலனம்**: பல முகவர்களின் பணியளிப்புகளை ஒருங்கிணைத்து இறுதிச் சிக்கலான முடிவுகளாக உருவாக்குதல்
 
-Host ஒரு எளிய client-இல் இருந்து ஒரு நுண்ணறிவு orchestrator ஆக மாறுகிறது, MCP protocol அடித்தளத்தை பராமரிக்கும்போது விநியோகிக்கப்பட்ட முகவர் திறன்களை ஒருங்கிணைக்கிறது.
+ஹோஸ்ட் சாதாரண கிளையண்ட் இருந்து திறமையான ஒருங்கிணைப்பாளராக மாறுகிறது, பல முகவர் திறன்களை ஒருங்கிணைக்கின்றது, அதே MCP வீதியை அடிப்படையாக வைத்துக்கொண்டு.
 
 ## முடிவு
 
-MCP இன் மேம்பட்ட திறன்கள் - resource notifications, elicitation/sampling, resumable streams, மற்றும் persistent resources - சிக்கலான முகவர்-முகவர் தொடர்புகளை இயக்குகிறது, அதே நேரத்தில் நெறிமுறை எளிமையை பராமரிக்கிறது.
+MCP இன் மேம்பட்ட திறன்கள் - வள அறிவிப்புகள், அழைப்பிழைப்பு/மாதிரிப்பெற்று, மீண்டும் தொடக்கத்தக்க ஸ்ட்ரீம்கள் மற்றும் நிலையான வளங்கள் - சிக்கலான முகவர்-முகவர் தொடர்புகளை ஆதரிக்கின்றன, வீதியின் எளிமை காக்கப்படுகின்றது.
 
-## தொடங்குதல்
+## துவங்குவது எப்படி
 
-உங்கள் சொந்த agent2agent அமைப்பை உருவாக்க தயாரா? இந்த படிகளைப் பின்பற்றுங்கள்:
+உங்கள் சொந்த முகவர்2முகவர் அமைப்பை உருவாக்க தயாரா? கீழ்க்காணும் படிகளை பின்பற்றவும்:
 
-### 1. டெமோவை இயக்குங்கள்
+### 1. டெமோ ஓட்டவும்
 
 ```bash
-# Start the server with event store for resumption
+# மீண்டும் தொடக்கம் செய்வதற்காக நிகழ்வு சேமிப்பகத்துடன் சேவையகத்தை தொடங்கு
 python -m server.server --port 8006
 
-# In another terminal, run the interactive client
+# மற்றொரு டெர்மினலில், தொடர்பு நிலைத்த வாடிக்கையாளரை இயக்குக
 python -m client.client --url http://127.0.0.1:8006/mcp
 ```
 
-**Interactive mode-ல் கிடைக்கும் கட்டளைகள்:**
+**தொடர்புடைய கட்டளைகள் தொடர்பு நிலையில்:**
 
-- `travel_agent` - elicitation மூலம் விலை உறுதிப்பாட்டுடன் பயண முன்பதிவு
-- `research_agent` - sampling மூலம் AI-assisted சுருக்கங்களுடன் ஆராய்ச்சி
-- `list` - அனைத்து கிடைக்கும் கருவிகளைப் பார்க்க
-- `clean-tokens` - Resumption tokens-ஐ அழிக்க
-- `help` - விரிவான கட்டளை உதவியைப் பார்க்க
-- `quit` - client-ஐ வெளியேற்ற
+- `travel_agent` - அழைப்பிழைப்பு மூலம் விலை உறுதிப்படுத்தல் கொண்ட பயண முன்பதிவு
+- `research_agent` - மாதிரிப்பெற்றியால் AI உதவியுடன் ஆராய்ச்சி தலைப்புகள்
+- `list` - கிடைக்கும் அனைத்துக் கருவிகளை காண்பி
+- `clean-tokens` - தொடர்ச்சி சின்னங்களை அழி
+- `help` - விரிவான கட்டளை உதவி காண்பி
+- `quit` - கிளையண்ட் வெளியேறு
 
-### 2. Res
-மொத்தத்தில், MCP நெறிமுறை விவரக்குறிப்பு வேகமாக வளர்ந்து வருகிறது; சமீபத்திய புதுப்பிப்புகளை அறிய வாசகர்கள் அதிகாரப்பூர்வ ஆவண வலைதளத்தை பார்வையிடுமாறு ஊக்குவிக்கப்படுகிறார்கள் - https://modelcontextprotocol.io/introduction
+### 2. தொடர்ச்சி திறன்களை சோதிக்கவும்
+
+- ஒரு நீண்டகால முகவரைக் தொடங்கவும் (எ.கா., `travel_agent`)
+- நடைமுறையில் கிளையண்டை துண்டிக்கவும் (Ctrl+C)
+- கிளையண்டை மீண்டும் துவக்கவும் - அது தானாக இடைநிறுத்திய இடத்தில் இருந்து தொடரும்
+
+### 3. ஆராய்ந்து விரிவடையவும்
+
+- **மாதிரிகள் ஆராய்ச்சி**: இந்த [mcp-agents](https://github.com/victordibia/ai-tutorials/tree/main/MCP%20Agents) காண்க
+- **சமூகத்தில் சேர்ந்துகொள்ளவும்**: GitHub இல் MCP பேச்சுவார்த்தைகளில் பங்கேற்கவும்
+- **பிரயோகம் செய்யவும்**: எளிய நீண்டகால பணியுடன் துவங்கி ஸ்ட்ரீமிங், மீண்டும் தொடக்கக்கூடிய தன்மை மற்றும் பல முகவர் ஒருங்கிணைப்பை மேலும் சேர்க்கவும்
+
+இது MCP கருவி அடிப்படையிலான எளிமையை பராமரிக்கையில் திறமையான முகவர் பண்புகளை எவ்வாறு வழங்குவதை விளக்குகிறது.
+
+மொத்தமாக MCP புரோட்டோக்கால் விரைவாக மேம்பட்டு வருகின்றது; புதிய அப்டேட்கள் பற்றி அதிகாரப்பூர்வக் குறிப்பெடுக்கும் இணையதளத்தை https://modelcontextprotocol.io/introduction பார்வையிட பரிந்துரைக்கப்படுகிறது.
 
 ---
 
-**குறிப்பு**:  
-இந்த ஆவணம் [Co-op Translator](https://github.com/Azure/co-op-translator) என்ற AI மொழிபெயர்ப்பு சேவையைப் பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கின்றோம், ஆனால் தானியக்க மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான தகவல்கள் இருக்கக்கூடும் என்பதை தயவுசெய்து கவனத்தில் கொள்ளுங்கள். அதன் தாய்மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பல்ல.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**மறுப்பு**:
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சி செய்துள்ளோம், ஆனால் தானாக செய்யப்படும் மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கலாம் என்பதை கவனத்தில் கொள்ளவும். அசல் ஆவணம் அதன் தாய்மொழியில் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்நுட்பமான மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கத்திற்கும் நாங்கள் பொறுப்பில்வில்லை.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

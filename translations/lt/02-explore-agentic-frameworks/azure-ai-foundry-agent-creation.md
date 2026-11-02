@@ -1,42 +1,42 @@
-# Azure AI Agent Service kūrimas
+# Microsoft Foundry agento paslaugos kūrimas
 
-Šiame pratime naudojate Azure AI Agent paslaugų įrankius [Microsoft Foundry portale](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), kad sukurtumėte agentą skrydžių užsakymui. Agentas galės bendrauti su vartotojais ir teikti informaciją apie skrydžius.
+Šioje užduotyje naudojate Microsoft Foundry Agent Service įrankius [Microsoft Foundry portale](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), kad sukurtumėte agentą skrydžių rezervacijai. Agentas galės bendrauti su vartotojais ir teikti informaciją apie skrydžius.
 
 ## Prieš pradedant
 
-Norėdami įvykdyti šį pratimą, jums reikia:
+Norėdami atlikti šią užduotį, jums reikės:
 1. Azure paskyros su aktyvia prenumerata. [Sukurkite paskyrą nemokamai](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Turite turėti leidimus sukurti Microsoft Foundry centrą arba turėti jį sukurtą.
-    - Jei jūsų vaidmuo yra Vėliau ar Savininkas, galite sekti šio mokymo veiksmus.
+2. Leidimų sukurti Microsoft Foundry centrą arba kad jis būtų sukurtas jums.
+    - Jei jūsų vaidmuo yra Bendradarbis (Contributor) arba Savininkas (Owner), galite sekti šio vadovo žingsnius.
 
 ## Sukurkite Microsoft Foundry centrą
 
-> **Pastaba:** Microsoft Foundry anksčiau buvo vadinamas Azure AI Studio.
+> **Pastaba:** Microsoft Foundry anksčiau buvo žinomas kaip Azure AI Studio.
 
-1. Sekite šias gaires iš [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) tinklaraščio įrašo apie Microsoft Foundry centro kūrimą.
-2. Kai projektas bus sukurtas, uždarykite rodomus patarimus ir peržiūrėkite projekto puslapį Microsoft Foundry portale, kuris turėtų atrodyti panašiai kaip žemiau pateikta nuotrauka:
+1. Vadovaukitės šiais nurodymais iš [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) tinklaraščio įrašo, kaip susikurti Microsoft Foundry centrą.
+2. Kai jūsų projektas bus sukurtas, uždarykite rodomas patarimų korteles ir peržiūrėkite projekto puslapį Microsoft Foundry portale, kuris turėtų atrodyti panašiai kaip parodyta žemiau:
 
-    ![Microsoft Foundry Project](../../../translated_images/lt/azure-ai-foundry.88d0c35298348c2f.webp)
+    ![Microsoft Foundry Projektas](../../../translated_images/lt/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Įdiekite modelį
 
-1. Kairėje projekto srityje, skiltyje **My assets**, pasirinkite puslapį **Models + endpoints**.
-2. Puslapyje **Models + endpoints**, skiltyje **Model deployments**, meniu **+ Deploy model** pasirinkite **Deploy base model**.
-3. Sąraše suraskite modelį `gpt-4o-mini`, tada pasirinkite jį ir patvirtinkite.
+1. Kairėje projekto srityje, skyriuje **My assets**, pasirinkite puslapį **Models + endpoints**.
+2. Puslapyje **Models + endpoints**, skirtuke **Model deployments**, meniu **+ Deploy model** pasirinkite **Deploy base model**.
+3. Suraskite `gpt-5-mini` modelį sąraše, pasirinkite jį ir patvirtinkite.
 
-    > **Pastaba**: Mažinant TPM padeda išvengti prenumeratos kvotos viršijimo.
+    > **Pastaba**: Sumažinus TPM, padedama išvengti per didelio prenumeratos kvotos sunaudojimo.
 
-    ![Model Deployed](../../../translated_images/lt/model-deployment.3749c53fb81e18fd.webp)
+    ![Modelio diegimas](../../../translated_images/lt/model-deployment.3749c53fb81e18fd.webp)
 
 ## Sukurkite agentą
 
-Dabar, kai modelis įdiegtas, galite sukurti agentą. Agentas yra pokalbių AI modelis, kuris gali bendrauti su vartotojais.
+Dabar, kai įdiegėte modelį, galite sukurti agentą. Agentas yra pokalbių AI modelis, kurį galima naudoti bendraujant su vartotojais.
 
-1. Kairėje projekto srityje, skiltyje **Build & Customize**, pasirinkite puslapį **Agents**.
-2. Spustelėkite **+ Create agent**, kad sukurtumėte naują agentą. Lange **Agent Setup**:
-    - Įveskite agento pavadinimą, pavyzdžiui, `FlightAgent`.
-    - Įsitikinkite, kad pasirinktas anksčiau sukurtas modelio diegimas `gpt-4o-mini`.
-    - Nustatykite **Instructions** pagal užduotį, kurios agentas turi laikytis. Štai pavyzdys:
+1. Kairėje projekto srityje, skyriuje **Build & Customize**, pasirinkite puslapį **Agents**.
+2. Spustelėkite **+ Create agent**, kad sukurtumėte naują agentą. Atidariame laukelyje **Agent Setup**:
+    - Įveskite agento pavadinimą, pvz., `FlightAgent`.
+    - Užtikrinkite, kad būtų pasirinktas anksčiau sukurtas `gpt-5-mini` modelio diegimas.
+    - Nustatykite **Instructions** pagal užduotį, kurios norite, kad agentas laikytųsi. Štai pavyzdys:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,31 +64,32 @@ Dabar, kai modelis įdiegtas, galite sukurti agentą. Agentas yra pokalbių AI m
     
     ```
 > [!NOTE]
-> Išsamesniam užduoties aprašymui galite pasižiūrėti [šį repozitorijų](https://github.com/ShivamGoyal03/RoamMind) daugiau informacijos.
-
-> Be to, galite pridėti **Knowledge Base** ir **Actions**, kad pagerintumėte agento galimybes teikti daugiau informacijos ir vykdyti automatizuotas užduotis pagal vartotojų užklausas. Šiam pratimui šių žingsnių galite praleisti.
-
+> Išsamesnei užduočiai galite pasitikrinti [šiame repozitoriume](https://github.com/ShivamGoyal03/RoamMind) daugiau informacijos.
+    
+> Be to, galite pridėti **Knowledge Base** ir **Actions**, kad pagerintumėte agente funkcionalumą teikti daugiau informacijos ir atlikti automatinius veiksmus pagal vartotojo užklausas. Šioje užduotyje tai galima praleisti.
+    
 ![Agent Setup](../../../translated_images/lt/agent-setup.9bbb8755bf5df672.webp)
 
-3. Norėdami sukurti naują kelių AI agentų, tiesiog spustelėkite **New Agent**. Naujas agentas bus rodomas Agents puslapyje.
+3. Norėdami sukurti naują daugialypį AI agentą, tiesiog spustelėkite **New Agent**. Naujas agentas bus rodomas Agents puslapyje.
 
-## Agentų testavimas
 
-Sukūrus agentą, galite jį išbandyti, kad pamatytumėte, kaip jis atsako į vartotojų užklausas Microsoft Foundry portalo žaidimų aikštelėje.
+## Testuokite agentą
 
-1. Viršuje jūsų agento skiltyje **Setup**, pasirinkite **Try in playground**.
-2. Skiltyje **Playground** galite bendrauti su agentu įvesdami užklausas pokalbių lange. Pavyzdžiui, galite paprašyti agento surasti skrydžius iš Sietlo į Niujorką 28 dienai.
+Sukūrę agentą, galite jį išbandyti, kaip jis atsako į vartotojo užklausas Microsoft Foundry portalo žaidimų aikštelėje.
 
-    > **Pastaba**: Agentas gali nepateikti tikslių atsakymų, nes šio pratybų metu nenaudojami realaus laiko duomenys. Tikslas yra išbandyti agento gebėjimą suprasti ir reaguoti į vartotojų užklausas pagal pateiktas instrukcijas.
+1. Viršuje jūsų agento **Setup** srityje pasirinkite **Try in playground**.
+2. Žaidimų aikštelės srityje galite bendrauti su agentu, rašydami užklausas pokalbių lange. Pavyzdžiui, galite paklausti agento, kad jis surastų skrydžius iš Sietlo į Niujorką 28 dienai.
 
-    ![Agent Playground](../../../translated_images/lt/agent-playground.dc146586de715010.webp)
+    > **Pastaba**: Agentas gali nesuteikti tikslių atsakymų, nes šioje užduotyje nenaudojami realaus laiko duomenys. Tikslas yra ištestuoti agento gebėjimą suprasti ir atsakyti į vartotojo užklausas pagal pateiktas instrukcijas.
 
-3. Išbandę agentą, galite toliau jį pritaikyti pridėdami daugiau ketinimų, mokymo duomenų ir veiksmų, kad pagerintumėte jo galimybes.
+    ![Agent Play ground](../../../translated_images/lt/agent-playground.dc146586de715010.webp)
+
+3. Išbandžius agentą, galite toliau jį pritaikyti pridėdami daugiau ketinimų (intents), mokomųjų duomenų ir veiksmų, kad pagerintumėte jo galimybes.
 
 ## Išvalykite išteklius
 
-Kai baigsite testuoti agentą, galite jį ištrinti, kad išvengtumėte papildomų išlaidų.
-1. Atidarykite [Azure portalą](https://portal.azure.com) ir peržiūrėkite išteklių grupės turinį, kur įdiegėte centro išteklius šiam pratimui.
+Baigę testuoti agentą, galite jį pašalinti, kad išvengtumėte papildomų išlaidų.
+1. Atidarykite [Azure portalą](https://portal.azure.com) ir peržiūrėkite išteklių grupę, kurioje diegėte centro išteklius, naudotus šioje užduotyje.
 2. Įrankių juostoje pasirinkite **Delete resource group**.
 3. Įveskite išteklių grupės pavadinimą ir patvirtinkite, kad norite ją ištrinti.
 
@@ -96,13 +97,13 @@ Kai baigsite testuoti agentą, galite jį ištrinti, kad išvengtumėte papildom
 
 - [Microsoft Foundry dokumentacija](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portalas](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Pradžia su Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Azure AI agentų pagrindai](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Pradžia su Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [AI agentų pagrindai Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

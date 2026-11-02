@@ -1,187 +1,190 @@
-# Agentprotokollide kasutamine (MCP, A2A ja NLWeb)
+# Agentsete protokollide kasutamine (MCP, A2A ja NLWeb)
 
-[![Agentprotokollid](../../../translated_images/et/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentsete protokollide](../../../translated_images/et/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Klõpsake ülaloleval pildil, et vaadata selle tunni videot)_
+> _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 
-AI agentide kasutamise kasvades suureneb ka vajadus protokollide järele, mis tagavad standardimise, turvalisuse ja toetavad avatud innovatsiooni. Selles õppetükis käsitleme kolme protokolli, mis püüavad seda vajadust täita – Model Context Protocol (MCP), Agent to Agent (A2A) ja Natural Language Web (NLWeb).
+Kuna AI agente kasutatakse järjest enam, suureneb ka vajadus protokollide järele, mis tagavad standardimise, turvalisuse ning toetavad avatud innovatsiooni. Selles õppetunnis käsitleme kolme protokolli, mis püüavad sellele vajadusele vastata – Model Context Protocol (MCP), Agent to Agent (A2A) ja Natural Language Web (NLWeb).
 
 ## Sissejuhatus
 
-Selles tunnis käsitleme:
+Selles õppetunnis käsitleme:
 
-• Kuidas **MCP** lubab AI agentidel kasutada väliseid tööriistu ja andmeid kasutaja ülesannete täitmiseks.
+• Kuidas **MCP** võimaldab AI agentidel ligi pääseda välistele tööriistadele ja andmetele, et täita kasutaja ülesandeid.
 
-• Kuidas **A2A** võimaldab erinevate AI agentide vahel suhtlust ja koostööd.
+• Kuidas **A2A** võimaldab erinevate AI agentide omavahelist suhtlust ja koostööd.
 
-• Kuidas **NLWeb** toob loomuliku keele liidesed igale veebisaidile, võimaldades AI agentidel sisu avastada ja sellega suhelda.
+• Kuidas **NLWeb** toob loomuliku keele liidesed mis tahes veebisaidile, võimaldades AI agentidel sisu avastada ja sellega suhelda.
 
 ## Õpieesmärgid
 
-• **Tuua välja** MCP, A2A ja NLWeb põhieesmärk ja eelised AI agentide kontekstis.
+• **Tuletada meelde** MCP, A2A ja NLWeb põhieesmärk ja eelised AI agentide kontekstis.
 
-• **Selgitada**, kuidas iga protokoll hõlbustab suhtlust ja interaktsiooni LLM-ide, tööriistade ja teiste agentide vahel.
+• **Selgitada**, kuidas iga protokoll hõlbustab kommunikatsiooni ja suhtlust LLM-ide, tööriistade ja teiste agentide vahel.
 
-• **Tunnustada** rollide erinevust, mida iga protokoll mängib keerukate agentide süsteemide ülesehitamisel.
+• **Tuvastada** iga protokolli eraldi rollid keerukate agentsete süsteemide ülesehitamisel.
 
 ## Model Context Protocol
 
-**Model Context Protocol (MCP)** on avatud standard, mis pakub standardiseeritud viisi rakendustele pakkuda konteksti ja tööriistu LLM-idele. See võimaldab „universaalset adapterit“ eri andmeallikate ja tööriistade jaoks, millega AI agentidel on võimalik ühtlaselt ühenduda.
+**Model Context Protocol (MCP)** on avatud standard, mis pakub rakendustele standardiseeritud viisi pakkuda konteksti ja tööriistu LLM-idele. See võimaldab „universaalset adapterit“ erinevatele andmeallikatele ja tööriistadele, millesse AI agentidel on võimalik järjepidevalt ühendada.
 
-Vaatame MCP komponente, eeliseid otsese API kasutamise ees ja näidet, kuidas AI agentid võivad MCP serverit kasutada.
+Vaatleme MCP komponente, eeliseid võrreldes otse API kasutamisega ja näidet, kuidas AI agent võib MCP serverit kasutada.
 
 ### MCP põhikomponendid
 
 MCP töötab **kliendi-serveri arhitektuuril** ja põhikomponendid on:
 
-• **Hostid** on LLM-rakendused (näiteks koodiredaktor nagu VSCode), mis alustavad ühendusi MCP serveriga.
+• **Hostid** on LLM rakendused (näiteks koodiredaktor nagu VSCode), mis alustavad ühendusi MCP serveriga.
 
-• **Kliendid** on hostrakenduse sees olevad komponendid, mis hoiavad ühe-ühe-ühendusi serveritega.
+• **Kliendid** on komponendid hostrakenduse sees, mis hoiavad ühe-ühe ühendust serveritega.
 
-• **Serverid** on kergekaalulised programmid, mis avavad kindlad võimekused.
+• **Serverid** on kergekaalulised programmid, mis avaldavad spetsiifilisi võimeid.
 
-Protokolli hulka kuulub kolm põhielementi, mis on MCP serveri võimed:
+Protokolli kuuluvad kolm põhialgatust, mis on MCP serveri võimed:
 
-• **Tööriistad**: Need on eraldiseisvad tegevused või funktsioonid, mida AI agent saab kutsega käivitada. Näiteks võib ilmateenus pakkuda „ilma päringu“ tööriista või e-kaubanduse server „toote ostu“ tööriista. MCP serverid reklaamivad iga tööriista nime, kirjelduse ja sisend/väljundi skeemi oma võimekuste näidetes.
+• **Tööriistad**: Need on eraldiseisvad toimingud või funktsioonid, mida AI agent saab kutsuda mingi tegevuse sooritamiseks. Näiteks võib ilmapalvel teenus pakkuda „saada ilm“ tööriista või e-kaubanduse server „osta toode“ tööriista. MCP serverid reklaamivad iga tööriista nime, kirjeldust ja sisend-/väljundskeemi oma võimete nimekirjas.
 
-• **Ressursid**: Need on ainult lugemiseks mõeldud andmeüksused või dokumendid, mida MCP server saab pakkuda ning kliendid saavad neid päringu alusel kätte saada. Näideteks on failisisu, andmebaasisalvestised või logifailid. Ressursid võivad olla tekstina (näiteks kood või JSON) või binaarsed (näiteks pildid või PDFid).
+• **Ressursid**: Need on ainult-lugemisandmed või dokumendid, mida MCP server saab pakkuda ja mida kliendid saavad nõudmisel kätte saada. Näiteks faili sisu, andmebaasi kirjed või logifailid. Ressursid võivad olla tekstilised (nt kood või JSON) või binaarsed (nt pildid või PDF-id).
 
-• **Skriptid (Prompts)**: Need on eeldefineeritud mallid, mis pakuvad soovitatud käske keerukamate töövoogude jaoks.
+• **Sissutõmbed**: Need on ette määratud mallid, mis pakuvad ettepanekutena sisutõmbeid, võimaldades keerukamaid töövooge.
 
 ### MCP eelised
 
 MCP pakub AI agentidele märkimisväärseid eeliseid:
 
-• **Dünaamiline tööriistade avastus**: Agendid saavad serverilt dünaamiliselt nimekirja saadaolevatest tööriistadest koos kirjeldustega toimingu kohta. See erineb traditsioonilistest API-dest, mis sageli nõuavad staatilist kodeerimist integratsioonide jaoks, mis tähendab, et iga API muutuse puhul on vaja koodi uuendada. MCP pakub „ühe korra integreerimise“ lähenemist, mis suurendab kohanemisvõimet.
+• **Dünaamiline tööriistade avastamine**: Agendid saavad dünaamiliselt serverilt kätte nimekirja saadaolevatest tööriistadest koos nende tegevuste kirjeldustega. See erineb traditsioonilistest API-dest, mille integreerimiseks on sageli vaja staatilist kodeerimist, mis tähendab, et iga API muutus nõuab koodi uuendusi. MCP pakub „integreeri üks kord“ lähenemist, mis võimaldab suuremat kohanemisvõimet.
 
-• **Ühilduvus erinevate LLM-idega**: MCP töötab erinevate LLM-idega, võimaldades mudelite vahetust parema jõudluse saavutamiseks.
+• **Ühenduvus eri LLM-idega**: MCP töötab erinevate LLM-idega, pakkudes paindlikkust tuumamodelleid vahetada parema jõudluse saavutamiseks.
 
-• **Standardiseeritud turvalisus**: MCP sisaldab standardset autentimismeetodit, mis parandab skaleeritavust MCP serverite juurde pääsu lisamisel. See on lihtsam kui erinevate võtmete ja autentimistüüpide haldamine traditsiooniliste API-de puhul.
+• **Standardiseeritud turvalisus**: MCP sisaldab standardset autentimismeetodit, mis parandab skaleeritavust, kui lisatakse ligipääsu täiendavatele MCP serveritele. See on lihtsam kui erinevate traditsiooniliste API-de võtmete ja autentimistüüpide haldamine.
 
 ### MCP näide
 
-![MCP Diagramm](../../../translated_images/et/mcp-diagram.e4ca1cbd551444a1.webp)
+![MCP Diagram](../../../translated_images/et/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Kujutlege, et kasutaja soovib AI assistendi abil lennupileti broneerida, kasutades MCP-d.
+Kujutame ette, et kasutaja soovib lennukipileti broneerida AI assistendi kaudu, mida juhib MCP.
 
-1. **Ühendamine**: AI assistent (MCP klient) ühendub lennufirma MCP serveriga.
+1. **Ühendus**: AI assistent (MCP klient) loob ühenduse lennufirma pakutava MCP serveriga.
 
-2. **Tööriistade avastus**: Klient küsib lennufirma MCP serverilt: „Millised tööriistad teil olemas on?“ Server vastab tööriistadega nagu „otsi lende“ ja „broneeri lend“.
+2. **Tööriistade avastamine**: Klient küsib lennufirma MCP serverilt: „Millised tööriistad teil olemas on?“ Server vastab tööriistadega nagu „lennupiletite otsimine“ ja „lennupiletite broneerimine“.
 
-3. **Tööriista kutsumine**: Kasutaja ütleb AI assistendile: „Palun otsi lendu Portlandist Honolulu.“ AI assistent, kasutades oma LLM-i, määrab, et peab kutsuma tööriista „otsi lende“ ja edastab MCP serverile vajalikud parameetrid (lähtekoht, sihtkoht).
+3. **Tööriista kutsumine**: Seejärel palud AI assistendil „Palun otsi lendu Portlandist Honolulu suunas“. AI assistent, kasutades oma LLM-i, tuvastab, et tuleb kutsuda tööriist „lennupiletite otsimine“ ja edastab asjakohased parameetrid (lähtesta, sihtkoht) MCP serverile.
 
-4. **Täideviimine ja vastus**: MCP server, toimides mähisena, teeb päris pöördumise lennufirma sisese broneerimis-API poole. Seejärel saab lennuinfo (nt JSON-andmed) ja saadab need AI assistendile tagasi.
+4. **Täideviimine ja vastus**: MCP server, tegutsedes kui „ümbris“, teeb tegeliku kõne lennufirma siseühendusele API-le. Seejärel saab lennuinformatsiooni (nt JSON-andmed) ja saadab selle AI assistendile tagasi.
 
-5. **Edasine suhtlus**: AI assistent esitab lennuvalikud. Kui kasutaja valib lennu, võib assistent kutsuda sama MCP serveri tööriista „broneeri lend“ ning lõpetada broneeringu.
+5. **Järgmine suhtlus**: AI assistent esitab lennuvõimalused. Kui kasutaja valib lennu, kutsub assistent võib-olla sama MCP serveri „lennupileti broneerimise“ tööriista, lõpetades broneerimise.
 
-## Agentidevaheline protokoll (A2A)
+## Agent-to-Agent protokoll (A2A)
 
-Kui MCP keskendub LLM-ide ühendamisele tööriistadega, siis **Agent-to-Agent (A2A) protokoll** läheb sammu edasi, võimaldades erinevate AI agentide vahelist suhtlust ja koostööd. A2A ühendab AI agendid erinevates organisatsioonides, keskkondades ja tehnoloogiaplatformidel, et täita ühine ülesanne.
+Kui MCP keskendub LLM-ide ühendamisele tööriistadega, siis **Agent-to-Agent (A2A) protokoll** läheb samm edasi, võimaldades suhtlust ja koostööd erinevate AI agentide vahel. A2A ühendab AI agendid erinevate organisatsioonide, keskkondade ja tehnoloogiastiikrite vahel ühise ülesande täitmiseks.
 
-Vaatleme A2A komponente ja eeliseid ning näidet selle rakendamisest meie reisisüsteemis.
+Uurime A2A komponente ja eeliseid ning näidet, kuidas seda võiks rakendada meie reisis rakenduses.
 
 ### A2A põhikomponendid
 
-A2A keskendub agentide vahelise suhtluse võimaldamisele ja nende koostööle kasutaja alamülesande täitmisel. Protokolli iga komponent aitab sellel kaasa:
+A2A keskendub agentide omavahelise kommunikatsiooni võimaldamisele ja nende koostööle kasutaja alamülesande täitmiseks. Iga protokolli komponent panustab sellesse:
 
 #### Agentkaart
 
-Sarnaselt MCP serveri tööriistade nimekirjale sisaldab Agentkaart:
-
+Sarnaselt MCP serveri tööriistade loendiga sisaldab Agentkaart järgmist:
 - Agendi nimi.
-
-- **Üldise ülesande** kirjeldus, mida agent täidab.
-
-- **Spetsiaalsete oskuste nimekiri** koos kirjeldustega, mis aitavad teistel agentidel (või isegi inimestel) mõista, millal ja miks antud agenti kutsuda.
-
+- **Kirjeldus üldistest ülesannetest**, mida agent täidab.
+- **Spetsiifiliste oskuste loend** koos kirjeldustega, mis aitavad teistel agentidel (või isegi inimestel) mõista, millal ja miks nad agenti kutsuda sooviksid.
 - Agendi **praegune Endpoint URL**.
+- Agendi **versioon** ja **võimekus**, näiteks voogedastuse vastused ja push-teavitused.
 
-- Agendi **versioon** ja **võimekused** nagu voogedastusvastused ja push-teavitused.
+#### Agendikäitaja
 
-#### Agent Executor
-
-Agent Executor vastutab **kasutaja vestluskonteksti edastamise eest kaugagentile**; kaugagent vajab seda, et mõista, millist ülesannet tuleb täita. A2A serveris kasutab agent omaenda suure keelemudeli (LLM) abi sisenevate päringute analüüsiks ja ülesannete täitmiseks oma sisemiste tööriistade abil.
+Agendikäitaja vastutab **kasutaja vestluse konteksti edastamise eest kaugagentile**, kuna kaugagent vajab seda ülesande mõistmiseks. A2A serveris kasutab agent oma suurt keelemudelit (LLM), et analüüsida saabunud taotlusi ja täita ülesandeid oma sisemiste tööriistade abil.
 
 #### Artefakt
 
-Kui kaugagent on taotluse täitnud, luuakse tulemuseks artefakt. Artefakt sisaldab **agendi töö tulemust**, **kirjeldust täidetud ülesandest** ja **teksti konteksti**, mis saadetakse protokolli kaudu. Pärast artefakti saatmist suletakse ühendus kaugagentiga kuni järgmise vajaduseni.
+Kui kaugagent on taotletud ülesande lõpetanud, luuakse tema töö tulemusena artefakt. Artefakt **sisaldab agendi töö tulemust**, **kirjeldust täidetud ülesandest** ja **tekstikonteksti**, mis on protokolli kaudu saadetud. Pärast artefakti saatmist suletakse ühendus kaugagentiga, kuni seda uuesti vajatakse.
 
-#### Sündmuste järjekord
+#### Sündmustejada
 
-Seda komponenti kasutatakse **uuenduste haldamiseks ja sõnumite edastamiseks**. See on tootmiskeskkonnas agentide vahel olulise tähtsusega, et ära hoida ühenduse sulgemist enne ülesande lõpetamist, eriti kui ülesannete täitmine võib võtta aega.
+See komponent kasutatakse **uuenduste haldamiseks ja sõnumite edastamiseks**. See on tootmises agentsete süsteemide puhul eriti oluline, et takistada agentide vahelise ühenduse sulgumist enne, kui ülesanne on lõpetatud, eriti kui ülesande täitmine võib võtta kauem aega.
 
 ### A2A eelised
 
-• **Tõhustatud koostöö**: Võimaldab erinevate tarnijate ja platvormide agentidel suhelda, jagada konteksti ja teha koostööd, võimaldades sujuvat automatiseerimist traditsiooniliselt eraldatud süsteemide vahel.
+• **Täiustatud koostöö**: See võimaldab agentidel erinevatelt müüjatelt ja platvormidelt suhelda, jagada konteksti ja koos töötada, võimaldades sujuvat automatiseerimist tavaühenduste vahel.
 
-• **Mudelite valikuvabadus**: Iga A2A agent saab ise valida, millist LLM-i ta oma päringute teenindamiseks kasutab, võimaldades optimeeritud või peenhäälestatud mudeleid vastavalt agendile, erinevalt mõnest MCP stsenaariumist, kus on ühendus ühe LLM-iga.
+• **Mudelite valiku paindlikkus**: Iga A2A agent saab valida, millist LLM-i ta kasutab oma päringute teenindamiseks, võimaldades optimeeritud või häälestatud mudeleid iga agendi jaoks, erinevalt mõnest MCP stsenaariumist, kus on ainult üks LLM ühendus.
 
-• **Sisseehitatud autentimine**: Autentimine on A2A protokolli sisse ehitatud, pakkudes tugevat turvakeskkonda agentide vahelistele suhtlustele.
+• **Sisseehitatud autentimine**: Autentimine on otse integreeritud A2A protokolli, pakkudes tugevat turvafraami agentide interaktsiooniks.
 
 ### A2A näide
 
-![A2A Diagramm](../../../translated_images/et/A2A-Diagram.8666928d648acc26.webp)
+![A2A Diagram](../../../translated_images/et/A2A-Diagram.8666928d648acc26.webp)
 
-Laiendame oma reisi broneerimise stsenaariumi, kasutades seekord A2A.
+Täiendame meie reisibroneerimise stsenaariumi, kuid sel korral kasutades A2A-d.
 
-1. **Kasutaja päring mitme agendiga**: Kasutaja suhtleb „Reisiagent“ A2A kliendi/agendiga, öeldes näiteks: „Palun broneeri terve reis nädalaks Honolulu, sh lennud, hotell ja autorent“.
+1. **Kasutaja taotlus mitmeagendile**: Kasutaja suhtleb „Reisiagendi“ A2A kliendi/agendiga, näiteks öeldes: „Palun broneeri kogu reis Honolulu järgmisele nädalale, sealhulgas lennud, hotell ja autorent“.
 
-2. **Reisiagendi korraldus**: Reisiagent saab keerulise päringu. Ta kasutab oma LLM-i, et mõista ülesannet ja otsustab, et peab suhtlema teiste eriteadmistega agentidega.
+2. **Reisiagendi orkestreerimine**: Reisiagent saab selle keeruka taotluse. Ta kasutab oma LLM-i, et ülesannet analüüsida ja teha kindlaks, et peab suhtlema teiste spetsialiseerunud agentidega.
 
-3. **Agentide vaheline suhtlus**: Reisiagent kasutab A2A protokolli, et ühenduda teiste agentidega, näiteks „Lennufirma agent“, „Hotelli agent“ ja „Autorendi agent“, kes on loodud erinevate ettevõtete poolt.
+3. **Agendid vaheline suhtlus**: Reisiagent kasutab siis A2A protokolli, et ühenduda alamagentidega, nagu „Lennufirma agent“, „Hotelli agent“ ja „Autorendi agent“, mille on loonud erinevad ettevõtted.
 
-4. **Ülesannete delegeerimine**: Reisiagent saadab konkreetseid ülesandeid neile spetsiifilistele agentidele (nt „Leia lennud Honolule“, „Broneeri hotell“, „Rendi auto“). Iga spetsiifiline agent kasutab oma LLM-i ja tööriistu (mis võivad olla ise MCP serverid), et täita oma osa broneeringust.
+4. **Ülesannete delegeerimine**: Reisiagent saadab spetsialiseerunud agentidele konkreetsed ülesanded (nt „Leia lennud Honolulu“, „Broneeri hotell“, „Võta autorent“). Iga spetsialiseerunud agent, kasutades oma LLM-i ja oma tööriistu (mis võivad olla ise MCP serverid), täidab oma osa broneerimisest.
 
-5. **Koondatud vastus**: Kui kõik allagentid on ülesanded lõpetanud, koondab Reisiagent tulemused (lennuandmed, hotelli kinnitus, autorendi broneering) ja saadab kasutajale tervikliku vestlusstiilis vastuse.
+5. **Koondatud vastus**: Kui kõik alamagendid on oma ülesanded lõpule viinud, koostab Reisiagent tulemused (lennu andmed, hotelli kinnitus, autorendi broneering) ja saadab kasutajale täieliku vestlusstiilis vastuse.
 
-## Loomuliku keele veeb (NLWeb)
+## Natural Language Web (NLWeb)
 
-Veebisaidid on olnud pikka aega peamine viis kasutajatel interneti-infole ja andmetele ligi pääseda.
+Veebilehed on juba kaua olnud peamine viis kasutajate jaoks internetis info ja andmeteni ligipääsuks.
 
-Vaatleme NLWeb erinevaid komponente, selle eeliseid ja näidet, kuidas meie NLWeb töötab, vaadates meie reisisüsteemi.
+Vaatleme NLWebi erinevaid komponente, selle eeliseid ja näidet, kuidas meie NLWeb töötab, vaadates tolle reisiaplikatsiooni.
 
 ### NLWeb komponendid
 
-- **NLWeb rakendus (põhiteenuse kood)**: Süsteem, mis töötleb loomuliku keele küsimusi. See ühendab platvormi erinevad osad, et luua vastuseid. Seda võib mõelda kui **mootor, mis jõustab veebisaidi loomuliku keele funktsionaalsust**.
+- **NLWeb rakendus (tuumteenuse kood)**: Süsteem, mis töötleb loomulikus keeles esitatud küsimusi. See ühendab platvormi erinevad osad vastuste loomiseks. Seda võib mõelda kui **mootorit, mis jõustab veebisaidi loomuliku keele funktsioonid**.
 
-- **NLWeb protokoll**: See on **lihtne reeglistik loomuliku keele interaktsiooniks** veebisaidiga. Vastuseks saadetakse JSON-formaadis andmeid (tihti kasutades Schema.org). Selle eesmärk on luua lihtne alus „AI veebile“ samamoodi nagu HTML võimaldas dokumente internetis jagada.
+- **NLWeb protokoll**: See on **loomuliku keele suhtluse põhireeglistik** veebisaidiga. See saadab vastuseid tagasi JSON formaadis (tihti kasutades Schema.org-i). Selle eesmärk on luua lihtne alus „AI-veebile“, samamoodi nagu HTML võimaldas dokumentide jagamist veebis.
 
-- **MCP server (Model Context Protocol lõpp-punkt)**: Iga NLWeb seadistus toimib ka **MCP serverina**. See tähendab, et see võib **jagada tööriistu (nt „küsi“ meetod) ja andmeid** teiste AI süsteemidega. Tegelikkuses teeb see veebisaidi sisu ja võimekused AI agentidele kasutatavaks, võimaldades saidil saada osaks laiemast „agendi ökosüsteemist“.
+- **MCP server (Model Context Protocoli lõpp-punkt)**: Iga NLWeb seadistus töötab ka MCP serverina. See tähendab, et see võib **jagada tööriistu (näiteks „küsida“ meetod) ja andmeid** teiste AI süsteemidega. Tegelikkuses teeb see veebisaidi sisu ja võimed AI agentide jaoks kasutatavaks, võimaldades saidist saada osa laiemast „agendisüsteemist“.
 
-- **Embedding mudelid**: Need mudelid teisendavad veebisisu numbrilisteks esitusteks ehk vektoriteks (embeddingudeks). Need vektorid püüavad tähendust viisil, mida arvutid saavad võrrelda ja otsida. Need salvestatakse spetsiaalsesse andmebaasi ning kasutajad saavad valida kasutatava embedding-mudeli.
+- **Embedimise mudelid**: Need mudelid teisendavad **veebisaidi sisu arvulisteks esituskujunditeks ehk vektoriteks** (embeddingudeks). Need vektorid kannavad tähendust, mida arvutid saavad omavahel võrrelda ja otsida. Need salvestatakse spetsiaalsesse andmebaasi ning kasutajad saavad valida, millist embedimise mudelit nad soovivad kasutada.
 
-- **Vektorandmebaas (otsimismehhanism)**: See andmebaas salvestab veebisisu embeddinguid. Kui keegi esitab küsimuse, kontrollib NLWeb vektorandmebaasi, et kiiresti leida kõige asjakohasem info. See tagastab kiiresti võimalikud vastused, järjestatuna sarnasuse alusel. NLWeb töötab erinevate vektorite salvestussüsteemidega nagu Qdrant, Snowflake, Milvus, Azure AI Search ja Elasticsearch.
+- **Vektorandmebaas (tagastamismehhanism)**: See andmebaas **salvestab veebisaidi sisu embeddingud**. Kui keegi esitab küsimuse, kontrollib NLWeb kiiresti vektorandmebaasi, et leida kõige asjakohasem info. Ta annab kiire nimekirja võimalikest vastustest, järjestatult sarnasuse järgi. NLWeb töötab koos erinevate vektorite salvestussüsteemidega nagu Qdrant, Snowflake, Milvus, Azure AI Search ja Elasticsearch.
 
 ### NLWeb näide
 
 ![NLWeb](../../../translated_images/et/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Võtame taas meie reisibroneerimise veebisaidi, millel seekord jookseb NLWeb.
+Võtame uuesti meie reisibroneerimise veebisaidi, kuid seekord seda juhib NLWeb.
 
-1. **Andmete import**: Reisi veebisaidi olemasolevaid tootekatalooge (nt lendude nimekirjad, hotellide kirjeldused, reisipaketid) vormindatakse Schema.org vastavuses või laaditakse RSS-kanalite kaudu. NLWeb tööriistad võtavad selle struktureeritud andme, loovad embeddingud ja salvestavad need lokaalsesse või kaugvektorandmebaasi.
+1. **Andmete omistamine**: Reisi veebisaidi olemasolevad tootekataloogid (nt lennu nimekirjad, hotelli kirjeldused, ekskursioonipaketid) on vormistatud Schema.org abil või laetud RSS voo kaudu. NLWeb tööriistad loevad need struktureeritud andmed sisse, loovad embeddingud ja salvestavad need kohalikku või kaugvektorandmebaasi.
 
-2. **Loomuliku keele päring (inimene)**: Kasutaja külastab veebisaiti ja selle asemel, et menüüsid sirvida, kirjutab jutuliidesesse: „Leia mulle peresõbralik hotell Honolulas, kus on järgmisel nädalal bassein“.
+2. **Loomuliku keele päring (inimene)**: Kasutaja külastab veebisaidi ja selle asemel, et menüüsid sirvida, sisestab vestlusliidesesse: „Leia Honolulu peresõbralik hotell koos basseiniga järgmiseks nädalaks“.
 
-3. **NLWeb töötlemine**: NLWeb rakendus võtab küsimuse vastu. See saadab päringu LLM-ile mõistmiseks ja otsib samal ajal oma vektorandmebaasist relevantseid hotellikataloogi vastuseid.
+3. **NLWeb töötlemine**: NLWeb rakendus saab selle päringu. See saadab päringu mõistmiseks LLM-ile ning otsib samal ajal oma vektorandmebaasist sobivaid hotelli nimekirju.
 
-4. **Täpsed tulemused**: LLM aitab tõlgendada andmebaasi otsingutulemusi, tuvastada parimad sobivad vastavalt kriteeriumitele „peresõbralik“, „bassein“ ja „Honolulu“ ning vormistab loomulikus keeles vastuse. Oluline on, et vastus viitab tegelikele veebisaidi hotellidele, vältides väljamõeldud infot.
+4. **Täpsed tulemused**: LLM aitab tõlgendada andmebaasi otsingutulemusi, tuvastada parimad vasted kriteeriumite „peresõbralik“, „bassein“ ja „Honolulu“ põhjal ning vormistab loomulikus keeles vastuse. Oluline on, et vastuses viidatakse tegelikele hotellidele veebisaidi kataloogist, vältides leiutatud infot.
 
-5. **AI agendi interaktsioon**: Kuna NLWeb töötab MCP serverina, võib ka väline AI reisibüroo agent selle NLWebi võrguliidesele otse ühenduda. AI agent saab kasutada `ask` MCP meetodit, et veebisaidilt andmeid pärida: `ask("Kas hotell soovitab Honolulas taimetoitusõbralikke restorane?")`. NLWeb võttaks selle vastu, kasutades oma restoraniandmebaasi (kui see on laaditud), ja saadaks struktureeritud JSON vastuse.
+5. **AI agente interaktsioon**: Kuna NLWeb toimib MCP serverina, võib väline AI reisagent ka ühenduda selle veebisaidi NLWeb instantsiga. AI agent saab siis kasutada `ask` MCP meetodit, et veebisaidilt otse pärida: `ask("Kas hotell soovitab vegansõbralikke restorane Honolulu piirkonnas?")`. NLWeb instants töötleb selle, kasutades oma restoraniandmete andmebaasi (kui see on laetud) ja tagastab struktureeritud JSON-vastuse.
 
-### Kas Sul on rohkem küsimusi MCP/A2A/NLWeb kohta?
+### Kas on veel küsimusi MCP/A2A/NLWeb kohta?
 
-Liitu [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda konsultatsioonitumepäevadel ja saada vastuseid oma AI agentidega seotud küsimustele.
+Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppijatega, osaleda kontoritundides ja saada oma AI agentide küsimustele vastused.
 
 ## Ressursid
 
-- [MCP alustamiseks](https://aka.ms/mcp-for-beginners)  
-- [MCP dokumentatsioon](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [NLWeb repositoorium](https://github.com/nlweb-ai/NLWeb)
-- [Semantic Kernel juhendid](https://learn.microsoft.com/semantic-kernel/)
+- [MCP algajatele](https://aka.ms/mcp-for-beginners)  
+- [MCP dokumentatsioon](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [NLWeb repo](https://github.com/nlweb-ai/NLWeb)
+- [Microsoft Agent raamistik](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python)
+
+## Eelmine õppetund
+
+[AI agendid tootmises](../10-ai-agents-production/README.md)
+
+## Järgmine õppetund
+
+[Kontekstitöö AI agentidele](../12-context-engineering/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest loobumine**:
-See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi me püüdleme täpsuse poole, palun arvestage, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle algkeeles tuleb pidada usaldusväärseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalse inimese tehtud tõlget. Me ei vastuta selle tõlke kasutamisest tingitud arusaamatuste või väärintepreteerimiste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

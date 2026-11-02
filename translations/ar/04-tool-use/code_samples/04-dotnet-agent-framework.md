@@ -1,109 +1,112 @@
-# 🛠️ استخدام الأدوات المتقدمة مع نماذج GitHub (.NET)
+# 🛠️ استخدام الأدوات المتقدمة مع Azure OpenAI (Responses API) (.NET)
 
 ## 📋 أهداف التعلم
 
-يستعرض هذا الدفتر أنماط دمج الأدوات على مستوى المؤسسات باستخدام إطار عمل Microsoft Agent في .NET مع نماذج GitHub. ستتعلم كيفية بناء وكلاء متقدمين باستخدام أدوات متعددة ومتخصصة، مستفيدًا من قوة الكتابة القوية في C# وميزات .NET على مستوى المؤسسات.
+يوضح هذا الدفتر أنماط تكامل الأدوات بمستوى المؤسسات باستخدام إطار عمل Microsoft Agent في .NET مع Azure OpenAI (Responses API). ستتعلم كيفية بناء وكلاء متطورين بمجموعة متنوعة من الأدوات المتخصصة، مستفيدًا من النوعية القوية في C# وميزات المؤسسات في .NET.
 
-### القدرات المتقدمة للأدوات التي ستتقنها
+### قدرات الأدوات المتقدمة التي ستتقنها
 
-- 🔧 **هيكلية متعددة الأدوات**: بناء وكلاء بقدرات متعددة ومتخصصة
-- 🎯 **تنفيذ آمن للأنواع**: الاستفادة من التحقق أثناء وقت الترجمة في C#
-- 📊 **أنماط أدوات المؤسسات**: تصميم أدوات جاهزة للإنتاج ومعالجة الأخطاء
-- 🔗 **تركيب الأدوات**: دمج الأدوات لإنشاء تدفقات عمل تجارية معقدة
+- 🔧 **هيكلية متعددة الأدوات**: بناء وكلاء بقدرات متعددة متخصصة
+- 🎯 **تنفيذ الأدوات آمن النوع**: الاستفادة من التحقق وقت الترجمة في C#
+- 📊 **أنماط أدوات المؤسسات**: تصميم أدوات جاهزة للإنتاج وتعامل الأخطاء
+- 🔗 **تركيب الأدوات**: دمج الأدوات لعمليات الأعمال المعقدة
 
-## 🎯 فوائد هيكلية الأدوات في .NET
+## 🎯 فوائد هيكلية أدوات .NET
 
 ### ميزات أدوات المؤسسات
 
-- **التحقق أثناء وقت الترجمة**: الكتابة القوية تضمن صحة معلمات الأدوات
+- **التحقق وقت الترجمة**: النوعية القوية تضمن صحة معلمات الأدوات
 - **حقن التبعيات**: تكامل حاوية IoC لإدارة الأدوات
-- **أنماط Async/Await**: تنفيذ الأدوات بدون حظر مع إدارة الموارد بشكل صحيح
-- **التسجيل المنظم**: تكامل التسجيل المدمج لمراقبة تنفيذ الأدوات
+- **أنماط Async/Await**: تنفيذ الأدوات غير المحجوز مع إدارة الموارد المناسبة
+- **التسجيل الهيكلي**: تكامل تسجيل مدمج لمراقبة تنفيذ الأدوات
 
 ### أنماط جاهزة للإنتاج
 
-- **معالجة الاستثناءات**: إدارة شاملة للأخطاء باستخدام استثناءات محددة
-- **إدارة الموارد**: أنماط التخلص المناسبة وإدارة الذاكرة
-- **مراقبة الأداء**: مقاييس مدمجة وعدادات الأداء
-- **إدارة التكوين**: تكوين آمن للأنواع مع التحقق
+- **معالجة الاستثناءات**: إدارة شاملة للأخطاء باستخدام استثناءات مخصصة
+- **إدارة الموارد**: أنماط التخلص الصحيحة وإدارة الذاكرة
+- **مراقبة الأداء**: مقاييس ومؤشرات أداء مدمجة
+- **إدارة التهيئة**: تهيئة آمنة النوع مع التحقق
 
 ## 🔧 الهيكلية التقنية
 
-### مكونات الأدوات الأساسية في .NET
+### مكونات أدوات .NET الأساسية
 
 - **Microsoft.Extensions.AI**: طبقة تجريد موحدة للأدوات
-- **Microsoft.Agents.AI**: تنسيق أدوات على مستوى المؤسسات
-- **تكامل نماذج GitHub**: عميل API عالي الأداء مع تجميع الاتصالات
+- **Microsoft.Agents.AI**: تنظيم أدوات بمستوى المؤسسات
+- **Azure OpenAI (Responses API)**: عميل API عالي الأداء مع تجميع الاتصالات
 
 ### خط أنابيب تنفيذ الأدوات
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[طلب المستخدم] --> B[تحليل الوكيل]
+    B --> C[اختيار الأداة]
+    C --> D[التحقق من النوع]
+    B --> E[ربط المعامل]
+    E --> F[تنفيذ الأداة]
     C --> F
-    F --> G[Result Processing]
+    F --> G[معالجة النتيجة]
     D --> G
-    G --> H[Response]
+    G --> H[الرد]
 ```
 
-## 🛠️ فئات الأدوات والأنماط
+## 🛠️ فئات وأنماط الأدوات
 
 ### 1. **أدوات معالجة البيانات**
 
-- **التحقق من المدخلات**: الكتابة القوية مع تعليقات البيانات
-- **عمليات التحويل**: تحويل البيانات وتنسيقها بشكل آمن للأنواع
-- **منطق الأعمال**: أدوات الحساب والتحليل الخاصة بالمجال
-- **تنسيق المخرجات**: إنشاء استجابات منظمة
+- **التحقق من المدخلات**: نوعية قوية مع تعليقات بيانات
+- **عمليات التحويل**: تحويل وتنسيق بيانات آمن النوع
+- **المنطق التجاري**: أدوات حساب وتحليل خاصة بالمجال
+- **تنسيق المخرجات**: توليد استجابات منظمة
 
 ### 2. **أدوات التكامل**
 
-- **موصلات API**: تكامل خدمات RESTful باستخدام HttpClient
+- **موصلات API**: تكامل خدمات RESTful مع HttpClient
 - **أدوات قواعد البيانات**: تكامل Entity Framework للوصول إلى البيانات
-- **عمليات الملفات**: عمليات نظام الملفات الآمنة مع التحقق
-- **الخدمات الخارجية**: أنماط تكامل الخدمات الخارجية
+- **عمليات الملفات**: عمليات نظام ملفات آمنة مع التحقق
+- **الخدمات الخارجية**: أنماط تكامل خدمات الطرف الثالث
 
 ### 3. **أدوات المساعدة**
 
-- **معالجة النصوص**: أدوات التلاعب بالنصوص وتنسيقها
-- **عمليات التاريخ/الوقت**: حسابات التاريخ/الوقت مع مراعاة الثقافة
-- **أدوات رياضية**: حسابات دقيقة وعمليات إحصائية
-- **أدوات التحقق**: التحقق من قواعد الأعمال والتحقق من البيانات
+- **معالجة النصوص**: أدوات تنسيق ومعالجة السلاسل النصية
+- **عمليات التاريخ/الوقت**: حسابات تاريخ/وقت مدركة للثقافة
+- **الأدوات الرياضية**: حسابات دقيقة وعمليات إحصائية
+- **أدوات التحقق**: التحقق من قواعد العمل والتحقق من البيانات
 
-هل أنت مستعد لبناء وكلاء على مستوى المؤسسات بقدرات أدوات قوية وآمنة للأنواع في .NET؟ لنبدأ في تصميم حلول احترافية! 🏢⚡
+جاهز لبناء وكلاء بمستوى المؤسسات مع قدرات أدوات قوية وآمنة النوع في .NET؟ هيا نصمم بعض الحلول بمستوى احترافي! 🏢⚡
 
 ## 🚀 البدء
 
 ### المتطلبات الأساسية
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أعلى
-- [رمز الوصول إلى API لنماذج GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- اشتراك [Azure](https://azure.microsoft.com/free/) مع مورد Azure OpenAI ونشر نموذج
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — سجل الدخول باستخدام `az login`
 
 ### متغيرات البيئة المطلوبة
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز وصول
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# باورشيل
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ثم قم بتسجيل الدخول حتى يتمكن AzureCliCredential من الحصول على رمز مميز
+az login
 ```
 
-### مثال على الكود
+### مثال برمجي
 
 لتشغيل مثال الكود،
 
 ```bash
-# zsh/bash
+# زش/باش
 chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
@@ -114,21 +117,23 @@ chmod +x ./04-dotnet-agent-framework.cs
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-راجع [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) للحصول على الكود الكامل.
+انظر [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) للكود الكامل.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**إخلاء المسؤولية**:  
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة ناتجة عن استخدام هذه الترجمة.
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

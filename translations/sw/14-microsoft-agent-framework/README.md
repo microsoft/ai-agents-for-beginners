@@ -4,73 +4,74 @@
 
 ### Utangulizi
 
-Somo hili litashughulikia:
+Somo hili litaangazia:
 
-- Kuelewa Mfumo wa Wakala wa Microsoft: Vipengele Muhimu na Thamani  
+- Kuelewa Mfumo wa Wakala wa Microsoft: Sifa Muhimu na Thamani  
 - Kuchunguza Misingi Muhimu ya Mfumo wa Wakala wa Microsoft
-- Kulinganisha MAF na Semantic Kernel na AutoGen: Mwongozo wa Kuhamia
+- Mifumo ya MAF ya Juu: Michakato ya Kazi, Middleware, na Kumbukumbu
 
 ## Malengo ya Kujifunza
 
 Baada ya kumaliza somo hili, utajua jinsi ya:
 
-- Kujenga Wakala wa AI Tayari Kutumika kwa uzalishaji ukitumia Mfumo wa Wakala wa Microsoft
-- Kutumia vipengele vya msingi vya Mfumo wa Wakala wa Microsoft katika Matumizi Yako ya Wakala
-- Kuhamia na kuunganisha mifumo na zana za wakala zilizopo  
+- Kujenga Wakala wa AI Tayari kwa Uzalishaji kwa kutumia Mfumo wa Wakala wa Microsoft
+- Kutumia sifa kuu za Mfumo wa Wakala wa Microsoft kwa Matumizi yako ya Wakili
+- Kutumia mifumo ya juu ikiwa ni pamoja na michakato ya kazi, middleware, na ufuatiliaji
 
 ## Sampuli za Msimbo 
 
-Sampuli za msimbo kwa [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) zinaweza kupatikana katika hazina hii chini ya faili za `xx-python-agent-framework` na `xx-dotnet-agent-framework`.
+Sampuli za msimbo za [Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) zinaweza kupatikana katika hifadhidata hii chini ya faili za `xx-python-agent-framework` na `xx-dotnet-agent-framework`.
 
 ## Kuelewa Mfumo wa Wakala wa Microsoft
 
 ![Framework Intro](../../../translated_images/sw/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) hujengea juu ya uzoefu na mafunzo kutoka Semantic Kernel na AutoGen. Inatoa unafuu wa kukabiliana na aina mbalimbali za matukio ya matumizi ya wakala yanayoonekana katika mazingira ya uzalishaji na utafiti ikijumuisha:
+[Microsoft Agent Framework (MAF)](https://learn.microsoft.com/en-us/agent-framework/overview/?wt.mc_id=youtube_26688_organicsocial_reactor&pivots=programming-language-python) ni mfumo uliounganishwa wa Microsoft kwa ajili ya kujenga wakala wa AI. Inatoa unyumbufu wa kushughulikia aina mbalimbali za matumizi ya wakala unaoonekana katika mazingira ya uzalishaji na utafiti ikiwa ni pamoja na:
 
-- **Mratibu wa Wakala wa Mfuatano** katika hali ambapo mchakato wa hatua kwa hatua unahitajika.
-- **Mratibu wa Wakala wa Msimulizi Wakati Mmoja** katika hali ambapo mawakala wanahitaji kukamilisha kazi kwa wakati mmoja.
-- **Mratibu wa Mazungumzo ya Kundi** katika hali ambapo mawakala wanaweza kushirikiana pamoja kwenye kazi moja.
-- **Mratibu wa Kumkabidhi Mwingine** katika hali ambapo mawakala wanakabidhi kazi kwa mwingine wanapo maliza sehemu ndogo za kazi.
-- **Mratibu wa Kivutio cha Sumaku** katika hali ambapo wakala msimamizi huunda na kubadilisha orodha ya kazi na kusimamia uratibu wa mawakala wengine ili kukamilisha kazi.
+- **Utaratibu wa Wakala wa mfuatano** katika hali ambapo michakato ya hatua kwa hatua inahitajika.
+- **Utaratibu wa Wakala kwa wakati mmoja** katika hali ambapo mawakala wanahitaji kukamilisha kazi kwa wakati mmoja.
+- **Utaratibu wa Mazungumzo ya Kundi** katika hali ambapo mawakala wanaweza kushirikiana pamoja katika kazi moja.
+- **Utaratibu wa Uhamisho** katika hali ambapo mawakala wanahamishia kazi kwa kila mmoja kadri kazi ndogo zinavyokamilika.
+- **Utaratibu wa Miondoko** katika hali ambapo wakala wa meneja huunda na kubadilisha orodha ya kazi na kushughulikia uratibu wa mawakala mdogo kumaliza kazi.
 
-Ili kutoa Wakala wa AI katika Uzalishaji, MAF pia ina vipengele vya:
+Ili kutoa Wakala wa AI katika Uzalishaji, MAF pia ina sifa za:
 
-- **Uangalizi** kupitia matumizi ya OpenTelemetry ambapo kila hatua ya Wakala wa AI ikijumuisha kuitwa kwa zana, hatua za mratibu, mtiririko wa hoja na ufuatiliaji wa utendaji kupitia dashibodi za Microsoft Foundry.
-- **Usalama** kwa kuendesha mawakala moja kwa moja kwenye Microsoft Foundry ambayo inajumuisha udhibiti wa usalama kama ufikiaji wa msingi wa majukumu, usimamizi wa data binafsi na usalama wa maudhui uliotengenezwa ndani.
-- **Ubinadamu** kwani mriadha na michakato ya wakala inaweza kusimamishwa, kuendelea na kupona kutokana na makosa jambo linalowezesha michakato ya kugonga muda mrefu.
-- **Udhibiti** kwani michakato ya mzunguko na wanadamu inasaidiwa ambapo kazi hupimwa kama zinahitaji idhini ya binadamu.
+- **Ufuatiliaji** kupitia matumizi ya OpenTelemetry ambapo kila kitendo cha Wakala wa AI ikiwa ni pamoja na kuitwa zana, hatua za utaratibu, mtiririko wa hoja na ufuatiliaji wa utendaji kupitia dashibodi za Microsoft Foundry.
+- **Usalama** kwa kuwa mwenyeji wa mawakala asili kwenye Microsoft Foundry ambayo inajumuisha udhibiti wa usalama kama upatikanaji wa msingi wa nyaraka, usimamizi wa data binafsi na usalama wa maudhui uliopo ndani.
+- **Uhimili** kwani mistari ya wakala na michakato ya kazi inaweza kusimama, kuendelea na kurekebisha makosa ambayo hutoa mchakato wa muda mrefu.
+- **Udhibiti** kama michakato ya kazi yenye mtu binadamu katikati inasaidiwa ambapo kazi zinatumwa kama zinahitaji idhini ya binadamu.
 
-Mfumo wa Wakala wa Microsoft pia umejikita katika kuweza kuendana kwa:
+Mfumo wa Wakala wa Microsoft pia unalenga kuwa na uingilivu kwa:
 
-- **Kuwa huru kwa Wingu** - Mawakala wanaweza kuendeshwa ndani ya kontena, kwa mteja mwenyewe na kwenye mawingu mbalimbali.
-- **Kuwa huru kwa Mtoa Huduma** - Mawakala yanaweza kuundwa kwa kutumia SDK unayopendelea ikiwa ni pamoja na Azure OpenAI na OpenAI
-- **Kuingiza Viwango Wazi** - Mawakala yanaweza kutumia itifaki kama Agent-to-Agent(A2A) na Model Context Protocol (MCP) kugundua na kutumia mawakala na zana nyingine.
-- **Viambatisho na Vinuzi** - Muunganisho unaweza kufanywa na huduma za data na kumbukumbu kama Microsoft Fabric, SharePoint, Pinecone na Qdrant.
+- **Kuwa huru kwa Wingu** - Wakala wanaweza kuendeshwa kwenye kontena, ndani ya ofisi na katika mawingu mengi tofauti.
+- **Kuwa huru kwa Mtoa Huduma** - Wakala wanaweza kuundwa kupitia SDK unayopendelea ikiwa ni pamoja na Azure OpenAI na OpenAI
+- **Kuingiza Viwango Huru** - Wakala wanaweza kutumia itifaki kama Agent-to-Agent(A2A) na Model Context Protocol (MCP) kugundua na kutumia mawakala na zana wengine.
+- **Viambatanisho na Viano** - Muunganisho unaweza kufanywa kwa huduma za data na kumbukumbu kama Microsoft Fabric, SharePoint, Pinecone na Qdrant.
 
-Tuchunguze jinsi vipengele hivi vinavyotumika katika baadhi ya dhana kuu za Mfumo wa Wakala wa Microsoft.
+Tuchunguze jinsi sifa hizi zinavyotumika kwa baadhi ya dhana kuu za Mfumo wa Wakala wa Microsoft.
 
-## Misingi Muhimu ya Mfumo wa Wakala wa Microsoft
+## Dhana Muhimu za Mfumo wa Wakala wa Microsoft
 
-### Mawakala
+### Wakala
 
 ![Agent Framework](../../../translated_images/sw/agent-components.410a06daf87b4fef.webp)
 
-**Kuumba Mawakala**
+**Kutengeneza Wakala**
 
-Uundaji wa wakala hufanywa kwa kufafanua huduma ya uainishaji (Mtoa LLM), seti ya maagizo kwa Wakala wa AI kufuata, na `jina` lililowekwa:
+Uundaji wa wakala hufanyika kwa kufafanua huduma ya utambuzi (Mtoa huduma wa LLM), seti ya maagizo kwa Wakala wa AI kufuata, na `jina` lililoteuliwa:
+
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Hapo juu inatumia `Azure OpenAI` lakini mawakala yanaweza kuundwa kwa kutumia huduma mbalimbali ikiwa ni pamoja na `Microsoft Foundry Agent Service`:
+Hapo juu inatumia `Azure OpenAI` lakini mawakala wanaweza kuundwa kwa kutumia huduma mbalimbali ikiwa ni pamoja na `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
 
-API za OpenAI `Responses`, `ChatCompletion`
+OpenAI `Responses`, `ChatCompletion` API
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
@@ -80,15 +81,21 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-au mawakala wa mbali kwa kutumia itifaki ya A2A:
+au [MiniMax](https://platform.minimaxi.com/), ambayo hutoa API inayolingana na OpenAI na madirisha makubwa ya muktadha (hadi tokeni 204K):
+
+```python
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+```
+
+au mawakala wa mbali wakitumia itifaki ya A2A:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
 ```
 
-**Kuendesha Mawakala**
+**Kuendesha Wakala**
 
-Mawakala huendeshwa kwa kutumia mbinu `.run` au `.run_stream` kwa jibu lisilotiririka au lenye mtiririko.
+Mawakala huendeshwa kwa kutumia njia `.run` au `.run_stream` kwa majibu yasiyo ya mtiririko au ya mtiririko.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -102,13 +109,13 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Kila utekelezaji wa wakala unaweza pia kuwa na chaguzi za kubinafsisha vigezo kama `max_tokens` kinachotumiwa na wakala, `tools` ambazo wakala anaweza kuita, na hata `model` yenyewe inayotumiwa na wakala.
+Kila kuendesha wakala pia kunaweza kuwa na chaguzi za kubinafsisha vigezo kama `max_tokens` vinavyotumika na wakala, `tools` ambazo wakala anaweza kuitia simu, na hata `model` yenyewe inayotumika kwa wakala.
 
-Hii ni muhimu katika kesi ambapo mifano au zana maalum zinahitajika kukamilisha kazi ya mtumiaji.
+Hii ni muhimu katika kesi ambapo mifano maalum au zana zinahitajika kukamilisha kazi ya mtumiaji.
 
 **Zana**
 
-Zana zinaweza kufafanuliwa wakati wa kuunda wakala:
+Zana zinaweza kufafanuliwa wakati wa kufafanua wakala:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -120,57 +127,57 @@ agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpf
 
 ```
 
-na pia wakati wa kuendesha wakala:
+na pia wakati wakala anapoendesha:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Chombo kilichotolewa kwa ajili ya mtihani huu tu )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Chombo kilichotolewa kwa ajili ya kukimbia hii pekee )
 ```
 
-**Miadha ya Wakala**
+**Mistari ya Wakala**
 
-Miadha ya wakala hutumika kushughulikia mazungumzo yenye vipindi vingi. Miacha inaweza kuundwa kwa:
+Mistari ya wakala hutumika kushughulikia mazungumzo ya mizunguko mingi. Mistari inaweza kuundwa kwa:
 
-- Kutumia `get_new_thread()` ambayo inaruhusu mfuatano kuokolewa kwa muda
-- Kuunda mfuatano moja kwa moja wakati wa kuendesha wakala na mfuatano huu kukaa tu wakati wa utekelezaji wa sasa.
+- Kutumia `get_new_thread()` ambayo huruhusu mstari kuhifadhiwa kwa muda mrefu
+- Kuunda mstari moja moja wakati wa kuendesha wakala na mstari kupatikana tu wakati wa uendeshaji wa sasa.
 
-Kuuza mfuatano, msimbo ni kama hivi:
+Kuunda mstari, msimbo inaonekana hivi:
 
 ```python
 # Unda thread mpya.
-thread = agent.get_new_thread() # Endesha wakala na thread.
+thread = agent.get_new_thread() # Endesha wakala kwa thread hiyo.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Kisha unaweza kusafirisha mfuatano kuhifadhiwa kwa matumizi ya baadaye:
+Kisha unaweza kuandaa mstari kuhifadhi kwa matumizi ya baadaye:
 
 ```python
-# Unda kipande kipya cha mfululizo.
+# Unda kipaza sauti kipya.
 thread = agent.get_new_thread() 
 
-# Endesha wakala na kipande cha mfululizo.
+# Endesha wakala na kipaza sauti.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Fanya serialization ya kipande cha mfululizo kwa ajili ya uhifadhi.
+# Fanya serialization ya kipaza sauti kwa kuhifadhi.
 
 serialized_thread = await thread.serialize() 
 
-# Fanya deserialization ya hali ya kipande cha mfululizo baada ya kupakia kutoka kwa uhifadhi.
+# Fanya deserialization ya hali ya kipaza sauti baada ya kupakia kutoka kwenye hifadhi.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
 **Middleware ya Wakala**
 
-Mawakala hufanya kazi na zana na LLMs kukamilisha majukumu ya mtumiaji. Katika baadhi ya hali, tunataka kutekeleza au kufuatilia kati ya mwingiliano huu. Middleware ya wakala inaturuhusu kufanya hivi kupitia:
+Mawakala hushirikiana na zana na LLM ili kukamilisha kazi za mtumiaji. Katika hali fulani, tunataka kutekeleza au kufuatilia kati ya mwingiliano huu. Middleware ya wakala inatuwezesha kufanya hili kupitia:
 
 *Middleware ya Kazi*
 
-Middleware hii inaruhusu kutekeleza tendo kati ya wakala na kazi/zana atakayoitumia. Mfano wa wakati huu utatumika ni pale ambapo unaweza kutaka kufanya upatiliaji wa simu ya kazi.
+Middleware hii inaruhusu kutekeleza kitendo kati ya wakala na kazi/zaana inayoitwa. Mfano wa matumizi yake ni kutaka kufanya kurekodiwa kwa simu ya kazi.
 
-Katika msimbo hapa chini `next` inafafanua kama middleware inayofuata au kazi halisi inapaswa kuitwa.
+Katika msimbo huu `next` huamua kama middleware inayofuata au kazi halisi itaitwa.
 
 ```python
 async def logging_function_middleware(
@@ -178,21 +185,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Kuhakiki awali: Andika kumbukumbu kabla ya utekelezaji wa kazi
+    # Utangulizi: Andika log kabla ya utekelezaji wa kazi
     print(f"[Function] Calling {context.function.name}")
 
-    # Endelea kwa sehemu inayofuata ya kati au utekelezaji wa kazi
+    # Endelea kwa middleware inayofuata au utekelezaji wa kazi
     await next(context)
 
-    # Kuhakiki baada: Andika kumbukumbu baada ya utekelezaji wa kazi
+    # Ufuatiliaji wa baada: Andika log baada ya utekelezaji wa kazi
     print(f"[Function] {context.function.name} completed")
 ```
 
 *Middleware ya Mazungumzo*
 
-Middleware hii inaruhusu kutekeleza au kurekodi tendo kati ya wakala na maombi kati ya LLM.
+Middleware hii inaruhusu kutekeleza au kurekodi kitendo kati ya wakala na maombi kati ya LLM.
 
-Hii ina taarifa muhimu kama vile `messages` zinazotumwa kwa huduma ya AI.
+Hii ina taarifa muhimu kama `messages` zinazotumwa kwa huduma ya AI.
 
 ```python
 async def logging_chat_middleware(
@@ -200,34 +207,34 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Utangulizi: Andika kumbukumbu kabla ya simu ya AI
+    # Usindikaji wa awali: Andika kumbukumbu kabla ya wito wa AI
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Endelea kwenye middleware au huduma ya AI iliyofuata
+    # Endelea kwa middleware inayofuata au huduma ya AI
     await next(context)
 
-    # Uchakataji baadae: Andika kumbukumbu baada ya majibu ya AI
+    # Usindikaji wa baadaye: Andika kumbukumbu baada ya jibu la AI
     print("[Chat] AI response received")
 
 ```
 
 **Kumbukumbu ya Wakala**
 
-Kama ilivyosomwa katika somo la `Kumbukumbu ya Wakala`, kumbukumbu ni kipengele muhimu kuwezesha wakala kufanya kazi kwenye muktadha tofauti. MAF hutoa aina kadhaa za kumbukumbu:
+Kama ilivyoelezwa katika somo la `Agentic Memory`, kumbukumbu ni kipengele muhimu kwa kuwahimiza wakala kufanya kazi kwa muktadha tofauti. MAF inatoa aina kadhaa za kumbukumbu:
 
-*Kumbukumbu ya Ndani ya Mfuatano*
+*Uhifadhi wa Kumbukumbu ya Ndani*
 
-Hii ni kumbukumbu iliyohifadhiwa katika miacha wakati wa utekelezaji wa programu.
+Hii ni kumbukumbu iliyohifadhiwa ndani ya mistari wakati wa kuendesha programu.
 
 ```python
-# Unda thread mpya.
-thread = agent.get_new_thread() # Endesha wakala na thread.
+# Unda uzi mpya.
+thread = agent.get_new_thread() # Endesha wakala na uzi huo.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
-*Ujumbe wa Kudumu*
+*Ujumbe Endelevu*
 
-Kumbukumbu hii hutumiwa kuhifadhi historia ya mazungumzo kati ya vikao tofauti. Hufafanuliwa kwa kutumia `chat_message_store_factory`:
+Kumbukumbu hii hutumika kuhifadhi historia ya mazungumzo kati ya vikao tofauti. Imepangwa kwa kutumia `chat_message_store_factory`:
 
 ```python
 from agent_framework import ChatMessageStore
@@ -244,14 +251,14 @@ agent = ChatAgent(
 
 ```
 
-*Kumbukumbu ya Kijumuishi*
+*Kumbukumbu ya Mabadiliko*
 
-Kumbukumbu hii inaongezwa katika muktadha kabla ya mawakala kuendeshwa. Kumbukumbu hizi zinaweza kuhifadhiwa katika huduma za nje kama mem0:
+Kumbukumbu hii huongezwa kwenye muktadha kabla mawakala kuendeshwa. Kumbukumbu hizi zinaweza kuhifadhiwa kwa huduma za nje kama mem0:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Kutumia Mem0 kwa uwezo wa hali ya juu wa kumbukumbu
+# Kutumia Mem0 kwa uwezo wa kumbukumbu wa hali ya juu
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -266,9 +273,9 @@ agent = ChatAgent(
 
 ```
 
-**Uangalifu wa Wakala**
+**Ufuatiliaji wa Wakala**
 
-Uangalifu ni muhimu kwa kujenga mifumo ya kuaminika na rahisi kudumisha. MAF inaunganisha na OpenTelemetry kutoa ufuatiliaji na vipimo vya uangalifu bora.
+Ufuatiliaji ni muhimu katika kujenga mifumo ya wakala inayoweza kuaminika na kudumishwa. MAF inaunganishwa na OpenTelemetry kutoa kufuatilia na mita kwa ufuatiliaji bora.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -276,29 +283,29 @@ from agent_framework.observability import get_tracer, get_meter
 tracer = get_tracer()
 meter = get_meter()
 with tracer.start_as_current_span("my_custom_span"):
-    # fanya jambo mmoja
+    # fanya jambo
     pass
 counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
 ```
 
-### Miaradi ya Kazi
+### Michakato ya Kazi
 
-MAF hutoa miaradi ya kazi ambayo ni hatua zilizowekwa za kumaliza kazi na zinajumuisha mawakala wa AI kama vipengele katika hatua hizo.
+MAF hutoa michakato ya kazi ambayo ni hatua zilizoainishwa mapema za kumaliza kazi na kujumuisha mawakala wa AI kama vipengele katika hatua hizo.
 
-Miaradi ya kazi inaundwa na vipengele tofauti vinavyoruhusu mtiririko bora wa udhibiti. Miaradi pia inaruhusu **uratibu wa mawakala wengi** na **uhifadhi wa alama** kuhifadhi hali za mchakato wa kazi.
+Michakato ya kazi imeundwa na vipengele tofauti vinavyoruhusu mtiririko bora wa udhibiti. Michakato ya kazi pia inaruhusu **uratibu wa mawakala wengi** na **uhifadhi wa alama** kuhifadhi hali za michakato ya kazi.
 
-Vipengele vikuu vya mchakato ni:
+Vipengele vikuu vya mchakato wa kazi ni:
 
-**Watekelezaji**
+**Watendaji**
 
-Watekelezaji hupokea ujumbe wa kuingiza, kutekeleza kazi walizopangiwa, kisha kutoa ujumbe wa matokeo. Hii husogeza mchakato wa kazi mbele kuelekea kukamilisha kazi kubwa zaidi. Watekelezaji wanaweza kuwa wakala wa AI au mantiki maalum.
+Watendaji hupokea ujumbe wa ingizo, kutekeleza majukumu yao yaliyowekwa, na kisha kutoa ujumbe wa matokeo. Hii hupeleka mchakato wa kazi mbele kuelekea kukamilika kwa kazi kubwa. Watendaji wanaweza kuwa wakala wa AI au mantiki ya kawaida.
 
 **Mikondo**
 
-Mikondo hutumika kufafanua mtiririko wa ujumbe katika mchakato wa kazi. Hizi zinaweza kuwa:
+Mikondo hutumika kufafanua mtiririko wa ujumbe katika mchakato wa kazi. Hii inaweza kuwa:
 
-*Mikondo ya Moja kwa Moja* - Muunganiko rahisi wa mtu moja kwa moja kati ya watekelezaji:
+*Mikondo ya Moja kwa Moja* - Muunganisho rahisi wa moja kwa moja kati ya watendaji:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -309,78 +316,134 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Mikondo ya Masharti* - Huitishwa baada ya sharti fulani kutimizwa. Kwa mfano, wakati vyumba vya hoteli havipatikani, mtekelezaji anaweza kupendekeza chaguzi nyingine.
+*Mikondo ya Masharti* - Hutumika baada ya sharti fulani kutimizwa. Kwa mfano, wakati vyumba vya hoteli havipo, mtendaji anaweza kupendekeza chaguzi nyingine.
 
-*Mikondo ya Switch-case* - Huweka ujumbe kwa watekelezaji tofauti kwa kuzingatia masharti yaliyowekwa. Kwa mfano, mteja wa usafiri ana ufikiaji wa kipaumbele na kazi zao zitatatuliwa kupitia mchakato mwingine.
+*Mikondo ya Kesi ya Kubadili* - Ruta ujumbe kwa watendaji tofauti kulingana na masharti yaliyowekwa. Kwa mfano, ikiwa mteja wa usafiri ana upatikanaji wa kipaumbele na kazi zao zitatatuliwa kupitia mchakato mwingine wa kazi.
 
-*Mikondo ya Fan-out* - Kutuma ujumbe mmoja kwa malengo mengi.
+*Mikondo ya Kutuma Ujumbe nyingi* - Tuma ujumbe mmoja kwa malengo mengi.
 
-*Mikondo ya Fan-in* - Kukusanya ujumbe nyingi kutoka kwa watekelezaji tofauti na kutuma kwa lengo moja.
+*Mikondo ya Kupokea Ujumbe nyingi* - Kusanya ujumbe mbalimbali kutoka kwa watendaji tofauti na kutuma kwa lengo moja.
 
 **Matukio**
 
-Ili kutoa uangalizi bora katika mchakato wa kazi, MAF hutoa matukio ya ndani kwa ajili ya utekelezaji ikijumuisha:
+Ili kutoa ufuatiliaji bora wa michakato ya kazi, MAF hutoa matukio yaliyojengwa kwa utekelezaji ikiwa ni pamoja na:
 
-- `WorkflowStartedEvent`  - Utekelezaji wa mchakato wa kazi unaanza
-- `WorkflowOutputEvent` - Mchakato wa kazi hutoa matokeo
-- `WorkflowErrorEvent` - Mchakato wa kazi unakutana na hitilafu
-- `ExecutorInvokeEvent`  - Mtekelezaji anaanza kazi
-- `ExecutorCompleteEvent`  -  Mtekelezaji anamaliza kazi
-- `RequestInfoEvent` - Ombi limewasilishwa
+- `WorkflowStartedEvent`  - Kuanza utekelezaji wa mchakato wa kazi
+- `WorkflowOutputEvent` - Mchakato wa kazi hutengeneza matokeo
+- `WorkflowErrorEvent` - Mchakato wa kazi unakutana na kosa
+- `ExecutorInvokeEvent`  - Mtendaji anaanza kusindika
+- `ExecutorCompleteEvent`  -  Mtendaji anakamilisha kusindika
+- `RequestInfoEvent` - Ombi limetumwa
 
-## Kuhamia Kutoka kwa Mifumo Mingine (Semantic Kernel na AutoGen)
+## Mifumo ya Juu ya MAF
 
-### Tofauti kati ya MAF na Semantic Kernel
+Sehemu zilizo juu zinaelezea dhana kuu za Mfumo wa Wakala wa Microsoft. Unapojenga mawakala magumu zaidi, hizi ni mifumo ya juu ya kuzingatia:
 
-**Kuumba Wakala kwa Rahisi**
+- **Muundo wa Middleware**: Unganisha watendaji wa middleware wengi (kurekodi, uthibitishaji, utawala wa viwango) kwa kutumia middleware ya kazi na mazungumzo kwa udhibiti mzuri wa tabia ya wakala.
+- **Uhifadhi wa Alama ya Mchakato wa Kazi**: Tumia matukio ya mchakato wa kazi na serialization kuhifadhi na kuendelea na michakato ya wakala inayochukua muda mrefu.
+- **Uchaguzi wa Zana za Dinamiki**: Changanya RAG juu ya maelezo ya zana na usajili wa zana wa MAF kuonyesha zana zinazohusiana tu kwa kila swali.
+- **Uhamisho wa Wakala Wengi**: Tumia mikondo ya mchakato wa kazi na routing ya masharti kuratibu uhamisho kati ya mawakala maalum.
 
-Semantic Kernel hutegemea kuunda mfano wa Kernel kwa kila wakala. MAF ina njia rahisi zaidi kwa kutumia viendelezi kwa watoa huduma wakuu.
+## Kuendesha Wakala wa LangChain / LangGraph kwenye Microsoft Foundry
 
-```python
-agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at reccomending trips to customers based on their preferences.", name="TripRecommender" )
+Mfumo wa Wakala wa Microsoft ni **mfumo unaolingana na mifumo mingine** — haukubaliki kwa mawakala tu yaliyoandikwa kwa MAF. Ikiwa tayari una wakala aliyojengwa na **LangChain** au **LangGraph**, unaweza kuendesha kama **wakala mwenyeji wa Microsoft Foundry** ili Foundry idhibiti muda wa kuendesha, vikao, upanuzi, utambulisho, na mapokezi ya itifaki kwa niaba yako, wakati mantiki yako ya wakala inabaki katika LangGraph.
+
+Hii hufanyika kwa kutumia kifurushi cha `langchain_azure_ai.agents.hosting`, kinachoonyesha grafu ya LangGraph iliyokusanywa juu ya itifaki sawa na wakala wenyeji wa Foundry hutumia.
+
+**1. Sakinisha ziada ya kuhudumia:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
 ```
 
-**Uundaji wa Mfuatano wa Wakala**
+Ziada ya `hosting` inasakinisha maktaba za itifaki za Foundry: `azure-ai-agentserver-responses` (mwisho wa OpenAI unaolingana wa `/responses`) na `azure-ai-agentserver-invocations` (mwisho wa jumla wa `/invocations`).
 
-Semantic Kernel inahitaji miacha kuundwa kwa mkono. Katika MAF, wakala huchukuliwa moja kwa moja mfuatano.
+**2. Chagua itifaki ya kuhudumia:**
 
-```python
-thread = agent.get_new_thread() # Endesha wakala kwa kipande cha pande.
+| Itifaki | Darasa la mwenyeji | Mwisho | Tumia wakati |
+|----------|-----------|----------|----------|
+| **Majibu** | `ResponsesHostServer` | `/responses` | Unataka mazungumzo yanayolingana na OpenAI, mtiririko, historia ya majibu, na ufuatiliaji wa mazungumzo — mshauri wa chaguo kwa kawaida kwa mawakala wa mazungumzo. |
+| **Mifano** | `InvocationsHostServer` | `/invocations` | Unahitaji muundo wa JSON maalum, mwisho wa webhook au usindikaji usio wa mazungumzo. |
+
+Kwa sababu **API ya Majibu ni API kuu kwa maendeleo ya aina ya wakala ndani ya Foundry**, anza na `ResponsesHostServer` kwa mawakala mengi.
+
+**3. Sanidi vigezo vya mazingira** (`az login` kwanza ili `DefaultAzureCredential` iweze kuthibitisha):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-5-mini"
 ```
 
-**Usajili wa Zana**
+Wakati wakala baadaye anaendesha kama wakala mwenyeji katika Foundry, jukwaa linaingiza `FOUNDRY_PROJECT_ENDPOINT` moja kwa moja.
 
-Katika Semantic Kernel, zana husajiliwa kwa Kernel kisha Kernel hutikishwa kwa wakala. Katika MAF, zana husajiliwa moja kwa moja wakati wa kuunda wakala.
+**4. Weka wakala wa LangGraph juu ya itifaki ya Majibu:**
 
 ```python
-agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-5-mini")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI hapa inalenga kitovu cha mradi wa Foundry kinachotegemea OpenAI (Majibu).
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
 ```
 
-### Tofauti kati ya MAF na AutoGen
+Endesha hapo hapa ndani kwa kutumia `python main.py`, kisha tuma ombi la Majibu kwa `http://localhost:8088/responses`.
 
-**Timu dhidi ya Miaradi ya Kazi**
+**Tabia kuu:**
 
-`Timu` ni muundo wa matukio kwa shughuli zinazoendeshwa kwa matukio na mawakala katika AutoGen. MAF hutumia `Miaradi ya Kazi` inayotumia nakala za grafu kusambaza data kwa watekelezaji.
+- **Mazungumzo**: Wateja wanaendelea na mazungumzo kwa kupitisha `previous_response_id` au ID ya `conversation`. Ikiwa grafu yako imekusanywa na mhifadhi alama wa LangGraph, Foundry inahifadhi hali ya mazungumzo kwa alama (tumia mhifadhi alama aliyehimiliwa katika uzalishaji; `MemorySaver` ni sawa kwa majaribio ya ndani).
+- **Mtu katikati ya mzunguko**: Ikiwa grafu yako inatumia LangGraph `interrupt()`, `ResponsesHostServer` inaonyesha faragha inayokusubiri kama kipengele cha Responses `function_call` / `mcp_approval_request`, na wateja wanaendelea na `function_call_output` / `mcp_approval_response` inayolingana.
+- **Tekeleza katika Foundry**: Tumia Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (ndani, inahitaji Docker), kisha `azd provision` na `azd deploy`. Utekelezaji wa wakala mwenyeji unahitaji jukumu la **Msimamizi wa Mradi wa Foundry**.
 
-**Uumbaji wa Zana**
-
-AutoGen hutumia `FunctionTool` kufunga kazi kwa mawakala kuitisha. MAF hutumia @ai_function ambayo hufanya kazi kwa njia sawa lakini pia hutabiri miundo kiotomatiki kwa kila kazi.
-
-**Tabia ya Wakala**
-
-Mawakala ni wakala wa mzunguko mmoja kwa chaguo-msingi katika AutoGen isipokuwa `max_tool_iterations` imewekwa juu. Ndani ya MAF `ChatAgent` ni wakala wa mzunguko mingi kwa chaguo-msingi, ikimaanisha anaendelea kuitisha zana mpaka kazi ya mtumiaji itakapokamilika.
+Toleo linaloweza kuendeshwa la mfano huu linaishi katika [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). Kwa mwongozo kamili (itifaki za Mifano, miundo ya maombi maalum, na utatuzi wa matatizo), angalia [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
 
 ## Sampuli za Msimbo 
 
-Sampuli za msimbo kwa Mfumo wa Wakala wa Microsoft zinaweza kupatikana katika hazina hii chini ya faili za `xx-python-agent-framework` na `xx-dotnet-agent-framework`.
+Sampuli za msimbo za Mfumo wa Wakala wa Microsoft zinaweza kupatikana katika hifadhidata hii chini ya faili za `xx-python-agent-framework` na `xx-dotnet-agent-framework`.
 
 ## Una Maswali Zaidi Kuhusu Mfumo wa Wakala wa Microsoft?
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu ya maswali yako kuhusu Mawakala wa AI.
+Jiunge na [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Wakala wa AI.
+## Somo lililopita
+
+[Memory for AI Agents](../13-agent-memory/README.md)
+
+## Somo linalofuata
+
+[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kataa**:
-Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kasoro. Nyaraka asili katika lugha yake ya mzazi inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu na ya kibinadamu inapendekezwa. Hatubebeki wajibu wowote kwa kutoelewana au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

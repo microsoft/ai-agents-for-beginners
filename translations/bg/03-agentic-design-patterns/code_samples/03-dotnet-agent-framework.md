@@ -1,145 +1,148 @@
-# 🎨 Агентски дизайнерски модели с GitHub модели (.NET)
+# 🎨 Дизайнерски модели за агентска дейност с Azure OpenAI (Responses API) (.NET)
 
-## 📋 Учебни цели
+## 📋 Цели на обучението
 
-Този пример демонстрира корпоративни дизайнерски модели за изграждане на интелигентни агенти, използвайки Microsoft Agent Framework в .NET с интеграция на GitHub модели. Ще научите професионални модели и архитектурни подходи, които правят агентите готови за производство, поддържани и мащабируеми.
+Този пример демонстрира корпоративни дизайнерски модели за изграждане на интелигентни агенти, използващи Microsoft Agent Framework в .NET с интеграция на Azure OpenAI (Responses API). Ще научите професионални модели и архитектурни подходи, които правят агентите готови за продукция, поддържани и мащабируеми.
 
 ### Корпоративни дизайнерски модели
 
 - 🏭 **Фабричен модел**: Стандартизирано създаване на агенти с внедряване на зависимости
-- 🔧 **Модел на строител**: Гъвкава конфигурация и настройка на агенти
-- 🧵 **Модели за безопасност на нишките**: Управление на паралелни разговори
-- 📋 **Модел на хранилище**: Организирано управление на инструменти и възможности
+- 🔧 **Builder модел**: Плавна конфигурация и настройка на агенти
+- 🧵 **Потокобезопасни модели**: Конкурентно управление на разговори
+- 📋 **Repository модел**: Организирано управление на инструменти и възможности
 
-## 🎯 Архитектурни предимства на .NET
+## 🎯 Архитектурни предимства специфични за .NET
 
-### Корпоративни функции
+### Корпоративни характеристики
 
-- **Силно типизиране**: Валидация по време на компилация и поддръжка на IntelliSense
+- **Силно писане на типове**: Проверка при компилация и поддръжка на IntelliSense
 - **Внедряване на зависимости**: Вградена интеграция на DI контейнер
-- **Управление на конфигурацията**: Модели IConfiguration и Options
+- **Управление на конфигурация**: Патерни IConfiguration и Options
 - **Async/Await**: Първокласна поддръжка за асинхронно програмиране
 
-### Модели, готови за производство
+### Модели подходящи за продукция
 
 - **Интеграция на логване**: Поддръжка на ILogger и структурирано логване
-- **Проверки на здравето**: Вградени инструменти за мониторинг и диагностика
-- **Валидация на конфигурацията**: Силно типизиране с анотации на данни
-- **Управление на грешки**: Структурирано управление на изключения
+- **Проверки на здравето**: Вградено наблюдение и диагностика
+- **Потвърждение на конфигурация**: Силно типизиране с анотации за данни
+- **Обработка на грешки**: Структурирано управление на изключения
 
 ## 🔧 Техническа архитектура
 
-### Основни компоненти на .NET
+### Основни .NET компоненти
 
-- **Microsoft.Extensions.AI**: Унифицирани абстракции за AI услуги
+- **Microsoft.Extensions.AI**: Единни абстракции за AI услуги
 - **Microsoft.Agents.AI**: Корпоративна рамка за оркестрация на агенти
-- **Интеграция на GitHub модели**: Високопроизводителни API клиентски модели
-- **Система за конфигурация**: Интеграция на appsettings.json и среда
+- **Azure OpenAI (Responses API)**: Високопроизводителни модели за API клиент
+- **Система за конфигурация**: appsettings.json и интеграция с околна среда
 
 ### Имплементация на дизайнерски модели
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Съставител на агенти]
+    B --> C[Конфигурация]
+    C --> D[Регистър на инструменти]
+    D --> E[AI агент]
 ```
 
 ## 🏗️ Демонстрирани корпоративни модели
 
 ### 1. **Създаващи модели**
 
-- **Фабрика за агенти**: Централизирано създаване на агенти с последователна конфигурация
-- **Модел на строител**: Гъвкав API за сложна конфигурация на агенти
-- **Модел на сингълтън**: Управление на споделени ресурси и конфигурация
-- **Внедряване на зависимости**: Слабо свързване и възможност за тестване
+- **Agent Factory**: Централизирано създаване на агенти с консистентна конфигурация
+- **Builder модел**: Плавен API за комплексна конфигурация на агенти
+- **Singleton модел**: Общи ресурси и управление на конфигурация
+- **Внедряване на зависимости**: Слаба свързаност и тестируемост
 
 ### 2. **Поведенчески модели**
 
-- **Модел на стратегия**: Заменяеми стратегии за изпълнение на инструменти
-- **Модел на команда**: Инкапсулирани операции на агента с undo/redo
-- **Модел на наблюдател**: Управление на жизнения цикъл на агента, базирано на събития
-- **Модел на шаблонен метод**: Стандартизирани работни потоци за изпълнение на агенти
+- **Strategy модел**: Подменяеми стратегии за изпълнение на инструменти
+- **Command модел**: Инкапсулирани операции на агент с undo/redo
+- **Observer модел**: Упрaвление на жизнения цикъл на агента, базирано на събития
+- **Template Method**: Стандартизирани работни потоци за изпълнение на агенти
 
 ### 3. **Структурни модели**
 
-- **Модел на адаптер**: Слой за интеграция на GitHub Models API
-- **Модел на декоратор**: Подобряване на възможностите на агента
-- **Модел на фасада**: Опростени интерфейси за взаимодействие с агента
-- **Модел на прокси**: Отложено зареждане и кеширане за производителност
+- **Adapter модел**: Интеграционен слой за Azure OpenAI (Responses API)
+- **Decorator модел**: Усъвършенстване на възможностите на агента
+- **Facade модел**: Оптимизирани потребителски интерфейси за взаимодействие с агента
+- **Proxy модел**: Лениво зареждане и кеширане за повишаване на производителността
 
-## 📚 Дизайнерски принципи на .NET
+## 📚 Принципи на проектиране в .NET
 
 ### SOLID принципи
 
-- **Единична отговорност**: Всеки компонент има една ясна цел
-- **Отворен/Затворен**: Разширяемост без модификация
-- **Заместимост на Лисков**: Имплементации на инструменти, базирани на интерфейси
+- **Единствена отговорност**: Всеки компонент има една ясна цел
+- **Отворен/Затворен**: Разширяем без модификация
+- **Заместител на Лисков**: Имплементации на инструменти базирани на интерфейс
 - **Разделяне на интерфейси**: Фокусирани, кохерентни интерфейси
-- **Инверсия на зависимости**: Зависимост от абстракции, а не от конкретни реализации
+- **Инверсия на зависимости**: Зависимост от абстракции, а не от конкретни класове
 
 ### Чиста архитектура
 
-- **Слой на домейна**: Основни абстракции за агенти и инструменти
-- **Слой на приложението**: Оркестрация и работни потоци на агенти
-- **Слой на инфраструктурата**: Интеграция на GitHub модели и външни услуги
-- **Слой на представянето**: Взаимодействие с потребителя и форматиране на отговори
+- **Домейн слой**: Основни абстракции на агенти и инструменти
+- **Пригоден слой**: Оркестрация на агенти и работни потоци
+- **Инфраструктурен слой**: Интеграция с Azure OpenAI (Responses API) и външни услуги
+- **Презентационен слой**: Взаимодействие с потребителя и форматиране на отговори
 
 ## 🔒 Корпоративни съображения
 
 ### Сигурност
 
-- **Управление на идентификационни данни**: Сигурно управление на API ключове с IConfiguration
-- **Валидация на входа**: Силно типизиране и валидация с анотации на данни
-- **Санитизация на изхода**: Сигурна обработка и филтриране на отговори
-- **Аудит логване**: Цялостно проследяване на операции
+- **Управление на удостоверения**: Сигурна обработка на API ключове с IConfiguration
+- **Валидиция на вход**: Силно типизиране и проверка на анотации за данни
+- **Очистка на изход**: Сигурна обработка и филтриране на отговори
+- **Аудит логване**: Изчерпателно проследяване на операции
 
 ### Производителност
 
 - **Асинхронни модели**: Неблокиращи I/O операции
-- **Пул на връзки**: Ефективно управление на HTTP клиенти
+- **Пул обслужване на връзки**: Ефективно управление на HTTP клиенти
 - **Кеширане**: Кеширане на отговори за подобрена производителност
-- **Управление на ресурси**: Правилно освобождаване и почистване на ресурси
+- **Управление на ресурси**: Коректно отстраняване и модели за почистване
 
 ### Мащабируемост
 
-- **Безопасност на нишките**: Поддръжка за паралелно изпълнение на агенти
+- **Потокобезопасност**: Поддръжка на конкурентно изпълнение на агенти
 - **Пул на ресурси**: Ефективно използване на ресурси
-- **Управление на натоварването**: Ограничаване на скоростта и управление на натиск
-- **Мониторинг**: Метрики за производителност и проверки на здравето
+- **Управление на натоварването**: Ограничаване на скоростта и обработка на обратно налягане
+- **Наблюдение**: Метрики за производителност и проверки на здравето
 
-## 🚀 Производствено внедряване
+## 🚀 Разгръщане в продукция
 
-- **Управление на конфигурацията**: Настройки, специфични за средата
-- **Стратегия за логване**: Структурирано логване с корелационни ID-та
-- **Управление на грешки**: Глобално управление на изключения с правилно възстановяване
-- **Мониторинг**: Application Insights и броячи за производителност
-- **Тестване**: Модели за модулни тестове, интеграционни тестове и тестове за натоварване
+- **Управление на конфигурация**: Настройки специфични за околната среда
+- **Логваща стратегия**: Структурирано логване с корелационни ID
+- **Обработка на грешки**: Глобално обработване на изключения с правилно възстановяване
+- **Наблюдение**: Информация за приложението и броячи на производителността
+- **Тестване**: Модулни тестове, интеграционни тестове и модели за натоварване
 
-Готови ли сте да изградите корпоративни интелигентни агенти с .NET? Нека създадем нещо стабилно! 🏢✨
+Готови ли сте да изградите интелигентни агенти на корпоративно ниво с .NET? Нека проектираме нещо здраво! 🏢✨
 
-## 🚀 Начало
+## 🚀 За начало
 
-### Предварителни изисквания
+### Предварителни условия
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или по-нова версия
-- [Достъп до GitHub Models API токен](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Абонамент в [Azure](https://azure.microsoft.com/free/) с ресурс Azure OpenAI и разгръщане на модел
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — влезте с `az login`
 
-### Необходими променливи на средата
+### Необходими променливи на околната среда
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# След това влезте, за да може AzureCliCredential да получи токен
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# След това влезте, за да може AzureCliCredential да получи токен
+az login
 ```
 
 ### Примерен код
@@ -165,14 +168,16 @@ dotnet run ./03-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Отказ от отговорност**:  
-Този документ е преведен с помощта на AI услуга за превод [Co-op Translator](https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, моля, имайте предвид, че автоматизираните преводи може да съдържат грешки или неточности. Оригиналният документ на неговия роден език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Не носим отговорност за недоразумения или погрешни интерпретации, произтичащи от използването на този превод.
+**Отказ от отговорност**:
+Този документ е преведен с помощта на AI преводачески услуга [Co-op Translator](https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, моля имайте предвид, че автоматизираните преводи могат да съдържат грешки или неточности. Оригиналният документ на неговия роден език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Ние не носим отговорност за каквито и да е недоразумения или неправилни тълкувания, произтичащи от използването на този превод.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

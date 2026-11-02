@@ -1,43 +1,46 @@
-# 🎯 Planavimas ir dizaino šablonai su GitHub modeliais (.NET)
+# 🎯 Planavimas ir dizaino šablonai su Azure OpenAI (Atsakymų API) (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šiame užrašų knygelėje pateikiami įmonės lygio planavimo ir dizaino šablonai, skirti kurti intelektualius agentus naudojant Microsoft Agent Framework .NET aplinkoje su GitHub modeliais. Išmoksite kurti agentus, kurie gali suskaidyti sudėtingas problemas, planuoti daugiapakopius sprendimus ir vykdyti sudėtingus darbo procesus, pasinaudodami .NET įmonės funkcijomis.
+Ši užrašų knygutė demonstruoja įmonės lygio planavimo ir dizaino šablonus, kaip kurti išmaniuosius agentus naudojant Microsoft Agent Framework .NET su Azure OpenAI (Atsakymų API). Išmoksite kurti agentus, kurie gali suskaidyti sudėtingas problemas, planuoti daugiažingsnius sprendimus ir vykdyti sudėtingus darbo srautus, naudojant .NET įmonės funkcijas.
 
-## ⚙️ Reikalavimai ir nustatymai
+## ⚙️ Reikalavimai ir nustatymas
 
 **Kūrimo aplinka:**
-- .NET 9.0 SDK ar naujesnė versija
+- .NET 9.0 SDK arba naujesnė versija
 - Visual Studio 2022 arba VS Code su C# plėtiniu
-- Prieiga prie GitHub Models API
+- Azure prenumerata su Azure OpenAI ištekliumi ir modelio diegimu
+- Azure CLI — prisijunkite su `az login`
 
 **Reikalingos priklausomybės:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Aplinkos konfigūracija (.env failas):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
 ```
 
-## Kodo paleidimas
+## Kodo vykdymas
 
-Ši pamoka apima .NET vieno failo programos įgyvendinimą. Norėdami ją paleisti:
+Šiame pamokoje yra .NET vieno failo programos įgyvendinimas. Norėdami ją paleisti:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Padarykite failą vykdomu (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Paleiskite programą
 ./07-dotnet-agent-framework.cs
 ```
 
-Arba naudokite komandą dotnet run:
+Arba naudokite dotnet run komandą:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -45,19 +48,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Kodo įgyvendinimas
 
-Pilnas įgyvendinimas pateiktas `07-dotnet-agent-framework.cs` faile, kuriame demonstruojama:
+Pilnas įgyvendinimas yra faile `07-dotnet-agent-framework.cs`, kuris demonstruoja:
 
-- Aplinkos konfigūracijos įkėlimas naudojant DotNetEnv
-- OpenAI kliento konfigūravimas GitHub modeliams
-- Struktūruotų duomenų modelių (Plan ir TravelPlan) apibrėžimas su JSON serializacija
-- AI agento kūrimas su struktūruotu išvestimi naudojant JSON schemą
-- Planavimo užklausų vykdymas su tipų saugiais atsakymais
+- Aplinkos konfigūracijos įkėlimą naudojant DotNetEnv
+- Azure OpenAI kliento konfigūravimą ir AI agente kūrimą su `GetChatClient().AsAIAgent()`
+- Struktūrinių duomenų modelių (Plan ir TravelPlan) apibrėžimą su JSON serializacija
+- AI agente kūrimą su struktūruotu rezultatu naudojant JSON schemą
+- Planavimo užklausų vykdymą su tipų saugiais atsakymais
 
 ## Pagrindinės sąvokos
 
 ### Struktūruotas planavimas su tipų saugiais modeliais
 
-Agentas naudoja C# klases, kad apibrėžtų planavimo išvesties struktūrą:
+Agentas naudoja C# klases apibrėžti planavimo išvesties struktūrai:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### JSON schema struktūruotoms išvestims
 
-Agentas sukonfigūruotas grąžinti atsakymus, atitinkančius TravelPlan schemą:
+Agentas yra sukonfigūruotas grąžinti atsakymus, atitinkančius TravelPlan schemą:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planavimo agento instrukcijos
+### Planavimo agente nurodymai
 
-Agentas veikia kaip koordinatorius, deleguodamas užduotis specializuotiems subagentams:
+Agentas veikia kaip koordinatorius, paskirdamas užduotis specializuotiems subagentams:
 
-- FlightBooking: Skrydžių rezervavimui ir informacijos apie skrydžius teikimui
-- HotelBooking: Viešbučių rezervavimui ir informacijos apie viešbučius teikimui
-- CarRental: Automobilių nuomos rezervavimui ir informacijos apie nuomą teikimui
-- ActivitiesBooking: Veiklų rezervavimui ir informacijos apie veiklas teikimui
-- DestinationInfo: Informacijos apie kelionės tikslus teikimui
+- FlightBooking: Skrydžių užsakymui ir skrydžių informacijos pateikimui
+- HotelBooking: Viešbučių užsakymui ir viešbučių informacijos pateikimui
+- CarRental: Automobilių nuomai ir automobilių nuomos informacijos pateikimui
+- ActivitiesBooking: Veiklų užsakymui ir veiklų informacijos pateikimui
+- DestinationInfo: Turizmo vietovių informacijos pateikimui
 - DefaultAgent: Bendrų užklausų tvarkymui
 
-## Tikėtinas rezultatas
+## Tikėtina išvestis
 
-Kai paleisite agentą su kelionės planavimo užklausa, jis analizuos užklausą ir sugeneruos struktūruotą planą su tinkamais užduočių paskyrimais specializuotiems agentams, suformatuotą kaip JSON, atitinkantį TravelPlan schemą.
+Kai paleisite agentą su kelionės planavimo užklausa, jis analizuos užklausą ir sukurs struktūruotą planą su tinkamu užduočių paskirstymu specializuotiems agentams, suformatuotą JSON formatu, atitinkančiu TravelPlan schemą.
 
 ---
 
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingą interpretaciją, atsiradusią dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

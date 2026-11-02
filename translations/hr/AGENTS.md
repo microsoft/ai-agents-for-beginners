@@ -2,34 +2,33 @@
 
 ## Pregled projekta
 
-Ovaj repozitorij sadrži "AI Agents for Beginners" - sveobuhvatan edukacijski tečaj koji podučava sve potrebno za izgradnju AI agenata. Tečaj se sastoji od 15+ lekcija koje pokrivaju osnove, dizajnerske obrasce, okvire i produkcijsko postavljanje AI agenata.
+Ovaj repozitorij sadrži "AI agente za početnike" - sveobuhvatan obrazovni tečaj koji podučava sve potrebno za izradu AI agenata. Tečaj se sastoji od 18 lekcija (numeriranih od 00 do 18) koje pokrivaju osnove, dizajnerske obrasce, okvire, proizvodno postavljanje, lokalne/agente na uređajima i sigurnost AI agenata.
 
 **Ključne tehnologije:**
 - Python 3.12+
 - Jupyter bilježnice za interaktivno učenje
-- AI okviri: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI usluge: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (dostupan besplatni sloj)
+- AI okviri: Microsoft Agent Framework (MAF)
+- Azure AI usluge: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Arhitektura:**
-- Struktura temeljena na lekcijama (direktoriji 00-15+)
+- Struktura temeljena na lekcijama (direktoriji 00-18)
 - Svaka lekcija sadrži: README dokumentaciju, primjere koda (Jupyter bilježnice) i slike
-- Podrška za više jezika putem automatiziranog sustava za prijevod
-- Više opcija okvira po lekciji (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Podrška za više jezika putem automatiziranog sustava prijevoda
+- Jedna Python bilježnica po lekciji koja koristi Microsoft Agent Framework
 
 ## Komande za postavljanje
 
 ### Preduvjeti
 - Python 3.12 ili noviji
-- GitHub račun (za GitHub Models - besplatni sloj)
-- Azure pretplata (opcionalno, za Azure AI usluge)
+- Azure pretplata (za Microsoft Foundry)
+- Azure CLI instaliran i autentificiran (`az login`)
 
 ### Početno postavljanje
 
 1. **Klonirajte ili forkajte repozitorij:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # ILI
+   # OR
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
@@ -37,7 +36,7 @@ Ovaj repozitorij sadrži "AI Agents for Beginners" - sveobuhvatan edukacijski te
 2. **Kreirajte i aktivirajte Python virtualno okruženje:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Na Windowsu: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Instalirajte ovisnosti:**
@@ -45,26 +44,25 @@ Ovaj repozitorij sadrži "AI Agents for Beginners" - sveobuhvatan edukacijski te
    pip install -r requirements.txt
    ```
 
-4. **Postavite varijable okoline:**
+4. **Postavite varijable okruženja:**
    ```bash
    cp .env.example .env
-   # Uredi .env s API ključevima i endpointima
+   # Edit .env with your API keys and endpoints
    ```
 
-### Potrebne varijable okoline
+### Potrebne varijable okruženja
 
-Za **GitHub Models (Free)**:
-- `GITHUB_TOKEN` - Osobni pristupni token s GitHub-a
+Za **Microsoft Foundry** (obavezno):
+- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry krajnja točka projekta
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Naziv modela za postavljanje (npr. gpt-5-mini)
 
-Za **Azure AI usluge** (opcionalno):
-- `PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API ključ
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Ime deploymenta za chat model
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Ime deploymenta za embeddings
-- Dodatna Azure konfiguracija kao u `.env.example`
+Za **Azure AI Search** (Lekcija 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search krajnja točka
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API ključ
 
-## Razvojni tijek
+Autentifikacija: Pokrenite `az login` prije pokretanja bilježnica (koristi `AzureCliCredential`).
+
+## Razvojni tijek rada
 
 ### Pokretanje Jupyter bilježnica
 
@@ -75,83 +73,70 @@ Svaka lekcija sadrži više Jupyter bilježnica za različite okvire:
    jupyter notebook
    ```
 
-2. **Navigirajte do direktorija lekcije** (npr., `01-intro-to-ai-agents/code_samples/`)
+2. **Idite u direktorij lekcije** (npr. `01-intro-to-ai-agents/code_samples/`)
 
 3. **Otvorite i pokrenite bilježnice:**
-   - `*-semantic-kernel.ipynb` - Korištenje Semantic Kernel okvira
-   - `*-autogen.ipynb` - Korištenje AutoGen okvira
    - `*-python-agent-framework.ipynb` - Korištenje Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Korištenje Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Korištenje Azure AI Agent Service
 
-### Rad s različitim okvirima
+### Rad s Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Dostupan besplatni sloj s GitHub računom
-- Dobar za učenje i eksperimentiranje
-- Uzorak datoteke: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Dostupan besplatni sloj s GitHub računom
-- Sposobnosti orkestracije višestrukih agenata
-- Uzorak datoteke: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Najnoviji okvir od Microsofta
-- Dostupan u Pythonu i .NET-u
-- Uzorak datoteke: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
-- Potrebna Azure pretplata
-- Značajke spremne za produkciju
-- Uzorak datoteke: `*-azureaiagent.ipynb`
+**Microsoft Agent Framework + Microsoft Foundry:**
+- Zahtijeva Azure pretplatu
+- Koristi `FoundryChatClient` za Agent Service V2 (agenti vidljivi u Foundry portalu)
+- Spreman za produkciju s ugrađenom opservabilnošću
+- Obrasci datoteka: `*-python-agent-framework.ipynb`
 
 ## Upute za testiranje
 
-Ovo je edukacijski repozitorij s primjerima koda, a ne produkcijski kod s automatiziranim testovima. Za provjeru vaše postavke i promjena:
+Ovo je obrazovni repozitorij sa primjerima koda, a ne produkcijski kod s automatiziranim testovima. Za provjeru postavki i promjena:
 
 ### Ručno testiranje
 
 1. **Testirajte Python okruženje:**
    ```bash
-   python --version  # Treba biti 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   python --version  # Should be 3.12+
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Testirajte izvođenje bilježnica:**
+2. **Testirajte izvršavanje bilježnice:**
    ```bash
-   # Pretvori bilježnicu u skriptu i pokreni (uvozi za testove)
+   # Convert notebook to script and run (tests imports)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Provjerite varijable okoline:**
+3. **Provjerite varijable okruženja:**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
 ### Pokretanje pojedinačnih bilježnica
 
-Otvorite bilježnice u Jupyteru i izvršavajte ćelije redom. Svaka bilježnica je samostalna i uključuje:
-- Izjave za uvoz (import statements)
+Otvorite bilježnice u Jupyter i izvršavajte ćelije redom. Svaka bilježnica je samostalna i uključuje:
+- Izjave o uvozu
 - Učitavanje konfiguracije
-- Primjer implementacija agenata
+- Primjere implementacije agenta
 - Očekivane izlaze u markdown ćelijama
 
-## Stil koda
+### Smoke-testiranje postavljenih agenata
+
+Za lekcije gdje je agent postavljen kao Microsoft Foundry hostani agent (01, 04, 05, 16), repozitorij sadrži smoke-test kataloge u `tests/` koji se pokreću putem `.github/workflows/smoke-test.yml` tijeka rada preko [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) akcije. To je lagani post-deploy test (je li agent dostupan i slijedi osnovna očekivanja prompta?), koji nadopunjuje evaluacijski pipeline u lekcijama 10 i 16. Pogledajte [tests/README.md](./tests/README.md) za mapiranje kataloga-lekcija-agenta. Lekcija 17 se izvršava lokalno s Foundry Local i nema hostani endpoint, stoga se provjerava pokretanjem njene bilježnice izravno.
+
+## Stil kodiranja
 
 ### Python konvencije
 
-- **Verzija Pythona**: 3.12+
-- **Stil koda**: Slijedite standardne Python PEP 8 konvencije
+- **Python verzija**: 3.12+
+- **Stil kodiranja**: Slijediti standardne Python PEP 8 konvencije
 - **Bilježnice**: Koristite jasne markdown ćelije za objašnjenje koncepata
-- **Uvozi**: Grupirajte po standardnoj biblioteci, third-party i lokalnim uvozima
+- **Uvozi**: Grupirajte standardnu biblioteku, third-party i lokalne uvoze
 
-### Konvencije za Jupyter bilježnice
+### Jupyter bilježničke konvencije
 
-- Uključite opisne markdown ćelije prije kodnih ćelija
-- Dodajte primjere izlaza u bilježnicama za referencu
-- Koristite jasne nazive varijabli koji odgovaraju konceptima lekcije
-- Održavajte linearni redoslijed izvršavanja bilježnica (ćelija 1 → 2 → 3...)
+- Uključite opisne markdown ćelije prije ćelija koda
+- Dodajte primjere izlaza u bilježnicama kao referencu
+- Koristite jasne nazive varijabli koje odgovaraju konceptima lekcije
+- Održavajte linearni redoslijed izvršavanja ćelija (ćelija 1 → 2 → 3...)
 
 ### Organizacija datoteka
 
@@ -159,37 +144,35 @@ Otvorite bilježnice u Jupyteru i izvršavajte ćelije redom. Svaka bilježnica 
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Izgradnja i distribucija
+## Izgradnja i postavljanje
 
 ### Izgradnja dokumentacije
 
 Ovaj repozitorij koristi Markdown za dokumentaciju:
-- README.md datoteke u svakom folderu lekcije
+- README.md datoteke u svakom direktoriju lekcije
 - Glavni README.md u korijenu repozitorija
-- Automatizirani sustav za prijevod putem GitHub Actions
+- Automatizirani sustav prijevoda putem GitHub Actions
 
 ### CI/CD pipeline
 
-Nalazi se u `.github/workflows/`:
+Smješten u `.github/workflows/`:
 
 1. **co-op-translator.yml** - Automatski prijevod na 50+ jezika
-2. **welcome-issue.yml** - Pozdravlja autore novih issue-a
-3. **welcome-pr.yml** - Pozdravlja suradnike prijavljenih pull requestova
+2. **welcome-issue.yml** - Pozdravlja autore novih problema
+3. **welcome-pr.yml** - Pozdravlja autore novih pull requestova
 
-### Distribucija
+### Postavljanje
 
-Ovo je edukacijski repozitorij - nema proces distribucije. Korisnici:
+Ovo je obrazovni repozitorij - nema procesa postavljanja. Korisnici:
 1. Forkaju ili kloniraju repozitorij
 2. Pokreću bilježnice lokalno ili u GitHub Codespaces
-3. Uče modificirajući i eksperimentirajući s primjerima
+3. Uče modifikacijama i eksperimentiranjem s primjerima
 
 ## Smjernice za pull requestove
 
@@ -197,19 +180,19 @@ Ovo je edukacijski repozitorij - nema proces distribucije. Korisnici:
 
 1. **Testirajte svoje promjene:**
    - Potpuno pokrenite pogođene bilježnice
-   - Provjerite da se sve ćelije izvršavaju bez grešaka
-   - Provjerite jesu li izlazi prikladni
+   - Provjerite da sve ćelije izvršavaju bez grešaka
+   - Provjerite jesu li izlazi primjereni
 
 2. **Ažuriranja dokumentacije:**
    - Ažurirajte README.md ako dodajete nove koncepte
-   - Dodajte komentare u bilježnice za složenije dijelove koda
+   - Dodajte komentare u bilježnicama za složeniji kod
    - Osigurajte da markdown ćelije objašnjavaju svrhu
 
 3. **Promjene datoteka:**
-   - Izbjegavajte commitanje `.env` datoteka (koristite `.env.example`)
-   - Nemojte committati `venv/` ili `__pycache__/` direktorije
-   - Zadržite izlaze bilježnica kada demonstriraju koncepte
-   - Uklonite privremene datoteke i backup bilježnice (`*-backup.ipynb`)
+   - Izbjegavajte commitati `.env` datoteke (koristite `.env.example`)
+   - Ne commitajte `venv/` ili `__pycache__/` direktorije
+   - Održavajte izlaze bilježnica kada ilustriraju koncepte
+   - Uklonite privremene i backup datoteke (`*-backup.ipynb`)
 
 ### Format naslova PR-a
 
@@ -219,9 +202,9 @@ Koristite opisne naslove:
 - `[Update] Improve code sample in lesson-XX`
 - `[Docs] Update setup instructions`
 
-### Potrebne provjere
+### Obavezne provjere
 
-- Bilježnice bi se trebale izvršavati bez grešaka
+- Bilježnice bi trebale izvršavati bez grešaka
 - README datoteke trebaju biti jasne i točne
 - Slijedite postojeće obrasce koda u repozitoriju
 - Održavajte dosljednost s ostalim lekcijama
@@ -230,15 +213,15 @@ Koristite opisne naslove:
 
 ### Uobičajene zamke
 
-1. **Neslaganje verzije Pythona:**
+1. **Nepodudaranje verzije Pythona:**
    - Osigurajte da koristite Python 3.12+
    - Neki paketi možda neće raditi s starijim verzijama
    - Koristite `python3 -m venv` za eksplicitno specificiranje verzije Pythona
 
-2. **Varijable okoline:**
+2. **Varijable okruženja:**
    - Uvijek kreirajte `.env` iz `.env.example`
-   - Nemojte committati `.env` datoteku (nalazi se u `.gitignore`)
-   - GitHub token treba odgovarajuće dozvole
+   - Ne commitajte `.env` datoteku (nalazi se u `.gitignore`)
+   - Prijavite se uz `az login` za prijavu bez ključa putem Entra ID
 
 3. **Sukobi paketa:**
    - Koristite svježe virtualno okruženje
@@ -248,37 +231,35 @@ Koristite opisne naslove:
 4. **Azure usluge:**
    - Azure AI usluge zahtijevaju aktivnu pretplatu
    - Neke značajke su specifične za regiju
-   - Ograničenja besplatnog sloja primjenjuju se na GitHub Models
+   - Osigurajte da vaša Azure OpenAI distribucija modela podržava Responses API
 
 ### Put učenja
 
-Preporučeni napredak kroz lekcije:
-1. **00-course-setup** - Počnite ovdje za postavljanje okoline
-2. **01-intro-to-ai-agents** - Razumite osnove AI agenata
-3. **02-explore-agentic-frameworks** - Saznajte o različitim okvirima
+Preporučeni redoslijed kroz lekcije:
+1. **00-course-setup** - Počnite ovdje za postavljanje okruženja
+2. **01-intro-to-ai-agents** - Razumjeti osnove AI agenata
+3. **02-explore-agentic-frameworks** - Upoznajte različite okvire
 4. **03-agentic-design-patterns** - Glavni dizajnerski obrasci
 5. Nastavite kroz numerirane lekcije redom
 
 ### Odabir okvira
 
-Odaberite okvir prema svojim ciljevima:
-- **Učenje/Prototipiranje**: Semantic Kernel + GitHub Models (besplatno)
-- **Sustavi s više agenata**: AutoGen
-- **Najnovije značajke**: Microsoft Agent Framework (MAF)
-- **Produkcijsko postavljanje**: Azure AI Agent Service
+Odaberite okvir na temelju vaših ciljeva:
+- **Sve lekcije**: Microsoft Agent Framework (MAF) s `FoundryChatClient`
+- **Agenti se registriraju na strani servera** u Microsoft Foundry Agent Service V2 i vidljivi su u Foundry portalu
 
 ### Dobivanje pomoći
 
-- Pridružite se Microsoft Foundry zajednici na Discordu: [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Pregledajte README datoteke lekcija za specifične smjernice
+- Pridružite se [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Pregledajte README datoteke lekcija za specifične upute
 - Provjerite glavni [README.md](./README.md) za pregled tečaja
-- Pogledajte [Course Setup](./00-course-setup/README.md) za detaljne upute za postavljanje
+- Pogledajte [Course Setup](./00-course-setup/README.md) za detaljne upute o postavljanju
 
 ### Doprinos
 
-Ovo je otvoreni edukacijski projekt. Doprinosi su dobrodošli:
-- Poboljšajte primjere koda
-- Ispravite tipfeler ili greške
+Ovo je otvoreni obrazovni projekt. Dobrodošli doprinosi:
+- Unaprijedite primjere koda
+- Ispravite tipfelere ili greške
 - Dodajte pojašnjavajuće komentare
 - Predložite nove teme lekcija
 - Prevedite na dodatne jezike
@@ -289,16 +270,16 @@ Pogledajte [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/
 
 ### Podrška za više jezika
 
-Ovaj repozitorij koristi automatizirani sustav za prijevod:
+Ovaj repozitorij koristi automatizirani sustav prijevoda:
 - Podržano 50+ jezika
-- Prijevodi u direktorijima `/translations/<lang-code>/`
-- GitHub Actions workflow upravlja ažuriranjima prijevoda
+- Prijevodi u `/translations/<lang-code>/` direktorijima
+- GitHub Actions tijek rada upravlja ažuriranjima prijevoda
 - Izvorne datoteke su na engleskom u korijenu repozitorija
 
-### Struktura lekcije
+### Struktura lekcija
 
 Svaka lekcija slijedi dosljedan obrazac:
-1. Video thumbnail s linkom
+1. Video minijatura s linkom
 2. Pisani sadržaj lekcije (README.md)
 3. Primjeri koda u više okvira
 4. Ciljevi učenja i preduvjeti
@@ -306,36 +287,32 @@ Svaka lekcija slijedi dosljedan obrazac:
 
 ### Imenovanje primjera koda
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lekcija 4, Semantic Kernel
-- `07-autogen.ipynb` - Lekcija 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lekcija 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lekcija 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lekcija 1, MAF Python
+- `14-sequential.ipynb` - Lekcija 14, MAF napredni obrasci
+- `16-python-agent-framework.ipynb` - Lekcija 16, proizvodni agent za korisničku podršku
+- `17-local-agent-foundry-local.ipynb` - Lekcija 17, lokalni agent s Foundry Local + Qwen
 
 ### Posebni direktoriji
 
 - `translated_images/` - Lokalizirane slike za prijevode
-- `images/` - Originalne slike za engleski sadržaj
-- `.devcontainer/` - Konfiguracija VS Code development containera
-- `.github/` - GitHub Actions workflows i predlošci
+- `images/` - Izvorne slike za sadržaj na engleskom
+- `.devcontainer/` - Konfiguracija VS Code razvojne kontejnerske okoline
+- `.github/` - GitHub Actions tokovi rada i šablone
 
 ### Ovisnosti
 
 Ključni paketi iz `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen okvir
-- `semantic-kernel` - Semantic Kernel okvir
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Podrška za Agent-to-Agent protokol
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI usluge
-- `azure-search-documents` - Integracija Azure AI Search
-- `chromadb` - Vektorska baza podataka za RAG primjere
-- `chainlit` - Chat UI okvir
-- `browser_use` - Automatizacija preglednika za agente
-- `mcp[cli]` - Podrška za Model Context Protocol
-- `mem0ai` - Upravljanje memorijom za agente
+- `azure-identity` - Azure autentikacija (AzureCliCredential)
+- `azure-search-documents` - Azure AI Search integracija
+- `mcp[cli]` - Podrška za Model Context protokol
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Odricanje odgovornosti:
-Ovaj je dokument preveden pomoću AI usluge prevođenja Co-op Translator (https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizlaze iz uporabe ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

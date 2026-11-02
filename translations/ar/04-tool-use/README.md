@@ -1,146 +1,144 @@
 [![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/ar/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(انقر على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
+> _(انقر على الصورة أعلاه لمشاهدة فيديو الدرس)_
 
 # نمط تصميم استخدام الأدوات
 
-الأدوات مثيرة للاهتمام لأنها تتيح لوكلاء الذكاء الاصطناعي امتلاك نطاق أوسع من القدرات. بدلاً من أن يكون لدى الوكيل مجموعة محدودة من الإجراءات التي يمكنه تنفيذها، من خلال إضافة أداة، يمكن للوكيل الآن أداء مجموعة واسعة من الإجراءات. في هذا الفصل، سننظر في نمط تصميم استخدام الأدوات، الذي يصف كيف يمكن لوكلاء الذكاء الاصطناعي استخدام أدوات محددة لتحقيق أهدافهم.
+الأدوات مثيرة للاهتمام لأنها تسمح لوكلاء الذكاء الاصطناعي بامتلاك مجموعة أوسع من القدرات. بدلاً من أن يمتلك الوكيل مجموعة محدودة من الإجراءات التي يمكنه تنفيذها، بإضافة أداة، يمكن للوكلاء الآن تنفيذ نطاق واسع من الإجراءات. في هذا الفصل، سننظر في نمط تصميم استخدام الأدوات، الذي يصف كيف يمكن لوكلاء الذكاء الاصطناعي استخدام أدوات محددة لتحقيق أهدافهم.
 
-## مقدمة
+## المقدمة
 
 في هذا الدرس، نسعى للإجابة على الأسئلة التالية:
 
 - ما هو نمط تصميم استخدام الأدوات؟
-- ما هي الحالات التي يمكن تطبيقه عليها؟
-- ما هي العناصر/الوحدات البنائية اللازمة لتنفيذ نمط التصميم؟
-- ما هي الاعتبارات الخاصة باستخدام نمط تصميم استخدام الأدوات لبناء وكلاء ذكاء اصطناعي جديرين بالثقة؟
+- ما هي حالات الاستخدام التي يمكن تطبيقه عليها؟
+- ما هي العناصر/الكتل البنائية اللازمة لتنفيذ نمط التصميم؟
+- ما هي الاعتبارات الخاصة باستخدام نمط تصميم استخدام الأدوات لبناء وكلاء ذكاء اصطناعي موثوقين؟
 
 ## أهداف التعلم
 
 بعد إكمال هذا الدرس، ستكون قادرًا على:
 
 - تعريف نمط تصميم استخدام الأدوات وهدفه.
-- تحديد الحالات التي يمكن تطبيق نمط تصميم استخدام الأدوات فيها.
+- تحديد حالات الاستخدام حيث ينطبق نمط تصميم استخدام الأدوات.
 - فهم العناصر الرئيسية اللازمة لتنفيذ نمط التصميم.
-- التعرف على الاعتبارات لضمان موثوقية وكلاء الذكاء الاصطناعي باستخدام نمط التصميم هذا.
+- التعرف على الاعتبارات لضمان الموثوقية في وكلاء الذكاء الاصطناعي الذين يستخدمون هذا النمط.
 
 ## ما هو نمط تصميم استخدام الأدوات؟
 
-يركز **نمط تصميم استخدام الأدوات** على تمكين نماذج اللغات الكبيرة (LLMs) من التفاعل مع الأدوات الخارجية لتحقيق أهداف محددة. الأدوات هي شيفرة يمكن تنفيذها بواسطة الوكيل لأداء إجراءات. يمكن أن تكون الأداة دالة بسيطة مثل آلة حاسبة، أو استدعاء API لخدمة طرف ثالث مثل الاطلاع على أسعار الأسهم أو توقعات الطقس. في سياق وكلاء الذكاء الاصطناعي، تم تصميم الأدوات ليتم تنفيذها بواسطة الوكلاء استجابةً لـ **استدعاءات الدوال التي يولدها النموذج**.
+يركز **نمط تصميم استخدام الأدوات** على منح نماذج اللغة الكبيرة (LLMs) القدرة على التفاعل مع أدوات خارجية لتحقيق أهداف محددة. الأدوات هي كود يمكن للوكيل تنفيذه لأداء إجراءات. يمكن أن تكون الأداة دالة بسيطة مثل آلة حاسبة، أو نداء API لخدمة طرف ثالث مثل البحث عن سعر السهم أو توقع الطقس. في سياق وكلاء الذكاء الاصطناعي، تُصمم الأدوات لتنفيذها بواسطة الوكلاء استجابةً لـ **نداءات الدوال التي تولدها النماذج**.
 
-## ما هي الحالات التي يمكن تطبيقه عليها؟
+## ما هي حالات الاستخدام التي يمكن تطبيقه عليها؟
 
-يمكن لوكلاء الذكاء الاصطناعي الاستفادة من الأدوات لإتمام مهام معقدة، استرجاع المعلومات، أو اتخاذ القرارات. غالبًا ما يُستخدم نمط تصميم استخدام الأدوات في السيناريوهات التي تتطلب تفاعلًا ديناميكيًا مع أنظمة خارجية، مثل قواعد البيانات، خدمات الويب، أو مفسري الأكواد. هذه القدرة مفيدة لعدة حالات مختلفة تشمل:
+يمكن لوكلاء الذكاء الاصطناعي الاستفادة من الأدوات لإكمال مهام معقدة، أو استرجاع المعلومات، أو اتخاذ قرارات. يُستخدم نمط تصميم استخدام الأدوات غالبًا في السيناريوهات التي تتطلب تفاعلًا ديناميكيًا مع أنظمة خارجية، مثل قواعد البيانات، خدمات الويب، أو مفسري الكود. هذه القدرة مفيدة لعدد من حالات الاستخدام المختلفة بما في ذلك:
 
-- **استرجاع المعلومات الديناميكي:** يمكن للوكلاء الاستعلام عن واجهات API الخارجية أو قواعد البيانات لجلب بيانات محدثة (مثل الاستعلام عن قاعدة بيانات SQLite لتحليل البيانات، جلب أسعار الأسهم أو معلومات الطقس).
-- **تنفيذ وتفسير الكود:** يمكن للوكلاء تنفيذ الأكواد أو السكريبتات لحل المسائل الرياضية، إنشاء التقارير، أو إجراء المحاكاة.
-- **أتمتة سير العمل:** أتمتة الأعمال المتكررة أو متعددة الخطوات عبر دمج أدوات مثل جدولة المهام، خدمات البريد الإلكتروني، أو خطوط البيانات.
-- **دعم العملاء:** يمكن للوكلاء التفاعل مع أنظمة إدارة علاقات العملاء، أنظمة التذاكر، أو قواعد المعرفة لحل استفسارات المستخدمين.
-- **إنشاء المحتوى وتحريره:** يمكن للوكلاء الاستفادة من أدوات مثل مدققات القواعد النحوية، ملخصات النصوص، أو مقيمي سلامة المحتوى لمساعدة في مهام إنشاء المحتوى.
+- **استرجاع المعلومات الديناميكي:** يمكن للوكلاء استعلام APIs أو قواعد بيانات خارجية لجلب بيانات محدثة (مثل استعلام قاعدة بيانات SQLite للتحليل، أو جلب أسعار الأسهم أو معلومات الطقس).
+- **تنفيذ وتأويل الكود:** يمكن للوكلاء تنفيذ كود أو سكريبتات لحل مشاكل رياضية، إنشاء تقارير، أو إجراء محاكاة.
+- **أتمتة سير العمل:** أتمتة المهام المتكررة أو متعددة الخطوات من خلال دمج أدوات مثل جدولة المهام، خدمات البريد الإلكتروني، أو خطوط أنابيب البيانات.
+- **دعم العملاء:** يمكن للوكلاء التفاعل مع أنظمة CRM، منصات التذاكر، أو قواعد المعرفة لحل استفسارات المستخدمين.
+- **توليد المحتوى وتحريره:** يمكن للوكلاء استخدام أدوات مثل مدققات القواعد النحوية، مُلخصات النصوص، أو مُقيمي أمان المحتوى للمساعدة في مهام إنشائه.
 
-## ما هي العناصر/الوحدات البنائية اللازمة لتطبيق نمط تصميم استخدام الأدوات؟
+## ما هي العناصر/الكتل البنائية اللازمة لتنفيذ نمط تصميم استخدام الأدوات؟
 
-تتيح هذه الوحدات البنائية للوكيل أداء مجموعة واسعة من المهام. لننظر في العناصر الرئيسية اللازمة لتطبيق نمط تصميم استخدام الأدوات:
+تتيح هذه الكتل البنائية لوكيل الذكاء الاصطناعي أداء مجموعة واسعة من المهام. لننظر في العناصر الرئيسية اللازمة لتنفيذ نمط تصميم استخدام الأدوات:
 
-- **مخططات الوظائف/الأدوات**: تعريفات مفصلة للأدوات المتاحة، بما في ذلك اسم الدالة، الغرض منها، المعلمات المطلوبة، والمخرجات المتوقعة. تمكّن هذه المخططات النموذج اللغوي الكبير من فهم الأدوات المتوفرة وكيفية إنشاء طلبات صحيحة.
+- **مخططات الدوال/الأدوات**: تعاريف مفصلة للأدوات المتاحة، بما في ذلك اسم الدالة، الهدف منها، المعلمات المطلوبة، والمخرجات المتوقعة. تتيح هذه المخططات لموديل اللغة الكبيرة فهم الأدوات المتاحة وكيفية بناء طلبات صحيحة.
 
-- **منطق تنفيذ الدوال**: يتحكم في كيفية ووقت استدعاء الأدوات بناءً على نية المستخدم وسياق المحادثة. قد يشمل هذا وحدات تخطيط، آليات توجيه، أو تدفقات شرطية تحدد استخدام الأداة بشكل ديناميكي.
+- **منطق تنفيذ الدوال**: يحدد كيف ومتى تُستدعى الأدوات بناءً على نية المستخدم وسياق المحادثة. قد يشمل ذلك وحدات التخطيط، آليات التوجيه، أو التدفقات الشرطية التي تحدد استخدام الأداة ديناميكيًا.
 
-- **نظام معالجة الرسائل**: مكونات تدير تدفق المحادثة بين مدخلات المستخدم، استجابات النموذج اللغوي، استدعاءات الأدوات، ومخرجات الأدوات.
+- **نظام التعامل مع الرسائل**: المكونات التي تدير تدفق المحادثة بين مدخلات المستخدم، ردود موديل اللغة، نداءات الأدوات، ومخرجات الأدوات.
 
-- **إطار تكامل الأدوات**: بنية تحتية تربط الوكيل بمختلف الأدوات، سواء كانت دوال بسيطة أو خدمات خارجية معقدة.
+- **إطار تكامل الأدوات**: البنية التحتية التي تربط الوكيل بمختلف الأدوات، سواء كانت دوال بسيطة أو خدمات خارجية معقدة.
 
-- **معالجة الأخطاء والتحقق**: آليات للتعامل مع فشل تنفيذ الأدوات، التحقق من المعلمات، وإدارة الاستجابات غير المتوقعة.
+- **معالجة الأخطاء والتحقق**: الآليات التي تتعامل مع الفشل في تنفيذ الأدوات، التحقق من المعلمات، وإدارة الردود غير المتوقعة.
 
-- **إدارة الحالة**: تتبع سياق المحادثة، التفاعلات السابقة مع الأدوات، والبيانات المستمرة لضمان الاتساق خلال التفاعلات متعددة الأدوار.
+- **إدارة الحالة**: تتبع سياق المحادثة، التفاعلات السابقة مع الأدوات، والبيانات الدائمة لضمان الاتساق عبر التفاعلات متعددة الأدوار.
 
-بعد ذلك، لننظر في استدعاء الدوال/الأدوات بمزيد من التفصيل.
+بعد ذلك، لننظر في نداء الدوال/الأدوات بمزيد من التفصيل.
+ 
+### نداء الدوال/الأدوات
 
-### استدعاء الدوال/الأدوات
+نداء الدوال هو الطريقة الأساسية التي تمكن نماذج اللغة الكبيرة (LLMs) من التفاعل مع الأدوات. سترى غالبًا كلمة "دالة" و"أداة" تُستخدمان بالتبادل لأن "الدوال" (كتل من الكود القابل لإعادة الاستخدام) هي "الأدوات" التي يستخدمها الوكلاء لأداء المهام. لكي يُستدعى كود دالة، يجب على النموذج مقارنة طلب المستخدم مع وصف الدوال. يتم إرسال مخطط يحتوي على أوصاف جميع الدوال المتاحة إلى النموذج. ثم يختار النموذج الدالة الأنسب للمهمة ويعيد اسمها والمعطيات الخاصة بها. تُستدعى الدالة المختارة، ويرسل ردها مرة أخرى إلى النموذج الذي يستخدم المعلومات للرد على طلب المستخدم.
 
-استدعاء الدوال هو الطريقة الأساسية التي نُتيح بها لنماذج اللغات الكبيرة (LLMs) التفاعل مع الأدوات. غالبًا ما ترى "الدالة" و"الأداة" تُستخدمان بالتبادل لأن "الدوال" (كتل شفرة قابلة لإعادة الاستخدام) هي "الأدوات" التي يستخدمها الوكلاء لأداء المهام. لكي يُستدعى كود دالة، يجب على النموذج اللغوي الكبير مقارنة طلب المستخدم مع وصف الدوال. للقيام بذلك، يتم إرسال مخطط يحتوي على أوصاف جميع الدوال المتاحة إلى النموذج. ثم يختار النموذج الدالة الأنسب للمهمة ويعيد اسمها ومعاملاتها. يتم استدعاء الدالة المختارة، ويتم إرسال استجابتها إلى النموذج، الذي يستخدم المعلومات للرد على طلب المستخدم.
+لتنفيذ نداء الدوال للوكلاء، ستحتاج إلى:
 
-لكي ينفذ المطورون استدعاء الدوال للوكلاء، ستحتاج إلى:
-
-1. نموذج LLM يدعم استدعاء الدوال
+1. نموذج LLM يدعم نداء الدوال
 2. مخطط يحتوي على أوصاف الدوال
-3. الشيفرة الخاصة بكل دالة موصوفة
+3. الكود الخاص بكل دالة موصوفة
 
-لنستخدم مثال الحصول على الوقت الحالي في مدينة لتوضيح ذلك:
+لنستخدم مثال الحصول على الوقت الحالي في مدينة لتوضيح:
 
-1. **تهيئة نموذج LLM يدعم استدعاء الدوال:**
+1. **تهيئة نموذج LLM يدعم نداء الدوال:**
 
-    ليست كل النماذج تدعم استدعاء الدوال، لذا من المهم التحقق من أن النموذج الذي تستخدمه يفعل ذلك. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> يدعم استدعاء الدوال. يمكننا البدء بإنشاء عميل Azure OpenAI.
+    ليست كل النماذج تدعم نداء الدوال، لذا من المهم التحقق من أن النموذج الذي تستخدمه يدعم ذلك. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> يدعم نداء الدوال. يمكننا البدء بتهيئة عميل OpenAI مقابل **Responses API** الخاص بـ Azure OpenAI (نقطة النهاية `/openai/v1/` المستقرة — لا حاجة إلى `api_version`).
 
     ```python
-    # تهيئة عميل Azure OpenAI
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
-2. **إنشاء مخطط دالة**:
+1. **إنشاء مخطط دالة:**
 
-    بعد ذلك، سنحدد مخطط JSON يحتوي على اسم الدالة، وصف ما تقوم به، وأسماء ووصف معلمات الدالة.
-    بعد ذلك نمرر هذا المخطط إلى العميل الذي أنشأناه سابقًا، مع طلب المستخدم للعثور على الوقت في سان فرانسيسكو. المهم أن نلاحظ أن **استدعاء الأداة** هو ما يُعاد، **وليس** الجواب النهائي على السؤال. كما ذُكر سابقًا، يعيد النموذج اسم الدالة التي اختارها للمهمة والمعاملات التي ستمريرها إليها.
+    بعد ذلك سنحدد مخطط JSON يحتوي على اسم الدالة، وصف ما تقوم به الدالة، وأسماء المعلمات وأوصافها.
+    ثم سنأخذ هذا المخطط ونمرره إلى العميل الذي أنشأناه سابقًا، مع طلب المستخدم للعثور على الوقت في سان فرانسيسكو. المهم هو أن **نداء الأداة** هو الذي يُعاد، **ليس** الإجابة النهائية على السؤال. كما ذكرنا سابقًا، يعيد النموذج اسم الدالة التي اختارها للمهمة والمعطيات التي ستُمرر إليها.
 
     ```python
-    # وصف دالة للنموذج للقراءة
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # رسالة المستخدم الأولية
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # أول طلب API: اطلب من النموذج استخدام الدالة
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # معالجة رد النموذج
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-3. **الكود الخاص بالدالة لتنفيذ المهمة:**
+1. **كود الدالة اللازم لأداء المهمة:**
 
-    الآن بعد أن اختار النموذج الدالة التي يجب تشغيلها، يجب تنفيذ الكود الذي يؤدي المهمة.
-    يمكننا تنفيذ كود للحصول على الوقت الحالي بلغة Python. سنحتاج أيضًا لكتابة كود لاستخراج الاسم والمعاملات من response_message للحصول على النتيجة النهائية.
+    الآن بعد أن اختار النموذج الدالة التي يجب تشغيلها، يجب تنفيذ الكود الذي ينفذ المهمة.
+    يمكننا تنفيذ الكود للحصول على الوقت الحالي في Python. سنحتاج أيضًا إلى كتابة الكود لاستخراج الاسم والمعطيات من رسالة الاستجابة للحصول على النتيجة النهائية.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@
     ```
 
      ```python
-     # التعامل مع استدعاءات الدالة
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # استدعاء API الثاني: الحصول على الاستجابة النهائية من النموذج
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@
       The current time in San Francisco is 09:24 AM.
      ```
 
-استدعاء الدوال هو جوهر معظم، إن لم يكن كل، تصميم استخدام الأدوات للوكيل، ومع ذلك قد يكون تنفيذه من الصفر تحديًا أحيانًا.
-كما تعلمنا في [الدرس 2](../../../02-explore-agentic-frameworks) توفر الأطر الوكيلة لنا وحدات بناء جاهزة لتنفيذ استخدام الأدوات.
+نداء الدوال هو في صميم معظم، إن لم يكن كل، تصميم استخدام أدوات الوكلاء، مع ذلك تنفيذه من الصفر قد يكون أحيانًا تحديًا.
+كما تعلمنا في [الدرس 2](../../../02-explore-agentic-frameworks) توفر أُطُر العمل الوكيلية لبنائنا كتلًا بناءً مسبقة لتطبيق استخدام الأدوات.
  
-## أمثلة على استخدام الأدوات مع الأُطُر الوكيلية
+## أمثلة استخدام الأدوات مع أُطُر العمل الوكيلية
 
-إليك بعض الأمثلة على كيفية تنفيذ نمط تصميم استخدام الأدوات باستخدام أطر وكيلية مختلفة:
+فيما يلي بعض الأمثلة على كيفية تنفيذ نمط تصميم استخدام الأدوات باستخدام أطر العمل الوكيلية المختلفة:
 
-### Semantic Kernel
+### إطار عمل Microsoft Agent
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> هو إطار عمل ذكاء اصطناعي مفتوح المصدر لمطوري .NET وPython وJava العاملين مع نماذج اللغات الكبيرة (LLMs). يُبسط عملية استخدام استدعاء الدوال من خلال وصف دوالك ومعاملاتها للنموذج تلقائيًا عبر عملية تسمى <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">التسلسل</a>. كما يتعامل مع التواصل ذهابًا وإيابًا بين النموذج والشيفرة الخاصة بك. ميزة أخرى لاستخدام إطار وكيل مثل Semantic Kernel هي أنه يسمح لك بالوصول إلى أدوات جاهزة مثل <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">البحث في الملفات</a> و<a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">مفسر الكود</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> هو إطار عمل مفتوح المصدر لبناء وكلاء الذكاء الاصطناعي. يبسط عملية استخدام نداء الدوال من خلال السماح لك بتعريف الأدوات كدوال Python مزينة بـ `@tool`. يدير الإطار الاتصال ذهابًا وإيابًا بين النموذج والكود الخاص بك. كما يوفر وصولًا إلى أدوات مدمجة مسبقًا مثل بحث الملفات ومفسر الكود عبر `FoundryChatClient`.
 
-يوضح المخطط التالي عملية استدعاء الدوال مع Semantic Kernel:
+يوضح المخطط التالي عملية نداء الدوال باستخدام منصة Microsoft Agent:
 
-![function calling](../../../translated_images/ar/functioncalling-diagram.a84006fc287f6014.webp)
+![نداء الدوال](../../../translated_images/ar/functioncalling-diagram.a84006fc287f6014.webp)
 
-في Semantic Kernel تُسمى الدوال/الأدوات <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">الإضافات</a>. يمكننا تحويل الدالة `get_current_time` التي رأيناها سابقًا إلى إضافة بتحويلها إلى صنف يحتوي على الدالة. يمكننا أيضًا استيراد الزخرفة `kernel_function`، التي تأخذ وصف الدالة. عند إنشاء kernel مع GetCurrentTimePlugin، يقوم kernel تلقائيًا بتسلسل الدالة ومعاملاتها، مما يُنشئ المخطط لإرساله إلى النموذج اللغوي الكبير خلال العملية.
+في إطار عمل Microsoft Agent، تُعرّف الأدوات كدوال مزينة. يمكننا تحويل الدالة `get_current_time` التي رأيناها سابقًا إلى أداة باستخدام المزينة `@tool`. سيقوم الإطار تلقائيًا بتسلسل الدالة ومعلماتها، وإنشاء المخطط لإرساله إلى النموذج.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### أدوات من خادم MCP
+
+الأدوات لا يجب أن تكون دوال في الكود الخاص بك فقط. الخادم الذي يتحدث بروتوكول سياق النموذج (MCP، المغطى في [الدرس 11](../11-agentic-protocols/README.md)) ينشر أدواته مع مخططاتها، ويمكن للإطار تحميلها بنفس طريقة تسلسل الدالة المزينة. `MCPStreamableHTTPTool` يتصل بمثل هذا الخادم عبر HTTP، يقرأ مخططات الأدوات، ويقدمها للنموذج إلى جانب أي أدوات محلية.
+
+المثال أدناه يستخدم خادم بحث الويب المستضاف من <a href="https://keenable.ai" target="_blank">Keenable</a>. يمكن استخدامه مجانًا دون حساب أو مفتاح API (الطلبات محدودة بمعدل لكل عنوان IP)، لذا فإن الاعتمادات الوحيدة التي تحتاجها هي تلك الخاصة بنموذجك. كما هو الحال مع أي أداة بعيدة، تُرسل الاستعلامات التي يكتبها النموذج إلى ذلك الخادم.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# إنشاء النواة
-kernel = Kernel()
-
-# إنشاء المكون الإضافي
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# إضافة المكون الإضافي إلى النواة
-kernel.add_plugin(get_current_time_plugin)
-```
+ينشر الخادم أداتين، `search_web_pages` و `fetch_page_content`. عندما يحتاج السؤال إلى معلومات حالية، يستدعي النموذج `search_web_pages`، يحصل على العناوين، عناوين URL ومقتطفات النص، ويكتب إجابته منها، نفس الحلقة كما في مثال `get_current_time` أعلاه.
   
-### خدمة Azure AI Agent
+### خدمة وكلاء Microsoft Foundry
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">خدمة Azure AI Agent</a> هي إطار وكيل أحدث مصمم لتمكين المطورين من بناء ونشر وتوسيع نطاق وكلاء ذكاء اصطناعي عالي الجودة وقابل للتوسع بأمان دون الحاجة لإدارة موارد الحوسبة والتخزين الأساسية. هي مفيدة بشكل خاص لتطبيقات المؤسسات لأنها خدمة مُدارة بالكامل مع أمان على مستوى مؤسسي.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">خدمة وكلاء Microsoft Foundry</a> هي إطار عمل وكيل حديث مصمم لتمكين المطورين من بناء، نشر، وتوسيع نطاق وكلاء ذكاء اصطناعي عالي الجودة وقابل للتمديد بأمان دون الحاجة لإدارة موارد الحوسبة والتخزين الأساسية. وهو مفيد بشكل خاص لتطبيقات المؤسسات لأنه خدمة مُدارة بالكامل بأمان على مستوى المؤسسات.
 
-عند المقارنة بالتطوير مباشرة باستخدام API لنموذج اللغات الكبيرة، توفر خدمة Azure AI Agent بعض المزايا، بما في ذلك:
+مقارنةً بالتطوير باستخدام API الخاص بنموذج اللغة الكبير مباشرة، تقدم خدمة وكلاء Microsoft Foundry بعض المزايا، منها:
 
-- استدعاء الأدوات تلقائيًا – لا حاجة لتحليل استدعاء أداة، استدعاء الأداة، والتعامل مع الاستجابة؛ كل ذلك يتم الآن على الخادم
-- إدارة البيانات بأمان – بدلاً من إدارة حالة المحادثة الخاصة بك، يمكنك الاعتماد على threads لتخزين كل المعلومات التي تحتاجها
-- أدوات جاهزة للاستخدام – أدوات يمكنك استخدامها للتفاعل مع مصادر بياناتك، مثل Bing، Azure AI Search، وAzure Functions.
+- نداء الأدوات تلقائيًا – لا حاجة لتحليل نداء الأدوات، استدعاء الأداة، والتعامل مع الرد؛ يتم كل ذلك الآن على الخادم
+- إدارة البيانات بأمان – بدلاً من إدارة حالة المحادثة بنفسك، يمكنك الاعتماد على الخيوط لتخزين كل المعلومات التي تحتاجها
+- أدوات جاهزة للاستخدام – أدوات يمكنك استخدامها للتفاعل مع مصادر بياناتك، مثل Bing، Azure AI Search، ووظائف Azure.
 
-يمكن تقسيم الأدوات المتاحة في خدمة Azure AI Agent إلى فئتين:
+يمكن تقسيم الأدوات المتاحة في خدمة وكلاء Microsoft Foundry إلى فئتين:
 
 1. أدوات المعرفة:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">التأسيس مع Bing Search</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">البحث في الملفات</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">بحث الملفات</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. أدوات الإجراء:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">استدعاء الدوال</a>
+2. أدوات التنفيذ:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">نداء الدوال</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">مفسر الكود</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">أدوات معرفة بـ OpenAPI</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">أدوات معرفة OpenAPI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">وظائف Azure</a>
 
-تتيح خدمة الوكيل إمكانية استخدام هذه الأدوات معًا كمجموعة أدوات `toolset`. كما تستخدم `threads` التي تتتبع تاريخ الرسائل من محادثة معينة.
+تتيح لنا خدمة الوكيل استخدام هذه الأدوات معًا كـ `toolset`. كما تستخدم `threads` التي تتتبع تاريخ الرسائل من محادثة معينة.
 
-تخيل أنك وكيل مبيعات في شركة تدعى Contoso. تريد تطوير وكيل محادثة يمكنه الإجابة على الأسئلة حول بيانات مبيعاتك.
+تخيل أنك وكيل مبيعات في شركة تسمى Contoso. تريد تطوير وكيل محادثة يمكنه الإجابة على الأسئلة حول بيانات مبيعاتك.
 
-الصورة التالية توضح كيف يمكن استخدام خدمة Azure AI Agent لتحليل بيانات المبيعات الخاصة بك:
+توضح الصورة التالية كيف يمكنك استخدام خدمة وكلاء Microsoft Foundry لتحليل بيانات المبيعات الخاصة بك:
 
-![Agentic Service In Action](../../../translated_images/ar/agent-service-in-action.34fb465c9a84659e.webp)
+![خدمة الوكيل في العمل](../../../translated_images/ar/agent-service-in-action.34fb465c9a84659e.webp)
 
-لاستخدام أي من هذه الأدوات مع الخدمة يمكننا إنشاء عميل وتحديد أداة أو مجموعة أدوات. لتنفيذ ذلك عمليًا يمكننا استخدام كود Python التالي. سيتمكن نموذج اللغات الكبير من النظر إلى مجموعة الأدوات وتحديد ما إذا كان سيستخدم الدالة التي أنشأها المستخدم `fetch_sales_data_using_sqlite_query`، أو مفسر الكود المدمج بناءً على طلب المستخدم.
+لاستخدام أي من هذه الأدوات مع الخدمة، يمكننا إنشاء عميل وتحديد أداة أو مجموعة أدوات. لتنفيذ ذلك عمليًا يمكننا استخدام كود Python التالي. سيكون النموذج قادرًا على النظر إلى مجموعة الأدوات واتخاذ قرار باستخدام الدالة التي أنشأها المستخدم، `fetch_sales_data_using_sqlite_query`، أو مفسر الكود المدمج بناءً على طلب المستخدم.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # دالة fetch_sales_data_using_sqlite_query الموجودة في ملف fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# تهيئة مجموعة الأدوات
+# Initialize toolset
 toolset = ToolSet()
 
-# تهيئة وكيل استدعاء الدالة مع دالة fetch_sales_data_using_sqlite_query وإضافتها إلى مجموعة الأدوات
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# تهيئة أداة مفسر الكود وإضافتها إلى مجموعة الأدوات.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## ما هي الاعتبارات الخاصة باستخدام نمط تصميم استخدام الأدوات لبناء وكلاء ذكاء اصطناعي جديرين بالثقة؟
+## ما هي الاعتبارات الخاصة لاستخدام نمط تصميم استخدام الأدوات لبناء وكلاء ذكاء اصطناعي موثوقين؟
 
-هناك قلق شائع من استعلامات SQL التي يُنشئها النموذج اللغوي الكبير بشكل ديناميكي يتعلّق بالأمان، خصوصًا خطر حقن SQL أو الإجراءات الخبيثة، مثل حذف أو التلاعب بقاعدة البيانات. في حين أن هذه المخاوف صحيحة، يمكن التخفيف منها بشكل فعّال عن طريق تكوين أذونات الوصول إلى قاعدة البيانات بشكل صحيح. بالنسبة لمعظم قواعد البيانات، يشمل ذلك تكوين قاعدة البيانات على وضع للقراءة فقط. بالنسبة لخدمات قواعد البيانات مثل PostgreSQL أو Azure SQL، يجب تعيين دور قراءة فقط (SELECT) للتطبيق.
+قلق شائع مرتبط بـ SQL التي تُولد ديناميكيًا بواسطة نماذج اللغة الكبيرة هو الأمان، وبشكل خاص خطر حقن SQL أو الإجراءات الخبيثة، مثل حذف أو التلاعب بقاعدة البيانات. على الرغم من صحة هذه المخاوف، يمكن التخفيف منها بفعالية عن طريق تكوين أذونات الوصول إلى قاعدة البيانات بشكل صحيح. بالنسبة لمعظم قواعد البيانات، يتضمن ذلك تكوين قاعدة البيانات كقراءة فقط. لخدمات قواعد البيانات مثل PostgreSQL أو Azure SQL، ينبغي تعيين التطبيق في دور للقراءة فقط (SELECT).
 
-تشغيل التطبيق في بيئة آمنة يعزز الحماية كذلك. في سيناريوهات المؤسسات، يتم عادة استخراج البيانات وتحويلها من أنظمة التشغيل إلى قاعدة بيانات قراءة فقط أو مستودع بيانات مع مخطط سهل الاستخدام. يضمن هذا أن تكون البيانات آمنة، ومحسنة للأداء وسهولة الوصول، وأن يكون للتطبيق وصول مقيد للقراءة فقط.
+تشغيل التطبيق في بيئة آمنة يزيد من الحماية. في سيناريوهات المؤسسات، يتم عادةً استخراج وتحويل البيانات من الأنظمة التشغيلية إلى قاعدة بيانات أو مستودع بيانات للقراءة فقط مع مخطط صديق للمستخدم. يضمن هذا النهج أن تكون البيانات آمنة، ومحسّنة للأداء وسهولة الوصول، وأن يكون للتطبيق حق وصول محدود للقراءة فقط.
 
-## عينات الأكواد
-- Python: [إطار العمل الوكيل](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [إطار العمل الوكيل](./code_samples/04-dotnet-agent-framework.md)
+## أكواد نموذجية
 
-## هل لديك المزيد من الأسئلة حول استخدام أنماط التصميم للأدوات؟
+- Python: [إطار عمل الوكيل](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [إطار عمل الوكيل](./code_samples/04-dotnet-agent-framework.md)
 
-انضم إلى [خادم Discord الخاص بـ Microsoft Foundry](https://aka.ms/ai-agents/discord) لتلتقي بمتعلمين آخرين، وتحضر ساعات المكتب، وتحصل على إجابات لأسئلتك حول وكلاء الذكاء الاصطناعي.
+## هل لديك المزيد من الأسئلة حول أنماط تصميم استخدام الأدوات؟
+
+انضم إلى [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) للقاء متعلمين آخرين، وحضور ساعات العمل والإجابة على أسئلة وكلاء الذكاء الاصطناعي.
 
 ## موارد إضافية
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">ورشة عمل خدمة وكلاء Azure AI</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">ورشة عمل كاتب Contoso الإبداعي متعدد الوكلاء</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">دليل استدعاء دوال Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">مفسر الأكواد في Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">أدوات Autogen</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">ورشة عمل كاتب Contoso Creative متعددة الوكلاء</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">نظرة عامة على إطار عمل الوكيل من مايكروسوفت</a>
+
+## اختبار سريع لهذا الوكيل (اختياري)
+
+بعد أن تتعلم كيفية نشر الوكلاء في [الدرس 16](../16-deploying-scalable-agents/README.md)، يمكنك اختبار سريع `TravelToolAgent` الخاص بهذا الدرس (هل لا يزال ينادي أدواته ويجيب؟) باستخدام [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). انظر [`tests/README.md`](../tests/README.md) لمعرفة كيفية تشغيله.
 
 ## الدرس السابق
 
-[فهم أنماط التصميم الوكيلة](../03-agentic-design-patterns/README.md)
+[فهم أنماط تصميم الوكيل](../03-agentic-design-patterns/README.md)
 
 ## الدرس التالي
 
-[وكالة RAG](../05-agentic-rag/README.md)
+[Agentic RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**إخلاء المسؤولية**:
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى إلى الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق به. بالنسبة للمعلومات الهامة، يُنصح بالاستعانة بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

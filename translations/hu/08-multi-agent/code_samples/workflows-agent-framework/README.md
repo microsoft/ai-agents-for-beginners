@@ -1,69 +1,69 @@
-# Többügynökös alkalmazások építése a Microsoft Agent Framework Workflow segítségével
+# Többügynökös Alkalmazások Építése a Microsoft Agent Framework Workflow-val
 
-Ez az útmutató bemutatja, hogyan érthetjük meg és építhetünk többügynökös alkalmazásokat a Microsoft Agent Framework segítségével. Megvizsgáljuk a többügynökös rendszerek alapfogalmait, elmélyedünk a keretrendszer Workflow komponensének architektúrájában, és gyakorlati példákon keresztül bemutatjuk a különböző workflow mintákat Pythonban és .NET-ben.
+Ez a bemutató végigvezet a Microsoft Agent Framework használatán többügynökös alkalmazások megértésében és építésében. Felfedezzük a többügynökös rendszerek alapvető fogalmait, mélyrehatóan megvizsgáljuk a keretrendszer Workflow komponensének architektúráját, és gyakorlati példákon keresztül bemutatjuk Python és .NET nyelveken különböző workflow minták esetén.
 
-## 1\. Többügynökös rendszerek megértése
+## 1\. A Többügynökös Rendszerek Megértése
 
-Egy AI ügynök olyan rendszer, amely túlmutat egy hagyományos Nagy Nyelvi Modell (LLM) képességein. Képes érzékelni a környezetét, döntéseket hozni és cselekedni, hogy meghatározott célokat érjen el. Egy többügynökös rendszer több ilyen ügynök együttműködését foglalja magában, hogy megoldjanak egy olyan problémát, amelyet egyetlen ügynök önmagában nehezen vagy egyáltalán nem tudna kezelni.
+Egy MI Ügynök olyan rendszer, amely meghaladja a szokásos Nagy Nyelvi Modell (LLM) képességeit. Képes érzékelni a környezetét, döntéseket hozni és végrehajtani bizonyos célok eléréséhez szükséges lépéseket. Egy többügynökös rendszer több ilyen ügynök együttműködését jelenti egy olyan probléma megoldása érdekében, amelyet egyetlen ügynök nehezen vagy egyáltalán nem tudna önállóan kezelni.
 
-### Gyakori alkalmazási forgatókönyvek
+### Gyakori Alkalmazási Forgatókönyvek
 
-  * **Komplex problémamegoldás**: Egy nagy feladat (pl. egy vállalati esemény megtervezése) kisebb alfeladatokra bontása, amelyeket specializált ügynökök kezelnek (pl. költségvetési ügynök, logisztikai ügynök, marketing ügynök).
-  * **Virtuális asszisztensek**: Egy fő asszisztens ügynök, amely feladatokat delegál, például időpont-egyeztetést, kutatást és foglalást más specializált ügynököknek.
-  * **Automatizált tartalomkészítés**: Egy workflow, ahol egy ügynök megírja a tartalmat, egy másik ellenőrzi a pontosságot és a hangnemet, egy harmadik pedig publikálja.
+  * **Komplex Problémamegoldás**: Egy nagyobb feladat (pl. céges rendezvény tervezése) lebontása kisebb részfeladatokra, amelyeket speciális ügynökök kezelnek (pl. költségvetési ügynök, logisztikai ügynök, marketing ügynök).
+  * **Virtuális Asszisztensek**: Egy elsődleges asszisztens ügynök feladatokat delegál, mint például időpont-egyeztetés, kutatás és foglalás, más specializált ügynökök számára.
+  * **Automatizált Tartalomkészítés**: Egy olyan munkafolyamat, ahol egy ügynök tartalmat készít, egy másik ellenőrzi annak pontosságát és stílusát, egy harmadik pedig publikálja azt.
 
-### Többügynökös minták
+### Többügynökös Minták
 
-A többügynökös rendszerek különböző minták szerint szervezhetők, amelyek meghatározzák, hogyan lépnek kapcsolatba egymással:
+A többügynökös rendszerek többféle mintában szervezhetők, amelyek meghatározzák az ügynökök közötti interakció módját:
 
   * **Szekvenciális**: Az ügynökök előre meghatározott sorrendben dolgoznak, mint egy futószalag. Az egyik ügynök kimenete a következő bemenete lesz.
-  * **Párhuzamos**: Az ügynökök párhuzamosan dolgoznak egy feladat különböző részein, és az eredményeiket a végén összesítik.
-  * **Feltételes**: A workflow különböző útvonalakat követ az ügynök kimenetétől függően, hasonlóan egy if-then-else szerkezethez.
+  * **Párhuzamos**: Az ügynökök párhuzamosan dolgoznak a feladat különböző részein, és a végeredményt összevonják.
+  * **Feltételes**: A munkafolyamat különböző utak követésére képes az ügynök kimenete alapján, hasonlóan egy if-then-else szerkezethez.
 
-## 2\. A Microsoft Agent Framework Workflow architektúrája
+## 2\. A Microsoft Agent Framework Workflow Architektúrája
 
-Az Agent Framework workflow rendszere egy fejlett orkestrációs motor, amely a több ügynök közötti komplex interakciók kezelésére lett tervezve. Egy gráf-alapú architektúrán alapul, amely egy [Pregel-stílusú végrehajtási modellt](https://kowshik.github.io/JPregel/pregel_paper.pdf) használ, ahol a feldolgozás szinkronizált lépésekben, úgynevezett "superstep"-ekben történik.
+Az Agent Framework munkafolyamat rendszere egy fejlett koordinációs motor, amely összetett interakciókat képes kezelni több ügynök között. Egy gráf-alapú architektúrán alapul, amely [Pregel-stílusú végrehajtási modellt](https://kowshik.github.io/JPregel/pregel_paper.pdf) használ, ahol a feldolgozás szinkronizált lépésekben, úgynevezett „szuperlépésekben” történik.
 
-### Fő komponensek
+### Alapelemek
 
 Az architektúra három fő részből áll:
 
-1.  **Végrehajtók (Executors)**: Ezek az alapvető feldolgozó egységek. Példáinkban az `Agent` egy végrehajtó típusa. Minden végrehajtónak lehet több üzenetkezelője, amelyeket automatikusan meghív a fogadott üzenet típusa alapján.
-2.  **Élek (Edges)**: Ezek határozzák meg az üzenetek útját a végrehajtók között. Az élek feltételeket tartalmazhatnak, lehetővé téve az információ dinamikus irányítását a workflow gráfban.
-3.  **Workflow**: Ez a komponens irányítja az egész folyamatot, kezeli a végrehajtókat, az éleket és az általános végrehajtási folyamatot. Biztosítja, hogy az üzenetek helyes sorrendben legyenek feldolgozva, és eseményeket közvetít a megfigyelhetőség érdekében.
+1.  **Végrehajtók**: Ezek az alapvető feldolgozó egységek. A példáinkban egy `Agent` egy végrehajtó típus. Minden végrehajtónak több üzenetkezelője lehet, amelyek a beérkező üzenet típusától függően automatikusan hívódnak meg.
+2.  **Élek**: Meghatározzák az üzenetek útvonalát a végrehajtók között. Az élekhez feltételek rendelhetők, lehetővé téve az információ dinamikus irányítását a munkafolyamat gráfjában.
+3.  **Workflow**: Ez a komponens koordinálja az egész folyamatot, kezeli a végrehajtókat, az éleket és az általános végrehajtási folyamatot. Biztosítja, hogy az üzenetek a helyes sorrendben legyenek feldolgozva, és eseményeket sugároz az megfigyelhetőség érdekében.
 
-*Egy diagram, amely bemutatja a workflow rendszer fő komponenseit.*
+*Egy diagram a workflow rendszer alapelemeiről.*
 
-Ez a struktúra lehetővé teszi robusztus és skálázható alkalmazások építését alapvető minták, például szekvenciális láncok, párhuzamos feldolgozás (fan-out/fan-in) és feltételes elágazások (switch-case logika) használatával.
+Ez a struktúra lehetővé teszi robusztus és skálázható alkalmazások építését alapvető minták, mint például a szekvenciális láncok, a párhuzamos feldolgozást biztosító fan-out/fan-in és a feltételes elágazásos logika használatával.
 
-## 3\. Gyakorlati példák és kódelemzés
+## 3\. Gyakorlati Példák és Kód Elemzés
 
-Most nézzük meg, hogyan valósíthatók meg különböző workflow minták a keretrendszer segítségével. Minden példát Pythonban és .NET-ben is bemutatunk.
+Most nézzük meg, hogyan lehet megvalósítani különböző workflow mintákat a keretrendszer segítségével. Mind Python, mind .NET kód példákat bemutatunk.
 
-### Eset 1: Egyszerű szekvenciális workflow
+### 1. Példa: Egyszerű Szekvenciális Workflow
 
-Ez a legegyszerűbb minta, ahol az egyik ügynök kimenete közvetlenül a másik bemenete lesz. Forgatókönyvünkben egy szállodai `FrontDesk` ügynök utazási ajánlást tesz, amelyet egy `Concierge` ügynök felülvizsgál.
+Ez a legegyszerűbb minta, ahol egy ügynök kimenete közvetlenül átadásra kerül egy másiknak. A forgatókönyvben egy `FrontDesk` (recepció) nevű szállodai ügynök javaslatot tesz, amelyet aztán egy `Concierge` (portás) ügynök felülvizsgál.
 
-*Diagram az alapvető FrontDesk -\> Concierge workflow-ról.*
+*Az alap FrontDesk -\> Concierge munkafolyamat ábrája.*
 
-#### Forgatókönyv háttér
+#### Forgatókönyv Háttér
 
-Egy utazó ajánlást kér Párizsban.
+Egy utazó Párizsban kér ajánlást.
 
-1.  A `FrontDesk` ügynök, amely a tömörségre van tervezve, a Louvre Múzeum meglátogatását javasolja.
-2.  A `Concierge` ügynök, aki az autentikus élményeket részesíti előnyben, megkapja ezt az ajánlást. Felülvizsgálja, és egy helyi, kevésbé turistás alternatívát javasol.
+1.  A rövid és tömör megfogalmazású `FrontDesk` ügynök azt javasolja, hogy látogassák meg a Louvre Múzeumot.
+2.  A hiteles élményeket előnyben részesítő `Concierge` ügynök megkapja a javaslatot, felülvizsgálja azt, és visszajelzést ad, ami egy inkább helyi és kevésbé túlturistás alternatívát javasol.
 
-#### Python implementáció elemzése
+#### Python Megvalósítás Elemzése
 
-A Python példában először definiáljuk és létrehozzuk a két ügynököt, mindegyiket specifikus utasításokkal.
+A Python példában először definiáljuk és létrehozzuk a két ügynököt, mindkettőt specifikus utasításokkal.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Ügynök szerepek és utasítások meghatározása
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Ügynök példányok létrehozása
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Ezután a `WorkflowBuilder` segítségével felépítjük a gráfot. A `front_desk_agent` a kezdőpont, és egy él köti össze a kimenetét a `reviewer_agent`-tel.
+Ezután a `WorkflowBuilder` segít a gráf felépítésében. A `front_desk_agent` az indulópont, és hozzá kötünk egy élt, amely összekapcsolja a kimenetét a `reviewer_agent`-tel.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# 01.python-ügynök-keretrendszer-munkafolyamat-ghmodell-alap.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Végül a workflow-t a felhasználó kezdeti kérdésével futtatjuk.
+Végül a workflow futtatva lesz a kezdeti felhasználói bemenettel.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# a run végrehajtja a munkafolyamatot; a get_outputs() visszaadja a kimeneti végrehajtó eredményét.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C#) implementáció elemzése
+#### .NET (C\#) Megvalósítás Elemzése
 
-A .NET implementáció nagyon hasonló logikát követ. Először konstansokat definiálunk az ügynökök neveihez és utasításaihoz.
+A .NET megvalósítás hasonló logikát követ. Először konstansokat definiál az ügynökök neveivel és utasításaival.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Az ügynököket egy `OpenAIClient` segítségével hozzuk létre, majd a `WorkflowBuilder` meghatározza a szekvenciális folyamatot azzal, hogy egy élt ad hozzá a `frontDeskAgent` és a `reviewerAgent` között.
+Az ügynökök egy `AzureOpenAIClient` (Responses API) segítségével jönnek létre, majd a `WorkflowBuilder` meghatározza a szekvenciális áramlást azzal, hogy egy élt ad a `frontDeskAgent`-től a `reviewerAgent`-hez.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-A workflow-t ezután a felhasználó üzenetével futtatjuk, és az eredményeket visszacsatoljuk.
+A workflow ezután fut a felhasználó üzenetével, és az eredmény visszaáramlik.
 
-### Eset 2: Többlépcsős szekvenciális workflow
+### 2. Példa: Többlépcsős Szekvenciális Workflow
 
-Ez a minta kiterjeszti az alapvető szekvenciát több ügynökre. Ideális olyan folyamatokhoz, amelyek több szakaszban történő finomítást vagy átalakítást igényelnek.
+Ez a minta kiterjeszti az alapvető szekvenciát több ügynökre. Ideális olyan folyamatokhoz, amelyek többszörös finomítást vagy átalakítást igényelnek.
 
-#### Forgatókönyv háttér
+#### Forgatókönyv Háttér
 
-Egy felhasználó egy nappali képét adja meg, és árajánlatot kér a bútorokra.
+Egy felhasználó beküld egy képet egy nappaliról és kér egy bútor árajánlatot.
 
-1.  **Sales-Agent**: Azonosítja a képen látható bútorokat, és listát készít.
-2.  **Price-Agent**: A bútorok listáját felhasználva részletes árajánlatot ad, beleértve a költséghatékony, középkategóriás és prémium opciókat.
-3.  **Quote-Agent**: Az árazott listát formális árajánlat-dokumentummá alakítja Markdown formátumban.
+1.  **Értékesítési Ügynök**: Azonosítja a képen lévő bútorokat és listát készít.
+2.  **Árazási Ügynök**: Felveszi a listát és részletes ármegosztást ad, beleértve a költségvetési, középkategóriás és prémium opciókat.
+3.  **Ajánlat Készítő Ügynök**: Megkapja az árakkal ellátott listát és formázza azt hivatalos ajánlat dokumentummá Markdown formátumban.
 
-*Diagram a Sales -\> Price -\> Quote workflow-ról.*
+*Az Értékesítési -\> Árazási -\> Ajánlat munkafolyamat ábrája.*
 
-#### Python implementáció elemzése
+#### Python Megvalósítás Elemzése
 
-Három ügynököt definiálunk, mindegyik speciális szereppel. A workflow-t az `add_edge` segítségével építjük fel, hogy létrehozzuk a láncot: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Három ügynök van definiálva, mindegyik specializált szereppel. A workflow `add_edge`-ek segítségével láncolódik: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Hozzon létre három specializált ügynököt
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Építse fel a sorrendben következő munkafolyamatot
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-A bemenet egy `ChatMessage`, amely tartalmazza a szöveget és a kép URI-ját. A keretrendszer biztosítja, hogy az egyes ügynökök kimenete a következő bemenete legyen, amíg a végső árajánlat létre nem jön.
+A bemenet egy `ChatMessage`, amely tartalmazza a szöveget és a kép URI-jét. A keretrendszer biztosítja, hogy az egyes ügynökök kimenete a soron következőbe kerüljön, amíg el nem készül a végső ajánlat.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# A felhasználói üzenet tartalmaz szöveget és egy képet is
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Futtassa a munkafolyamatot
+events = await workflow.run(message)
 ```
 
-#### .NET (C#) implementáció elemzése
+#### .NET (C\#) Megvalósítás Elemzése
 
-A .NET példa tükrözi a Python verziót. Három ügynököt (`salesagent`, `priceagent`, `quoteagent`) hozunk létre. A `WorkflowBuilder` szekvenciálisan kapcsolja össze őket.
+A .NET példa megfelel a Python verziónak. Három ügynök (`salesagent`, `priceagent`, `quoteagent`) jön létre. A `WorkflowBuilder` összekapcsolja őket szekvenciálisan.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-A felhasználó üzenetét a kép adataival (bájtokként) és a szöveges kérdéssel együtt állítjuk össze. Az `InProcessExecution.StreamAsync` metódus elindítja a workflow-t, és a végső kimenetet a streamből kapjuk meg.
+A felhasználó üzenete tartalmazza a képadatokat (bájtokként) és a szöveges promptot. Az `InProcessExecution.RunStreamingAsync` metódus indítja a workflow-t, és a végeredményt a streamből kapjuk vissza.
 
-### Eset 3: Párhuzamos workflow
+### 3. Példa: Párhuzamos Workflow
 
-Ez a minta akkor használatos, amikor a feladatok egyszerre végezhetők el az idő megtakarítása érdekében. Ez magában foglalja a "fan-out" (szétosztás) és a "fan-in" (összesítés) logikát.
+Ez a minta akkor alkalmazandó, amikor a feladatokat egyidejűleg lehet végezni az idő megtakarítása érdekében. Ez egy „fan-out” folyamatot foglal magában több ügynökhöz, majd egy „fan-in” lépést az eredmények összesítésére.
 
-#### Forgatókönyv háttér
+#### Forgatókönyv Háttér
 
-Egy felhasználó Seattle-i utazást szeretne tervezni.
+Egy felhasználó egy Seattle-i utazás tervezését kéri.
 
-1.  **Dispatcher (Fan-Out)**: A felhasználó kérését egyszerre két ügynöknek küldi el.
-2.  **Researcher-Agent**: Kutatást végez a látnivalókról, időjárásról és a decemberi utazás kulcsfontosságú szempontjairól.
-3.  **Plan-Agent**: Függetlenül részletes napi utazási tervet készít.
-4.  **Aggregator (Fan-In)**: Az eredményeket mindkét ügynöktől összegyűjti, és együttesen bemutatja.
+1.  **Kiosztó (Fan-Out)**: A felhasználó kérése egyszerre két ügynökhöz kerül.
+2.  **Kutató Ügynök**: Kutatást végez a látnivalókról, időjárásról és fontos szempontokról Seattle-ben decemberben.
+3.  **Tervező Ügynök**: Függetlenül elkészít egy részletes napi utazási tervet.
+4.  **Összesítő (Fan-In)**: A kutató és a tervező kimeneteit összegyűjti és egyesíti, majd bemutatja a végső eredményeként.
 
-*Diagram a párhuzamos Researcher és Planner workflow-ról.*
+*A párhuzamosan futó Kutató és Tervező workflow ábrája.*
 
-#### Python implementáció elemzése
+#### Python Megvalósítás Elemzése
 
-A `ConcurrentBuilder` egyszerűsíti ennek a mintának a létrehozását. Csak meg kell adni a résztvevő ügynököket, és a builder automatikusan létrehozza a szükséges fan-out és fan-in logikát.
+A `ConcurrentBuilder` leegyszerűsíti ennek a mintának a létrehozását. Csak fel kell sorolni a résztvevő ügynököket, és az építő automatikusan létrehozza a szükséges fan-out és fan-in logikát.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# A ConcurrentBuilder kezeli a fan-out/fan-in logikát
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Futtassa a munkafolyamatot
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-A keretrendszer biztosítja, hogy a `research_agent` és a `plan_agent` párhuzamosan fusson, és a végső kimenetüket egy listába gyűjti.
+A keretrendszer biztosítja, hogy a `research_agent` és a `plan_agent` párhuzamosan fusson, és a végső kimeneteiket listába gyűjti.
 
-#### .NET (C#) implementáció elemzése
+#### .NET (C\#) Megvalósítás Elemzése
 
-A .NET-ben ez a minta explicit definíciót igényel. Egyedi végrehajtókat (`ConcurrentStartExecutor` és `ConcurrentAggregationExecutor`) hozunk létre a fan-out és fan-in logika kezelésére.
+A .NET esetében ezt a mintát explicitabban kell definiálni. Egyedi végrehajtók (`ConcurrentStartExecutor` és `ConcurrentAggregationExecutor`) felelnek a fan-out és fan-in logika kezeléséért.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-A `WorkflowBuilder` ezután az `AddFanOutEdge` és `AddFanInEdge` metódusokat használja a gráf felépítéséhez ezekkel az egyedi végrehajtókkal és az ügynökökkel.
+A `WorkflowBuilder` azután az `AddFanOutEdge` és `AddFanInEdge` metódusokkal építi fel a gráfot ezekkel az egyedi végrehajtókkal és az ügynökökkel.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Eset 4: Feltételes workflow
+### 4. Példa: Feltételes Workflow
 
-A feltételes workflow-k elágazó logikát vezetnek be, lehetővé téve a rendszer számára, hogy az eredmények alapján különböző útvonalakat kövessen.
+A feltételes workflow-k elágazó logikát vezetnek be, lehetővé téve, hogy a rendszer különböző útvonalakat kövessen köztes eredmények alapján.
 
-#### Forgatókönyv háttér
+#### Forgatókönyv Háttér
 
-Ez a workflow egy technikai útmutató létrehozását és publikálását automatizálja.
+Ez a workflow automatizálja egy technikai bemutató elkészítését és közzétételét.
 
-1.  **Evangelist-Agent**: Az útmutató vázlata és URL-ek alapján megírja a tervezetet.
-2.  **ContentReviewer-Agent**: Felülvizsgálja a tervezetet. Ellenőrzi, hogy a szószám meghaladja-e a 200 szót.
-3.  **Feltételes elágazás**:
-      * **Ha elfogadott (`Yes`)**: A workflow a `Publisher-Agent`-hez folytatódik.
-      * **Ha elutasított (`No`)**: A workflow leáll, és megadja az elutasítás okát.
-4.  **Publisher-Agent**: Ha a tervezetet elfogadják, ez az ügynök elmenti a tartalmat egy Markdown fájlba.
+1.  **Evangelista Ügynök**: Vázlat alapján és URL-ek segítségével megír egy tervezetet a bemutatóról.
+2.  **Tartalom Ellenőrző Ügynök**: Felülvizsgálja a tervezetet. Ellenőrzi, hogy a szószám meghaladja-e a 200 szót.
+3.  **Feltételes Ág**:
+      * **Ha Jóváhagyva (`Igen`)**: A workflow a `Publisher-Agent` felé halad tovább.
+      * **Ha Elutasítva (`Nem`)**: A workflow megáll, és kiírja az elutasítás okát.
+4.  **Publikáló Ügynök**: Ha a tervezet jóváhagyásra kerül, ez az ügynök a tartalmat Markdown fájlba menti.
 
-#### Python implementáció elemzése
+#### Python Megvalósítás Elemzése
 
-Ebben a példában egy egyedi függvényt, `select_targets`-t használunk a feltételes logika megvalósításához. Ezt a függvényt az `add_multi_selection_edge_group`-hoz adjuk, amely a `review_result` mező alapján irányítja a workflow-t.
+Ez a példa egy egyedi `select_targets` függvényt használ a feltételes logika megvalósítására. Ezt a függvényt átadják az `add_multi_selection_edge_group` metódusnak, és ez irányítja a workflow-t a felülvizsgáló kimenetében található `review_result` mező alapján.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Ez a függvény az értékelés eredménye alapján határozza meg a következő lépést
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Ha jóváhagyott, folytassa a 'save_draft' végrehajtóval
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Ha elutasított, folytassa a 'handle_review' végrehajtóval a hiba jelentéséhez
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# A munkafolyamat-építő a kiválasztási függvényt használja az útválasztáshoz
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # A többválasztásos él megvalósítja a feltételes logikát
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Egyedi végrehajtókat, például `to_reviewer_result`-t használunk az ügynökök JSON kimenetének elemzésére és erősen típusos objektumokká alakítására, amelyeket a kiválasztási függvény vizsgálhat.
+Egyedi végrehajtók, például `to_reviewer_result` szolgálnak arra, hogy az ügynökök JSON kimenetét feldolgozzák és erősen típusos objektumokká alakítsák, amelyeket a kijelölő függvény ellenőrizhet.
 
-#### .NET (C#) implementáció elemzése
+#### .NET (C\#) Megvalósítás Elemzése
 
-A .NET verzió hasonló megközelítést alkalmaz egy feltétel függvénnyel. Egy `Func<object?, bool>` függvényt definiálunk, amely ellenőrzi a `ReviewResult` objektum `Result` tulajdonságát.
+A .NET verzió hasonló megközelítést alkalmaz egy feltételfüggvénnyel. Egy `Func<object?, bool>` definícióval ellenőrzi a `ReviewResult` objektum `Result` tulajdonságát.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Az `AddEdge` metódus `condition` paramétere lehetővé teszi a `WorkflowBuilder` számára, hogy elágazó útvonalat hozzon létre. A workflow csak akkor követi az élt a `publishExecutor`-hoz, ha a `GetCondition(expectedResult: "Yes")` feltétel igazat ad vissza. Ellenkező esetben a `sendReviewerExecutor`-hoz vezet.
+Az `AddEdge` metódus `condition` paramétere lehetővé teszi, hogy a `WorkflowBuilder` elágazó utat hozzon létre. A workflow csak akkor követi az utat a `publishExecutor` felé, ha a `GetCondition(expectedResult: "Yes")` igaz értéket ad vissza. Ellenkező esetben a `sendReviewerExecutor` irányába tart.
 
-## Összegzés
+## Összefoglalás
 
-A Microsoft Agent Framework Workflow robusztus és rugalmas alapot biztosít a komplex, többügynökös rendszerek orkestrációjához. Gráf-alapú architektúrájának és fő komponenseinek köszönhetően a fejlesztők kifinomult workflow-kat tervezhetnek és valósíthatnak meg Pythonban és .NET-ben. Akár egyszerű szekvenciális feldolgozásra, párhuzamos végrehajtásra vagy dinamikus feltételes logikára van szükség, a keretrendszer eszközöket kínál erőteljes, skálázható és típusbiztos AI-alapú megoldások építéséhez.
+A Microsoft Agent Framework Workflow robusztus és rugalmas alapot nyújt összetett, többügynökös rendszerek koordinálásához. Gráf-alapú architektúráját és alapelemeit kihasználva a fejlesztők kifinomult workflow-kat tervezhetnek és valósíthatnak meg Python és .NET környezetben egyaránt. Legyen az egyszerű szekvenciális feldolgozás, párhuzamos végrehajtás, vagy dinamikus feltételes logika, a keretrendszer eszközöket biztosít erőteljes, skálázható és típusbiztos MI-megoldások építéséhez.
 
 ---
 
-**Felelősségkizárás**:  
-Ez a dokumentum az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítószolgáltatás segítségével készült. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt a professzionális, emberi fordítás igénybevétele. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

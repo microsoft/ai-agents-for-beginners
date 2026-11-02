@@ -1,105 +1,109 @@
-# 🛠️ GitHub ಮಾದರಿಗಳೊಂದಿಗೆ (.NET) ಉನ್ನತ ಸಾಧನ ಬಳಕೆ
+# 🛠️ ಅಜೂರ್ ಓಪನ್‌ಎಐ (ಪ್ರतिक್ರಿಯೆಗಳು API) ក្នុងೊಂದಿಗೆ ಉನ್ನತ ಸಾಧನ ಬಳಕೆ (.NET)
 
-## 📋 ಕಲಿಕೆಯ ಉದ್ದೇಶಗಳು
+## 📋 ಕಲಿಕೆ ಉದ್ದೇಶಗಳು
 
-ಈ ನೋಟ್ಬುಕ್ Microsoft Agent Framework ಅನ್ನು .NET ನಲ್ಲಿ GitHub ಮಾದರಿಗಳೊಂದಿಗೆ ಬಳಸುವ ಎಂಟರ್‌ಪ್ರೈಸ್-ಗ್ರೇಡ್ ಸಾಧನ ಏಕೀಕರಣ ಮಾದರಿಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. ನೀವು ಬಹು ವಿಶೇಷ ಸಾಧನಗಳೊಂದಿಗೆ ಸುಧಾರಿತ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು, C# ನ ಬಲವಾದ ಟೈಪಿಂಗ್ ಮತ್ತು .NET ನ ಎಂಟರ್‌ಪ್ರೈಸ್ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಬಳಸಲು ಕಲಿಯುತ್ತೀರಿ.
+ಈ ನೋಟುಬುಕ್ Azure OpenAI (ಪ್ರतिक್ರಿಯೆಗಳು API) ನೊಂದಿಗೆ .NET ನಲ್ಲಿ ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ ಬಳಸಿ ಉದ್ಯಮ ಮಟ್ಟದ ಸಾಧನ ಏಕೀಕರಣ ಮಾದರಿಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. ನೀವು C# ನ ಬಲಿಷ್ಠ ಟೈಪಿಂಗ್ ಮತ್ತು .NET ನ ಉದ್ಯಮ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಉಪಯೋಗಿಸಿ ಹಲವಾರು ವಿಶೇಷ ಸಾಧನಗಳೊಂದಿಗೆ ಸುಕ್ಷ್ಮ ಏಜೆಂಟುಗಳನ್ನು ನಿರ್ಮಿಸುವ ಕಲಿಕೆಯಿರಿ.
 
-### ನೀವು ಆಳವಾಗಿ ಕಲಿಯುವ ಸುಧಾರಿತ ಸಾಧನ ಸಾಮರ್ಥ್ಯಗಳು
+### ನೀವು ತಮ್ಮೊಂದಿಗೆ ಆದಿವಾಸಿ ಸಾಧನ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುತ್ತೀರಿ
 
-- 🔧 **ಬಹು-ಸಾಧನ ಆರ್ಕಿಟೆಕ್ಚರ್**: ಬಹು ವಿಶೇಷ ಸಾಮರ್ಥ್ಯಗಳೊಂದಿಗೆ ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವುದು
-- 🎯 **ಟೈಪ್-ಸೇಫ್ ಸಾಧನ ಕಾರ್ಯಗತಗೊಳನೆ**: C# ನ ಕಾಂಪೈಲ್-ಟೈಮ್ ಮಾನ್ಯತೆಯನ್ನು ಬಳಸುವುದು
-- 📊 **ಎಂಟರ್‌ಪ್ರೈಸ್ ಸಾಧನ ಮಾದರಿಗಳು**: ಉತ್ಪಾದನಾ-ಸಿದ್ಧ ಸಾಧನ ವಿನ್ಯಾಸ ಮತ್ತು ದೋಷ ನಿರ್ವಹಣೆ
-- 🔗 **ಸಾಧನ ಸಂಯೋಜನೆ**: ಸಂಕೀರ್ಣ ವ್ಯವಹಾರ ಕಾರ್ಯಪ್ರವಾಹಗಳಿಗಾಗಿ ಸಾಧನಗಳನ್ನು ಸಂಯೋಜಿಸುವುದು
+- 🔧 **ಬಹು-ಸಾಧನ معماري**: ಹಲವಾರು ವಿಶೇಷ ಸಾಮರ್ಥ್ಯಗಳೊಂದಿಗೆ ಏಜೆಂಟುಗಳ ನಿರ್ಮಾಣ
+- 🎯 **ಟೈಪ್-ಸೇಫ್ ಸಾಧನ ನಿರ್ವಹಣೆ**: C# ಇತ್ಯಾದಿ ಸಂಯೋಜನಾ-ಕಾಲದ ಶ್ರೇಷ್ಠತೆ ಬಳಸುವಿಕೆ
+- 📊 **ಉದ್ಯಮ ಸಾಧನ ಮಾದರಿಗಳನ್ನು**: ಉত್ಪಾದನೆಗೆ ಸಿದ್ಧ ಸಾಧನ ವಿನ್ಯಾಸ ಮತ್ತು ದೋಷ ನಿರ್ವಹಣೆ
+- 🔗 **ಸಾಧನ ಸಂಯೋಜನೆ**: ಸಂಕೀರ್ಣ ವ್ಯಾಪಾರ ಕಾರ್ಯಪ್ರವಾಹಗಳಿಗೆ ಸಾಧನಗಳನ್ನು ಸಂಯೋಜಿಸುವುದು
 
-## 🎯 .NET ಸಾಧನ ಆರ್ಕಿಟೆಕ್ಚರ್‌ನ ಲಾಭಗಳು
+## 🎯 .NET ಸಾಧನ معماري ಲಾಭಗಳು
 
-### ಎಂಟರ್‌ಪ್ರೈಸ್ ಸಾಧನ ವೈಶಿಷ್ಟ್ಯಗಳು
+### ಉದ್ಯಮ ಸಾಧನ ವೈಶಿಷ್ಟ್ಯಗಳು
 
-- **ಕಾಂಪೈಲ್-ಟೈಮ್ ಮಾನ್ಯತೆ**: ಬಲವಾದ ಟೈಪಿಂಗ್ ಸಾಧನ ಪ್ಯಾರಾಮೀಟರ್ ಸರಿಯಾದತೆಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ
-- **ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್**: IoC ಕಂಟೈನರ್ ಏಕೀಕರಣ ಸಾಧನ ನಿರ್ವಹಣೆಗೆ
-- **ಅಸಿಂಕ್/ಅವೇಟ್ ಮಾದರಿಗಳು**: ಸರಿಯಾದ ಸಂಪತ್ತು ನಿರ್ವಹಣೆಯೊಂದಿಗೆ ಬ್ಲಾಕ್ ಮಾಡದ ಸಾಧನ ಕಾರ್ಯಗತಗೊಳನೆ
-- **ಸಂರಚಿತ ಲಾಗಿಂಗ್**: ಸಾಧನ ಕಾರ್ಯಗತಗೊಳನೆ ಮೇಲ್ವಿಚಾರಣೆಗೆ ಲಾಗಿಂಗ್ ಏಕೀಕರಣ
+- **ಸಂಯೋಜನಾ-ಕಾಲದ ಪರಿಶೀಲನೆ**: ಬಲಿಷ್ಠ ಟೈಪಿಂಗ್ ಸಾಧನ ಪ್ಯಾರಾಮೀಟರ್ ಸರಿಯಾದಿಕೆಗೆ ಖಚಿತಪಡಿಸುತ್ತದೆ
+- **ಆಧಾರ ಗ್ರಂಥಾಲಯ ಸೇರಿಸುವಿಕೆ**: ಸಾಧನ ನಿರ್ವಹಣೆಗೆ IoC ಕಂಟೈನರ್ ಏಕೀಕರಣ
+- **Async/Await ಮಾದರಿಗಳು**: ಸೂಕ್ತ ಸಂಪನ್ಮೂಲ ನಿರ್ವಹಣೆಯೊಂದಿಗೆ ಅড়ಚಣೆ ಇಲ್ಲದ ಸಾಧನ ನಿರ್ವಹಣೆ
+- **ಸಂರಚಿತ ಲಾಗಿಂಗ್**: ಸಾಧನ ನಿರ್ವಹಣಾ ನಿಯಂತ್ರಣಕ್ಕಾಗಿ ಒಳಗೊಳ್ಳುವ ಲಾಗಿಂಗ್ ಏಕೀಕರಣ
 
-### ಉತ್ಪಾದನಾ-ಸಿದ್ಧ ಮಾದರಿಗಳು
+### ಉತ్పಾದನೆಗೆ ಸಿದ್ಧ ಮಾದರಿಗಳು
 
-- **ಎಕ್ಸೆಪ್ಷನ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್**: ಟೈಪ್ಡ್ ಎಕ್ಸೆಪ್ಷನ್‌ಗಳೊಂದಿಗೆ ಸಮಗ್ರ ದೋಷ ನಿರ್ವಹಣೆ
-- **ಸಂಪತ್ತು ನಿರ್ವಹಣೆ**: ಸರಿಯಾದ ಡಿಸ್ಪೋಸಲ್ ಮಾದರಿಗಳು ಮತ್ತು ಮೆಮೊರಿ ನಿರ್ವಹಣೆ
-- **ಪ್ರದರ್ಶನ ಮೇಲ್ವಿಚಾರಣೆ**: ಅಂತರ್ನಿಹಿತ ಮೆಟ್ರಿಕ್‌ಗಳು ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತೆ ಕೌಂಟರ್‌ಗಳು
-- **ಕಾನ್ಫಿಗರೇಶನ್ ನಿರ್ವಹಣೆ**: ಮಾನ್ಯತೆಯೊಂದಿಗೆ ಟೈಪ್-ಸೇಫ್ ಕಾನ್ಫಿಗರೇಶನ್
+- **ವೈಖ್ಯಾತ ದೋಷ ನಿರ್ವಹಣೆ**: ಟೈಪ್ಡ್ ಎಕ್ಸೆಪ್ಷನ್ಗಳೊಂದಿಗೆ ಸಕಲ ದೋಷ ನಿರ್ವಹಣೆ
+- **ಸಂಪನ್ಮೂಲ ನಿರ್ವಹಣೆ**: ಸಮರ್ಪಕ ತ್ಯಾಗ ಮಾದರಿಗಳು ಮತ್ತು ಮೆಮರಿ ನಿರ್ವಹಣೆ
+- **ಕಾರ್ಯಕ್ಷಮತೆ ಮೇಲ್ವಿಚಾರಣೆ**: ಒಳಗೊಳ್ಳುವ ಮೀಟ್ರಿಕ್ ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತೆ ಮೌಲ್ಯಗಣಕಗಳು
+- **ಸಂಕೇತ ನಿರ್ವಹಣೆ**: ಪರಿಶೀಲನೆಯೊಂದಿಗೆ ಟೈಪ್-ಸೇಫ್ ಸಂಕೇತ ನಿರ್ವಹಣೆ
 
-## 🔧 ತಾಂತ್ರಿಕ ಆರ್ಕಿಟೆಕ್ಚರ್
+## 🔧 ತಾಂತ್ರಿಕ معماري
 
-### ಕೋರ್ .NET ಸಾಧನ ಘಟಕಗಳು
+### ಮೂಲ .NET ಸಾಧನ ಘಟಕಗಳು
 
-- **Microsoft.Extensions.AI**: ಏಕೀಕೃತ ಸಾಧನ ಅಬ್ಸ್ಟ್ರಾಕ್ಷನ್ ಲೇಯರ್
-- **Microsoft.Agents.AI**: ಎಂಟರ್‌ಪ್ರೈಸ್-ಗ್ರೇಡ್ ಸಾಧನ ಸಂಯೋಜನೆ
-- **GitHub ಮಾದರಿಗಳ ಏಕೀಕರಣ**: ಹೈ-ಪರ್ಫಾರ್ಮೆನ್ಸ್ API ಕ್ಲೈಂಟ್ ಸಂಪರ್ಕ ಪೂಲಿಂಗ್‌ನೊಂದಿಗೆ
+- **Microsoft.Extensions.AI**: ಏಕೀಕೃತ ಸಾಧನ ಸಣ್ಣ ಪದರ
+- **Microsoft.Agents.AI**: ಉದ್ಯಮ ಮಟ್ಟದ ಸಾಧನ ನಿಯಂತ್ರಣ
+- **Azure OpenAI (ಪ್ರतिक್ರಿಯೆಗಳು API)**: ಸಂಪರ್ಕ ಪೂಳಿತಾಪನದೊಂದಿಗೆ ಹೆಚ್ಚಿನ ಕಾರ್ಯಕ್ಷಮತೆ API ಗ್ರಾಹಕ
 
-### ಸಾಧನ ಕಾರ್ಯಗತಗೊಳನೆ ಪೈಪ್‌ಲೈನ್
+### ಸಾಧನ ನಿರ್ವಹಣೆ ಪೈಪ್‌ಲೈನ್
 
 ```mermaid
 graph LR
     A[ಬಳಕೆದಾರ ವಿನಂತಿ] --> B[ಏಜೆಂಟ್ ವಿಶ್ಲೇಷಣೆ]
-    B --> C[ಉಪಕರಣ ಆಯ್ಕೆ]
+    B --> C[ಸಾಧನ ಆಯ್ಕೆ]
     C --> D[ಪ್ರಕಾರ ಮಾನ್ಯತೆ]
-    B --> E[ಪ್ಯಾರಾಮೀಟರ್ ಬೈಂಡಿಂಗ್]
-    E --> F[ಉಪಕರಣ ಕಾರ್ಯಗತಗೊಳಣೆ]
+    B --> E[ಪರಿಮಾಣ ಬಂಧನ]
+    E --> F[ಸಾಧನ ಕಾರ್ಯಗತ ಮಾಡುವುದು]
     C --> F
     F --> G[ಫಲಿತಾಂಶ ಪ್ರಕ್ರಿಯೆ]
     D --> G
     G --> H[ಪ್ರತಿಕ್ರಿಯೆ]
 ```
+
 ## 🛠️ ಸಾಧನ ವರ್ಗಗಳು ಮತ್ತು ಮಾದರಿಗಳು
 
-### 1. **ಡೇಟಾ ಪ್ರೊಸೆಸಿಂಗ್ ಸಾಧನಗಳು**
+### 1. **ಡೇಟಾ ಪ್ರಾಸೆಸಿಂಗ್ ಸಾಧನಗಳು**
 
-- **ಇನ್‌ಪುಟ್ ಮಾನ್ಯತೆ**: ಡೇಟಾ ಅನೋಟೇಶನ್‌ಗಳೊಂದಿಗೆ ಬಲವಾದ ಟೈಪಿಂಗ್
-- **ರೂಪಾಂತರ ಕಾರ್ಯಾಚರಣೆಗಳು**: ಟೈಪ್-ಸೇಫ್ ಡೇಟಾ ಪರಿವರ್ತನೆ ಮತ್ತು ಸ್ವರೂಪೀಕರಣ
-- **ವ್ಯವಹಾರ ಲಾಜಿಕ್**: ಡೊಮೈನ್-ನಿರ್ದಿಷ್ಟ ಲೆಕ್ಕಾಚಾರ ಮತ್ತು ವಿಶ್ಲೇಷಣೆ ಸಾಧನಗಳು
-- **ಔಟ್‌ಪುಟ್ ಸ್ವರೂಪೀಕರಣ**: ಸಂರಚಿತ ಪ್ರತಿಕ್ರಿಯೆ ತಯಾರಿಕೆ
+- **ಇನ್‌ಪುಟ್ ಪರಿಶೀಲನೆ**: ಡೇಟಾ ಪ್ರಕಟಣೆಯೊಂದಿಗೆ ಬಲಿಷ್ಠ ಟೈಪಿಂಗ್
+- **ರೂಪಾಂತರ ಕಾರ್ಯಗಳು**: ಟೈಪ್-ಸೇಫ್ ಡೇಟಾ ಪರಿವರ್ತನೆ ಮತ್ತು ರೂಪರೇಖೆ
+- **ವ್ಯಾಪಾರ ತார್ಕಿಕತೆ**: ಡೊಮೇನ್-ನಿರ್ದಿಷ್ಟ ಲೆಕ್ಕಾಚಾರ ಮತ್ತು ವಿಶ್ಲೇಷಣೆ ಸಾಧನಗಳು
+- **ಔಟ್‌ಪುಟ್ ರೂಪರೇಖೆ**: ಸೌರಚಿತ ಪ್ರತಿಕ್ರಿಯಾ ಉತ್ಪಾದನೆ
 
-### 2. **ಏಕೀಕರಣ ಸಾಧನಗಳು**
+### 2. **ಇಂಟಿಗ್ರೇಶನ್ ಸಾಧನಗಳು**
 
-- **API ಕನೆಕ್ಟರ್‌ಗಳು**: RESTful ಸೇವಾ ಏಕೀಕರಣ HttpClient ನೊಂದಿಗೆ
-- **ಡೇಟಾಬೇಸ್ ಸಾಧನಗಳು**: ಡೇಟಾ ಪ್ರವೇಶಕ್ಕಾಗಿ Entity Framework ಏಕೀಕರಣ
-- **ಫೈಲ್ ಕಾರ್ಯಾಚರಣೆಗಳು**: ಮಾನ್ಯತೆಯೊಂದಿಗೆ ಸುರಕ್ಷಿತ ಫೈಲ್ ಸಿಸ್ಟಮ್ ಕಾರ್ಯಾಚರಣೆಗಳು
-- **ಬಾಹ್ಯ ಸೇವೆಗಳು**: ತೃತೀಯ-ಪಕ್ಷ ಸೇವಾ ಏಕೀಕರಣ ಮಾದರಿಗಳು
+- **API ಸಂಪರ್ಕಗಳು**: HttpClient ಬಳಸಿ RESTful ಸೇವೆ ಇಂಟಿಗ್ರೇಶನ್
+- **ಡೇಟಾಬೇಸ್ ಸಾಧನಗಳು**: ಡೇಟಾ ಪ್ರವೇಶಕ್ಕೆ Entity Framework ಏಕೀಕರಣ
+- ** ಫೈಲ್ ಕಾರ್ಯಗಳು**: ಪರಿಶೀಲನೆಯೊಂದಿಗೆ ಸುರಕ್ಷಿತ ಫೈಲ್ ವ್ಯವಸ್ಥೆ ಕಾರ್ಯಗಳು
+- **ಬಾಹ್ಯ ಸೇವೆಗಳು**: ಮೂರನೇ ಪಕ್ಷದ ಸೇವೆ ಇಂಟಿಗ್ರೇಶನ್ ಮಾದರಿಗಳು
 
-### 3. **ಉಪಯುಕ್ತ ಸಾಧನಗಳು**
+### 3. **ಉಪಯೋಗಿ ಸಾಧನಗಳು**
 
-- **ಪಠ್ಯ ಪ್ರೊಸೆಸಿಂಗ್**: ಸ್ಟ್ರಿಂಗ್ ಮ್ಯಾನಿಪುಲೇಶನ್ ಮತ್ತು ಸ್ವರೂಪೀಕರಣ ಉಪಯುಕ್ತತೆಗಳು
-- **ದಿನಾಂಕ/ಸಮಯ ಕಾರ್ಯಾಚರಣೆಗಳು**: ಸಂಸ್ಕೃತಿ-ಜಾಗೃತ ದಿನಾಂಕ/ಸಮಯ ಲೆಕ್ಕಾಚಾರ
-- **ಗಣಿತ ಸಾಧನಗಳು**: ನಿಖರ ಲೆಕ್ಕಾಚಾರ ಮತ್ತು ಅಂಕಿ-ಅಂಶ ಕಾರ್ಯಾಚರಣೆಗಳು
-- **ಮಾನ್ಯತೆ ಸಾಧನಗಳು**: ವ್ಯವಹಾರ ನಿಯಮ ಮಾನ್ಯತೆ ಮತ್ತು ಡೇಟಾ ಪರಿಶೀಲನೆ
+- **ಪಠ್ಯ ಪ್ರಕ್ರಿಯೆ**: ಸ್ಟ್ರಿಂಗ್ ತಿದ್ದುಪಡಿ ಮತ್ತು ರೂಪರೇಖೆ ಉಪಕರಣಗಳು
+- **ದಿನಾಂಕ/ಸಮಯ ಕಾರ್ಯಗಳು**: ಸಂಸ್ಕೃತಿಗೆ ಅನುಗುಣ ದಿನಾಂಕ/ಸಮಯ ಗಣನೆಗಳು
+- **ಗಣಿತ ಸಾಧನಗಳು**: ನಿಖರ ಲೆಕ್ಕಾಚಾರಗಳು ಮತ್ತು ಸ್ಥಿತಿಶಾಸ್ತ್ರ ಕಾರ್ಯಗಳು
+- **ಪರಿಶೀಲನಾ ಸಾಧನಗಳು**: ವ್ಯಾಪಾರ ನಿಯಮ ಪರಿಶೀಲನೆ ಮತ್ತು ಡೇಟಾ ದೃಢೀಕರಣ
 
-ಎಂಟರ್‌ಪ್ರೈಸ್-ಗ್ರೇಡ್ ಏಜೆಂಟ್‌ಗಳನ್ನು ಬಲವಾದ, ಟೈಪ್-ಸೇಫ್ ಸಾಧನ ಸಾಮರ್ಥ್ಯಗಳೊಂದಿಗೆ .NET ನಲ್ಲಿ ನಿರ್ಮಿಸಲು ಸಿದ್ಧವೇ? ಬನ್ನಿ, ವೃತ್ತಿಪರ-ಗ್ರೇಡ್ ಪರಿಹಾರಗಳನ್ನು ಆರ್ಕಿಟೆಕ್ಟ್ ಮಾಡೋಣ! 🏢⚡
+ಉನ್ನತ, ಟೈಪ್-ಸೇಫ್ ಸಾಧನ ಸಾಮರ್ಥಜಗಳೊಂದಿಗೆ ಉದ್ಯಮ-ಮಟ್ಟದ ಏಜೆಂಟುಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸಿದ್ದಾ? ಬನ್ನಿ ಕೆಲವು ವೃತ್ತಿಪರ-ಮಟ್ಟದ ಪರಿಹಾರಗಳನ್ನು معماري ಮಾಡೋಣ! 🏢⚡
 
-## 🚀 ಪ್ರಾರಂಭಿಸೋಣ
+## 🚀 ಪ್ರಾರಂಭಿಸುವುದು
 
-### ಪೂರ್ವಾಪೇಕ್ಷಿತಗಳು
+### ಅಗತ್ಯ ಶ್ರೇೕತಿಗಳು
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚಿನದು
-- [GitHub ಮಾದರಿಗಳ API ಪ್ರವೇಶ ಟೋಕನ್](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಮೇಲಿನ ಆವೃತ್ತಿ
+- Azure OpenAI ಸಂಪನ್ಮೂಲ ಮತ್ತು ಮಾದರಿ ನಿಯೋಜನೆಯೊಂದಿಗೆ [ಅಜೂರ್ ಷಬ್ಸ್ಕ್ರಿಪ್ಷನ್](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ಬಳಸಿ ಲಾಗಿನ್ ಆಗಿರಿ
 
-### ಅಗತ್ಯವಿರುವ ಪರಿಸರ ವ್ಯತ್ಯಾಸಗಳು
+### ಅಗತ್ಯದ ಪರಿಸರ ಮಾರ್ಪಡಿಗಳು
 
 ```bash
-# ಝೆಡ್‌ಎಸ್‌ಎಚ್/ಬ್ಯಾಶ್
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# zsh/bash
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# ನಂತರ ಸಹಿ ಮಾಡಿ, ಆಗ AzureCliCredential ಟೋಕನ್ ಪಡೆಯಬಹುದು
+az login
 ```
 
 ```powershell
 # ಪವರ್‌ಶೆಲ್
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# ನಂತರ ಸೈನ್ ಇನ್ ಮಾಡಿ ಆದರೆ AzureCliCredential ಟೋಕನ್ ಪಡೆಯಬಹುದು
+az login
 ```
 
 ### ಮಾದರಿ ಕೋಡ್
 
-ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಲಾಯಿಸಲು,
+ಉದಾಹರಣೆ ಕೋಡ್ ನಡೆಸಲು,
 
 ```bash
 # zsh/bash
@@ -107,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-ಅಥವಾ dotnet CLI ಬಳಸಿ:
+ಅಥವಾ dotnet CLI ಬಳಸುವಿಕೆ:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-ಪೂರ್ಣ ಕೋಡ್‌ಗಾಗಿ [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) ನೋಡಿ.
+ಸಂಪೂರ್ಣ ಕೋಡ್ ಅನ್ನು ನೋಡಲು [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) ನೋಡಿ.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -159,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -204,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -236,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -247,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸಮೀಕ್ಷೆ**:  
-ಈ ದಾಖಲೆ AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ಖಚಿತತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಮರ್ಪಕತೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಾಖಲೆ ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪುಅರ್ಥಗಳು ಅಥವಾ ತಪ್ಪುಅನುವಾದಗಳಿಗೆ ನಾವು ಹೊಣೆಗಾರರಾಗುವುದಿಲ್ಲ.
+**ಅಸ್ವೀಕಾರ**:
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

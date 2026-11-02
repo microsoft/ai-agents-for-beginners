@@ -1,6 +1,6 @@
 [![Planning Design Pattern](../../../translated_images/pcm/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Click di image wey dey above to watch video for dis lesson)_
+> _(Klik di pikshọ wey dey up fen see video of dis lesson)_
 
 # Planning Design
 
@@ -8,48 +8,48 @@
 
 Dis lesson go cover
 
-* How to define clear overall goal and break big work into small, manageable work.
-* How to use structured output for better and machine-readable answers.
-* How to use event-driven way to handle dynamic work and surprise inputs.
+* How to define clear overall goal and how to burst big complex work into beta beta small work wey person fit handle.
+* How to use structured output to get reliable and machine-readable answers.
+* How to use event-driven way to handle changing work and things wey person no expect.
 
 ## Learning Goals
 
-After you finish dis lesson, you go sabi about:
+After you finish dis lesson, you go sabi:
 
-* How to find and set overall goal for AI agent, make e clear wetin e want achieve.
-* How to break big work into small tasks and arrange dem well.
-* How to give agents correct tools (e.g., search tools or data analysis tools), decide when and how to use dem, and handle surprise wahala.
-* How to check subtask results, measure how e perform, and improve actions to make final result better.
+* How to identify and set one clear overall goal for AI agent, make sure e sabi wetin e suppose achieve.
+* How to break big complex work into small small parts and put dem for correct order.
+* How to give agents correct tools (like search tools or data analysis tools), decide when and how dem go use dem, and handle unexpected wahala.
+* How to check subtask results, measure how e perform, and improve actions to make final output better.
 
 ## Defining the Overall Goal and Breaking Down a Task
 
 ![Defining Goals and Tasks](../../../translated_images/pcm/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Most real-life work too complex to do one time. AI agent need clear objective to guide plan and actions. For example, check dis goal:
+Most work for real life too complex to do with one step. AI agent need one sharp objective to guide how im go plan and work. For example, check this goal:
 
     "Generate a 3-day travel itinerary."
 
-E simple to talk but still need more detail. If goal clear well, agent (and any human wey dey work with am) fit focus well to get correct result, like make full itinerary wey get flight choices, hotel recommendations, and activity ideas.
+E simple to talk am, but e still need to get more detail. When goal clear, agent and even human wey dey work together fit focus well to make the correct thing, like to create full itinerary including flight options, hotel options, and activity ideas.
 
 ### Task Decomposition
 
-Big or complex work go easier if you divide am into smaller, clear tasks.
-For travel itinerary example, you fit break goal into:
+Big or complicated work become easy to handle when you break am into small small goal-focused parts.
+For the travel itinerary example, you fit break the goal into:
 
 * Flight Booking
 * Hotel Booking
 * Car Rental
 * Personalization
 
-Each task fit be handled by special agents or processes. One agent fit focus on searching best flight deals, another fit arrange hotel booking, and so on. One agent wey dey coordinate or “downstream” fit gather all results combine am into one full itinerary for customer.
+Each subtask fit be handled by special agents or processes. One agent fit sabi search best flight deals, another fit handle hotel bookings, and so on. One coordinating or “downstream” agent fit then gather all these results join am as one full itinerary for the user.
 
-Dis method also allow small improvements little by little. For example, you fit add special agents for Food Recommendations or Local Activity Ideas and improve itinerary later.
+Dis modular way still make e possible to add small improvements small small. For example, you fit add special agents for Food Recommendations or Local Activity Suggestions and make itinerary better over time.
 
 ### Structured output
 
-Large Language Models (LLMs) fit create structured output (like JSON) wey easy for downstream agents or services to understand and handle. This important especially for multi-agent work, where we fit do these tasks after we get plan. Check dis <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> for quick overview.
+Large Language Models (LLMs) fit produce structured output (like JSON) wey easy for downstream agents or services to understand and use. This one good for multi-agent wahala, where we fit do the work after the planning output show.
 
-Below Python snippet show how simple planning agent break goal into tasks and create structured plan:
+The Python code wey follow show how one simple planning agent go break goal into subtasks and produce structured plan:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,35 +71,26 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Travel SubTask Model
+# Model for Travel SubTask
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # we wan assign di task to di agent
+    assigned_agent: AgentEnum  # we wan assign the task give the agent
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # To authenticate wit di model you go need generate your own personal access token (PAT) for your GitHub settings.
-    # Make your PAT token by following di instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
-# Define di user message
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# Make we define the user message
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +101,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Make sure say di response content na correct JSON string before you load am
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content no dey:
-#     raise ValueError("Response content no be correct JSON string")
-
-# # Print di response content after you don load am as JSON
-# pprint(json.loads(response_content))
-
-# Check di response content with di MathReasoning model
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
 ### Planning Agent with Multi-Agent Orchestration
 
-For dis example, Semantic Router Agent dey receive user message (e.g., "I need a hotel plan for my trip.").
+For this example, one Semantic Router Agent dey receive user request (like, "I need a hotel plan for my trip.").
 
-Planner then:
+The planner then:
 
-* Receive Hotel Plan: Planner take user message and based on system prompt (with info on available agents), e make structured travel plan.
-* List Agents and Their Tools: Agent list get agents (for flight, hotel, car rental, activity) and tools or functions dem get.
-* Send Plan to Right Agents: Based on how many subtasks, planner either send message straight to one agent (if one task) or manage group chat for many agents.
-* Summarize Outcome: Lastly, planner summarize plan to make am clear.
-Below Python code show these steps:
+* Receives the Hotel Plan: Planner go carry user message and, based on system prompt (wey get agent details), go create structured travel plan.
+* Lists Agents and Their Tools: The agent registry get list of agents (for flight, hotel, car rental, and activities) plus the functions or tools wey dem get.
+* Routes the Plan to the Respective Agents: Depending on how many subtasks dey, planner fit send message straight to one dedicated agent (if na one task) or coordinate through group chat manager for multi-agent work together.
+* Summarizes the Outcome: At last, planner go summarize di plan to make am clear.
+The Python code example wey follow show all these steps:
 
 ```python
 
@@ -170,7 +143,7 @@ class AgentEnum(str, Enum):
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # we wan assign di task to di agent
+    assigned_agent: AgentEnum # we want to assign the task to the agent
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +153,22 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-# Make di client wit type-checked environment variables
+# Make di client
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
 )
 
 from pprint import pprint
 
-# Define di user message
+# Talk di user message
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +176,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Make sure di response content na correct JSON string before you load am
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# Print di response content after you don load am as JSON
+# Show di response content after load am as JSON
 
 pprint(json.loads(response_content))
 ```
 
-Wetin follow na output from previous code and you fit use this structured output to send to `assigned_agent` and summarize travel plan for end user.
+Wetin go come out from di code before go be dis one, and you fit use dis structured output to send to `assigned_agent` and summarize travel plan for user.
 
 ```json
 {
@@ -254,21 +220,23 @@ Wetin follow na output from previous code and you fit use this structured output
 }
 ```
 
-Example notebook with previous code dey available [here](07-autogen.ipynb).
+An example notebook with di code before dey available [here](./code_samples/07-python-agent-framework.ipynb).
 
 ### Iterative Planning
 
-Some tasks need go back and forth or redo plan, because result from one subtask fit affect next one. For example, if agent find surprise data format while booking flights, e go need change plan before e start hotel booking.
+Some work need go back and forth or re-planning, where the result of one subtask dey affect the next one. For example, if agent find one unexpected data format when e dey book flights, e need change im strategy before e begin book hotel.
 
-Also, user feedback (e.g. human say dem want earlier flight) fit cause partial re-plan. Dis dynamic, repeating method make sure final plan match real-life condition and changing user taste.
+Plus, user feedback (for example, if human talk say dem want earlier flight) fit make some part of the plan change. Dis way wey go keep things flexible, make sure final solution fit real life conditions and user likes.
 
-Example code
+e.g sample code
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. di same as di code before and carry go di user history, current plan
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+import os
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+#.. sem like di one we bin do before and carry di user history, current plan go
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,26 +244,31 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. re-plan and send di tasks go di correct agents
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. plan again and send di tasks go di correct agents
 ```
 
-For better planning, check Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> wey dey talk about solving complex work.
+For better planning, check Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> wey dey talk how to solve complex tasks.
 
 ## Summary
 
-For dis article we don see example of how to make planner wey fit dynamically choose available agents. Planner output dey break tasks and assign agents so dem fit do am. We assume say agents fit use functions/tools wey dem need for work. Besides agents, you fit add other patterns like reflection, summarizer, and round robin chat to customize more.
+For dis article, we don look example of how to make planner wey fit dynamically choose available agents wey dem define. The planner output dey break task and give agents so dem fit run am. E dey assume agents get access to functions/tools wey dem need to do the work. Besides agents, you fit still add other patterns like reflection, summarizer, and round robin chat to customize better.
 
 ## Additional Resources
 
-AutoGen Magnetic One - Generalist multi-agent system wey fit solve complex tasks and don get better results for many hard agent tests. Reference: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. For this system, orchestrator dey create task plan and assign task to available agents. Other than planning, orchestrator still dey track how work dey go and fit redo plan if e need.
+Magnetic One - Generalist multi-agent system wey fit solve complex task and don get beta results for many difficult agentic benchmarks. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. For dis setup, the orchestrator go create task-specific plans and pass to available agents. Apart from planning, the orchestrator get tracking system to watch how task de waka and re-plan if e need.
 
-### You Get More Questions About Planning Design Pattern?
+### You Get More Questions about the Planning Design Pattern?
 
-Come join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and get answer for your AI Agents questions.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) make you meet other learners, attend office hours and clear your AI Agents questions.
 
 ## Previous Lesson
 
@@ -309,5 +282,5 @@ Come join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet 
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we try make e accurate, abeg sabi say automated translation fit get errors or mistakes. Di original document for dia own language na di correct one wey you suppose use. If na important info, better make human professional translate am. We no go hold ourselves responsible for any wahala or wrong understand wey fit happen because you use dis translation.
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

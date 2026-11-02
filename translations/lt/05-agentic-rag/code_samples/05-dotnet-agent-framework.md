@@ -1,72 +1,72 @@
-# 🔍 Įmonės RAG su Azure AI Foundry (.NET)
+# 🔍 Įmonių RAG su Microsoft Foundry (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šiame užrašų knygelėje parodoma, kaip sukurti įmonės lygio Retrieval-Augmented Generation (RAG) sistemas naudojant Microsoft Agent Framework .NET su Azure AI Foundry. Išmoksite kurti gamybai paruoštus agentus, kurie gali ieškoti dokumentuose ir pateikti tikslius, kontekstinius atsakymus su įmonės saugumu ir mastelio keitimu.
+Šis užrašų blokas demonstruoja, kaip sukurti įmonėms skirtas Retrieval-Augmented Generation (RAG) sistemas, naudojant Microsoft Agent Framework .NET su Microsoft Foundry. Išmoksite kurti gamybai pasiruošusius agentus, kurie gali ieškoti dokumentuose ir pateikti tikslius, kontekstinius atsakymus su įmonių saugumu ir mastu.
 
-**Įmonės RAG galimybės, kurias sukursite:**
-- 📚 **Dokumentų intelektas**: Pažangus dokumentų apdorojimas su Azure AI paslaugomis
-- 🔍 **Semantinė paieška**: Aukštos kokybės vektorinė paieška su įmonės funkcijomis
-- 🛡️ **Saugumo integracija**: Prieigos kontrolė pagal vaidmenis ir duomenų apsaugos modeliai
-- 🏢 **Mastelio keitimo architektūra**: Gamybai paruoštos RAG sistemos su stebėjimu
+**Įgysite šias įmonių RAG galimybes:**
+- 📚 **Dokumentų intelektas**: Pažangus dokumentų apdorojimas naudojant Azure AI paslaugas
+- 🔍 **Semantinis paieška**: Aukšto našumo vektorinė paieška su įmonių funkcijomis
+- 🛡️ **Saugumo integracija**: Rolės pagrindu veikiantis prieigos valdymas ir duomenų apsaugos modeliai
+- 🏢 **Mastelio architektūra**: Gamybai paruoštos RAG sistemos su stebėsena
 
-## 🎯 Įmonės RAG architektūra
+## 🎯 Įmonių RAG architektūra
 
-### Pagrindiniai įmonės komponentai
-- **Azure AI Foundry**: Valdoma įmonės AI platforma su saugumu ir atitiktimi
-- **Nuolatiniai agentai**: Agentai su pokalbių istorija ir konteksto valdymu
-- **Vektorinės saugyklos valdymas**: Įmonės lygio dokumentų indeksavimas ir paieška
-- **Tapatybės integracija**: Azure AD autentifikacija ir prieigos kontrolė pagal vaidmenis
+### Pagrindinės įmonių sudedamosios dalys
+- **Microsoft Foundry**: Valdoma įmonių AI platforma su saugumu ir atitiktimi
+- **Nuolatiniai agentai**: Būsenoje esančių agentų, turinčių pokalbių istoriją ir konteksto valdymą
+- **Vektorinės saugyklos valdymas**: Įmonių lygio dokumentų indeksavimas ir gavimas
+- **Tapatybės integracija**: Azure AD autentifikacija ir rolės pagrindu veikiantis prieigos kontrolė
 
-### .NET įmonės privalumai
-- **Tipų saugumas**: Kompiliavimo metu tikrinamos RAG operacijos ir duomenų struktūros
-- **Asinchroninis našumas**: Neužblokuojantis dokumentų apdorojimas ir paieškos operacijos
-- **Atminties valdymas**: Efektyvus išteklių naudojimas dideliems dokumentų rinkiniams
+### .NET įmonių privalumai
+- **Tipų saugumas**: Kompiliavimo metu vykdoma RAG operacijų ir duomenų struktūrų patikra
+- **Asinchroninis veikimas**: Netrukdantis dokumentų apdorojimas ir paieškos operacijos
+- **Atminties valdymas**: Efektyvus išteklių naudojimas didelėms dokumentų kolekcijoms
 - **Integracijos modeliai**: Natūrali Azure paslaugų integracija su priklausomybių injekcija
 
 ## 🏗️ Techninė architektūra
 
-### Įmonės RAG procesas
+### Įmonių RAG srautas
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Pagrindiniai .NET komponentai
-- **Azure.AI.Agents.Persistent**: Įmonės agentų valdymas su būsenos išsaugojimu
-- **Azure.Identity**: Integruota autentifikacija saugiam Azure paslaugų naudojimui
-- **Microsoft.Agents.AI.AzureAI**: Optimizuotas Azure agentų sistemos įgyvendinimas
-- **System.Linq.Async**: Aukštos kokybės asinchroninės LINQ operacijos
+### Pagrindinės .NET sudedamosios dalys
+- **Azure.AI.Agents.Persistent**: Įmonių agentų valdymas su būsenos išsaugojimu
+- **Azure.Identity**: Integruota autentifikacija saugiam Azure paslaugų pasiekiamumui
+- **Microsoft.Agents.AI.AzureAI**: Azure optimizuota agentų platformos įgyvendinimas
+- **System.Linq.Async**: Aukšto našumo asinchroninės LINQ operacijos
 
-## 🔧 Įmonės funkcijos ir privalumai
+## 🔧 Įmonių funkcijos ir privalumai
 
 ### Saugumas ir atitiktis
-- **Azure AD integracija**: Įmonės tapatybės valdymas ir autentifikacija
-- **Prieiga pagal vaidmenis**: Detali leidimų kontrolė dokumentų prieigai ir operacijoms
-- **Duomenų apsauga**: Šifravimas saugojimo metu ir perduodant jautrius dokumentus
-- **Audito žurnalai**: Išsamus veiklos stebėjimas atitikties reikalavimams
+- **Azure AD integracija**: Įmonių tapatybės valdymas ir autentifikacija
+- **Rolės pagrindu veikianti prieiga**: Tikslinės teisės prieigai prie dokumentų ir veiksmų
+- **Duomenų apsauga**: Duomenų šifravimas saugojimo ir perkėlimo metu jautriems dokumentams
+- **Audito žurnalavimas**: Išsamus veiklos stebėjimas atitikties reikalavimams
 
-### Našumas ir mastelio keitimas
-- **Jungčių telkiniai**: Efektyvus Azure paslaugų jungčių valdymas
-- **Asinchroninis apdorojimas**: Neužblokuojančios operacijos didelio našumo scenarijams
-- **Talpyklos strategijos**: Protingas dažnai pasiekiamų dokumentų talpyklavimas
+### Našumas ir masto keitimas
+- **Prisijungimų grupavimas**: Efektyvus Azure paslaugų ryšių valdymas
+- **Asinchroninis apdorojimas**: Netrukdančios operacijos didelio pralaidumo scenarijams
+- **Talpyklos strategijos**: Protinga talpyklų sistema dažnai naudojamiems dokumentams
 - **Krovos balansavimas**: Paskirstytas apdorojimas didelio masto diegimams
 
-### Valdymas ir stebėjimas
-- **Sveikatos patikrinimai**: Įmontuotas RAG sistemos komponentų stebėjimas
-- **Našumo metrika**: Išsami paieškos kokybės ir atsako laiko analizė
-- **Klaidų valdymas**: Išsamus išimčių valdymas su pakartojimo politikomis
-- **Konfigūracijos valdymas**: Aplinkai pritaikyti nustatymai su validacija
+### Valdymas ir stebėsena
+- **Sveikatos patikrinimai**: Įmontuota RAG sistemos komponentų stebėsena
+- **Našumo metrika**: Išsamios analizės apie paieškos kokybę ir atsakymų laiką
+- **Klaidų valdymas**: Išsamus išimčių valdymas su pakartotinės bandymo politika
+- **Konfigūracijos valdymas**: Aplinkos nustatymai su validacija
 
-## ⚙️ Reikalavimai ir nustatymai
+## ⚙️ Reikalavimai ir diegimas
 
 **Kūrimo aplinka:**
 - .NET 9.0 SDK arba naujesnė versija
 - Visual Studio 2022 arba VS Code su C# plėtiniu
-- Azure prenumerata su AI Foundry prieiga
+- Azure prenumerata su Microsoft Foundry prieiga
 
-**Reikalingi NuGet paketai:**
+**Būtinos NuGet paketai:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -77,36 +77,36 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Azure autentifikacijos nustatymai:**
 ```bash
-# Install Azure CLI and authenticate
+# Įdiekite Azure CLI ir autentifikuokitės
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Aplinkos konfigūracija:**
-* Azure AI Foundry konfigūracija (automatiškai tvarkoma per Azure CLI)
-* Įsitikinkite, kad esate autentifikuotas tinkamoje Azure prenumeratoje
+* Microsoft Foundry konfigūracija (automatiškai valdoma per Azure CLI)
+* Įsitikinkite, kad esate autentifikuotas su teisinga Azure prenumerata
 
-## 📊 Įmonės RAG modeliai
+## 📊 Įmonių RAG modeliai
 
 ### Dokumentų valdymo modeliai
-- **Masinis įkėlimas**: Efektyvus didelių dokumentų rinkinių apdorojimas
-- **Inkrementiniai atnaujinimai**: Dokumentų pridėjimas ir keitimas realiu laiku
-- **Versijų kontrolė**: Dokumentų versijų valdymas ir pakeitimų stebėjimas
+- **Didelis įkėlimas**: Efektyvus didelių dokumentų kolekcijų apdorojimas
+- **Inkrementiniai atnaujinimai**: Realiojo laiko dokumentų pridėjimas ir keitimas
+- **Versijų valdymas**: Dokumentų versijavimas ir pakeitimų sekimas
 - **Metaduomenų valdymas**: Turtingi dokumentų atributai ir taksonomija
 
 ### Paieškos ir gavimo modeliai
-- **Hibridinė paieška**: Semantinės ir raktažodžių paieškos derinimas optimaliems rezultatams
-- **Fasuota paieška**: Daugiamatė filtracija ir kategorijų nustatymas
-- **Relevancijos derinimas**: Individualizuoti vertinimo algoritmai specifiniams poreikiams
+- **Hibridinė paieška**: Semantinės ir raktažodžių paieškos derinys optimaliesiems rezultatams
+- **Fasuota paieška**: Daugiamačio filtravimo ir kategorizavimo galimybės
+- **Reikšmingumo derinimas**: Tinkintos vertinimo algoritmai domeno poreikiams
 - **Rezultatų reitingavimas**: Pažangus reitingavimas su verslo logikos integracija
 
 ### Saugumo modeliai
-- **Dokumentų lygio saugumas**: Detali prieigos kontrolė kiekvienam dokumentui
+- **Dokumentų lygio saugumas**: Tikslinė prieigos kontrolė kiekvienam dokumentui
 - **Duomenų klasifikacija**: Automatinis jautrumo žymėjimas ir apsauga
 - **Audito pėdsakai**: Išsamus visų RAG operacijų žurnalavimas
-- **Privatumo apsauga**: PII aptikimas ir redagavimas
+- **Privatumo apsauga**: Asmens identifikuojamos informacijos aptikimas ir pašalinimas
 
-## 🔒 Įmonės saugumo funkcijos
+## 🔒 Įmonių saugumo funkcijos
 
 ### Autentifikacija ir autorizacija
 ```csharp
@@ -122,10 +122,10 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Duomenų apsauga
-- **Šifravimas**: Pilnas dokumentų ir paieškos indeksų šifravimas
-- **Prieigos kontrolė**: Integracija su Azure AD vartotojų ir grupių leidimams
-- **Duomenų buvimo vieta**: Geografinė duomenų vietos kontrolė atitikties reikalavimams
-- **Atsarginės kopijos ir atkūrimas**: Automatinės atsarginės kopijos ir atkūrimo galimybės
+- **Šifravimas**: End-to-end šifravimas dokumentams ir paieškos indeksams
+- **Prieigos kontrolė**: Azure AD integracija vartotojų ir grupių leidimams
+- **Duomenų lokalizacija**: Geografinės duomenų vietos kontrolė atitikties užtikrinimui
+- **Atsarginės kopijos ir atkūrimas**: Automatizuotos atsarginės kopijos ir katastrofų atkūrimo galimybės
 
 ## 📈 Našumo optimizavimas
 
@@ -139,68 +139,68 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Atminties valdymas
-- **Srautinio apdorojimo**: Didelių dokumentų apdorojimas be atminties problemų
-- **Išteklių telkiniai**: Efektyvus brangių išteklių pakartotinis naudojimas
-- **Šiukšlių surinkimas**: Optimizuoti atminties paskirstymo modeliai
-- **Jungčių valdymas**: Tinkamas Azure paslaugų jungčių gyvavimo ciklas
+- **Srautinė apdorojimas**: Tvarkyti didelius dokumentus be atminties problemų
+- **Išteklų grupavimas**: Efektyvus brangių išteklių pakartotinis naudojimas
+- **Atminties valymas**: Optimizuoti atminties paskirstymo modeliai
+- **Prisijungimų valdymas**: Tinkamas Azure paslaugų ryšių gyvavimo ciklas
 
 ### Talpyklos strategijos
-- **Užklausų talpyklavimas**: Dažnai vykdomų paieškų talpyklavimas
-- **Dokumentų talpyklavimas**: Atminties talpyklavimas populiariems dokumentams
-- **Indeksų talpyklavimas**: Optimizuotas vektorinių indeksų talpyklavimas
-- **Rezultatų talpyklavimas**: Protingas sugeneruotų atsakymų talpyklavimas
+- **Užklausų talpykla**: Talpyklos kūrimas dažnai vykdomoms paieškoms
+- **Dokumentų talpykla**: Atminties talpykla aktyviems dokumentams
+- **Indeksų talpykla**: Optimizuota vektorinės rodyklės talpykla
+- **Rezultatų talpykla**: Išmanus atsakymų generavimo talpinimas
 
-## 📊 Įmonės naudojimo atvejai
+## 📊 Įmonių naudojimo scenarijai
 
 ### Žinių valdymas
-- **Įmonės wiki**: Išmanioji paieška per įmonės žinių bazes
-- **Politikos ir procedūros**: Automatinė atitikties ir procedūrų pagalba
-- **Mokymo medžiaga**: Išmanioji mokymosi ir tobulėjimo pagalba
-- **Tyrimų duomenų bazės**: Akademinių ir mokslinių straipsnių analizės sistemos
+- **Įmonių žinių bazė**: Intelektuali paieška per įmonės žinių bazes
+- **Politikos ir procedūros**: Automatizuota atitiktis ir veiklos gairės
+- **Mokymo medžiaga**: Intelektualus mokymosi ir vystymosi pagalbininkas
+- **Tyrimų duomenų bazės**: Akademinių ir mokslinių darbų analizės sistemos
 
-### Klientų aptarnavimas
-- **Pagalbos žinių bazė**: Automatiniai klientų aptarnavimo atsakymai
-- **Produkto dokumentacija**: Išmanioji produkto informacijos paieška
+### Klientų palaikymas
+- **Palaikymo žinių bazė**: Automatizuoti klientų aptarnavimo atsakymai
+- **Produkto dokumentacija**: Intelektualus produkto informacijos gavimas
 - **Trikčių šalinimo vadovai**: Kontekstinė problemų sprendimo pagalba
-- **DUK sistemos**: Dinaminis DUK generavimas iš dokumentų rinkinių
+- **DUK sistemos**: Dinamiškas DUK generavimas iš dokumentų kolekcijų
 
-### Reguliavimo atitiktis
+### Reguliacinė atitiktis
 - **Teisinių dokumentų analizė**: Sutarčių ir teisinių dokumentų intelektas
-- **Atitikties stebėjimas**: Automatinis reguliavimo atitikties tikrinimas
+- **Atitikties stebėsena**: Automatizuotas reguliacinės atitikties tikrinimas
 - **Rizikos vertinimas**: Dokumentais pagrįsta rizikos analizė ir ataskaitos
-- **Audito pagalba**: Išmanioji dokumentų paieška auditams
+- **Audito palaikymas**: Intelektuali dokumentų paieška auditams
 
-## 🚀 Gamybos diegimas
+## 🚀 Gamybinis diegimas
 
-### Stebėjimas ir stebimumas
+### Stebėsena ir matomumas
 - **Application Insights**: Išsami telemetrija ir našumo stebėjimas
-- **Individuali metrika**: Verslo specifinių KPI stebėjimas ir įspėjimai
-- **Paskirstytas sekimas**: Pilnas užklausų sekimas per paslaugas
-- **Sveikatos skydeliai**: Realaus laiko sistemos sveikatos ir našumo vizualizacija
+- **Individuali metrika**: Verslo KPI sekimas ir įspėjimai
+- **Paskirstytas sekimas**: Užklausų sekimas per visas paslaugas
+- **Sveikatos prietaisų skydeliai**: Realiojo laiko sistemos būklės ir našumo vizualizacija
 
 ### Mastelio keitimas ir patikimumas
-- **Automatinis mastelio keitimas**: Automatinis mastelio keitimas pagal apkrovą ir našumo metriką
-- **Didelis prieinamumas**: Daugiaregioninis diegimas su perjungimo galimybėmis
-- **Krovos testavimas**: Našumo patvirtinimas esant įmonės apkrovai
-- **Avarinis atkūrimas**: Automatinės atsarginės kopijos ir atkūrimo procedūros
+- **Automatinis mastelio keitimas**: Automatinis skalavimas pagal apkrovą ir našumo metrikas
+- **Didelis prieinamumas**: Diegimas keliuose regionuose su gedimų perėmimo galimybėmis
+- **Krovos testavimas**: Našumo validacija įmonių apkrovos sąlygomis
+- **Katastrofų atkūrimas**: Automatizuoti atsarginės kopijos ir atkūrimo procesai
 
-Pasiruošę kurti įmonės lygio RAG sistemas, kurios gali tvarkyti jautrius dokumentus dideliu mastu? Sukurkime išmaniąsias žinių sistemas įmonei! 🏢📖✨
+Pasiruošę kurti įmonių lygio RAG sistemas, kurios galėtų saugiai tvarkyti jautrius dokumentus dideliu mastu? Sukurkime intelektualias žinių sistemas verslui! 🏢📖✨
 
 ## Kodo įgyvendinimas
 
-Pilnas veikiančio kodo pavyzdys šiai pamokai yra `05-dotnet-agent-framework.cs`.
+Pilną šios pamokos veikiančio kodo pavyzdį rasite faile `05-dotnet-agent-framework.cs`. 
 
 Norėdami paleisti pavyzdį:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Padarykite scenarijų vykdomą (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Paleiskite .NET vieno failo programą
 ./05-dotnet-agent-framework.cs
 ```
 
-Arba naudokite `dotnet run` tiesiogiai:
+Arba naudokite tiesiogiai `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Kodas demonstruoja:
 
-1. **Paketų diegimas**: Reikalingų NuGet paketų diegimas Azure AI agentams
-2. **Aplinkos konfigūracija**: Azure AI Foundry galinių taškų ir modelio nustatymų įkėlimas
-3. **Dokumentų įkėlimas**: Dokumento įkėlimas RAG apdorojimui
-4. **Vektorinės saugyklos kūrimas**: Vektorinės saugyklos kūrimas semantinei paieškai
-5. **Agentų konfigūracija**: AI agento nustatymas su failų paieškos galimybėmis
-6. **Užklausų vykdymas**: Užklausų vykdymas prieš įkeltą dokumentą
+1. **Paketo įdiegimas**: Reikalingų NuGet paketų Azure AI Agentams diegimas
+2. **Aplinkos nustatymai**: Microsoft Foundry taško ir modelio nustatymų įkėlimas
+3. **Dokumento įkėlimas**: Dokumento įkėlimas RAG apdorojimui
+4. **Vektorinės saugyklos kūrimas**: Vektorinės saugyklos sukūrimas semantinei paieškai
+5. **Agento konfigūracija**: AI agento sukūrimas su failų paieškos galimybėmis
+6. **Užklausų vykdymas**: Užklausų vykdymas atsižvelgiant į įkeltą dokumentą
 
 ---
 
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus interpretavimus, atsiradusius naudojant šį vertimą.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

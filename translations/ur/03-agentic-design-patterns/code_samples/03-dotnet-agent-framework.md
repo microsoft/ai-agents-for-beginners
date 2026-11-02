@@ -1,145 +1,148 @@
-# 🎨 ایجنٹک ڈیزائن پیٹرنز کے ساتھ GitHub ماڈلز (.NET)
+# 🎨 ایجنٹک ڈیزائن پیٹرنز بذریعہ Azure OpenAI (Responses API) (.NET)
 
-## 📋 سیکھنے کے مقاصد
+## 📋 تعلمی مقاصد
 
-یہ مثال Microsoft Agent Framework کو .NET میں GitHub ماڈلز کے انضمام کے ساتھ استعمال کرتے ہوئے ذہین ایجنٹس بنانے کے لیے انٹرپرائز گریڈ ڈیزائن پیٹرنز کو ظاہر کرتی ہے۔ آپ پیشہ ورانہ پیٹرنز اور آرکیٹیکچرل طریقے سیکھیں گے جو ایجنٹس کو پروڈکشن کے لیے تیار، قابلِ دیکھ بھال، اور قابلِ توسیع بناتے ہیں۔
+یہ مثال Microsoft Agent Framework کو .NET میں Azure OpenAI (Responses API) انٹیگریشن کے ساتھ استعمال کرتے ہوئے ذہین ایجنٹس بنانے کے لیے انٹرپرائز گریڈ ڈیزائن پیٹرنز دکھاتی ہے۔ آپ ایسے پیشہ ورانہ پیٹرنز اور فن تعمیراتی طریقے سیکھیں گے جو ایجنٹس کو پروڈکشن-ریڈی، قابلِ دیکھ بھال، اور توسیعی بناتے ہیں۔
 
 ### انٹرپرائز ڈیزائن پیٹرنز
 
-- 🏭 **فیکٹری پیٹرن**: ڈپینڈنسی انجیکشن کے ساتھ معیاری ایجنٹ تخلیق
-- 🔧 **بلڈر پیٹرن**: ایجنٹ کی روانی ترتیب اور سیٹ اپ
-- 🧵 **تھریڈ-سیف پیٹرنز**: ہم وقتی گفتگو کا انتظام
+- 🏭 **فیکٹری پیٹرن**: ڈیپینڈنسی انجیکشن کے ساتھ معیاری ایجنٹ تخلیق
+- 🔧 **بلڈر پیٹرن**: فلوئنٹ ایجنٹ ترتیب اور سیٹ اپ
+- 🧵 **تھریڈ-سیف پیٹرنز**: متوازی گفتگو کا انتظام
 - 📋 **ریپوزیٹری پیٹرن**: منظم ٹول اور صلاحیت کا انتظام
 
-## 🎯 .NET کے مخصوص آرکیٹیکچرل فوائد
+## 🎯 .NET مخصوص فن تعمیراتی فوائد
 
 ### انٹرپرائز خصوصیات
 
-- **مضبوط ٹائپنگ**: کمپائل-ٹائم توثیق اور IntelliSense سپورٹ
-- **ڈپینڈنسی انجیکشن**: بلٹ ان DI کنٹینر انضمام
+- **مضبوط ٹائپنگ**: کمپائل-ٹائم ویلیڈیشن اور IntelliSense سپورٹ
+- **ڈیپینڈنسی انجیکشن**: بلٹ-ان DI کنٹینر انٹیگریشن
 - **کنفیگریشن مینجمنٹ**: IConfiguration اور Options پیٹرنز
-- **Async/Await**: غیر ہم وقتی پروگرامنگ کی فرسٹ کلاس سپورٹ
+- **Async/Await**: اولین درجے کی غیر متوقع پروگرامنگ سپورٹ
 
-### پروڈکشن کے لیے تیار پیٹرنز
+### پروڈکشن-ریڈی پیٹرنز
 
-- **لاگنگ انضمام**: ILogger اور ساختی لاگنگ سپورٹ
-- **ہیلتھ چیکس**: بلٹ ان مانیٹرنگ اور تشخیص
-- **کنفیگریشن توثیق**: مضبوط ٹائپنگ کے ساتھ ڈیٹا اینوٹیشنز
-- **غلطی کا انتظام**: ساختی استثنا کا انتظام
+- **لاجنگ انٹیگریشن**: ILogger اور مستند لاگنگ سپورٹ
+- **ہیلتھ چیکس**: بلٹ-ان مانیٹرنگ اور تشخیصات
+- **کنفیگریشن ویلیڈیشن**: ڈیٹا اینوٹیشنز کے ساتھ مضبوط ٹائپنگ
+- **ایرر ہینڈلنگ**: مستند استثناء کا انتظام
 
-## 🔧 تکنیکی آرکیٹیکچر
+## 🔧 تکنیکی فن تعمیر
 
-### کور .NET اجزاء
+### بنیادی .NET اجزاء
 
 - **Microsoft.Extensions.AI**: متحد AI سروس ایبسٹریکشنز
-- **Microsoft.Agents.AI**: انٹرپرائز ایجنٹ آرکیسٹریشن فریم ورک
-- **GitHub ماڈلز انضمام**: اعلی کارکردگی API کلائنٹ پیٹرنز
-- **کنفیگریشن سسٹم**: appsettings.json اور ماحول کا انضمام
+- **Microsoft.Agents.AI**: انٹرپرائز ایجنٹ آرکسٹریشن فریم ورک
+- **Azure OpenAI (Responses API)**: اعلیٰ کارکردگی API کلائنٹ پیٹرنز
+- **کنفیگریشن سسٹم**: appsettings.json اور ماحول کی انٹیگریشن
 
-### ڈیزائن پیٹرن کا نفاذ
+### ڈیزائن پیٹرن نفاذ
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[آئی سروس کلیکشن] --> B[ایجنٹ بلڈر]
+    B --> C[ترتیب]
+    C --> D[ٹول رجسٹری]
+    D --> E[اے آئی ایجنٹ]
 ```
 
-## 🏗️ انٹرپرائز پیٹرنز کا مظاہرہ
+## 🏗️ دکھائے گئے انٹرپرائز پیٹرنز
 
 ### 1. **تخلیقی پیٹرنز**
 
-- **ایجنٹ فیکٹری**: مستقل کنفیگریشن کے ساتھ مرکزی ایجنٹ تخلیق
-- **بلڈر پیٹرن**: پیچیدہ ایجنٹ کنفیگریشن کے لیے روانی API
+- **ایجنٹ فیکٹری**: مسلسل ترتیب کے ساتھ مرکزی ایجنٹ تخلیق
+- **بلڈر پیٹرن**: پیچیدہ ایجنٹ کی ترتیب کے لیے فلوئنٹ API
 - **سنگلٹن پیٹرن**: مشترکہ وسائل اور کنفیگریشن مینجمنٹ
-- **ڈپینڈنسی انجیکشن**: ڈھیلا جوڑ اور ٹیسٹ کی صلاحیت
+- **ڈیپینڈنسی انجیکشن**: کمزور جوڑ اور ٹیسٹ ایبلٹی
 
 ### 2. **رویے کے پیٹرنز**
 
-- **اسٹریٹیجی پیٹرن**: قابل تبادلہ ٹول عملدرآمد کی حکمت عملی
-- **کمانڈ پیٹرن**: انکیپسولیٹڈ ایجنٹ آپریشنز کے ساتھ انڈو/ریڈو
-- **آبزرور پیٹرن**: ایونٹ ڈرائیو ایجنٹ لائف سائیکل مینجمنٹ
-- **ٹیمپلیٹ میتھڈ**: معیاری ایجنٹ عملدرآمد ورک فلو
+- **اسٹریٹجی پیٹرن**: تبدیل ہونے والے ٹول ایکزیکیوشن اسٹریٹجیز
+- **کمانڈ پیٹرن**: انکیپسولیٹڈ ایجنٹ آپریشنز جن کے انڈو/ریڈو ہیں
+- **آبزروور پیٹرن**: واقعہ پر مبنی ایجنٹ لائف سائیکل مینجمنٹ
+- **ٹیمپلیٹ میتھڈ**: معیاری ایجنٹ ایکزیکیوشن ورک فلو
 
 ### 3. **ساختی پیٹرنز**
 
-- **ایڈاپٹر پیٹرن**: GitHub ماڈلز API انضمام کی پرت
-- **ڈیکوریٹر پیٹرن**: ایجنٹ کی صلاحیت میں اضافہ
-- **فیساد پیٹرن**: ایجنٹ کے تعامل کے آسان انٹرفیس
+- **ایڈاپٹر پیٹرن**: Azure OpenAI (Responses API) انٹیگریشن پرت
+- **ڈیکوریٹر پیٹرن**: ایجنٹ صلاحیت کی بہتری
+- **فیسیڈ پیٹرن**: آسان ایجنٹ انٹریکشن انٹرفیسز
 - **پراکسی پیٹرن**: کارکردگی کے لیے سست لوڈنگ اور کیشنگ
 
 ## 📚 .NET ڈیزائن اصول
 
 ### SOLID اصول
 
-- **سنگل ریسپانسبلٹی**: ہر جزو کا ایک واضح مقصد
-- **اوپن/کلوزڈ**: ترمیم کے بغیر توسیع پذیر
-- **لسکوف سبسٹیٹیوشن**: انٹرفیس پر مبنی ٹول نفاذ
-- **انٹرفیس سیگریگیشن**: مرکوز، ہم آہنگ انٹرفیس
-- **ڈپینڈنسی انورژن**: ایبسٹریکشنز پر انحصار کریں، کنکریشنز پر نہیں
+- **سنگل ریسپانسبلیٹی**: ہر جزو کا ایک واضح مقصد
+- **اوپن/کلوزڈ**: ترمیم کے بغیر قابل توسیع
+- **لیسکوف سبسٹیوٹشن**: انٹرفیس پر مبنی ٹول امپلیمنٹیشنز
+- **انٹرفیس سیگریگیشن**: مرکوز اور مربوط انٹرفیسز
+- **ڈیپینڈنسی انورژن**: ابسٹریکشنز پر انحصار کریں، نہ کہ کنکریشنز پر
 
 ### کلین آرکیٹیکچر
 
-- **ڈومین لیئر**: کور ایجنٹ اور ٹول ایبسٹریکشنز
-- **ایپلیکیشن لیئر**: ایجنٹ آرکیسٹریشن اور ورک فلو
-- **انفراسٹرکچر لیئر**: GitHub ماڈلز انضمام اور بیرونی خدمات
-- **پریزنٹیشن لیئر**: صارف کے تعامل اور جواب کی فارمیٹنگ
+- **ڈومین لیئر**: بنیادی ایجنٹ اور ٹول ایبسٹریکشنز
+- **اپلیکیشن لیئر**: ایجنٹ آرکسٹریشن اور ورک فلو
+- **انفراسٹرکچر لیئر**: Azure OpenAI (Responses API) انٹیگریشن اور خارجی خدمات
+- **پریزنٹیشن لیئر**: صارف انٹریکشن اور جوابی فارمیٹنگ
 
 ## 🔒 انٹرپرائز غور و فکر
 
 ### سیکیورٹی
 
-- **کریڈینشل مینجمنٹ**: IConfiguration کے ساتھ محفوظ API کلید ہینڈلنگ
-- **ان پٹ توثیق**: مضبوط ٹائپنگ اور ڈیٹا اینوٹیشن توثیق
-- **آؤٹ پٹ صفائی**: محفوظ جواب کی پروسیسنگ اور فلٹرنگ
+- **کریڈینشل مینجمنٹ**: IConfiguration کے ساتھ محفوظ API کلید کا انتظام
+- **ان پٹ ویلیڈیشن**: مضبوط ٹائپنگ اور ڈیٹا اینوٹیشن ویلیڈیشن
+- **آؤٹ پٹ سینٹائزیشن**: محفوظ جواب کی پراسیسنگ اور فلٹرنگ
 - **آڈٹ لاگنگ**: جامع آپریشن ٹریکنگ
 
 ### کارکردگی
 
-- **غیر ہم وقتی پیٹرنز**: بلاک نہ کرنے والے I/O آپریشنز
-- **کنکشن پولنگ**: موثر HTTP کلائنٹ مینجمنٹ
-- **کیشنگ**: بہتر کارکردگی کے لیے جواب کیشنگ
-- **وسائل کا انتظام**: مناسب ڈسپوزل اور صفائی کے پیٹرنز
+- **ایسینک پیٹرنز**: نان بلاکنگ I/O آپریشنز
+- **کنکشن پولنگ**: مؤثر HTTP کلائنٹ مینجمنٹ
+- **کیشنگ**: بہتر کارکردگی کے لیے جواب کی کیشنگ
+- **وسائل کا انتظام**: مناسب تلف اور صفائی کے پیٹرنز
 
 ### توسیع پذیری
 
-- **تھریڈ سیفٹی**: ہم وقتی ایجنٹ عملدرآمد کی حمایت
-- **وسائل پولنگ**: وسائل کا موثر استعمال
-- **لوڈ مینجمنٹ**: ریٹ لمیٹنگ اور بیک پریشر ہینڈلنگ
-- **مانیٹرنگ**: کارکردگی میٹرکس اور ہیلتھ چیکس
+- **تھریڈ سیفٹی**: متوازی ایجنٹ ایکزیکیوشن سپورٹ
+- **وسائل کی پولنگ**: وسائل کا مؤثر استعمال
+- **لوڈ مینجمنٹ**: ریٹ لمٹنگ اور بیک پریشر ہینڈلنگ
+- **مانیٹرنگ**: کارکردگی کے میٹرکس اور ہیلتھ چیکس
 
-## 🚀 پروڈکشن ڈیپلائمنٹ
+## 🚀 پروڈکشن ڈپلائمنٹ
 
-- **کنفیگریشن مینجمنٹ**: ماحول کے مخصوص سیٹنگز
-- **لاگنگ حکمت عملی**: ساختی لاگنگ کے ساتھ تعلق IDs
-- **غلطی کا انتظام**: عالمی استثنا کا انتظام اور مناسب بحالی
-- **مانیٹرنگ**: ایپلیکیشن انسائٹس اور کارکردگی کاؤنٹرز
-- **ٹیسٹنگ**: یونٹ ٹیسٹس، انٹیگریشن ٹیسٹس، اور لوڈ ٹیسٹنگ پیٹرنز
+- **کنفیگریشن مینجمنٹ**: ماحول کی مخصوص ترتیبات
+- **لاجنگ حکمت عملی**: مستند لاگنگ بمعہ کورلیشن IDs
+- **ایرر ہینڈلنگ**: عالمی استثناء ہینڈلنگ بمعہ مناسب بحالی
+- **مانیٹرنگ**: ایپلیکیشن انسائٹس اور کارکردگی کے کاؤنٹرز
+- **ٹیسٹنگ**: یونٹ ٹیسٹ، انٹیگریشن ٹیسٹ، اور لوڈ ٹیسٹنگ پیٹرنز
 
-.NET کے ساتھ انٹرپرائز گریڈ ذہین ایجنٹس بنانے کے لیے تیار ہیں؟ آئیے کچھ مضبوط آرکیٹیکچر بنائیں! 🏢✨
+.NET کے ساتھ انٹرپرائز گریڈ ذہین ایجنٹس بنانے کو تیار ہیں؟ آئیں کچھ مضبوط تعمیر کریں! 🏢✨
 
 ## 🚀 شروعات کریں
 
-### ضروریات
+### پیشگی شرائط
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) یا اس سے زیادہ
-- [GitHub ماڈلز API ایکسیس ٹوکن](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- ایک [Azure سبسکرپشن](https://azure.microsoft.com/free/) جس میں Azure OpenAI ریسورس اور ماڈل ڈپلائمنٹ ہو
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` سے سائن ان کریں
 
-### مطلوبہ ماحول متغیرات
+### مطلوبہ ماحول کے متغیرات
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# پھر سائن ان کریں تاکہ AzureCliCredential ٹوکن حاصل کر سکے
+az login
 ```
 
 ```powershell
-# PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+# پاور شیل
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# پھر سائن ان کریں تاکہ AzureCliCredential ایک ٹوکن حاصل کر سکے
+az login
 ```
 
 ### نمونہ کوڈ
@@ -147,7 +150,7 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 کوڈ مثال چلانے کے لیے،
 
 ```bash
-# zsh/bash
+# زی ایس ایچ/باش
 chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
@@ -165,14 +168,16 @@ dotnet run ./03-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**اعلانِ لاتعلقی**:  
-یہ دستاویز AI ترجمہ سروس [Co-op Translator](https://github.com/Azure/co-op-translator) کا استعمال کرتے ہوئے ترجمہ کی گئی ہے۔ ہم درستگی کے لیے کوشش کرتے ہیں، لیکن براہ کرم آگاہ رہیں کہ خودکار ترجمے میں غلطیاں یا خامیاں ہو سکتی ہیں۔ اصل دستاویز کو اس کی اصل زبان میں مستند ذریعہ سمجھا جانا چاہیے۔ اہم معلومات کے لیے، پیشہ ور انسانی ترجمہ کی سفارش کی جاتی ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تشریح کے لیے ہم ذمہ دار نہیں ہیں۔
+**ڈس کلیمر**:
+یہ دستاویز AI ترجمہ سروس [Co-op Translator](https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ جبکہ ہم درستگی کے لیے کوشاں ہیں، براہ کرم اس بات سے آگاہ رہیں کہ خودکار ترجمے میں غلطیاں یا عدم درستیاں ہو سکتی ہیں۔ اصل دستاویز اپنے مادری زبان میں مستند ماخذ سمجھی جائے گی۔ حساس معلومات کے لیے پیشہ ور انسانی ترجمہ کی سفارش کی جاتی ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تشریح کی ذمہ داری ہم قبول نہیں کرتے۔
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

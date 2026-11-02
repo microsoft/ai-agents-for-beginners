@@ -1,95 +1,95 @@
-[![Daugiaprogrammės agentų dizainas](../../../translated_images/lt/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lt/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Spustelėkite viršuje esantį paveikslėlį, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
+> _(Spustelėkite aukščiau esantį paveikslėlį, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 # Metakognicija DI agentuose
 
 ## Įvadas
 
-Sveiki atvykę į pamoką apie metakogniciją DI agentuose! Šis skyrius skirtas pradedantiesiems, kurie domisi, kaip DI agentai gali mąstyti apie savo minties procesus. Pamokos pabaigoje suprasite pagrindines sąvokas ir turėsite praktinių pavyzdžių, kaip taikyti metakogniciją DI agentų dizainui.
+Sveiki atvykę į pamoką apie metakogniciją DI agentuose! Šis skyrius skirtas pradedantiesiems, kurie domisi, kaip DI agentai gali mąstyti apie savo pačių mąstymo procesus. Pamokos pabaigoje suprasite pagrindines sąvokas ir būsite aprūpinti praktiniais pavyzdžiais, kaip pritaikyti metakogniciją DI agentų kūrime.
 
 ## Mokymosi tikslai
 
 Baigę šią pamoką galėsite:
 
-1. Suprasti priežastinius ciklus agentų apibrėžimuose.
-2. Naudoti planavimo ir vertinimo technikas, padedančias savikoreguojantiems agentams.
-3. Kurti savo agentus, gebančius manipuliuoti kodu, kad atliktų užduotis.
+1. Suprasti apribojimus ir pasekmes, susijusias su samprotavimo ciklais agentų apibrėžimuose.
+2. Naudoti planavimo ir vertinimo technikas, kad padėtumėte agentams savarankiškai taisyti klaidas.
+3. Kurti savo agentus, gebančius manipuliuoti kodu užduotims atlikti.
 
 ## Įvadas į metakogniciją
 
-Metakognicija reiškia aukštesniojo lygio pažinimo procesus, susijusius su mąstymu apie savo paties mąstymą. DI agentams tai reiškia gebėjimą įvertinti ir koreguoti savo veiksmus, remiantis savimonėmis ir ankstesne patirtimi. Metakognicija arba „mąstymas apie mąstymą“ yra svarbi sąvoka kuriant agentinius DI sistemas. Tai apima DI sistemų gebėjimą suvokti savo vidinius procesus ir gebėjimą stebėti, reguliuoti bei pritaikyti savo elgesį atitinkamai. Kaip mes darome, kai skaitome situaciją ar žiūrime į problemą. Ši savimonė padeda DI sistemoms priimti geresnius sprendimus, nustatyti klaidas ir laikui bėgant gerinti savo našumą – vėlgi grįžtant prie Turingo testo ir diskusijų, ar DI perims kontrolę.
+Metakognicija reiškia aukštesnio rango pažinimo procesus, kurie apima mąstymą apie savo paties mąstymą. DI agentams tai reiškia gebėjimą įvertinti ir koreguoti savo veiksmus remiantis savimonėmis ir praeities patirtimi. Metakognicija, arba „mąstymas apie mąstymą“, yra svarbi sąvoka agentinių DI sistemų kūrime. Tai reiškia, kad DI sistemos sąmoningos apie savo vidinius procesus ir gali stebėti, reguliuoti bei pritaikyti savo elgesį atitinkamai. Kaip mes darome, kai jaučiame aplinką ar nagrinėjame problemą. Ši savimonė gali padėti DI sistemoms priimti geresnius sprendimus, atpažinti klaidas ir gerinti savo veikimą laikui bėgant – tai vėl susiję su Turingo testu ir diskusijomis, ar DI perims kontrolę.
 
-Agentinių DI sistemų kontekste metakognicija gali padėti spręsti kelis iššūkius, tokius kaip:
-- Skaidrumas: užtikrinti, kad DI sistemos galėtų paaiškinti savo samprotavimus ir sprendimus.
-- Samprotavimas: stiprinti DI sistemų gebėjimą sintezuoti informaciją ir priimti pagrįstus sprendimus.
-- Adaptacija: leisti DI sistemoms prisitaikyti prie naujos aplinkos ir besikeičiančių sąlygų.
-- Perceptija: gerinti DI sistemų tikslumą atpažįstant ir interpretuojant duomenis iš aplinkos.
+Agentinių DI sistemų kontekste metakognicija gali padėti spręsti kelis iššūkius, pavyzdžiui:
+- Skaidrumas: Užtikrinti, kad DI sistemos galėtų paaiškinti savo samprotavimus ir sprendimus.
+- Samprotavimas: Pagerinti DI sistemų gebėjimą apjungti informaciją ir priimti pagrįstus sprendimus.
+- Prisitaikymas: Leisti DI sistemoms prisitaikyti prie naujų aplinkų ir kintančių sąlygų.
+- Suvokimas: Pagerinti DI sistemų tikslumą atpažįstant ir interpretuojant aplinkos duomenis.
 
 ### Kas yra metakognicija?
 
-Metakognicija arba „mąstymas apie mąstymą“ yra aukštesniojo lygio pažinimo procesas, apimantis savimonę ir pažinimo procesų savireguliaciją. DI srityje metakognicija suteikia agentams galimybę įvertinti ir pritaikyti savo strategijas bei veiksmus, taip pagerindama problemų sprendimo ir sprendimų priėmimo gebėjimus. Suprasdami metakogniciją, galite kurti DI agentus, kurie ne tik protingesni, bet ir prisitaikantys bei efektyvūs. Tikroje metakognicijoje DI aiškiai samprotauja apie savo pačio samprotavimus.
+Metakognicija, arba „mąstymas apie mąstymą“, yra aukštesnio rango pažinimo procesas, kuris apima savimonę ir savo pažinimo procesų savireguliaciją. DI srityje metakognicija suteikia agentams galimybę įvertinti ir pritaikyti savo strategijas bei veiksmus, kas lemia pagerintą problemų sprendimą ir sprendimų priėmimo gebėjimus. Suprasdami metakogniciją, galite kurti DI agentus, kurie yra ne tik išmanesni, bet ir labiau prisitaikantys bei efektyvūs. Tikroje metakognicijoje DI aiškiai samprotauja apie savo pačios samprotavimus.
 
-Pavyzdys: „Aš prioritetą teikiau pigesniems skrydžiams, nes... Gali būti, kad praleidžiu tiesioginius skrydžius, todėl dar kartą patikrinsiu.“
-Sekimas, kaip ar kodėl pasirinko tam tikrą maršrutą.
-- Pastebėjimas, kad padarė klaidų, nes per daug pasikliaudamas vartotojo preferencijomis iš praėjusio karto, todėl keičia ne tik galutinį rekomendavimą, bet ir sprendimų priėmimo strategiją.
-- Diagnostika, pavyzdžiui: „Kiekvieną kartą, kai vartotojas mini 'per daug žmonių', turėčiau ne tik pašalinti tam tikrus objektus, bet ir atkreipti dėmesį, kad mano metodas rinkti 'geriausias atrakcijas' yra klaidingas, jei visada reitinguoju pagal populiarumą.“
+Pavyzdys: „Aš pasirinkau pigesnius skrydžius, nes… galbūt praleidau tiesioginius skrydžius, todėl dar kartą peržiūrėsiu.“.
+Stebi, kaip ir kodėl pasirinko tam tikrą maršrutą.
+- Atkreipia dėmesį, kad padarė klaidų, nes pernelyg pasitikėjo vartotojo pageidavimais iš praėjusio karto, tad keičia savo sprendimų priėmimo strategiją, ne tik galutinį pasiūlymą.
+- Diagnostikuoja modelius, pavyzdžiui: „Kiekvieną kartą, kai vartotojas mini ‘per daug žmonių’, turėčiau ne tik pašalinti tam tikras lankytinas vietas, bet ir įvertinti, kad mano metodas rinktis ‘populiariausias lankytinas vietas’ yra klaidingas, jei visada reitinguoju pagal populiarumą.“
 
 ### Metakognicijos svarba DI agentams
 
-Metakognicija atlieka svarbų vaidmenį DI agentų dizainui dėl kelių priežasčių:
+Metakognicija atlieka lemiamą vaidmenį DI agentų kūrime dėl kelių priežasčių:
 
 ![Metakognicijos svarba](../../../translated_images/lt/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Savianalizė: agentai gali įvertinti savo veiklą ir nustatyti tobulintinas sritis.
-- Prisitaikymas: agentai gali keisti strategijas remdamiesi ankstesne patirtimi ir besikeičiančiomis aplinkybėmis.
-- Klaidų taisymas: agentai gali savarankiškai aptikti ir taisyti klaidas, suteikdami tikslesnius rezultatus.
-- Išteklių valdymas: agentai gali optimizuoti išteklių, tokių kaip laikas ir skaičiavimo galia, naudojimą planuodami ir vertindami savo veiksmus.
+- Savianalizė: Agentai gali įvertinti savo veiklą ir nustatyti tobulintinas sritis.
+- Prisitaikomumas: Agentai gali keisti savo strategijas remdamiesi praeities patirtimi ir kintančiomis aplinkybėmis.
+- Klaidų taisymas: Agentai gali savarankiškai aptikti ir taisyti klaidas, kas leidžia pasiekti tikslesnių rezultatų.
+- Išteklių valdymas: Agentai gali optimizuoti išteklių, tokių kaip laikas ir skaičiavimo galia, naudojimą, planuodami ir vertindami savo veiksmus.
 
-## DI agente esminiai komponentai
+## DI agento komponentai
 
-Prieš pradedant metakognityvinius procesus, svarbu suprasti pagrindinius DI agento komponentus. DI agentas paprastai susideda iš:
+Prieš gilindamiesi į metakognityvinius procesus, svarbu suprasti pagrindinius DI agento komponentus. DI agentas paprastai susideda iš:
 
-- Persona: agento asmenybė ir charakteristikos, apibrėžiančios, kaip jis bendrauja su naudotojais.
-- Įrankiai: agento galimybės ir funkcijos atlikti užduotis.
-- Įgūdžiai: žinios ir ekspertizė, kuriomis agentas disponuoja.
+- Asmenybės: Agento asmenybė ir charakteristikos, apibrėžiančios, kaip jis sąveikauja su vartotojais.
+- Įrankių: Gebėjimai ir funkcijos, kurias agentas gali atlikti.
+- Įgūdžių: Žinios ir ekspertizė, kurias agentas turi.
 
-Šie komponentai kartu sukuria „ekspertizės vienetą“, galintį atlikti specifines užduotis.
+Šie komponentai veikia kartu, sukurdami „ekspertizės vienetą“, galintį atlikti specifines užduotis.
 
 **Pavyzdys**:
-Įsivaizduokite kelionių agentą, kuris ne tik planuoja jūsų atostogas, bet ir keičia savo veiksmus remdamasis realaus laiko duomenimis bei ankstesne klientų kelionių patirtimi.
+Įsivaizduokite kelionių agentą, agento paslaugas, kurios ne tik planuoja jūsų atostogas, bet ir koreguoja savo veiksmus pagal realaus laiko duomenis ir praeities klientų kelionių patirtis.
 
-### Pavyzdys: metakognicija kelionių agentūroje
+### Pavyzdys: metakognicija kelionių agento paslaugoje
 
-Įsivaizduokite, kad kuriate DI pagrindu veikiančią kelionių agentūrą. Šis agentas „Travel Agent“ padeda vartotojams planuoti atostogas. Norint įtraukti metakogniciją, agentas turi įvertinti ir koreguoti savo veiksmus remdamasis savimonėmis ir ankstesne patirtimi. Štai kaip metakognicija galėtų veikti:
+Įsivaizduokite, kad kuriate DI varomą kelionių agento paslaugą. Šis agentas, „Kelionių agentas“, padeda vartotojams planuoti atostogas. Norint įtraukti metakogniciją, „Kelionių agentas“ turi įvertinti ir koreguoti savo veiksmus remdamasis savimonėmis ir praeities patirtimi. Štai kaip metakognicija galėtų pasireikšti:
 
 #### Dabartinė užduotis
 
-Pagelbėti vartotojui suorganizuoti kelionę į Paryžių.
+Dabartinė užduotis – padėti vartotojui suplanuoti kelionę į Paryžių.
 
-#### Užduoties atlikimo žingsniai
+#### Žingsniai užduočiai atlikti
 
-1. **Surinkti vartotojo pageidavimus**: paklausti apie kelionės datas, biudžetą, pomėgius (pvz., muziejai, virtuvė, apsipirkimas) ir specifinius reikalavimus.
-2. **Surinkti informaciją**: ieškoti skrydžių, apgyvendinimo, lankytinų vietų ir restoranų pagal vartotojo pageidavimus.
-3. **Sukurti rekomendacijas**: pateikti asmeninį kelionės planą su skrydžių duomenimis, viešbučių rezervacijomis ir siūlomomis veiklomis.
-4. **Pakoreguoti remiantis grįžtamuoju ryšiu**: gauti vartotojo atsiliepimus apie rekomendacijas ir atlikti reikiamus pakeitimus.
+1. **Surinkti vartotojo pageidavimus:** Paklauskite vartotojo apie kelionės datas, biudžetą, pomėgius (pvz., muziejus, virtuvė, apsipirkimas) ir bet kokius specifinius reikalavimus.
+2. **Gauti informaciją:** Ieškokite skrydžių, apgyvendinimo vietų, lankytinų vietų ir restoranų, atitinkančių vartotojo pageidavimus.
+3. **Generuoti rekomendacijas:** Pateikite suasmenintą maršrutą su skrydžių detalėmis, viešbučių rezervacijomis ir siūlomomis veiklomis.
+4. **Koreguoti pagal atsiliepimus:** Paprašykite vartotojo atsiliepimų apie rekomendacijas ir atlikite būtinus pakeitimus.
 
 #### Reikalingi ištekliai
 
 - Prieiga prie skrydžių ir viešbučių rezervavimo duomenų bazių.
 - Informacija apie Paryžiaus lankytinas vietas ir restoranus.
-- Vartotojų atsiliepimų duomenys iš ankstesnių sąveikų.
+- Vartotojo atsiliepimų duomenys iš ankstesnių sąveikų.
 
 #### Patirtis ir savianalizė
 
-„Travel Agent“ naudoja metakogniciją vertindamas savo veiklą ir mokydamasis iš ankstesnės patirties. Pavyzdžiui:
+„Kelionių agentas“ naudoja metakogniciją, kad įvertintų savo veiklą ir mokytųsi iš patirties. Pavyzdžiui:
 
-1. **Vartotojų atsiliepimų analizė**: agentas peržiūri vartotojų atsiliepimus, kad nustatytų, kurios rekomendacijos buvo sėkmingos, o kurios ne. Ateities pasiūlymus koreguoja atitinkamai.
-2. **Prisitaikymas**: jei vartotojas anksčiau minėjo, kad nemėgsta perpildytų vietų, agentas ateityje vengs siūlyti populiarias turistų vietas piko valandomis.
-3. **Klaidų taisymas**: jei agentas padarė klaidą ankstesnėje rezervacijoje, pavyzdžiui, pasiūlė viešbutį, kuris buvo užimtas, jis išmoksta kruopščiau tikrinti prieinamumą prieš pateikdamas rekomendacijas.
+1. **Analizuojant vartotojo atsiliepimus:** „Kelionių agentas“ peržiūri atsiliepimus, kad nustatytų, kurios rekomendacijos buvo gerai įvertintos, o kurios – ne, ir atitinkamai koreguoja ateities pasiūlymus.
+2. **Prisitaikomumas:** Jei vartotojas anksčiau minėjo nemėgstąs perpildytų vietų, „Kelionių agentas“ ateityje vengs siūlyti populiarias turistų vietas piko metu.
+3. **Klaidų taisymas:** Jei „Kelionių agentas“ padarė klaidą ankstesnėje rezervacijoje, pvz., pasiūlė visiškai užsakytą viešbutį, jis išmoksta kruopščiau tikrinti prieinamumą prieš siūlydamas.
 
 #### Praktinis kūrėjo pavyzdys
 
-Štai supaprastintas pavyzdys, kaip „Travel Agent“ kodas galėtų atrodyti įtraukiant metakogniciją:
+Štai supaprastintas pavyzdys, kaip „Kelionių agento“ kodas gali atrodyti įtraukiant metakogniciją:
 
 ```python
 class Travel_Agent:
@@ -114,7 +114,7 @@ class Travel_Agent:
 
     def adjust_based_on_feedback(self, feedback):
         self.experience_data.append(feedback)
-        # Analizuokite atsiliepimus ir pritaikykite būsimus rekomendacijas
+        # Analizuokite atsiliepimus ir koreguokite būsimus pasiūlymus
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
 # Pavyzdinis naudojimas
@@ -134,68 +134,68 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Kodėl svarbi metakognicija
 
-- **Savianalizė**: agentai gali analizuoti savo veiklą ir nustatyti tobulintinas sritis.
-- **Prisitaikymas**: agentai gali keisti strategijas remdamiesi grįžtamuoju ryšiu ir besikeičiančiomis sąlygomis.
-- **Klaidų taisymas**: agentai gali autonomiškai aptikti ir taisyti klaidas.
-- **Išteklių valdymas**: agentai gali optimizuoti išteklių, tokių kaip laikas ir skaičiavimo galia, naudojimą.
+- **Savianalizė:** Agentai gali įvertinti savo veiklą ir nustatyti gerintinas sritis.
+- **Prisitaikomumas:** Agentai gali modifikuoti strategijas pagal gautus atsiliepimus ir kintančias sąlygas.
+- **Klaidų taisymas:** Agentai gali savarankiškai aptikti ir taisyti klaidas.
+- **Išteklių valdymas:** Agentai gali optimizuoti išteklių, tokių kaip laikas ir skaičiavimo galia, naudojimą.
 
-Įtraukdami metakogniciją, „Travel Agent“ gali teikti labiau personalizuotas ir tikslesnes kelionių rekomendacijas, gerindamas vartotojo patirtį.
+Įtraukdami metakogniciją, „Kelionių agentas“ gali suteikti asmeniškesnes ir tikslesnes kelionių rekomendacijas, gerindamas bendrą vartotojo patirtį.
 
 ---
 
 ## 2. Planavimas agentuose
 
-Planavimas yra esminė DI agentų elgesio dalis. Tai apima žingsnių plano sudarymą, reikalingą tikslui pasiekti, atsižvelgiant į esamą būseną, išteklius ir galimas kliūtis.
+Planavimas yra svarbi DI agentų elgesio sudedamoji dalis. Tai apima žingsnių, reikalingų pasiekti tikslą, apibrėžimą atsižvelgiant į esamą būseną, išteklius ir galimus kliuvinius.
 
 ### Planavimo elementai
 
-- **Dabartinė užduotis**: aiškiai apibrėžkite užduotį.
-- **Žingsniai užduočiai atlikti**: suskaidykite užduotį į valdomus žingsnius.
-- **Reikalingi ištekliai**: nustatykite reikalingus išteklius.
-- **Patirtis**: naudokite ankstesnę patirtį planavimui grįsti.
+- **Dabartinė užduotis:** Aiškiai apibrėžkite užduotį.
+- **Žingsniai užduočiai atlikti:** Suskaidykite užduotį į valdomus etapus.
+- **Reikalingi ištekliai:** Nustatykite reikalingus išteklius.
+- **Patirtis:** Naudokite praeities patirtį planavimui paremti.
 
 **Pavyzdys**:
-Štai žingsniai, kuriuos „Travel Agent“ turi atlikti, kad efektyviai padėtų vartotojui planuoti kelionę:
+Čia pateikti žingsniai, kurių „Kelionių agentas“ turi imtis, kad veiksmingai padėtų vartotojui suplanuoti kelionę:
 
-### „Travel Agent“ žingsniai
+### „Kelionių agento“ žingsniai
 
 1. **Surinkti vartotojo pageidavimus**
-   - Paklauskite apie kelionės datas, biudžetą, pomėgius ir specifinius reikalavimus.
-   - Pavyzdžiai: „Kada planuojate keliauti?“ „Koks jūsų biudžeto diapazonas?“ „Kokios veiklos jums patinka atostogų metu?“
+   - Paklauskite vartotojo apie kelionės datas, biudžetą, pomėgius ir specifinius reikalavimus.
+   - Pavyzdžiai: „Kada planuojate keliauti?“ „Koks jūsų biudžetas?“ „Kokias veiklas mėgstate atostogų metu?“
 
-2. **Surinkti informaciją**
-   - Ieškokite tinkamų kelionės variantų pagal vartotojo pageidavimus.
-   - **Skrydžiai**: ieškokite skrydžių pagal biudžetą ir pageidaujamas kelionės datas.
-   - **Apgyvendinimas**: raskite viešbučius ar nuomos objektus, atitinkančius vietos, kainos ir patogumų pageidavimus.
-   - **Lankytinos vietos ir restoranai**: identifikuokite populiarias lankytinas vietas, veiklas ir maitinimo įstaigas, atitinkančias vartotojo pomėgius.
+2. **Gauti informaciją**
+   - Ieškokite kelionės variantų pagal vartotojo pageidavimus.
+   - **Skrydžiai:** Raskite prieinamus skrydžius pagal vartotojo biudžetą ir kelionės datas.
+   - **Apgyvendinimas:** Raskite viešbučius ar nuomojamus būstus, atitinkančius vartotojo pageidavimus dėl vietos, kainos ir patogumų.
+   - **Lankytinos vietos ir restoranai:** Nustatykite populiarias lankytinas vietas, veiklas ir maitinimosi galimybes pagal vartotojo pomėgius.
 
-3. **Sukurti rekomendacijas**
-   - Sudarykite asmeninį kelionės maršrutą.
-   - Pateikite duomenis apie skrydžių galimybes, viešbučių rezervacijas ir siūlomas veiklas, pritaikytas vartotojo pageidavimams.
+3. **Generuoti rekomendacijas**
+   - Sudarykite surinktą informaciją į suasmenintą maršrutą.
+   - Pateikite detales, tokias kaip skrydžių pasirinkimai, viešbučių rezervacijos ir siūlomos veiklos, pritaikytas vartotojo pageidavimams.
 
 4. **Pateikti maršrutą vartotojui**
-   - Pasidalykite siūlomu maršrutu vartotojui peržiūrėti.
-   - Pavyzdys: „Štai siūlomas jūsų kelionės į Paryžių maršrutas. Jame yra skrydžių duomenys, viešbučių rezervacijos ir rekomenduojamų veiklų bei restoranų sąrašas. Pasidalykite savo nuomone!“
+   - Perduokite pasiūlytą maršrutą vartotojui peržiūrai.
+   - Pavyzdys: „Čia yra pasiūlytas maršrutas jūsų kelionei į Paryžių. Jame yra skrydžių informacija, viešbučių rezervacijos bei siūlomų veiklų ir restoranų sąrašas. Prašau, pasakykite savo nuomonę!“
 
 5. **Surinkti atsiliepimus**
-   - Paprašykite vartotojo atsiliepimų apie siūlomą maršrutą.
-   - Pavyzdžiai: „Ar jus tenkina skrydžių pasirinkimai?“ „Ar viešbutis tinka jūsų poreikiams?“ „Ar yra veiklų, kurias norėtumėte pridėti arba pašalinti?“
+   - Paklauskite vartotojo atsiliepimų apie pasiūlytą maršrutą.
+   - Pavyzdžiai: „Ar jums patinka skrydžių variantai?“ „Ar viešbutis tinkamas jūsų poreikiams?“ „Ar yra veiklų, kurias norėtumėte pridėti ar pašalinti?“
 
-6. **Pakoreguoti remiantis atsiliepimais**
-   - Pakeiskite maršrutą pagal vartotojo pastabas.
-   - Prireikus koreguokite skrydžių, apgyvendinimo ir veiklos rekomendacijas, kad geriau atitiktų vartotojo poreikius.
+6. **Koreguoti pagal atsiliepimus**
+   - Modifikuokite maršrutą remdamiesi vartotojo atsiliepimais.
+   - Atlikite reikiamus pakeitimus dėl skrydžių, apgyvendinimo ir veiklų rekomendacijų, kad jos geriau atitiktų vartotojo pageidavimus.
 
 7. **Galutinis patvirtinimas**
-   - Pateikite vartotojui patikslintą maršrutą galutiniam patvirtinimui.
-   - Pavyzdys: „Atlikau pakeitimus pagal jūsų pastabas. Štai atnaujintas maršrutas. Ar viskas atrodo tinkamai?“
+   - Pateikite atnaujintą maršrutą vartotojui galutiniam patvirtinimui.
+   - Pavyzdys: „Atlikau pakeitimus pagal jūsų atsiliepimus. Štai atnaujintas maršrutas. Ar viskas atrodo gerai?“
 
-8. **Rezervacijų užbaigimas ir patvirtinimas**
-   - Kai vartotojas patvirtina maršrutą, vykdykite skrydžių, apgyvendinimo ir suplanuotų veiklų rezervacijas.
-   - Išsiųskite patvirtinimo duomenis vartotojui.
+8. **Rezervacijų užsakymas ir patvirtinimas**
+   - Kai vartotojas patvirtina maršrutą, tęskite skrydžių, apgyvendinimo ir iš anksto suplanuotų veiklų rezervacijas.
+   - Siųskite patvirtinimo duomenis vartotojui.
 
 9. **Teikti nuolatinę pagalbą**
-   - Būkite pasirengę padėti vartotojui dėl bet kokių pakeitimų ar papildomų prašymų prieš kelionę ir jos metu.
-   - Pavyzdys: „Jei kelionės metu reikės papildomos pagalbos, drąsiai kreipkitės bet kuriuo metu!“
+   - Likite pasiekiamas, kad padėtumėte vartotojui keitimų ar papildomų prašymų atveju prieš kelionę ir jos metu.
+   - Pavyzdys: „Jei kelionės metu reikės papildomos pagalbos, drąsiai kreipkitės bet kada!“
 
 ### Pavyzdinė sąveika
 
@@ -223,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Pavyzdinis naudojimas apeinant užklausą
+# Pavyzdinis naudojimas užsakymo užklausos metu
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -238,48 +238,48 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-## 3. Koreguojanti RAG sistema
+## 3. Korekcinė RAG sistema
 
-Pirmiausia pradėkime suprasdami skirtumą tarp RAG įrankio ir išankstinio konteksto užkrovimo.
+Pirmiausia pradėkime nuo supratimo, kuo skiriasi RAG įrankis ir pre-emptive konteksto krovimas.
 
-![RAG prieš Konteksto įkėlimą](../../../translated_images/lt/rag-vs-context.9eae588520c00921.webp)
+![RAG vs Konteksto krovimas](../../../translated_images/lt/rag-vs-context.9eae588520c00921.webp)
 
-### Paieškos papildoma generacija (RAG)
+### Retrieval-Augmented Generation (RAG)
 
-RAG jungia paieškos sistemą su generatyviniu modeliu. Kai pateikiama užklausa, paieškos sistema surenka aktualius dokumentus ar duomenis iš išorinės duomenų bazės, o ši surinkta informacija papildomai suteikia įėjimą generuojančiam modeliui. Tai padeda modeliui generuoti tikslesnius ir kontekstuališkai aktualius atsakymus.
+RAG derina informacijos gavimo sistemą su generatyviniu modeliu. Užklausai pateikus, gavimo sistema išorinėje šaltinyje surenka susijusius dokumentus ar duomenis, kurie tada pridedami prie įėjimo generatyviniam modeliui. Tai padeda modeliui sugeneruoti tikslesnius ir kontekstualiai svarbesnius atsakymus.
 
-RAG sistemoje agentas surenka aktualią informaciją iš žinių bazės ir naudoja ją tinkamiems atsakymams ar veiksmams generuoti.
+RAG sistemoje agentas gauna susijusią informaciją iš žinių bazės ir naudoja ją tinkamiems atsakymams ar veiksmams generuoti.
 
-### Koreguojantis RAG požiūris
+### Korekcinis RAG požiūris
 
-Koreguojantis RAG požiūris sutelktas į RAG technikų naudojimą klaidoms taisyti ir DI agentų tikslumo gerinimui. Tai apima:
+Korekcinis RAG požiūris orientuojasi į RAG technikų naudojimą klaidoms taisyti ir DI agentų tikslumo gerinimui. Tai apima:
 
-1. **Skatinimo technika**: naudojant specifinius užklausimus, kad agentas surinktų aktualią informaciją.
-2. **Įrankį**: taikančius algoritmus ir mechanizmus, leidžiančius agentui įvertinti gautos informacijos aktualumą ir generuoti tikslius atsakymus.
-3. **Vertinimą**: nuolatinį agento veiklos stebėjimą ir koregavimą, siekiant pagerinti tikslumą ir efektyvumą.
+1. **Skatinimo technika:** Naudojant specifinius užuominas, kad agentas galėtų gauti aktualią informaciją.
+2. **Įrankis:** Įgyvendinant algoritmus ir mechanizmus, leidžiančius agentui įvertinti gautos informacijos svarbą ir sugeneruoti tikslius atsakymus.
+3. **Vertinimas:** Nuolatinis agento veiklos vertinimas ir koregavimas tikslo gerinti tikslumą ir efektyvumą.
 
-#### Pavyzdys: koreguojantis RAG paieškos agente
+#### Pavyzdys: Korekcinis RAG paieškos agentui
 
-Įsivaizduokite paieškos agentą, kuris surenka informaciją iš interneto, kad atsakytų į vartotojų užklausas. Koreguojantis RAG požiūris gali apimti:
+Įsivaizduokite paieškos agentą, kuris surenka informaciją iš interneto atsakant į vartotojo užklausas. Korekcinis RAG požiūris gali apimti:
 
-1. **Skatinimo techniką**: formuluoti paieškos užklausas pagal vartotojo pateiktą informaciją.
-2. **Įrankį**: naudoti natūralios kalbos apdorojimo ir mašininio mokymosi algoritmus rezultatų reitingavimui ir filtravimui.
-3. **Vertinimą**: analizuoti vartotojų atsiliepimus, kad nustatyti ir ištaisyti netikslius duomenis.
+1. **Skatinimo technika:** Formuluoti paieškos užklausas pagal vartotojo įvestį.
+2. **Įrankis:** Naudoti natūralios kalbos apdorojimo ir mašininio mokymosi algoritmus paieškos rezultatams rikiuoti ir filtruoti.
+3. **Vertinimas:** Analizuoti vartotojo atsiliepimus, kad identifikuotų ir ištaisytų netikslumus surinktoje informacijoje.
 
-### Koreguojantis RAG kelionių agento pavyzdyje
+### Korekcinis RAG kelionių agentui
 
-Koreguojantis RAG (Retrieval-Augmented Generation) pagerina DI gebėjimą rinkti ir generuoti informaciją, tuo pačiu taisant netikslumus. Pažiūrėkime, kaip „Travel Agent“ gali naudoti koreguojantį RAG metodą teikti tikslesnes ir aktualias kelionių rekomendacijas.
+Korekcinis RAG (Retrieval-Augmented Generation) pagerina DI gebėjimą gauti ir generuoti informaciją, taisant bet kokius netikslumus. Pažiūrėkime, kaip „Kelionių agentas“ gali naudoti korekcinį RAG požiūrį, kad suteiktų tikslesnes ir aktualias kelionių rekomendacijas.
 
 Tai apima:
 
-- **Skatinimo techniką:** naudoti specifinius užklausimus, kad agentas surinktų aktualią informaciją.
-- **Įrankį:** įgyvendinti algoritmus ir mechanizmus, kad agentas įvertintų informacijos aktualumą ir generuotų tikslius atsakymus.
-- **Vertinimą:** nuolatos vertinti agento veiklą ir koreguoti veikimą, siekiant aukštesnio tikslumo ir efektyvumo.
+- **Skatinimo technika:** Naudojant specifines užuominas, kad agentas galėtų gauti aktualią informaciją.
+- **Įrankis:** Įgyvendinant algoritmus ir mechanizmus, leidžiančius agentui įvertinti gautos informacijos svarbą ir generuoti tikslius atsakymus.
+- **Vertinimas:** Nuolat vertinant agento veiklą ir koreguojant ją, siekiant gerinti tikslumą ir efektyvumą.
 
-#### Žingsniai koreguojančio RAG įgyvendinimui „Travel Agent“
+#### Žingsniai korekciniam RAG įgyvendinimui „Kelionių agento“ sistemoje
 
-1. **Pradinis vartotojo sąveikos etapas**
-   - „Travel Agent“ surenka pagrindinius vartotojo pageidavimus, tokius kaip kelionės tikslas, datos, biudžetas ir pomėgiai.
+1. **Pirmoji vartotojo sąveika**
+   - „Kelionių agentas“ surenka pradinius vartotojo pageidavimus, tokius kaip kelionės tikslas, datos, biudžetas ir pomėgiai.
    - Pavyzdys:
 
      ```python
@@ -291,8 +291,8 @@ Tai apima:
      }
      ```
 
-2. **Informacijos rinkimas**
-   - Agentas surenka duomenis apie skrydžius, apgyvendinimą, lankytinas vietas ir restoranus pagal vartotojo pageidavimus.
+2. **Informacijos gavimas**
+   - „Kelionių agentas“ gauna informaciją apie skrydžius, apgyvendinimą, lankytinas vietas ir restoranus pagal vartotojo pageidavimus.
    - Pavyzdys:
 
      ```python
@@ -301,8 +301,8 @@ Tai apima:
      attractions = search_attractions(preferences)
      ```
 
-3. **Pradinių rekomendacijų kūrimas**
-   - Agentas naudoja surinktą informaciją asmeniniam maršruto sudarymui.
+3. **Pirminių rekomendacijų generavimas**
+   - „Kelionių agentas“ naudoja gautą informaciją suasmenintam maršrutui generuoti.
    - Pavyzdys:
 
      ```python
@@ -311,7 +311,7 @@ Tai apima:
      ```
 
 4. **Vartotojo atsiliepimų rinkimas**
-   - Agentas klausia vartotojo nuomonės apie pradines rekomendacijas.
+   - „Kelionių agentas“ prašo vartotojo atsiliepimų apie pirmines rekomendacijas.
    - Pavyzdys:
 
      ```python
@@ -321,8 +321,8 @@ Tai apima:
      }
      ```
 
-5. **Koreguojantis RAG procesas**
-   - **Skatinimo technika**: agentas formuluoja naujas paieškos užklausas pagal vartotojo atsiliepimus.
+5. **Korekcinis RAG procesas**
+   - **Skatinimo technika:** „Kelionių agentas“ formuluoja naujas paieškos užklausas pagal vartotojo atsiliepimus.
      - Pavyzdys:
 
        ```python
@@ -330,7 +330,7 @@ Tai apima:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Įrankis**: agentas naudoja algoritmus naujų paieškos rezultatų reitingavimui ir filtravimui, akcentuodamas aktualumą pagal vartotojo grįžtamąjį ryšį.
+   - **Įrankis:** „Kelionių agentas“ naudoja algoritmus naujiems paieškos rezultatams rikiuoti ir filtruoti, pabrėždamas aktualumą pagal vartotojo atsiliepimus.
      - Pavyzdys:
 
        ```python
@@ -339,7 +339,7 @@ Tai apima:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Vertinimas**: agentas nuolat vertina savo rekomendacijų aktualumą ir tikslumą, analizuodamas vartotojo atsiliepimus ir atlikdamas reikiamus pakeitimus.
+   - **Vertinimas:** „Kelionių agentas“ nuolat vertina savo rekomendacijų aktualumą ir tikslumą, analizuodamas vartotojo atsiliepimus ir atlikdamas būtinus pakeitimus.
      - Pavyzdys:
 
        ```python
@@ -355,7 +355,7 @@ Tai apima:
 
 #### Praktinis pavyzdys
 
-Štai supaprastintas Python kodo pavyzdys, kuriame „Travel Agent“ integruoja koreguojantį RAG požiūrį:
+Štai supaprastintas Python kodo pavyzdys, įtraukiantis korekcinį RAG požiūrį „Kelionių agento“ sistemoje:
 
 ```python
 class Travel_Agent:
@@ -399,15 +399,17 @@ new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
 print("Updated Itinerary:", new_itinerary)
 ```
 
-### Išankstinis konteksto užkrovimas
-Pre-emptive Context Load reiškia aktualios konteksto ar foninės informacijos įkėlimą į modelį prieš apdorojant užklausą. Tai reiškia, kad modelis nuo pat pradžių turi prieigą prie šios informacijos, kas gali padėti jam generuoti labiau informuotus atsakymus, nereikalaujant papildomų duomenų paieškos proceso metu.
+### Pre-emptive konteksto krovimas
 
-Štai paprastas pavyzdys, kaip gali atrodyti pre-emptive context load kelionių agento programoje Python kalba:
+
+Išankstinis konteksto įkėlimas reiškia, kad modelis prieš apdorojant užklausą gauna atitinkamą kontekstą ar fono informaciją. Tai leidžia modeliui turėti šią informaciją nuo pat pradžios, kas padeda sugeneruoti labiau pagrįstus atsakymus be poreikio rinkti papildomus duomenis proceso metu.
+
+Štai supaprastintas pavyzdys, kaip išankstinis konteksto įkėlimas galėtų atrodyti kelionių agento programoje Python kalba:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Iš anksto įkelti populiarius tikslus ir jų informaciją
+        # Iš anksto įkelti populiarias kelionės vietas ir jų informaciją
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -416,14 +418,14 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Gauti tikslo informaciją iš iš anksto įkelto konteksto
+        # Gauti kelionės vietos informaciją iš iš anksto įkelto konteksto
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
         else:
             return f"Sorry, we don't have information on {destination}."
 
-# Pavyzdinis naudojimas
+# Naudojimo pavyzdys
 travel_agent = TravelAgent()
 print(travel_agent.get_destination_info("Paris"))
 print(travel_agent.get_destination_info("Tokyo"))
@@ -431,27 +433,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Paaiškinimas
 
-1. **Inicializacija (`__init__` metodas)**: `TravelAgent` klasė iš anksto įkelia žodyną, kuriame yra informacija apie populiarias kelionės kryptis, tokias kaip Paryžius, Tokijas, Niujorkas ir Sidnėjus. Šiame žodyne pateikiama informacija apie šalį, valiutą, kalbą ir pagrindines lankytinas vietas.
+1. **Inicializacija (`__init__` metodas)**: `TravelAgent` klasė iš anksto įkelia žodyną, kuriame yra informacija apie populiarias kelionės vietas, tokias kaip Paryžius, Tokijas, Niujorkas ir Sidnėjus. Šiame žodyne yra tokia informacija kaip šalis, valiuta, kalba ir pagrindinės lankytinos vietos kiekvienai vietai.
 
-2. **Informacijos gavimas (`get_destination_info` metodas)**: Kai vartotojas užduoda klausimą apie konkretų kelionės tikslą, `get_destination_info` metodas paima svarbią informaciją iš iš anksto įkelto konteksto žodyno.
+2. **Informacijos gavimas (`get_destination_info` metodas)**: Kai vartotojas užduoda klausimą apie tam tikrą kelionės vietą, `get_destination_info` metodas paima reikiamą informaciją iš išankstinio konteksto žodyno.
 
-Iš anksto įkrovus kontekstą, kelionių agento programa gali greitai atsakyti į vartotojo užklausas, nereikalaujant realiu laiku ieškoti informacijos iš išorinio šaltinio. Tai padaro programą efektyvesnę ir greičiau reaguojančią.
+Iš anksto įkėlus kontekstą, kelionių agento programa gali greitai atsakyti į vartotojo užklausas nereikalaujant rinkti šios informacijos iš išorinio šaltinio realiu laiku. Tai daro programą efektyvesnę ir jautresnę.
 
-### Plano sukūrimas su tikslu prieš iteravimą
+### Plano inicijavimas su tikslu prieš iteraciją
 
-Plano sukūrimas su tikslu reiškia aiškaus tikslo arba norimo rezultato apibrėžimą iš anksto. Apibrėžus šį tikslą, modelis gali jį naudoti kaip vadovaujančią taisyklę viso iteracinio proceso metu. Tai padeda užtikrinti, kad kiekviena iteracija artėtų prie norimo rezultato, todėl procesas tampa efektyvesnis ir labiau koncentruotas.
+Plano inicijavimas su tikslu reiškia aiškaus tikslo ar norimo rezultato apibrėžimą iš karto. Apibrėždama šį tikslą iš anksto, modelis gali jį naudoti kaip vadovaujančią principą per visą iteracinį procesą. Tai padeda užtikrinti, kad kiekviena iteracija priartina prie norimo rezultato, todėl procesas tampa efektyvesnis ir labiau susitelkęs.
 
-Štai pavyzdys, kaip galite sukurti kelionės planą su tikslu prieš iteravimą kelionių agento programoje Python kalba:
+Štai pavyzdys, kaip galėtumėte inicijuoti kelionės planą su tikslu prieš iteruojant kelionių agento programoje Python kalba:
 
 ### Scenarijus
 
-Kelionių agentas nori suplanuoti pritaikytą atostogų kelionę klientui. Tikslas yra sukurti kelionės maršrutą, kuris maksimaliai atitiktų kliento pageidavimus ir biudžetą.
+Kelionių agentas nori suplanuoti klientui individualizuotas atostogas. Tikslas – sukurti kelionės maršrutą, kuris maksimaliai atitiktų kliento pageidavimus ir biudžetą.
 
-### Žingsniai
+### Veiksmai
 
 1. Apibrėžti kliento pageidavimus ir biudžetą.
-2. Pradėti pradinį planą remiantis šiomis nuostatomis.
-3. Atliekant iteracijas tobulinti planą, optimizuojant kliento pasitenkinimą.
+2. Inicijuoti pradinį planą, remiantis šiais pageidavimais.
+3. Iteruoti, tobulinti planą, optimizuojant pagal kliento pasitenkinimą.
 
 #### Python kodas
 
@@ -509,53 +511,53 @@ print("Refined Plan:", refined_plan)
 
 #### Kodo paaiškinimas
 
-1. **Inicializacija (`__init__` metodas)**: `TravelAgent` klasė inicijuojama su galimų kelionės tikslų sąrašu, kurių kiekvienas turi pavadinimą, kainą ir veiklos tipą.
+1. **Inicializacija (`__init__` metodas)**: `TravelAgent` klasė yra inicializuojama su sąrašu potencialių kelionės vietų, kurių kiekviena turi atributus kaip pavadinimas, kaina ir veiklos tipas.
 
-2. **Plano sukūrimas (`bootstrap_plan` metodas)**: Šis metodas sukuria pradinį kelionės planą pagal kliento pageidavimus ir biudžetą. Jis iteruoja per kelionės tikslų sąrašą ir prideda juos prie plano, jei atitinka kliento pageidavimus ir telpa į biudžetą.
+2. **Plano inicijavimas (`bootstrap_plan` metodas)**: Šis metodas sukuria pradinis kelionės planą remiantis kliento pageidavimais ir biudžetu. Jis iteruoja per vietų sąrašą ir prideda jas prie plano, jei jos atitinka kliento pageidavimus ir atitinka biudžetą.
 
-3. **Pageidavimų atitikimas (`match_preferences` metodas)**: Šis metodas tikrina, ar kelionės tikslas atitinka kliento pageidavimus.
+3. **Pageidavimų atitikimas (`match_preferences` metodas)**: Šis metodas tikrina, ar vieta atitinka kliento pageidavimus.
 
-4. **Plano iteracija (`iterate_plan` metodas)**: Šis metodas tobulina pradinį planą, bandydamas kiekvieną kelionės tikslą pakeisti geresniu atitikmeniu, atsižvelgiant į kliento pageidavimus ir biudžeto ribas.
+4. **Plano iteracija (`iterate_plan` metodas)**: Šis metodas tobulina pirminį planą, bandydamas pakeisti kiekvieną vietą plane geresniu variantu, atsižvelgiant į kliento pageidavimus ir biudžeto apribojimus.
 
-5. **Kainos apskaičiavimas (`calculate_cost` metodas)**: Šis metodas apskaičiuoja esamo plano bendrą kainą, įskaitant galimą naują kelionės tikslą.
+5. **Sąnaudų skaičiavimas (`calculate_cost` metodas)**: Šis metodas apskaičiuoja bendrą dabartinio plano kainą, įskaitant galimą naują vietą.
 
 #### Pavyzdinis naudojimas
 
-- **Pradinis planas**: Kelionių agentas sukuria pradinį planą pagal kliento pageidavimus aplankyti lankytinas vietas ir biudžetą 2000 USD.
-- **Patobulintas planas**: Kelionių agentas iteruoja planą, optimizuodamas kliento pageidavimus ir biudžetą.
+- **Pradinis planas**: Kelionių agentas sukuria pradinį planą pagal kliento pageidavimus aplankyti lankytinas vietas ir biudžetą $2000.
+- **Patobulintas planas**: Kelionių agentas iteruoja planą, optimizuodamas pagal kliento pageidavimus ir biudžetą.
 
-Toks plano kūrimas su aiškiu tikslu (pvz., maksimizuoti kliento pasitenkinimą) ir tobulinimas iteracijomis leidžia kelionių agentui sukurti pritaikytą ir optimizuotą kelionės maršrutą klientui. Šis požiūris užtikrina, kad kelionės planas nuo pradžios atitinka kliento pageidavimus ir biudžetą bei tobulėja su kiekviena iteracija.
+Inicijuodamas planą su aiškiu tikslu (pvz., maksimalizuoti kliento pasitenkinimą) ir iteruodamas, kad tobulintų planą, kelionių agentas gali sukurti individualizuotą ir optimizuotą kelionės maršrutą klientui. Šis metodas užtikrina, kad kelionės planas nuo pat pradžių atitiks kliento pageidavimus ir biudžetą bei gerės su kiekviena iteracija.
 
-### LLM pranašumo panaudojimas perskirstymui ir įvertinimui
+### LLM naudojimas perskirstymui ir vertinimui
 
-Dideli kalbos modeliai (LLM) gali būti naudojami perskirstymui ir įvertinimui, vertinant gautų dokumentų ar sugeneruotų atsakymų aktualumą ir kokybę. Štai kaip tai veikia:
+Didieji kalbos modeliai (LLM) gali būti naudojami perskirstymui ir vertinimui, įvertinant gautų dokumentų ar sugeneruotų atsakymų aktualumą ir kokybę. Štai kaip tai veikia:
 
-**Paieška:** Pradinė paieškos fazė surenka kandidatų dokumentus arba atsakymus pagal užklausą.
+**Gavimas:** Pradinis gavimo etapas paima kandidatų dokumentų arba atsakymų rinkinį, remiantis užklausa.
 
-**Perskirstymas:** LLM įvertina šiuos kandidatus ir juos perskirsto pagal aktualumą ir kokybę. Šis žingsnis užtikrina, kad pirmiausia būtų pateikta tik aktualiausia ir aukščiausios kokybės informacija.
+**Perskirstymas:** LLM įvertina šiuos kandidatus ir perskirsto juos pagal aktualumą ir kokybę. Šis žingsnis užtikrina, kad pirmiausia būtų pateikta pati aktualiausia ir aukščiausios kokybės informacija.
 
-**Įvertinimas:** LLM priskiria rezultatams balus, atspindinčius jų aktualumą ir kokybę. Tai padeda pasirinkti geriausią atsakymą arba dokumentą vartotojui.
+**Vertinimas:** LLM priskiria balus kiekvienam kandidatui, atspindinčius jų aktualumą ir kokybę. Tai padeda pasirinkti geriausią atsakymą ar dokumentą vartotojui.
 
-Naudojant LLM perskirstymui ir įvertinimui, sistema gali pateikti tikslesnę ir kontekstualiai aktualią informaciją, gerindama bendrą vartotojo patirtį.
+Naudodami LLM perskirstymui ir vertinimui, sistema gali pateikti tikslesnę ir kontekstualiai svarbesnę informaciją, gerindama bendrą vartotojo patirtį.
 
-Štai pavyzdys, kaip kelionių agentas gali naudoti Didelį Kalbos Modelį (LLM) perskirstymui ir įvertinimui pagal vartotojo pageidavimus Python kalba:
+Štai pavyzdys, kaip kelionių agentas gali naudoti Didįjį kalbos modelį (LLM) perskirstymui ir vertinimui pagal vartotojo pageidavimus Python kalba:
 
-#### Scenarijus – kelionė pagal pageidavimus
+#### Scenarijus – kelionės pagal pageidavimus
 
-Kelionių agentas nori rekomenduoti geriausias kelionės kryptis klientui, remdamasis jo pageidavimais. LLM padės perskirstyti ir įvertinti kryptis, kad būtų pateikti atitinkamiausi pasiūlymai.
+Kelionių agentas nori rekomenduoti geriausias kelionės vietas klientui pagal jo pageidavimus. LLM padės perskirstyti ir įvertinti vietas, kad būtų pateikta pati aktualiausia pasirinktis.
 
-#### Žingsniai:
+#### Veiksmai:
 
 1. Surinkti vartotojo pageidavimus.
-2. Gauti galimų kelionių krypčių sąrašą.
-3. Naudoti LLM perskirstymui ir įvertinimui pagal vartotojo pageidavimus.
+2. Gauti potencialių kelionės vietų sąrašą.
+3. Naudoti LLM perskirstymui ir vertinimui pagal vartotojo pageidavimus.
 
-Čia parodyta, kaip atnaujinti ankstesnį pavyzdį, kad būtų naudojamos Azure OpenAI paslaugos:
+Štai kaip galite atnaujinti ankstesnį pavyzdį, naudodami Azure OpenAI paslaugas:
 
 #### Reikalavimai
 
 1. Turėti Azure prenumeratą.
-2. Sukurti Azure OpenAI išteklių ir gauti API rakto.
+2. Sukurti Azure OpenAI išteklių ir gauti savo API raktą.
 
 #### Pavyzdinis Python kodas
 
@@ -582,11 +584,11 @@ class TravelAgent:
             "temperature": 0.7
         }
         
-        # Iškviesti Azure OpenAI API, kad gauti iš naujo įvertintas ir įvertintas paskirties vietas
+        # Iškvieti Azure OpenAI API, kad gauti perrikiuotas ir įvertintas paskirties vietas
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
-        # Ištraukti ir grąžinti rekomendacijas
+        # Išskirti ir grąžinti rekomendacijas
         recommendations = response_data['choices'][0]['text'].strip().split('\n')
         return recommendations
 
@@ -618,75 +620,75 @@ for rec in recommendations:
     print(rec)
 ```
 
-#### Kodo paaiškinimas – pageidavimų tvarkytojas
+#### Kodo paaiškinimas – pageidavimų pateikėjas
 
-1. **Inicializacija**: `TravelAgent` klasė inicializuojama su galimų kelionės krypčių sąrašu, kur kiekvienas turi pavadinimą ir aprašymą.
+1. **Inicializacija**: `TravelAgent` klasė yra inicializuojama su potencialių kelionės vietų sąrašu, kurių kiekviena turi atributus, tokius kaip pavadinimas ir aprašymas.
 
-2. **Rekomendacijų gavimas (`get_recommendations` metodas)**: Šis metodas generuoja užklausą (prompt) Azure OpenAI paslaugai pagal vartotojo pageidavimus ir atlieka HTTP POST užklausą Azure OpenAI API, kad gautų perskirstytas ir įvertintas kryptis.
+2. **Rekomendacijų gavimas (`get_recommendations` metodas)**: Šis metodas generuoja užklausą Azure OpenAI paslaugai pagal vartotojo pageidavimus ir siunčia HTTP POST užklausą Azure OpenAI API, kad gautų perskirstytas ir įvertintas vietas.
 
-3. **Užklausos generavimas (`generate_prompt` metodas)**: Šis metodas sukuria užklausą Azure OpenAI, įtraukiant vartotojo pageidavimus ir kelionių krypčių sąrašą. Užklausa nurodo modeliui perskirti ir įvertinti kryptis pagal pateiktus pageidavimus.
+3. **Užklausos generavimas (`generate_prompt` metodas)**: Šis metodas sudaro užklausą Azure OpenAI, įtraukiant vartotojo pageidavimus ir vietų sąrašą. Užklausa nukreipia modelį perskirstyti ir įvertinti vietas pagal pateiktus pageidavimus.
 
-4. **API kvietimas**: Naudojama biblioteka `requests` HTTP POST užklausai Azure OpenAI API pabaigos tašku. Atsakyme pateikiamos perskirstytos ir įvertintos kelionių kryptys.
+4. **API kvietimas**: `requests` biblioteka naudojama siųsti HTTP POST užklausą į Azure OpenAI API galutinį tašką. Atsakymas turi perskirstytas ir įvertintas vietas.
 
-5. **Pavyzdinis naudojimas**: Kelionių agentas renka vartotojo pageidavimus (pvz., susidomėjimą lankytinomis vietomis ir įvairialype kultūra) ir naudoja Azure OpenAI paslaugą, kad gautų perskirstytas ir įvertintas rekomendacijas kelionių kryptims.
+5. **Pavyzdinis naudojimas**: Kelionių agentas surenka vartotojo pageidavimus (pvz., susidomėjimą lankytinomis vietomis ir įvairią kultūrą) ir naudoja Azure OpenAI paslaugą, kad gautų perskirstytas ir įvertintas kelionės vietų rekomendacijas.
 
-Nepamirškite pakeisti `your_azure_openai_api_key` savo tikru Azure OpenAI API raktu ir `https://your-endpoint.com/...` tikru Azure OpenAI diegimo pabaigos tašku.
+Būtinai pakeiskite `your_azure_openai_api_key` į savo tikrąjį Azure OpenAI API raktą ir `https://your-endpoint.com/...` į tikrąjį Azure OpenAI diegimo galutinį URL.
 
-Naudojant LLM perskirstymui ir įvertinimui, kelionių agentas gali pateikti labiau personalizuotas ir aktualias kelionės rekomendacijas klientams, gerindamas jų bendrą patirtį.
+Naudodamasis LLM perskirstymui ir vertinimui, kelionių agentas gali pateikti labiau suasmenintas ir aktualias kelionės rekomendacijas klientams, pagerindamas jų bendrą patirtį.
 
-### RAG: užklausimo technika vs įrankis
+### RAG: užklausos metodas prieš įrankį
 
-Retrieval-Augmented Generation (RAG) gali būti tiek užklausimo technika, tiek įrankis AI agentų kūrime. Supratimas apie šių skirtumą padės jums efektyviau naudoti RAG savo projektuose.
+Retrieval-Augmented Generation (RAG) gali būti tiek užklausos metodas, tiek įrankis AI agentų kūrime. Supratimas apie skirtumus gali padėti jums efektyviau naudoti RAG savo projektuose.
 
-#### RAG kaip užklausimo technika
+#### RAG kaip užklausos metodas
 
-**Kas tai?**
+**Kas tai yra?**
 
-- Kaip užklausimo technika, RAG apima specifinių užklausų ar promptų sudarymą, siekiant nukreipti aktualios informacijos paiešką dideliuose korpusuose ar duomenų bazėse. Ši informacija naudojama atsakymams ar veiksmams generuoti.
+- Kaip užklausos metodas, RAG reiškia specifinių užklausų ar užklausų formavimą, kuris nukreipia informacijos paiešką dideliame korpuse ar duomenų bazėje. Ši informacija tada naudojama atsakymams arba veiksmams generuoti.
 
 **Kaip tai veikia:**
 
-1. **Promptų sudarymas**: Kuriami gerai struktūruoti promptai ar užklausos pagal užduotį ar vartotojo įvestį.
-2. **Informacijos gavimas**: Naudojant promptus ieškoma aktualių duomenų iš jau egzistuojančios žinių bazės ar duomenų rinkinių.
-3. **Atsakymo generavimas**: Gauta informacija derinama su generatyviais AI modeliais, kad sukurtų išsamų ir nuoseklų atsakymą.
+1. **Užklausų formavimas**: Sukurkite gerai struktūruotas užklausas arba prompts, remdamiesi užduotimi ar vartotojo įvestimi.
+2. **Informacijos paieška**: Naudokite užklausas, kad surastumėte aktualius duomenis iš iš anksto egzistuojančios žinių bazės ar duomenų rinkinio.
+3. **Atsakymo generavimas**: Sujunkite surinktą informaciją kartu su generatyviniais AI modeliais, kad sukurtumėte išsamų ir nuoseklų atsakymą.
 
 **Pavyzdys kelionių agentui:**
 
-- Vartotojo užklausa: „Noriu aplankyti muziejus Paryžiuje.“
-- Promptas: „Surask geriausius muziejus Paryžiuje.“
-- Gauta informacija: Detalės apie Luvro muziejų, Orsė muziejų ir kt.
-- Sugeneruotas atsakymas: „Štai keli geriausi muziejai Paryžiuje: Luvro muziejus, Orsė muziejus ir Pompidu centre.“
+- Vartotojo įvestis: "Noriu aplankyti muziejus Paryžiuje."
+- Užklausa: "Raskite geriausius muziejus Paryžiuje."
+- Surinkta informacija: Informacija apie Luvro muziejų, Orsė muziejų ir pan.
+- Sugeneruotas atsakymas: "Štai keletas geriausių muziejų Paryžiuje: Luvro muziejus, Orsė muziejus ir Pompidu centras."
 
 #### RAG kaip įrankis
 
-**Kas tai?**
+**Kas tai yra?**
 
-- Kaip įrankis, RAG yra integruota sistema, kuri automatiškai atlieka informacijos gavimo ir atsakymų generavimo procesus, palengvinanti kūrėjų darbą kuriant sudėtingas AI funkcijas, nereikalaujant rankiniu būdu kurti promptų kiekvienai užklausai.
+- Kaip įrankis, RAG yra integruota sistema, kuri automatizuoja informacijos gavimo ir generavimo procesus, leidžianti kūrėjams lengviau įgyvendinti sudėtingas AI funkcijas be rankinio užklausų kūrimo kiekvienai užklausai.
 
 **Kaip tai veikia:**
 
-1. **Integracija**: RAG įterpiamas į AI agento architektūrą, leidžiant jam automatiškai apdoroti informacijos gavimą ir generavimą.
-2. **Automatizavimas**: Įrankis valdo visą procesą, nuo vartotojo įvesties gavimo iki galutinio atsakymo generavimo, nereikalaujant specifinių promptų kiekvienam žingsniui.
-3. **Efektyvumas**: Pagerina agento veikimą, optimizuodamas informacijos gavimo ir generavimo procesus, leidžiant greičiau ir tiksliau atsakyti.
+1. **Integracija**: Įdiegti RAG AI agento architektūroje, leidžiant jam automatiškai tvarkyti informacijos gavimo ir generavimo užduotis.
+2. **Automatizavimas**: Įrankis valdo visą procesą nuo vartotojo įvesties iki galutinio atsakymo generavimo, nereikalaujant aiškių užklausų kiekvienam žingsniui.
+3. **Efektyvumas**: Pagerina agento veikimą supaprastindamas gavimo ir generavimo procesą, leidžiant greičiau ir tiksliau atsakyti.
 
 **Pavyzdys kelionių agentui:**
 
-- Vartotojo užklausa: „Noriu aplankyti muziejus Paryžiuje.“
+- Vartotojo įvestis: "Noriu aplankyti muziejus Paryžiuje."
 - RAG įrankis: Automatiškai surenka informaciją apie muziejus ir sugeneruoja atsakymą.
-- Sugeneruotas atsakymas: „Štai keli geriausi muziejai Paryžiuje: Luvro muziejus, Orsė muziejus ir Pompidu centre.“
+- Sugeneruotas atsakymas: "Štai keletas geriausių muziejų Paryžiuje: Luvro muziejus, Orsė muziejus ir Pompidu centras."
 
 ### Palyginimas
 
-| Aspektas               | Užklausimo technika                                       | Įrankis                                               |
-|------------------------|---------------------------------------------------------|-------------------------------------------------------|
-| **Rankinis vs automatizuotas**| Rankinis promptų kūrimas kiekvienai užklausai.          | Automatizuotas paieškos ir generavimo procesas.       |
-| **Kontrolė**            | Didesnė kontrolė paieškos procese.                       | Supaprastina ir automatizuoja paieškos ir generavimo procesą. |
-| **Lankstumas**          | Leidžia pritaikyti promptus pagal specifinius poreikius.| Efektyvesnis didelio masto diegimams.                 |
-| **Sudėtingumas**        | Reikalauja promptų kūrimo ir tobulinimo.                  | Lengviau integruoti į AI agentų architektūrą.         |
+| Aspektas               | Užklausos metodas                                         | Įrankis                                               |
+|------------------------|------------------------------------------------------------|-------------------------------------------------------|
+| **Rankinis vs Automatinis** | Rankiniu būdu formuluojamos užklausos kiekvienai užklausai. | Automatizuotas gavimo ir generavimo procesas.        |
+| **Kontrolė**            | Teikia didesnę kontrolę gavimo procesui.                  | Supaprastina ir automatizuoja gavimo ir generavimo procesą.|
+| **Lankstumas**          | Leidžia suasmenintas užklausas pagal specifinius poreikius.| Efektyvesnis didelio masto įgyvendinimams.           |
+| **Sudėtingumas**        | Reikalauja užklausų kūrimo ir tobulinimo.                   | Lengviau integruoti AI agento architektūroje.         |
 
 ### Praktiniai pavyzdžiai
 
-**Užklausimo technikos pavyzdys:**
+**Užklausos metodo pavyzdys:**
 
 ```python
 def search_museums_in_paris():
@@ -717,30 +719,30 @@ print("Top Museums in Paris:", museums)
 
 ### Aktualumo vertinimas
 
-Aktualumo vertinimas yra svarbi AI agentų veikimo dalis. Jis užtikrina, kad agento gauta ir sugeneruota informacija būtų tinkama, tiksli ir naudinga vartotojui. Panagrinėkime, kaip įvertinti aktualumą AI agentams, įskaitant praktinius pavyzdžius ir metodus.
+Aktualumo vertinimas yra svarbus AI agento veiklos aspektas. Tai užtikrina, kad agento surinkta ir sugeneruota informacija būtų tinkama, tiksli ir naudinga vartotojui. Pažvelkime, kaip vertinti aktualumą AI agentuose, pateikiant praktinius pavyzdžius ir metodikas.
 
 #### Pagrindinės aktualumo vertinimo sąvokos
 
 1. **Konteksto suvokimas**:
-   - Agentas turi suvokti vartotojo užklausos kontekstą, kad galėtų gauti ir sugeneruoti aktualią informaciją.
-   - Pavyzdys: Jei vartotojas klausia „geriausios restoranai Paryžiuje“, agentas turėtų atsižvelgti į vartotojo pageidavimus, tokius kaip virtuvės tipas ir biudžetas.
+   - Agentas turi suprasti vartotojo užklausos kontekstą, kad surinktų ir generuotų aktualią informaciją.
+   - Pavyzdys: Jei vartotojas klausia „geriausi restoranai Paryžiuje“, agentas turėtų atsižvelgti į vartotojo pageidavimus, tokius kaip maisto rūšis ir biudžetas.
 
 2. **Tikslumas**:
-   - Agentas turi pateikti faktinę, teisingą ir atnaujintą informaciją.
-   - Pavyzdys: Rekomenduoti šiuo metu atvirus restoranus su geromis apžvalgomis, o ne pasenusias ar uždarytas vietas.
+   - Agentas turi pateikti faktiškai teisingą ir atnaujintą informaciją.
+   - Pavyzdys: Rekomenduoti šiuo metu veikiančius restoranus su geromis apžvalgomis, o ne pasenusias ar uždarytas vietas.
 
 3. **Vartotojo ketinimas**:
-   - Agentas turi numatyti vartotojo ketinimus užklausos pagrindu, kad pateiktų tinkamiausią informaciją.
-   - Pavyzdys: Jei vartotojas prašo „biudžetinių viešbučių“, prioritetas turi būti nebrangioms galimybėms.
+   - Agentas turi atspėti vartotojo ketinimą už užklausos, kad pateiktų pačią aktualiausią informaciją.
+   - Pavyzdys: Jei vartotojas prašo „biudžetui tinkami viešbučiai“, agentas turėtų prioritetizuoti prieinamas vietas.
 
 4. **Grįžtamojo ryšio ciklas**:
-   - Nuolatinis vartotojų atsiliepimų rinkimas ir analizė padeda agentui tobulinti aktualumo vertinimą.
-   - Pavyzdys: Įtraukti vartotojų įvertinimus ir atsiliepimus apie ankstesnes rekomendacijas, kad pagerintų būsimus atsakymus.
+   - Nuolatinis vartotojo atsiliepimų rinkimas ir analizavimas padeda agentui tobulinti aktualumo vertinimo procesą.
+   - Pavyzdys: Įtraukti vartotojų įvertinimus ir atsiliepimus apie ankstesnes rekomendacijas, kad pagerėtų ateities atsakymai.
 
-#### Praktiniai aktualumo vertinimo metodai
+#### Praktinės aktualumo vertinimo technikos
 
 1. **Aktualumo balų skyrimas**:
-   - Priskirkite kiekvienam gautam elementui aktualumo balą, atsižvelgiant į tai, kiek gerai jis atitinka vartotojo užklausą ir pageidavimus.
+   - Priskirti aktualumo balą kiekvienam gautam elementui, vertinant, kaip gerai jis atitinka vartotojo užklausą ir pageidavimus.
    - Pavyzdys:
 
      ```python
@@ -755,18 +757,18 @@ Aktualumo vertinimas yra svarbi AI agentų veikimo dalis. Jis užtikrina, kad ag
          return score
      ```
 
-2. **Filtravimas ir reitingavimas**:
-   - Pašalinkite nereikšmingus elementus ir surūšiuokite likusius pagal aktualumo balus.
+2. **Filtravimas ir rūšiavimas**:
+   - Išfiltruoti neaktualius elementus ir surūšiuoti likusius pagal aktualumo balą.
    - Pavyzdys:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Grąžinkite 10 geriausių atitinkančių elementų
+         return ranked_items[:10]  # Grąžina 10 svarbiausių elementų
      ```
 
 3. **Natūralios kalbos apdorojimas (NLP)**:
-   - Naudokite NLP metodus vartotojo užklausai analizuoti ir aktualiai informacijai gauti.
+   - Naudoti NLP metodus, kad suprastumėte vartotojo užklausą ir surinktumėte aktualią informaciją.
    - Pavyzdys:
 
      ```python
@@ -776,8 +778,8 @@ Aktualumo vertinimas yra svarbi AI agentų veikimo dalis. Jis užtikrina, kad ag
          return processed_query
      ```
 
-4. **Vartotojo atsiliepimų integracija**:
-   - Rinkite vartotojo atsiliepimus apie pateiktas rekomendacijas ir naudokite juos ateities aktualumo vertinimui koreguoti.
+4. **Vartotojo atsiliepimų integravimas**:
+   - Rinkti vartotojo atsiliepimus apie pateiktas rekomendacijas ir naudoti juos būsimoms aktualumo vertinimo korekcijoms.
    - Pavyzdys:
 
      ```python
@@ -790,9 +792,9 @@ Aktualumo vertinimas yra svarbi AI agentų veikimo dalis. Jis užtikrina, kad ag
          return items
      ```
 
-#### Pavyzdys: aktualumo vertinimas kelionių agento programoje
+#### Pavyzdys: Aktualumo vertinimas kelionių agentui
 
-Štai praktinis pavyzdys, kaip kelionių agentas gali įvertinti kelionių rekomendacijų aktualumą:
+Štai praktinis pavyzdys, kaip Kelionių agentas gali vertinti kelionės rekomendacijų aktualumą:
 
 ```python
 class Travel_Agent:
@@ -837,7 +839,7 @@ class Travel_Agent:
                 item['relevance'] -= 1
         return items
 
-# Pavyzdžio naudojimas
+# Naudojimo pavyzdys
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -853,32 +855,32 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Paieška su ketinimu
+### Paieška pagal ketinimą
 
-Paieška su ketinimu reiškia vartotojo užklausos tikslų ar siekiamo rezultato supratimą ir interpretavimą, siekiant gauti ir sugeneruoti pačią aktualiausią ir naudingiausią informaciją. Šis požiūris neapsiriboja vien raktinių žodžių atitikimu, bet orientuojasi į tikrųjų vartotojo poreikių ir konteksto suvokimą.
+Paieška pagal ketinimą reiškia vartotojo užklausos pagrindinio tikslo ar poreikio supratimą ir interpretavimą, kad būtų surinkta ir sugeneruota pati aktualiausia ir naudingiausia informacija. Šis požiūris eina toliau nei tik raktinių žodžių atitikimas ir orientuojasi į vartotojo tikrąsias reikmes bei kontekstą.
 
-#### Pagrindinės paieškos su ketinimu sąvokos
+#### Pagrindinės sąvokos ieškant pagal ketinimą
 
 1. **Vartotojo ketinimo supratimas**:
-   - Vartotojo ketinimas gali būti suskirstytas į tris pagrindines rūšis: informacinis, navigacinis ir tranzakcinis.
-     - **Informacinis ketinimas**: vartotojas ieško informacijos apie temą (pvz., „Kokie yra geriausi muziejai Paryžiuje?“).
-     - **Navigacinis ketinimas**: vartotojas nori nukeliauti į tam tikrą svetainę ar puslapį (pvz., „Luvro muziejaus oficiali svetainė“).
-     - **Tranzakcinis ketinimas**: vartotojas ketina atlikti veiksmą, tokią kaip skrydžio bilieto užsakymas ar pirkimas (pvz., „Užsakyti bilietą į Paryžių“).
+   - Vartotojo ketinimą galima suskirstyti į tris pagrindines rūšis: informacinis, navigacinis ir sandorio.
+     - **Informacinis ketinimas**: Vartotojas ieško informacijos apie temą (pvz., „Kokie yra geriausi muziejai Paryžiuje?“).
+     - **Navigacinis ketinimas**: Vartotojas nori nukeliauti į tam tikrą svetainę ar puslapį (pvz., „Luvro muziejaus oficiali svetainė“).
+     - **Sandorio ketinimas**: Vartotojas siekia atlikti sandorį, pavyzdžiui, užsakyti skrydį arba pirkti (pvz., „Užsakyti skrydį į Paryžių“).
 
 2. **Konteksto suvokimas**:
-   - Analizuojant vartotojo užklausos kontekstą galima tiksliau nustatyti jo ketinimą. Tai apima ankstesnes sąveikas, vartotojo pageidavimus ir dabartinės užklausos detales.
+   - Vartotojo užklausos konteksto analizė padeda tiksliai nustatyti ketinimą. Tai apima ankstesnes sąveikas, vartotojo pageidavimus ir specifines dabartinės užklausos detales.
 
 3. **Natūralios kalbos apdorojimas (NLP)**:
-   - NLP metodai naudojami suprasti ir interpretuoti natūralų vartotojo kalbą. Tai apima subjektų atpažinimą, nuotaikos analizę ir užklausų parsinimą.
+   - Naudojamos NLP technikos, skirtos suprasti ir interpretuoti vartotojo natūralias užklausas. Tai apima objektų atpažinimą, nuotaikų analizę ir užklausų skaidymą.
 
 4. **Personalizavimas**:
-   - Paieškos rezultatų pritaikymas vartotojo istorijai, pageidavimams ir grįžtamajam ryšiui pagerina paieškos aktualumą.
+   - Paieškos rezultatų personalizavimas remiantis vartotojo istorija, pageidavimais ir atsiliepimais pagerina surinktos informacijos aktualumą.
 
-#### Praktinis pavyzdys: paieška su ketinimu kelionių agento programoje
+#### Praktinis pavyzdys: paieška pagal ketinimą kelionių agentui
 
-Pažvelkime, kaip kelionių agento programa gali įgyvendinti paiešką su ketinimu.
+Pažvelkime į Travel Agent kaip pavyzdį, kaip galėtų būti įgyvendinta paieška pagal ketinimą.
 
-1. **Vartotojo pageidavimų surinkimas**
+1. **Vartotojo pageidavimų rinkimas**
 
    ```python
    class Travel_Agent:
@@ -902,9 +904,11 @@ Pažvelkime, kaip kelionių agento programa gali įgyvendinti paiešką su ketin
    ```
 
 3. **Konteksto suvokimas**
+
+
    ```python
    def analyze_context(query, user_history):
-       # Sujunkite esamą užklausą su naudotojo istorija, kad suprastumėte kontekstą
+       # Sujunkite esamą užklausą su vartotojo istorija, kad suprastumėte kontekstą
        context = {
            "current_query": query,
            "user_history": user_history
@@ -912,7 +916,7 @@ Pažvelkime, kaip kelionių agento programa gali įgyvendinti paiešką su ketin
        return context
    ```
 
-4. **Rezultatų paieška ir pritaikymas**
+4. **Ieškoti ir personalizuoti rezultatus**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -928,24 +932,24 @@ Pažvelkime, kaip kelionių agento programa gali įgyvendinti paiešką su ketin
        return personalized_results
 
    def search_information(query, preferences):
-       # Pavyzdinė paieškos logika informaciniam ketinimui
+       # Pavyzdinė paieškos logika informaciniam tikslui
        results = search_web(f"best {preferences['interests']} in {preferences['destination']}")
        return results
 
    def search_navigation(query):
-       # Pavyzdinė paieškos logika navigaciniam ketinimui
+       # Pavyzdinė paieškos logika navigaciniam tikslui
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Pavyzdinė paieškos logika transakciniam ketinimui
+       # Pavyzdinė paieškos logika transakciniam tikslui
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
    def personalize_results(results, user_history):
        # Pavyzdinė personalizavimo logika
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Grąžinti 10 geriausių personalizuotų rezultatų
+       return personalized[:10]  # Grąžinti 10 geriausių suasmenintų rezultatų
    ```
 
 5. **Naudojimo pavyzdys**
@@ -967,44 +971,44 @@ Pažvelkime, kaip kelionių agento programa gali įgyvendinti paiešką su ketin
 
 ## 4. Kodo generavimas kaip įrankis
 
-Kodo generavimo agentai naudoja DI modelius, kad rašytų ir vykdytų kodą, spręstų sudėtingas problemas ir automatizuotų užduotis.
+Kodo generavimo agentai naudoja DI modelius kodui rašyti ir vykdyti, sprendžiant sudėtingas problemas ir automatizuojant užduotis.
 
 ### Kodo generavimo agentai
 
-Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdytų kodą. Šie agentai gali spręsti sudėtingas problemas, automatizuoti užduotis ir suteikti vertingų įžvalgų generuodami bei vykdydami kodą įvairiomis programavimo kalbomis.
+Kodo generavimo agentai naudoja generatyvius DI modelius kodo rašymui ir vykdymui. Šie agentai gali spręsti sudėtingas problemas, automatizuoti užduotis ir suteikti vertingos informacijos generuodami ir vykdydami kodą įvairiomis programavimo kalbomis.
 
-#### Praktiniai panaudojimai
+#### Praktinės taikymai
 
-1. **Automatinis kodo generavimas**: Generuoti kodo fragmentus specifinėms užduotims, tokioms kaip duomenų analizė, tinklalapių nuskaitymas ar mašininis mokymasis.
-2. **SQL kaip RAG**: Naudoti SQL užklausas duomenims paieškai ir manipuliavimui iš duomenų bazių.
-3. **Problemų sprendimas**: Kurti ir vykdyti kodą konkrečių problemų sprendimui, pavyzdžiui, optimizuoti algoritmus ar analizuoti duomenis.
+1. **Automatizuotas kodo generavimas**: Generuoti kodo fragmentus konkrečioms užduotims, pvz., duomenų analizei, interneto duomenų rinkimui ar mašininio mokymosi užduotims.
+2. **SQL kaip RAG**: Naudoti SQL užklausas duomenų gavimui ir manipuliavimui iš duomenų bazių.
+3. **Problemų sprendimas**: Kurti ir vykdyti kodą specifinėms problemoms spręsti, pvz., algoritmų optimizavimui arba duomenų analizei.
 
-#### Pavyzdys: Kodo generavimo agentas duomenų analizei
+#### Pavyzdys: kodo generavimo agentas duomenų analizei
 
-Įsivaizduokite, kad kuriate kodo generavimo agentą. Štai kaip jis gali veikti:
+Įsivaizduokite, kad kuriate kodo generavimo agentą. Štai kaip jis galėtų veikti:
 
-1. **Užduotis**: Analizuoti duomenų rinkinį, kad nustatytų tendencijas ir modelius.
+1. **Užduotis**: Išanalizuoti duomenų rinkinį, kad būtų identifikuotos tendencijos ir modeliai.
 2. **Veiksmai**:
    - Įkelti duomenų rinkinį į duomenų analizės įrankį.
-   - Generuoti SQL užklausas duomenų filtravimui ir agregavimui.
+   - Generuoti SQL užklausas duomenų filtravimui ir suvestinėms gauti.
    - Vykdyti užklausas ir gauti rezultatus.
    - Naudoti rezultatus vizualizacijoms ir įžvalgoms generuoti.
-3. **Reikalaujami ištekliai**: Prieiga prie duomenų rinkinio, duomenų analizės įrankiai ir SQL galimybės.
-4. **Patirtis**: Naudoti ankstesnių analizės rezultatų duomenis tikslumui ir aktualumui gerinti ateities analizės metu.
+3. **Reikalingi ištekliai**: Prieiga prie duomenų rinkinio, duomenų analizės įrankių ir SQL galimybės.
+4. **Patirtis**: Naudoti ankstesnių analizės rezultatų patirtį siekiant pagerinti būsimų analizų tikslumą ir aktualumą.
 
-### Pavyzdys: Kodo generavimo agentas kelionių agentui
+### Pavyzdys: kodo generavimo agentas kelionių agentui
 
-Šiame pavyzdyje kursime kodo generavimo agentą „Kelionių agentą“, kuris padės vartotojams planuoti keliones generuodamas ir vykdydamas kodą. Šis agentas gali tvarkyti užduotis, tokias kaip kelionių galimybių paieška, rezultatų filtravimas ir kelionės plano sudarymas naudojant generatyvią DI.
+Šiame pavyzdyje sukursime kodo generavimo agentą, Pavyzdžiui, Kelionių agentą, kuris padėtų vartotojams planuoti keliones generuodamas ir vykdydamas kodą. Šis agentas galės atlikti užduotis, tokias kaip kelionių parinkčių paieška, rezultatų filtravimas ir maršruto sudarymas, naudodamas generatyvią DI.
 
-#### Kodo generavimo agento apžvalga
+#### Kodo generavimo agente apžvalga
 
-1. **Vartotojo pageidavimų rinkimas**: Surenka vartotojo įvestį, tokią kaip kelionės tikslas, datos, biudžetas ir pomėgiai.
-2. **Kodo generavimas duomenų paieškai**: Generuoja kodo fragmentus informacijai apie skrydžius, viešbučius ir lankytinas vietas gauti.
+1. **Vartotojo pageidavimų rinkimas**: Surenka vartotojo įvestį, pvz., kelionės tikslą, datas, biudžetą ir pomėgius.
+2. **Kodo generavimas duomenų gavimui**: Generuoja kodo fragmentus, skirtus gauti informaciją apie skrydžius, viešbučius ir lankytinas vietas.
 3. **Generuoto kodo vykdymas**: Vykdo sugeneruotą kodą, kad gautų realaus laiko informaciją.
-4. **Kelionės plano generavimas**: Apibendrina gautą informaciją į suasmenintą kelionės planą.
-5. **Koregavimas pagal atsiliepimus**: Gaukia vartotojo atsiliepimus ir prireikus generuoja kodą iš naujo, kad patobulintų rezultatus.
+4. **Maršruto sudarymas**: Apjungia gautus duomenis į personalizuotą kelionės planą.
+5. **Rezultatų patikslinimas pagal atsiliepimus**: Priima vartotojo atsiliepimus ir prireikus iš naujo generuoja kodą, kad patobulintų rezultatus.
 
-#### Žingsnis po žingsnio įgyvendinimas
+#### Įgyvendinimas žingsnis po žingsnio
 
 1. **Vartotojo pageidavimų rinkimas**
 
@@ -1017,11 +1021,11 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
            self.user_preferences = preferences
    ```
 
-2. **Kodo generavimas duomenų paieškai**
+2. **Kodo generavimas duomenims gauti**
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Pavyzdys: sugeneruoti kodą skrydžių paieškai pagal vartotojo pageidavimus
+       # Pavyzdys: Generuoti kodą skrydžių paieškai pagal naudotojo pageidavimus
        code = f"""
        def search_flights():
            import requests
@@ -1031,7 +1035,7 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Pavyzdys: sugeneruoti kodą viešbučių paieškai
+       # Pavyzdys: Generuoti kodą viešbučių paieškai
        code = f"""
        def search_hotels():
            import requests
@@ -1045,7 +1049,7 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
 
    ```python
    def execute_code(code):
-       # Vykdykite sugeneruotą kodą naudojant exec
+       # Vykdykite sugeneruotą kodą naudodami exec
        exec(code)
        result = locals()
        return result
@@ -1069,7 +1073,7 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
    print("Hotel Options:", hotels)
    ```
 
-4. **Kelionės plano generavimas**
+4. **Maršruto sudarymas**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1085,11 +1089,11 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Koregavimas pagal atsiliepimus**
+5. **Rezultatų patikslinimas pagal atsiliepimus**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Koreguokite nuostatas pagal vartotojo atsiliepimus
+       # Koreguoti nustatymus pagal vartotojo atsiliepimus
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1099,7 +1103,7 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Atkurkite ir vykdykite kodą su atnaujintomis nuostatomis
+   # Atkurti ir vykdyti kodą su atnaujintais nustatymais
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1110,21 +1114,21 @@ Kodo generavimo agentai naudoja generatyvius DI modelius, kad rašytų ir vykdyt
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Aplinkos suvokimo ir samprotavimo panaudojimas
+### Panaudojant aplinkos suvokimą ir samprotavimą
 
-Remiantis lentelės schema, galima pagerinti užklausų generavimo procesą, įtraukiant aplinkos suvokimą ir samprotavimą.
+Atsižvelgiant į lentelės schemą, tikrai galima pagerinti užklausų generavimo procesą, pasitelkiant aplinkos suvokimą ir samprotavimą.
 
 Štai pavyzdys, kaip tai galima atlikti:
 
-1. **Schemos supratimas**: Sistema supras lentelės schemą ir naudos šią informaciją užklausų generavimui pagrįsti.
-2. **Koregavimas pagal atsiliepimus**: Sistema koreguos vartotojo pageidavimus pagal atsiliepimus ir spręs, kurie schemos laukai turi būti atnaujinti.
-3. **Užklausų generavimas ir vykdymas**: Sistema generuos ir vykdys užklausas, kad gautų atnaujintus skrydžių ir viešbučių duomenis pagal naujus pageidavimus.
+1. **Schemų supratimas**: Sistema supranta lentelės schemą ir naudoja šią informaciją užklausų generavimo pagrindui.
+2. **Rezultatų patikslinimas pagal atsiliepimus**: Sistema koreguoja vartotojo pageidavimus pagal atsiliepimus ir logiškai apsvarsto, kurios lentelės sritys turi būti atnaujintos.
+3. **Užklausų generavimas ir vykdymas**: Sistema generuoja ir vykdo užklausas, kad gautų atnaujintus skrydžių ir viešbučių duomenis pagal naujus pageidavimus.
 
-Čia yra atnaujinto Python kodo pavyzdys, kuriame įgyvendintos šios koncepcijos:
+Žemiau pateiktas atnaujinto Python kodo pavyzdys, kuris taiko šias koncepcijas:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
-    # Pritaikyti nuostatas pagal vartotojo atsiliepimus
+    # Koreguoti nuostatas pagal vartotojo atsiliepimus
     if "liked" in feedback:
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
@@ -1136,7 +1140,7 @@ def adjust_based_on_feedback(feedback, preferences, schema):
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Pasirinktinis logikos kodas, skirtas koreguoti nuostatas pagal schemą ir atsiliepimus
+    # Vietinė logika nuostatų koregavimui pagal schemą ir atsiliepimus
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1152,25 +1156,25 @@ def generate_code_to_fetch_hotels(preferences):
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # Simuliuoti kodo vykdymą ir grąžinti imituotus duomenis
+    # Simuliuoti kodo vykdymą ir grąžinti pavyzdinius duomenis
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Generuoti kelionės maršrutą pagal skrydžius, viešbučius ir lankytinas vietas
+    # Sugeneruoti maršrutą pagal skrydžius, viešbučius ir lankytinas vietas
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
-# Schemos pavyzdys
+# Pavyzdinė schema
 schema = {
     "favorites": {"positive_adjustment": "increase", "negative_adjustment": "decrease", "default": "neutral"},
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Naudojimo pavyzdys
+# Pavyzdinis naudojimas
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Iš naujo sugeneruoti ir vykdyti kodą su atnaujintomis nuostatomis
+# Perkurti ir vykdyti kodą su atnaujintomis nuostatomis
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1181,53 +1185,53 @@ updated_itinerary = generate_itinerary(updated_flights, updated_hotels, feedback
 print("Updated Itinerary:", updated_itinerary)
 ```
 
-#### Paaiškinimas – Rezervavimas pagal atsiliepimus
+#### Paaiškinimas – užsakymas pagal atsiliepimus
 
-1. **Schemos suvokimas**: Žodynas `schema` apibrėžia, kaip reikia koreguoti pageidavimus pagal atsiliepimus. Jame yra laukeliai kaip `favorites` ir `avoid` su atitinkamais koregavimais.
-2. **Pageidavimų koregavimas (`adjust_based_on_feedback` metodas)**: Šis metodas koreguoja pageidavimus pagal vartotojo atsiliepimus ir schemą.
-3. **Koregavimas pagal aplinką (`adjust_based_on_environment` metodas)**: Šis metodas pritaiko koregavimus pagal schemą ir atsiliepimus.
-4. **Užklausų generavimas ir vykdymas**: Sistema generuoja kodą atnaujintiems skrydžių ir viešbučių duomenims gauti pagal pakoreguotus pageidavimus ir simuliuoja šių užklausų vykdymą.
-5. **Kelionės plano generavimas**: Sistema kuria atnaujintą kelionės planą pagal naujus skrydžių, viešbučių ir lankytinų vietų duomenis.
+1. **Schemų suvokimas**: `schema` žodynas apibrėžia, kaip pageidavimai turėtų būti koreguojami pagal atsiliepimus. Jame yra laukai, tokie kaip `favorites` ir `avoid`, su atitinkamomis korekcijomis.
+2. **Pageidavimų koregavimas (`adjust_based_on_feedback` metodas)**: Šis metodas keičia pageidavimus pagal vartotojo atsiliepimus ir schemą.
+3. **Aplinkos pagrindu atliekami koregavimai (`adjust_based_on_environment` metodas)**: Šis metodas koreguoja pakeitimus pagal schemą ir atsiliepimus.
+4. **Užklausų generavimas ir vykdymas**: Sistema generuoja kodą, kad gautų atnaujintus skrydžių ir viešbučių duomenis pagal koreguotus pageidavimus ir imituoja šių užklausų vykdymą.
+5. **Maršruto generavimas**: Sistema sudaro atnaujintą kelionės maršrutą remdamasi naujais skrydžių, viešbučių ir lankytinų vietų duomenimis.
 
-Padarius sistemą aplinkos suprantančią ir samprotuojančią remiantis schema, galima generuoti tikslesnes ir aktualias užklausas, kas lemia geresnes kelionių rekomendacijas ir suasmenintą vartotojo patirtį.
+Sistemai suteikus galimybę suvokti aplinką ir samprotauti pagal schemą, ji gali generuoti tikslesnes ir svarbesnes užklausas, kas veda prie geresnių kelionių rekomendacijų ir labiau suasmenintos vartotojo patirties.
 
-### SQL naudojimas kaip Retrieval-Augmented Generation (RAG) technika
+### SQL kaip papildymo duomenų gavimų generavimo (RAG) metodas
 
-SQL (Structured Query Language) yra galingas įrankis duomenų bazių sąveikai. Naudojamas kaip RAG dalis, SQL leidžia gauti aktualius duomenis iš duomenų bazių, kurie naudojami informuoti ir generuoti atsakymus ar veiksmus DI agentams. Pažiūrėkime, kaip SQL gali būti pritaikytas kaip RAG kelionių agento kontekste.
+SQL (struktūruotų užklausų kalba) yra galingas įrankis darbui su duomenų bazėmis. Naudojant ją kaip dalį papildymo duomenų gavimų generavimo (RAG) požiūrio, SQL gali gauti svarbią informaciją iš duomenų bazių, kuri leistų DI agentams kurti ir vykdyti atsakymus ar veiksmus. Pažiūrėkime, kaip SQL gali būti panaudotas kaip RAG metodas kelionių agento kontekste.
 
 #### Pagrindinės sąvokos
 
 1. **Duomenų bazės sąveika**:
-   - SQL naudojamas duomenų bazių užklausoms, informacijai gauti ir duomenų manipuliavimui.
-   - Pavyzdys: gauti skrydžių duomenis, viešbučių informaciją ir lankytinas vietas iš kelionių duomenų bazės.
+   - SQL naudojama duomenų bazėms užklausti, gauti svarbią informaciją ir manipuliuoti duomenimis.
+   - Pavyzdys: skrydžių detalių, viešbučių ir lankytinų vietų gavimas iš kelionių duomenų bazės.
 
 2. **Integracija su RAG**:
-   - SQL užklausos generuojamos pagal vartotojo įvestį ir pageidavimus.
-   - Gautas duomenis naudojama suasmenintų rekomendacijų ar veiksmų kūrimui.
+   - SQL užklausos yra generuojamos atsižvelgiant į vartotojo įvestį ir pageidavimus.
+   - Gautus duomenis vėliau naudoja personalizuotoms rekomendacijoms ar veiksmams generuoti.
 
 3. **Dinaminis užklausų generavimas**:
    - DI agentas generuoja dinamiškas SQL užklausas pagal kontekstą ir vartotojo poreikius.
-   - Pavyzdys: pritaikyti SQL užklausas rezultatų filtravimui pagal biudžetą, datas ir pomėgius.
+   - Pavyzdys: SQL užklausų pritaikymas rezultatų filtravimui pagal biudžetą, datas ir pomėgius.
 
-#### Panaudojimai
+#### Taikymai
 
-- **Automatinis kodo generavimas**: Kurti kodo fragmentus specifinėms užduotims.
-- **SQL kaip RAG**: Naudoti SQL užklausas duomenų manipuliavimui.
-- **Problemų sprendimas**: Kurti ir vykdyti kodą problemų sprendimui.
+- **Automatizuotas kodo generavimas**: Generuoti kodo fragmentus konkrečioms užduotims.
+- **SQL kaip RAG metodas**: Naudoti SQL užklausas duomenų manipuliavimui.
+- **Problemų sprendimas**: Kurti ir vykdyti kodą problemoms spręsti.
 
 **Pavyzdys**:
-duomenų analizės agentas:
+Duomenų analizės agentas:
 
-1. **Užduotis**: Analizuoti duomenų rinkinį tendencijoms rasti.
+1. **Užduotis**: Išanalizuoti duomenų rinkinį, kad nustatytų tendencijas.
 2. **Žingsniai**:
    - Įkelti duomenų rinkinį.
    - Generuoti SQL užklausas duomenų filtravimui.
    - Vykdyti užklausas ir gauti rezultatus.
    - Generuoti vizualizacijas ir įžvalgas.
-3. **Ištekliai**: Prieiga prie duomenų rinkinio, SQL gebėjimai.
-4. **Patirtis**: Naudoti ankstesnius rezultatus ateities analizės gerinimui.
+3. **Ištekliai**: Prieiga prie duomenų rinkinio, SQL galimybės.
+4. **Patirtis**: Naudoti ankstesnių rezultatų patirtį, kad pagerintų būsimų analizių tikslumą.
 
-#### Praktinis pavyzdys: SQL naudojimas kelionių agento kontekste
+#### Praktinis pavyzdys: SQL naudojimas kelionių agente
 
 1. **Vartotojo pageidavimų rinkimas**
 
@@ -1317,27 +1321,27 @@ duomenų analizės agentas:
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Naudodami SQL kaip Retrieval-Augmented Generation (RAG) technikos dalį, DI agentai kaip „Kelionių agentas“ gali dinamiškai gauti ir naudoti aktualius duomenis, kad pateiktų tikslias ir suasmenintas rekomendacijas.
+Naudodamiesi SQL kaip dalimi papildymo duomenų gavimų generavimo (RAG) metodo, DI agentai, tokie kaip Kelionių agentas, gali dinamiškai gauti ir naudoti aktualius duomenis, kad suteiktų tikslias ir suasmenintas rekomendacijas.
 
 ### Metakognicijos pavyzdys
 
-Norėdami parodyti metakognicijos įgyvendinimą, sukursime paprastą agentą, kuris *atsispindi savo sprendimų priėmimo procese* spręsdamas problemą. Šiame pavyzdyje sukūrime sistemą, kur agentas bando optimizuoti viešbučio pasirinkimą, bet vėliau įvertina savo samprotavimą ir koreguoja strategiją, jei padaro klaidų ar pasirenka mažiau tinkamus variantus.
+Norėdami parodyti metakognicijos įgyvendinimą, sukursime paprastą agentą, kuris *atsispindi savo sprendimų priėmimo procese* spręsdamas problemą. Šiame pavyzdyje sukursime sistemą, kur agentas bando optimizuoti viešbučio pasirinkimą, bet vėliau įvertina savo samprotavimą ir koreguoja strategiją, kai padaro klaidų ar neoptimalų sprendimą.
 
-Tai simuliuosime paprastu pavyzdžiu, kai agentas vykdo viešbučių atranką pagal kainos ir kokybės derinį, bet jis „atsižvelgia“ į savo sprendimus ir atitinkamai juos koreguoja.
+Tai simuliuosime paprastu pavyzdžiu, kuriame agentas renkasi viešbučius pagal kainos ir kokybės derinį, tačiau jis „atsispindi“ savo sprendimuose ir atitinkamai koreguoja savo elgesį.
 
 #### Kaip tai iliustruoja metakogniciją:
 
-1. **Pradinis sprendimas**: Agentas pasirinkti pigiausią viešbutį, nesuprasdamas kokybės įtakos.
-2. **Refleksija ir vertinimas**: Po pradinio pasirinkimo agentas patikrins, ar viešbutis buvo „blogas“ pasirinkimas pagal vartotojo atsiliepimus. Jei kokybė pasirodo per žema, agentas atsižvelgia į savo samprotavimą.
-3. **Strategijos koregavimas**: Agentas keičia strategiją remdamasis refleksija ir pereina nuo „pigiausio“ prie „aukščiausios kokybės“, taip gerindamas sprendimų priėmimą ateityje.
+1. **Pradinis sprendimas**: Agentas pasirinks pigiausią viešbutį, nesuprasdamas kokybės įtakos.
+2. **Atsispindėjimas ir vertinimas**: Po pirminio pasirinkimo agentas patikrina, ar viešbutis buvo blogas pasirinkimas pagal vartotojo atsiliepimus. Jei kokybė buvo per žema, jis reflektuoja savo samprotavimus.
+3. **Strategijos koregavimas**: Agentas koreguoja savo strategiją pagal refleksiją ir pereina nuo „pigiausias“ prie „aukščiausia kokybė“, taip gerindamas sprendimų priėmimo procesą ateityje.
 
 Štai pavyzdys:
 
 ```python
 class HotelRecommendationAgent:
     def __init__(self):
-        self.previous_choices = []  # Saugo anksčiau pasirinktas viešnagės vietas
-        self.corrected_choices = []  # Saugo patikslintus pasirinkimus
+        self.previous_choices = []  # Saugo anksčiau pasirinktus viešbučius
+        self.corrected_choices = []  # Saugo pataisytus pasirinkimus
         self.recommendation_strategies = ['cheapest', 'highest_quality']  # Galimos strategijos
 
     def recommend_hotel(self, hotels, strategy):
@@ -1363,7 +1367,7 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Tarkime, kad turime vartotojo atsiliepimą, kuris nurodo, ar paskutinis pasirinkimas buvo geras ar ne
+        # Tarkime, turime vartotojo atsiliepimą, kuris mums sako, ar paskutinis pasirinkimas buvo geras ar ne
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
@@ -1394,46 +1398,46 @@ hotels = [
 # Sukuria agentą
 agent = HotelRecommendationAgent()
 
-# 1 žingsnis: Agentas rekomenduoja viešbutį naudodamas „pigiausios“ strategiją
+# 1 žingsnis: agentas rekomenduoja viešbutį, naudodamas „pigesnės“ strategiją
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# 2 žingsnis: Agentas apmąsto pasirinkimą ir prireikus koreguoja strategiją
+# 2 žingsnis: agentas apmąsto pasirinkimą ir prireikus koreguoja strategiją
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# 3 žingsnis: Agentas vėl rekomenduoja, šį kartą naudodamas pakoreguotą strategiją
+# 3 žingsnis: agentas vėl rekomenduoja, šį kartą naudodamas pakoreguotą strategiją
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Agentų metakognicijos gebėjimai
+#### Agento metakognicijos gebėjimai
 
-Svarbiausia yra agento gebėjimas:
-- Vertinti ankstesnius sprendimus ir sprendimų priėmimo procesą.
-- Koreguoti strategiją remdamasis šia refleksija, tai yra metakognicijos veikimas.
+Svarbiausia šiame pavyzdyje yra agente gebėjimas:
+- Įvertinti ankstesnius sprendimus ir sprendimų priėmimo procesą.
+- Koreguoti strategiją remiantis tuo atsispindėjimu, tai yra metakognicija veiksme.
 
-Tai yra paprasta metakognicijos forma, kai sistema gali koreguoti savo samprotavimo procesą remdamasi vidiniu grįžtamuoju ryšiu.
+Tai paprasta metakognicijos forma, kai sistema gali koreguoti savo samprotavimų procesą gavus vidinį atsiliepimą.
 
 ### Išvados
 
-Metakognicija yra galingas įrankis, galintis žymiai pagerinti DI agentų galimybes. Įtraukdami metakognityvinius procesus galite kurti agentus, kurie yra išmanesni, prisitaikantys ir efektyvūs. Naudokitės papildomais ištekliais, kad gilintumėtės į įdomų metakognicijos pasaulį DI agentų kontekste.
+Metakognicija yra galingas įrankis, kuris gali žymiai pagerinti DI agentų galimybes. Įtraukdami metakognicinius procesus, galite kurti protingesnius, prisitaikančius ir efektyvesnius agentus. Naudokitės papildomais ištekliais, kad toliau tyrinėtumėte įdomų metakognicijos pasaulį DI agentuose.
 
-### Turite daugiau klausimų apie metakognicijos dizaino modelį?
+### Ar turite daugiau klausimų apie metakognicijos dizaino modelį?
 
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), susitikite su kitais mokiniais, dalyvaukite biuro valandose ir gaukite atsakymus į savo klausimus apie DI agentus.
+Prisijunkite prie [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), susitikite su kitais besimokančiais, dalyvaukite konsultacijose ir gaukite atsakymus į savo klausimus apie DI agentus.
 
-## Ankstesnė pamoka
+## Ankstesnis pamokas
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Daugiagentinis dizaino modelis](../08-multi-agent/README.md)
 
-## Kitoji pamoka
+## Kitas pamoka
 
-[AI Agents in Production](../10-ai-agents-production/README.md)
+[DI agentai gamyboje](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsisakymas nuo atsakomybės**:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatizuotos vertimo priemonės gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame pasitelkti profesionalų žmogaus vertimą. Neatsakome už bet kokius nesusipratimus ar neteisingą interpretavimą, kilusius dėl šio vertimo naudojimo.
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

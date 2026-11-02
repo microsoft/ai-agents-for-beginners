@@ -1,145 +1,148 @@
-# 🎨 Wzorce projektowe agentów z modelami GitHub (.NET)
+# 🎨 Wzorce Projektowe Agentów z Azure OpenAI (Responses API) (.NET)
 
-## 📋 Cele nauki
+## 📋 Cele Nauki
 
-Ten przykład pokazuje wzorce projektowe na poziomie przedsiębiorstwa do budowy inteligentnych agentów przy użyciu Microsoft Agent Framework w .NET z integracją modeli GitHub. Nauczysz się profesjonalnych wzorców i podejść architektonicznych, które sprawiają, że agenci są gotowi do produkcji, łatwi w utrzymaniu i skalowalni.
+Ten przykład demonstruje wzorce projektowe klasy korporacyjnej do budowy inteligentnych agentów z użyciem Microsoft Agent Framework w .NET z integracją Azure OpenAI (Responses API). Nauczysz się profesjonalnych wzorców i podejść architektonicznych, które sprawiają, że agenci są gotowi do produkcji, łatwi w utrzymaniu i skalowalni.
 
-### Wzorce projektowe na poziomie przedsiębiorstwa
+### Wzorce korporacyjne
 
-- 🏭 **Wzorzec fabryki**: Standaryzowane tworzenie agentów z użyciem wstrzykiwania zależności
-- 🔧 **Wzorzec budowniczego**: Płynna konfiguracja i ustawienia agenta
-- 🧵 **Wzorce bezpieczne dla wątków**: Zarządzanie równoczesnymi rozmowami
-- 📋 **Wzorzec repozytorium**: Zorganizowane zarządzanie narzędziami i możliwościami
+- 🏭 **Wzorzec Fabryki**: Standaryzowane tworzenie agentów z wstrzykiwaniem zależności
+- 🔧 **Wzorzec Budowniczego**: Fluent konfiguracja i ustawienie agenta
+- 🧵 **Wzorce Wątkowo-Bezpieczne**: Równoległe zarządzanie rozmowami
+- 📋 **Wzorzec Repozytorium**: Zorganizowane zarządzanie narzędziami i możliwościami
 
-## 🎯 Korzyści architektoniczne specyficzne dla .NET
+## 🎯 Korzyści Architektoniczne Specyficzne dla .NET
 
-### Funkcje na poziomie przedsiębiorstwa
+### Funkcje korporacyjne
 
-- **Silne typowanie**: Walidacja w czasie kompilacji i wsparcie IntelliSense
+- **Silne Typowanie**: Walidacja podczas kompilacji i wsparcie IntelliSense
 - **Wstrzykiwanie zależności**: Wbudowana integracja kontenera DI
 - **Zarządzanie konfiguracją**: Wzorce IConfiguration i Options
-- **Async/Await**: Pierwszorzędne wsparcie dla programowania asynchronicznego
+- **Async/Await**: Wsparcie programowania asynchronicznego pierwszej klasy
 
 ### Wzorce gotowe do produkcji
 
-- **Integracja logowania**: Wsparcie ILogger i strukturalnego logowania
-- **Kontrole zdrowia**: Wbudowane monitorowanie i diagnostyka
+- **Integracja Logowania**: ILogger i strukturalne wsparcie logowania
+- **Kontrole zdrowia**: Wbudowany monitoring i diagnostyka
 - **Walidacja konfiguracji**: Silne typowanie z adnotacjami danych
 - **Obsługa błędów**: Strukturalne zarządzanie wyjątkami
 
-## 🔧 Architektura techniczna
+## 🔧 Architektura Techniczna
 
-### Kluczowe komponenty .NET
+### Podstawowe komponenty .NET
 
 - **Microsoft.Extensions.AI**: Ujednolicone abstrakcje usług AI
-- **Microsoft.Agents.AI**: Ramy orkiestracji agentów na poziomie przedsiębiorstwa
-- **Integracja modeli GitHub**: Wzorce klienta API o wysokiej wydajności
-- **System konfiguracji**: Integracja appsettings.json i środowiska
+- **Microsoft.Agents.AI**: Korporacyjny framework do orkiestracji agentów
+- **Azure OpenAI (Responses API)**: Wzorce klienta API wysokiej wydajności
+- **System konfiguracji**: appsettings.json i integracja środowiskowa
 
 ### Implementacja wzorców projektowych
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[Kolekcja usług IServiceCollection] --> B[Konstruktor agenta]
+    B --> C[Konfiguracja]
+    C --> D[Rejestr narzędzi]
+    D --> E[Agent AI]
 ```
 
-## 🏗️ Wzorce na poziomie przedsiębiorstwa
+## 🏗️ Prezentowane wzorce korporacyjne
 
 ### 1. **Wzorce kreacyjne**
 
-- **Fabryka agentów**: Centralne tworzenie agentów z jednolitą konfiguracją
-- **Wzorzec budowniczego**: Płynne API do złożonej konfiguracji agentów
-- **Wzorzec singletona**: Zarządzanie wspólnymi zasobami i konfiguracją
-- **Wstrzykiwanie zależności**: Luźne powiązania i możliwość testowania
+- **Fabryka Agentów**: Centralne tworzenie agentów z jednolitą konfiguracją
+- **Wzorzec Budowniczego**: Fluent API do złożonej konfiguracji agenta
+- **Wzorzec Singleton**: Współdzielone zasoby i zarządzanie konfiguracją
+- **Wstrzykiwanie zależności**: Luźne powiązanie i testowalność
 
 ### 2. **Wzorce behawioralne**
 
-- **Wzorzec strategii**: Wymienne strategie wykonywania narzędzi
-- **Wzorzec polecenia**: Enkapsulowane operacje agenta z funkcją cofania/powtarzania
-- **Wzorzec obserwatora**: Zarządzanie cyklem życia agenta oparte na zdarzeniach
-- **Metoda szablonowa**: Standaryzowane przepływy wykonywania agenta
+- **Wzorzec Strategii**: Wymienne strategie wykonywania narzędzi
+- **Wzorzec Polecenia**: Zamknięte operacje agenta z undo/redo
+- **Wzorzec Obserwatora**: Zarządzanie cyklem życia agenta sterowane zdarzeniami
+- **Metoda Szablonowa**: Standaryzowane przepływy wykonania agenta
 
 ### 3. **Wzorce strukturalne**
 
-- **Wzorzec adaptera**: Warstwa integracji API modeli GitHub
-- **Wzorzec dekoratora**: Rozszerzenie możliwości agenta
-- **Wzorzec fasady**: Uproszczone interfejsy interakcji z agentem
-- **Wzorzec proxy**: Lazy loading i caching dla wydajności
+- **Wzorzec Adaptera**: Warstwa integracji Azure OpenAI (Responses API)
+- **Wzorzec Dekoratora**: Rozszerzanie możliwości agenta
+- **Wzorzec Fasady**: Uproszczone interfejsy interakcji z agentem
+- **Wzorzec Proksy**: Lenie ładowanie i buforowanie dla wydajności
 
 ## 📚 Zasady projektowe .NET
 
 ### Zasady SOLID
 
-- **Jedna odpowiedzialność**: Każdy komponent ma jedno jasne przeznaczenie
+- **Jedna odpowiedzialność**: Każdy komponent ma jedną jasną rolę
 - **Otwarte/Zamknięte**: Rozszerzalne bez modyfikacji
-- **Podstawienie Liskova**: Implementacje narzędzi oparte na interfejsach
-- **Segregacja interfejsów**: Skupione, spójne interfejsy
-- **Odwrócenie zależności**: Zależność od abstrakcji, nie konkretów
+- **Podstawienie Liskov**: Implementacje narzędzi oparte na interfejsach
+- **Segregacja interfejsów**: Skoncentrowane, spójne interfejsy
+- **Odwrócenie zależności**: Zależność od abstrakcji, nie od konkretnych klas
 
-### Czysta architektura
+### Czysta Architektura
 
-- **Warstwa domeny**: Podstawowe abstrakcje agenta i narzędzi
+- **Warstwa domenowa**: Podstawowe abstrakcje agentów i narzędzi
 - **Warstwa aplikacji**: Orkiestracja agentów i przepływy pracy
-- **Warstwa infrastruktury**: Integracja modeli GitHub i usługi zewnętrzne
-- **Warstwa prezentacji**: Interakcja z użytkownikiem i formatowanie odpowiedzi
+- **Warstwa infrastruktury**: Integracja Azure OpenAI (Responses API) i usługi zewnętrzne
+- **Warstwa prezentacji**: Interakcja użytkownika i formatowanie odpowiedzi
 
-## 🔒 Rozważania na poziomie przedsiębiorstwa
+## 🔒 Aspekty korporacyjne
 
 ### Bezpieczeństwo
 
 - **Zarządzanie poświadczeniami**: Bezpieczne obsługiwanie kluczy API z IConfiguration
-- **Walidacja wejścia**: Silne typowanie i walidacja z adnotacjami danych
+- **Walidacja wejścia**: Silne typowanie i walidacja adnotacji danych
 - **Sanityzacja wyjścia**: Bezpieczne przetwarzanie i filtrowanie odpowiedzi
-- **Logowanie audytowe**: Kompleksowe śledzenie operacji
+- **Audyt logów**: Kompleksowe śledzenie operacji
 
 ### Wydajność
 
 - **Wzorce asynchroniczne**: Operacje I/O bez blokowania
-- **Pula połączeń**: Efektywne zarządzanie klientem HTTP
-- **Caching**: Buforowanie odpowiedzi dla poprawy wydajności
-- **Zarządzanie zasobami**: Odpowiednie zwalnianie i czyszczenie zasobów
+- **Pule połączeń**: Efektywne zarządzanie klientem HTTP
+- **Buforowanie**: Buforowanie odpowiedzi dla poprawy wydajności
+- **Zarządzanie zasobami**: Właściwe wzorce zwalniania i czyszczenia
 
 ### Skalowalność
 
-- **Bezpieczeństwo wątków**: Wsparcie dla równoczesnego wykonywania agentów
-- **Pula zasobów**: Efektywne wykorzystanie zasobów
-- **Zarządzanie obciążeniem**: Ograniczanie szybkości i obsługa przeciążenia
-- **Monitorowanie**: Metryki wydajności i kontrole zdrowia
+- **Wątkowość**: Wsparcie współbieżnego wykonywania agentów
+- **Pule zasobów**: Efektywne wykorzystanie zasobów
+- **Zarządzanie obciążeniem**: Ograniczanie prędkości i radzenie sobie z przeciążeniem
+- **Monitoring**: Metryki wydajności i kontrole stanu zdrowia
 
-## 🚀 Wdrożenie produkcyjne
+## 🚀 Wdrożenie do produkcji
 
 - **Zarządzanie konfiguracją**: Ustawienia specyficzne dla środowiska
 - **Strategia logowania**: Strukturalne logowanie z identyfikatorami korelacji
-- **Obsługa błędów**: Globalna obsługa wyjątków z odpowiednim odzyskiwaniem
-- **Monitorowanie**: Application Insights i liczniki wydajności
-- **Testowanie**: Testy jednostkowe, integracyjne i wzorce testowania obciążenia
+- **Obsługa błędów**: Globalna obsługa wyjątków z odpowiednią rekonwalescencją
+- **Monitoring**: Application Insights i liczniki wydajności
+- **Testowanie**: Testy jednostkowe, integracyjne i wzorce testów obciążeniowych
 
-Gotowy, aby budować inteligentnych agentów na poziomie przedsiębiorstwa z .NET? Zbudujmy coś solidnego! 🏢✨
+Gotowy, aby budować inteligentnych agentów klasy korporacyjnej z .NET? Stwórzmy coś solidnego! 🏢✨
 
-## 🚀 Pierwsze kroki
+## 🚀 Rozpoczęcie pracy
 
 ### Wymagania wstępne
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) lub nowszy
-- [Token dostępu do API modeli GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) lub wyższy
+- Subskrypcja [Azure](https://azure.microsoft.com/free/) z zasobem Azure OpenAI i wdrożeniem modelu
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — zaloguj się za pomocą `az login`
 
 ### Wymagane zmienne środowiskowe
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+# Następnie zaloguj się, aby AzureCliCredential mógł pobrać token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+# Następnie zaloguj się, aby AzureCliCredential mógł uzyskać token
+az login
 ```
 
 ### Przykładowy kod
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Lub używając dotnet CLI:
+Lub za pomocą CLI dotnet:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Zobacz [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) dla pełnego kodu.
+Zobacz [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) po pełny kod.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+**Zastrzeżenie**:
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w jego języku źródłowym należy uznawać za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

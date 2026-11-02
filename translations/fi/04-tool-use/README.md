@@ -1,146 +1,144 @@
-[![Miten suunnitella hyviä AI-agentteja](../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Miten Suunnitella Hyviä AI-agentteja](../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Napsauta yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
-# Työkalujen käyttö -suunnittelumalli
+# Työkalun Käyttö -suunnittelumalli
 
-Työkalut ovat mielenkiintoisia, koska ne antavat AI-agenteille laajemman kyvykkyysalueen. Sen sijaan, että agentilla olisi rajallinen joukko toimintoja, joita se voi suorittaa, työkalun lisääminen mahdollistaa agentin suorittaa laajan valikoiman toimintoja. Tässä luvussa tarkastelemme Työkalujen käytön suunnittelumallia, joka kuvaa, miten AI-agentit voivat käyttää tiettyjä työkaluja saavuttaakseen tavoitteensa.
+Työkalut ovat kiinnostavia, koska ne antavat tekoälyagenteille laajemman kyvykkyysvalikoiman. Sen sijaan, että agentilla olisi rajallinen joukko toimintoja, joita se voi suorittaa, lisäämällä työkalun agentti voi nyt suorittaa laajan valikoiman toimintoja. Tässä luvussa tarkastelemme työkalun käyttö -suunnittelumallia, joka kuvaa, miten tekoälyagentit voivat käyttää tiettyjä työkaluja saavuttaakseen tavoitteensa.
 
 ## Johdanto
 
 Tässä oppitunnissa pyrimme vastaamaan seuraaviin kysymyksiin:
 
-- Mikä on työkalujen käyttö -suunnittelumalli?
-- Millaisiin käyttötapauksiin sitä voi soveltaa?
-- Mitkä ovat suunnittelumallin toteuttamiseen tarvittavat osat/rakennuspalikat?
-- Mitä erityisiä huomioita liittyy Työkalujen käytön suunnittelumallin käyttämiseen luotettavien AI-agenttien rakentamisessa?
+- Mikä on työkalun käyttö -suunnittelumalli?
+- Mihin käyttötapauksiin sitä voidaan soveltaa?
+- Mitä elementtejä/rakennuspalikoita tarvitaan suunnittelumallin toteuttamiseen?
+- Mitä erityishuomioita liittyy työkalun käyttö -suunnittelumallin käyttöön luotettavien tekoälyagenttien rakentamisessa?
 
 ## Oppimistavoitteet
 
-Oppitunnin suorittamisen jälkeen pystyt:
+Tämän oppitunnin suorittamisen jälkeen osaat:
 
-- Määrittelemään Työkalujen käyttö -suunnittelumallin ja sen tarkoituksen.
-- Tunnistamaan käyttötapaukset, joissa Työkalujen käyttö -suunnittelumalli soveltuu.
-- Ymmärtämään suunnittelumallin avainosat, jotka tarvitaan sen toteuttamiseen.
-- Huomaamaan luotettavuuden varmistamiseen liittyvät näkökohdat tämän suunnittelumallin mukaisissa AI-agenteissa.
+- Määritellä työkalun käyttö -suunnittelumalli ja sen tarkoitus.
+- Tunnistaa käyttötapaukset, joissa työkalun käyttö -suunnittelumallia voidaan soveltaa.
+- Ymmärtää suunnittelumallin toteuttamiseen tarvittavat keskeiset elementit.
+- Tunnistaa luotettavuutta varmistavat näkökohdat tekoälyagenteilla käyttäen tätä suunnittelumallia.
 
-## Mikä on Työkalujen käyttö -suunnittelumalli?
+## Mikä on työkalun käyttö -suunnittelumalli?
 
-**Työkalujen käyttö -suunnittelumalli** keskittyy antamaan LLM-malleille kyvyn olla vuorovaikutuksessa ulkoisten työkalujen kanssa tiettyjen tavoitteiden saavuttamiseksi. Työkalut ovat koodia, jota agentti voi suorittaa toimiakseen. Työkalu voi olla yksinkertainen funktio, kuten laskin, tai kolmannen osapuolen palvelun API-kutsu, kuten osakekurssin haku tai sääennuste. AI-agenttien yhteydessä työkalut on suunniteltu suoritettavaksi agenttien vastauksena **mallin generoimiin funktiokutsuihin**.
+**Työkalun käyttö -suunnittelumalli** keskittyy antamaan LLM-malleille kyvyn olla vuorovaikutuksessa ulkoisten työkalujen kanssa tiettyjen tavoitteiden saavuttamiseksi. Työkalut ovat koodia, jota agentti voi suorittaa toimenpiteiden tekemiseen. Työkalu voi olla yksinkertainen funktio, kuten laskin, tai kolmannen osapuolen palvelun API-kutsu, kuten osakekurssin haku tai sääennuste. Tekoälyagenttien yhteydessä työkalut on suunniteltu suoritettaviksi agenttien toimesta vastauksena **mallin luomiin funktiokutsuihin**.
 
-## Millaisiin käyttötapauksiin sitä voi soveltaa?
+## Mihin käyttötapauksiin sitä voidaan soveltaa?
 
-AI-agentit voivat hyödyntää työkaluja suorittaakseen monimutkaisia tehtäviä, hakeakseen tietoa tai tehdäkseen päätöksiä. Työkalujen käyttö -suunnittelumallia käytetään usein tilanteissa, joissa tarvitaan dynaamista vuorovaikutusta ulkoisten järjestelmien kanssa, kuten tietokantojen, verkkopalveluiden tai kooditulkkien kanssa. Tämä kyky on hyödyllinen monissa käyttötapauksissa, mukaan lukien:
+Tekoälyagentit voivat hyödyntää työkaluja suorittaakseen monimutkaisia tehtäviä, hakeakseen tietoa tai tehdäkseen päätöksiä. Työkalun käyttö -suunnittelumallia käytetään usein tilanteissa, joissa tarvitaan dynaamista vuorovaikutusta ulkoisten järjestelmien kanssa, kuten tietokantojen, verkko palveluiden tai koodintulkintaohjelmien kanssa. Tämä kyky on hyödyllinen useissa eri käyttötapauksissa, kuten:
 
-- **Dynaaminen tiedonhaku:** Agentit voivat kysyä ulkoisia API-rajapintoja tai tietokantoja saadakseen ajankohtaista dataa (esim. SQLite-tietokannasta kysely analyysia varten, osakekurssit tai sää).
-- **Koodin suoritus ja tulkinta:** Agentit voivat suorittaa koodia tai skriptejä ratkaistakseen matemaattisia ongelmia, luodakseen raportteja tai suorittaakseen simulaatioita.
-- **Työnkulkujen automaatio:** Toistuvien tai monivaiheisten työnkulkujen automatisointi integroimalla työkalut kuten tehtäväaikatauluttimet, sähköpostipalvelut tai dataputket.
-- **Asiakastuki:** Agentit voivat olla vuorovaikutuksessa CRM-järjestelmien, tukipyyntöalustojen tai tietokantojen kanssa ratkaistakseen käyttäjän kyselyjä.
-- **Sisällön luonti ja muokkaus:** Agentit voivat hyödyntää työkaluja kuten kieliopin tarkistajia, tekstin tiivistäjiä tai sisällön turvallisuusarvioijia auttaakseen sisällöntuotantotehtävissä.
+- **Dynaaminen tiedonhaku:** Agentit voivat kysyä ulkoisia API-rajapintoja tai tietokantoja saadakseen ajantasaista dataa (esim. SQLite-tietokannan kysely tietoanalyysiin, osakekurssien tai säätietojen haku).
+- **Koodin suoritus ja tulkinta:** Agentit voivat suorittaa koodia tai skriptejä ratkaistakseen matemaattisia ongelmia, luodakseen raporteja tai suorittaakseen simulaatioita.
+- **Työnkulun automaatio:** Toistuvien tai monivaiheisten työnkulkujen automatisointi integroimalla työkaluja kuten tehtäväajastimia, sähköpostipalveluja tai dataputkia.
+- **Asiakastuki:** Agentit voivat olla vuorovaikutuksessa CRM-järjestelmien, lippujärjestelmien tai tietopankkien kanssa käyttäjäkyselyjen ratkaisemiseksi.
+- **Sisällön generointi ja muokkaus:** Agentit voivat hyödyntää työkaluja kuten kielioppitarkistimia, tekstin tiivistelijöitä tai sisältöturvallisuuden arvioijia auttamaan sisällöntuotantotehtävissä.
 
-## Mitkä ovat suunnittelumallin toteutukseen tarvittavat osat/rakennuspalikat?
+## Mitä elementtejä/rakennuspalikoita suunnittelumallin toteuttamisessa tarvitaan?
 
-Nämä rakennuspalikat mahdollistavat AI-agentin suorittaa monenlaisia tehtäviä. Tarkastellaan Työkalujen käyttö -suunnittelumallin toteutukseen tarvittavia keskeisiä osia:
+Nämä rakennuspalikat antavat tekoälyagentille mahdollisuuden suorittaa laajan valikoiman tehtäviä. Tarkastellaan työkalun käyttö -suunnittelumallin toteutuksessa tarvittavia keskeisiä elementtejä:
 
-- **Funktio/Työkaluskeemat**: Tarkat määritelmät käytettävissä olevista työkaluista, mukaan lukien funktion nimi, tarkoitus, vaaditut parametrit ja odotetut tuotokset. Näiden skeemojen avulla LLM ymmärtää, mitkä työkalut ovat käytettävissä ja miten kelvollisia pyyntöjä rakennetaan.
+- **Funktio/Työkaluskeemat:** Tarkat määritelmät käytettävissä olevista työkaluista, mukaan lukien funktion nimi, tarkoitus, vaaditut parametrit ja odotetut tulokset. Nämä skeemat mahdollistavat LLM:n ymmärtämään, mitä työkaluja on saatavilla ja miten muodostaa päteviä pyyntöjä.
 
-- **Funktion suorituslogiikka**: Ohjaa, miten ja milloin työkaluja kutsutaan käyttäjän aikomuksen ja keskustelukontekstin perusteella. Tämä voi sisältää suunnittelijamoduuleja, reititysmekanismeja tai ehtoja, jotka määrittävät työkalun käytön dynaamisesti.
+- **Funktion suorituslogiikka:** Ohjaa, miten ja milloin työkaluja kutsutaan käyttäjän aikomuksen ja keskustelukontekstin perusteella. Tämä voi sisältää suunnittelumoduuleja, reititysmahdollisuuksia tai ehdollisia virtauksia, jotka määräävät työkalun käytön dynaamisesti.
 
-- **Viestien käsittelyjärjestelmä**: Komponentit, jotka hallinnoivat keskustelun kulkua käyttäjän syötteiden, LLM-vastausten, työkalukutsujen ja työkalun tuottamien vastausten välillä.
+- **Viestinkäsittelyjärjestelmä:** Komponentit, jotka hallinnoivat keskustelun kulkua käyttäjän syötteiden, LLM:n vastausten, työkalukutsujen ja työkaluvastausten välillä.
 
-- **Työkalujen integrointikehys**: Infrastruktuuri, joka yhdistää agentin erilaisiin työkaluihin, olivatpa ne yksinkertaisia funktioita tai monimutkaisia ulkoisia palveluja.
+- **Työkalujen integrointikehys:** Infrastruktuuri, joka yhdistää agentin erilaisiin työkaluihin, olipa kyse yksinkertaisista funktioista tai monimutkaisista ulkoisista palveluista.
 
-- **Virheiden käsittely ja validointi**: Mekanismit työkalun suorituksen virhetilanteiden käsittelyyn, parametrien validointiin ja odottamattomien vastausten hallintaan.
+- **Virheiden käsittely ja validointi:** Mekanismit, jotka käsittelevät työkalun suorituksessa tapahtuvat epäonnistumiset, validoivat parametrit ja hallinnoivat odottamattomia vastauksia.
 
-- **Tilanhallinta**: Seuraa keskustelukontekstia, aiempia työkalun käyttökertoja ja pysyviä tietoja, varmistaen johdonmukaisuuden monikertaisen keskustelun aikana.
+- **Tilanhallinta:** Seuraa keskustelukontekstia, aiempia työkalukäyttöjä ja pysyvää dataa varmistaakseen johdonmukaisuuden monivaiheisissa vuorovaikutuksissa.
 
-Seuraavaksi tarkastelemme Funktio/Työkalukutsua tarkemmin.
+Seuraavaksi katsomme funktio-/työkalukutsua tarkemmin.
+ 
+### Funktio-/työkalukutsu
 
-### Funktio/Työkalukutsu
+Funktiokutsu on pääasiallinen tapa, jolla mahdollistamme suurten kielimallien (LLM) vuorovaikutuksen työkalujen kanssa. Näet usein 'funktion' ja 'työkalun' käytettävän vaihtokelpoisesti, koska 'funktiot' (uudelleenkäytettävän koodin palaset) ovat 'työkaluja', joita agentit käyttävät tehtävien suorittamiseen. Jotta funktion koodi voidaan kutsua, LLM:n täytyy vertailla käyttäjän pyyntöä funktion kuvaukseen. Tätä varten LLM:lle lähetetään skeema, joka sisältää kaikkien käytettävissä olevien funktioiden kuvaukset. LLM valitsee sitten tehtävään sopivimman funktion ja palauttaa sen nimen sekä argumentit. Valittu funktio kutsutaan, sen vastaus lähetetään takaisin LLM:lle, joka käyttää tätä tietoa vastatakseen käyttäjän pyyntöön.
 
-Funktiokutsu on ensisijainen tapa, jolla mahdollistamme suurten kielimallien (LLM) vuorovaikutuksen työkalujen kanssa. Usein näet 'Funktio' ja 'Työkalu' käytettävän vaihtokelpoisesti, koska 'funktiot' (uudelleenkäytettävät koodilohkot) ovat 'työkaluja', joita agentit käyttävät tehtävien suorittamiseen. Jotta funktion koodia voidaan kutsua, LLM:n täytyy verrata käyttäjän pyyntöä funktion kuvaukseen. Tätä varten LLM:lle lähetetään skeema, joka sisältää kaikkien käytettävissä olevien funktioiden kuvaukset. LLM valitsee sopivimman funktion tehtävään ja palauttaa sen nimen ja argumentit. Valittu funktio suoritetaan, sen vastaus lähetetään takaisin LLM:lle, joka käyttää tietoa vastatakseen käyttäjän pyyntöön.
+Kehittäjille, jotka haluavat toteuttaa funktiokutsun agenteille, tarvitaan:
 
-Kehittäjien, jotka haluavat toteuttaa funktiokutsun agenteille, tarvitsee:
+1. LLM-malli, joka tukee funktiokutsuja
+2. Skeema, joka sisältää funktioiden kuvaukset
+3. Koodi kaikille kuvattaville funktioille
 
-1. LLM-mallin, joka tukee funktiokutsuja
-2. Skeeman, joka sisältää funktioiden kuvaukset
-3. Koodin jokaiselle kuvatulle funktiolle
-
-Käytetään esimerkkinä nykyisen ajan hakemista kaupungissa:
+Käytetään esimerkkinä ajan saamista jostakin kaupungista:
 
 1. **Alusta LLM, joka tukee funktiokutsuja:**
 
-    Kaikki mallit eivät tue funktiokutsuja, joten on tärkeää tarkistaa, että käyttämäsi LLM tukee tätä. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> tukee funktiokutsuja. Voimme aloittaa alustamalla Azure OpenAI -asiakkaan.
+    Kaikki mallit eivät tue funktiokutsuja, joten on tärkeää varmistaa, että käyttämäsi LLM tukee niitä. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> tukee funktiokutsuja. Voimme aloittaa luomalla OpenAI-asiakkaan Azure OpenAI **Responses API** -rajapintaan (vakaa `/openai/v1/`-päätepiste — ei tarvita `api_version`).
 
     ```python
-    # Alusta Azure OpenAI -asiakas
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
 1. **Luo funktioskeema**:
 
-    Määrittelemme JSON-skeeman, joka sisältää funktion nimen, kuvauksen siitä, mitä funktio tekee, sekä funktioparametrien nimet ja kuvaukset.
-    Tämä skeema annetaan aiemmin luodulle asiakkaalle yhdessä käyttäjän pyynnön kanssa, jossa pyydetään aika San Franciscossa. On tärkeää huomata, että **työkalukutsu** palautetaan, **ei** lopullinen vastaus kysymykseen. Kuten aiemmin mainittiin, LLM palauttaa valitun funktion nimen ja sille annettavat argumentit.
+    Määrittelemme seuraavaksi JSON-skeeman, joka sisältää funktion nimen, kuvauksen siitä, mitä funktio tekee, sekä funktion parametrien nimet ja kuvaukset.
+    Tämä skeema toimitetaan aiemmin luodulle asiakkaalle yhdessä käyttäjän pyynnön kanssa ajan hakemiseksi San Franciscosta. On tärkeää huomata, että **työkalukutsu** on mitä palautetaan, **ei** lopullinen vastaus kysymykseen. Kuten aiemmin mainittiin, LLM palauttaa valitun funktion nimen ja sille annettavat argumentit.
 
     ```python
-    # Toimintokuvaus mallin luettavaksi
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # Alkuperäinen käyttäjän viesti
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # Ensimmäinen API-kutsu: Pyydä mallia käyttämään toimintoa
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Käsittele mallin vastaus
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-1. **Funktiokoodi tehtävän suorittamiseksi**:
+1. **Funktion koodi tehtävän suorittamiseksi:**
 
-    Nyt kun LLM on valinnut, mikä funktio tulee suorittaa, vastaava koodi pitää toteuttaa ja suorittaa.
-    Voimme toteuttaa koodin nykyisen ajan hakemiseksi Pythonissa. Meidän täytyy myös kirjoittaa koodi, joka poimii nimen ja argumentit response_message:stä lopputuloksen saamiseksi.
+    Kun LLM on valinnut suoritettavan funktion, tehtävän suorittava koodi täytyy toteuttaa ja suorittaa.
+    Voimme toteuttaa Pythonilla koodin, jolla saamme nykyisen ajan. Meidän täytyy myös kirjoittaa koodi, joka purkaa nimen ja argumentit response_message-viestistä saadaksemme lopullisen tuloksen.
 
     ```python
       def get_current_time(location):
@@ -162,33 +160,36 @@ Käytetään esimerkkinä nykyisen ajan hakemista kaupungissa:
     ```
 
      ```python
-     # Käsittele funktiokutsut
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Toinen API-kutsu: Hanki lopullinen vastaus mallilta
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -197,89 +198,111 @@ Käytetään esimerkkinä nykyisen ajan hakemista kaupungissa:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Funktiokutsu on useimpien, ellei kaikkien agenttityökalujen käyttöön liittyvien suunnittelumallien ytimessä, mutta sen toteuttaminen alusta asti voi joskus olla haasteellista.
-Kuten opimme [Oppitunnissa 2](../../../02-explore-agentic-frameworks), agenttirungot tarjoavat valmiita rakennuspalikoita työkalujen käyttöön.
+Funktiokutsut ovat useimpien, elleivät kaikkien agenttien työkalukäytön suunnittelun ytimessä, mutta niiden toteutus alusta asti voi joskus olla haastavaa.
+Kuten opimme [Oppitunnissa 2](../../../02-explore-agentic-frameworks), agenttipohjaiset kehykset tarjoavat valmiita rakenteita työkalukäytön toteutukseen.
+ 
+## Työkalun käyttöesimerkkejä agenttipohjaisilla kehyksillä
 
-## Työkalujen käytön esimerkkejä agenttirunkojen kanssa
+Tässä on esimerkkejä siitä, miten voit toteuttaa työkalun käyttö -suunnittelumallin eri agenttipohjaisia kehyksiä käyttäen:
 
-Seuraavassa on esimerkkejä, miten voit toteuttaa Työkalujen käyttö -suunnittelumallin eri agenttirunkoja käyttäen:
+### Microsoft Agent Framework
 
-### Semantic Kernel
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> on avoimen lähdekoodin tekoälykehys tekoälyagenttien rakentamiseen. Se yksinkertaistaa funktiokutsujen käyttöä sallimalla työkalujen määrittelyn Python-funktioina käyttäen `@tool`-koristetta. Kehys hoitaa mallin ja koodisi välisen kommunikoinnin. Se tarjoaa myös valmiita työkaluja, kuten File Searchin ja Code Interpreterin, `FoundryChatClient` kautta.
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> on avoimen lähdekoodin AI-kehys .NET-, Python- ja Java-kehittäjille, jotka työskentelevät suurten kielimallien (LLM) kanssa. Se yksinkertaistaa funktiokutsujen käyttöä kuvaamalla automaattisesti funktiosi ja niiden parametrit mallille <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">sarjoittamisen</a> prosessin kautta. Se myös hoitaa mallin ja koodisi välisen viestinnän edestakaisin. Toinen etu agenttirungon, kuten Semantic Kernel, käytössä on se, että se antaa pääsyn valmiisiin työkaluihin, kuten <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> ja <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
-
-Seuraava kaavio kuvaa funktiokutsuprosessia Semantic Kernelissä:
+Seuraava kaavio havainnollistaa funktiokutsuprosessia Microsoft Agent Frameworkissa:
 
 ![function calling](../../../translated_images/fi/functioncalling-diagram.a84006fc287f6014.webp)
 
-Semantic Kernelissä funktioita/työkaluja kutsutaan <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">liitännäisiksi (Plugins)</a>. Voimme muuttaa aiemmin nähdyn `get_current_time` -funktion liitännäiseksi tekemällä siitä luokan, joka sisältää funktion. Voimme myös tuoda `kernel_function`-koristelijan, joka ottaa vastaan funktion kuvauksen. Kun luot kernelin GetCurrentTimePluginilla, kernel sarjoittaa funktion ja sen parametrit automaattisesti, luoden skeeman LLM:lle lähetettäväksi.
+Microsoft Agent Frameworkissa työkalut määritellään koristelluiksi funktioiksi. Voimme muuntaa edellä näkemämme `get_current_time`-funktion työkaluksi käyttämällä `@tool`-koristetta. Kehys sarjoittaa automaattisesti funktion ja sen parametrit, luoden skeeman LLM:lle lähetettäväksi.
 
 ```python
-from semantic_kernel.functions import kernel_function
+import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+```
+
+#### Työkalut MCP-palvelimelta
+
+Työkalujen ei tarvitse olla koodisi funktioita. Palvelin, joka käyttää Model Context Protocolia (MCP, käsitelty [Oppitunnissa 11](../11-agentic-protocols/README.md)), julkaisee työkalunsa skeemoineen, ja kehys voi ladata ne samalla tavoin kuin sarjoittaa koristellun funktion. `MCPStreamableHTTPTool` yhdistää tällaiseen palvelimeen HTTP:n yli, lukee työkalu skeemat ja tarjoaa ne mallille paikallisten työkalujen rinnalla.
+
+Alla oleva esimerkki käyttää verkon hakupalvelinta, jonka isännöi <a href="https://keenable.ai" target="_blank">Keenable</a>. Sen käyttö on ilmaista ilman tiliä tai API-avainta (pyynnöt rajoitetaan IP-kohtaisesti), joten ainoat tarvittavat todennustiedot ovat mallillesi. Kuten minkä tahansa etätyökalun kanssa, mallin kirjoittamat haut lähetetään tälle palvelimelle.
+
+```python
+from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
     )
-    def get_current_time(location: str = ""):
-        ...
-
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
 ```
 
-```python 
-from semantic_kernel import Kernel
-
-# Luo ydin
-kernel = Kernel()
-
-# Luo laajennusosa
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# Lisää laajennusosa ytimeen
-kernel.add_plugin(get_current_time_plugin)
-```
+Palvelin julkaisee kaksi työkalua, `search_web_pages` ja `fetch_page_content`. Kun kysymys vaatii ajantasaista tietoa, malli kutsuu `search_web_pages`, saa takaisin otsikot, URL-osoitteet ja tekstikatkelmat, ja kirjoittaa niistä vastauksen, sama silmukka kuin edellä olevassa `get_current_time`-esimerkissä.
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> on uudempi agenttirunko, joka on suunniteltu antamaan kehittäjille mahdollisuuden rakentaa, ottaa käyttöön ja skaalata turvallisesti korkealaatuisia ja laajennettavia AI-agentteja ilman tarvetta hallita taustalla olevia laskenta- ja tallennusresursseja. Se on erityisen hyödyllinen yrityssovelluksissa, koska se on täysin hallinnoitu palvelu, jossa on yritystason tietoturva.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> on uudempi agenttipohjainen kehys, joka on suunniteltu antamaan kehittäjille mahdollisuus rakentaa, ottaa käyttöön ja skaalata korkealaatuisia ja laajennettavia tekoälyagentteja turvallisesti ilman, että heidän tarvitsee hallita taustalla olevia laskenta- ja tallennusresursseja. Se on erityisen hyödyllinen yrityssovelluksissa, koska kyseessä on täysin hallinnoitu palvelu yritystason tietoturvalla.
 
-Suoraan LLM-rajapinnan kehittämiseen verrattuna Azure AI Agent Service tarjoaa etuja, kuten:
+Verrattuna suoraan LLM-rajapinnan käyttöön, Microsoft Foundry Agent Service tarjoaa seuraavia etuja:
 
-- Automaattinen työkalujen kutsuminen – ei tarvitse jäsentää työkalukutsua, kutsua työkalua ja käsitellä vastausta; kaikki tapahtuu palvelinpuolella
-- Turvallisesti hallinnoitu data – sen sijaan, että hallitset omaa keskustelutilaa, voit luottaa säikeisiin tallentamaan kaiken tarvitsemasi tiedon
-- Valmiit työkalut – työkalut, joilla voit olla vuorovaikutuksessa tietolähteidesi kanssa, kuten Bing, Azure AI Search ja Azure Functions.
+- Automaattinen työkalukutsu – ei tarvitse jäsentää työkalukutsua, kutsua työkalua tai käsitellä vastausta; kaikki tehdään nyt palvelinpuolella
+- Turvallisesti hallittu data – oman keskustelutilan hallinnan sijaan voit luottaa ketjuihin tallentamaan kaiken tarvittavan tiedon
+- Valmiit työkalut – Työkaluja, joilla voit olla vuorovaikutuksessa tietolähteidesi kanssa, kuten Bing, Azure AI Search ja Azure Functions.
 
-Azure AI Agent Servicen työkalut voidaan jakaa kahteen kategoriaan:
+Microsoft Foundry Agent Servicen työkalut voidaan jakaa kahteen kategoriaan:
 
 1. Tietotyökalut:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing Search -maadoitus</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding Bing-haun avulla</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Tiedostohaku</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Toimintatyökalut:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Function Calling</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
+2. Toimintotyökalut:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funktiokutsu</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Koodintulkkaaja</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI-määritellyt työkalut</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agenttipalvelu antaa mahdollisuuden käyttää näitä työkaluja yhdessä `työkalupakkina`. Se käyttää myös `säikeitä`, jotka pitävät kirjaa tietyn keskustelun viestihistoriasta.
+Agent Service mahdollistaa näiden työkalujen käytön yhdessä yhtenä `toolset`. Se hyödyntää myös `threads`-ketjuja, jotka pitävät kirjaa viestihistoriasta tietyssä keskustelussa.
 
-Kuvittele, että olet myyntiedustaja yrityksessä nimeltä Contoso. Haluat kehittää keskustelevaa agenttia, joka voi vastata kysymyksiin myyntidatastasi.
+Kuvittele, että olet myyntiedustaja yrityksessä nimeltä Contoso. Haluat kehittää keskustelevaa agenttia, joka voi vastata kysymyksiin myyntitiedoistasi.
 
-Seuraava kuva havainnollistaa, miten voisit käyttää Azure AI Agent Serviceä analysoidaksesi myyntidatasi:
+Seuraava kuva havainnollistaa, miten voisit käyttää Microsoft Foundry Agent Serviä analysoimaan myyntitietojasi:
 
-![Agenttipalvelu toiminnassa](../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.webp)
+![Agenttipalvelu Toiminnassa](../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.webp)
 
-Voit käyttää mitä tahansa näistä työkaluista palvelun kanssa luomalla asiakkaan ja määrittelemällä työkalun tai työkalupakin. Käytännössä voimme käyttää seuraavaa Python-koodia. LLM voi tarkastella työkalupakkia ja päättää käyttääkö se käyttäjän luomaa funktiota `fetch_sales_data_using_sqlite_query` vai valmista Code Interpreteria käyttäjän pyynnön mukaan.
+Käyttääksesi näitä työkaluja palvelun kanssa, voimme luoda asiakkaan ja määritellä työkalun tai työkaluryhmän. Käytännössä toteutamme tämän seuraavalla Python-koodilla. LLM voi tarkastella työkaluryhmää ja päättää käyttääkö käyttäjän luomaa funktiota, `fetch_sales_data_using_sqlite_query`, vai valmista Koodintulkkaajaa käyttäjäpyynnön perusteella.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query -funktio, joka löytyy tiedostosta fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -287,56 +310,58 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Alusta työkalupakki
+# Initialize toolset
 toolset = ToolSet()
 
-# Alusta funktiokutsujen agentti fetch_sales_data_using_sqlite_query -funktiolla ja lisää se työkalupakkiin
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Alusta Koodin tulkki -työkalu ja lisää se työkalupakkiin.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
-## Mitä erityisiä huomioita liittyy Työkalujen käyttö -suunnittelumallin käyttämiseen luotettavien AI-agenttien rakentamiseksi?
+## Mitä erityishuomioita liittyy työkalun käyttö -suunnittelumallin käyttöön luotettavien tekoälyagenttien rakentamisessa?
 
-Yleinen huoli LLM:n dynaamisesti generoiman SQL:n osalta liittyy tietoturvaan, erityisesti SQL-injektion riskiin tai haitallisiin toimiin, kuten tietokannan poistamiseen tai muokkaamiseen. Vaikka nämä huolet ovat perusteltuja, ne voidaan tehokkaasti torjua konfiguroimalla tietokannan käyttöoikeudet oikein. Useimmissa tietokannoissa tämä tarkoittaa konfigurointia vain luku -tilaan. Tietokantapalveluissa kuten PostgreSQL tai Azure SQL sovellukselle määritellään vain lukuoikeudet (SELECT-rooli).
+Yleinen huoli LLM:ien dynaamisesti generoiman SQL:n yhteydessä on tietoturva, erityisesti riski SQL-injektioon tai haitallisiin toimiin, kuten tietokannan poistamiseen tai väärentämiseen. Vaikka nämä huolet ovat perusteltuja, ne voidaan tehokkaasti ehkäistä konfiguroimalla tietokannan käyttöoikeudet oikein. Useimmissa tietokannoissa tämä tarkoittaa tietokannan asettamista vain luku -tilaan. Tietokantapalveluissa kuten PostgreSQL tai Azure SQL sovellus tulisi määrittää vain luku -oikeuksiin (SELECT).
 
-Sovelluksen ajaminen suojatussa ympäristössä vahvistaa suojaa entisestään. Yritysskenaarioissa data yleensä poimitaan ja muunnetaan operatiivisista järjestelmistä vain luku -tietokannaksi tai tietovarastoksi käyttäjäystävällisellä skeemalla. Tämä varmistaa, että data on turvallista, optimoitua suorituskyvyn ja saavutettavuuden kannalta, ja että sovelluksella on rajoitettu, vain luku -käyttöoikeus.
+Sovelluksen suorittaminen turvallisessa ympäristössä parantaa suojaa entisestään. Yritysskenaarioissa data tyypillisesti puretaan ja muunnetaan operatiivisista järjestelmistä vain luku -tilaiseen tietokantaan tai tietovarastoon käyttäjäystävällisellä skeemalla. Tämä varmistaa, että data on turvallista, optimoitua suorituskyvyn ja saavutettavuuden kannalta, ja että sovelluksella on rajoitettu, vain luku -pääsy.
 
 ## Esimerkkikoodit
+
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Haluatko lisäkysymyksiä työkalujen käyttöön suunnittelumalleissa?
+## Onko sinulla lisää kysymyksiä työkalun käyttö -suunnittelumalleista?
 
-Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tapataksesi muita oppijoita, osallistuaksesi toimistotunteihin ja saadaksesi vastauksia AI-agenttien kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muiden oppijoiden kanssa, osallistua toimistoaikoihin ja saada vastauksia tekoälyagentteihin liittyviin kysymyksiisi.
 
 ## Lisäresurssit
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service -työpaja</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Moni-agentti-työpaja</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Semantic Kernel Funktiokutsujen opas</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Koodin tulkki</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Työkalut</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent -työpaja</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework -yleiskatsaus</a>
 
-## Edellinen Oppitunti
+## Tämän agentin pika-testauksen suorittaminen (valinnainen)
 
-[Agentic Design Patternsin ymmärtäminen](../03-agentic-design-patterns/README.md)
+Kun opit ottamaan agentit käyttöön [Oppitunnissa 16](../16-deploying-scalable-agents/README.md), voit pika-testata tämän oppitunnin `TravelToolAgent` (kutsutaanko se edelleen työkalujaan ja vastataanko?) [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json) avulla. Katso [`tests/README.md`](../tests/README.md) ohjeet suorittamiseen.
 
-## Seuraava Oppitunti
+## Edellinen oppitunti
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agenttisuunnittelumallien ymmärtäminen](../03-agentic-design-patterns/README.md)
+
+## Seuraava oppitunti
+
+[Agenttipohjainen RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttäen tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattilaisten tekemää ihmiskäännöstä. Emme ole vastuussa mahdollisista väärinkäsityksistä tai virhetulkinnasta, jotka johtuvat tämän käännöksen käytöstä.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

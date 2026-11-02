@@ -1,71 +1,73 @@
-# ตัวอย่างเซิร์ฟเวอร์ Github MCP
+# Github MCP Server Example
 
-## คำอธิบาย
+## Description
 
-นี่เป็นตัวอย่างที่สร้างขึ้นสำหรับงาน AI Agents Hackathon ซึ่งจัดโดย Microsoft Reactor
+นี่คือการสาธิตที่สร้างขึ้นสำหรับ AI Agents Hackathon ที่จัดผ่าน Microsoft Reactor
 
-เครื่องมือนี้ใช้เพื่อแนะนำโปรเจกต์สำหรับ Hackathon โดยอิงจาก Github repos ของผู้ใช้  
-กระบวนการทำงานมีดังนี้:
+เครื่องมือนี้ใช้ในการแนะนำโปรเจกต์ hackathon ตาม repos บน Github ของผู้ใช้  
+โดยทำได้ดังนี้:
 
-1. **Github Agent** - ใช้ Github MCP Server เพื่อดึงข้อมูล repos และรายละเอียดเกี่ยวกับ repos เหล่านั้น  
-2. **Hackathon Agent** - นำข้อมูลจาก Github Agent มาสร้างไอเดียโปรเจกต์ Hackathon ที่สร้างสรรค์ โดยพิจารณาจากโปรเจกต์, ภาษาที่ผู้ใช้ใช้ และหัวข้อโปรเจกต์สำหรับ AI Agents Hackathon  
-3. **Events Agent** - อิงจากคำแนะนำของ Hackathon Agent, Events Agent จะเสนออีเวนต์ที่เกี่ยวข้องจากซีรีส์ AI Agent Hackathon  
+1. **Github Agent** - ใช้ Github MCP Server เพื่อดึงข้อมูล repos และข้อมูลเกี่ยวกับ repos เหล่านั้น
+2. **Hackathon Agent** - นำข้อมูลจาก Github Agent มาสร้างไอเดียโปรเจกต์ hackathon ที่สร้างสรรค์โดยอิงจากโปรเจกต์ ภาษาที่ผู้ใช้ใช้ และสายโปรเจกต์ของ AI Agents hackathon
+3. **Events Agent** - ตามคำแนะนำจาก hackathon agent, events agent จะแนะนำกิจกรรมที่เกี่ยวข้องจากชุดกิจกรรม AI Agent Hackathon
 
-## การรันโค้ด
+## Running the code 
 
-### ตัวแปรสภาพแวดล้อม
+### Environment Variables
 
-ตัวอย่างนี้ใช้ Azure Open AI Service, Semantic Kernel, Github MCP Server และ Azure AI Search  
+การสาธิตนี้ใช้ Microsoft Agent Framework, Azure OpenAI Service, Github MCP Server และ Azure AI Search
 
-ตรวจสอบให้แน่ใจว่าคุณได้ตั้งค่าตัวแปรสภาพแวดล้อมที่เหมาะสมเพื่อใช้งานเครื่องมือเหล่านี้:
+ตรวจสอบให้แน่ใจว่าคุณตั้งค่าตัวแปรสภาพแวดล้อมที่ถูกต้องสำหรับการใช้เครื่องมือเหล่านี้:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## การรัน Chainlit Server
 
-เพื่อเชื่อมต่อกับ MCP Server ตัวอย่างนี้ใช้ Chainlit เป็นอินเทอร์เฟซแชท  
+## Running the Chainlit Server
 
-ในการรันเซิร์ฟเวอร์ ให้ใช้คำสั่งต่อไปนี้ในเทอร์มินัลของคุณ:
+เพื่อต่อเชื่อมกับ MCP server, การสาธิตนี้ใช้ Chainlit เป็นอินเทอร์เฟซแชท
+
+เพื่อรันเซิร์ฟเวอร์, ใช้คำสั่งต่อไปนี้ในเทอร์มินัลของคุณ:
 
 ```bash
 chainlit run app.py -w
 ```
 
-คำสั่งนี้จะเริ่ม Chainlit Server บน `localhost:8000` และเติมข้อมูลใน Azure AI Search Index ด้วยเนื้อหา `event-descriptions.md`
 
-## การเชื่อมต่อกับ MCP Server
+ซึ่งจะเริ่มเซิร์ฟเวอร์ Chainlit ของคุณที่ `localhost:8000` และยังเติมข้อมูลใน Azure AI Search Index ของคุณด้วยเนื้อหา `event-descriptions.md` ด้วย
 
-เพื่อเชื่อมต่อกับ Github MCP Server ให้คลิกที่ไอคอน "ปลั๊ก" ใต้กล่องแชท "Type your message here..":
+## Connecting to the MCP Server
+
+เพื่อเชื่อมต่อกับ Github MCP Server, เลือกไอคอน "ปลั๊ก" ใต้กล่องแชท "Type your message here..":
 
 ![MCP Connect](../../../../../translated_images/th/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-จากนั้นคลิก "Connect an MCP" เพื่อเพิ่มคำสั่งสำหรับเชื่อมต่อกับ Github MCP Server:
+จากนั้นคุณสามารถคลิกที่ "Connect an MCP" เพื่อเพิ่มคำสั่งสำหรับเชื่อมต่อกับ Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-แทนที่ "[YOUR PERSONAL ACCESS TOKEN]" ด้วย Personal Access Token ของคุณจริง ๆ  
 
-หลังจากเชื่อมต่อ คุณควรเห็นตัวเลข (1) ถัดจากไอคอนปลั๊กเพื่อยืนยันว่าการเชื่อมต่อสำเร็จ หากไม่สำเร็จ ลองรีสตาร์ท Chainlit Server ด้วยคำสั่ง `chainlit run app.py -w`
+แทนที่ "[YOUR PERSONAL ACCESS TOKEN]" ด้วย Personal Access Token จริงของคุณ
 
-## การใช้งานตัวอย่าง
+หลังจากเชื่อมต่อ, คุณจะเห็น (1) ข้างไอคอนปลั๊กเพื่อยืนยันว่ามันเชื่อมต่อแล้ว หากไม่ ให้ลองรีสตาร์ทเซิร์ฟเวอร์ chainlit ด้วย `chainlit run app.py -w`
 
-เพื่อเริ่มกระบวนการทำงานของเอเจนต์ในการแนะนำโปรเจกต์ Hackathon คุณสามารถพิมพ์ข้อความเช่น:
+## Using the Demo 
 
-"แนะนำโปรเจกต์ Hackathon สำหรับผู้ใช้ Github ชื่อ koreyspace"
+เพื่อเริ่มกระบวนการแนะนำโปรเจกต์ hackathon ให้พิมพ์ข้อความเช่น:
 
-Router Agent จะวิเคราะห์คำขอของคุณและกำหนดว่าควรใช้การผสมผสานของเอเจนต์ (GitHub, Hackathon, และ Events) แบบใดที่เหมาะสมที่สุดในการจัดการคำถามของคุณ เอเจนต์เหล่านี้จะทำงานร่วมกันเพื่อให้คำแนะนำที่ครอบคลุม โดยอิงจากการวิเคราะห์ Github repository, การสร้างไอเดียโปรเจกต์ และอีเวนต์เทคโนโลยีที่เกี่ยวข้อง
+"Recommend hackathon projects for the Github user koreyspace"
+
+Router Agent จะวิเคราะห์คำขอของคุณและกำหนดว่าการรวมกันของ agent ไหน (GitHub, Hackathon, และ Events) ที่เหมาะสมที่สุดในการจัดการคำถามของคุณ ตัวแทนเหล่านี้ทำงานร่วมกันเพื่อให้คำแนะนำที่ครบถ้วนโดยอิงจากการวิเคราะห์ที่เก็บข้อมูล GitHub, การสร้างไอเดียโปรเจกต์ และกิจกรรมเทคโนโลยีที่เกี่ยวข้อง
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้องมากที่สุด แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลภาษามืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดที่เกิดจากการใช้การแปลนี้
+เอกสารฉบับนี้ได้รับการแปลโดยใช้บริการแปลภาษาด้วย AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้เราจะพยายามให้ความแม่นยำ แต่โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความคลาดเคลื่อน เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เป็นทางการ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้บริการแปลโดยมืออาชีพ เราจะไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดใดๆ ที่เกิดจากการใช้การแปลนี้
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,99 +1,95 @@
 ---
 name: microsoft-docs
-description: Запрашивайте официальную документацию Microsoft, чтобы находить концепции,
-  учебники и примеры кода по Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
-  и другим. Используется Microsoft Learn MCP по умолчанию, а для контента, размещённого
-  вне learn.microsoft.com, — Context7 и Aspire MCP.
 ---
 # Microsoft Docs
 
-Навык исследования для экосистемы технологий Microsoft. Охватывает learn.microsoft.com и документацию, которая размещена вне него (VS Code, GitHub, Aspire, репозитории Agent Framework).
+Навык поиска информации для экосистемы технологий Microsoft. Охватывает learn.microsoft.com и документацию, которая располагается вне его (VS Code, GitHub, Aspire, репозитории Agent Framework).
 
 ---
 
-## Default: Microsoft Learn MCP
+## По умолчанию: Microsoft Learn MCP
 
-Используйте эти инструменты для **всего на learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows и прочее. Это основной инструмент для подавляющего большинства запросов по документации Microsoft.
+Используйте эти инструменты для **всего на learn.microsoft.com** — Azure, .NET, M365, Power Platform, Agent Framework, Semantic Kernel, Windows и не только. Это основной инструмент для подавляющего большинства запросов по документации Microsoft.
 
-| Tool | Purpose |
+| Tool | Назначение |
 |------|---------|
-| `microsoft_docs_search` | Поиск по learn.microsoft.com — концепции, руководства, туториалы, конфигурация |
-| `microsoft_code_sample_search` | Поиск работающих фрагментов кода из документации Learn. Укажите `language` (`python`, `csharp` и т. д.) для лучших результатов |
-| `microsoft_docs_fetch` | Получить полный контент страницы по конкретному URL (когда фрагментов поиска недостаточно) |
+| `microsoft_docs_search` | Поиск по learn.microsoft.com — концепции, руководства, учебники, настройки |
+| `microsoft_code_sample_search` | Поиск работающих примеров кода из документов Learn. Передайте `language` (`python`, `csharp` и др.) для лучших результатов |
+| `microsoft_docs_fetch` | Получить полный контент по конкретному URL (когда отрывков поиска недостаточно) |
 
-Используйте `microsoft_docs_fetch` после поиска, когда вам нужны полные руководства, все параметры конфигурации или когда фрагменты поиска обрезаны.
+Используйте `microsoft_docs_fetch` после поиска, когда нужны полные учебники, все опции конфигурации или когда отрывки поиска обрезаны.
 
 ---
 
-## Exceptions: When to Use Other Tools
+## Исключения: Когда использовать другие инструменты
 
-Следующие категории размещены **вне** learn.microsoft.com. Используйте указанный инструмент вместо этого.
+Следующие категории расположены **вне** learn.microsoft.com. Используйте указанный инструмент.
 
-### .NET Aspire — Use Aspire MCP Server (preferred) or Context7
+### Aspire — Используйте Aspire MCP Server (предпочтительно) или Context7
 
-Документация Aspire размещена на **aspire.dev**, а не в Learn. Лучший инструмент зависит от версии Aspire CLI:
+Документы Aspire находятся на **aspire.dev**, а не в Learn. Лучший инструмент зависит от версии Aspire CLI:
 
-**CLI 13.2+** (рекомендуется) — Сервер Aspire MCP включает встроенные инструменты поиска по документации:
+**CLI 13.2+** (рекомендуется) — Aspire MCP сервер включает встроенные инструменты поиска документации:
 
-| MCP Tool | Description |
+| MCP Tool | Описание |
 |----------|-------------|
 | `list_docs` | Перечисляет всю доступную документацию с aspire.dev |
 | `search_docs` | Взвешенный лексический поиск по содержимому aspire.dev |
 | `get_doc` | Получает конкретный документ по slug |
 
-Они включены в Aspire CLI 13.2 ([PR #14028](https://github.com/dotnet/aspire/pull/14028)). Чтобы обновить: `aspire update --self --channel daily`. Ref: https://davidpine.dev/posts/aspire-docs-mcp-tools/
+Эти функции доступны в Aspire CLI 13.2 ([PR #14028](https://github.com/microsoft/aspire/pull/14028)). Для обновления: `aspire update --self --channel daily`.
 
-**CLI 13.1** — MCP сервер предоставляет поиск интеграций (`list_integrations`, `get_integration_docs`), но **не** поиск по документации. В этом случае используйте Context7:
+**CLI 13.1** — MCP сервер предоставляет поиск интеграций (`list_integrations`, `get_integration_docs`), но **не** поиск по документации. Воспользуйтесь Context7:
 
-| Library ID | Use for |
+| Library ID | Используется для |
 |---|---|
-| `/microsoft/aspire.dev` | Основное — руководства, интеграции, справочник CLI, деплоймент |
-| `/dotnet/aspire` | Исходники рантайма — внутренняя реализация API, детали реализации |
+| `/microsoft/aspire.dev` | Основное — руководства, интеграции, справочник CLI, развертывание |
+| `/microsoft/aspire` | Исходники среды выполнения — детали API, реализация |
 | `/communitytoolkit/aspire` | Интеграции сообщества — Go, Java, Node.js, Ollama |
 
-### VS Code — Use Context7
+### VS Code — Используйте Context7
 
-Документация VS Code размещена на **code.visualstudio.com**, а не в Learn.
+Документация VS Code располагается на **code.visualstudio.com**, а не в Learn.
 
-| Library ID | Use for |
+| Library ID | Используется для |
 |---|---|
-| `/websites/code_visualstudio` | Документация для пользователей — настройки, функции, отладка, удаленная разработка |
-| `/websites/code_visualstudio_api` | API расширений — webviews, TreeViews, команды, точки расширения |
+| `/websites/code_visualstudio` | Пользовательская документация — настройки, функции, отладка, удалённая разработка |
+| `/websites/code_visualstudio_api` | API расширений — веб-вью, TreeViews, команды, точки расширения |
 
-### GitHub — Use Context7
+### GitHub — Используйте Context7
 
-Документация GitHub размещена на **docs.github.com** и **cli.github.com**.
+Документация GitHub есть на **docs.github.com** и **cli.github.com**.
 
-| Library ID | Use for |
+| Library ID | Используется для |
 |---|---|
 | `/websites/github_en` | Actions, API, репозитории, безопасность, администрирование, Copilot |
-| `/websites/cli_github` | Команды и флаги GitHub CLI (`gh`) |
+| `/websites/cli_github` | Команды и параметры GitHub CLI (`gh`) |
 
-### Agent Framework — Use Learn MCP + Context7
+### Agent Framework — Используйте Learn MCP + Context7
 
-Учебные материалы по Agent Framework находятся на learn.microsoft.com (используйте `microsoft_docs_search`), но **репозиторий на GitHub** содержит детали уровня API, которые часто опережают опубликованную документацию — в частности справочник DevUI REST API, параметры CLI и интеграция с .NET.
+Учебные материалы по Agent Framework находятся на learn.microsoft.com (используйте `microsoft_docs_search`), но **репозиторий GitHub** содержит детали уровня API, которые часто опережают опубликованные документы — особенно справочник DevUI REST API, параметры CLI и интеграции .NET.
 
-| Library ID | Use for |
+| Library ID | Используется для |
 |---|---|
-| `/websites/learn_microsoft_en-us_agent-framework` | Учебники — руководства по DevUI, трассировка, оркестрация рабочих процессов |
+| `/websites/learn_microsoft_en-us_agent-framework` | Учебники — руководства DevUI, трассировка, оркестровка рабочих процессов |
 | `/microsoft/agent-framework` | Детали API — конечные точки DevUI REST, флаги CLI, аутентификация, .NET `AddDevUI`/`MapDevUI` |
 
-**DevUI tip:** Сначала запрашивайте на сайте Learn руководства по практическому использованию, затем обращайтесь к исходникам репозитория для деталей уровня API (схемы конечных точек, конфиг прокси, токены аутентификации).
+**Совет DevUI:** Задавайте запросы к сайту Learn для руководств по выполнению задач, затем к исходникам репозитория для деталей уровня API (схемы конечных точек, прокси-конфигурация, токены аутентификации).
 
 ---
 
-## Context7 Setup
+## Настройка Context7
 
-Для любого запроса в Context7 сначала разрешите идентификатор библиотеки (один раз за сессию):
+Для любого запроса Context7 сначала определите library ID (один раз за сессию):
 
 1. Вызовите `mcp_context7_resolve-library-id` с названием технологии
-2. Вызовите `mcp_context7_query-docs` с возвращенным идентификатором библиотеки и конкретным запросом
+2. Вызовите `mcp_context7_query-docs` с возвращённым library ID и конкретным запросом
 
 ---
 
-## Writing Effective Queries
+## Как писать эффективные запросы
 
-Будьте конкретны — указывайте версию, намерение и язык:
+Будьте конкретны — указывайте версию, цель и язык:
 
 ```
 # ❌ Too broad
@@ -109,14 +105,14 @@ description: Запрашивайте официальную документа�
 "Agent Framework workflow conditional edges branching handoff"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
-- **Language** for polyglot docs (`Python`, `TypeScript`, `C#`)
+Добавьте контекст:
+- **Версия**, если актуально (`.NET 8`, `Aspire 13`, `VS Code 1.96`)
+- **Цель задачи** (`quickstart`, `tutorial`, `overview`, `limits`, `API reference`)
+- **Язык** для многоязычной документации (`Python`, `TypeScript`, `C#`)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Отказ от ответственности**:
-Этот документ был переведён с использованием сервиса автоматического перевода на базе ИИ [Co-op Translator](https://github.com/Azure/co-op-translator). Хотя мы стремимся к точности, имейте в виду, что автоматические переводы могут содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для критически важной информации рекомендуется профессиональный перевод, выполненный человеком. Мы не несем ответственности за любые недоразумения или неверные толкования, возникшие в результате использования этого перевода.
+Этот документ был переведен с использованием сервиса машинного перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия по обеспечению точности, имейте в виду, что автоматический перевод может содержать ошибки или неточности. Оригинальный документ на его исходном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется обратиться к профессиональному человеческому переводу. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования этого перевода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
