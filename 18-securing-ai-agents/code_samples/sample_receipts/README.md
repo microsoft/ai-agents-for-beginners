@@ -32,19 +32,19 @@ fixture_dir = Path("sample_receipts")
 # This is the public half of the fixed signing key in generate_fixtures.py.
 ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
 print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
 print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
 for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 
 # The forgery. Verified against the key it carries, it passes. Against the
 # issuer's key, it fails. Only the second question is worth asking.
-forged = json.loads(Path("04_resigned_receipt.json").read_text())
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
 print(f"Forged, checked against its own key: "
       f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
 print(f"Forged, checked against issuer key:  "
