@@ -1,5 +1,5 @@
 """
-Generate the three sample receipt fixtures in this directory.
+Generate the sample receipt fixtures in this directory.
 
 Uses a fixed Ed25519 signing key and a fixed timestamp so the output is
 byte-reproducible. Run this from the repo root or from within this folder.
@@ -8,6 +8,7 @@ Output:
   01_valid_receipt.json
   02_tampered_receipt.json
   03_chain_three_receipts.json
+  04_resigned_receipt.json
 """
 import copy
 import hashlib
@@ -21,6 +22,11 @@ from jcs import canonicalize
 
 # Fixed key for byte-reproducible fixtures. NEVER reuse in production.
 FIXED_SK_HEX = "9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae7f60"
+
+# A second, unrelated key standing in for an attacker. Used only to build
+# fixture 04, which is a forgery that verifies against the key inside it.
+ATTACKER_SK_HEX = "4ccd089b28ff96da9db6c346ec114e0f5b8a319f35aba624da8cf6ed4fb8a6fb"
+
 FIXED_TS = "2026-04-25T14:30:00Z"
 
 
@@ -51,6 +57,13 @@ def receipt_hash(receipt: dict) -> str:
     return f"sha256:{hashlib.sha256(canonical).hexdigest()}"
 
 
+def write_json(path: Path, obj) -> None:
+    # UTF-8 with LF line endings on every OS, so the bytes match the committed
+    # fixtures on Windows too.
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(obj, indent=2) + "\n")
+
+
 def make_receipt(tool_name, tool_args, tool_result, sequence,
                  previous_receipt_hash, signing_key, verify_key,
                  timestamp=FIXED_TS):
@@ -68,8 +81,8 @@ def make_receipt(tool_name, tool_args, tool_result, sequence,
     return sign_receipt(payload, signing_key, verify_key)
 
 
-def main():
-    here = Path(__file__).parent
+def main(out_dir=None):
+    here = Path(out_dir) if out_dir else Path(__file__).parent
     sk = signing.SigningKey(bytes.fromhex(FIXED_SK_HEX))
     vk = sk.verify_key
 
@@ -87,16 +100,12 @@ def main():
         signing_key=sk,
         verify_key=vk,
     )
-    (here / "01_valid_receipt.json").write_text(
-        json.dumps(valid, indent=2) + "\n"
-    )
+    write_json(here / "01_valid_receipt.json", valid)
 
     # Fixture 2: tamper with one field after signing
     tampered = copy.deepcopy(valid)
     tampered["policy_id"] = "contoso-travel-policy-PERMISSIVE"
-    (here / "02_tampered_receipt.json").write_text(
-        json.dumps(tampered, indent=2) + "\n"
-    )
+    write_json(here / "02_tampered_receipt.json", tampered)
 
     # Fixture 3: chain of three receipts
     r0 = make_receipt(
@@ -126,11 +135,19 @@ def main():
         signing_key=sk,
         verify_key=vk,
     )
-    (here / "03_chain_three_receipts.json").write_text(
-        json.dumps([r0, r1, r2], indent=2) + "\n"
-    )
+    write_json(here / "03_chain_three_receipts.json", [r0, r1, r2])
 
-    print(f"Wrote three fixtures to {here}")
+    # Fixture 4: tamper, then re-sign with an attacker's own key and embed
+    # that key in the receipt. This is internally consistent: it verifies
+    # against the key it carries. It is caught only by verifying against the
+    # issuer's key obtained from somewhere other than the receipt.
+    attacker_sk = signing.SigningKey(bytes.fromhex(ATTACKER_SK_HEX))
+    forged_payload = {k: v for k, v in valid.items() if k != "signature"}
+    forged_payload["policy_id"] = "contoso-travel-policy-PERMISSIVE"
+    forged = sign_receipt(forged_payload, attacker_sk, attacker_sk.verify_key)
+    write_json(here / "04_resigned_receipt.json", forged)
+
+    print(f"Wrote four fixtures to {here}")
 
 
 if __name__ == "__main__":

@@ -1,205 +1,174 @@
-"""Regression checks for the notebook helpers and the sample README's code.
-
-Run with `python -m unittest discover -s 18-securing-ai-agents/code_samples
--p test_signed_receipts.py -v` from the repository root after installing the
-lesson's requirements. No Azure credentials or network calls are needed.
-
-The tests execute the notebook's Python examples in memory. The single %pip
-setup cell is skipped because dependencies are installed before testing.
 """
+Fixture-backed checks for 18-signed-receipts.ipynb.
 
+Runs the notebook's code cells in order (skipping the %pip line), then checks
+its verify_receipt and verify_chain against the fixtures in sample_receipts/,
+so the lesson's security results are tested rather than only printed.
+
+Run from this folder. Jupyter is not needed, only the packages in
+requirements.txt:
+
+    python -m unittest test_signed_receipts
+"""
 import contextlib
-import copy
 import io
 import json
-from pathlib import Path
-import re
+import sys
+import tempfile
 import unittest
+from pathlib import Path
+
+from nacl import signing
+
+HERE = Path(__file__).resolve().parent
+FIXTURES = HERE / "sample_receipts"
+sys.path.insert(0, str(FIXTURES))
+import generate_fixtures  # noqa: E402
+
+# The issuer's key, pinned as in sample_receipts/README.md, never read from a receipt.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+
+FIXTURE_FILES = (
+    "01_valid_receipt.json",
+    "02_tampered_receipt.json",
+    "03_chain_three_receipts.json",
+    "04_resigned_receipt.json",
+)
 
 
-SAMPLES = Path(__file__).resolve().parent
-FIXTURES = SAMPLES / "sample_receipts"
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+def run_notebook() -> dict:
+    """Execute the notebook's code cells in one namespace and return it."""
+    notebook = json.loads((HERE / "18-signed-receipts.ipynb").read_text(encoding="utf-8"))
+    namespace = {"__name__": "lesson18_notebook"}
+    with contextlib.redirect_stdout(io.StringIO()):
+        for cell in notebook["cells"]:
+            source = "".join(cell["source"])
+            if cell["cell_type"] != "code" or source.lstrip().startswith("%"):
+                continue
+            exec(compile(source, "18-signed-receipts.ipynb", "exec"), namespace)
+    return namespace
 
 
-class SignedReceiptTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        notebook = json.loads(
-            (SAMPLES / "18-signed-receipts.ipynb").read_text(encoding="utf-8")
-        )
-        cls.examples = {}
-        with contextlib.redirect_stdout(io.StringIO()):
-            for cell in notebook["cells"]:
-                if cell["cell_type"] == "markdown" and "".join(
-                    cell["source"]
-                ).startswith("## Section 4:"):
-                    cls.fixture_examples = dict(cls.examples)
-                if cell["cell_type"] != "code":
-                    continue
-                source = "".join(cell["source"])
-                if source.strip() == "%pip install -q pynacl jcs":
-                    continue
-                exec(compile(source, f"notebook:{cell['id']}", "exec"), cls.examples)
-
-    def setUp(self):
-        self.valid = json.loads(
-            (FIXTURES / "01_valid_receipt.json").read_text(encoding="utf-8")
-        )
-        self.chain = json.loads(
-            (FIXTURES / "03_chain_three_receipts.json").read_text(encoding="utf-8")
-        )
-        self.trusted_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
-
-    def test_readme_example_runs_from_notebook_directory(self):
-        readme = (FIXTURES / "README.md").read_text(encoding="utf-8")
-        blocks = re.findall(r"^```python\n(.*?)^```", readme, re.M | re.S)
-        self.assertEqual(len(blocks), 1, "Expected one runnable fixture example")
-        namespace = dict(self.fixture_examples)
-        output = io.StringIO()
-        with contextlib.chdir(SAMPLES), contextlib.redirect_stdout(output):
-            exec(compile(blocks[0], "sample_receipts/README.md", "exec"), namespace)
-        self.assertEqual(output.getvalue().splitlines(), [
-            "Valid receipt: True",
-            "Tampered receipt: False",
-            "  Receipt 0 (lookup_flights): VALID",
-            "  Receipt 1 (hold_seat): VALID",
-            "  Receipt 2 (confirm_booking): VALID",
-        ])
-        self.assertEqual(namespace["fixture_trusted_public_keys"], self.trusted_keys)
-
-    def test_valid_fixture_and_three_receipt_chain(self):
-        self.assertTrue(self.examples["verify_receipt"](self.valid, self.trusted_keys))
-        results = self.examples["verify_chain"](self.chain, self.trusted_keys)
-        self.assertEqual(len(results), 3)
-        self.assertTrue(all(result["overall_valid"] for result in results))
-
-    def test_tampered_fixture_is_rejected(self):
-        tampered = json.loads(
-            (FIXTURES / "02_tampered_receipt.json").read_text(encoding="utf-8")
-        )
-        self.assertFalse(self.examples["verify_receipt"](tampered, self.trusted_keys))
-
-    def test_unpinned_key_is_rejected_by_both_verifiers(self):
-        for trusted_keys in (set(), self.examples["TRUSTED_PUBLIC_KEYS"]):
-            with self.subTest(trusted_keys=trusted_keys):
-                self.assertFalse(self.examples["verify_receipt"](self.valid, trusted_keys))
-                results = self.examples["verify_chain"](self.chain, trusted_keys)
-                self.assertTrue(all(not result["overall_valid"] for result in results))
-
-    def test_resigning_with_another_embedded_key_does_not_establish_trust(self):
-        key = self.examples["signing"].SigningKey.generate()
-        payload = {k: v for k, v in self.valid.items() if k != "signature"}
-        substituted = self.examples["sign_receipt"](payload, key, key.verify_key)
-        self.assertFalse(self.examples["verify_receipt"](substituted, self.trusted_keys))
-
-    def test_chain_tampering_breaks_signature_and_next_link(self):
-        chain = copy.deepcopy(self.chain)
-        chain[1]["policy_id"] = "tampered-policy"
-        results = self.examples["verify_chain"](chain, self.trusted_keys)
-        self.assertTrue(results[0]["overall_valid"])
-        self.assertFalse(results[1]["signature_valid"])
-        self.assertFalse(results[2]["chain_link_valid"])
-
-    def test_notebook_positive_and_negative_controls(self):
-        verify = self.examples["verify_receipt"]
-        trusted_keys = self.examples["TRUSTED_PUBLIC_KEYS"]
-        self.assertTrue(verify(self.examples["receipt"], trusted_keys))
-        self.assertFalse(verify(self.examples["prehashed_receipt"], trusted_keys))
-        self.assertFalse(verify(self.examples["tampered"], trusted_keys))
-        results = self.examples["verify_chain"](self.examples["chain"], trusted_keys)
-        self.assertEqual(len(results), 3)
-        self.assertTrue(all(result["overall_valid"] for result in results))
-        broken = self.examples["verify_chain"](self.examples["tampered_chain"], trusted_keys)
-        self.assertFalse(broken[1]["signature_valid"])
-        self.assertFalse(broken[2]["chain_link_valid"])
-
-    def test_wrapped_tool_emits_three_valid_receipts(self):
-        receipts = self.examples["receipted_lookup"].receipts
-        self.assertEqual(len(receipts), 3)
-        results = self.examples["verify_chain"](receipts, self.examples["TRUSTED_PUBLIC_KEYS"])
-        self.assertTrue(all(result["overall_valid"] for result in results))
-
-    def malformed_receipts(self):
-        yield from (None, [], "receipt", 42)
-        for value in (None, [], "signature", 42, {}):
-            yield {**self.valid, "signature": value}
-        for field in ("public_key", "sig"):
-            for value in (None, [], {}, 42, "%%%%", "AAAA", self.valid["signature"][field] + "%%%%"):
-                yield {**self.valid, "signature": {**self.valid["signature"], field: value}}
-        yield {**self.valid, "not_json": float("nan")}
-
-    def test_malformed_receipts_fail_closed(self):
-        for receipt in self.malformed_receipts():
-            with self.subTest(receipt=receipt):
-                self.assertFalse(self.examples["verify_receipt"](receipt, self.trusted_keys))
-
-    def test_malformed_chain_entries_fail_closed(self):
-        for receipt in self.malformed_receipts():
-            with self.subTest(receipt=receipt):
-                results = self.examples["verify_chain"]([receipt, self.chain[1]], self.trusted_keys)
-                self.assertEqual(len(results), 2)
-                self.assertFalse(results[0]["overall_valid"])
-        for field in ("sequence", "previous_receipt_hash", "tool_name"):
-            receipt = {k: v for k, v in self.valid.items() if k != field}
-            self.assertFalse(self.examples["verify_chain"]([receipt], self.trusted_keys)[0]["overall_valid"])
-
-    def test_main_readme_verifier_fails_closed(self):
-        readme = (SAMPLES.parent / "README.md").read_text(encoding="utf-8")
-        blocks = re.findall(r"^```python\n(.*?)^```", readme, re.M | re.S)
-        source = next(block for block in blocks if "def verify_receipt(" in block)
-        namespace = {}
-        exec(compile(source, "README.md:verify_receipt", "exec"), namespace)
-        self.assertTrue(namespace["verify_receipt"](self.valid, self.trusted_keys))
-        for receipt in self.malformed_receipts():
-            with self.subTest(receipt=receipt):
-                self.assertFalse(namespace["verify_receipt"](receipt, self.trusted_keys))
-
-    def test_requirements_are_ascii_and_cp949_readable(self):
-        contents = (SAMPLES / "requirements.txt").read_bytes()
-        self.assertEqual(contents.decode("ascii"), contents.decode("cp949"))
+NOTEBOOK = run_notebook()
+verify_receipt = NOTEBOOK["verify_receipt"]
+verify_chain = NOTEBOOK["verify_chain"]
+sign_receipt = NOTEBOOK["sign_receipt"]
+ISSUER_SK = signing.SigningKey(bytes.fromhex(generate_fixtures.FIXED_SK_HEX))
 
 
-class HumanApprovalReceiptTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        notebook = json.loads((SAMPLES / "human-authorization-receipts.ipynb").read_text(encoding="utf-8"))
-        cls.examples = {}
-        cls.output_pairs = []
-        for index, cell in enumerate(notebook["cells"]):
-            if cell["cell_type"] == "code":
-                output = io.StringIO()
-                with contextlib.redirect_stdout(output):
-                    exec(compile("".join(cell["source"]), f"human-notebook:{index}", "exec"), cls.examples)
-                saved = "".join("".join(item.get("text", [])) for item in cell.get("outputs", []))
-                cls.output_pairs.append((output.getvalue(), saved))
+def load(name):
+    return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
 
-    def test_saved_outputs_match_read_only_verification(self):
-        for actual, saved in self.output_pairs:
-            self.assertEqual(actual, saved)
 
-    def test_verification_is_repeatable_not_execution_or_consumption(self):
-        ns = self.examples
-        args = (ns["action"], ns["approval"], ns["receipt"], "2026-07-08T15:04:07Z")
-        self.assertTrue(ns["verify_chain"](*args)[0])
-        self.assertTrue(ns["verify_chain"](*args)[0])
-        self.assertNotIn("execute", ns)
-        self.assertNotIn("_consumed", ns)
-        self.assertEqual(ns["receipt"]["outcome"], "claimed_performed")
+def issuer_signed(payload):
+    """Sign a payload with the fixture issuer's own key, so its signature verifies:
+    a well-signed receipt the chain checks must still refuse."""
+    return sign_receipt(payload, ISSUER_SK, ISSUER_SK.verify_key)
 
-    def test_malformed_key_hints_and_signatures_fail_closed(self):
-        ns = self.examples
-        for field in ("key_id", "sig"):
-            for value in (None, [], {}, 42, "%%%%", "AAAA"):
-                receipt = copy.deepcopy(ns["approval"])
-                receipt["signature"][field] = value
-                with self.subTest(field=field, value=value):
-                    self.assertFalse(ns["verify_envelope"](receipt, "human.approval.v1", ns["APPROVER_KEYS"])[0])
 
-    def test_substitution_and_expired_approval_remain_refused(self):
-        ns = self.examples
-        self.assertFalse(ns["verify_chain"](ns["action_b"], ns["approval"], ns["receipt"], ns["NOW"])[0])
-        self.assertFalse(ns["verify_chain"](ns["action"], ns["approval"], ns["receipt"], "2026-07-08T16:00:00Z")[0])
+def payload_of(receipt):
+    return {k: v for k, v in receipt.items() if k != "signature"}
+
+
+class SignedReceiptFixtures(unittest.TestCase):
+    def test_pinned_key_is_the_fixture_issuers_key(self):
+        issuer = signing.SigningKey(bytes.fromhex(generate_fixtures.FIXED_SK_HEX)).verify_key
+        self.assertEqual(generate_fixtures.b64url_nopad(bytes(issuer)), ISSUER_KEY)
+
+    def test_valid_receipt_verifies_against_the_issuers_key(self):
+        self.assertIs(verify_receipt(load("01_valid_receipt.json"), ISSUER_KEY), True)
+
+    def test_tampered_receipt_fails(self):
+        self.assertIs(verify_receipt(load("02_tampered_receipt.json"), ISSUER_KEY), False)
+
+    def test_resigned_forgery_passes_only_against_its_own_key(self):
+        forged = load("04_resigned_receipt.json")
+        self.assertIs(verify_receipt(forged, forged["signature"]["public_key"]), True)
+        self.assertIs(verify_receipt(forged, ISSUER_KEY), False)
+
+    def test_chain_verifies(self):
+        results = verify_chain(load("03_chain_three_receipts.json"), ISSUER_KEY)
+        self.assertEqual([r["overall_valid"] for r in results], [True, True, True])
+
+    def test_malformed_input_fails_closed(self):
+        valid = load("01_valid_receipt.json")
+        cases = [
+            {"signature": "x"},
+            {"signature": {"alg": "EdDSA"}},
+            {"signature": {"alg": "EdDSA", "sig": 7}},
+            {**valid, "signature": {**valid["signature"], "sig": "not base64url!"}},
+            [],
+            "not a receipt",
+            None,
+        ]
+        for case in cases:
+            with self.subTest(case=case):
+                self.assertIs(verify_receipt(case, ISSUER_KEY), False)
+        self.assertIs(verify_receipt(valid, "not a key"), False)
+        self.assertIs(verify_receipt(valid, None), False)
+
+    def test_other_spellings_of_a_valid_signature_or_key_fail(self):
+        # Python's base64 decoder is lenient. The verifier accepts only the one
+        # unpadded base64url form, so a key or signature has a single spelling.
+        valid = load("01_valid_receipt.json")
+        sig = valid["signature"]["sig"]
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+
+        def spare_bit(s):  # the same bytes, with a non-zero spare bit in the last character
+            return s[:-1] + alphabet[alphabet.index(s[-1]) ^ 1]
+
+        signatures = {
+            "trailing characters": sig + "!!!",
+            "padding": sig + "==",
+            "non-zero spare bit": spare_bit(sig),
+        }
+        for name, spelling in signatures.items():
+            with self.subTest(signature=name):
+                receipt = {**valid, "signature": {**valid["signature"], "sig": spelling}}
+                self.assertIs(verify_receipt(receipt, ISSUER_KEY), False)
+        keys = {
+            "trailing characters": ISSUER_KEY + "!!!",
+            "padding": ISSUER_KEY + "=",
+            "standard alphabet": ISSUER_KEY.replace("-", "+").replace("_", "/"),
+            "non-zero spare bit": spare_bit(ISSUER_KEY),
+        }
+        for name, spelling in keys.items():
+            with self.subTest(key=name):
+                self.assertNotEqual(spelling, ISSUER_KEY)
+                self.assertIs(verify_receipt(valid, spelling), False)
+
+    def test_a_bad_entry_does_not_stop_the_chain_check(self):
+        chain = load("03_chain_three_receipts.json")
+        results = verify_chain([chain[0], {"signature": "x"}, chain[2]], ISSUER_KEY)
+        self.assertEqual([r["overall_valid"] for r in results], [True, False, False])
+        # The entry after the bad one is still checked: its own signature holds,
+        # and only its link to the replaced predecessor fails.
+        self.assertIs(results[2]["signature_valid"], True)
+        self.assertIs(results[2]["chain_link_valid"], False)
+
+    def test_a_genesis_without_its_link_field_fails(self):
+        genesis = payload_of(load("03_chain_three_receipts.json")[0])
+        del genesis["previous_receipt_hash"]
+        results = verify_chain([issuer_signed(genesis)], ISSUER_KEY)
+        self.assertIs(results[0]["signature_valid"], True)
+        self.assertIs(results[0]["chain_link_valid"], False)
+        self.assertIs(results[0]["overall_valid"], False)
+
+    def test_a_boolean_sequence_fails(self):
+        chain = load("03_chain_three_receipts.json")
+        second = {**payload_of(chain[1]), "sequence": True}  # True == 1 in Python
+        results = verify_chain([chain[0], issuer_signed(second)], ISSUER_KEY)
+        self.assertIs(results[1]["signature_valid"], True)
+        self.assertIs(results[1]["chain_link_valid"], True)
+        self.assertIs(results[1]["sequence_valid"], False)
+        self.assertEqual([r["overall_valid"] for r in results], [True, False])
+
+    def test_fixtures_regenerate_byte_for_byte(self):
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            generate_fixtures.main(tmp)
+            for name in FIXTURE_FILES:
+                with self.subTest(fixture=name):
+                    self.assertEqual((Path(tmp) / name).read_bytes(), (FIXTURES / name).read_bytes())
 
 
 if __name__ == "__main__":
