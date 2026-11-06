@@ -1,23 +1,24 @@
-# Exempel på kvitto-fixtures
+# Exempelkvittofiler
 
-Tre förgenererade kvittofiler för inspektion utan att köra notebooken.
+Fyra förgenererade kvittofiler för inspektion utan att köra notebooken.
 
 | Fil | Vad det är |
 |---|---|
-| `01_valid_receipt.json` | Ett giltigt signerat kvitto för ett `lookup_flights` verktygsanrop. Verifiering returnerar True. |
-| `02_tampered_receipt.json` | Samma kvitto med ett fält ändrat efter signering. Verifiering returnerar False. |
-| `03_chain_three_receipts.json` | En kedja av tre giltiga kvitton (search, hold, book) med `previous_receipt_hash` som länkar varje till det föregående. |
+| `01_valid_receipt.json` | Ett giltigt signerat kvitto för ett `lookup_flights` verktygssamtal. Verifiering returnerar Sant. |
+| `02_tampered_receipt.json` | Samma kvitto med ett fält ändrat efter signering. Verifiering returnerar Falskt. |
+| `03_chain_three_receipts.json` | En kedja av tre giltiga kvitton (sök, håll, boka) med `previous_receipt_hash` som länkar varje till föregående. |
+| `04_resigned_receipt.json` | Samma kvitto manipulerat och sedan omsignerat av en angripare, med angriparens egen publika nyckel inbäddad. Verifierar mot den nyckel som finns inuti. Fungerar inte mot utfärdarens nyckel. |
 
-Fixtures signerar nyttolastens kanoniska JCS-bytes direkt med Ed25519.
-SHA-256 används fortfarande för innehålls-digest och kvittokedjelänkar, inte som en
-extra för-hash före signering.
+Filerna signerar lasten som kanoniska JCS-bytes direkt med Ed25519.
+SHA-256 används fortfarande för innehålls-summer och kvittokedjelänkar, inte som en
+extra förhash innan signering.
 
-## Verifiering av exemplen
+## Verifiera exemplen
 
-I `18-signed-receipts.ipynb`, kör Setup och avsnitten 1 till 3 först.
-Avsnitt 3 definierar `verify_chain`; avsnitt 1 och 2 ensam räcker inte.
+I `18-signed-receipts.ipynb`, kör Setup och Sektionerna 1 till 3 först.
+Sektion 3 definierar `verify_chain`; Sektion 1 och 2 räcker inte ensamma.
 Kör sedan följande block i en ny cell, med notebookens arbetskatalog
-satt till `18-securing-ai-agents/code_samples`. Fixture-sökvägarna nedan är relativa
+satt till `18-securing-ai-agents/code_samples`. Filsökvägarna för exemplen är relativa
 till den katalogen.
 
 ```python
@@ -26,62 +27,81 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### Kontroll av exemplet utan Jupyter
+### Kontrollera exemplet utan Jupyter
 
-Från repositorys rotnivå, installera lektionens beroenden och kör:
+Från repository-roten, installera lektionens beroenden och kör:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-Dessa tester kör notebookens Python-exempel och det exakta README-blocket
-ovan. De kontrollerar också att manipulation och icke-pinnade nycklar avvisas av
+Dessa tester kör notebookens Python-exempel och exakt README-block
+ovan. De kontrollerar också att manipulation och icke-fasta nycklar avvisas av
 verifierarna. Tester hoppar över notebookens `%pip` setup-cell eftersom beroenden
-installeras separat. De ändrar inte notebooken eller fixtures.
+installeras separat. De ändrar inte notebook eller filer.
 
 ## Hur dessa genererades
 
-Fixtures använder samma kodväg som notebooken, med en fast signeringsnyckel
-och fasta tidsstämplar för byte-reproducerbarhet. För att återgenerera:
+Exemplen använder samma kodväg som notebooken, med en fast signeringsnyckel
+och fasta tidsstämplar för byte-reproducerbarhet. För att återskapa:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script finns på `generate_fixtures.py` i denna katalog.)
+(Skriptet finns på `generate_fixtures.py` i denna katalog.)
+
+`../test_signed_receipts.py` kontrollerar allt detta automatiskt: den kör
+notebookens kod, verifierar dessa fyra filer med notebookens
+`verify_receipt` och `verify_chain`, och bekräftar att återskapande av
+exemplen ger identiska bytes. Från `code_samples`:
+
+```bash
+python -m unittest test_signed_receipts
+```
 
 ## Vad studenter lär sig av att inspektera rå JSON
 
-Att läsa råkvittots format bygger upp intuition som cellerna i notebooken
-inte alltid ger. Studenter som snabbt skummar JSON märker ofta:
+Att läsa rå kvittoformat bygger upp intuition som cellerna i notebooken
+inte alltid ger. Studenter som skummar JSON märker ofta:
 
-1. Signaturen är en ogenomskinlig base64url-sträng, men varje annat fält är ren
+1. Signaturen är en ogenomskinlig base64url-sträng, men varje annat fält är vanlig
    läsbar JSON. Signaturen krypterar inte innehållet; den intygar det.
-2. `public_key` är inbäddat i kvittot, vilket räcker för att kontrollera
-   självkonsistens men inte utfärdarens förtroende. En revisor måste jämföra det med en nyckel
-   pinnad utanför kvittot eller löst via ett betrott register.
-3. Att ändra ett enda tecken i något fält, och sedan jämföra denna fil med
-   `02_tampered_receipt.json` gör byte-nivå mekanismen konkret.
+2. `public_key` är inbäddad i kvittot, vilket gör filen
+   självförsörjande men är inte vad en granskare verifierar mot. Jämför
+   `02_tampered_receipt.json` med `04_resigned_receipt.json`: båda ändrades
+   efter signering, men det andra signerades om med angriparens
+   egen nyckel, så den verifierar mot den nyckel den bär. Den inbäddade nyckeln
+   visar att filen är internt konsekvent. Endast en nyckel erhållen
+   någon annanstans visar vem som utfärdade den.
+3. Att ändra ett enda tecken i något fält utanför `signature`, sedan
+   jämföra denna fil med `02_tampered_receipt.json` gör
+   bytesnivåmekanismen konkret.
 
 ---
 
