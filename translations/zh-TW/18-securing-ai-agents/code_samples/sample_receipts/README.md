@@ -12,28 +12,52 @@
 SHA-256 仍用於內容摘要及收據鏈結，不是作為簽署前的額外預散列。
 
 
-## 驗證這些範例
+## 驗證範例
 
-筆記本分成四個部份說明驗證流程。若要直接驗證這些範本，
-可不必執行筆記本說明：
+在 `18-signed-receipts.ipynb`, 先執行 Setup 和第 1 到第 3 節.
+第 3 節定義了 `verify_chain`; 只有第 1 和第 2 節是不夠的.
+然後在一個新的儲存格中執行下列區塊，並將 notebook 的工作目錄
+設定為 `18-securing-ai-agents/code_samples`. 下方的 fixture 路徑是相對
+該目錄.
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### 在不使用 Jupyter 的情況下檢查範例
+
+從儲存庫根目錄，安裝課程的相依套件並執行：
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+這些測試會執行筆記本中的 Python 範例以及 README 中完全相同的區塊
+上述。它們也會檢查篡改和未固定的金鑰是否會被
+驗證器拒絕。這些測試會跳過筆記本的 `%pip` 設定儲存格，因為相依項目
+是分開安裝的。它們不會變更筆記本或測試夾具。
 
 ## 這些範本的生成方式
 

@@ -1,66 +1,69 @@
-[Sehen Sie sich das Unterrichtsvideo an: Sicherung von KI-Agenten mit kryptografischen Belegen](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Sehen Sie sich das Lektionenvideo an: Sicherung von KI-Agenten mit kryptographischen Quittungen](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Unterrichtsvideo und Thumbnail werden vom Microsoft-Inhaltsteam nach dem Merge hinzugefügt, entsprechend dem Muster für Lektion 14 / 15.)_
+> _(Lektionenvideo und Miniaturansicht werden nach dem Zusammenführen vom Microsoft-Inhaltsteam hinzugefügt, entsprechend dem Muster der Lektionen 14 / 15.)_
 
-# Sicherung von KI-Agenten mit kryptografischen Belegen
+# Sicherung von KI-Agenten mit kryptographischen Quittungen
 
 ## Einführung
 
 Diese Lektion behandelt:
 
-- Warum Prüfnachweise für KI-Agenten wichtig sind für Compliance, Debugging und Vertrauen.
-- Was ein kryptografischer Beleg ist und wie er sich von einer unsignierten Protokollzeile unterscheidet.
-- Wie man einen signierten Beleg für einen Tool-Aufruf eines Agenten in reinem Python erzeugt.
-- Wie man einen Beleg offline überprüft und Manipulationen erkennt.
-- Wie man Belege verkettet, sodass das Entfernen oder Umordnen eines Belegs die Kette bricht.
-- Was Belege beweisen und was sie ausdrücklich nicht beweisen.
+- Warum Prüfprotokolle für KI-Agenten für Compliance, Debugging und Vertrauen wichtig sind.
+- Was eine kryptographische Quittung ist und wie sie sich von einer nicht signierten Protokollzeile unterscheidet.
+- Wie man in einfachem Python eine signierte Quittung für einen Toolaufruf eines Agenten erzeugt.
+- Wie man eine Quittung offline überprüft und Manipulationen erkennt.
+- Wie man Quittungen verketten kann, sodass das Entfernen oder Umordnen einer Quittung die Kette unterbricht.
+- Was Quittungen beweisen und was sie explizit nicht beweisen.
 
 ## Lernziele
 
-Nach Abschluss dieser Lektion werden Sie wissen, wie man:
+Nach Abschluss dieser Lektion wissen Sie, wie Sie:
 
-- Fehlerfälle erkennt, die eine kryptografische Herkunftsnachweisführung für Agentenaktionen motivieren.
-- Einen Ed25519-signierten Beleg über eine kanonische JSON-Nutzlast erzeugt.
-- Einen Beleg unabhängig nur mit dem öffentlichen Schlüssel des Unterzeichners verifiziert.
-- Manipulationen erkennt, indem die Verifikation eines veränderten Belegs erneut durchgeführt wird.
-- Eine hash-verkettete Folge von Belegen erstellt und erklärt, warum die Kette wichtig ist.
-- Die Grenze erkennt zwischen dem, was Belege beweisen (Zuordnung, Integrität, Reihenfolge) und was sie nicht beweisen (Korrektheit der Aktion, Stichhaltigkeit der Richtlinie).
+- die Fehlerfälle identifizieren, die eine kryptographische Herkunft für Agentenaktionen motivieren.
+- eine Ed25519-signierte Quittung über eine kanonische JSON-Nutzlast erzeugen.
+- eine Quittung unabhängig nur mit dem öffentlichen Schlüssel des Signierenden verifizieren.
+- Manipulationen erkennen, indem Sie die Verifizierung einer veränderten Quittung erneut durchführen.
+- eine hash-verkettete Folge von Quittungen aufbauen und erklären, warum die Kette wichtig ist.
+- die Grenze erkennen zwischen dem, was Quittungen beweisen (Zurechnung, Integrität, Reihenfolge) und dem, was sie nicht beweisen (Richtigkeit der Aktion, Gültigkeit der Richtlinie).
 
-## Das Problem: Die Prüfspur Ihres Agenten
+## Das Problem: Das Prüfprotokoll Ihres Agenten
 
-Stellen Sie sich vor, Sie haben einen KI-Agenten für Contoso Travel eingesetzt. Der Agent liest Kundenanfragen, ruft eine Flug-API auf, um Optionen zu suchen, und bucht im Namen des Kunden Sitze. Im letzten Quartal hat der Agent 50.000 Buchungen verarbeitet.
+Stellen Sie sich vor, Sie haben einen KI-Agenten für Contoso Travel eingesetzt. Der Agent liest Kundenanfragen, ruft eine Flug-API auf, um Optionen zu suchen, und bucht Plätze im Namen des Kunden. Im letzten Quartal hat der Agent 50.000 Buchungen verarbeitet.
 
-Heute kommt ein Prüfer. Er stellt eine einfache Frage: "Zeigen Sie mir, was Ihr Agent getan hat."
+Heute kommt ein Prüfer. Er stellt eine einfache Frage: „Zeigen Sie mir, was Ihr Agent getan hat.“
 
-Sie übergeben Ihre Protokolldateien. Der Prüfer sieht sie sich an und stellt die schwierigere Frage: "Woher weiß ich, dass diese Protokolle nicht bearbeitet wurden?"
+Sie übergeben Ihre Protokolldateien. Der Prüfer sieht sie sich an und stellt die schwierigere Frage: „Wie weiß ich, dass diese Protokolle nicht bearbeitet wurden?“
 
-Dies ist das Problem der Prüfspur. Die meisten Agenteneinsätze heute basieren auf:
+Dies ist das Prüfprotokoll-Problem. Die meisten Agenteneinsätze verlassen sich heute auf:
 
-- **Anwendungsprotokolle**: vom Agenten selbst geschrieben, von jedem mit Dateisystemzugriff bearbeitbar.
-- **Cloud-Logging-Dienste**: manipulationssicher auf Plattformebene, aber nur wenn der Prüfer dem Plattformbetreiber vertraut.
-- **Datenbank-Transaktionsprotokolle**: gut geeignet für Datenbankänderungen, aber nicht für beliebige Tool-Aufrufe.
+- **Anwendungsprotokolle**: vom Agenten selbst geschrieben, von jedem mit Dateisystemzugriff editierbar.
+- **Cloud-Protokollierungsdienste**: manipulationssicher auf Plattformebene, aber nur wenn der Prüfer dem Plattformbetreiber vertraut.
+- **Datenbank-Transaktionsprotokolle**: gut geeignet für Datenbankänderungen, aber nicht für beliebige Toolaufrufe.
 
-Keines davon kann die Frage des Prüfers beantworten, ohne dass der Prüfer jemandem vertrauen muss (Ihnen, Ihrem Cloud-Anbieter, Ihrem Datenbankanbieter). Für den internen Gebrauch ist dieses Vertrauen oft akzeptabel. Für regulierte Arbeitslasten (Finanzen, Gesundheitswesen, alles unter dem EU KI-Gesetz) ist es das nicht.
+Keine dieser Optionen kann die Frage des Prüfers beantworten, ohne dass der Prüfer jemandem vertrauen muss (Ihnen, Ihrem Cloud-Anbieter, Ihrem Datenbankanbieter). Für den internen Gebrauch ist dieses Vertrauen oft akzeptabel. Für regulierte Arbeitslasten (Finanzen, Gesundheitswesen, alles, was dem EU-KI-Gesetz unterliegt) ist es das nicht.
 
-Kryptografische Belege lösen dies, indem jede Agentenaktion einzeln überprüfbar wird. Der Prüfer muss Ihnen nicht vertrauen. Er benötigt nur Ihren öffentlichen Schlüssel und den Beleg selbst.
+Kryptographische Quittungen grenzen dieses Problem ein, indem sie eine signierte Aussage unabhängig
+verifizierbar machen. Der Prüfer benötigt dennoch einen außerhalb der Bandbreite liegenden Grund, dem Signaturschlüssel und
+der Komponente, die die Aussage erzeugt hat, zu vertrauen. Ein eingebetteter Schlüssel beweist Selbstkonsistenz,
+nicht die Identität des Ausstellers oder die Position der Durchsetzung.
 
-## Was ist ein kryptografischer Beleg?
+## Was ist eine kryptographische Quittung?
 
-Ein Beleg ist ein JSON-Objekt, das aufzeichnet, was ein Agent getan hat, signiert mit einer digitalen Signatur.
+Eine Quittung ist ein JSON-Objekt, das aufzeichnet, was ein Agent getan hat, und mit einer digitalen Signatur versehen ist.
 
 ```mermaid
 flowchart LR
-    A[Agent ruft ein Werkzeug auf] --> B[Empfangsnutzlast erstellen]
-    B --> C[JSON gemäß RFC 8785 kanonisieren]
-    C --> E[Ed25519 unterschreibt kanonische Bytes]
-    E --> F[Quittung mit Unterschrift]
-    F --> G[Prüfer überprüft offline]
-    G --> H{Unterschrift gültig?}
-    H -- yes --> I[Manipulationssicherer Beweis]
-    H -- no --> J[Quittung abgelehnt]
+    A[Agent invokes a tool] --> B[Build receipt payload]
+    B --> C[Canonicalize JSON RFC 8785]
+    C --> E[Ed25519 sign canonical bytes]
+    E --> F[Receipt with signature]
+    F --> G[Auditor verifies offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Signed statement is intact]
+    H -- no --> J[Receipt rejected]
 ```
 
-Ein minimaler Beleg sieht so aus:
+Eine minimale Quittung sieht so aus:
 
 ```json
 {
@@ -81,32 +84,32 @@ Ein minimaler Beleg sieht so aus:
 }
 ```
 
-Drei Eigenschaften sind hier wirksam:
+Drei Eigenschaften sind dafür verantwortlich:
 
-1. **Die Signatur**. Der Beleg wird vom Gateway des Agenten mit einem Ed25519-Private-Key signiert. Jeder mit dem entsprechenden öffentlichen Schlüssel kann die Signatur offline überprüfen. Jegliche Manipulation an einem Feld macht die Signatur ungültig.
+1. **Die Signatur**. Die Quittung wird vom Gateway des Agenten mit einem Ed25519-Privatschlüssel signiert. Jeder mit dem dazugehörigen öffentlichen Schlüssel kann die Signatur offline verifizieren. Eine vertrauliche Partei muss diesen Schlüssel pinnen oder ihn aus einem vertrauenswürdigen Verzeichnis außerhalb der Quittung auflösen. Eine Manipulation an einem signierten Feld macht die Signatur ungültig.
 
-2. **Kanonische Kodierung**. Vor dem Signieren wird der Beleg mit dem JSON Canonicalization Scheme (JCS, RFC 8785) serialisiert. Dies stellt sicher, dass zwei Implementierungen, die denselben logischen Beleg erzeugen, ein byte-identisches Ergebnis liefern. Ohne Kanonisierung würden unterschiedliche JSON-Serializer für denselben Inhalt verschiedene Signaturen erzeugen.
+2. **Kanonische Codierung**. Vor der Signatur wird die Quittung mit dem JSON Canonicalization Scheme (JCS, RFC 8785) serialisiert. Das stellt sicher, dass zwei Implementierungen, die dieselbe logische Quittung erzeugen, identische Bytes als Ausgabe produzieren. Ohne Kanonisierung würden verschiedene JSON-Serializer für denselben Inhalt unterschiedliche Signaturen erzeugen.
 
-3. **Hash-Verkettung**. Das Feld `previous_receipt_hash` verbindet jeden Beleg mit dem vorherigen. Das Entfernen oder Umordnen eines Belegs bricht jeden nachfolgenden Beleg. Manipulationen werden auf Kettenebene sichtbar, selbst wenn einzelne Signaturen umgangen würden.
+3. **Hash-Verkettung**. Das `previous_receipt_hash`-Feld verbindet jede Quittung mit der vorherigen. Das Entfernen oder Umordnen einer Quittung unterbricht die präsentierte Folge. Das Erkennen von Abschneidungen oder eines vom Signierer kontrollierten Umschreibens erfordert auch einen gepinnten aktuellen Kettenkopf, einen unabhängig beobachteten Kontrollpunkt oder ein authentifiziertes Commitment mit geschlossenem Mitgliederkreis.
 
-Zusammen liefern diese Eigenschaften drei Garantien:
+Zusammen bieten diese Eigenschaften drei Garantien:
 
-- **Zuordnung**: Dieser Schlüssel hat diesen Inhalt signiert.
+- **Zurechnung zu einem Schlüssel**: Dieser Schlüssel hat diesen Inhalt signiert. Organisations- oder Personenidentität erfordert eine vertrauenswürdige Schlüsselbindung.
 - **Integrität**: Der Inhalt wurde seit der Signatur nicht verändert.
-- **Reihenfolge**: Dieser Beleg folgte auf den angegebenen Beleg in der Kette.
+- **Reihenfolge in der verifizierten Folge**: Diese Quittung verweist auf den Vorgänger.
 
-## Einen Beleg in Python erzeugen
+## Erzeugen einer Quittung in Python
 
-Sie benötigen keine spezielle Bibliothek, um einen Beleg zu erzeugen. Die kryptografischen Primitiven sind weit verbreitet und die Logik umfasst nur wenige Dutzend Zeilen Python.
+Sie benötigen keine spezielle Bibliothek, um eine Quittung zu erzeugen. Die kryptographischen Bausteine sind weit verbreitet, und die Logik umfasst nur einige Dutzend Zeilen Python.
 
-Die praktischen Übungen in `code_samples/18-signed-receipts.ipynb` führen durch den gesamten Ablauf. Die Kurzfassung:
+Die praxisorientierten Übungen in `code_samples/18-signed-receipts.ipynb` führen durch den gesamten Ablauf. Das quellengesteuerte `code_samples/18-signed-receipts.execution-receipt.json` zeichnet den exakten Hash des Notebooks, die Python-Umgebung, die Anzahl der Zellen und die Prüfungen der letzten sauberen Ausführung auf, ohne die gespeicherten Ausgaben der Lektion zu verändern. Die Zusammenfassung lautet:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 kanonisches JSON
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -115,11 +118,12 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Erzeugen oder laden Sie einen Signaturschlüssel (in der Produktion in einem Schlüsseltresor speichern)
+# Generate or load a signing key (in production, store in a key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
+TRUSTED_PUBLIC_KEYS = {b64url_nopad(bytes(verify_key))}  # pinned out of band by the verifier
 
-# Erstellen Sie die Beleg-Nutzlast (noch keine Signatur)
+# Build the receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -135,11 +139,11 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanonicalisieren und signieren Sie die JCS-Bytes direkt. PureEdDSA hasht intern.
+# Canonicalize and sign the JCS bytes directly. PureEdDSA hashes internally.
 canonical_bytes = canonicalize(payload)
 signature_bytes = signing_key.sign(canonical_bytes).signature
 
-# Fügen Sie ein strukturiertes Signaturobjekt hinzu.
+# Attach a structured signature object.
 receipt = {
     **payload,
     "signature": {
@@ -150,80 +154,91 @@ receipt = {
 }
 ```
 
-Das ist die gesamte Signierungspipeline. Die Übungen im Notebook erläutern jeden Schritt.
+Das ist die gesamte Signaturpipeline. Die Übungen im Notebook erläutern jeden Schritt.
 
-## Einen Beleg verifizieren und Manipulationen erkennen
+## Verifizieren einer Quittung und Erkennen von Manipulationen
 
-Die Verifikation ist die Umkehrung des Vorgangs:
+Die Verifikation ist die Umkehroperation:
 
 ```python
 import base64
 import hashlib
 from nacl import signing
-from nacl.exceptions import BadSignatureError
+from nacl.exceptions import CryptoError
 from jcs import canonicalize
 
 def b64url_decode(s: str) -> bytes:
     padding = "=" * ((4 - len(s) % 4) % 4)
-    return base64.urlsafe_b64decode(s + padding)
+    return base64.b64decode(s + padding, altchars=b"-_", validate=True)
 
-def verify_receipt(receipt: dict) -> bool:
-    # Die Signatur ist ein strukturiertes Objekt: {"alg", "sig", "public_key"}.
-    sig_obj = receipt.get("signature")
-    if not sig_obj or sig_obj.get("alg") != "EdDSA":
+def verify_receipt(receipt: dict, trusted_public_keys: set[str]) -> bool:
+    # The signature is a structured object: {"alg", "sig", "public_key"}.
+    if not isinstance(receipt, dict):
         return False
-
-    # Rekonstruieren Sie die Nutzlast, die tatsächlich signiert wurde (alles außer der Signatur).
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
-
-    canonical_bytes = canonicalize(payload)
-
+    sig_obj = receipt.get("signature")
+    if not isinstance(sig_obj, dict) or sig_obj.get("alg") != "EdDSA":
+        return False
     try:
-        verify_key = signing.VerifyKey(b64url_decode(sig_obj["public_key"]))
-        verify_key.verify(canonical_bytes, b64url_decode(sig_obj["sig"]))
+        # An inline key proves only self-consistency. Trust is configured out of band.
+        public_key = sig_obj.get("public_key")
+        signature = sig_obj.get("sig")
+        if not isinstance(public_key, str) or not isinstance(signature, str):
+            return False
+        if public_key not in trusted_public_keys:
+            return False
+        payload = {k: v for k, v in receipt.items() if k != "signature"}
+        canonical_bytes = canonicalize(payload)
+        verify_key = signing.VerifyKey(b64url_decode(public_key))
+        verify_key.verify(canonical_bytes, b64url_decode(signature))
         return True
-    except BadSignatureError:
+    except (CryptoError, TypeError, ValueError, KeyError, OverflowError):
         return False
 ```
 
-Diese Funktion nimmt einen Beleg und gibt `True` zurück, wenn die Signatur gültig ist, andernfalls `False`. Kein Netzwerkaufruf, keine Serviceabhängigkeit, kein Vertrauen in Dritte erforderlich.
+Diese Funktion nimmt eine Quittung plus das gepinnte Schlüsselsatz der vertrauenden Partei und gibt
+`True` nur zurück, wenn die Signatur unter einem akzeptierten Schlüssel gültig ist. Die Verifikation benötigt keinen
+Netzwerkaufruf, aber das Schlüsselvertrauen ist weiterhin eine externe Konfigurationsentscheidung.
 
-Um die Erkennung von Manipulationen in der Praxis zu sehen, zeigt das Notebook:
+Um die Manipulationserkennung in Aktion zu sehen, führt das Notebook Sie durch:
 
-1. Erzeugung eines gültigen Belegs und Bestätigung, dass die Verifikation funktioniert.
-2. Änderung eines Bytes im Feld `tool_args_hash`.
-3. Erneutes Durchführen der Verifikation und Beobachtung des Fehlschlags.
+1. Erzeugen einer gültigen Quittung und Bestätigung, dass sie verifiziert wird.
+2. Veränderung eines Bytes im `tool_args_hash`-Feld.
+3. Erneutes Ausführen der Verifikation und Beobachtung des Scheiterns.
 
-Dies ist der praktische Beweis, dass Belege manipulationssicher sind: Jede Änderung, wie klein sie auch sein mag, bricht die Signatur.
+Das ist der praktische Beweis dafür, dass Quittungen manipulationssicher sind: Jede Veränderung, egal wie klein, bricht die Signatur.
 
-## Verkettung von Belegen für mehrstufige Agenten
+## Verketten von Quittungen für mehrstufige Agenten
 
-Ein einzelner signierter Beleg schützt eine Aktion. Eine Kette von Belegen schützt eine Folge von Aktionen.
+Eine einzelne signierte Quittung schützt eine Aktion. Eine Kette von Quittungen schützt eine Abfolge.
 
 ```mermaid
 flowchart LR
-    R0[Quittung 0<br/>Genesis] --> R1[Quittung 1]
-    R1 --> R2[Quittung 2]
-    R2 --> R3[Quittung 3]
+    R0[Receipt 0<br/>genesis] --> R1[Receipt 1]
+    R1 --> R2[Receipt 2]
+    R2 --> R3[Receipt 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Jeder Beleg speichert den Hash des vorherigen Belegs. Um Beleg 2 unbemerkt zu entfernen, müsste ein Angreifer entweder:
+Jede Quittung zeichnet den Hash der vorherigen Quittung auf. Um Quittung 2 unbemerkt zu entfernen, müsste ein Angreifer entweder:
 
-- Das Feld `previous_receipt_hash` von Beleg 3 ändern (bricht die Signatur von Beleg 3), ODER
-- Eine neue Signatur für einen veränderten Beleg 3 fälschen (benötigt den privaten Schlüssel des Agenten).
+- das `previous_receipt_hash`-Feld von Quittung 3 ändern (bricht die Signatur von Quittung 3), ODER
+- eine neue Signatur auf einer veränderten Quittung 3 fälschen (erfordert den Privatschlüssel des Agenten).
 
-Befindet sich der Private Key in einem Hardware-Key-Tresor und veröffentlichen Sie den öffentlichen Schlüssel mit jedem Beleg, ist keine dieser Attacken ohne Erkennung machbar.
+Wenn der Privatschlüssel geschützt ist und ein Prüfer einen unabhängig beobachteten Kettenkopf pinnt,
+sind diese Angriffe erkennbar. Das Veröffentlichen des Schlüssels in jeder Quittung reicht nicht aus:
+ein Signierer oder Angreifer kann einen anderen Schlüssel präsentieren, einen Suffix umschreiben oder
+die Kette abschneiden, sofern die vertrauende Partei keinen externen Vertrauens- und Vollständigkeitsanker besitzt.
 
-Das Notebook zeigt:
+Das Notebook führt Sie durch:
 
-1. Wie eine Kette von drei Belegen aufgebaut wird.
-2. Wie bestätigt wird, dass jeder Beleg mit seinem `previous_receipt_hash` auf den tatsächlichen Hash des vorherigen Belegs verweist.
-3. Wie eine Manipulation eines Belegs in der Mitte die Kette an genau dieser Stelle bricht.
+1. Aufbau einer Kette aus drei Quittungen.
+2. Verifikation, dass das `previous_receipt_hash` jeder Quittung mit dem tatsächlichen Hash der vorherigen Quittung übereinstimmt.
+3. Manipulation einer Quittung in der Mitte und Beobachtung, wie die Kette genau an dieser Stelle bricht.
 
-So erzeugen Sie eine Prüfspur, die ein externer Prüfer verifizieren kann, ohne Ihnen vertrauen zu müssen.
+So erstellen Sie ein Prüfprotokoll, das ein externer Prüfer unter
+eigene angeheftete Aussteller-Schlüssel und Ketten-Checkpoints, ohne Ihrem veränderbaren Protokollspeicher zu vertrauen.
 
 ## Was Belege beweisen (und was nicht)
 
@@ -231,158 +246,180 @@ Dies ist der wichtigste Abschnitt dieser Lektion. Belege sind mächtig, aber ihr
 
 **Belege beweisen drei Dinge:**
 
-1. **Zuordnung**: Ein bestimmter Schlüssel hat eine bestimmte Nutzlast signiert.
-2. **Integrität**: Die Nutzlast wurde seit der Signatur nicht verändert.
-3. **Reihenfolge**: Dieser Beleg folgte auf den angegebenen Beleg in der Hash-Kette.
+1. **Zuschreibung**: ein bestimmter Schlüssel hat eine bestimmte Nutzlast signiert.
+2. **Integrität**: die Nutzlast hat sich seit der Signierung nicht verändert.
+3. **Reihenfolge innerhalb einer präsentierten, verifizierten Sequenz**: dieser Beleg verweist auf den Vorgänger.
 
 **Belege beweisen NICHT:**
 
-1. **Korrektheit**: Dass die Aktion des Agenten die richtige war. Ein Beleg kann ebenso sauber für eine falsche Antwort unterzeichnet werden wie für eine richtige.
-2. **Richtlinienkonformität**: Dass die im `policy_id` referenzierte Richtlinie tatsächlich ausgewertet wurde oder dass sie diese Aktion erlaubt hätte, wenn überprüft. Der Beleg dokumentiert nur, was behauptet wurde, nicht was durchgesetzt wurde.
-3. **Identität über den Schlüssel hinaus**: Der Beleg sagt „Dieser Schlüssel hat diesen Inhalt signiert.“ Er sagt nicht „Dieser Mensch hat das autorisiert.“ Die Verbindung eines Schlüssels mit einer Person oder Organisation erfordert eine separate Identitätsinfrastruktur (Verzeichnis, öffentlicher Schlüssel-Register usw.).
-4. **Wahrhaftigkeit der Eingaben**: Wenn der Agent eine manipulierte Eingabe erhält und darauf reagiert, dokumentiert der Beleg die Aktion korrekt. Belege sind nachgelagert zur Eingabeverifizierung, kein Ersatz dafür.
+1. **Korrektheit**: dass die Handlung des Agenten die richtige war. Ein Beleg kann für eine falsche Antwort ebenso sauber signiert werden wie für eine richtige.
+2. **Politikkonformität**: dass die in `policy_id` referenzierte Richtlinie tatsächlich ausgewertet wurde oder dass sie diese Aktion erlaubt hätte, wenn geprüft. Der Beleg zeichnet das auf, was behauptet wurde, nicht, was durchgesetzt wurde.
+3. **Identität über den Schlüssel hinaus**: der Beleg sagt „dieser Schlüssel hat diesen Inhalt signiert.“ Er sagt nicht „dieser Mensch hat autorisiert.“ Die Verbindung eines Schlüssels zu einer Person oder Organisation erfordert separate Identitätsinfrastruktur (ein Verzeichnis, ein öffentlicher Schlüssel-Registry, usw.).
+4. **Wahrhaftigkeit der Eingaben**: wenn der Agent eine manipulierte Eingabe erhält und darauf reagiert, zeichnet der Beleg die Aktion getreu auf. Belege liegen nach der Eingabevalidierung und sind kein Ersatz dafür.
+5. **Ausführung oder reale Wirkung**: ein Post-Call-Beleg dokumentiert, was sein Aussteller behauptet, dass geschehen ist. Den Nachweis der Zulassung oder die Abstimmung eines externen Effekts erfordert Beweise von der tatsächlichen Ausführung oder der Anbietergrenze.
+6. **Vollständigkeit**: ein fehlender Beleg kann blockiert, ausgelassen, verloren oder nicht instrumentiert sein. Abwesenheit wird nur innerhalb einer authentifizierten geschlossenen Population zum Beweis.
+7. **Vertrauenswürdige Zeit**: ein signierter Zeitstempel beweist, dass der Signierer diesen Wert getragen hat, nicht dass der Wert korrekt war. Vertrauenswürdige Zeit benötigt eine separate Zeitinstanz oder einen beobachteten Checkpoint.
 
 Diese Grenze ist aus zwei Gründen wichtig:
 
-- Sie zeigt, wofür Belege nützlich sind: Um das Verhalten von Agenten prüfbar und manipulationssicher zu machen, auch über Organisationsgrenzen hinweg.
-- Sie zeigt, welche zusätzlichen Schichten Sie noch benötigen: Eingabeverifizierung (Lektion 6), Richtliniendurchsetzung (kurz weiter unten behandelt) und Identitätsinfrastruktur (nicht Gegenstand dieser Lektion).
+- Sie erklärt, wofür Belege nützlich sind: das Verhalten von Agenten prüfbar und manipulationssicher zu machen, selbst über organisatorische Grenzen hinweg.
+- Sie erklärt, welche zusätzlichen Schichten Sie noch benötigen: Eingabevalidierung (Lektion 6), Durchsetzung von Richtlinien (unten kurz behandelt) und Identitätsinfrastruktur (nicht Teil dieser Lektion).
 
-Ein häufiger Fehler ist die Annahme, „wir haben Belege“ bedeutet „wir haben Governance“. Dem ist nicht so. Belege sind die Grundlage. Governance ist das System, das Sie darauf aufbauen.
+Ein häufiger Fehler ist die Annahme, dass „wir haben Belege“ bedeutet „wir sind regiert.“ Das ist nicht so. Belege sind eine Grundlage. Governance ist das System, das Sie darauf aufbauen.
 
-## Nachweis, dass ein Mensch die genaue Aktion genehmigt hat
+## Eine Genehmigersignatur an die exakte Aktion binden
 
-Punkt 3 oben verdient einen eigenen Abschnitt: Ein Aktionsbeleg sagt „Dieser Schlüssel hat diesen Inhalt signiert“, niemals „Ein Mensch hat das genehmigt.“ Für risikoreiche Aktionen (Rückerstattungen, Löschungen, Überweisungen) verlangen Governance-Rahmenwerke zunehmend genau diese fehlende Aussage, und sie ist mit denselben Primitiven herstellbar, die Sie in dieser Lektion bereits gebaut haben.
+Punkt 3 oben verdient einen eigenen Abschnitt: ein Handlungsbeleg sagt „dieser Schlüssel hat diesen Inhalt signiert“, nie „ein Mensch hat autorisiert“. Für risikoreiche Handlungen (Rückerstattungen, Löschungen, Überweisungen) kann eine separate Genehmigersignatur die exakte Aktion binden. Die Verbindung dieses Schlüssels zu einem Menschen und die Überprüfung der menschlichen Anwesenheit bleiben separate Verantwortlichkeiten.
 
-Das Anschluss-Notebook `code_samples/human-authorization-receipts.ipynb` fügt eine zweite Belegart hinzu, `human.approval.v1`, in derselben Umschlagstruktur wie die Belege dieser Lektion (eine typisierte Nutzlast, signiert mit Ed25519 über ihre kanonischen JCS-Bytes, mit dem `signature`-Objekt außerhalb der signierten Bytes). Ein benannter Genehmiger signiert die **vollständige kanonische Aktion und deren Digest** vor der Ausführung; der Aktionsbeleg des Agenten trägt denselben **Aktionsdigest** und eine `parent_approval_ref`, den `receipt_hash` der Genehmigung, dieselbe Konvention wie `previous_receipt_hash` in der oben gebauten Kette. Eine `verify_chain` prüft beide Artefakte unter **getrennten festgelegten Schlüsselregistern** (Genehmiger-Schlüssel vs Agent-Schlüssel), sodass der Code-Pfad geteilt ist, die Autoritäten aber nie.
+Das anschließende Notebook `code_samples/human-authorization-receipts.ipynb` fügt eine zweite Art von Beleg hinzu, `human.approval.v1`, in derselben Umschlagform wie die Belege dieser Lektion (eine getypte Nutzlast, die von Ed25519 über deren kanonische JCS-Bytes signiert ist, mit dem `signature`-Objekt außerhalb der signierten Bytes). Ein Genehmigerschlüssel signiert die **vollständige kanonische Aktion und ihre Prüfsumme**; ein Agentschlüssel signiert eine Behauptung mit der **gleichen Aktionsprüfungssumme** und einen `parent_approval_ref`, die `receipt_hash` der Genehmigung, nach dem gleichen Muster wie `previous_receipt_hash` in der Kette, die Sie oben erstellt haben. Ein `verify_chain` verarbeitet beide Artefakte unter **getrennten angehefteten Schlüsselregistern** (Genehmigerschlüssel vs. Agentschlüssel), sodass der Codepfad geteilt, aber die Autoritäten nie vermischt werden.
 
-Die hierdurch gewährte Eigenschaft, sorgfältig formuliert: *Der Mensch hat diese genaue Aktion genehmigt, und der Agent hat genau diese genehmigte Aktion ausgeführt.* Die Weigerungsfälle im Notebook machen die Eigenschaft real statt nur behauptet:
+Die Eigenschaft, die dies sichert, sorgfältig formuliert: *der angeheftete Genehmigerschlüssel hat diese exakte
+Aktion signiert, und der Agentschlüssel hat später eine Aussage mit derselben Aktionsprüfungssumme signiert.*
+Das ist nützlicher Nachweis, aber allein kein Beweis dafür, dass die Aktion ausgeführt wurde. Um die
+Ausführung zu kontrollieren, muss die exakte Genehmigung auch am
+tatsächlichen Ausführungsgrenzpunkt reserviert und einmal verbraucht werden; unbekannte Anbietergebnisse müssen unbekannt bleiben und dürfen
+nicht blind erneut versucht werden. Die Verweigerungsfälle im Notebook prüfen die Belegkettenebene:
 
-- Die klassische Palette: Manipulation, verwirrter Stellvertreter, Wiederholung, gefälschte Schlüssel auf beiden Seiten, fehlerhafte Eingaben;
-- **Veraltete Autorität**: Eine Signatur, die immer noch verifiziert, aber trotzdem abgelehnt wird, weil sich die Richtlinienversion geändert hat, der Genehmigerschlüssel aus dem festgelegten Register entfernt wurde oder die Genehmigung vor Ausführung abgelaufen ist;
-- **Digest-Austausch**: Ein gültig signierter Aktionsbeleg, der auf eine *echte* Genehmigung verweist, die eine *andere* kanonische Aktion bindet.
+- Manipulation, verwechslungsartige Vertretung, gefälschte Schlüssel auf beiden Seiten und fehlerhafte Eingaben;
+- **veraltete Behörde**: eine Signatur, die noch verifiziert, aber trotzdem verweigert wird, weil die Richtlinienversion sich änderte, der Genehmigerschlüssel aus dem angehefteten Register rotiert wurde oder die Genehmigung vor der angegebenen Verifikationszeit abgelaufen ist;
+- **Prüfsummenersetzung**: ein gültigerweise signierter Aktionsbeleg, der auf eine *echte* Genehmigung verweist, die an eine *andere* kanonische Aktion bindet.
 
-Jeder Fehler wird mit einem eindeutigen Grund abgelehnt, sodass ein Prüfer beim Lesen erkennen kann, ob die Autorität veraltet ist oder die ausgeführte Aktion geändert wurde. Die Regel, die das Notebook lehrt: Eine signierte Genehmigung ist nicht automatisch Autorität. Autorität existiert nur, wenn beide Belege zur Ausführungszeit dieselbe kanonische Aktion binden. Der Human-Approval-Beleg ist eine durch diese Lektion definierte Bildungszusammensetzung, keine von `draft-farley-acta-signed-receipts` definierte Belegart.
+Jeder Fehler wird mit einem eigenen Grund abgelehnt, sodass ein Prüfer beim Lesen einer Verweigerung erkennen kann, ob die Behörde veraltet war oder sich die behauptete Aktion geändert hat. Die Verifikation ist schreibgeschützt und wiederholbar: sie verbraucht die Genehmigung nicht und ruft keinen Anbieter auf. Ein separater Ausführer benötigt dauerhaften, atomaren Wiedergabeschutz und explizite Erfolge, Fehler und unbestimmte Ergebnisse. Der menschliche Genehmigungsbeleg ist eine durch diese Lektion definierte Bildungskomposition, keine von `draft-farley-acta-signed-receipts` definierte Belegart.
 
 ## Produktionsreferenzen
 
-Der Python-Code in dieser Lektion ist absichtlich minimal, damit Sie jede Zeile lesen und genau verstehen können, was passiert. Für den produktiven Einsatz haben Sie zwei Optionen:
+Der Python-Code in dieser Lektion ist absichtlich minimal gehalten, damit Sie jede Zeile lesen und genau verstehen können, was passiert. In der Produktion haben Sie zwei Optionen:
 
-1. **Direkt auf kryptografischen Primitiven aufbauen.** Die oben gezeigten 50 Zeilen reichen für viele Anwendungsfälle. PyNaCl (Ed25519) und das `jcs`-Paket (kanonisches JSON) sind gut gepflegte und geprüfte Bibliotheken.
+1. **Direkt auf den kryptografischen Primitiven aufbauen.** Die 50 Zeilen, die Sie oben gesehen haben, reichen für viele Anwendungsfälle. PyNaCl (Ed25519) und das `jcs`-Paket (kanonisches JSON) sind gut gepflegte und geprüfte Bibliotheken.
 
-2. **Eine produktive Belegbibliothek verwenden.** Verschiedene Open-Source-Projekte implementieren dasselbe Muster mit zusätzlichen Funktionen (Schlüsselrotation, Batch-Verifikation, JWK-Set-Verteilung, Integration mit Richtlinien-Engines):
-   - Die Signierungspipeline verwendet die JCS- und Signaturbereich-Konventionen in einem unabhängigen IETF-Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), Revision 02). Der flache, pädagogische Beleg dieser Lektion unterscheidet sich vom Draft-Umschlag `{payload, signature}` und wird nicht als konforme Implementierung präsentiert. Das Draft veröffentlicht eine gemeinsame Konformitätssuite ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) für Implementierungen, die auf dessen Wire-Format abzielen.
-   - Das Microsoft Agent Governance Toolkit kombiniert Belege mit Cedar-basierten Richtlinienentscheidungen; siehe Tutorial 33 im Repository für ein Ende-zu-Ende-Beispiel.
-   - Die Pakete `protect-mcp` (npm) und `@veritasacta/verify` (npm) bieten eine auf Node basierende Implementierung zur Belegs-Signierung und Offline-Verifikation, gedacht zur Umhüllung jedes MCP-Servers mit manipulationssicherer Prüfspur, einschließlich eines Hold-for-Co-Sign-Flows, bei dem eine pausierte Aktion einen Genehmigungsbeleg mit dem Aktionsdigest ausgibt (WebAuthn-gestützt im Desktop-Flow), dasselbe Genehmigungsbeleg-Muster wie das oben genannte Human-Authorization-Notebook.
-   - Das **[nobulex](https://github.com/arian-gogani/nobulex)** Python-SDK (`pip install nobulex`) bietet dasselbe Ed25519 + JCS-Signiermuster in Python mit LangChain- und CrewAI-Integrationen, einschließlich veröffentlichter Cross-Validation-Testvektoren und einer Compliance-Abbildung, beigetragen via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+2. **Eine Produktions-Bibliothek für Belege verwenden.** Mehrere Open-Source-Projekte implementieren dasselbe Muster mit zusätzlichen Features (Schlüsselrotation, Batch-Verifikation, JWK-Set-Verteilung, Integration mit Richtlinien-Engines):
+   - Die Signierpipeline nutzt die JCS- und Signaturbereichskonventionen in einem unabhängigen IETF-Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), Revision 02). Der flache Bildungsbeleg dieser Lektion unterscheidet sich vom `{payload, signature}`-Umschlag des Drafts und wird nicht als konforme Implementierung präsentiert. Der Draft veröffentlicht eine gemeinsame Konformitätssuite ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) für Implementierungen, die sein Wire-Format ansteuern.
+   - Das Microsoft Agent Governance Toolkit kombiniert Belege mit Cedar-basierten Richtlinienentscheidungen; siehe Tutorial 33 in diesem Repository für ein End-to-End-Beispiel.
+   - Die Pakete `protect-mcp` (npm) und `@veritasacta/verify` (npm) bieten eine Node-basierte Implementierung der Belegsignierung und Offline-Verifikation, gedacht zur Umhüllung beliebiger MCP-Server mit einem manipulationssicheren Audit-Trail, einschließlich eines gehaltenen Co-Sign-Flows, in dem eine pausierte Aktion einen Genehmigungsbeleg ausgibt, der an die Aktionsprüfungssumme gebunden ist (WebAuthn-gestützt im Desktop-Flow), dasselbe Genehmigungsbelegmuster wie das menschliche Autorisierungsnotebook oben.
+   - Das **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) bietet dasselbe Ed25519 + JCS-Signaturmuster in Python mit LangChain und CrewAI-Integrationen, einschließlich veröffentlichter Cross-Validierungs-Testvektoren und einer Compliance-Zuordnung, die über [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) beigetragen wurde.
+   - **[EMILIA Protocol](https://github.com/emiliaprotocol/emilia-protocol)** bietet eine ergänzende Erzwingungsschicht für exakte Aktionen: offline-verifizierbare Genehmigungsbelege, festgezapfte WebAuthn- oder Quorum-Behördert, einmalige Verwendung an der Ausführungsgrenze und einen expliziten Pfad für unbestimmte Ergebnisse. Seine Framework-Adapter behandeln einen Beleg als notwendige Evidenz und nicht als Beweis, dass eine externe Wirkung eingetreten ist.
 
-Die Entscheidung zwischen Eigenbau und Nutzung einer Bibliothek entspricht der Frage, ob man eine eigene JWT-Bibliothek schreibt oder eine geprüfte verwendet: Beides ist vernünftig; die Bibliothek spart Zeit und reduziert die Prüfoberfläche; der Eigenbau zwingt zum Verständnis jeder primitiven Funktion. Diese Lektion vermittelt den Eigenbau-Weg, damit Sie die Grundlage für beides haben.
+Die Entscheidung zwischen Eigenentwicklung und Verwendung einer Bibliothek entspricht der Entscheidung zwischen dem Schreiben einer eigenen JWT-Bibliothek und der Nutzung einer geprüften: Beide sind vernünftig; die Bibliothek spart Zeit und reduziert die Prüfoberfläche; der von Grund auf neue Ansatz zwingt dazu, jedes Primitive zu verstehen. Diese Lektion lehrt den von Grund auf neuen Weg, so dass Sie die Grundlage für beide Optionen haben.
 
-## Wissensüberprüfung
+## Wissenstest
 
-Testen Sie Ihr Verständnis, bevor Sie zur Übung übergehen.
+Überprüfen Sie Ihr Verständnis, bevor Sie zur Praxisübung übergehen.
 
-**1. Ein Beleg wird mit dem privaten Ed25519-Schlüssel des Agenten signiert. Der Prüfer besitzt nur den öffentlichen Schlüssel. Kann der Prüfer den Beleg offline verifizieren?**
-
-<details>
-<summary>Antwort</summary>
-
-Ja. Die Ed25519-Verifikation benötigt nur den öffentlichen Schlüssel und die signierten Bytes. Kein Netzwerkaufruf, keine Serviceabhängigkeit. Diese Eigenschaft macht Belege in abgekoppelten, organisationsübergreifenden oder gering-vertrauenswürdigen Prüfungsszenarien nützlich.
-</details>
-
-**2. Ein Angreifer ändert das Feld `policy_id` eines Belegs, um zu behaupten, er sei von einer permissiveren Richtlinie geregelt worden. Die Signatur wurde über die ursprüngliche Nutzlast erzeugt. Was passiert bei der Verifikation?**
+**1. Ein Beleg wird mit dem privaten Ed25519-Schlüssel des Agenten signiert. Der Prüfer hat nur den öffentlichen Schlüssel. Kann der Prüfer den Beleg offline verifizieren?**
 
 <details>
 <summary>Antwort</summary>
 
-
-Die Verifizierung schlägt fehl. Die Signatur wurde über die kanonischen Bytes der ursprünglichen Nutzlast berechnet; jede Änderung eines Feldes ändert diese Bytes, wodurch die Signatur ungültig wird. Der Angreifer bräuchte den privaten Schlüssel, um eine neue gültige Signatur zu erzeugen, den er jedoch nicht besitzt.
+Ja, kryptografische Verifikation erfordert nur den öffentlichen Schlüssel und die signierten Bytes. Der
+Prüfer muss den akzeptierten öffentlichen Schlüssel dennoch unabhängig vom Beleg abrufen und festlegen.
+Nach dieser Vertrauenskonfiguration ist kein Netzwerkaufruf mehr erforderlich.
 </details>
 
-**3. Warum enthält der Beleg einen `tool_args_hash` und `result_hash` anstelle der Rohargumente und des Ergebnisses?**
+**2. Ein Angreifer verändert das Feld `policy_id` eines Belegs, um zu behaupten, er sei durch eine permissivere Richtlinie geregelt worden. Die Signatur bezog sich auf die ursprüngliche Nutzlast. Was passiert bei der Verifikation?**
 
 <details>
 <summary>Antwort</summary>
 
-Zwei Gründe. Erstens muss der Beleg möglicherweise in Umgebungen archiviert oder übertragen werden, in denen das Offenlegen des Rohinhalts (personenbezogene Daten, Geschäftsdaten) problematisch ist. Das Hashen hält den Beleg klein und den Inhalt privat; der Prüfer überprüft, ob der Hash mit einer separat gespeicherten Kopie des tatsächlichen Inhalts übereinstimmt. Zweitens haben Hashes eine feste Größe; ein Beleg mit Hashes ist in der Größe begrenzt, unabhängig davon, wie groß die Eingaben und Ausgaben waren.
+Die Verifikation schlägt fehl. Die Signatur wurde über die kanonischen Bytes der ursprünglichen Nutzlast berechnet; eine Änderung eines Feldes ändert diese Bytes, was die Signatur ungültig macht. Der Angreifer müsste den privaten Schlüssel besitzen, um eine neue gültige Signatur zu erstellen, was er nicht hat.
 </details>
 
-**4. Das Feld `previous_receipt_hash` verbindet jeden Beleg mit seinem Vorgänger. Wenn ein Angreifer stillschweigend einen Beleg mitten in einer Kette löscht, was wird dann ungültig?**
+**3. Warum enthält der Beleg ein `tool_args_hash` und `result_hash` anstelle der rohen Argumente und des Ergebnisses?**
 
 <details>
 <summary>Antwort</summary>
 
-Jeder Beleg, der nach dem gelöschten kam. Deren `previous_receipt_hash`-Felder stimmen nicht mehr mit der tatsächlichen Kette überein (weil der referenzierte Beleg nicht mehr existiert oder die Kette jetzt auf einen anderen Vorgänger zeigt). Um die Löschung zu verschleiern, müsste der Angreifer jeden späteren Beleg neu signieren, was den privaten Schlüssel erfordert.
+Zwei Gründe. Erstens muss der Beleg möglicherweise archiviert oder in Umgebungen übertragen werden, in denen das Offenlegen des rohen Inhalts (personenbezogene Daten, Geschäftsdaten) ein Problem darstellt. Das Hashing hält den Beleg klein und den Inhalt privat; der Prüfer verifiziert, dass der Hash einer separat gespeicherten Kopie des tatsächlichen Inhalts entspricht. Zweitens haben Hashes eine feste Größe; ein Beleg mit Hashes hat eine beschränkte Größe, unabhängig davon, wie groß die Eingaben und Ausgaben waren.
 </details>
 
-**5. Ein Beleg verifiziert sauber. Beweist das, dass die Aktion des Agenten korrekt, fundiert oder regelkonform war?**
+**4. Das Feld `previous_receipt_hash` verknüpft jeden Beleg mit seinem Vorgänger. Wenn ein Angreifer einen Beleg aus der Mitte einer Kette stillschweigend löscht, was wird ungültig?**
 
 <details>
 <summary>Antwort</summary>
 
-Nein. Ein gültiger Beleg beweist drei Dinge: Zuordnung (diesen Schlüssel hat diesen Inhalt signiert), Integrität (der Inhalt wurde nicht geändert) und Reihenfolge (dieser Beleg kam nach jenem Beleg). Er beweist NICHT, dass die Aktion korrekt war, dass die in `policy_id` genannte Richtlinie tatsächlich bewertet wurde oder dass der Agent jede Regel befolgt hat. Belege machen das Verhalten des Agenten prüfbar, nicht unbedingt korrekt. Dies ist die wichtigste Abgrenzung in der Lektion.
+Der nächst präsentierte Beleg verweist nicht mehr auf seinen erwarteten Vorgänger, daher
+schlägt die Verifikation der präsentierten Sequenz ab der Lücke fehl. Wenn der Unterzeichner den privaten
+Schlüssel kontrolliert, kann er einen Suffix umschreiben oder kürzen. Das Erkennen davon erfordert einen festgelegten aktuellen Head,
+einen externen Kontrollpunkt oder einen authentifizierten Populations-Verpflichtungsspeicher.
 </details>
 
-## Übungsaufgabe
+**5. Ein Beleg verifiziert sauber. Beweist das, dass die Aktion des Agenten korrekt, sinnvoll oder regelkonform war?**
+
+<details>
+<summary>Antwort</summary>
+
+Nein. Unter einem festgelegten Schlüssel und Kettenkontext beweist ein gültiger Beleg Signaturzuordnung,
+Inhaltsintegrität und eine Verknüpfung mit dem präsentierten Vorgänger. Er beweist NICHT, dass die
+Aktion korrekt oder ausgeführt wurde, dass die Richtlinie ausgewertet wurde, dass der Zeitstempel
+vertrauenswürdig ist oder dass der Datensatz vollständig ist. Dies ist die wichtigste Grenze in der Lektion.
+</details>
+
+## Praxisübung
 
 Öffnen Sie `code_samples/18-signed-receipts.ipynb` und vervollständigen Sie alle vier Abschnitte:
 
 1. **Abschnitt 1**: Signieren Sie Ihren ersten Beleg und verifizieren Sie ihn.
-2. **Abschnitt 2**: Manipulieren Sie den Beleg und beobachten Sie das Scheitern der Verifizierung.
-3. **Abschnitt 3**: Erstellen Sie eine Kette aus drei Belegen und verifizieren Sie die Integrität der Kette.
-4. **Abschnitt 4**: Wenden Sie das Muster auf einen mit dem Microsoft Agent Framework gebauten Agenten an: Umwickeln Sie einen Tool-Aufruf mit Beleg-Signierung und verifizieren Sie den Beleg anschließend unabhängig.
+2. **Abschnitt 2**: Manipulieren Sie den Beleg und beobachten Sie das Verifikationsscheitern.
+3. **Abschnitt 3**: Bauen Sie eine Kette aus drei Belegen und verifizieren Sie die Kettenintegrität.
+4. **Abschnitt 4**: Wenden Sie das Muster auf einen mit dem Microsoft Agent Framework gebauten Agenten an: Umhüllen Sie einen Tool-Aufruf mit Beleg-Signierung, dann verifizieren Sie den Beleg unabhängig.
 
-**Stretch-Challenge 1:** Erweitern Sie das Belegschema um ein zusätzliches Feld Ihrer Wahl (zum Beispiel eine Anfrage-ID zur Nachverfolgung), aktualisieren Sie die kanonische Signierlogik, um es einzubeziehen, und bestätigen Sie, dass der Beleg weiterhin durch Verifizierung durchläuft. Ändern Sie dann das Feld nach dem Signieren und bestätigen Sie, dass die Verifizierung fehlschlägt. Das zwingt Sie zu verstehen, wie jedes Byte der kanonischen Kodierung zur Signatur beiträgt.
+**Stretch-Aufgabe 1:** Erweitern Sie das Belegschema um ein zusätzliches eigenes Feld (z.B. eine Anfrage-ID zur Nachverfolgung), aktualisieren Sie die kanonische Signaturlogik, um es einzuschließen, und bestätigen Sie, dass der Beleg weiterhin durch die Verifikation roundtript. Ändern Sie anschließend das Feld nach dem Signieren und bestätigen Sie, dass die Verifikation fehlschlägt. Das zwingt Sie zu verstehen, wie jedes Byte der kanonischen Codierung zur Signatur beiträgt.
 
-**Stretch-Challenge 2:** Hashen Sie zwei Ihrer Belege zusammen mit SHA-256 (konkatenieren Sie deren kanonische Bytes in einer deterministischen Reihenfolge) und betten Sie den resultierenden Digest als neues Feld in einen dritten Beleg ein, bevor Sie ihn signieren. Verifizieren Sie, dass alle drei Belege weiterhin durchlaufen. Sie haben gerade einen Einschlussnachweis in einem Schritt gebaut: Jeder, der den dritten Beleg besitzt, kann beweisen, dass die ersten beiden zum Signierzeitpunkt existierten, ohne deren Inhalte preisgeben zu müssen. Dies ist das Muster, das selektiv-offenlegende Belege im großen Maßstab verwenden (Merkle-Verpflichtungen, RFC 6962).
+**Stretch-Aufgabe 2:** Hashen Sie zwei Ihrer Belege mit SHA-256 zusammen (verkettete kanonische Bytes in deterministischer Reihenfolge) und betten Sie den resultierenden Digest als neues Feld in einen dritten Beleg ein, bevor Sie ihn signieren. Verifizieren Sie, dass alle drei Belege weiterhin roundtrippen. Sie haben gerade einen einstufigen Einschlussnachweis gebaut: Jeder, der den dritten Beleg hält, kann beweisen, dass die ersten beiden zum Zeitpunkt der Signatur existierten, ohne deren Inhalt offenlegen zu müssen. Dies ist das Muster, das Selektiv-Offenlegungs-Belege in großem Maßstab verwenden (Merkle-Verpflichtungen, RFC 6962).
 
 ## Fazit
 
-Kryptografische Belege geben KI-Agenten eine Prüfkette, die:
+Kryptografische Belege geben KI-Agenten eine Prüfspur, die:
 
-- **Unabhängig verifizierbar**: jede Partei mit dem öffentlichen Schlüssel kann verifizieren, keine Dienstabhängigkeit.
-- **Manipulationssicher**: jede Änderung macht die Signatur ungültig.
-- **Portabel**: ein Beleg ist eine kleine JSON-Datei; er kann archiviert, übertragen und überall verifiziert werden.
-- **Standardkonform**: basiert auf Ed25519 (RFC 8032), JCS (RFC 8785) und SHA-256, alle weit verbreitete Primitive.
+- **Unabhängig verifizierbar unter festgelegtem Vertrauen**: Eine Partei mit akzeptierten öffentlichen Schlüsseln und signierten Bytes kann ohne Dienstabhängigkeit verifizieren.
+- **Manipulationserkennbar**: Jede Änderung macht die Signatur ungültig.
+- **Portabel**: Ein Beleg ist eine kleine JSON-Datei; sie kann archiviert, übertragen und überall verifiziert werden.
+- **Standards-konform**: Basierend auf Ed25519 (RFC 8032), JCS (RFC 8785) und SHA-256, alles weit verbreitete Primitive.
 
-Sie sind kein Ersatz für Eingabevalidierung, Durchsetzung von Richtlinien oder Identitätsinfrastruktur. Sie sind eine Grundlage für diese Schichten. Wenn Sie Agenten in regulierten Workloads, organisationsübergreifenden Workflows oder jeder Umgebung einsetzen, in der ein zukünftiger Prüfer Ihnen nicht vertraut, sorgen Belege dafür, dass die Prüfkette ehrlich bleibt.
+Sie sind kein Ersatz für Eingabevalidierung, Richtlinien-Erzwingung, Executor-Zulassung,
+Ergebnisbeweise, Vollständigkeitskontrollen oder Identitätsinfrastruktur. Sie sind eine Grundlage
+für diese Schichten. In regulierten oder multi-organisationellen Workflows machen Belege bestimmte
+Ausstellererklärungen unabhängig überprüfbar unter der eigenen Vertrauenskonfiguration des Prüfers.
 
-Die wichtigste Erkenntnis: Belege beweisen, wer was wann gesagt hat. Sie beweisen nicht, dass das Gesagte wahr oder richtig war. Halten Sie diese Unterscheidung fest. Sie ist der Unterschied zwischen einem ehrlichen und einem irreführenden Herkunftssystem.
+Die wichtigste Erkenntnis: Belege beweisen, dass ein bestimmter Schlüssel einen bestimmten
+Inhalt signiert hat. Ein enthaltener Zeitstempel ist eine Assertion des Unterzeichners, sofern nicht separat zeitbelegt. Ein
+Beleg beweist nicht, dass sein Inhalt wahr war, dass eine Aktion ausgeführt wurde oder dass der
+Datensatz vollständig ist. Halten Sie diese Unterscheidungen strikt ein.
 
 ## Produktions-Checkliste
 
-Wenn Sie bereit sind, von dieser Lektion zum Einsatz von beleg-signierten Agenten in einer realen Umgebung überzugehen:
+Wenn Sie bereit sind, von dieser Lektion zur Bereitstellung von belegsignierten Agenten in einer realen Umgebung überzugehen:
 
-- [ ] **Bewegung des Signierschlüssels vom Entwickler-Laptop.** Verwenden Sie Azure Key Vault, AWS KMS oder ein Hardware-Sicherheitsmodul. Der private Schlüssel, der Ihre Belege signiert, darf niemals im Quellcode oder Klartext auf Anwendungssystemen liegen.
-- [ ] **Veröffentlichen Sie den Verifikations-Öffentlichen Schlüssel.** Prüfer brauchen ihn für Offline-Verifikation. Das Standardmuster ist ein JWK-Set unter einer bekannten URL (RFC 7517), z.B. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Verankern Sie die Kette extern.** Schreiben Sie periodisch den Hash des aktuellsten Kettenkopfs in ein Transparenzprotokoll (Sigstore Rekor, RFC 3161 Zeitstempelbehörde oder ein zweites internes System), sodass eine externe Partei bestätigen kann, dass „diese Kette zu diesem Zeitpunkt existierte“.
-- [ ] **Speichern Sie Belege unveränderlich.** Append-only-Blob-Speicher (Azure Storage mit Unveränderlichkeitspolitiken, AWS S3 Object Lock) verhindert, dass ein Insider die Historie in der Speicherebene umschreibt.
-- [ ] **Planen Sie die Aufbewahrung.** Viele Compliance-Standards verlangen mehrjährige Aufbewahrung. Planen Sie das Wachstum der Belege (jeder Beleg ist ~500 Bytes; ein Agent, der 10.000 Aufrufe pro Tag macht, erzeugt ~1,8 GB pro Jahr).
-- [ ] **Dokumentieren Sie, was Belege nicht abdecken.** Belege beweisen Zuordnung, Integrität und Reihenfolge. Ihr Runbook sollte explizit aufführen, welche zusätzlichen Kontrollen (Eingabevalidierung, Richtliniendurchsetzung, Ratenbegrenzung, Identitätsinfrastruktur) neben Belegen Bestandteil Ihrer Governance sind.
+- [ ] **Bewegen Sie den Signaturschlüssel vom Entwickler-Laptop weg.** Verwenden Sie Azure Key Vault, AWS KMS oder ein Hardware-Sicherheitsmodul. Der private Schlüssel, mit dem Ihre Belege signiert werden, darf niemals im Quellcode oder unverschlüsselt auf Anwendungssystemen liegen.
+- [ ] **Stellen Sie Vertrauen in Verifikationsschlüssel her.** Veröffentlichen Sie Schlüssel über ein JWK Set oder Registry, und lassen Sie beteiligte Parteien die akzeptierte Ausstelleridentität, den Schlüsselsatz und Rotationsrichtlinien außerhalb einzelner Belege festlegen. Ein Inline-Schlüssel allein ist kein Vertrauensanker.
+- [ ] **Verankern Sie die Kette extern.** Schreiben Sie periodisch den Hash des neuesten Ketten-Kopfes in ein Transparenzprotokoll (Sigstore Rekor, RFC 3161 Zeitstempelbehörde oder ein zweites internes System), damit eine externe Partei bestätigen kann, dass "diese Kette zu diesem Zeitpunkt existierte."
+- [ ] **Speichern Sie Belege unveränderlich.** Append-Only Blob Storage (Azure Storage mit Unveränderlichkeitsrichtlinien, AWS S3 Object Lock) verhindert, dass ein Insider die Historie auf der Speicherebene umschreibt.
+- [ ] **Entscheiden Sie über Aufbewahrung.** Viele Compliance-Regime verlangen mehrjährige Aufbewahrung. Planen Sie das Belegwachstum (jeder Beleg ist ca. 500 Bytes; ein Agent mit 10.000 Aufrufen pro Tag erzeugt ca. 1,8 GB pro Jahr).
+- [ ] **Dokumentieren Sie, was Belege nicht abdecken.** Belege beweisen Attribution, Integrität und Reihenfolge. Ihr Runbook sollte explizit auflisten, welche zusätzlichen Kontrollen (Eingabevalidierung, Richtlinien-Erzwingung, Begrenzung der Rate, Identitätsinfrastruktur) neben Belegen in Ihrer Governance-Strategie vorhanden sind.
 
 ### Haben Sie weitere Fragen zur Sicherung von KI-Agenten?
 
-Treten Sie dem [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) bei, um andere Lernende zu treffen, an Sprechstunden teilzunehmen und Ihre Fragen zu KI-Agenten beantworten zu lassen.
+Treten Sie dem [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) bei, um andere Lernende zu treffen, an Sprechstunden teilzunehmen und Ihre Fragen zu KI-Agenten beantwortet zu bekommen.
 
 ## Über diese Lektion hinaus
 
-Diese Lektion behandelt Einzelsignatur-Belege und hashverkettete Reihenfolgen. Dieselben Primitive setzen sich zu mehreren fortgeschrittenen Mustern zusammen, die Sie möglicherweise kennenlernen, wenn Ihre Governance reift:
+Diese Lektion behandelt Einzelbeleg-Signierung und hash-verkettete Sequenzen. Dieselben Primitiven ergeben mehrere fortgeschrittene Muster, denen Sie begegnen könnten, wenn Ihre Governance-Reife steigt:
 
-- **Selektive Offenlegung.** Wenn die Felder eines Belegs unabhängig verknüpft sind (RFC 6962-ähnlicher Merkle-Baum), können Sie bestimmte Felder ausgewählten Prüfern offenlegen und beweisen, dass die übrigen unverändert sind, ohne sie preiszugeben. Nützlich, wenn derselbe Beleg sowohl für eine umfassende Prüfung (die Vollständigkeit will) als auch für Datenschutzregelungen wie DSGVO (die möchten, dass der Prüfer so wenig wie möglich sieht) geeignet sein muss.
-- **Beleg-Widerruf.** Wenn ein Signaturschlüssel kompromittiert wird, brauchen Sie eine Möglichkeit, alle damit signierten Belege ab einem Zeitpunkt als nicht vertrauenswürdig zu kennzeichnen. Standardmuster: kurzlebige Signaturschlüssel plus veröffentlichte Widerrufsliste oder ein Transparenzprotokoll mit Widerrufseinträgen.
-- **Zweiseitige / Split-Signatur-Belege.** Einige Implementierungen teilen die signierte Nutzlast in vor-Execution (`authorization_*`) und nach-Execution (`result_*`) Hälften mit unabhängigen Signaturen, nützlich, wenn die Autorisierungsentscheidung und das beobachtete Ergebnis von verschiedenen Akteuren bzw. zu verschiedenen Zeiten kommen. Das baut auf dem in dieser Lektion gelehrten Belegformat aufsummierend auf.
-- **Nutzlastkomposition.** Ein Beleg versiegelt beliebige Bytes in `result_hash`. Realwelt-Nutzlasten sind oft reicher als das Ergebnis eines einzelnen Tool-Aufrufs: Vor-Entscheidungsgründe (Modellvorhersage, erwogene Optionen, Beweise und deren Vollständigkeit, Risikoposition, Verantwortlichkeitskette, Tor-Ausgang) können alle in der Nutzlast drin sein, versiegelt durch einen einzelnen Beleg. Das hält das Belegformat minimal und lässt Nutzlastschemata domänenspezifisch evolvieren.
-- **Implementierungsübergreifende Konformität.** Mehrere unabhängige Implementierungen desselben Belegformats (Python, TypeScript, Rust, Go) prüfen sich anhand geteilter Test-Vektoren gegenseitig. Wenn Sie eine eigene Implementierung bauen, bestätigt das Validieren gegen veröffentlichte Vektoren die Drahtkompatibilität.
-- **Post-Quanten-Migration.** Ed25519 ist heute weit verbreitet, aber nicht quantensicher. Das Belegformat ist algorithmus-flexibel: das Feld `signature.alg` kann `ML-DSA-65` tragen (der NIST-Post-Quanten-Signaturstandard), wenn Sie migrieren müssen. Planen Sie eine Übergangszeit mit doppelt signierten Belegen ein.
+- **Selektive Offenlegung.** Wenn die Felder eines Belegs unabhängig verpflichtet sind (RFC 6962-artiger Merkle-Baum), können Sie bestimmte Felder spezifischen Prüfern offenlegen und beweisen, dass die anderen unverändert sind, ohne diese preiszugeben. Nützlich, wenn derselbe Beleg sowohl eine umfassende Prüfung (die Vollständigkeit will) als auch Datenschutzvorschriften wie DSGVO (die wollen, dass der Prüfer so wenig wie möglich sieht) erfüllen muss.
+- **Belegwiderruf.** Wenn ein Signaturschlüssel kompromittiert wird, brauchen Sie eine Methode, um alle mit diesem Schlüssel signierten Belege ab einem Zeitpunkt als nicht vertrauenswürdig zu kennzeichnen. Standardmuster: kurzlebige Signaturschlüssel plus veröffentlichte Widerrufsliste oder ein Transparenzprotokoll mit Widerrufseinträgen.
+- **Beidseitig / geteilte Signatur-Belege.** Einige Implementierungen teilen die signierte Last in vor-Ausführung (`authorization_*`) und nach-Ausführung (`result_*`) Hälften mit unabhängigen Signaturen, nützlich wenn die Autorisierungsentscheidung und das beobachtete Ergebnis von verschiedenen Akteuren oder zu verschiedenen Zeiten erzeugt werden. Das baut additiv auf das in dieser Lektion gelehrte Belegformat auf.
+- **Nutzlastzusammensetzung.** Ein Beleg versiegelt die Bytes, die Sie in `result_hash` legen. Echtwelt-Nutzlasten sind oft reichhaltiger als ein einfaches Tool-Aufrufergebnis: Vorentscheidende Begründungen (Modellvorhersage, berücksichtigte Optionen, Beweise und deren Vollständigkeit, Risiko-Postur, Verantwortlichkeitskette, Tor-Ausgang) können alle innerhalb der Nutzlast leben, versiegelt durch einen einzigen Beleg. Das hält das Belegformat minimal, während Nutzlastschemas sich domänenspezifisch weiterentwickeln können.
+- **Cross-Implementation-Kompatibilität.** Mehrere unabhängige Implementierungen desselben Belegformats (Python, TypeScript, Rust, Go) verifizieren sich gegenseitig gegen gemeinsame Testvektoren. Wenn Sie eine eigene Implementierung bauen, bestätigt die Validierung gegen veröffentlichte Vektoren die Kompatibilität über die Leitung.
+- **Migration auf Post-Quantum.** Ed25519 ist heute weit verbreitet, aber nicht quantensicher. Ein `alg`-Label allein ist keine Migration: Ein Profil muss ML-DSA-Schlüsselcodierung, kanonische signierte Bytes, Verifikation, Richtlinien für abhängige Parteien, Downgrade-Schutz und Übergangssemantik definieren. Planen und testen Sie eine doppelsignaturige Übergangsphase gegen gemeinsame Vektoren, bevor Sie Kompatibilitätsaussagen machen.
 
 ## Zusätzliche Ressourcen
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signed Decision Receipts for Machine-to-Machine Access Control</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Übersicht zu Responsible AI (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Digitales Signaturalgorithmus für Edwards-Kurven (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Zertifikatstransparenz</a> (Merkle-Baum-Konstruktion, verwendet von selektiv-offenlegenden Belegen)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-verifizierbare Entscheidungsbelege</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Implementierungsübergreifende Test-Vektoren</a> für das in dieser Lektion verwendete Belegformat (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signierte Entscheidungsbelege für Machine-to-Machine Access Control</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Overview Responsible AI (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digital Signature Algorithm (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON-Kanonisierungsschema (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Zertifikatstransparenz</a> (Merkle-Baum-Konstruktion verwendet von Selektiv-Offenlegungs-Belegen)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifizierbare Entscheidungsbelege</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Cross-Implementation-Kompatibilitätstestvektoren</a> für das in dieser Lektion verwendete Belegformat (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl-Dokumentation</a> (Ed25519 in Python)
 
 ## Vorherige Lektion

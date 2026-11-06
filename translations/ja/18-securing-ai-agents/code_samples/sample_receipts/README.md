@@ -14,26 +14,50 @@ SHA-256はコンテンツダイジェストと領収書チェーンのリンク�
 
 ## サンプルの検証
 
-ノートブックは4つのセクションで検証の手順を説明します。これらのフィクスチャを
-ノートブックの説明なしで直接検証するには：
+`18-signed-receipts.ipynb` で、まずセットアップとセクション 1〜3 を実行してください。
+セクション 3 は `verify_chain` を定義します。セクション 1 と 2 だけでは不十分です。
+その後、新しいセルで次のブロックを実行してください。ノートブックの作業ディレクトリを
+ `18-securing-ai-agents/code_samples` に設定してください。以下のフィクスチャパスは
+そのディレクトリに対する相対パスです。
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter を使わずに例を確認する
+
+リポジトリのルートから、レッスンの依存関係をインストールして次を実行してください:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+これらのテストはノートブックの Python サンプルと、正確な README ブロックを実行します
+上記のものです。また、改ざんやピン留めされていないキーが検証器によって拒否されることも確認します。
+テストはノートブックの `%pip` セットアップセルをスキップします。なぜなら依存関係が
+別途インストールされるためです。ノートブックやフィクスチャは変更しません。
 
 ## これらの生成方法
 

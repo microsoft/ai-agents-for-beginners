@@ -1,44 +1,68 @@
-# Pavyzdinės kvitų fixtūros
+# Pavyzdiniai kvito šablonai
 
-Trys iš anksto sugeneruoti kvitų failai peržiūrai be užrašų knygelės vykdymo.
+Trys iš anksto sugeneruoti kvito failai, skirti peržiūrai be užrašų vykdymo.
 
 | Failas | Kas tai yra |
 |---|---|
-| `01_valid_receipt.json` | Galiojantis pasirašytas kvitas `lookup_flights` įrankio skambučiui. Patikrinimas grąžina True. |
-| `02_tampered_receipt.json` | Tas pats kvitas su vienu lauku pakeistu po pasirašymo. Patikrinimas grąžina False. |
-| `03_chain_three_receipts.json` | Trys galiojantys kvitai grandinėje (paieška, rezervavimas, užsakymas) su `previous_receipt_hash`, susiedami kiekvieną su ankstesniu. |
+| `01_valid_receipt.json` | Galiojantis pasirašytas kvitas už `lookup_flights` įrankio kvietimą. Patvirtinimas grąžina True. |
+| `02_tampered_receipt.json` | Tas pats kvitas, kurio vienas laukas pakeistas po pasirašymo. Patvirtinimas grąžina False. |
+| `03_chain_three_receipts.json` | Trijų galiojančių kvitų grandinė (paieška, rezervavimas, užsakymas), su `previous_receipt_hash` siejančiomis kiekvieną su ankstesniu. |
 
-Fixtūros pasirašo apkrovos kanoniniais JCS baitais tiesiogiai su Ed25519.
-SHA-256 vis dar naudojamas turinio santrumpoms ir kvitų grandinės nuorodoms, o ne kaip
-papildomas išankstinis maišas prieš pasirašymą.
+Šablonai tiesiogiai pasirašo duomenų užkrauto kanoninį JCS baitų vaizdą naudodami Ed25519.
+SHA-256 lieka naudojamas turinio santraukų ir kvitų grandinės nuorodų atvaizdavimui, ne kaip
+papildomas priešpasirašymo maišos žingsnis.
 
-## Pavyzdžių patikra
+## Pavyzdžių patikrinimas
 
-Užrašų knyga peržiūri patikrą keturiose dalyse. Norint patikrinti šias fixtūras
-tiesiogiai be užrašų knygos vykdymo:
+Naudojant `18-signed-receipts.ipynb`, pirmiausia paleiskite Setup ir 1–3 skyrius.
+3 skyrius apibrėžia `verify_chain`; tik 1 ir 2 skyrius nepakanka.
+Tada paleiskite žemiau esančią bloką naujame lange, nustatydami užrašų darbinį katalogą
+kaip `18-securing-ai-agents/code_samples`. Šablonų keliai žemiau yra santykiniai šiam katalogui.
+
 
 ```python
 import json
 from pathlib import Path
 
-# Tarkime, kad jūs užbaigėte importavimus ir pagalbines funkcijas
-# iš 1 ir 2 skirsnių failo 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Tiesa
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Melas
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Kaip šios buvo sugeneruotos
+### Pavyzdžio tikrinimas be Jupyter
 
-Fixtūros naudoja tą pačią kodo eilutę kaip užrašų knyga, su viena fiksuota pasirašymo raktą
-ir fiksuotais laiko ženklais baitų atkuriamumui. Norint sugeneruoti iš naujo:
+Iš saugyklos šaknies įdiekite pamokos priklausomybes ir paleiskite:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Šie testai įvykdo užrašų Python pavyzdžius ir tikslią README sekciją
+aukščiau. Jie taip pat tikrina, ar manipuliavimas ir neįpirkti raktai atmetami
+tikrinimo metu. Testai praleidžia užrašų `%pip` inicijavimo ląstelę, nes priklausomybės
+įdiegiamos atskirai. Jie nekeičia užrašų ar šablonų.
+
+## Kaip jie buvo sugeneruoti
+
+Šablonai naudoja tą pačią kodo kelią kaip ir užrašai, su vienu fiksuotu pasirašymo raktu
+ir fiksuotais laiko žymekliais dėl baitų atkuriamumo. Norint iš naujo sugeneruoti:
 
 ```bash
 python3 generate_fixtures.py
@@ -46,18 +70,18 @@ python3 generate_fixtures.py
 
 (Scenarijus yra `generate_fixtures.py` šiame kataloge.)
 
-## Ką studentai sužino nagrinėdami neapdorotą JSON
+## Ko studentai išmoksta nagrinėdami neapdorotą JSON
 
-Skaitant neapdorotą kvito formatą vystosi intuicija, kurios ląstelės užrašų knygoje
-ne visada pateikia. Studentai, kurie greitai peržiūri JSON, dažnai pastebi:
+Skaitant žalią kvito formatą, suformuojama intuicija, kurios kartais neužrašų ląstelės
+nepateikia. Studentai, greitai perbėgdami JSON, dažnai pastebi:
 
-1. Parašas yra neaiškus base64url eilutė, bet kiekvienas kitas laukas yra paprastas
-   skaitomas JSON. Parašas nekoduoja turinio; jis liudija jo tikrumą.
-2. `public_key` yra įterptas į kvitą. Auditorius nieko daugiau
-   nereikia patikrinti (tik jei tiki, kad raktas iš tiesų priklauso tvirtinamu
-   leidėju; žr. pamokos README apie tapatybės infrastruktūrą).
-3. Vieno simbolio bet kuriame lauke pakeitimas, o paskui failo palyginimas su
-   `02_tampered_receipt.json`, paverčia baitų lygio mechanizmą akivaizdžiu.
+1. Parašas yra nepermatomas base64url eilutė, tačiau visi kiti laukai yra aiškūs
+   skaitomi JSON formatu. Parašas nešifruoja turinio; jis patvirtina turinį.
+2. `public_key` yra įterptas kvite, kas pakanka savarankiškam
+   patikrinimui, bet ne leidėjo pasitikėjimui. Auditorius turi palyginti jį su raktu,
+   kuris pritvirtintas už kvito ribų arba gaunamas iš patikimos registracijos.
+3. Pakeitus vieną simbolį bet kuriame lauke ir vėl palyginus šį failą su
+   `02_tampered_receipt.json`, baitų lygmens mechanizmas tampa aiškus.
 
 ---
 

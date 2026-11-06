@@ -60,6 +60,17 @@ def load(name):
     return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
 
 
+def run_readme_example() -> str:
+    """Execute the documented verification block from its stated directory."""
+    readme = (FIXTURES / "README.md").read_text(encoding="utf-8")
+    code = readme.split("```python\n", 1)[1].split("\n```", 1)[0]
+    namespace = dict(NOTEBOOK)
+    output = io.StringIO()
+    with contextlib.chdir(HERE), contextlib.redirect_stdout(output):
+        exec(compile(code, "sample_receipts/README.md", "exec"), namespace)
+    return output.getvalue()
+
+
 def issuer_signed(payload):
     """Sign a payload with the fixture issuer's own key, so its signature verifies:
     a well-signed receipt the chain checks must still refuse."""
@@ -71,6 +82,12 @@ def payload_of(receipt):
 
 
 class SignedReceiptFixtures(unittest.TestCase):
+    def test_readme_verification_example_runs(self):
+        output = run_readme_example()
+        self.assertIn("Valid receipt: True", output)
+        self.assertIn("Tampered receipt: False", output)
+        self.assertIn("Forged, checked against issuer key:  False", output)
+
     def test_pinned_key_is_the_fixture_issuers_key(self):
         issuer = signing.SigningKey(bytes.fromhex(generate_fixtures.FIXED_SK_HEX)).verify_key
         self.assertEqual(generate_fixtures.b64url_nopad(bytes(issuer)), ISSUER_KEY)

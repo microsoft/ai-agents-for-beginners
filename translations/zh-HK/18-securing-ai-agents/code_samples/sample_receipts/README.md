@@ -14,26 +14,50 @@ SHA-256 仍用於內容摘要和收據鏈接，並非作為簽名前的
 
 ## 驗證範例
 
-筆記本透過四個部分來演示驗證。若想直接驗證這些夾具，
-而無需瀏覽筆記本操作說明：
+在 `18-signed-receipts.ipynb` 中，先執行 設定 以及第 1 至第 3 節。
+第 3 節定義了 `verify_chain`；僅第 1 和第 2 節並不足夠。
+然後在一個新儲存格執行以下區塊，並將 notebook 的工作目錄
+設為 `18-securing-ai-agents/code_samples`。下面的測試夾具路徑是相對
+該目錄。
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### 在沒有 Jupyter 的情況下檢查範例
+
+從儲存庫根目錄，安裝課程的相依套件並執行：
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+這些測試會執行 notebook 的 Python 範例以及 README 中完全相同的區塊
+上述。他們也會檢查遭到竄改和未鎖定的金鑰是否會被
+驗證器拒絕。測試會跳過 notebook 的 `%pip` 設定儲存格，因為相依項
+是另行安裝的。它們不會更改 notebook 或測試夾具。
 
 ## 這些是如何生成的
 

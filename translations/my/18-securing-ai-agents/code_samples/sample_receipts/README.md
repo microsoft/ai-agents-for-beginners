@@ -12,28 +12,52 @@
 SHA-256 ကို အကြောင်းအရာတုံ့ပြောင်းမှုများနှင့် လက်ခံလွှာစဉ်ချိတ်ဆက်မှုများအတွက်သာ အသုံးပြုပြီး
 လက်မှတ်ထိုးခြင်းမပြုမီ အပို pre-hash အဖြစ် မအသုံးပြုပါ။
 
-## နမူနာများကို အတည်ပြုခြင်း
+## နမူနာများကို စစ်ဆေးခြင်း
 
-နိုတ်ဘုတ်သည် အတည်ပြုခြင်းကို အပိုင်းလေးပိုင်းဖြင့် ရွေ့ဆိုင်းပြသသည်။ 
-ဤဖိုင်များကို နိုတ်ဘုတ်ဇာတ်လမ်းမဖြတ်ဘဲ တိုက်ရိုက် အတည်ပြုရန် -
+`18-signed-receipts.ipynb` တွင် အရင်ဆုံး Setup နှင့် အပိုင်း 1 မှ 3 ကို ပြုလုပ်ပါ။
+အပိုင်း 3 သည် `verify_chain` ကို သတ်မှတ်သည်; အပိုင်း 1 နှင့် 2 သာဖြင့် မလုံလောက်ပါ။
+ထို့နောက် အသစ်သော cell တစ်ခုတွင် အောက်ပါ block ကို လည်ပတ်ပါ၊ notebook ၏ working directory
+ကို `18-securing-ai-agents/code_samples` အဖြစ် သတ်မှတ်ထားပါ။ အောက်ပါ fixture လမ်းကြောင်းများသည် ဆက်စပ်
+အဆိုပါ ဒိုင်ရက်တွရီနှင့် ဆက်စပ်နေသည်။
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter မရှိဘဲ နမူနာကို စစ်ဆေးခြင်း
+
+repository ရဲ့ root မှ သင်ခန်းစာ၏ dependency များကို ထည့်သွင်းပြီး အောက်ပါကို လည်ပတ်ပါ။
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+ဤ စမ်းသပ်ချက်များသည် notebook ၏ Python ဥပမာများနှင့် README ၌ ရှိသည့် အပိုဒ်ကို တိတိကျကျ ဖော်ဆောင်ပါသည်
+အထက်ပါ။ ၎င်းတို့သည် လိမ်လည်ခြင်းနှင့် unpinned keys များကို ငြင်းပယ်ကြောင်းလည်း စစ်ဆေးပါသည်
+စစ်ဆေးသူများ။ စမ်းသပ်ချက်များသည် notebook ၏ `%pip` setup cell ကို ကျော်လွှားသည်၊ အကြောင်းမှာ ကိုယ်ပိုင်လိုအပ်ချက်များကို
+သီးခြား တပ်ဆင်ထားသောကြောင့်။ ၎င်းများသည် notebook သို့မဟုတ် fixtures များကို မပြောင်းလဲပါ။
 
 ## ၎င်းတို့ကို အဘယ်လို ထုတ်လုပ်ခဲ့ပါသလဲ
 
