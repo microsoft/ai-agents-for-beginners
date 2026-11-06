@@ -1,63 +1,87 @@
-# نمونه فایل‌های رسید
+# نمونه فایل‌های رسید آماده
 
-سه فایل رسید از پیش تولید شده برای بازبینی بدون اجرای دفترچه یادداشت.
+سه فایل رسید از پیش ساخته شده برای بررسی بدون اجرای نوت‌بوک.
 
-| فایل | توضیح |
+| فایل | توضیحات |
 |---|---|
-| `01_valid_receipt.json` | یک رسید معتبر امضا شده برای فراخوانی ابزار `lookup_flights`. تأیید صحت آن مقدار True برمی‌گرداند. |
-| `02_tampered_receipt.json` | همان رسید با یک فیلد تغییر یافته پس از امضا. تأیید صحت آن مقدار False برمی‌گرداند. |
-| `03_chain_three_receipts.json` | زنجیره‌ای از سه رسید معتبر (جستجو، نگه‌داشت، رزرو) که با `previous_receipt_hash` هر کدام به قبلی وصل شده‌اند. |
+| `01_valid_receipt.json` | یک رسید معتبر امضا شده برای فراخوانی ابزار `lookup_flights`. تأیید اعتبار نتیجه True می‌دهد. |
+| `02_tampered_receipt.json` | همان رسید با یک فیلد تغییر یافته بعد از امضا. تأیید اعتبار نتیجه False می‌دهد. |
+| `03_chain_three_receipts.json` | یک زنجیره از سه رسید معتبر (جستجو، نگه‌داشت، رزرو) که هرکدام با `previous_receipt_hash` به قبلی متصل شده‌اند. |
 
-فایل‌های نمونه به طور مستقیم بایت‌های JCS استاندارد بارگذاری را با Ed25519 امضا می‌کنند.
-SHA-256 برای چک کردن محتوا و لینک‌های زنجیره رسید به کار می‌رود، نه به عنوان
-پیش‌هش اضافه قبل از امضا.
+فایل‌ها مستقیم بایت‌های canonical JCS داده را با Ed25519 امضا می‌کنند.
+SHA-256 برای هضم محتوا و لینک‌های زنجیره رسید استفاده می‌شود، نه به عنوان
+پیش‌هشد اضافی قبل از امضا.
 
-## تأیید اعتبار نمونه‌ها
+## تأیید نمونه‌ها
 
-دفترچه یادداشت تأیید را در چهار بخش بررسی می‌کند. برای تأیید مستقیم این نمونه‌ها
-بدون اجرای متن دفترچه:
+در `18-signed-receipts.ipynb` ابتدا بخش Setup و بخش‌های ۱ تا ۳ را اجرا کنید.
+بخش ۳ تعریف کننده `verify_chain` است؛ فقط بخش‌های ۱ و ۲ کافی نیستند.
+سپس بلوک زیر را در یک سل جدید اجرا کنید، با دایرکتوری کاری نوت‌بوک
+تنظیم شده به `18-securing-ai-agents/code_samples`. مسیرهای فایل زیر نسبت به آن دایرکتوری هستند.
+
 
 ```python
 import json
 from pathlib import Path
 
-# فرض می‌کند که واردات و توابع کمکی را تکمیل کرده‌اید
-# از بخش‌های ۱ و ۲ فایل 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # درست
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # نادرست
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## چگونه این‌ها تولید شده‌اند
+### بررسی نمونه بدون Jupyter
 
-این نمونه‌ها از همان مسیر کد دفترچه استفاده می‌کنند، با یک کلید امضای ثابت
-و زمان‌های مشخص برای تولید بایت تکرارپذیر. برای بازتولید:
+از ریشه مخزن، وابستگی‌های درس را نصب و اجرا کنید:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+این آزمون‌ها نمونه‌های پایتون نوت‌بوک و همان بلوک README را اجرا می‌کنند.
+همچنین بررسی می‌کنند که تغییرات غیرمجاز و کلیدهای بدون پین‌شدن توسط
+تأییدکننده‌ها رد شوند. این آزمون‌ها سل Setup در نوت‌بوک با نام `%pip` را رد می‌کنند زیرا وابستگی‌ها جداگانه نصب شده‌اند.
+آن‌ها نوت‌بوک یا فایل‌ها را تغییر نمی‌دهند.
+
+## روند تولید این فایل‌ها
+
+فایل‌ها از همان مسیر کد نوت‌بوک استفاده می‌کنند، با یک کلید امضای ثابت
+و زمان‌های ثابت برای تکرارپذیری بایتی. برای بازتولید:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(اسکریپت در این دایرکتوری و با نام `generate_fixtures.py` قرار دارد.)
+(اسکریپت در `generate_fixtures.py` در این دایرکتوری است.)
 
-## چیزی که دانش‌آموزان با بررسی JSON خام می‌آموزند
+## آنچه دانش‌آموزان از بررسی JSON خام یاد می‌گیرند
 
-خواندن قالب خام رسید شهودی را ایجاد می‌کند که سلول‌های دفترچه همیشه ارائه نمی‌دهند.
-دانش‌آموزانی که JSON را سریع می‌خوانند معمولاً متوجه می‌شوند:
+خواندن فرمت خام رسید شهودی را می‌سازد که سل‌های نوت‌بوک همیشه ارائه نمی‌دهند.
+دانش‌آموزانی که JSON را مرور می‌کنند اغلب متوجه موارد زیر می‌شوند:
 
-1. امضا یک رشته کدگذاری شده به صورت base64url است، اما همه فیلدهای دیگر JSON خوانا و ساده هستند.
-   امضا محتوای رسید را رمزنگاری نمی‌کند، بلکه صحت آن را تأیید می‌کند.
-۲. کلید عمومی در خود رسید جاسازی شده است. یک بازرس به چیز دیگری نیاز ندارد
-   تا صحت آن را تأیید کند (با فرض اینکه کلید واقعا متعلق به صادرکننده ادعا شده باشد؛
-   به راهنمای هویت زیرساختی درس مراجعه کنید).
-۳. تغییر حتی یک کاراکتر از هر فیلد، سپس مقایسه دوباره این فایل با `02_tampered_receipt.json`
-   مکانیزم روی سطح بایت را ملموس می‌کند.
+1. امضا یک رشته base64url مبهم است، اما هر فیلد دیگر JSON خوانا و ساده است.
+   امضا محتوا را رمزنگاری نمی‌کند؛ بلکه به آن گواهی می‌دهد.
+2. `public_key` در رسید جاسازی شده است که برای بررسی
+   خود انسجام کافی است اما اعتماد به صادرکننده را تضمین نمی‌کند. یک حسابرس باید آن را با کلیدی
+   که خارج از رسید پین شده یا از طریق یک رجیستری مورد اعتماد حل شده، مقایسه کند.
+3. تغییر حتی یک کاراکتر در هر فیلد و سپس مقایسه مجدد این فایل با
+   `02_tampered_receipt.json`، مکانیزم سطح بایت را ملموس می‌کند.
 
 ---
 

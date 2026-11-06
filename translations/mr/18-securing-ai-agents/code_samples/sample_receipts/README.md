@@ -12,28 +12,52 @@
 SHA-256 अजूनही सामग्री डाइजेस्ट आणि रसीद-साखळी लिंकसाठी वापरले जाते,  
 स्वाक्षरी करण्यापूर्वी अतिरिक्‍त प्री-हॅश म्हणून नाही.
 
-## नमुन्यांची पडताळणी करणे
+## नमुने सत्यापित करणे
 
-नोटबुक चार विभागांत सत्यापनातून मार्गदर्शन करते. हे फिटचर्स थेट नोटबुकची कथा न वाचता तपासण्यासाठी:
-
+`18-signed-receipts.ipynb` मध्ये, प्रथम सेटअप आणि विभाग 1 ते 3 चालवा.
+विभाग 3 मध्ये `verify_chain` परिभाषित केले आहे; केवळ विभाग 1 आणि 2 पुरेसे नाहीत.
+नंतर खालील ब्लॉक नवीन सेलमध्ये चालवा, नोटबुकची कार्यरत निर्देशिका
+`18-securing-ai-agents/code_samples` वर सेट केलेली असावी. खालील फिक्स्चर मार्ग
+त्या निर्देशिकेच्या सापेक्ष आहेत.
 
 ```python
 import json
 from pathlib import Path
 
-# आपण आयात आणि सहाय्यक कार्ये पूर्ण केली आहेत असे गृहित धरले आहे
-# 18-signed-receipts.ipynb च्या विभाग 1 आणि 2 मधील.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # खरे
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # खोटे
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter शिवाय उदाहरण तपासणे
+
+रिपॉझिटरीच्या मूळ निर्देशिकेतून, धड्याच्या अवलंबित्वे स्थापित करा आणि चालवा:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+हे चाचण्या नोटबुकमधील Python उदाहरणे आणि README मधील नेमका ब्लॉक चालवतात.
+वर दिलेले. ते हे देखील तपासतात की छेडछाड आणि अनपिन केलेल्या कींना परीक्षकांकडून
+नाकारल्या जातात. चाचण्या नोटबुकचा `%pip` सेटअप सेल वगळतात कारण अवलंबित्वे
+स्वतंत्रपणे स्थापित केली जातात. त्या नोटबुक किंवा फिक्स्चर्स बदलत नाहीत.
 
 ## हे कसे तयार करण्यात आले
 

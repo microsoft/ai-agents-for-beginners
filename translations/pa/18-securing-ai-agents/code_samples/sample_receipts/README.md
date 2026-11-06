@@ -1,63 +1,87 @@
 # ਨਮੂਨਾ ਰਸੀਦ ਫਿਕਸਚਰ
 
-ਤਿੰਨ ਪੂਰਵ-ਤਿਆਰ ਕੀਤੀਆਂ ਰਸੀਦਾਂ ਦੀਆਂ ਫਾਇਲਾਂ ਬਿਨਾਂ ਨੋਟਬੁੱਕ ਚਲਾਏ ਜਾਂਚ ਲਈ।
+ਨੋਟਬੁੱਕ ਚਲਾਏ ਬਿਨਾਂ ਜਾਂਚ ਲਈ ਤਿੰਨ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰ ਕੀਤੀਆਂ ਰਸੀਦ ਫਾਈਲਾਂ।
 
-| ਫਾਇਲ | ਕੀ ਹੈ |
+| ਫਾਈਲ | ਇਹ ਕੀ ਹੈ |
 |---|---|
-| `01_valid_receipt.json` | `lookup_flights` ਟੂਲ ਕਾਲ ਲਈ ਇੱਕ ਸਹੀ ਦਸਤਖਤ ਵਾਲੀ ਰਸੀਦ। ਵੈਰੀਫਿਕੇਸ਼ਨ ਸੱਚ (True) ਵਾਪਸ ਕਰਦਾ ਹੈ। |
-| `02_tampered_receipt.json` | ਦਸਤਖਤ ਕਰਨ ਤੋਂ ਬਾਦ ਇੱਕ ਖੇਤਰ ਬਦਲਿਆ ਹੋਇਆ ਇਕੋ ਜਿਹੀ ਰਸੀਦ। ਵੈਰੀਫਿਕੇਸ਼ਨ ਝੂਠਾ (False) ਵਾਪਸ ਕਰਦਾ ਹੈ। |
-| `03_chain_three_receipts.json` | ਤਿੰਨ ਸਹੀ ਰਸੀਦਾਂ ਦੀ ਇੱਕ ਲੜੀ (search, hold, book) ਜਿਸ ਵਿੱਚ ਹਰ ਇੱਕ `previous_receipt_hash` ਪਹਿਲੀ ਨਾਲ ਜੋੜਦੀ ਹੈ। |
+| `01_valid_receipt.json` | ਇੱਕ ਵੈਧ ਸਾਈਨ ਕੀਤਾ ਹੋਇਆ ਰਸੀਦ ਇੱਕ `lookup_flights` ਟੂਲ ਕਾਲ ਲਈ। ਜਾਂਚ ਸੱਚਾ ਵਾਪਸ ਕਰਦੀ ਹੈ। |
+| `02_tampered_receipt.json` | ਸਾਈਨਿੰਗ ਦੇ ਬਾਅਦ ਇੱਕ ਫੀਲਡ ਸੋਧਿਆ ਹੋਇਆ ਉਹੀ ਰਸੀਦ। ਸੱਤੀਕਰਨ False ਵਾਪਸ ਕਰਦਾ ਹੈ। |
+| `03_chain_three_receipts.json` | ਤਿੰਨ ਵੈਧ ਰਸੀਦਾਂ (ਖੋਜ, ਰੋਕਣਾ, ਬੁੱਕ ਕਰਨਾ) ਦੀ ਲੜੀ ਜਿੱਥੇ ਹਰ ਇੱਕ ਨੂੰ ਪਿਛਲੇ ਨਾਲ ਜੋੜਨ ਲਈ `previous_receipt_hash` ਬੰਨ੍ਹੀ ਹੁੰਦੀ ਹੈ। |
 
-ਫਿਕਸਚਰ payload ਦੇ ਕੈਨੋਨਿਕਲ JCS ਬਾਈਟਸ ਨੂੰ ਸਿੱਧਾ Ed25519 ਨਾਲ ਦਸਤਖਤ ਕਰਦੇ ਹਨ।
-SHA-256 ਸਮੱਗਰੀ ਡਾਈਜੈਸਟ ਅਤੇ ਰਸੀਦ-ਲੜੀ ਲਿੰਕ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਸਾਈਨਿੰਗ ਤੋਂ ਪਹਿਲਾਂ ਕੋਈ ਵਾਧੂ ਪ੍ਰੀ-ਹੈਸ਼ ਨਹੀਂ।
+ਫਿਕਸਚਰ ਸਿੱਧਾ ਹੀ ਪੇਲੋਡ ਦੇ ਕੈਨੋਨਿਕਲ JCS ਬਾਈਟਸ ਨੂੰ Ed25519 ਨਾਲ ਸਾਇਨ ਕਰਦੇ ਹਨ।
+SHA-256 ਸਮੱਗਰੀ ਡਾਈਜੈਸਟਸ ਅਤੇ ਰਸੀਦ-ਚੇਨ ਲਿੰਕਸ ਲਈ ਇਸਤਮਾਲ ਹੁੰਦਾ ਰਹਿੰਦਾ ਹੈ, ਸਾਈਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਸੇ ਵਾਧੂ ਪ੍ਰੀ-ਹੈਸ਼ ਵਜੋਂ ਨਹੀਂ।
 
 
-## ਨਮੂਨਿਆਂ ਦੀ ਪੁਸ਼ਟੀ
+## ਨਮੂਨਿਆਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨਾ
 
-ਨੋਟਬੁੱਕ ਚਾਰ ਭਾਗਾਂ ਵਿੱਚ ਵੈਰੀਫਿਕੇਸ਼ਨ ਦਿਖਾਉਂਦਾ ਹੈ। ਇਨ੍ਹਾਂ ਫਿਕਸਚਰਾਂ ਨੂੰ ਨੋਟਬੁੱਕ ਸੰਵਾਦ ਤੋਂ ਬਿਨਾਂ ਸਿੱਧਾ ਚੈੱਕ ਕਰਨ ਲਈ:
+`18-signed-receipts.ipynb` ਵਿੱਚ, ਸਭ ਤੋਂ ਪਹਿਲਾਂ Setup ਅਤੇ ਭਾਗ 1 ਤੋਂ 3 ਤੱਕ ਚਲਾਓ।
+ਭਾਗ 3 `verify_chain` ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦਾ ਹੈ; ਸਿਰਫ ਭਾਗ 1 ਅਤੇ 2 ਕਾਫ਼ੀ ਨਹੀਂ ਹਨ।
+ਫਿਰ ਹੇਠਾਂ ਦਿੱਤਾ ਹੋਇਆ ਬਲਾਕ ਨਵੀਂ ਸੈੱਲ ਵਿੱਚ ਚਲਾਓ, ਨੋਟਬੁੱਕ ਦੇ ਕਾਮ ਕਰਨ ਵਾਲੇ ਡਾਇਰੈਕਟਰੀ ਨੂੰ
+`18-securing-ai-agents/code_samples` 'ਤੇ ਸੈੱਟ ਕੀਤਾ ਹੋਇਆ। ਹੇਠਾਂ ਦਿੱਤੀ ਗਈ ਫਿਕਸਚਰ ਪਾਥ ਉਸ ਡਾਇਰੈਕਟਰੀ ਨਾਲ ਸੰਬੰਧਤ ਹਨ।
 
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
+### ਜੁਪਾਈਟਰ ਦੇ ਬਿਨਾਂ ਉਦਾਹਰਨ ਦੀ ਜਾਂਚ ਕਰਨਾ
+
+ਰਿਪੋਜ਼ਿਟਰੀ ਰੂਟ ਤੋਂ, ਲੈਸ਼ਨ ਦੀਆਂ ਲੋੜਾਂ ਨੂੰ ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਚਲਾਓ:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+ਇਹ ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ ਪਾਇਥਨ ਉਦਾਹਰਨਾਂ ਅਤੇ ਬਿਲਕੁਲ README ਬਲਾਕ ਨੂੰ ਚਲਾਉਂਦੇ ਹਨ
+ਉੱਪਰ। ਉਹ ਇਹ ਵੀ ਜਾਂਚਦੇ ਹਨ ਕਿ ਟੈਂਪਰਿੰਗ ਅਤੇ ਅਣਪਿਨ ਕੀਜ਼ ਨੂੰ ਪਰਖ ਨਕਾਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ
+ਦੁਆਰਾ। ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ `%pip` ਸੈੱਟਅੱਪ ਸੈੱਲ ਨੂੰ ਛੱਡ ਦਿੰਦੇ ਹਨ ਕਿਉਂਕਿ ਡਿਪੈਂਡੈਂਸੀਜ਼
+ਵੱਖ-ਵੱਖ ਤਰੀਕੇ ਨਾਲ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਉਹ ਨੋਟਬੁੱਕ ਜਾਂ ਫਿਕਸਚਰਜ਼ ਵਿੱਚ ਕੋਈ ਤਬਦੀਲੀ ਨਹੀਂ ਕਰਦੇ।
+
 ## ਇਹ ਕਿਵੇਂ ਤਿਆਰ ਕੀਤੇ ਗਏ
 
-ਫਿਕਸਚਰ ਨੋਟਬੁੱਕ ਦੇ ਸਮਾਨ ਕੋਡ ਰਾਹ ਦਾ ਉਪਯੋਗ ਕਰਦੇ ਹਨ, ਇੱਕ ਫਿਕਸ ਸਾਈਨਿੰਗ ਕੀ ਅਤੇ ਫਿਕਸ ਸਮੇਂ ਦੇ ਸਟੈਂਪ ਨਾਲ ਬਾਈਟ-ਪੁਨਰਤਿਆਰਥਤਾ ਲਈ। ਮੁੜ ਤਿਆਰ ਕਰਨ ਲਈ:
-
+ਫਿਕਸਚਰਜ਼ ਨੋਟਬੁੱਕ ਦੇ ਸਮਾਨ ਕੋਡ ਪਾਥ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਇੱਕ ਫਿਕਸ ਕੀਤੀ ਹੋਈ ਸਾਈਨਿੰਗ ਕੀ
+ਅਤੇ ਬਾਈਟ-ਪੁਨਰੁਤਪਾਦਨ ਲਈ ਫਿਕਸ ਕੀਤੀ ਗਈ ਟਾਈਮਸਟੈਂਪ ਨਾਲ। ਦੁਬਾਰਾ ਬਣਾਉਣ ਲਈ:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(ਸਕ੍ਰਿਪਟ ਇਹ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ `generate_fixtures.py` 'ਤੇ ਹੈ।)
+(ਸਕ੍ਰਿਪਟ ਇਸ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ `generate_fixtures.py` 'ਤੇ ਹੈ।)
 
-## ਵਿਦਿਆਰਥੀ ਕੱਚੇ JSON ਦੇ ਨਿਰੀਅਨ ਕਰਨ ਤੋਂ ਕੀ ਸਿੱਖਦੇ ਹਨ
+## ਵਿਦਿਆਰਥੀ ਕੱਚੇ JSON ਨੂੰ ਦੇਖ ਕੇ ਕੀ ਸਿੱਖਦੇ ਹਨ
 
-ਕੱਚੇ ਰਸੀਦ ਫਾਰਮੈਟ ਨੂੰ ਪੜ੍ਹਨ ਨਾਲ ਉਹ ਸੂਝ ਬਣਦੀ ਹੈ ਜੋ ਨੋਟਬੁੱਕ ਵਿੱਚ ਹਮੇਸ਼ਾ ਨਹੀਂ ਮਿਲਦੀ। JSON ਨੂੰ ਤੇਜ਼ੀ ਨਾਲ ਪੜ੍ਹਨ ਵਾਲੇ ਵਿਦਿਆਰਥੀ ਅਕਸਰ ਧਿਆਨ ਦੇਂਦੇ ਹਨ:
+ਕੱਚੇ ਰਸੀਦ ਫਾਰਮੈਟ ਨੂੰ ਪੜ੍ਹਨ ਨਾਲ ਉਹ ਅਹਿਸਾਸ ਬਣਦਾ ਹੈ ਜੋ ਨੋਟਬੁੱਕ ਦੀਆਂ ਸੈੱਲਜ਼ ਹਮੇਸ਼ਾ ਨਹੀਂ ਦਿੰਦੀਆਂ।
+ਜੋ ਵਿਦਿਆਰਥੀ JSON ਨੂੰ ਜਲਦੀ ਵਿੱਚ ਵੇਖਦੇ ਹਨ ਉਹ ਅਕਸਰ ਨੋਟਿਸ ਕਰਦੇ ਹਨ:
 
-
-1. ਦਸਤਖਤ ਇਕ ਅਸਪਸ਼ਟ base64url ਸਤਰ ਹੈ, ਪਰ ਹਰ ਇਕ ਹੋਰ ਖੇਤਰ ਸਧਾਰਨ ਪੜ੍ਹਨ ਯੋਗ JSON ਹੈ।  
-   ਦਸਤਖਤ ਸਮੱਗਰੀ ਨੂੰ ਇੰਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰਦਾ; ਇਹ ਇਸ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ।  
-2. `public_key` ਰਸੀਦ ਵਿੱਚ ਸਾਮਿਲ ਹੈ। ਇੱਕ ਆਡੀਟਰ ਨੂੰ ਹੋਰ ਕੁਝ ਵੀ ਜਾਂਚਣ ਲਈ ਲੋੜ ਨਹੀਂ ਹੈ
-   (ਜਦ ਤੱਕ ਇਹ ਮੰਨਿਆ ਜਾਵੇ ਕਿ ਕੁੰਜੀ ਵਾਸਤਵ ਵਿੱਚ ਦਾਅਵਾ ਕੀਤੇ ਜਾਰੀਕਰਤਾ ਦੀ ਹੈ;
-   ਪਛਾਣ ਢਾਂਚੇ ਬਾਰੇ ਪਾਠ ਪਾਠੋ README ਵੇਖੋ)।
-3. ਕਿਸੇ ਵੀ ਖੇਤਰ ਦੇ ਇੱਕ ਅੱਖਰ ਨੂੰ ਬਦਲਣ ਤੋਂ ਬਾਅਦ, ਇਸ ਫਾਇਲ ਨੂੰ ਦੁਬਾਰਾ `02_tampered_receipt.json` ਨਾਲ
-   ਤੁਲਨਾ ਕਰਨਾ, ਬਾਈਟ-ਸਤਰ ਮਕੈਨਿਜ਼ਮ ਨੂੰ ਵਿਅਕਤ ਕਰਦਾ ਹੈ।
+1. ਦਸਤਖ਼ਤ ਇੱਕ ਅੰਧੇਰਾ base64url ਸਟਰਿੰਗ ਹੈ, ਪਰ ਹਰ ਹੋਰ ਖੇਤਰ ਸਿੱਧਾ ਹੈ
+   ਪੜ੍ਹਨ ਯੋਗ JSON। ਸਿਗਨੇਚਰ ਸਮੱਗਰੀ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰਦਾ; ਇਹ ਉਸ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ।
+2. `public_key` ਰਸੀਦ ਵਿੱਚ ਐਂਬੈੱਡ ਕੀਤਾ ਗਿਆ ਹੈ, ਜੋ ਸਵੈ-ਸੰਘਤਾ ਜਾਂਚ ਲਈ ਕਾਫੀ ਹੈ
+   ਪਰ ਜਾਰੀ ਕਰਨ ਵਾਲੇ ਦੇ ਭਰੋਸੇ ਲਈ ਨਹੀਂ। ਇੱਕ ਆਡੀਟਰ ਨੂੰ ਇਹ ਇੱਕ ਕੁੰਜੀ ਨਾਲ ਤੁਲਨਾ ਕਰਨੀ ਪੈਂਦੀ ਹੈ
+   ਜੋ ਰਸੀਦ ਦੇ ਬਾਹਰ ਪਿਨ ਕੀਤੀ ਹੋਈ ਹੈ ਜਾਂ ਇੱਕ ਭਰੋਸੇਮੰਦ ਰਜਿਸਟਰੀ ਰਾਹੀਂ ਹੱਲ ਕੀਤੀ ਗਈ ਹੈ।
+3. ਕਿਸੇ ਵੀ ਖੇਤਰ ਦੇ ਇੱਕ ਅੱਖਰ ਨੂੰ ਸੋਧ ਕੇ, ਫਿਰ ਇਸ ਫਾਇਲ ਨੂੰ ਮੁੜ-ਤੁਲਨਾ ਕਰ ਕੇ
+   `02_tampered_receipt.json` ਨਾਲ, ਬਾਈਟ-ਸਤਰ ਮਕੈਨਿਜ਼ਮ ਨੂੰ ਠوس ਬਣਾਉਂਦਾ ਹੈ।
 
 ---
 

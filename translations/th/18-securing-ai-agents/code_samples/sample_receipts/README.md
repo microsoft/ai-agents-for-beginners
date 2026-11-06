@@ -1,63 +1,87 @@
 # ตัวอย่างไฟล์ใบเสร็จ
 
-ไฟล์ใบเสร็จที่สร้างไว้ล่วงหน้าสามไฟล์สำหรับตรวจสอบโดยไม่ต้องรันโน้ตบุ๊ก
+ไฟล์ใบเสร็จสามไฟล์ที่สร้างไว้ล่วงหน้าสำหรับตรวจสอบโดยไม่ต้องรันโน้ตบุ๊ก
 
 | ไฟล์ | คืออะไร |
 |---|---|
-| `01_valid_receipt.json` | ใบเสร็จที่ถูกต้องลงลายมือชื่อสำหรับการเรียกใช้เครื่องมือ `lookup_flights` การตรวจสอบคืนค่า True |
-| `02_tampered_receipt.json` | ใบเสร็จเดียวกันนี้ที่มีการแก้ไขหนึ่งฟิลด์หลังลงลายมือชื่อ การตรวจสอบคืนค่า False |
-| `03_chain_three_receipts.json` | ชุดใบเสร็จสามใบที่ถูกต้อง (ค้นหา, ถือ, จอง) โดยมี `previous_receipt_hash` เชื่อมโยงแต่ละใบกับใบก่อนหน้า |
+| `01_valid_receipt.json` | ใบเสร็จที่ลงลายมือชื่อถูกต้องสำหรับการเรียกใช้เครื่องมือ `lookup_flights` การตรวจสอบจะคืนค่าเป็น True |
+| `02_tampered_receipt.json` | ใบเสร็จเดียวกันที่มีการแก้ไขฟิลด์หนึ่งหลังจากลงลายมือชื่อ การตรวจสอบจะคืนค่าเป็น False |
+| `03_chain_three_receipts.json` | โซ่ของใบเสร็จที่ถูกต้องสามใบ (ค้นหา, ถือ, จอง) โดยมี `previous_receipt_hash` เชื่อมต่อตัวก่อนหน้าแต่ละใบ |
 
-ตัวอย่างไฟล์ลงลายมือชื่อบนไบต์ JCS canonical ของข้อมูลโดยตรงด้วย Ed25519
-SHA-256 ยังคงใช้สำหรับย่อยเนื้อหาและเชื่อมโยงชุดใบเสร็จ ไม่ใช่การ
-แฮชล่วงหน้าก่อนการลงลายมือชื่อ
+ตัวอย่างไฟล์เหล่านี้ลงลายมือชื่อโดยตรงกับไบต์ JCS ที่เป็น canonical ของ payload ด้วย Ed25519
+SHA-256 ยังคงใช้งานอยู่สำหรับการดึงย่อเนื้อหาและลิงก์ใบเสร็จ-โซ่ ไม่ใช่เป็นการ
+แฮชล่วงหน้าที่เพิ่มก่อนการลงลายมือชื่อ
 
 ## การตรวจสอบตัวอย่าง
 
-โน้ตบุ๊กรายงานการตรวจสอบในสี่ส่วน เพื่อการตรวจสอบตัวอย่างเหล่านี้
-โดยตรงโดยไม่ต้องรันผ่านเนื้อหาโน้ตบุ๊ก:
+ใน `18-signed-receipts.ipynb` ให้รัน Setup และ ส่วนที่ 1 ถึง 3 ก่อน
+ส่วนที่ 3 กำหนด `verify_chain`; ส่วนที่ 1 และ 2 อย่างเดียวไม่พอ
+แล้วรันบล็อกต่อไปนี้ในเซลล์ใหม่ โดยตั้งไดเรกทอรีทำงานของโน้ตบุ๊ก
+เป็น `18-securing-ai-agents/code_samples` เส้นทางตัวอย่างไฟล์ด้านล่างเป็นสัมพัทธ์
+กับไดเรกทอรีนั้น
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## วิธีการสร้างเหล่านี้
+### การตรวจสอบตัวอย่างโดยไม่ใช้ Jupyter
 
-ตัวอย่างไฟล์ใช้เส้นทางโค้ดเดียวกับโน้ตบุ๊ก โดยใช้กุญแจลงลายมือชื่อแบบคงที่
-และเวลาคงที่เพื่อให้สามารถสร้างซ้ำไบต์ได้ หากต้องการสร้างใหม่:
+จากไดเรกทอรีรากของ repository ให้ติดตั้ง dependencies ของบทเรียนและรัน:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+การทดสอบเหล่านี้จะรันตัวอย่าง Python ของโน้ตบุ๊กและบล็อก README ที่ถูกต้อง
+ข้างต้น พวกเขายังตรวจสอบด้วยว่าการปลอมแปลงและกุญแจที่ไม่ได้ตรึงจะถูกปฏิเสธโดย
+ตัวตรวจสอบ การทดสอบข้ามเซลล์ `%pip` ของโน้ตบุ๊กเพราะ dependencies
+ถูกติดตั้งแยกต่างหาก พวกเขาไม่เปลี่ยนโน้ตบุ๊กหรือไฟล์ตัวอย่าง
+
+## วิธีที่ไฟล์เหล่านี้ถูกสร้าง
+
+ตัวอย่างไฟล์ใช้เส้นทางโค้ดเดียวกับโน้ตบุ๊ก โดยมีกุญแจลงลายมือชื่อคงที่
+และเวลาคงที่เพื่อให้ได้ไบต์ที่เหมือนกันทุกครั้ง เมื่อต้องการสร้างใหม่:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(สคริปต์อยู่ที่ `generate_fixtures.py` ภายในไดเรกทอรีนี้)
+(สคริปต์อยู่ที่ `generate_fixtures.py` ในไดเรกทอรีนี้)
 
 ## สิ่งที่นักเรียนเรียนรู้จากการตรวจสอบ JSON ดิบ
 
-การอ่านรูปแบบใบเสร็จดิบช่วยสร้างความเข้าใจที่เซลล์ในโน้ตบุ๊กรายงานไม่เสมอไป
-นักเรียนที่ดู JSON อย่างคร่าวๆ มักสังเกตเห็นว่า:
+การอ่านรูปแบบใบเสร็จดิบช่วยสร้างสัญชาตญาณที่เซลล์ในโน้ตบุ๊ก
+ไม่ได้ให้เสมอไป นักเรียนที่สแกน JSON จะมักสังเกตเห็นว่า:
 
-1. ลายเซ็นเป็นสตริง base64url ที่ไม่เปิดเผยรายละเอียด แต่ฟิลด์อื่นทั้งหมดเป็น JSON ที่
-   อ่านได้ชัดเจน ลายเซ็นไม่ได้เข้ารหัสเนื้อหา; มันรับรองเนื้อหา
-2. `public_key` ถูกฝังอยู่ในใบเสร็จ ผู้ตรวจสอบไม่จำเป็นต้องมีอะไรเพิ่มเติม
-   เพื่อยืนยัน (ขึ้นอยู่กับการไว้วางใจว่ากุญแจนั้นเป็นของผู้ออกที่อ้างถึงจริง; ดูบทเรียน README เกี่ยวกับโครงสร้างพื้นฐานด้านตัวตน)
-   อ้างอิง).
-3. การแก้ไขตัวอักษรเพียงตัวเดียวในฟิลด์ใดๆ แล้วเปรียบเทียบไฟล์นี้กับ
-   `02_tampered_receipt.json` อีกครั้ง ทำให้กลไกระดับไบต์เป็นรูปธรรม
+1. ลายเซ็นเป็นสตริงฐาน64url ทึบแสง แต่ว่าแต่ละฟิลด์อื่นๆ เป็น JSON ที่
+   อ่านได้ตรงๆ ลายเซ็นไม่เข้ารหัสเนื้อหา แต่นำเสนอว่ามีอยู่จริง
+2. `public_key` ถูกฝังอยู่ในใบเสร็จ ซึ่งเพียงพอที่จะตรวจสอบ
+   ความสอดคล้องภายในแต่ไม่ใช่ความน่าเชื่อถือของผู้ออก ใครที่ตรวจสอบต้องเปรียบเทียบมันกับกุญแจ
+   ที่ตรึงไว้นอกใบเสร็จหรือหาได้จากรีจิสทรีที่เชื่อถือได้
+3. การแก้ไขตัวอักษรเดียวของฟิลด์ใดๆ แล้วเปรียบเทียบไฟล์นี้กับ
+   `02_tampered_receipt.json` จะทำให้กลไกระดับไบต์เป็นรูปธรรม
 
 ---
 

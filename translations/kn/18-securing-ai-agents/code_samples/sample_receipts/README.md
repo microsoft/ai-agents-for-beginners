@@ -12,28 +12,52 @@
 ವಿಷಯದ ಡೈಜೆಸ್ಟ್‌ಗಳು ಮತ್ತು ರಸೀದಿ-ಚೈನ್ ಲಿಂಕ್‌ಗಳಿಗೆ SHA-256 ಬಳಸಲ್ಪಡುತ್ತದೆ, ಸಹಿ ಹಾಕುವುದಕ್ಕಿಂತ ಮುಂಚಿನ ಹೆಚ್ಚುವರಿ ಪೂರ್ವ-ಹ್ಯಾಷ್ ಆಗಿ ಅಲ್ಲ.
 
 
-## ಮಾದರಿಗಳನ್ನು ಪರಿಶೀಲಿಸುವುದು
+## ಉದಾಹರಣೆಗಳನ್ನು ಪರಿಶೀಲಿಸುವುದು
 
-ನೋಟ್‌ಬುಕ್ ನಿರೂಪಣೆಯ ನಾಲ್ಕು ವಿಭಾಗಗಳಲ್ಲಿ ಪರಿಶೀಲನೆಯನ್ನೇ ಅಂಶಿಸಲಾಗಿದೆ. 
-ಈ ಫಿಕ್ಚರ್ಸ್ ಅನ್ನು ನೇರವಾಗಿ ಪರಿಶೀಲಿಸಲು, ನೋಟ್‌ಬುಕ್ ಕಥನ ಓಡಿಸದೆ:
+`18-signed-receipts.ipynb` ನಲ್ಲಿ ಮೊದಲಿಗೆ Setup ಮತ್ತು ವಿಭಾಗಗಳು 1 ರಿಂದ 3 ರವರೆಗೆ ಚಾಲನೆ ಮಾಡಿ.
+ಭಾಗ 3 ನಲ್ಲಿ `verify_chain` ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಲಾಗಿದೆ; ಭಾಗಗಳು 1 ಮತ್ತು 2 ಮಾತ್ರ ಸಾಕಾಗುವುದಿಲ್ಲ.
+ನಂತರ ಹೊಸ ಸೆಲ್‌ನಲ್ಲಿ ಕೆಳಗಿನ ಬ್ಲಾಕ್ ಅನ್ನು ಚಾಲನೆ ಮಾಡಿ, ನೋಟ್‌ಬುಕ್‌ನ ಕಾರ್ಯನಿರ್ದೇಶಿಕೆಯನ್ನು
+`18-securing-ai-agents/code_samples` ಗೆ ಹೊಂದಿಸಿ. ಕೆಳಗಿನ ಫಿಕ್ಸ್ಚರ್ ಮಾರ್ಗಗಳು
+ಆ ಡೈರೆಕ್ಟರಿಗೆ ಸಾಪೇಕ್ಷವಾಗಿವೆ.
 
 ```python
 import json
 from pathlib import Path
 
-# Assumes you have completed the imports and helper functions
-# from sections 1 and 2 of 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # True
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # False
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter ಬಳಸದೇ ಉದಾಹರಣೆಯನ್ನು ಪರಿಶೀಲಿಸುವುದು
+
+ರಿಪೊಸಿಟರಿ ರೂಟ್‌ನಿಂದ, ಪಾಠದ ಅವಲಂಬನೆಗಳನ್ನು ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಕೆಳಕಂಡದನ್ನು ಚಾಲನೆ ಮಾಡಿ:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+ಈ ಪರೀಕ್ಷೆಗಳು ನೋಟ್‌ಬುಕ್‌ನ Python ಉದಾಹರಣೆಗಳನ್ನು ಮತ್ತು README ನ ಮೇಲಿನ ನಿಖರ ಬ್ಲಾಕ್ ಅನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತವೆ
+ಮೇಲಿನದು. ಇವು ಹಸ್ತಕ್ಷೇಪ ಮತ್ತು ಅನ್ಪಿನ್ ಮಾಡಿದ ಕೀಲಿಗಳನ್ನು ತಿರಸ್ಕರಿಸಲಾಗುವುದಾಗಿ
+ಸತ್ಯಾಪಕರು ಪರಿಶೀಲಿಸುತ್ತಾರೆ. ಪರೀಕ್ಷೆಗಳು ನೋಟ್‌ಬುಕ್‌ನ `%pip` ಸೆಟ್‌ಅಪ್ ಸೆಲ್ ಅನ್ನು ಬಿಟ್ಟಿಡುತ್ತವೆ ಏಕೆಂದರೆ ಅವಲಂಬನೆಗಳು
+ಬೇರೆಲ್ಲಾ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ಸ್ಥಾಪಿಸಲ್ಪಟ್ಟಿರುವವು. ಇವು ನೋಟ್‌ಬುಕ್ ಅಥವಾ ಫಿಕ್ಸ್ಚರ್‌ಗಳನ್ನು ಬದಲಾಯಿಸುವುದಿಲ್ಲ.
 
 ## ಇವು ಹೇಗೆ ರಚಿಸಲಾಗಿವೆ
 

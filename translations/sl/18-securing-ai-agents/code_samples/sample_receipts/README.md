@@ -1,63 +1,87 @@
-# Vzorčne datoteke potrdil
+# Vzorec prejemniških datotek
 
-Tri vnaprej ustvarjene datoteke potrdil za pregled brez zagona zvezka.
+Tri vnaprej ustvarjene prejemniške datoteke za pregled brez zagona zvezka.
 
 | Datoteka | Kaj je |
 |---|---|
-| `01_valid_receipt.json` | Veljavno podpisano potrdilo za klic orodja `lookup_flights`. Preverjanje vrne True. |
-| `02_tampered_receipt.json` | Enako potrdilo s spremenjeno eno polje po podpisu. Preverjanje vrne False. |
-| `03_chain_three_receipts.json` | Veriga treh veljavnih potrdil (iskanje, rezerviranje, potrjevanje) z `previous_receipt_hash`, ki povezuje vsak s prejšnjim. |
+| `01_valid_receipt.json` | Veljavna podpisana prejemnica za klic orodja `lookup_flights`. Preverjanje vrne True. |
+| `02_tampered_receipt.json` | Ista prejemnica z eno spremenjeno polje po podpisu. Preverjanje vrne False. |
+| `03_chain_three_receipts.json` | Veriga treh veljavnih prejemnic (iskanje, zadržanje, rezervacija) z `previous_receipt_hash` povezovanjem vsake s prejšnjo. |
 
-Vzorci neposredno podpisujejo canonical JCS bajte vsebine z Ed25519.
-SHA-256 se še vedno uporablja za izvlečke vsebine in zveze v verigi potrdil, ne kot
-dodaten pre-izvleček pred podpisom.
+Vzorec neposredno podpise kanonične JCS bajte vsebine z Ed25519.
+SHA-256 se ohranja pri uporabi za vsebinski povzetek in povezave verige prejemnic, ne kot
+dodatni predhodni povzetek pred podpisom.
 
 ## Preverjanje vzorcev
 
-Zvezek vodi skozi preverjanje v štirih poglavjih. Za neposredno preverjanje teh vzorcev
-brez zagona zvezka:
+V `18-signed-receipts.ipynb` najprej zaženite Nastavitev in Odseke 1 do 3.
+Odsek 3 definira `verify_chain`; sami odseki 1 in 2 niso dovolj.
+Nato zaženite naslednji blok v novi celici, pri čemer je delovni imenik zvezka
+nastavljen na `18-securing-ai-agents/code_samples`. Spodnje poti do vzorcev so relativne
+do tega imenika.
 
 ```python
 import json
 from pathlib import Path
 
-# Predpostavlja, da ste zaključili uvoze in pomožne funkcije
-# iz odsekov 1 in 2 datoteke 18-signed-receipts.ipynb.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Resnično
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Neresnično
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
-## Kako so bili ustvarjeni
+### Preverjanje primera brez Jupyterja
 
-Vzorci uporabljajo enako kodo kot zvezek, z enim fiksnim podpisnim ključem
-in fiksnimi časovnimi žigi za ponovljivost bajtov. Za ustvarjanje:
+Iz korenske mape repozitorija namestite odvisnosti lekcije in zaženite:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Ti testi izvajajo Python primere iz zvezka in točno zgornji blok README.
+Prav tako preverjajo, da overitelji zavrnejo manipulacije in nepovezane ključe.
+Testi preskočijo nastavitev celice `%pip` iz zvezka, ker so odvisnosti
+nameščene ločeno. Ne spreminjajo zvezka ali vzorcev.
+
+## Kako so bile ustvarjene
+
+Vzorci uporabljajo enako kodo kot zvezek, z enim fiksenim ključem za podpis
+in fiksnimi časovnimi žigi za bajtno reproducibilnost. Za ponovno ustvarjanje:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skripta je v `generate_fixtures.py` v tem imeniku.)
+(Skript je v `generate_fixtures.py` v tem imeniku.)
 
-## Kaj se študentje naučijo z ogledom surovega JSON-a
+## Kaj se študenti naučijo z ogledom surovega JSON-a
 
-Branje surovega formata potrdil gradi intuicijo, ki jo celice zvezka
-včasih ne nudijo. Študentje, ki pobrskajo po JSON-u, pogosto opazijo:
+Branje surovega formata prejemnice gradi intuicijo, ki je celice v zvezku
+ne vedno nudijo. Študenti, ki pogledajo JSON, pogosto opazijo:
 
-1. Podpis je neprozoren niz base64url, toda vsako drugo polje je preprost
-   berljiv JSON. Podpis ne šifrira vsebine; le potrjuje njeno pristnost.
-2. `public_key` je vgrajen v potrdilo. Revizor ne potrebuje ničesar drugega
-   za preverjanje (pogonjen le s predpostavko, da ključ dejansko pripada trditvi
-   izdajatelja; glej README lekcije o identitetni infrastrukturi).
-3. Sprememba enega samega znaka poljubnega polja in nato primerjava te datoteke z
-   `02_tampered_receipt.json` naredi mehanizem na ravni bajtov bolj otipljiv.
+1. Podpis je neprozorna base64url nizka, a vsako drugo polje je preprost
+   berljiv JSON. Podpis ne šifrira vsebine; ga potrjuje.
+2. `public_key` je vdelan v prejemnico, kar je dovolj za preverjanje
+   samoskladnosti, ne pa zaupanja izdajatelja. Revizor mora primerjati s ključem,
+   pritrjenim zunaj prejemnice ali rešenim prek zaupanja vrednega registra.
+3. Spreminjanje ene same črke katerega koli polja in ponovno primerjanje te datoteke z
+   `02_tampered_receipt.json` naredi mehanizem na nivoju bajtov otipljiv.
 
 ---
 

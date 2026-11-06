@@ -14,26 +14,50 @@ SHA-256 持續用於內容摘要和收據鏈結，不作為
 
 ## 驗證範例
 
-筆記本分四部分詳細說明驗證。要直接驗證這些固定裝置
-而不經筆記本講解：
+在 `18-signed-receipts.ipynb` 中，先執行 Setup 以及第 1 至第 3 節。
+第 3 節 定義了 `verify_chain`；只有第 1 和第 2 節 不足夠。
+然後在一個新儲存格中執行以下區塊，並將 notebook 的工作目錄
+設定為 `18-securing-ai-agents/code_samples`。下面的 fixture 路徑是相對於
+該目錄。
 
 ```python
 import json
 from pathlib import Path
 
-# 假設您已完成導入和輔助函數
-# 來自18-signed-receipts.ipynb的第1和第2部分。
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # 真
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # 假
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### 在沒有 Jupyter 的情況下檢查範例
+
+從儲存庫根目錄，安裝課程所需的相依項目並執行：
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+這些測試會執行筆記本的 Python 範例以及上方 README 中的完全相同區塊
+它們也會檢查竄改與未固定金鑰是否會被
+驗證器拒絕。測試會跳過筆記本的 `%pip` 設定儲存格，因為相依
+項目是分別安裝的。它們不會更改筆記本或 fixtures。
 
 ## 生成方式
 

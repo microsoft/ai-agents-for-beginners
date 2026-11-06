@@ -594,20 +594,20 @@
     "language_code": "th"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "ca70977fa1a9378cc3c9b0b5c368930d",
-    "translation_date": "2026-09-10T09:54:30+00:00",
+    "original_hash": "5645a82b2c6aaee1156e413b89c3b08e",
+    "translation_date": "2026-10-30T19:48:45+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "th"
   },
   "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb": {
-    "original_hash": "90d12015db78ea6bd1559073996f7ad9",
-    "translation_date": "2026-09-10T09:53:09+00:00",
+    "original_hash": "a87b977d2d0401f61c65fec26cc75f2b",
+    "translation_date": "2026-10-30T19:46:48+00:00",
     "source_file": "18-securing-ai-agents/code_samples/human-authorization-receipts.ipynb",
     "language_code": "th"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "a71e64d926c907b86db11696bd955aa2",
-    "translation_date": "2026-10-21T11:34:38+00:00",
+    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
+    "translation_date": "2026-10-30T20:07:47+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "th"
   },
@@ -664,10 +664,21 @@
       "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
       "source_file": "00-course-setup/README.md",
       "language_code": "th",
-      "failure_date": "2026-10-29T12:41:50+00:00",
+      "failure_date": "2026-10-30T20:07:21+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.3.2.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.2.2.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    },
+    "18-securing-ai-agents/README.md": {
+      "original_hash": "c6433e2b62048d6ce1f29979208b8032",
+      "source_file": "18-securing-ai-agents/README.md",
+      "language_code": "th",
+      "failure_date": "2026-10-30T20:02:17+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.2.2.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }

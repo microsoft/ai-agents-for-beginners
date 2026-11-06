@@ -1,63 +1,87 @@
-# Näidistšeki seadistused
+# Näidiskviitungite komplektid
 
-Kolm eelnevalt genereeritud tšekifaili kontrollimiseks ilma märkmikku käivitamata.
+Kolm eelnevalt genereeritud kviitungifaili ülevaatamiseks ilma märkmikku käivitamata.
 
 | Fail | Mis see on |
 |---|---|
-| `01_valid_receipt.json` | Kehtiv allkirjastatud tšekk tööriistakutse `lookup_flights` jaoks. Kontroll tagastab True. |
-| `02_tampered_receipt.json` | Sama tšekk koos ühe välja muutmisega pärast allkirjastamist. Kontroll tagastab False. |
-| `03_chain_three_receipts.json` | Kolme kehtiva tšeki ahel (otsing, hoidmine, broneerimine) koos `previous_receipt_hash`-iga, mis seob iga eelnevaga. |
+| `01_valid_receipt.json` | Kehtiv allkirjadega kviitung `lookup_flights` tööriista kutsele. Kontrollimine tagastab Tõene. |
+| `02_tampered_receipt.json` | Sama kviitung, millel üks väli muudatud pärast allkirjastamist. Kontrollimine tagastab Väär. |
+| `03_chain_three_receipts.json` | Kolme kehtiva kviitungi ahel (otsi, hoia, broneeri), kus `previous_receipt_hash` seob iga eelnevaga. |
 
-Seadistused allkirjastavad otse kasutahtlikud JCS baitide ahelad Ed25519-ga.
-SHA-256 jääb kasutusele sisu räsina ja tšekiahela linkide jaoks, mitte kui
-täiendav eelhõive enne allkirjastamist.
+Komplektil allkirjastatakse otse sõnumi kanoonilised JCS-baidid Ed25519-ga.
+SHA-256 jääb kasutusse sisu kokkuvõtete ja kviitungi ahela linkide jaoks, mitte
+lisa eel-tiheduse sammuna enne allkirjastamist.
 
 ## Näidiste kontrollimine
 
-Märkmik juhib läbi kontrolli neljas osas. Nende seadistuste otseseks kontrollimiseks
-ilma märkmiku narratiivi läbimata:
+`18-signed-receipts.ipynb` sees käivita esmalt Seadistused ja jaotised 1 kuni 3.
+Jaotis 3 määratleb `verify_chain`; üksnes jaotised 1 ja 2 ei ole piisavad.
+Seejärel käivitage järgmine plokk uues lahtris, mille töökaust on notebooki
+kaustaks seatud `18-securing-ai-agents/code_samples`. Allolevad proovifailide teed on suhtelised
+selle kaustaga.
 
 ```python
 import json
 from pathlib import Path
 
-# Eeldab, et olete lõpetanud importide ja abifunktsioonide kirjutamise
-# 18-signed-receipts.ipynb faili 1. ja 2. jaotise alusel.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # Õige
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # Vale
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
 
+### Näite kontroll ilma Jupyterita
+
+Repositooriumi juurest installige tunni sõltuvused ja käivitage:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+Need testid käivitavad notebooki Python näited ja täpselt ülal oleva README ploki.
+Samuti kontrollitakse, et pettusega seotud ja kinnitamata võtmed lükatakse tuvastajate poolt tagasi.
+Testid jätavad notebooki lahtris `%pip` asuva seadistuse vahele, kuna sõltuvused
+paigaldatakse eraldi. Need muudatusi notebookis ega proovifailides ei tee.
+
 ## Kuidas need genereeriti
 
-Seadistused kasutavad sama koodirada mis märkmik, kus on üks fikseeritud allkirjastamisvõti
-ja fikseeritud ajatempleid baitide reprodutseeritavuse jaoks. Taasloomiseks:
+Proovifailid kasutavad sama kooditeed nagu notebook, ühe fikseeritud allkirjavõtme
+ja fikseeritud ajatemplitena baiti-taasloetavuse huvides. Kõrvalgenereerimiseks:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript on selles kataloogis failis `generate_fixtures.py`.)
+(Skript asub selles kaustas aadressil `generate_fixtures.py`.)
 
-## Mida õpilased õpivad toore JSON-i uurimisel
+## Mida õpilased õpivad toore JSON-i uurimisest
 
-Toore tšeki formaadi lugemine loob intuitsiooni, mida märkmiku lahtrid
-alati ei paku. Õpilased, kes JSON-i sirvivad, märkavad tihti:
+Toore kviitungi formaadi lugemine arendab intuitsiooni, mida notebooki lahtrid
+alati ei paku. Õpilased, kes JSON-i sirvivad, märkavad sageli:
 
-1. Allkiri on opaakne base64url string, kuid kõik teised väljad on lihtsad
-   loetavad JSON-id. Allkiri ei krüpteeri sisu; see kinnitab seda.
-2. `public_key` on tšekis sees. Auditi läbiviija ei vaja telefonimulli
-   muu kui kindlustuse selle kohta, et võti kuulub tõepoolest väidetud
-   väljastajale; vt õppetunni README identiteedistruktuuri kohta).
-3. Iga välja üksiku tähe muutmine ja seejärel selle faili võrdlemine
-   failiga `02_tampered_receipt.json` teeb baitide taseme mehhanismi konkreetseks.
+1. Allkiri on opakne base64url string, kuid kõik teised väljad on tavaline
+   loetav JSON. Allkiri ei krüpteeri sisu; see kinnitab selle.
+2. `public_key` on kviitungisse manustatud, mis võimaldab kontrollida
+   iseendaga seost, kuid mitte väljastaja usaldust. Audiitor peab seda
+   võrdlema väljast väljaspool kviitungi kinnitatud võtmega või usaldusväärse registri kaudu lahendatud võtmega.
+3. Ühe tähe muutmine suvalises väljas ja seejärel selle faili uuesti võrdlemine
+   `02_tampered_receipt.json` näitab baiti-tasandi mehhanismi konkreetset mõju.
 
 ---
 

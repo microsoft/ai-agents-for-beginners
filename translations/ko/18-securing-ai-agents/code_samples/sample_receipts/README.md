@@ -12,28 +12,52 @@
 SHA-256은 콘텐츠 다이제스트와 영수증 체인 링크에 계속 사용되며, 서명 전에 추가적인
 사전 해시 용도로는 사용되지 않습니다.
 
-## 샘플 검증하기
+## 샘플 검증
 
-이 노트북은 네 개의 섹션을 통해 검증 과정을 설명합니다. 노트북 설명 없이도
-이 예제들을 직접 검증하려면:
+`18-signed-receipts.ipynb`에서 먼저 Setup과 섹션 1부터 3까지 실행하세요.
+섹션 3은 `verify_chain`을 정의합니다; 섹션 1과 2만으로는 충분하지 않습니다.
+그런 다음 새 셀에서 다음 블록을 실행하되, 노트북의 작업 디렉터리가
+`18-securing-ai-agents/code_samples`로 설정되어 있도록 하세요. 아래의 fixture 경로들은
+그 디렉터리를 기준으로 합니다.
 
 ```python
 import json
 from pathlib import Path
 
-# 섹션 1과 2의 18-signed-receipts.ipynb에서 가져오기 및 도우미 함수가 완료되었다고 가정합니다.
-# 18-signed-receipts.ipynb의 섹션 1과 2에서.
+fixture_dir = Path("sample_receipts")
 
-valid = json.loads(Path("01_valid_receipt.json").read_text())
-print(f"Valid receipt: {verify_receipt(valid)}")        # 참
+# This fixture key is pinned by the verifier, outside the receipt under test.
+FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
 
-tampered = json.loads(Path("02_tampered_receipt.json").read_text())
-print(f"Tampered receipt: {verify_receipt(tampered)}")  # 거짓
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
+print(
+    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
+)  # True
 
-chain = json.loads(Path("03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain):
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
+print(
+    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
+)  # False
+
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
+for r in verify_chain(chain, fixture_trusted_public_keys):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
 ```
+
+### Jupyter 없이 예제 확인
+
+저장소 루트에서 레슨 종속성을 설치하고 다음을 실행하세요:
+
+```bash
+python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
+python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
+```
+
+이 테스트들은 노트북의 Python 예제들과 정확히 일치하는 README 블록을 실행합니다
+또한 변조 및 고정되지 않은 키가 검증자들에 의해 거부되는지도 확인합니다.
+이 테스트들은 노트북의 `%pip` setup 셀을 건너뛰는데, 이는 종속성이
+별도로 설치되기 때문입니다. 테스트는 노트북이나 fixtures를 변경하지 않습니다.
 
 ## 생성 방법
 
