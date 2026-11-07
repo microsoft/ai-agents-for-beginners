@@ -39,7 +39,9 @@ python-dotenv
 uvicorn
 
 # Lesson 17 - Creating Local AI Agents with Foundry Local and Qwen
-foundry-local-sdk
+# The Lesson 17 notebook uses the 2.x API (module foundry_local_sdk, FoundryLocalManager.initialize,
+# catalog.get_model, start_web_service/urls). The 0.5.x API (module foundry_local) is gone in 2.x.
+foundry-local-sdk>=2.0.1,<3
 chromadb
 
 # Lesson 18 - Securing AI Agents with cryptographic receipts
