@@ -1,23 +1,24 @@
 # Sample Receipt Fixtures
 
-Tri pre-generate receipt files wey you fit check without to run the notebook.
+Fo pre-generated receipt files wey u fit check without run di notebook.
 
 | File | Wetin e be |
 |---|---|
-| `01_valid_receipt.json` | Na valid signed receipt for `lookup_flights` tool call. Verification dey give True. |
-| `02_tampered_receipt.json` | Di same receipt wit one field wey dem modify after dem sign am. Verification dey give False. |
-| `03_chain_three_receipts.json` | Chain of three correct receipts (search, hold, book) wey `previous_receipt_hash` dey link each other. |
+| `01_valid_receipt.json` | Valid signed receipt for one `lookup_flights` tool call. Verification go return True. |
+| `02_tampered_receipt.json` | The same receipt but one field change after dem don sign am. Verification go return False. |
+| `03_chain_three_receipts.json` | Chain of three valid receipts (search, hold, book) wey get `previous_receipt_hash` wey dey link each one to di previous one. |
+| `04_resigned_receipt.json` | Same receipt wey attacker change then sign again with im own public key inside am. E go verify with di key inside am but no go work for issuer key. |
 
-Di fixtures dey sign di payload's correct JCS bytes direct wit Ed25519.
+Di fixtures dey sign di payload's canonical JCS bytes straight with Ed25519.
 SHA-256 still dey use for content digests and receipt-chain links, no be as
-extra pre-hash before the signing.
+extra pre-hash before e sign.
 
 ## How to verify di samples
 
 For `18-signed-receipts.ipynb`, run Setup and Sections 1 to 3 first.
-Section 3 define `verify_chain`; Sections 1 and 2 alone no reach.
-Then run di next block for new cell, and make sure say di notebook working directory
-set to `18-securing-ai-agents/code_samples`. Di fixture paths for below dey relative
+Section 3 dey define `verify_chain`; Sections 1 and 2 alone no go complete.
+Then run the next block for new cell, and make di notebook working directory
+be set to `18-securing-ai-agents/code_samples`. Di fixture paths below na relative
 to dat directory.
 
 ```python
@@ -26,43 +27,48 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
 ### How to check di example without Jupyter
 
-From the repository root, install di lesson dependencies and run:
+From di repository root, install lesson dependencies then run:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-These tests go run all di notebook Python examples and di exact README block
-wey dey above. Dem still dey check say no tampering or unpinned keys fit pass by di
-verifiers. Di tests no go run di notebook's `%pip` setup cell because dependencies
-dem install separate. Dem no go change di notebook or di fixtures.
+These tests dey run di notebook Python examples and di exact README block
+wey dey above. Dem dey also check say tampering and unpinned keys no go pass
+di verifiers. Tests no run di notebook’s `%pip` setup cell because dependencies
+dem don install separate. Tests no go change di notebook or fixtures.
 
-## How dem generate dem
+## How dem generate these tins
 
-Di fixtures use di same code path as di notebook, with one fixed signing key
-and fixed timestamps to make di bytes reproducible. To regenerate dem:
+Di fixtures dey use di same code path as di notebook, with one constant signing key
+and fixed timestamps make dem fit repeat same bytes. To regenerate:
 
 ```bash
 python3 generate_fixtures.py
@@ -70,18 +76,32 @@ python3 generate_fixtures.py
 
 (Script dey for `generate_fixtures.py` inside dis directory.)
 
-## Wetin students dey learn from to inspect raw JSON
+`../test_signed_receipts.py` go check all dis automatically: e go run di
+notebook code, verify these four fixtures with di notebook's
+`verify_receipt` and `verify_chain`, then confirm say regenerating di
+fixtures go give identical bytes. From `code_samples`:
 
-To read di raw receipt format go build intuition wey di cells for di notebook no always fit give.
-Students wey dey look quick quick di JSON dey often notice:
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. Di signature na opaque base64url string, but every other field na normal
-   readable JSON. Di signature no dey encrypt di content; e just dey confirm am.
-2. Di `public_key` dey inside di receipt, wey enough for check
-   self-consistency but e no reach issuer trust. Auditor must compare am wit key
-   wey dem pin outside di receipt or wey dem resolve through trusted registry.
-3. If person modify one character for any field, then compare am again wit
-   `02_tampered_receipt.json`, e go make di byte-level mechanism clear.
+## Wetin students fit learn from inspecting raw JSON
+
+Reading di raw receipt format go build intuition wey di notebook cells
+no always show. Students wey dey look through di JSON often notice say:
+
+1. Di signature na opaque base64url string, but all others fields na plain
+   readable JSON. Di signature no dey encrypt di content; e just talk say di content dey legit.
+2. Di `public_key` dey inside di receipt, wey make di file
+   self-contained but no be di one wey auditor dey verify against. Make u compare
+   `02_tampered_receipt.json` and `04_resigned_receipt.json`: both of dem
+   modify after dem don sign, but di second one dem sign again with di attacker's
+   own key, so e verify with di key wey e carry. Di embedded key
+   show say di file dey internally consistent. Only key wey person get
+   from outside fit tell who issue am.
+3. If person change one single character for any field outside `signature`, then
+   check am again with `02_tampered_receipt.json`, e go make di
+   byte-level mechanism clear.
 
 ---
 
