@@ -323,25 +323,32 @@ foundry model list          # see available models
 foundry model run phi-4-mini
 ```
 
-**3. Install the Python SDK** used to discover the local endpoint:
+**3. Install the Python SDK** used to load the model and start the local endpoint:
 
 ```bash
-pip install foundry-local-sdk
+pip install "foundry-local-sdk>=2.0.1,<3"
 ```
 
 **4. Point the Microsoft Agent Framework at your local model:**
 
 ```python
-from foundry_local import FoundryLocalManager
-from agent_framework.openai import OpenAIChatClient
+from foundry_local_sdk import Configuration, FoundryLocalManager
+from agent_framework.openai import OpenAIChatCompletionClient
 
-# Downloads (if needed) and serves the model locally, then discovers the endpoint/port.
-manager = FoundryLocalManager("phi-4-mini")
+# Downloads (if needed) and loads the model, then starts the local OpenAI-compatible web service.
+FoundryLocalManager.initialize(Configuration(app_name="ai_agents_for_beginners"))
+manager = FoundryLocalManager.instance
+model = manager.catalog.get_model("phi-4-mini")
+if not model.is_cached:
+    model.download()
+model.load()
+manager.start_web_service()
 
-chat_client = OpenAIChatClient(
-    base_url=manager.endpoint,      # e.g. http://localhost:<port>/v1
-    api_key=manager.api_key,        # always "not-required" for Foundry Local
-    model_id=manager.get_model_info("phi-4-mini").id,
+# Foundry Local serves the Chat Completions API, so use the Chat Completions client.
+chat_client = OpenAIChatCompletionClient(
+    base_url=manager.urls[0].rstrip("/") + "/v1",   # e.g. http://127.0.0.1:<port>/v1
+    api_key="not-required",                          # Foundry Local does not check the key
+    model=model.id,
 )
 
 agent = chat_client.as_agent(
