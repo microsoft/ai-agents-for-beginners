@@ -1,24 +1,25 @@
-# Primjer datoteka računa
+# Primjeri računa (Receipt Fixtures)
 
-Tri unaprijed generirane datoteke računa za pregled bez pokretanja bilježnice.
+Četiri unaprijed generirane datoteke računa za pregled bez pokretanja bilježnice.
 
 | Datoteka | Što je to |
 |---|---|
-| `01_valid_receipt.json` | Važeći potpisani račun za poziv alata `lookup_flights`. Verifikacija vraća True. |
-| `02_tampered_receipt.json` | Isti račun s jednim poljem izmijenjenim nakon potpisivanja. Verifikacija vraća False. |
-| `03_chain_three_receipts.json` | Lanac od tri važeća računa (search, hold, book) s `previous_receipt_hash` koji povezuje svaki s prethodnim. |
+| `01_valid_receipt.json` | Valjani potpisani račun za poziv alata `lookup_flights`. Verifikacija vraća True. |
+| `02_tampered_receipt.json` | Isti račun s jednim izmijenjenim poljem nakon potpisivanja. Verifikacija vraća False. |
+| `03_chain_three_receipts.json` | Lanac od tri valjana računa (search, hold, book) s `previous_receipt_hash` koji povezuje svaki s prethodnim. |
+| `04_resigned_receipt.json` | Isti račun izmijenjen, a zatim ponovo potpisan od strane napadača, s javnim ključem napadača ugrađenim u njega. Verificira se prema ključu unutar njega. Ne uspijeva prema ključu izdavatelja. |
 
-Datoteke izravno potpisuju kanonske JCS bajtove sadržaja s Ed25519.
-SHA-256 ostaje u uporabi za sažetke sadržaja i veze u lancu računa, ne kao
-dodatni pre-hash prije potpisivanja.
+Primjeri direktno potpisuju kanonske JCS bajtove sadržaja s Ed25519.
+SHA-256 ostaje u upotrebi za sažetke sadržaja i veze lanaca računa, ne kao
+dodatni predsažetak prije potpisivanja.
 
 ## Verifikacija primjera
 
-U `18-signed-receipts.ipynb` prvo pokrenite Setup i Sekcije 1 do 3.
-Sekcija 3 definira `verify_chain`; same Sekcije 1 i 2 nisu dovoljne.
+U `18-signed-receipts.ipynb` najprije pokrenite Setup i Sekcije 1 do 3.
+Sekcija 3 definira `verify_chain`; samotne Sekcije 1 i 2 nisu dovoljne.
 Zatim pokrenite sljedeći blok u novoj ćeliji, s radnim direktorijem bilježnice
-postavljenim na `18-securing-ai-agents/code_samples`. Donje staze do datoteka su relativne
-na taj direktorij.
+postavljenim na `18-securing-ai-agents/code_samples`. Putanje primjera u nastavku su relativne
+prema tom direktoriju.
 
 ```python
 import json
@@ -26,28 +27,33 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
 ### Provjera primjera bez Jupyter-a
 
-Iz korijena spremišta instalirajte ovisnosti lekcije i pokrenite:
+Iz korijena repozitorija instalirajte ovisnosti lekcije i pokrenite:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
@@ -55,33 +61,47 @@ python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed
 ```
 
 Ovi testovi izvršavaju Python primjere iz bilježnice i točan README blok
-iznad. Također provjeravaju da verifikatori odbijaju manipulacije i neprikvačene ključeve.
-Testovi zaobilaze setup ćeliju `%pip` bilježnice jer su ovisnosti
-instalirane zasebno. Oni ne mijenjaju bilježnicu ni datoteke.
+gore. Također provjeravaju da se izmjene i nepotpisani ključevi odbacuju od strane
+verifikatora. Testovi preskaču ćeliju za postavljanje `%pip` jer se ovisnosti
+instaliraju zasebno. Ne mijenjaju bilježnicu ni primjere.
 
-## Kako su ove datoteke generirane
+## Kako su generirani
 
-Datoteke koriste isti kod kao bilježnica, s jednim fiksnim ključem za potpisivanje
-i fiksnim vremenskim oznakama radi reproduktivnosti bajtova. Za regeneraciju:
+Primjeri koriste isti kod kao i bilježnica, s jednim fiksnim potpisnim ključem
+i fiksnim vremenskim oznakama radi višekratne reproducibilnosti bajtova. Za ponovnu generaciju:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Skript se nalazi u `generate_fixtures.py` u ovom direktoriju.)
+(Skripta se nalazi na `generate_fixtures.py` u ovom direktoriju.)
 
-## Što studenti uče pregledom sirovog JSON-a
+`../test_signed_receipts.py` automatski provjerava sve ovo: izvršava
+kod bilježnice, verificira ove četiri primjere s bilježničkim
+`verify_receipt` i `verify_chain`, i potvrđuje da ponovna generacija
+primjera daje identične bajtove. Iz `code_samples`:
 
-Čitanje sirovog formata računa gradi intuiciju koju ćelije u bilježnici
-ne pružaju uvijek. Studenti koji prelete JSON često primijete:
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. Potpis je neprozirni base64url niz, ali svako drugo polje je čisti
-   čitljivi JSON. Potpis ne šifrira sadržaj; on potvrđuje.
-2. `public_key` je ugrađen u račun, što je dovoljno za provjeru
-   samodosljednosti, ali ne i povjerenja izdavatelja. Revizor mora usporediti s ključem
-   pričvršćenim izvan računa ili riješenim putem pouzdanog registra.
-3. Izmjena jednoga znaka bilo kojeg polja, pa ponovno uspoređivanje ove datoteke s
-   `02_tampered_receipt.json`, konkretizira mehanizam na razini bajtova.
+## Što studenti nauče pregledom sirovog JSON-a
+
+Čitanje sirovog formata računa razvija intuiciju koju ćelije u bilježnici
+ne pružaju uvijek. Studenti koji pregledaju JSON često primijete:
+
+1. Potpis je neproziran base64url niz, ali svako drugo polje je čitljiv
+   običan JSON. Potpis ne šifrira sadržaj; potvrđuje ga.
+2. `public_key` je ugrađen u račun, što čini datoteku
+   samodostatnom, ali nije ono što revizor verificira. Usporedite
+   `02_tampered_receipt.json` s `04_resigned_receipt.json`: oba su
+   izmijenjena nakon potpisivanja, ali drugi je ponovno potpisan s napadačevim
+   vlastitim ključem, pa se verificira prema ključeu koji sadrži. Ugrađeni ključ
+   govori vam da je datoteka interna dosljedna. Samo ključ dobiven
+   negdje drugdje govori tko ju je izdao.
+3. Izmjena jednog znaka bilo kojeg polja izvan `signature`, zatim
+   usporedba ove datoteke s `02_tampered_receipt.json`, konkretizira
+   mehanizam na razini bajtova.
 
 ---
 

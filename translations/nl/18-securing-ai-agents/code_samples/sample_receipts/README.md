@@ -1,23 +1,24 @@
-# Voorbeeld Kwitanties Fixtures
+# Voorbeeld ontvangstbewijzen Fixtures
 
-Drie vooraf gegenereerde kwitantiebestanden om te inspecteren zonder de notebook uit te voeren.
+Vier voorgegenereerde ontvangstbewijsbestanden voor inspectie zonder het notebook uit te voeren.
 
 | Bestand | Wat het is |
 |---|---|
-| `01_valid_receipt.json` | Een geldige ondertekende kwitantie voor een `lookup_flights` tool-aanroep. Verificatie geeft True terug. |
-| `02_tampered_receipt.json` | Dezelfde kwitantie met één veld gewijzigd na ondertekening. Verificatie geeft False terug. |
-| `03_chain_three_receipts.json` | Een keten van drie geldige kwitanties (search, hold, book) waarbij `previous_receipt_hash` elke kwitantie aan de voorgaande koppelt. |
+| `01_valid_receipt.json` | Een geldig ondertekend ontvangstbewijs voor een `lookup_flights` tool-aanroep. Verificatie retourneert True. |
+| `02_tampered_receipt.json` | Hetzelfde ontvangstbewijs met één veld aangepast na ondertekening. Verificatie retourneert False. |
+| `03_chain_three_receipts.json` | Een keten van drie geldige ontvangstbewijzen (search, hold, book) met `previous_receipt_hash` die elk aan de voorgaande koppelt. |
+| `04_resigned_receipt.json` | Hetzelfde ontvangstbewijs gemanipuleerd en vervolgens opnieuw ondertekend door een aanvaller, met de eigen openbare sleutel van de aanvaller ingebed. Verifieert tegen de sleutel binnenin. Faalt tegen de sleutel van de uitgever. |
 
-De fixtures ondertekenen de kanonieke JCS-bytes van de payload rechtstreeks met Ed25519.
-SHA-256 blijft in gebruik voor inhouds-digests en kwitantieketenlinks, niet als een
+De fixtures ondertekenen direct de kanonieke JCS-bytes van de payload met Ed25519.
+SHA-256 blijft in gebruik voor inhoudsdigesten en ontvangstbewijs-ketenlinks, niet als een
 extra pre-hash vóór ondertekening.
 
-## Het verifiëren van de voorbeelden
+## Verificatie van de voorbeelden
 
-Voer in `18-signed-receipts.ipynb` eerst Setup en Secties 1 tot en met 3 uit.
-Sectie 3 definieert `verify_chain`; alleen Secties 1 en 2 zijn niet voldoende.
-Voer daarna het volgende blok in een nieuwe cel uit, met de werkmap van de notebook
-ingesteld op `18-securing-ai-agents/code_samples`. De paden van de fixtures hieronder zijn relatief
+In `18-signed-receipts.ipynb`, voer eerst Setup en Secties 1 tot en met 3 uit.
+Sectie 3 definieert `verify_chain`; slechts Secties 1 en 2 zijn niet genoeg.
+Voer daarna het volgende blok uit in een nieuwe cel, met de werkmap van het notebook
+ingesteld op `18-securing-ai-agents/code_samples`. De fixturepaden hieronder zijn relatief
 ten opzichte van die map.
 
 ```python
@@ -26,62 +27,81 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### De voorbeeldcontrole zonder Jupyter
+### Controle van het voorbeeld zonder Jupyter
 
-Installeer vanuit de hoofdmap van de repository de lesafhankelijkheden en voer uit:
+Vanaf de root van het repository, installeer de lesafhankelijkheden en voer uit:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-Deze tests voeren de Python-voorbeelden van de notebook en het exacte README-blok hierboven uit.
-Ze controleren ook of manipulatie en niet-gespinde sleutels worden afgewezen door de
-verificateurs. De tests slaan de `%pip` setup-cel van de notebook over omdat afhankelijkheden
-apart worden geïnstalleerd. Ze wijzigen de notebook of fixtures niet.
+Deze tests voeren de Python-voorbeelden in het notebook uit en exact het README-blok
+hierboven. Ze controleren ook dat manipulatie en niet-geverifieerde sleutels door de
+verifiers worden afgewezen. De tests slaan de `%pip` setup-cel van het notebook over omdat afhankelijkheden
+apart worden geïnstalleerd. Ze veranderen het notebook of de fixtures niet.
 
 ## Hoe deze werden gegenereerd
 
-De fixtures gebruiken hetzelfde codepad als de notebook, met één vaste ondertekeningssleutel
-en vaste tijdstempels voor byte-reproduceerbaarheid. Om opnieuw te genereren:
+De fixtures gebruiken hetzelfde codepad als het notebook, met één vaste ondertekeningsleutel
+en vaste tijdstempels voor byte-herhaalbaarheid. Om te regenereren:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(Script staat in `generate_fixtures.py` in deze map.)
+(Script bevindt zich op `generate_fixtures.py` in deze map.)
 
-## Wat studenten leren door de ruwe JSON te inspecteren
+`../test_signed_receipts.py` controleert dit allemaal automatisch: het voert de
+code van het notebook uit, verifieert deze vier fixtures met de
+`verify_receipt` en `verify_chain` van het notebook, en bevestigt dat het regenereren van de
+fixtures identieke bytes oplevert. Vanaf `code_samples`:
 
-Het lezen van het ruwe kwitantieformaat bouwt intuïtie op die de cellen in de notebook
-niet altijd bieden. Studenten die door de JSON bladeren merken vaak het volgende op:
+```bash
+python -m unittest test_signed_receipts
+```
+
+## Wat studenten leren door het inspecteren van rauwe JSON
+
+Het lezen van het rauwe ontvangstbewijsformaat bouwt intuïtie op die de cellen in het notebook
+niet altijd geven. Studenten die de JSON doorlezen merken vaak:
 
 1. De handtekening is een ondoorzichtige base64url-string, maar elk ander veld is gewone
-   leesbare JSON. De handtekening versleutelt de inhoud niet; ze getuigt ervan.
-2. De `public_key` is ingebed in de kwitantie, wat voldoende is om
-   zelfconsistentie te controleren maar niet voor vertrouwen in de uitgever. Een auditor moet het vergelijken met een sleutel
-   die buiten de kwitantie is gespind of via een vertrouwd register is opgelost.
-3. Het wijzigen van één enkel teken in een veld en vervolgens dit bestand opnieuw vergelijken met
-   `02_tampered_receipt.json` maakt het mechanisme op byte-niveau concreet.
+   leesbare JSON. De handtekening versleutelt de inhoud niet; ze bevestigt deze.
+2. De `public_key` is ingebed in het ontvangstbewijs, wat het bestand
+   zelfstandig maakt, maar het is niet wat een auditor verifieert. Vergelijk
+   `02_tampered_receipt.json` met `04_resigned_receipt.json`: beide werden
+   aangepast na ondertekening, maar de tweede werd opnieuw ondertekend met de eigen sleutel van de aanvaller,
+   dus het verifieert tegen de sleutel die het draagt. De ingebedde sleutel
+   vertelt je dat het bestand intern consistent is. Alleen een op een andere manier verkregen sleutel
+   vertelt je wie het heeft uitgegeven.
+3. Het wijzigen van één karakter van een veld buiten `signature`, en daarna
+   het vergelijken van dit bestand met `02_tampered_receipt.json`, maakt het
+   mechanisme op byte-niveau tastbaar.
 
 ---
 
