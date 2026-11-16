@@ -1,24 +1,25 @@
 # Ukázkové příklady účtenek
 
-Tři předgenerované soubory účtenek pro prohlížení bez spuštění notebooku.
+Čtyři předgenerované soubory účtenek pro kontrolu bez spouštění notebooku.
 
 | Soubor | Co to je |
 |---|---|
 | `01_valid_receipt.json` | Platná podepsaná účtenka pro volání nástroje `lookup_flights`. Ověření vrací True. |
 | `02_tampered_receipt.json` | Ta samá účtenka s jedním polem změněným po podepsání. Ověření vrací False. |
-| `03_chain_three_receipts.json` | Řetězec tří platných účtenek (hledat, držet, rezervovat), kde `previous_receipt_hash` spojuje každou s předchozí. |
+| `03_chain_three_receipts.json` | Řetězec tří platných účtenek (vyhledávání, držení, rezervace) s `previous_receipt_hash` propojujícím každou s předchozím. |
+| `04_resigned_receipt.json` | Ta samá účtenka pozměněná a následně znovu podepsaná útočníkem s vloženým veřejným klíčem útočníka. Ověřuje se podle klíče v ní. Na klíč vydavatele selhává. |
 
-Příklady přímo podepisují kanonické JCS bajty obsahu pomocí Ed25519.
-SHA-256 se používá pro otisky obsahu a odkazy řetězců účtenek, ne jako
-dodatečný před-hash před podpisem.
+Příklady podepisují kánonické bajty JCS přenosu přímo pomocí Ed25519.
+Pro obsahové digesty a odkazy v řetězci účtenek se nadále používá SHA-256,
+nikoli však jako dodatečný před-hash před podepsáním.
 
-## Ověření ukázek
+## Ověření příkladů
 
-V `18-signed-receipts.ipynb` spusťte nejprve Setup a sekce 1 až 3.
+V `18-signed-receipts.ipynb` spusťte nejdříve Nastavení a sekce 1 až 3.
 Sekce 3 definuje `verify_chain`; samotné sekce 1 a 2 nestačí.
-Poté spusťte následující blok v nové buňce s pracovní složkou notebooku
-nastavenou na `18-securing-ai-agents/code_samples`. Cesty ke vzorům jsou relativní
-k této složce.
+Poté spusťte následující blok v nové buňce s pracovním adresářem notebooku
+nastaveným na `18-securing-ai-agents/code_samples`. Níže uvedené cesty k příkladům jsou relativní
+vůči tomuto adresáři.
 
 ```python
 import json
@@ -26,23 +27,28 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
 ### Kontrola příkladu bez Jupyteru
@@ -54,15 +60,15 @@ python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-Tyto testy spouštějí příklady v Pythonu v notebooku a přesný blok README
-výše. Také kontrolují, že změny a nepřipnuté klíče jsou overovateli zamítnuty.
-Testy přeskočí buňku `%pip` pro nastavení v notebooku, protože závislosti
-jsou nainstalované samostatně. Notebook ani vzory nemění.
+Tyto testy spouštějí ukázky Pythonu z notebooku a přesný blok z README výše.
+Také kontrolují, že pozměnění a nepřipnuté klíče jsou ověřovači zamítnuty.
+Testy vynechávají buňku s nastavením `%pip` notebooku, protože závislosti
+se instalují samostatně. Notebook ani příklady nemění.
 
-## Jak byly generovány
+## Jak byly tyto příklady vytvořeny
 
-Vzory používají stejnou cestu kódu jako notebook, s jedním pevně daným podpisovým klíčem
-a pevnými časovými značkami pro reprodukovatelnost bajtů. Pro regeneraci:
+Příklady používají stejnou cestu kódu jako notebook, se jedním pevně daným podepisovacím klíčem
+a pevnými časovými razítky pro bajtovou reprodukovatelnost. Pro regeneraci:
 
 ```bash
 python3 generate_fixtures.py
@@ -70,18 +76,32 @@ python3 generate_fixtures.py
 
 (Skript je v `generate_fixtures.py` v tomto adresáři.)
 
-## Co se studenti naučí z prohlížení surového JSONu
+`../test_signed_receipts.py` toto vše automaticky kontroluje: spouští kód
+notebooku, ověřuje těchto čtyři příkladů pomocí notebookových
+`verify_receipt` a `verify_chain`, a potvrzuje, že regenerace
+příkladů dává identické bajty. Z `code_samples`:
+
+```bash
+python -m unittest test_signed_receipts
+```
+
+## Co se studenti naučí při zkoumání surového JSON
 
 Čtení surového formátu účtenky buduje intuici, kterou buňky v notebooku
-ne vždy poskytnou. Studenti, kteří JSON často prohlížejí, si všimnou:
+nemusí vždy poskytnout. Studenti, kteří prohlížejí JSON, často zaznamenají:
 
-1. Podpis je neprůhledný base64url řetězec, ale každé jiné pole je prostý
+1. Podpis je nečitelný řetězec base64url, ale všechna ostatní pole jsou jasně
    čitelný JSON. Podpis nešifruje obsah; potvrzuje ho.
-2. `public_key` je vložen v účtence, což stačí pro kontrolu
-   vnitřní konzistence, ale ne důvěry v vystavovatele. Auditor musí porovnat s klíčem
-   připnutým mimo účtenku nebo získaným přes důvěryhodný registr.
-3. Změna jediného znaku v jakémkoli poli a následné opětovné porovnání souboru s
-   `02_tampered_receipt.json` činí mechanismus na úrovni bajtů konkrétním.
+2. `public_key` je vložen v účtence, což činí soubor
+   samostatným, ale zároveň není tím, vůči čemu auditor ověřuje. Porovnejte
+   `02_tampered_receipt.json` a `04_resigned_receipt.json`: oba byly
+   po podepsání pozměněny, ale druhý byl znovu podepsán útočníkovým
+   vlastním klíčem, takže se ověřuje vůči klíči, který obsahuje. Vložený klíč
+   vám říká, že soubor je interně konzistentní. Pouze klíč získaný
+   jinde vám řekne, kdo ho vydal.
+3. Změna jediného znaku v jakémkoli poli mimo `signature`, a poté
+   opětovné porovnání tohoto souboru s `02_tampered_receipt.json`, činí
+   mechanismus na úrovni bajtů konkrétním.
 
 ---
 

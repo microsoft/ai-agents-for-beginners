@@ -594,8 +594,8 @@
     "language_code": "es"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "5645a82b2c6aaee1156e413b89c3b08e",
-    "translation_date": "2026-10-30T15:58:29+00:00",
+    "original_hash": "6136cb786ce458f8e19690b7284c7dea",
+    "translation_date": "2026-11-06T16:15:59+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "es"
   },
@@ -606,8 +606,8 @@
     "language_code": "es"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
-    "translation_date": "2026-10-30T16:15:15+00:00",
+    "original_hash": "689c822d08e006a7bf86de2ca8a4f1b3",
+    "translation_date": "2026-11-06T16:40:20+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "es"
   },
@@ -664,10 +664,21 @@
       "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
       "source_file": "00-course-setup/README.md",
       "language_code": "es",
-      "failure_date": "2026-10-30T16:14:57+00:00",
+      "failure_date": "2026-11-06T16:40:02+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.23.2",
+      "failure_policy_version": 1
+    },
+    "18-securing-ai-agents/README.md": {
+      "original_hash": "82276c0b3a7e81b20dc464bc0b55b67b",
+      "source_file": "18-securing-ai-agents/README.md",
+      "language_code": "es",
+      "failure_date": "2026-11-06T16:35:50+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 2.2.1.1.1.1 of 'README.md', and the chunk could not be split further.",
       "translator_version": "0.23.2",
       "failure_policy_version": 1
     }

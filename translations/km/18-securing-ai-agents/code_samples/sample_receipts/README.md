@@ -1,24 +1,25 @@
 # គំរូឯកសារទទួល
 
-ឯកសារទទួលបានបង្កើតជាមុនចំនួនបីសម្រាប់ពិនិត្យដោយមិនចាំបាច់រត់ notebook។
+ឯកសារទទួលចំនួនបួនដែលបានបង្កើតជាមុនសម្រាប់ពិនិត្យដោយមិនចាំបាច់រត់សឺរីនូតប៊ុក។
 
-| ឯកសារ | វាជាអ្វី |
+| ឯកសារ | តើវាជាអ្វី |
 |---|---|
-| `01_valid_receipt.json` | ឯកសារទទួលបានចុះហត្ថលេខាត្រឹមត្រូវសម្រាប់ការហៅឧបករណ៍ `lookup_flights`។ ការផ្ទៀងផ្ទាត់បង្ហាញថា True។ |
-| `02_tampered_receipt.json` | ឯកសារទទួលដដែលដែលបានកែប្រែវាលមួយបន្ទាប់ពីចុះហត្ថលេខា។ ការផ្ទៀងផ្ទាត់បង្ហាញថា False។ |
-| `03_chain_three_receipts.json` | ខ្សែតំណរបស់ឯកសារទទួលត្រឹមត្រូវបី (ស្វែងរក, មៀង, កក់) ដែលមាន `previous_receipt_hash` ភ្ជាប់ក្នងនីមួយៗទៅនឹងមួយមុន។ |
+| `01_valid_receipt.json` | ឯកសារទទួលដែលបានចុះហត្ថលេខាត្រឹមត្រូវសម្រាប់ការហៅឧបករណ៍ `lookup_flights` មួយ។ ការបញ្ចាក់ប្រត្តិបត្តិជាសុំណាច់ជាក់។ |
+| `02_tampered_receipt.json` | ដូចគ្នានឹងឯកសារទទួលមានវាលមួយដែលបានកែប្រែនៅបន្ទាប់ពីចុះហត្ថលេខា។ ការបញ្ចាក់ប្រត្តិបត្តិជាមិនជាភាពជាក់។ |
+| `03_chain_three_receipts.json` | សំណុំឯកសារទទួលត្រឹមត្រូវបីសន្លឹក (ស្វែងរក, កាន់, កក់) ដែលមាន `previous_receipt_hash` ចងខ្សែរភ្ជាប់នីមួយទៅមួយមុន។ |
+| `04_resigned_receipt.json` | ដូចគ្នាក្នុងឯកសារទទួលដែលត្រូវបានរំខានហើយបន្ទាប់មកបានចុះហត្ថលេខាឡើងវិញដោយអ្នកវាយប្រហារ ជាមួយកូនសោសាធារណៈរបស់អ្នកវាយប្រហារដែលបានបញ្ចូល។ វាបញ្ជាក់ផ្ទៀងផ្ទាត់ចំពោះកូនសោក្នុងវា។ មិនបានជាប់ជាមួយកូនសោរបស់អ្នកចេញផ្សាយ។ |
 
-គំរូទទួលចុះហត្ថលេខាលើបៃ JCS canonical នៃ payload ដោយផ្ទាល់ជាមួយ Ed25519។
-SHA-256 បន្តត្រូវបានប្រើសម្រាប់ digest មាតិការនិងតំណខ្សែឯកសារទទួលមិនមែនជាមុន hash បន្ថែមមុនចុះហត្ថលេខា។
+គំរូទទួលភ្ជាប់ចុះហត្ថលេខាដោយផ្ទាល់លើបៃ JCS ផ្លូវការរបស់ផ្ទុកទិន្នន័យដោយប្រើ Ed25519។
+SHA-256 ត្រូវបានប្រើនៅសម្រាប់សង្ខេបមាតិកានិងតំណភ្ជាប់ខ្សែឯកសារទទួល មិនមែនជាការផ្ដល់ចំនួនគម្រប៊ូជាមុនសម្រាប់ចុះហត្ថលេខា។
+​
 
+## ការបញ្ជាក់ទ្ញើរគំរូទទួល
 
-## ការផ្ទៀងផ្ទាត់គំរូ
-
-ក្នុង `18-signed-receipts.ipynb`, ប្រតិបត្តិ Setup និងផ្នែក 1 រហូតដល់ 3 ជាមុន។
-ផ្នែក 3 កំណត់ `verify_chain`; ផ្នែក 1 និង 2 តែម្ដងមិនគ្រប់គ្រាន់ឡើយ។
-បន្ទាប់មករត់ប្លុកខាងក្រោមក្នុងសែលថ្មីមួយ ដោយឲ្យថតធ្វើការ
-របស់សៀវភៅកំណត់ជា `18-securing-ai-agents/code_samples`។ ផ្លូវឆែកខាងក្រោម
-គឺប្រៀបទៅតាមថតនោះ។
+នៅក្នុង `18-signed-receipts.ipynb`, រត់ Setup និងផ្នែកទី 1 រហូតដល់ 3 ជាមុន។
+ផ្នែកទី 3 កំណត់ `verify_chain`; ផ្នែកទី 1 និង 2 ប៉ុណ្ណោះមិនគ្រប់គ្រាន់ទេ។
+បន្ទាប់មករត់ប្លុកខាងក្រោមនៅក្នុងកោសិកាថ្មី មួយដោយមានថតការងាររបស់សៀវភៅកំណត់ត្រា
+ត្រូវបានកំណត់ទៅ `18-securing-ai-agents/code_samples`។ ផ្លូវជា fixture ខាងក្រោមគឺជាផ្លូវទាក់ទង
+ទៅកាន់ថតនោះ។
 
 ```python
 import json
@@ -26,62 +27,81 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
 ### ការត្រួតពិនិត្យឧទាហរណ៍ដោយគ្មាន Jupyter
 
-ពីឫសរ៉េប៉ូស៊ីតូរី សូមដំឡើងអាស្រ័យការពីមេរៀនហើយរត់៖
+ចាប់ផ្តើមពីធ្វើទីតាំងមូលដ្ឋាននៃឃ្លាំង សូមដំឡើងការពឹងផ្អែកនៃមេរៀន ហើយរត់:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-ការប្រឡងទាំងនេះដំណើរការឧទាហរណ៍ Python ក្នុងសៀវភៅកំណត់ និងប្លុក README ពិតប្រាកដ
-ខាងលើ។ ពួកវាក៏ពិនិត្យផងដែរថាការប្រែក្លាយនិងក្តារចុចដែលមិនបានតំរូវក៏ត្រូវបានបដិសេធដោយ
-អ្នកផ្ទៀងផ្ទាត់។ ការធ្វើតេស្តជៀសវាងកោសិការដំឡើង `%pip` នៃកំណត់ត្រា ព្រោះការពឹងផ្អែក
-ត្រូវបានដំឡើងដោយឡែក។ ពួកវាមិនបម្លែងកំណត់ត្រា ឬឧបករណ៍នានាទេ។
+ការប្រឡងទាំងនេះអនុវត្តឧទាហរណ៍ Python របស់សៀវភៅកំណត់ត្រា និងប្លុក README ត្រង់
+ខាងលើ។ ពួកវាក៏ពិនិត្យមើលថាការបំភាន់ និងកូនសោមិនត្រូវបានចុះបញ្ជីត្រូវបានបដិសេធដោយ
+អ្នកផ្ទៀងផ្ទាត់ផងដែរ។ ការប្រឡងមិនចូលរួមជាសាធារណៈក្នុងកោសិកា `%pip` របស់សៀវភៅកំណត់ត្រា
+ព្រោះកាតព្វកិច្ចត្រូវបានដំឡើងផ្សេងពីគ្នា។ ពួកវាមិនប្ដូរសៀវភៅកំណត់ត្រាឬឧបករណ៍ភូតទេ។
 
 ## របៀបដែលវាត្រូវបានបង្កើត
 
-ឧបករណ៍ប្រើពណ៌ណនារបៀបកូដដូចគ្នានឹងកំណត់ត្រា ជាមួយគន្លឹះចុះហត្ថលេខាមួយដែលបានកំណត់រួច
-ហើយមានកាលបរិច្ឆេទថេរសម្រាប់សំណាក់ត្រឹមត្រូវឲ្យអាចបង្កប់ឡើងវិញបែបបាយប៊ែរទេខេ។ ដើម្បីបង្កប់ឡើងវិញ៖
+ឧបករណ៍ភូតប្រើផ្លូវកូដដូចសៀវភៅកំណត់ត្រា ជាមួយកូនសោចុះហត្ថលេខាមួយជាប់ខ្ទើយ
+និងពេលវេលាដែលដាក់ជាក់លាក់ទៅសម្រាប់ការចំណារវិញតាមបែបបៃតង។ ដើម្បីបង្កើតឡើងវិញៈ
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(ស្គ្រីបនៅក្នុង `generate_fixtures.py` នៅក្នុងថតនេះ។)
+(កូដស្គ្រីបត្រូវមាននៅក្នុង `generate_fixtures.py` ក្នុងផ្ទាំងនេះ។)
 
-## អ្វីដែលសិស្សរៀនពីការត្រួតពិនិត្យ JSON កំប្លែង
+`../test_signed_receipts.py` ពិនិត្យឲ្យឃើញទាំងនេះដោយស្វ័យប្រវត្តិ៖ វាអនុវត្ត
+កូដសៀវភៅកំណត់ត្រា ពិនិត្យឧបករណ៍ភូតទាំងបួនទាំងនេះជាមួយនឹង
+`verify_receipt` និង `verify_chain` របស់សៀវភៅកំណត់ត្រា ហើយបញ្ជាក់ថាការបង្កើត
+ឧបករណ៍ភូតឡើងវិញឲ្យបានប្រាប់ជាបៃតមុខស្មើគ្នា។ ពី `code_samples`៖
 
-ការអានទម្រង់បញ្ចូលសំរឹទ្ធដើមធ្វើឱ្យមានការយល់ដឹងដែលប្រអប់នៅក្នុងកំណត់ត្រា
-មិនបានផ្តល់ជានិច្ច។ សិស្សដែលអានជុល JSON ជាញឹកញាប់គឺសង្កត់សម្គាល់ថា៖
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. ហត្ថលេខាគឺជាសម្មញ្ញា base64url ដែលមិនច្បាស់លាស់, ប៉ុន្តែពេលវេលាផ្សេងទៀតគឺឯកសារសាមញ្ញ
-   JSON ដែលអាចអានបាន។ လက္សញ្ញា​មិន​បាន​ស៊ុម​ខ្សែរ​អត្ថបទ​នោះទេ; វា​បញ្ជាក់​អំពី​វា។
-2. `public_key` ត្រូវបាន​បញ្ចូល​នៅ​ក្នុង​អត្រា ដែលគប់គ្រប់គ្រាន់សម្រាប់ត្រួតពិនិត្យ
-   ភាពដើមទ្រូងមិនខ្វះខាត ប៉ុន្ដែមិនមែនជាវិជ្ជមាននឿយហត្ថី។ អ្នកត្រួតពិនិត្យត្រូវតែប្រៀបធៀបទៅនឹងកូនសោមួយ
-   ដែលត្រូវបានចងខ្សែក្រវាត់ពីក្រៅអត្រា ឬក៏ត្រូវបានដោះស្រាយតាមរយៈកំណត់ត្រាទំនុកចិត្ត។
-3. ការផ្លាស់ប្តូរអក្សរតែមួយក្នុងក្រងបទណាមួយ បន្ទាប់មកប្រៀបធៀបឯកសារនេះម្ដងទៀតជាមួយ
-   `02_tampered_receipt.json` ធ្វើឲ្យដំណើរការដោយកម្រិតបៃនេះក្លាយជាការពិត។
+## អ្វីដែលសិស្សរៀនពីការត្រួតពិនិត្យ JSON ដើម
+
+ការអានទ្រង់ទ្រាយប័ន្ទដើមបង្កើតការយល់ដឹងថាកោសិកានៅក្នុងសៀវភៅកំណត់ត្រា
+មិនអាចផ្តល់បានជានិច្ចទេ។ សិស្សដែលប្រហែលមើល JSON ជាញឹកញាប់គឺនឹងចាប់អារម្មណ៍ថា៖
+
+1. ហត្ថលេខាជាសរសេរបែប base64url មិនអាចយល់បាន ប៉ុន្តាលើវាលផ្សេងទាំងអស់មាន JSON ដែលអាចអានបានជាធម្មតា។
+   ហត្ថលេខាមិនបានបង្ហាញខ្លួនក្នុងការអ៊ិនគ្រីបមាតិកា ទេ វាបញ្ជាក់ទៅលើវា។
+2. `public_key` ត្រូវបានបញ្ចូលនៅក្នុងប័ន្ទ ដែលធ្វើឲ្យឯកសារទាំងមូលគ្នា
+   ប៉ុន្តែមិនមែនជាអ្វីដែលអ្នកត្រួតពិនិត្យបញ្ជាក់ទេ។ ប្រៀបធៀបទៅ
+   `02_tampered_receipt.json` ជាមួយ `04_resigned_receipt.json`៖ ទាំងពីរបាន
+   ត្រូវបានកែប្រែក្រោយការចុះហត្ថលេខា ប៉ុន្តែទីពីរត្រូវបានចុះហត្ថលេខាទៀតដោយកូនសោរបស់អ្នកវាយប្រហារ
+   ដូច្នេះវាស្ថិតនៅក្រោមការផ្ទៀងផ្ទាត់ទៅលើកូនសោដែលវាអាចផ្ដល់បាន។ កូនសោដែលបញ្ចូល
+   ថ្ងៃនេះនិយាយឲ្យអ្នកដឹងថា ឯកសារនេះមានភាពសមហេតុផលពីខាងក្នុង។ គ្រាន់តែបានកូនសោ
+   មកពីកន្លែងផ្សេងទៀតបង្ហាញថាអ្នកណាជាអ្នកចេញផ្សាយវា។
+3. ការផ្លាស់ប្ដូរអក្សរតែមួយលើវាលណាមួយក្រៅពី `signature` បន្ទាប់មក
+   ប្រៀបធៀបឯកសារនេះជាមួយ `02_tampered_receipt.json` ធ្វើឲ្យ
+   ឧបករណ៍តម្រុយតាមកម្រិតបៃតមកកាន់ភាពច្បាស់លាស់។
 
 ---
 

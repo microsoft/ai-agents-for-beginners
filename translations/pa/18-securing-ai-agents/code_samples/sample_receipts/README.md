@@ -1,23 +1,24 @@
-# ਨਮੂਨਾ ਰਸੀਦ ਫਿਕਸਚਰ
+# ਨਮੂਨਾ ਰਸੀਦ ਫਿਕਸਚਰਜ਼
 
-ਨੋਟਬੁੱਕ ਚਲਾਏ ਬਿਨਾਂ ਜਾਂਚ ਲਈ ਤਿੰਨ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰ ਕੀਤੀਆਂ ਰਸੀਦ ਫਾਈਲਾਂ।
+ਨੋਟਬੁੱਕ ਚਲਾਏ ਬਿਨਾਂ ਜਾਂਚ ਲਈ ਚਾਰ ਪਹਿਲਾਂ ਤੋਂ ਬਣਾਈ ਹੋਈਆਂ ਰਸੀਦਾਂ ਦੀਆਂ ਫਾਈਲਾਂ।
 
 | ਫਾਈਲ | ਇਹ ਕੀ ਹੈ |
 |---|---|
-| `01_valid_receipt.json` | ਇੱਕ ਵੈਧ ਸਾਈਨ ਕੀਤਾ ਹੋਇਆ ਰਸੀਦ ਇੱਕ `lookup_flights` ਟੂਲ ਕਾਲ ਲਈ। ਜਾਂਚ ਸੱਚਾ ਵਾਪਸ ਕਰਦੀ ਹੈ। |
-| `02_tampered_receipt.json` | ਸਾਈਨਿੰਗ ਦੇ ਬਾਅਦ ਇੱਕ ਫੀਲਡ ਸੋਧਿਆ ਹੋਇਆ ਉਹੀ ਰਸੀਦ। ਸੱਤੀਕਰਨ False ਵਾਪਸ ਕਰਦਾ ਹੈ। |
-| `03_chain_three_receipts.json` | ਤਿੰਨ ਵੈਧ ਰਸੀਦਾਂ (ਖੋਜ, ਰੋਕਣਾ, ਬੁੱਕ ਕਰਨਾ) ਦੀ ਲੜੀ ਜਿੱਥੇ ਹਰ ਇੱਕ ਨੂੰ ਪਿਛਲੇ ਨਾਲ ਜੋੜਨ ਲਈ `previous_receipt_hash` ਬੰਨ੍ਹੀ ਹੁੰਦੀ ਹੈ। |
+| `01_valid_receipt.json` | ਇੱਕ ਵੈਧ ਸਾਈਨ ਕੀਤਾ ਹੋਇਆ ਰਸੀਦ ਇੱਕ `lookup_flights` ਟੂਲ ਕਾਲ ਲਈ। ਪੁਸ਼ਟੀ ਕਰਨ 'ਤੇ ਸੱਚ ਵਾਪਸ ਮਿਲਦਾ ਹੈ। |
+| `02_tampered_receipt.json` | ਉਸੇ ਰਸੀਦ ਵਿੱਚ ਇੱਕ ਖੇਤਰ ਸਾਈਨਿੰਗ ਤੋਂ ਬਾਅਦ ਬਦਲਿਆ ਗਿਆ। ਪੁਸ਼ਟੀ ਕਰਨ 'ਤੇ ਝੂਠ ਵਾਪਸ ਮਿਲਦਾ ਹੈ। |
+| `03_chain_three_receipts.json` | ਤਿੰਨ ਵੈਧ ਰਸੀਦਾਂ ਦੀ ਇੱਕ ਲੜੀ (search, hold, book) ਜਿਸ ਵਿੱਚ `previous_receipt_hash` ਹਰ ਇੱਕ ਨੂੰ ਪਿਛਲੇ ਨਾਲ ਜੋੜਦਾ ਹੈ। |
+| `04_resigned_receipt.json` | ਉਹੀ ਰਸੀਦ ਜਿਸ ਨੂੰ ਛੇੜਖਾਣ ਕੀਤੀ ਗਈ ਅਤੇ ਫਿਰ ਇੱਕ ਹਮਲਾਵਰ ਨੇ ਦੁਬਾਰਾ ਸਾਈਨ ਕੀਤਾ, ਜਿਸ ਵਿੱਚ ਹਮਲਾਵਰ ਦੀ ਆਪਣੀ ਪਬਲਿਕ ਕੀ ਸ਼ਾਮਿਲ ਹੈ। ਇਸਦੇ ਅੰਦਰ ਦੀ ਕੀ ਵਿਰੁੱਧ ਸਾਬਤ ਹੁੰਦੀ ਹੈ। ਜਾਰੀ ਕਰਨ ਵਾਲੇ ਦੀ ਕੀ ਵਿਰੁੱਧ ਫੇਲ੍ਹ ਹੁੰਦੀ ਹੈ। |
 
-ਫਿਕਸਚਰ ਸਿੱਧਾ ਹੀ ਪੇਲੋਡ ਦੇ ਕੈਨੋਨਿਕਲ JCS ਬਾਈਟਸ ਨੂੰ Ed25519 ਨਾਲ ਸਾਇਨ ਕਰਦੇ ਹਨ।
-SHA-256 ਸਮੱਗਰੀ ਡਾਈਜੈਸਟਸ ਅਤੇ ਰਸੀਦ-ਚੇਨ ਲਿੰਕਸ ਲਈ ਇਸਤਮਾਲ ਹੁੰਦਾ ਰਹਿੰਦਾ ਹੈ, ਸਾਈਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਸੇ ਵਾਧੂ ਪ੍ਰੀ-ਹੈਸ਼ ਵਜੋਂ ਨਹੀਂ।
+ਫਿਕਸਚਰ payload ਦੇ ਕੈਨੋਨਿਕਲ JCS ਬਾਇਟਸ ਨੂੰ ਸਿੱਧਾ Ed25519 ਨਾਲ ਸਾਈਨ ਕਰਦੇ ਹਨ। 
+SHA-256 ਸਮੱਗਰੀ ਦੀ ਡਾਈਜੇਸਟ ਅਤੇ ਰਸੀਦ-ਚੇਨ ਲਿੰਕਾਂ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਸਾਈਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵਾਧੂ ਪ੍ਰੀ-ਹੈਸ਼ ਵਜੋਂ ਨਹੀਂ। 
 
 
-## ਨਮੂਨਿਆਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨਾ
+## ਉਦਾਹਰਣਾਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨਾ
 
-`18-signed-receipts.ipynb` ਵਿੱਚ, ਸਭ ਤੋਂ ਪਹਿਲਾਂ Setup ਅਤੇ ਭਾਗ 1 ਤੋਂ 3 ਤੱਕ ਚਲਾਓ।
-ਭਾਗ 3 `verify_chain` ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦਾ ਹੈ; ਸਿਰਫ ਭਾਗ 1 ਅਤੇ 2 ਕਾਫ਼ੀ ਨਹੀਂ ਹਨ।
-ਫਿਰ ਹੇਠਾਂ ਦਿੱਤਾ ਹੋਇਆ ਬਲਾਕ ਨਵੀਂ ਸੈੱਲ ਵਿੱਚ ਚਲਾਓ, ਨੋਟਬੁੱਕ ਦੇ ਕਾਮ ਕਰਨ ਵਾਲੇ ਡਾਇਰੈਕਟਰੀ ਨੂੰ
-`18-securing-ai-agents/code_samples` 'ਤੇ ਸੈੱਟ ਕੀਤਾ ਹੋਇਆ। ਹੇਠਾਂ ਦਿੱਤੀ ਗਈ ਫਿਕਸਚਰ ਪਾਥ ਉਸ ਡਾਇਰੈਕਟਰੀ ਨਾਲ ਸੰਬੰਧਤ ਹਨ।
+`18-signed-receipts.ipynb` ਵਿੱਚ, ਪਹਿਲਾਂ Setup ਅਤੇ ਸੈਕਸ਼ਨ 1 ਤੋਂ 3 ਚਲਾਓ। 
+ਸੈਕਸ਼ਨ 3 `verify_chain` ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਦਾ ਹੈ; ਸਿਰਫ ਸੈਕਸ਼ਨ 1 ਅਤੇ 2 ਕਾਫ਼ੀ ਨਹੀਂ ਹਨ। 
+ਫਿਰ ਹੇਠਾਂ ਦਿੱਤਾ ਬਲਾਕ ਨਵੇਂ ਸੈੱਲ ਵਿੱਚ ਚਲਾਓ, ਜਿੱਥੇ ਨੋਟਬੁੱਕ ਦਾ ਵਰਕਿੰਗ ਡਾਇਰੈਕਟਰੀ
+`18-securing-ai-agents/code_samples` ਤੇ ਸੈੱਟ ਕੀਤਾ ਗਿਆ ਹੋਵੇ। ਹੇਠਾਂ ਦਿੱਤੇ ਫਿਕਸਚਰ ਪਾਥ ਉਸ ਡਾਇਰੈਕਟਰੀ ਨਾਲ ਸਬੰਧਤ ਹਨ।
 
 
 ```python
@@ -26,43 +27,48 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### ਜੁਪਾਈਟਰ ਦੇ ਬਿਨਾਂ ਉਦਾਹਰਨ ਦੀ ਜਾਂਚ ਕਰਨਾ
+### ਜੂਪਿਟਰ ਬਿਨਾਂ ਉਦਾਹਰਨ ਦੀ ਜਾਂਚ ਕਰਨਾ
 
-ਰਿਪੋਜ਼ਿਟਰੀ ਰੂਟ ਤੋਂ, ਲੈਸ਼ਨ ਦੀਆਂ ਲੋੜਾਂ ਨੂੰ ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਚਲਾਓ:
+ਰਿਪੋਜ਼ਟਰੀ ਰੂਟ ਤੋਂ, ਲੈੱਸਨ ਦੇ ਨਿਰਭਰਤਾਵਾਂ ਨੂੰ ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਚਲਾਓ:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-ਇਹ ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ ਪਾਇਥਨ ਉਦਾਹਰਨਾਂ ਅਤੇ ਬਿਲਕੁਲ README ਬਲਾਕ ਨੂੰ ਚਲਾਉਂਦੇ ਹਨ
-ਉੱਪਰ। ਉਹ ਇਹ ਵੀ ਜਾਂਚਦੇ ਹਨ ਕਿ ਟੈਂਪਰਿੰਗ ਅਤੇ ਅਣਪਿਨ ਕੀਜ਼ ਨੂੰ ਪਰਖ ਨਕਾਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ
-ਦੁਆਰਾ। ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ `%pip` ਸੈੱਟਅੱਪ ਸੈੱਲ ਨੂੰ ਛੱਡ ਦਿੰਦੇ ਹਨ ਕਿਉਂਕਿ ਡਿਪੈਂਡੈਂਸੀਜ਼
-ਵੱਖ-ਵੱਖ ਤਰੀਕੇ ਨਾਲ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਉਹ ਨੋਟਬੁੱਕ ਜਾਂ ਫਿਕਸਚਰਜ਼ ਵਿੱਚ ਕੋਈ ਤਬਦੀਲੀ ਨਹੀਂ ਕਰਦੇ।
+ਇਹ ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ ਪਾਇਥਨ ਉਦਾਹਰਨਾਂ ਅਤੇ ਸਹੀ README ਬਲਾਕ ਨੂੰ ਚਲਾਉਂਦੇ ਹਨ
+ਉਪਰ। ਇਹ tamén ਜਾਂਚਦੇ ਹਨ ਕਿ ਟੈਮਪਰਿੰਗ ਅਤੇ ਅਣਪਿਨ ਕੀਜ਼ ਡਿਟੈਕਟਰਾਂ ਵੱਲੋਂ ਖਾਰਜ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ।
+ਟੈਸਟ ਨੋਟਬੁੱਕ ਦੇ `%pip` ਸੈਟਅਪ ਸੈੱਲ ਨੂੰ ਛੱਡ ਦਿੰਦੇ ਹਨ ਕਿਉਂਕਿ ਨਿਰਭਰਤਾਵਾਂ ਵੱਖ-ਵੱਖ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।
+ਉਹ ਨੋਟਬੁੱਕ ਜਾਂ ਫਿਕਸਚਰ ਵਿੱਚ ਕੋਈ ਬਦਲਾਵ ਨਹੀਂ ਕਰਦੇ।
 
-## ਇਹ ਕਿਵੇਂ ਤਿਆਰ ਕੀਤੇ ਗਏ
+## ਇਹ ਕਿਵੇਂ ਬਣਾਏ ਗਏ
 
-ਫਿਕਸਚਰਜ਼ ਨੋਟਬੁੱਕ ਦੇ ਸਮਾਨ ਕੋਡ ਪਾਥ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਇੱਕ ਫਿਕਸ ਕੀਤੀ ਹੋਈ ਸਾਈਨਿੰਗ ਕੀ
-ਅਤੇ ਬਾਈਟ-ਪੁਨਰੁਤਪਾਦਨ ਲਈ ਫਿਕਸ ਕੀਤੀ ਗਈ ਟਾਈਮਸਟੈਂਪ ਨਾਲ। ਦੁਬਾਰਾ ਬਣਾਉਣ ਲਈ:
+ਫਿਕਸਚਰਸ ਨੋਟਬੁੱਕ ਦੇ ਵਰਗੇ ਕੋਡ ਪਾਥ ਨੂੰ ਵਰਤਦੇ ਹਨ, ਇੱਕ ਸਥਿਰ ਸਾਈਨਿੰਗ ਕੀ ਨਾਲ
+ਅਤੇ ਬਾਈਟ-ਪੁਨਰੁਤਪਾਦਕਤਾ ਲਈ ਸਥਿਰ ਸਮੇਂ ਦੇ ਟੈਮਪਸਟੈਂਪ ਨਾਲ। ਦੁਬਾਰਾ ਬਣਾਉਣ ਲਈ:
 
 ```bash
 python3 generate_fixtures.py
@@ -70,18 +76,32 @@ python3 generate_fixtures.py
 
 (ਸਕ੍ਰਿਪਟ ਇਸ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ `generate_fixtures.py` 'ਤੇ ਹੈ।)
 
-## ਵਿਦਿਆਰਥੀ ਕੱਚੇ JSON ਨੂੰ ਦੇਖ ਕੇ ਕੀ ਸਿੱਖਦੇ ਹਨ
+`../test_signed_receipts.py` ਇਹ ਸਾਰੀ ਚੀਜ਼ ਆਪਣੇ ਆਪ ਚੈੱਕ ਕਰਦਾ ਹੈ: ਇਹ
+ਨੋਟਬੁੱਕ ਦਾ ਕੋਡ ਚਲਾਉਂਦਾ ਹੈ, ਨੋਟਬੁੱਕ ਦੇ ਨਾਲ ਇਹ ਚਾਰ ਫਿਕਸਚਰਸ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ
+`verify_receipt` ਅਤੇ `verify_chain` ਨਾਲ, ਅਤੇ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ ਕਿ ਫਿਕਸਚਰਸ ਨੂੰ ਦੁਬਾਰਾ ਬਣਾਉਣਾ
+ਇਕਸਾਰ ਬਾਈਟ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। `code_samples` ਤੋਂ:
 
-ਕੱਚੇ ਰਸੀਦ ਫਾਰਮੈਟ ਨੂੰ ਪੜ੍ਹਨ ਨਾਲ ਉਹ ਅਹਿਸਾਸ ਬਣਦਾ ਹੈ ਜੋ ਨੋਟਬੁੱਕ ਦੀਆਂ ਸੈੱਲਜ਼ ਹਮੇਸ਼ਾ ਨਹੀਂ ਦਿੰਦੀਆਂ।
-ਜੋ ਵਿਦਿਆਰਥੀ JSON ਨੂੰ ਜਲਦੀ ਵਿੱਚ ਵੇਖਦੇ ਹਨ ਉਹ ਅਕਸਰ ਨੋਟਿਸ ਕਰਦੇ ਹਨ:
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. ਦਸਤਖ਼ਤ ਇੱਕ ਅੰਧੇਰਾ base64url ਸਟਰਿੰਗ ਹੈ, ਪਰ ਹਰ ਹੋਰ ਖੇਤਰ ਸਿੱਧਾ ਹੈ
-   ਪੜ੍ਹਨ ਯੋਗ JSON। ਸਿਗਨੇਚਰ ਸਮੱਗਰੀ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰਦਾ; ਇਹ ਉਸ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ।
-2. `public_key` ਰਸੀਦ ਵਿੱਚ ਐਂਬੈੱਡ ਕੀਤਾ ਗਿਆ ਹੈ, ਜੋ ਸਵੈ-ਸੰਘਤਾ ਜਾਂਚ ਲਈ ਕਾਫੀ ਹੈ
-   ਪਰ ਜਾਰੀ ਕਰਨ ਵਾਲੇ ਦੇ ਭਰੋਸੇ ਲਈ ਨਹੀਂ। ਇੱਕ ਆਡੀਟਰ ਨੂੰ ਇਹ ਇੱਕ ਕੁੰਜੀ ਨਾਲ ਤੁਲਨਾ ਕਰਨੀ ਪੈਂਦੀ ਹੈ
-   ਜੋ ਰਸੀਦ ਦੇ ਬਾਹਰ ਪਿਨ ਕੀਤੀ ਹੋਈ ਹੈ ਜਾਂ ਇੱਕ ਭਰੋਸੇਮੰਦ ਰਜਿਸਟਰੀ ਰਾਹੀਂ ਹੱਲ ਕੀਤੀ ਗਈ ਹੈ।
-3. ਕਿਸੇ ਵੀ ਖੇਤਰ ਦੇ ਇੱਕ ਅੱਖਰ ਨੂੰ ਸੋਧ ਕੇ, ਫਿਰ ਇਸ ਫਾਇਲ ਨੂੰ ਮੁੜ-ਤੁਲਨਾ ਕਰ ਕੇ
-   `02_tampered_receipt.json` ਨਾਲ, ਬਾਈਟ-ਸਤਰ ਮਕੈਨਿਜ਼ਮ ਨੂੰ ਠوس ਬਣਾਉਂਦਾ ਹੈ।
+## ਵਿਦਿਆਰਥੀ ਕੱਚੇ JSON ਦਾ ਜਾਇਜ਼ਾ ਲੈ ਕੇ ਕੀ ਸਿੱਖਦੇ ਹਨ
+
+ਕੱਚੇ ਰਸੀਦ ਫਾਰਮੈਟ ਨੂੰ ਪੜ੍ਹਕੇ ਅੰਦਰੂਨੀ ਸਮਝ ਬਣਦੀ ਹੈ ਜੋ ਨੋਟਬੁੱਕ ਵਿੱਚ ਸੈੱਲ ਸੈੱਲ ਮਿਲਦੀ ਨਹੀਂ।
+ਵਿਦਿਆਰਥੀ ਜੋ JSON ਨੂੰ ਝੱਲਦੇ ਹਨ ਉਹ ਅਕਸਰ ਧਿਆਨ ਦਿੰਦੇ ਹਨ:
+
+1. ਸਾਈਨ ਇੱਕ ਅੰਧਕਾਰਮਈ base64url ਸਤਰ ਹੈ, ਪਰ ਹੋਰ ਹਰ ਖੇਤਰ ਸਪਸ਼ਟ ਪੜ੍ਹਯੋਗ JSON ਹੈ।
+   ਸਾਈਨ ਸਮੱਗਰੀ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰਦਾ; ਇਹ ਇਸਦਾ ਪ੍ਰਮਾਣ ਹੈ।
+2. ਰਸੀਦ ਵਿੱਚ `public_key` ਸ਼ਾਮਿਲ ਹੈ, ਜੋ ਫਾਈਲ ਨੂੰ
+   ਖੁਦ-ਮੁਹੱਈਆ ਬਣਾਉਂਦਾ ਹੈ ਪਰ ਇਹ ਉਹ ਨਹੀਂ ਜੋ ਆਡੀਟਰ ਵਿਰੁੱਧ ਜਾਂਚ ਕਰਦਾ ਹੈ। ਤੁਲਨਾ ਕਰੋ
+   `02_tampered_receipt.json` ਨੂੰ `04_resigned_receipt.json` ਨਾਲ: ਦੋਹਾਂ ਹਨ
+   ਦਸਤਖਤ ਕਰਨ ਤੋਂ ਬਾਅਦ ਬਦਲਿਆ ਗਿਆ, ਪਰ ਦੂਜਾ ਹਮਲਾਵਰ ਦੀ ਆਪਣੀ ਕੁੰਜੀ ਨਾਲ ਮੁੜ ਦਸਤਖਤ ਕੀਤਾ ਗਿਆ, 
+   ਤਾਂ ਜੋ ਇਹ ਉਸ ਕੁੰਜੀ ਦੇ ਖਿਲਾਫ ਸਹੀ ਸਾਬਤ ਹੋ ਜਾਏ ਜੋ ਇਹ ਸਮੇਤਦਾ ਹੈ। ਸਮੇਤਿਆ ਕੁੰਜੀ 
+   ਤੁਹਾਨੂੰ ਦੱਸਦੀ ਹੈ ਕਿ ਫਾਇਲ ਅੰਦਰੂਨੀ ਤੌਰ 'ਤੇ ਸੰਗਤਿਤ ਹੈ। ਸਿਰਫ਼ ਕਈਥੇ ਹੋਰ 
+   ਪ੍ਰਾਪਤ ਕੀਤੀ ਕੁੰਜੀ ਹੀ ਤੁਸੀਂ ਦੱਸ ਸਕਦੇ ਹੋ ਕਿ ਇਸ ਨੂੰ ਕਿਸ ਨੇ ਜਾਰੀ ਕੀਤਾ ਸੀ।
+3. ਕਿਸੇ ਵੀ ਫੀਲਡ ਦੇ ਬਾਹਰ ਇੱਕ ਇਕੱਲੇ ਅੱਖਰ ਨੂੰ ਬਦਲਣਾ `signature`, ਫਿਰ
+   ਇਸ ਫਾਈਲ ਨੂੰ `02_tampered_receipt.json` ਨਾਲ ਮੁੜ-ਤੁਲਨਾ ਕਰਨਾ,
+   ਬਾਈਟ-ਸਤਰ ਮਕੈਨੀਜ਼ਮ ਨੂੰ ਕਾਂਕਰੀਟ ਕਰਦਾ ਹੈ।
 
 ---
 
