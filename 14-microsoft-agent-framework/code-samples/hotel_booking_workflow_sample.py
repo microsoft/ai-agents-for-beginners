@@ -19,7 +19,7 @@ Key Concepts:
 - AgentExecutor wrapping AI agents
 - @executor decorator for custom logic
 - Pydantic models for structured outputs
-- @ai_function decorator for tools
+- @tool decorator for tools
 - OpenAIChatClient integration
 """
 
@@ -32,12 +32,11 @@ from agent_framework import (
     AgentExecutor,
     AgentExecutorRequest,
     AgentExecutorResponse,
-    ChatMessage,
-    Role,
+    Message,
     WorkflowBuilder,
     WorkflowContext,
-    ai_function,
     executor,
+    tool,
 )
 from agent_framework.openai import OpenAIChatClient
 from azure.identity import AzureCliCredential
@@ -73,11 +72,11 @@ class BookingConfirmation(BaseModel):
 
 
 # ============================================================================
-# STEP 2: HOTEL BOOKING TOOL (AI FUNCTION)
+# STEP 2: HOTEL BOOKING TOOL
 # ============================================================================
 
 
-@ai_function(description="Check hotel room availability for a destination city")
+@tool(description="Check hotel room availability for a destination city")
 def hotel_booking(destination: Annotated[str, "The destination city to check for hotel rooms"]) -> str:
     """
     Simulates checking hotel room availability.
@@ -119,7 +118,7 @@ def has_availability_condition(message: Any) -> bool:
         return True  # Default to True if not the expected type
 
     try:
-        result = BookingCheckResult.model_validate_json(message.agent_run_response.text)
+        result = BookingCheckResult.model_validate_json(message.agent_response.text)
         print(f"✅ Availability check: {result.has_availability} for {result.destination}")
         return result.has_availability
     except Exception as e:
@@ -141,7 +140,7 @@ def no_availability_condition(message: Any) -> bool:
         return False
 
     try:
-        result = BookingCheckResult.model_validate_json(message.agent_run_response.text)
+        result = BookingCheckResult.model_validate_json(message.agent_response.text)
         print(f"❌ No availability for {result.destination}")
         return not result.has_availability
     except Exception as e:
@@ -162,7 +161,7 @@ async def display_result(response: AgentExecutorResponse, ctx: WorkflowContext[N
     This executor receives the final agent response and yields it as output.
     """
     print(f"📤 Yielding workflow output...")
-    await ctx.yield_output(response.agent_run_response.text)
+    await ctx.yield_output(response.agent_response.text)
 
 
 # ============================================================================
@@ -196,7 +195,7 @@ async def main() -> None:
         chat_client = OpenAIChatClient(
             base_url=os.environ.get("MINIMAX_BASE_URL", "https://api.minimax.io/v1"),
             api_key=minimax_api_key,
-            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M3"),
+            model=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M3"),
         )
         print("Using MiniMax provider")
     elif azure_openai_endpoint:
@@ -205,12 +204,12 @@ async def main() -> None:
         chat_client = OpenAIChatClient(
             azure_endpoint=azure_openai_endpoint,
             credential=AzureCliCredential(),
-            model_id=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini"),
+            model=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini"),
         )
         print("Using Azure OpenAI (Responses API) provider")
     else:
         # Default: OpenAI
-        chat_client = OpenAIChatClient(model_id="gpt-5-mini")
+        chat_client = OpenAIChatClient(model="gpt-5-mini")
         print("Using OpenAI provider")
 
 
@@ -221,7 +220,8 @@ async def main() -> None:
 
     # Agent 1: Check availability
     availability_agent = AgentExecutor(
-        chat_client.create_agent(
+        chat_client.as_agent(
+            name="availability-agent",
             instructions=(
                 "You are a hotel booking assistant that checks room availability. "
                 "Use the hotel_booking tool to check if rooms are available at the destination. "
@@ -229,7 +229,7 @@ async def main() -> None:
                 "The message should summarize the availability status."
             ),
             tools=[hotel_booking],
-            response_format=BookingCheckResult,
+            default_options={"response_format": BookingCheckResult},
         ),
         id="availability_agent",
     )
@@ -237,7 +237,8 @@ async def main() -> None:
 
     # Agent 2: Suggest alternative (when no rooms)
     alternative_agent = AgentExecutor(
-        chat_client.create_agent(
+        chat_client.as_agent(
+            name="alternative-agent",
             instructions=(
                 "You are a helpful travel assistant. When a user cannot find hotels in their requested city, "
                 "suggest an alternative nearby city that has availability. "
@@ -245,7 +246,7 @@ async def main() -> None:
                 "Choose from: Stockholm, Seattle, Tokyo, London, or Amsterdam (these have rooms). "
                 "Make your suggestion sound appealing and helpful."
             ),
-            response_format=AlternativeResult,
+            default_options={"response_format": AlternativeResult},
         ),
         id="alternative_agent",
     )
@@ -253,14 +254,15 @@ async def main() -> None:
 
     # Agent 3: Suggest booking (when rooms available)
     booking_agent = AgentExecutor(
-        chat_client.create_agent(
+        chat_client.as_agent(
+            name="booking-agent",
             instructions=(
                 "You are a booking assistant. The user has found available hotel rooms. "
                 "Encourage them to book by highlighting the destination's appeal. "
                 "Return JSON with fields: destination (string), action (string), and message (string). "
                 "The action should be 'book_now' and message should be encouraging."
             ),
-            response_format=BookingConfirmation,
+            default_options={"response_format": BookingConfirmation},
         ),
         id="booking_agent",
     )
@@ -272,8 +274,10 @@ async def main() -> None:
 
     # Build the workflow
     workflow = (
-        WorkflowBuilder()
-        .set_start_executor(availability_agent)
+        WorkflowBuilder(
+            start_executor=availability_agent,
+            output_executors=[display_result],
+        )
         # NO AVAILABILITY PATH: availability_agent → alternative_agent → display_result
         .add_edge(availability_agent, alternative_agent, condition=no_availability_condition)
         .add_edge(alternative_agent, display_result)
@@ -295,7 +299,7 @@ async def main() -> None:
     print("=" * 80)
 
     request1 = AgentExecutorRequest(
-        messages=[ChatMessage(Role.USER, text="I want to book a hotel in Paris")], should_respond=True
+        messages=[Message(role="user", contents=["I want to book a hotel in Paris"])], should_respond=True
     )
 
     events1 = await workflow.run(request1)
@@ -317,7 +321,7 @@ async def main() -> None:
     print("=" * 80)
 
     request2 = AgentExecutorRequest(
-        messages=[ChatMessage(Role.USER, text="I want to book a hotel in Stockholm")], should_respond=True
+        messages=[Message(role="user", contents=["I want to book a hotel in Stockholm"])], should_respond=True
     )
 
     events2 = await workflow.run(request2)

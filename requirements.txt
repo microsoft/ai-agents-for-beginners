@@ -5,9 +5,10 @@ azure-search-documents
 
 # Microsoft Agent Framework (MAF)
 # OpenAIChatClient targets the Azure OpenAI Responses API (v1 endpoint) by default.
-# Pinned to the 1.10.x line: 1.11.0 introduced breaking API changes used by the
-# course notebooks (removed ChatMessage and HostedWebSearchTool, changed the
-# Message constructor, and dropped the model= argument on Agent.run()).
+# Pinned to the 1.10.x line, the release the course notebooks are validated against.
+# ChatMessage, @ai_function and the Hosted*Tool classes were already removed before
+# 1.0 (now Message, @tool and client methods such as get_web_search_tool()), so
+# samples must use the new names on 1.10.0 too.
 #
 # NOTE: agent-framework-core is pinned directly (not via the agent-framework meta-package)
 # to avoid the [all] extras pulling in unpinned integration sub-packages whose newer
