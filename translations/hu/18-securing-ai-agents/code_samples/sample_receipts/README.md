@@ -1,24 +1,25 @@
-# Minta nyugta minták
+# Minta nyugta rögzítő fájlok
 
-Három előre generált nyugtafájl megtekintéshez anélkül, hogy futtatnánk a jegyzetfüzetet.
+Négy előre generált nyugtafájl ellenőrzéshez a jegyzetfüzet futtatása nélkül.
 
-| Fájl | Leírás |
+| Fájl | Mi ez? |
 |---|---|
-| `01_valid_receipt.json` | Egy érvényes, aláírt nyugta egy `lookup_flights` eszközhíváshoz. Az ellenőrzés True értéket ad. |
-| `02_tampered_receipt.json` | Ugyanaz a nyugta, egy mező módosításával az aláírás után. Az ellenőrzés False értéket ad. |
-| `03_chain_three_receipts.json` | Három érvényes nyugta láncolata (keresés, tartás, foglalás), ahol `previous_receipt_hash` az előzőhöz köti mindegyiket. |
+| `01_valid_receipt.json` | Érvényes aláírt nyugta egy `lookup_flights` eszközhívásról. Az ellenőrzés True értéket ad vissza. |
+| `02_tampered_receipt.json` | Ugyanez a nyugta egy beállítás módosítása után az aláírás után. Az ellenőrzés False értéket ad vissza. |
+| `03_chain_three_receipts.json` | Három érvényes átvétel (keresés, tartás, foglalás) lánca, ahol `previous_receipt_hash` összekapcsolja mindet az előzővel. |
+| `04_resigned_receipt.json` | Ugyanaz az átvétel módosítva, majd egy támadó által újból aláírva, a támadó saját nyilvános kulcsával beágyazva. A benne lévő kulcs ellenőrizve van. Sikertelen a kibocsátó kulcsával szemben. |
 
-A minták az adatköteg kanonikus JCS byte-jait közvetlenül Ed25519-gyel írják alá.
-A SHA-256 továbbra is használatban marad tartalmi összefoglalókhoz és nyugta-lánc kapcsolatokhoz, nem pedig
-előzetes hash-ként az aláírás előtt.
+A fixtures közvetlenül az Ed25519-gyel írják alá a terhelés kanonikus JCS bájtjait.
+A SHA-256 továbbra is a tartalom digestként és az átvétel-lánc linkekhez használatos, nem egy
+extra előhash aláírás előtt.
 
 ## A minták ellenőrzése
 
-A `18-signed-receipts.ipynb` futtatásakor először a Setupot és az 1–3. szakaszokat futtasd le.
-A 3. szakasz definiálja a `verify_chain`-t; az 1. és 2. szakasz önmagában nem elégséges.
-Ezután futtass egy új cellában a következő blokkot, a jegyzetfüzet munkakönyvtárát
-beállítva `18-securing-ai-agents/code_samples`-re. Az alábbi minták elérési útjai relatívak
-ehhez a könyvtárhoz.
+A `18-signed-receipts.ipynb`-ban először futtasd le a Setup-ot és az 1–3. szakaszokat.
+A 3. szakasz definiálja a `verify_chain`-t; az 1. és 2. szakasz önmagában nem elég.
+Ezután futtasd az alábbi blokkot egy új cellában, miközben a jegyzetfüzet munkakönyvtára
+`18-securing-ai-agents/code_samples`-ra van állítva. Az alábbi fixtures elérési utak ehhez a könyvtárhoz viszonyítottak.
+
 
 ```python
 import json
@@ -26,28 +27,33 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### A példa ellenőrzése Jupyter nélkül
+### Az példa Jupyter nélküli ellenőrzése
 
-A tároló gyökeréből telepítsd a tananyag függőségeit és futtasd:
+A tárhely gyökeréből telepítsd a leckefüggőségeket, majd futtasd:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
@@ -55,33 +61,47 @@ python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed
 ```
 
 Ezek a tesztek lefuttatják a jegyzetfüzet Python példáit és a pontos README blokkot
-fent. Ellenőrzik azt is, hogy a hamisítás és a nem rögzített kulcsok visszautasításra kerülnek
-az ellenőrzők által. A tesztek kihagyják a jegyzetfüzet `%pip` beállító celláját, mivel a függőségek
-külön telepítve vannak. Nem változtatják meg a jegyzetfüzetet vagy a mintákat.
+fentebb. Ellenőrzik továbbá, hogy a módosításokat és a nem rögzített kulcsokat a
+ellenőrzők elutasítják. A tesztek kihagyják a jegyzetfüzet `%pip` beállító celláját, mert a függőségek
+külön telepítve vannak. Nem módosítják a jegyzetfüzetet vagy a fixtures-eket.
 
-## Hogyan készültek ezek
+## Hogyan lettek generálva ezek
 
-A minták ugyanazt a kódfutatást használják, mint a jegyzetfüzet, egy rögzített aláíró kulccsal
-és rögzített időbélyegekkel a byte-reprodukálhatóság érdekében. Az újrageneráláshoz:
+A fixtures ugyanazt a kódutat használja, mint a jegyzetfüzet, egy rögzített aláíró kulccsal
+és rögzített időbélyegekkel a bájtszintű reprodukálhatóság érdekében. Újrageneráláshoz:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(A szkript a `generate_fixtures.py` alatt található ebben a könyvtárban.)
+(A script a `generate_fixtures.py` alatt található ebben a könyvtárban.)
 
-## Mit tanulnak a hallgatók a nyers JSON megtekintéséből
+`../test_signed_receipts.py` mindezt automatikusan ellenőrzi: lefuttatja a
+jegyzetfüzet kódját, ellenőrzi ezt a négy fixture-t a jegyzetfüzet
+`verify_receipt` és `verify_chain` segítségével, és megerősíti, hogy a fixtures-ek újragenerálása
+azonos bájtokat eredményez. A `code_samples` szerint:
 
-A nyers nyugta formátum olvasása olyan intuíciót épít, amit a jegyzetfüzet cellái
-nem mindig nyújtanak. A JSON-ben böngésző hallgatók gyakran észreveszik:
+```bash
+python -m unittest test_signed_receipts
+```
+
+## Amit a hallgatók megtanulnak a nyers JSON megtekintésével
+
+A nyers átvételi formátum olvasása olyan intuíciót épít, amit a jegyzetfüzet cellái
+nem mindig nyújtanak. Azok a hallgatók, akik rápillantanak a JSON-re, gyakran észreveszik:
 
 1. Az aláírás egy átlátszatlan base64url karakterlánc, de minden más mező egyszerű,
    olvasható JSON. Az aláírás nem titkosítja a tartalmat; igazolja azt.
-2. A `public_key` be van ágyazva a nyugtába, amely elegendő
-   önkonzisztencia ellenőrzésére, de nem az kibocsátói bizalomra. Egy ellenőrnek össze kell hasonlítania azt
-   egy a nyugtán kívül rögzített kulccsal vagy egy megbízható nyilvántartáson keresztül feloldott kulccsal.
-3. Egyetlen mező egyetlen karakterének módosítása, majd ennek a fájlnak
-   az újra összehasonlítása `02_tampered_receipt.json`-vel, kézzelfoghatóvá teszi a byte-szintű mechanizmust.
+2. Az `public_key` be van ágyazva az átvételbe, ami önállóvá teszi a fájlt,
+   de nem az, amit egy ellenőr igazol. Hasonlítsd össze
+   `02_tampered_receipt.json`-t `04_resigned_receipt.json`-tel: mindkettő
+   aláírás után módosítva lett, de a másodikat a támadó
+   saját kulcsával újra aláírták, így az az átvételben található kulccsal hitelesíthető.
+   A beágyazott kulcs belső konzisztenciát jelez. Csak egy külsőleg
+   megszerzett kulcs árulja el, ki bocsátotta ki.
+3. Egyetlen karakter módosítása a `signature`-on kívüli bármely mezőben, majd
+   ennek a fájlnak az újrakomparálása `02_tampered_receipt.json`-vel a
+   bájtszintű mechanizmust konkréttá teszi.
 
 ---
 
