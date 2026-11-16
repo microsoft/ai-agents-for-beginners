@@ -77,7 +77,7 @@ python3 generate_fixtures.py
 (Le script est dans `generate_fixtures.py` dans ce répertoire.)
 
 `../test_signed_receipts.py` vérifie tout cela automatiquement : il exécute le
-le code du carnet, vérifie ces quatre fixtures avec le carnet
+code du carnet, vérifie ces quatre fixtures avec le carnet
 `verify_receipt` et `verify_chain`, et confirme que la régénération des
 fixtures donne des octets identiques. Extrait de `code_samples` :
 

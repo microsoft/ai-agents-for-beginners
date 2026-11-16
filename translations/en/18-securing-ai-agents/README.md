@@ -347,7 +347,7 @@ Two reasons. First, the receipt may need to be archived or transmitted in enviro
 <details>
 <summary>Answer</summary>
 
-Every receipt that came after the deleted one. Their `previous_receipt_hash` fields no longer match the actual chain (because the receipt they referenced no longer exists, or the chain now points to a different predecessor). To hide the deletion, the attacker would have to re-sign every later receipt, which requires the issuer's private key. A re-signature with any other key fails when checked against the issuer's key.
+The receipt immediately after the gap fails its predecessor-link check. Later receipts still link to their unchanged predecessors, and their signatures remain valid, but the notebook rejects every receipt after the gap because its signed sequence number no longer matches its position. To repair the presented sequence, the attacker would have to update and re-sign the affected receipts with the issuer's private key; signatures made with another key fail against the independently trusted issuer key.
 </details>
 
 **5. A receipt verifies cleanly. Does that prove the agent's action was correct, sound, or compliant with policy?**

@@ -7,7 +7,7 @@ Patru fișiere de chitanțe pre-generate pentru inspectare fără a rula caietul
 | `01_valid_receipt.json` | O chitanță validă semnată pentru un apel de instrument `lookup_flights`. Verificarea returnează True. |
 | `02_tampered_receipt.json` | Aceeași chitanță cu un câmp modificat după semnare. Verificarea returnează False. |
 | `03_chain_three_receipts.json` | Un lanț de trei chitanțe valide (search, hold, book) cu `previous_receipt_hash` care leagă fiecare de precedentă. |
-| `04_resigned_receipt.json` | Aceeași chitanță manipulat și apoi re-semnată de un atacator, cu cheia publică a atacatorului inclusă. Verifică în raport cu cheia din ea. Eșuează față de cheia emițătorului. |
+| `04_resigned_receipt.json` | Aceeași chitanță manipulată și apoi re-semnată de un atacator, cu cheia publică a atacatorului inclusă. Verifică în raport cu cheia din ea. Eșuează față de cheia emițătorului. |
 
 Fișele semnează direct octeții canonici JCS ai încărcăturii folosind Ed25519.
 SHA-256 rămâne în uz pentru digesturi de conținut și linkuri în lanțul chitanțelor, nu ca un
@@ -95,7 +95,7 @@ nu o oferă întotdeauna. Studenții care răsfoiesc JSON-ul observă adesea:
 2. `public_key` este încorporat în chitanță, ceea ce face fișierul
    auto-conținut, dar nu este ceea ce un auditor verifică. Compară
    `02_tampered_receipt.json` cu `04_resigned_receipt.json`: ambele au fost
-   modificate după semnare, dar al doilea a fost re-semnate cu cheia
+   modificate după semnare, dar al doilea a fost re-semnat cu cheia
    atacatorului, deci verifică în raport cu cheia pe care o conține. Cheia
    încorporată arată că fișierul este intern consistent. Numai o cheie obținută
    din altă parte îți spune cine l-a emis.

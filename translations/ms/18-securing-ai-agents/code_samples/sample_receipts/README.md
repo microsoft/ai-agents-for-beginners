@@ -1,4 +1,4 @@
-# Kecacatan Resit Sampel
+# Contoh Fikstur Resit
 
 Empat fail resit yang telah dijana terlebih dahulu untuk pemeriksaan tanpa menjalankan buku nota.
 
@@ -10,7 +10,7 @@ Empat fail resit yang telah dijana terlebih dahulu untuk pemeriksaan tanpa menja
 | `04_resigned_receipt.json` | Resit yang sama telah diubah suai dan kemudian ditandatangani semula oleh penyerang, dengan kekunci awam penyerang disematkan. Disahkan terhadap kekunci di dalamnya. Gagal disahkan terhadap kekunci penerbit. |
 
 Kecacatan menandatangani bait JCS kanonik terus dengan Ed25519.
-SHA-256 masih digunakan untuk penggayaan kandungan dan pautan rantaian resit, bukan sebagai
+SHA-256 masih digunakan untuk hash kandungan dan pautan rantaian resit, bukan sebagai
 pra-hash tambahan sebelum penandatanganan.
 
 ## Mengesahkan sampel
