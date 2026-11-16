@@ -44,7 +44,7 @@ You will also need:
 
 - A developer workstation. **8 GB RAM is a realistic minimum**; 16 GB+ is comfortable. A GPU or NPU helps but is not required.
 - **Microsoft Foundry Local** installed (see the setup section below).
-- Python 3.12+ and the packages in the repository [`requirements.txt`](../requirements.txt), plus `foundry-local-sdk`, `openai`, and `chromadb` for this lesson.
+- Python 3.12+ and the packages in the repository [`requirements.txt`](../requirements.txt), plus `foundry-local-sdk` (2.x), `openai`, and `chromadb` for this lesson.
 
 ## Small Language Models: The Right Tool for Local Work
 
@@ -91,11 +91,11 @@ winget install Microsoft.FoundryLocal      # Windows
 # brew install microsoft/foundrylocal/foundrylocal   # macOS
 
 # Download and run a Qwen model, then start the local service
-foundry model run qwen2.5-7b-instruct
+foundry model run qwen2.5-7b
 foundry service status
 ```
 
-Once the service is running you have a local, OpenAI-compatible endpoint (typically `http://localhost:PORT/v1`). The notebook uses the `foundry-local-sdk` to discover the endpoint automatically, so you don't have to hard-code the port.
+Once the service is running you have a local, OpenAI-compatible endpoint (typically `http://localhost:PORT/v1`). The notebook uses the `foundry-local-sdk` to download and load the model and to start the endpoint itself, then reads the URL from the SDK, so you don't have to hard-code the port.
 
 ## Qwen Function Calling: Why It Matters
 
@@ -181,23 +181,31 @@ No cloud inference is used at any point.
 The assistant connects to Foundry Local through the OpenAI-compatible endpoint, so the agent code looks almost identical to the cloud lessons — only the client changes:
 
 ```python
-from foundry_local import FoundryLocalManager
+from foundry_local_sdk import Configuration, FoundryLocalManager
 from openai import OpenAI
 
-# Foundry Local discovers/downloads the model and gives us a local endpoint.
-manager = FoundryLocalManager(\"qwen2.5-7b-instruct\")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # api_key is a local placeholder
+# Initialise the SDK, then download (first run only) and load the model from the catalog.
+FoundryLocalManager.initialize(Configuration(app_name="ai_agents_for_beginners"))
+manager = FoundryLocalManager.instance
+model = manager.catalog.get_model("qwen2.5-7b")
+if not model.is_cached:
+    model.download()
+model.load()
+
+# Start the built-in OpenAI-compatible web service and point the OpenAI SDK at it.
+manager.start_web_service()
+client = OpenAI(base_url=manager.urls[0].rstrip("/") + "/v1", api_key="not-required")  # api_key is a local placeholder
 ```
 
 The tools are ordinary Python functions scoped to a project directory:
 
 ```python
 def read_file(path: str) -> str:
-    \"\"\"Read a file, but only inside the sandboxed project directory.\"\"\"
+    """Read a file, but only inside the sandboxed project directory."""
     full = (PROJECT_ROOT / path).resolve()
     if PROJECT_ROOT not in full.parents and full != PROJECT_ROOT:
-        return \"Access denied: path is outside the project directory.\"
-    return full.read_text(encoding=\"utf-8\")
+        return "Access denied: path is outside the project directory."
+    return full.read_text(encoding="utf-8")
 ```
 
 Note the sandbox check — even locally, a tool that reads arbitrary paths is a liability. The notebook keeps every tool scoped to a single project root.

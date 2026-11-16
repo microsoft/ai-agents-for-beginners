@@ -51,16 +51,22 @@ reasoning).
 ## Setup essentials
 
 ```bash
-foundry model run qwen2.5-7b-instruct
+foundry model run qwen2.5-7b
 foundry service status
 ```
 
 ```python
-from foundry_local import FoundryLocalManager
+from foundry_local_sdk import Configuration, FoundryLocalManager  # foundry-local-sdk 2.x
 from openai import OpenAI
 
-manager = FoundryLocalManager("qwen2.5-7b-instruct")
-client = OpenAI(base_url=manager.endpoint, api_key=manager.api_key)  # local placeholder
+FoundryLocalManager.initialize(Configuration(app_name="ai_agents_for_beginners"))
+manager = FoundryLocalManager.instance
+model = manager.catalog.get_model("qwen2.5-7b")
+if not model.is_cached:
+    model.download()
+model.load()
+manager.start_web_service()
+client = OpenAI(base_url=manager.urls[0].rstrip("/") + "/v1", api_key="not-required")  # local placeholder
 ```
 
 ~8 GB RAM is a realistic minimum; a GPU/NPU helps but is not required.
