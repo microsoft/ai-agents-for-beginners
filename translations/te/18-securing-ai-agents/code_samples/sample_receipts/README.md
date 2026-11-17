@@ -1,24 +1,25 @@
-# నమూనా రశీదు ఫిక్చర్లు
+# నమూనా రసీదు ఫిక్చర్లు
 
-నోట్‌బుక్ నడపకుండా పరిశీలించడానికి మూడు ముందుగానే సృష్టించిన రశీదు ఫైళ్లు.
+నోట్‌బుక్ నడిపించకుండా పరిశీలన కోసం నాలుగు ప్రీ-జనరేటెడ్ రసీదు ఫైల్స్.
 
 | ఫైల్ | ఇది ఏమిటి |
 |---|---|
-| `01_valid_receipt.json` | ఒక `lookup_flights` టూల్ కాల్ కోసం చెలామణీైన సంతకం చేసిన రసీదు. నిర్ధారణ ఫలితం True. |
-| `02_tampered_receipt.json` | సంతకం చేసిన తర్వాత ఒక రంగంలో మార్పు చేసిన సలువైన అదే రసీదు. నిర్ధారణ ఫలితం False. |
-| `03_chain_three_receipts.json` | మూడు చెలామణీైన రసీదుల శ్రేణి (search, hold, book) వాటిని వరుసగా లింక్ చేసే `previous_receipt_hash` తో. |
+| `01_valid_receipt.json` | `lookup_flights` టూల్ కాల్ కోసం చెల్లుబాటు అయ్యే సంతకం చేసిన రసీదు. ధృవీకరణ ఫలితం True వస్తుంది. |
+| `02_tampered_receipt.json` | సంతకం చేసిన తరువాత ఒక ఫీల్డ్ మార్చబడిన అదే రసీదు. ధృవీకరణ ఫలితం False వస్తుంది. |
+| `03_chain_three_receipts.json` | మూడు చెల్లుబాటు అయ్యే రసీదుల గొలుసు (search, hold, book), ప్రతి ఒక్కటి మునుపటి వాటితో `previous_receipt_hash` ద్వారా అనుసంధానం చేయబడి ఉంటుంది. |
+| `04_resigned_receipt.json` | అదే రసీదు దోపిడి చేయబడిన తరువాత దోపిడి చేస్తున్న వ్యక్తి సంతకం చేసినప్పటికీ, దోపిడి చేస్తున్న వ్యక్తి యొక్క స్వంత పబ్లిక్ కీతో నింపబడింది. దీని వైపు కీతో ధృవీకరిస్తుంది. ఆపై జారీదారు కీతో విఫలమవుతుంది. |
 
-ఫిక్చర్లు లోడును యొక్క కేనానికల్ JCS బైట్లను ప్రత్యక్షంగా Ed25519 తో సంతకం చేస్తాయి.
-SHA-256 అనేది కంటెంట్ డైజెస్ట్‌లు మరియు రసీది-చైన్ లింకులకు ఉపయోగంలో ఉంటుంది, సంతకం కోర్ ముందు అదనపు ప్రీ-హ్యాష్‌గా కాదు.
+ఫిక్చర్లు Ed25519 తో ప్యaload యొక్క క్యానానికల్ JCS బైట్స్‌ను నేరుగా సంతకం చేస్తాయి.
+కంటెంట్ డైజెస్ట్‌లు మరియు రసీదు-గొలుసు లింక్స్ కోసం SHA-256 ఇంకా ఉపయోగిస్తారు, సంతకం చేసేముందు అదనపు ప్రీ-హ్యాష్ విధానం కాదు.
 
 
 ## నమూనాలను ధృవీకరించడం
 
-`18-signed-receipts.ipynb` లో, ముందుగా Setup మరియు సెక్షన్స్ 1 నుండి 3 నడిపించండి.
-సెక్షన్ 3 `verify_chain` ని నిర్వచిస్తుంది; సెక్షన్లు 1 మరియు 2 మాత్రమే చాలవు.
-తరువాత కింది బ్లాక్‌ను కొత్త సెల్‌లో, నోట్‌బుక్ పని డైరెక్టరీగా
-`18-securing-ai-agents/code_samples` ను సెట్ చేసి అమర్చండి. దిగువ ఫిక్స్చర్ మార్గాలు ఆ డైరెక్టరీకు
-నిష్ప్రభమైనవి.
+`18-signed-receipts.ipynb`లో, మొదట సెటప్ మరియు సెక్షన్లు 1 నుండి 3 వరకు నడపండి.
+సెక్షన్ 3 లో `verify_chain` నిర్వచించబడింది; సెక్షన్లు 1 మరియు 2 మాత్రమే సరిపోవు.
+ఆ తర్వాత క్రింది బ్లాక్ ను కొత్త సెల్ లో నడపండి, మరియు నోట్‌బుక్ యొక్క వర్కింగ్ డైరెక్టరీ
+`18-securing-ai-agents/code_samples`గా సెట్ చేయండి. కింద ఇచ్చిన ఫిక్చర్ మార్గాలు ఆ డైరెక్టరీకి సంబంధించి ఉన్నాయి.
+
 
 ```python
 import json
@@ -26,62 +27,81 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### జూపైటర్ లేకుండా ఉదాహరణను తనిఖీ చేయడం
+### జ్యూయిపిటర్ లేకుండా ఉదాహరణ తనిఖీ చేయడం
 
-రిపాజిటరీ రూట్ నుండి, పాఠం ఆధారాలు ఇన్‌స్టాల్ చేసి, రన్ చేయండి:
+రిపాజిటరీ రూట్ నుండి, పాఠం డిపెండెన్సీలను ఇన్‌స్టాల్ చేసి, నడపండి:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-ఈ పరీక్షలు నోట్‌బుక్ యొక్క పైథన్ ఉదాహరణలను మరియు అద్దిపట్టిన README బ్లాక్‌ను నడపడం జరుగుతాయి
-పైన. అవి కూడా తెరవుని మార్పిడి మరియు అన్‌పిన్న్ కీలు వాలిడేటర్ల ద్వారా తిరస్కరించబడేలా పరీక్షిస్తాయి.
-ఈ పరీక్షలు నోట్‌బుక్ యొక్క `%pip` సెటప్ సెల్‌ని వదలిపోతాయి ఎందుకంటే ఆధారాలు వేరుగా ఇన్స్టాల్ చేయబడతాయి.
-అవి నోట్‌బుక్ లేదా ఫిక్స్చర్లను మార్చవు.
+ఈ పరీక్షలు నోట్‌బుక్ లోని పట్లాన్ ఉదాహరణలను మరియు పై EXACT README బ్లాక్ ను నడిపిస్తాయి.
+అవి కూడా దోపిడి మరియు అన్‌పిన్న్డ్ కీలు వేరీఫైయర్ల ద్వారా తిరస్కరించబడ్డాయో లేదో తనిఖీ చేస్తాయి.
+పరీక్షలు నోట్‌బుక్ లోని `%pip` సెటప్ సెల్ ని దాటిచెప్పుతాయి ఎందుకంటే డిపెండెన్సీలు వేరుగా ఇన్‌స్టాల్ అయ్యాయి.
+అవి నోట్‌బుక్ లేదా ఫిక్చర్లు మార్చవు.
 
 ## ఇవి ఎలా రూపొందించబడ్డాయి
 
-ఫిక్స్చర్లు నోట్‌బుక్‌తోనే అదే కోడ్ పాథ్‌ని ఉపయోగిస్తాయి, ఒక నిర్ధారిత సంతకం కీ మరియు పిక్స్ చేయబడిన టైమ్‌స్టాంప్లతో
-బైట్-రిప్రొడ్యూసిబిలిటీ కోసం. తిరిగి రూపొందించడానికి:
+ఫిక్చర్లు నోట్‌బుక్ లో ఉపయోగించిన అదే కోడ్ మార్గం ఉపయోగిస్తాయి, ఒక నిర్ధారిత సంతకం కీ మరియు బైట్ పునరుత్పత్తి కోసం నిర్ధారిత టైమ్‌స్టాంప్‌లు ఉన్నాయి.
+మళ్లీ తయారు చేయడానికి:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(స్క్రిప్ట్ ఈ డైరెక్టరీలో `generate_fixtures.py` వద్ద ఉంది.)
+(స్క్రిప్ట్ ఈ డైరెక్టరీలోని `generate_fixtures.py` వద్ద ఉంది.)
 
-## విద్యార్థులు రా JSON‌ని పరిశీలించడం ద్వారా ఏమి నేర్పుకుంటారు
+`../test_signed_receipts.py` దీనిని స్వయంచాలకంగా తనిఖీ చేస్తుంది: ఇది నడిపిస్తుంది
+నోట్‌బుక్ కోడ్, ఈ నాలుగు ఫిక్స్చర్లను నోట్‌బుక్ యొక్క
+`verify_receipt` మరియు `verify_chain` తో ధృవీకరిస్తుంది, మరియు పునఃసృష్టించడం
+ఫిక్స్చర్లు ఒకే బైట్స్ ఇస్తాయని నిర్ధారిస్తుంది. `code_samples` నుండి:
 
-రా రసీదులోని ఫార్మాట్ చదవడం, నోట్‌బుక్‌లోని సెల్స్ ఎప్పుడూ అందించని అవగాహనను ఏర్పరుస్తుంది.
-JSON‌ను తేలికగా చదివే విద్యార్థులు తరచుగా గమనిస్తారు:
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. సంతకం ఒక అత్యంత గోప్యమైన base64url స్ట్రింగ్, కానీ అన్ని ఇతర ఫీల్డులు సాధారణమైనవి
-   చదవగల JSON. సంతకం విషయం గుప్తీకరించదు; అది దానికి ధృవీకరించడమే.
-2. `public_key` రశీదులో జత చేయబడింది, ఇది స్వ-సామరస్యాన్ని పరిశీలించడానికి సరిపోతుంది కానీ జారీదారుని విశ్వాసం కోసం కాదు.
-   ఒక ఆడిటర్ అది రశీదుకు బయట ఉన్న ఒక కీతో పోల్చాలి లేదా నమ్మదగిన రిజిస్ట్రీ ద్వారా పరిష్కరించాలి.
-   చక్రవర్తి కావాలి.
-3. ఏదైనా ఫీల్డ్ యొక్క ఒక్క అక్షరాన్ని మార్చి, ఆ తర్వాత ఈ ఫైల్‌ను
-   `02_tampered_receipt.json` తో మళ్లీ సరిపోల్చడం ద్వారా, బైట్-స్థాయి మెకానిజం స్పష్టంగా అవుతుంది.
+## ద 학생లు raw JSON ని పరిశీలించి ఏం నేర్చుకుంటారు
+
+రా రసీదుల ఫార్మాట్ ని చదవడం, నోట్‌బుక్‌లో సెల్స్ ఎల్లప్పుడూ అందించని అనుభూతిని
+నిర్మిస్తుంది. JSON ని త్వరగా చదివే విద్యార్థులు సాధారణంగా గమనిస్తారు:
+
+1. సంతకం ఒక అజ్ఞాత base64url స్ట్రింగ్, కానీ మిగిలిన ప్రతి ఫీల్డ్ సరళమైన
+   చదవగల JSON. సంతకం కంటెంట్ ను గోప్యంగా మార్చదు; అది దానికి ధృవాన్ని ఇస్తుంది.
+2. `public_key` రసీదు లో జోడించబడింది, ఇది ఫైల్ ని
+   స్వీయ-క్ంటైన్డ్ గా చేస్తుంది కానీ ఆడిట్ చేయు వ్యక్తి వేరిఫై చేయేది కాదు. పోల్చండి
+   `02_tampered_receipt.json` ను `04_resigned_receipt.json` తో: రెండింటినీ
+   సంతకం చేసిన తర్వాత మార్చింది, కానీ రెండవది ఆగ్రహించే వారి తమ
+   కీతో మళ్లీ సంతకం చేయబడింది, కాబట్టి ఇది దాన్ని కొనసాగించే కీతో ధృవీకరించబడుతుంది. జోడించిన కీ
+   మీరు ఫైల్ అంతర్గతంగా సక్రమమని చెపుతుంది. మీరు పొందిన కీ మాత్రమే
+   ఎవరు జారీ చేశారో మీకు తెలియజేస్తుంది.
+3. `signature` కి బయితిరుగు ఏదైనా ఫీల్డ్ లో ఒక అక్షరాన్ని మార్చివేయడం,
+   ఆ ఫైల్ ని `02_tampered_receipt.json` తో మళ్ళీ సరిపోల్చడం,
+   బైట్ స్థాయి మెకానిజాన్ని స్పష్టంగా చూపిస్తుంది.
 
 ---
 
