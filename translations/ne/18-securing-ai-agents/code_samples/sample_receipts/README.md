@@ -1,24 +1,25 @@
-# नमूना रसिद फिक्स्चर्स
+# नमूना रसिद फिक्स्चरहरू
 
-नोटबुक नचलाइकन निरीक्षणका लागि तीनवटा पूर्व-उत्पन्न रसिद फाइलहरू।
+नोटबुक चलाउनु बिना निरीक्षणका लागि चार पूर्व-निर्मित रसिद फाइलहरू।
 
 | फाइल | के हो |
 |---|---|
-| `01_valid_receipt.json` | `lookup_flights` उपकरण कलको लागि मान्य हस्ताक्षरित रसिद। प्रमाणीकरणले सत्य फर्काउँछ। |
-| `02_tampered_receipt.json` | हस्ताक्षर गरेपछि एक क्षेत्र परिमार्जन गरिएको उही रसिद। प्रमाणीकरणले असत्य फर्काउँछ। |
-| `03_chain_three_receipts.json` | तीन वटा मान्य रसिदहरूको श्रृंखला (खोज, राख्नुहोस्, बुक) जसमा `previous_receipt_hash` ले प्रत्येकलाई अघिल्लो रसिदसँग जोड्छ। |
+| `01_valid_receipt.json` | `lookup_flights` उपकरण कलको लागि मान्य हस्ताक्षर गरिएको रसिद। प्रमाणीकरणले True फर्काउँछ। |
+| `02_tampered_receipt.json` | हस्ताक्षर पछि एउटा क्षेत्र परिमार्जन गरिएको उस्तै रसिद। प्रमाणीकरणले False फर्काउँछ। |
+| `03_chain_three_receipts.json` | तीन मान्य रसिदहरूको शृंखला (खोज, होल्ड, बुक) जसले `previous_receipt_hash` प्रयोग गरेर हरेकलाई अघिल्लोमा जोड्छ। |
+| `04_resigned_receipt.json` | उस्तै रसिदमा आक्रमणकारीले फेरि हस्ताक्षर गरी आक्रमण गरेको, आक्रमणकारीको आफ्नै सार्वजनिक कुञ्जी समावेश गरिएको। यसमा रहेको कुञ्जीको विरुद्ध प्रमाणित हुन्छ। जारीकर्ताको कुञ्जीको विरुद्ध असफल हुन्छ। |
 
-यी फिक्स्चर्सले पेलोडको मानक JCS बाइटहरू Ed25519 सँग सिधै हस्ताक्षर गर्छन्।
-SHA-256 अझै पनि सामग्री डाइजेस्ट र रसिद-श्रृंखला लिंकहरूका लागि प्रयोग हुन्छ, हस्ताक्षरअघि
-अतिरिक्त प्रि-ह्यासको रूपमा होइन।
+फिक्स्चरहरूले Ed25519 सँग पेलोडको canonical JCS बाइटहरू सिधै हस्ताक्षर गर्छन्।
+SHA-256 सामग्री डाइजेस्ट र रसिद-श्रृंखला लिंकहरूका लागि प्रयोगमा रहन्छ, हस्ताक्षर अघि अतिरिक्त प्रि-ह्यासको रूपमा होइन।
 
-## नमूनाहरूको जाँच
 
-`18-signed-receipts.ipynb` मा, पहिले सेटअप र सेक्सन 1 देखि 3 चलाउनुहोस्।
-सेक्सन 3 ले `verify_chain` परिभाषित गर्छ; मात्र सेक्सन 1 र 2 पर्याप्त छैनन्।
-त्यसपछि नयाँ सेलमा तलको ब्लक चलाउनुहोस्, नोटबुकको कार्य निर्देशिका
-लाई `18-securing-ai-agents/code_samples` मा सेट गरिएको। तलका फिक्स्चर पथहरू सापेक्ष
-त्यस निर्देशिकासँग।
+## नमूनाहरू प्रमाणीकरण गरिँदै
+
+`18-signed-receipts.ipynb` मा, सर्वप्रथम Setup र १ देखि ३ सम्मको खण्डहरू चलाउनुहोस्।
+खण्ड ३ ले `verify_chain` परिभाषित गर्दछ; केवल खण्ड १ र २ पर्याप्त छैनन्।
+त्यसपछि नयाँ सेलमा निम्न ब्लक चलाउनुहोस्, नोटबुकको कार्य निर्देशिका
+`18-securing-ai-agents/code_samples` मा सेट गरिएको। तलका फिक्स्चर पथहरू उक्त निर्देशिकासँग सापेक्षिक छन्।
+
 
 ```python
 import json
@@ -26,61 +27,80 @@ from pathlib import Path
 
 fixture_dir = Path("sample_receipts")
 
-# This fixture key is pinned by the verifier, outside the receipt under test.
-FIXTURE_ISSUER_PUBLIC_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
-fixture_trusted_public_keys = {FIXTURE_ISSUER_PUBLIC_KEY}
+# The issuer's key, pinned here rather than read from any receipt. In a real
+# deployment it comes from the issuer's JWK Set or a pinned config value.
+# This is the public half of the fixed signing key in generate_fixtures.py.
+ISSUER_KEY = "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
 
-valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text())
-print(
-    f"Valid receipt: {verify_receipt(valid, fixture_trusted_public_keys)}"
-)  # True
+valid = json.loads((fixture_dir / "01_valid_receipt.json").read_text(encoding="utf-8"))
+print(f"Valid receipt: {verify_receipt(valid, ISSUER_KEY)}")        # True
 
-tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text())
-print(
-    f"Tampered receipt: {verify_receipt(tampered, fixture_trusted_public_keys)}"
-)  # False
+tampered = json.loads((fixture_dir / "02_tampered_receipt.json").read_text(encoding="utf-8"))
+print(f"Tampered receipt: {verify_receipt(tampered, ISSUER_KEY)}")  # False
 
-chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text())
-for r in verify_chain(chain, fixture_trusted_public_keys):
+chain = json.loads((fixture_dir / "03_chain_three_receipts.json").read_text(encoding="utf-8"))
+for r in verify_chain(chain, ISSUER_KEY):
     print(f"  Receipt {r['index']} ({r['tool']}): {'VALID' if r['overall_valid'] else 'INVALID'}")
+
+# The forgery. Verified against the key it carries, it passes. Against the
+# issuer's key, it fails. Only the second question is worth asking.
+forged = json.loads((fixture_dir / "04_resigned_receipt.json").read_text(encoding="utf-8"))
+print(f"Forged, checked against its own key: "
+      f"{verify_receipt(forged, forged['signature']['public_key'])}")  # True
+print(f"Forged, checked against issuer key:  "
+      f"{verify_receipt(forged, ISSUER_KEY)}")                        # False
 ```
 
-### Jupyter बिना उदाहरण जाँच
+### Jupyter बिना उदाहरण जाँच्दै
 
-रिपोजिटरी रुटबाट पाठका निर्भरताहरू स्थापना गरी चलाउनुहोस्:
+रिपोजिटरीको मूलबाट, पाठ्यक्रम निर्भरता स्थापना गरी चलाउनुहोस्:
 
 ```bash
 python -m pip install -r 18-securing-ai-agents/code_samples/requirements.txt
 python -m unittest discover -s 18-securing-ai-agents/code_samples -p test_signed_receipts.py -v
 ```
 
-यी परीक्षणहरूले नोटबुकका Python उदाहरणहरू र ठ्याक्कै README ब्लक चलाउँछन्
-माथि। तिनीहरूले साथै छेडछाड र अनपिन गरिएका कुञ्जीहरू प्रमाणकहरूले
-अस्वीकृत गर्छन्। परीक्षणहरूले नोटबुकको `%pip` सेटअप सेल स्किप गर्छन् किनभने निर्भरता
-अलग रूपमा स्थापना गरिएका छन्। तिनीहरूले नोटबुक वा फिक्स्चरहरू परिवर्तन गर्दैनन्।
+यी परीक्षणहरूले नोटबुकका पाइथन उदाहरणहरू र माथिको ठीक README ब्लक चलाउँछन्।
+तिनीहरूले आक्रमण र अनपिन गरिएको कुञ्जीहरू प्रमाणीकरणकर्ताद्वारा अस्वीकृत हुने पनि जाँच गर्छन्।
+परीक्षणहरूले नोटबुकको `%pip` सेटअप सेल छोड्छन् किनभने निर्भरताहरू अलग्गै स्थापना गरिएको हुन्छ।
+तिनीहरूले नोटबुक वा फिक्स्चरहरू परिवर्तन गर्दैनन्।
 
-## कसरी यी उत्पादन गरियो
+## यी कसरी उत्पन्न गरियो
 
-फिक्स्चर्सले नोटबुक जस्तै कोड पथ प्रयोग गर्छ, एकै निश्चित हस्ताक्षर कुञ्जी
-र निश्चित टाइमस्ट्याम्पहरू बाइट पुनरुत्पादनका लागि। पुनःउत्पादन गर्न:
+फिक्स्चरहरूले नोटबुकसँग उस्तै कोड पथ प्रयोग गर्दछन्, एक स्थिर हस्ताक्षर कुञ्जी
+र बाइट पुनरुत्पादनको लागि स्थिर टाइमस्ट्याम्पहरूसँग। पुनः उत्पन्न गर्न:
 
 ```bash
 python3 generate_fixtures.py
 ```
 
-(स्क्रिप्ट यस डिरेक्ट्रीमा `generate_fixtures.py` मा छ।)
+(स्क्रिप्ट यस निर्देशिकामा `generate_fixtures.py` मा छ।)
 
-## विद्यार्थीहरूले कच्चा JSON निरीक्षण गरेर के सिक्छन्
+`../test_signed_receipts.py` यस सबैलाई स्वचालित रूपमा जाँच्छ: यसले
+नोटबुकको कोड चलाउँछ, यी चार फिक्स्चरहरू नोटबुकको
+`verify_receipt` र `verify_chain` सँग प्रमाणीकरण गर्छ, र फिक्स्चरहरू पुनः उत्पन्न गर्दा
+ठ्याक्कै उही बाइट आउँछ भनी पुष्टि गर्छ। `code_samples` बाट:
 
-कच्चा रसिद ढाँचा पढ्दा नोटबुकका सेलहरूले जहिले पनि नदिने अन्तर्दृष्टि निर्माण हुन्छ।
-JSON छरपस्टरी हेरिरहेका विद्यार्थीहरूले प्रायः देख्छन्:
+```bash
+python -m unittest test_signed_receipts
+```
 
-1. हस्ताक्षर एक अस्पष्ट base64url स्ट्रिङ हो, तर बाँकि सबै क्षेत्र स्पष्ट
-   पढ्न मिल्ने JSON हो। हस्ताक्षरले सामग्रीलाई एन्क्रिप्ट गर्दैन; यसले त्यसलाई प्रमाणित गर्छ।
-2. `public_key` रसिदमा एम्बेड गरिएको छ। एक अडिटरलाई प्रमाणीकरण गर्न
-   अरु केही आवश्यक छैन (के उक्त कुञ्जी साँच्चिकै दाबी गरिएका जारीकर्ताको हो भन्नेमा भरोसा गर्ने सन्दर्भमा;
-   पहिचान पूर्वाधार सम्बन्धी पाठ README हेर्नुहोस्)।
-3. कुनै क्षेत्रको एक अक्षर मात्र परिमार्जन गरी `02_tampered_receipt.json` सँग पुनः तुलना गर्दा,
+## कच्चा JSON निरीक्षण गर्दा विद्यार्थीहरूले के सिक्छन्
+
+कच्चा रसिद ढाँचा पढ्दा नोटबुकका कोषहरूले सधैं दिन नसक्ने नैतिक ज्ञान विकास हुन्छ।
+JSON छिटो हेरिरहेका विद्यार्थीहरूले प्रायः ध्यान दिन्छन्:
+
+1. हस्ताक्षर धूसर base64url स्ट्रिङ हो, तर अन्य सबै क्षेत्रहरू सामान्य
+   पढ्नयोग्य JSON छन्। हस्ताक्षर सामग्रीलाई इन्क्रिप्ट गर्दैन; यसले प्रमाणित गर्दछ।
+2. `public_key` रसिदमा समावेश गरिएको हुन्छ, जसले फाइललाई
+   स्व-सम्पूर्ण बनाउँछ तर अडिट गर्नेले यस विरुद्ध प्रमाणीकरण गर्दैन। तुलना
+   `02_tampered_receipt.json` र `04_resigned_receipt.json` लाई: दुवैलाई
+   हस्ताक्षर पछि परिवर्तन गरिएको थियो, तर दोस्रो आक्रमणकारीले पुनः हस्ताक्षर गरेको
+   आफ्नो कुञ्जीसँग, त्यसैले यसले आफ्नो कुञ्जीसँग प्रमाणीकरण गर्छ। समावेश कुन्जीले
+   फाइललाई आन्तरिक रूपमा सुसंगत बनाउँछ। बाहिरबाट प्राप्त कुञ्जी मात्र
+   जारीकर्ताको परिचय दिन्छ।
+3. `signature` बाहेक कुनै पनि फिल्डको एक अक्षर परिवर्तन गरी,
+   यो फाइललाई `02_tampered_receipt.json` सँग फेरि तुलना गर्दा,
    बाइट-स्तर मेकानिज्म स्पष्ट हुन्छ।
 
 ---

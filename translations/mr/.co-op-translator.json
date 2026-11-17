@@ -606,8 +606,8 @@
     "language_code": "mr"
   },
   "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-    "original_hash": "417c99ed7a3db15af5020c0b20a90917",
-    "translation_date": "2026-11-02T14:44:38+09:00",
+    "original_hash": "689c822d08e006a7bf86de2ca8a4f1b3",
+    "translation_date": "2026-11-16T23:53:21+00:00",
     "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
     "language_code": "mr"
   },
@@ -664,33 +664,33 @@
       "original_hash": "d6dd3ec99f8322633addb627c51a39bf",
       "source_file": "00-course-setup/README.md",
       "language_code": "mr",
-      "failure_date": "2026-11-06T18:10:46+00:00",
+      "failure_date": "2026-11-16T23:44:56+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
+      "error_message": "Markdown translation remained incomplete for chunk 1.1.2.1.1.1.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.24.0",
       "failure_policy_version": 1
     },
     "18-securing-ai-agents/README.md": {
       "original_hash": "82276c0b3a7e81b20dc464bc0b55b67b",
       "source_file": "18-securing-ai-agents/README.md",
       "language_code": "mr",
-      "failure_date": "2026-11-06T18:05:10+00:00",
+      "failure_date": "2026-11-16T23:51:56+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
       "error_message": "Markdown translation remained incomplete for chunk 2.3.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
+      "translator_version": "0.24.0",
       "failure_policy_version": 1
     },
-    "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
-      "original_hash": "689c822d08e006a7bf86de2ca8a4f1b3",
-      "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
+    "README.md": {
+      "original_hash": "84088c2aab0af70c92add6e45d19941d",
+      "source_file": "README.md",
       "language_code": "mr",
-      "failure_date": "2026-11-06T18:13:07+00:00",
+      "failure_date": "2026-11-16T23:41:42+00:00",
       "status": "failed",
       "error_type": "TranslationIncompleteError",
-      "error_message": "Markdown translation remained incomplete for chunk 1.1.1.2.1.1.1.1 of 'README.md', and the chunk could not be split further.",
-      "translator_version": "0.23.2",
+      "error_message": "Markdown translation remained incomplete for chunk 1.2.1.1.1 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.24.0",
       "failure_policy_version": 1
     }
   },
