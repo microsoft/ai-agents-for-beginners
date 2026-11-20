@@ -1,8 +1,8 @@
 ---
+name: git-cherrypicking
 description: 'Cherrypick a file deleted from the given commit between branches using Git.'
-mode: 'agent'
+disable-model-invocation: true
 ---
-
 # Cherry-picking a File Between Branches Using Git
 
 Your goal is to cherry-pick a specific file deleted from a given commit between branches in a Git repository. Use the Git command line interface to accomplish this task.
